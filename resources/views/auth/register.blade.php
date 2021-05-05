@@ -72,6 +72,7 @@
                                 <option value="pa">Cedula Extranjeria </option>
                                 <option value="nit">Nit </option>
                             </select>
+                            
                     </div>
                     <div class="form-group row">
                             <label for="numerodocumento" class="col-md-4 col-form-label text-md-right">{{ __('Numero Documento') }}</label>
