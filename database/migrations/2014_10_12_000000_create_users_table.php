@@ -25,8 +25,6 @@ class CreateUsersTable extends Migration
             $table->bigInteger('numerodocumento');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->boolean('confirmed')->default(0);
-            $table->string('confirmation_code')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
