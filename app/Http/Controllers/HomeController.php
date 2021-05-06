@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -31,7 +31,7 @@ class HomeController extends Controller
         $objbannersprincipalHome = $this->cargarBannerPrincipalHome();
         
       
-        
+ 
         return view('home', compact(
             'objbannersprincipalHome'  
         ));

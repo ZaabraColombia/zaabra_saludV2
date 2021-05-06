@@ -10005,3 +10005,105 @@ h3 {
 .oscar {
   background: red !important;
 }
+
+.footer_newsletter {
+  background: #e8e8e8;
+  margin: auto;
+  padding: 1% 0;
+  text-align: center;
+  display: flex;
+}
+
+.newsletter_contenido {
+  padding: 0;
+  margin: auto;
+}
+
+.newsletter_titulo {
+  padding: 0;
+  margin: 0;
+  font-size: 1.563em;
+  font-weight: bold;
+  color: #232323;
+}
+
+.newsletter_texto {
+  font-size: 1em;
+  font-family: "Roboto", sans-serif;
+  color: #3E3E3E;
+  margin: 0;
+  padding: 0;
+}
+
+.suscribirme_contenido {
+  padding: 0;
+  margin: 1% auto;
+}
+
+.form_suscribirme {
+  justify-content: flex-end;
+}
+
+.input_suscribirme {
+  font-size: 1.25em;
+  font-family: "Quicksand";
+  height: 3.5vh;
+  width: 75%;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.boton_suscribirme {
+  background: #0083d6;
+  font-size: 1.25em;
+  font-family: "Quicksand";
+  color: #ffffff;
+  margin-left: 2%;
+  padding: 0;
+  height: 3.5vh;
+  width: 23%;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.boton_icon-flecha {
+  margin-left: 5%;
+  width: 10%;
+}
+
+.terminos_contenido {
+  margin: auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkBox_terminos {
+  margin-right: 1%;
+  width: 2%;
+  height: 2vh;
+}
+
+.texto_terminos {
+  font-size: 1em;
+  color: #434142;
+  margin: 0;
+}
+
+.footer_copy-right {
+  background: #0083d6;
+  padding: 0;
+  height: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.texto_copy-right {
+  font-size: 1em;
+  font-family: "Quicksand", sans-serif;
+  color: #ffffff;
+}
