@@ -84,7 +84,6 @@ class RegisterController extends Controller
             'nombreinstitucion' => $data['nombreinstitucion'],
             'tipodocumento' => $data['tipodocumento'],
             'numerodocumento' => $data['numerodocumento'],
-            'confirmation_code' => $data['confirmation_code'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
@@ -93,18 +92,5 @@ class RegisterController extends Controller
         return $user;
     }
 
-    public function verify($code)
-    {
-     $user = User::where('confirmation_code', $code)->first();
 
-     if (!$user)
-     {
-         return redirect('/');
-     }
-     $user->confirmed=true;
-     $user->confirmation_code=null;
-     $user->save();
-
-     return redirect('/login')->with('notification', 'Has confirmado correctamente tu correo');
-    }
 }
