@@ -23,5 +23,7 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
+
+/*Esta ruta es del home y los datos nos*/
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
