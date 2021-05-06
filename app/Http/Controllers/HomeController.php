@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 
 class HomeController extends Controller
 {
@@ -30,9 +30,9 @@ class HomeController extends Controller
         // la consulta en la base de datos
         $objbannersprincipalHome = $this->cargarBannerPrincipalHome();
         
-        dd($objbannersprincipalHome);
+      
         
-        return view('app', compact(
+        return view('home', compact(
             'objbannersprincipalHome'  
         ));
 
