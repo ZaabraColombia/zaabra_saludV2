@@ -30,7 +30,7 @@ class HomeController extends Controller
         // la consulta en la base de datos
         $objbannersprincipalHome = $this->cargarBannerPrincipalHome();
         
-      
+     
  
         return view('home', compact(
             'objbannersprincipalHome'  
