@@ -1,7 +1,0 @@
-<!-- Contenedor banner imagen -->
-
-
-
-
-
-

@@ -42,7 +42,7 @@
 
                 <div class="soy_paciente dropdown">
                     <a class="icon_menu dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="icon_paciente"></div>
+                        <img class="icon_paciente" src="{{URL::asset('/img/header/icono-soy-paciente-blanco.svg')}}">
                     </a>
 
                     <div class="dropdown-menu menu_paciente px-2" aria-labelledby="dropdownMenuLink" style="">

@@ -13,12 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-/*Route::get('/ciudades', function () {
-    return view('ciudades.index');
-});*/
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 
 Auth::routes(['verify' => true]);
