@@ -10011,6 +10011,10 @@ a:link, a:visited, a:active, a:hover {
   color: #ffff;
 }
 
+.dropdown-toggle::after {
+  display: none;
+}
+
 .navbar_zaabrasalud {
   background-color: #0083D6;
   padding: 0;
@@ -10078,6 +10082,10 @@ a:link, a:visited, a:active, a:hover {
   align-items: center;
 }
 
+.soy_paciente {
+  height: 100%;
+}
+
 .soy_paciente .dropdown-toggle {
   width: 100%;
   height: 100%;
@@ -10128,11 +10136,8 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .icon_paciente {
-  background-image: url(http://localhost:8000/img/icono-soy-paciente.svg);
-  background-position: center;
-  background-repeat: no-repeat;
   background-size: contain;
-  width: 70%;
+  width: 40%;
   height: 65%;
 }
 
@@ -10169,6 +10174,10 @@ a:link, a:visited, a:active, a:hover {
   .icon_menu {
     width: 35px;
     height: 35px;
+  }
+
+  .soy_paciente {
+    width: 20%;
   }
 }
 .footer_newsletter {
