@@ -26,8 +26,7 @@ class HomeController extends Controller
      
     public function index()
     {
-        //esta varible se llena con los banner principales del home encontrados en el metodo que realiza 
-        // la consulta en la base de datos
+        //esta varible se llena con los datos recolectados en cada una de las consultas y entregan los datos en la vista del home 
         $objbannersprincipalHome = $this->cargarBannerPrincipalHome();
         $objbannersparallaxHome = $this->cargarParallax();
         $objprofesionaleshome = $this->cargarProfesionaleshome();
@@ -42,7 +41,7 @@ class HomeController extends Controller
 
 
     }
-
+// consulta para cargar banner principal del home
     public function cargarBannerPrincipalHome(){
         $consultaBanner = DB::table('ventabanners')
         ->select()
@@ -52,7 +51,7 @@ class HomeController extends Controller
         return $consultaBanner ;
     }
 
-
+// consulta para cargar el parallax del home
     public function cargarParallax(){
         $consultaparallax = DB::table('ventabanners')
         ->select()
@@ -62,7 +61,7 @@ class HomeController extends Controller
         return $consultaparallax ;
     }
 
-
+// consulta para cargar profesionales que realizen el pago por aparecer en el home
     public function cargarProfesionaleshome(){
         return DB::select('SELECT us.primernombre, us.primerapellido, pf.descripcionPerfil, sp.nombreEspecialidad, un.nombreuniversidad,pf.fotoperfil
         FROM pagos  pg
@@ -75,7 +74,7 @@ class HomeController extends Controller
         INNER JOIN universidades un ON pu.id_universidad=un.id_universidad
         where pg.aprobado=1  and pf.aprobado <> 0');
     }
-
+// consulta para buscar la imagenes del carrusel del home
     public function cargarcarruselhome(){
         $consulcarrusel = DB::table('ventabanners')
         ->select()
