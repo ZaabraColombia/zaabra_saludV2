@@ -1,5 +1,4 @@
 // Footer Newsletter
-
 .footer_newsletter {
     background: #e8e8e8;
     margin: auto;
@@ -104,7 +103,7 @@
 .imagen_logo {
     padding: 0%;
     height: 5vh;
-    width: 28%;
+    width: 74%;
     object-fit: contain;
 }
 // Titulo contactanos
@@ -120,6 +119,7 @@
 // Iconos redes sociales contactanos
 .iconos_redes-sociales {
     margin: 0;
+    margin-right: 8%;
     padding: 0;
     display: flex;
     align-items: center;
@@ -163,7 +163,7 @@
 .icon_ssl-colombia {
     padding: 0;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-self: center;
 }
 // Footer copy right 
@@ -246,6 +246,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    .imagen_logo {
+        padding: 0%;
+        height: 5vh;
+        width: 100%;
+        object-fit: contain;
     }
     .titulo_contactanos-cel {
         font-size: .75em;
@@ -388,15 +394,23 @@
     }
 }
 @media (min-width: 768px) and (orientation: portrait) {
+    // Newsletter titulo y texto
+    .newsletter_titulo {
+        font-size: 1.563em;
+    }
+    .newsletter_texto {
+        font-size: 1em;
+    }
     // Newsletter input y botón suscribirme
     .input_suscribirme-cel {
         font-size: 1em;
         padding: 0 2%;
         height: 3vh;
-    }// Newsletter check terminos y condiciones
+    }
+    // Newsletter check terminos y condiciones
     .boton_check-terminos-cel {
         width: 4%;
-        height: 2.5vh;
+        height: 2vh;
     }
     .texto_terminos-cel {
         font-size: 1em;
@@ -411,14 +425,14 @@
     }
     // Contactanos logo, iconos y correo
     .contenido_contactanos-cel {
-        margin-top: 0;
+        margin-top: 3%;
     }
     .titulo_contactanos-cel {
-        font-size: 1.563em;
+        font-size: 1.25em;
         margin-top: 1%;
     }
     .correo_contactanos-cel {
-        font-size: 1.45em;
+        font-size: 1.25em;
     }
     .iconos_redes-sociales-cel {
         height: 3vh;
@@ -427,12 +441,15 @@
     .icono_red-social-cel {
         height: 2.5vh;    
     }
+    .imagen_red-social-cel {
+        height: 80%;
+    }
     // Informacion acerca de zaabra y politicas de uso 
     .contenido_desplegable-cel {
         height: 4vh;
     }
     .titulo_infoZaabra-cel {
-        font-size: 1.45em;
+        font-size: 1.25em;
     }
     .desplegable_infoZaabra-cel {
         line-height: 2;
@@ -443,18 +460,25 @@
     }
     // Linea divisora de los botones desplegables infoZaabra
     .division_linea-blanca-cel {
-        width: 81%;
-        height: 3px;
+        width: 97%;
+        height: 2px;
     }
     // Iconos gobierno de Colombia
-    .footer_iconos-colombia {
-        margin-left: 6%;
+    .icon_hecho-colombia {
+        padding: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-self: center;
+    }
+    // Footer copy right 
+    .texto_copy-right {
+        font-size: 1em;    
     }
 }
 @media (min-width: 1024px) {
     .footer_iconos-colombia {
         background: #f5f5f5;
-        margin-left: 16%;
+        margin: 0;
         padding: 0;
         height: 5vh;
         justify-content: center; 
@@ -465,16 +489,7 @@
         object-fit: none;
     }
 }
-@media (min-width: 1200px) {
-    // Iconos gobierno de Colombia
-    .footer_iconos-colombia {
-        margin-left: 12%;
-    }
-     // Logo zaabra contactanos
-     .imagen_logo {
-        width: 22%;
-    }
-}
+
 @media (min-width: 1600px){
     // Newsletter titulo y texto
     .newsletter_titulo {
@@ -498,10 +513,7 @@
     .texto_terminos {
         font-size: 1em;
     }
-    // Logo zaabra contactanos
-    .imagen_logo {
-        width: 20%;
-    }
+   
     // Titulo contactanos
     .titulo_seccion-info {  
         font-size: 1em;
