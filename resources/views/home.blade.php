@@ -1,25 +1,47 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-       
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-llegamos aqui
-                    {{ __('You are logged in!') }}
-                  
-                </div>
+    <!--carrusel banner principal home--> 
+<div>
+      @foreach ($objbannersprincipalHome as $objbannersprincipalHome)
+            <img class="logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
+      @endforeach
+</div>
+   <!--parallax home--> 
+<div>
+      @foreach ($objbannersparallaxHome as $objbannersparallaxHome)
+            <img class="logoHeaderSProfesionales" src="{{URL::asset($objbannersparallaxHome->rutaImagenVenta)}}">
+      @endforeach
+</div>
+ <!--profesionales home--> 
+<div>
+      @foreach ($objprofesionaleshome as $objprofesionaleshome)
+        <div class="col-6">
+            <div class="col-12">
+               <img class="" src="{{URL::asset($objprofesionaleshome->fotoperfil)}}">
+            </div>
+            <div class="col-12">
+             <span>{{$objprofesionaleshome->primernombre}} {{$objprofesionaleshome->primerapellido}}</span>
+            </div>
+            <div class="col-12">
+             <span>{{$objprofesionaleshome->nombreEspecialidad}}</span>
+            </div>
+            <div class="col-12">
+             <span>{{$objprofesionaleshome->nombreuniversidad}}</span>
             </div>
         </div>
-    </div>
+      @endforeach
 </div>
+<!--carrusel home--> 
+<div>
+  @foreach ($objcarruselhome as $objcarruselhome)
+      <img class="" src="{{URL::asset($objcarruselhome->rutaImagenVenta)}}">
+  @endforeach
+</div>
+
+
+
 @endsection
+
+

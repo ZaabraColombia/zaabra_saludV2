@@ -13,14 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-/*Route::get('/ciudades', function () {
-    return view('ciudades.index');
-});*/
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+
 
 Auth::routes(['verify' => true]);
 
+
+/*Esta ruta es del home y dirige al controlador encargado de traer la informacion a la vista*/
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+
+/*Esta ruta es de galeria profesiones y dirige al controlador encargado de traer la informacion a la vista*/
+Route:: get('galeriaProfesiones',[App\Http\Controllers\profesionesController::class,'index'])->name('galeriaProfesiones');
+
+/*Esta ruta es de galeria especialidades y dirige al controlador encargado de traer la informacion a la vista*/
+Route:: get('galeriaespecialidades',[App\Http\Controllers\especialidadesController::class,'index'])->name('galeriaespecialidades');
 

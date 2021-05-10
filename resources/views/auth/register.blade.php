@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card ">
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
@@ -67,11 +67,12 @@
                         <label for="tipodocumento" class="col-md-4 col-form-label text-md-right">{{ __('Tipo Documento') }}</label>
                             <select class="form-select" name="tipodocumento" required>
                                 <option selected>Seleccione</option>
-                                <option value="cc">Cedula Ciudadania</option>
-                                <option value="ce">Cedula Extranjeria </option>
-                                <option value="pa">Cedula Extranjeria </option>
-                                <option value="nit">Nit </option>
+                                <option value="1">Cedula Ciudadania</option>
+                                <option value="2">Cedula Extranjeria </option>
+                                <option value="3">Cedula Extranjeria </option>
+                                <option value="4">Nit </option>
                             </select>
+                            
                     </div>
                     <div class="form-group row">
                             <label for="numerodocumento" class="col-md-4 col-form-label text-md-right">{{ __('Numero Documento') }}</label>
