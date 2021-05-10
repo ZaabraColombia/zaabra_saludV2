@@ -10283,6 +10283,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .logo_contactanos {
+  margin: 0;
   padding: 0;
   display: flex;
   align-items: flex-end;
@@ -10303,6 +10304,7 @@ a:link, a:visited, a:active, a:hover {
   font-size: 0.8em;
   color: #ffffff;
   display: flex;
+  justify-content: flex-start;
   align-self: center;
 }
 
@@ -10311,6 +10313,7 @@ a:link, a:visited, a:active, a:hover {
   padding: 0;
   display: flex;
   align-items: center;
+  text-align: initial;
 }
 
 .correo_contactanos {
@@ -10374,6 +10377,14 @@ a:link, a:visited, a:active, a:hover {
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
+  .newsletter_titulo {
+    font-size: 1em;
+  }
+
+  .newsletter_texto {
+    font-size: 0.65em;
+  }
+
   .contenedor-inputyAcepto-footerCel {
     margin: auto;
     padding: 0;
@@ -10381,7 +10392,7 @@ a:link, a:visited, a:active, a:hover {
     justify-content: center;
   }
 
-  .input-suscribirme-cel {
+  .input_suscribirme-cel {
     font-size: 0.75em;
     margin-top: 3%;
     padding: 0 5%;
@@ -10392,8 +10403,194 @@ a:link, a:visited, a:active, a:hover {
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
   }
 
+  .check_terminos-cel {
+    margin: 3% auto;
+    padding: 0;
+    display: flex;
+  }
+
+  .boton_check-terminos-cel {
+    width: 9%;
+    height: 3vh;
+  }
+
+  .texto_terminos-cel {
+    font-size: 0.65em;
+    font-weight: bold;
+    text-align: initial;
+    line-height: 1.5;
+    padding-left: 3%;
+  }
+
+  .boton_suscribirme-cel {
+    background: #0083d6;
+    font-size: 0.75em;
+    color: #ffffff;
+    margin: auto;
+    height: 5vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 0.5px;
+    border-radius: 3px;
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .icono_flecha-suscribirme-cel {
+    width: 12%;
+  }
+
+  .contenido_contactanos-cel {
+    margin-top: 5%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .titulo_contactanos-cel {
+    font-size: 0.75em;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 3%;
+    padding: 0;
+  }
+
+  .correo_contactanos-cel {
+    font-size: 0.625em;
+    color: #ffffff;
+    text-align: center;
+    padding: 0;
+  }
+
+  .iconos_redes-sociales-cel {
+    background: #0083d6;
+    margin: 2% auto;
+    padding: 0;
+    height: 5vh;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .icono_red-social-cel {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .infoZaabra_contenido-cel {
+    background: #0083d6;
+  }
+
+  .contenido_desplegable-cel {
+    margin: auto;
+    padding: 0;
+    height: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .boton_infoZaabra-cel {
+    background: #0083d6;
+    padding: 0;
+    height: 100%;
+    border: none;
+  }
+
+  .rotacion {
+    -moz-transition: all 0.25s ease-out;
+    -ms-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    -webkit-transition: all 0.25s ease-out;
+  }
+
+  .rotacionBtn:hover .rotacion {
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+  }
+
+  .icono_flecha-boton-cel {
+    color: #ffffff;
+    width: 100%;
+    display: flex !important;
+    align-content: flex-start;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
+
+  .titulo_infoZaabra-cel {
+    font-family: "Quicksand", sans-serif !important;
+    font-size: 0.7em;
+    color: #ffffff;
+    margin-bottom: 0%;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .infoZaabra_desplegable-cel {
+    margin: auto;
+    padding: 0;
+  }
+
+  .desplegable_infoZaabra-cel {
+    background: #0083d6 !important;
+    padding: 0 0 5% 0 !important;
+    line-height: 1.8;
+    border: none !important;
+  }
+
+  .texto_infoZaabra-cel {
+    font-size: 0.625em;
+    color: #ffffff;
+    padding: 0;
+    height: 3vh;
+  }
+
+  .contenido_linea-blanca-cel {
+    background: #0083d6;
+    margin: 0;
+    padding: 0;
+    height: 1vh;
+    display: flex;
+  }
+
+  .division_linea-blanca-cel {
+    background: #ffffff;
+    margin: auto;
+    width: 91%;
+  }
+
   .footer_iconos-colombia {
-    margin-left: 6%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .icon_gob-colombia {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+
+  .icon_hecho-colombia {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+
+  .icon_ssl-colombia {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-self: center;
   }
 
   .imagen_icono-colombia {
@@ -10401,12 +10598,81 @@ a:link, a:visited, a:active, a:hover {
     -o-object-fit: contain;
        object-fit: contain;
   }
+
+  .texto_copy-right {
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.63em;
+    color: #ffffff;
+  }
 }
 @media (min-width: 768px) and (orientation: portrait) {
-  .input-suscribirme-cel {
+  .input_suscribirme-cel {
     font-size: 1em;
     padding: 0 2%;
     height: 3vh;
+  }
+
+  .boton_check-terminos-cel {
+    width: 4%;
+    height: 2.5vh;
+  }
+
+  .texto_terminos-cel {
+    font-size: 1em;
+    padding-left: 2%;
+  }
+
+  .boton_suscribirme-cel {
+    font-size: 1.25em;
+    height: 3vh;
+  }
+
+  .icono_flecha-suscribirme-cel {
+    width: 12%;
+  }
+
+  .contenido_contactanos-cel {
+    margin-top: 0;
+  }
+
+  .titulo_contactanos-cel {
+    font-size: 1.563em;
+    margin-top: 1%;
+  }
+
+  .correo_contactanos-cel {
+    font-size: 1.45em;
+  }
+
+  .iconos_redes-sociales-cel {
+    height: 3vh;
+    width: 57%;
+  }
+
+  .icono_red-social-cel {
+    height: 2.5vh;
+  }
+
+  .contenido_desplegable-cel {
+    height: 4vh;
+  }
+
+  .titulo_infoZaabra-cel {
+    font-size: 1.45em;
+  }
+
+  .desplegable_infoZaabra-cel {
+    line-height: 2;
+    padding: 0 0 2% 0 !important;
+  }
+
+  .texto_infoZaabra-cel {
+    font-size: 1em;
+  }
+
+  .division_linea-blanca-cel {
+    width: 81%;
+    height: 3px;
   }
 
   .footer_iconos-colombia {
