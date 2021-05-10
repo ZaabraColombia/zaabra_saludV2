@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-     
 
     <!--carrusel banner principal home--> 
 <div>
@@ -40,6 +39,8 @@
       <img class="" src="{{URL::asset($objcarruselhome->rutaImagenVenta)}}">
   @endforeach
 </div>
+
+
 
 @endsection
 
