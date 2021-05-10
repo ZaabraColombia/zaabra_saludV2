@@ -3,17 +3,60 @@
 @section('content')
 
     <!--carrusel banner principal home--> 
-<div>
-      @foreach ($objbannersprincipalHome as $objbannersprincipalHome)
-            <img class="logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
-      @endforeach
-</div>
+<section class="swiper-container">
+      <div class="swiper-wrapper">
+            @foreach ($objbannersprincipalHome as $objbannersprincipalHome)
+                  <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
+            @endforeach
+      </div>
+
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+</section>
+<!--MENU PORTAFOLIO-->
+<h1 class="titulo_menu">Nuestro Portafolio</h1>
+
+<section class="contains_menu">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-12 hvr-wobble-vertical">
+            <div>
+                <div class="image-height mx-0">
+                    <img class="imagen-carrusel-home" src="{{$urlZaabra}}img/areas/especialidades-medicas.svg">
+                </div>
+
+                <div>
+                    <h1 class="texto-carrousel-home">Especialidades médicas</h1>
+                    <p class="parrafo-carrousel-home">Accede a un directorio con cientos de especialistas de todas las ramas de la salud.</p>
+                    <a href="" class="ver-mas especialistas">Ver mas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-12 hvr-wobble-vertical">
+            <div>
+                <div class="image-height mx-0">
+                    <img class="imagen-carrusel-home" src="{{$urlZaabra}}img/areas/instituciones-medicas.svg">
+                </div>
+
+                <div>
+                    <h1 class="texto-carrousel-home">Instituciones médicas</h1>
+                    <p class="parrafo-carrousel-home">Clinicas, centros medicos y odontologicos, toma de examenes y mucho mas</p>
+                    <a href="" class="ver-mas instituciones">Ver mas</a>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+</section>
    <!--parallax home--> 
-<div>
+<section class="contains_parallax">
       @foreach ($objbannersparallaxHome as $objbannersparallaxHome)
-            <img class="logoHeaderSProfesionales" src="{{URL::asset($objbannersparallaxHome->rutaImagenVenta)}}">
+            <div class="zaabrasalud_parallax" style="background-image: url( {{URL::asset($objbannersparallaxHome->rutaImagenVenta)}} );"></div>
       @endforeach
-</div>
+</section>
  <!--profesionales home--> 
 <div>
       @foreach ($objprofesionaleshome as $objprofesionaleshome)
