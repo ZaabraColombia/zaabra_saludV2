@@ -15,6 +15,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -46,9 +49,27 @@
                     </a>
 
                     <div class="dropdown-menu menu_paciente px-2" aria-labelledby="dropdownMenuLink" style="">
-                        <a class="dropdown-item" href="#"><div class="icon_dropdown icon-especialidades"></div>Especialidades medicas</a>
-                        <a class="dropdown-item" href="#"><div class="icon_dropdown icon-instituciones"></div>Instituciones medicas</a>
-                        <a class="dropdown-item" href="#"><div class="icon_dropdown icon-quienes"></div>¿Quiénes Somos?</a>
+                        <a class="dropdown-item" href="#"><div class="icon_dropdown icon-especialidades"></div>Soy Paciente</a>
+                        <a class="dropdown-item" href="#"><div class="icon_dropdown icon-instituciones"></div>Soy Doctor</a>
+                        <a class="dropdown-item" href="#"><div class="icon_dropdown icon-quienes"></div>Soy institución</a>
+                    </div>
+                </div>
+
+                <div class="button-membresia">
+                    <a class="" href="">
+                        <img class="img-button-membresia" src="http://portal-test.zaabra.local/img/boton-membresia.png">
+                    </a>  
+                </div>
+
+                <div class="menu-hamburger dropdown">
+                    <a class="icon-menu dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span></span>
+                    </a>
+
+                    <div class="dropdown-menu menu-hamburguesa px-2" aria-labelledby="dropdownMenuLink" style="">
+                        <a class="dropdown-item" href="#"><div class="icon-dropdown icon-especialidades"></div>Especialidades medicas</a>
+                        <a class="dropdown-item" href="#"><div class="icon-dropdown icon-instituciones"></div>Instituciones medicas</a>
+                        <a class="dropdown-item" href="#"><div class="icon-dropdown icon-quienes"></div>¿Quiénes Somos?</a>
                     </div>
                 </div>
 
