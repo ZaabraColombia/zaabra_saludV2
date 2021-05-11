@@ -14,7 +14,7 @@ const swiper = new Swiper('.swiper-container', {
     },
     autoplay: {
       delay: 2500,
-      disableOnInteraction: false,
+      disableOnInteraction: true,
     },
   
     // And if we need scrollbar

@@ -36,13 +36,11 @@ class profesionesController extends Controller
         return $consultaBannerProfesiones;
     }
 
-     // consulta para cargar todas las profesiones disponibles y que esten activas
-    public function cargarProfesiones(){
-        $consultaProfesiones = DB::table('profesiones')
-        ->select('nombreProfesion')
-        ->where('estado', '<>', 0)
-        ->get();
-        return $consultaProfesiones;
+        // consulta para cargar todas las profesiones disponibles y que esten activas
+        public function cargarProfesiones(){
+            return DB::select('SELECT pr.nombreProfesion, pr.descripcion, pr.urlimagen
+            FROM profesiones  pr
+            where pr.estado<>0 ORDER BY orden ASC');
         }
 
         // consulta para cargar carrusel profesiones 

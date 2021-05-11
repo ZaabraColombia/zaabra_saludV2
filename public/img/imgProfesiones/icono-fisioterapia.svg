@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="168" height="168" viewBox="0 0 168 168">
+  <defs>
+    <filter id="Elipse_7" x="0" y="0" width="168" height="168" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Grupo_222" data-name="Grupo 222" transform="translate(-492 -1329)">
+    <g id="Grupo_56" data-name="Grupo 56" transform="translate(-73 403)">
+      <g transform="matrix(1, 0, 0, 1, 565, 926)" filter="url(#Elipse_7)">
+        <circle id="Elipse_7-2" data-name="Elipse 7" cx="75" cy="75" r="75" transform="translate(9 6)" fill="#e1f0f9"/>
+      </g>
+    </g>
+    <g id="noun_Physiotherapy_94349" transform="translate(517 1346.182)">
+      <g id="Grupo_112" data-name="Grupo 112" transform="translate(5 18)">
+        <g id="Grupo_111" data-name="Grupo 111" transform="translate(0 0)">
+          <g id="Grupo_110" data-name="Grupo 110" transform="translate(0 0)">
+            <ellipse id="Elipse_14" data-name="Elipse 14" cx="7.526" cy="7.652" rx="7.526" ry="7.652" transform="translate(0 62.748)" fill="none" stroke="#0083d6" stroke-linejoin="round" stroke-width="2"/>
+            <path id="Trazado_51" data-name="Trazado 51" d="M66.34,32.185H40.75c-1.505,0-8.279,0-6.024,7.652,1.358,4.61,4.519,9.183,6.024,15.3H19.676c-3.763,0-6.021,1.53-6.021,4.591v7.652a4.9,4.9,0,0,0,4.516,4.591H55.8c3.011,0,6.021-3.061,3.011-9.183C55.44,56.03,45.266,39.837,45.266,39.837l31.611-3.061" transform="translate(2.903 6.842)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" fill-rule="evenodd"/>
+            <path id="Trazado_52" data-name="Trazado 52" d="M55.862,63.012l15.053-3.061,25.59,1.53" transform="translate(11.875 12.744)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" fill-rule="evenodd"/>
+            <path id="Trazado_53" data-name="Trazado 53" d="M52.138,52.379,97.3,56.97" transform="translate(11.083 11.135)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" fill-rule="evenodd"/>
+            <path id="Trazado_54" data-name="Trazado 54" d="M40.345,33.44S42.6,22.727,44.108,21.2c2.619-2.663,17.95-8.477,21.074-9.183s4.516,1.53,6.021,3.061a99.692,99.692,0,0,1,7.526,10.713c1.044,2.122,1.505,3.061,0,4.591-1.24,1.245-9.032,7.652-9.032,7.652" transform="translate(8.576 2.525)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" fill-rule="evenodd"/>
+            <path id="Trazado_55" data-name="Trazado 55" d="M44.69,31l1.505-7.652L49.205,31" transform="translate(9.5 4.964)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" fill-rule="evenodd"/>
+            <path id="Trazado_56" data-name="Trazado 56" d="M59.586,34.868l10.537-9.183L64.1,19.563v7.652" transform="translate(12.667 4.159)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" fill-rule="evenodd"/>
+            <ellipse id="Elipse_15" data-name="Elipse 15" cx="7.526" cy="7.652" rx="7.526" ry="7.652" transform="translate(56.448 0)" fill="none" stroke="#0083d6" stroke-linejoin="round" stroke-width="2"/>
+            <path id="Trazado_57" data-name="Trazado 57" d="M50,39.757V52" transform="translate(10.629 8.452)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" fill-rule="evenodd"/>
+            <path id="Trazado_58" data-name="Trazado 58" d="M65.793,38.5,68.8,47.678V53.8" transform="translate(13.986 8.183)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" fill-rule="evenodd"/>
+            <path id="Trazado_59" data-name="Trazado 59" d="M58.345,51.806l1.505-7,1.505,6.887" transform="translate(12.403 9.525)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" fill-rule="evenodd"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
