@@ -1,4 +1,4 @@
-const swiper = new Swiper('.swiper-container', {
+const swiper = new Swiper('.swiper-container',{
     // Optional parameters
     // If we need pagination
     loop: true,
@@ -7,16 +7,10 @@ const swiper = new Swiper('.swiper-container', {
       el: '.swiper-pagination',
     },
   
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
     autoplay: {
       delay: 2500,
-      disableOnInteraction: true,
+      disableOnInteraction: false,
     },
   
     // And if we need scrollbar
   });
-  

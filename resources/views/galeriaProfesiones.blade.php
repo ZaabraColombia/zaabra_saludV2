@@ -37,12 +37,17 @@
             <p>{{$objprofesiones->descripcion}}</p>
           </div>
 
+          <div class="texto_profesion">
+            <a href="{{url('galeriaespecialidades/'.$objprofesiones->idProfesion)}}">oscar</a>
+          </div>
+
           <div class="contenido_boton-ver">
             <button type="submit" value="" class="boton_ver-especialidad" >
             <span> Ver especialidades </span>
             <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icono_flecha-ver" alt=""> 
           </div>
         </div>
+
       @endforeach
     </section>
 
