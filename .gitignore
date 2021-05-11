@@ -20,3 +20,5 @@ public/mix-manifest.json
 .editorconfig
 .styleci.yml
 .styleci.yml
+public/css/main.css
+public/js/app.js
