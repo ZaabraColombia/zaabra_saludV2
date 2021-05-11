@@ -25,7 +25,6 @@
         <div class="col-md-6 col-lg-6 col-12 hvr-wobble-vertical">
             <div>
                 <div class="image-height mx-0">
-                    <img class="imagen-carrusel-home" src="{{$urlZaabra}}img/areas/especialidades-medicas.svg">
                 </div>
 
                 <div>
@@ -38,7 +37,6 @@
         <div class="col-md-6 col-lg-6 col-12 hvr-wobble-vertical">
             <div>
                 <div class="image-height mx-0">
-                    <img class="imagen-carrusel-home" src="{{$urlZaabra}}img/areas/instituciones-medicas.svg">
                 </div>
 
                 <div>
