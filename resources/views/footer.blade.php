@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="fixed-bottom">
+<footer>
     <!-- Contenedor principal del footer -->
     <div class="container-fluid p-0">
         <!-- Row newzletter-->
@@ -118,7 +118,7 @@
 
                 <div class="col-lg-9 p-0">
                     <a href="{{url('politicas#preguntas')}}">
-                        <span class="texto_info-Zaabra">¿Cómo funciona Zaabra profesional?</span>
+                        <span class="texto_info-Zaabra">¿Cómo funciona Zaabra Salud?</span>
                     </a>
                 </div>
 
@@ -240,7 +240,7 @@
 
                         <div class="col-12 texto_infoZaabra-cel">
                             <a href="">
-                                <span class="">- ¿Como funciona Zaabra profesional</span>
+                                <span class="">- ¿Como funciona Zaabra Salud</span>
                             </a>
                         </div>
 
@@ -321,8 +321,8 @@
                     <img class="imagen_icono-colombia" src="{{URL::asset('/img/logos/logo_hecho_en_colombia.png')}}"> 
                 </div>
 
-                <div class="col-3 col-md-3 col-lg-3 col-xl-4 icon_ssl-colombia">
-                    <img class="imagen_icono-colombia" src="{{URL::asset('/img/logos/logo_ssl_secure_connection.png')}}"> 
+                <div class="col-2 col-md-3 col-lg-3 col-xl-4 icon_ssl-colombia">
+                    <img class="imagen_icono-colombia" src="{{URL::asset('/img/logos/logo_ssl_secure_connection_cel.png')}}"> 
                 </div>
             </div>
         </div>
