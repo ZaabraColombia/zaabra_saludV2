@@ -18,31 +18,33 @@
 
 </section>
 <!--MENU PORTAFOLIO-->
-<h1 class="titulo_menu">Nuestro Portafolio</h1>
+<h1 class="titulo_portafolio">Nuestro Portafolio</h1>
 
 <section class="contains_menu">
     <div class="row">
-        <div class="col-md-6 col-lg-6 col-12 hvr-wobble-vertical">
+        <div class="col-md-6 col-lg-6 col-12 hvr-float-shadow">
             <div>
-                <div class="image-height mx-0">
+                <div class="contains_image mx-auto">
+                    <img class="imagen_home" src="{{URL::asset('/img/home/especialidades-medicas.svg')}}">
                 </div>
 
-                <div>
-                    <h1 class="texto-carrousel-home">Especialidades médicas</h1>
-                    <p class="parrafo-carrousel-home">Accede a un directorio con cientos de especialistas de todas las ramas de la salud.</p>
-                    <a href="" class="ver-mas especialistas">Ver mas</a>
+                <div class="contains_text">
+                    <h1 class="titulo_home">Especialidades médicas</h1>
+                    <p class="parrafo_home">Accede a un directorio con cientos de especialistas de todas las ramas de la salud.</p>
+                    <a href="" class="ver_mas especialistas">Ver mas</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-6 col-12 hvr-wobble-vertical">
+        <div class="col-md-6 col-lg-6 col-12 hvr-float-shadow">
             <div>
-                <div class="image-height mx-0">
+                <div class="contains_image mx-auto">
+                    <img class="imagen_home" src="{{URL::asset('/img/home/instituciones-medicas.svg')}}">
                 </div>
 
-                <div>
-                    <h1 class="texto-carrousel-home">Instituciones médicas</h1>
-                    <p class="parrafo-carrousel-home">Clinicas, centros medicos y odontologicos, toma de examenes y mucho mas</p>
-                    <a href="" class="ver-mas instituciones">Ver mas</a>
+                <div class="contains_text">
+                    <h1 class="titulo_home">Instituciones médicas</h1>
+                    <p class="parrafo_home">Clinicas, centros medicos y odontologicos, toma de examenes y mucho mas</p>
+                    <a href="" class="ver_mas instituciones">Ver mas</a>
                 </div>
             </div>
         </div>
