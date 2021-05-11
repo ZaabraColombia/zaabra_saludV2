@@ -4,7 +4,7 @@
 }
 // Sección del titulo ramas de la salud
 .section_titulo {
-    font-size: 1.125em;
+    font-size: 2.5em;
     font-family: 'Quicksand', sans-serif; 
     font-weight: bolder;
     color: #0083d6;
@@ -19,7 +19,7 @@
 }
 .contenido_tarjetas-profesionales {
     margin: 1%;
-    padding: 3%;
+    padding: 3% 1%;
     border-radius: 5px;
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
 }
@@ -28,12 +28,8 @@
     justify-content: center;
     align-self: center;
 }
-.icono_img-profesion {
-    width: 48px;
-    height: 50px; 
-}
 .nombre_profesion {
-    font-size: .688em;
+    font-size: 1.35em;
     font-family: 'Quicksnd', sans-serif;
     font-weight: bolder;
     color: #232323;
@@ -41,7 +37,7 @@
     text-align: center;
 }
 .texto_profesion {
-    font-size: .488em;
+    font-size: 1em;
     font-family: 'quicksand', sans-serif;
     color: #3e3e3e;
     text-align: center;
@@ -54,10 +50,11 @@
 .boton_ver-especialidad {
     background: #0083d6;
     font-family: 'quicksand', sans-serif;
-    font-size: .563em;
+    font-size: 1.25em;
     color: #ffffff;
-    height: 25px;
-    width: 102px;
+    padding: 0;
+    height: 37px;
+    width: 246px;
     border-radius: 3px;
     border: none;
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
@@ -76,7 +73,7 @@
         font-family: 'Quicksand', sans-serif; 
         font-weight: bolder;
         color: #0083d6;
-        margin: 5% 0;
+        margin: 10% 0;
         text-align: center;
     }
     // Sección tarjetas profesionales de al salud
@@ -87,7 +84,7 @@
     }
     .contenido_tarjetas-profesionales {
         margin-bottom: 3%;
-        padding: 3%;
+        padding: 3% 1%;
         border-radius: 5px;
         box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
     }
@@ -97,8 +94,8 @@
         align-self: center;
     }
     .icono_img-profesion {
-        width: 48px;
-        height: 50px; 
+        width: 85px;
+        height: 85px; 
     }
     .nombre_profesion {
         font-size: .688em;
@@ -124,13 +121,92 @@
         font-family: 'quicksand', sans-serif;
         font-size: .563em;
         color: #ffffff;
+        padding: 0;
         height: 25px;
         width: 102px;
         border-radius: 3px;
         border: none;
         box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
     }
+    .icono_flecha-ver {
+        width: 9%;
+    }
     .logosUniversidades {
         width: 50%; 
     }
-}    
+}  
+@media (min-width: 768px) and (orientation: portrait) {
+    .section_titulo {
+        font-size: 2.5em;
+    }
+    .icono_img-profesion {
+        width: 150px;
+        height: 150px;
+    }
+    .nombre_profesion {
+        font-size: 1.8em;
+    }
+    .texto_profesion {
+        font-size: 1em;
+    }
+    .boton_ver-especialidad {
+        background: #0083d6;
+        font-family: "quicksand", sans-serif;
+        font-size: 1.25em;
+        color: #ffffff;
+        padding: 0;
+        height: 37px;
+        width: 246px;
+        border-radius: 3px;
+        border: none;
+        box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 20%);
+    }
+    .icono_flecha-ver {
+        width: 7%;
+    }
+}  
+@media (min-width: 1024px) {
+    // Sección del titulo ramas de la salud
+    .section_titulo {
+        font-size: 2.5em;
+        font-family: 'Quicksand', sans-serif; 
+        font-weight: bolder;
+        color: #0083d6;
+        margin: 5% 0;
+        text-align: center;
+    }
+      // Sección tarjetas profesionales de al salud
+      .contenido_tarjetas-profesionales {
+        margin: 1%;
+        padding: 3% 1%;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    }
+    .nombre_profesion {
+        font-size: 1.35em;
+        font-family: 'Quicksnd', sans-serif;
+        font-weight: bolder;
+        color: #232323;
+        padding: 0;
+        text-align: center;
+    }
+    .texto_profesion {
+        font-size: .9em;
+        font-family: 'quicksand', sans-serif;
+        color: #3e3e3e;
+        text-align: center;
+    }
+    // Sección boton ver especialidades
+    .boton_ver-especialidad {
+        background: #0083d6;
+        font-family: 'quicksand', sans-serif;
+        font-size: 1.25em;
+        color: #ffffff;
+        padding: 0;
+        height: 37px;
+        width: 246px;
+        border-radius: 3px;
+        border: none;
+        box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    }
+}

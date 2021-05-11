@@ -73,7 +73,7 @@
                         </a>
                     </div>
 
-                    <div class="col-lg-1 mr-lg-2 mr-xl-0 p-0">
+                    <!-- <div class="col-lg-1 mr-lg-2 mr-xl-0 p-0">
                         <a href="https://twitter.com/ZaabraCol" target="_blank">
                             <img class="" src="{{URL::asset('/img/iconos/icono-twitter-blanco.svg')}}"> 
                         </a>
@@ -83,7 +83,7 @@
                         <a href="https://www.youtube.com/" target="_blank">
                             <img class="" src="{{URL::asset('/img/iconos/icono-youtube-blanco.svg')}}"> 
                         </a>
-                    </div>
+                    </div> -->
 
                     <div class="col-lg-1 mr-lg-2 mr-xl-0 p-0">
                         <a href="https://www.whatsapp.com/ZaabraCol/" target="_blank">
@@ -130,9 +130,14 @@
 
                 <div class="col-lg-9 p-0">
                     <a href="{{url('politicas#preguntas')}}">
+                        <span class="texto_info-Zaabra">Preguntas frecuentes</span>
+                    </a> 
+                </div>
+                <!-- <div class="col-lg-9 p-0">
+                    <a href="{{url('politicas#preguntas')}}">
                         <span class="texto_info-Zaabra">Servicios profesionales</span>
                     </a>  
-                </div>
+                </div> -->
             </div>
             <!-- Column end contenido acerca de zaabra -->
 
@@ -140,12 +145,6 @@
             <div class="col-lg-3 infoZaabra_contenido d-none d-lg-flex">
                 <div class="col-lg-9 titulo_seccion-info">
                     <span> POLÍTICAS DE USO </span> 
-                </div>
-
-                <div class="col-lg-9 p-0">
-                    <a href="{{url('politicas#preguntas')}}">
-                        <span class="texto_info-Zaabra">Preguntas frecuentes</span>
-                    </a> 
                 </div>
 
                 <div class="col-lg-9 p-0">
@@ -192,7 +191,7 @@
                         </a>
                     </div>
 
-                    <div class="col-md-2 icono_red-social-cel">
+                    <!-- <div class="col-md-2 icono_red-social-cel">
                         <a href="https://twitter.com/ZaabraCol" target="_blank">
                             <img class="imagen_red-social-cel" src="{{URL::asset('/img/iconos/icono-twitter-blanco.svg')}}"> 
                         </a>
@@ -202,7 +201,7 @@
                         <a href="https://www.youtube.com/" target="_blank">
                             <img class="imagen_red-social-cel" src="{{URL::asset('/img/iconos/icono-youtube-blanco.svg')}}"> 
                         </a>
-                    </div>
+                    </div> -->
 
                     <div class="col-md-2 icono_red-social-cel">
                         <a href="https://www.whatsapp.com/ZaabraCol/" target="_blank">
@@ -251,10 +250,15 @@
                         </div>
 
                         <div class="col-12 texto_infoZaabra-cel">
+                            <a href="/quienes#preguntas">
+                                <span class="">- Preguntas frecuentes</span>
+                            </a>
+                        </div>
+                        <!-- <div class="col-12 texto_infoZaabra-cel">
                             <a href="">
                                 <span class="">- Servicios profesionales </span>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div> 
             </div>
@@ -280,12 +284,6 @@
                 <div class="col-10 collapse infoZaabra_desplegable-cel" id="politicasUse">
                     <div class="col-12 card card-body desplegable_infoZaabra-cel">
                         <div class="col-12 texto_infoZaabra-cel">
-                            <a href="/quienes#preguntas">
-                                <span class="">- Preguntas frecuentes</span>
-                            </a>
-                        </div>
-
-                        <div class="col-12 texto_infoZaabra-cel">
                             <a href="/quienes#terminos">
                                 <span class="">- Políticas de cookies</span>
                             </a>
@@ -301,6 +299,12 @@
                             <a href="/quienes#terminos">
                                 <span class="">- Términos y condiciones</span>
                             </a>
+                        </div>
+
+                        <div class="col-12 texto_infoZaabra-cel h-lg-10">
+                            <!-- <a href="">
+                                <span class="">- Servicios profesionales </span>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -322,7 +326,7 @@
                 </div>
 
                 <div class="col-2 col-md-3 col-lg-3 col-xl-4 icon_ssl-colombia">
-                    <img class="imagen_icono-colombia" src="{{URL::asset('/img/logos/logo_ssl_secure_connection_cel.png')}}"> 
+                    <img class="imagen_icono-ssl" src="{{URL::asset('/img/logos/logo_ssl_secure_connection.png')}}"> 
                 </div>
             </div>
         </div>
