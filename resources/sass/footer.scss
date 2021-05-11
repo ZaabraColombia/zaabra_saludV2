@@ -140,7 +140,8 @@
     text-align: initial;
     display: flex;
     flex-flow: wrap;
-    justify-content: flex-end; 
+    justify-content: flex-end;
+    align-content: baseline; 
 }
 .texto_info-Zaabra {
     font-family: 'Roboto', sans-serif;
@@ -388,6 +389,10 @@
         width: 20vh;
         object-fit: contain;
     }
+    .imagen_icono-ssl {
+        width: 17vh;
+        object-fit: contain;
+    }
     .texto_copy-right {
         font-family: "Quicksand", sans-serif;
         font-size: .63em;
@@ -486,6 +491,10 @@
     }
     // Iconos gobierno de Colombia
     .imagen_icono-colombia {
+        width: 30vh;
+        object-fit: none;
+    }
+    .imagen_icono-ssl {
         width: 30vh;
         object-fit: none;
     }
