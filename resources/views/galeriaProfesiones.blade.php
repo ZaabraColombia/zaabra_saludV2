@@ -44,13 +44,14 @@
           <div class="contenido_boton-ver">
             <button type="submit" value="" class="boton_ver-especialidad" >
             <span> Ver especialidades </span>
-            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icono_flecha-suscribirme-cel" alt=""> 
+            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icono_flecha-ver" alt=""> 
           </div>
         </div>
 
       @endforeach
     </section>
 
+  <div class="row m-auto w-75">
     <section class="swiper-container col-12 p-0 m-0">
       <div class="swiper-wrapper">
         @foreach ($objcarruselprofesiones as $objcarruselprofesiones)
@@ -64,6 +65,6 @@
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </section>
-
+  </div>
   </div>
 @endsection
