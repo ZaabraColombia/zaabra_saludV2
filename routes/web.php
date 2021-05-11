@@ -26,5 +26,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route:: get('galeriaProfesiones',[App\Http\Controllers\profesionesController::class,'index'])->name('galeriaProfesiones');
 
 /*Esta ruta es de galeria especialidades y dirige al controlador encargado de traer la informacion a la vista*/
-Route:: get('galeriaespecialidades',[App\Http\Controllers\especialidadesController::class,'index'])->name('galeriaespecialidades');
+Route:: get('galeriaespecialidades/{idProfesion}',[App\Http\Controllers\especialidadesController::class,'index'])->name('galeriaespecialidades');
 

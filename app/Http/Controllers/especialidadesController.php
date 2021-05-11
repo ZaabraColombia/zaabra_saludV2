@@ -3,20 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class especialidadesController extends Controller
 {
-    public function index()
+    public function index($idProfesion)
     {
+
+    
         //esta varible se llena con los datos recolectados en cada una de las consultas y entregan los datos
         //en la vista galeria  
         $objbannersprincipalEspecialidades = $this->cargarBannerPrincipalEspecialidades();
-        $objEspecialidades = $this->cargarEspecialidades();
+        $objEspecialidades = $this->cargarEspecialidades($idProfesion);
         $objbannerssecundarioEspecialidades = $this->cargarBannerSecundarioEspecialidades();
         $objcarruselespecialidades = $this->cargarCarruselEspecialidades();
 
-        return view('galeriaProfesiones', compact(
+  
+        return view('galeriaespecialidades', compact(
             'objbannersprincipalEspecialidades',
             'objEspecialidades',
             'objbannerssecundarioEspecialidades',
@@ -36,14 +40,12 @@ class especialidadesController extends Controller
     }
 
      // consulta para cargar todas las profesiones disponibles y que esten activas
-    public function cargarEspecialidades(){
-        $consultaEspecialidades = DB::table('especialidades')
-        ->select('nombreProfesion')
-        ->select('urlimagen')
-        ->where('estado', '<>', 0)
-        ->get();
-        return $consultaEspecialidades;
-        }
+     public function cargarEspecialidades($idProfesion){
+        return DB::select('SELECT es.urlimagen, es.nombreEspecialidad
+        FROM profesiones pr
+        INNER JOIN  especialidades es ON pr.idProfesion = es.idProfesion
+        WHERE  es.estado <>0  AND es.idProfesion=?', [$idProfesion]);
+    }
 
           // consulta para cargar banner principal 
     public function cargarBannerSecundarioEspecialidades(){
