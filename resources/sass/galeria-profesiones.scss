@@ -1,0 +1,136 @@
+.logoHeaderSProfesionales {
+    width: 100%;
+    padding: 0;
+}
+// Sección del titulo ramas de la salud
+.section_titulo {
+    font-size: 1.125em;
+    font-family: 'Quicksand', sans-serif; 
+    font-weight: bolder;
+    color: #0083d6;
+    margin: 5% 0;
+    text-align: center;
+}
+// Sección tarjetas profesionales de al salud
+ .section_tarjetas-profesionales {
+    margin: auto;
+    padding: 0;
+    justify-content: center;
+}
+.contenido_tarjetas-profesionales {
+    margin: 1%;
+    padding: 3%;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+}
+.imagen_profesion {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.icono_img-profesion {
+    width: 48px;
+    height: 50px; 
+}
+.nombre_profesion {
+    font-size: .688em;
+    font-family: 'Quicksnd', sans-serif;
+    font-weight: bolder;
+    color: #232323;
+    padding: 0;
+    text-align: center;
+}
+.texto_profesion {
+    font-size: .488em;
+    font-family: 'quicksand', sans-serif;
+    color: #3e3e3e;
+    text-align: center;
+}
+// Sección boton ver especialidades
+.contenido_boton-ver { 
+    display: flex;
+    justify-content: center;
+}
+.boton_ver-especialidad {
+    background: #0083d6;
+    font-family: 'quicksand', sans-serif;
+    font-size: .563em;
+    color: #ffffff;
+    height: 25px;
+    width: 102px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+}
+.logosUniversidades {
+    width: 50%; 
+}
+@media (min-width: 320px) and (orientation: portrait) {
+    .logoHeaderSProfesionales {
+        width: 100%;
+        padding: 0;
+    }
+    // Sección del titulo ramas de la salud
+    .section_titulo {
+        font-size: 1.125em;
+        font-family: 'Quicksand', sans-serif; 
+        font-weight: bolder;
+        color: #0083d6;
+        margin: 5% 0;
+        text-align: center;
+    }
+    // Sección tarjetas profesionales de al salud
+    .section_tarjetas-profesionales {
+        margin: 0;
+        padding: 0;
+        justify-content: space-evenly;
+    }
+    .contenido_tarjetas-profesionales {
+        margin-bottom: 3%;
+        padding: 3%;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    }
+    .imagen_profesion {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+    }
+    .icono_img-profesion {
+        width: 48px;
+        height: 50px; 
+    }
+    .nombre_profesion {
+        font-size: .688em;
+        font-family: 'Quicksnd', sans-serif;
+        font-weight: bolder;
+        color: #232323;
+        padding: 0;
+        text-align: center;
+    }
+    .texto_profesion {
+        font-size: .488em;
+        font-family: 'quicksand', sans-serif;
+        color: #3e3e3e;
+        text-align: center;
+    }
+    // Sección boton ver especialidades
+    .contenido_boton-ver { 
+        display: flex;
+        justify-content: center;
+    }
+    .boton_ver-especialidad {
+        background: #0083d6;
+        font-family: 'quicksand', sans-serif;
+        font-size: .563em;
+        color: #ffffff;
+        height: 25px;
+        width: 102px;
+        border-radius: 3px;
+        border: none;
+        box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    }
+    .logosUniversidades {
+        width: 50%; 
+    }
+}    
