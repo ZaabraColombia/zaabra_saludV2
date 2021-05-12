@@ -3,7 +3,7 @@
 @section('content')
 
     <!--carrusel banner principal home--> 
-<section class="swiper-container">
+<section class="swiper-container swiper_principal">
       <div class="swiper-wrapper">
             @foreach ($objbannersprincipalHome as $objbannersprincipalHome)
                   <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
@@ -53,7 +53,6 @@
             </div>
         </div>
     </div>  
-
 </section>
 
    <!--parallax home--> 
@@ -63,29 +62,52 @@
       @endforeach
 </section>
 
- <!--profesionales home--> 
+ <!--carousel especialistas--> 
+<h1 class="titulo_portafolio">Nuestros Especialistas</h1>
 <section class="contains_slider_especialistas">
-    <div class="swiper_slider_especialistas">
-        <div class="swipper-wrapper">
+    <div class="swiper-container swiper_especialistas">
+        <div class="swiper-wrapper">
             @foreach ($objprofesionaleshome as $objprofesionaleshome)
-            <div class="card">
+            <div class="card swiper-slide">
                 <img class="card-img-top" src="{{URL::asset($objprofesionaleshome->fotoperfil)}}">
                 <div class="card-body">
-                    <h5>{{$objprofesionaleshome->primernombre}} {{$objprofesionaleshome->primerapellido}}</h5>
-                    <p>{{$objprofesionaleshome->nombreEspecialidad}}</p>
+                    <h5>{{$objprofesionaleshome->nombreEspecialidad}}</h5>
                     <p>{{$objprofesionaleshome->nombreuniversidad}}</p>
+                    <p>{{$objprofesionaleshome->primernombre}} {{$objprofesionaleshome->primerapellido}}</p>
+                    <a href="" class="ver_mas especialistas hvr-sweep-to-right">Ver detalles
+                        <i class="fas fa-arrow-right arrow_mas"></i>
+                    </a>
                 </div>
             </div>
             @endforeach
         </div>
     </div>
+    <!-- If we need navigation buttons -->
+    <div class="btn-prev"></div>
+    <div class="btn-next"></div>
 </section>
-<!--carrusel home--> 
-<div>
-  @foreach ($objcarruselhome as $objcarruselhome)
-      <img class="" src="{{URL::asset($objcarruselhome->rutaImagenVenta)}}">
-  @endforeach
+
+<!--banner triple-->
+<section class="contains_slider_triple">
+    <div class="swiper-container swiper_triple">
+        <div class="swiper-wrapper">
+            @foreach ($objcarruselTriple as $objcarruselTriple)
+                <img class="swiper-slide" src="{{URL::asset($objcarruselTriple->rutaImagenVenta)}}">
+            @endforeach
+        </div>
+    </div>
 </div>
+
+<!--carousel universidades--> 
+<section class="contains_slider_logoshome">
+    <div class="swiper-container swiper_logoshome">
+        <div class="swiper-wrapper">
+            @foreach ($objbanneruniversidad as $objbanneruniversidad)
+                <img class="swiper-slide" src="{{URL::asset($objbanneruniversidad->rutaImagenVenta)}}">
+            @endforeach
+        </div>
+    </div>
+</section>
 
 
 
