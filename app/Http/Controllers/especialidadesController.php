@@ -41,7 +41,7 @@ class especialidadesController extends Controller
 
      // consulta para cargar todas las profesiones disponibles y que esten activas
      public function cargarEspecialidades($idProfesion){
-        return DB::select('SELECT es.urlimagen, es.nombreEspecialidad
+        return DB::select('SELECT es.urlimagen, es.nombreEspecialidad, es.idEspecialidad
         FROM profesiones pr
         INNER JOIN  especialidades es ON pr.idProfesion = es.idProfesion
         WHERE  es.estado <>0  AND es.idProfesion=?', [$idProfesion]);

@@ -28,3 +28,6 @@ Route:: get('galeriaProfesiones',[App\Http\Controllers\profesionesController::cl
 /*Esta ruta es de galeria especialidades y dirige al controlador encargado de traer la informacion a la vista*/
 Route:: get('galeriaespecialidades/{idProfesion}',[App\Http\Controllers\especialidadesController::class,'index'])->name('galeriaespecialidades');
 
+/*Esta ruta es de galeria profesionales y dirige al controlador encargado de traer la informacion a la vista*/
+Route:: get('Profesionales/{idEspecialidad}',[App\Http\Controllers\medicosEspecialidadController::class,'index'])->name('Profesionales');
+
