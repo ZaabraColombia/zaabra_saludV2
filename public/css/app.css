@@ -10181,6 +10181,24 @@ a:link, a:visited, a:active, a:hover {
   align-items: center;
 }
 
+.contains_slider_especialistas {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contains_slider_especialistas .swipper-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 1024px) and (max-height: 800px) {
   .navbar_zaabrasalud img {
     max-width: 75%;
@@ -10227,6 +10245,26 @@ a:link, a:visited, a:active, a:hover {
     align-content: center;
     justify-content: center;
     align-items: center;
+  }
+
+  .contains_slider_especialistas {
+    max-width: 85%;
+    height: 55vh;
+  }
+
+  .contains_slider_especialistas .card {
+    max-width: 23%;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  .contains_slider_especialistas .card-img-top {
+    height: 25vh;
+  }
+
+  .contains_slider_especialistas .card-body {
+    height: 15vh;
+    padding: 6%;
   }
 }
 .footer_newsletter {
@@ -10973,7 +11011,6 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .contains_slider_especialistas {
-  max-width: 100%;
   display: flex;
   flex-wrap: nowrap;
   align-content: center;
@@ -10991,116 +11028,7 @@ a:link, a:visited, a:active, a:hover {
   align-items: center;
 }
 
-.contains_slider_especialistas .card {
-  border: 0;
-}
-
-.contains_slider_especialistas .card-img-top {
-  border-top-left-radius: 25px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.contains_slider_especialistas .card-body {
-  background-color: #F5F5F5;
-  text-align: center;
-}
-
-.contains_slider_especialistas .card-body h5 {
-  font-family: "Quicksand";
-  color: #0083D6;
-  margin-bottom: 0;
-  font-weight: bolder;
-}
-
-.contains_slider_especialistas .card-body p {
-  font-family: "Roboto";
-  color: #3E3E3E;
-  margin-bottom: 0;
-}
-
-.contains_slider_especialistas .card-body p:nth-child(3) {
-  color: #232323;
-  font-weight: bold;
-}
-
-.contains_slider_triple {
-  max-width: 100%;
-  display: flex;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.contains_slider_triple .swipper-wrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  align-content: space-around;
-  justify-content: center;
-  align-items: center;
-}
-
-.contains_slider_logoshome {
-  max-width: 100%;
-  display: flex;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.contains_slider_logoshome .swipper-wrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  align-content: space-around;
-  justify-content: center;
-  align-items: center;
-}
-
-.btn-next {
-  width: 10px;
-  height: 15px;
-  border: 0;
-  right: 5%;
-  font-size: 0.9em;
-  color: #fff0;
-  background: url("/img/iconos/flecha-adelante.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-}
-
-.btn-prev {
-  width: 10px;
-  height: 15px;
-  border: 0;
-  left: 5%;
-  font-size: 0.9em;
-  color: #fff0;
-  background: url("/img/iconos/flecha-atras.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-}
-
 @media (min-width: 1024px) and (max-height: 800px) {
-  .swiper_especialistas {
-    max-width: 85%;
-  }
-
-  .swiper_triple {
-    max-width: 83%;
-  }
-
-  .swiper_logoshome {
-    max-width: 90%;
-  }
-
   .zaabrasalud_parallax {
     height: 36vh;
   }
@@ -11153,7 +11081,8 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slider_especialistas {
-    height: 45vh;
+    max-width: 85%;
+    height: 55vh;
   }
 
   .contains_slider_especialistas .card {
@@ -11163,121 +11092,12 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slider_especialistas .card-img-top {
-    height: 23vh;
+    height: 25vh;
   }
 
   .contains_slider_especialistas .card-body {
     height: 15vh;
     padding: 6%;
-  }
-
-  .contains_slider_especialistas .card-body .ver_mas {
-    max-width: 70%;
-    background-color: #0083D6;
-  }
-
-  .contains_slider_especialistas .card-body h5 {
-    font-size: 1.3em;
-  }
-
-  .contains_slider_especialistas .card-body p {
-    font-size: 0.8em;
-  }
-
-  .contains_slider_especialistas .card-body p:nth-child(3) {
-    font-size: 0.9em;
-  }
-
-  .contains_slider_triple {
-    height: 25vh;
-  }
-
-  .contains_slider_logoshome {
-    height: 25vh;
-  }
-}
-@media (min-width: 1200px) {
-  .contains_menu {
-    max-width: 50%;
-    height: 50vh;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .parrafo_home {
-    height: 5vh;
-    font-size: calc(0.05em + 1vw);
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5%;
-  }
-
-  .zaabrasalud_parallax {
-    height: 40vh;
-  }
-
-  .swiper_especialistas {
-    max-width: 80%;
-  }
-
-  .contains_slider_triple {
-    height: 35vh;
-  }
-
-  .swiper_triple {
-    max-width: 81%;
-  }
-
-  .swiper_logoshome {
-    max-width: 85%;
-  }
-}
-@media (min-width: 1440px) {
-  .titulo_portafolio {
-    margin-bottom: 2%;
-  }
-
-  .contains_submenu {
-    height: 95%;
-  }
-
-  .contains_image {
-    max-width: 60%;
-  }
-
-  .imagen_home {
-    max-width: 100%;
-  }
-
-  .titulo_home {
-    font-size: calc(0.65em + 1vw);
-  }
-
-  .row_contains {
-    height: 88%;
-  }
-
-  .swiper_especialistas {
-    max-width: 80%;
-  }
-
-  .contains_slider_especialistas {
-    height: 45vh;
-  }
-
-  .contains_slider_especialistas .card {
-    max-width: 23%;
-    margin-left: 1%;
-    margin-right: 1%;
-  }
-
-  .contains_slider_especialistas .card-img-top {
-    height: 25vh;
-  }
-
-  .ver_mas {
-    max-width: 65%;
   }
 }
 .logoHeaderSProfesionales {
