@@ -30,13 +30,16 @@ class HomeController extends Controller
         $objbannersprincipalHome = $this->cargarBannerPrincipalHome();
         $objbannersparallaxHome = $this->cargarParallax();
         $objprofesionaleshome = $this->cargarProfesionaleshome();
-        $objcarruselhome = $this->cargarcarruselhome();
+        $objbanneruniversidad = $this->cargarbannerUniversidad();
+        $objcarruselTriple = $this->cargarBannertriple();
      
+        
         return view('home', compact(
             'objbannersprincipalHome',
             'objbannersparallaxHome',
             'objprofesionaleshome',
-            'objcarruselhome'
+            'objbanneruniversidad',
+            'objcarruselTriple'
         ));
 
 
@@ -72,16 +75,25 @@ class HomeController extends Controller
         INNER JOIN  especialidades sp ON pf.idespecialidad=sp.idEspecialidad
         INNER JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
         INNER JOIN universidades un ON pu.id_universidad=un.id_universidad
-        where pg.aprobado=1  and pf.aprobado <> 0');
+        where pg.aprobado=1  and pf.aprobado <> 0 and pg.idtipopago =3');
     }
-// consulta para buscar la imagenes del carrusel del home
-    public function cargarcarruselhome(){
-        $consulcarrusel = DB::table('ventabanners')
+    // consulta para cargar el banner triple del home
+    public function cargarBannertriple(){
+        $consultaTriple = DB::table('ventabanners')
+        ->select()
+        ->where('aprobado', '<>', 0)
+        ->where('idtipobanner', '=', 3)
+        ->get();
+        return $consultaTriple;
+    }
+    // consulta para buscar los logos del carrusel de universidades
+    public function cargarbannerUniversidad(){
+        $consuluniversidad = DB::table('ventabanners')
         ->select()
         ->where('aprobado', '<>', 0)
         ->where('idtipobanner', '=', 4)
         ->get();
-        return $consulcarrusel ;
+        return $consuluniversidad ;
     }
 }
 
