@@ -1,19 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+
+
   <section class="swiper-container">
     <div class="swiper-wrapper">
       @foreach ($objbannersprincipalEspecialidades as $objbannersprincipalEspecialidades)
         <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalEspecialidades->rutaImagenVenta)}}">
       @endforeach
       </div>
-
-  @foreach ($objEspecialidades as $objEspecialidades)
-      <div class="col-12">
-        <img class="" src="{{URL::asset($objEspecialidades->urlimagen)}}">
-        <span>{{$objEspecialidades->nombreEspecialidad}}</span>
-        <span><a href="{{url('galeriaProfesionales/'.$objEspecialidades->idEspecialidad)}}">ruta</a></span>
-    <div class="swiper-pagination pagination_margen"></div>
   </section>
 
   <section class="section_titulo-especialidad">
@@ -30,7 +25,7 @@
         <div class="nombre_profesion">
           <span>{{$objEspecialidades->nombreEspecialidad}}</span>
         </div>
-
+        <a href="{{url('galeriaProfesionales/'.$objEspecialidades->idEspecialidad)}}"></a>
         <div class="contenido_boton-ver">
           <a href="">
             <button type="submit" value="" class="boton_ver-especialidad" >

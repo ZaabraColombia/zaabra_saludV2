@@ -8,10 +8,9 @@ use Illuminate\Support\Facades\DB;
 
 class especialidadesController extends Controller
 {
-    public function index($idProfesion)
-    {
+    public function index($idProfesion){
 
-    
+
         //esta varible se llena con los datos recolectados en cada una de las consultas y entregan los datos
         //en la vista galeria  
         $objbannersprincipalEspecialidades = $this->cargarBannerPrincipalEspecialidades();
@@ -39,10 +38,10 @@ class especialidadesController extends Controller
         return $consultaBannerEspecialidades;
     }
 
-}
-    // consulta para cargar todas las Especialidades disponibles y que esten activas
-    public function cargarEspecialidades($idProfesion){
-        return DB::select("SELECT es.urlimagen, es.nombreEspecialidad
+       // consulta para cargar todas las Especialidades disponibles y que esten activas
+       public function cargarEspecialidades($idProfesion){
+
+        return DB::select("SELECT es.urlimagen, es.nombreEspecialidad, es.idEspecialidad
         FROM profesiones pr
         INNER JOIN  especialidades es ON pr.idProfesion = es.idProfesion 
         WHERE  es.estado <>0  AND es.idProfesion=$idProfesion ORDER BY es.orden ASC ");
@@ -69,5 +68,8 @@ class especialidadesController extends Controller
         return $consultaCarruselEspecialidades;
     }
 
-   
+
 }
+ 
+   
+
