@@ -10026,7 +10026,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .contains_header {
-  max-width: 70%;
+  max-width: 75%;
   height: 100%;
   justify-content: flex-start !important;
 }
@@ -10105,8 +10105,8 @@ a:link, a:visited, a:active, a:hover {
   left: 0px;
   padding: 0;
   will-change: transform;
-  height: 18vh;
-  width: 220px;
+  height: 16vh;
+  width: 175px;
 }
 
 .dropdown-menu .dropdown-item {
@@ -10121,7 +10121,7 @@ a:link, a:visited, a:active, a:hover {
   background-color: transparent;
   border: 0;
   padding: 0;
-  padding-top: 3%;
+  padding-top: 1%;
   align-items: center;
 }
 
@@ -10141,6 +10141,64 @@ a:link, a:visited, a:active, a:hover {
   height: 65%;
 }
 
+.dropdown-item {
+  font-family: "Roboto", sans-serif;
+}
+
+.icon-especialidades {
+  background-image: url("/img/header/icono-especialidades-medicas.svg");
+}
+
+.icon-instituciones {
+  background-image: url("/img/header/icono-instituciones-medicas.svg");
+}
+
+.icon-quienes {
+  background-image: url("/img/header/icono-instituciones-medicas.svg");
+}
+
+.button-membresia {
+  flex: 115px;
+  height: 100%;
+  max-width: 115px;
+  display: flex;
+  align-items: center;
+}
+
+.img-button-membresia {
+  max-width: 100% !important;
+}
+
+.icon-menu {
+  background-color: #545b6200 !important;
+  border-color: #f77f0000 !important;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contains_slider_especialistas {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contains_slider_especialistas .swipper-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 1024px) and (max-height: 800px) {
   .navbar_zaabrasalud img {
     max-width: 75%;
@@ -10148,8 +10206,8 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_boxsearch {
     padding: 0%;
-    flex: 55%;
-    max-width: 55%;
+    flex: 45%;
+    max-width: 45%;
     height: 100%;
     margin-right: 0;
     align-items: center;
@@ -10178,6 +10236,35 @@ a:link, a:visited, a:active, a:hover {
 
   .soy_paciente {
     width: 20%;
+  }
+
+  .menu-hamburger {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contains_slider_especialistas {
+    max-width: 85%;
+    height: 55vh;
+  }
+
+  .contains_slider_especialistas .card {
+    max-width: 23%;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  .contains_slider_especialistas .card-img-top {
+    height: 25vh;
+  }
+
+  .contains_slider_especialistas .card-body {
+    height: 15vh;
+    padding: 6%;
   }
 }
 .footer_newsletter {
@@ -10293,7 +10380,7 @@ a:link, a:visited, a:active, a:hover {
 .imagen_logo {
   padding: 0%;
   height: 5vh;
-  width: 28%;
+  width: 74%;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -10310,6 +10397,7 @@ a:link, a:visited, a:active, a:hover {
 
 .iconos_redes-sociales {
   margin: 0;
+  margin-right: 8%;
   padding: 0;
   display: flex;
   align-items: center;
@@ -10332,6 +10420,7 @@ a:link, a:visited, a:active, a:hover {
   display: flex;
   flex-flow: wrap;
   justify-content: flex-end;
+  align-content: baseline;
 }
 
 .texto_info-Zaabra {
@@ -10357,7 +10446,7 @@ a:link, a:visited, a:active, a:hover {
 .icon_ssl-colombia {
   padding: 0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-self: center;
 }
 
@@ -10446,6 +10535,14 @@ a:link, a:visited, a:active, a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .imagen_logo {
+    padding: 0%;
+    height: 5vh;
+    width: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
 
   .titulo_contactanos-cel {
@@ -10568,6 +10665,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .footer_iconos-colombia {
+    background: #F5F5F5;
     margin: 0;
     padding: 0;
   }
@@ -10599,6 +10697,12 @@ a:link, a:visited, a:active, a:hover {
        object-fit: contain;
   }
 
+  .imagen_icono-ssl {
+    width: 17vh;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+
   .texto_copy-right {
     font-family: "Quicksand", sans-serif;
     font-size: 0.63em;
@@ -10606,6 +10710,14 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 768px) and (orientation: portrait) {
+  .newsletter_titulo {
+    font-size: 1.563em;
+  }
+
+  .newsletter_texto {
+    font-size: 1em;
+  }
+
   .input_suscribirme-cel {
     font-size: 1em;
     padding: 0 2%;
@@ -10614,7 +10726,7 @@ a:link, a:visited, a:active, a:hover {
 
   .boton_check-terminos-cel {
     width: 4%;
-    height: 2.5vh;
+    height: 2vh;
   }
 
   .texto_terminos-cel {
@@ -10632,16 +10744,16 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contenido_contactanos-cel {
-    margin-top: 0;
+    margin-top: 3%;
   }
 
   .titulo_contactanos-cel {
-    font-size: 1.563em;
+    font-size: 1.25em;
     margin-top: 1%;
   }
 
   .correo_contactanos-cel {
-    font-size: 1.45em;
+    font-size: 1.25em;
   }
 
   .iconos_redes-sociales-cel {
@@ -10653,12 +10765,16 @@ a:link, a:visited, a:active, a:hover {
     height: 2.5vh;
   }
 
+  .imagen_red-social-cel {
+    height: 80%;
+  }
+
   .contenido_desplegable-cel {
     height: 4vh;
   }
 
   .titulo_infoZaabra-cel {
-    font-size: 1.45em;
+    font-size: 1.25em;
   }
 
   .desplegable_infoZaabra-cel {
@@ -10671,18 +10787,25 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .division_linea-blanca-cel {
-    width: 81%;
-    height: 3px;
+    width: 97%;
+    height: 2px;
   }
 
-  .footer_iconos-colombia {
-    margin-left: 6%;
+  .icon_hecho-colombia {
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+  }
+
+  .texto_copy-right {
+    font-size: 1em;
   }
 }
 @media (min-width: 1024px) {
   .footer_iconos-colombia {
     background: #f5f5f5;
-    margin-left: 16%;
+    margin: 0;
     padding: 0;
     height: 5vh;
     justify-content: center;
@@ -10693,14 +10816,11 @@ a:link, a:visited, a:active, a:hover {
     -o-object-fit: none;
        object-fit: none;
   }
-}
-@media (min-width: 1200px) {
-  .footer_iconos-colombia {
-    margin-left: 12%;
-  }
 
-  .imagen_logo {
-    width: 22%;
+  .imagen_icono-ssl {
+    width: 30vh;
+    -o-object-fit: none;
+       object-fit: none;
   }
 }
 @media (min-width: 1600px) {
@@ -10729,10 +10849,6 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1em;
   }
 
-  .imagen_logo {
-    width: 20%;
-  }
-
   .titulo_seccion-info {
     font-size: 1em;
   }
@@ -10755,5 +10871,465 @@ a:link, a:visited, a:active, a:hover {
 
   .texto_copy-right {
     font-size: 1em;
+  }
+}
+/* Float Shadow */
+.hvr-float-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+.hvr-float-shadow:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: "";
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  /* W3C */
+  transition-duration: 0.3s;
+  transition-property: transform, opacity;
+}
+
+.hvr-float-shadow:hover, .hvr-float-shadow:focus, .hvr-float-shadow:active {
+  transform: translateY(-5px);
+  /* move the element up by 5px */
+}
+
+.hvr-float-shadow:hover:before, .hvr-float-shadow:focus:before, .hvr-float-shadow:active:before {
+  opacity: 1;
+  transform: translateY(5px);
+  /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+}
+
+/*end Float Shadow */
+/* Sweep To Right */
+.hvr-sweep-to-right {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  transition-property: color;
+  transition-duration: 0.3s;
+}
+
+.hvr-sweep-to-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2098D1;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
+  color: white;
+}
+
+.hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
+  transform: scaleX(1);
+}
+
+.zaabrasalud_parallax {
+  max-width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin-bottom: 0;
+}
+
+.contains_text {
+  text-align: center;
+}
+
+.titulo_home {
+  font-family: "Quicksand", sans-serif;
+  font-weight: bolder;
+  margin: 0;
+  color: #434142;
+}
+
+.parrafo_home {
+  font-family: "Roboto", sans-serif;
+}
+
+.titulo_portafolio {
+  font-family: "Quicksand", sans-serif;
+  color: #0083d6;
+  font-weight: bold;
+  text-align: center;
+}
+
+.ver_mas {
+  max-width: 45%;
+  height: 3.5vh;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  color: #ffff;
+  font-family: "Quicksand";
+  font-weight: lighter;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.ver_mas.especialistas {
+  background: #007bff;
+}
+
+.ver_mas.instituciones {
+  background: #019F86;
+}
+
+.contains_submenu {
+  padding-top: 5%;
+  height: 100%;
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.arrow_mas {
+  margin-left: 5%;
+}
+
+.contains_slider_especialistas {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contains_slider_especialistas .swipper-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 1024px) and (max-height: 800px) {
+  .zaabrasalud_parallax {
+    height: 36vh;
+  }
+
+  .contains_menu {
+    max-width: 60%;
+    height: 45vh;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .image-height {
+    height: 22vh;
+  }
+
+  .titulo_home {
+    height: 4vh;
+    font-size: calc(0.6em + 1vw);
+  }
+
+  .titulo_portafolio {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    font-size: calc(0.95em + 1vw);
+  }
+
+  .parrafo_home {
+    height: 5vh;
+    font-size: calc(0.1em + 1vw);
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3%;
+  }
+
+  .contains_image {
+    max-width: 60%;
+  }
+
+  .imagen_home {
+    padding-right: 0px !important;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: fill;
+    object-fit: fill;
+  }
+
+  .row_contains {
+    height: 88%;
+  }
+
+  .contains_slider_especialistas {
+    max-width: 85%;
+    height: 55vh;
+  }
+
+  .contains_slider_especialistas .card {
+    max-width: 23%;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  .contains_slider_especialistas .card-img-top {
+    height: 25vh;
+  }
+
+  .contains_slider_especialistas .card-body {
+    height: 15vh;
+    padding: 6%;
+  }
+}
+.logoHeaderSProfesionales {
+  width: 100%;
+  padding: 0;
+}
+
+.section_titulo {
+  font-size: 2.5em;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bolder;
+  color: #0083d6;
+  margin: 5% 0;
+  text-align: center;
+}
+
+.section_tarjetas-profesionales {
+  margin: auto;
+  padding: 0;
+  justify-content: center;
+}
+
+.contenido_tarjetas-profesionales {
+  margin: 1%;
+  padding: 3% 1%;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.imagen_profesion {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.nombre_profesion {
+  font-size: 1.35em;
+  font-family: "Quicksnd", sans-serif;
+  font-weight: bolder;
+  color: #232323;
+  padding: 0;
+  text-align: center;
+}
+
+.texto_profesion {
+  font-size: 1em;
+  font-family: "quicksand", sans-serif;
+  color: #3e3e3e;
+  text-align: center;
+}
+
+.contenido_boton-ver {
+  display: flex;
+  justify-content: center;
+}
+
+.boton_ver-especialidad {
+  background: #0083d6;
+  font-family: "quicksand", sans-serif;
+  font-size: 1.25em;
+  color: #ffffff;
+  padding: 0;
+  height: 37px;
+  width: 246px;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.logosUniversidades {
+  width: 50%;
+}
+
+@media (min-width: 320px) and (orientation: portrait) {
+  .logoHeaderSProfesionales {
+    width: 100%;
+    padding: 0;
+  }
+
+  .section_titulo {
+    font-size: 1.125em;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #0083d6;
+    margin: 10% 0;
+    text-align: center;
+  }
+
+  .section_tarjetas-profesionales {
+    margin: 0;
+    padding: 0;
+    justify-content: space-evenly;
+  }
+
+  .contenido_tarjetas-profesionales {
+    margin-bottom: 3%;
+    padding: 3% 1%;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .imagen_profesion {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+
+  .icono_img-profesion {
+    width: 85px;
+    height: 85px;
+  }
+
+  .nombre_profesion {
+    font-size: 0.688em;
+    font-family: "Quicksnd", sans-serif;
+    font-weight: bolder;
+    color: #232323;
+    padding: 0;
+    text-align: center;
+  }
+
+  .texto_profesion {
+    font-size: 0.488em;
+    font-family: "quicksand", sans-serif;
+    color: #3e3e3e;
+    text-align: center;
+  }
+
+  .contenido_boton-ver {
+    display: flex;
+    justify-content: center;
+  }
+
+  .boton_ver-especialidad {
+    background: #0083d6;
+    font-family: "quicksand", sans-serif;
+    font-size: 0.563em;
+    color: #ffffff;
+    padding: 0;
+    height: 25px;
+    width: 102px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .icono_flecha-ver {
+    width: 9%;
+  }
+
+  .logosUniversidades {
+    width: 50%;
+  }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+  .section_titulo {
+    font-size: 2.5em;
+  }
+
+  .icono_img-profesion {
+    width: 150px;
+    height: 150px;
+  }
+
+  .nombre_profesion {
+    font-size: 1.8em;
+  }
+
+  .texto_profesion {
+    font-size: 1em;
+  }
+
+  .boton_ver-especialidad {
+    background: #0083d6;
+    font-family: "quicksand", sans-serif;
+    font-size: 1.25em;
+    color: #ffffff;
+    padding: 0;
+    height: 37px;
+    width: 246px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .icono_flecha-ver {
+    width: 7%;
+  }
+}
+@media (min-width: 1024px) {
+  .section_titulo {
+    font-size: 2.5em;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #0083d6;
+    margin: 5% 0;
+    text-align: center;
+  }
+
+  .contenido_tarjetas-profesionales {
+    margin: 1%;
+    padding: 3% 1%;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .nombre_profesion {
+    font-size: 1.35em;
+    font-family: "Quicksnd", sans-serif;
+    font-weight: bolder;
+    color: #232323;
+    padding: 0;
+    text-align: center;
+  }
+
+  .texto_profesion {
+    font-size: 0.9em;
+    font-family: "quicksand", sans-serif;
+    color: #3e3e3e;
+    text-align: center;
+  }
+
+  .boton_ver-especialidad {
+    background: #0083d6;
+    font-family: "quicksand", sans-serif;
+    font-size: 1.25em;
+    color: #ffffff;
+    padding: 0;
+    height: 37px;
+    width: 246px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
   }
 }

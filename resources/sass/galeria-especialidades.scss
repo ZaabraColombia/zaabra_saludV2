@@ -1,0 +1,59 @@
+// Sección tarjetas profesionales de al salud
+.section_tarjetas-especilidades {
+    margin: auto;
+    margin-bottom: 5%;
+    padding: 0;
+    justify-content: center;
+}
+@media (min-width: 320px) and (orientation: portrait) {
+    // Tarjetas de las especialidades 
+    .imagen_especialidad {
+        width: 75%;
+        display: flex;
+        justify-content: center;
+        align-self: center;
+    }
+    // Sección del titulo especialidades medicina
+    .section_titulo-especialidad {
+        font-size: 1.125em;
+        font-family: 'Quicksand', sans-serif; 
+        font-weight: bolder;
+        color: #0083d6;
+        margin: 10% 0;
+        text-align: center;
+    }
+    // Sección tarjetas especialidades medicina
+    .section_tarjetas-especilidades {
+        margin: auto;
+        margin-bottom: 5%;
+        padding: 0;
+        justify-content: space-between;
+    }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+    // Sección del titulo erspecialidades medicina
+    .section_titulo-especialidad {
+        font-size: 2.5em;
+    }
+     // Tarjetas de las especialidades 
+     .imagen_especialidad {
+        width: 60%;
+    }
+}
+@media (min-width: 1024px) {
+    // Sección del titulo especialidades medicina
+    .section_titulo-especialidad {
+        font-size: 2.5em;
+        font-family: 'Quicksand', sans-serif; 
+        font-weight: bolder;
+        color: #0083d6;
+        margin: 5% 0;
+        text-align: center;
+    }
+    .imagen_especialidad {
+        width: 75%;
+        display: flex;
+        justify-content: center;
+        align-self: center;
+    }
+}

@@ -36,23 +36,21 @@ class profesionesController extends Controller
         return $consultaBannerProfesiones;
     }
 
-     // consulta para cargar todas las profesiones disponibles y que esten activas
+    // consulta para cargar todas las profesiones disponibles, activas y en el orden secuencial según diseño
     public function cargarProfesiones(){
-        $consultaProfesiones = DB::table('profesiones')
-        ->select('nombreProfesion')
-        ->where('estado', '<>', 0)
-        ->get();
-        return $consultaProfesiones;
-        }
+        return DB::select('SELECT pr.nombreProfesion, pr.descripcion, pr.urlimagen, pr.idProfesion
+        FROM profesiones  pr
+        where pr.estado <>0 ORDER BY orden ASC');
+    }
 
-        // consulta para cargar carrusel profesiones 
-        public function cargarCarruselProfesiones(){
-            $consultaCarruselProfesiones = DB::table('ventabanners')
-            ->select('rutaImagenVenta')
-            ->where('aprobado', '<>', 0)
-            ->where('idtipobanner', '=', 6)
-            ->get();
-            return $consultaCarruselProfesiones;
-        }
+    // consulta para cargar carrusel profesiones 
+    public function cargarCarruselProfesiones(){
+        $consultaCarruselProfesiones = DB::table('ventabanners')
+        ->select('rutaImagenVenta')
+        ->where('aprobado', '<>', 0)
+        ->where('idtipobanner', '=', 6)
+        ->get();
+        return $consultaCarruselProfesiones;
+    }
 
 }

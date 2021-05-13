@@ -4,13 +4,17 @@
 
   <!--carrusel banner principal home--> 
   <div class="container-fluid p-0">
-    <section class="col-12 p-0 m-0">
-      @foreach ($objbannersprincipalProfesiones as $objbannersprincipalProfesiones)
-        <img class="logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalProfesiones->rutaImagenVenta)}}">
-      @endforeach
+    <section class="swiper-container">
+      <div class="swiper-wrapper">
+        @foreach ($objbannersprincipalProfesiones as $objbannersprincipalProfesiones)
+          <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalProfesiones->rutaImagenVenta)}}">
+        @endforeach
+      </div>
+
+      <div class="swiper-pagination pagination_margen"></div>
     </section>
 
-    <section class="section_titulo">
+    <section class="section_titulo-rama">
       <span> Ramas de la salud </span>
     </section>
 
@@ -18,7 +22,7 @@
       @foreach ($objprofesiones as $objprofesiones)
         <div class="col-5 col-lg-3 contenido_tarjetas-profesionales">
           <div class="imagen_profesion">
-            <img class="icono_img-profesion" src="{{URL::asset('/img/iconos/icono-medicina-general-mov.svg')}}">
+            <img class="icono_img-profesion" src="{{URL::asset($objprofesiones->urlimagen)}}">
           </div>
 
           <div class="nombre_profesion">
@@ -26,25 +30,35 @@
           </div>
 
           <div class="texto_profesion">
-            <p> Realización de diagnostico y tratamiento de enfermedades más comunes.</p>
+            <p>{{$objprofesiones->descripcion}}</p>
           </div>
 
           <div class="contenido_boton-ver">
-            <button type="submit" value="" class="boton_ver-especialidad" >
-            <span> Ver especialidades </span>
-            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icono_flecha-suscribirme-cel" alt=""> 
+            <a href="{{url('galeriaespecialidades/'.$objprofesiones->idProfesion)}}">
+              <button type="submit" value="" class="boton_ver-especialidad" >
+              <span> Ver especialidades </span>
+              <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icono_flecha-ver" alt=""> 
+            </a>
           </div>
         </div>
+
       @endforeach
     </section>
 
-    <section>
-      @foreach ($objcarruselprofesiones as $objcarruselprofesiones)
-        <img class="logosUniversidades" src="{{URL::asset($objcarruselprofesiones->rutaImagenVenta)}}">
-      @endforeach
-    </section>
+    <div class="row m-auto w-75">
+      <section class="swiper-container col-12 p-0 m-0">
+        <div class="swiper-wrapper">
+          @foreach ($objcarruselprofesiones as $objcarruselprofesiones)
+            <img class="swiper-slide logosUniversidades" src="{{URL::asset($objcarruselprofesiones->rutaImagenVenta)}}">
+          @endforeach
+        </div>
 
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </section>
+    </div>
   </div>
- 
-
 @endsection
