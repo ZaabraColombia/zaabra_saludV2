@@ -1,7 +1,8 @@
-const swiper = new Swiper('.swiper-container',{
+const swiper = new Swiper('.swiper_principal',{
     // Optional parameters
     // If we need pagination
     loop: true,
+    effect: "fade",
     
     pagination: {
       el: '.swiper-pagination',
@@ -14,3 +15,65 @@ const swiper = new Swiper('.swiper-container',{
   
     // And if we need scrollbar
   });
+
+  const swiper_especialistas = new Swiper(".swiper_especialistas", {
+
+    slidesPerView: 4,
+    slidesPerGroup: 4,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    
+    autoplay: {
+      delay: 5500,
+      disableOnInteraction: false,
+    },
+    // Navigation arrows
+    navigation: {
+      nextEl: '.btn-next',
+      prevEl: '.btn-prev',
+    },
+  });
+
+  const swiper_triple = new Swiper(".swiper_triple", {
+
+    slidesPerView: 3,
+    slidesPerGroup: 3,
+    spaceBetween: 5,
+    
+  });
+
+  const swiper_logoshome = new Swiper(".swiper_logoshome", {
+
+    slidesPerView: 12,
+    slidesPerGroup: 6,
+    spaceBetween: 5,
+    loop: true,
+    centeredSlides: true,
+    loopFillGroupWithBlank: false,
+    
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+    },
+    // Navigation arrows
+    navigation: {
+      nextEl: '.btn-next',
+      prevEl: '.btn-prev',
+    },
+
+    breakpoints: {
+       // when window width is >= 1024px
+      1024: {
+        slidesPerView: 12,
+        slidesPerGroup: 6,
+        spaceBetween: 5,
+      },
+      // when window width is >= 1200px
+      1200: {
+        slidesPerView: 12,
+        slidesPerGroup: 7,
+        spaceBetween: 5,
+      }
+    }
+  });
+

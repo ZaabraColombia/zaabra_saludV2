@@ -14,7 +14,7 @@
             <!-- Column form suscribirme -->
             <div class="col-lg-7 suscribirme_contenido d-none d-lg-block">
                 <form  class="row form_suscribirme" action="" id="" method="get">
-                    <input class="col-lg-8 input_suscribirme" type="email" id="txtNewLeeter" name="txtNewLeeter" placeholder="zaabra@gmail.com">
+                    <input class="col-lg-8 input_suscribirme" type="email" id="" name="txtNewLeeter" placeholder="zaabra@gmail.com">
                     <button class="col-lg-3 boton_suscribirme" type="submit" value="Suscribirme">
                     <span> Suscribirme </span>
                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="boton_icon-flecha" alt=""> 
@@ -24,16 +24,16 @@
 
             <!-- Column terminos -->
             <div class="col-lg-8 terminos_contenido d-none d-lg-flex">
-                <input class="checkBox_terminos" type="checkbox" id="aceptoTerminosNewLetter">
+                <input class="checkBox_terminos" type="checkbox" id="">
                 <h4 class="texto_terminos">Acepto <b><u>términos y condiciones</u></b> y autorizo el <b><u>tratamiento de mis datos personales</u></b></h4>
             </div>
             <!-- Column end terminos -->
 
             <!--******************************     Column form suscribirme version MOBILE      *********************************-->
             <form class="row col-10 col-md-9 p-0 m-auto d-block d-lg-none" action="" id="" method="get">
-                <input class="input_suscribirme-cel" type="email" id="txtNewLeeter" name="txtNewLeeter" placeholder="zaabra@gmail.com">
+                <input class="input_suscribirme-cel" type="email" id="" name="txtNewLeeter" placeholder="zaabra@gmail.com">
                 <div class="col-12 check_terminos-cel">
-                    <input type="checkbox" class="boton_check-terminos-cel" id="aceptoTerminosNewLetter-cell"> 
+                    <input type="checkbox" class="boton_check-terminos-cel" id=""> 
                     <span class="texto_terminos-cel">Acepto <b><u>términos y condiciones</u></b>
                         y autorizo el <b><u>tratamiento de mis datos personales</u></b>
                     </span>
@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="col-lg-9 titulo_seccion-info">
-                    <span> CONTÁCTANOS </span> 
+                    <span> CONTÁCTENOS </span> 
                 </div>
 
                 <div class="col-lg-8 iconos_redes-sociales">
@@ -174,7 +174,7 @@
                     <a class="" href="{{ url('/') }}">
                         <img class="imagen_logo" src="{{URL::asset('/img/logos/Logo-zaabra-blanco.png')}}">
                     </a>
-                    <span class="titulo_contactanos-cel"> CONTÁCTANOS </span>
+                    <span class="titulo_contactanos-cel"> CONTÁCTENOS </span>
                     <span class="correo_contactanos-cel"> seervicioalcliente@zaabra.com.co </span>
                 </div>
 

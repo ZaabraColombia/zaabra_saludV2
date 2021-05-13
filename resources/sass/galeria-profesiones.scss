@@ -2,73 +2,36 @@
     width: 100%;
     padding: 0;
 }
-// Sección del titulo ramas de la salud
-.section_titulo {
-    font-size: 2.5em;
-    font-family: 'Quicksand', sans-serif; 
-    font-weight: bolder;
-    color: #0083d6;
-    margin: 5% 0;
-    text-align: center;
-}
 // Sección tarjetas profesionales de al salud
  .section_tarjetas-profesionales {
     margin: auto;
     padding: 0;
     justify-content: center;
 }
-.contenido_tarjetas-profesionales {
-    margin: 1%;
-    padding: 3% 1%;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
-}
 .imagen_profesion {
     display: flex;
     justify-content: center;
     align-self: center;
-}
-.nombre_profesion {
-    font-size: 1.35em;
-    font-family: 'Quicksnd', sans-serif;
-    font-weight: bolder;
-    color: #232323;
-    padding: 0;
-    text-align: center;
-}
-.texto_profesion {
-    font-size: 1em;
-    font-family: 'quicksand', sans-serif;
-    color: #3e3e3e;
-    text-align: center;
 }
 // Sección boton ver especialidades
 .contenido_boton-ver { 
     display: flex;
     justify-content: center;
 }
-.boton_ver-especialidad {
-    background: #0083d6;
-    font-family: 'quicksand', sans-serif;
-    font-size: 1.25em;
-    color: #ffffff;
-    padding: 0;
-    height: 37px;
-    width: 246px;
-    border-radius: 3px;
-    border: none;
-    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
-}
 .logosUniversidades {
     width: 50%; 
 }
 @media (min-width: 320px) and (orientation: portrait) {
+    // Banner principal Ramas de la salud
+    .pagination_margen {
+        margin-bottom: -4%;
+    }
     .logoHeaderSProfesionales {
         width: 100%;
         padding: 0;
     }
     // Sección del titulo ramas de la salud
-    .section_titulo {
+    .section_titulo-rama {
         font-size: 1.125em;
         font-family: 'Quicksand', sans-serif; 
         font-weight: bolder;
@@ -136,7 +99,11 @@
     }
 }  
 @media (min-width: 768px) and (orientation: portrait) {
-    .section_titulo {
+    // Banner principal Ramas de la salud
+    .pagination_margen {
+        margin-bottom: -2%;
+    }
+    .section_titulo-rama {
         font-size: 2.5em;
     }
     .icono_img-profesion {
@@ -166,8 +133,12 @@
     }
 }  
 @media (min-width: 1024px) {
+    // Banner principal Ramas de la salud
+    .pagination_margen {
+        margin-bottom: -1%;
+    }
     // Sección del titulo ramas de la salud
-    .section_titulo {
+    .section_titulo-rama {
         font-size: 2.5em;
         font-family: 'Quicksand', sans-serif; 
         font-weight: bolder;
@@ -197,6 +168,35 @@
         text-align: center;
     }
     // Sección boton ver especialidades
+    .boton_ver-especialidad {
+        background: #0083d6;
+        font-family: 'quicksand', sans-serif;
+        font-size: .9em;
+        color: #ffffff;
+        padding: 0;
+        height: 37px;
+        width: 150px;
+        border-radius: 3px;
+        border: none;
+        box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    }
+    .icono_flecha-ver {
+        width: 8%;
+    }
+}
+@media (min-width: 1200px) {
+    .texto_profesion {
+        font-size: .8em;
+    }
+}
+@media (min-width: 1600px) {
+    // Banner principal Ramas de la salud
+    .pagination_margen {
+        margin-bottom: 0;
+    }
+    .texto_profesion {
+        font-size: 1.2em;
+    }
     .boton_ver-especialidad {
         background: #0083d6;
         font-family: 'quicksand', sans-serif;
