@@ -39,6 +39,7 @@ class especialidadesController extends Controller
         return $consultaBannerEspecialidades;
     }
 
+}
     // consulta para cargar todas las Especialidades disponibles y que esten activas
     public function cargarEspecialidades($idProfesion){
         return DB::select("SELECT es.urlimagen, es.nombreEspecialidad

@@ -155,22 +155,7 @@ a:link, a:visited, a:active, a:hover {
     justify-content: center;
     align-items: center;
 }
-.contains_slider_especialistas{
-    display: flex;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-.contains_slider_especialistas .swipper-wrapper{
-    display: flex;
-    flex-wrap: nowrap;
-    align-content: space-around;
-    justify-content: center;
-    align-items: center;
-}
+
 @media (min-width: 1024px) and (max-height: 800px) {
 
     .navbar_zaabrasalud img{
@@ -212,22 +197,6 @@ a:link, a:visited, a:active, a:hover {
         align-content: center;
         justify-content: center;
         align-items: center;
-    }
-    .contains_slider_especialistas{
-        max-width: 85%;
-        height: 55vh;
-    }
-    .contains_slider_especialistas .card{
-        max-width: 23%;
-        margin-left: 1%;
-        margin-right: 1%;
-    }
-    .contains_slider_especialistas .card-img-top{
-        height: 25vh;
-    }
-    .contains_slider_especialistas .card-body{
-        height: 15vh;
-        padding: 6%;
     }
    
 }
