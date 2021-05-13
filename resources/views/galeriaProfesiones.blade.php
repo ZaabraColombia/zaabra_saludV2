@@ -4,7 +4,7 @@
 
   <!--carrusel banner principal home--> 
   <div class="container-fluid p-0">
-    <section class="swiper-container">
+    <section class="swiper-container swiper_principalGaleriaProf">
       <div class="swiper-wrapper">
         @foreach ($objbannersprincipalProfesiones as $objbannersprincipalProfesiones)
           <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalProfesiones->rutaImagenVenta)}}">
@@ -45,20 +45,16 @@
       @endforeach
     </section>
 
-    <div class="row m-auto w-75">
-      <section class="swiper-container col-12 p-0 m-0">
+
+
+    <section class="contains_slider-logos-galeriaProf">
+      <div class="col-lg-10 swiper-container swiper_logosGaleriaProf">
         <div class="swiper-wrapper">
           @foreach ($objcarruselprofesiones as $objcarruselprofesiones)
-            <img class="swiper-slide logosUniversidades" src="{{URL::asset($objcarruselprofesiones->rutaImagenVenta)}}">
+            <img class="swiper-slide" src="{{URL::asset($objcarruselprofesiones->rutaImagenVenta)}}">
           @endforeach
         </div>
-
-        <div class="swiper-pagination"></div>
-
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </section>
-    </div>
+      </div>
+    </section>
   </div>
 @endsection
