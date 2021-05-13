@@ -327,11 +327,6 @@
     .contains_slider_logoshome{
         height: 25vh;
     }
-    .swiper_logoshome .swiper-slide{
-        object-fit: contain;
-        width: 12% !important;
-        height: 12vh !important;
-    }
 }
 @media (min-width: 1200px){
 
@@ -359,16 +354,10 @@
         height: 35vh;
     }
     .swiper_triple {
-        max-width: 80%;
+        max-width: 81%;
     }
     .swiper_logoshome {
         max-width: 85%;
-    }
-    .swiper_logoshome .swiper-slide {
-        -o-object-fit: contain;
-        object-fit: contain;
-        width: 14% !important;
-        height: 14vh !important;
     }
 }
 
@@ -391,5 +380,22 @@
     }
     .row_contains{
         height: 88%;
+    }
+    .swiper_especialistas {
+        max-width: 80%;
+    }
+    .contains_slider_especialistas {
+        height: 45vh;
+    }
+    .contains_slider_especialistas .card {
+        max-width: 23%;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    .contains_slider_especialistas .card-img-top {
+        height: 25vh;
+    }
+    .ver_mas{
+        max-width: 65%;
     }
 }
