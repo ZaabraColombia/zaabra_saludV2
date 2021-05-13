@@ -64,12 +64,12 @@ const swiper = new Swiper('.swiper_principal',{
         slidesPerGroup: 2,
         spaceBetween: 15,
       },
-      // when window width is >= 1200px
-      1200: {
-        slidesPerView: 12,
-        slidesPerGroup: 7,
+
+      1600: {
+        slidesPerView: 10,
+        slidesPerGroup: 2,
         spaceBetween: 5,
-      }
+      },
     }
   });
 
