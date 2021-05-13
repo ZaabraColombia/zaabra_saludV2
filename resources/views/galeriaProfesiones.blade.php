@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
   <!--carrusel banner principal home--> 
   <div class="container-fluid p-0">
-    <section class="swiper-container swiper_profesiones">
+    <section class="swiper-container">
       <div class="swiper-wrapper">
         @foreach ($objbannersprincipalProfesiones as $objbannersprincipalProfesiones)
           <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalProfesiones->rutaImagenVenta)}}">
@@ -13,12 +14,10 @@
       <div class="swiper-pagination pagination_margen"></div>
     </section>
 
-    <!-- Titulo de la vista  -->
     <section class="section_titulo-rama">
       <span> Ramas de la salud </span>
     </section>
 
-    <!-- Tarjetas de profesiones -->
     <section class="row col-12 col-lg-10 section_tarjetas-profesionales">
       @foreach ($objprofesiones as $objprofesiones)
         <div class="col-5 col-lg-3 contenido_tarjetas-profesionales">
@@ -42,18 +41,24 @@
             </a>
           </div>
         </div>
+
       @endforeach
     </section>
 
-    <!-- Carrusel inferior de logos  -->
-    <section class="contains_slider_logosProfesiones">
-      <div class="swiper-container swiper_logosProfesiones">
+    <div class="row m-auto w-75">
+      <section class="swiper-container col-12 p-0 m-0">
         <div class="swiper-wrapper">
           @foreach ($objcarruselprofesiones as $objcarruselprofesiones)
-            <img class="swiper-slide" src="{{URL::asset($objcarruselprofesiones->rutaImagenVenta)}}">
+            <img class="swiper-slide logosUniversidades" src="{{URL::asset($objcarruselprofesiones->rutaImagenVenta)}}">
           @endforeach
         </div>
-      </div>
-    </section>
+
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </section>
+    </div>
   </div>
 @endsection
