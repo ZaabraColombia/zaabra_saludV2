@@ -9,7 +9,7 @@ const swiper = new Swiper('.swiper_principal',{
     },
   
     autoplay: {
-      delay: 2500,
+      delay: 4500,
       disableOnInteraction: false,
     },
   
@@ -44,12 +44,8 @@ const swiper = new Swiper('.swiper_principal',{
 
   const swiper_logoshome = new Swiper(".swiper_logoshome", {
 
-    slidesPerView: 12,
-    slidesPerGroup: 6,
-    spaceBetween: 5,
     loop: true,
-    centeredSlides: true,
-    loopFillGroupWithBlank: false,
+    loopFillGroupWithBlank: true,
     
     autoplay: {
       delay: 3500,
@@ -64,9 +60,9 @@ const swiper = new Swiper('.swiper_principal',{
     breakpoints: {
        // when window width is >= 1024px
       1024: {
-        slidesPerView: 12,
-        slidesPerGroup: 6,
-        spaceBetween: 5,
+        slidesPerView: 10,
+        slidesPerGroup: 2,
+        spaceBetween: 15,
       },
       // when window width is >= 1200px
       1200: {
