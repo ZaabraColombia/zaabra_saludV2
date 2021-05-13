@@ -21,6 +21,16 @@
 .logosUniversidades {
     width: 50%; 
 }
+.contains_slider-logos-galeriaProf {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 @media (min-width: 320px) and (orientation: portrait) {
     // Banner principal Ramas de la salud
     .pagination_margen {
@@ -182,6 +192,9 @@
     }
     .icono_flecha-ver {
         width: 8%;
+    }
+    .contains_slider-logos-galeriaProf {
+        height: 25vh;
     }
 }
 @media (min-width: 1200px) {

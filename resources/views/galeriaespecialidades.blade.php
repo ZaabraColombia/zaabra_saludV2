@@ -8,12 +8,7 @@
       @endforeach
       </div>
 
-  @foreach ($objEspecialidades as $objEspecialidades)
-      <div class="col-12">
-        <img class="" src="{{URL::asset($objEspecialidades->urlimagen)}}">
-        <span>{{$objEspecialidades->nombreEspecialidad}}</span>
-        <span><a href="{{url('galeriaProfesionales/'.$objEspecialidades->idEspecialidad)}}">ruta</a></span>
-    <div class="swiper-pagination pagination_margen"></div>
+
   </section>
 
   <section class="section_titulo-especialidad">
@@ -32,7 +27,7 @@
         </div>
 
         <div class="contenido_boton-ver">
-          <a href="">
+          <a href="{{url('galeriaProfesionales/'.$objEspecialidades->idEspecialidad)}}">
             <button type="submit" value="" class="boton_ver-especialidad" >
             <span> Ver especialidades </span>
             <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icono_flecha-ver" alt=""> 
