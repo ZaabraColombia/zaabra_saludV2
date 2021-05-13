@@ -19,7 +19,7 @@ class especialidadesController extends Controller
         $objbannerssecundarioEspecialidades = $this->cargarBannerSecundarioEspecialidades();
         $objcarruselespecialidades = $this->cargarCarruselEspecialidades();
 
-  
+
         return view('galeriaespecialidades', compact(
             'objbannersprincipalEspecialidades',
             'objEspecialidades',
@@ -39,17 +39,16 @@ class especialidadesController extends Controller
         return $consultaBannerEspecialidades;
     }
 
-}
-    // consulta para cargar todas las Especialidades disponibles y que esten activas
-    public function cargarEspecialidades($idProfesion){
-        return DB::select("SELECT es.urlimagen, es.nombreEspecialidad
+     // consulta para cargar todas las Especialidades disponibles y que esten activas
+     public function cargarEspecialidades($idProfesion){
+        return DB::select("SELECT es.urlimagen, es.nombreEspecialidad, es.idEspecialidad
         FROM profesiones pr
         INNER JOIN  especialidades es ON pr.idProfesion = es.idProfesion 
         WHERE  es.estado <>0  AND es.idProfesion=$idProfesion ORDER BY es.orden ASC ");
     }
 
    
-    // consulta para cargar banner principal 
+    // consulta para cargar banner secundario especialidades
     public function cargarBannerSecundarioEspecialidades(){
         $consultaBannerSecundarioEspecialidades = DB::table('ventabanners')
         ->select('rutaImagenVenta')
@@ -69,5 +68,8 @@ class especialidadesController extends Controller
         return $consultaCarruselEspecialidades;
     }
 
-   
+
 }
+   
+   
+
