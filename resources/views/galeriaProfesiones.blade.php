@@ -4,21 +4,17 @@
 
   <!--carrusel banner principal home--> 
   <div class="container-fluid p-0">
-    <section class="swiper-container col-12 p-0 m-0">
+    <section class="swiper-container">
       <div class="swiper-wrapper">
         @foreach ($objbannersprincipalProfesiones as $objbannersprincipalProfesiones)
           <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalProfesiones->rutaImagenVenta)}}">
         @endforeach
       </div>
 
-      <div class="swiper-pagination"></div>
-
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination pagination_margen"></div>
     </section>
 
-    <section class="section_titulo">
+    <section class="section_titulo-rama">
       <span> Ramas de la salud </span>
     </section>
 
@@ -37,34 +33,32 @@
             <p>{{$objprofesiones->descripcion}}</p>
           </div>
 
-          <div class="texto_profesion">
-            <a href="{{url('galeriaespecialidades/'.$objprofesiones->idProfesion)}}">oscar</a>
-          </div>
-
           <div class="contenido_boton-ver">
-            <button type="submit" value="" class="boton_ver-especialidad" >
-            <span> Ver especialidades </span>
-            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icono_flecha-ver" alt=""> 
+            <a href="{{url('galeriaespecialidades/'.$objprofesiones->idProfesion)}}">
+              <button type="submit" value="" class="boton_ver-especialidad" >
+              <span> Ver especialidades </span>
+              <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icono_flecha-ver" alt=""> 
+            </a>
           </div>
         </div>
 
       @endforeach
     </section>
 
-  <div class="row m-auto w-75">
-    <section class="swiper-container col-12 p-0 m-0">
-      <div class="swiper-wrapper">
-        @foreach ($objcarruselprofesiones as $objcarruselprofesiones)
-          <img class="swiper-slide logosUniversidades" src="{{URL::asset($objcarruselprofesiones->rutaImagenVenta)}}">
-        @endforeach
-      </div>
+    <div class="row m-auto w-75">
+      <section class="swiper-container col-12 p-0 m-0">
+        <div class="swiper-wrapper">
+          @foreach ($objcarruselprofesiones as $objcarruselprofesiones)
+            <img class="swiper-slide logosUniversidades" src="{{URL::asset($objcarruselprofesiones->rutaImagenVenta)}}">
+          @endforeach
+        </div>
 
-      <div class="swiper-pagination"></div>
+        <div class="swiper-pagination"></div>
 
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </section>
-  </div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </section>
+    </div>
   </div>
 @endsection
