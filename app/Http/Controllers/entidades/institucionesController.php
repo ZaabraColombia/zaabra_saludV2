@@ -15,7 +15,7 @@ class institucionesController extends Controller
         $objinstitucionessinpago  = $this->cargarinstitucionesSinPago($id);
         $objcarruselPublicidadinstituciones = $this->cargarCarruselInstituciones();
 
-        return view('profesionales.Profesionales', compact(
+        return view('instituciones.Instituciones', compact(
             'objcarruselinstitucionespremiun',
             'objinstitucionespagonormal',
             'objinstitucionessinpago',
@@ -25,7 +25,7 @@ class institucionesController extends Controller
     }
 
          // consulta para cargar todas los profesionales segun su especialidad y que pagan premiun
-         public function cargarCarruselProfesionalesPremiun($id){
+         public function cargarCarruselinstitucionesPremiun($id){
             return DB::select("SELECT us.primernombre, us.primerapellido, ep.nombreEspecialidad, mn.nombre, pf.descripcionPerfil, un.nombreuniversidad, pf.fotoperfil
             FROM  users us
             INNER JOIN pagos pg ON us.id=pg.idUsuario
@@ -38,7 +38,7 @@ class institucionesController extends Controller
         }
 
             // consulta para cargar todas los profesionales segun su especialidad y el pago normal
-            public function cargarMedicosPagoNormal($id){
+            public function cargarinstitucionesPagoNormal($id){
             return DB::select("SELECT us.primernombre, us.primerapellido, ep.nombreEspecialidad, mn.nombre, pf.descripcionPerfil, un.nombreuniversidad, pf.fotoperfil
             FROM  users us
             INNER JOIN pagos pg ON us.id=pg.idUsuario
@@ -51,7 +51,7 @@ class institucionesController extends Controller
         }
 
             // consulta para cargar todas los profesionales segun su especialidad y el pago normal
-            public function cargarMedicosSinPago($id){
+            public function cargarinstitucionesSinPago($id){
             return DB::select("SELECT us.primernombre, us.primerapellido, ep.nombreEspecialidad
             FROM  users us
             INNER JOIN pagos pg ON us.id=pg.idUsuario
@@ -65,7 +65,7 @@ class institucionesController extends Controller
 
 
             // consulta para cargar carrusel profesionales 
-            public function cargarCarruselProfesionales(){
+            public function cargarCarruselInstituciones(){
             $consultaCarruselProfesiones = DB::table('ventabanners')
             ->select('rutaImagenVenta')
             ->where('aprobado', '<>', 0)
