@@ -3,13 +3,13 @@ function direccionFlecha (element){
     let cambioDireccion = element.getAttribute("data-rote");
 
     if (cambioDireccion == 0) {
-        $(element).removeClass('fas fa-chevron-up'); //validacion flecha con direccion hacia la derecha jfk
-        $(element).addClass('fas fa-chevron-down');
+        $(element).removeClass('fas fa-chevron-down'); //validacion flecha con direccion hacia la derecha jfk
+        $(element).addClass('fas fa-chevron-up');
         $(element).attr('data-rote',1)
     }
     else{
-        $(element).removeClass('fas fa-chevron-down');  //validacion flecha con direccion hacia abajo
-        $(element).addClass('fas fa-chevron-up');
+        $(element).removeClass('fas fa-chevron-up');  //validacion flecha con direccion hacia abajo
+        $(element).addClass('fas fa-chevron-down');
         $(element).attr('data-rote',0)
     }
 }
