@@ -27,7 +27,7 @@
         </div>
 
         <div class="contenido_boton-ver">
-          <a href="{{url('galeriaProfesionales/'.$objEspecialidades->idEspecialidad)}}">
+          <a href="{{url('Profesionales/'.$objEspecialidades->idEspecialidad)}}">
             <button type="submit" value="" class="boton_ver-especialidad" >
             <span> Ver especialidades </span>
             <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icono_flecha-ver" alt=""> 

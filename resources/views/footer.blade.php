@@ -14,8 +14,8 @@
             <!-- Column form suscribirme -->
             <div class="col-lg-7 suscribirme_contenido d-none d-lg-block">
                 <form  class="row form_suscribirme" action="" id="" method="get">
-                    <input class="col-lg-8 input_suscribirme" type="email" id="" name="txtNewLeeter" placeholder="zaabra@gmail.com">
-                    <button class="col-lg-3 boton_suscribirme" type="submit" value="Suscribirme">
+                    <input class="col-lg-8 col-xl-7 input_suscribirme" type="email" id="" name="txtNewLeeter" placeholder="zaabra@gmail.com">
+                    <button class="col-lg-3 col-xl-2 boton_suscribirme" type="submit" value="Suscribirme">
                     <span> Suscribirme </span>
                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="boton_icon-flecha" alt=""> 
                 </form>
@@ -161,7 +161,13 @@
 
                 <div class="col-lg-9 p-0">
                     <a href="{{url('politicas#terminos')}}">
-                        <span class="texto_info-Zaabra">Términos y condiciones</span>
+                        <span class="texto_info-Zaabra">Términos y condiciones de Zaabra Salud</span>
+                    </a> 
+                </div>
+
+                <div class="col-lg-9 p-0">
+                    <a href="{{url('politicas#terminos')}}">
+                        <span class="texto_info-Zaabra">Términos y condiciones del servicio </span>
                     </a> 
                 </div>
             </div>
@@ -223,7 +229,7 @@
                 <div class="col-10 contenido_desplegable-cel">
                     <button class="boton_infoZaabra-cel rotacionBtn" type="button" data-toggle="collapse" 
                         data-target="#acercaZaabra" aria-expanded="false" aria-controls="acercaZaabra">
-                        <i onclick="direccionFlecha(this)"  data-rote="0" class="fas fa-chevron-up icono_flecha-boton-cel">
+                        <i onclick="direccionFlecha(this)"  data-rote="0" class="fas fa-chevron-down icono_flecha-boton-cel">
                             <h6 class="titulo_infoZaabra-cel"> ACERCA DE ZAABRA </h6>
                         </i>
                     </button>
@@ -233,25 +239,25 @@
                     <div class="col-12 card card-body desplegable_infoZaabra-cel">
                         <div class="col-12 texto_infoZaabra-cel">
                             <a href="/quienes">
-                                <span class="">- ¿Quiénes somos?</span>
+                                <span class=""> ¿Quiénes somos?</span>
                             </a>    
                         </div>
 
                         <div class="col-12 texto_infoZaabra-cel">
                             <a href="">
-                                <span class="">- ¿Como funciona Zaabra Salud</span>
+                                <span class=""> ¿Como funciona Zaabra Salud</span>
                             </a>
                         </div>
 
                         <div class="col-12 texto_infoZaabra-cel">
                             <a href="/quienes#politicas">
-                                <span class="">- Responsabilidad social </span>
+                                <span class=""> Responsabilidad social </span>
                             </a>
                         </div>
 
                         <div class="col-12 texto_infoZaabra-cel">
                             <a href="/quienes#preguntas">
-                                <span class="">- Preguntas frecuentes</span>
+                                <span class=""> Preguntas frecuentes</span>
                             </a>
                         </div>
                         <!-- <div class="col-12 texto_infoZaabra-cel">
@@ -275,7 +281,7 @@
                 <div class="col-10 contenido_desplegable-cel">
                     <button class="boton_infoZaabra-cel rotacionBtn" type="button" data-toggle="collapse" 
                             data-target="#politicasUse" aria-expanded="false" aria-controls="politicasUse">
-                        <i onclick="direccionFlecha(this)"  data-rote="0" class="fas fa-chevron-up icono_flecha-boton-cel"> 
+                        <i onclick="direccionFlecha(this)"  data-rote="0" class="fas fa-chevron-down icono_flecha-boton-cel"> 
                             <h6 class="titulo_infoZaabra-cel"> POLÍTICAS DE USO </h6>
                         </i>
                     </button>
@@ -285,19 +291,25 @@
                     <div class="col-12 card card-body desplegable_infoZaabra-cel">
                         <div class="col-12 texto_infoZaabra-cel">
                             <a href="/quienes#terminos">
-                                <span class="">- Políticas de cookies</span>
+                                <span class=""> Políticas de cookies</span>
                             </a>
                         </div>
 
                         <div class="col-12 texto_infoZaabra-cel">
                             <a href="/quienes#politicas">
-                                <span class="">- Políticas de privacidad</span>
+                                <span class=""> Políticas de privacidad</span>
                             </a>
                         </div>
 
                         <div class="col-12 texto_infoZaabra-cel">
                             <a href="/quienes#terminos">
-                                <span class="">- Términos y condiciones</span>
+                                <span class=""> Términos y condiciones de Zaabra Salud </span>
+                            </a>
+                        </div>
+
+                        <div class="col-12 texto_infoZaabra-cel">
+                            <a href="/quienes#terminos">
+                                <span class=""> Términos y condiciones del servicio </span>
                             </a>
                         </div>
 
