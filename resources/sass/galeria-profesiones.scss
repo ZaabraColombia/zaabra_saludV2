@@ -1,4 +1,4 @@
-.logoHeaderSProfesionales {
+.imagen_bannerPrin-prof {
     width: 100%;
     padding: 0;
 }
@@ -36,7 +36,7 @@
     .pagination_margen {
         margin-bottom: -4%;
     }
-    .logoHeaderSProfesionales {
+    .imagen_bannerPrin-prof {
         width: 100%;
         padding: 0;
     }
@@ -107,6 +107,9 @@
     .logosUniversidades {
         width: 50%; 
     }
+    // Carrusel logos inferior 
+    .contains_slider-logos-galeriaProf {
+        height: 20vh; }
 }  
 @media (min-width: 768px) and (orientation: portrait) {
     // Banner principal Ramas de la salud
