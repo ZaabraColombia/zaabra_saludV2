@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\profesionales;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,7 +21,7 @@ class especialidadesController extends Controller
         $objcarruselespecialidades = $this->cargarCarruselEspecialidades();
 
 
-        return view('galeriaespecialidades', compact(
+        return view('profesionales.Especialidades', compact(
             'objbannersprincipalEspecialidades',
             'objEspecialidades',
             'objbannerssecundarioEspecialidades',

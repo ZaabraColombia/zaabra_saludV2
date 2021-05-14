@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\profesionales;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,7 @@ class medicosEspecialidadController extends Controller
         $objmedicossinpago  = $this->cargarMedicosSinPago($idEspecialidad);
         $objcarruselPublicidadprofesionales = $this->cargarCarruselProfesionales();
 
-        return view('Profesionales', compact(
+        return view('profesionales.Profesionales', compact(
             'objcarruselprofesionalespremiun',
             'objmedicospagonormal',
             'objmedicossinpago',
