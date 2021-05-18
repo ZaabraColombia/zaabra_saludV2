@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <!--carrusel banner principal home--> 
 <section class="swiper-container swiper_principal">
       <div class="swiper-wrapper">
@@ -74,7 +73,7 @@
                     <h5>{{$objprofesionaleshome->nombreEspecialidad}}</h5>
                     <p>{{$objprofesionaleshome->nombreuniversidad}}</p>
                     <p>{{$objprofesionaleshome->primernombre}} {{$objprofesionaleshome->primerapellido}}</p>
-                    <a href="" class="ver_mas btn-profesional hvr-sweep-to-right">Ver detalles
+                    <a href="" class="btn-profesional hvr-sweep-to-right">Ver detalles
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>
                 </div>
