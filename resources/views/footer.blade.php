@@ -9,7 +9,6 @@
                 <h2 class="newsletter_titulo">¡Suscríbete a nuestro newsletter!</h2>
                 <p class="newsletter_texto"> Mantente al día de todas nuestras novedades </p>
             </div>
-            <!-- Column end titulo -->
 
             <!-- Column form suscribirme -->
             <div class="col-lg-7 suscribirme_contenido d-none d-lg-block">
@@ -20,14 +19,12 @@
                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="boton_icon-flecha" alt=""> 
                 </form>
             </div>
-            <!-- Column end form suscribirme -->
 
             <!-- Column terminos -->
             <div class="col-lg-8 terminos_contenido d-none d-lg-flex">
                 <input class="checkBox_terminos" type="checkbox" id="">
                 <h4 class="texto_terminos">Acepto <b><u>términos y condiciones</u></b> y autorizo el <b><u>tratamiento de mis datos personales</u></b></h4>
             </div>
-            <!-- Column end terminos -->
 
             <!--******************************     Column form suscribirme version MOBILE      *********************************-->
             <form class="row col-10 col-md-9 p-0 m-auto d-block d-lg-none" action="" id="" method="get">
@@ -44,7 +41,6 @@
             </form>
             <!--******************************     Column end form suscribirme version MOBILE      *********************************-->
         </div>
-        <!-- Row end newsletter -->
 
         <!-- Row informacion Zaabrasalud-->
         <div class="row footer_info-zaabrasalud">
@@ -102,7 +98,6 @@
                     <span> servicioalcliente@zaabra.com.co </span>
                 </div>
             </div>
-            <!-- Column end contenido contactanos -->
 
             <!-- Column contenido acerca zaabra-->
             <div class="col-lg-3 infoZaabra_contenido d-none d-lg-flex">
@@ -139,39 +134,37 @@
                     </a>  
                 </div> -->
             </div>
-            <!-- Column end contenido acerca de zaabra -->
 
             <!-- Column contenido politicas de uso -->
             <div class="col-lg-3 infoZaabra_contenido d-none d-lg-flex">
-                <div class="col-lg-9 titulo_seccion-info">
+                <div class="col-lg-10 col-xl-9  titulo_seccion-info">
                     <span> POLÍTICAS DE USO </span> 
                 </div>
 
-                <div class="col-lg-9 p-0">
+                <div class="col-lg-10 col-xl-9  p-0">
                     <a href="{{url('politicas#cookies')}}">
                         <span class="texto_info-Zaabra">Políticas de cookies</span>
                     </a> 
                 </div>
 
-                <div class="col-lg-9 p-0">
+                <div class="col-lg-10 col-xl-9  p-0">
                     <a href="{{url('politicas#politicas')}}">
                         <span class="texto_info-Zaabra">Políticas de privacidad</span>
                     </a> 
                 </div>
 
-                <div class="col-lg-9 p-0">
+                <div class="col-lg-10 col-xl-9  p-0">
                     <a href="{{url('politicas#terminos')}}">
                         <span class="texto_info-Zaabra">Términos y condiciones de Zaabra Salud</span>
                     </a> 
                 </div>
 
-                <div class="col-lg-9 p-0">
+                <div class="col-lg-10 col-xl-9  p-0">
                     <a href="{{url('politicas#terminos')}}">
                         <span class="texto_info-Zaabra">Términos y condiciones del servicio </span>
                     </a> 
                 </div>
             </div>
-            <!-- Column end contenido politicas de uso -->
 
             <!--******************************     Columns acerca y politicas de uso Zaabra version MOBILE      *********************************-->
             <!-- Column contenido contactanos-->
@@ -222,7 +215,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Column end contenido contactanos -->
 
             <!-- Column contenido acerca zaabra-->
             <div class="col-12 infoZaabra_contenido-cel d-block d-lg-none">
@@ -268,13 +260,11 @@
                     </div>
                 </div> 
             </div>
-            <!-- Column end contenido acerca de zaabra -->
 
             <!-- Linea que divide las secciones acerca de zaabra y políticas de uso -->
             <div class="col-10 contenido_linea-blanca-cel d-block d-lg-none">
                 <hr class="division_linea-blanca-cel">
             </div> 
-            <!-- Linea que divide las secciones acerca de zaabra y políticas de uso -->
 
             <!-- Column contenido politicas de uso -->
             <div class="col-12 infoZaabra_contenido-cel d-block d-lg-none">
@@ -321,10 +311,8 @@
                     </div>
                 </div>
             </div>
-            <!-- Column end contenido politicas de uso -->
             <!--******************************     Column end form suscribirme version MOBILE      *********************************-->
         </div>
-        <!-- Row end informacion Zaabrasalud-->
 
         <!-- Row iconos gobierno de Colombia -->
         <div class="row footer_iconos-colombia">
@@ -342,14 +330,10 @@
                 </div>
             </div>
         </div>
-        <!-- Row end iconos gobierno de Colombia -->
     </div>
-    <!-- End contenedor principal del footer -->
 
     <!-- Copyright -->
     <div class="col-12 footer_copy-right">
       <span class="texto_copy-right">&copy; Zaabra 2021 </span>  
     </div>
-    <!-- Copyright end -->
 </footer>
-<!-- Footer -->
