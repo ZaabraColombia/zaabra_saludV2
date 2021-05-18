@@ -10,9 +10,6 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/home.js') }}" defer></script>
-    <script src="{{ asset('js/galeriaProfesiones.js') }}" defer></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <!-- Fonts -->
@@ -51,9 +48,9 @@
 
                 <!--******************************     Sección BARRA DE BUSQUEDA version MOBILE      *************************************-->
                 <!-- SECCION BARRA DE BUSQUEDA HEADER -->
-                <div class="positionIConoLupaHeader d-flex d-lg-none">
-                    <button type="button" class="btnLupaHeaderMovil">
-                        <img class="lupaHeaderMovil" id="" src="{{URL::asset('/img/header/icono-lupa-blanco.svg')}}">
+                <div class="positionIConoLupaHeader">
+                    <button type="button" onclick="ocultaInput()" class="boton_lupa_mobile">
+                        <img class="icon_lupa-mobile" src="{{URL::asset('/img/header/icono-lupa-blanco.svg')}}">
                     </button>
                 </div>
                 <!--******************************     End sección BARRA DE BUSQUEDA version MOBILE      *********************************-->
@@ -78,17 +75,17 @@
                     </a>  
                 </div>
 
-                <!--******************************     Sección BARRA DE BUSQUEDA version MOBILE      *************************************-->
+                <!--******************************     Sección Botón Membresía version MOBILE      *************************************-->
                 <!-- SECCION BARRA DE BUSQUEDA HEADER -->
                 <div class="button-membresia d-flex d-lg-none">
                     <a class="" href="">
                         <img class="img-button-membresia" src="{{URL::asset('/img/header/boton-de-memebresia-mob.png')}}"> 
                     </a>  
                 </div>
-                <!--******************************     End sección BARRA DE BUSQUEDA version MOBILE      *********************************-->
+                <!--******************************     End sección Botón Membresía version MOBILE      *********************************-->
 
                 <!-- Sección Menú hamburguesa -->
-                <div class="menu-hamburger dropdown">
+                <div class="menu-hamburger dropdown contenido_icon-menu">
                     <a class="icon-menu dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span></span>
                     </a>
@@ -100,7 +97,7 @@
                     </div>
                 </div>
 
-
+                
                 <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button> -->
@@ -147,6 +144,20 @@
                     </ul>
                 </div> -->
             </div>
+
+             <!--******************************     Sección BARRA DE BUSQUEDA OCULTA version MOBILE      *************************************-->
+            <div class="contains_barra">
+                <div class="barra_oculta" id="buscador">
+                    <div class="barra_busqueda-mobile">
+                        <form action="http://portal-test.zaabra.local/busqueda" method="POST" class="form-inline heigFormHeader" id="buscar">
+                            <input type="hidden" name="_token" value="tzFtz8TstiTocmap8vuJp4Py7sMc0zcQiC63SuyF">
+                            <input class="inputBarraBusquedad" type="buttton" name="buscar" id="barra_buscar" autocomplete="off">
+                            <input type="image" class="contenedorLupa" src="{{URL::asset('/img/header/Lupa_Iconos.png')}}">
+                        </form>
+                    </div> 
+                </div>
+            </div>
+            <!--******************************     End sección BARRA DE BUSQUEDA OCULTA version MOBILE      *********************************-->
         </nav>
 
         <!-------------------------------------------Contenido-------------------------------------------->
@@ -155,6 +166,10 @@
         </main>
         @include('footer')
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/header.js') }}"></script>
+    <script src="{{ asset('js/home.js') }}"></script>
     <script src="{{ asset('js/footer.js') }}"></script>
+    <script src="{{ asset('js/galeriaProfesiones.js') }}"></script>
 </body>
 </html>
