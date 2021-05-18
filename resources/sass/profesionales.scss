@@ -1,0 +1,42 @@
+.contains_slide .contains_image_profesional img{
+    height: 100%;
+    width: 100%;
+}
+.titulo_profesionales{
+    font-family: "Quicksand", sans-serif;
+    color: #0083d6;
+    font-weight: bold;
+    text-align: center;
+}
+.contains_slide .contains_info{
+    text-align: center;
+}
+@media (min-width: 320px){
+
+    .titulo_profesionales{
+        margin-top: 5%;
+        margin-bottom: 5%;
+        font-size: 1.4em;
+    }
+    .contains_swiper_premium{
+        max-width: 100%;
+        height: 40vh;
+    }
+    .swiper_premium{
+        max-width: 90%;
+        height: 100%;
+        flex-direction: column;
+    }
+    .contains_slide .contains_image_profesional{
+        height: 40%;
+    }
+    .contains_slide .contains_image_profesional img{
+        object-fit: cover;
+    }
+    .contains_slide .contains_info{
+        height: 40%;
+    }
+    .contains_slide .contains_buttons{
+        height: 40%;
+    }
+}
