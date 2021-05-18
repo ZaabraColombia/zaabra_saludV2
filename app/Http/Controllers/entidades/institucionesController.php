@@ -26,41 +26,34 @@ class institucionesController extends Controller
 
          // consulta para cargar todas los profesionales segun su especialidad y que pagan premiun
          public function cargarCarruselinstitucionesPremiun($id){
-            return DB::select("SELECT us.primernombre, us.primerapellido, ep.nombreEspecialidad, mn.nombre, pf.descripcionPerfil, un.nombreuniversidad, pf.fotoperfil
+            return DB::select("SELECT us.primernombre, ins.url, mn.nombre, ins.imagen, ins.caracteristicas, tns.nombretipo
             FROM  users us
+            INNER JOIN instituciones ins ON us.id=ins.idUser
+            INNER JOIN tipoinstitucion tns ON ins.idtipoInstitucion=tns.id
             INNER JOIN pagos pg ON us.id=pg.idUsuario
-            INNER JOIN perfilesprofesionales pf ON us.id=pf.idUser
-            INNER JOIN municipio mn ON pf.id_municipio=mn.id_municipio
-            INNER JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
-            INNER JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
-            INNER JOIN universidades un ON pu.id_universidad=un.id_universidad
-            WHERE pg.idtipopago=12 AND pf.idespecialidad=$id AND pf.aprobado<>0");
+            INNER JOIN municipio mn ON ins.id_municipio=mn.id_municipio
+            WHERE pg.idtipopago=12");
         }
 
             // consulta para cargar todas los profesionales segun su especialidad y el pago normal
             public function cargarinstitucionesPagoNormal($id){
-            return DB::select("SELECT us.primernombre, us.primerapellido, ep.nombreEspecialidad, mn.nombre, pf.descripcionPerfil, un.nombreuniversidad, pf.fotoperfil
+            return DB::select("SELECT us.primernombre, ins.url, mn.nombre, ins.imagen, ins.caracteristicas, tns.nombretipo
             FROM  users us
+            INNER JOIN instituciones ins ON us.id=ins.idUser
+            INNER JOIN tipoinstitucion tns ON ins.idtipoInstitucion=tns.id
             INNER JOIN pagos pg ON us.id=pg.idUsuario
-            INNER JOIN perfilesprofesionales pf ON us.id=pf.idUser
-            INNER JOIN municipio mn ON pf.id_municipio=mn.id_municipio
-            INNER JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
-            INNER JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
-            INNER JOIN universidades un ON pu.id_universidad=un.id_universidad
-            WHERE pg.idtipopago=13 AND pf.idespecialidad=$id AND pf.aprobado<>0");
+            INNER JOIN municipio mn ON ins.id_municipio=mn.id_municipio
+            WHERE pg.idtipopago=13");
         }
 
             // consulta para cargar todas los profesionales segun su especialidad y el pago normal
             public function cargarinstitucionesSinPago($id){
-            return DB::select("SELECT us.primernombre, us.primerapellido, ep.nombreEspecialidad
+            return DB::select("SELECT us.primernombre, tns.nombretipo
             FROM  users us
+            INNER JOIN instituciones ins ON us.id=ins.idUser
+            INNER JOIN tipoinstitucion tns ON ins.idtipoInstitucion=tns.id
             INNER JOIN pagos pg ON us.id=pg.idUsuario
-            INNER JOIN perfilesprofesionales pf ON us.id=pf.idUser
-            INNER JOIN municipio mn ON pf.id_municipio=mn.id_municipio
-            INNER JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
-            INNER JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
-            INNER JOIN universidades un ON pu.id_universidad=un.id_universidad
-            WHERE pg.idtipopago=14 AND pf.idespecialidad=$id AND pf.aprobado<>0");
+            WHERE pg.idtipopago=14");
         }
 
 
@@ -69,7 +62,7 @@ class institucionesController extends Controller
             $consultaCarruselProfesiones = DB::table('ventabanners')
             ->select('rutaImagenVenta')
             ->where('aprobado', '<>', 0)
-            ->where('idtipobanner', '=', 10)
+            ->where('idtipobanner', '=', 12)
             ->get();
             return $consultaCarruselProfesiones;
         }
