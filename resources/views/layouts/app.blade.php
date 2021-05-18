@@ -33,11 +33,13 @@
         <!-------------------------------------------Headaer-------------------------------------------->
         <nav class="navbar navbar_zaabrasalud">
             <div class="container contains_header">
+                <!-- Sección Logo Zaabra -->
                 <a class="navbar-logo" href="{{ url('/') }}">
-                    <img class="logoHeaderSProfesionales" src="{{URL::asset('/img/header/logo-zaabra.png')}}">
+                    <img class="logo_header" src="{{URL::asset('/img/header/logo-zaabra.png')}}">
                 </a>
-                 <!-- SECCION BARRA DE BUSQUEDA HEADER -->
-                <div class="contains_boxsearch">
+
+                <!-- Sección barra de busqueda -->
+                <div class="contains_boxsearch d-none d-lg-flex">
                     <div class="barra_busqueda">
                         <form action="http://portal-test.zaabra.local/busqueda" method="POST" class="form-inline heigFormHeader" id="buscar">
                             <input type="hidden" name="_token" value="tzFtz8TstiTocmap8vuJp4Py7sMc0zcQiC63SuyF">
@@ -47,6 +49,16 @@
                     </div> 
                 </div>
 
+                <!--******************************     Sección BARRA DE BUSQUEDA version MOBILE      *************************************-->
+                <!-- SECCION BARRA DE BUSQUEDA HEADER -->
+                <div class="positionIConoLupaHeader d-flex d-lg-none">
+                    <button type="button" class="btnLupaHeaderMovil">
+                        <img class="lupaHeaderMovil" id="" src="{{URL::asset('/img/header/icono-lupa-blanco.svg')}}">
+                    </button>
+                </div>
+                <!--******************************     End sección BARRA DE BUSQUEDA version MOBILE      *********************************-->
+
+                <!-- Sección Soy paciente -->
                 <div class="soy_paciente dropdown">
                     <a class="icon_menu dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img class="icon_paciente" src="{{URL::asset('/img/header/icono-soy-paciente-blanco.svg')}}">
@@ -59,18 +71,29 @@
                     </div>
                 </div>
 
-                <div class="button-membresia">
+                <!-- Sección Botón membresía -->
+                <div class="button-membresia d-none d-lg-flex">
                     <a class="" href="">
                         <img class="img-button-membresia" src="http://portal-test.zaabra.local/img/boton-membresia.png">
                     </a>  
                 </div>
 
+                <!--******************************     Sección BARRA DE BUSQUEDA version MOBILE      *************************************-->
+                <!-- SECCION BARRA DE BUSQUEDA HEADER -->
+                <div class="button-membresia d-flex d-lg-none">
+                    <a class="" href="">
+                        <img class="img-button-membresia" src="{{URL::asset('/img/header/boton-de-memebresia-mob.png')}}"> 
+                    </a>  
+                </div>
+                <!--******************************     End sección BARRA DE BUSQUEDA version MOBILE      *********************************-->
+
+                <!-- Sección Menú hamburguesa -->
                 <div class="menu-hamburger dropdown">
                     <a class="icon-menu dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span></span>
                     </a>
 
-                    <div class="dropdown-menu menu-hamburguesa px-2" aria-labelledby="dropdownMenuLink" style="">
+                    <div class="dropdown-menu menu_hamburguesa px-2" aria-labelledby="dropdownMenuLink" style="">
                         <a class="dropdown-item" href="#"><div class="icon-dropdown icon-especialidades"></div>Especialidades medicas</a>
                         <a class="dropdown-item" href="#"><div class="icon-dropdown icon-instituciones"></div>Instituciones medicas</a>
                         <a class="dropdown-item" href="#"><div class="icon-dropdown icon-quienes"></div>¿Quiénes Somos?</a>

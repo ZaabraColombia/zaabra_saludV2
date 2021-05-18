@@ -17,7 +17,7 @@ const swiper_principalGaleriaProf = new Swiper('.swiper_principalGaleriaProf',{
   // And if we need scrollbar
 });
 
-//Carrusel inferior galeriaProfesiones, Rama de la salud
+//Carrusel de logos inferior galeriaProfesiones, Rama de la salud
 const swiper_logosGaleriaProf = new Swiper(".swiper_logosGaleriaProf", {
 
   loop: true,
@@ -36,16 +36,22 @@ const swiper_logosGaleriaProf = new Swiper(".swiper_logosGaleriaProf", {
 
   breakpoints: {
     // when window width is >= 1024px
+    320: {
+      slidesPerView: 5,
+      slidesPerGroup: 2,
+      spaceBetween: 5,
+    },
+    // when window width is >= 1024px
     1024: {
       slidesPerView: 10,
-      slidesPerGroup: 3,
-      spaceBetween: 5,
+      slidesPerGroup: 2,
+      spaceBetween: 15,
     },
     // when window width is >= 1200px
     1200: {
-      slidesPerView: 12,
-      slidesPerGroup: 7,
-      spaceBetween: 5,
+      slidesPerView: 10,
+      slidesPerGroup: 2,
+      spaceBetween: 15,
     }
   }
 });
