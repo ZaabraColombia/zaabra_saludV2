@@ -45,7 +45,7 @@ class especialidadesController extends Controller
         return DB::select("SELECT es.urlimagen, es.nombreEspecialidad, es.idEspecialidad
         FROM profesiones pr
         INNER JOIN  especialidades es ON pr.idProfesion = es.idProfesion 
-        WHERE  es.estado <>0  AND es.idProfesion=$idProfesion ORDER BY es.orden ASC ");
+        WHERE  es.estado <>0  AND es.idProfesion=$idProfesion ORDER BY es.orden  + 0 ASC ");
     }
 
    

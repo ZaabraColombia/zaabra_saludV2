@@ -1,3 +1,7 @@
+.imagen_bannerPrin-espc {
+    width: 100%;
+    padding: 0;
+}
 // Sección tarjetas profesionales de al salud
 .section_tarjetas-especilidades {
     margin: auto;
@@ -6,6 +10,10 @@
     justify-content: center;
 }
 @media (min-width: 320px) and (orientation: portrait) {
+    .imagen_bannerPrin-espc {
+        width: 100%;
+        padding: 0;
+    }
     // Tarjetas de las especialidades 
     .imagen_especialidad {
         width: 75%;

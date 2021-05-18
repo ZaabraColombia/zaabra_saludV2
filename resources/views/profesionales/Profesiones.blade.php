@@ -2,22 +2,22 @@
 
 @section('content')
 
-  <!--carrusel banner principal home--> 
   <div class="container-fluid p-0">
+    <!-- Carrusel Banner principal, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
     <section class="swiper-container swiper_principalGaleriaProf">
       <div class="swiper-wrapper">
         @foreach ($objbannersprincipalProfesiones as $objbannersprincipalProfesiones)
-          <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalProfesiones->rutaImagenVenta)}}">
+          <img class="swiper-slide imagen_bannerPrin-prof" src="{{URL::asset($objbannersprincipalProfesiones->rutaImagenVenta)}}">
         @endforeach
       </div>
-
-      <div class="swiper-pagination pagination_margen"></div>
     </section>
 
-    <section class="section_titulo-rama">
-      <span> Ramas de la salud </span>
+    <!-- Titulo principal de la vista -->
+    <section >
+      <h2 class="section_titulo-rama"> Ramas de la salud </h2>
     </section>
 
+    <!-- Contenedor de las tarjetas de las profesiones -->
     <section class="row col-12 col-lg-10 section_tarjetas-profesionales">
       @foreach ($objprofesiones as $objprofesiones)
         <div class="col-5 col-lg-3 contenido_tarjetas-profesionales">
@@ -41,19 +41,21 @@
             </a>
           </div>
         </div>
-
       @endforeach
     </section>
 
-
-
+    <!-- Carrusel de logos inferior, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
     <section class="contains_slider-logos-galeriaProf">
-      <div class="col-lg-10 swiper-container swiper_logosGaleriaProf">
+      <div class="col-11 col-lg-10 swiper-container swiper_logosGaleriaProf">
         <div class="swiper-wrapper">
           @foreach ($objcarruselprofesiones as $objcarruselprofesiones)
             <img class="swiper-slide" src="{{URL::asset($objcarruselprofesiones->rutaImagenVenta)}}">
           @endforeach
         </div>
+
+        <!-- If we need navigation buttons -->
+        <!-- <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div> -->
       </div>
     </section>
   </div>
