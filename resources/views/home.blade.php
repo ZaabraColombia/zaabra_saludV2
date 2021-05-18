@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <!--carrusel banner principal home--> 
 <section class="swiper-container swiper_principal">
       <div class="swiper-wrapper">

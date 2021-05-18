@@ -70,7 +70,7 @@
                         <span></span>
                     </a>
 
-                    <div class="dropdown-menu menu-hamburguesa px-2" aria-labelledby="dropdownMenuLink" style="">
+                    <div class="dropdown-menu menu_hamburguesa px-2" aria-labelledby="dropdownMenuLink" style="">
                         <a class="dropdown-item" href="#"><div class="icon-dropdown icon-especialidades"></div>Especialidades medicas</a>
                         <a class="dropdown-item" href="#"><div class="icon-dropdown icon-instituciones"></div>Instituciones medicas</a>
                         <a class="dropdown-item" href="#"><div class="icon-dropdown icon-quienes"></div>¿Quiénes Somos?</a>
