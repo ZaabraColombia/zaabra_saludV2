@@ -103,6 +103,8 @@
     font-family: 'Roboto', sans-serif;
 }
 .titulo_portafolio {
+    margin-top: 2%;
+    margin-bottom: 2%;
     font-family: 'Quicksand', sans-serif;
     color: #0083d6;
     font-weight: bold;
@@ -110,10 +112,26 @@
 }
 .ver_mas {
     max-width: 45%;
+    height: 4.5vh;
+    font-size: 1.2em;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ffff;
+    font-family: "Quicksand";
+    font-weight: lighter;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+}
+.btn-profesional{
+    max-width: 65%;
     height: 3.5vh;
     display: flex;
     margin-left: auto;
     margin-right: auto;
+    background: #007bff;
     color: #ffff;
     font-family: "Quicksand";
     font-weight: lighter;
@@ -129,6 +147,7 @@
     background: #019F86;
 }
 .contains_submenu{
+    height: 100%;
     padding-top: 5%;
     height: 100%;
     -webkit-box-shadow: 0px 3px 6px #00000029;
@@ -363,12 +382,6 @@
 
 @media (min-width: 1440px){
 
-    .titulo_portafolio{
-        margin-bottom: 2%;
-    }
-    .contains_submenu{
-        height: 95%;
-    }
     .contains_image{
         max-width: 60%;
     }
@@ -397,5 +410,62 @@
     }
     .especialidades, .instituciones{
         max-width: 50%;
+    }
+    .ver_mas{
+        font-size: 1.5em;
+    }
+    .swiper_triple {
+        max-width: 80%;
+    }
+    .contains_slider_logoshome {
+        height: 25vh;
+    }
+}
+
+@media (min-width: 1920px){
+    .contains_menu {
+        max-width: 40%;
+    }
+    .row_contains {
+        height: 80%;
+    }
+    .titulo_home {
+        font-size: calc(0.45em + 1vw);
+        margin-bottom: 2%;
+    }
+    .parrafo_home{
+        font-size: 0.9em;
+        max-width: 80%;
+        margin-bottom: 0%;
+    }
+    .ver_mas{
+        max-width: 45%;
+        height: 3.5vh;
+        font-size: 1.3em;
+    }
+    .zaabrasalud_parallax {
+        height: 45vh;
+    }
+    .swiper_especialistas {
+        max-width: 65%;
+    }
+    .contains_slider_especialistas .card-body h5{
+        font-size: 1.5em;
+    }
+    .btn-profesional{
+        font-size: 1.2em;
+    }
+    .btn-next{
+        right: 15%;
+    }
+    .btn-prev{
+        left: 15%;
+    }
+    .swiper_triple {
+        max-width: 65%;
+    }
+    .swiper_logoshome .swiper-slide{
+        height: 11vh;
+        object-fit: contain;
     }
 }

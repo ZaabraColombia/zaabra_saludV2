@@ -1,4 +1,4 @@
-const swiper = new Swiper('.swiper_principal',{
+const swiper_principal = new Swiper('.swiper_principal',{
     // Optional parameters
     // If we need pagination
     loop: true,
@@ -12,10 +12,16 @@ const swiper = new Swiper('.swiper_principal',{
       delay: 4500,
       disableOnInteraction: false,
     },
-  
     // And if we need scrollbar
   });
 
+  !function(){
+    let select = document.querySelector.bind(document);
+    if (screen.width <= 768) {
+      select('.swiper_principal').setAttribute("style","height:40vh");
+    }
+  }();
+  
   const swiper_especialistas = new Swiper(".swiper_especialistas", {
 
     slidesPerView: 4,
@@ -61,15 +67,15 @@ const swiper = new Swiper('.swiper_principal',{
        // when window width is >= 1024px
       1024: {
         slidesPerView: 10,
-        slidesPerGroup: 2,
+        slidesPerGroup: 1,
         spaceBetween: 15,
       },
-      // when window width is >= 1200px
-      1200: {
-        slidesPerView: 12,
-        slidesPerGroup: 7,
+
+      1600: {
+        slidesPerView: 10,
+        slidesPerGroup: 1,
         spaceBetween: 5,
-      }
+      },
     }
   });
 
