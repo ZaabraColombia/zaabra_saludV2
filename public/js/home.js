@@ -14,13 +14,6 @@ const swiper_principal = new Swiper('.swiper_principal',{
     },
     // And if we need scrollbar
   });
-
-  !function(){
-    let select = document.querySelector.bind(document);
-    if (screen.width <= 768) {
-      select('.swiper_principal').setAttribute("style","height:40vh");
-    }
-  }();
   
   const swiper_especialistas = new Swiper(".swiper_especialistas", {
 
@@ -38,6 +31,14 @@ const swiper_principal = new Swiper('.swiper_principal',{
       nextEl: '.btn-next',
       prevEl: '.btn-prev',
     },
+
+    breakpoints: {
+      // when window width is >= 320px
+     320: {
+       slidesPerView: 1,
+       slidesPerGroup: 1,
+     },
+   }
   });
 
   const swiper_triple = new Swiper(".swiper_triple", {
@@ -64,13 +65,19 @@ const swiper_principal = new Swiper('.swiper_principal',{
     },
 
     breakpoints: {
+       // when window width is >= 320px
+      320: {
+        slidesPerView: 4,
+        slidesPerGroup: 1,
+        spaceBetween: 7,
+      },
        // when window width is >= 1024px
       1024: {
         slidesPerView: 10,
         slidesPerGroup: 1,
         spaceBetween: 15,
       },
-
+        // when window width is >= 1600px
       1600: {
         slidesPerView: 10,
         slidesPerGroup: 1,
