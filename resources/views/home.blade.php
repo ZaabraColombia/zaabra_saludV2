@@ -21,7 +21,7 @@
 
 <section class="contains_menu">
     <div class="row row_contains">
-        <div class="col-md-6 col-lg-6 col-12 hvr-float-shadow">
+        <div class="col-md-6 col-lg-6 col-12 hvr-float-shadow contains-card">
             <div class="contains_submenu">
                 <div class="contains_image mx-auto">
                     <img class="imagen_home" src="{{URL::asset('/img/home/especialidades-medicas.svg')}}">
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-6 col-12 hvr-float-shadow">
+        <div class="col-md-6 col-lg-6 col-12 hvr-float-shadow contains-card">
             <div class="contains_submenu">
                 <div class="contains_image mx-auto">
                     <img class="imagen_home" src="{{URL::asset('/img/home/instituciones-medicas.svg')}}">
@@ -99,6 +99,7 @@
 
 <!--carousel universidades--> 
 <section class="contains_slider_logoshome">
+    <h1 class="titulo_logos">Ellos Confian en Nosotros</h1>
     <div class="swiper-container swiper_logoshome">
         <div class="swiper-wrapper">
             @foreach ($objbanneruniversidad as $objbanneruniversidad)
