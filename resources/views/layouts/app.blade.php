@@ -36,7 +36,7 @@
                 </a>
 
                 <!-- Sección barra de busqueda -->
-                <div class="contains_boxsearch d-none d-lg-flex">
+                <div class="contains_boxsearch">
                     <div class="barra_busqueda">
                         <form action="http://portal-test.zaabra.local/busqueda" method="POST" class="form-inline heigFormHeader" id="buscar">
                             <input type="hidden" name="_token" value="tzFtz8TstiTocmap8vuJp4Py7sMc0zcQiC63SuyF">
@@ -48,7 +48,7 @@
 
                 <!--******************************     Sección BARRA DE BUSQUEDA version MOBILE      *************************************-->
                 <!-- SECCION BARRA DE BUSQUEDA HEADER -->
-                <div class="positionIConoLupaHeader">
+                <div class="contain_lupa-mobile">
                     <button type="button" onclick="ocultaInput()" class="boton_lupa_mobile">
                         <img class="icon_lupa-mobile" src="{{URL::asset('/img/header/icono-lupa-blanco.svg')}}">
                     </button>
@@ -69,17 +69,17 @@
                 </div>
 
                 <!-- Sección Botón membresía -->
-                <div class="button-membresia d-none d-lg-flex">
+                <div class="button-membresia">
                     <a class="" href="">
                         <img class="img-button-membresia" src="http://portal-test.zaabra.local/img/boton-membresia.png">
                     </a>  
                 </div>
 
                 <!--******************************     Sección Botón Membresía version MOBILE      *************************************-->
-                <!-- SECCION BARRA DE BUSQUEDA HEADER -->
-                <div class="button-membresia d-flex d-lg-none">
+                <!-- SECCION BOTÓN MEMBRESÍA HEADER -->
+                <div class="button-membresia-mobile">
                     <a class="" href="">
-                        <img class="img-button-membresia" src="{{URL::asset('/img/header/boton-de-memebresia-mob.png')}}"> 
+                        <img class="img-button-membresia-mobile" src="{{URL::asset('/img/header/boton-de-memebresia-mob.png')}}"> 
                     </a>  
                 </div>
                 <!--******************************     End sección Botón Membresía version MOBILE      *********************************-->
