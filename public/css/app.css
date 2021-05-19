@@ -10002,6 +10002,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
+body {
+  background-color: #ffff;
+}
+
 :focus-visible {
   outline: none;
 }
@@ -10026,9 +10030,14 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .contains_header {
-  max-width: 75%;
+  max-width: 95%;
   height: 100%;
-  justify-content: flex-start !important;
+  padding: 0;
+  justify-content: flex-start;
+}
+
+.logo_header {
+  width: 60%;
 }
 
 .heigFormHeader {
@@ -10101,7 +10110,18 @@ a:link, a:visited, a:active, a:hover {
 .menu_paciente {
   position: absolute;
   transform: translate3d(-48px, 70px, 0px);
-  top: 0px;
+  top: -10px;
+  left: 0px;
+  padding: 0;
+  will-change: transform;
+  height: 16vh;
+  width: 175px;
+}
+
+.menu_hamburguesa {
+  position: absolute;
+  transform: translate3d(-48px, 70px, 0px);
+  top: -10px;
   left: 0px;
   padding: 0;
   will-change: transform;
@@ -10166,7 +10186,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .img-button-membresia {
-  max-width: 100% !important;
+  max-width: 100%;
 }
 
 .icon-menu {
@@ -10181,9 +10201,336 @@ a:link, a:visited, a:active, a:hover {
   align-items: center;
 }
 
-@media (min-width: 1024px) and (max-height: 800px) {
-  .navbar_zaabrasalud img {
+.icon-menu span, .icon-menu span:before, .icon-menu span:after {
+  width: 30px;
+  height: 3px;
+  background: #ffff;
+  display: block;
+  content: "";
+  position: absolute;
+  transition: all 500ms ease-in-out;
+  top: 45%;
+}
+
+.icon-menu span:after {
+  top: -8px;
+}
+
+.icon-menu span:before {
+  top: 8px;
+}
+
+.contains_boxsearch {
+  display: flex;
+}
+
+.contain_lupa-mobile {
+  display: none;
+}
+
+@media (min-width: 320px) and (orientation: portrait) {
+  .contains_header {
+    max-width: 90%;
+    height: 100%;
+    padding: 0;
+    justify-content: space-between;
+  }
+
+  .navbar-logo {
+    text-decoration: none;
+    color: #ffff;
+    text-align: center;
+  }
+
+  .contains_boxsearch {
+    display: none;
+  }
+
+  .contain_lupa-mobile {
+    display: flex;
+  }
+
+  .boton_lupa_mobile {
+    padding: 0;
+    border: none;
+  }
+
+  .icon_lupa-mobile {
+    width: 28px;
+    background: #0083d6;
+  }
+
+  .contains_barra {
+    display: none;
+    background-color: #0083d6 !important;
+    width: 100%;
+    height: 79%;
+    z-index: 20;
+    padding: 0;
+  }
+
+  .barra_oculta {
+    width: 90%;
+  }
+
+  .barra_busqueda-mobile {
+    background: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border-radius: 2px;
+    margin: auto;
+  }
+
+  .inputBarraBusquedad {
+    width: 90%;
+    height: 100% !important;
+    padding-left: 0;
+    border-radius: 0;
+    font-size: 17px;
+    border: none;
+    padding: 0 2%;
+    background: #faebd700;
+  }
+
+  .icon_paciente {
+    background-size: contain;
+    width: 70%;
+    height: 65%;
+  }
+
+  .soy_paciente .dropdown-toggle {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #fff0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu_paciente {
+    position: absolute;
+    transform: translate3d(-48px, 70px, 0px);
+    top: -28px;
+    left: -55px;
+    padding: 0;
+    will-change: transform;
+    height: 20vh;
+    width: 170px;
+  }
+
+  .button-membresia {
+    display: none;
+  }
+
+  .button-membresia-mobile {
+    display: flex;
+    height: 100%;
+    max-width: 30px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .img-button-membresia-mobile {
+    max-width: 30px;
+  }
+
+  .icon-menu {
+    background-color: #545b6200 !important;
+    border-color: #f77f0000 !important;
+    cursor: pointer;
+    width: 58px;
+    height: 35px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu_hamburguesa {
+    position: absolute;
+    transform: translate3d(-48px, 70px, 0px);
+    top: -33px;
+    left: -75px;
+    padding: 0;
+    will-change: transform;
+    height: 16vh;
+    width: 175px;
+  }
+}
+@media (min-width: 360px) and (orientation: portrait) {
+  .menu_paciente {
+    position: absolute;
+    transform: translate3d(-48px, 70px, 0px);
+    top: -21px;
+    left: -50px;
+    padding: 0;
+    will-change: transform;
+    height: 20vh;
+    width: 170px;
+  }
+
+  .menu_hamburguesa {
+    position: absolute;
+    transform: translate3d(-48px, 70px, 0px);
+    top: -30px;
+    left: -75px;
+    padding: 0;
+    will-change: transform;
+    height: 16vh;
+    width: 175px;
+  }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+  .navbar_zaabrasalud {
+    background-color: #0083D6;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 7vh;
+  }
+
+  .contains_header {
     max-width: 75%;
+    height: 100%;
+    padding: 0;
+    justify-content: space-between;
+  }
+
+  .logo_header {
+    width: 100%;
+  }
+
+  .icon_lupa-mobile {
+    width: 130%;
+    background: #0083d6;
+  }
+
+  .icon_paciente {
+    background-size: contain;
+    width: 100%;
+  }
+
+  .menu_paciente {
+    position: absolute;
+    transform: translate3d(-48px, 70px, 0px);
+    top: 16px;
+    left: -30px;
+    padding: 0;
+    will-change: transform;
+    height: 15vh;
+    width: 170px;
+  }
+
+  .button-membresia-mobile {
+    display: flex;
+    height: 100%;
+    max-width: 8%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .img-button-membresia-mobile {
+    max-width: 100%;
+  }
+
+  .menu_hamburguesa {
+    position: absolute;
+    transform: translate3d(-48px, 70px, 0px);
+    top: -10px;
+    left: -65px;
+    padding: 0;
+    will-change: transform;
+    height: 15vh;
+    width: 175px;
+  }
+}
+@media (min-width: 1024px) and (max-height: 800px) {
+  .contains_barra {
+    display: none;
+  }
+
+  .contains_header {
+    max-width: 75%;
+    height: 100%;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .logo_header {
+    width: 75%;
+  }
+
+  .contains_boxsearch {
+    padding: 0%;
+    flex: 45%;
+    max-width: 45%;
+    height: 100%;
+    margin-right: 0;
+    align-items: center;
+    display: flex;
+    align-self: center;
+  }
+
+  .dropdown-paciente {
+    width: 30%;
+    height: 100%;
+  }
+
+  .soy_paciente {
+    width: 10%;
+  }
+
+  .icon_menu {
+    width: 35px;
+    height: 35px;
+  }
+
+  .icon_paciente {
+    background-size: contain;
+    width: 60%;
+  }
+
+  .button-membresia {
+    display: flex;
+  }
+
+  .button-membresia-mobile {
+    display: none;
+  }
+
+  .img-button-membresia {
+    width: 100%;
+  }
+
+  .menu-hamburger {
+    width: 9%;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (min-width: 1440px) {
+  .contains_header {
+    max-width: 75%;
+    height: 100%;
+    padding: 0;
+  }
+
+  .contains_barra {
+    display: none;
+  }
+
+  .logo_header {
+    width: 85%;
   }
 
   .contains_boxsearch {
@@ -10217,16 +10564,39 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .soy_paciente {
-    width: 20%;
+    width: 18%;
   }
 
   .menu-hamburger {
-    width: 30%;
+    width: 9%;
     height: 100%;
     display: flex;
     align-content: center;
     justify-content: center;
     align-items: center;
+  }
+
+  .button-membresia {
+    display: flex;
+  }
+
+  .button-membresia-mobile {
+    display: none;
+  }
+
+  .button-membresia {
+    flex: 115px;
+    height: 100%;
+    max-width: 145px;
+    display: flex;
+    align-items: center;
+  }
+}
+@media (min-width: 1440px) {
+  .contains_header {
+    max-width: 65%;
+    height: 100%;
+    padding: 0;
   }
 }
 .footer_newsletter {
@@ -10265,7 +10635,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .form_suscribirme {
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .input_suscribirme {
@@ -10274,8 +10644,7 @@ a:link, a:visited, a:active, a:hover {
   height: 3.5vh;
   width: 75%;
   border-radius: 3px;
-  border: none;
-  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  border: solid 0.1px #707070;
 }
 
 .boton_suscribirme {
@@ -10287,9 +10656,8 @@ a:link, a:visited, a:active, a:hover {
   color: #ffffff;
   height: 3.5vh;
   width: 23%;
-  border: none;
+  border: solid 0.1px #0083d6;
   border-radius: 3px;
-  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
 }
 
 .boton_icon-flecha {
@@ -10415,7 +10783,7 @@ a:link, a:visited, a:active, a:hover {
 .footer_copy-right {
   background: #0083d6;
   padding: 0;
-  height: 4vh;
+  height: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10449,9 +10817,8 @@ a:link, a:visited, a:active, a:hover {
     padding: 0 5%;
     height: 5vh;
     width: 100%;
-    border: 0.5px;
+    border: solid 0.1px #707070;
     border-radius: 3px;
-    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
   }
 
   .check_terminos-cel {
@@ -10482,9 +10849,8 @@ a:link, a:visited, a:active, a:hover {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border: 0.5px;
+    border: solid 0.1px;
     border-radius: 3px;
-    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
   }
 
   .icono_flecha-suscribirme-cel {
@@ -10796,10 +11162,12 @@ a:link, a:visited, a:active, a:hover {
 
   .input_suscribirme {
     font-size: 1.25em;
+    height: 4vh;
   }
 
   .boton_suscribirme {
     font-size: 1.25em;
+    height: 4vh;
   }
 
   .boton_icon-flecha {
@@ -10933,6 +11301,17 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .titulo_portafolio {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  font-family: "Quicksand", sans-serif;
+  color: #0083d6;
+  font-weight: bold;
+  text-align: center;
+}
+
+.titulo_logos {
+  margin-top: 2%;
+  margin-bottom: 2%;
   font-family: "Quicksand", sans-serif;
   color: #0083d6;
   font-weight: bold;
@@ -10941,10 +11320,27 @@ a:link, a:visited, a:active, a:hover {
 
 .ver_mas {
   max-width: 45%;
+  height: 4.5vh;
+  font-size: 1.2em;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  color: #ffff;
+  font-family: "Quicksand";
+  font-weight: lighter;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.btn-profesional {
+  max-width: 65%;
   height: 3.5vh;
   display: flex;
   margin-left: auto;
   margin-right: auto;
+  background: #007bff;
   color: #ffff;
   font-family: "Quicksand";
   font-weight: lighter;
@@ -10963,6 +11359,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .contains_submenu {
+  height: 100%;
   padding-top: 5%;
   height: 100%;
   box-shadow: 0px 3px 6px #00000029;
@@ -11045,7 +11442,6 @@ a:link, a:visited, a:active, a:hover {
 
 .contains_slider_logoshome {
   max-width: 100%;
-  display: flex;
   flex-wrap: nowrap;
   align-content: center;
   justify-content: center;
@@ -11055,7 +11451,6 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .contains_slider_logoshome .swipper-wrapper {
-  display: flex;
   flex-wrap: nowrap;
   align-content: space-around;
   justify-content: center;
@@ -11088,6 +11483,113 @@ a:link, a:visited, a:active, a:hover {
   position: absolute;
 }
 
+@media (min-width: 320px) {
+  .swiper_principal {
+    height: 40vh;
+  }
+
+  .titulo_portafolio {
+    font-size: 1.3em;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+
+  .contains_menu {
+    max-width: 100%;
+    height: 45vh;
+  }
+
+  .row_contains {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40vh;
+  }
+
+  .contains-card {
+    max-width: 45%;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contains_image {
+    max-width: 80%;
+  }
+
+  .imagen_home {
+    max-width: 100%;
+  }
+
+  .titulo_home {
+    margin-top: 2%;
+    font-size: 0.8em;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  .parrafo_home {
+    margin-top: 2%;
+    font-size: 0.6em;
+    margin-bottom: 5%;
+  }
+
+  .ver_mas {
+    max-width: 70%;
+    font-size: 0.85em;
+  }
+
+  .zaabrasalud_parallax {
+    height: 35vh;
+    background-position: right;
+  }
+
+  .contains_slider_especialistas {
+    max-width: 75%;
+    margin-bottom: 13%;
+  }
+
+  .contains_slider_especialistas .card-img-top {
+    height: 40vh;
+  }
+
+  .contains_slider_especialistas .btn-profesional {
+    height: 4.5vh;
+  }
+
+  .contains_slider_triple {
+    max-width: 90%;
+  }
+
+  .contains_slider_logoshome {
+    display: flex;
+    flex-direction: column;
+    height: 25vh;
+  }
+
+  .contains_slider_logoshome .swiper-slide {
+    height: 10vh;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+
+  .titulo_logos {
+    font-size: 1.3em;
+  }
+
+  .swiper_logoshome {
+    max-width: 90%;
+  }
+}
+@media (min-width: 375px) {
+  .row_contains {
+    height: 80%;
+  }
+
+  .ver_mas {
+    font-size: 0.95em;
+  }
+}
 @media (min-width: 1024px) and (max-height: 800px) {
   .swiper_especialistas {
     max-width: 85%;
@@ -11234,14 +11736,6 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1440px) {
-  .titulo_portafolio {
-    margin-bottom: 2%;
-  }
-
-  .contains_submenu {
-    height: 95%;
-  }
-
   .contains_image {
     max-width: 60%;
   }
@@ -11279,8 +11773,93 @@ a:link, a:visited, a:active, a:hover {
   .especialidades, .instituciones {
     max-width: 50%;
   }
+
+  .ver_mas {
+    max-width: 50%;
+    font-size: 1.5em;
+  }
+
+  .swiper_triple {
+    max-width: 80%;
+  }
+
+  .contains_slider_logoshome {
+    height: 25vh;
+  }
+
+  .titulo_portafolio {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    font-size: calc(0.95em + 1vw);
+  }
 }
-.logoHeaderSProfesionales {
+@media (min-width: 1920px) {
+  .contains_menu {
+    max-width: 40%;
+  }
+
+  .row_contains {
+    height: 80%;
+  }
+
+  .titulo_home {
+    font-size: calc(0.45em + 1vw);
+    margin-bottom: 2%;
+  }
+
+  .parrafo_home {
+    font-size: 0.9em;
+    max-width: 80%;
+    margin-bottom: 0%;
+  }
+
+  .ver_mas {
+    max-width: 45%;
+    height: 3.5vh;
+    font-size: 1.3em;
+  }
+
+  .zaabrasalud_parallax {
+    height: 45vh;
+  }
+
+  .swiper_especialistas {
+    max-width: 65%;
+  }
+
+  .contains_slider_especialistas .card-body h5 {
+    font-size: 1.5em;
+  }
+
+  .btn-profesional {
+    font-size: 1.2em;
+  }
+
+  .btn-next {
+    right: 15%;
+  }
+
+  .btn-prev {
+    left: 15%;
+  }
+
+  .swiper_triple {
+    max-width: 65%;
+  }
+
+  .swiper_logoshome .swiper-slide {
+    height: 11vh;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+
+  .titulo_portafolio {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    font-size: calc(0.95em + 1vw);
+  }
+}
+.imagen_bannerPrin-prof {
   width: 100%;
   padding: 0;
 }
@@ -11322,7 +11901,7 @@ a:link, a:visited, a:active, a:hover {
     margin-bottom: -4%;
   }
 
-  .logoHeaderSProfesionales {
+  .imagen_bannerPrin-prof {
     width: 100%;
     padding: 0;
   }
@@ -11400,6 +11979,10 @@ a:link, a:visited, a:active, a:hover {
 
   .logosUniversidades {
     width: 50%;
+  }
+
+  .contains_slider-logos-galeriaProf {
+    height: 20vh;
   }
 }
 @media (min-width: 768px) and (orientation: portrait) {
@@ -11526,6 +12109,11 @@ a:link, a:visited, a:active, a:hover {
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
   }
 }
+.imagen_bannerPrin-espc {
+  width: 100%;
+  padding: 0;
+}
+
 .section_tarjetas-especilidades {
   margin: auto;
   margin-bottom: 5%;
@@ -11534,6 +12122,11 @@ a:link, a:visited, a:active, a:hover {
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
+  .imagen_bannerPrin-espc {
+    width: 100%;
+    padding: 0;
+  }
+
   .imagen_especialidad {
     width: 75%;
     display: flex;
@@ -11581,5 +12174,56 @@ a:link, a:visited, a:active, a:hover {
     display: flex;
     justify-content: center;
     align-self: center;
+  }
+}
+.contains_slide .contains_image_profesional img {
+  height: 100%;
+  width: 100%;
+}
+
+.titulo_profesionales {
+  font-family: "Quicksand", sans-serif;
+  color: #0083d6;
+  font-weight: bold;
+  text-align: center;
+}
+
+.contains_slide .contains_info {
+  text-align: center;
+}
+
+@media (min-width: 320px) {
+  .titulo_profesionales {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-size: 1.4em;
+  }
+
+  .contains_swiper_premium {
+    max-width: 100%;
+    height: 40vh;
+  }
+
+  .swiper_premium {
+    max-width: 90%;
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .contains_slide .contains_image_profesional {
+    height: 40%;
+  }
+
+  .contains_slide .contains_image_profesional img {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
+  .contains_slide .contains_info {
+    height: 40%;
+  }
+
+  .contains_slide .contains_buttons {
+    height: 40%;
   }
 }
