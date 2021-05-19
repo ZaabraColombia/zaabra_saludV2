@@ -32,7 +32,7 @@ class institucionesController extends Controller
             INNER JOIN tipoinstitucion tns ON ins.idtipoInstitucion=tns.id
             INNER JOIN pagos pg ON us.id=pg.idUsuario
             INNER JOIN municipio mn ON ins.id_municipio=mn.id_municipio
-            WHERE pg.idtipopago=12");
+            WHERE pg.idtipopago=15");
         }
 
             // consulta para cargar todas los profesionales segun su especialidad y el pago normal
@@ -43,7 +43,7 @@ class institucionesController extends Controller
             INNER JOIN tipoinstitucion tns ON ins.idtipoInstitucion=tns.id
             INNER JOIN pagos pg ON us.id=pg.idUsuario
             INNER JOIN municipio mn ON ins.id_municipio=mn.id_municipio
-            WHERE pg.idtipopago=13");
+            WHERE pg.idtipopago=16");
         }
 
             // consulta para cargar todas los profesionales segun su especialidad y el pago normal
@@ -53,7 +53,7 @@ class institucionesController extends Controller
             INNER JOIN instituciones ins ON us.id=ins.idUser
             INNER JOIN tipoinstitucion tns ON ins.idtipoInstitucion=tns.id
             INNER JOIN pagos pg ON us.id=pg.idUsuario
-            WHERE pg.idtipopago=14");
+            WHERE pg.idtipopago=17");
         }
 
 
