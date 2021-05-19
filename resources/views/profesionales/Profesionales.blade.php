@@ -1,16 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
-     <div style="background: red;">
+      <h1 class="titulo_profesionales">Traumatología</h1>
+      <div class="contains_swiper_premium" style="background: red;">
+        <div class="swiper-container swiper_premium">
+          <div class="swiper-wrapper">
+            <div class="contains_slide">
+              @foreach ($objcarruselprofesionalespremiun as $objcarruselprofesionalespremiun)
+                <div class="contains_image_profesional">
+                  <img src="{{URL::asset($objcarruselprofesionalespremiun->fotoperfil)}}">
+                </div>
+
+                <div class="contains_info">
+                  <h2>{{$objcarruselprofesionalespremiun->primernombre}} {{$objcarruselprofesionalespremiun->primerapellido}}</h2>
+                  <h5>{{$objcarruselprofesionalespremiun->nombreEspecialidad}}</h5>
+                  <h5>{{$objcarruselprofesionalespremiun->nombre}}</h5>
+                  <p>{{$objcarruselprofesionalespremiun->descripcionPerfil}}</p>
+                </div>
+
+                <div class="contains_buttons">
+                    <a href="" class="btn-profesional hvr-sweep-to-right">Agende su cita
+                        <i class="fas fa-arrow-right arrow_mas"></i>
+                    </a>
+                    <a href="" class="btn-profesional hvr-sweep-to-right">Ver perfil
+                        <i class="fas fa-arrow-right arrow_mas"></i>
+                    </a>
+                </div>
+              @endforeach
+            </div>
+          </div>
+        </div>
         <!--carrusel profesionales premiun-->
-        @foreach ($objcarruselprofesionalespremiun as $objcarruselprofesionalespremiun)
-            <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objcarruselprofesionalespremiun->fotoperfil)}}">
-            <span>{{$objcarruselprofesionalespremiun->primernombre}} {{$objcarruselprofesionalespremiun->primerapellido}}</span>
-            <span>{{$objcarruselprofesionalespremiun->nombreEspecialidad}}</span>
-            <span>{{$objcarruselprofesionalespremiun->nombre}}</span>
-            <span>{{$objcarruselprofesionalespremiun->descripcionPerfil}}</span>
-            <span>{{$objcarruselprofesionalespremiun->nombreuniversidad}}</span>
-        @endforeach
       </div>
       <div style="background: blue;">
         <!--galeria profesionales pago normal-->

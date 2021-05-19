@@ -188,6 +188,12 @@ a:link, a:visited, a:active, a:hover {
 .icon-menu span:before {
     top: 8px;
 }
+.contains_boxsearch {
+    display: flex;
+}
+.contain_lupa-mobile {
+    display: none;
+}
 @media (min-width: 320px) and (orientation: portrait) {
     // Contenedor principal del header
     .contains_header{
@@ -203,6 +209,12 @@ a:link, a:visited, a:active, a:hover {
         text-align: center;
     }
     //Sección lupa buscador mobile
+    .contains_boxsearch {
+        display: none;
+    }
+    .contain_lupa-mobile {
+        display: flex;
+    }
     .boton_lupa_mobile {
         padding: 0;
         border: none;
@@ -271,12 +283,16 @@ a:link, a:visited, a:active, a:hover {
     }
     // Sección botón membresía
     .button-membresia {
+        display: none;
+    }
+    .button-membresia-mobile {
+        display: flex;
         height: 100%;
         max-width: 30px;
         align-items: center;
         text-align: center;
     }
-    .img-button-membresia{
+    .img-button-membresia-mobile {
         max-width: 30px;
     }
     //Sección menú hamburguesa
@@ -327,10 +343,144 @@ a:link, a:visited, a:active, a:hover {
         width: 175px;
     }
 }
-@media (min-width: 1024px) and (max-height: 800px) {
-
-    .navbar_zaabrasalud img{
+@media (min-width: 768px) and (orientation: portrait) {
+    //Contenedor general
+    .navbar_zaabrasalud {
+        background-color: #0083D6;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        height: 7vh;
+    }
+    .contains_header {
         max-width: 75%;
+        height: 100%;
+        padding: 0;
+        justify-content: space-between;
+    }
+    //Seccion logo zaabra
+    .logo_header {
+        width: 100%;
+    }
+    //Seccion lupa barra buscador
+    .icon_lupa-mobile {
+        width: 130%;
+        background: #0083d6;
+    }
+    // Seccion boton usuario 
+    .icon_paciente {
+        background-size: contain;
+        width: 100%;
+    }
+    .menu_paciente {
+        position: absolute;
+        transform: translate3d(-48px, 70px, 0px);
+        top: 16px;
+        left: -30px;
+        padding: 0;
+        will-change: transform;
+        height: 15vh;
+        width: 170px;
+    }
+    //Seccion boton membresia
+    .button-membresia-mobile {
+        display: flex;
+        height: 100%;
+        max-width: 8%;
+        align-items: center;
+        text-align: center;
+    }
+    .img-button-membresia-mobile {
+        max-width: 100%;
+    }
+    //Seccion menu desplegable
+    .menu_hamburguesa {
+        position: absolute;
+        transform: translate3d(-48px, 70px, 0px);
+        top: -10px;
+        left: -65px;
+        padding: 0;
+        will-change: transform;
+        height: 15vh;
+        width: 175px;
+    }
+}
+@media (min-width: 1024px) and (max-height: 800px) {
+    .contains_barra{
+        display: none;
+    }
+
+    // Contenedor principal
+    .contains_header {
+        max-width: 75%;
+        height: 100%;
+        padding: 0;
+        justify-content: flex-start;
+    }
+    // Seccion logo zaabra
+    .logo_header {
+        width: 75%;
+    }
+    //Seccion barra de busqueda
+    .contains_boxsearch {
+        padding: 0%;
+        flex: 45%;
+        max-width: 45%;
+        height: 100%;
+        margin-right: 0;
+        align-items: center;
+        display: flex;
+        align-self: center;
+    }
+    //Seccion boton usuario
+    .dropdown-paciente {
+        width: 30%;
+        height: 100%;
+    }
+    .soy_paciente{
+        width: 10%;
+    }
+    .icon_menu{
+        width: 35px;
+        height: 35px;
+    }
+    .icon_paciente {
+        background-size: contain;
+        width: 60%;
+    }
+    //Seccion membresia
+    .button-membresia {
+        display: flex;
+    }
+    .button-membresia-mobile {
+        display: none;
+    } 
+    .img-button-membresia {
+        width: 100%;
+    }
+    //Seccion menu hamburguesa
+    .menu-hamburger {
+        width: 9%;
+        height: 100%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }   
+}
+@media (min-width: 1440px) {
+    .contains_header {
+        max-width: 75%;
+        height: 100%;
+        padding: 0;
+    }
+    .contains_barra{
+        display: none;
+    }
+    .logo_header {
+        width: 85%;
     }
     .contains_boxsearch {
         padding: 0%;
@@ -369,5 +519,27 @@ a:link, a:visited, a:active, a:hover {
         justify-content: center;
         align-items: center;
     }
+    .button-membresia {
+        display: flex;
+    }
+    .button-membresia-mobile {
+        display: none;
+    }
+
+
+    .button-membresia {
+        flex: 115px;
+        height: 100%;
+        max-width: 145px;
+        display: flex;
+        align-items: center;
+    }
    
+}
+@media (min-width: 1440px) {
+    .contains_header {
+        max-width: 65%;
+        height: 100%;
+        padding: 0;
+    }
 }
