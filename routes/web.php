@@ -32,6 +32,9 @@ Route:: get('/Especialidades/{idProfesion}',[App\Http\Controllers\profesionales\
 /*Esta ruta es de galeria profesionales y dirige al controlador encargado de traer la informacion a la vista*/
 Route:: get('/Profesionales/{idEspecialidad}',[App\Http\Controllers\profesionales\medicosEspecialidadController::class,'index'])->name('Profesionales');
 
+/*Esta ruta es de landing profesionales y dirige al controlador encargado de traer la informacion a la vista*/
+Route:: get('/PerfilProfesional/{id}',[App\Http\Controllers\profesionales\medicosEspecialidadController::class,'index'])->name('Profesionales');
+
 /*-------------------------------------------Pertenece a entidades-------------------------------------------------------------------------------*/
 
 /*Esta ruta es de galeria entidades*/
@@ -39,3 +42,6 @@ Route:: get('/Entidades',[App\Http\Controllers\entidades\entidadesController::cl
 
 /*Esta ruta es de galeria instituciones segun la entidad seleccionada*/
 Route:: get('/Instituciones/{id}',[App\Http\Controllers\entidades\institucionesController::class,'index'])->name('Instituciones');
+
+/*Esta ruta es de landing institucion y dirige al controlador encargado de traer la informacion a la vista*/
+Route:: get('/PerfilInstitucion/{id}',[App\Http\Controllers\profesionales\medicosEspecialidadController::class,'index'])->name('Profesionales');
