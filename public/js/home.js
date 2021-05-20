@@ -38,6 +38,11 @@ const swiper_principal = new Swiper('.swiper_principal',{
        slidesPerView: 1,
        slidesPerGroup: 1,
      },
+     // when window width is >= 320px
+     1024: {
+      slidesPerView: 4,
+      slidesPerGroup: 4,
+    },
    }
   });
 

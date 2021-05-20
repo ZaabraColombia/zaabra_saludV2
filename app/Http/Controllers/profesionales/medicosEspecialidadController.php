@@ -41,7 +41,7 @@ class medicosEspecialidadController extends Controller
 
             // consulta para cargar todas los profesionales segun su especialidad y el pago normal
             public function cargarMedicosPagoNormal($idEspecialidad){
-            return DB::select("SELECT us.primernombre, us.primerapellido, ep.nombreEspecialidad, mn.nombre, pf.descripcionPerfil, un.nombreuniversidad, pf.fotoperfil
+            return DB::select("SELECT us.primernombre, us.primerapellido, ep.nombreEspecialidad, mn.nombre ciudad, pf.descripcionPerfil, un.nombreuniversidad, pf.fotoperfil
             FROM  users us
             INNER JOIN pagos pg ON us.id=pg.idUsuario
             INNER JOIN perfilesprofesionales pf ON us.id=pf.idUser
