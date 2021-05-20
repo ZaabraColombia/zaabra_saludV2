@@ -91,13 +91,13 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right menu_hamburguesa" aria-labelledby="dropdownMenuLink" style="">
-                        <a class="dropdown-item menu_item icon-especialidades" href="#"><span class="texto_item-menu">Especialidades medicas</span></a>
+                        <a class="dropdown-item menu_item item-cel icon-especialidades" href="#"><span class="texto_item-menu">Especialidades medicas</span></a>
                         <div class="dropdown-divider m-0"></div>
-                        <a class="dropdown-item menu_item icon-instituciones-burger" href="#"><span class="texto_item-menu">Instituciones medicas</span></a>
+                        <a class="dropdown-item menu_item item-cel icon-instituciones-burger" href="#"><span class="texto_item-menu">Instituciones medicas</span></a>
                         <div class="dropdown-divider m-0"></div>
-                        <a class="dropdown-item menu_item icon-quienes" href="#"><span class="texto_item-menu">Acerca de Zaabra</span></a>
+                        <a class="dropdown-item menu_item item-cel icon-quienes" href="#"><span class="texto_item-menu">Acerca de Zaabra</span></a>
                         <div class="dropdown-divider m-0"></div>
-                        <a class="dropdown-item menu_item icon-contactenos" href="#"><span class="texto_item-menu">Contáctenos</span></a>
+                        <a class="dropdown-item menu_item item-cel icon-contactenos" href="#"><span class="texto_item-menu">Contáctenos</span></a>
                     </div>
                 </div>
 
