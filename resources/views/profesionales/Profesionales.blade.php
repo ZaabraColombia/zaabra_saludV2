@@ -2,46 +2,63 @@
 
 @section('content')
       <h1 class="titulo_profesionales">Traumatología</h1>
-      <div class="contains_swiper_premium" style="background: red;">
+      <section class="contains_swiper_premium">
         <div class="swiper-container swiper_premium">
           <div class="swiper-wrapper">
-            <div class="contains_slide">
               @foreach ($objcarruselprofesionalespremiun as $objcarruselprofesionalespremiun)
-                <div class="contains_image_profesional">
-                  <img src="{{URL::asset($objcarruselprofesionalespremiun->fotoperfil)}}">
-                </div>
+                <div class="swiper-slide contains_slide">
+                  <div class="contains_image_profesional">
+                    <img src="{{URL::asset($objcarruselprofesionalespremiun->fotoperfil)}}">
+                  </div>
 
-                <div class="contains_info">
-                  <h2>{{$objcarruselprofesionalespremiun->primernombre}} {{$objcarruselprofesionalespremiun->primerapellido}}</h2>
-                  <h5>{{$objcarruselprofesionalespremiun->nombreEspecialidad}}</h5>
-                  <h5>{{$objcarruselprofesionalespremiun->nombre}}</h5>
-                  <p>{{$objcarruselprofesionalespremiun->descripcionPerfil}}</p>
-                </div>
+                  <div class="contains_info">
+                    <h2>{{$objcarruselprofesionalespremiun->primernombre}} {{$objcarruselprofesionalespremiun->primerapellido}}</h2>
+                    <h5>{{$objcarruselprofesionalespremiun->nombreEspecialidad}}</h5>
+                    <h5>{{$objcarruselprofesionalespremiun->nombre}}</h5>
+                    <p>{{$objcarruselprofesionalespremiun->descripcionPerfil}}</p>
+                  </div>
 
-                <div class="contains_buttons">
-                    <a href="" class="btn-profesional hvr-sweep-to-right">Agende su cita
-                        <i class="fas fa-arrow-right arrow_mas"></i>
-                    </a>
-                    <a href="" class="btn-profesional hvr-sweep-to-right">Ver perfil
-                        <i class="fas fa-arrow-right arrow_mas"></i>
-                    </a>
+                  <div class="contains_buttons">
+                      <a href="">Agende su cita
+                          <i class="fas fa-arrow-right arrow_mas"></i>
+                      </a>
+                      <a href="">Ver perfil
+                          <i class="fas fa-arrow-right arrow_mas"></i>
+                      </a>
+                  </div>
                 </div>
               @endforeach
-            </div>
           </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
         </div>
         <!--carrusel profesionales premiun-->
-      </div>
+      </section>
+
+
       <div style="background: blue;">
         <!--galeria profesionales pago normal-->
-        @foreach ($objmedicospagonormal as $objmedicospagonormal)
-            <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objmedicospagonormal->fotoperfil)}}">
-            <span>{{$objmedicospagonormal->primernombre}} {{$objmedicospagonormal->primerapellido}}</span>
-            <span>{{$objmedicospagonormal->nombreEspecialidad}}</span>
-            <span>{{$objmedicospagonormal->nombre}}</span>
-            <span>{{$objmedicospagonormal->descripcionPerfil}}</span>
-            <span>{{$objmedicospagonormal->nombreuniversidad}}</span>
-        @endforeach
+        <section class="container_cards_normal">
+            @foreach ($objmedicospagonormal as $objmedicospagonormal)
+              <div class="card card_normal">
+                <img class="card-img-top" src="{{URL::asset($objmedicospagonormal->fotoperfil)}}">
+                <div class="card-body">
+                  <h5 class="card_title">{{$objmedicospagonormal->nombreEspecialidad}}</h5>
+                  <h6 class="card_subtitle">{{$objmedicospagonormal->primernombre}} {{$objmedicospagonormal->primerapellido}}</h6>
+                  <p class="card_text">{{$objmedicospagonormal->descripcionPerfil}}</p>
+                  <p class="card_text">{{$objmedicospagonormal->nombreuniversidad}}</p>
+                  <div class="contains_buttons">
+                        <a href="">Agende su cita
+                            <i class="fas fa-arrow-right arrow_mas"></i>
+                        </a>
+                        <a href="">Ver perfil
+                            <i class="fas fa-arrow-right arrow_mas"></i>
+                        </a>
+                    </div>
+                </div>
+              </div>
+            @endforeach
+        </section>
       </div>
       <div style="background: yellow;">
         <!--galeria profesionales sin pago -->
