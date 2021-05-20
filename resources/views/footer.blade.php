@@ -218,7 +218,7 @@
 
             <!-- Column contenido acerca zaabra-->
             <div class="col-12 infoZaabra_contenido-cel d-block d-lg-none">
-                <div class="col-10 contenido_desplegable-cel">
+                <div class="col-11 contenido_desplegable-cel">
                     <button class="boton_infoZaabra-cel rotacionBtn" type="button" data-toggle="collapse" 
                         data-target="#acercaZaabra" aria-expanded="false" aria-controls="acercaZaabra">
                         <i onclick="direccionFlecha(this)"  data-rote="0" class="fas fa-chevron-down icono_flecha-boton-cel">
@@ -227,7 +227,7 @@
                     </button>
                 </div>
 
-                <div class="col-10 collapse infoZaabra_desplegable-cel" id="acercaZaabra">
+                <div class="col-11 collapse infoZaabra_desplegable-cel" id="acercaZaabra">
                     <div class="col-12 card card-body desplegable_infoZaabra-cel">
                         <div class="col-12 texto_infoZaabra-cel">
                             <a href="/quienes">
@@ -262,13 +262,13 @@
             </div>
 
             <!-- Linea que divide las secciones acerca de zaabra y políticas de uso -->
-            <div class="col-10 contenido_linea-blanca-cel d-block d-lg-none">
+            <div class="col-11 contenido_linea-blanca-cel d-block d-lg-none">
                 <hr class="division_linea-blanca-cel">
             </div> 
 
             <!-- Column contenido politicas de uso -->
             <div class="col-12 infoZaabra_contenido-cel d-block d-lg-none">
-                <div class="col-10 contenido_desplegable-cel">
+                <div class="col-11 contenido_desplegable-cel">
                     <button class="boton_infoZaabra-cel rotacionBtn" type="button" data-toggle="collapse" 
                             data-target="#politicasUse" aria-expanded="false" aria-controls="politicasUse">
                         <i onclick="direccionFlecha(this)"  data-rote="0" class="fas fa-chevron-down icono_flecha-boton-cel"> 
@@ -277,7 +277,7 @@
                     </button>
                 </div>
 
-                <div class="col-10 collapse infoZaabra_desplegable-cel" id="politicasUse">
+                <div class="col-11 collapse infoZaabra_desplegable-cel" id="politicasUse">
                     <div class="col-12 card card-body desplegable_infoZaabra-cel">
                         <div class="col-12 texto_infoZaabra-cel">
                             <a href="/quienes#terminos">

@@ -299,7 +299,7 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 320px) and (orientation: portrait) {
     // Contenedor principal del header
     .contains_header{
-        max-width: 90%;
+        max-width: 100%;
         height: 100%;
         padding: 0;
         justify-content: space-between;
@@ -385,6 +385,28 @@ a:link, a:visited, a:active, a:hover {
         flex-wrap: nowrap;
         margin: auto;
     }
+    // Seccion icono boton usuario 
+    .soy_paciente .dropdown-toggle {
+        background-image: url('/img/header/icono-soy-paciente-blanco.svg');
+        background-size: 70%;
+        background-position-x: center;
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: flex;
+        flex-wrap: nowrap;
+        margin: auto;
+    }
+    // Efecto boton usuario seleccionado
+    .icon_paciente:focus {
+        background-image: url('/img/header/icono-soy-paciente-azul.svg');
+        background-color: #ffffff;
+        height: 100%;
+        border: none;
+        display: flex;
+        flex-wrap: nowrap;
+        margin: auto;
+    }
     // Menú desplegable
     .dropdown-menu .dropdown-item {
         padding-left: 36%;
@@ -455,7 +477,7 @@ a:link, a:visited, a:active, a:hover {
         height: 7vh;
     }
     .contains_header {
-        max-width: 75%;
+        max-width: 90%;
         height: 100%;
         padding: 0;
         justify-content: space-between;
@@ -519,7 +541,7 @@ a:link, a:visited, a:active, a:hover {
     // Seccion icono boton usuario 
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
-        background-size: 70%;
+        background-size: 60%;
         background-position-x: center;
         width: 100%;
         height: 100%;
@@ -553,6 +575,10 @@ a:link, a:visited, a:active, a:hover {
     .menu_hamburguesa {
         height: 25vh;
         width: 290px;
+    }
+    // Seccion icono menu hamburguesa
+    .menu-hamburger .dropdown-toggle {
+        background-size: 40%;
     }
     .icon-especialidades {
         background-size: 20%;
