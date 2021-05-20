@@ -36,7 +36,7 @@ class medicosEspecialidadController extends Controller
             INNER JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
             INNER JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
             INNER JOIN universidades un ON pu.id_universidad=un.id_universidad
-            WHERE pg.idtipopago=11 AND pf.idespecialidad=$idEspecialidad AND pf.aprobado<>0");
+            WHERE pg.idtipopago=12 AND pf.idespecialidad=$idEspecialidad AND pf.aprobado<>0");
         }
 
             // consulta para cargar todas los profesionales segun su especialidad y el pago normal
