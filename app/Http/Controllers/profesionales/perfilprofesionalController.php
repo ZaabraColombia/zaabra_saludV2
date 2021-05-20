@@ -18,6 +18,11 @@ class perfilprofesionalController extends Controller
         $objprofesionallandingexperi= $this->cargarInfoPrfesionalLandingexperien($idPerfilProfesional);
         $objprofesionallandingasocia= $this->cargarInfoPrfesionalLandingasocia($idPerfilProfesional);
         $objprofesionallandingidioma= $this->cargarInfoPrfesionalLandingidioma($idPerfilProfesional);
+        $objprofesionallandingtratam= $this->cargarInfoPrfesionalLandingtratam($idPerfilProfesional);
+        $objprofesionallandingpremio= $this->cargarInfoPrfesionalLandingpremio($idPerfilProfesional);
+        $objprofesionallandingpublic= $this->cargarInfoPrfesionalLandingpublic($idPerfilProfesional);
+        $objprofesionallandinggaler= $this->cargarInfoPrfesionalLandinggaler($idPerfilProfesional);
+        $objprofesionallandingvideo= $this->cargarInfoPrfesionalLandingvideo($idPerfilProfesional);
 
         return view('profesionales.PerfilProfesional', compact(
             'objprofesionallanding',
@@ -26,7 +31,12 @@ class perfilprofesionalController extends Controller
             'objprofesionallandingestudios',
             'objprofesionallandingexperi',
             'objprofesionallandingasocia',
-            'objprofesionallandingidioma'
+            'objprofesionallandingidioma',
+            'objprofesionallandingtratam',
+            'objprofesionallandingpremio',
+            'objprofesionallandingpublic',
+            'objprofesionallandinggaler',
+            'objprofesionallandingvideo'
         ));
 
     }
@@ -84,12 +94,52 @@ class perfilprofesionalController extends Controller
         }
 
         // consulta para cargar lista idiomas
-       public function cargarInfoPrfesionalLandingidioma($idPerfilProfesional){
-        return DB::select("SELECT asci.imgasociacion
+        public function cargarInfoPrfesionalLandingidioma($idPerfilProfesional){
+        return DB::select("SELECT id.nombreidioma, id.imgidioma
         FROM perfilesprofesionales pf
-        INNER JOIN asociaciones asci ON pf.idPerfilProfesional=asci.idPerfilProfesional
+        INNER JOIN usuario_idioma idip ON pf.idPerfilProfesional=idip.idPerfilProfesional
+        INNER JOIN idiomas id ON idip.id_idioma=id.id_idioma
         WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional");
         }
 
+        // consulta para cargar lista tratamientos
+        public function cargarInfoPrfesionalLandingtratam($idPerfilProfesional){
+        return DB::select("SELECT tr.imgTratamientoAntes, tr.tituloTrataminetoAntes, tr.descripcionTratamientoAntes, tr.imgTratamientodespues, tr.tituloTrataminetoDespues, tr.descripcionTratamientoDespues
+        FROM perfilesprofesionales pf
+        INNER JOIN tratamientos tr ON pf.idPerfilProfesional=tr.idPerfilProfesional
+        WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional");
+        }
+
+        // consulta para cargar lista premios
+        public function cargarInfoPrfesionalLandingpremio($idPerfilProfesional){
+        return DB::select("SELECT  pr.imgpremio, pr.fechapremio,pr.nombrepremio
+        FROM perfilesprofesionales pf
+        INNER JOIN premios pr ON pf.idPerfilProfesional=pr.idPerfilProfesional
+        WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional");
+        }
+
+        // consulta para cargar lista publicaciones
+        public function cargarInfoPrfesionalLandingpublic($idPerfilProfesional){
+        return DB::select("SELECT  pb.imgpublicacion, pb.nombrepublicacion, pb.descripcion
+        FROM perfilesprofesionales pf
+        INNER JOIN publicaciones pb ON pf.idPerfilProfesional=pb.idPerfilProfesional
+        WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional");
+        }
+
+        // consulta para cargar lista publicaciones
+        public function cargarInfoPrfesionalLandinggaler($idPerfilProfesional){
+        return DB::select("SELECT  gl.imggaleria, gl.nombrefoto, gl.descripcion
+        FROM perfilesprofesionales pf
+        INNER JOIN galeria gl ON pf.idPerfilProfesional=gl.idPerfilProfesional
+        WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional");
+        }
+
+        // consulta para cargar lista publicaciones
+        public function cargarInfoPrfesionalLandingvideo($idPerfilProfesional){
+        return DB::select("SELECT  vd.urlvideo, vd.nombrevideo, vd.descripcionvideo
+        FROM perfilesprofesionales pf
+        INNER JOIN videos vd ON pf.idPerfilProfesional=vd.idPerfilProfesional
+        WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional");
+        }
 
 }
