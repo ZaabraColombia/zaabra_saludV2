@@ -1,0 +1,85 @@
+// Titulo princial 
+.titulo_principal-login {
+    font-family: 'Roboto', 'Regular';
+    font-size: .8em;
+    color: #3E3E3E;
+    text-align: center;
+    margin: 5% 12%;
+}
+// Seccion botones superiores
+.section_btns-login {
+    border: none;
+    background: #ffffff;
+    padding: 2% 5%;
+}
+.btn_iniciar-login {
+    font-family: 'Quicksand', 'Regular';
+    font-size: 1em;
+    color: #ffffff;
+    background: #0083d6;
+    border: none;
+    border-radius: 5px;
+    height: 5vh;
+}
+.btn_registro-login {
+    font-family: 'Quicksand', 'Regular';
+    font-size: 1em;
+    color: #232323;
+    background: #ffffff;
+    border: none;
+    height: 5vh;
+}
+// Seccion principal Login
+.section_principal-login {
+    border: none;
+}
+// Contenido del login
+.section_body-login {
+    background: #F5F5F5;
+    padding: 2% 5%;
+    margin-bottom: 5%;
+}
+.texto_label-login {
+    font-family: 'Quicksand', 'Regular';
+    font-size: 1em;
+    font-weight: bold;
+    color: #232323;
+    text-align: left;
+}
+// Boton inferior ingreasar
+.btn_Ingreso-login {
+    font-family: 'Quicksand';
+    font-size: 1em;
+    color: #ffffff;
+    background: #0083d6;
+    border: none;
+    border-radius: 5px;
+    height: 5vh;
+    width: 100%;
+}
+.flecha_ingreso-login {
+    width: 6%;
+}
+.texto_olvide-login {
+    font-family: 'Roboto', 'Regular';
+    font-size: 1em;
+    color: #0083d6 !important;
+    display: flex;
+    justify-content: center;
+}
+.texto_inferior-login {
+    font-family: "Roboto", "Medium Italic";
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #3E3E3E;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 5%;
+}
+@media (min-width: 768px) and (orientation: portrait) {
+    // Titulo principal
+    .titulo_principal-login {
+        font-size: 1.563em;
+        margin: 5% 16%;
+    }
+}
