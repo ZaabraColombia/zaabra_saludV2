@@ -41,7 +41,7 @@
                         <form action="http://portal-test.zaabra.local/busqueda" method="POST" class="form-inline heigFormHeader" id="buscar">
                             <input type="hidden" name="_token" value="tzFtz8TstiTocmap8vuJp4Py7sMc0zcQiC63SuyF">
                             <input class="inputBarraBusquedad" type="buttton" name="buscar" id="barra_buscar" autocomplete="off">
-                            <input type="image" class="contenedorLupa" src="{{URL::asset('/img/header/Lupa_Iconos.png')}}">
+                            <input type="image" class="contenedorLupa" src="{{URL::asset('/img/header/icono-buscador-azul.svg')}}">
                         </form>
                     </div> 
                 </div>
@@ -57,14 +57,14 @@
 
                 <!-- Sección Soy paciente -->
                 <div class="soy_paciente dropdown">
-                    <a class="icon_menu dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="icon_paciente" src="{{URL::asset('/img/header/icono-soy-paciente-blanco.svg')}}">
-                    </a>
+                    <a class="dropdown-toggle icon_paciente" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
 
-                    <div class="dropdown-menu menu_paciente px-2" aria-labelledby="dropdownMenuLink" style="">
-                        <a class="dropdown-item" href="#"><div class="icon_dropdown icon-especialidades"></div>Soy Paciente</a>
-                        <a class="dropdown-item" href="#"><div class="icon_dropdown icon-instituciones"></div>Soy Doctor</a>
-                        <a class="dropdown-item" href="#"><div class="icon_dropdown icon-quienes"></div>Soy institución</a>
+                    <div class="dropdown-menu dropdown-menu-right menu_paciente" aria-labelledby="dropdownMenuLink" style="">
+                        <a class="dropdown-item menu_item-paciente icon-paciente" href="#"><span class="texto_item-menu-paciente">Soy Paciente</span></a>
+                        <div class="dropdown-divider m-0"></div>
+                        <a class="dropdown-item menu_item-paciente icon-medico" href="#"><span class="texto_item-menu-paciente">Soy Doctor</span></a>
+                        <div class="dropdown-divider m-0"></div>
+                        <a class="dropdown-item menu_item-paciente icon-instituciones" href="#"><span class="texto_item-menu-paciente">Soy institución</span></a>
                     </div>
                 </div>
 
@@ -85,15 +85,19 @@
                 <!--******************************     End sección Botón Membresía version MOBILE      *********************************-->
 
                 <!-- Sección Menú hamburguesa -->
-                <div class="menu-hamburger dropdown contenido_icon-menu">
+                <div class="menu-hamburger dropdown">
                     <a class="icon-menu dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span></span>
                     </a>
 
-                    <div class="dropdown-menu menu_hamburguesa px-2" aria-labelledby="dropdownMenuLink" style="">
-                        <a class="dropdown-item" href="#"><div class="icon-dropdown icon-especialidades"></div>Especialidades medicas</a>
-                        <a class="dropdown-item" href="#"><div class="icon-dropdown icon-instituciones"></div>Instituciones medicas</a>
-                        <a class="dropdown-item" href="#"><div class="icon-dropdown icon-quienes"></div>¿Quiénes Somos?</a>
+                    <div class="dropdown-menu dropdown-menu-right menu_hamburguesa" aria-labelledby="dropdownMenuLink" style="">
+                        <a class="dropdown-item menu_item icon-especialidades" href="#"><span class="texto_item-menu">Especialidades medicas</span></a>
+                        <div class="dropdown-divider m-0"></div>
+                        <a class="dropdown-item menu_item icon-instituciones-burger" href="#"><span class="texto_item-menu">Instituciones medicas</span></a>
+                        <div class="dropdown-divider m-0"></div>
+                        <a class="dropdown-item menu_item icon-quienes" href="#"><span class="texto_item-menu">Acerca de Zaabra</span></a>
+                        <div class="dropdown-divider m-0"></div>
+                        <a class="dropdown-item menu_item icon-contactenos" href="#"><span class="texto_item-menu">Contáctenos</span></a>
                     </div>
                 </div>
 
@@ -152,7 +156,7 @@
                         <form action="http://portal-test.zaabra.local/busqueda" method="POST" class="form-inline heigFormHeader" id="buscar">
                             <input type="hidden" name="_token" value="tzFtz8TstiTocmap8vuJp4Py7sMc0zcQiC63SuyF">
                             <input class="inputBarraBusquedad" type="buttton" name="buscar" id="barra_buscar" autocomplete="off">
-                            <input type="image" class="contenedorLupa" src="{{URL::asset('/img/header/Lupa_Iconos.png')}}">
+                            <input type="image" class="contenedorLupa" src="{{URL::asset('/img/header/icono-buscador-azul.svg')}}">
                         </form>
                     </div> 
                 </div>
