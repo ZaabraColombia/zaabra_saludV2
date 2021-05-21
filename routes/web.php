@@ -36,7 +36,7 @@ Route:: get('/Entidades',[App\Http\Controllers\entidades\entidadesController::cl
 Route:: get('/Instituciones/{id}',[App\Http\Controllers\entidades\institucionesController::class,'index'])->name('Instituciones');
 
 /*Esta ruta es de landing institucion y dirige al controlador encargado de traer la informacion a la vista*/
-Route:: get('/PerfilInstitucion/{id}',[App\Http\Controllers\profesionales\medicosEspecialidadController::class,'index'])->name('Profesionales');
+Route:: get('/PerfilInstitucion/{id}',[App\Http\Controllers\entidades\perfilInstitucionController::class,'index'])->name('PerfilInstitucion');
 
 
 
