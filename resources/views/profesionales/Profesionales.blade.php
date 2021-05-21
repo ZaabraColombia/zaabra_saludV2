@@ -11,20 +11,22 @@
                     <img src="{{URL::asset($objcarruselprofesionalespremiun->fotoperfil)}}">
                   </div>
 
-                  <div class="contains_info">
-                    <h2>{{$objcarruselprofesionalespremiun->primernombre}} {{$objcarruselprofesionalespremiun->primerapellido}}</h2>
-                    <h5>{{$objcarruselprofesionalespremiun->nombreEspecialidad}}</h5>
-                    <h5>{{$objcarruselprofesionalespremiun->nombre}}</h5>
-                    <p>{{$objcarruselprofesionalespremiun->descripcionPerfil}}</p>
-                  </div>
+                  <div class="contains_body">
+                    <div class="contains_info">
+                      <h2>{{$objcarruselprofesionalespremiun->primernombre}} {{$objcarruselprofesionalespremiun->primerapellido}}</h2>
+                      <h5>{{$objcarruselprofesionalespremiun->nombreEspecialidad}}</h5>
+                      <h5>{{$objcarruselprofesionalespremiun->nombre}}</h5>
+                      <p>{{$objcarruselprofesionalespremiun->descripcionPerfil}}</p>
+                    </div>
 
-                  <div class="contains_buttons">
-                      <a href="">Agende su cita
-                          <i class="fas fa-arrow-right arrow_mas"></i>
-                      </a>
-                      <a href="">Ver perfil
-                          <i class="fas fa-arrow-right arrow_mas"></i>
-                      </a>
+                     <div class="contains_buttons">
+                        <a href="">Agende su cita
+                            <i class="fas fa-arrow-right arrow_mas"></i>
+                        </a>
+                        <a href="">Ver perfil
+                            <i class="fas fa-arrow-right arrow_mas"></i>
+                        </a>
+                     </div>
                   </div>
                 </div>
               @endforeach
@@ -78,7 +80,6 @@
             @endforeach
         </section>
 
-      <div style="background: yellow;">
         <!--galeria profesionales sin pago -->
         <section class="contanier_cards_generic">
           @foreach ($objmedicossinpago as $objmedicossinpago)
@@ -110,12 +111,20 @@
             </div>
           @endforeach
         </section>
-      
-      </div>
+    
           <!--carrusel publicidad -->
-    @foreach ($objcarruselPublicidadprofesionales as $objcarruselPublicidadprofesionales)
-        <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objcarruselPublicidadprofesionales->rutaImagenVenta)}}">
-      @endforeach 
+          
+        <section class="contains_slider_publiProfesionales">
+            <h1 class="titulo_logos">Ellos Confian en Nosotros</h1>
+            <div class="swiper-container swiper_logoshome">
+                <div class="swiper-wrapper">
+                    @foreach ($objcarruselPublicidadprofesionales as $objcarruselPublicidadprofesionales)
+                      <img class="swiper-slide" src="{{URL::asset($objcarruselPublicidadprofesionales->rutaImagenVenta)}}">
+                    @endforeach 
+                </div>
+            </div>
+        </section>
+     
 
 @endsection
 
