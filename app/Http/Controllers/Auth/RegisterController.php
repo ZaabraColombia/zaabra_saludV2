@@ -12,10 +12,9 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MailNotify;
 
-use  App\Http\Controllers\profesionales\user_roles
+use  App\Http\Controllers\profesionales\user_roles;
 
-class RegisterController extends Controller
-{
+class RegisterController extends Controller{
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -52,8 +51,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
+    protected function validator(array $data){
         
         return Validator::make($data, [
             'primernombre' => ['required', 'string', 'max:25'],
@@ -71,8 +69,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
-    {
+    protected function create(array $data){
 
         $data['confirmation_code'] = str::random(25);
 
@@ -91,6 +88,4 @@ class RegisterController extends Controller
       
         return $user;
     }
-
-
 }
