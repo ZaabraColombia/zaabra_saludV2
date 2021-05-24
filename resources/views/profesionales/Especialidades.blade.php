@@ -2,7 +2,7 @@
 
 @section('content')
   <!-- Carrusel Banner principal, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
-  <section class="swiper-container">
+  <section class="swiper-container swiper_principalGaleriaProf">
     <div class="swiper-wrapper">
       @foreach ($objbannersprincipalEspecialidades as $objbannersprincipalEspecialidades)
         <img class="swiper-slide imagen_bannerPrin-espc" src="{{URL::asset($objbannersprincipalEspecialidades->rutaImagenVenta)}}">
