@@ -12,6 +12,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MailNotify;
 
+use  App\Http\Controllers\profesionales\user_roles
+
 class RegisterController extends Controller
 {
     /*
@@ -71,8 +73,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
-        
 
         $data['confirmation_code'] = str::random(25);
 

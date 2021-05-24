@@ -112,7 +112,7 @@ class perfilprofesionalController extends Controller
 
         // consulta para cargar lista premios
         public function cargarInfoPrfesionalLandingpremio($idPerfilProfesional){
-        return DB::select("SELECT  pr.imgpremio, pr.fechapremio,pr.nombrepremio
+        return DB::select("SELECT  pr.imgpremio, pr.fechapremio,pr.nombrepremio, pr.descripcionpremio
         FROM perfilesprofesionales pf
         INNER JOIN premios pr ON pf.idPerfilProfesional=pr.idPerfilProfesional
         WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional");

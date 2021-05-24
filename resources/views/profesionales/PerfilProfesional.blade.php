@@ -83,6 +83,7 @@
             <img src="{{URL::asset($objprofesionallandingpremio->imgpremio)}}">
             <p>{{$objprofesionallandingpremio->fechapremio}}</p>
             <p>{{$objprofesionallandingpremio->nombrepremio}}</p>
+            <p>{{$objprofesionallandingpremio->descripcionpremio}}</p>
             @endforeach
         </div>
 
