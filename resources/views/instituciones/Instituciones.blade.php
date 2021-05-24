@@ -1,65 +1,128 @@
 @extends('layouts.app')
 
 @section('content')
-   <!-- Carrusel Banner principal, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
-   <section class="swiper-container swiper_principalGaleriaProf" style="background: chartreuse;">
-      <div class="swiper-wrapper">
+      <h1 class="titulo_instituciones">Traumatología</h1>
+      <section class="contains_swiper_premium_insti">
+        <div class="swiper-container swiper_premium_insti">
+          <div class="swiper-wrapper">
+              @foreach ($objcarruselinstitucionespremiun as $objcarruselinstitucionespremiun)
+                <div class="swiper-slide contains_slide_insti">
+                  <div class="contains_image_institucion">
+                    <img src="{{URL::asset($objcarruselinstitucionespremiun->imagen)}}">
+                  </div>
 
-        @foreach ($objcarruselinstitucionespremiun as $objcarruselinstitucionespremiun)
-        <div class="col-12">
-            <img class="swiper-slide imagen_bannerPrin-prof" src="{{URL::asset($objcarruselinstitucionespremiun->imagen)}}">
-            <span>{{$objcarruselinstitucionespremiun->nombreinstitucion}}</span>
-            <span>{{$objcarruselinstitucionespremiun->nombre}}</span>
-            <span>{{$objcarruselinstitucionespremiun->quienessomos}}</span>
-            <span>{{$objcarruselinstitucionespremiun->url}}</span>
+                  <div class="contains_body_insti">
+                    <div class="contains_info">
+                      <h2>{{$objcarruselinstitucionespremiun->nombreinstitucion}}</h2>
+                      <h5>{{$objcarruselinstitucionespremiun->nombre}}</h5>
+                      <h5>{{$objcarruselinstitucionespremiun->quienessomos}}</h5>
+                      <p>{{$objcarruselinstitucionespremiun->url}}</p>
+                    </div>
+
+                     <div class="contains_buttons">
+                        <a href="">Agende su cita
+                            <i class="fas fa-arrow-right arrow_mas"></i>
+                        </a>
+                        <a href="">Ver perfil
+                            <i class="fas fa-arrow-right arrow_mas"></i>
+                        </a>
+                     </div>
+                  </div>
+                </div>
+              @endforeach
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
         </div>
-        @endforeach
-      </div>
-    </section>   
+        <!--carrusel profesionales premiun-->
+      </section>
 
-    <!-- Carrusel Banner principal, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
-   <section class="swiper-container swiper_principalGaleriaProf" style="background: deeppink;">
-      <div class="swiper-wrapper">
 
-        @foreach ($objinstitucionespagonormal as $objinstitucionespagonormal)
-        <div class="col-12">
-            <img class="swiper-slide imagen_bannerPrin-prof" src="{{URL::asset($objinstitucionespagonormal->imagen)}}">
-            <span>{{$objinstitucionespagonormal->nombreinstitucion}}</span>
-            <span>{{$objinstitucionespagonormal->nombre}}</span>
-            <span>{{$objinstitucionespagonormal->quienessomos}}</span>
-            <span>{{$objinstitucionespagonormal->url}}</span>
-            <span>{{$objinstitucionespagonormal->nombretipo}}</span>
-        </div>
-        @endforeach
-      </div>
-    </section>  
+        <!--galeria profesionales pago normal-->
+        <section class="container_cards_normal_insti">
+            @foreach ($objmedicospagonormal as $objmedicospagonormal)
+              <div class="card card_normal">
+                <img class="card-img-top" src="{{URL::asset($objmedicospagonormal->fotoperfil)}}">
+                <div class="card-body">
+                  <h2>{{$objmedicospagonormal->nombreEspecialidad}}</h2>
+                  <h5>{{$objmedicospagonormal->primernombre}} {{$objmedicospagonormal->primerapellido}}</h5>
+                  <p>{{$objmedicospagonormal->nombreuniversidad}}</p>
+                  <!-- Rating Stars Box -->
+                    <div class='rating-stars text-center'>
+                      <ul id='stars'>
+                        <li class='star' title='Poor' data-value='1'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Fair' data-value='2'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Good' data-value='3'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Excellent' data-value='4'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='WOW!!!' data-value='5'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                      </ul>
+                    </div>
+                      <div class="contains_buttons">
+                        <a href="">Agendar
+                            <i class="fas fa-arrow-right arrow_mas"></i>
+                        </a>
+                        <a href="">Ver más
+                            <i class="fas fa-arrow-right arrow_mas"></i>
+                        </a>
+                      </div>
+                </div>
+              </div>
+            @endforeach
+        </section>
 
-        <!-- Carrusel Banner principal, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
-   <section class="swiper-container swiper_principalGaleriaProf" style="background: darkorange;">
-      <div class="swiper-wrapper">
-
-        @foreach ($objinstitucionessinpago as $objinstitucionessinpago)
-        <div class="col-12">
-            <span>{{$objinstitucionessinpago->nombreinstitucion}}</span>
-            <span>{{$objinstitucionespagonormal->nombretipo}}</span>
-        </div>
-        @endforeach
-      </div>
-    </section>      
-
-      <!-- Carrusel de logos inferior, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
-    <section class="contains_slider-logos-galeriaProf">
-      <div class="col-11 col-lg-10 swiper-container swiper_logosGaleriaProf">
-        <div class="swiper-wrapper">
-          @foreach ($objcarruselPublicidadinstituciones as $objcarruselPublicidadinstituciones)
-            <img class="swiper-slide" src="{{URL::asset($objcarruselPublicidadinstituciones->rutaImagenVenta)}}">
+        <!--galeria profesionales sin pago -->
+        <section class="contanier_cards_generic_insti">
+          @foreach ($objmedicossinpago as $objmedicossinpago)
+            <div class="card card_generic_insti">
+              <div class="card-body">
+                <h5>{{$objmedicossinpago->primernombre}} {{$objmedicossinpago->primerapellido}}</h5>
+                <p>{{$objmedicossinpago->nombreEspecialidad}}</p>
+                <!-- Rating Stars Box -->
+                    <div class='rating-stars text-center'>
+                      <ul id='stars'>
+                        <li class='star' title='Poor' data-value='1'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Fair' data-value='2'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Good' data-value='3'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='Excellent' data-value='4'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                        <li class='star' title='WOW!!!' data-value='5'>
+                          <i class='fa fa-star fa-fw'></i>
+                        </li>
+                      </ul>
+                    </div>
+              </div>
+            </div>
           @endforeach
-        </div>
-
-        <!-- If we need navigation buttons -->
-        <!-- <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div> -->
-      </div>
-    </section    
-
-    @endsection
+        </section>
+    
+          <!--carrusel publicidad -->
+          
+        <section class="contains_slider_publiProfesionales">
+            <h1 class="titulo_logos">Ellos Confian en Nosotros</h1>
+            <div class="swiper-container swiper_logoshome">
+                <div class="swiper-wrapper">
+                    @foreach ($objcarruselPublicidadprofesionales as $objcarruselPublicidadprofesionales)
+                      <img class="swiper-slide" src="{{URL::asset($objcarruselPublicidadprofesionales->rutaImagenVenta)}}">
+                    @endforeach 
+                </div>
+            </div>
+        </section>
+     
+@endsection
