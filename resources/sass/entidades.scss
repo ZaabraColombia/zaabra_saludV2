@@ -1,20 +1,21 @@
-.imagen_bannerPrin-prof {
+.imagen_bannerPrin-entid {
     width: 100%;
     padding: 0;
 }
 // Sección tarjetas profesionales de al salud
- .section_tarjetas-profesionales {
+ .section_tarjetas-entidades {
     margin: auto;
     padding: 0;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-left: 16%;
 }
-.imagen_profesion {
+.imagen_entidad {
     display: flex;
     justify-content: center;
     align-self: center;
 }
 // Sección boton ver especialidades
-.contenido_boton-ver { 
+.contenido_boton-verEntidad { 
     display: flex;
     justify-content: center;
 }
@@ -32,41 +33,41 @@
     margin-right: auto;
 }
 @media (min-width: 320px) and (orientation: portrait) {
-    .imagen_bannerPrin-prof {
+    .imagen_bannerPrin-entid {
         width: 100%;
         padding: 0;
     }
-    // Sección del titulo ramas de la salud
-    .section_titulo-rama {
+    // Sección del titulo Entidades
+    .section_titulo-entidades {
         font-size: 1.125em;
         font-family: 'Quicksand', sans-serif; 
         font-weight: bolder;
-        color: #0083d6;
+        color: #019f86;
         margin: 10% 0;
         text-align: center;
     }
     // Sección tarjetas profesionales de al salud
-    .section_tarjetas-profesionales {
+    .section_tarjetas-entidades {
         margin: 0;
         padding: 0;
         justify-content: space-evenly;
     }
-    .contenido_tarjetas-profesionales {
+    .contenido_tarjetas-entidades {
         margin-bottom: 3%;
         padding: 3% 1%;
         border-radius: 5px;
         box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
     }
-    .imagen_profesion {
+    .imagen_entidad {
         display: flex;
         justify-content: center;
         align-self: center;
     }
-    .icono_img-profesion {
+    .icono_img-entidad {
         width: 85px;
         height: 85px; 
     }
-    .nombre_profesion {
+    .nombre_entidad {
         font-size: .688em;
         font-family: 'Quicksnd', sans-serif;
         font-weight: bolder;
@@ -74,20 +75,20 @@
         padding: 0;
         text-align: center;
     }
-    .texto_profesion {
-        font-size: .488em;
+    .texto_entidad {
+        font-size: .55em;
         font-family: 'quicksand', sans-serif;
         color: #3e3e3e;
         text-align: center;
-        margin: 5% 0;
+        height: 6vh;
     }
     // Sección boton ver especialidades
-    .contenido_boton-ver { 
+    .contenido_boton-verEntidad { 
         display: flex;
         justify-content: center;
     }
-    .boton_ver-especialidad {
-        background: #0083d6;
+    .boton_ver-entidades {
+        background: #019f86;
         font-family: 'quicksand', sans-serif;
         font-size: .563em;
         color: #ffffff;
@@ -109,21 +110,22 @@
         height: 20vh; }
 }  
 @media (min-width: 768px) and (orientation: portrait) {
-    .section_titulo-rama {
+    .section_titulo-entidades {
         font-size: 2.5em;
     }
-    .icono_img-profesion {
+    .icono_img-entidad {
         width: 150px;
         height: 150px;
     }
-    .nombre_profesion {
+    .nombre_entidad {
         font-size: 1.8em;
     }
-    .texto_profesion {
+    .texto_entidad {
         font-size: 1em;
+        height: 4vh;
     }
-    .boton_ver-especialidad {
-        background: #0083d6;
+    .boton_ver-entidades {
+        background: #019f86;
         font-family: "quicksand", sans-serif;
         font-size: 1.25em;
         color: #ffffff;
@@ -140,39 +142,39 @@
 }  
 @media (min-width: 1024px) {
     // Sección del titulo ramas de la salud
-    .section_titulo-rama {
+    .section_titulo-entidades {
         font-size: 2.5em;
         font-family: 'Quicksand', sans-serif; 
         font-weight: bolder;
-        color: #0083d6;
+        color: #019f86;
         margin: 5% 0;
         text-align: center;
     }
       // Sección tarjetas profesionales de al salud
-      .contenido_tarjetas-profesionales {
+      .contenido_tarjetas-entidades {
         margin: 1%;
         padding: 3% 1%;
         border-radius: 5px;
         box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
     }
-    .nombre_profesion {
-        font-size: 1.35em;
+    .nombre_entidad {
+        font-size: 1.25em;
         font-family: 'Quicksnd', sans-serif;
         font-weight: bolder;
         color: #232323;
         padding: 0;
         text-align: center;
     }
-    .texto_profesion {
-        font-size: .9em;
+    .texto_entidad {
+        font-size: .85em;
         font-family: 'quicksand', sans-serif;
         color: #3e3e3e;
         text-align: center;
-        margin-bottom: 5%;
+        height: 7vh;
     }
     // Sección boton ver especialidades
-    .boton_ver-especialidad {
-        background: #0083d6;
+    .boton_ver-entidades {
+        background: #019f86;
         font-family: 'quicksand', sans-serif;
         font-size: .9em;
         color: #ffffff;
@@ -191,16 +193,22 @@
     }
 }
 @media (min-width: 1200px) {
-    .texto_profesion {
+    .texto_entidad {
         font-size: .8em;
+        height: 5vh;
+    }
+}
+@media (min-width: 1440px) {
+    .texto_entidad {
+        font-size: .9em;
     }
 }
 @media (min-width: 1600px) {
-    .texto_profesion {
+    .texto_entidad {
         font-size: 1.2em;
     }
-    .boton_ver-especialidad {
-        background: #0083d6;
+    .boton_ver-entidades {
+        background: #019f86;
         font-family: 'quicksand', sans-serif;
         font-size: 1.25em;
         color: #ffffff;

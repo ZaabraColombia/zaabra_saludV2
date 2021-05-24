@@ -1,4 +1,4 @@
-//Carrusel superior galeriaProfesiones, Ramas de la salud
+//Carrusel superior galeriaProfesiones, Ramas de la salud, Entidades
 const swiper_principalGaleriaProf = new Swiper('.swiper_principalGaleriaProf',{
   // Optional parameters
   // If we need pagination
@@ -17,7 +17,7 @@ const swiper_principalGaleriaProf = new Swiper('.swiper_principalGaleriaProf',{
   // And if we need scrollbar
 });
 
-//Carrusel de logos inferior galeriaProfesiones, Rama de la salud
+//Carrusel de logos inferior galeriaProfesiones, Rama de la salud, Entidades
 const swiper_logosGaleriaProf = new Swiper(".swiper_logosGaleriaProf", {
 
   loop: true,
