@@ -10052,7 +10052,7 @@ a:link, a:visited, a:active, a:hover {
   border-radius: 0;
   font-size: 17px;
   border: none;
-  padding: 0;
+  padding: 0 2%;
   background: #faebd700;
 }
 
@@ -10081,50 +10081,65 @@ a:link, a:visited, a:active, a:hover {
   border-radius: 2px;
 }
 
-.icon_menu {
-  background-color: #545b6200 !important;
-  border-color: #f77f0000 !important;
-  cursor: pointer;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .soy_paciente {
   height: 100%;
 }
 
 .soy_paciente .dropdown-toggle {
+  background-image: url("/img/header/icono-soy-paciente-blanco.svg");
+  background-size: 70%;
+  background-position-x: center;
   width: 100%;
   height: 100%;
   border: none;
-  background: #fff0;
   display: flex;
   flex-wrap: nowrap;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
+  margin: auto;
+}
+
+.icon_paciente:focus {
+  background-image: url("/img/header/icono-soy-paciente-azul.svg");
+  background-color: #ffffff;
+  height: 100%;
+  border: none;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: auto;
+}
+
+.menu-hamburger .dropdown-toggle {
+  background-image: url("/img/header/icono-hamburguesa-blanco.svg");
+  background-repeat: no-repeat;
+  background-size: 45%;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: auto;
+}
+
+.icon-menu:focus {
+  background-image: url("/img/header/icono-hamburguesa-azul.svg");
+  background-size: 45%;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: auto;
 }
 
 .menu_paciente {
-  position: absolute;
-  transform: translate3d(-48px, 70px, 0px);
-  top: -10px;
-  left: 0px;
   padding: 0;
-  will-change: transform;
-  height: 16vh;
-  width: 175px;
+  height: 22vh;
 }
 
 .menu_hamburguesa {
-  position: absolute;
-  transform: translate3d(-48px, 70px, 0px);
-  top: -10px;
-  left: 0px;
-  padding: 0;
-  will-change: transform;
   height: 16vh;
   width: 175px;
 }
@@ -10141,46 +10156,150 @@ a:link, a:visited, a:active, a:hover {
   background-color: transparent;
   border: 0;
   padding: 0;
-  padding-top: 1%;
   align-items: center;
-}
-
-.icon_dropdown {
-  width: 45px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 35px;
-  display: block;
-  float: left;
-}
-
-.icon_paciente {
-  background-size: contain;
-  width: 40%;
-  height: 65%;
 }
 
 .dropdown-item {
   font-family: "Roboto", sans-serif;
 }
 
-.icon-especialidades {
-  background-image: url("/img/header/icono-especialidades-medicas.svg");
+.icon-paciente {
+  background-image: url("/img/header/icono-paciente-gris.svg");
+  background-repeat: no-repeat;
+  background-position-x: 10%;
+  background-position-y: center;
+  background-size: 21%;
+}
+
+.icon-medico {
+  background-image: url("/img/header/icono-soy-medico.svg");
+  background-repeat: no-repeat;
+  background-position-x: 10%;
+  background-position-y: center;
+  background-size: 21%;
 }
 
 .icon-instituciones {
   background-image: url("/img/header/icono-instituciones-medicas.svg");
+  background-repeat: no-repeat;
+  background-position-x: 10%;
+  background-position-y: center;
+  background-size: 21%;
+}
+
+.icon-especialidades {
+  background-image: url("/img/header/icono-especialidades-medicas.svg");
+  background-repeat: no-repeat;
+  background-position-x: 10%;
+  background-position-y: center;
+  background-size: 16%;
+}
+
+.icon-instituciones-burger {
+  background-image: url("/img/header/icono-instituciones-medicas.svg");
+  background-repeat: no-repeat;
+  background-position-x: 10%;
+  background-position-y: center;
+  background-size: 16%;
 }
 
 .icon-quienes {
-  background-image: url("/img/header/icono-instituciones-medicas.svg");
+  background-image: url("/img/header/icono-quienes-somos.svg");
+  background-repeat: no-repeat;
+  background-position-x: 10%;
+  background-position-y: center;
+  background-size: 16%;
+}
+
+.icon-contactenos {
+  background-image: url("/img/header/iconos-de-contactenos.svg");
+  background-repeat: no-repeat;
+  background-position-x: 10%;
+  background-position-y: center;
+  background-size: 16%;
+}
+
+.menu_paciente > .icon-paciente:hover {
+  background: #0083d6;
+  color: #ffffff;
+  border: 1px solid #0083d6;
+  background-image: url("/img/header/icono-paciente-blanco.svg");
+  background-repeat: no-repeat;
+  background-position-x: 10%;
+  background-position-y: center;
+  background-size: 21%;
+}
+
+.menu_paciente > .icon-medico:hover {
+  background: #0083d6;
+  color: #ffffff;
+  border: 1px solid #0083d6;
+  background-image: url("/img/header/icono-soy-medico-blanco.svg");
+  background-repeat: no-repeat;
+  background-position-x: 10%;
+  background-position-y: center;
+  background-size: 21%;
+}
+
+.menu_paciente > .icon-instituciones:hover {
+  background: #0083d6;
+  color: #ffffff;
+  border: 1px solid #0083d6;
+  background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
+  background-repeat: no-repeat;
+  background-position-x: 10%;
+  background-position-y: center;
+  background-size: 21%;
+}
+
+.menu_hamburguesa > .icon-especialidades:hover {
+  background: #0083d6;
+  color: #ffffff;
+  border: 1px solid #0083d6;
+  background-image: url("/img/header/icono-especialidades-medicas-blanco.svg");
+  background-repeat: no-repeat;
+  background-position-x: 10%;
+  background-position-y: center;
+  background-size: 16%;
+}
+
+.menu_hamburguesa > .icon-instituciones-burger:hover {
+  background: #0083d6;
+  color: #ffffff;
+  border: 1px solid #0083d6;
+  background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
+  background-repeat: no-repeat;
+  background-position-x: 10%;
+  background-position-y: center;
+  background-size: 16%;
+}
+
+.menu_hamburguesa > .icon-quienes:hover {
+  background: #0083d6;
+  color: #ffffff;
+  border: 1px solid #0083d6;
+  background-image: url("/img/header/icono-quienes-somos-blanco.svg");
+  background-repeat: no-repeat;
+  background-position-x: 10%;
+  background-position-y: center;
+  background-size: 16%;
+}
+
+.menu_hamburguesa > .icon-contactenos:hover {
+  background: #0083d6;
+  color: #ffffff;
+  border: 1px solid #0083d6;
+  background-image: url("/img/header/icono-contactenos-blanco.svg");
+  background-repeat: no-repeat;
+  background-position-x: 10%;
+  background-position-y: center;
+  background-size: 16%;
 }
 
 .button-membresia {
   flex: 115px;
   height: 100%;
-  max-width: 115px;
+  max-width: 117px;
   display: flex;
   align-items: center;
 }
@@ -10189,35 +10308,19 @@ a:link, a:visited, a:active, a:hover {
   max-width: 100%;
 }
 
-.icon-menu {
-  background-color: #545b6200 !important;
-  border-color: #f77f0000 !important;
-  cursor: pointer;
-  width: 35px;
-  height: 35px;
-  margin: 0;
+.dropdown-menu .menu_item {
   display: flex;
-  justify-content: center;
+  width: 100%;
+  height: 25%;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  padding: 0;
   align-items: center;
-}
-
-.icon-menu span, .icon-menu span:before, .icon-menu span:after {
-  width: 30px;
-  height: 3px;
-  background: #ffff;
-  display: block;
-  content: "";
-  position: absolute;
-  transition: all 500ms ease-in-out;
-  top: 45%;
-}
-
-.icon-menu span:after {
-  top: -8px;
-}
-
-.icon-menu span:before {
-  top: 8px;
+  justify-content: space-evenly;
+  background-repeat: no-repeat;
 }
 
 .contains_boxsearch {
@@ -10230,7 +10333,7 @@ a:link, a:visited, a:active, a:hover {
 
 @media (min-width: 320px) and (orientation: portrait) {
   .contains_header {
-    max-width: 90%;
+    max-width: 100%;
     height: 100%;
     padding: 0;
     justify-content: space-between;
@@ -10294,33 +10397,74 @@ a:link, a:visited, a:active, a:hover {
     background: #faebd700;
   }
 
-  .icon_paciente {
-    background-size: contain;
-    width: 70%;
-    height: 65%;
+  .contenedorLupa {
+    padding: 0;
+    border: none;
+    height: auto;
+    width: 6%;
+    position: relative;
+    margin-top: 0;
+    margin-right: 3%;
+    right: 0;
+    align-items: flex-end;
+    height: 100%;
+  }
+
+  .soy_paciente {
+    height: 100%;
+    width: 20%;
   }
 
   .soy_paciente .dropdown-toggle {
+    background-image: url("/img/header/icono-soy-paciente-blanco.svg");
+    background-size: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100%;
     height: 100%;
     border: none;
-    background: #fff0;
     display: flex;
     flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+    margin: auto;
   }
 
-  .menu_paciente {
-    position: absolute;
-    transform: translate3d(-48px, 70px, 0px);
-    top: -28px;
-    left: -55px;
-    padding: 0;
-    will-change: transform;
-    height: 20vh;
-    width: 170px;
+  .soy_paciente .dropdown-toggle {
+    background-image: url("/img/header/icono-soy-paciente-blanco.svg");
+    background-size: 70%;
+    background-position-x: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+  }
+
+  .icon_paciente:focus {
+    background-image: url("/img/header/icono-soy-paciente-azul.svg");
+    background-color: #ffffff;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+  }
+
+  .dropdown-menu .dropdown-item {
+    padding-left: 36%;
+    justify-content: flex-start;
+  }
+
+  .icon-paciente {
+    background-size: 20%;
+  }
+
+  .icon-medico {
+    background-size: 20%;
+  }
+
+  .icon-instituciones {
+    background-size: 20%;
   }
 
   .button-membresia {
@@ -10339,50 +10483,38 @@ a:link, a:visited, a:active, a:hover {
     max-width: 30px;
   }
 
-  .icon-menu {
-    background-color: #545b6200 !important;
-    border-color: #f77f0000 !important;
-    cursor: pointer;
-    width: 58px;
-    height: 35px;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .menu-hamburger {
+    width: 15%;
+    height: 100%;
   }
 
   .menu_hamburguesa {
-    position: absolute;
-    transform: translate3d(-48px, 70px, 0px);
-    top: -33px;
-    left: -75px;
-    padding: 0;
-    will-change: transform;
-    height: 16vh;
-    width: 175px;
-  }
-}
-@media (min-width: 360px) and (orientation: portrait) {
-  .menu_paciente {
-    position: absolute;
-    transform: translate3d(-48px, 70px, 0px);
-    top: -21px;
-    left: -50px;
-    padding: 0;
-    will-change: transform;
-    height: 20vh;
-    width: 170px;
+    height: 35vh;
+    width: 225px;
   }
 
-  .menu_hamburguesa {
-    position: absolute;
-    transform: translate3d(-48px, 70px, 0px);
-    top: -30px;
-    left: -75px;
-    padding: 0;
-    will-change: transform;
-    height: 16vh;
-    width: 175px;
+  .icon-especialidades {
+    background-size: 16%;
+  }
+
+  .icon-instituciones-burger {
+    background-position-x: 7%;
+    background-size: 16%;
+  }
+
+  .icon-quienes {
+    background-position-x: 7%;
+    background-size: 16%;
+  }
+
+  .icon-contactenos {
+    background-position-x: 7%;
+    background-size: 16%;
+  }
+
+  .dropdown-menu .item-cel {
+    background-position-x: 7%;
+    padding-left: 25%;
   }
 }
 @media (min-width: 768px) and (orientation: portrait) {
@@ -10397,7 +10529,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_header {
-    max-width: 75%;
+    max-width: 90%;
     height: 100%;
     padding: 0;
     justify-content: space-between;
@@ -10412,20 +10544,78 @@ a:link, a:visited, a:active, a:hover {
     background: #0083d6;
   }
 
-  .icon_paciente {
-    background-size: contain;
-    width: 100%;
+  .inputBarraBusquedad {
+    width: 90%;
+    height: 100%;
+    padding-left: 0;
+    border-radius: 0;
+    font-size: 1.5em;
+    border: none;
+    padding: 0 2%;
+    background: #faebd700;
+  }
+
+  .contenedorLupa {
+    padding: 1% 0;
+    border: none;
+    width: 5%;
+    position: relative;
+    margin-top: 0;
+    margin-right: 3%;
+    right: 0;
+    align-items: flex-end;
   }
 
   .menu_paciente {
-    position: absolute;
-    transform: translate3d(-48px, 70px, 0px);
-    top: 16px;
-    left: -30px;
     padding: 0;
-    will-change: transform;
     height: 15vh;
-    width: 170px;
+  }
+
+  .icon-paciente {
+    background-size: 22%;
+  }
+
+  .dropdown-menu .dropdown-item {
+    display: flex;
+    width: 100%;
+    height: 33%;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    align-items: center;
+    font-size: 1.2em;
+  }
+
+  .menu_paciente {
+    padding: 0;
+    height: 15vh;
+    width: 215px;
+  }
+
+  .soy_paciente .dropdown-toggle {
+    background-image: url("/img/header/icono-soy-paciente-blanco.svg");
+    background-size: 60%;
+    background-position-x: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+  }
+
+  .icon_paciente:focus {
+    background-image: url("/img/header/icono-soy-paciente-azul.svg");
+    background-color: #ffffff;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
   }
 
   .button-membresia-mobile {
@@ -10441,14 +10631,34 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .menu_hamburguesa {
-    position: absolute;
-    transform: translate3d(-48px, 70px, 0px);
-    top: -10px;
-    left: -65px;
-    padding: 0;
-    will-change: transform;
-    height: 15vh;
-    width: 175px;
+    height: 25vh;
+    width: 290px;
+  }
+
+  .menu-hamburger .dropdown-toggle {
+    background-size: 40%;
+  }
+
+  .icon-especialidades {
+    background-size: 20%;
+  }
+
+  .icon-instituciones-burger {
+    background-size: 20%;
+  }
+
+  .icon-quienes {
+    background-size: 20%;
+  }
+
+  .icon-contactenos {
+    background-size: 20%;
+  }
+
+  .dropdown-menu .item-cel {
+    background-position-x: 7%;
+    padding-left: 30%;
+    height: 25%;
   }
 }
 @media (min-width: 1024px) and (max-height: 800px) {
@@ -10457,7 +10667,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_header {
-    max-width: 75%;
+    max-width: 67%;
     height: 100%;
     padding: 0;
     justify-content: flex-start;
@@ -10478,6 +10688,18 @@ a:link, a:visited, a:active, a:hover {
     align-self: center;
   }
 
+  .contenedorLupa {
+    padding: 0;
+    border: none;
+    height: auto;
+    width: 6%;
+    position: relative;
+    margin-top: 0;
+    margin-right: 3%;
+    right: 0;
+    align-items: flex-end;
+  }
+
   .dropdown-paciente {
     width: 30%;
     height: 100%;
@@ -10487,14 +10709,26 @@ a:link, a:visited, a:active, a:hover {
     width: 10%;
   }
 
-  .icon_menu {
-    width: 35px;
-    height: 35px;
-  }
-
   .icon_paciente {
     background-size: contain;
+    background-image: url("/img/header/icono-soy-paciente-blanco.svg");
+    background-repeat: no-repeat;
+    background-position-y: center;
+  }
+
+  .menu_paciente {
+    padding: 0;
+    height: 18vh;
+  }
+
+  .texto_item-menu {
     width: 60%;
+    margin-left: 20%;
+  }
+
+  .texto_item-menu-paciente {
+    width: 60%;
+    margin-left: 35%;
   }
 
   .button-membresia {
@@ -10513,20 +10747,38 @@ a:link, a:visited, a:active, a:hover {
     width: 9%;
     height: 100%;
     display: flex;
-    align-content: center;
     justify-content: center;
     align-items: center;
   }
+
+  .menu_hamburguesa {
+    height: 28vh;
+    width: 260px;
+  }
 }
-@media (min-width: 1440px) {
+@media (min-width: 1200px) {
   .contains_header {
-    max-width: 75%;
-    height: 100%;
-    padding: 0;
+    max-width: 66%;
   }
 
+  .contenedorLupa {
+    width: 5%;
+  }
+
+  .button-membresia {
+    max-width: 135px;
+  }
+}
+@media (min-width: 1440px) {
   .contains_barra {
     display: none;
+  }
+
+  .contains_header {
+    max-width: 67%;
+    height: 100%;
+    padding: 0;
+    justify-content: flex-start;
   }
 
   .logo_header {
@@ -10544,59 +10796,199 @@ a:link, a:visited, a:active, a:hover {
     align-self: center;
   }
 
+  .contenedorLupa {
+    padding: 0;
+    border: none;
+    height: auto;
+    width: 6%;
+    position: relative;
+    margin-top: 0;
+    margin-right: 3%;
+    right: 0;
+    align-items: flex-end;
+  }
+
   .dropdown-paciente {
     width: 30%;
     height: 100%;
   }
 
-  .menu_hamburger {
-    width: 15%;
-    height: 100%;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .icon_menu {
-    width: 35px;
-    height: 35px;
-  }
-
   .soy_paciente {
-    width: 18%;
+    width: 8%;
   }
 
-  .menu-hamburger {
-    width: 9%;
+  .icon_paciente {
+    background-size: contain;
+    background-image: url("/img/header/icono-soy-paciente-blanco.svg");
+    background-repeat: no-repeat;
+    background-position-y: center;
+  }
+
+  .soy_paciente .dropdown-toggle {
+    background-image: url(/img/header/icono-soy-paciente-blanco.svg);
+    background-size: 75%;
+    background-position-x: center;
+    width: 100%;
     height: 100%;
+    border: none;
     display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: nowrap;
+    margin: auto;
+  }
+
+  .menu_paciente {
+    padding: 0;
+    height: 18vh;
+  }
+
+  .texto_item-menu {
+    width: 60%;
+    margin-left: 20%;
+  }
+
+  .texto_item-menu-paciente {
+    width: 60%;
+    margin-left: 35%;
   }
 
   .button-membresia {
     display: flex;
+    max-width: 145px;
   }
 
   .button-membresia-mobile {
     display: none;
   }
 
-  .button-membresia {
-    flex: 115px;
+  .img-button-membresia {
+    width: 100%;
+  }
+
+  .menu-hamburger {
+    width: 7%;
     height: 100%;
-    max-width: 145px;
     display: flex;
+    justify-content: center;
     align-items: center;
   }
-}
-@media (min-width: 1440px) {
-  .contains_header {
-    max-width: 65%;
+
+  .menu-hamburger .dropdown-toggle {
+    background-image: url(/img/header/icono-hamburguesa-blanco.svg);
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: center;
+    width: 100%;
     height: 100%;
+    border: none;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+  }
+
+  .menu_hamburguesa {
+    height: 28vh;
+    width: 260px;
+  }
+}
+@media (min-width: 1600px) {
+  .logo_header {
+    width: 100%;
+  }
+
+  .soy_paciente .dropdown-toggle {
+    background-image: url(/img/header/icono-soy-paciente-blanco.svg);
+    background-size: 75%;
+    background-position-x: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+  }
+
+  .contenedorLupa {
     padding: 0;
+    border: none;
+    height: auto;
+    width: 5%;
+    position: relative;
+    margin-top: 0;
+    margin-right: 3%;
+    right: 0;
+    align-items: flex-end;
+  }
+
+  .soy_paciente .dropdown-toggle {
+    background-image: url("/img/header/icono-soy-paciente-blanco.svg");
+    background-size: 70%;
+    background-position-x: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+  }
+
+  .icon_paciente:focus {
+    background-image: url("/img/header/icono-soy-paciente-azul.svg");
+    background-color: #ffffff;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+  }
+
+  .menu_paciente {
+    padding: 0;
+    height: 17vh;
+    width: 190%;
+  }
+
+  .button-membresia {
+    max-width: 180px;
+  }
+
+  .menu-hamburger .dropdown-toggle {
+    background-image: url(/img/header/icono-hamburguesa-blanco.svg);
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+  }
+
+  .menu-hamburger .dropdown-toggle {
+    background-image: url("/img/header/icono-hamburguesa-blanco.svg");
+    background-repeat: no-repeat;
+    background-size: 45%;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+  }
+
+  .icon-menu:focus {
+    background-image: url("/img/header/icono-hamburguesa-azul.svg");
+    background-size: 45%;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
   }
 }
 .footer_newsletter {
@@ -11655,6 +12047,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slider_especialistas {
+    max-width: 100%;
     height: 45vh;
   }
 
@@ -11953,6 +12346,7 @@ a:link, a:visited, a:active, a:hover {
     font-family: "quicksand", sans-serif;
     color: #3e3e3e;
     text-align: center;
+    margin: 5% 0;
   }
 
   .contenido_boton-ver {
@@ -12013,7 +12407,7 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.25em;
     color: #ffffff;
     padding: 0;
-    height: 37px;
+    height: 50px;
     width: 246px;
     border-radius: 3px;
     border: none;
@@ -12059,6 +12453,7 @@ a:link, a:visited, a:active, a:hover {
     font-family: "quicksand", sans-serif;
     color: #3e3e3e;
     text-align: center;
+    margin-bottom: 5%;
   }
 
   .boton_ver-especialidad {
@@ -12192,6 +12587,54 @@ a:link, a:visited, a:active, a:hover {
   text-align: center;
 }
 
+.contains_swiper_premium .contains_info h2 {
+  font-family: "Quicksand", sans-serif;
+  font-weight: bolder;
+  color: #232323;
+}
+
+.contains_swiper_premium .contains_info h5 {
+  font-family: "Roboto";
+  font-weight: bolder;
+  color: #3E3E3E;
+}
+
+.contains_swiper_premium .contains_info p {
+  font-family: "Roboto";
+  color: #3E3E3E;
+}
+
+.contains_swiper_premium .contains_info h2, h5, p {
+  margin-bottom: 0;
+}
+
+.contains_slide .contains_buttons a:nth-last-child(2) {
+  font-family: "Quicksand";
+  font-weight: lighter;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  background: #007bff;
+  color: #ffff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contains_slide .contains_buttons a:nth-last-child(1) {
+  font-family: "Quicksand";
+  font-weight: lighter;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  background: #EFEFEF;
+  color: #232323;
+  border: 0.5px solid #434343;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (min-width: 320px) {
   .titulo_profesionales {
     margin-top: 5%;
@@ -12201,7 +12644,7 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_swiper_premium {
     max-width: 100%;
-    height: 40vh;
+    height: 65vh;
   }
 
   .swiper_premium {
@@ -12211,7 +12654,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slide .contains_image_profesional {
-    height: 40%;
+    height: 45%;
   }
 
   .contains_slide .contains_image_profesional img {
@@ -12221,9 +12664,42 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_slide .contains_info {
     height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+    flex-wrap: wrap;
   }
 
   .contains_slide .contains_buttons {
-    height: 40%;
+    max-width: 100%;
+    display: flex;
+    height: 15%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contains_slide .contains_buttons a {
+    display: flex;
+    width: 45%;
+    height: 65%;
+  }
+
+  .contains_swiper_premium .contains_info h2 {
+    font-size: 1.3em;
+  }
+
+  .contains_swiper_premium .contains_info h5 {
+    font-size: 0.8em;
+  }
+
+  .contains_swiper_premium .contains_info p {
+    font-size: 0.7em;
+  }
+
+  .contains_swiper_premium .contains_info h2, h5, p {
+    line-height: 1.3em;
   }
 }

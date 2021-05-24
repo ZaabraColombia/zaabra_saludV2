@@ -1,0 +1,354 @@
+   // Contenedor principal login
+   .contenedorPrin_login {
+    background: #F9F9F9;
+}
+// Titulo princial 
+.titulo_principal-login {
+    font-family: 'Roboto', 'Regular';
+    font-size: 1em;
+    font-weight: 500;
+    color: #3E3E3E;
+    text-align: center;
+    margin: 2% 8%;
+}
+// Seccion principal Login
+.section_principal-login {
+    border: none;
+    margin-bottom: 4%;
+    padding: 0;
+    box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
+}
+// Seccion body del login
+.section_body-login {
+    padding: 2% 12% 0 12%;
+}
+.content_iniciar-crear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    border: none;
+    padding: 0;
+    margin: 3% 0;
+}
+// INICIAR SESION
+.section_texto-iniciar {
+    font-family: 'Quicksand', 'Regular';
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #0083D6;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    border-bottom: 5px solid #1558d6;
+    padding: 0;
+}
+// CREAR CUENTA
+.section_texto-crear {
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    border-bottom: 5px solid #D1D1D1;
+    padding: 0;
+}
+.texto_crear-login {
+    font-family: 'Quicksand', 'Regular';
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #D1D1D1 !important;
+    text-decoration: none;
+}
+.texto_label-login {
+    font-family: 'Quicksand', 'Regular';
+    font-size: 1em;
+    font-weight: bold;
+    color: #232323;
+    text-align: left;
+}
+// Boton inferior ingreasar
+.content_btn-ingresar-login {
+    text-align: center;
+}
+.btn_Ingreso-login {
+    font-family: "Quicksand";
+    font-size: 1em;
+    color: #ffffff;
+    background: #0083d6;
+    border: none;
+    border-radius: 5px;
+    height: calc(1.6em + 0.75rem + 2px);
+    width: 35%;
+}
+.flecha_ingreso-login {
+    width: 8%;
+}
+.texto_olvide-login {
+    font-family: 'Roboto', 'Regular';
+    font-size: 1em;
+    color: #0083d6 !important;
+    text-decoration: underline !important;
+    display: flex;
+    justify-content: center;
+    margin: 3% 0;
+}
+.content_pie-login {
+    padding: 0;
+    padding-bottom: 5%;
+    background: #ffffff;
+}
+.texto_inferior-login {
+    font-family: "Roboto";
+    font-size: 1em;
+    font-style: italic;
+    font-weight: 500;
+    color: #3E3E3E;
+    text-align: center;
+    background: #ffffff;
+    padding: 0;
+    margin: auto;
+    margin-top: -2%;
+}
+.content_imgRedes-login {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: auto;
+    margin-top: 1%;
+}
+.img_redes-login {
+    max-width: 50px;
+}
+@media (min-width: 320px) and (orientation: portrait) {
+    // Contenedor principal login
+    .contenedorPrin_login {
+        background: #F9F9F9;
+    }
+    // Titulo princial 
+    .titulo_principal-login {
+        font-family: 'Roboto', 'Regular';
+        font-size: .8em;
+        font-weight: 500;
+        color: #3E3E3E;
+        text-align: center;
+        margin: 5% 12%;
+    }
+    // Seccion principal Login
+    .section_principal-login {
+        border: none;
+        margin-bottom: 10%;
+        padding: 0;
+        box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
+    }
+    // Seccion body del login
+    .section_body-login {
+        padding: 2% 5%;
+    }
+    .content_iniciar-crear {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ffffff;
+        border: none;
+        padding: 0;
+        margin: 3% 0;
+    }
+    // INICIAR SESION
+    .section_texto-iniciar {
+        font-family: 'Quicksand', 'Regular';
+        font-size: 1em;
+        font-weight: bold;
+        color: #0083D6;
+        text-decoration: none;
+        text-align: center;
+        align-items: center;
+        border-bottom: 5px solid #1558d6;
+        padding: 0;
+    }
+    // CREAR CUENTA
+    .section_texto-crear {
+        text-decoration: none;
+        text-align: center;
+        align-items: center;
+        border-bottom: 5px solid #D1D1D1;
+        padding: 0;
+    }
+    .texto_crear-login {
+        font-family: 'Quicksand', 'Regular';
+        font-size: 1em;
+        font-weight: bold;
+        color: #D1D1D1 !important;
+        text-decoration: none;
+    }
+    .texto_label-login {
+        font-family: 'Quicksand', 'Regular';
+        font-size: .85em;
+        color: #232323;
+        text-align: left;
+    }
+    // Boton inferior ingreasar
+    .content_btn-ingresar-login {
+        text-align: center;
+    }
+    .btn_Ingreso-login {
+        font-family: "Quicksand";
+        font-size: .85em;
+        color: #ffffff;
+        background: #0083d6;
+        border: none;
+        border-radius: 5px;
+        height: calc(1.6em + 0.75rem + 2px);
+        width: 50%;
+    }
+    .flecha_ingreso-login {
+        width: 11%;
+    }
+    .texto_olvide-login {
+        font-family: 'Roboto', 'Regular';
+        font-size: .85em;
+        color: #0083d6 !important;
+        text-decoration: underline !important;
+        display: flex;
+        justify-content: center;
+        margin: 3% 0;
+    }
+    .content_pie-login {
+        padding: 0;
+        padding-bottom: 5%;
+        background: #ffffff;
+    }
+    .texto_inferior-login {
+        font-family: "Roboto";
+        font-size: 0.8em;
+        font-style: italic;
+        font-weight: 500;
+        color: #3E3E3E;
+        text-align: center;
+        background: #ffffff;
+        padding: 0;
+        margin: auto;
+        margin-top: -2.8%;
+    }
+    .content_imgRedes-login {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 0;
+        margin: auto;
+        margin-top: 1%;
+    }
+    .img_redes-login {
+        max-width: 35px;
+    }
+}    
+@media (min-width: 768px) and (orientation: portrait) {
+    // Titulo principal
+    .titulo_principal-login {
+        font-size: 1.563em;
+        font-weight: 500;
+        margin: 5% 17%;
+    }
+     // Seccion principal Login
+     .section_principal-login {
+        margin-bottom: 6%;
+    }
+    // Seccion body del login
+    .section_body-login {
+        padding: 2% 12% 0 12%;
+    }
+    // INICIAR SESION
+    .section_texto-iniciar {
+        font-size: 1.438em;
+    }
+    // CREAR CUENTA
+    .texto_crear-login {
+        font-size: 1.438em;
+    }
+    .texto_label-login {
+        font-size: 1.438em;
+    }
+    // Boton inferior ingreasar
+    .btn_Ingreso-login {
+        font-size: 1.25em;
+        width: 40%;
+    }
+    .flecha_ingreso-login {
+        width: 6%;
+    }
+    .texto_olvide-login {
+        font-size: 1em;
+    }
+    .content_pie-login {
+        border-top: 3px solid rgba(0, 0, 0, 0.125);
+    }
+    .img_redes-login {
+        max-width: 50px;
+    }
+    .texto_inferior-login {
+        font-size: 1em;
+        margin-top: -1.5%;
+    }
+}
+@media (min-width: 1440px) {
+    .titulo_principal-login {
+        font-size: 1.5em;
+        font-weight: 500;
+    }
+    .section_texto-iniciar {
+        font-size: 1.8em;
+    }
+    .texto_crear-login {
+        font-size: 1.8em;
+    }
+    .texto_label-login {
+        font-size: 1.5em;
+    }
+    .btn_Ingreso-login {
+        font-size: 1.5em;
+    }
+    .texto_olvide-login {
+        font-size: 1.5em;
+    }
+    .content_pie-login {
+        border-top: 3px solid rgba(0, 0, 0, 0.125);
+    }
+    .texto_inferior-login {
+        font-size: 1.5em;
+    }
+    .img_redes-login {
+        max-width: 70px;
+    }
+}
+@media (min-width: 1920px) {
+    // Titulo princial 
+    .titulo_principal-login {
+        font-size: 1.8em;
+    }
+    .section_texto-iniciar {
+        font-size: 2em;
+    }
+    .texto_crear-login {
+        font-size: 2em;
+    }
+    .texto_label-login {
+        font-size: 2em;
+    }
+    .input_height-fullhd {
+        height: 6vh;
+        font-size: 1.43em;
+    }
+    .btn_Ingreso-login {
+        font-size: 2em;
+    }
+    .texto_olvide-login {
+        font-size: 2em;
+    }
+    .texto_inferior-login {
+        font-size: 2em;
+    }
+    .img_redes-login {
+        max-width: 100px;
+    }
+}

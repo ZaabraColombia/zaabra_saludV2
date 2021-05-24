@@ -166,7 +166,7 @@
                 </div>
             </div>
 
-            <!--******************************     Columns acerca y politicas de uso Zaabra version MOBILE      *********************************-->
+            <!--******************************     Columns contactenos acerca y politicas de uso Zaabra version MOBILE      *********************************-->
             <!-- Column contenido contactanos-->
             <div class="col-10 col-md-8 contactanos_contenido d-block d-lg-none">
                 <div class="contenido_contactanos-cel">
@@ -217,7 +217,7 @@
             </div>
 
             <!-- Column contenido acerca zaabra-->
-            <div class="col-12 infoZaabra_contenido-cel d-block d-lg-none">
+            <div class="col-11 infoZaabra_contenido-cel d-block d-lg-none">
                 <div class="col-11 contenido_desplegable-cel">
                     <button class="boton_infoZaabra-cel rotacionBtn" type="button" data-toggle="collapse" 
                         data-target="#acercaZaabra" aria-expanded="false" aria-controls="acercaZaabra">
@@ -228,7 +228,7 @@
                 </div>
 
                 <div class="col-11 collapse infoZaabra_desplegable-cel" id="acercaZaabra">
-                    <div class="col-12 card card-body desplegable_infoZaabra-cel">
+                    <div class="col-10 card card-body desplegable_infoZaabra-cel">
                         <div class="col-12 texto_infoZaabra-cel">
                             <a href="/quienes">
                                 <span class=""> ¿Quiénes somos?</span>
@@ -262,12 +262,12 @@
             </div>
 
             <!-- Linea que divide las secciones acerca de zaabra y políticas de uso -->
-            <div class="col-11 contenido_linea-blanca-cel d-block d-lg-none">
+            <div class="col-10 contenido_linea-blanca-cel d-block d-lg-none">
                 <hr class="division_linea-blanca-cel">
             </div> 
 
             <!-- Column contenido politicas de uso -->
-            <div class="col-12 infoZaabra_contenido-cel d-block d-lg-none">
+            <div class="col-11 infoZaabra_contenido-cel d-block d-lg-none">
                 <div class="col-11 contenido_desplegable-cel">
                     <button class="boton_infoZaabra-cel rotacionBtn" type="button" data-toggle="collapse" 
                             data-target="#politicasUse" aria-expanded="false" aria-controls="politicasUse">
@@ -278,7 +278,7 @@
                 </div>
 
                 <div class="col-11 collapse infoZaabra_desplegable-cel" id="politicasUse">
-                    <div class="col-12 card card-body desplegable_infoZaabra-cel">
+                    <div class="col-10 card card-body desplegable_infoZaabra-cel">
                         <div class="col-12 texto_infoZaabra-cel">
                             <a href="/quienes#terminos">
                                 <span class=""> Políticas de cookies</span>

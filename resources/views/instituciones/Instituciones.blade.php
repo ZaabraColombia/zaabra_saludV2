@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
    <!-- Carrusel Banner principal, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
    <section class="swiper-container swiper_principalGaleriaProf" style="background: chartreuse;">
       <div class="swiper-wrapper">
@@ -5,9 +8,9 @@
         @foreach ($objcarruselinstitucionespremiun as $objcarruselinstitucionespremiun)
         <div class="col-12">
             <img class="swiper-slide imagen_bannerPrin-prof" src="{{URL::asset($objcarruselinstitucionespremiun->imagen)}}">
-            <span>{{$objcarruselinstitucionespremiun->primernombre}}</span>
+            <span>{{$objcarruselinstitucionespremiun->nombreinstitucion}}</span>
             <span>{{$objcarruselinstitucionespremiun->nombre}}</span>
-            <span>{{$objcarruselinstitucionespremiun->caracteristicas}}</span>
+            <span>{{$objcarruselinstitucionespremiun->quienessomos}}</span>
             <span>{{$objcarruselinstitucionespremiun->url}}</span>
         </div>
         @endforeach
@@ -21,9 +24,9 @@
         @foreach ($objinstitucionespagonormal as $objinstitucionespagonormal)
         <div class="col-12">
             <img class="swiper-slide imagen_bannerPrin-prof" src="{{URL::asset($objinstitucionespagonormal->imagen)}}">
-            <span>{{$objinstitucionespagonormal->primernombre}}</span>
+            <span>{{$objinstitucionespagonormal->nombreinstitucion}}</span>
             <span>{{$objinstitucionespagonormal->nombre}}</span>
-            <span>{{$objinstitucionespagonormal->caracteristicas}}</span>
+            <span>{{$objinstitucionespagonormal->quienessomos}}</span>
             <span>{{$objinstitucionespagonormal->url}}</span>
             <span>{{$objinstitucionespagonormal->nombretipo}}</span>
         </div>
@@ -37,7 +40,7 @@
 
         @foreach ($objinstitucionessinpago as $objinstitucionessinpago)
         <div class="col-12">
-            <span>{{$objinstitucionessinpago->primernombre}}</span>
+            <span>{{$objinstitucionessinpago->nombreinstitucion}}</span>
             <span>{{$objinstitucionespagonormal->nombretipo}}</span>
         </div>
         @endforeach
@@ -58,3 +61,5 @@
         <div class="swiper-button-next"></div> -->
       </div>
     </section    
+
+    @endsection

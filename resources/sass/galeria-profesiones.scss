@@ -32,10 +32,6 @@
     margin-right: auto;
 }
 @media (min-width: 320px) and (orientation: portrait) {
-    // Banner principal Ramas de la salud
-    .pagination_margen {
-        margin-bottom: -4%;
-    }
     .imagen_bannerPrin-prof {
         width: 100%;
         padding: 0;
@@ -113,10 +109,6 @@
         height: 20vh; }
 }  
 @media (min-width: 768px) and (orientation: portrait) {
-    // Banner principal Ramas de la salud
-    .pagination_margen {
-        margin-bottom: -2%;
-    }
     .section_titulo-rama {
         font-size: 2.5em;
     }
@@ -147,10 +139,6 @@
     }
 }  
 @media (min-width: 1024px) {
-    // Banner principal Ramas de la salud
-    .pagination_margen {
-        margin-bottom: -1%;
-    }
     // Sección del titulo ramas de la salud
     .section_titulo-rama {
         font-size: 2.5em;
@@ -208,10 +196,6 @@
     }
 }
 @media (min-width: 1600px) {
-    // Banner principal Ramas de la salud
-    .pagination_margen {
-        margin-bottom: 0;
-    }
     .texto_profesion {
         font-size: 1.2em;
     }
