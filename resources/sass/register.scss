@@ -1,9 +1,9 @@
-   // Contenedor principal login
-   .contenedorPrin_login {
-    background: #F9F9F9;
+// Contenedor principal login
+.contenedorPrin_Register {
+    background: aqua;
 }
 // Titulo princial 
-.titulo_principal-login {
+.titulo_principal-register {
     font-family: 'Roboto', 'Regular';
     font-size: 1em;
     font-weight: 500;
@@ -12,14 +12,14 @@
     margin: 2% 8%;
 }
 // Seccion principal Login
-.section_principal-login {
+.section_principal-register {
     border: none;
     margin-bottom: 4%;
     padding: 0;
     box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
 }
 // Seccion body del login
-.section_body-login {
+.section_body-register {
     padding: 2% 12% 0 12%;
 }
 .content_iniciar-crear {
@@ -29,10 +29,10 @@
     background: #ffffff;
     border: none;
     padding: 0;
-    margin: 3% 0;
+    margin-top: 3%;
 }
 // INICIAR SESION
-.section_texto-iniciar {
+.section_texto-registro {
     font-family: 'Quicksand', 'Regular';
     font-size: 1.25em;
     font-weight: bold;
@@ -44,27 +44,110 @@
     padding: 0;
 }
 // CREAR CUENTA
-.section_texto-crear {
+.section_texto-inicio {
     text-decoration: none;
     text-align: center;
     align-items: center;
     border-bottom: 5px solid #D1D1D1;
     padding: 0;
 }
-.texto_crear-login {
+.texto_iniciar-register {
     font-family: 'Quicksand', 'Regular';
     font-size: 1.25em;
     font-weight: bold;
     color: #D1D1D1 !important;
     text-decoration: none;
 }
-.texto_label-login {
+// Titulo interno   
+.texto_-interno-register {
+    font-family: 'Roboto', 'Regular';
+    font-size: 1em;
+    font-weight: 500;
+    color: #3E3E3E;
+    text-align: initial;
+    margin-top: 5%;
+    margin-right: auto;
+}
+// Seccion opciones principales
+.section_input-option-register {
+    justify-content: space-around;
+    height: 16vh;
+}
+.input_option-register {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+.input_img-option {
+    margin: 0;
+    height: 100%;
+    width: 80%;
+}
+.input_img-inst-option {
+    margin: 0;
+    height: 100%;
+    width: 70%;
+}
+// Seccion campos de validacion
+.texto_option-input {
+    font-family: 'Roboto';
+    font-size: 1em;
+    align-self: flex-end;
+}
+.texto_label-register {
     font-family: 'Quicksand', 'Regular';
     font-size: 1em;
     font-weight: bold;
     color: #232323;
     text-align: left;
 }
+.text_link-register {
+    color: #0083D6 !important;
+    text-decoration: underline !important;
+}
+.names_person, .names_institution, .datos_secundarios{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Boton inferior ingreasar
 .content_btn-ingresar-login {
     text-align: center;
@@ -120,13 +203,14 @@
 .img_redes-login {
     max-width: 50px;
 }
+
 @media (min-width: 320px) and (orientation: portrait) {
     // Contenedor principal login
     .contenedorPrin_login {
         background: #F9F9F9;
     }
     // Titulo princial 
-    .titulo_principal-login {
+    .titulo_principal-register {
         font-family: 'Roboto', 'Regular';
         font-size: .8em;
         font-weight: 500;
@@ -135,17 +219,17 @@
         margin: 5% 12%;
     }
     // Seccion principal Login
-    .section_principal-login {
+    .section_principal-register {
         border: none;
         margin-bottom: 10%;
         padding: 0;
         box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
     }
     // Seccion body del login
-    .section_body-login {
+    .section_body-register {
         padding: 2% 5%;
     }
-    .content_iniciar-crear {
+    .content_crear-iniciar {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -155,7 +239,7 @@
         margin: 3% 0;
     }
     // INICIAR SESION
-    .section_texto-iniciar {
+    .section_texto-registro {
         font-family: 'Quicksand', 'Regular';
         font-size: 1em;
         font-weight: bold;
@@ -167,25 +251,19 @@
         padding: 0;
     }
     // CREAR CUENTA
-    .section_texto-crear {
+    .section_texto-inicio {
         text-decoration: none;
         text-align: center;
         align-items: center;
         border-bottom: 5px solid #D1D1D1;
         padding: 0;
     }
-    .texto_crear-login {
+    .texto_iniciar-register {
         font-family: 'Quicksand', 'Regular';
         font-size: 1em;
         font-weight: bold;
         color: #D1D1D1 !important;
         text-decoration: none;
-    }
-    .texto_label-login {
-        font-family: 'Quicksand', 'Regular';
-        font-size: .85em;
-        color: #232323;
-        text-align: left;
     }
     // Boton inferior ingreasar
     .content_btn-ingresar-login {
@@ -242,31 +320,40 @@
     .img_redes-login {
         max-width: 35px;
     }
-}    
+}   
+@media (min-width: 375px) and (orientation: portrait) {
+    .section_input-option-register {
+        justify-content: space-around;
+        height: 13vh;
+    }
+    .texto_-interno-register {
+        margin-top: 6%;
+    }
+} 
 @media (min-width: 768px) and (orientation: portrait) {
     // Titulo principal
-    .titulo_principal-login {
+    .titulo_principal-register {
         font-size: 1.563em;
         font-weight: 500;
         margin: 7% 17%;
     }
      // Seccion principal Login
-     .section_principal-login {
+     .section_principal-register {
         margin-bottom: 14%;
     }
     // Seccion body del login
-    .section_body-login {
+    .section_body-register {
         padding: 2% 12% 0 12%;
     }
     // INICIAR SESION
-    .section_texto-iniciar {
+    .section_texto-registro {
         font-size: 1.438em;
     }
     // CREAR CUENTA
-    .texto_crear-login {
+    .texto_iniciar-register {
         font-size: 1.438em;
     }
-    .texto_label-login {
+    .texto_label-register {
         font-size: 1.438em;
     }
     // Boton inferior ingreasar
@@ -292,17 +379,17 @@
     }
 }
 @media (min-width: 1440px) {
-    .titulo_principal-login {
+    .titulo_principal-register {
         font-size: 1.5em;
         font-weight: 500;
     }
-    .section_texto-iniciar {
+    .section_texto-registro {
         font-size: 1.8em;
     }
-    .texto_crear-login {
+    .texto_iniciar-register {
         font-size: 1.8em;
     }
-    .texto_label-login {
+    .texto_label-register {
         font-size: 1.5em;
     }
     .btn_Ingreso-login {
@@ -323,16 +410,16 @@
 }
 @media (min-width: 1920px) {
     // Titulo princial 
-    .titulo_principal-login {
+    .titulo_principal-register {
         font-size: 1.8em;
     }
-    .section_texto-iniciar {
+    .section_texto-registro {
         font-size: 2em;
     }
-    .texto_crear-login {
+    .texto_iniciar-register {
         font-size: 2em;
     }
-    .texto_label-login {
+    .texto_label-register {
         font-size: 2em;
     }
     .input_height-fullhd {
