@@ -1,4 +1,4 @@
-   // Contenedor principal login
+// Contenedor principal login
    .contenedorPrin_login {
     background: #F9F9F9;
 }
@@ -106,7 +106,7 @@
     background: #ffffff;
     padding: 0;
     margin: auto;
-    margin-top: -2%;
+    margin-top: -1.5%;
 }
 .content_imgRedes-login {
     display: flex;
@@ -132,7 +132,7 @@
         font-weight: 500;
         color: #3E3E3E;
         text-align: center;
-        margin: 5% 12%;
+        margin: 5% 15%;
     }
     // Seccion principal Login
     .section_principal-login {
@@ -181,12 +181,6 @@
         color: #D1D1D1 !important;
         text-decoration: none;
     }
-    .texto_label-login {
-        font-family: 'Quicksand', 'Regular';
-        font-size: .85em;
-        color: #232323;
-        text-align: left;
-    }
     // Boton inferior ingreasar
     .content_btn-ingresar-login {
         text-align: center;
@@ -202,7 +196,7 @@
         width: 50%;
     }
     .flecha_ingreso-login {
-        width: 11%;
+        width: 9%;
     }
     .texto_olvide-login {
         font-family: 'Roboto', 'Regular';
@@ -242,7 +236,7 @@
     .img_redes-login {
         max-width: 35px;
     }
-}    
+}   
 @media (min-width: 768px) and (orientation: portrait) {
     // Titulo principal
     .titulo_principal-login {
@@ -278,7 +272,7 @@
         width: 6%;
     }
     .texto_olvide-login {
-        font-size: 1em;
+        font-size: 1.1em;
     }
     .content_pie-login {
         border-top: 3px solid rgba(0, 0, 0, 0.125);
@@ -287,7 +281,7 @@
         max-width: 50px;
     }
     .texto_inferior-login {
-        font-size: 1em;
+        font-size: 1.125em;
         margin-top: -1.5%;
     }
 }
@@ -316,6 +310,7 @@
     }
     .texto_inferior-login {
         font-size: 1.5em;
+        margin-top: -2%;
     }
     .img_redes-login {
         max-width: 70px;
@@ -347,6 +342,7 @@
     }
     .texto_inferior-login {
         font-size: 2em;
+        margin-top: -1.7%;
     }
     .img_redes-login {
         max-width: 100px;
