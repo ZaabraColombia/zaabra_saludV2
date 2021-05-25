@@ -5,6 +5,35 @@
 <div class="container-fluid contenedorPrin_Register">
     <!-- fila principal -->
     <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card ">
+                <div class="card-header">{{ __('Register') }}</div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+                        <div id="persona">
+                        <div class="form-check">
+                                <input class="form-check-input" type="radio" name="idrol" id="idrol" value="1" checked>
+                                <label class="form-check-label" for="idrol">
+                                Soy paciente
+                                </label>
+                                </div>
+                                <div class="form-check">
+                                <input class="form-check-input" type="radio" name="idrol" id="idrol" value="3">
+                                <label class="form-check-label" for="idrol">
+                                    Soy medico
+                                </label>
+                                </div>
+                                <div class="form-check">
+                                <input class="form-check-input" type="radio" name="idrol" id="idrol" value="3">
+                                <label class="form-check-label" for="idrol">
+                                    Soy Instituciones
+                                </label>
+                        </div>
+                        <div class="form-group row">
+                            <label for="primernombre" class="col-md-4 col-form-label text-md-right">{{ __('primer nombre') }}</label>
+                            
         <!-- titulo principal -->
         <p class="titulo_principal-register"> Acceda a nuestro portal de Zaabra Salud o regístrese. </p>
         <!-- contenedor de elementos login -->
