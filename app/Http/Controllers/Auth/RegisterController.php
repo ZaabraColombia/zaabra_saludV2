@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\users_roles;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -12,7 +13,6 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MailNotify;
 
-use  App\Http\Controllers\profesionales\user_roles;
 
 class RegisterController extends Controller{
     /*
@@ -73,8 +73,7 @@ class RegisterController extends Controller{
      */
     protected function create(array $data){
 
-        $data['confirmation_code'] = str::random(25);
-
+     
         $user = User::create([
             'primernombre' => $data['primernombre'],
             'segundonombre' => $data['segundonombre'],
@@ -87,7 +86,16 @@ class RegisterController extends Controller{
             'password' => Hash::make($data['password']),
         ]);
 
-      
+
+        $id_user=$user->id;
+        
+         users_roles::create([
+            'iduser' =>  $id_user,
+            'idrol' => $data['idrol'],
+        ]);
+
         return $user;
     }
+
+
 }
