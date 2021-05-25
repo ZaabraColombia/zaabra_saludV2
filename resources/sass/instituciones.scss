@@ -4,7 +4,7 @@
 }
 .titulo_instituciones{
     font-family: "Quicksand", sans-serif;
-    color: #0083d6;
+    color: #019F86;
     font-weight: bold;
     text-align: center;
 }
@@ -16,7 +16,7 @@
     font-weight: bolder;
     color: #232323;
 }
-.contains_swiper_premium_insti .contains_info h5{
+.contains_swiper_premium_insti .contains_info h5, h4{
     font-family: "Roboto";
     font-weight: bolder;
     color: #3E3E3E;
@@ -25,7 +25,7 @@
     font-family: "Roboto";
     color: #3E3E3E;
 }
-.contains_swiper_premium_insti .contains_info h2, h5, p{
+.contains_swiper_premium_insti .contains_info h2, h4, h5, p{
     margin-bottom: 0;
 }
 .contains_slide_insti .contains_buttons a:nth-last-child(2){
@@ -35,7 +35,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 3px;
-    background: #0083D6;
+    background: #019F86;
     color: #ffff;
     margin-left: auto;
     margin-right: auto;
@@ -70,7 +70,7 @@
     text-transform: capitalize;
 }
 .card_normal_insti .card-body h2{
-    color: #0083D6;
+    color: #019F86;
 }
 .card_normal_insti .card-body h5{
     color: #232323;
@@ -86,7 +86,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 3px;
-    background: #0083D6;
+    background: #019F86;
     color: #ffff;
     margin-left: auto;
     margin-right: auto;
@@ -132,6 +132,9 @@
     margin-left: auto;
     margin-right: auto;
 }
+.swiper_premium_insti .swiper-pagination-bullet-active{
+    background: #019F86 !important;
+}
 /* Rating Star Widgets Style */
 .rating-stars ul {
     list-style-type:none;
@@ -168,7 +171,7 @@
     .titulo_instituciones{
         margin-top: 5%;
         margin-bottom: 5%;
-        font-size: 1.4em;
+        font-size: 1.2em;
     }
     .contains_swiper_premium_insti{
         max-width: 100%;
@@ -181,13 +184,15 @@
         flex-direction: column;
     }
     .contains_slide_insti .contains_image_institucion{
-        height: 45%;
+        height: 40%;
     }
     .contains_slide_insti .contains_image_institucion img{
         object-fit: cover;
     }
     .contains_slide_insti .contains_info{
         height: 40%;
+        margin-top: 5%;
+        margin-bottom: 5%; 
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -206,15 +211,16 @@
     .contains_slide_insti .contains_buttons a{
         display: flex;
         width: 45%;
-        height: 65%;
+        height: 100%;
     }
     .contains_swiper_premium_insti .contains_info h2{
         font-size: 1.3em;
     }
-    .contains_swiper_premium_insti .contains_info h5{
+    .contains_swiper_premium_insti .contains_info h4, h5{
         font-size: 0.8em;
     }
     .contains_swiper_premium_insti .contains_info p{
+        margin-top: 3%;
         font-size: 0.7em;
     }
     .contains_swiper_premium_insti .contains_info h2, h5, p{
@@ -229,11 +235,11 @@
     }
     .card_normal_insti .card-img-top{
         border-radius: 50%;
-        width: 130px;
-        height: 130px;
+        width: 115px;
+        height: 115px;
         left: 0;
         right: 0;
-        top: -25px;
+        top: -30px;
         margin: auto;
         position: absolute;
         border: 15px solid #ffff;
@@ -241,12 +247,12 @@
     }
     .card_normal_insti .card-body{
         text-align: center;
-        padding-top: 45%;
+        padding-top: 35%;
         padding-left: 5%;
         padding-right: 5%;
     }
     .card_normal_insti .card-body h2{
-        font-size: 1.4em;
+        font-size: 1.2em;
     }
     .card_normal_insti .card-body h5{
         font-size: 1em;
@@ -300,6 +306,9 @@
         height: 10vh;
         object-fit: contain;
     }
+    .contains_slide_insti .contains_body_insti{
+        height: 70%;
+    }
 }
 
 @media (min-width: 375px){
@@ -308,18 +317,21 @@
         height: 45vh;
     }
     .card_normal_insti .card-body{
-        padding-top: 40%;
+        padding-top: 35%;
     }
     .card_normal_insti .card-img-top{
-        width: 140px;
-        height: 140px;
+        width: 130px;
+        height: 130px;
     }
 }
 
 @media (min-width: 768px){
-
+    .contains_slide_insti .contains_info{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
     .swiper_premium_insti{
-        max-width: 50%;
+        max-width: 75%;
     }
     .container_cards_normal_insti{
         padding-top: 10%;
@@ -337,11 +349,14 @@
         margin-bottom: 10%;
     }
     .card_normal_insti .card-img-top {
-        width: 140px;
-        height: 140px;
+        width: 130px;
+        height: 130px;
     }
     .card_normal_insti .card-body{
         justify-content: flex-end;
+    }
+    .card_normal_insti .contains_buttons{
+        height: 20%;
     }
     .contanier_cards_generic_insti {
         display: flex;
