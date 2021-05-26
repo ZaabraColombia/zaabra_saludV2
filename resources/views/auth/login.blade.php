@@ -24,7 +24,7 @@
                     </div>
                     @csrf
                     <!-- seccion correo electronico -->
-                    <div class="form-group row mb-0">
+                    <div class="form-group row mt-4 mb-0">
                         <label for="email" class="col-md-12 col-form-label texto_label-login"> Correo Electrónico </label>
 
                         <div class="col-12">

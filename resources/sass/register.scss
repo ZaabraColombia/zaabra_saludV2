@@ -1,6 +1,6 @@
 // Contenedor principal login
 .contenedorPrin_Register {
-    background: aqua;
+    background: #F9F9F9;
 }
 // Titulo princial 
 .titulo_principal-register {
@@ -14,13 +14,13 @@
 // Seccion principal Login
 .section_principal-register {
     border: none;
-    margin-bottom: 4%;
+    margin-bottom: 18.2%;
     padding: 0;
     box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
 }
 // Seccion body del login
 .section_body-register {
-    padding: 2% 12% 0 12%;
+    padding: 2% 12% 6% 12%;
 }
 .content_iniciar-crear {
     display: flex;
@@ -29,7 +29,8 @@
     background: #ffffff;
     border: none;
     padding: 0;
-    margin-top: 3%;
+    margin-top: 4%;
+    margin-bottom: 0;
 }
 // INICIAR SESION
 .section_texto-registro {
@@ -59,7 +60,7 @@
     text-decoration: none;
 }
 // Titulo interno   
-.texto_-interno-register {
+.texto_superior-tarjeta-register {
     font-family: 'Roboto', 'Regular';
     font-size: 1em;
     font-weight: 500;
@@ -68,9 +69,18 @@
     margin-top: 5%;
     margin-right: auto;
 }
+.texto_inferior-tarjeta-register {
+    font-family: 'Roboto', 'Regular';
+    font-size: 1em;
+    font-weight: 500;
+    color: #3E3E3E;
+    text-align: initial;
+    margin-top: 2%;
+    margin-right: auto;
+}
 // Seccion opciones principales
 .section_input-option-register {
-    justify-content: space-around;
+    justify-content: center;
     height: 16vh;
 }
 .input_option-register {
@@ -81,14 +91,16 @@
 .input_img-option {
     margin: 0;
     height: 100%;
-    width: 80%;
-}
-.input_img-inst-option {
-    margin: 0;
-    height: 100%;
-    width: 70%;
+    width: 50%;
 }
 // Seccion campos de validacion
+.check_option-register {
+    float: left;
+}
+.section_terminos-register {
+    margin-left: 2%;
+    line-height: 1.2;
+}
 .texto_option-input {
     font-family: 'Roboto';
     font-size: 1em;
@@ -105,54 +117,17 @@
     color: #0083D6 !important;
     text-decoration: underline !important;
 }
+.section_option-promo-register {
+    margin-top: 2%;
+}
 .names_person, .names_institution, .datos_secundarios{
     display: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Boton inferior ingreasar
-.content_btn-ingresar-login {
+.content_btn-ingresar-register {
     text-align: center;
 }
-.btn_Ingreso-login {
+.btn_Ingreso-register {
     font-family: "Quicksand";
     font-size: 1em;
     color: #ffffff;
@@ -162,48 +137,9 @@
     height: calc(1.6em + 0.75rem + 2px);
     width: 35%;
 }
-.flecha_ingreso-login {
+.flecha_ingreso-register {
     width: 8%;
 }
-.texto_olvide-login {
-    font-family: 'Roboto', 'Regular';
-    font-size: 1em;
-    color: #0083d6 !important;
-    text-decoration: underline !important;
-    display: flex;
-    justify-content: center;
-    margin: 3% 0;
-}
-.content_pie-login {
-    padding: 0;
-    padding-bottom: 5%;
-    background: #ffffff;
-}
-.texto_inferior-login {
-    font-family: "Roboto";
-    font-size: 1em;
-    font-style: italic;
-    font-weight: 500;
-    color: #3E3E3E;
-    text-align: center;
-    background: #ffffff;
-    padding: 0;
-    margin: auto;
-    margin-top: -2%;
-}
-.content_imgRedes-login {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 0;
-    margin: auto;
-    margin-top: 1%;
-}
-.img_redes-login {
-    max-width: 50px;
-}
-
 @media (min-width: 320px) and (orientation: portrait) {
     // Contenedor principal login
     .contenedorPrin_login {
@@ -217,13 +153,6 @@
         color: #3E3E3E;
         text-align: center;
         margin: 5% 12%;
-    }
-    // Seccion principal Login
-    .section_principal-register {
-        border: none;
-        margin-bottom: 10%;
-        padding: 0;
-        box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
     }
     // Seccion body del login
     .section_body-register {
@@ -265,11 +194,24 @@
         color: #D1D1D1 !important;
         text-decoration: none;
     }
+    .input_img-option {
+        width: 70%;
+    }
+    // Seccion texto inferior de la tarjeta register
+    .section_terminos-register {
+        line-height: 1.1;
+        margin-left: 2%;
+        margin-bottom: 3%;
+    }
+    .texto_inferior-tarjeta-register {
+        font-size: .735em;
+        margin-top: 2%;
+    }
     // Boton inferior ingreasar
-    .content_btn-ingresar-login {
+    .content_btn-ingresar-register {
         text-align: center;
     }
-    .btn_Ingreso-login {
+    .btn_Ingreso-register {
         font-family: "Quicksand";
         font-size: .85em;
         color: #ffffff;
@@ -279,103 +221,104 @@
         height: calc(1.6em + 0.75rem + 2px);
         width: 50%;
     }
-    .flecha_ingreso-login {
-        width: 11%;
-    }
-    .texto_olvide-login {
-        font-family: 'Roboto', 'Regular';
-        font-size: .85em;
-        color: #0083d6 !important;
-        text-decoration: underline !important;
-        display: flex;
-        justify-content: center;
-        margin: 3% 0;
-    }
-    .content_pie-login {
-        padding: 0;
-        padding-bottom: 5%;
-        background: #ffffff;
-    }
-    .texto_inferior-login {
-        font-family: "Roboto";
-        font-size: 0.8em;
-        font-style: italic;
-        font-weight: 500;
-        color: #3E3E3E;
-        text-align: center;
-        background: #ffffff;
-        padding: 0;
-        margin: auto;
-        margin-top: -2.8%;
-    }
-    .content_imgRedes-login {
-        display: flex;
-        height: 100%;
-        align-items: center;
-        justify-content: space-evenly;
-        padding: 0;
-        margin: auto;
-        margin-top: 1%;
-    }
-    .img_redes-login {
-        max-width: 35px;
+    .flecha_ingreso-register {
+        width: 9%;
     }
 }   
 @media (min-width: 375px) and (orientation: portrait) {
+     // Seccion principal Login
+     .section_principal-register {
+        border: none;
+        margin-bottom: 28%;
+        padding: 0;
+        box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
+    }
     .section_input-option-register {
         justify-content: space-around;
-        height: 13vh;
+        height: 15vh;
     }
-    .texto_-interno-register {
+    .texto_superior-tarjeta-register {
+        margin-top: 6%;
+    }
+    .texto_inferior-tarjeta-register {
         margin-top: 6%;
     }
 } 
 @media (min-width: 768px) and (orientation: portrait) {
-    // Titulo principal
     .titulo_principal-register {
         font-size: 1.563em;
         font-weight: 500;
         margin: 7% 17%;
     }
-     // Seccion principal Login
-     .section_principal-register {
-        margin-bottom: 14%;
+    .section_principal-register {
+        margin-bottom: 34%;
     }
-    // Seccion body del login
-    .section_body-register {
-        padding: 2% 12% 0 12%;
+    .texto_iniciar-register {
+        font-size: 1.438em;
     }
-    // INICIAR SESION
     .section_texto-registro {
         font-size: 1.438em;
     }
-    // CREAR CUENTA
-    .texto_iniciar-register {
+    .section_body-register {
+        padding: 2% 10%;
+    }
+    .texto_superior-tarjeta-register {
         font-size: 1.438em;
+        margin-top: 6%;
+    }
+    .texto_inferior-tarjeta-register {
+        font-size: 1.25em;
+        margin-top: 3%;
+    }
+    .section_input-option-register {
+        justify-content: space-around;
+        height: 13vh;
+    }
+    .input_img-option {
+        margin: 0;
+        height: 100%;
+        width: 60%;
+    }
+    .texto_option-input {
+        font-size: 1.25em;
     }
     .texto_label-register {
         font-size: 1.438em;
     }
-    // Boton inferior ingreasar
-    .btn_Ingreso-login {
+    .section_terminos-register {
+        line-height: 1.3;
+        margin-left: 2%;
+        margin-bottom: 0;
+        padding-right: 3%;
+    }
+    .check_option-register {
+        float: left;
+    }
+    .btn_Ingreso-register {
+        font-family: "Quicksand";
         font-size: 1.25em;
+        color: #ffffff;
+        background: #0083d6;
+        border: none;
+        border-radius: 5px;
+        height: calc(1.6em + 0.75rem + 2px);
+        width: 50%;
+    }
+    .flecha_ingreso-register {
+        width: 7%;
+    }
+}
+@media (min-width: 1200px) {
+    .section_principal-register {
+        margin-bottom: 11.4%;
+    }
+    .input_img-option {
+        margin: 0;
+        height: 100%;
         width: 40%;
     }
-    .flecha_ingreso-login {
-        width: 6%;
-    }
-    .texto_olvide-login {
-        font-size: 1em;
-    }
-    .content_pie-login {
-        border-top: 3px solid rgba(0, 0, 0, 0.125);
-    }
-    .img_redes-login {
-        max-width: 50px;
-    }
-    .texto_inferior-login {
-        font-size: 1em;
-        margin-top: -1.5%;
+    .flecha_ingreso-register {
+        width: 7%;
     }
 }
 @media (min-width: 1440px) {
@@ -392,20 +335,8 @@
     .texto_label-register {
         font-size: 1.5em;
     }
-    .btn_Ingreso-login {
+    .btn_Ingreso-register {
         font-size: 1.5em;
-    }
-    .texto_olvide-login {
-        font-size: 1.5em;
-    }
-    .content_pie-login {
-        border-top: 3px solid rgba(0, 0, 0, 0.125);
-    }
-    .texto_inferior-login {
-        font-size: 1.5em;
-    }
-    .img_redes-login {
-        max-width: 70px;
     }
 }
 @media (min-width: 1920px) {
@@ -419,6 +350,17 @@
     .texto_iniciar-register {
         font-size: 2em;
     }
+    .texto_superior-tarjeta-register {
+        font-size: 2em;
+    }
+    .input_img-option {
+        margin: 0;
+        height: 100%;
+        width: 35%;
+    }
+    .texto_option-input {
+        font-size: 1.25em;
+    }
     .texto_label-register {
         font-size: 2em;
     }
@@ -426,16 +368,23 @@
         height: 6vh;
         font-size: 1.43em;
     }
-    .btn_Ingreso-login {
+    .btn_Ingreso-register {
         font-size: 2em;
     }
-    .texto_olvide-login {
-        font-size: 2em;
+    .texto_inferior-tarjeta-register {
+        font-size: 1.563em;
+        margin-top: 0;
     }
-    .texto_inferior-login {
-        font-size: 2em;
+    .section_option-promo-register {
+        height: 5vh;
+        margin-top: 1%;
     }
-    .img_redes-login {
-        max-width: 100px;
+    .check_option-register {
+        width: 4%;
+        height: 40%;
+    }
+    .section_terminos-register {
+        margin-left: 4%;
+        line-height: 1.2;
     }
 }
