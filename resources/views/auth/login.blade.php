@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <!-- contenedor principal -->
 <div class="container-fluid contenedorPrin_login">
     <!-- fila principal -->
@@ -8,7 +9,7 @@
         <!-- titulo principal -->
         <p class="titulo_principal-login"> Acceda a nuestro portal de Zaabra Salud o regístrese. </p>
         <!-- contenedor de elementos login -->
-        <div class="card col-11 col-lg-8 section_principal-login">
+        <div class="card col-11 col-md-10 col-lg-8 section_principal-login">
             <!-- seccion body login -->
             <div class="card-body section_body-login">
                 <form method="POST" action="{{ route('login') }}">
@@ -19,7 +20,7 @@
                         </div>
 
                         <div class="col-6 section_texto-crear">
-                            <a href="{{ route('register') }}" class="texto_crear-login"> Crear cuenta </a>
+                            <a href="{{ route('register') }}" class="texto_crear-login"> Crear Cuenta </a>
                         </div>
                     </div>
                     @csrf
@@ -96,4 +97,5 @@
         </div>
     </div>
 </div>
+
 @endsection

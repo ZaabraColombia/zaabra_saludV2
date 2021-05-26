@@ -1,0 +1,33 @@
+.section_principal-acerca {
+    margin: auto;
+    padding: 0;
+}
+.text_top-acerca {
+    font-family: 'Roboto','Regular';
+    font-size: .6em;
+    color: #3E3E3E;
+    text-align: center;
+    padding: 0 3%;
+    margin: 3% 0 7% 0;
+}
+.boton_collapse-acerca {
+    height: 6vh;
+    text-decoration: none;
+    width: 100%;
+    text-align: left;
+    background: #F5F5F5;
+    color: #232323;
+    border-radius: 0px;
+    border: 1px solid #F5F5F5;
+}
+
+.boton_collapse-acerca:focus {
+    height: 6vh;
+    text-decoration: none;
+    width: 100%;
+    text-align: left;
+    background: #0083d6;
+    color: #ffffff;
+    border-radius: 0px;
+    border: 1px solid #0083d6;
+}
