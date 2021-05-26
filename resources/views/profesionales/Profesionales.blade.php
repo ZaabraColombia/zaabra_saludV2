@@ -18,7 +18,6 @@
                       <h5>{{$objcarruselprofesionalespremiun->nombre}}</h5>
                       <p>{{$objcarruselprofesionalespremiun->descripcionPerfil}}</p>
                     </div>
-
                     
                      <div class="contains_buttons">
                         <a href="">Agende su cita

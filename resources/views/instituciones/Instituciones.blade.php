@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-      <h1 class="titulo_instituciones">Traumatología</h1>
+      <h1 class="titulo_instituciones">Medicina Prepagada</h1>
       <section class="contains_swiper_premium_insti">
         <div class="swiper-container swiper_premium_insti">
           <div class="swiper-wrapper">
@@ -14,9 +14,9 @@
                   <div class="contains_body_insti">
                     <div class="contains_info">
                       <h2>{{$objcarruselinstitucionespremiun->nombreinstitucion}}</h2>
+                      <h4>{{$objcarruselinstitucionespremiun->url}}</h4>
                       <h5>{{$objcarruselinstitucionespremiun->nombre}}</h5>
-                      <h5>{{$objcarruselinstitucionespremiun->quienessomos}}</h5>
-                      <p>{{$objcarruselinstitucionespremiun->url}}</p>
+                      <p>{{Str::limit($objcarruselinstitucionespremiun->quienessomos,150)}}</p>
                     </div>
 
                      <div class="contains_buttons">
@@ -34,19 +34,20 @@
           <!-- If we need pagination -->
           <div class="swiper-pagination"></div>
         </div>
-        <!--carrusel profesionales premiun-->
+        <!--carrusel instituciones premiun-->
       </section>
 
 
-        <!--galeria profesionales pago normal-->
+        <!--galeria instituciones pago normal-->
         <section class="container_cards_normal_insti">
-            @foreach ($objmedicospagonormal as $objmedicospagonormal)
-              <div class="card card_normal">
-                <img class="card-img-top" src="{{URL::asset($objmedicospagonormal->fotoperfil)}}">
+            @foreach ($objinstitucionespagonormal as $objinstitucionespagonormal)
+              <div class="card card_normal_insti">
+                <img class="card-img-top" src="{{URL::asset($objinstitucionespagonormal->imagen)}}">
                 <div class="card-body">
-                  <h2>{{$objmedicospagonormal->nombreEspecialidad}}</h2>
-                  <h5>{{$objmedicospagonormal->primernombre}} {{$objmedicospagonormal->primerapellido}}</h5>
-                  <p>{{$objmedicospagonormal->nombreuniversidad}}</p>
+                  <h2>{{$objinstitucionespagonormal->nombreinstitucion}}</h2>
+                  <h5>{{$objinstitucionespagonormal->nombre}}</h5>
+                  <p>{{$objinstitucionespagonormal->url}}</p>
+                  <p>{{$objinstitucionespagonormal->nombretipo}}</p>
                   <!-- Rating Stars Box -->
                     <div class='rating-stars text-center'>
                       <ul id='stars'>
@@ -80,13 +81,13 @@
             @endforeach
         </section>
 
-        <!--galeria profesionales sin pago -->
+        <!--galeria instituciones sin pago -->
         <section class="contanier_cards_generic_insti">
-          @foreach ($objmedicossinpago as $objmedicossinpago)
+          @foreach ($objinstitucionessinpago as $objinstitucionessinpago)
             <div class="card card_generic_insti">
               <div class="card-body">
-                <h5>{{$objmedicossinpago->primernombre}} {{$objmedicossinpago->primerapellido}}</h5>
-                <p>{{$objmedicossinpago->nombreEspecialidad}}</p>
+                <h5>{{$objinstitucionessinpago->nombreinstitucion}}</h5>
+                <p>{{$objinstitucionespagonormal->nombretipo}}</p>
                 <!-- Rating Stars Box -->
                     <div class='rating-stars text-center'>
                       <ul id='stars'>
@@ -118,8 +119,8 @@
             <h1 class="titulo_logos">Ellos Confian en Nosotros</h1>
             <div class="swiper-container swiper_logoshome">
                 <div class="swiper-wrapper">
-                    @foreach ($objcarruselPublicidadprofesionales as $objcarruselPublicidadprofesionales)
-                      <img class="swiper-slide" src="{{URL::asset($objcarruselPublicidadprofesionales->rutaImagenVenta)}}">
+                    @foreach ($objcarruselPublicidadinstituciones as $objcarruselPublicidadinstituciones)
+                      <img class="swiper-slide" src="{{URL::asset($objcarruselPublicidadinstituciones->rutaImagenVenta)}}">
                     @endforeach 
                 </div>
             </div>
