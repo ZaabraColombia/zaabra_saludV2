@@ -1,0 +1,205 @@
+// Contenedor principal email
+.contenedorPrin_email {
+    background: #F9F9F9;
+}
+// Titulo principal 
+.titulo_principal-email {
+    font-family: 'Roboto', 'Regular';
+    font-size: 1em;
+    font-weight: 500;
+    color: #3E3E3E;
+    text-align: center;
+    margin: 6% 8% 3% 8%;
+}
+// Sección principal email
+.section_principal-email {
+    border: none;
+    margin-bottom: 18%;
+    padding: 0;
+    box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
+}
+// Sección body email
+.section_body-email {
+    padding: 2% 12% 6% 12%;
+}
+// Titulo interno de la tarjeta email 
+.titulo_superior-tarjeta-email {
+    font-family: 'Quicksand', 'Regular';
+    font-size: 1em;
+    font-weight: 500;
+    color: #0083D6;
+    margin: 3% auto;
+}
+.texto_label-email {
+    font-family: 'Quicksand', 'Regular';
+    font-size: 1em;
+    font-weight: bold;
+    color: #232323;
+    text-align: left;
+}
+.input_text-email {
+    color: #DBDADA;
+    border: solid 1px #DBDADA;
+}
+// Sección botón enviar
+.content_btn-enviar-email {
+    text-align: center;
+}
+.btn_Ingreso-email {
+    font-family: "Quicksand";
+    font-size: 1em;
+    color: #ffffff;
+    background: #0083d6;
+    border: none;
+    border-radius: 5px;
+    height: calc(1.6em + 0.75rem + 2px);
+    width: 25%;
+}
+.flecha_ingreso-email {
+    width: 11%;
+}
+@media (min-width: 320px) and (orientation: portrait) {
+    // Titulo principal 
+    .titulo_principal-email {
+        font-family: 'Roboto', 'Regular';
+        font-size: .8em;
+        font-weight: 500;
+        color: #3E3E3E;
+        text-align: center;
+        margin: 10% 5% 5% 5%;
+    }
+    // Sección principal email
+    .section_principal-email {
+        margin-bottom: 18%;
+    }
+    // Sección body email
+      .section_body-email {
+        padding: 2% 5%;
+    }
+     // Sección botón enviar
+     .content_btn-enviar-email {
+        text-align: center;
+    }
+    .btn_Ingreso-email {
+        font-family: "Quicksand";
+        font-size: .85em;
+        color: #ffffff;
+        background: #0083d6;
+        border: none;
+        border-radius: 5px;
+        height: calc(1.6em + 0.75rem + 2px);
+        width: 50%;
+    }
+    .flecha_ingreso-email {
+        width: 9%;
+    }
+}   
+@media (min-width: 375px) and (orientation: portrait) {
+     // Seccion principal email
+     .section_principal-email {
+        border: none;
+        margin-bottom: 23%;
+        padding: 0;
+        box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
+    }
+    //Titulo interno de la tarjeta email
+    .titulo_superior-tarjeta-email {
+        margin-top: 6%;
+    }
+} 
+@media (min-width: 768px) and (orientation: portrait) {
+    // Titulo principal
+    .titulo_principal-email {
+        font-size: 1.563em;
+        font-weight: 500;
+        margin: 14% 8% 7% 8%;
+    }
+    // Sección principal 
+    .section_principal-email {
+        margin-bottom: 35.2%;
+    }
+    .section_body-email {
+        padding: 2% 10%;
+    }
+    //Titulo interno de la tarjeta email
+    .titulo_superior-tarjeta-email {
+        font-size: 1.438em;
+        margin-top: 6%;
+    }
+    .texto_label-email {
+        font-size: 1.438em;
+    }
+    // Sección botón enviar
+    .btn_Ingreso-email {
+        font-family: "Quicksand";
+        font-size: 1.25em;
+        color: #ffffff;
+        background: #0083d6;
+        border: none;
+        border-radius: 5px;
+        height: calc(1.6em + 0.75rem + 2px);
+        width: 35%;
+    }
+    .flecha_ingreso-email {
+        width: 10%;
+    }
+}
+@media (min-width: 1200px) {
+    // Titulo principal
+    .titulo_principal-email {
+        margin: 4% 8% 3% 8%;
+    }
+    // Sección principal email
+    .section_principal-email {
+        margin-bottom: 12.4%;
+    }
+    // Sección botón enviar
+    .btn_Ingreso-email {
+        width: 20%;
+    }
+}
+@media (min-width: 1440px) {
+    // Titulo principal
+    .titulo_principal-email {
+        font-size: 1.5em;
+        font-weight: 500;
+    }
+    // Sección principal email 
+    .section_principal-email {
+        margin-bottom: 11.2%;
+    }
+    // Sección titulo interno de la tarjeta email
+    .titulo_superior-tarjeta-email {
+        font-size: 2em;
+    }
+    .texto_label-email {
+        font-size: 1.5em;
+    }
+    // Sección botón enviar 
+    .btn_Ingreso-email {
+        font-size: 1.5em;
+    }
+    .flecha_ingreso-email {
+        width: 15%;
+    }
+}
+@media (min-width: 1920px) {
+    // Titulo principal 
+    .titulo_principal-email {
+        font-size: 1.8em;
+    }
+    .section_principal-email {
+        margin-bottom: 9.6%;
+    }
+    // Titulo interno de la tarjeta email
+    .titulo_superior-tarjeta-email {
+        font-size: 2em;
+    }
+    .texto_label-email {
+        font-size: 2em;
+    }
+    // Sección botón enviar
+    .btn_Ingreso-email {
+        font-size: 2em;
+    }
+}
