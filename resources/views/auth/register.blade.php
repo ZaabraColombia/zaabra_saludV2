@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <!-- contenedor principal -->
 <div class="container-fluid contenedorPrin_Register">
     <!-- fila principal -->
@@ -8,25 +9,26 @@
         <!-- titulo principal -->
         <p class="titulo_principal-register"> Acceda a nuestro portal de Zaabra Salud o regístrese. </p>
         <!-- contenedor de elementos login -->
-        <div class="card col-11 col-lg-8 section_principal-register">
+        <div class="card col-11 col-md-10 col-lg-8 section_principal-register">
             <!-- seccion body login -->
             <div class="card-body section_body-register">
                 <form method="POST" action="{{ route('register') }}">
-                    <!-- seccion iniciar sesion y creaar cuenta -->
+                    <!-- seccion iniciar sesion, creaar cuenta y titulo interno -->
                     <div class="row card-header content_iniciar-crear">
                         <div class="col-6 section_texto-inicio">
                             <a href="{{ route('login') }}" class="texto_iniciar-register"> Iniciar Sesión </a>
                         </div>
 
                         <div class="col-6 section_texto-registro">
-                            <span> {{ __('Crear cuenta') }} </span>
+                            <span> {{ __('Crear Cuenta') }} </span>
                         </div>
 
-                        <p class="texto_superior-tarjeta-register"> Registrarme como. </p>
+                        <p class="texto_superior-tarjeta-register"> Registrarme como </p>
                     </div>
 
                     @csrf
                     <div id="persona">
+                        <!-- Seccion opciones paara Registrarse -->
                         <div class="row section_input-option-register">
                             <div class="col-3 form-check input_option-register"> 
                                 <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
@@ -46,7 +48,10 @@
                                 <label class="form-check-label texto_option-input" for="idrol"> Institución </label>
                             </div>
                         </div>
+
+                        <!-- Sección campos de validación Nombres y Apellidos -->
                         <div class="names_person">
+                            <!-- Campos de Nombres -->
                             <div class="form-group row mb-md-0">
                                 <label for="primernombre" class="col-md-12 col-form-label texto_label-register">{{ __('Nombres') }}</label>
 
@@ -60,12 +65,12 @@
                                     @enderror
                                 </div>
 
-                                <!-- <label for="segundonombre" class="col-4 col-form-label">{{ __() }}</label> -->
                                 <div class="col-md-6">
                                     <input id="segundonombre" type="text" class="form-control @error('segundonombre') is-invalid @enderror" name="segundonombre" value="{{ old('segundonombre') }}"  autofocus placeholder="Segundo Nombre">
                                 </div>
                             </div>
 
+                            <!-- Campos de Apellidos -->
                             <div class="form-group row mb-md-0">
                                 <label for="primerapellido" class="col-md-12 col-form-label texto_label-register">{{ __('Apellidos') }}</label>
 
@@ -79,7 +84,6 @@
                                     @enderror
                                 </div>
 
-                                <!-- <label for="segundoapellido" class="col-4 col-form-label">{{ __() }}</label> -->
                                 <div class="col-md-6">
                                     <input id="segundoapellido" type="text" class="form-control @error('segundoapellido') is-invalid @enderror" name="segundoapellido" value="{{ old('segundoapellido') }}" autofocus placeholder="Segundo Apellido">
                                 </div>
@@ -87,7 +91,9 @@
                         </div>
                     </div>
 
+                    <!-- Sección de instituciones -->
                     <div id="institucion" class="names_institution">
+                        <!-- Campo de nombre de la institución -->
                         <div class="form-group row name_institution">
                             <label for="nombreinstitucion" class="col-md-12 col-form-label texto_label-register">{{ __('Nombre Institución') }}</label>
 
@@ -97,21 +103,23 @@
                         </div>
                     </div>
 
-
+                    <!-- Sección de datos secundarios para Registrarse -->
                     <div class="datos_secundarios">
+                        <!-- Campos de tipo de documento y Número de documento -->
                         <div class="row">
+                            <!-- Campo Tipo de documento -->
                             <div class="form-group col-12 col-md-6 m-md-0">
                                 <label for="tipodocumento" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Tipo Documento') }}</label>
                                 
                                 <select class="form-select col-12 form-control" name="tipodocumento" required>
-                                    <option selected>Seleccione</option>
-                                    <option value="1">Cedula Ciudadania</option>
-                                    <option value="2">Cedula Extranjeria </option>
-                                    <option value="3">Cedula Extranjeria </option>
-                                    <option value="4">Nit </option>
+                                    <option selected> Seleccione </option>
+                                    <option value="1"> Cedula Ciudadania </option>
+                                    <option value="2"> Cedula Extranjeria </option>
+                                    <option value="3"> Nit </option>
                                 </select>      
                             </div>
 
+                            <!-- Número de documento -->
                             <div class="form-group col-md-6 m-md-0">
                                 <label for="numerodocumento" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Numero Documento') }}</label>
                                 <div class="col-md-12 p-0">
@@ -125,11 +133,12 @@
                             </div>
                         </div>
  
+                        <!-- Correo electrónico -->
                         <div class="form-group col-12 p-0 m-md-0">
                             <label for="email" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Correo electrónico') }}</label>
 
                             <div class="col-12 p-0">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Ejemplo: (mail@gmail.com)">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="zaabra@gmail.com">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -138,7 +147,10 @@
                             </div>
                         </div>
 
+                        <!-- Campos de contraseña y confirmar contraseña -->
                         <div class="row">
+
+                            <!-- Contraseña -->
                             <div class="form-group col-md-6">
                                 <label for="password" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Contraseña') }}</label>
 
@@ -152,6 +164,7 @@
                                 </div>
                             </div>
 
+                            <!-- Confirmar contraseña -->
                             <div class="form-group col-md-6">
                                 <label for="password-confirm" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Confirmar contraseña') }}</label>
 
@@ -161,6 +174,7 @@
                             </div>
                         </div>
 
+                        <!-- Check Políticas y terminos -->
                         <div class="form-group row mb-0">
                             <div class="col-12">
                                 <input type="checkbox" class="check_option-register" id=""> 
@@ -170,6 +184,7 @@
                             </div>
                         </div>
 
+                        <!-- Check de Promociones -->
                         <div class="form-group row mb-0">
                             <div class="col-12 section_option-promo-register">
                                 <input type="checkbox" class="check_option-register" id=""> 
@@ -179,10 +194,12 @@
                             </div>
                         </div>
 
+                        <!-- Confirmación de e-mail -->
                         <div class="form-group col-12 section_terminos-register">
                             <p class="texto_inferior-tarjeta-register"> Recibirá un e-mail de confirmación. </p>
                         </div>
 
+                        <!-- Botón Ingresar -->
                         <div class="form-group row mb-2 mb-md-0">
                             <div class="col-12 content_btn-ingresar-register">
                                 <button type="submit" class="btn_Ingreso-register"> {{ __('Ingresar') }}
