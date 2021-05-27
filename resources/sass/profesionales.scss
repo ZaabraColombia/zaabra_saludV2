@@ -317,9 +317,17 @@
 }
 
 @media (min-width: 768px){
-
+    
+    .contains_swiper_premium {
+        max-width: 100%;
+        height: 40vh;
+        margin-bottom: 5%;
+    }
     .swiper_premium{
-        max-width: 50%;
+        max-width: 75%;
+    }
+    .contains_slide .contains_image_profesional{
+        height: 50%;
     }
     .container_cards_normal{
         padding-top: 10%;
@@ -357,6 +365,9 @@
         margin-right: auto;
         margin-bottom: 5%;
         height: 8vh;
+    }
+    .contains_slide .contains_info{
+        padding: 3%;
     }
 }
 
