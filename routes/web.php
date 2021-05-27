@@ -43,10 +43,10 @@ Route:: get('/PerfilInstitucion/{id}',[App\Http\Controllers\entidades\perfilInst
 /*-------------------------------------------------Pertenece a otras vistas-------------------------------------------------------------------------------*/
 
 /*Esta ruta la cual lleva a acerca de zaabra*/
-Route::get('acerca', function () { return view('quienes-somos/acerca');})->name('acerca');
+Route::get('/acerca', function () { return view('quienes-somos/acerca');})->name('acerca');
 
 /*Esta ruta la cual lleva a preguntas frecuentes*/
-Route::get('/preguntas', function () { return view('preguntas');});
+Route::get('/preguntas', function () { return view('quienes-somos/preguntas');})->name('preguntas');
 
 /*Esta ruta la cual lleva a politicas  de uso*/
-Route::get('/politicas', function () { return view('politicas');});
+Route::get('/politicas', function () { return view('quienes-somos/politicas');})->name('politicas');
