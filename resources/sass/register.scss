@@ -2,7 +2,7 @@
 .contenedorPrin_Register {
     background: #F9F9F9;
 }
-// Titulo princial 
+// Titulo principal 
 .titulo_principal-register {
     font-family: 'Roboto', 'Regular';
     font-size: 1em;
@@ -11,14 +11,14 @@
     text-align: center;
     margin: 2% 8%;
 }
-// Seccion principal Login
+// Sección principal Login
 .section_principal-register {
     border: none;
     margin-bottom: 18.2%;
     padding: 0;
     box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
 }
-// Seccion body del login
+// Sección body del login
 .section_body-register {
     padding: 2% 12% 6% 12%;
 }
@@ -32,7 +32,7 @@
     margin-top: 4%;
     margin-bottom: 0;
 }
-// INICIAR SESION
+// Iniciar sesión
 .section_texto-registro {
     font-family: 'Quicksand', 'Regular';
     font-size: 1.25em;
@@ -41,15 +41,15 @@
     text-decoration: none;
     text-align: center;
     align-items: center;
-    border-bottom: 5px solid #1558d6;
+    border-bottom: 8px solid #0083D6;
     padding: 0;
 }
-// CREAR CUENTA
+// Crear cuenta
 .section_texto-inicio {
     text-decoration: none;
     text-align: center;
     align-items: center;
-    border-bottom: 5px solid #D1D1D1;
+    border-bottom: 8px solid #D1D1D1;
     padding: 0;
 }
 .texto_iniciar-register {
@@ -69,16 +69,7 @@
     margin-top: 5%;
     margin-right: auto;
 }
-.texto_inferior-tarjeta-register {
-    font-family: 'Roboto', 'Regular';
-    font-size: 1em;
-    font-weight: 500;
-    color: #3E3E3E;
-    text-align: initial;
-    margin-top: 2%;
-    margin-right: auto;
-}
-// Seccion opciones principales
+// Sección opciones principales
 .section_input-option-register {
     justify-content: center;
     height: 16vh;
@@ -93,7 +84,12 @@
     height: 100%;
     width: 50%;
 }
-// Seccion campos de validacion
+// Clases utilizadas para la función de ocultar y mostrar elementos en la vista de registro de usuarios
+// La función se encuentra en el archivo register.js
+.names_person, .names_institution, .datos_secundarios{
+    display: none;
+}
+// Sección campos de validación
 .check_option-register {
     float: left;
 }
@@ -120,10 +116,17 @@
 .section_option-promo-register {
     margin-top: 2%;
 }
-.names_person, .names_institution, .datos_secundarios{
-    display: none;
+// Titulo inferior
+.texto_inferior-tarjeta-register {
+    font-family: 'Roboto', 'Regular';
+    font-size: 1em;
+    font-weight: 500;
+    color: #3E3E3E;
+    text-align: initial;
+    margin-top: 2%;
+    margin-right: auto;
 }
-// Boton inferior ingreasar
+// Botón inferior ingreasar
 .content_btn-ingresar-register {
     text-align: center;
 }
@@ -154,7 +157,7 @@
         text-align: center;
         margin: 5% 12%;
     }
-    // Seccion body del login
+    // Sección body del login
     .section_body-register {
         padding: 2% 5%;
     }
@@ -167,7 +170,7 @@
         padding: 0;
         margin: 3% 0;
     }
-    // INICIAR SESION
+    // Iniciar sesión
     .section_texto-registro {
         font-family: 'Quicksand', 'Regular';
         font-size: 1em;
@@ -179,7 +182,7 @@
         border-bottom: 5px solid #1558d6;
         padding: 0;
     }
-    // CREAR CUENTA
+    // Crear cuenta
     .section_texto-inicio {
         text-decoration: none;
         text-align: center;
@@ -194,20 +197,22 @@
         color: #D1D1D1 !important;
         text-decoration: none;
     }
+    // Sección opciones principales
     .input_img-option {
         width: 70%;
     }
-    // Seccion texto inferior de la tarjeta register
+    // Sección campos de validación
     .section_terminos-register {
         line-height: 1.1;
         margin-left: 2%;
         margin-bottom: 3%;
     }
+    // Titulo inferior
     .texto_inferior-tarjeta-register {
         font-size: .735em;
         margin-top: 2%;
     }
-    // Boton inferior ingreasar
+    // Botón inferior ingreasar
     .content_btn-ingresar-register {
         text-align: center;
     }
@@ -226,50 +231,55 @@
     }
 }   
 @media (min-width: 375px) and (orientation: portrait) {
-     // Seccion principal Login
-     .section_principal-register {
+    // Sección principal Login
+    .section_principal-register {
         border: none;
         margin-bottom: 28%;
         padding: 0;
         box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
     }
+    // Titulo interno
+    .texto_superior-tarjeta-register {
+        margin-top: 6%;
+    }
+    // Sección opciones principales
     .section_input-option-register {
         justify-content: space-around;
         height: 15vh;
     }
-    .texto_superior-tarjeta-register {
-        margin-top: 6%;
-    }
+    // Titulo inferior
     .texto_inferior-tarjeta-register {
         margin-top: 6%;
     }
 } 
 @media (min-width: 768px) and (orientation: portrait) {
+    // Titulo principal
     .titulo_principal-register {
         font-size: 1.563em;
         font-weight: 500;
-        margin: 7% 17%;
+        margin: 14% 8% 7% 8%;
     }
+    // Sección principal login
     .section_principal-register {
         margin-bottom: 34%;
     }
+    // Sección body del login 
+    .section_body-register {
+        padding: 2% 10%;
+    }
+    // Titulo interno
+    .texto_superior-tarjeta-register {
+        font-size: 1.438em;
+        margin-top: 6%;
+    }
+    // Crear cuenta
     .texto_iniciar-register {
         font-size: 1.438em;
     }
     .section_texto-registro {
         font-size: 1.438em;
     }
-    .section_body-register {
-        padding: 2% 10%;
-    }
-    .texto_superior-tarjeta-register {
-        font-size: 1.438em;
-        margin-top: 6%;
-    }
-    .texto_inferior-tarjeta-register {
-        font-size: 1.25em;
-        margin-top: 3%;
-    }
+    // Sección opciones principales
     .section_input-option-register {
         justify-content: space-around;
         height: 13vh;
@@ -285,15 +295,22 @@
     .texto_label-register {
         font-size: 1.438em;
     }
+    // Sección campos de validación
+    .check_option-register {
+        float: left;
+    }
     .section_terminos-register {
         line-height: 1.3;
         margin-left: 2%;
         margin-bottom: 0;
         padding-right: 3%;
     }
-    .check_option-register {
-        float: left;
+    // Titulo inferior
+    .texto_inferior-tarjeta-register {
+        font-size: 1.25em;
+        margin-top: 3%;
     }
+    // Botón inferior ingresar
     .btn_Ingreso-register {
         font-family: "Quicksand";
         font-size: 1.25em;
@@ -309,32 +326,43 @@
     }
 }
 @media (min-width: 1200px) {
+    // Sección principal login
     .section_principal-register {
         margin-bottom: 11.4%;
     }
+    // Sección opciones principales
     .input_img-option {
         margin: 0;
         height: 100%;
         width: 40%;
     }
+    // Botón inferior ingresar
     .flecha_ingreso-register {
         width: 7%;
     }
 }
 @media (min-width: 1440px) {
+    // Titulo principal 
     .titulo_principal-register {
         font-size: 1.5em;
         font-weight: 500;
     }
-    .section_texto-registro {
-        font-size: 1.8em;
+    // Iniciar sesión
+    .section_texto-inicio {
+        border-bottom: 10px solid #D1D1D1;
     }
     .texto_iniciar-register {
         font-size: 1.8em;
     }
+    // Iniciar sesión 
+      .section_texto-registro {
+        font-size: 1.8em;
+        border-bottom: 10px solid #0083D6;
+    }
     .texto_label-register {
         font-size: 1.5em;
     }
+    // Botón inferior inrgresar
     .btn_Ingreso-register {
         font-size: 1.5em;
     }
@@ -344,15 +372,19 @@
     .titulo_principal-register {
         font-size: 1.8em;
     }
-    .section_texto-registro {
-        font-size: 2em;
-    }
+    // Iniciar sesión
     .texto_iniciar-register {
         font-size: 2em;
     }
+    // Crear cuenta
+    .section_texto-registro {
+        font-size: 2em;
+    }
+    // Titulo interno
     .texto_superior-tarjeta-register {
         font-size: 2em;
     }
+    // Sección opciones principales
     .input_img-option {
         margin: 0;
         height: 100%;
@@ -368,17 +400,7 @@
         height: 6vh;
         font-size: 1.43em;
     }
-    .btn_Ingreso-register {
-        font-size: 2em;
-    }
-    .texto_inferior-tarjeta-register {
-        font-size: 1.563em;
-        margin-top: 0;
-    }
-    .section_option-promo-register {
-        height: 5vh;
-        margin-top: 1%;
-    }
+    // Sección campos de validación
     .check_option-register {
         width: 4%;
         height: 40%;
@@ -386,5 +408,18 @@
     .section_terminos-register {
         margin-left: 4%;
         line-height: 1.2;
+    }
+    .section_option-promo-register {
+        height: 6vh;
+        margin-top: 2%;
+    }
+    // Titulo inferior
+    .texto_inferior-tarjeta-register {
+        font-size: 1.563em;
+        margin-top: 0;
+    }
+    // Botón inferior ingresar
+    .btn_Ingreso-register {
+        font-size: 2em;
     }
 }
