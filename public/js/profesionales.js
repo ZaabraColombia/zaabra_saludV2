@@ -2,12 +2,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const swiper_premium = new Swiper(".swiper_premium", {
 
     loop: true,
-    effect: "flip",
-    grabCursor: true,
     loopFillGroupWithBlank: true,
   
     /*autoplay: {
-      delay: 2500,
+      delay: 4500,
       disableOnInteraction: false,
     },*/
   

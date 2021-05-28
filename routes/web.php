@@ -61,13 +61,15 @@ Route:: get('/PerfilInstitucion/{id}',[App\Http\Controllers\entidades\perfilInst
 
 
 /*-------------------------------------------------Pertenece a otras vistas-------------------------------------------------------------------------------*/
-/*Esta ruta la cual lleva a preguntas frecuentes*/
-Route::get('preguntas', function () { return view('preguntas');});
+
 
 /*Esta ruta la cual lleva a acerca de zaabra*/
-Route::get('acerca', function () { return view('acerca');});
+Route::get('/acerca', function () { return view('quienes-somos/acerca');})->name('acerca');
 
-/*Esta ruta la cual lleva a politicas  de uso*/
-Route::get('politicas', function () { return view('politicas');});
 
+/*Esta ruta la cual lleva a preguntas frecuentes*/
+Route::get('/preguntas', function () { return view('quienes-somos/preguntas');})->name('preguntas');
+
+
+Route::get('/politicas', function () { return view('quienes-somos/politicas');})->name('politicas');
 

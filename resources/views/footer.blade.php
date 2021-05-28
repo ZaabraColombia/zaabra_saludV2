@@ -106,25 +106,25 @@
                 </div>
 
                 <div class="col-lg-9 p-0">
-                    <a href="{{url('politicas#quienes')}}">
+                    <a href="{{route('acerca')}}">
                         <span class="texto_info-Zaabra">¿Quiénes somos?</span>
                     </a>
                 </div> 
 
                 <div class="col-lg-9 p-0">
-                    <a href="{{url('politicas#preguntas')}}">
+                    <a href="{{url('acerca')}}">
                         <span class="texto_info-Zaabra">¿Cómo funciona Zaabra Salud?</span>
                     </a>
                 </div>
 
                 <div class="col-lg-9 p-0">
-                    <a href="{{url('politicas#preguntas')}}">
+                    <a href="{{url('acerca')}}">
                         <span class="texto_info-Zaabra">Responsabilidad social</span>
                     </a>  
                 </div>
 
                 <div class="col-lg-9 p-0">
-                    <a href="{{url('politicas#preguntas')}}">
+                    <a href="{{url('preguntas')}}">
                         <span class="texto_info-Zaabra">Preguntas frecuentes</span>
                     </a> 
                 </div>
@@ -142,25 +142,25 @@
                 </div>
 
                 <div class="col-lg-10 col-xl-9  p-0">
-                    <a href="{{url('politicas#cookies')}}">
+                    <a href="{{url('politicas')}}">
                         <span class="texto_info-Zaabra">Políticas de cookies</span>
                     </a> 
                 </div>
 
                 <div class="col-lg-10 col-xl-9  p-0">
-                    <a href="{{url('politicas#politicas')}}">
+                    <a href="{{url('politicas')}}">
                         <span class="texto_info-Zaabra">Políticas de privacidad</span>
                     </a> 
                 </div>
 
                 <div class="col-lg-10 col-xl-9  p-0">
-                    <a href="{{url('politicas#terminos')}}">
+                    <a href="{{url('politicas')}}">
                         <span class="texto_info-Zaabra">Términos y condiciones de Zaabra Salud</span>
                     </a> 
                 </div>
 
                 <div class="col-lg-10 col-xl-9  p-0">
-                    <a href="{{url('politicas#terminos')}}">
+                    <a href="{{url('politicas')}}">
                         <span class="texto_info-Zaabra">Términos y condiciones del servicio </span>
                     </a> 
                 </div>

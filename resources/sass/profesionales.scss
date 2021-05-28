@@ -28,6 +28,9 @@
 .contains_swiper_premium .contains_info h2, h5, p{
     margin-bottom: 0;
 }
+.swiper_premium .swiper-pagination{
+    height: 6px;
+}
 .contains_slide .contains_buttons a:nth-last-child(2){
     font-family: "Quicksand";
     font-weight: lighter;
@@ -123,6 +126,10 @@
     font-family: "Roboto";
     color: #3E3E3E;
 }
+.contains_swiper_premium .contains_info .rating-stars ul{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
 .contains_slider_publiProfesionales{
     max-width: 100%;
     flex-wrap: nowrap;
@@ -172,7 +179,7 @@
     }
     .contains_swiper_premium{
         max-width: 100%;
-        height: 65vh;
+        height: 75vh;
         margin-bottom: 10%;
     }
     .swiper_premium{
@@ -186,8 +193,11 @@
     .contains_slide .contains_image_profesional img{
         object-fit: cover;
     }
+    .contains_slide .contains_body{
+        height: 55%;
+    }
     .contains_slide .contains_info{
-        height: 40%;
+        height: 70%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -198,7 +208,7 @@
     .contains_slide .contains_buttons{
         max-width: 100%;
         display: flex;
-        height: 15%;
+        height: 25%;
         align-content: center;
         justify-content: center;
         align-items: center;
@@ -303,7 +313,9 @@
 }
 
 @media (min-width: 375px){
-
+    .contains_swiper_premium{
+        height: 65vh;
+    }
     .card_normal{
         height: 45vh;
     }
@@ -317,9 +329,28 @@
 }
 
 @media (min-width: 768px){
-
+    
+    .contains_swiper_premium {
+        max-width: 100%;
+        height: 45vh;
+        margin-bottom: 5%;
+    }
     .swiper_premium{
-        max-width: 50%;
+        max-width: 65%;
+    }
+    .contains_swiper_premium .contains_info h2{
+        font-size: 1.5em;
+    }
+    .contains_swiper_premium .contains_info h5 {
+        font-size: 0.9em;
+    }
+    .contains_slide .contains_image_profesional{
+        height: 50%;
+    }
+    .contains_slide .contains_body {
+        width: 85%;
+        margin: auto;
+        height: 50%;
     }
     .container_cards_normal{
         padding-top: 10%;
@@ -343,6 +374,9 @@
     .card_normal .card-body{
         justify-content: flex-end;
     }
+    .card_normal .contains_buttons{
+        height: 20%;
+    }
     .contanier_cards_generic {
         display: flex;
         padding-top: 5%;
@@ -357,6 +391,14 @@
         margin-right: auto;
         margin-bottom: 5%;
         height: 8vh;
+    }
+    .contains_slide .contains_info{
+        padding: 3%;
+        flex-wrap: nowrap;
+    }
+    .contains_swiper_premium .contains_info .rating-stars ul{
+        margin-top: 5%;
+        margin-bottom: 5%;
     }
 }
 
@@ -398,6 +440,7 @@
     }
     .contains_slide .contains_info{
         height: 75%;
+        padding: 0;
         align-items: flex-start;
         justify-content: space-evenly;
 
@@ -406,6 +449,7 @@
         text-align: left;
     }
     .contains_slide .contains_buttons{
+        max-width: 70%;
         height: 25%;
     }
     .contains_slide .contains_buttons a:nth-last-child(1){
@@ -479,7 +523,7 @@
         margin-bottom: 2%;
     }
     .swiper_premium{
-        max-width: 75%;
+        max-width: 70%;
         flex-direction: row;
     }
     .contains_slide .contains_image_profesional{
@@ -495,6 +539,7 @@
     }
     .contains_slide .contains_info{
         height: 75%;
+        padding: 0;
         align-items: flex-start;
         justify-content: space-evenly;
 
@@ -503,6 +548,7 @@
         text-align: left;
     }
     .contains_slide .contains_buttons{
+        max-width: 70%;
         height: 25%;
     }
     .contains_slide .contains_buttons a:nth-last-child(1){
@@ -553,7 +599,7 @@
 @media (min-width: 1600px){
 
     .swiper_premium{
-        max-width: 70%;
+        max-width: 65%;
         flex-direction: row;
     }
     .container_cards_normal {
@@ -574,7 +620,7 @@
         padding-right: 18%;
     }
     .card_normal{
-        height: 33vh;
+        height: 35vh;
     }
     .card_normal .card-img-top {
         width: 170px;

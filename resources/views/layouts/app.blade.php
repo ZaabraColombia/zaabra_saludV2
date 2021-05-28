@@ -152,8 +152,9 @@
                 </div> -->
             </div>
 
-             <!--******************************     Sección BARRA DE BUSQUEDA OCULTA version MOBILE      *************************************-->
-            <div class="contains_barra">
+            <!--******************************     Sección BARRA DE BUSQUEDA OCULTA version MOBILE      *************************************-->
+            <!-- Clase "contains_barra"utilizada para mostrar y ocultar la barra de busqueda en el HEADER tamaño Mobile, función ubicada en el archivo header.js -->
+            <div class="contains_barra"> 
                 <div class="barra_oculta" id="buscador">
                     <div class="barra_busqueda-mobile">
                         <form action="http://portal-test.zaabra.local/busqueda" method="POST" class="form-inline heigFormHeader" id="buscar">

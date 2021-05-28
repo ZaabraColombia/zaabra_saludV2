@@ -9,6 +9,9 @@
 
 @import 'header';
 @import 'footer';
+@import 'acerca';
+@import 'politicas';
+@import 'preguntas';
 @import 'home';
 @import 'galeria-profesiones';
 @import 'galeria-especialidades';
@@ -17,4 +20,5 @@
 @import 'entidades';
 @import 'login';
 @import 'register';
+@import 'email';
 $urlZaabra: 'http://localhost:8000/';
