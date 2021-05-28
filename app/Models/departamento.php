@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class pais extends Model
+class departamento extends Model
 {
     protected $fillable = [
+        'id_departamento',
         'id_pais',
-        'codigo',
         'nombre'
     ];
 }
