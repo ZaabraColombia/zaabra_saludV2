@@ -142,4 +142,8 @@ class perfilprofesionalController extends Controller
         WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional");
         }
 
+
+  
+
+
 }
