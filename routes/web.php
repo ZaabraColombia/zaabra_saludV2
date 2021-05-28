@@ -13,6 +13,8 @@ Auth::routes(['verify' => true]);
 /*Esta ruta es del home y dirige al controlador encargado de traer la informacion a la vista*/
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
+
+
 /*----------------------------------------------Pertenece a salud-------------------------------------------------------------------------------*/
 
 /*Esta ruta es de galeria profesiones y dirige al controlador encargado de traer la informacion a la vista*/
@@ -26,6 +28,24 @@ Route:: get('/Profesionales/{idEspecialidad}',[App\Http\Controllers\profesionale
 
 /*Esta ruta es de landing profesionales y dirige al controlador encargado de traer la informacion a la vista*/
 Route:: get('/PerfilProfesional/{idPerfilProfesional}',[App\Http\Controllers\profesionales\perfilprofesionalController::class,'index'])->name('PerfilProfesional');
+
+/*Esta ruta es del formulario del profesional */
+Route::get('/FormularioProfesional',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'index'])->name('FormularioProfesional');
+Route::get('get-Departamento',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getDepartamento']);
+Route::get('get-Provincia',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getProvincia']);
+Route::get('get-Ciudad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getCiudad']);
+/*-----guardar formulario----*/ 
+Route::post('/FormularioProfesionaledit',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create'])->name('FormularioProfesional');
+
+
+//Selects dinamicos area, profesion, especialidad
+Route::get('profesion/{idArea}', [App\Http\Controllers\profesionales\profesionController::class,'mostrarProfesion']);
+Route::get('especialidad/{idProfesion}', [App\Http\Controllers\profesionales\especialidadController::class,'mostrarESpecialidad']);
+
+
+
+
+
 
 /*------------------------------------------------Pertenece a entidades-------------------------------------------------------------------------------*/
 
@@ -41,8 +61,6 @@ Route:: get('/PerfilInstitucion/{id}',[App\Http\Controllers\entidades\perfilInst
 
 
 /*-------------------------------------------------Pertenece a otras vistas-------------------------------------------------------------------------------*/
-
-
 /*Esta ruta la cual lleva a preguntas frecuentes*/
 Route::get('preguntas', function () { return view('preguntas');});
 
@@ -51,3 +69,5 @@ Route::get('acerca', function () { return view('acerca');});
 
 /*Esta ruta la cual lleva a politicas  de uso*/
 Route::get('politicas', function () { return view('politicas');});
+
+
