@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="47" height="47" viewBox="0 0 47 47">
+  <g id="Grupo_327" data-name="Grupo 327" transform="translate(-309 -2142.278)">
+    <g id="Grupo_265" data-name="Grupo 265" transform="translate(-715 2199.278)">
+      <g id="Elipse_16" data-name="Elipse 16" transform="translate(1024 -57)" fill="none" stroke="#0083d6" stroke-width="1.5">
+        <circle cx="23.5" cy="23.5" r="23.5" stroke="none"/>
+        <circle cx="23.5" cy="23.5" r="22.75" fill="none"/>
+      </g>
+    </g>
+    <path id="twitch" d="M26.5,2H3V22.889H9.528v5.222l5.222-5.222h6.528L26.5,17.667ZM13.444,13.75V8.528m6.528,5.222V8.528" transform="translate(318.75 2152.22)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>
