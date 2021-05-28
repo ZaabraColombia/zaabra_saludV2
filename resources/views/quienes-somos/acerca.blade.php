@@ -10,7 +10,7 @@
     <section class="section_principal-acerca">
         <p class="titulo_superior-acerca">Zaabra Salud, es el sitio donde están, los mejores especialistas e instituciones medicas de todas partes del país al alcance de sus manos y con tan solo un click.</p>
 
-        <div class="mb-3 mb-md-5" id="accordion">
+        <div class="mb-3 mb-md-5 contain_accordion-acerca" id="accordion">
             <div class="card containt_options-collapse-acerca">
                 <div id="headingOne">
                     <button class="boton_collapse-on-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> ¿Quiénes somos? </button>

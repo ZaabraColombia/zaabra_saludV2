@@ -1,0 +1,457 @@
+// Seccion titulo y texto principal
+.section_principal-membresia {
+    margin: auto;
+    padding: 0;
+    width: 70%;
+}
+.titulo_principal-membresia {
+    font-family: 'Quicksand';
+    font-size: 2em;
+    color: #0083D6;
+    text-align: center;
+    margin-top: 5%;
+}
+.texto_superior-membresia {
+    font-family: 'Roboto','Regular';
+    font-size: 1.25em;
+    color: #3E3E3E;
+    text-align: center;
+    padding: 0;
+    margin-top: 4%;
+}
+// Sección opciones principales
+.section_inputs-option-membresia {
+    justify-content: center;
+    height: 21vh;
+}
+.input_option-membresia {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+.input_img-option-membresia {
+    margin: 0;
+    height: 100%;
+    width: 40%;
+}
+.texto_option-input-membresia {
+    font-family: 'Roboto';
+    font-size: 1em;
+    align-self: flex-end;
+    text-align: center;
+}
+.pad_inferior-texto {
+    padding-bottom: 12%;
+}
+// Sección acordion 1
+.contain_accordion-membresia {
+    margin: 5% 0;
+    padding: 1% 0;
+    box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
+}
+.titulo_tarjeta-membresia {
+    font-family: 'Quicksand', 'Regular';
+    font-size: 1.8em;
+    color: #232323;
+    text-align: center;
+    margin-top: 3%;
+}
+.texto_tiempo-membresia {
+    font-family: 'Roboto','Regular';
+    font-size: 1.5em;
+    color: #0083D6;
+    text-align: center;
+    padding: 0;
+    margin-top: 1%;
+}
+.containt_options-collapse-membresia {
+    border-radius: 0px;
+    border: none;
+    padding: 1% 3%;
+}
+// Botón inferior ingreasar
+.content_btn-ingresar-membresia {
+    text-align: center;
+    padding: 0;
+    margin: 5% auto;
+}
+// Seccion acordion 2
+.btn_precio-tarjeta-membresia {
+    background: #0083d6;
+    border: none;
+    border-radius: 7px;
+    height: calc(1.6em + 0.75rem + 2px);
+    width: 35%;
+    height: 10vh;
+}
+.precio_tarjeta-membresia {
+    font-family: 'Quicksand';
+    font-size: 2em;
+    font-weight: normal;
+    color: #ffffff;
+    text-align: center;
+}
+.texto_precio-membresia {
+    font-family: 'Roboto', 'Regular';
+    font-size: 1.25em;
+    font-weight: normal;
+    color: #ffffff;
+    text-align: center;
+}
+.boton_collapse-on-membresia {
+    font-family: 'Quicksand', 'Regular';
+    font-size: 1.25em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 0 3%;
+    background: #0083D6;
+    border-radius: 0px;
+    border: 1px solid #0083D6;
+    width: 100%;
+    height: 6vh;
+    background-image: url('/img/iconos/icono-x.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-x: 95%;
+    background-size: 3%;
+}
+.boton_collapse-off-membresia {
+    font-family: 'Quicksand', 'Regular';
+    font-size: 1.25em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #232323;
+    text-align: left;
+    padding: 0 3%;
+    background: #F5F5F5;
+    border-radius: 0px;
+    border: 1px solid #F5F5F5F5;
+    width: 100%;
+    height: 6vh;
+    background-image: url('/img/iconos/icono-mas.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-x: 95%;
+    background-size: 3%;
+}
+.text_interno-toggle-membresia {
+    font-size: 1em;
+    color: #3E3E3E;
+}
+// Texto inferior
+.texto_inferior-membresia {
+    font-family: 'Roboto','Regular';
+    font-size: 1.25em;
+    color: #3E3E3E;
+    text-align: center;
+    padding: 0;
+    margin-top: 4%;
+}
+.contac_membresia {
+    text-decoration: underline !important;
+    color: #0083D6 !important;
+}
+// Seccion botones inferiores REGISTRAR y EMPEZAR
+.btn_Ingreso-membresia {
+    font-family: "Quicksand";
+    font-size: 1.5em;
+    color: #ffffff;
+    background: #0083d6;
+    border: none;
+    border-radius: 3px;
+    height: calc(1.6em + 0.75rem + 2px);
+    width: 30%;
+}
+.flecha_ingreso-membresia {
+    width: 11%;
+}
+@media(min-width: 320px) and (orientation: portrait) {
+    .section_principal-membresia {
+        width: 100%;
+    }
+    // Seccion titulo y texto principal
+    .titulo_principal-membresia {
+        font-size: 1.25em;
+        margin-top: 5%;
+    }
+    .texto_superior-membresia {
+        font-size: .6em;
+    }
+    // Sección opciones principales
+    .section_inputs-option-membresia {
+        height: 16vh;
+    }
+    .input_img-option-membresia {
+        width: 40%;
+    }
+    .texto_option-input-membresia {
+        font-size: .625em;
+        line-height: 1.3;
+    }
+    .pad_inferior-texto {
+        padding-bottom: 11%;
+    }
+    // Sección acordion 1
+    .titulo_tarjeta-membresia {
+        font-size: 1em;
+    }
+    .texto_tiempo-membresia {
+        font-size: .75em;
+        margin-top: 1%;
+        margin-bottom: 3%;
+    }
+    // Botón inferior ingreasar
+    .content_btn-ingresar-membresia {
+        text-align: center;
+        margin: 3% auto;
+    }
+    // Seccion acordion 2
+    .precio_tarjeta-membresia {
+        font-size: 1.25em;
+    }
+    .texto_precio-membresia {
+        font-size: .75em;
+    }
+    .text_interno-toggle-membresia {
+        font-size: .6em;
+    }
+    // Seccion acordion 2
+    .boton_collapse-on-membresia {
+        font-size: .75em;
+        background-size: 6%;
+    }
+    .boton_collapse-off-membresia {
+        font-size: .75em;
+        background-size: 6%;
+    }
+    // Texto inferior
+    .texto_inferior-membresia {
+        font-size: .6em;
+        padding: 0 3%;
+    }
+    // Seccion botones inferiores REGISTRAR y EMPEZAR
+    .btn_Ingreso-membresia {
+        font-size: .75em;
+        width: 50%;
+    }
+    .flecha_ingreso-membresia {
+        width: 9%;
+    }
+}
+@media (min-width: 375px) and (orientation: portrait) {
+}
+@media (min-width: 768px) and (orientation: portrait) {
+    .section_principal-membresia {
+        width: 85%;
+    }
+    // Seccion titulo y texto principal
+    .titulo_principal-membresia {
+        font-size: 2em;
+        margin-top: 5%;
+    }
+    .texto_superior-membresia {
+        font-size: 1.3em;
+        margin: 3% 0 0 0;
+    }
+    // Sección opciones principales
+    .section_inputs-option-membresia {
+        height: 15vh;
+    }
+    .input_img-option-membresia {
+        margin: 0;
+        height: 100%;
+        width: 40%;
+    }
+    .texto_option-input-membresia {
+        font-size: 1.2em;
+    }
+    // Seccion acordion 1
+    .titulo_tarjeta-membresia {
+        font-size: 1.8em;
+    }
+    .texto_tiempo-membresia {
+        font-size: 1.5em;
+        margin-top: 1%;
+        margin-bottom: 3%;
+    }
+    // Seccion acordion 2
+    .btn_precio-tarjeta-membresia {
+        width: 45%;
+        height: 7vh;
+    }
+    .precio_tarjeta-membresia {
+        font-size: 2em;
+    }
+    .texto_precio-membresia {
+        font-size: 1.5em;
+    }
+    .boton_collapse-on-membresia {
+        font-size: 1.5em;
+        height: 5vh;
+        background-size: 4%;
+    }
+    .boton_collapse-off-membresia {
+        font-size: 1.5em;
+        height: 5vh;
+        background-size: 4%;
+    }
+    .text_interno-toggle-membresia {
+        font-size: 1.1em;
+    }
+    // Texto inferior
+    .texto_inferior-membresia {
+        font-size: 1.3em;
+        margin: 3% 0;
+        padding: 0 5%;
+    }
+    // Seccion botones inferiores REGISTRAR y EMPEZAR
+    .btn_Ingreso-membresia {
+        font-size: 1.5em;
+        width: 40%;
+    }
+    .flecha_ingreso-membresia {
+        width: 10%;
+    }
+}
+@media(min-width: 1200px) {
+    .section_principal-membresia {
+        width: 65%;
+    }
+    // Sección opciones principales
+    .section_inputs-option-membresia {
+        height: 22vh;
+    }
+    // Sección opciones principales
+    .input_img-option-membresia {
+        margin: 0;
+        height: 100%;
+        width: 40%;
+    }
+    // texto inferior
+    .texto_inferior-membresia {
+        padding: 0 3%;
+    }
+    // Seccion botones inferiores REGISTRAR y EMPEZAR
+    .content_btn-ingresar-membresia {
+        margin: 4% auto;
+    }
+    .flecha_ingreso-membresia {
+        width: 9%;
+    }
+}
+@media (min-width: 1440px) {
+    // Seccion titulo y texto principal
+    .titulo_principal-membresia {
+        font-size: 3.5em;
+    }
+    .texto_superior-membresia {
+        font-size: 1.3em;
+    }
+    // Sección opciones principales
+    .section_inputs-option-membresia {
+        height: 17vh;
+    }
+    .input_img-option-membresia {
+        width: 50%;
+    }
+    .texto_option-input-membresia {
+        font-size: 1em;
+        line-height: 1.2;
+    }
+    .pad_inferior-texto {
+        padding-bottom: 10%;
+    }
+    // Seccion acordion 1
+    .titulo_tarjeta-membresia {
+        font-size: 3em;
+    }
+    .texto_tiempo-membresia {
+        font-size: 1.8em;
+        margin-bottom: 2%;
+    }
+    // Seccion acordion 2
+    .btn_precio-tarjeta-membresia {
+        width: 40%;
+        height: 13vh;
+    }
+    .precio_tarjeta-membresia {
+        font-size: 3.5em;
+    }
+    .texto_precio-membresia {
+        font-size: 1.8em;
+    }
+    .boton_collapse-off-membresia {
+        font-size: 1.8em;
+        background-size: 3%;
+    }
+    .boton_collapse-on-membresia {
+        font-size: 1.8em;
+        background-size: 3%;
+    }
+    .text_interno-toggle-membresia {
+        font-size: 1em;
+    }
+    // Texto inferior
+    .texto_inferior-membresia {
+        font-size: 1.3em;
+        padding: 0 10%;
+    }
+    // Seccion botones inferiores REGISTRAR y EMPEZAR
+    .btn_Ingreso-membresia {
+        font-size: 2.1em;
+        width: 35%;
+    }
+}
+@media (min-width: 1920px) {
+    // Seccion titulo y texto principal
+    .texto_superior-membresia {
+        margin: 2% 0 0 0;
+    }
+    // Sección opciones principales
+    .section_inputs-option-membresia {
+        height: 18vh;
+    }
+    .input_img-option-membresia {
+        margin: 0;
+        height: 100%;
+        width: 45%;
+    }
+    .texto_option-input-membresia {
+        font-size: 1em;
+    }
+    .pad_inferior-texto {
+        padding-bottom: 8%;
+    }
+    // Seccion acordion 1
+    .contain_accordion-membresia {
+        margin: 4% 0;
+    }
+    .texto_tiempo-membresia {
+        font-size: 1.8em;
+        margin: 1% 0;
+    }
+    // Seccion acordion 2
+    .boton_collapse-off-membresia {
+        background-size: 2%;
+    }
+    .boton_collapse-on-membresia {
+        background-size: 2%;
+    }
+    // Texto inferior
+    .texto_inferior-membresia {
+        padding: 0 19%;
+        margin-top: 3%;
+    }
+    // Seccion botones inferiores REGISTRAR y EMPEZAR
+    .content_btn-ingresar-membresia {
+        margin: 3% auto;
+    }
+    .btn_Ingreso-membresia {
+        font-size: 2em;
+    }
+    .flecha_ingreso-membresia {
+        width: 8%;
+    }
+}

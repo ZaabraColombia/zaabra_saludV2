@@ -42,7 +42,8 @@ Route::post('/FormularioProfesionaledit',[App\Http\Controllers\profesionales\for
 Route::get('profesion/{idArea}', [App\Http\Controllers\profesionales\profesionController::class,'mostrarProfesion']);
 Route::get('especialidad/{idProfesion}', [App\Http\Controllers\profesionales\especialidadController::class,'mostrarESpecialidad']);
 
-
+// Esta ruta pertenece a la vista de membresía profesional
+Route::get('/membresiaProfesional', function () { return view('profesionales/membresiaProfesional');})->name('membresiaProfesional');
 
 
 
@@ -72,4 +73,3 @@ Route::get('/preguntas', function () { return view('quienes-somos/preguntas');})
 
 
 Route::get('/politicas', function () { return view('quienes-somos/politicas');})->name('politicas');
-
