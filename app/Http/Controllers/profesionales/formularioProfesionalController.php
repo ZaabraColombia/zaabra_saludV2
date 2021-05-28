@@ -4,37 +4,60 @@ namespace App\Http\Controllers\profesionales;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\perfilProfesional;
+use App\Models\perfilesprofesionales;
 use App\Models\pais;
 use App\Models\departamento;
 use App\Models\municipio;
 use App\Models\provincia;
+use App\Models\areas;
+use App\Models\profesiones;
+use App\Models\especialidades;
+use App\Models\User;
+use App\Models\universidades;
+use App\Models\perfilesprofesionalesuniversidades;
+use File;
 
 class formularioProfesionalController extends Controller
 {
 
-        /**
+            /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
 
+
     public function index(){
-
         $pais = pais::all();
-    
-
-        $objarea =  (new areaController)->listaArea();
-        $objprofesion = (new profesionController)->listaProfesiones();
-        $objespecialidad = (new especialidadController)->listaEspecialidades();
+        $area = areas::all();
+        $universidades = universidades::all();
+        $id_user=auth()->user()->id;/*id usuario logueado*/
+        $objuser = $this->cargaDatosUser($id_user);
 
         return view('profesionales.FormularioProfesional',compact(
-        'objarea',
-        'objprofesion',
-        'objespecialidad',
-        'pais'
+        'objuser',
+        'area',
+        'pais',
+        'universidades'
         ));
     }
+
+
+
+/*------------------------------------- inicio json busqueda area. profesion y especialidad----------------------*/
+
+ public function getprofesion(Request $request){
+     $profesion = profesiones::where("idArea",$request->idArea)->get();
+     return response()->json($profesion);
+ }
+ public function getespecialidad(Request $request){
+     $especialidad = especialidades::where("idProfesion",$request->idProfesion)->get();
+     return response()->json($especialidad);
+ }
+/*------------------------------------- fin json busqueda area. profesion y especialidad----------------------*/
+
+
+
 /*------------------------------------- inicio json busqueda departamento, provincia, ciudad----------------------*/
     public function getDepartamento(Request $request){
 
@@ -50,7 +73,22 @@ class formularioProfesionalController extends Controller
         return response()->json($municipio);
     }
 /*------------------------------------- fin json busqueda departamento, provincia, ciudad----------------------*/
-   
+
+
+
+
+/*-------------------------------------inicio busquedad datos basicos usuario logueado----------------------*/
+
+    public function cargaDatosUser($id_user){
+    return DB::select("SELECT us.primernombre, us.segundonombre, us.primerapellido, us.segundoapellido
+    FROM users us
+    WHERE id=$id_user");
+}
+/*-------------------------------------fin busquedad datos basicos usuario logueado----------------------*/
+
+
+
+
 
 /**
      * Get a validator for an incoming registration request.
@@ -59,34 +97,33 @@ class formularioProfesionalController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
 
-    protected function create(array $data)
+    protected function create(Request $request)
     {
 
+      
+        /*id usuario logueado*/
         $id_user=auth()->user()->id;
-    
-        $validador = Validator::make($data->all(), [
-            'idarea' => ['required', 'numeric', 'max:99999999'],
-            'idprofesion' => ['required', 'numeric', 'max:99999999'],
-            'idespecialidad' => ['required', 'numeric', 'max:99999999'],
-            'idpais' => ['required', 'numeric', 'max:99999999'],
-            'id_departamento' => ['required', 'numeric', 'max:99999999'],
-            'id_provincia' => ['required', 'numeric', 'max:99999999'],
-            'id_municipio' => ['required', 'numeric', 'max:99999999'],
-            'direccion' => ['required', 'string', 'max:50'],
-            'genero' => ['required', 'numeric', 'max:2'],
-            'EmpresaActual' => ['required', 'string', 'max:100'],
-            'fotoperfil' => ['required', 'string', 'max:100'],
-            'fechanacimiento' => ['required', 'date'],
-            'numeroTarjeta' =>  ['required', 'numeric', 'max:99999999'],
-            'entidadCertificoTarjeta' => ['required', 'string', 'max:100'],
-            'descripcionPerfil' => ['required', 'string', 'max:200'],
-            'imglogoempresa' => ['required', 'string', 'max:100'],
-            'caracteristicas ' => ['required', 'string', 'max:100'],
-            'FechaAprobacion' => ['required', 'date'],
-            'aprobado ' => ['required', 'numeric', 'max:2'],
-            'aceptoTerminos ' => ['required', 'numeric', 'max:2'],
-            'fechaCreacionFormulario' => ['required', 'date'],
-        ]);
+        /*captura el nombre del logo*/
+        $nombrelogo=$request->logo->getClientOriginalName();
+
+        /*crea una nueva carpeta con el id del usuario*/
+        $path = public_path().'img/user/' . $id_user;
+        File::makeDirectory($path,  0777, true);
+
+        /*guarda la imagen en carpeta con el id del usuario*/
+        $image = $request->file('logo');
+        $image->move("img/user/$id_user", $image->getClientOriginalName());
+      
+        /*guarda la informacion en la base de datos*/
+        $infoProf = new perfilesprofesionales;
+        $infoProf->idUser = $id_user;
+        $infoProf->idarea = $request->idArea ;
+        $infoProf->idprofesion = $request->profesion ;
+        $infoProf->idespecialidad = $request->especialidad ;
+        $infoProf->fechanacimiento = $request->fecha ;
+        $infoProf->numeroTarjeta = $request->tarjeta ;
+        $infoProf->imglogoempresa = "img/user/$id_user/$nombrelogo";
+        $infoProf->save();
     }
 
 
