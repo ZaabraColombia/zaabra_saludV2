@@ -42,13 +42,14 @@ class perfilprofesionalController extends Controller
     }
 
          // consulta para cargar todas los profesionales segun su area profesion y especialidad
-         public function cargarInfoPrfesionalLanding($idPerfilProfesional){
-            return DB::select("SELECT  pf.fotoperfil, us.primernombre, us.primerapellido, ep.nombreEspecialidad, pf.numeroTarjeta, pf.direccion, un.nombreuniversidad, pf.descripcionPerfil
+        public function cargarInfoPrfesionalLanding($idPerfilProfesional){
+            return DB::select("SELECT  pf.fotoperfil, us.primernombre, us.primerapellido, ep.nombreEspecialidad, pf.numeroTarjeta, pf.direccion, un.nombreuniversidad, pf.descripcionPerfil, mn.nombre
             FROM perfilesprofesionales pf
             INNER JOIN users us ON pf.idUser=us.id
             INNER JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
             INNER JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
             INNER JOIN universidades un ON pu.id_universidad=un.id_universidad
+            INNER JOIN municipios mn ON mn.id_municipio=pf.id_municipio
             WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional LIMIT 1");
         }
 

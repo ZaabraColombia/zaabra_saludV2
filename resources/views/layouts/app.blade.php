@@ -185,6 +185,7 @@
     <script src="{{ asset('js/instituciones.js') }}"></script>
     <script src="{{ asset('js/selectareas.js') }}"></script>
     <script src="{{ asset('js/selectpais.js') }}"></script>
+    <script src="{{ asset('js/cargaFoto.js') }}"></script>
 </body>
 </html>
 

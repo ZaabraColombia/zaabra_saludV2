@@ -1,22 +1,57 @@
 @extends('layouts.app')
-
 @section('content')
-        <div class="col-12" style="background: aqua;">
-            @foreach ($objprofesionallanding as $objprofesionallanding)
-            <img src="{{URL::asset($objprofesionallanding->fotoperfil)}}">
-                <p>{{$objprofesionallanding->primernombre}} {{$objprofesionallanding->primerapellido}}</p>
-                <p>{{$objprofesionallanding->nombreEspecialidad}}</p>
-                <p>{{$objprofesionallanding->nombreuniversidad}}</p>
-                <p>{{$objprofesionallanding->numeroTarjeta}}</p>
-                <p>{{$objprofesionallanding->direccion}}</p>
-            @endforeach
-        </div>
-        <div class="col-12" style="background: blue;">
-            @foreach ($objprofesionallandingconsultas as $objprofesionallandingconsultas)
-                <p>{{$objprofesionallandingconsultas->nombreconsulta}}</p>
-                <p>{{$objprofesionallandingconsultas->valorconsulta}}</p>
-            @endforeach
-        </div>
+        <!-- seccion datos perfil profesional-->
+        <section class="section_data_profesionales">
+            <div class="data_profesionales">
+                @foreach ($objprofesionallanding as $objprofesionallanding)
+                <img src="{{URL::asset($objprofesionallanding->fotoperfil)}}">
+                <div class="contains_info">
+                    <h2>{{$objprofesionallanding->primernombre}} {{$objprofesionallanding->primerapellido}}</h2>
+                    <h1>{{$objprofesionallanding->nombreEspecialidad}}</h1>
+                    <h5>{{$objprofesionallanding->nombreuniversidad}}</h5>
+                    <h5>N° Tarjeta profesional: {{$objprofesionallanding->numeroTarjeta}}</h5>
+                    <!-- Rating Stars Box -->
+                    <div class='rating-stars text-center'>
+                        <ul id='stars'>
+                            <li class='star' title='Poor' data-value='1'>
+                              <i class='fa fa-star fa-fw'></i>
+                            </li>
+                            <li class='star' title='Fair' data-value='2'>
+                              <i class='fa fa-star fa-fw'></i>
+                            </li>
+                            <li class='star' title='Good' data-value='3'>
+                              <i class='fa fa-star fa-fw'></i>
+                            </li>
+                            <li class='star' title='Excellent' data-value='4'>
+                              <i class='fa fa-star fa-fw'></i>
+                            </li>
+                            <li class='star' title='WOW!!!' data-value='5'>
+                              <i class='fa fa-star fa-fw'></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <div class="contains_direccion"></div> -->
+                    <h5 class="title-adress"><i></i>{{$objprofesionallanding->direccion}}</h5>
+                    <h5>{{$objprofesionallanding->nombre}}</h5>
+                </div>
+                @endforeach
+            </div>
+        </section>
+
+        <!-- seccion datos consulta perfil profesional-->
+        <section class="section_data_consulta">
+            <h2>Tipo de consulta</h2>
+            <div class="data_consulta">
+                <ul>
+                    @foreach ($objprofesionallandingconsultas as $objprofesionallandingconsultas)
+                        <li>
+                            <p class="menu_{{$loop->iteration}}"><i></i>{{$objprofesionallandingconsultas->nombreconsulta}}</p>
+                            <span><i></i>${{$objprofesionallandingconsultas->valorconsulta}}</span>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </section>
         <div class="col-12" style="background: blueviolet;">
             @foreach ($objprofesionallandingexperto as $objprofesionallandingexperto)
                 <p>{{$objprofesionallandingexperto->nombreExpertoEn}}</p>

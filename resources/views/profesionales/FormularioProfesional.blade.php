@@ -2,93 +2,88 @@
 
 @section('content')
 
-        <form action="" method="POST">
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+<div class="container">
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">Agregar archivos</div>
+        <div class="panel-body">
+          <form method="POST" action="{{ url ('/FormularioProfesionalSave') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+            
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            
+            <div class="col-12">
+            @foreach ($objuser as $objuser)
+                <input value="{{$objuser->primernombre}}" readonly></input>
+                <input value="{{$objuser->segundonombre}}" readonly></input>
+                <input value="{{$objuser->primerapellido}}" readonly></input>
+                <input value="{{$objuser->segundoapellido}}" readonly></input>
+            @endforeach
+            </div>
+            <div class="form-group col-12">
+                <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                <div class="col-10">
+                    <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fecha">
                 </div>
+            </div>
+            <div class="col-12">
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">area</label>
-                    <select class="form-control form-control-sm" name="area" id="area">
-                        @foreach ($objarea as $objarea)  
-                            <option value="{{$objarea->idArea}}">
-                                <?php if(!empty($objarea->objarea)){
-                                    if ($objarea->idArea ==  $objarea->objarea) {echo('selected = "selected"');} 
-                                    } 
-                                ?>    
-                            {{$objarea->nombreArea}}</option>
-                        @endforeach  
-                    </select> 
+                    <select id="area" name="idArea" class="form-control" style="width:350px" >
+                        <option value="" selected disabled>Seleccione area</option>
+                            @foreach($area as $area)
+                        <option value="{{$area->idArea}}"> {{$area->nombreArea}}</option>
+                            @endforeach
+                    </select>
                 </div>
+
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">profesion</label>
-                    <select class="form-control form-control-sm" name="profesion" id="profesion">
-                        @foreach ($objprofesion as $objprofesion)  
-                            <option value="{{$objprofesion->idProfesion}}">
-                               <?php if(!empty($objprofesion->objprofesion)){
-                                    if ($objprofesion->idProfesion ==  $objprofesion->objprofesion) {echo('selected = "selected"');} 
-                                    } 
-                                ?>     
-                            {{$objprofesion->nombreProfesion}}</option>
-                        @endforeach  
-                    </select> 
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">especialidad</label>
-                    <select class="form-control form-control-sm" name="especialidad" id="especialidad">
-                        @foreach ($objespecialidad as $objespecialidad)  
-                            <option value="{{$objespecialidad->idEspecialidad}}">
-                                <?php if(!empty($objespecialidad->objespecialidad)){
-                                    if ($objespecialidad->idEspecialidad ==  $objespecialidad->objespecialidad) {echo('selected = "selected"');} 
-                                    } 
-                                ?>     
-                            {{$objespecialidad->nombreEspecialidad}}</option>
-                        @endforeach  
-                    </select> 
+                    <label for="title">Selecione Profesion:</label>
+                      <select name="profesion" id="profesion" class="form-control" style="width:350px">
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Example textarea</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <label for="title">Seleccione especialidad:</label>
+                       <select name="especialidad" id="especialidad" class="form-control" style="width:350px">
+                    </select>
                 </div>
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-                    <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="title">Selecione Universidad:</label>
+                    <select  class="form-control" style="width:350px" name="universidad">
+                        <option value="">Seleccione Universidad</option>
+                            @foreach($universidades as $universidades)
+                        <option value="{{$universidades->id_universidad}}"> {{$universidades->nombreuniversidad}}</option>
+                            @endforeach
+                    </select>
                 </div>
-                <div class="form-group row">
-                    <label for="example-date-input" class="col-2 col-form-label">Date</label>
-                    <div class="col-10">
-                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-                    </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="title">Tarjeta Profesional</label>
+                    <input id="tarjeta" placeholder="nombre" type="number" name="tarjeta">
                 </div>
-                
-         <!--menu dinamico ciudades -->
-            <div class="form-group">
-                <select id="pais" name="id_pais" class="form-control" style="width:350px" >
-                    <option value="" selected disabled>Seleccione pais</option>
-                         @foreach($pais as $pais)
-                    <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
-                         @endforeach
-                </select>
             </div>
             <div class="form-group">
-                <label for="title">Selecione Departamento:</label>
-                <select name="departamento" id="departamento" class="form-control" style="width:350px">
-                </select>
-            </div>
-         
-            <div class="form-group">
-                <label for="title">Seleccione provincia:</label>
-                <select name="provincia" id="provincia" class="form-control" style="width:350px">
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="title">Seleccione ciudad:</label>
-                <select name="ciudad" id="ciudad" class="form-control" style="width:350px">
-                </select>
+              <label class="col-md-4 control-label">Nuevo Archivo</label>
+              <div class="col-md-6">
+                <input type="file" class="form-control" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg">
+                <img id="imagenPrevisualizacion">
+              </div>
             </div>
 
-        </form>
-
+            <div class="form-group">
+              <div class="col-md-6 col-md-offset-4">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 @endsection
