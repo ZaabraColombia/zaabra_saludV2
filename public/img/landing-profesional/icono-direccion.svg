@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29">
+  <g id="Grupo_229" data-name="Grupo 229" transform="translate(-685 -418)">
+    <g id="Elipse_23" data-name="Elipse 23" transform="translate(685 418)" fill="none" stroke="#0083d6" stroke-width="1.5">
+      <circle cx="14.5" cy="14.5" r="14.5" stroke="none"/>
+      <circle cx="14.5" cy="14.5" r="13.75" fill="none"/>
+    </g>
+    <g id="map-pin" transform="translate(689 423)">
+      <path id="Trazado_108" data-name="Trazado 108" d="M18,8.5c0,5.833-7.5,10.833-7.5,10.833S3,14.333,3,8.5a7.5,7.5,0,1,1,15,0Z" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <circle id="Elipse_22" data-name="Elipse 22" cx="2.5" cy="2.5" r="2.5" transform="translate(8 6)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>
