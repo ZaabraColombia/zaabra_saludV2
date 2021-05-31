@@ -11,9 +11,10 @@
 }
 .titulo_principal-pregunta {
     font-family: 'Quicksand';
-    font-size: 1em;
+    font-size: 1.563em;
     color: #232323;
     text-align: center;
+    margin-top: 5%;
 }
 .titulo_superior-pregunta {
     font-family: 'Roboto','Regular';
@@ -21,9 +22,9 @@
     color: #3E3E3E;
     text-align: center;
     padding: 0 3%;
-    margin: 7% 0;
+    margin: 5% 0;
 }
-.contains_accordion {
+.contain_accordion-pregunta {
     padding: 1% 0;
     box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
 }
@@ -72,7 +73,7 @@
     background-size: 3%;
     margin: 0 0 .3% 0;
 }
-.text_interno-toggle-polit {
+.text_interno-toggle-pregunta {
     font-size: .85em;
     color: #3E3E3E;
 }
@@ -91,9 +92,6 @@
         font-size: .6em;
         margin: 5% 0;
     }
-    .containt_options-collapse-pregunta {
-        border-radius: 0px;
-    }
     .boton_collapse-on-pregunta {
         font-size: 0.625em;
         padding: 0 8% 0 2%;
@@ -106,7 +104,7 @@
         background-position-x: 98%;
         background-size: 6%;
     }
-    .text_interno-toggle-polit {
+    .text_interno-toggle-pregunta {
         font-size: .6em;
     }
 }
@@ -120,13 +118,17 @@
     .imagen_bannerPrin-pregunta {
         height: 20vh;
     }
+    .titulo_principal-pregunta {
+        font-size: 2em;
+        margin-top: 5%;
+    }
     .section_principal-pregunta {
         width: 85%;
     }
     .titulo_superior-pregunta {
         font-size: 1.6em;
         padding: 0;
-        margin: 12.7% 0;
+        margin: 5% 0;
     }
     .boton_collapse-on-pregunta {
         font-size: 1.4em;
@@ -138,7 +140,7 @@
         height: 5vh;
         background-size: 4%;
     }
-    .text_interno-toggle-polit {
+    .text_interno-toggle-pregunta {
         font-size: 1.1em;
     }
 }
@@ -155,8 +157,12 @@
     }
 }
 @media (min-width: 1440px) {
+    .titulo_principal-pregunta {
+        font-size: 2em;
+    }
     .titulo_superior-pregunta {
         font-size: 1.25em;
+        padding: 0;
     }
     .boton_collapse-off-pregunta {
         font-size: 1.5em;
@@ -166,7 +172,7 @@
         font-size: 1.5em;
         background-size: 3%;
     }
-    .text_interno-toggle-polit {
+    .text_interno-toggle-pregunta {
         font-size: 1em;
     }
 }
@@ -175,7 +181,7 @@
         height: 48vh;
     }
     .titulo_superior-pregunta {
-        margin: 5% 0;
+        margin: 4% 0;
     }
     .boton_collapse-off-pregunta {
         background-size: 2%;

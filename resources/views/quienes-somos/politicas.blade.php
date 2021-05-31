@@ -10,7 +10,7 @@
     <section class="section_principal-polit">
         <p class="titulo_superior-polit"> Conozca todo sobre las políticas de uso y los términos y condiciones de Zaabra Salud y el sitio web. </p>
 
-        <div class="mb-3 mb-md-5" id="accordion">
+        <div class="mb-3 mb-md-5 contain_accordion-polit" id="accordion">
             <div class="card containt_options-collapse-polit">
                 <div id="headingOne">
                     <button class="boton_collapse-on-polit" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Políticas de cookies </button>
