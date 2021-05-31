@@ -8,7 +8,7 @@ $('#pais').change(function(){
            console.log(res);              
             if(res){
                 $("#departamento").empty();
-                $("#departamento").append('<option>Select</option>');
+                $("#departamento").append('<option>Seleccione departamento</option>');
                 $.each(res,function(key){
                     $("#departamento").append('<option value="'+res[key].id_departamento+'">'+res[key].nombre+'</option>');
                 });
@@ -20,18 +20,20 @@ $('#pais').change(function(){
         });
     }else{
         $("#departamento").empty();
-        $("#provincia").empty();
     }      
    });
+
     $('#departamento').on('change',function(){
     var id_departamento = $(this).val();    
     if(id_departamento){
         $.ajax({
            type:"GET",
            url:"get-Provincia?id_departamento="+id_departamento,
-           success:function(res){               
+           success:function(res){  
+            console.log(res);               
             if(res){
                 $("#provincia").empty();
+                $("#provincia").append('<option>Seleccione provincia</option>');
                 $.each(res,function(key,value){
                     $("#provincia").append('<option value="'+res[key].id_provincia+'">'+res[key].nombre+'</option>');
                 });
@@ -46,21 +48,25 @@ $('#pais').change(function(){
     }
         
    });
-   $('#departamento').on('change',function(){
-    var id_departamento = $(this).val();    
-    if(id_departamento){
+  
+   $('#provincia').on('change',function(){
+    var id_provincia = $(this).val();    
+
+    if(id_provincia){
         $.ajax({
            type:"GET",
-           url:"get-Provincia?id_departamento="+id_departamento,
-           success:function(res){               
+           url:"get-Ciudad?id_provincia="+id_provincia,
+           success:function(res){   
+            console.log(res);               
             if(res){
-                $("#provincia").empty();
+                $("#ciudad").empty();
+                $("#ciudad").append('<option>Seleccione ciudad</option>');
                 $.each(res,function(key,value){
-                    $("#provincia").append('<option value="'+res[key].id_provincia+'">'+res[key].nombre+'</option>');
+                    $("#ciudad").append('<option value="'+res[key].id_municipio+'">'+res[key].nombre+'</option>');
                 });
            
             }else{
-               $("#provincia").empty();
+               $("#ciudad").empty();
             }
            }
         });

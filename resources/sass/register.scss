@@ -84,6 +84,11 @@
     height: 100%;
     width: 50%;
 }
+.texto_option-input {
+    font-family: 'Roboto';
+    font-size: 1em;
+    align-self: flex-end;
+}
 // Clases utilizadas para la función de ocultar y mostrar elementos en la vista de registro de usuarios
 // La función se encuentra en el archivo register.js
 .names_person, .names_institution, .datos_secundarios{
@@ -96,11 +101,6 @@
 .section_terminos-register {
     margin-left: 2%;
     line-height: 1.2;
-}
-.texto_option-input {
-    font-family: 'Roboto';
-    font-size: 1em;
-    align-self: flex-end;
 }
 .texto_label-register {
     font-family: 'Quicksand', 'Regular';
@@ -213,9 +213,6 @@
         margin-top: 2%;
     }
     // Botón inferior ingreasar
-    .content_btn-ingresar-register {
-        text-align: center;
-    }
     .btn_Ingreso-register {
         font-family: "Quicksand";
         font-size: .85em;
