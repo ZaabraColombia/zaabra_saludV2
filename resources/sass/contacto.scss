@@ -1,0 +1,354 @@
+// Banner principal
+.imagen_bannerPrin-contac {
+    width: 100%;
+    padding: 0;
+    height: 30vh;
+    object-fit: cover;
+}
+// Titulo principal superior
+.titulo_principal-contac {
+    font-size: 1.3em;
+    font-family: 'Quicksand', sans-serif; 
+    font-weight: bolder;
+    color: #232323;
+    margin: 10% 0;
+    text-align: center;
+}
+// Texto superior
+.texto_superior-contac {
+    font-family: 'Roboto', 'Regular';
+    font-size: 1em;
+    color: #3E3E3E;
+    text-align: center;
+    margin: 2% 8%;
+}
+//Información contacto Zaabra
+.containt_contacZaabra-contac {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 3%;
+}
+.icon_ubicacion-contac {
+    background-image: url(/img/contacto/icono-ubicacion.svg);
+    background-repeat: no-repeat;
+    background-size: 20%;
+    height: 6vh;
+    width: 55%;
+    padding-right: 0;
+    padding-left: 12%;
+    margin-left: auto;
+}
+.icon_telefono-contac {
+    background-image: url(/img/contacto/icono-telefono.svg);
+    background-repeat: no-repeat;
+    background-size: 30%;
+    height: 6vh;
+    width: 35%;
+    padding-right: 0;
+    padding-left: 12%;
+    margin-left: auto;
+}
+.icon_email-contac {
+    background-image: url(/img/contacto/icono-email.svg);
+    background-repeat: no-repeat;
+    background-size: 19%;
+    height: 6vh;
+    width: 60%;
+    padding-right: 0;
+    padding-left: 12%;
+    margin: 3% auto;
+}
+.titulo_opcion-contac {
+    font-size: .75em;
+    font-weight: bold;
+}
+.text_opcion-contac {
+    font-size: .7em;
+    line-height: .5;
+}
+// Fila contenido opciones y formulario contacto
+.fila_containt-options-contac {
+    background: #F6F6F6;
+    justify-content: center;
+}
+// Subtitulo interno 
+.Subtitulo_interno-contac {
+    font-size: 1.3em;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #019f86;
+    margin: 3% 0;
+    text-align: center;
+}
+// Contenedor elementos contacto
+.section_principal-contac {
+    border: none;
+    margin-bottom: 18.2%;
+    padding: 0;
+    box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
+}
+// Sección body del contac
+.section_body-contac {
+    padding: 2% 12% 6% 12%;
+}
+// Sección opciones principales
+.section_input-option-contac {
+    justify-content: center;
+    height: 16vh;
+}
+.input_option-contac {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+.input_img-option-contac {
+    margin: 0;
+    height: 100%;
+    width: 50%;
+}
+.texto_option-input-contac {
+    font-family: 'Roboto';
+    font-size: 1em;
+    align-self: flex-end;
+}
+// Clases utilizadas para la función de ocultar y mostrar elementos en la vista de registro de usuarios
+// La función se encuentra en el archivo register.js
+.names_person-contac, .names_institution-contac, .datos_secundarios-contac{
+    display: none;
+}
+// Sección campos de validación
+.texto_label-contac {
+    font-family: 'Quicksand', 'Regular';
+    font-size: 1em;
+    font-weight: bold;
+    color: #232323;
+    text-align: left;
+}
+// Botón inferior enviar
+.content_btn-enviar-contac {
+    text-align: center;
+}
+.btn_enviar-contac {
+    font-family: "Quicksand";
+    font-size: 1em;
+    color: #ffffff;
+    background: #0083d6;
+    border: none;
+    border-radius: 5px;
+    height: calc(1.6em + 0.75rem + 2px);
+    width: 35%;
+}
+.flecha_envio-contac {
+    width: 8%;
+}
+@media (min-width: 320px) and (orientation: portrait) {
+    // Banner principal
+    .imagen_bannerPrin-contac {
+        height: 18vh;
+    }
+    // Titulo principal superior
+    .titulo_principal-contac {
+        font-size: 1em;
+        margin: 5% 6%;
+    }
+    // Texto superior
+    .texto_superior-contac {
+        font-size: .75em;
+        margin: 5% 0;
+    }
+    // Subtitulo interno 
+    .Subtitulo_interno-contac {
+        font-size: 1em;
+        margin: 3% 0;
+    }
+    .Subtext_interno-contac {
+        font-family: 'Roboto', 'Regular';
+        font-size: .7em;
+        color: #3E3E3E;
+        text-align: center;
+        margin: 0 3% 5% 3%;
+    }
+    // Contenedor elementos contacto
+    .section_principal-contac {
+        margin-bottom: 5%;
+    }
+    // Sección body del contac
+    .section_body-contac {
+        padding: 2% 5%;
+    }
+    // Sección opciones principales
+    .input_img-option-contac {
+        width: 70%;
+    }
+    // Botón inferior enviar
+    .btn_enviar-contac {
+        font-family: "Quicksand";
+        font-size: .85em;
+        color: #ffffff;
+        background: #0083d6;
+        border: none;
+        border-radius: 5px;
+        height: calc(1.6em + 0.75rem + 2px);
+        width: 50%;
+    }
+    .flecha_envio-contac {
+        width: 9%;
+    }    
+}
+@media (min-width: 360px) and (orientation: portrait) {
+    .icon_ubicacion-contac {
+        background-image: url(/img/contacto/icono-ubicacion.svg);
+        background-repeat: no-repeat;
+        background-size: 23%;
+        height: 6vh;
+        width: 48%;
+        padding-right: 0;
+        padding-left: 12%;
+        margin-left: auto;
+    }
+}
+@media (min-width: 375px) and (orientation: portrait) {
+    // Sección opciones principales
+    .section_input-option-contac {
+        justify-content: space-around;
+        height: 15vh;
+    }
+} 
+@media (min-width: 768px) and (orientation: portrait) {
+    // Banner principal
+    .imagen_bannerPrin-contac {
+        height: 20vh;
+    }
+    // Titulo principal superior
+    .titulo_principal-contac {
+        font-size: 2.5em;
+    }
+    // Texto superior
+    .texto_superior-contac {
+        font-size: 1.563em;
+        margin: 14% 8% 7% 8%;
+    }
+    // Subtitulo interno 
+    .Subtitulo_interno-contac {
+        font-size: 2.5em;
+    }
+    // Contenedor de elementos contacto
+    .section_principal-contac {
+        margin-bottom: 34%;
+    }
+    // Sección body del contac
+    .section_body-contac {
+        padding: 2% 10%;
+    }
+    // Sección opciones principales
+    .section_input-option-contac {
+        justify-content: space-around;
+        height: 13vh;
+    }
+    .input_img-option-contac {
+        margin: 0;
+        height: 100%;
+        width: 60%;
+    }
+    .texto_option-input-contac {
+        font-size: 1.25em;
+    }
+    // Sección campos de validación
+    .texto_label-contac {
+        font-size: 1.438em;
+    }
+    // Botón inferior enviar
+    .btn_enviar-contac {
+        font-family: "Quicksand";
+        font-size: 1.25em;
+        color: #ffffff;
+        background: #0083d6;
+        border: none;
+        border-radius: 5px;
+        height: calc(1.6em + 0.75rem + 2px);
+        width: 50%;
+    }
+    .flecha_envio-contac {
+        width: 7%;
+    }
+}
+@media (min-width: 1024px) {
+    .titulo_principal-contac {
+        font-size: 2.5em;
+        font-family: 'Quicksand', sans-serif; 
+        font-weight: bolder;
+        color: #019f86;
+        margin: 5% 0;
+        text-align: center;
+    }
+    // Subtitulo interno 
+    .Subtitulo_interno-contac {
+        font-size: 2.5em;
+        font-family: 'Quicksand', sans-serif; 
+        font-weight: bolder;
+        color: #019f86;
+        margin: 5% 0;
+        text-align: center;
+    }
+}
+@media (min-width: 1200px) {
+    // Banner principal
+    .imagen_bannerPrin-contac {
+        height: 42vh;
+    }
+    // Contenedor de elementos contacto
+    .section_principal-contac {
+        margin-bottom: 11.4%;
+    }
+    // Sección opciones principales
+    .input_img-option-contac {
+        margin: 0;
+        height: 100%;
+        width: 40%;
+    }
+    // Botón inferior ingresar
+    .flecha_envio-contac {
+        width: 7%;
+    }
+}
+@media (min-width: 1440px) {
+    // Texto superior 
+    .texto_superior-contac {
+        font-size: 1.5em;
+    }
+    // Sección campos de validación
+    .texto_label-contac {
+        font-size: 1.5em;
+    }
+    // Botón inferior enviar
+    .btn_enviar-contac {
+        font-size: 1.5em;
+    }
+}
+@media (min-width: 1920px) {
+    // Banner principal
+    .imagen_bannerPrin-contac {
+        height: 48vh;
+    }
+    // Texto superior
+    .texto_superior-contac {
+        font-size: 1.8em;
+    }
+   // Sección opciones principales
+   .input_img-option-contac {
+        margin: 0;
+        height: 100%;
+        width: 35%;
+    }
+    .texto_option-input-contac {
+        font-size: 1.25em;
+    }
+    // Sección campos de validación
+    .texto_label-contac {
+        font-size: 2em;
+    }
+    // Botón inferior enviar
+    .btn_enviar-contac {
+        font-size: 2em;
+    }
+}
