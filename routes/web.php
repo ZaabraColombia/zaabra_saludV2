@@ -31,11 +31,15 @@ Route:: get('/PerfilProfesional/{idPerfilProfesional}',[App\Http\Controllers\pro
 
 /*Esta ruta es del formulario del profesional */
 Route::get('/FormularioProfesional',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'index'])->name('FormularioProfesional');
+/*Paquete busquedad dinamica ciudades */
 Route::get('get-Departamento',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getDepartamento']);
 Route::get('get-Provincia',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getProvincia']);
 Route::get('get-Ciudad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getCiudad']);
+/*Paquete busquedad dinamica areas */
+Route::get('get-profesion',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getprofesion']);
+Route::get('get-especialidad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getespecialidad']);
 /*-----guardar formulario----*/ 
-Route::post('/FormularioProfesionaledit',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create'])->name('FormularioProfesional');
+Route::post('/FormularioProfesionalSave',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create'])->name('FormularioProfesional');
 
 
 //Selects dinamicos area, profesion, especialidad
