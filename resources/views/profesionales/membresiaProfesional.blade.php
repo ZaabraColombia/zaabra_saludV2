@@ -38,9 +38,7 @@
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1">
           <div class="card-body text_interno-toggle-membresia">
             <p>
-              Zaabra es una empresa de desarrollo de productos digitales, con soluciones alrededor del e-commerce y plataformas especializadas en potenciar a profesionales y empresarios colombianos. <br><br> 
-              Creamos soluciones digitales integrales, hechas a la medida de las necesidades del mercado. <br>
-              Potenciamos la comercialización de productos y servicios, incrementamos el alcance de los profesionales en el entorno digital y propiciamos su apertura a nuevos nichos de mercado. <br><br>
+              Podrá previsualizar su información en una tarjeta ubicada en la galería de Especialistas. Vigencia 15 días.
             </p>
           </div>
         </div>
@@ -75,9 +73,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
             <p>
-              Zaabra es una empresa de desarrollo de productos digitales, con soluciones alrededor del e-commerce y plataformas especializadas en potenciar a profesionales y empresarios colombianos. <br><br> 
-              Creamos soluciones digitales integrales, hechas a la medida de las necesidades del mercado. <br>
-              Potenciamos la comercialización de productos y servicios, incrementamos el alcance de los profesionales en el entorno digital y propiciamos su apertura a nuevos nichos de mercado. <br><br>
+              Zaabra Salud le permite contruir su perfil profesional, muestre su información de contacto, profesión y especialidad, 
+              tipos de consulta, redes sociales, formación académica, certificados, procedimientos y más. Todo en un solo lugar.
             </p>
           </div>
         </div>
@@ -89,10 +86,10 @@
         </div>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
-            Zaabra Salud es una plataforma digital que facilita la búsqueda y el contacto entre usuarios y profesionales e instituciones de la salud. <br> 
-            Todas las especialidades y las mejores instituciones médicas al alcance de millones de usuarios. <br><br> 
-            Todo esto con el fin de obtener un rápido y fácil acceso a citas y consultas médicas con todas las especialidades, citas y servicios <br> 
-            odontológicos, centros de toma de exámenes e imágenes diagnósticas y muchos servicios más. <br><br> 
+            <p>
+              Aquí podrá encontrar agendamiento online, disponibilidad del profesional, podrá gestionar sus citas, 
+              encontrará las alertas y notificaciones y podrá administrarlas por medio de WhatsApp, correo electrónico o mensajes de texto.
+            </p>
           </div>
         </div>
       </div>
@@ -103,7 +100,9 @@
         </div>
         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
-            Zaabra hace parte del sistema de Agencia Pública de Empleo del SENA, dando así oportunidades a personas en formación.
+            <p>
+              Una consulta personalizada para cada usuario o paciente que agenda su consulta a través de Zaabra Salud.
+            </p>
           </div>
         </div>
       </div>
@@ -116,9 +115,7 @@
         <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
             <p>
-              Zaabra es una empresa de desarrollo de productos digitales, con soluciones alrededor del e-commerce y plataformas especializadas en potenciar a profesionales y empresarios colombianos. <br><br> 
-              Creamos soluciones digitales integrales, hechas a la medida de las necesidades del mercado. <br>
-              Potenciamos la comercialización de productos y servicios, incrementamos el alcance de los profesionales en el entorno digital y propiciamos su apertura a nuevos nichos de mercado. <br><br>
+              Presente sus estudios, exalte  susconocimientos, habilidades y su preparación profesional.
             </p>
           </div>
         </div>
@@ -130,10 +127,9 @@
         </div>
         <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
-            Zaabra Salud es una plataforma digital que facilita la búsqueda y el contacto entre usuarios y profesionales e instituciones de la salud. <br> 
-            Todas las especialidades y las mejores instituciones médicas al alcance de millones de usuarios. <br><br> 
-            Todo esto con el fin de obtener un rápido y fácil acceso a citas y consultas médicas con todas las especialidades, citas y servicios <br> 
-            odontológicos, centros de toma de exámenes e imágenes diagnósticas y muchos servicios más. <br><br> 
+            <p>
+              Presente el paso a paso de cada procedimiento o tratamiento. Permita que sus pacientes vean la transformación de cada proceso.
+            </p>
           </div>
         </div>
       </div>
@@ -144,7 +140,9 @@
         </div>
         <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
-            Zaabra hace parte del sistema de Agencia Pública de Empleo del SENA, dando así oportunidades a personas en formación.
+           <P>
+            Publique sus premios y reconocimientos, que gracias a su trabajo y el tiempo ha obtenido.
+           </P>
           </div>
         </div>
       </div>
@@ -157,9 +155,7 @@
         <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
             <p>
-              Zaabra es una empresa de desarrollo de productos digitales, con soluciones alrededor del e-commerce y plataformas especializadas en potenciar a profesionales y empresarios colombianos. <br><br> 
-              Creamos soluciones digitales integrales, hechas a la medida de las necesidades del mercado. <br>
-              Potenciamos la comercialización de productos y servicios, incrementamos el alcance de los profesionales en el entorno digital y propiciamos su apertura a nuevos nichos de mercado. <br><br>
+              Consulte sus métricas de desempeño: Clics recibidos, consultas agendadas, consultas efectivas, consultas canceladas y mucho más.
             </p>
           </div>
         </div>
@@ -171,10 +167,10 @@
         </div>
         <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
-            Zaabra Salud es una plataforma digital que facilita la búsqueda y el contacto entre usuarios y profesionales e instituciones de la salud. <br> 
-            Todas las especialidades y las mejores instituciones médicas al alcance de millones de usuarios. <br><br> 
-            Todo esto con el fin de obtener un rápido y fácil acceso a citas y consultas médicas con todas las especialidades, citas y servicios <br> 
-            odontológicos, centros de toma de exámenes e imágenes diagnósticas y muchos servicios más. <br><br> 
+            <P>
+              Su reputación la ha construído con su trabajo. La reputación digital exige un trabajo adicional.
+              Impulse su perfil en Zaabra Salud. Nuestro sitio web y nuestras redes sociales amplificarán su alcance. Nuestro equipo de marketing lo hará por usted.
+            </P>
           </div>
         </div>
       </div>
@@ -185,7 +181,9 @@
         </div>
         <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
-            Zaabra hace parte del sistema de Agencia Pública de Empleo del SENA, dando así oportunidades a personas en formación.
+            <P>
+              Nos enfocamos en lograr que los profesionales y las instituciones sean reconocidos, posicionamos su perfil en la búsqueda de los usuarios.
+            </P>
           </div>
         </div>
       </div>
@@ -198,9 +196,7 @@
         <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
             <p>
-              Zaabra es una empresa de desarrollo de productos digitales, con soluciones alrededor del e-commerce y plataformas especializadas en potenciar a profesionales y empresarios colombianos. <br><br> 
-              Creamos soluciones digitales integrales, hechas a la medida de las necesidades del mercado. <br>
-              Potenciamos la comercialización de productos y servicios, incrementamos el alcance de los profesionales en el entorno digital y propiciamos su apertura a nuevos nichos de mercado. <br><br>
+              Ingrese a su perfil, edite su información, actualice sus estudios, experiencia y mucho más. La nueva información está sujeta a verificación.
             </p>
           </div>
         </div>
@@ -212,10 +208,9 @@
         </div>
         <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
-            Zaabra Salud es una plataforma digital que facilita la búsqueda y el contacto entre usuarios y profesionales e instituciones de la salud. <br> 
-            Todas las especialidades y las mejores instituciones médicas al alcance de millones de usuarios. <br><br> 
-            Todo esto con el fin de obtener un rápido y fácil acceso a citas y consultas médicas con todas las especialidades, citas y servicios <br> 
-            odontológicos, centros de toma de exámenes e imágenes diagnósticas y muchos servicios más. <br><br> 
+            <P>
+              Cada usuario posee unas credenciales de acceso. Con estos podrá acceder al sitio 24/7. Garantizamos alta disponibilidad y acceso en múltiples dispositivos: Computadores, móviles y tablets.
+            </P>
           </div>
         </div>
       </div>
@@ -226,7 +221,9 @@
         </div>
         <div id="collapseThirteen" class="collapse" aria-labelledby="headingThirteen" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
-            Zaabra hace parte del sistema de Agencia Pública de Empleo del SENA, dando así oportunidades a personas en formación.
+            <P>
+              Trabajamos para usted, por eso siempre tiene canales de comunicación directa para responder a todas sus inquietudes.
+            </P>
           </div>
         </div>
       </div>
@@ -239,9 +236,7 @@
         <div id="collapseFourteen" class="collapse" aria-labelledby="headingFourteen" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
             <p>
-              Zaabra es una empresa de desarrollo de productos digitales, con soluciones alrededor del e-commerce y plataformas especializadas en potenciar a profesionales y empresarios colombianos. <br><br> 
-              Creamos soluciones digitales integrales, hechas a la medida de las necesidades del mercado. <br>
-              Potenciamos la comercialización de productos y servicios, incrementamos el alcance de los profesionales en el entorno digital y propiciamos su apertura a nuevos nichos de mercado. <br><br>
+              Los usuarios finales o pacientes podrán observar en la galería de su Landing page imágenes de las cirugías o tratamientos de cada profesional, se podrá observar paso a paso toda la transformación del antes y después.
             </p>
           </div>
         </div>
@@ -253,10 +248,10 @@
         </div>
         <div id="collapseFiveteen" class="collapse" aria-labelledby="headingFiveteen" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
-            Zaabra Salud es una plataforma digital que facilita la búsqueda y el contacto entre usuarios y profesionales e instituciones de la salud. <br> 
-            Todas las especialidades y las mejores instituciones médicas al alcance de millones de usuarios. <br><br> 
-            Todo esto con el fin de obtener un rápido y fácil acceso a citas y consultas médicas con todas las especialidades, citas y servicios <br> 
-            odontológicos, centros de toma de exámenes e imágenes diagnósticas y muchos servicios más.
+            <P>
+              Zaabra profesional tiene al servicio de los usuarios y de los profesionales comentarios, testimonios y calificación por medio de estrellas, 
+              estos comentarios son verificados por Zaabra profesional, si tiene una buena calificación, su perfil profesional será más visible.
+            </P>
           </div>
         </div>
       </div>
@@ -267,7 +262,9 @@
         </div>
         <div id="collapseSixteen" class="collapse" aria-labelledby="headingSixteen" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
-            Zaabra hace parte del sistema de Agencia Pública de Empleo del SENA, dando así oportunidades a personas en formación.
+            <P>
+              Reportes y gráficas en tiempo real de pacientes, citas, historias clínicas, diagnósticos, comprobantes diarios, histórico, generación de RIPs.
+            </P>
           </div>
         </div>
       </div>
