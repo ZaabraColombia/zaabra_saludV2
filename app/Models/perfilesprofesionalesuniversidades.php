@@ -12,6 +12,8 @@ class perfilesprofesionalesuniversidades extends Model
         'id_universidad',
         'idPerfilProfesional',
         'nombreestudio',
-        'fechaestudio'
+        'fechaestudio',
+        'created_at',
+        'updated_at'
     ];
 }

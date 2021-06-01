@@ -39,7 +39,7 @@ Route::get('get-Ciudad',[App\Http\Controllers\profesionales\formularioProfesiona
 Route::get('get-profesion',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getprofesion']);
 Route::get('get-especialidad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getespecialidad']);
 /*-----guardar formulario----*/ 
-Route::post('/FormularioProfesionalSave',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create'])->name('FormularioProfesional');
+Route::post('/FormularioProfesionalSave',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create1'])->name('FormularioProfesional');
 
 
 //Selects dinamicos area, profesion, especialidad
