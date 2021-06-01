@@ -6,7 +6,7 @@
     // Condicional de validación de rutas a las cuales les remueve el NEWSLETTER del FOOTER
     if (queryRuta.includes("register") || queryRuta.includes("login") || queryRuta.includes("reset") 
        || queryRuta.includes("acerca") || queryRuta.includes("politicas") || queryRuta.includes("preguntas")
-       || queryRuta.includes("membresiaProfesional") ) {
+       || queryRuta.includes("membresiaProfesional") || queryRuta.includes("/contacto") ) {
        selector(".footer_newsletter").style.display = "none";
     }
 }();

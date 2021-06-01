@@ -48,7 +48,7 @@
             <div class="col-lg-4 contactanos_contenido d-none d-lg-flex">
                 <div class="col-lg-9 logo_contactanos">
                     <a class="" href="{{ url('/') }}">
-                        <img class="imagen_logo" src="{{URL::asset('/img/logos/Logo-zaabra-blanco.png')}}">
+                        <img class="imagen_logo" src="{{URL::asset('/img/header/logo-zaabra-salud.png')}}">
                     </a>
                 </div>
 
@@ -171,7 +171,7 @@
             <div class="col-10 col-md-8 contactanos_contenido d-block d-lg-none">
                 <div class="contenido_contactanos-cel">
                     <a class="" href="{{ url('/') }}">
-                        <img class="imagen_logo" src="{{URL::asset('/img/logos/Logo-zaabra-blanco.png')}}">
+                        <img class="imagen_logo" src="{{URL::asset('/img/header/logo-zaabra-salud.png')}}">
                     </a>
                     <span class="titulo_contactanos-cel"> CONTÁCTENOS </span>
                     <span class="correo_contactanos-cel"> seervicioalcliente@zaabra.com.co </span>

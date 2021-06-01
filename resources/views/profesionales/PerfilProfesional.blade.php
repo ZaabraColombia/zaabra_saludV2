@@ -50,51 +50,106 @@
                         </li>
                     @endforeach
                 </ul>
+                <div class="contains_buttons">
+                    <a href="">Agende su cita
+                        <i class="fas fa-arrow-right arrow_mas"></i>
+                    </a>
+                    <a href="">Ver agenda
+                        <i class="fas fa-arrow-right arrow_mas"></i>
+                    </a>
+                </div>
             </div>
         </section>
-        <div class="col-12" style="background: blueviolet;">
-            @foreach ($objprofesionallandingexperto as $objprofesionallandingexperto)
-                <p>{{$objprofesionallandingexperto->nombreExpertoEn}}</p>
-                <p>{{$objprofesionallandingexperto->descripcionExpertoEn}}</p>
-            @endforeach
-        </div>
 
-        <div class="col-12" style="background: brown;">
-            <p>{{$objprofesionallanding->descripcionPerfil}}</p>
-        </div>
+        <!-- seccion datos consulta perfil profesional-->
+        <section class="section_destacado">
+            <div class="destacado">
+                <h2><i></i>Destacado en:</h2>
+                <ul>
+                    @foreach ($objprofesionallandingexperto as $objprofesionallandingexperto)
+                        <li>
+                            <p>{{$objprofesionallandingexperto->nombreExpertoEn}}</p>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </section>
 
-        <div class="col-12" style="background: cadetblue;">
-            @foreach ($objprofesionallandingestudios as $objprofesionallandingestudios)
-                <p>{{$objprofesionallandingestudios->nombreestudio}}</p>
-                <p>{{$objprofesionallandingestudios->nombreuniversidad}}</p>
-                <p>{{$objprofesionallandingestudios->fechaestudio}}</p>
-            @endforeach
-        </div>
+        <!-- seccion datos consulta perfil profesional-->
+        <section class="contains_swiper_profesional">
+            <div class="swiper-container swiper_profesional">
+                <div class="swiper-wrapper">
 
-        <div class="col-12" style="background: chartreuse;">
-            @foreach ($objprofesionallandingexperi as $objprofesionallandingexperi)
-                <p>{{$objprofesionallandingexperi->nombreEmpresaExperiencia}}</p>
-                <p>{{$objprofesionallandingexperi->descripcionExperiencia}}</p>
-                <p>{{$objprofesionallandingexperi->fechaInicioExperiencia}}</p>
-                <p>{{$objprofesionallandingexperi->fechaFinExperiencia}}</p>
-                <img src="{{URL::asset($objprofesionallandingexperi->imgexperiencia)}}">
-            @endforeach
-        </div>
+                    <div class="swiper-slide">
+                        <div class="profesional_menu perfil">
+                            <i></i>
+                            <p>Perfil profesional</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="profesional_menu tratamientos">
+                            <i></i>
+                            <p>Tratamientos y procedimientos</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="profesional_menu premios">
+                            <i></i>
+                            <p>Premios y reconocimientos</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="profesional_menu publicaciones">
+                            <i></i>
+                            <p>Publicaciones</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="profesional_menu galeria">
+                            <i></i>
+                            <p>Galería</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="col-12" style="background: chocolate;">
-            @foreach ($objprofesionallandingasocia as $objprofesionallandingasocia)
-                <img src="{{URL::asset($objprofesionallandingasocia->imgasociacion)}}">
-            @endforeach
-        </div>
+        <section class="perfil_profesional">
+            <div class="col-12" style="background: brown;">
+                <p>{{$objprofesionallanding->descripcionPerfil}}</p>
+            </div>
 
-        <div class="col-12" style="background: cornflowerblue;">
-            @foreach ($objprofesionallandingidioma as $objprofesionallandingidioma)
-                <p>{{$objprofesionallandingidioma->nombreidioma}}</p>
-                <img src="{{URL::asset($objprofesionallandingidioma->imgidioma)}}">
-            @endforeach
-        </div>
+            <div class="col-12" style="background: cadetblue;">
+                @foreach ($objprofesionallandingestudios as $objprofesionallandingestudios)
+                    <p>{{$objprofesionallandingestudios->nombreestudio}}</p>
+                    <p>{{$objprofesionallandingestudios->nombreuniversidad}}</p>
+                    <p>{{$objprofesionallandingestudios->fechaestudio}}</p>
+                @endforeach
+            </div>
 
+            <div class="col-12" style="background: chartreuse;">
+                @foreach ($objprofesionallandingexperi as $objprofesionallandingexperi)
+                    <p>{{$objprofesionallandingexperi->nombreEmpresaExperiencia}}</p>
+                    <p>{{$objprofesionallandingexperi->descripcionExperiencia}}</p>
+                    <p>{{$objprofesionallandingexperi->fechaInicioExperiencia}}</p>
+                    <p>{{$objprofesionallandingexperi->fechaFinExperiencia}}</p>
+                    <img src="{{URL::asset($objprofesionallandingexperi->imgexperiencia)}}">
+                @endforeach
+            </div>
 
+            <div class="col-12" style="background: chocolate;">
+                @foreach ($objprofesionallandingasocia as $objprofesionallandingasocia)
+                    <img src="{{URL::asset($objprofesionallandingasocia->imgasociacion)}}">
+                @endforeach
+            </div>
+
+            <div class="col-12" style="background: cornflowerblue;">
+                @foreach ($objprofesionallandingidioma as $objprofesionallandingidioma)
+                    <p>{{$objprofesionallandingidioma->nombreidioma}}</p>
+                    <img src="{{URL::asset($objprofesionallandingidioma->imgidioma)}}">
+                @endforeach
+            </div>
+        </section>
 
         <div class="col-12" style="background: crimson;">
             @foreach ($objprofesionallandingtratam as $objprofesionallandingtratam)

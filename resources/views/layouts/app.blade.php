@@ -35,7 +35,7 @@
             <div class="container contains_header">
                 <!-- Sección Logo Zaabra -->
                 <a class="navbar-logo" href="{{ url('/') }}">
-                    <img class="logo_header" src="{{URL::asset('/img/header/logo-zaabra.png')}}">
+                    <img class="logo_header" src="{{URL::asset('/img/header/logo-zaabra-salud.png')}}">
                 </a>
 
                 <!-- Sección barra de busqueda -->
@@ -181,6 +181,7 @@
     <script src="{{ asset('js/home.js') }}"></script>
     <script src="{{ asset('js/footer.js') }}"></script>
     <script src="{{ asset('js/profesionales.js') }}"></script>
+    <script src="{{ asset('js/perfil-profesionales.js') }}"></script>
     <script src="{{ asset('js/galeriaProfesiones.js') }}"></script>
     <script src="{{ asset('js/instituciones.js') }}"></script>
     <script src="{{ asset('js/selectareas.js') }}"></script>
