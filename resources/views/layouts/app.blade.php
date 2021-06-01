@@ -63,11 +63,11 @@
                     <a class="dropdown-toggle icon_paciente" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
 
                     <div class="dropdown-menu dropdown-menu-right menu_paciente" aria-labelledby="dropdownMenuLink" style="">
-                        <a class="dropdown-item menu_item-paciente icon-paciente" href="#"><span class="texto_item-menu-paciente">Soy Paciente</span></a>
+                        <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Paciente</span></a>
                         <div class="dropdown-divider m-0"></div>
-                        <a class="dropdown-item menu_item-paciente icon-medico" href="#"><span class="texto_item-menu-paciente">Soy Doctor</span></a>
+                        <a class="dropdown-item menu_item-paciente icon-medico" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Doctor</span></a>
                         <div class="dropdown-divider m-0"></div>
-                        <a class="dropdown-item menu_item-paciente icon-instituciones" href="#"><span class="texto_item-menu-paciente">Soy institución</span></a>
+                        <a class="dropdown-item menu_item-paciente icon-instituciones" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy institución</span></a>
                     </div>
                 </div>
 
@@ -98,9 +98,9 @@
                         <div class="dropdown-divider m-0"></div>
                         <a class="dropdown-item menu_item item-cel icon-instituciones-burger" href="#"><span class="texto_item-menu">Instituciones medicas</span></a>
                         <div class="dropdown-divider m-0"></div>
-                        <a class="dropdown-item menu_item item-cel icon-quienes" href="#"><span class="texto_item-menu">Acerca de Zaabra</span></a>
+                        <a class="dropdown-item menu_item item-cel icon-quienes" href="{{route('acerca')}}"><span class="texto_item-menu">Acerca de Zaabra</span></a>
                         <div class="dropdown-divider m-0"></div>
-                        <a class="dropdown-item menu_item item-cel icon-contactenos" href="#"><span class="texto_item-menu">Contáctenos</span></a>
+                        <a class="dropdown-item menu_item item-cel icon-contactenos" href="{{route('contacto')}}"><span class="texto_item-menu">Contáctenos</span></a>
                     </div>
                 </div>
 
@@ -187,6 +187,7 @@
     <script src="{{ asset('js/selectareas.js') }}"></script>
     <script src="{{ asset('js/selectpais.js') }}"></script>
     <script src="{{ asset('js/cargaFoto.js') }}"></script>
+    <script src="{{ asset('js/contacto.js') }}"></script>
 </body>
 </html>
 

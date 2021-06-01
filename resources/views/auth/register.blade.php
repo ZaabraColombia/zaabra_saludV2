@@ -20,9 +20,8 @@
                         </div>
 
                         <div class="col-6 section_texto-registro">
-                            <span> {{ __('Crear Cuenta') }} </span>
+                            <a> Crear Cuenta </a>
                         </div>
-
                         <p class="texto_superior-tarjeta-register"> Registrarme como </p>
                     </div>
 
@@ -52,11 +51,11 @@
                         <!-- Sección campos de validación Nombres y Apellidos -->
                         <div class="names_person">
                             <!-- Campos de Nombres -->
-                            <div class="form-group row mb-md-0">
+                            <div class="form-group row mb-0">
                                 <label for="primernombre" class="col-md-12 col-form-label texto_label-register">{{ __('Nombres') }}</label>
 
                                 <div class="col-md-6 mb-3 mb-md-0">
-                                    <input id="primernombre" type="text" class="form-control @error('primernombre') is-invalid @enderror" name="primernombre" value="{{ old('primernombre') }}" required autocomplete="primernombre" autofocus placeholder="Primer Nombre">
+                                    <input id="primernombre" type="text" class="form-control input_height-fullhd-register @error('primernombre') is-invalid @enderror" name="primernombre" value="{{ old('primernombre') }}" required autocomplete="primernombre" autofocus placeholder="Primer Nombre">
 
                                     @error('primernombre')
                                         <span class="invalid-feedback" role="alert">
@@ -66,16 +65,16 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <input id="segundonombre" type="text" class="form-control @error('segundonombre') is-invalid @enderror" name="segundonombre" value="{{ old('segundonombre') }}"  autofocus placeholder="Segundo Nombre">
+                                    <input id="segundonombre" type="text" class="form-control input_height-fullhd-register @error('segundonombre') is-invalid @enderror" name="segundonombre" value="{{ old('segundonombre') }}"  autofocus placeholder="Segundo Nombre">
                                 </div>
                             </div>
 
                             <!-- Campos de Apellidos -->
-                            <div class="form-group row mb-md-0">
+                            <div class="form-group row mb-0">
                                 <label for="primerapellido" class="col-md-12 col-form-label texto_label-register">{{ __('Apellidos') }}</label>
 
                                 <div class="col-md-6 mb-3 mb-md-0">
-                                    <input id="primerapellido" type="text" class="form-control @error('primerapellido') is-invalid @enderror" name="primerapellido" value="{{ old('primerapellido') }}" required autocomplete="primerapellido" autofocus placeholder="Primer Apellido">
+                                    <input id="primerapellido" type="text" class="form-control input_height-fullhd-register @error('primerapellido') is-invalid @enderror" name="primerapellido" value="{{ old('primerapellido') }}" required autocomplete="primerapellido" autofocus placeholder="Primer Apellido">
 
                                     @error('primerapellido')
                                         <span class="invalid-feedback" role="alert">
@@ -85,7 +84,7 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <input id="segundoapellido" type="text" class="form-control @error('segundoapellido') is-invalid @enderror" name="segundoapellido" value="{{ old('segundoapellido') }}" autofocus placeholder="Segundo Apellido">
+                                    <input id="segundoapellido" type="text" class="form-control input_height-fullhd-register @error('segundoapellido') is-invalid @enderror" name="segundoapellido" value="{{ old('segundoapellido') }}" autofocus placeholder="Segundo Apellido">
                                 </div>
                             </div>
                         </div>
@@ -94,11 +93,11 @@
                     <!-- Sección de instituciones -->
                     <div id="institucion" class="names_institution">
                         <!-- Campo de nombre de la institución -->
-                        <div class="form-group row name_institution">
-                            <label for="nombreinstitucion" class="col-md-12 col-form-label texto_label-register">{{ __('Nombre Institución') }}</label>
+                        <div class="form-group row name_institution m-0">
+                            <label for="nombreinstitucion" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Nombre Institución') }}</label>
 
-                            <div class="col-md-12">
-                                <input id="nombreinstitucion" type="text" class="form-control @error('nombreinstitucion') is-invalid @enderror" name="nombreinstitucion" value="{{ old('nombreinstitucion') }}" autofocus placeholder="Nombre Institucion">
+                            <div class="col-md-12 px-0">
+                                <input id="nombreinstitucion" type="text" class="form-control input_height-fullhd-register @error('nombreinstitucion') is-invalid @enderror" name="nombreinstitucion" value="{{ old('nombreinstitucion') }}" autofocus placeholder="Nombre Institucion">
                             </div>
                         </div>
                     </div>
@@ -108,10 +107,10 @@
                         <!-- Campos de tipo de documento y Número de documento -->
                         <div class="row">
                             <!-- Campo Tipo de documento -->
-                            <div class="form-group col-12 col-md-6 m-md-0">
+                            <div class="form-group col-12 col-md-6 m-0">
                                 <label for="tipodocumento" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Tipo Documento') }}</label>
                                 
-                                <select class="form-select col-12 form-control" name="tipodocumento" required>
+                                <select class="form-select col-12 form-control input_height-fullhd-register" name="tipodocumento" required>
                                     <option selected> Seleccione </option>
                                     <option value="1"> Cedula Ciudadania </option>
                                     <option value="2"> Cedula Extranjeria </option>
@@ -120,10 +119,10 @@
                             </div>
 
                             <!-- Número de documento -->
-                            <div class="form-group col-md-6 m-md-0">
+                            <div class="form-group col-md-6 m-0">
                                 <label for="numerodocumento" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Numero Documento') }}</label>
                                 <div class="col-md-12 p-0">
-                                    <input id="numerodocumento" type="number" class="form-control @error('numerodocumento') is-invalid @enderror" name="numerodocumento" value="{{ old('numerodocumento') }}" required autocomplete="numerodocumento" autofocus>
+                                    <input id="numerodocumento" type="number" class="form-control input_height-fullhd-register @error('numerodocumento') is-invalid @enderror" name="numerodocumento" value="{{ old('numerodocumento') }}" required autocomplete="numerodocumento" autofocus>
                                     @error('numerodocumento')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -134,11 +133,11 @@
                         </div>
  
                         <!-- Correo electrónico -->
-                        <div class="form-group col-12 p-0 m-md-0">
+                        <div class="form-group col-12 p-0 m-0">
                             <label for="email" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Correo electrónico') }}</label>
 
                             <div class="col-12 p-0">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="zaabra@gmail.com">
+                                <input id="email" type="email" class="form-control input_height-fullhd-register @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="zaabra@gmail.com">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -148,14 +147,14 @@
                         </div>
 
                         <!-- Campos de contraseña y confirmar contraseña -->
-                        <div class="row">
+                        <div class="row mb-md-4">
 
                             <!-- Contraseña -->
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6 m-0">
                                 <label for="password" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Contraseña') }}</label>
 
                                 <div class="col-md-12 px-0">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Contraseña"> 
+                                    <input id="password" type="password" class="form-control input_height-fullhd-register @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Contraseña"> 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -169,7 +168,7 @@
                                 <label for="password-confirm" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Confirmar contraseña') }}</label>
 
                                 <div class="col-md-12 px-0">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Contraseña">
+                                    <input id="password-confirm" type="password" class="form-control input_height-fullhd-register" name="password_confirmation" required autocomplete="new-password" placeholder="Contraseña">
                                 </div>
                             </div>
                         </div>

@@ -16,7 +16,7 @@
                     <!-- seccion iniciar sesion y creaar cuenta -->
                     <div class="row card-header content_iniciar-crear">
                         <div class="col-6 section_texto-iniciar">
-                            <span> {{ __('Iniciar Sesión') }} </span>
+                            <a> Iniciar Sesión </a>
                         </div>
 
                         <div class="col-6 section_texto-crear">

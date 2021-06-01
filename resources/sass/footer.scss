@@ -82,6 +82,7 @@
     padding: 1% 0;
     background: #0083d6;
     justify-content: center;
+    align-items: center;
 }
 // contactanos, logo, iconos y correo
 .contactanos_contenido {
@@ -98,11 +99,8 @@
     align-items: flex-end;
     justify-content: initial;
 }
-.imagen_logo {
-    padding: 0%;
-    height: 5vh;
-    width: 59%;
-    object-fit: contain;
+.logo_header-footer {
+    width: 50%;
 }
 // Titulo contactanos
 .titulo_seccion-info {
@@ -140,6 +138,7 @@
     flex-flow: wrap;
     justify-content: flex-end;
     align-content: baseline; 
+    height: 100%;
 }
 .texto_info-Zaabra {
     font-family: 'Roboto', sans-serif;
@@ -186,7 +185,7 @@
         font-size: 1em;
     }
     .newsletter_texto {
-        font-size: .65em;
+        font-size: .7em;
     }
     // Newsletter input y botón suscribirme
     .contenedor-inputyAcepto-footerCel {
@@ -202,7 +201,7 @@
         height: 5vh;
         width: 100%;
         border: solid .1px #707070;
-        border-radius: 3px;
+        border-radius: 4px;
     }
     // Newsletter check terminos y condiciones
     .check_terminos-cel {
@@ -215,26 +214,26 @@
         height: 3vh;
     }
     .texto_terminos-cel {
-        font-size: .65em;
+        font-size: .7em;
         font-weight: bold;
         text-align: initial;
         line-height: 1.5;
-        padding-left: 3%;  
+        padding-left: 5%;  
     }
     .boton_suscribirme-cel {
         background: #0083d6;
-        font-size: .75em;
+        font-size: .85em;
         color: #ffffff;
         margin: auto;
         height: 5vh;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        border: solid .1px;
-        border-radius: 3px;
+        border: solid .1px #0083d6;
+        border-radius: 4px;
     }
     .icono_flecha-suscribirme-cel {
-        width: 12%;
+        width: 14%;
     }
     // Contactanos logo, iconos y correo
     .contenido_contactanos-cel {
@@ -244,21 +243,25 @@
         flex-direction: column;
         align-items: center;
     }
-    .imagen_logo {
+    .imagen_logo-footer {
         padding: 0%;
-        height: 5vh;
+        height: 8vh;
         width: 100%;
         object-fit: contain;
     }
+    .containt_logo-footer {
+        display: flex;
+        justify-content: center;
+    }
     .titulo_contactanos-cel {
-        font-size: .75em;
+        font-size: .9em;
         color: #ffffff;
         text-align: center;
         margin-top: 3%;
         padding: 0;
     }
     .correo_contactanos-cel {
-        font-size: .625em;
+        font-size: .7em;
         color: #ffffff;
         text-align: center;
         padding: 0;
@@ -268,7 +271,7 @@
         margin: 2% auto;
         padding: 0;
         height: 5vh;
-        width: 60%;
+        width: 75%;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -335,14 +338,13 @@
     .desplegable_infoZaabra-cel {
         background: #0083d6 !important;
         padding: 0 0 5% 0 !important;
-        line-height: 1.8;
+        line-height: 1.4;
         border: none !important;
     }
     .texto_infoZaabra-cel {
-        font-size: .625em;
+        font-size: .7em;
         color: #ffffff;
         padding: 0;
-        height: 3vh;
     }
     // Linea divisora de los botones desplegables infoZaabra
     .contenido_linea-blanca-cel {
@@ -361,32 +363,37 @@
     .footer_iconos-colombia {
         background: #F5F5F5;
         margin: 0;
-        padding: 0;
+        padding: 0 0 0 4%;
+        height: 4vh;
     }
     .icon_gob-colombia {
         padding: 0;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-self: center;
     }
     .icon_hecho-colombia {
         padding: 0;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-self: center;
     }
     .icon_ssl-colombia {
         padding: 0;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-self: center;
     }
+    .imagen_icono-gobierno {
+        width: 92%;
+        object-fit: contain;
+    }
     .imagen_icono-colombia {
-        width: 20vh;
+        width: 83%;
         object-fit: contain;
     }
     .imagen_icono-ssl {
-        width: 17vh;
+        width: 100%;
         object-fit: contain;
     }
     .texto_copy-right {
@@ -426,6 +433,9 @@
         width: 12%;
     }
     // Contactanos logo, iconos y correo
+    .logo_header-footer {
+        width: 100%;
+    }
     .contenido_contactanos-cel {
         margin-top: 3%;
     }
@@ -478,6 +488,9 @@
     }
 }
 @media (min-width: 1024px) {
+    .logo_header-footer {
+        width: 70%;
+    }
     .footer_iconos-colombia {
         background: #f5f5f5;
         margin: 0;
@@ -486,6 +499,10 @@
         justify-content: center; 
     }
     // Iconos gobierno de Colombia
+    .imagen_icono-gobierno {
+        width: 30vh;
+        object-fit: none;
+    }
     .imagen_icono-colombia {
         width: 30vh;
         object-fit: none;
@@ -496,7 +513,7 @@
     }
 }
 
-@media (min-width: 1600px){
+@media (min-width: 1440px){
     // Newsletter titulo y texto
     .newsletter_titulo {
         font-size: 1.563em;
@@ -521,8 +538,17 @@
     .texto_terminos {
         font-size: 1em;
     }
-   
     // Titulo contactanos
+    .imagen_logo-footer {
+        padding: 0%;
+        height: 5vh;
+        width: 70%;
+        object-fit: contain;
+    }
+    // Seccion logo zaabra
+    .logo_header-footer {
+        width: 80%;
+    }
     .titulo_seccion-info {  
         font-size: 1em;
     }
@@ -543,5 +569,12 @@
     }
     .texto_copy-right {
         font-size: 1em;
+    }
+}
+
+@media (min-width: 1920px) {
+    //Seccion logo Zaabra
+    .logo_header-footer {
+        width: 95%;
     }
 }

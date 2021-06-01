@@ -21,12 +21,12 @@
                     @csrf
                     <div class="form-group row">
                         <!-- Titulo interno de la tarjeta email -->
-                        <p class="titulo_superior-tarjeta-email"> Restaurar Contraseña </p>
+                        <h3 class="titulo_superior-tarjeta-email"> Restaurar Contraseña </h3>
 
                         <!-- Campo de Correo Electrónico -->
                         <div class="col-md-12">
                             <label for="email" class="col-md-12 pl-0 col-form-label texto_label-email">{{ __('Correo Electrónico') }}</label>
-                            <input id="email" type="email" class="form-control input_text-email @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="zaabra@gmail.com">
+                            <input id="email" type="email" class="form-control input_height-fullhd-email input_text-email @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="zaabra@gmail.com">
 
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
