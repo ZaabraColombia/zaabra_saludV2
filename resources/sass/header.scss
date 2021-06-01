@@ -27,7 +27,7 @@ a:link, a:visited, a:active, a:hover {
     justify-content: flex-start;
 }
 .logo_header {
-    width: 60%;
+    width: 50%;
 }
 .heigFormHeader {
     height: 100%;
@@ -309,6 +309,7 @@ a:link, a:visited, a:active, a:hover {
         text-decoration: none;
         color: #ffff;
         text-align: center;
+        width: 27%;
     }
     //Sección lupa buscador mobile
     .contains_boxsearch {
@@ -483,6 +484,9 @@ a:link, a:visited, a:active, a:hover {
         justify-content: space-between;
     }
     //Seccion logo zaabra
+    .navbar-logo {
+        width: 13%;
+    }
     .logo_header {
         width: 100%;
     }

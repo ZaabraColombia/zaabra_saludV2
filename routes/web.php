@@ -39,7 +39,7 @@ Route::get('get-Ciudad',[App\Http\Controllers\profesionales\formularioProfesiona
 Route::get('get-profesion',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getprofesion']);
 Route::get('get-especialidad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getespecialidad']);
 /*-----guardar formulario----*/ 
-Route::post('/FormularioProfesionalSave',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create'])->name('FormularioProfesional');
+Route::post('/FormularioProfesionalSave',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create1'])->name('FormularioProfesional');
 
 
 //Selects dinamicos area, profesion, especialidad
@@ -63,17 +63,24 @@ Route:: get('/Instituciones/{id}',[App\Http\Controllers\entidades\institucionesC
 /*Esta ruta es de landing institucion y dirige al controlador encargado de traer la informacion a la vista*/
 Route:: get('/PerfilInstitucion/{id}',[App\Http\Controllers\entidades\perfilInstitucionController::class,'index'])->name('PerfilInstitucion');
 
+// Esta ruta pertenece a la vista de membresía In stituciones
+Route::get('/membresiaInstitucion', function () { return view('instituciones/membresiaInstitucion');})->name('membresiaInstitucion');
+
 
 
 /*-------------------------------------------------Pertenece a otras vistas-------------------------------------------------------------------------------*/
 
 
-/*Esta ruta la cual lleva a acerca de zaabra*/
+/*Esta ruta direcciona a la vista de Acerca de Zaabra*/
 Route::get('/acerca', function () { return view('quienes-somos/acerca');})->name('acerca');
 
-
-/*Esta ruta la cual lleva a preguntas frecuentes*/
+/*Esta ruta direcciona a la vista de Preguntas Frecuentes*/
 Route::get('/preguntas', function () { return view('quienes-somos/preguntas');})->name('preguntas');
 
-
+/* Esta ruta direcciona a l avista de Políticas de uso */
 Route::get('/politicas', function () { return view('quienes-somos/politicas');})->name('politicas');
+
+
+/*------------------------------------------------- Pertenece a CONTACTO -------------------------------------------------------------------------------*/
+/* Esta ruta direcciona a l avista Contactenos */
+Route::get('/contacto', function () { return view('contacto');})->name('contacto');
