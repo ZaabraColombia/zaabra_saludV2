@@ -77,6 +77,7 @@
 
         <!-- seccion datos consulta perfil profesional-->
         <section class="contains_swiper_profesional">
+            <h1>¿Por qué es un doctor de alto nivel?</h1>
             <div class="swiper-container swiper_profesional">
                 <div class="swiper-wrapper">
 
@@ -114,68 +115,109 @@
             </div>
         </section>
 
-        <section class="perfil_profesional">
-            <div class="col-12" style="background: brown;">
+        <section class="section_perfil_profesional">
+
+            <div class="perfil_profesional">
+                <h2><i></i>Perfil Profesional</h2>
                 <p>{{$objprofesionallanding->descripcionPerfil}}</p>
             </div>
 
-            <div class="col-12" style="background: cadetblue;">
-                @foreach ($objprofesionallandingestudios as $objprofesionallandingestudios)
-                    <p>{{$objprofesionallandingestudios->nombreestudio}}</p>
-                    <p>{{$objprofesionallandingestudios->nombreuniversidad}}</p>
-                    <p>{{$objprofesionallandingestudios->fechaestudio}}</p>
-                @endforeach
+            <div class="educacion">
+                <h2><i></i>Educación</h2>
+                <ul>
+                    @foreach ($objprofesionallandingestudios as $objprofesionallandingestudios)
+                        <li>
+                            <h5>{{$objprofesionallandingestudios->nombreestudio}}</h5>
+                            <p>{{$objprofesionallandingestudios->nombreuniversidad}}</p>
+                            <p>{{$objprofesionallandingestudios->fechaestudio}}</p>                            
+                        </li>
+                    @endforeach
+                </ul>
             </div>
 
-            <div class="col-12" style="background: chartreuse;">
-                @foreach ($objprofesionallandingexperi as $objprofesionallandingexperi)
-                    <p>{{$objprofesionallandingexperi->nombreEmpresaExperiencia}}</p>
-                    <p>{{$objprofesionallandingexperi->descripcionExperiencia}}</p>
-                    <p>{{$objprofesionallandingexperi->fechaInicioExperiencia}}</p>
-                    <p>{{$objprofesionallandingexperi->fechaFinExperiencia}}</p>
-                    <img src="{{URL::asset($objprofesionallandingexperi->imgexperiencia)}}">
-                @endforeach
+            <div class="experiencia">
+                <h2><i></i>Experiencia</h2>
+                <ul>
+                    @foreach ($objprofesionallandingexperi as $objprofesionallandingexperi)
+                        <li>
+                            <div class="contains_info">
+                                <h5>{{$objprofesionallandingexperi->nombreEmpresaExperiencia}}</h5>
+                                <p>{{$objprofesionallandingexperi->descripcionExperiencia}}</p>
+                                <p><strong>Desde </strong>{{$objprofesionallandingexperi->fechaInicioExperiencia}}</p>
+                                <p><strong>hasta </strong>{{$objprofesionallandingexperi->fechaFinExperiencia}}</p>
+                            </div>
+                            <div class="contains_logo">
+                                <img src="{{URL::asset($objprofesionallandingexperi->imgexperiencia)}}"> 
+                            </div>           
+                        </li>
+                    @endforeach
+                </ul>
             </div>
 
-            <div class="col-12" style="background: chocolate;">
-                @foreach ($objprofesionallandingasocia as $objprofesionallandingasocia)
-                    <img src="{{URL::asset($objprofesionallandingasocia->imgasociacion)}}">
-                @endforeach
+            <div class="asociaciones">
+                <h2><i></i>Asociaciones</h2>
+                <ul>
+                    <li>
+                        @foreach ($objprofesionallandingasocia as $objprofesionallandingasocia)
+                            <img src="{{URL::asset($objprofesionallandingasocia->imgasociacion)}}">
+                        @endforeach
+                    </li>
+                </ul>
             </div>
 
-            <div class="col-12" style="background: cornflowerblue;">
-                @foreach ($objprofesionallandingidioma as $objprofesionallandingidioma)
-                    <p>{{$objprofesionallandingidioma->nombreidioma}}</p>
-                    <img src="{{URL::asset($objprofesionallandingidioma->imgidioma)}}">
+            <div class="idiomas">
+                <h2><i></i>Idiomas</h2>
+                <ul>
+                    <li>
+                        @foreach ($objprofesionallandingidioma as $objprofesionallandingidioma)
+                        <div class="contains_idioma">
+                            <p>{{$objprofesionallandingidioma->nombreidioma}}</p>
+                            <img src="{{URL::asset($objprofesionallandingidioma->imgidioma)}}">
+                        </div>
+                        @endforeach
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section_tratamientos_profesional">
+            <div class="tratamientos_profesional">
+                <h2><i></i>Tratamientos y procedimientos</h2>
+                @foreach ($objprofesionallandingtratam as $objprofesionallandingtratam)
+                    <div class="card">
+                        <h4>Antes</h4>
+                        <img class="card-img-top" src="{{URL::asset($objprofesionallandingtratam->imgTratamientoAntes)}}">
+                        <div class="card-body">
+                            <h5>{{$objprofesionallandingtratam->tituloTrataminetoAntes}}</h5>
+                            <p>{{$objprofesionallandingtratam->descripcionTratamientoAntes}}</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h6>Después</h6>
+                        <img class="card-img-top" src="{{URL::asset($objprofesionallandingtratam->imgTratamientodespues)}}">
+                        <div class="card-body">
+                            <h5>{{$objprofesionallandingtratam->tituloTrataminetoDespues}}</h5>
+                            <p>{{$objprofesionallandingtratam->descripcionTratamientoDespues}}</p>
+                        </div>
+                    </div>
                 @endforeach
             </div>
         </section>
 
-        <div class="col-12" style="background: crimson;">
-            @foreach ($objprofesionallandingtratam as $objprofesionallandingtratam)
-                <div class="col-12">
-                    <img src="{{URL::asset($objprofesionallandingtratam->imgTratamientoAntes)}}">
-                    <p>{{$objprofesionallandingtratam->tituloTrataminetoAntes}}</p>
-                    <p>{{$objprofesionallandingtratam->descripcionTratamientoAntes}}</p>
+        <section class="contains_swiper_premios">
+            <div class="swiper-container swiper_premios">
+                <div class="swiper-wrapper">
+                    @foreach ($objprofesionallandingpremio as $objprofesionallandingpremio)
+                        <div class="swiper-slide">
+                            <img src="{{URL::asset($objprofesionallandingpremio->imgpremio)}}">
+                            <p>{{$objprofesionallandingpremio->fechapremio}}</p>
+                            <p>{{$objprofesionallandingpremio->nombrepremio}}</p>
+                            <p>{{$objprofesionallandingpremio->descripcionpremio}}</p>
+                        </div>
+                    @endforeach
                 </div>
-                <div class="col-12">
-                    <img src="{{URL::asset($objprofesionallandingtratam->imgTratamientodespues)}}">
-                    <p>{{$objprofesionallandingtratam->tituloTrataminetoDespues}}</p>
-                    <p>{{$objprofesionallandingtratam->descripcionTratamientoDespues}}</p>
-                </div>
-            @endforeach
-        </div>
-
-
-        
-        <div class="col-12" style="background: cornflowerblue;">
-            @foreach ($objprofesionallandingpremio as $objprofesionallandingpremio)
-            <img src="{{URL::asset($objprofesionallandingpremio->imgpremio)}}">
-            <p>{{$objprofesionallandingpremio->fechapremio}}</p>
-            <p>{{$objprofesionallandingpremio->nombrepremio}}</p>
-            <p>{{$objprofesionallandingpremio->descripcionpremio}}</p>
-            @endforeach
-        </div>
+            </div>
+        </section>
 
         <div class="col-12" style="background: chocolate;">
             @foreach ($objprofesionallandingpublic as $objprofesionallandingpublic)
