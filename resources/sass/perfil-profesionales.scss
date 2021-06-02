@@ -186,6 +186,179 @@
     font-weight: bolder;
     color: #232323;
 }
+.contains_swiper_profesional h1 {
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #232323;
+}
+.perfil_profesional h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #0083D6;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.perfil_profesional p {
+    font-family: "Roboto";
+    color: #3E3E3E;
+}
+.perfil_profesional i {
+    background-image: url('/img/landing-profesional/icono-perfil-profesional.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.educacion ul li{
+    list-style: none;
+}
+.educacion ul li:nth-child(1){
+    background: #F5F5F5;
+}
+.educacion h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #434343;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.educacion p {
+    font-family: "Roboto";
+    color: #806868;
+}
+.educacion i {
+    background-image: url('/img/landing-profesional/icono-perfil-profesional.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.experiencia ul li{
+    display: flex;
+    list-style: none;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+.experiencia ul li:nth-child(1){
+    background: #F5F5F5;
+}
+.experiencia h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #434343;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.experiencia p {
+    font-family: "Roboto";
+    color: #806868;
+}
+.experiencia i {
+    background-image: url('/img/landing-profesional/icono-perfil-profesional.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.asociaciones ul li{
+    display: flex;
+    list-style: none;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+.asociaciones ul li:nth-child(1){
+    background: #F5F5F5;
+}
+.asociaciones h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #434343;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.asociaciones i {
+    background-image: url('/img/landing-profesional/icono-perfil-profesional.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.idiomas ul li{
+    display: flex;
+    list-style: none;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+.idiomas ul li:nth-child(1){
+    background: #F5F5F5;
+}
+.idiomas h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #434343;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.idiomas p {
+    font-family: "Roboto";
+    color: #3E3E3E;
+}
+.idiomas i {
+    background-image: url('/img/landing-profesional/icono-perfil-profesional.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.idiomas .contains_idioma{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.tratamientos_profesional h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #0083D6;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.tratamientos_profesional i {
+    background-image: url('/img/landing-profesional/icono-perfil-profesional.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.tratamientos_profesional .card{
+    border: 0;
+}
+.tratamientos_profesional .card h4, h6{
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+}
+.tratamientos_profesional .card h4{
+    color: #434343;
+}
+.tratamientos_profesional .card h6{
+    color: #0083D6;
+}
+.tratamientos_profesional .card-body{
+    padding: 0;
+}
+.tratamientos_profesional p {
+    font-family: "Roboto";
+    color: #3E3E3E;
+    font-weight: bolder;
+}
 @media (min-width: 320px){
     .section_data_profesionales{
         width: 100%;
@@ -313,5 +486,156 @@
     }
     .profesional_menu p{
         font-size: 0.6em;
+    }
+    .contains_swiper_profesional{
+        margin-bottom: 10%;
+    }
+    .contains_swiper_profesional h1 {
+        font-size: 1em;
+        margin-bottom: 8%;
+        text-align: center;
+    }
+    .perfil_profesional{
+        width: 90%;
+        margin: auto;
+    }
+    .perfil_profesional h2{
+        font-size: 1.1em;
+    }
+    .perfil_profesional p {
+        font-size: 0.75em;
+        padding-bottom: 3%;
+        padding-left: 14%;
+        padding-right: 5%;
+    }
+    .perfil_profesional i {
+        width: 14%;
+        height: 30px;
+    }
+    .educacion{
+        width: 90%;
+        margin: auto;
+    }
+    .educacion h2{
+        font-size: 1.1em;
+    }
+    .educacion h5{
+        font-size: 1em;
+    }
+    .educacion p {
+        font-size: 0.75em;
+    }
+    .educacion i {
+        width: 14%;
+        height: 30px;
+    }
+    .experiencia{
+        width: 90%;
+        margin: auto;
+    }
+    .experiencia ul li{
+        margin-bottom: 5%;
+    }
+    .experiencia ul li .contains_info{
+        max-width: 70%;
+    }
+    .experiencia ul li .contains_logo{
+        max-width: 30%;
+    }
+    .experiencia .contains_logo img{
+        max-width: 100%;
+        object-fit: cover;
+        height: 45px;
+        image-rendering: -webkit-optimize-contrast;
+    }
+    .experiencia h2{
+        font-size: 1.1em;
+    }
+    .experiencia h5{
+        font-size: 0.9em;
+    }
+    .experiencia p {
+        font-size: 0.75em;
+    }
+    .experiencia i {
+        width: 14%;
+        height: 30px;
+    }
+    .asociaciones{
+        width: 90%;
+        margin: auto;
+    }
+    .asociaciones ul li{
+        margin-bottom: 5%;
+        height: 12vh;
+    }
+    .asociaciones img{
+        max-width: 30%;
+        -o-object-fit: cover;
+        object-fit: contain;
+        height: 40px;
+        image-rendering: -webkit-optimize-contrast;
+    }
+    .asociaciones h2{
+        font-size: 1.1em;
+    }
+    .asociaciones i {
+        width: 14%;
+        height: 30px;
+    }
+
+    .idiomas{
+        width: 90%;
+        margin: auto;
+    }
+    .idiomas ul li{
+        margin-bottom: 5%;
+        height: 12vh;
+    }
+    .idiomas img{
+        max-width: 100%;
+        -o-object-fit: cover;
+        object-fit: contain;
+        height: 20px;
+        image-rendering: -webkit-optimize-contrast;
+    }
+    .idiomas h2{
+        font-size: 1.1em;
+    }
+    .idiomas p{
+        font-size: 0.8em;
+    }
+    .idiomas i {
+        width: 14%;
+        height: 30px;
+    }
+    .tratamientos_profesional{
+        width: 90%;
+        margin: auto;
+    }
+    .tratamientos_profesional h2{
+        font-size: 1.1em;
+    }
+    .tratamientos_profesional p {
+        font-size: 0.75em;
+    }
+    .tratamientos_profesional i {
+        width: 14%;
+        height: 30px;
+    }
+    .tratamientos_profesional .card{
+        width: 80%;
+        margin: auto;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    .tratamientos_profesional .card h4, h6{
+        font-size: 1em;
+    }
+    .tratamientos_profesional .card-body{
+        padding-top: 4%;
+    }
+    .tratamientos_profesional .card-body h5{
+        font-size: 1.1em;
     }
 }
