@@ -616,7 +616,7 @@ a:link, a:visited, a:active, a:hover {
     }
     // Seccion logo zaabra
     .logo_header {
-        width: 75%;
+        width: 70%;
     }
     //Seccion barra de busqueda
     .contains_boxsearch {
@@ -716,7 +716,7 @@ a:link, a:visited, a:active, a:hover {
     }
     // Seccion logo zaabra
     .logo_header {
-        width: 85%;
+        width: 80%;
     }
     //Seccion barra de busqueda
     .contains_boxsearch {
@@ -755,17 +755,6 @@ a:link, a:visited, a:active, a:hover {
         background-repeat: no-repeat;
         background-position-y: center;
     }
-    .soy_paciente .dropdown-toggle {
-        background-image: url(/img/header/icono-soy-paciente-blanco.svg);
-        background-size: 75%;
-        background-position-x: center;
-        width: 100%;
-        height: 100%;
-        border: none;
-        display: flex;
-        flex-wrap: nowrap;
-        margin: auto;
-    }
     .menu_paciente {
         padding: 0;
         height: 18vh;
@@ -796,28 +785,16 @@ a:link, a:visited, a:active, a:hover {
         display: flex;
         justify-content: center;
         align-items: center;
-    }  
-    .menu-hamburger .dropdown-toggle {
-        background-image: url(/img/header/icono-hamburguesa-blanco.svg);
-        background-repeat: no-repeat;
-        background-size: 40%;
-        background-position: center;
-        width: 100%;
-        height: 100%;
-        border: none;
-        display: flex;
-        flex-wrap: nowrap;
-        margin: auto;
     }   
     .menu_hamburguesa {
         height: 28vh;
         width: 260px;
     }
 }
-@media (min-width: 1600px) {
+@media (min-width: 1920px) {
    //Seccion logo Zaabra
    .logo_header {
-        width: 100%;
+        width: 95%;
     }
     // Seccion boton usuario
     .soy_paciente .dropdown-toggle {

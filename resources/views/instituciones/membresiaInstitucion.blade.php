@@ -233,7 +233,7 @@
         </div>
       </div>
 
-      <p class="texto_inferior-institucion"> Puede complementar y personalizar su plan con recursos publicitarios adicionales. <a class="contac_institucion" href=""> Contáctenos </a> para ser atendido por un representante. *Vigencia anual. </p>
+      <p class="texto_inferior-institucion"> Puede complementar y personalizar su plan con recursos publicitarios adicionales. <a class="contac_institucion" href="{{route('contacto')}}"> Contáctenos </a> para ser atendido por un representante. *Vigencia anual. </p>
 
       <!-- Botón Empezar -->
       <div class="col-10 content_btn-ingresar-institucion">

@@ -14,7 +14,7 @@
 // Sección principal email
 .section_principal-email {
     border: none;
-    margin-bottom: 18%;
+    margin-bottom: 20%;
     padding: 0;
     box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
 }
@@ -25,7 +25,7 @@
 // Titulo interno de la tarjeta email 
 .titulo_superior-tarjeta-email {
     font-family: 'Quicksand', 'Regular';
-    font-size: 1em;
+    font-size: 1.25em;
     font-weight: 500;
     color: #0083D6;
     margin: 3% auto;
@@ -76,6 +76,10 @@
       .section_body-email {
         padding: 2% 5%;
     }
+    //Titulo interno de la tarjeta email
+    .titulo_superior-tarjeta-email {
+        font-size: 1em;
+    }
      // Sección botón enviar
      .content_btn-enviar-email {
         text-align: center;
@@ -98,7 +102,7 @@
      // Seccion principal email
      .section_principal-email {
         border: none;
-        margin-bottom: 23%;
+        margin-bottom: 32%;
         padding: 0;
         box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
     }
@@ -110,9 +114,9 @@
 @media (min-width: 768px) and (orientation: portrait) {
     // Titulo principal
     .titulo_principal-email {
-        font-size: 1.563em;
+        font-size: 1.3em;
         font-weight: 500;
-        margin: 14% 8% 7% 8%;
+        margin: 14% 15% 5%;
     }
     // Sección principal 
     .section_principal-email {
@@ -123,7 +127,7 @@
     }
     //Titulo interno de la tarjeta email
     .titulo_superior-tarjeta-email {
-        font-size: 1.438em;
+        font-size: 1.563em;
         margin-top: 6%;
     }
     .texto_label-email {
@@ -151,7 +155,7 @@
     }
     // Sección principal email
     .section_principal-email {
-        margin-bottom: 12.4%;
+        margin-bottom: 15%;
     }
     // Sección botón enviar
     .btn_Ingreso-email {
@@ -166,7 +170,7 @@
     }
     // Sección principal email 
     .section_principal-email {
-        margin-bottom: 11.2%;
+        margin-bottom: 12%;
     }
     // Sección titulo interno de la tarjeta email
     .titulo_superior-tarjeta-email {
@@ -177,29 +181,24 @@
     }
     // Sección botón enviar 
     .btn_Ingreso-email {
+        width: 30%;
         font-size: 1.5em;
     }
     .flecha_ingreso-email {
-        width: 15%;
+        width: 10%;
     }
 }
 @media (min-width: 1920px) {
-    // Titulo principal 
-    .titulo_principal-email {
-        font-size: 1.8em;
-    }
+    // Sección principal email 
     .section_principal-email {
-        margin-bottom: 9.6%;
+        margin-bottom: 11%;
     }
-    // Titulo interno de la tarjeta email
-    .titulo_superior-tarjeta-email {
-        font-size: 2em;
-    }
-    .texto_label-email {
-        font-size: 2em;
+    .input_height-fullhd-email {
+        height: 5vh;
+        font-size: 1.25em;
     }
     // Sección botón enviar
-    .btn_Ingreso-email {
-        font-size: 2em;
+    .flecha_ingreso-email {
+        width: 8%;
     }
 }
