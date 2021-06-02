@@ -20,12 +20,6 @@ a:link, a:visited, a:active, a:hover {
     justify-content: space-between;
     height: 8vh;
 }
-.contains_header{
-    max-width: 95%;
-    height: 100%;
-    padding: 0;
-    justify-content: flex-start;
-}
 .logo_header {
     width: 50%;
 }
@@ -609,7 +603,7 @@ a:link, a:visited, a:active, a:hover {
     }
     // Contenedor principal
     .contains_header {
-        max-width: 67%;
+        max-width: 66%;
         height: 100%;
         padding: 0;
         justify-content: flex-start;
@@ -690,10 +684,6 @@ a:link, a:visited, a:active, a:hover {
     }
 }
 @media (min-width: 1200px) {
-    // Contenedor principal
-    .contains_header {
-        max-width: 66%;
-    }
     //Seccion barra de busqueda
     .contenedorLupa {
         width: 5%;
@@ -709,7 +699,7 @@ a:link, a:visited, a:active, a:hover {
     }
     // Contenedor principal
     .contains_header {
-        max-width: 67%;
+        max-width: 66%;
         height: 100%;
         padding: 0;
         justify-content: flex-start;

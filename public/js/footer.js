@@ -6,7 +6,9 @@
     // Condicional de validación de rutas a las cuales les remueve el NEWSLETTER del FOOTER
     if (queryRuta.includes("register") || queryRuta.includes("login") || queryRuta.includes("reset") 
        || queryRuta.includes("acerca") || queryRuta.includes("politicas") || queryRuta.includes("preguntas")
-       || queryRuta.includes("membresiaProfesional") || queryRuta.includes("/contacto") ) {
+       || queryRuta.includes("membresiaProfesional") || queryRuta.includes("/contacto")
+       || queryRuta.includes("error101") || queryRuta.includes("error403")
+       || queryRuta.includes("error404") || queryRuta.includes("error505") ) {
        selector(".footer_newsletter").style.display = "none";
     }
 }();
