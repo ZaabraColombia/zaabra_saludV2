@@ -9,7 +9,7 @@
     font-weight: 500;
     color: #3E3E3E;
     text-align: center;
-    margin: 2% 8%;
+    margin: 3% 8% 2% 8%;
 }
 // Sección principal Login
 .section_principal-login {
@@ -242,9 +242,9 @@
 @media (min-width: 768px) and (orientation: portrait) {
     // Titulo principal
     .titulo_principal-login {
-        font-size: 1.563em;
+        font-size: 1.438em;
         font-weight: 500;
-        margin: 14% 8% 7% 8%;
+        margin: 8% 8% 5% 8%;
     }
      // Sección principal Login
      .section_principal-login {
@@ -256,11 +256,11 @@
     }
     // Iniciar sesión
     .section_texto-iniciar {
-        font-size: 1.438em;
+        font-size: 1.563em;
     }
     // Crear cuenta
     .texto_crear-login {
-        font-size: 1.438em;
+        font-size: 1.563em;
     }
     .texto_label-login {
         font-size: 1.438em;
@@ -271,7 +271,7 @@
         width: 40%;
     }
     .flecha_ingreso-login {
-        width: 6%;
+        width: 9%;
     }
     .texto_olvide-login {
         font-size: 1.1em;
@@ -313,6 +313,9 @@
     .btn_Ingreso-login {
         font-size: 1.5em;
     }
+    .flecha_ingreso-login {
+        width: 7%;
+    }
     .texto_olvide-login {
         font-size: 1.5em;
     }
@@ -320,39 +323,20 @@
     .content_pie-login {
         border-top: 3px solid rgba(0, 0, 0, 0.125);
     }
+    .texto_olvide-login {
+        font-size: 1.5em;
+    }
     .texto_inferior-login {
         font-size: 1.5em;
-        margin-top: -2%;
+        margin-top: -1.5%;
     }
     .img_redes-login {
         max-width: 70px;
     }
 }
 @media (min-width: 1920px) {
-    // Titulo princial 
-    .titulo_principal-login {
-        font-size: 1.8em;
-    }
-    .texto_label-login {
-        font-size: 2em;
-    }
     .input_height-fullhd {
-        height: 6vh;
-        font-size: 1.43em;
-    }
-    // Botón inferior ingresar
-    .btn_Ingreso-login {
-        font-size: 2em;
-    }
-    .texto_olvide-login {
-        font-size: 2em;
-    }
-    // Sección footer del login
-    .texto_inferior-login {
-        font-size: 2em;
-        margin-top: -1.7%;
-    }
-    .img_redes-login {
-        max-width: 80px;
+        height: 5vh;
+        font-size: 1.25em;
     }
 }
