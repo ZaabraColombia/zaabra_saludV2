@@ -1,0 +1,355 @@
+/////  MODAL POPUP DE ESPERA PARA PAGO ubicado en la vista indexNoFooter.blade  /////
+.modal_dialog-popup {
+    margin: 21% auto;
+}
+.modal_content-popup {
+    border: none;
+    border-radius: 5px;
+    width: 75%;
+    background: linear-gradient(180deg, white 100%, #e7e2e2 50%, #cccbcb 100%);
+    margin: auto;
+    padding: 2% 0 0 0;
+}
+.modal_header-popup {
+    padding: 0% 2%;
+    margin: 0;
+    border-bottom: none;
+    height: 4vh;
+}
+.btn_close-popup {
+    border-radius: 18px !important;
+    background: #0083d6 !important;
+    padding: 0 !important;
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    width: 5%;
+    height: 3.5vh;
+    text-align: center;
+    opacity: inherit;
+}
+.Xcierre_modal-popup {
+    font-size: 1em;
+    font-weight: 100;
+    color: #ffffff;
+}
+.titulo_principal-popup {
+    color: #232323;
+    font-size: 1.3em;
+    text-align: center;
+}
+.texto_superior-popup {
+    font-size: 1.1em;
+    color: #232323;
+    text-align: center;
+    margin-top: 2%;
+}
+.section_icons-popup {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 3% 0;
+    padding: 0;
+}
+.secction_tarjeta-popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.icon_popup {
+    width: 70px;
+}
+.textoCheck_popup {
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #232323;
+}
+.inputCheck_popup {
+    height: 2.5vh;
+    width: 2.5vh;
+    margin: 0;
+}
+// Botón inferior Pagar
+.section_btnPagar-popup {
+    text-align: center;
+    padding: 0;
+    margin: 5% auto;
+}
+.btnPagar-popup {
+    font-family: "Quicksand";
+    font-size: 1.3em;
+    color: #ffffff;
+    background: #0083d6;
+    border: none;
+    border-radius: 3px;
+    height: calc(1.6em + 0.75rem + 2px);
+    width: 28%;
+}
+.flecha_pagar-popup {
+    width: 10%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///seccion modal de pagos jfk 11-03
+
+
+
+.modal-dialogPopUpPremiunHome {
+    margin-top: 41%;
+    margin-left: auto;
+}
+
+.btn-modalPagos-PremiunHome {//modal de pagos jfk 11-03
+    background: #1558D6;
+    width: 25%;
+    height: 5vh;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    color: #ffffff !important;
+    padding: 0;
+    margin-bottom: 4%;
+    transition: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3% auto;
+}
+
+.modal-contentPropiedPopUpPremiunHome {
+    border: 0 solid lightgray;
+    border-radius: 0 0 20px 20px;
+    width: 100%;
+    background: linear-gradient(180deg, white 16%, #e7e2e2 50%, #cccbcb 100%);
+}
+.modalBodyContentPrincipalPopUpPremiunHome {
+    display: flex;
+}
+
+.headerBtnCierrePopUpPremiunHome {
+    padding: inherit;
+    font-size: 1.563em;
+}
+.modal-bodyPopUpPremiunHome {
+    padding: 0;
+}
+.modalBodyContentLogoPopUpPremiunHome {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+.modalBodyLogoPopUpPremiunHome {
+    width: 60%;
+}
+.modalBodyContentServProfPopUpPremiunHome {
+    padding: 0%;
+    margin: auto;
+    height: 5vh;
+    text-align: initial;
+}
+.modalBodyServProfFontPopUpPremiunHome {
+    color:#1558D6;
+    font-size: 1.5em;
+    line-height: .7;
+}
+.modalBodyContentAvisoPopUpPremiunHome {
+    text-align: center;
+    padding: 0;
+    margin-top: 5%;
+}
+.modalBodyAvisoFontPopUpPremiunHome {
+    font-size: 1.2em;
+    line-height: 1;
+}
+.modalFooterPropiedPopUpPremiunHome {
+    border-top: none;
+}
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 12vh;
+} 
+.ball {
+    width: 16px;
+    height: 16px;
+    border-radius: 11px;
+    margin: 0 10px;    
+    animation: 2s bounce ease infinite;
+} 
+.blue {
+    background-color: #1558D6;
+} 
+.red {
+    background-color: #4D7EDB;
+    animation-delay: .25s;
+} 
+.yellow {
+    background-color: #7398DE;
+    animation-delay: .5s;
+} 
+.green {
+    background-color: #AEBEDE;
+    animation-delay: .75s;
+} 
+@keyframes bounce {  
+    50% {
+        transform: translateY(25px);
+    }
+}
+@media (min-width: 320px) and (orientation: portrait) {
+    .modal_dialog-popup {
+        margin: 25% auto;
+    }
+    .modal_content-popup {
+        width: 80%;
+    }
+    .btn_close-popup {
+        width: 10%;
+        height: 4vh;
+    }
+    .Xcierre_modal-popup {
+        font-size: 1em;
+        font-weight: normal;
+        color: #ffffff;
+    }
+    .titulo_principal-popup {
+        font-size: 1em;
+    }
+    .texto_superior-popup {
+        font-size: .8em;
+        text-align: center;
+        margin-top: 5%;
+    }
+    .textoCheck_popup {
+        font-size: .8em;
+    }
+    // Botón inferior ingreasar
+    .section_btnPagar-popup {
+        text-align: center;
+        margin: 3% auto;
+    }
+    .btnPagar-popup {
+        font-size: .8em;
+        width: 50%;
+    }
+    .flecha_pagar-popup {
+        width: 9%;
+    }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+    .btn_close-popup {
+        width: 10%;
+        height: 3vh;
+    }
+    .titulo_principal-popup {
+        font-size: 1.5em;
+    }
+    .texto_superior-popup {
+        font-size: 1.25em;
+    }
+    .section_icons-popup {
+        justify-content: space-around;
+        margin: 7% 0;
+    }
+    .icon_popup {
+        width: 90px;
+    }
+    .textoCheck_popup {
+        font-size: 1.2em;
+    }
+    .inputCheck_popup {
+        height: 2.3vh;
+        width: 2.3vh;
+        margin: 0;
+    }
+    .btnPagar-popup {
+        font-size: 1.5em;
+        width: 50%;
+    }
+    .flecha_pagar-popup {
+        width: 13%;
+    }
+}
+@media (min-width: 1200px) {
+    // Seccion botones inferiores REGISTRAR y EMPEZAR
+    .section_btnPagar-popup {
+        margin: 4% auto;
+    }   
+    .flecha_pagar-popup {
+        width: 9%;
+    } 
+}
+@media (min-width: 1440px) {
+    .modal_dialog-popup {
+        margin: 15% auto;
+    }
+    .modal_content-popup {
+        width: 100%;
+    }
+    .modal_header-popup {
+        height: 3vh;
+    }
+    .btn_close-popup {
+        width: 3.8%;
+        height: 3.2vh;
+    }
+    .titulo_principal-popup {
+        font-size: 2em;
+    }
+    .texto_superior-popup {
+        font-size: 1.5em;
+    }
+    .icon_popup {
+        width: 100px;
+    }
+    .textoCheck_popup {
+        font-size: 1.5em;
+    }
+    .inputCheck_popup {
+        height: 3vh;
+        width: 3vh;
+        margin: 0;
+    }
+    .btnPagar-popup {
+        font-size: 1.563em;
+        width: 30%;
+    }
+    .flecha_pagar-popup {
+        width: 8%;
+    }
+}
+@media (min-width: 1920px) {
+    .modal_dialog-popup {
+        margin: 9% auto;
+    }
+}

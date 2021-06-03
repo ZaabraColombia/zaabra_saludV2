@@ -84,3 +84,18 @@ Route::get('/politicas', function () { return view('quienes-somos/politicas');})
 /*------------------------------------------------- Pertenece a CONTACTO -------------------------------------------------------------------------------*/
 /* Esta ruta direcciona a l avista Contactenos */
 Route::get('/contacto', function () { return view('contacto');})->name('contacto');
+
+
+/*------------------------------------------------- Pertenece a CONTACTO -------------------------------------------------------------------------------*/
+
+/* Esta ruta direcciona a l avista del error 101 */
+Route::get('/error101', function () { return view('errores/error101');})->name('error101');
+
+/* Esta ruta direcciona a l avista del error 403 */
+Route::get('/error403', function () { return view('errores/error403');})->name('error403');
+
+/* Esta ruta direcciona a l avista del error 404 */
+Route::get('/error404', function () { return view('errores/error404');})->name('error404');
+
+/* Esta ruta direcciona a l avista del error 505 */
+Route::get('/error505', function () { return view('errores/error505');})->name('error505');
