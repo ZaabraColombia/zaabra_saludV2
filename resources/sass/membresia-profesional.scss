@@ -62,7 +62,7 @@
     color: #0083D6;
     text-align: center;
     padding: 0;
-    margin: 1% 0 3% 0;
+    margin-top: 1%;
 }
 .containt_options-collapse-membresia {
     border-radius: 0px;
@@ -146,7 +146,7 @@
     font-size: 1.25em;
     color: #3E3E3E;
     text-align: center;
-    padding: 0 15%;
+    padding: 0;
     margin-top: 4%;
 }
 .contac_membresia {
@@ -196,7 +196,6 @@
     // Sección acordion 1
     .titulo_tarjeta-membresia {
         font-size: 1em;
-        margin-top: 5%;
     }
     .texto_tiempo-membresia {
         font-size: .75em;
@@ -206,14 +205,11 @@
     // Botón inferior ingreasar
     .content_btn-ingresar-membresia {
         text-align: center;
-        margin: 5% auto;
+        margin: 3% auto;
     }
     // Seccion acordion 2
     .precio_tarjeta-membresia {
         font-size: 1.25em;
-    }
-    .btn_precio-tarjeta-membresia {
-        width: 50%;
     }
     .texto_precio-membresia {
         font-size: .75em;
@@ -233,16 +229,15 @@
     // Texto inferior
     .texto_inferior-membresia {
         font-size: .6em;
-        padding: 0 12%;
-        margin-top: 5%;
+        padding: 0 3%;
     }
     // Seccion botones inferiores REGISTRAR y EMPEZAR
     .btn_Ingreso-membresia {
         font-size: .75em;
-        width: 40%;
+        width: 50%;
     }
     .flecha_ingreso-membresia {
-        width: 13%;
+        width: 9%;
     }
 }
 @media (min-width: 375px) and (orientation: portrait) {
@@ -278,6 +273,8 @@
     }
     .texto_tiempo-membresia {
         font-size: 1.5em;
+        margin-top: 1%;
+        margin-bottom: 3%;
     }
     // Seccion acordion 2
     .btn_precio-tarjeta-membresia {
@@ -306,7 +303,8 @@
     // Texto inferior
     .texto_inferior-membresia {
         font-size: 1.3em;
-        margin: 5% 0;
+        margin: 3% 0;
+        padding: 0 5%;
     }
     // Seccion botones inferiores REGISTRAR y EMPEZAR
     .btn_Ingreso-membresia {
@@ -333,7 +331,7 @@
     }
     // texto inferior
     .texto_inferior-membresia {
-        padding: 0 19%;
+        padding: 0 3%;
     }
     // Seccion botones inferiores REGISTRAR y EMPEZAR
     .content_btn-ingresar-membresia {
@@ -435,9 +433,6 @@
         margin: 1% 0;
     }
     // Seccion acordion 2
-    .btn_precio-tarjeta-membresia {
-        width: 35%;
-    }
     .boton_collapse-off-membresia {
         background-size: 2%;
     }
@@ -455,9 +450,8 @@
     }
     .btn_Ingreso-membresia {
         font-size: 2em;
-        width: 25%;
     }
     .flecha_ingreso-membresia {
-        width: 10%;
+        width: 8%;
     }
 }
