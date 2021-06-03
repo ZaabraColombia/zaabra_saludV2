@@ -205,13 +205,14 @@
         </section>
 
         <section class="contains_swiper_premios">
+            <h2><i></i>Premios y Reconocimientos</h2>
             <div class="swiper-container swiper_premios">
                 <div class="swiper-wrapper">
                     @foreach ($objprofesionallandingpremio as $objprofesionallandingpremio)
                         <div class="swiper-slide">
                             <img src="{{URL::asset($objprofesionallandingpremio->imgpremio)}}">
-                            <p>{{$objprofesionallandingpremio->fechapremio}}</p>
-                            <p>{{$objprofesionallandingpremio->nombrepremio}}</p>
+                            <h6>{{$objprofesionallandingpremio->fechapremio}}</h6>
+                            <h5>{{$objprofesionallandingpremio->nombrepremio}}</h5>
                             <p>{{$objprofesionallandingpremio->descripcionpremio}}</p>
                         </div>
                     @endforeach
@@ -219,21 +220,32 @@
             </div>
         </section>
 
-        <div class="col-12" style="background: chocolate;">
-            @foreach ($objprofesionallandingpublic as $objprofesionallandingpublic)
-            <img src="{{URL::asset($objprofesionallandingpublic->imgpublicacion)}}">
-            <p>{{$objprofesionallandingpublic->nombrepublicacion}}</p>
-            <p>{{$objprofesionallandingpublic->descripcion}}</p>
-            @endforeach
-        </div>
+        <section class="section_publicaciones_profesional">
+            <div class="publicaciones_profesional">
+                <h2><i></i>Publicaciones</h2>
+                @foreach ($objprofesionallandingpublic as $objprofesionallandingpublic)
+                    <div class="card">
+                        <img class="card-img-top" src="{{URL::asset($objprofesionallandingpublic->imgpublicacion)}}">
+                        <div class="card-body">
+                            <h5>{{$objprofesionallandingpublic->nombrepublicacion}}</h5>
+                            <p>{{$objprofesionallandingpublic->descripcion}}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </section>
 
-        <div class="col-12" style="background: crimson;">
-            @foreach ($objprofesionallandinggaler as $objprofesionallandinggaler)
-            <img src="{{URL::asset($objprofesionallandinggaler->imggaleria)}}">
-            <p>{{$objprofesionallandinggaler->nombrefoto}}</p>
-            <p>{{$objprofesionallandinggaler->descripcion}}</p>
-            @endforeach
-        </div>
+        <section class="section_galeria_profesional" style="background: crimson;">
+            <ul id="galery_profesional">
+                @foreach ($objprofesionallandinggaler as $objprofesionallandinggaler)
+                <li>
+                    <img src="{{URL::asset($objprofesionallandinggaler->imggaleria)}}">
+                </li>
+                <!-- <p>{{$objprofesionallandinggaler->nombrefoto}}</p>
+                <p>{{$objprofesionallandinggaler->descripcion}}</p> -->
+                @endforeach
+            </ul>
+        </section>
 
         <div class="col-12" style="background: blueviolet;">
             @foreach ($objprofesionallandingvideo as $objprofesionallandingvideo)

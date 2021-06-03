@@ -68,3 +68,5 @@
         },
       }
     });
+
+    const gallery = new Viewer(document.getElementById('galery_profesional'));
