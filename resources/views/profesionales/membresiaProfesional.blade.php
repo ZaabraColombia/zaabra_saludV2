@@ -58,7 +58,7 @@
 
       <!-- Botón Registrar -->    
       <div class="col-12 content_btn-ingresar-membresia">
-        <button type="submit" class="btn_precio-tarjeta-membresia"> 
+        <button type="submit" class="btn_precio-tarjeta-membresia" data-toggle="modal" data-target="#exampleModal"> 
           <h5 class="precio_tarjeta-membresia"> $119.900 </h5>
           <h5 class="texto_precio-membresia"> Mensual* </h5>
         </button>
