@@ -34,7 +34,7 @@ function direccionFlecha (element){
 
 // Función para el cambio de background y del icono (+ y -) de las opciones de Acerca de zzaabra, politicas de uso y preguntas frecuentes del FOOTER 
 // Acerca de Zaabra
-function colorBtnToggle (element) {
+/*unction colorBtnToggle (element) {
     let cambioColorBtn = element.getAttribute("aria-expanded");
 
     if (cambioColorBtn == 'false') {
@@ -49,58 +49,11 @@ function colorBtnToggle (element) {
         $(element).addClass('boton_collapse-off-acerca');
         $(element).attr('aria-expanded', 'true')
     }
-}
+}*/
 
-// Políticas de uso
-function colorBtnToggle (element) {
-    let cambioColorBtn = element.getAttribute("aria-expanded");
-
-    if (cambioColorBtn == 'false') {
-        $(element).removeClass('boton_collapse-off-polit');
-        $(element).addClass('boton_collapse-on-polit');
-        $(element).attr('aria-expanded', 'false')
-    }
-    
-    // Condicional para oopciones en estado activo o desplegadas
-    else{
-        $(element).removeClass('boton_collapse-on-polit');
-        $(element).addClass('boton_collapse-off-polit');
-        $(element).attr('aria-expanded', 'true')
-    }
-}
-
-// Políticas de uso
-function colorBtnToggle (element) {
-    let cambioColorBtn = element.getAttribute("aria-expanded");
-
-    if (cambioColorBtn == 'false') {
-        $(element).removeClass('boton_collapse-off-pregunta');
-        $(element).addClass('boton_collapse-on-pregunta');
-        $(element).attr('aria-expanded', 'false')
-    }
-    
-    // Condicional para oopciones en estado activo o desplegadas
-    else{
-        $(element).removeClass('boton_collapse-on-pregunta');
-        $(element).addClass('boton_collapse-off-pregunta');
-        $(element).attr('aria-expanded', 'true')
-    }
-}
-
-// Tarjetas premium de la vista --- membresiaProfesional ---
-function colorBtnToggle (element) {
-    let cambioColorBtn = element.getAttribute("aria-expanded");
-
-    if (cambioColorBtn == 'false') {
-        $(element).removeClass('boton_collapse-off-membresia');
-        $(element).addClass('boton_collapse-on-membresia');
-        $(element).attr('aria-expanded', 'false')
-    }
-    
-    // Condicional para oopciones en estado activo o desplegadas
-    else{
-        $(element).removeClass('boton_collapse-on-membresia');
-        $(element).addClass('boton_collapse-off-membresia');
-        $(element).attr('aria-expanded', 'true')
-    }
-}
+$('#accordion .containt_options-collapse-membresia').on( "click", function() {
+	$(this).siblings().find(".boton_collapse-off-membresia").removeClass("boton_collapse-on-membresia");
+	$(this).find(".boton_collapse-off-membresia").toggleClass("boton_collapse-on-membresia");
+});
+     
+ 

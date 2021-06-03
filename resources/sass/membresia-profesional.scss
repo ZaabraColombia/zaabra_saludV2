@@ -99,23 +99,23 @@
     text-align: center;
 }
 .boton_collapse-on-membresia {
-    font-family: 'Quicksand', 'Regular';
-    font-size: 1.25em;
-    font-weight: bold;
-    text-decoration: none;
-    color: #FFFFFF;
-    text-align: left;
-    padding: 0 3%;
-    background: #0083D6;
-    border-radius: 0px;
-    border: 1px solid #0083D6;
-    width: 100%;
-    height: 6vh;
-    background-image: url('/img/iconos/icono-x.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-position-x: 95%;
-    background-size: 3%;
+    font-family: 'Quicksand', 'Regular' !important;
+    font-size: 1.25em !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    color: #FFFFFF !important;
+    text-align: left !important;
+    padding: 0 3% !important;
+    background: #0083D6 !important;
+    border-radius: 0px !important;
+    border: 1px solid #0083D6 !important;
+    width: 100% !important;
+    height: 6vh !important;
+    background-image: url('/img/iconos/icono-x.svg') !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-position-x: 95% !important;
+    background-size: 3% !important;
 }
 .boton_collapse-off-membresia {
     font-family: 'Quicksand', 'Regular';
