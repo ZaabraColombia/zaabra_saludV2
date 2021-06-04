@@ -66,8 +66,8 @@
 
       <!-- Sección opciones de la tarjeta MEMBRESIA -->
       <div class="card containt_options-collapse-membresia">
-        <div id="headingTwo">
-          <button class="boton_collapse-on-membresia" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Página web </button>
+      <div id="headingTwo">
+          <button class="boton_collapse-off-membresia" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Página web </button>
         </div>
 
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">

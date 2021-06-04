@@ -30,21 +30,24 @@
                         <!-- Seccion opciones paara Registrarse -->
                         <div class="row section_input-option-register">
                             <div class="col-3 form-check input_option-register"> 
-                                <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
-                                <input class="form-check-input input_img-option" onclick="hideForm(this)" type="image" src="/img/iconos/icono-paciente.svg" name="idrol" value="1" data-position="paciente" checked>
-                                <label class="form-check-label texto_option-input" for="idrol"> Paciente </label>
+                                <!-- Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto. La función " hedeForm " se encuentra en el archivo register.js -->
+                                <!-- Opción paciente -->
+                                <input id="inpt1" class="form-check-input input_img-option icon_pac" onclick="hideForm(this)" type="image" src="/img/iconos/icono-paciente.svg" name="idrol" value="1" data-position="paciente">
+                                <label id="txt1" class="form-check-label texto_option-input" for="idrol"> Paciente </label>
                             </div>
 
                             <div class="col-3 form-check input_option-register">
-                                <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
-                                <input class="form-check-input input_img-option" onclick="hideForm(this)" type="image" src="/img/iconos/icono-doctor.svg" name="idrol" value="2" data-position="doctor">
-                                <label class="form-check-label texto_option-input" for="idrol"> Doctor/a </label>
+                                <!-- Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto. La función " hedeForm " se encuentra en el archivo register.js -->
+                                <!-- Opción doctor -->
+                                <input id="inpt2" class="form-check-input input_img-option" onclick="hideForm(this)" type="image" src="/img/iconos/icono-doctor.svg" name="idrol" value="2" data-position="doctor">
+                                <label id="txt2" class="form-check-label texto_option-input" for="idrol"> Doctor/a </label>
                             </div>
 
                             <div class="col-3 form-check input_option-register"> 
-                                <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
-                                <input class="form-check-input input_img-option" onclick="hideForm(this)" type="image" src="/img/iconos/icono-institucion.svg" name="idrol" value="3" data-position="institucion">
-                                <label class="form-check-label texto_option-input" for="idrol"> Institución </label>
+                                <!-- Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto. La función " hedeForm " se encuentra en el archivo register.js -->
+                                <!-- Opción institución -->
+                                <input id="inpt3" class="form-check-input input_img-option" onclick="hideForm(this)" type="image" src="/img/iconos/icono-institucion.svg" name="idrol" value="3" data-position="institucion">
+                                <label id="txt3" class="form-check-label texto_option-input" for="idrol"> Institución </label>
                             </div>
                         </div>
 
