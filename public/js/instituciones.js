@@ -36,5 +36,19 @@ document.addEventListener('DOMContentLoaded', function () {
         },
       }*/
     });
-  });
-  
+
+    // Función cambio de color de los botones e iconos de pago del POP UP DE PAGOS tarjetas de las vistas "membresiaProfesional" y "membresiaInstitucion"
+    !function(){
+      const selector = document.querySelector.bind(document);
+      let pathname = window.location.pathname;
+
+      //Condicional paraa validar l aruta y realizar los cambios
+      if (pathname.includes('/membresiaInstitucion')) {
+        jQuery(".btn_close-popup").css("background","#019F86"); 
+        jQuery(".btnPagar-popup").css("background","#019F86"); 
+        document.getElementById ("img_tarjCred"). src = '/img/popup-pago/tarjetas-de-credito-consultorio-verde.svg';
+        document.getElementById ("img_pagoPse"). src = '/img/popup-pago/medios-online-pse-consultorio-verde.svg';
+      }  
+    }();
+
+ });
