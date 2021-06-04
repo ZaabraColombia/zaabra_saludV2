@@ -203,6 +203,7 @@
         <script src="{{ asset('js/selectpais.js') }}"></script>
         <script src="{{ asset('js/cargaFoto.js') }}"></script>
         <script src="{{ asset('js/contacto.js') }}"></script>
+        <script src="{{ asset('js/adicionarcamposformulario.js') }}"></script>
     </body>
 
     <!-- MODAL POPUP DE SELECCION MEDIO DE PAGO TARJETA Y PSE estilos ubicados en la vista popup-pagos.scss  /////-->

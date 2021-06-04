@@ -38,8 +38,20 @@ Route::get('get-Ciudad',[App\Http\Controllers\profesionales\formularioProfesiona
 /*Paquete busquedad dinamica areas */
 Route::get('get-profesion',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getprofesion']);
 Route::get('get-especialidad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getespecialidad']);
-/*-----guardar formulario----*/ 
+/*-----guardar formulario parte 1----*/ 
 Route::post('/FormularioProfesionalSave',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create1'])->name('FormularioProfesional');
+/*-----guardar formulario parte 2----*/ 
+Route::post('/FormularioProfesionalSave2',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create2'])->name('FormularioProfesional');
+/*-----guardar formulario parte 3----*/ 
+Route::post('/FormularioProfesionalSave3',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create3'])->name('FormularioProfesional');
+/*-----guardar formulario parte 4----*/ 
+Route::post('/FormularioProfesionalSave4',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create4'])->name('FormularioProfesional');
+/*-----borrar formulario parte 4----*/ 
+Route::get('/FormularioProfesionaldelete4/{idexperiencias}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete4'])->name('FormularioProfesional');
+/*-----guardar formulario parte 5----*/ 
+Route::post('/FormularioProfesionalSave5',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create5'])->name('FormularioProfesional');
+/*-----borrar formulario parte 5----*/ 
+Route::get('/FormularioProfesionaldelete5/{idAsociaciones}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete5'])->name('FormularioProfesional');
 
 
 //Selects dinamicos area, profesion, especialidad
@@ -77,25 +89,25 @@ Route::get('/acerca', function () { return view('quienes-somos/acerca');})->name
 /*Esta ruta direcciona a la vista de Preguntas Frecuentes*/
 Route::get('/preguntas', function () { return view('quienes-somos/preguntas');})->name('preguntas');
 
-/* Esta ruta direcciona a l avista de Políticas de uso */
+/* Esta ruta direcciona a la vista de Políticas de uso */
 Route::get('/politicas', function () { return view('quienes-somos/politicas');})->name('politicas');
 
 
 /*------------------------------------------------- Pertenece a CONTACTO -------------------------------------------------------------------------------*/
-/* Esta ruta direcciona a l avista Contactenos */
+/* Esta ruta direcciona a la vista Contactenos */
 Route::get('/contacto', function () { return view('contacto');})->name('contacto');
 
 
-/*------------------------------------------------- Pertenece a CONTACTO -------------------------------------------------------------------------------*/
+/*------------------------------------------------- Pertenece a ERRORES -------------------------------------------------------------------------------*/
 
-/* Esta ruta direcciona a l avista del error 101 */
+/* Esta ruta direcciona a la vista del error 101 */
 Route::get('/error101', function () { return view('errores/error101');})->name('error101');
 
-/* Esta ruta direcciona a l avista del error 403 */
+/* Esta ruta direcciona a la vista del error 403 */
 Route::get('/error403', function () { return view('errores/error403');})->name('error403');
 
-/* Esta ruta direcciona a l avista del error 404 */
+/* Esta ruta direcciona a la vista del error 404 */
 Route::get('/error404', function () { return view('errores/error404');})->name('error404');
 
-/* Esta ruta direcciona a l avista del error 505 */
+/* Esta ruta direcciona a la vista del error 505 */
 Route::get('/error505', function () { return view('errores/error505');})->name('error505');

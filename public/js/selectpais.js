@@ -1,4 +1,4 @@
-$('#pais').change(function(){
+$('#idpais').change(function(){
     var id_pais = $(this).val();    
     if(id_pais){
         $.ajax({
@@ -7,23 +7,23 @@ $('#pais').change(function(){
            success:function(res){ 
            console.log(res);              
             if(res){
-                $("#departamento").empty();
-                $("#departamento").append('<option>Seleccione departamento</option>');
+                $("#id_departamento").empty();
+                $("#id_departamento").append('<option>Seleccione departamento</option>');
                 $.each(res,function(key){
-                    $("#departamento").append('<option value="'+res[key].id_departamento+'">'+res[key].nombre+'</option>');
+                    $("#id_departamento").append('<option value="'+res[key].id_departamento+'">'+res[key].nombre+'</option>');
                 });
            
             }else{
-               $("#departamento").empty();
+               $("#id_departamento").empty();
             }
            }
         });
     }else{
-        $("#departamento").empty();
+        $("#id_departamento").empty();
     }      
    });
 
-    $('#departamento').on('change',function(){
+    $('#id_departamento').on('change',function(){
     var id_departamento = $(this).val();    
     if(id_departamento){
         $.ajax({
@@ -32,24 +32,24 @@ $('#pais').change(function(){
            success:function(res){  
             console.log(res);               
             if(res){
-                $("#provincia").empty();
-                $("#provincia").append('<option>Seleccione provincia</option>');
+                $("#id_provincia").empty();
+                $("#id_provincia").append('<option>Seleccione provincia</option>');
                 $.each(res,function(key,value){
-                    $("#provincia").append('<option value="'+res[key].id_provincia+'">'+res[key].nombre+'</option>');
+                    $("#id_provincia").append('<option value="'+res[key].id_provincia+'">'+res[key].nombre+'</option>');
                 });
            
             }else{
-               $("#provincia").empty();
+               $("#id_provincia").empty();
             }
            }
         });
     }else{
-        $("#ciudad").empty();
+        $("#id_municipio").empty();
     }
         
    });
   
-   $('#provincia').on('change',function(){
+   $('#id_provincia').on('change',function(){
     var id_provincia = $(this).val();    
 
     if(id_provincia){
@@ -59,19 +59,19 @@ $('#pais').change(function(){
            success:function(res){   
             console.log(res);               
             if(res){
-                $("#ciudad").empty();
-                $("#ciudad").append('<option>Seleccione ciudad</option>');
+                $("#id_municipio").empty();
+                $("#id_municipio").append('<option>Seleccione ciudad</option>');
                 $.each(res,function(key,value){
-                    $("#ciudad").append('<option value="'+res[key].id_municipio+'">'+res[key].nombre+'</option>');
+                    $("#id_municipio").append('<option value="'+res[key].id_municipio+'">'+res[key].nombre+'</option>');
                 });
            
             }else{
-               $("#ciudad").empty();
+               $("#id_municipio").empty();
             }
            }
         });
     }else{
-        $("#ciudad").empty();
+        $("#id_municipio").empty();
     }
         
    });
