@@ -17,9 +17,10 @@ use App\Models\especialidades;
 use App\Models\User;
 use App\Models\universidades;
 use App\Models\perfilesprofesionalesuniversidades;
+use App\Models\tipoconsultas;
 use App\Models\experiencias;
 use App\Models\asociaciones;
-use App\Models\usuario_idioma;
+use App\Models\usuario_idiomas;
 use App\Models\idiomas;
 use File;
 
@@ -43,25 +44,32 @@ class formularioProfesionalController extends Controller
         $objuser = $this->cargaDatosUser($id_user);
         $objFormulario=$this->cargaFormulario($id_user);
         $objFormulario1=$this->cargaFormulario1($id_user);
+        $objContadorConsultas=$this->contadorConsultas($id_user);
+        $objConsultas=$this->cargaConsultas($id_user);
         $objExperiencia=$this->cargaExperiencia($id_user);
         $objContadorExperiencia=$this->contadorExperiencia($id_user);
         $objAsociaciones=$this->cargaAsociaciones($id_user);
         $objContadorAsociaciones=$this->contadorAsociaciones($id_user);
-        $objContadorIdiomas=$this->cargaIdiomas($id_user);
-
+        $objIdiomas=$this->cargaIdiomas($id_user);
+        $objContadorIdiomas=$this->contadorIdiomas($id_user);
+    
 
         return view('profesionales.FormularioProfesional',compact(
         'objuser',
         'area',
         'pais',
+        'idiomas',
         'universidades',
         'objFormulario',
         'objFormulario1',
+        'objContadorConsultas',
+        'objConsultas',
         'objExperiencia',
         'objContadorExperiencia',
         'objAsociaciones',
         'objContadorAsociaciones',
-        'idiomas'
+        'objIdiomas',
+        'objContadorIdiomas'
         ));
     }
 
@@ -136,12 +144,22 @@ class formularioProfesionalController extends Controller
     WHERE pf.idUser=$id_user LIMIT 1");
     }
 
-    public function cargaExperiencia($id_user){
-    return DB::select("SELECT ex.idexperiencias, ex.nombreEmpresaExperiencia, ex.descripcionExperiencia,
-     ex.fechaInicioExperiencia, ex.fechaFinExperiencia
+    public function contadorConsultas($id_user){
+    /*cuenta los los valores ingresados*/
+    $contadorConsultas = DB::table('perfilesprofesionales')
+    ->select(DB::raw('COUNT(tipoconsultas.idperfil) as cantidad'))
+    ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
+    ->leftjoin('tipoconsultas', 'perfilesprofesionales.idPerfilProfesional', '=', 'tipoconsultas.idperfil')
+    ->where('users.id', '=',$id_user)
+    ->first();
+    return $contadorConsultas;
+    }
+    
+    public function cargaConsultas($id_user){
+    return DB::select("	SELECT tc.id, tc.nombreconsulta, tc.valorconsulta
     FROM perfilesprofesionales pf
     INNER JOIN users us   ON pf.idUser=us.id
-    LEFT JOIN  experiencias ex ON pf.idPerfilProfesional= ex.idPerfilProfesional
+    LEFT JOIN  tipoconsultas tc ON pf.idPerfilProfesional= tc.idperfil
     WHERE pf.idUser=$id_user");
     }
 
@@ -155,6 +173,16 @@ class formularioProfesionalController extends Controller
     ->first();
     return $contadorexperinecia;
     }
+
+    public function cargaExperiencia($id_user){
+    return DB::select("SELECT ex.idexperiencias, ex.nombreEmpresaExperiencia, ex.descripcionExperiencia,
+     ex.fechaInicioExperiencia, ex.fechaFinExperiencia
+    FROM perfilesprofesionales pf
+    INNER JOIN users us   ON pf.idUser=us.id
+    LEFT JOIN  experiencias ex ON pf.idPerfilProfesional= ex.idPerfilProfesional
+    WHERE pf.idUser=$id_user");
+    }
+
 
     public function cargaAsociaciones($id_user){
     return DB::select("SELECT aso.idAsociaciones, aso.imgasociacion
@@ -175,13 +203,24 @@ class formularioProfesionalController extends Controller
     return $contadorasociacion;
     }
 
-    public function cargaIdiomas($id_user){
-    return DB::select("SELECT i.nombreidioma, i.imgidioma
-    FROM perfilesprofesionales pf
-    INNER JOIN users us   ON pf.idUser=us.id
-    LEFT JOIN  usuario_idioma ui ON pf.idPerfilProfesional= ui.idPerfilProfesional
-    LEFT JOIN  idiomas i ON ui.id_idioma= i.id_idioma
-    WHERE pf.idUser=$id_user");
+    public function  cargaIdiomas($id_user){
+        return DB::select("SELECT usi.id_idioma, i.nombreidioma, i.imgidioma
+        FROM perfilesprofesionales pf
+        INNER JOIN users us   ON pf.idUser=us.id
+        LEFT JOIN  usuario_idiomas usi ON pf.idPerfilProfesional= usi.idPerfilProfesional
+        LEFT JOIN  idiomas i ON usi.id_idioma= i.id_idioma
+        WHERE pf.idUser=$id_user");
+        }
+
+    public function contadorIdiomas($id_user){
+    /*cuenta los los valores ingresados*/
+    $contadoridiomas = DB::table('perfilesprofesionales')
+    ->select(DB::raw('COUNT(usuario_idiomas.idPerfilProfesional) as cantidad'))
+    ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
+    ->leftjoin('usuario_idiomas', 'perfilesprofesionales.idPerfilProfesional', '=', 'usuario_idiomas.idPerfilProfesional')
+    ->where('users.id', '=',$id_user)
+    ->first();
+    return $contadoridiomas;
     }  
 
         
@@ -347,16 +386,41 @@ protected function create2(Request $request){
 
         perfilesprofesionales::where('idUser', $id_user)->update($request->all());
 
-   
+        return redirect('FormularioProfesional'); 
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 2----------------------*/
 
 
-
-
-
 /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 3----------------------*/
 public function create3(Request $request){
+
+    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+
+    unset($request['_token']);
+    // Recorre todos los "nombres" enviados, si no hay ninguno se
+    //  crea un array vacío para que no devuelva un error el foreach
+    foreach ($request->input('nombreconsulta', []) as $i => $nombreconsulta) {
+        tipoconsultas::create([
+            'idperfil' => $idProProfesi,
+            'nombreconsulta' => $request->input('nombreconsulta.'.$i),
+            'valorconsulta' => $request->input('valorconsulta.'.$i),
+        ]);
+    }
+
+
+return redirect('FormularioProfesional'); 
+
+}
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 3----------------------*/
+
+
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 4----------------------*/
+public function create4(Request $request){
 
 
 
@@ -374,15 +438,55 @@ public function create3(Request $request){
     return redirect('FormularioProfesional'); 
 
 }
-/*-------------------------------------Fin Creacion y/o modificacion formulario parte 3----------------------*/
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 4----------------------*/
+
+
+
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 5----------------------*/
+public function create5(Request $request){
+
+    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+
+    foreach ($request->input('id_universidad', []) as $i => $id_universidad) {
+        perfilesprofesionalesuniversidades::create([
+            'idPerfilProfesional' => $idProProfesi,
+            'id_universidad' => $request->input('id_universidad.'.$i),
+            'nombreestudio' => $request->input('nombreestudio.'.$i),
+        ]);
+    }
+
+    return redirect('FormularioProfesional'); 
+
+}
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 5----------------------*/
+/*-------------------------------------Inicio Eliminacion  formulario parte 5----------------------*/
+public function delete5($idexperiencias){
+
+
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+
+    $experiencias = experiencias::where('idexperiencias', $idexperiencias)->where('idPerfilProfesional', $idProProfesi);
+    $experiencias->delete();
+
+    return redirect('FormularioProfesional'); 
+
+}
+/*-------------------------------------Fin Eliminacion formulario parte 5----------------------*/
 
 
 
 
-
-
-/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 4----------------------*/
-public function create4(Request $request){
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 6----------------------*/
+public function create6(Request $request){
 
     /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
     $verificaPerfil = $this->verificaPerfil();
@@ -409,9 +513,9 @@ public function create4(Request $request){
     return redirect('FormularioProfesional'); 
 
 }
-/*-------------------------------------Fin Creacion y/o modificacion formulario parte 4----------------------*/
-/*-------------------------------------Inicio Eliminacion  formulario parte 4----------------------*/
-public function delete4($idexperiencias){
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 6----------------------*/
+/*-------------------------------------Inicio Eliminacion  formulario parte 6----------------------*/
+public function delete6($idexperiencias){
 
 
     $verificaPerfil = $this->verificaPerfil();
@@ -425,13 +529,13 @@ public function delete4($idexperiencias){
     return redirect('FormularioProfesional'); 
 
 }
-/*-------------------------------------Fin Eliminacion formulario parte 4----------------------*/
+/*-------------------------------------Fin Eliminacion formulario parte 6----------------------*/
 
 
 
 
-/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 5----------------------*/
-public function create5(Request $request){
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 7----------------------*/
+public function create7(Request $request){
 
         /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
         $verificaPerfil = $this->verificaPerfil();
@@ -463,9 +567,9 @@ public function create5(Request $request){
     return redirect('FormularioProfesional'); 
 
 }
-/*-------------------------------------Fin Creacion y/o modificacion formulario parte 5----------------------*/
-/*-------------------------------------Inicio Eliminacion  formulario parte 5----------------------*/
-public function delete5($idAsociaciones){
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 7----------------------*/
+/*-------------------------------------Inicio Eliminacion  formulario parte 7----------------------*/
+public function delete7($idAsociaciones){
 
 
     $verificaPerfil = $this->verificaPerfil();
@@ -480,5 +584,51 @@ public function delete5($idAsociaciones){
     return redirect('FormularioProfesional'); 
 
 }
-/*-------------------------------------Fin Eliminacion formulario parte 5----------------------*/
+/*-------------------------------------Fin Eliminacion formulario parte 7----------------------*/
+
+
+
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 8----------------------*/
+public function create8(Request $request){
+
+    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+
+    unset($request['_token']);
+    // Recorre todos los "nombres" enviados, si no hay ninguno se
+    //  crea un array vacío para que no devuelva un error el foreach
+    foreach ($request->input('id_idioma', []) as $i => $id_idioma) {
+        usuario_idiomas::create([
+            'idPerfilProfesional' => $idProProfesi,
+            'id_idioma' => $request->input('id_idioma.'.$i),
+        ]);
+    }
+
+
+return redirect('FormularioProfesional'); 
+
+}
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 8----------------------*/
+/*-------------------------------------Inicio Eliminacion  formulario parte 8----------------------*/
+public function delete8($id_idioma){
+
+
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+
+
+    $usuario_idiomas = usuario_idiomas::where('id_idioma', $id_idioma)->where('idPerfilProfesional', $idProProfesi);
+    $usuario_idiomas->delete();
+
+    return redirect('FormularioProfesional'); 
+
+}
+/*-------------------------------------Fin Eliminacion formulario parte 8----------------------*/
 }

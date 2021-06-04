@@ -59,8 +59,8 @@
                                 @foreach($objFormulario1 as $objFormulario1)
                                     <option value="{{$objFormulario1->id_universidad}}">{{$objFormulario1->nombreuniversidad}}</option>
                                 @endforeach
-                                @foreach($universidades as $universidades)
-                                        <option value="{{$universidades->id_universidad}}"> {{$universidades->nombreuniversidad}}</option>
+                                @foreach($universidades as $universidades1)
+                                        <option value="{{$universidades1->id_universidad}}"> {{$universidades1->nombreuniversidad}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -132,8 +132,8 @@
                             <label for="title">Selecione Universidad:</label>
                             <select  class="form-control" style="width:350px" name="id_universidad">
                                 <option value="">Seleccione Universidad</option>
-                                    @foreach($universidades as $universidades)
-                                <option value="{{$universidades->id_universidad}}"> {{$universidades->nombreuniversidad}}</option>
+                                    @foreach($universidades as $universidades2)
+                                <option value="{{$universidades2->id_universidad}}"> {{$universidades2->nombreuniversidad}}</option>
                                     @endforeach
                             </select>
                         </div>
@@ -226,8 +226,130 @@
 
 
 <!--------------------------------------------Inicio tercera parte del formulario------------------------------------------------> 
-<div class="container" style="background: bisque;">
+<div class="container" style="background: darkcyan;">
+
+                @foreach($objConsultas as $objConsultas)
+                    @if(!empty($objConsultas->nombreconsulta))
+                        <div class="col-12">
+                                <span>{{$objConsultas->nombreconsulta}} $ {{$objConsultas->valorconsulta}}</span>
+                                <a href="{{url('/FormularioProfesionaldelete5/'.$objConsultas->id)}}">
+                                    <button type="submit" class="close" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </a>
+                        </div>
+                    @endif
+                @endforeach
         <form method="POST" action="{{ url ('/FormularioProfesionalSave3') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+              
+            @if($objContadorConsultas->cantidad == 0)
+                <div class="col-12">
+                    <div class="form-group col-md-4">
+                        <label for="inputState">Tipo Consulta</label>
+                        <select id="inputState" class="form-control" name="nombreconsulta[]">
+                            <option value=" " selected>Seleccionar</option>
+                            <option value="Presencial">Presencial</option>
+                            <option value="Virtual">Virtual</option>
+                            <option value="Control médico">Control médico</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip">valor</label>
+                        <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group col-md-4">
+                        <label for="inputState">Tipo Consulta</label>
+                        <select id="inputState" class="form-control" name="nombreconsulta[]">
+                            <option value=" " selected>Seleccionar</option>
+                            <option value="Presencial">Presencial</option>
+                            <option value="Virtual">Virtual</option>
+                            <option value="Control médico">Control médico</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip">valor</label>
+                        <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group col-md-4">
+                        <label for="inputState">Tipo Consulta</label>
+                        <select id="inputState" class="form-control" name="nombreconsulta[]">
+                            <option value=" " selected>Seleccionar</option>
+                            <option value="Presencial">Presencial</option>
+                            <option value="Virtual">Virtual</option>
+                            <option value="Control médico">Control médico</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip">valor</label>
+                        <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                    </div>
+                </div>
+            @elseif($objContadorConsultas->cantidad == 1)
+                <div class="col-12">
+                        <div class="form-group col-md-4">
+                            <label for="inputState">Tipo Consulta</label>
+                            <select id="inputState" class="form-control" name="nombreconsulta[]">
+                                <option value=" " selected>Seleccionar</option>
+                                <option value="Presencial">Presencial</option>
+                                <option value="Virtual">Virtual</option>
+                                <option value="Control médico">Control médico</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputZip">valor</label>
+                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group col-md-4">
+                            <label for="inputState">Tipo Consulta</label>
+                            <select id="inputState" class="form-control" name="nombreconsulta[]">
+                                <option value=" " selected>Seleccionar</option>
+                                <option value="Presencial">Presencial</option>
+                                <option value="Virtual">Virtual</option>
+                                <option value="Control médico">Control médico</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputZip">valor</label>
+                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                        </div>
+                    </div>
+                @elseif($objContadorConsultas->cantidad == 2)
+                    <div class="col-12">
+                        <div class="form-group col-md-4">
+                            <label for="inputState">Tipo Consulta</label>
+                            <select id="inputState" class="form-control" name="nombreconsulta[]">
+                                <option value=" " selected>Seleccionar</option>
+                                <option value="Presencial">Presencial</option>
+                                <option value="Virtual">Virtual</option>
+                                <option value="Control médico">Control médico</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputZip">valor</label>
+                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                        </div>
+                    </div>
+                @elseif($objContadorConsultas->cantidad == 3)
+                <span>No se puede agragar mas </span>
+                @endif
+                <div class="col-md-6 col-md-offset-4">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+        </form>
+</div>
+<!--------------------------------------------Fin tercera parte del formulario------------------------------------------------> 
+
+
+<!--------------------------------------------Inicio cuarta parte del formulario------------------------------------------------> 
+<div class="container" style="background: bisque;">
+        <form method="POST" action="{{ url ('/FormularioProfesionalSave4') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
                 @if(!empty($objFormulario))
@@ -243,10 +365,107 @@
                 @endif
         </form>
 </div>
-<!--------------------------------------------Fin tercera parte del formulario------------------------------------------------>
+<!--------------------------------------------Fin cuarta parte del formulario------------------------------------------------>
 
 
-<!--------------------------------------------Inicio cuarta parte del formulario------------------------------------------------> 
+
+<!--------------------------------------------Inicio quinta parte del formulario------------------------------------------------> 
+<div class="container" style="background: blueviolet;">
+           <form method="POST" action="{{ url ('/FormularioProfesionalSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="title">Selecione Universidad:</label>
+                            <select  class="form-control" style="width:350px" name="id_universidad[]">
+                                <option value="">Seleccione Universidad</option>
+                                    @foreach($universidades as $universidad)
+                                      <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
+                                    @endforeach
+                            </select>
+                        </div>
+                         <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                        <div class="col-12">
+                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="title">direccion</label>
+                                <input id="direccion" type="text" name="nombreestudio[]" value="">
+                            </div>
+                       </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="title">Selecione Universidad:</label>
+                            <select  class="form-control" style="width:350px" name="id_universidad[]">
+                                <option value="">Seleccione Universidad</option>
+                                    @foreach($universidades as $universidad)
+                                      <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
+                                    @endforeach
+                            </select>
+                        </div>
+                         <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                        <div class="col-12">
+                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="title">direccion</label>
+                                <input id="direccion" type="text" name="nombreestudio[]" value="">
+                            </div>
+                       </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="title">Selecione Universidad:</label>
+                            <select  class="form-control" style="width:350px" name="id_universidad[]">
+                                <option value="">Seleccione Universidad</option>
+                                    @foreach($universidades as $universidad)
+                                      <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
+                                    @endforeach
+                            </select>
+                        </div>
+                         <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                        <div class="col-12">
+                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="title">direccion</label>
+                                <input id="direccion" type="text" name="nombreestudio[]" value="">
+                            </div>
+                       </div>
+                    </div>
+                                        <div class="col-12">
+                        <div class="form-group">
+                            <label for="title">Selecione Universidad:</label>
+                            <select  class="form-control" style="width:350px" name="id_universidad[]">
+                                <option value="">Seleccione Universidad</option>
+                                    @foreach($universidades as $universidad)
+                                      <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
+                                    @endforeach
+                            </select>
+                        </div>
+                         <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                        <div class="col-12">
+                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="title">direccion</label>
+                                <input id="direccion" type="text" name="nombreestudio[]" value="">
+                            </div>
+                       </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-4">
+                      <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+            </form> 
+</div>
+<!--------------------------------------------Fin quinta parte del formulario------------------------------------------------>
+
+
+<!--------------------------------------------Inicio sexta parte del formulario------------------------------------------------> 
 <div class="container" style="background: aquamarine;">
 
            <!--------------muestra una lista de la experinecia ingresada---------------> 
@@ -254,7 +473,7 @@
                 @if(!empty($objExperiencia->nombreEmpresaExperiencia))
                     <div class="col-12">
                             <span>{{$objExperiencia->nombreEmpresaExperiencia}}  {{$objExperiencia->descripcionExperiencia}} {{$objExperiencia->fechaInicioExperiencia}} {{$objExperiencia->fechaFinExperiencia}} </span>
-                            <a href="{{url('/FormularioProfesionaldelete4/'.$objExperiencia->idexperiencias)}}">
+                            <a href="{{url('/FormularioProfesionaldelete6/'.$objExperiencia->idexperiencias)}}">
                                 <button type="submit" class="close" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -263,7 +482,7 @@
                 @endif
                 @endforeach
 
-        <form method="POST" action="{{ url ('/FormularioProfesionalSave4') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+        <form method="POST" action="{{ url ('/FormularioProfesionalSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">    
                 @if($objContadorExperiencia->cantidad >= 4)
                    <span>No puede agregar mas campos</span>
@@ -306,18 +525,18 @@
                       <!-- <input class="contadorexperinecia" name="contadorexperinecia" type="text" value="1">-->
         </form>
 </div>
-<!--------------------------------------------Fin cuarta parte del formulario------------------------------------------------>
+<!--------------------------------------------Fin sexta parte del formulario------------------------------------------------>
 
 
 
-<!--------------------------------------------Inicio quinta parte del formulario------------------------------------------------> 
+<!--------------------------------------------Inicio septima parte del formulario------------------------------------------------> 
 <div class="container" style="background: blueviolet;">
                @foreach($objAsociaciones as $objAsociaciones)
                         @if(!empty($objAsociaciones->imgasociacion))
                             <div class="col-12">
                              <img id="imagenPrevisualizacion" src="{{URL::asset($objAsociaciones->imgasociacion)}}">
 
-                            <a href="{{url('/FormularioProfesionaldelete5/'.$objAsociaciones->idAsociaciones)}}">
+                            <a href="{{url('/FormularioProfesionaldelete7/'.$objAsociaciones->idAsociaciones)}}">
                                 <button type="submit" class="close" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -325,7 +544,7 @@
                             </div>
                         @endif
                 @endforeach
-        <form method="POST" action="{{ url ('/FormularioProfesionalSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+        <form method="POST" action="{{ url ('/FormularioProfesionalSave7') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
              
                 @if($objContadorAsociaciones->cantidad == 0)
@@ -430,40 +649,92 @@
 
         </form>
 </div>
-<!--------------------------------------------Fin quinta parte del formulario------------------------------------------------>
+<!--------------------------------------------Fin septima parte del formulario------------------------------------------------>
 
 
 
-<!--------------------------------------------Inicio sexta parte del formulario------------------------------------------------> 
+<!--------------------------------------------Inicio octavo parte del formulario------------------------------------------------> 
 
 <div class="container" style="background: blue;">
-            <div class="col-12">
-                <div class="form-group">
-                    <label for="title">Selecione Universidad:</label>
-                    <select  class="form-control" style="width:350px" name="id_universidad[]">
-                        <option value=" ">Seleccione</option>
-                          @foreach($idiomas as $idiomas1)
-                           <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
-                          @endforeach
-                    </select>
-                    <select  class="form-control" style="width:350px" name="id_universidad[]">
-                        <option value=" ">Seleccione</option>
-                          @foreach($idiomas as $idiomas2)
-                           <option value="{{$idiomas2->id_idioma}}"> {{$idiomas2->nombreidioma}}</option>
-                          @endforeach
-                    </select>
-                    <select  class="form-control" style="width:350px" name="id_universidad[]">
-                        <option value=" ">Seleccione</option>
-                          @foreach($idiomas as $idiomas3)
-                           <option value="{{$idiomas3->id_idioma}}"> {{$idiomas3->nombreidioma}}</option>
-                          @endforeach
-                    </select>
-                </div>
+                @foreach($objIdiomas as $objIdiomas)
+                        @if(!empty($objIdiomas->imgidioma))
+                            <div class="col-12">
+                            <label for="title">{{$objIdiomas->nombreidioma}}</label>
+                             <img id="imagenPrevisualizacion" src="{{URL::asset($objIdiomas->imgidioma)}}">
+
+                            <a href="{{url('/FormularioProfesionaldelete8/'.$objIdiomas->id_idioma)}}">
+                                <button type="submit" class="close" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </a>
+                            </div>
+                        @endif
+                @endforeach
+         <form method="POST" action="{{ url ('/FormularioProfesionalSave8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">  
                 
- 
-            </div>
-            
+                @if($objContadorIdiomas->cantidad == 0)
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="title">Selecione</label>
+                                <select  class="form-control" style="width:350px" name="id_idioma[]">
+                                    <option value=" ">Seleccione</option>
+                                    @foreach($idiomas as $idiomas1)
+                                    <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
+                                    @endforeach
+                                </select>
+                                <select  class="form-control" style="width:350px" name="id_idioma[]">
+                                    <option value=" ">Seleccione</option>
+                                    @foreach($idiomas as $idiomas2)
+                                    <option value="{{$idiomas2->id_idioma}}"> {{$idiomas2->nombreidioma}}</option>
+                                    @endforeach
+                                </select>
+                                <select  class="form-control" style="width:350px" name="id_idioma[]">
+                                    <option value=" ">Seleccione</option>
+                                    @foreach($idiomas as $idiomas3)
+                                    <option value="{{$idiomas3->id_idioma}}"> {{$idiomas3->nombreidioma}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                @elseif($objContadorIdiomas->cantidad == 1)
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="title">Selecione</label>
+                                <select  class="form-control" style="width:350px" name="id_idioma[]">
+                                    <option value=" ">Seleccione</option>
+                                    @foreach($idiomas as $idiomas1)
+                                    <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
+                                    @endforeach
+                                </select>
+                                <select  class="form-control" style="width:350px" name="id_idioma[]">
+                                    <option value=" ">Seleccione</option>
+                                    @foreach($idiomas as $idiomas2)
+                                    <option value="{{$idiomas2->id_idioma}}"> {{$idiomas2->nombreidioma}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>  
+                @elseif($objContadorIdiomas->cantidad == 2)
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="title">Selecione</label>
+                                <select  class="form-control" style="width:350px" name="id_idioma[]">
+                                    <option value=" ">Seleccione</option>
+                                    @foreach($idiomas as $idiomas1)
+                                    <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>  
+                @elseif($objContadorIdiomas->cantidad == 3)
+                <span>No se puede agragrar</span>
+                @endif  
+                        <div class="col-md-6 col-md-offset-4">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+         </form>
 </div>
 
-<!--------------------------------------------Fin sexta parte del formulario------------------------------------------------>
+<!--------------------------------------------Fin octavo parte del formulario------------------------------------------------>
 @endsection
