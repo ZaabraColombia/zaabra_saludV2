@@ -29,19 +29,30 @@
     justify-content: center;
     padding: 0;
 }
+.ruta_membresiaProf {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
 .input_img-option-institucion {
     margin: 0;
     height: 100%;
     width: 40%;
 }
-.texto_option-input-institucion {
+.texto_input-doctor-institucion {
     font-family: 'Roboto';
     font-size: 1em;
+    color: #3E3E3E;
     align-self: flex-end;
     text-align: center;
-}
-.pad_inferior-texto {
     padding-bottom: 12%;
+}
+.texto_input-instituto-institucion {
+    font-family: 'Roboto';
+    font-size: 1em;
+    color: #019F86;
+    align-self: flex-end;
+    text-align: center;
 }
 // Sección acordion 1
 .contain_accordion-institucion {
@@ -194,12 +205,14 @@
     .input_img-option-institucion {
         width: 40%;
     }
-    .texto_option-input-institucion {
+    .texto_input-doctor-institucion {
         font-size: .625em;
         line-height: 1.3;
-    }
-    .pad_inferior-texto {
         padding-bottom: 11%;
+    }
+    .texto_input-instituto-institucion {
+        font-size: .625em;
+        line-height: 1.3;
     }
     // Sección acordion 1
     .titulo_tarjeta-institucion {
@@ -286,7 +299,10 @@
         height: 100%;
         width: 40%;
     }
-    .texto_option-input-institucion {
+    .texto_input-doctor-institucion {
+        font-size: 1.2em;
+    }
+    .texto_input-instituto-institucion {
         font-size: 1.2em;
     }
     // Seccion acordion 1
@@ -384,12 +400,14 @@
     .input_img-option-institucion {
         width: 50%;
     }
-    .texto_option-input-institucion {
+    .texto_input-doctor-institucion {
         font-size: 1em;
         line-height: 1.2;
-    }
-    .pad_inferior-texto {
         padding-bottom: 10%;
+    }
+    .texto_input-instituto-institucion {
+        font-size: 1em;
+        line-height: 1.2;
     }
     // Seccion acordion 1
     .titulo_tarjeta-institucion {
@@ -451,11 +469,12 @@
         height: 100%;
         width: 45%;
     }
-    .texto_option-input-institucion {
+    .texto_input-doctor-institucion {
         font-size: 1em;
-    }
-    .pad_inferior-texto {
         padding-bottom: 8%;
+    }
+    .texto_input-instituto-institucion {
+        font-size: 1em;
     }
     // Seccion acordion 1
     .contain_accordion-institucion {

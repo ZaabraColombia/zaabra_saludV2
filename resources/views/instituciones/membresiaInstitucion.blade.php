@@ -11,14 +11,16 @@
     <div class="row section_inputs-option-institucion">
       <div class="col-4 col-lg-3 col-xl-2 form-check input_option-institucion">
           <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
-          <input class="form-check-input input_img-option-institucion" onclick="hideForm(this)" type="image" src="/img/iconos/icono-doctor.svg" name="idrol" value="2" data-position="doctor">
-          <label class="form-check-label texto_option-input-institucion pad_inferior-texto" for="idrol"> Doctor/a </label>
+          <a class="ruta_membresiaProf" href="{{ route('membresiaProfesional') }}">
+            <input class="form-check-input input_img-option-institucion" onclick="hideForm(this)" type="image" src="/img/iconos/icono-doctor.svg" name="idrol" value="2" data-position="doctor">
+            <label class="form-check-label texto_input-doctor-institucion" for="idrol"> Doctor/a </label>
+          </a>
       </div>
 
       <div class="col-4 col-lg-3 col-xl-2 form-check input_option-institucion"> 
           <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
-          <input class="form-check-input input_img-option-institucion" onclick="hideForm(this)" type="image" src="/img/iconos/icono-institucion.svg" name="idrol" value="3" data-position="institucion">
-          <label class="form-check-label texto_option-input-institucion" for="idrol"> Consultorios médicos/ Odontológicos </label>
+          <input class="form-check-input input_img-option-institucion" onclick="hideForm(this)" type="image" src="/img/iconos/icono-institucion-verde.svg" name="idrol" value="3" data-position="institucion">
+          <label class="form-check-label texto_input-instituto-institucion" for="idrol"> Consultorios médicos/ Odontológicos </label>
       </div>
     </div>
 

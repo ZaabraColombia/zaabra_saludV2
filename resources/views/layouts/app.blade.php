@@ -203,23 +203,29 @@
         <script src="{{ asset('js/selectpais.js') }}"></script>
         <script src="{{ asset('js/cargaFoto.js') }}"></script>
         <script src="{{ asset('js/contacto.js') }}"></script>
+        <script src="{{ asset('js/adicionarcamposformulario.js') }}"></script>
     </body>
 
-    <!-- MODAL VERSION DESKTOP ////  MODAL POPUP DE SELECCION MEDIO DE PAGO TARJETA Y PSE estilos ubicados en la vista profesional-PremiunHome.scss jfk 11-03  /////-->
+    <!-- MODAL POPUP DE SELECCION MEDIO DE PAGO TARJETA Y PSE estilos ubicados en la vista popup-pagos.scss  /////-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal_dialog-popup" role="document">
             <div class="modal-content modal_content-popup">
+                <!-- Sección boton derecho de cierre "X" -->
                 <div class="modal-header modal_header-popup">
                     <button type="button" class="close btn_close-popup" data-dismiss="modal" aria-label="Close">
                         <span class="Xcierre_modal-popup" aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <div class="modal-body p-0">
+                    <!-- Titulo y texto de encabezado -->
                     <h5 class="modal-title titulo_principal-popup" id="exampleModalLabel"> Seleccione el medio de pago</h5>
 
                     <p class="texto_superior-popup"> Seleccione el medio de pago que mejor se adapte a su necesidad. </p>
                     
+                    <!-- Sección iconos medios de pago Tarjeta de credito y PSE -->
                     <div class="section_icons-popup">
+                        <!-- Tarjeta de credito -->
                         <div class="secction_tarjeta-popup">
                             <img src="{{URL::asset('/img/popup-pago/tarjetas-de-credito-azul.svg')}}" class="icon_popup">  
 
@@ -228,6 +234,7 @@
                             <input type="radio" class="inputCheck_popup" value="first_checkbox" checked="true"> 
                         </div> 
 
+                        <!-- PSE -->
                         <div class="secction_tarjeta-popup">
                             <img src="{{URL::asset('/img/popup-pago/medios-online-pse-azul.svg')}}" class="icon_popup"> 
 
@@ -237,7 +244,7 @@
                         </div>  
                     </div>
 
-                    <!-- Botón Pagar -->
+                    <!-- Sección botón Pagar -->
                     <div class="section_btnPagar-popup">
                         <button type="submit" class="btnPagar-popup" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera"> {{ __('Pagar') }}
                             <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_pagar-popup" alt=""> 
@@ -254,41 +261,7 @@
                 </div>
             </div>
         </div>
-        
-        <div class="modal fade " id="modalPagoEspera" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialogPopUpPremiunHome" role="document">
-                <div class="modal-content modal-contentPropiedPopUpPremiunHome">
-                    <div class="modal-header modal_header-popup">
-                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span class="headerBtnCierrePopUpPremiunHome" aria-hidden="true">&times;</span>
-                        </button> -->
-                    </div>
-                    <div class="modal-body modal-bodyPopUpPremiunHome">
-                        <!-- <div class="col-md-12 modalBodyContentPrincipalPopUpPremiunHome">
-                            <div class="col-5 modalBodyContentLogoPopUpPremiunHome">
-                                <img class="modalBodyLogoPopUpPremiunHome" src=""> 
-                            </div>
-                            <div class="col-7 modalBodyContentServProfPopUpPremiunHome">
-                                <h1 class="modalBodyServProfFontPopUpPremiunHome">SERVICIOS</h1>
-                                <h1 class="modalBodyServProfFontPopUpPremiunHome">PROFESIONALES</h1> 
-                            </div>
-                        </div> -->
 
-                        <div class="col-12 modalBodyContentAvisoPopUpPremiunHome">
-                            <h1 class="modalBodyAvisoFontPopUpPremiunHome">Permítenos unos minutos para</h1>
-                            <h1 class="modalBodyAvisoFontPopUpPremiunHome">procesar tu compra...</h1>
-                        </div>
-                    </div>
-                
-                    <div class="wrapper">
-                        <div class="blue ball"></div>
-                        <div class="red ball"></div>  
-                        <div class="yellow ball"></div>  
-                        <div class="green ball"></div>  
-                    </div>
-                </div>
-            </div>
-        </div> 
     </div>
 </html>
 
