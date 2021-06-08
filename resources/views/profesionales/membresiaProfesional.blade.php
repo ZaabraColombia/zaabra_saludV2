@@ -4,6 +4,7 @@
 
 <div class="container-fluid">
   <section class="section_principal-membresia">
+    <!-- Titulo principal y texto superiror -->
     <h5 class="titulo_principal-membresia"> ESCOJA SU PLAN </h5>
     <p class="texto_superior-membresia"> Escoja el que se ajuste a sus necesidades. </p>
 
@@ -11,20 +12,24 @@
     <div class="row section_inputs-option-membresia">
       <div class="col-4 col-lg-3 col-xl-2 form-check input_option-membresia">
           <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
-          <input class="form-check-input input_img-option-membresia" onclick="hideForm(this)" type="image" src="/img/iconos/icono-doctor.svg" name="idrol" value="2" data-position="doctor">
-          <label class="form-check-label texto_option-input-membresia pad_inferior-texto" for="idrol"> Doctor/a </label>
+          <input class="form-check-input input_img-option-membresia" onclick="hideForm(this)" type="image" src="/img/iconos/icono-doctor-azul.svg" name="idrol" value="2" data-position="doctor">
+          <label class="form-check-label texto_input-doctor-membresia" for="idrol"> Doctor/a </label>
       </div>
 
       <div class="col-4 col-lg-3 col-xl-2 form-check input_option-membresia"> 
           <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
-          <input class="form-check-input input_img-option-membresia" onclick="hideForm(this)" type="image" src="/img/iconos/icono-institucion.svg" name="idrol" value="3" data-position="institucion">
-          <label class="form-check-label texto_option-input-membresia" for="idrol"> Consultorios médicos/ Odontológicos </label>
+          <a class="ruta_membresiaInst" href="{{ route('membresiaInstitucion') }}"> 
+            <input class="form-check-input input_img-option-membresia" onclick="hideForm(this)" type="image" src="/img/iconos/icono-institucion.svg" name="idrol" value="3" data-position="institucion"> 
+              <label class="form-check-label texto_input-instituto-membresia" for="idrol"> Consultorios médicos/ Odontológicos </label>
+            </input>
+          </a>
       </div>
     </div>
 
     <!-- Acordion 1 -->
-
-    <div class="contain_accordion-membresia" id="accordion1">
+    <!--///   Evento cambio de color y dejar un solo item desplegado en las opciones de la tarjeta membresiaProfesional, función ubicada en el archivo footer.js
+              por medio de la clase "evento_acordion" anclada en el div principal donde esta contenido el acordion número 1  ///-->
+    <div class="evento_acordion contain_accordion-membresia" id="accordion1">
       <h5 class="titulo_tarjeta-membresia"> Plan Gratuito </h5>
       <p class="texto_superior-membresia"> Inícielo gratis hoy y después conviértase al Premium. </p>
       <p class="texto_tiempo-membresia"> Tiempo de vigencia: 15 días </p>
@@ -32,7 +37,7 @@
       <!-- Sección opcion tarjeta PLAN GRAATUITO -->
       <div class="card containt_options-collapse-membresia">
         <div id="headingOne">
-          <button class="boton_collapse-on-membresia" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Tarjeta medica </button>
+          <button class="boton_collapse-off-membresia" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Tarjeta medica </button>
         </div>
 
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1">
@@ -53,7 +58,10 @@
     </div>
 
     <!-- Acordion 2 -->
-    <div class="contain_accordion-membresia" id="accordion">
+    <!--///   Evento cambio de color y dejar un solo item desplegado en las opciones de la tarjeta membresiaProfesional, función ubicada en el archivo footer.js
+              por medio de la clase "evento_acordion" anclada en el div principal donde esta contenido el acordion número 2  ///-->
+    <div class="evento_acordion contain_accordion-membresia" id="accordion">
+      <!-- Titulo tarjeta membresia -->
       <h5 class="titulo_tarjeta-membresia"> Plan Premiun </h5>
 
       <!-- Botón Registrar -->    
@@ -64,7 +72,7 @@
         </button>
       </div>
 
-      <!-- Sección opciones de la tarjeta MEMBRESIA -->
+      <!-- Sección opciones desplegables de la tarjeta MEMBRESIA PROFESIONAL -->
       <div class="card containt_options-collapse-membresia">
       <div id="headingTwo">
           <button class="boton_collapse-off-membresia" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Página web </button>

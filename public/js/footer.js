@@ -1,4 +1,6 @@
-// Función anonima para ocultar el NEWSLWTTER del FOOTER en las vistas Login, Register y Email
+// Función anonima para ocultar el NEWSLWTTER del FOOTER en las vistas Login, Register, Email
+// acerca de Zaabra, políticas de uso, preguntas frecuentes, contactenos, errores
+// membresiaProfesional, membresiaInstitucion
 !function() {
     let selector = document.querySelector.bind(document);
     let queryRuta = window.location.pathname;
@@ -6,7 +8,8 @@
     // Condicional de validación de rutas a las cuales les remueve el NEWSLETTER del FOOTER
     if (queryRuta.includes("register") || queryRuta.includes("login") || queryRuta.includes("reset") 
        || queryRuta.includes("acerca") || queryRuta.includes("politicas") || queryRuta.includes("preguntas")
-       || queryRuta.includes("membresiaProfesional") || queryRuta.includes("/contacto")
+       || queryRuta.includes("membresiaProfesional") || queryRuta.includes("membresiaInstitucion")
+       || queryRuta.includes("/contacto")
        || queryRuta.includes("error101") || queryRuta.includes("error403")
        || queryRuta.includes("error404") || queryRuta.includes("error505") ) {
        selector(".footer_newsletter").style.display = "none";
@@ -32,6 +35,12 @@ function direccionFlecha (element){
     }
 }
 
+// Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "membresiaProfesional" y "membresiaInstitucion" 
+$('.evento_acordion .containt_options-collapse-membresia').on( "click", function() {
+	$(this).siblings().find(".boton_collapse-off-membresia").removeClass("boton_collapse-on-membresia");
+	$(this).find(".boton_collapse-off-membresia").toggleClass("boton_collapse-on-membresia");
+});
+
 // Función para el cambio de background y del icono (+ y -) de las opciones de Acerca de zzaabra, politicas de uso y preguntas frecuentes del FOOTER 
 // Acerca de Zaabra
 /*unction colorBtnToggle (element) {
@@ -50,10 +59,3 @@ function direccionFlecha (element){
         $(element).attr('aria-expanded', 'true')
     }
 }*/
-
-$('#accordion .containt_options-collapse-membresia').on( "click", function() {
-	$(this).siblings().find(".boton_collapse-off-membresia").removeClass("boton_collapse-on-membresia");
-	$(this).find(".boton_collapse-off-membresia").toggleClass("boton_collapse-on-membresia");
-});
-     
- 

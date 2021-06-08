@@ -67,6 +67,7 @@
                     <!--******************************     Sección BARRA DE BUSQUEDA version MOBILE      *************************************-->
                     <!-- SECCION BARRA DE BUSQUEDA HEADER -->
                     <div class="contain_lupa-mobile">
+                        <!--///      Función para desplegar y ocultar barra de busqueda en la vista "header" versión Mobile ubicada en el archivo header.js      ///-->
                         <button type="button" onclick="ocultaInput()" class="boton_lupa_mobile">
                             <img class="icon_lupa-mobile" src="{{URL::asset('/img/header/icono-lupa-blanco.svg')}}">
                         </button>
@@ -86,17 +87,17 @@
                         </div>
                     </div>
 
-                    <!-- Sección Botón membresía -->
+                    <!-- Sección Botón membresía Desktop -->
                     <div class="button-membresia">
-                        <a class="" href="">
-                            <img class="img-button-membresia" src="http://portal-test.zaabra.local/img/boton-membresia.png">
+                        <a class="" href="{{ route('membresiaProfesional') }}">
+                            <img class="img-button-membresia" src="{{URL::asset('/img/header/boton-membresia.png')}}">
                         </a>  
                     </div>
 
                     <!--******************************     Sección Botón Membresía version MOBILE      *************************************-->
                     <!-- SECCION BOTÓN MEMBRESÍA HEADER -->
                     <div class="button-membresia-mobile">
-                        <a class="" href="">
+                        <a class="" href="{{ route('membresiaProfesional') }}">
                             <img class="img-button-membresia-mobile" src="{{URL::asset('/img/header/boton-de-memebresia-mob.png')}}"> 
                         </a>  
                     </div>
@@ -189,7 +190,7 @@
             </main>
             @include('footer')
         </div>
-        
+        <!--///      Ubicación de los SCRIPT de cada uno de los archivos .js utilizados en el proyecto zaabrasalud      ///-->
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/header.js') }}"></script>
         <script src="{{ asset('js/register.js') }}"></script>
@@ -206,13 +207,13 @@
         <script src="{{ asset('js/adicionarcamposformulario.js') }}"></script>
     </body>
 
-    <!-- MODAL POPUP DE SELECCION MEDIO DE PAGO TARJETA Y PSE estilos ubicados en la vista popup-pagos.scss  /////-->
+    <!--/////    MODAL POPUP DE PAGO de las tarjetas de membresia de las vistas "membresiaProfesional" y "membresiaInstitucion". Estilos ubicados en la vista "popup-pagos.scss"  /////-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal_dialog-popup" role="document">
             <div class="modal-content modal_content-popup">
                 <!-- Sección boton derecho de cierre "X" -->
                 <div class="modal-header modal_header-popup">
-                    <button type="button" class="close btn_close-popup" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="btn_close-popup" data-dismiss="modal" aria-label="Close">
                         <span class="Xcierre_modal-popup" aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -224,23 +225,24 @@
                     <p class="texto_superior-popup"> Seleccione el medio de pago que mejor se adapte a su necesidad. </p>
                     
                     <!-- Sección iconos medios de pago Tarjeta de credito y PSE -->
+                    <!--//////      Funcionalidad de cambio de color de los botones e iconos de pago del poup se encuentran en el archivo instituciones.js     //////-->
                     <div class="section_icons-popup">
                         <!-- Tarjeta de credito -->
                         <div class="secction_tarjeta-popup">
-                            <img src="{{URL::asset('/img/popup-pago/tarjetas-de-credito-azul.svg')}}" class="icon_popup">  
+                            <img id="img_tarjCred" src="{{URL::asset('/img/popup-pago/tarjetas-de-credito-azul.svg')}}" class="icon_popup">  
 
                             <h3 class="textoCheck_popup"> Tarjetas de crédito </h3> 
 
-                            <input type="radio" class="inputCheck_popup" value="first_checkbox" checked="true"> 
+                            <input class="inputCheck_popup" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                         </div> 
 
                         <!-- PSE -->
                         <div class="secction_tarjeta-popup">
-                            <img src="{{URL::asset('/img/popup-pago/medios-online-pse-azul.svg')}}" class="icon_popup"> 
+                            <img id="img_pagoPse" src="{{URL::asset('/img/popup-pago/medios-online-pse-azul.svg')}}" class="icon_popup"> 
 
                             <h3 class="textoCheck_popup"> Medio online (PSE) </h3>   
 
-                            <input type="radio" class="inputCheck_popup"   value="first_checkbox" >  
+                            <input class="inputCheck_popup" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                         </div>  
                     </div>
 
@@ -261,7 +263,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </html>
 

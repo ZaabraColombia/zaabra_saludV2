@@ -25,7 +25,9 @@
     </div>
 
     <!-- Acordion 1 -->
-    <div class="contain_accordion-institucion" id="accordion1">
+    <!--///   Evento cambio de color y dejar un solo item desplegado en las opciones de la tarjeta membresiaInstitucion, función ubicada en el archivo footer.js
+              por medio de la clase "evento_acordion" anclada en el div principal donde esta contenido el acordion número 1   ///-->
+    <div class="evento_acordion contain_accordion-institucion" id="accordion1">
       <h5 class="titulo_tarjeta-institucion"> Plan Gratuito </h5>
       <p class="texto_superior-institucion"> Inícielo gratis hoy y después conviértase al Premium. </p>
       <p class="texto_tiempo-institucion"> Tiempo de vigencia: 15 días </p>
@@ -33,7 +35,7 @@
       <!-- Sección opcion tarjeta PLAN GRAATUITO -->
       <div class="card containt_options-collapse-institucion">
         <div id="headingOne">
-          <button class="boton_collapse-on-institucion" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Tarjeta medica </button>
+          <button class="boton_collapse-off-institucion" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Tarjeta medica </button>
         </div>
 
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1">
@@ -54,12 +56,14 @@
     </div>
 
     <!-- Acordion 2 -->
-    <div class="contain_accordion-institucion" id="accordion">
+    <!--///   Evento cambio de color y dejar un solo item desplegado en las opciones de la tarjeta membresiaInstitucion, función ubicada en el archivo footer.js
+              por medio de la clase "evento_acordion" anclada en el div principal donde esta contenido el acordion número 2   ///-->
+    <div class="evento_acordion contain_accordion-institucion" id="accordion">
       <h5 class="titulo_tarjeta-institucion"> Plan Premiun </h5>
 
       <!-- Botón Registrar -->    
       <div class="col-12 content_btn-ingresar-institucion">
-        <button type="submit" class="btn_precio-tarjeta-institucion"> 
+        <button type="submit" class="btn_precio-tarjeta-institucion" data-toggle="modal" data-target="#exampleModal"> 
           <h5 class="precio_tarjeta-institucion"> $179.900 </h5>
           <h5 class="texto_precio-institucion"> Mensual* </h5>
         </button>
