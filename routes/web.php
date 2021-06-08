@@ -80,6 +80,11 @@ Route::post('/FormularioProfesionalSave9',[App\Http\Controllers\profesionales\fo
 /*-----borrar formulario parte 9----*/ 
 Route::get('/FormularioProfesionaldelete9/{id_tratamiento}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete9'])->name('FormularioProfesional');
 
+/*-----guardar formulario parte 10----*/ 
+Route::post('/FormularioProfesionalSave10',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create10'])->name('FormularioProfesional');
+/*-----borrar formulario parte 10----*/ 
+Route::get('/FormularioProfesionaldelete10/{id_tratamiento}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete10'])->name('FormularioProfesional');
+
 //Selects dinamicos area, profesion, especialidad
 Route::get('profesion/{idArea}', [App\Http\Controllers\profesionales\profesionController::class,'mostrarProfesion']);
 Route::get('especialidad/{idProfesion}', [App\Http\Controllers\profesionales\especialidadController::class,'mostrarESpecialidad']);
