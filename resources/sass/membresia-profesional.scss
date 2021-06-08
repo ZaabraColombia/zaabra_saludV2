@@ -29,19 +29,30 @@
     justify-content: center;
     padding: 0;
 }
+.ruta_membresiaInst {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
 .input_img-option-membresia {
     margin: 0;
     height: 100%;
     width: 40%;
 }
-.texto_option-input-membresia {
+.texto_input-doctor-membresia {
     font-family: 'Roboto';
     font-size: 1em;
+    color: #0083D6;
     align-self: flex-end;
     text-align: center;
-}
-.pad_inferior-texto {
     padding-bottom: 12%;
+}
+.texto_input-instituto-membresia {
+    font-family: 'Roboto';
+    font-size: 1em;
+    color: #3E3E3E;
+    align-self: flex-end;
+    text-align: center;
 }
 // Sección acordion 1
 .contain_accordion-membresia {
@@ -100,7 +111,7 @@
 }
 .boton_collapse-on-membresia {
     font-family: 'Quicksand', 'Regular' !important;
-    font-size: 1.25em !important;
+    font-size: 1.25em;
     font-weight: bold !important;
     text-decoration: none !important;
     color: #FFFFFF !important;
@@ -110,12 +121,12 @@
     border-radius: 0px !important;
     border: 1px solid #0083D6 !important;
     width: 100% !important;
-    height: 6vh !important;
+    height: 6vh;
     background-image: url('/img/iconos/icono-x.svg') !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     background-position-x: 95% !important;
-    background-size: 3% !important;
+    background-size: 3.5% !important;
 }
 .boton_collapse-off-membresia {
     font-family: 'Quicksand', 'Regular';
@@ -134,7 +145,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-position-x: 95%;
-    background-size: 3%;
+    background-size: 3.5%;
 }
 .text_interno-toggle-membresia {
     font-size: 1em;
@@ -186,12 +197,14 @@
     .input_img-option-membresia {
         width: 40%;
     }
-    .texto_option-input-membresia {
+    .texto_input-doctor-membresia {
         font-size: .625em;
         line-height: 1.3;
-    }
-    .pad_inferior-texto {
         padding-bottom: 11%;
+    }
+    .texto_input-instituto-membresia {
+        font-size: .625em;
+        line-height: 1.3;
     }
     // Sección acordion 1
     .titulo_tarjeta-membresia {
@@ -208,6 +221,9 @@
         margin: 3% auto;
     }
     // Seccion acordion 2
+    .btn_precio-tarjeta-membresia {
+        width: 40%;
+    }
     .precio_tarjeta-membresia {
         font-size: 1.25em;
     }
@@ -217,14 +233,13 @@
     .text_interno-toggle-membresia {
         font-size: .6em;
     }
-    // Seccion acordion 2
     .boton_collapse-on-membresia {
         font-size: .75em;
-        background-size: 6%;
+        background-size: 5.5% !important;
     }
     .boton_collapse-off-membresia {
         font-size: .75em;
-        background-size: 6%;
+        background-size: 5.5%;
     }
     // Texto inferior
     .texto_inferior-membresia {
@@ -234,10 +249,10 @@
     // Seccion botones inferiores REGISTRAR y EMPEZAR
     .btn_Ingreso-membresia {
         font-size: .75em;
-        width: 50%;
+        width: 40%;
     }
     .flecha_ingreso-membresia {
-        width: 9%;
+        width: 13%;
     }
 }
 @media (min-width: 375px) and (orientation: portrait) {
@@ -264,7 +279,10 @@
         height: 100%;
         width: 40%;
     }
-    .texto_option-input-membresia {
+    .texto_input-doctor-membresia {
+        font-size: 1.2em;
+    }
+    .texto_input-instituto-membresia {
         font-size: 1.2em;
     }
     // Seccion acordion 1
@@ -290,7 +308,7 @@
     .boton_collapse-on-membresia {
         font-size: 1.5em;
         height: 5vh;
-        background-size: 4%;
+        background-size: 4% !important;
     }
     .boton_collapse-off-membresia {
         font-size: 1.5em;
@@ -356,12 +374,14 @@
     .input_img-option-membresia {
         width: 50%;
     }
-    .texto_option-input-membresia {
+    .texto_input-doctor-membresia {
         font-size: 1em;
         line-height: 1.2;
-    }
-    .pad_inferior-texto {
         padding-bottom: 10%;
+    }
+    .texto_input-instituto-membresia {
+        font-size: 1em;
+        line-height: 1.2;
     }
     // Seccion acordion 1
     .titulo_tarjeta-membresia {
@@ -384,11 +404,11 @@
     }
     .boton_collapse-off-membresia {
         font-size: 1.8em;
-        background-size: 3%;
+        background-size: 3.5%;
     }
     .boton_collapse-on-membresia {
         font-size: 1.8em;
-        background-size: 3%;
+        background-size: 3.5%;
     }
     .text_interno-toggle-membresia {
         font-size: 1em;
@@ -418,11 +438,12 @@
         height: 100%;
         width: 45%;
     }
-    .texto_option-input-membresia {
+    .texto_input-doctor-membresia {
         font-size: 1em;
-    }
-    .pad_inferior-texto {
         padding-bottom: 8%;
+    }
+    .texto_input-instituto-membresia {
+        font-size: 1em;
     }
     // Seccion acordion 1
     .contain_accordion-membresia {
@@ -434,10 +455,10 @@
     }
     // Seccion acordion 2
     .boton_collapse-off-membresia {
-        background-size: 2%;
+        background-size: 2.5%;
     }
     .boton_collapse-on-membresia {
-        background-size: 2%;
+        background-size: 2.5% !important;
     }
     // Texto inferior
     .texto_inferior-membresia {
