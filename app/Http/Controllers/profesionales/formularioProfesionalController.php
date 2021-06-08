@@ -22,6 +22,8 @@ use App\Models\experiencias;
 use App\Models\asociaciones;
 use App\Models\usuario_idiomas;
 use App\Models\idiomas;
+use App\Models\tratamientos;
+use App\Models\premios;
 use File;
 
 
@@ -52,6 +54,8 @@ class formularioProfesionalController extends Controller
         $objContadorAsociaciones=$this->contadorAsociaciones($id_user);
         $objIdiomas=$this->cargaIdiomas($id_user);
         $objContadorIdiomas=$this->contadorIdiomas($id_user);
+        $objTratamiento=$this->cargaTratamiento($id_user);
+        $objContadorTratamiento=$this->contadorTratamiento($id_user);
     
 
         return view('profesionales.FormularioProfesional',compact(
@@ -69,7 +73,9 @@ class formularioProfesionalController extends Controller
         'objAsociaciones',
         'objContadorAsociaciones',
         'objIdiomas',
-        'objContadorIdiomas'
+        'objContadorIdiomas',
+        'objTratamiento',
+        'objContadorTratamiento'
         ));
     }
 
@@ -221,6 +227,25 @@ class formularioProfesionalController extends Controller
     ->where('users.id', '=',$id_user)
     ->first();
     return $contadoridiomas;
+    }  
+
+    public function  cargaTratamiento($id_user){
+        return DB::select("SELECT tr.id_tratamiento, tr.imgTratamientoAntes, tr.tituloTrataminetoAntes, tr.descripcionTratamientoAntes, tr.imgTratamientodespues, tr.tituloTrataminetoDespues, tr.descripcionTratamientoDespues
+        FROM perfilesprofesionales pf
+        INNER JOIN users us   ON pf.idUser=us.id
+        LEFT JOIN  tratamientos tr ON pf.idPerfilProfesional= tr.idPerfilProfesional
+        WHERE pf.idUser=$id_user");
+        }
+
+    public function contadorTratamiento($id_user){
+    /*cuenta los los valores ingresados*/
+    $contadortratamiento = DB::table('perfilesprofesionales')
+    ->select(DB::raw('COUNT(tratamientos.idPerfilProfesional) as cantidad'))
+    ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
+    ->leftjoin('tratamientos', 'perfilesprofesionales.idPerfilProfesional', '=', 'tratamientos.idPerfilProfesional')
+    ->where('users.id', '=',$id_user)
+    ->first();
+    return $contadortratamiento;
     }  
 
         
@@ -648,36 +673,23 @@ public function create9(Request $request){
 
     unset($request['_token']);
 
-    if ($request->hasFile('imgTratamientoAntes')) {
-        $carpetaDestino = "img/user/$id_user";
-        $imagenesantes = $request->file('imgTratamientoAntes');
-        $imagendespues = $request->file('imgTratamientodespues');
-
-        foreach ($imagenesantes as $imagen) {
-            $nombreFotoAntes = $imagen->getClientOriginalName();
-            $imagen->move($carpetaDestino , $nombreFotoAntes); 
-            $nombreFotoCompletaAntes="img/user/$id_user/$nombreFotoAntes";
-        }
+    $carpetaDestino = "img/user/$id_user";
+    $imgTratamientoAntes = $request->file('imgTratamientoAntes');
+    $imgTratamientodespues = $request->file('imgTratamientodespues');
+    for ($i=0; $i < count(request('tituloTrataminetoAntes')); ++$i){
+        tratamientos::create([
+        'idPerfilProfesional' => $idProProfesi,
+        'imgTratamientoAntes' =>"img/user/$id_user/".$imgTratamientoAntes[$i]->getClientOriginalName(),
+        'tituloTrataminetoAntes' => $request->input('tituloTrataminetoAntes')[$i],
+        'descripcionTratamientoAntes' => $request->input('descripcionTratamientoAntes')[$i],
+        'imgTratamientodespues' =>"img/user/$id_user/".$imgTratamientodespues[$i]->getClientOriginalName(),
+        'tituloTrataminetoDespues' => $request->input('tituloTrataminetoDespues')[$i],
+        'descripcionTratamientoDespues' => $request->input('descripcionTratamientoDespues')[$i],
+       ]);
+       $imgTratamientoAntes[$i]->move($carpetaDestino , $imgTratamientoAntes[$i]->getClientOriginalName());
+       $imgTratamientodespues[$i]->move($carpetaDestino , $imgTratamientodespues[$i]->getClientOriginalName());
     }
 
-
-    
-    /*
-    imgasociacion
-    if ($request->hasFile('imgasociacion')) {
-        $carpetaDestino = "img/user/$id_user";
-        $imagenes = $request->file('imgasociacion');
-    
-        foreach ($imagenes as $imagen) {
-            $nombreFoto = $imagen->getClientOriginalName();
-            $imagen->move($carpetaDestino , $nombreFoto); 
-            $nombreFotoCompleta="img/user/$id_user/$nombreFoto";
-            asociaciones::create([
-                'idPerfilProfesional' => $idProProfesi,
-                'imgasociacion'  => $nombreFotoCompleta
-               ]);
-        }
-    }*/
 
 
 return redirect('FormularioProfesional'); 
@@ -685,7 +697,7 @@ return redirect('FormularioProfesional');
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 9----------------------*/
 /*-------------------------------------Inicio Eliminacion  formulario parte 9----------------------*/
-public function delete9($id_idioma){
+public function delete9($id_tratamiento){
 
 
     $verificaPerfil = $this->verificaPerfil();
@@ -695,11 +707,45 @@ public function delete9($id_idioma){
     }
 
 
-    $usuario_idiomas = usuario_idiomas::where('id_idioma', $id_idioma)->where('idPerfilProfesional', $idProProfesi);
-    $usuario_idiomas->delete();
+    $tratamientos = tratamientos::where('id_tratamiento', $id_tratamiento)->where('idPerfilProfesional', $idProProfesi);
+    $tratamientos->delete();
 
     return redirect('FormularioProfesional'); 
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 9----------------------*/
+
+
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 10----------------------*/
+    public function create10(Request $request){
+   
+
+    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+
+    /*id usuario logueado*/
+    $id_user=auth()->user()->id;
+
+        $carpetaDestino = "img/user/$id_user";
+        $imgpremio = $request->file('imgpremio');
+        for ($i=0; $i < count(request('nombrepremio')); ++$i){
+            premios::create([
+            'idPerfilProfesional' => $idProProfesi,
+            'nombrepremio' => $request->input('nombrepremio')[$i],
+            'imgpremio' =>"img/user/$id_user/".$imgpremio[$i]->getClientOriginalName(),
+            'fechapremio' => $request->input('fechapremio')[$i],
+            'descripcionpremio' => $request->input('descripcionpremio')[$i],
+            'nombrepremio' => $request->input('nombrepremio')[$i],
+           ]);
+           $imgpremio[$i]->move($carpetaDestino , $imgpremio[$i]->getClientOriginalName());
+        }
+
+    }
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 10----------------------*/
+/*-------------------------------------Inicio Eliminacion  formulario parte 10----------------------*/
+/*-------------------------------------Fin Eliminacion formulario parte 10----------------------*/
 }
