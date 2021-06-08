@@ -549,7 +549,7 @@ public function create7(Request $request){
 
          unset($request['_token']);
 
-         if ($request->hasFile('imgasociacion')) {
+        if ($request->hasFile('imgasociacion')) {
             $carpetaDestino = "img/user/$id_user";
             $imagenes = $request->file('imgasociacion');
         
@@ -631,4 +631,75 @@ public function delete8($id_idioma){
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 8----------------------*/
+
+
+
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 9----------------------*/
+public function create9(Request $request){
+
+    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+        /*id usuario logueado*/
+        $id_user=auth()->user()->id;
+
+    unset($request['_token']);
+
+    if ($request->hasFile('imgTratamientoAntes')) {
+        $carpetaDestino = "img/user/$id_user";
+        $imagenesantes = $request->file('imgTratamientoAntes');
+        $imagendespues = $request->file('imgTratamientodespues');
+
+        foreach ($imagenesantes as $imagen) {
+            $nombreFotoAntes = $imagen->getClientOriginalName();
+            $imagen->move($carpetaDestino , $nombreFotoAntes); 
+            $nombreFotoCompletaAntes="img/user/$id_user/$nombreFotoAntes";
+        }
+    }
+
+
+    
+    /*
+    imgasociacion
+    if ($request->hasFile('imgasociacion')) {
+        $carpetaDestino = "img/user/$id_user";
+        $imagenes = $request->file('imgasociacion');
+    
+        foreach ($imagenes as $imagen) {
+            $nombreFoto = $imagen->getClientOriginalName();
+            $imagen->move($carpetaDestino , $nombreFoto); 
+            $nombreFotoCompleta="img/user/$id_user/$nombreFoto";
+            asociaciones::create([
+                'idPerfilProfesional' => $idProProfesi,
+                'imgasociacion'  => $nombreFotoCompleta
+               ]);
+        }
+    }*/
+
+
+return redirect('FormularioProfesional'); 
+
+}
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 9----------------------*/
+/*-------------------------------------Inicio Eliminacion  formulario parte 9----------------------*/
+public function delete9($id_idioma){
+
+
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+
+
+    $usuario_idiomas = usuario_idiomas::where('id_idioma', $id_idioma)->where('idPerfilProfesional', $idProProfesi);
+    $usuario_idiomas->delete();
+
+    return redirect('FormularioProfesional'); 
+
+}
+/*-------------------------------------Fin Eliminacion formulario parte 9----------------------*/
 }

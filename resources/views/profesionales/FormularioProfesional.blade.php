@@ -737,4 +737,124 @@
 </div>
 
 <!--------------------------------------------Fin octavo parte del formulario------------------------------------------------>
+
+<!--------------------------------------------Inicio noveno parte del formulario------------------------------------------------>
+
+<div class="container" style="background: blueviolet;">
+    <form method="POST" action="{{ url ('/FormularioProfesionalSave9') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">  
+        <div class="col-12 row">
+            <div class="col-6">
+            <label for="title">Antes</label>
+                <div class="col-12">
+                    <div class="form-group col-12 ">
+                        <div class="col-6">
+                            <input type='file' id="imgantes1" name="imgTratamientoAntes[]"/>
+                        </div>
+                        <div class="col-6">
+                            <div id="previewates1"></div>
+                        </div>
+                    </div> 
+                </div> 
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="title">Título de la imagen Antes</label>
+                        <input id="descripcionExperiencia"  type="text" name="tituloTrataminetoAntes[]" value="">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="title">Descripción Antes</label>
+                        <input id="descripcionExperiencia"  type="text" name="descripcionTratamientoAntes[]" value="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+            <label for="title">Despues</label>
+                <div class="col-12">
+                    <div class="form-group col-12 ">
+                        <div class="col-6">
+                            <input type='file' id="imgasocia1" name="imgTratamientodespues[]"/>
+                        </div>
+                        <div class="col-6">
+                            <div id="preview1"></div>
+                        </div>
+                    </div> 
+                </div> 
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="title">Título de la imagen Antes</label>
+                        <input id="descripcionExperiencia"  type="text" name="tituloTrataminetoDespues[]" value="">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="title">Descripción Antes</label>
+                        <input id="descripcionExperiencia"  type="text" name="descripcionTratamientoDespues[]" value="">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-12 row">
+            <div class="col-6">
+            <label for="title">Antes</label>
+                <div class="col-12">
+                    <div class="form-group col-12 ">
+                        <div class="col-6">
+                            <input type='file' id="imgasocia1" name="imgTratamientoAntes[]"/>
+                        </div>
+                        <div class="col-6">
+                            <div id="preview1"></div>
+                        </div>
+                    </div> 
+                </div> 
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="title">Título de la imagen Antes</label>
+                        <input id="descripcionExperiencia"  type="text" name="tituloTrataminetoAntes[]" value="">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="title">Descripción Antes</label>
+                        <input id="descripcionExperiencia"  type="text" name="descripcionTratamientoAntes[]" value="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+            <label for="title">Despues</label>
+                <div class="col-12">
+                    <div class="form-group col-12 ">
+                        <div class="col-6">
+                            <input type='file' id="imgasocia1" name="imgTratamientodespues[]"/>
+                        </div>
+                        <div class="col-6">
+                            <div id="preview1"></div>
+                        </div>
+                    </div> 
+                </div> 
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="title">Título de la imagen Antes</label>
+                        <input id="descripcionExperiencia"  type="text" name="tituloTrataminetoDespues[]" value="">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="title">Descripción Antes</label>
+                        <input id="descripcionExperiencia"  type="text" name="descripcionTratamientoDespues[]" value="">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-md-offset-4">
+             <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+    </form>
+</div>
+
+<!--------------------------------------------Fin noveno parte del formulario----------------------------------------------- >
 @endsection
