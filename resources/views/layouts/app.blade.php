@@ -90,7 +90,7 @@
                     <!-- Sección Botón membresía Desktop -->
                     <div class="button-membresia">
                         <a class="" href="{{ route('membresiaProfesional') }}">
-                            <img class="img-button-membresia" src="http://portal-test.zaabra.local/img/boton-membresia.png">
+                            <img class="img-button-membresia" src="{{URL::asset('/img/header/boton-membresia.png')}}">
                         </a>  
                     </div>
 
