@@ -38,7 +38,7 @@ document.getElementById("imgasocia1").onchange = function(e) {
   };
  
   reader.readAsDataURL(e.target.files[0]);
-}
+};
 
 document.getElementById("imgasocia2").onchange = function(e) {
 	let reader = new FileReader();
@@ -54,7 +54,7 @@ document.getElementById("imgasocia2").onchange = function(e) {
   };
  
   reader.readAsDataURL(e.target.files[0]);
-}
+};
 
 document.getElementById("imgasocia3").onchange = function(e) {
 	let reader = new FileReader();
@@ -70,7 +70,8 @@ document.getElementById("imgasocia3").onchange = function(e) {
   };
  
   reader.readAsDataURL(e.target.files[0]);
-}
+};
+
 document.getElementById("imgasocia4").onchange = function(e) {
 	let reader = new FileReader();
   
@@ -85,5 +86,11 @@ document.getElementById("imgasocia4").onchange = function(e) {
   };
  
   reader.readAsDataURL(e.target.files[0]);
-}
+};
 //----------------------------------Fin Seleccion archivo quinto formulario----------------------------------------------------
+
+
+
+//----------------------------------Seleccion archivo noveno formulario----------------------------------------------------
+
+//----------------------------------Fin Seleccion noveno quinto formulario----------------------------------------------------
