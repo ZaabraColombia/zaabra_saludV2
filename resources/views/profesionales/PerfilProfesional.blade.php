@@ -235,24 +235,30 @@
             </div>
         </section>
 
-        <section class="section_galeria_profesional" style="background: crimson;">
-            <ul id="galery_profesional">
-                @foreach ($objprofesionallandinggaler as $objprofesionallandinggaler)
-                <li>
-                    <img src="{{URL::asset($objprofesionallandinggaler->imggaleria)}}">
-                </li>
-                <!-- <p>{{$objprofesionallandinggaler->nombrefoto}}</p>
-                <p>{{$objprofesionallandinggaler->descripcion}}</p> -->
+        <section class="galeriayvideo">
+            <div class="section_galeria_profesional">
+                <h2><i></i>Galería</h2>
+                <ul class="gallery_profesional">
+                    @foreach ($objprofesionallandinggaler as $objprofesionallandinggaler)
+                    <li>
+                        <img src="{{URL::asset($objprofesionallandinggaler->imggaleria)}}" alt="{{$objprofesionallandinggaler->descripcion}}"> 
+                    </li>       
+                    <!-- <p>{{$objprofesionallandinggaler->nombrefoto}}</p>
+                    <p>{{$objprofesionallandinggaler->descripcion}}</p> -->
+                    @endforeach
+                </ul>    
+            </div>
+            <div class="videos_profesional">
+                <h2><i></i>Videos</h2>
+                @foreach ($objprofesionallandingvideo as $objprofesionallandingvideo)
+                    <div class="card">
+                        <iframe class="card-img-top" src="{{$objprofesionallandingvideo->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                        <div class="card-body">
+                            <h5>{{$objprofesionallandingvideo->nombrevideo}}</h5>
+                            <p>{{$objprofesionallandingvideo->descripcionvideo}}</p>
+                        </div>
+                    </div>
                 @endforeach
-            </ul>
+            </div>     
         </section>
-
-        <div class="col-12" style="background: blueviolet;">
-            @foreach ($objprofesionallandingvideo as $objprofesionallandingvideo)
-            <iframe src="{{$objprofesionallandingvideo->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-            <p>{{$objprofesionallandingvideo->nombrevideo}}</p>
-            <p>{{$objprofesionallandingvideo->descripcionvideo}}</p>
-            @endforeach
-        </div>
-        
 @endsection
