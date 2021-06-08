@@ -38,21 +38,47 @@ Route::get('get-Ciudad',[App\Http\Controllers\profesionales\formularioProfesiona
 /*Paquete busquedad dinamica areas */
 Route::get('get-profesion',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getprofesion']);
 Route::get('get-especialidad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getespecialidad']);
+
 /*-----guardar formulario parte 1----*/ 
 Route::post('/FormularioProfesionalSave',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create1'])->name('FormularioProfesional');
+
 /*-----guardar formulario parte 2----*/ 
 Route::post('/FormularioProfesionalSave2',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create2'])->name('FormularioProfesional');
+
 /*-----guardar formulario parte 3----*/ 
 Route::post('/FormularioProfesionalSave3',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create3'])->name('FormularioProfesional');
+/*-----borrar formulario parte 3----*/ 
+Route::get('/FormularioProfesionaldelete3/{idAsociaciones}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete3'])->name('FormularioProfesional');
+
 /*-----guardar formulario parte 4----*/ 
 Route::post('/FormularioProfesionalSave4',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create4'])->name('FormularioProfesional');
-/*-----borrar formulario parte 4----*/ 
-Route::get('/FormularioProfesionaldelete4/{idexperiencias}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete4'])->name('FormularioProfesional');
+
+
 /*-----guardar formulario parte 5----*/ 
 Route::post('/FormularioProfesionalSave5',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create5'])->name('FormularioProfesional');
 /*-----borrar formulario parte 5----*/ 
-Route::get('/FormularioProfesionaldelete5/{idAsociaciones}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete5'])->name('FormularioProfesional');
+Route::get('/FormularioProfesionaldelete5/{idexperiencias}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete5'])->name('FormularioProfesional');
 
+
+/*-----guardar formulario parte 6----*/ 
+Route::post('/FormularioProfesionalSave6',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create6'])->name('FormularioProfesional');
+/*-----borrar formulario parte 6----*/ 
+Route::get('/FormularioProfesionaldelete6/{idexperiencias}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete6'])->name('FormularioProfesional');
+
+/*-----guardar formulario parte 7----*/ 
+Route::post('/FormularioProfesionalSave7',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create7'])->name('FormularioProfesional');
+/*-----borrar formulario parte 7----*/ 
+Route::get('/FormularioProfesionaldelete7/{idAsociaciones}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete7'])->name('FormularioProfesional');
+
+/*-----guardar formulario parte 8----*/ 
+Route::post('/FormularioProfesionalSave8',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create8'])->name('FormularioProfesional');
+/*-----borrar formulario parte 8----*/ 
+Route::get('/FormularioProfesionaldelete8/{id_idioma}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete8'])->name('FormularioProfesional');
+
+/*-----guardar formulario parte 9----*/ 
+Route::post('/FormularioProfesionalSave9',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create9'])->name('FormularioProfesional');
+/*-----borrar formulario parte 9----*/ 
+Route::get('/FormularioProfesionaldelete9/{id_tratamiento}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete9'])->name('FormularioProfesional');
 
 //Selects dinamicos area, profesion, especialidad
 Route::get('profesion/{idArea}', [App\Http\Controllers\profesionales\profesionController::class,'mostrarProfesion']);

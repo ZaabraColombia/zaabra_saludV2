@@ -98,7 +98,7 @@ class perfilprofesionalController extends Controller
         public function cargarInfoPrfesionalLandingidioma($idPerfilProfesional){
         return DB::select("SELECT id.nombreidioma, id.imgidioma
         FROM perfilesprofesionales pf
-        INNER JOIN usuario_idioma idip ON pf.idPerfilProfesional=idip.idPerfilProfesional
+        INNER JOIN usuario_idiomas idip ON pf.idPerfilProfesional=idip.idPerfilProfesional
         INNER JOIN idiomas id ON idip.id_idioma=id.id_idioma
         WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional");
         }
