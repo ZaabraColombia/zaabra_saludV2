@@ -2,195 +2,252 @@
 
 @section('content')
 
-<div class="container">
+<!-- Contenedor principal de las tarjetas de datos -->
+<div class="container-fluid content_principal-formProf">
 <!-------------------------------------------primera parte del formulario-------------------------------------------------------> 
-<div class="row" style="background: red;">
-  <div class="col-md-10 col-md-offset-1">
-    <div class="panel panel-default">
-      <div class="panel-heading">Agregar archivos</div>
-        <div class="panel-body">
-          <form method="POST" action="{{ url ('/FormularioProfesionalSave') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-          <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-           <!---------------valida que ya exista informacion y la muestra
-            en caso contrario muestra un formulario vacio---------------------> 
-          @if(!empty($objFormulario))
-                    <div class="col-12">
-                        @foreach ($objuser as $objuser)
-                            <input value="{{$objuser->primernombre}}" readonly></input>
-                            <input value="{{$objuser->segundonombre}}" readonly></input>
-                            <input value="{{$objuser->primerapellido}}" readonly></input>
-                            <input value="{{$objuser->segundoapellido}}" readonly></input>
-                        @endforeach
+<!-- Fila principal información básica -->
+<div class="col-lg-10 content_textPrincipal-formProf">
+    <h5 class="titulo_principal-formProf"> LE DAMOS LA BIENVENIDA A ZAABRA SALUD </h5>
+    <p class="texto_superior-formProf"> Ingrese los datos según corresponda y finalice el proceso completamente en línea. </p>
+</div>
+
+<div class="col-lg-10 infoBasica_formProf"> 
+    <form method="POST" action="{{ url ('/FormularioProfesionalSave') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+
+        <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio---------------------> 
+        @if(!empty($objFormulario))
+            <div class="row fila_infoBasica-formProf">
+                <!-- Sección imagen de usuario --> 
+                <div class="col-lg-3 contain_imgUsuario-formProf">
+                    @if(!empty($objFormulario->imglogoempresa))
+                        <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objFormulario->imglogoempresa)}}">
+                    @endif  
+
+                    <input type="file" class="input_imgUsuario-formProf" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg">
+
+                    <label class="text_usuario-formProf"> Subir foto de perfil </label>
+                </div>
+
+                <!-- Sección datos personales -->
+                <div class="row col-lg-9 datos_principales-formProf">
+            
+                    @foreach ($objuser as $objuser)
+                    <div class="col-lg-6 pr-0">
+                        <label for="example-date-input" class="col-12 col-form-label"> Nombres </label>
+
+                        
+                        <div class="col-12 nombres_usuario-formProf">
+                            <input class="input_nomApl-formProf" value="{{$objuser->primernombre}}" readonly></input>
+                            <input class="input_nomApl-formProf" value="{{$objuser->segundonombre}}" readonly></input>
+                        </div>
                     </div>
+
+                    <div class="col-lg-6 pr-0">
+                        <label for="example-date-input"class="col-12 col-form-label"> Apellidos </label>
+
+                        <div class="col-12 nombres_usuario-formProf">
+                            <input class="input_nomApl-formProf" value="{{$objuser->primerapellido}}" readonly></input>
+                            <input class="input_nomApl-formProf" value="{{$objuser->segundoapellido}}" readonly></input>
+                        </div>
+                    </div>
+                    @endforeach
+            
                     @foreach ($objFormulario as $objFormulario)
-                        <div class="form-group col-12">
-                            <label for="example-date-input" class="col-2 col-form-label">Date</label>
-                            <div class="col-10">
-                                <input class="form-control" type="date" value="{{$objFormulario->fechanacimiento}}" id="example-date-input" name="fechanacimiento">
+                        <div class="col-lg-6 pr-0">
+                            <label for="title">  Fecha de nacimiento </label>
+
+                            <input class="col-lg-12 form-control" type="date" value="{{$objFormulario->fechanacimiento}}" id="example-date-input" name="fechanacimiento">
+                        </div>
+                    @endforeach
+
+                    <div class="col-lg-6 pr-0">
+                        <label for="title"> Selecione Área </label> 
+
+                        <select id="idarea" name="idarea" class="col-lg-12 form-control" style="width:350px" >
+                            <option value="" selected disabled>Seleccione area</option>
+
+                            @foreach($area as $area)
+                                <option value="{{$area->idArea}}"> {{$area->nombreArea}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="col-lg-6 pr-0">
+                        <label for="title"> Selecione Profesión </label>
+
+                        <select name="idprofesion" id="idprofesion" class="col-lg-12 form-control" style="width:350px"></select>
+                    </div>
+
+                    <div class="col-lg-6 pr-0">
+                        <label for="title"> Seleccione especialidad </label>
+
+                        <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control" style="width:350px"></select>
+                    </div>
+            
+                    <div class="col-lg-6 pr-0">
+                        <label for="title"> Selecione Universidad </label>
+
+                        <select  class="col-lg-12 form-control" style="width:350px" name="id_universidad">
+                            @foreach($objFormulario1 as $objFormulario1)
+                                <option value="{{$objFormulario1->id_universidad}}">{{$objFormulario1->nombreuniversidad}}</option>
+                            @endforeach
+
+                            @foreach($universidades as $universidades1)
+                                <option value="{{$universidades1->id_universidad}}"> {{$universidades1->nombreuniversidad}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="col-lg-6 pr-0">
+                        <div class="form-group">
+                            <label for="title">Tarjeta Profesional</label>
+
+                            <input class="col-lg-12 form-control" id="tarjeta" placeholder="N. Tarjeta" type="number" name="numeroTarjeta" value="{{$objFormulario->numeroTarjeta}}">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 content_btnEnviar-formProf">
+                        <button type="submit" class="btn_enviar-formProf">Enviar
+                            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!------------------ Fin campos llenos ---------------------> 
+
+            <!--------------- Inicio campos vacios--------------------->    
+        @else
+        <h5 class="col-lg-12 icon_infoBasica-formProf"> Información básica </h5>
+            <div class="row fila_infoBasica-formProf">
+                <!-- Sección imagen de usuario --> 
+                <div class="col-lg-3 contain_imgUsuario-formProf">   
+                    <img class="img_usuario-formProf" id="imagenPrevisualizacion">
+
+                    <input class="input_imgUsuario-formProf" type="file" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg">
+
+                    <label class="text_usuario-formProf"> Subir foto de perfil </label>
+                </div>
+          
+                <!-- Sección datos personales -->
+                <div class="row col-lg-9 datos_principales-formProf">
+                    @foreach ($objuser as $objuser)
+                        <div class="col-lg-6 pr-0">
+                            <label class="col-12 col-form-label" for="example-date-input"> Nombres </label>
+
+                            <div class="col-12 nombres_usuario-formProf">
+                                <input class="input_nomApl-formProf" value="{{$objuser->primernombre}}" readonly></input>
+                                <input class="input_nomApl-formProf" value="{{$objuser->segundonombre}}" readonly></input>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 pr-0">
+                            <label for="example-date-input" class="col-lg-12 col-form-label"> Apellidos </label>
+
+                            <div class="col-12 nombres_usuario-formProf">
+                                <input class="input_nomApl-formProf" value="{{$objuser->primerapellido}}" readonly></input>
+                                <input class="input_nomApl-formProf" value="{{$objuser->segundoapellido}}" readonly></input>
                             </div>
                         </div>
                     @endforeach
-                    <div class="col-12">
-                        <div class="form-group">
-                            <select id="idarea" name="idarea" class="form-control" style="width:350px" >
-                                <option value="" selected disabled>Seleccione area</option>
-                                    @foreach($area as $area)
-                                <option value="{{$area->idArea}}"> {{$area->nombreArea}}</option>
-                                    @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="title">Selecione Profesion:</label>
-                            <select name="idprofesion" id="idprofesion" class="form-control" style="width:350px">
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="title">Seleccione especialidad:</label>
-                            <select name="idespecialidad" id="idespecialidad" class="form-control" style="width:350px">
-                            </select>
-                        </div>
+       
+                    <div class="col-lg-6 pr-0">
+                        <label for="title">  Fecha de nacimiento </label>
+                        
+                        <input class="col-lg-12 form-control" type="date" value="2011-08-19" id="example-date-input" name="fechanacimiento">
                     </div>
-            
-                    <div class="col-12">
+
+                    <div class="col-lg-6 pr-0">
+                        <label for="title"> Selecione Area </label> 
+
+                        <select id="idarea" name="idarea" class="col-lg-12 form-control" style="width:350px" >
+                            <option value="" selected disabled> Seleccione area</option>
+
+                            @foreach($area as $area)
+                                <option value="{{$area->idArea}}"> {{$area->nombreArea}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="col-lg-6 pr-0">
+                        <label for="title">Selecione Profesion:</label> 
+
+                        <select name="idprofesion" id="idprofesion" class="col-lg-12 form-control" style="width:350px"></select>
+                    </div>
+
+                    <div class="col-lg-6 pr-0">
+                        <label for="title">Seleccione especialidad:</label>
+
+                        <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control" style="width:350px"></select>
+                    </div>
+                  
+                    <div class="col-lg-6 pr-0">
                         <div class="form-group">
                             <label for="title">Selecione Universidad:</label>
-                            <select  class="form-control" style="width:350px" name="id_universidad">
-                                @foreach($objFormulario1 as $objFormulario1)
-                                    <option value="{{$objFormulario1->id_universidad}}">{{$objFormulario1->nombreuniversidad}}</option>
-                                @endforeach
-                                @foreach($universidades as $universidades1)
-                                        <option value="{{$universidades1->id_universidad}}"> {{$universidades1->nombreuniversidad}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <label for="title">Tarjeta Profesional</label>
-                            <input id="tarjeta" placeholder="N. Tarjeta" type="number" name="numeroTarjeta" value="{{$objFormulario->numeroTarjeta}}">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Nuevo Archivo</label>
-                        <div class="col-md-6">
-                            <input type="file" class="form-control" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg">
-                            @if(!empty($objFormulario->imglogoempresa))
-                            <img id="imagenPrevisualizacion" src="{{URL::asset($objFormulario->imglogoempresa)}}">
-                            @endif  
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                    <div class="col-md-6 col-md-offset-4">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </div>
-                    </div>
-                <!------------------ Fin campos llenos ---------------------> 
-
-
-
-                <!--------------- Inicio campos vacios--------------------->    
-            @else
-                    <div class="col-12">
-                        @foreach ($objuser as $objuser)
-                            <input value="{{$objuser->primernombre}}" readonly></input>
-                            <input value="{{$objuser->segundonombre}}" readonly></input>
-                            <input value="{{$objuser->primerapellido}}" readonly></input>
-                            <input value="{{$objuser->segundoapellido}}" readonly></input>
-                        @endforeach
-                    </div>
-                    <div class="form-group col-12">
-                        <label for="example-date-input" class="col-2 col-form-label">Date</label>
-                        <div class="col-10">
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechanacimiento">
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <select id="idarea" name="idarea" class="form-control" style="width:350px" >
-                                <option value="" selected disabled>Seleccione area</option>
-                                    @foreach($area as $area)
-                                <option value="{{$area->idArea}}"> {{$area->nombreArea}}</option>
-                                    @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="title">Selecione Profesion:</label>
-                            <select name="idprofesion" id="idprofesion" class="form-control" style="width:350px">
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="title">Seleccione especialidad:</label>
-                            <select name="idespecialidad" id="idespecialidad" class="form-control" style="width:350px">
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <label for="title">Selecione Universidad:</label>
-                            <select  class="form-control" style="width:350px" name="id_universidad">
+                            <select  class="col-lg-12 form-control" style="width:350px" name="id_universidad">
                                 <option value="">Seleccione Universidad</option>
-                                    @foreach($universidades as $universidades2)
-                                <option value="{{$universidades2->id_universidad}}"> {{$universidades2->nombreuniversidad}}</option>
-                                    @endforeach
+
+                                @foreach($universidades as $universidades2)
+                                    <option value="{{$universidades2->id_universidad}}"> {{$universidades2->nombreuniversidad}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
-                    <div class="col-12">
+
+                    <div class="col-6 pr-0">
                         <div class="form-group">
                             <label for="title">Tarjeta Profesional</label>
-                            <input id="tarjeta" placeholder="nombre" type="number" name="numeroTarjeta">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Nuevo Archivo</label>
-                        <div class="col-md-6">
-                            <input type="file" class="form-control" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg">
-                            <img id="imagenPrevisualizacion">
+
+                            <input class="col-lg-12 form-control" id="tarjeta" placeholder="nombre" type="number" name="numeroTarjeta">
                         </div>
                     </div>
 
-                    <div class="form-group">
-                    <div class="col-md-6 col-md-offset-4">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    <div class="col-lg-3 content_btnEnviar-formProf">
+                        <button type="submit" class="btn_enviar-formProf">Enviar
+                            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+                        </button>
                     </div>
                 </div>
-            @endif
-            <!--------------- Fin campos vacios--------------------->  
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+            </div>
+        @endif
+        <!--------------- Fin campos vacios--------------------->  
+    </form>
 </div>
 <!--------------------------------------------Fin primera parte del formulario------------------------------------------------> 
 
 
 <!--------------------------------------------Inicio segunda parte del formulario------------------------------------------------> 
-<div class="container" style="background: aqua;">
-        <form method="POST" action="{{ url ('/FormularioProfesionalSave2') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+<div class="col-lg-10 infoBasica_formProf">
+    <form method="POST" action="{{ url ('/FormularioProfesionalSave2') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+        <h5 class="col-lg-12 icon_infoBasica-formProf"> Información de contacto </h5>
+        <div class="row fila_infoBasica-formProf">
             @if(!empty($objFormulario))
-                <div class="col-12">
+                <div class="col-6 pr-0">
                     <div class="form-group">
                         <label for="title">Celular</label>
-                        <input id="tarjeta" placeholder="N. Celular" type="number" name="celular" value="{{$objFormulario->celular}}">
+
+                        <input class="col-lg-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="celular" value="{{$objFormulario->celular}}">
                     </div>
                 </div>
-                <div class="col-12">
+
+                <div class="col-6 pr-0">
                     <div class="form-group">
                         <label for="title">telefono</label>
-                        <input id="telefono" placeholder="N. Telefono" type="number" name="telefono" value="{{$objFormulario->telefono}}">
+
+                        <input class="col-lg-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono" value="{{$objFormulario->telefono}}">
                     </div>
                 </div>
-                <div class="col-12">
+                
+                <div class="col-6 pr-0">
                     <div class="form-group">
                         <label for="title">direccion</label>
-                        <input id="direccion" placeholder="N. direccion" type="text" name="direccion" value="{{$objFormulario->direccion}}">
+                        
+                        <input class="col-lg-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" value="{{$objFormulario->direccion}}">
                     </div>
                 </div>
+
                 <!--menu dinamico ciudades -->
                 <div class="form-group">
                     <select id="idpais" name="idpais" class="form-control" style="width:350px" >
@@ -219,8 +276,70 @@
                 <div class="col-md-6 col-md-offset-4">
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </div>
+                
+            @else
+                <div class="col-6 pr-0">
+                    <div class="form-group">
+                        <label for="title">Celular</label>
+                        
+                        <input class="col-lg-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="celular" >
+                    </div>
+                </div>
+
+                <div class="col-6 pr-0">
+                    <div class="form-group">
+                        <label for="title">teléfono</label>
+
+                        <input class="col-lg-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono" >
+                    </div>
+                </div>
+
+                <div class="col-6 pr-0">
+                    <div class="form-group">
+                        <label for="title">dirección</label>
+
+                        <input class="col-lg-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" >
+                    </div>
+                </div>
+
+                <!--menu dinamico ciudades -->
+                <div class="col-6 pr-0">
+                    <label for="title"> País </label>
+
+                    <select id="idpais" name="idpais" class="form-control" style="width:350px" >
+                        <option value="" selected disabled>Seleccione pais</option>
+                            @foreach($pais as $pais)
+                        <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
+                            @endforeach
+                    </select>
+                </div>
+
+                <div class="col-6 pr-0">
+                    <label for="title"> Selecione Departamento </label>
+                    <select name="id_departamento" id="id_departamento" class="form-control" style="width:350px">
+                    </select>
+                </div>
+        
+                <div class="col-6 pr-0">
+                    <label for="title"> Seleccione provincia </label>
+                    <select name="id_provincia" id="id_provincia" class="form-control" style="width:350px">
+                    </select>
+                </div>
+
+                <div class="col-6 pr-0">
+                    <label for="title"> Seleccione ciudad </label>
+                    <select name="id_municipio" id="id_municipio" class="form-control" style="width:350px">
+                    </select>
+                </div>
+
+                <div class="col-lg-12 content_btnEnviar-formProf">
+                    <button type="submit" class="btn2_enviar-formProf">Enviar
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+                    </button>
+                </div>
             @endif
-        </form>
+        </div>
+    </form>
 </div>
 <!--------------------------------------------Fin segunda parte del formulario------------------------------------------------> 
 
@@ -741,11 +860,31 @@
 <!--------------------------------------------Inicio noveno parte del formulario------------------------------------------------>
 
 <div class="container" style="background: blueviolet;">
+
+                @foreach($objTratamiento as $objTratamiento)
+                        @if(!empty($objTratamiento->imgTratamientoAntes))
+                            <div class="col-12">
+                             <img  src="{{URL::asset($objTratamiento->imgTratamientoAntes)}}">
+                            <span>{{$objTratamiento->tituloTrataminetoAntes}}</span>
+                            <span>{{$objTratamiento->descripcionTratamientoAntes}}</span>
+
+                            <img  src="{{URL::asset($objTratamiento->imgTratamientodespues)}}">
+                            <span>{{$objTratamiento->tituloTrataminetoDespues}}</span>
+                            <span>{{$objTratamiento->descripcionTratamientoDespues}}</span>
+
+                            <a href="{{url('/FormularioProfesionaldelete9/'.$objTratamiento->id_tratamiento)}}">
+                                <button type="submit" class="close" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </a>
+                            </div>
+                        @endif
+                @endforeach 
     <form method="POST" action="{{ url ('/FormularioProfesionalSave9') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">  
+       <input type="hidden" name="_token" value="{{ csrf_token() }}">  
         <div class="col-12 row">
             <div class="col-6">
-            <label for="title">Antes</label>
+                <label for="title">Antes</label>
                 <div class="col-12">
                     <div class="form-group col-12 ">
                         <div class="col-6">
@@ -770,7 +909,7 @@
                 </div>
             </div>
             <div class="col-6">
-            <label for="title">Despues</label>
+                 <label for="title">Despues</label>
                 <div class="col-12">
                     <div class="form-group col-12 ">
                         <div class="col-6">
@@ -798,14 +937,14 @@
         </div>
         <div class="col-12 row">
             <div class="col-6">
-            <label for="title">Antes</label>
+                <label for="title">Antes</label>
                 <div class="col-12">
                     <div class="form-group col-12 ">
                         <div class="col-6">
-                            <input type='file' id="imgasocia1" name="imgTratamientoAntes[]"/>
+                            <input type='file' id="imgantes1" name="imgTratamientoAntes[]"/>
                         </div>
                         <div class="col-6">
-                            <div id="preview1"></div>
+                            <div id="previewates1"></div>
                         </div>
                     </div> 
                 </div> 
@@ -823,7 +962,7 @@
                 </div>
             </div>
             <div class="col-6">
-            <label for="title">Despues</label>
+                 <label for="title">Despues</label>
                 <div class="col-12">
                     <div class="form-group col-12 ">
                         <div class="col-6">
@@ -849,12 +988,144 @@
                 
             </div>
         </div>
-        
         <div class="col-md-6 col-md-offset-4">
              <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
     </form>
 </div>
 
-<!--------------------------------------------Fin noveno parte del formulario----------------------------------------------- >
+<!--------------------------------------------Fin noveno parte del formulario----------------------------------------------->
+
+<!--------------------------------------------Inicio decimo parte del formulario------------------------------------------------>
+<div class="container" style="background: antiquewhite;">
+        <form method="POST" action="{{ url ('/FormularioProfesionalSave10') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                 <input type="hidden" name="_token" value="{{ csrf_token() }}">  
+                <div class="col-12 row">
+                    <div class="col-6">
+                        <div class="form-group col-12 ">
+                                <div class="col-6">
+                                    <input type='file' id="imgantes" name="imgpremio[]"/>
+                                </div>
+                                <div class="col-6">
+                                    <div id="previewates"></div>
+                                </div>
+                            </div>
+                            <div class="form-group col-12">
+                                    <label for="example-date-input" class="col-2 col-form-label">Fecha de inicio</label>
+                                    <div class="col-10">
+                                        <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
+                                    </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="title">titulo premio</label>
+                                    <input id="nombrepremio"  type="text" name="nombrepremio[]" value="">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="title">Descrpcion premio</label>
+                                    <input id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="col-6">
+                            <div class="form-group col-12 ">
+                                    <div class="col-6">
+                                        <input type='file' id="imgantes" name="imgpremio[]"/>
+                                    </div>
+                                    <div class="col-6">
+                                        <div id="previewates"></div>
+                                    </div>
+                            </div>
+                            <div class="form-group col-12">
+                                    <label for="example-date-input" class="col-2 col-form-label">Fecha de inicio</label>
+                                    <div class="col-10">
+                                        <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
+                                    </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="title">titulo premio</label>
+                                    <input id="nombrepremio"  type="text" name="nombrepremio[]" value="">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="title">Descrpcion premio</label>
+                                    <input id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 row">
+                    <div class="col-6">
+                        <div class="form-group col-12 ">
+                                <div class="col-6">
+                                    <input type='file' id="imgantes" name="imgpremio[]"/>
+                                </div>
+                                <div class="col-6">
+                                    <div id="previewates"></div>
+                                </div>
+                            </div>
+                            <div class="form-group col-12">
+                                    <label for="example-date-input" class="col-2 col-form-label">Fecha de inicio</label>
+                                    <div class="col-10">
+                                        <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
+                                    </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="title">titulo premio</label>
+                                    <input id="nombrepremio"  type="text" name="nombrepremio[]" value="">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="title">Descrpcion premio</label>
+                                    <input id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="col-6">
+                            <div class="form-group col-12 ">
+                                    <div class="col-6">
+                                        <input type='file' id="imgantes" name="imgpremio[]"/>
+                                    </div>
+                                    <div class="col-6">
+                                        <div id="previewates"></div>
+                                    </div>
+                            </div>
+                            <div class="form-group col-12">
+                                    <label for="example-date-input" class="col-2 col-form-label">Fecha de inicio</label>
+                                    <div class="col-10">
+                                        <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
+                                    </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="title">titulo premio</label>
+                                    <input id="nombrepremio"  type="text" name="nombrepremio[]" value="">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="title">Descrpcion premio</label>
+                                    <input id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-offset-4">
+                     <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+        </form>
+</div>
+<!--------------------------------------------Inicio decimo parte del formulario------------------------------------------------>
 @endsection
