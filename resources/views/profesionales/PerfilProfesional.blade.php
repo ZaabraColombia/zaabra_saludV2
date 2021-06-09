@@ -236,7 +236,7 @@
         </section>
 
         <section class="galeriayvideo">
-            <div class="section_galeria_profesional">
+            <div class="galeria_profesional">
                 <h2><i></i>Galería</h2>
                 <ul class="gallery_profesional">
                     @foreach ($objprofesionallandinggaler as $objprofesionallandinggaler)
