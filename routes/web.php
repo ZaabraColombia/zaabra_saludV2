@@ -59,7 +59,6 @@ Route::post('/FormularioProfesionalSave5',[App\Http\Controllers\profesionales\fo
 /*-----borrar formulario parte 5----*/ 
 Route::get('/FormularioProfesionaldelete5/{idexperiencias}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete5'])->name('FormularioProfesional');
 
-
 /*-----guardar formulario parte 6----*/ 
 Route::post('/FormularioProfesionalSave6',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create6'])->name('FormularioProfesional');
 /*-----borrar formulario parte 6----*/ 
@@ -85,6 +84,22 @@ Route::post('/FormularioProfesionalSave10',[App\Http\Controllers\profesionales\f
 /*-----borrar formulario parte 10----*/ 
 Route::get('/FormularioProfesionaldelete10/{id_tratamiento}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete10'])->name('FormularioProfesional');
 
+/*-----guardar formulario parte 11----*/ 
+Route::post('/FormularioProfesionalSave11',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create11'])->name('FormularioProfesional');
+/*-----borrar formulario parte 11----*/ 
+Route::get('/FormularioProfesionaldelete11/{id}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete11'])->name('FormularioProfesional');
+
+/*-----guardar formulario parte 12----*/ 
+Route::post('/FormularioProfesionalSave12',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create12'])->name('FormularioProfesional');
+/*-----borrar formulario parte 12----*/ 
+Route::get('/FormularioProfesionaldelete12/{id}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete12'])->name('FormularioProfesional');
+
+/*-----guardar formulario parte 13----*/ 
+Route::post('/FormularioProfesionalSave13',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create13'])->name('FormularioProfesional');
+/*-----borrar formulario parte 13----*/ 
+Route::get('/FormularioProfesionaldelete13/{id}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete13'])->name('FormularioProfesional');
+
+
 //Selects dinamicos area, profesion, especialidad
 Route::get('profesion/{idArea}', [App\Http\Controllers\profesionales\profesionController::class,'mostrarProfesion']);
 Route::get('especialidad/{idProfesion}', [App\Http\Controllers\profesionales\especialidadController::class,'mostrarESpecialidad']);
@@ -109,6 +124,67 @@ Route:: get('/PerfilInstitucion/{id}',[App\Http\Controllers\entidades\perfilInst
 // Esta ruta pertenece a la vista de membresía In stituciones
 Route::get('/membresiaInstitucion', function () { return view('instituciones/membresiaInstitucion');})->name('membresiaInstitucion');
 
+/*Esta ruta es del formulario del profesional */
+Route::get('/FormularioInstitucion',[App\Http\Controllers\entidades\formularioInstitucionController::class,'index'])->name('FormularioInstitucion');
+/*Paquete busquedad dinamica ciudades */
+Route::get('get-Departamento',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getDepartamento']);
+Route::get('get-Provincia',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getProvincia']);
+Route::get('get-Ciudad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getCiudad']);
+
+/*-----guardar formulario parte 1----*/ 
+Route::post('/FormularioInstitucionSave',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create1'])->name('FormularioInstitucion');
+
+/*-----guardar formulario parte 2----*/ 
+Route::post('/FormularioInstitucionSave2',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create2'])->name('FormularioInstitucion');
+
+/*-----guardar formulario parte 3----*/ 
+Route::post('/FormularioInstitucionSave3',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create3'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 3----*/ 
+Route::get('/FormularioInstituciondelete3/{idAsociaciones}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete3'])->name('FormularioInstitucion');
+
+/*-----guardar formulario parte 4----*/ 
+Route::post('/FormularioInstitucionSave4',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create4'])->name('FormularioInstitucion');
+
+
+/*-----guardar formulario parte 5----*/ 
+Route::post('/FormularioInstitucionSave5',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create5'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 5----*/ 
+Route::get('/FormularioInstituciondelete5/{idexperiencias}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete5'])->name('FormularioInstitucion');
+
+/*-----guardar formulario parte 6----*/ 
+Route::post('/FormularioInstitucionSave6',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create6'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 6----*/ 
+Route::get('/FormularioInstituciondelete6/{idexperiencias}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete6'])->name('FormularioInstitucion');
+
+/*-----guardar formulario parte 7----*/ 
+Route::post('/FormularioInstitucionSave7',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create7'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 7----*/ 
+Route::get('/FormularioInstituciondelete7/{idAsociaciones}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete7'])->name('FormularioInstitucion');
+
+/*-----guardar formulario parte 8----*/ 
+Route::post('/FormularioInstitucionSave8',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create8'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 8----*/ 
+Route::get('/FormularioInstituciondelete8/{id_idioma}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete8'])->name('FormularioInstitucion');
+
+/*-----guardar formulario parte 9----*/ 
+Route::post('/FormularioInstitucionSave9',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create9'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 9----*/ 
+Route::get('/FormularioInstituciondelete9/{id_tratamiento}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete9'])->name('FormularioInstitucion');
+
+/*-----guardar formulario parte 10----*/ 
+Route::post('/FormularioInstitucionSave10',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create10'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 10----*/ 
+Route::get('/FormularioInstituciondelete10/{id_tratamiento}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete10'])->name('FormularioInstitucion');
+
+/*-----guardar formulario parte 11----*/ 
+Route::post('/FormularioInstitucionSave11',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create11'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 11----*/ 
+Route::get('/FormularioInstituciondelete11/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete11'])->name('FormularioInstitucion');
+
+/*-----guardar formulario parte 12----*/ 
+Route::post('/FormularioInstitucionSave12',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create12'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 12----*/ 
+Route::get('/FormularioInstituciondelete12/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete12'])->name('FormularioInstitucion');
 
 
 /*-------------------------------------------------Pertenece a otras vistas-------------------------------------------------------------------------------*/
