@@ -183,24 +183,26 @@
         <section class="section_tratamientos_profesional">
             <div class="tratamientos_profesional">
                 <h2><i></i>Tratamientos y procedimientos</h2>
-                @foreach ($objprofesionallandingtratam as $objprofesionallandingtratam)
-                    <div class="card">
-                        <h4>Antes</h4>
-                        <img class="card-img-top" src="{{URL::asset($objprofesionallandingtratam->imgTratamientoAntes)}}">
-                        <div class="card-body">
-                            <h5>{{$objprofesionallandingtratam->tituloTrataminetoAntes}}</h5>
-                            <p>{{$objprofesionallandingtratam->descripcionTratamientoAntes}}</p>
+                <div class="container_cards">
+                    @foreach ($objprofesionallandingtratam as $objprofesionallandingtratam)
+                        <div class="card">
+                            <h4>Antes</h4>
+                            <img class="card-img-top" src="{{URL::asset($objprofesionallandingtratam->imgTratamientoAntes)}}">
+                            <div class="card-body">
+                                <h5>{{$objprofesionallandingtratam->tituloTrataminetoAntes}}</h5>
+                                <p>{{$objprofesionallandingtratam->descripcionTratamientoAntes}}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <h6>Después</h6>
-                        <img class="card-img-top" src="{{URL::asset($objprofesionallandingtratam->imgTratamientodespues)}}">
-                        <div class="card-body">
-                            <h5>{{$objprofesionallandingtratam->tituloTrataminetoDespues}}</h5>
-                            <p>{{$objprofesionallandingtratam->descripcionTratamientoDespues}}</p>
+                        <div class="card">
+                            <h6>Después</h6>
+                            <img class="card-img-top" src="{{URL::asset($objprofesionallandingtratam->imgTratamientodespues)}}">
+                            <div class="card-body">
+                                <h5>{{$objprofesionallandingtratam->tituloTrataminetoDespues}}</h5>
+                                <p>{{$objprofesionallandingtratam->descripcionTratamientoDespues}}</p>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </section>
 
