@@ -125,3 +125,74 @@
     height: calc(1.6em + 0.75rem + 2px);
     width: 19%;
 }
+// Sección tipo de consulta
+.seccion_consulta-formProf {
+    display: flex;
+    margin: 3% 0;
+    padding: 0;
+}
+// Sección experiencia
+.content_btnEnviar-experiencia-formProf {
+    margin-left: auto;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.img_selccionada-formProf {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    align-items: center;
+    height: 25vh;
+    object-fit: contain;
+}
+.img_anexada-formProf {
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.content_agregarImg-formProf {
+    height: 35vh;
+    margin: 0;
+    padding-right: 0;
+}
+.agregar_archivo-formProf {          
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 3% auto;
+    padding: 0;
+    width: 77%;
+  }
+   
+  .agregar_archivo-formProf::before {
+    background-color: #5678EF;
+    color: white;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'subir foto socio'; /* testo por defecto */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+  }
+   
+  .agregar_archivo-formProf input[type="file"] {
+    opacity: 0;
+    width: 166px;
+    height: 32px;
+    display: flex;            
+  }
+
+
+
+
+
+  .tamao {
+      height: 100%;
+  }

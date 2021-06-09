@@ -13673,6 +13673,72 @@ a:link, a:visited, a:active, a:hover {
   text-align: center;
 }
 
+.section_galeria_profesional h2 {
+  display: flex;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bolder;
+  color: #0083D6;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.section_galeria_profesional i {
+  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.section_galeria_profesional ul {
+  list-style: none;
+  margin: auto;
+  padding: 0;
+}
+
+.videos_profesional h2 {
+  display: flex;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bolder;
+  color: #0083D6;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.videos_profesional i {
+  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.videos_profesional .card {
+  border: 0;
+}
+
+.videos_profesional .card h4, h6 {
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bolder;
+}
+
+.videos_profesional .card h4 {
+  color: #434343;
+}
+
+.videos_profesional .card h6 {
+  color: #0083D6;
+}
+
+.videos_profesional .card-body {
+  padding: 0;
+}
+
+.videos_profesional p {
+  font-family: "Roboto";
+  color: #3E3E3E;
+  text-align: center;
+}
+
 @media (min-width: 320px) {
   .section_data_profesionales {
     width: 100%;
@@ -14099,6 +14165,86 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .publicaciones_profesional h2 {
+    font-size: 1.1em;
+  }
+
+  .section_galeria_profesional {
+    height: 55vh;
+  }
+
+  .section_galeria_profesional h2 {
+    font-size: 1.1em;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+  }
+
+  .section_galeria_profesional i {
+    width: 14%;
+    height: 30px;
+  }
+
+  .section_galeria_profesional ul {
+    max-width: 85%;
+  }
+
+  .gallery_profesional > li {
+    border: 1px solid transparent;
+    float: left;
+    height: calc(100% / 2);
+    margin: 0 -1px -1px 0;
+    overflow: hidden;
+    width: calc(100% / 2);
+  }
+
+  .gallery_profesional > li > img {
+    cursor: zoom-in;
+    width: 100%;
+    height: 80px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
+  .videos_profesional {
+    width: 90%;
+    margin: auto;
+  }
+
+  .videos_profesional h2 {
+    font-size: 1.1em;
+  }
+
+  .videos_profesional p {
+    font-size: 0.75em;
+  }
+
+  .videos_profesional i {
+    width: 14%;
+    height: 30px;
+  }
+
+  .videos_profesional .card {
+    width: 85%;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 10%;
+  }
+
+  .videos_profesional .card h4, h6 {
+    font-size: 1em;
+  }
+
+  .videos_profesional .card-body {
+    padding-top: 4%;
+  }
+
+  .videos_profesional .card-body h5 {
+    font-size: 1em;
+    text-align: center;
+  }
+
+  .videos_profesional h2 {
     font-size: 1.1em;
   }
 }
