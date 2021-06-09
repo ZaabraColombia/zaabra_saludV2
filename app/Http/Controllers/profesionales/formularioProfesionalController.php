@@ -24,6 +24,9 @@ use App\Models\usuario_idiomas;
 use App\Models\idiomas;
 use App\Models\tratamientos;
 use App\Models\premios;
+use App\Models\publicaciones;
+use App\Models\galerias;
+use App\Models\videos;
 use File;
 
 
@@ -56,6 +59,14 @@ class formularioProfesionalController extends Controller
         $objContadorIdiomas=$this->contadorIdiomas($id_user);
         $objTratamiento=$this->cargaTratamiento($id_user);
         $objContadorTratamiento=$this->contadorTratamiento($id_user);
+        $objPremios=$this->cargaPremios($id_user);
+        $objContadorPremios=$this->contadorPremios($id_user);
+        $Publicaciones=$this->cargaPublicaciones($id_user);
+        $objContadorPublicaciones=$this->contadorPublicaciones($id_user);
+        $objGaleria=$this->cargaGaleria($id_user);
+        $objContadorGaleria=$this->contadorGaleria($id_user);
+        $objVideo=$this->cargaVideo($id_user);
+        $objContadorVideo=$this->contadorVideo($id_user);
     
 
         return view('profesionales.FormularioProfesional',compact(
@@ -75,7 +86,15 @@ class formularioProfesionalController extends Controller
         'objIdiomas',
         'objContadorIdiomas',
         'objTratamiento',
-        'objContadorTratamiento'
+        'objContadorTratamiento',
+        'objPremios',
+        'objContadorPremios',
+        'Publicaciones',
+        'objContadorPublicaciones',
+        'objGaleria',
+        'objContadorGaleria',
+        'objVideo',
+        'objContadorVideo'
         ));
     }
 
@@ -230,12 +249,12 @@ class formularioProfesionalController extends Controller
     }  
 
     public function  cargaTratamiento($id_user){
-        return DB::select("SELECT tr.id_tratamiento, tr.imgTratamientoAntes, tr.tituloTrataminetoAntes, tr.descripcionTratamientoAntes, tr.imgTratamientodespues, tr.tituloTrataminetoDespues, tr.descripcionTratamientoDespues
-        FROM perfilesprofesionales pf
-        INNER JOIN users us   ON pf.idUser=us.id
-        LEFT JOIN  tratamientos tr ON pf.idPerfilProfesional= tr.idPerfilProfesional
-        WHERE pf.idUser=$id_user");
-        }
+    return DB::select("SELECT tr.id_tratamiento, tr.imgTratamientoAntes, tr.tituloTrataminetoAntes, tr.descripcionTratamientoAntes, tr.imgTratamientodespues, tr.tituloTrataminetoDespues, tr.descripcionTratamientoDespues
+    FROM perfilesprofesionales pf
+    INNER JOIN users us   ON pf.idUser=us.id
+    LEFT JOIN  tratamientos tr ON pf.idPerfilProfesional= tr.idPerfilProfesional
+    WHERE pf.idUser=$id_user");
+    }
 
     public function contadorTratamiento($id_user){
     /*cuenta los los valores ingresados*/
@@ -248,6 +267,79 @@ class formularioProfesionalController extends Controller
     return $contadortratamiento;
     }  
 
+    public function  cargaPremios($id_user){
+    return DB::select("SELECT pr.id, pr.imgpremio, pr.nombrepremio, pr.descripcionpremio, pr.fechapremio
+    FROM perfilesprofesionales pf
+    INNER JOIN users us   ON pf.idUser=us.id
+    LEFT JOIN  premios pr ON pf.idPerfilProfesional= pr.idPerfilProfesional
+    WHERE pf.idUser=$id_user");
+    }
+
+    public function contadorPremios($id_user){
+    /*cuenta los los valores ingresados*/
+    $contadorpremios = DB::table('perfilesprofesionales')
+    ->select(DB::raw('COUNT(premios.idPerfilProfesional) as cantidad'))
+    ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
+    ->leftjoin('premios', 'perfilesprofesionales.idPerfilProfesional', '=', 'premios.idPerfilProfesional')
+    ->where('users.id', '=',$id_user)
+    ->first();
+    return $contadorpremios;
+    } 
+    public function  cargaPublicaciones($id_user){
+    return DB::select("SELECT pb.id, pb.nombrepublicacion, pb.descripcion, pb.imgpublicacion
+    FROM perfilesprofesionales pf
+    INNER JOIN users us   ON pf.idUser=us.id
+    LEFT JOIN  publicaciones pb ON pf.idPerfilProfesional= pb.idPerfilProfesional
+    WHERE pf.idUser=$id_user");
+    }
+    
+    public function contadorPublicaciones($id_user){
+    /*cuenta los los valores ingresados*/
+    $contadorpublicaciones = DB::table('perfilesprofesionales')
+    ->select(DB::raw('COUNT(publicaciones.idPerfilProfesional) as cantidad'))
+    ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
+    ->leftjoin('publicaciones', 'perfilesprofesionales.idPerfilProfesional', '=', 'publicaciones.idPerfilProfesional')
+    ->where('users.id', '=',$id_user)
+    ->first();
+    return $contadorpublicaciones;
+    } 
+    public function  cargaGaleria($id_user){
+    return DB::select("SELECT g.id_galeria, g.imggaleria, g.nombrefoto, g.descripcion
+    FROM perfilesprofesionales pf
+    INNER JOIN users us   ON pf.idUser=us.id
+    LEFT JOIN  galerias g ON pf.idPerfilProfesional= g.idPerfilProfesional
+    WHERE pf.idUser=$id_user");
+    }
+        
+    public function contadorGaleria($id_user){
+    /*cuenta los los valores ingresados*/
+    $contadorpublicaciones = DB::table('perfilesprofesionales')
+    ->select(DB::raw('COUNT(galerias.idPerfilProfesional) as cantidad'))
+    ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
+    ->leftjoin('galerias', 'perfilesprofesionales.idPerfilProfesional', '=', 'galerias.idPerfilProfesional')
+    ->where('users.id', '=',$id_user)
+    ->first();
+    return $contadorpublicaciones;
+    } 
+    public function cargaVideo($id_user){
+    return DB::select("SELECT v.id, v.nombrevideo, v.descripcionvideo,
+     REPLACE(v.urlvideo, '/watch?v=', '/embed/') AS urlvideo, v.fechavideo
+    FROM perfilesprofesionales pf
+    INNER JOIN users us   ON pf.idUser=us.id
+    LEFT JOIN  videos v ON pf.idPerfilProfesional= v.idPerfilProfesional
+    WHERE pf.idUser=$id_user");
+    }
+            
+    public function contadorVideo($id_user){
+    /*cuenta los los valores ingresados*/
+    $contadorpublicaciones = DB::table('perfilesprofesionales')
+    ->select(DB::raw('COUNT(videos.idPerfilProfesional) as cantidad'))
+    ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
+    ->leftjoin('videos', 'perfilesprofesionales.idPerfilProfesional', '=', 'videos.idPerfilProfesional')
+    ->where('users.id', '=',$id_user)
+    ->first();
+    return $contadorpublicaciones;
+    } 
         
     /*------------ Fin inicio busquedad datos basicos usuario logueado y data resgistrada del proesional-----------------*/
 
@@ -744,8 +836,177 @@ public function delete9($id_tratamiento){
            $imgpremio[$i]->move($carpetaDestino , $imgpremio[$i]->getClientOriginalName());
         }
 
+        return redirect('FormularioProfesional'); 
+
     }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 10----------------------*/
 /*-------------------------------------Inicio Eliminacion  formulario parte 10----------------------*/
+public function delete10($id){
+
+
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+
+
+    $premios = premios::where('id', $id)->where('idPerfilProfesional', $idProProfesi);
+    $premios->delete();
+
+    return redirect('FormularioProfesional'); 
+
+}
 /*-------------------------------------Fin Eliminacion formulario parte 10----------------------*/
+
+
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 11----------------------*/
+public function create11(Request $request){
+   
+
+    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+
+    /*id usuario logueado*/
+    $id_user=auth()->user()->id;
+
+        $carpetaDestino = "img/user/$id_user";
+        $imgpublicacion = $request->file('imgpublicacion');
+        for ($i=0; $i < count(request('nombrepublicacion')); ++$i){
+            publicaciones::create([
+            'idPerfilProfesional' => $idProProfesi,
+            'nombrepublicacion' => $request->input('nombrepublicacion')[$i],
+            'imgpublicacion' =>"img/user/$id_user/".$imgpublicacion[$i]->getClientOriginalName(),
+            'descripcion' => $request->input('descripcion')[$i],
+           ]);
+           $imgpublicacion[$i]->move($carpetaDestino , $imgpublicacion[$i]->getClientOriginalName());
+        }
+
+        return redirect('FormularioProfesional'); 
+
+    }
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 11----------------------*/
+/*-------------------------------------Inicio Eliminacion  formulario parte 11----------------------*/
+public function delete11($id){
+
+
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+
+
+    $premios = publicaciones::where('id', $id)->where('idPerfilProfesional', $idProProfesi);
+    $premios->delete();
+
+    return redirect('FormularioProfesional'); 
+
+}
+/*-------------------------------------Fin Eliminacion formulario parte 11----------------------*/
+
+
+
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 12----------------------*/
+public function create12(Request $request){
+   
+
+    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+
+    /*id usuario logueado*/
+    $id_user=auth()->user()->id;
+
+        $carpetaDestino = "img/user/$id_user";
+        $imggaleria = $request->file('imggaleria');
+        for ($i=0; $i < count(request('nombrefoto')); ++$i){
+            galerias::create([
+            'idPerfilProfesional' => $idProProfesi,
+            'nombrefoto' => $request->input('nombrefoto')[$i],
+            'imggaleria' =>"img/user/$id_user/".$imggaleria[$i]->getClientOriginalName(),
+            'descripcion' => $request->input('descripcion')[$i],
+           ]);
+           $imggaleria[$i]->move($carpetaDestino , $imggaleria[$i]->getClientOriginalName());
+        }
+
+        return redirect('FormularioProfesional'); 
+
+    }
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 12----------------------*/
+/*-------------------------------------Inicio Eliminacion  formulario parte 12----------------------*/
+public function delete12($id_galeria){
+
+
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+
+
+    $galeria = galerias::where('id_galeria', $id_galeria)->where('idPerfilProfesional', $idProProfesi);
+    $galeria->delete();
+
+    return redirect('FormularioProfesional'); 
+
+}
+/*-------------------------------------Fin Eliminacion formulario parte 12----------------------*/
+
+
+
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 13----------------------*/
+public function create13(Request $request){
+  
+
+    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+
+    /*id usuario logueado*/
+    $id_user=auth()->user()->id;
+
+
+        for ($i=0; $i < count(request('nombrevideo')); ++$i){
+            videos::create([
+            'idPerfilProfesional' => $idProProfesi,
+            'nombrevideo' => $request->input('nombrevideo')[$i],
+            'descripcionvideo' => $request->input('descripcionvideo')[$i],
+            'urlvideo' => $request->input('urlvideo')[$i],
+            'fechavideo' => $request->input('fechavideo')[$i],
+           ]);
+        }
+
+        return redirect('FormularioProfesional'); 
+
+    }
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 13----------------------*/
+/*-------------------------------------Inicio Eliminacion  formulario parte 13----------------------*/
+public function delete13($id){
+
+
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+
+
+    $videos = videos::where('id', $id)->where('idPerfilProfesional', $idProProfesi);
+    $videos->delete();
+
+    return redirect('FormularioProfesional'); 
+
+}
+/*-------------------------------------Fin Eliminacion formulario parte 13----------------------*/
 }
