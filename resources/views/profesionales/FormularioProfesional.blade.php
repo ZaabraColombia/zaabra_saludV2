@@ -735,25 +735,27 @@
 <div class="col-lg-10 pb-3 infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf"> Asociaciones </h5>
 
-    @foreach($objAsociaciones as $objAsociaciones)
-        @if(!empty($objAsociaciones->imgasociacion))
-            <div class="col-12">
-                <img id="imagenPrevisualizacion" src="{{URL::asset($objAsociaciones->imgasociacion)}}">
-
-                <a href="{{url('/FormularioProfesionaldelete7/'.$objAsociaciones->idAsociaciones)}}">
-                    <button type="submit" class="close" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </a>
-            </div>
-        @endif
-    @endforeach
+    <div class="row col-12 px-0 pt-3 m-0">
+        @foreach($objAsociaciones as $objAsociaciones)
+            @if(!empty($objAsociaciones->imgasociacion))
+                <div class="col-6 content_imgGuardada-formProf">
+                    <a href="{{url('/FormularioProfesionaldelete7/'.$objAsociaciones->idAsociaciones)}}">
+                        <button type="submit" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </a>
+                    
+                    <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objAsociaciones->imgasociacion)}}">
+                </div>
+            @endif
+        @endforeach
+    </div>
 
     <form method="POST" action="{{ url ('/FormularioProfesionalSave7') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
             
         @if($objContadorAsociaciones->cantidad == 0)
-            <div class="col-12 row px-0 pt-3 m-0">
+            <div class="row col-12 px-0 pt-3 m-0">
                 <div class="col-6 content_agregarImg-formProf form-group">
                     <div class="col-10 img_selccionada-formProf">
                         <div class="img_anexada-formProf" id="preview1"></div>
@@ -796,70 +798,70 @@
             </div>
 
         @elseif($objContadorAsociaciones->cantidad == 1)
-            <div class="col-12 row p-0 m-0">
-                <div class="col-6 pr-0 form-group">
-                    <div class="col-6 btn-input">
-                        <input type='file' id="imgasocia1" name="src-file1" aria-label="Archivo"/>
+            <div class="row col-12 px-0 pt-3 m-0">
+                <div class="col-6 content_agregarImg-formProf form-group">
+                    <div class="col-10 img_selccionada-formProf">
+                        <div class="img_anexada-formProf" id="preview1"></div>   
                     </div>
 
-                    <div class="col-6">
-                        <div id="preview1"></div>
-                    </div>
-                </div> 
-
-                <div class="col-6 pr-0 form-group">
-                    <div class="col-6 btn-input">
-                        <input type='file' id="imgasocia2" name="src-file2" aria-label="Archivo"/>
-                    </div>
-
-                    <div class="col-6">
-                        <div id="preview2"></div>
+                    <div class="agregar_archivo-formProf">
+                        <input type='file' id="imgasocia1" name="imgasociacion[]"/> 
                     </div>
                 </div> 
 
-                <div class="col-6 pr-0 form-group">
-                    <div class="col-6 btn-input">
-                        <input type='file' id="imgasocia3" name="src-file13" aria-label="Archivo"/>
+                <div class="col-6 content_agregarImg-formProf form-group">
+                    <div class="col-10 img_selccionada-formProf">
+                        <div class="img_anexada-formProf" id="preview2"></div> 
                     </div>
 
-                    <div class="col-6">
-                        <div id="preview3"></div>
+                    <div class="agregar_archivo-formProf">
+                        <input type='file' id="imgasocia2" name="imgasociacion[]"/>
+                    </div>
+                </div> 
+
+                <div class="col-6 content_agregarImg-formProf form-group">
+                    <div class="col-10 img_selccionada-formProf">
+                        <div class="img_anexada-formProf" id="preview3"></div>  
+                    </div>
+
+                    <div class="agregar_archivo-formProf">
+                        <input type='file' id="imgasocia3" name="imgasociacion[]"/>
                     </div>
                 </div>  
             </div>
 
         @elseif($objContadorAsociaciones->cantidad == 2)
-            <div class="col-12 row p-0 m-0">
-                <div class="col-6 pr-0 form-group">
-                    <div class="col-6">
-                        <input type='file' id="imgasocia1" name="imgasociacion[]"/>
+            <div class="row col-12 px-0 pt-3 m-0">
+                <div class="col-6 content_agregarImg-formProf form-group">
+                    <div class="col-10 img_selccionada-formProf">
+                        <div class="img_anexada-formProf" id="preview1"></div>
                     </div>
-                    
-                    <div class="col-6">
-                        <div id="preview1"></div>
+
+                    <div class="agregar_archivo-formProf">
+                        <input type='file' id="imgasocia1" name="imgasociacion[]"/>
                     </div>
                 </div> 
 
-                <div class="col-6 pr-0 form-group">
-                    <div class="col-6">
-                        <input type='file' id="imgasocia2" name="imgasociacion[]"/>
+                <div class="col-6 content_agregarImg-formProf form-group">
+                    <div class="col-10 img_selccionada-formProf">
+                        <div class="img_anexada-formProf" id="preview2"></div>
                     </div>
 
-                    <div class="col-6">
-                        <div id="preview2"></div>
+                    <div class="agregar_archivo-formProf">
+                        <input type='file' id="imgasocia2" name="imgasociacion[]"/>
                     </div>
                 </div> 
             </div> 
 
         @elseif($objContadorAsociaciones->cantidad == 3)
-            <div class="col-12 row p-0 m-0">
-                <div class="col-6 pr-0 form-group">
-                    <div class="col-6">
-                        <input type='file' id="imgasocia1" name="imgasociacion[]"/>
+            <div class="row col-12 px-0 pt-3 m-0">
+                <div class="col-6 content_agregarImg-formProf form-group">
+                    <div class="col-10 img_selccionada-formProf">
+                        <div class="img_anexada-formProf" id="preview1"></div>
                     </div>
 
-                    <div class="col-6">
-                        <div id="preview1"></div>
+                    <div class="agregar_archivo-formProf">
+                        <input type='file' id="imgasocia1" name="imgasociacion[]"/>
                     </div>
                 </div> 
             </div> 
@@ -880,290 +882,388 @@
 
 
 <!--------------------------------------------Inicio octavo parte del formulario------------------------------------------------> 
+<div class="col-lg-10 pb-3 infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoBasica-formProf"> Idiomas </h5>
 
-<div class="container" style="background: blue;">
-                @foreach($objIdiomas as $objIdiomas)
-                        @if(!empty($objIdiomas->imgidioma))
-                            <div class="col-12">
-                            <label for="title">{{$objIdiomas->nombreidioma}}</label>
-                             <img id="imagenPrevisualizacion" src="{{URL::asset($objIdiomas->imgidioma)}}">
+    <div class="row p-0 m-0">
+        @foreach($objIdiomas as $objIdiomas)
+            @if(!empty($objIdiomas->imgidioma))
+                <div class="col-4 mt-3">
+                    <a href="{{url('/FormularioProfesionaldelete8/'.$objIdiomas->id_idioma)}}">
+                        <button type="submit" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </a>
 
-                            <a href="{{url('/FormularioProfesionaldelete8/'.$objIdiomas->id_idioma)}}">
-                                <button type="submit" class="close" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </a>
-                            </div>
-                        @endif
-                @endforeach
-         <form method="POST" action="{{ url ('/FormularioProfesionalSave8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">  
-                
-                @if($objContadorIdiomas->cantidad == 0)
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Selecione</label>
-                                <select  class="form-control" style="width:350px" name="id_idioma[]">
-                                    <option value=" ">Seleccione</option>
-                                    @foreach($idiomas as $idiomas1)
-                                    <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
-                                    @endforeach
-                                </select>
-                                <select  class="form-control" style="width:350px" name="id_idioma[]">
-                                    <option value=" ">Seleccione</option>
-                                    @foreach($idiomas as $idiomas2)
-                                    <option value="{{$idiomas2->id_idioma}}"> {{$idiomas2->nombreidioma}}</option>
-                                    @endforeach
-                                </select>
-                                <select  class="form-control" style="width:350px" name="id_idioma[]">
-                                    <option value=" ">Seleccione</option>
-                                    @foreach($idiomas as $idiomas3)
-                                    <option value="{{$idiomas3->id_idioma}}"> {{$idiomas3->nombreidioma}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                @elseif($objContadorIdiomas->cantidad == 1)
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Selecione</label>
-                                <select  class="form-control" style="width:350px" name="id_idioma[]">
-                                    <option value=" ">Seleccione</option>
-                                    @foreach($idiomas as $idiomas1)
-                                    <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
-                                    @endforeach
-                                </select>
-                                <select  class="form-control" style="width:350px" name="id_idioma[]">
-                                    <option value=" ">Seleccione</option>
-                                    @foreach($idiomas as $idiomas2)
-                                    <option value="{{$idiomas2->id_idioma}}"> {{$idiomas2->nombreidioma}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>  
-                @elseif($objContadorIdiomas->cantidad == 2)
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Selecione</label>
-                                <select  class="form-control" style="width:350px" name="id_idioma[]">
-                                    <option value=" ">Seleccione</option>
-                                    @foreach($idiomas as $idiomas1)
-                                    <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>  
-                @elseif($objContadorIdiomas->cantidad == 3)
-                <span>No se puede agragrar</span>
-                @endif  
-                        <div class="col-md-6 col-md-offset-4">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                        </div>
-         </form>
+                    <label for="title">{{$objIdiomas->nombreidioma}}</label>
+
+                    <img id="imagenPrevisualizacion" src="{{URL::asset($objIdiomas->imgidioma)}}">
+                </div>
+            @endif
+        @endforeach
+    </div>
+
+    <form method="POST" action="{{ url ('/FormularioProfesionalSave8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">  
+            
+        @if($objContadorIdiomas->cantidad == 0)
+            <div class="row p-0 m-0">
+                <div class="col-6 pr-0">
+                    <label for="title"> Seleccione idioma </label>
+
+                    <select  class="form-control" name="id_idioma[]">
+                        <option value=" ">Seleccione</option>
+                        @foreach($idiomas as $idiomas1)
+                            <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
+                        @endforeach
+                    </select>
+                </div>                    
+
+                <div class="col-6 pr-0">
+                    <label for="title"> Seleccione idioma </label>
+
+                    <select  class="form-control" name="id_idioma[]">
+                        <option value=" ">Seleccione</option>
+                        @foreach($idiomas as $idiomas2)
+                            <option value="{{$idiomas2->id_idioma}}"> {{$idiomas2->nombreidioma}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="col-6 pr-0">
+                    <label for="title"> Seleccione idioma </label>
+
+                    <select  class="form-control" name="id_idioma[]">
+                        <option value=" ">Seleccione</option>
+                        @foreach($idiomas as $idiomas3)
+                            <option value="{{$idiomas3->id_idioma}}"> {{$idiomas3->nombreidioma}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+        @elseif($objContadorIdiomas->cantidad == 1)
+            <div class="row p-0 m-0">
+                <div class="col-6 pr-0">
+                    <label for="title"> Seleccione idioma </label>
+
+                    <select  class="form-control" name="id_idioma[]">
+                        <option value=" ">Seleccione</option>
+                        @foreach($idiomas as $idiomas1)
+                            <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="col-6 pr-0">
+                    <label for="title"> Seleccione idioma </label>
+
+                    <select  class="form-control" name="id_idioma[]">
+                        <option value=" ">Seleccione</option>
+                        @foreach($idiomas as $idiomas2)
+                            <option value="{{$idiomas2->id_idioma}}"> {{$idiomas2->nombreidioma}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>  
+        @elseif($objContadorIdiomas->cantidad == 2)
+            <div class="row p-0 m-0">
+                <div class="col-6 pr-0">
+                    <label for="title"> Seleccione idioma </label>
+
+                    <select  class="form-control" style="width:350px" name="id_idioma[]">
+                        <option value=" ">Seleccione</option>
+                        @foreach($idiomas as $idiomas1)
+                            <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>  
+        @elseif($objContadorIdiomas->cantidad == 3)
+            <span>No se puede agragrar</span>
+        @endif 
+
+        <div class="col-lg-12 content_btnEnviar-formProf">
+            <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+            </button>
+        </div>
+    </form>
 </div>
 
 <!--------------------------------------------Fin octavo parte del formulario------------------------------------------------>
 
 <!--------------------------------------------Inicio noveno parte del formulario------------------------------------------------>
 
-<div class="container" style="background: blueviolet;">
+<div class="col-lg-10 pb-3 infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoBasica-formProf"> Tratamientos y procedimientos </h5>
+    <p class="text_superior-proced-formProf"> A continuación suba imágenes con respecto a los procedimientos y tratamientos, con su título y descripción. </p>
 
-                @foreach($objTratamiento as $objTratamiento)
-                        @if(!empty($objTratamiento->imgTratamientoAntes))
-                            <div class="col-12">
-                             <img  src="{{URL::asset($objTratamiento->imgTratamientoAntes)}}">
-                            <span>{{$objTratamiento->tituloTrataminetoAntes}}</span>
-                            <span>{{$objTratamiento->descripcionTratamientoAntes}}</span>
 
-                            <img  src="{{URL::asset($objTratamiento->imgTratamientodespues)}}">
-                            <span>{{$objTratamiento->tituloTrataminetoDespues}}</span>
-                            <span>{{$objTratamiento->descripcionTratamientoDespues}}</span>
+        @foreach($objTratamiento as $objTratamiento)
+            @if(!empty($objTratamiento->imgTratamientoAntes))
+                <div class="row col-12 p-0 m-0">
+                    <div class="col-12">
+                        <a href="{{url('/FormularioProfesionaldelete9/'.$objTratamiento->id_tratamiento)}}">
+                            <button type="submit" class="close" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </a>
+                    </div>
 
-                            <a href="{{url('/FormularioProfesionaldelete9/'.$objTratamiento->id_tratamiento)}}">
-                                <button type="submit" class="close" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </a>
+                    <!-- Contenido ANTES -->
+                    <div class="col-6 content_antes-formProf">
+                        <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                            <label for="title"> Antes </label> 
+
+                            <div class="col-10 img_selccionada-formProf">
+                                <img src="{{URL::asset($objTratamiento->imgTratamientoAntes)}}">
                             </div>
-                        @endif
-                @endforeach 
+
+                            <div class="col-12 pl-0">
+                                <div class="form-group">
+                                    <span>{{$objTratamiento->tituloTrataminetoAntes}}</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 pl-0">
+                                <div class="form-group">
+                                    <span>{{$objTratamiento->descripcionTratamientoAntes}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contenido DESPUÉS -->
+                    <div class="col-6 content_agregarImg-formProf form-group">
+                        <label for="title"> Después </label> 
+
+                        <div class="col-10 img_selccionada-formProf">
+                            <img  src="{{URL::asset($objTratamiento->imgTratamientodespues)}}">
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <div class="form-group">
+                                <span>{{$objTratamiento->tituloTrataminetoDespues}}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <div class="form-group">
+                                <span>{{$objTratamiento->descripcionTratamientoDespues}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @endforeach 
+
+
     <form method="POST" action="{{ url ('/FormularioProfesionalSave9') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
        <input type="hidden" name="_token" value="{{ csrf_token() }}">  
-          @if($objContadorTratamiento->cantidad == 0)
-                <div class="col-12 row">
-                    <div class="col-6">
-                        <label for="title">Antes</label>
-                        <div class="col-12">
-                            <div class="form-group col-12 ">
-                                <div class="col-6">
-                                    <input type='file' id="imgantes1" name="imgTratamientoAntes[]"/>
-                                </div>
-                                <div class="col-6">
-                                    <div id="previewates1"></div>
-                                </div>
-                            </div> 
-                        </div> 
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Título de la imagen Antes</label>
-                                <input id="descripcionExperiencia"  type="text" name="tituloTrataminetoAntes[]" value="">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Descripción Antes</label>
-                                <input id="descripcionExperiencia"  type="text" name="descripcionTratamientoAntes[]" value="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <label for="title">Despues</label>
-                        <div class="col-12">
-                            <div class="form-group col-12 ">
-                                <div class="col-6">
-                                    <input type='file' id="imgasocia1" name="imgTratamientodespues[]"/>
-                                </div>
-                                <div class="col-6">
-                                    <div id="preview1"></div>
-                                </div>
-                            </div> 
-                        </div> 
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Título de la imagen Antes</label>
-                                <input id="descripcionExperiencia"  type="text" name="tituloTrataminetoDespues[]" value="">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Descripción Antes</label>
-                                <input id="descripcionExperiencia"  type="text" name="descripcionTratamientoDespues[]" value="">
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="col-12 row">
-                    <div class="col-6">
-                        <label for="title">Antes</label>
-                        <div class="col-12">
-                            <div class="form-group col-12 ">
-                                <div class="col-6">
-                                    <input type='file' id="imgantes1" name="imgTratamientoAntes[]"/>
-                                </div>
-                                <div class="col-6">
-                                    <div id="previewates1"></div>
-                                </div>
-                            </div> 
-                        </div> 
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Título de la imagen Antes</label>
-                                <input id="descripcionExperiencia"  type="text" name="tituloTrataminetoAntes[]" value="">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Descripción Antes</label>
-                                <input id="descripcionExperiencia"  type="text" name="descripcionTratamientoAntes[]" value="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <label for="title">Despues</label>
-                        <div class="col-12">
-                            <div class="form-group col-12 ">
-                                <div class="col-6">
-                                    <input type='file' id="imgasocia1" name="imgTratamientodespues[]"/>
-                                </div>
-                                <div class="col-6">
-                                    <div id="preview1"></div>
-                                </div>
-                            </div> 
-                        </div> 
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Título de la imagen Antes</label>
-                                <input id="descripcionExperiencia"  type="text" name="tituloTrataminetoDespues[]" value="">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Descripción Antes</label>
-                                <input id="descripcionExperiencia"  type="text" name="descripcionTratamientoDespues[]" value="">
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-             @elseif($objContadorIdiomas->cantidad == 1)
-                <div class="col-12 row">
-                    <div class="col-6">
-                        <label for="title">Antes</label>
-                        <div class="col-12">
-                            <div class="form-group col-12 ">
-                                <div class="col-6">
-                                    <input type='file' id="imgantes1" name="imgTratamientoAntes[]"/>
-                                </div>
-                                <div class="col-6">
-                                    <div id="previewates1"></div>
-                                </div>
-                            </div> 
-                        </div> 
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Título de la imagen Antes</label>
-                                <input id="descripcionExperiencia"  type="text" name="tituloTrataminetoAntes[]" value="">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Descripción Antes</label>
-                                <input id="descripcionExperiencia"  type="text" name="descripcionTratamientoAntes[]" value="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <label for="title">Despues</label>
-                        <div class="col-12">
-                            <div class="form-group col-12 ">
-                                <div class="col-6">
-                                    <input type='file' id="imgasocia1" name="imgTratamientodespues[]"/>
-                                </div>
-                                <div class="col-6">
-                                    <div id="preview1"></div>
-                                </div>
-                            </div> 
-                        </div> 
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Título de la imagen Antes</label>
-                                <input id="descripcionExperiencia"  type="text" name="tituloTrataminetoDespues[]" value="">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Descripción Antes</label>
-                                <input id="descripcionExperiencia"  type="text" name="descripcionTratamientoDespues[]" value="">
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            @elseif($objContadorIdiomas->cantidad == 2)
+        @if($objContadorTratamiento->cantidad == 0)
+        <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <label for="title"> Antes </label> 
 
-                    <span>No se pueden agregar mas</span>
-            @endif 
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates1"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes1" name="imgTratamientoAntes[]"/>
+                        </div>
+                    </div> 
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title"> Título de la imagen Antes </label> 
+
+                            <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoAntes[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title"> Descripción Antes </label>
+
+                            <input class="form-control" id="descripcionExperiencia"  type="text" name="descripcionTratamientoAntes[]" value="">
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <label for="title"> Después </label> 
+
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="preview1"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgasocia1" name="imgTratamientodespues[]"/>
+                        </div>
+                    </div> 
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title"> Título de la imagen Después </label>
+
+                            <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoDespues[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title"> Descripción Después </label>
+
+                            <input class="form-control" id="descripcionExperiencia"  type="text" name="descripcionTratamientoDespues[]" value="">
+                        </div>
+                    </div> 
+                </div>
+            </div>
+
+            <!-- Modulo de los contenidos ANTES y DESPUÉS -->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <label for="title"> Antes </label>
+
+
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates1"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes1" name="imgTratamientoAntes[]"/>
+                        </div> 
+                    </div> 
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title"> Título de la imagen Antes </label> 
+
+                            <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoAntes[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title"> Descripción Antes </label>
+
+                            <input class="form-control" id="descripcionExperiencia"  type="text" name="descripcionTratamientoAntes[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <label for="title"> Después </label> 
+
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="preview1"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgasocia1" name="imgTratamientodespues[]"/>
+                        </div>
+                    </div> 
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title"> Título de la imagen Después </label>
+
+                            <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoDespues[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title"> Descripción Después </label>
+
+                            <input class="form-control" id="descripcionExperiencia"  type="text" name="descripcionTratamientoDespues[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorIdiomas->cantidad == 1)
+            <div class="col-12 row">
+                <div class="col-6">
+                    <label for="title">Antes</label>
+                    <div class="col-12">
+                        <div class="form-group col-12 ">
+                            <div class="col-6">
+                                <input type='file' id="imgantes1" name="imgTratamientoAntes[]"/>
+                            </div>
+                            <div class="col-6">
+                                <div id="previewates1"></div>
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="title">Título de la imagen Antes</label>
+                            <input id="descripcionExperiencia"  type="text" name="tituloTrataminetoAntes[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="title">Descripción Antes</label>
+                            <input id="descripcionExperiencia"  type="text" name="descripcionTratamientoAntes[]" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <label for="title">Despues</label>
+                    <div class="col-12">
+                        <div class="form-group col-12 ">
+                            <div class="col-6">
+                                <input type='file' id="imgasocia1" name="imgTratamientodespues[]"/>
+                            </div>
+                            <div class="col-6">
+                                <div id="preview1"></div>
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="title">Título de la imagen Antes</label>
+                            <input id="descripcionExperiencia"  type="text" name="tituloTrataminetoDespues[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="title">Descripción Antes</label>
+                            <input id="descripcionExperiencia"  type="text" name="descripcionTratamientoDespues[]" value="">
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        @elseif($objContadorIdiomas->cantidad == 2)
+            <span>No se pueden agregar mas</span>
+        @endif 
+
+        <div class="col-lg-12 content_btnEnviar-formProf">
+            <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+            </button>
+        </div>
     </form>
 </div>
 
 <!--------------------------------------------Fin noveno parte del formulario----------------------------------------------->
 
 <!--------------------------------------------Inicio decimo parte del formulario------------------------------------------------>
-<div class="container" style="background: antiquewhite;">
+<div class="col-lg-10 pb-3 infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoBasica-formProf"> Tratamientos y procedimientos </h5>
+    <p class="text_superior-proced-formProf"> A continuación suba imágenes con respecto a los procedimientos y tratamientos, con su título y descripción. </p>
                 @foreach($objPremios as $objPremios)
                         @if(!empty($objPremios->nombrepremio))
                             <div class="col-12">
