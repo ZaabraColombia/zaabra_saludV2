@@ -58,7 +58,7 @@
                                 <label for="primernombre" class="col-md-12 col-form-label texto_label-register">{{ __('Nombres') }}</label>
 
                                 <div class="col-md-6 mb-3 mb-md-0">
-                                    <input id="primernombre" type="text" class="form-control input_height-fullhd-register @error('primernombre') is-invalid @enderror" name="primernombre" value="{{ old('primernombre') }}" required autocomplete="primernombre" autofocus placeholder="Primer Nombre">
+                                    <input id="primernombre" type="text" class="form-control input_height-fullhd-register @error('primernombre') is-invalid @enderror" name="primernombre" value="{{ old('primernombre') }}"  autocomplete="primernombre" autofocus placeholder="Primer Nombre">
 
                                     @error('primernombre')
                                         <span class="invalid-feedback" role="alert">
@@ -77,7 +77,7 @@
                                 <label for="primerapellido" class="col-md-12 col-form-label texto_label-register">{{ __('Apellidos') }}</label>
 
                                 <div class="col-md-6 mb-3 mb-md-0">
-                                    <input id="primerapellido" type="text" class="form-control input_height-fullhd-register @error('primerapellido') is-invalid @enderror" name="primerapellido" value="{{ old('primerapellido') }}" required autocomplete="primerapellido" autofocus placeholder="Primer Apellido">
+                                    <input id="primerapellido" type="text" class="form-control input_height-fullhd-register @error('primerapellido') is-invalid @enderror" name="primerapellido" value="{{ old('primerapellido') }}"  autocomplete="primerapellido" autofocus placeholder="Primer Apellido">
 
                                     @error('primerapellido')
                                         <span class="invalid-feedback" role="alert">
