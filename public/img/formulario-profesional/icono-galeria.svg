@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="206" height="112" viewBox="0 0 206 112">
+  <defs>
+    <filter id="Elipse_7" x="94" y="0" width="112" height="112" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Grupo_1594" data-name="Grupo 1594" transform="translate(16107.75 -723.874)">
+    <g id="Grupo_1593" data-name="Grupo 1593">
+      <g id="Grupo_259" data-name="Grupo 259" transform="translate(-16505.75 -202.126)">
+        <g id="Grupo_56" data-name="Grupo 56" transform="translate(501 932)">
+          <g transform="matrix(1, 0, 0, 1, -103, -6)" filter="url(#Elipse_7)">
+            <circle id="Elipse_7-2" data-name="Elipse 7" cx="47" cy="47" r="47" transform="translate(103 6)" fill="#d1d1d1"/>
+          </g>
+        </g>
+      </g>
+      <g id="noun_pictures_491032" transform="translate(-15985 750.631)">
+        <g id="Grupo_325" data-name="Grupo 325" transform="translate(0 3)">
+          <path id="Trazado_201" data-name="Trazado 201" d="M46.161,3H13.75A6.833,6.833,0,0,0,6.875,9.875,6.833,6.833,0,0,0,0,16.75V45.232a6.833,6.833,0,0,0,6.875,6.875H41.25a6.833,6.833,0,0,0,6.875-6.875A6.833,6.833,0,0,0,55,38.357V11.839A8.8,8.8,0,0,0,46.161,3ZM6.875,11.839H41.25a4.863,4.863,0,0,1,4.911,4.911V42.384l-6.973-6.973a4.448,4.448,0,0,0-6.187,0l-1.964,1.964L19.643,25.982A4.543,4.543,0,0,0,16.5,24.705a4.73,4.73,0,0,0-3.143,1.277L1.964,37.473V16.75A4.863,4.863,0,0,1,6.875,11.839Zm34.375,38.3H6.875a4.863,4.863,0,0,1-4.911-4.911V40.223L14.83,27.357a2.559,2.559,0,0,1,3.437,0L33.491,42.58a.949.949,0,0,0,1.375,0,.949.949,0,0,0,0-1.375L32.411,38.75l1.964-1.964a2.374,2.374,0,0,1,3.438,0l8.446,8.446h0A5.01,5.01,0,0,1,41.25,50.143ZM53.036,38.357a4.863,4.863,0,0,1-4.911,4.911V16.75A6.833,6.833,0,0,0,41.25,9.875H8.839A4.863,4.863,0,0,1,13.75,4.964H46.161a6.833,6.833,0,0,1,6.875,6.875Z" transform="translate(0 -3)" fill="#fff"/>
+          <path id="Trazado_202" data-name="Trazado 202" d="M37.012,28.625A4.813,4.813,0,1,0,32.2,23.813,4.82,4.82,0,0,0,37.012,28.625Zm0-7.661a2.848,2.848,0,1,1-2.848,2.848A2.85,2.85,0,0,1,37.012,20.964Z" transform="translate(-0.575 -3.286)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+    <rect id="Rectángulo_386" data-name="Rectángulo 386" width="104" height="7" transform="translate(-16107.75 777)" fill="#d1d1d1"/>
+  </g>
+</svg>

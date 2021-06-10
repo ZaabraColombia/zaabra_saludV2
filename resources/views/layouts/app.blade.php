@@ -184,6 +184,7 @@
         <script src="{{ asset('js/register.js') }}"></script>
         <script src="{{ asset('js/home.js') }}"></script>
         <script src="{{ asset('js/footer.js') }}"></script>
+        <script src="{{ asset('js/formularios.js') }}"></script>
         <script src="{{ asset('js/profesionales.js') }}"></script>
         <script src="{{ asset('js/perfil-profesionales.js') }}"></script>
         <script src="{{ asset('js/galeriaProfesiones.js') }}"></script>

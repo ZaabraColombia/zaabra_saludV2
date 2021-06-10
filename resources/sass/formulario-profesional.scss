@@ -1,6 +1,101 @@
 .content_principal-formProf {
     background: #F9F9F9;
 }
+.alista {
+    width: 15%;
+}
+.alista2 {
+    width: 10%;
+}
+.lista_opciones-usuario-formProf {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 5% auto;
+    width: 75%;
+    height: 10vh;
+}
+.text_opcion-formProfesional {
+    margin: 0;
+    color: black;
+    text-align: center;
+    width: 100%;
+}
+.icon_opcion-datoPersonal {
+    background-image: url('/img/formulario-profesional/icono-datos-personales-azul.svg');
+    background-repeat: no-repeat;
+    width: 105%;
+    height: 100%;
+    background-size: 80%;
+    background-position-x: right;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+}
+.icon_opcion-perfProf {
+    background-image: url('/img/formulario-profesional/icono-perfil-profesional-gris.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 104%;
+    background-position-x: left;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+}
+.icon_opcion-trataProced {
+    background-image: url('/img/formulario-profesional/icono-tratamientos-y-procedimientos.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 104%;
+    background-position-x: left;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+}
+.icon_opcion-premioRecon {
+    background-image: url('/img/formulario-profesional/icono-de-premios-y-reconocimientos.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 104%;
+    background-position-x: left;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+}
+.icon_opcion-public {
+    background-image: url('/img/formulario-profesional/icono-de-publicaciones.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 107%;
+    background-position-x: center;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+}
+.icon_opcion-galeriaVideo {
+    background-image: url('/img/formulario-profesional/icono-galeria.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 104%;
+    background-position-x: center;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+}
+
+
+
+
+
+
+
+
+
 .content_textPrincipal-formProf {
     margin: auto;
     padding: 0;
@@ -212,4 +307,8 @@
 .content_antes-formProf {
     padding-left: 0;
     border-right: 1px solid #D1D1D1;
+}
+.img_publi-formProf {
+    height: 25vh;
+    width: 100%;
 }
