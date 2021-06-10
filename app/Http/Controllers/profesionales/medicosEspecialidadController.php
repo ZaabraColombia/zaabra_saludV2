@@ -32,7 +32,7 @@ class medicosEspecialidadController extends Controller
             FROM  users us
             INNER JOIN pagos pg ON us.id=pg.idUsuario
             INNER JOIN perfilesprofesionales pf ON us.id=pf.idUser
-            INNER JOIN municipio mn ON pf.id_municipio=mn.id_municipio
+            INNER JOIN municipios mn ON pf.id_municipio=mn.id_municipio
             INNER JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
             INNER JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
             INNER JOIN universidades un ON pu.id_universidad=un.id_universidad
@@ -45,7 +45,7 @@ class medicosEspecialidadController extends Controller
             FROM  users us
             INNER JOIN pagos pg ON us.id=pg.idUsuario
             INNER JOIN perfilesprofesionales pf ON us.id=pf.idUser
-            INNER JOIN municipio mn ON pf.id_municipio=mn.id_municipio
+            INNER JOIN municipios mn ON pf.id_municipio=mn.id_municipio
             INNER JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
             INNER JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
             INNER JOIN universidades un ON pu.id_universidad=un.id_universidad
@@ -58,7 +58,7 @@ class medicosEspecialidadController extends Controller
             FROM  users us
             INNER JOIN pagos pg ON us.id=pg.idUsuario
             INNER JOIN perfilesprofesionales pf ON us.id=pf.idUser
-            INNER JOIN municipio mn ON pf.id_municipio=mn.id_municipio
+            INNER JOIN municipios mn ON pf.id_municipio=mn.id_municipio
             INNER JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
             INNER JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
             INNER JOIN universidades un ON pu.id_universidad=un.id_universidad

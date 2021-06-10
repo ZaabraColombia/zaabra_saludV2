@@ -29,9 +29,9 @@ class institucionesController extends Controller
             return DB::select("SELECT us.nombreinstitucion, ins.url, mn.nombre, ins.imagen, ins.quienessomos, tns.nombretipo
             FROM  users us
             INNER JOIN instituciones ins ON us.id=ins.idUser
-            INNER JOIN tipoinstitucion tns ON ins.idtipoInstitucion=tns.id
+            INNER JOIN tipoinstituciones tns ON ins.idtipoInstitucion=tns.id
             INNER JOIN pagos pg ON us.id=pg.idUsuario
-            INNER JOIN municipio mn ON ins.id_municipio=mn.id_municipio
+            INNER JOIN municipios mn ON ins.id_municipio=mn.id_municipio
             WHERE pg.idtipopago=15");
         }
 
@@ -40,9 +40,9 @@ class institucionesController extends Controller
             return DB::select("SELECT us.nombreinstitucion, ins.url, mn.nombre, ins.imagen, ins.quienessomos, tns.nombretipo
             FROM  users us
             INNER JOIN instituciones ins ON us.id=ins.idUser
-            INNER JOIN tipoinstitucion tns ON ins.idtipoInstitucion=tns.id
+            INNER JOIN tipoinstituciones tns ON ins.idtipoInstitucion=tns.id
             INNER JOIN pagos pg ON us.id=pg.idUsuario
-            INNER JOIN municipio mn ON ins.id_municipio=mn.id_municipio
+            INNER JOIN municipios mn ON ins.id_municipio=mn.id_municipio
             WHERE pg.idtipopago=16");
         }
 
@@ -51,7 +51,7 @@ class institucionesController extends Controller
             return DB::select("SELECT us.nombreinstitucion, tns.nombretipo
             FROM  users us
             INNER JOIN instituciones ins ON us.id=ins.idUser
-            INNER JOIN tipoinstitucion tns ON ins.idtipoInstitucion=tns.id
+            INNER JOIN tipoinstituciones tns ON ins.idtipoInstitucion=tns.id
             INNER JOIN pagos pg ON us.id=pg.idUsuario
             WHERE pg.idtipopago=17");
         }
