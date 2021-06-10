@@ -58,12 +58,13 @@ document.addEventListener('DOMContentLoaded', function () {
       },
        // when window width is >= 1024px
       1024: {
-        slidesPerView: 1,
+        slidesPerView: 3,
         slidesPerGroup: 1,
+        spaceBetween: 20,
       },
         // when window width is >= 1600px
       1600: {
-        slidesPerView: 1,
+        slidesPerView: 3,
         slidesPerGroup: 1,
         spaceBetween: 5,
       },
