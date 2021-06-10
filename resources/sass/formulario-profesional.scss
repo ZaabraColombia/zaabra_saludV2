@@ -151,10 +151,7 @@
     height: 100%;
     object-fit: contain;
 }
-
-
 .content_agregarImg-formProf {
-    height: 35vh;
     margin: 0;
     padding-right: 0;
 }
@@ -165,34 +162,54 @@
     margin: 3% auto;
     padding: 0;
     width: 77%;
-  }
-   
-  .agregar_archivo-formProf::before {
-    background-color: #5678EF;
+}
+.img_anexada-formProf img{
+    height: 100%;
+    object-fit: scale-down;
+}  
+.agregar_archivo-formProf::before {
+    background-color: #0083D6;
     color: white;
     display: flex;            
     justify-content: center;
     align-items: center;
     border-radius: 3px;
-    content: 'subir foto socio'; /* testo por defecto */
+    content: 'Subir foto de asociación'; /* texto por defecto */
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;              
-  }
+}
    
-  .agregar_archivo-formProf input[type="file"] {
+.agregar_archivo-formProf input[type="file"] {
     opacity: 0;
-    width: 166px;
+    width: 100%;
     height: 32px;
     display: flex;            
-  }
-
-
-
-
-
-  .tamao {
-      height: 100%;
-  }
+}
+// Sección imagen GUARDADA
+.content_imgGuardada-formProf {
+    margin: 0;
+    padding: 0 5%;
+    height: 25VH;
+}
+.img_guardada-formProf {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+// Sección Procedimientos y tratamientos
+.content_antDesp-formProf {
+    padding: 0;
+    margin: 3% 0 0 0;
+}
+.text_superior-proced-formProf {
+    font-size: 1em;
+    color: #434343;
+    margin-top: 3%;
+}
+.content_antes-formProf {
+    padding-left: 0;
+    border-right: 1px solid #D1D1D1;
+}
