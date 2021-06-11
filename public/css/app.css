@@ -13348,6 +13348,7 @@ a:link, a:visited, a:active, a:hover {
 .destacado p {
   font-family: "Roboto";
   color: #3E3E3E;
+  font-weight: 500;
 }
 
 .perfil i {
@@ -14882,15 +14883,18 @@ a:link, a:visited, a:active, a:hover {
 
   .data_profesionales {
     flex-direction: row;
-    width: 70%;
+    width: 100%;
     height: 100%;
     margin: auto;
-    align-items: flex-end;
+    padding-left: 37%;
   }
 
   .data_profesionales img {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 12%;
+    top: 16%;
   }
 
   .data_profesionales .contains_info {
@@ -14899,7 +14903,6 @@ a:link, a:visited, a:active, a:hover {
     align-content: flex-start;
     justify-content: space-evenly;
     align-items: flex-start;
-    padding-left: 7%;
   }
 
   .data_profesionales .title-adress {
@@ -15022,7 +15025,9 @@ a:link, a:visited, a:active, a:hover {
     padding-left: 5%;
   }
 
-  .tratamientos_profesional .container_cards {
+  .tratamientos_profesional .container_cards,
+.publicaciones_profesional .container_cards,
+.videos_profesional .container_cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -15030,6 +15035,7 @@ a:link, a:visited, a:active, a:hover {
 
   .tratamientos_profesional .card {
     width: 40%;
+    margin-bottom: 0;
   }
 
   .tratamientos_profesional .card h4, h6 {
@@ -15037,11 +15043,11 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .tratamientos_profesional .card-body h5 {
-    font-size: 1.6em;
+    font-size: 1.5em;
   }
 
   .tratamientos_profesional p {
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: 500;
   }
 
@@ -15063,6 +15069,468 @@ a:link, a:visited, a:active, a:hover {
 
   .swiper_premios p {
     font-size: 0.9em;
+  }
+
+  .publicaciones_profesional .card {
+    width: 40%;
+    margin-bottom: 0;
+  }
+
+  .publicaciones_profesional .card-body h5 {
+    font-size: 1.3em;
+    text-align: left;
+  }
+
+  .publicaciones_profesional p {
+    font-size: 1em;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .galeria_profesional {
+    height: 55vh;
+  }
+
+  .videos_profesional .card {
+    width: 30%;
+  }
+
+  .videos_profesional .card-body h5 {
+    font-size: 1.2em;
+    text-align: left;
+  }
+
+  .videos_profesional p {
+    font-size: 0.8em;
+    text-align: left;
+  }
+}
+@media (min-width: 1200px) {
+  .section_data_profesionales {
+    height: auto;
+    padding-top: 2%;
+  }
+
+  .perfil_profesional i,
+.educacion i,
+.experiencia i,
+.asociaciones i,
+.idiomas i,
+.tratamientos_profesional i,
+.contains_swiper_premios i,
+.publicaciones_profesional i,
+.galeria_profesional i,
+.videos_profesional i {
+    width: 6%;
+    height: 45px;
+  }
+
+  .perfil_profesional p {
+    padding-left: 6%;
+  }
+
+  .educacion ul,
+.experiencia ul,
+.asociaciones ul,
+.idiomas ul {
+    padding-left: 6%;
+  }
+
+  .data_profesionales {
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    align-items: flex-end;
+    padding-left: 35%;
+  }
+
+  .data_profesionales img {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: 12%;
+    top: 16%;
+  }
+
+  .data_profesionales .contains_info {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+
+  .data_profesionales .title-adress {
+    width: 80%;
+    font-weight: 500;
+  }
+
+  .data_profesionales h2 {
+    font-size: 2em;
+  }
+
+  .data_profesionales h1 {
+    font-size: 1.7em;
+  }
+
+  .data_profesionales h5 {
+    font-size: 1.2em;
+  }
+
+  .data_profesionales .title-adress i {
+    width: 5%;
+    height: 24px;
+  }
+
+  .data_profesionales h5:nth-child(7) {
+    padding-left: 4%;
+    font-weight: 500;
+  }
+
+  .section_data_consulta {
+    width: 100%;
+    height: auto;
+    padding-left: 35%;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+    border-top: 0;
+  }
+
+  .section_data_consulta h2 {
+    padding-top: 1%;
+    font-size: 1.4em;
+  }
+
+  .data_consulta {
+    width: 87%;
+    padding-top: 0;
+    flex-direction: row;
+  }
+
+  .data_consulta ul {
+    width: 53%;
+    justify-content: space-between;
+  }
+
+  .data_consulta i {
+    width: 30px !important;
+    height: 24px !important;
+  }
+
+  .data_consulta p, span {
+    font-size: 1.1em;
+  }
+
+  .data_consulta span {
+    margin-left: 30px;
+  }
+
+  .data_consulta li {
+    line-height: 20px;
+  }
+
+  .data_consulta .contains_buttons {
+    width: 35%;
+    flex-direction: column;
+  }
+
+  .data_consulta .contains_buttons a {
+    width: 85%;
+    padding: 3%;
+    font-size: 1.2em;
+    margin-bottom: 4%;
+  }
+
+  .destacado ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 2%;
+    padding-left: 8%;
+  }
+
+  .destacado ul li {
+    width: 30%;
+  }
+
+  .destacado i {
+    width: 5%;
+    height: 35px;
+  }
+
+  .destacado h2 {
+    font-size: 1.5em;
+    padding-left: 2%;
+  }
+
+  .profesional_menu i {
+    height: 75px;
+  }
+
+  .profesional_menu p {
+    margin-top: 5%;
+    font-size: 0.9em;
+    max-width: 80%;
+  }
+
+  .swiper_profesional {
+    width: 70%;
+  }
+
+  .contains_swiper_profesional h1 {
+    margin-top: 5%;
+    margin-bottom: 4%;
+  }
+
+  .idiomas ul li {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-left: 5%;
+  }
+
+  .tratamientos_profesional .container_cards,
+.publicaciones_profesional .container_cards,
+.videos_profesional .container_cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .tratamientos_profesional .card {
+    width: 35%;
+    margin-bottom: 0;
+  }
+
+  .tratamientos_profesional .card h4, h6 {
+    font-size: 1.3em;
+  }
+
+  .tratamientos_profesional .card-body h5 {
+    font-size: 1.5em;
+  }
+
+  .tratamientos_profesional p {
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+
+  .swiper_premios {
+    max-width: 75%;
+  }
+
+  .contains_swiper_premios h2 {
+    margin-bottom: 4%;
+  }
+
+  .swiper_premios h6 {
+    font-size: 1em;
+  }
+
+  .swiper_premios h5 {
+    font-size: 1.5em;
+  }
+
+  .swiper_premios p {
+    font-size: 0.9em;
+  }
+
+  .publicaciones_profesional .card {
+    width: 40%;
+    margin-bottom: 0;
+  }
+
+  .publicaciones_profesional .card-body h5 {
+    font-size: 1.4em;
+    text-align: left;
+  }
+
+  .publicaciones_profesional p {
+    font-size: 1em;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .galeria_profesional {
+    height: 55vh;
+  }
+
+  .videos_profesional .card {
+    width: 30%;
+  }
+
+  .videos_profesional .card-body h5 {
+    font-size: 1.4em;
+    text-align: left;
+  }
+
+  .videos_profesional p {
+    font-size: 0.8em;
+    text-align: left;
+  }
+}
+@media (min-width: 1440px) {
+  .destacado i {
+    width: 5%;
+    height: 39px;
+  }
+
+  .destacado ul {
+    padding-left: 9%;
+  }
+
+  .section_destacado {
+    padding-top: 3%;
+  }
+
+  .publicaciones_profesional .card {
+    width: 35%;
+    margin-bottom: 0;
+  }
+
+  .videos_profesional .card {
+    width: 27%;
+  }
+
+  .gallery_profesional > li {
+    width: calc(100% / 4);
+    height: calc(100% / 4);
+  }
+
+  .gallery_profesional > li > img {
+    height: 180px;
+  }
+}
+@media (min-width: 1600px) {
+  .destacado {
+    width: 75%;
+    margin: auto;
+  }
+
+  .perfil_profesional,
+.educacion,
+.experiencia,
+.asociaciones,
+.idiomas,
+.tratamientos_profesional,
+.publicaciones_profesional,
+.videos_profesional {
+    width: 75%;
+    margin: auto;
+  }
+
+  .contains_swiper_premios h2 {
+    width: 75%;
+  }
+
+  .swiper_premios {
+    max-width: 65%;
+  }
+
+  .data_profesionales,
+.section_data_consulta {
+    padding-left: 32%;
+  }
+
+  .data_consulta ul {
+    width: 45%;
+  }
+
+  .data_profesionales .title-adress {
+    width: 60%;
+    font-weight: 500;
+  }
+
+  .data_profesionales h5:nth-child(7) {
+    padding-left: 3%;
+  }
+
+  .data_consulta .contains_buttons {
+    width: 25%;
+    flex-direction: column;
+    padding-bottom: 1%;
+    margin-left: 2%;
+  }
+
+  .data_consulta .contains_buttons a {
+    align-items: flex-start;
+    margin: 0;
+    margin-bottom: 4%;
+  }
+
+  .destacado i {
+    width: 4%;
+    height: 39px;
+  }
+
+  .destacado ul {
+    padding-left: 7%;
+  }
+
+  .contains_swiper_profesional h1 {
+    font-size: 2.5em;
+  }
+
+  .swiper_profesional {
+    width: 60%;
+  }
+
+  .perfil_profesional i,
+.educacion i,
+.experiencia i,
+.asociaciones i,
+.idiomas i,
+.tratamientos_profesional i,
+.contains_swiper_premios i,
+.publicaciones_profesional i,
+.galeria_profesional i,
+.videos_profesional i {
+    width: 5%;
+    height: 45px;
+  }
+
+  .perfil_profesional p {
+    padding-left: 5%;
+  }
+
+  .educacion ul,
+.experiencia ul,
+.asociaciones ul,
+.idiomas ul {
+    padding-left: 5%;
+  }
+
+  .tratamientos_profesional .card {
+    width: 34%;
+    margin-bottom: 0;
+  }
+
+  .tratamientos_profesional .card h4, h6 {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 1920px) {
+  .data_profesionales img {
+    width: 280px;
+    height: 280px;
+    left: 25%;
+    top: 14%;
+  }
+
+  .data_profesionales, .section_data_consulta {
+    padding-left: 45%;
+  }
+
+  .data_consulta ul {
+    width: 35%;
+  }
+
+  .data_consulta ul {
+    width: 45%;
   }
 }
 .contains_slide .contains_image_profesional img {
@@ -18380,6 +18848,102 @@ a:link, a:visited, a:active, a:hover {
   background: #F9F9F9;
 }
 
+.alista {
+  width: 15%;
+}
+
+.alista2 {
+  width: 10%;
+}
+
+.lista_opciones-usuario-formProf {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 5% auto;
+  width: 75%;
+  height: 10vh;
+}
+
+.text_opcion-formProfesional {
+  margin: 0;
+  color: black;
+  text-align: center;
+  width: 100%;
+}
+
+.icon_opcion-datoPersonal {
+  background-image: url("/img/formulario-profesional/icono-datos-personales-azul.svg");
+  background-repeat: no-repeat;
+  width: 105%;
+  height: 100%;
+  background-size: 80%;
+  background-position-x: right;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+}
+
+.icon_opcion-perfProf {
+  background-image: url("/img/formulario-profesional/icono-perfil-profesional-gris.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 104%;
+  background-position-x: left;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+}
+
+.icon_opcion-trataProced {
+  background-image: url("/img/formulario-profesional/icono-tratamientos-y-procedimientos.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 104%;
+  background-position-x: left;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+}
+
+.icon_opcion-premioRecon {
+  background-image: url("/img/formulario-profesional/icono-de-premios-y-reconocimientos.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 104%;
+  background-position-x: left;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+}
+
+.icon_opcion-public {
+  background-image: url("/img/formulario-profesional/icono-de-publicaciones.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 107%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+}
+
+.icon_opcion-galeriaVideo {
+  background-image: url("/img/formulario-profesional/icono-galeria.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 104%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+}
+
 .content_textPrincipal-formProf {
   margin: auto;
   padding: 0;
@@ -18615,6 +19179,11 @@ a:link, a:visited, a:active, a:hover {
 .content_antes-formProf {
   padding-left: 0;
   border-right: 1px solid #D1D1D1;
+}
+
+.img_publi-formProf {
+  height: 25vh;
+  width: 100%;
 }
 
 .section_principal-institucion {

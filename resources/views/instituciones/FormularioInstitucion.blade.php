@@ -896,23 +896,202 @@
 <!--------------------------------------------Fin sexta parte del formulario------------------------------------------------>
 
 <!--------------------------------------------Inicio septima parte del formulario------------------------------------------------>
-<div class="col-12 row">
+<div class="col-lg-10 pb-3 infoBasica_formProf">
+       <h5 class="col-lg-12 icon_infoBasica-formProf">Propuesta de valor </h5>
+        <div class="col-12 row">
 
-    <div class="col-12">
-        <div class="col-6">
-           <input type='file' id="imgasocia1" name="imgasociacion[]"/>
+                @foreach($objEps as $objEps)
+                    @if(!empty($objEps->urlimagen))
+                    <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objEps->urlimagen)}}">
+                    <a href="{{url('/FormularioInstituciondelete6/'.$objEps->id)}}">
+                        <button type="submit" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </a>   
+                    @endif
+                @endforeach
+                @foreach($objIps as $objIps)
+                    @if(!empty($objIps->urlimagen))
+                    <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objIps->urlimagen)}}">
+                    <a href="{{url('/FormularioInstituciondelete7/'.$objIps->id)}}">
+                        <button type="submit" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </a>   
+                    @endif
+                @endforeach
+                @foreach($objPrepa as $objPrepa)
+                    @if(!empty($objPrepa->urlimagen))
+                    <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objPrepa->urlimagen)}}">
+                    <a href="{{url('/FormularioInstituciondelete8/'.$objPrepa->id_prepagada)}}">
+                        <button type="submit" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </a>   
+                    @endif
+                @endforeach
         </div>
-        <div class="col-6">
-          <input type='file' id="imgasocia1" name="imgasociacion[]"/>
-        </div>
-        <div class="col-6">
-           <input type='file' id="imgasocia1" name="imgasociacion[]"/>
-        </div>
-        <div class="col-6">
-          <input type='file' id="imgasocia1" name="imgasociacion[]"/>
-        </div>
-    </div>
+    <form method="POST" action="{{ url ('/FormularioInstitucionSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+            <div class="col-12 row">
+            <!--formulario eps-->
+            @if($objContadorEps->cantidad == 0)
+                    <div class="col-12">
+                        <label for="title">  Suba imágenes con respecto a los convenios que tengan con las EPS </label>
+                        <div class="col-6">
+                        <input type='file' id="urlimagen" name="urlimagenEps[]"/>
+                        </div>
+                        <div class="col-6">
+                        <input type='file' id="urlimagen" name="urlimagenEps[]"/>
+                        </div>
+                        <div class="col-6">
+                        <input type='file' id="urlimagen" name="urlimagenEps[]"/>
+                        </div>
+                        <div class="col-6">
+                        <input type='file' id="urlimagen" name="urlimagenEps[]"/>
+                        </div>
+                    </div>
+            @elseif($objContadorEps->cantidad == 1)
+                    <div class="col-12">
+                        <label for="title">  Suba imágenes con respecto a los convenios que tengan con las EPS </label>
+                        <div class="col-6">
+                        <input type='file' id="urlimagen" name="urlimagenEps[]"/>
+                        </div>
+                        <div class="col-6">
+                        <input type='file' id="urlimagen" name="urlimagenEps[]"/>
+                        </div>
+                        <div class="col-6">
+                        <input type='file' id="urlimagen" name="urlimagenEps[]"/>
+                        </div>
+                    </div>
+            @elseif($objContadorEps->cantidad == 2)
+                    <div class="col-12">
+                        <label for="title">  Suba imágenes con respecto a los convenios que tengan con las EPS </label>
+                        <div class="col-6">
+                          <input type='file' id="urlimagen" name="urlimagenEps[]"/>
+                        </div>
+                        <div class="col-6">
+                          <input type='file' id="urlimagen" name="urlimagenEps[]"/>
+                        </div>
+                    </div>
+            @elseif($objContadorEps->cantidad == 3)
+                    <div class="col-12">
+                        <label for="title">  Suba imágenes con respecto a los convenios que tengan con las EPS </label>
+                        <div class="col-6">
+                          <input type='file' id="urlimagen" name="urlimagenEps[]"/>
+                        </div>
+                    </div>
+            @elseif($objContadorEps->cantidad == 4)
+            <span>No se pueden agregar mas </span>
+            @endif
+            <!--formulario ips-->
+            @if($objContadorIps->cantidad == 0)
+                    <div class="col-12">
+                        <label for="title">  Suba imágenes con respecto a los convenios que tengan con las IPS </label>
+                        <div class="col-6">
+                        <input type='file' id="imgasocia1" name="urlimagenIps[]"/>
+                        </div>
+                        <div class="col-6">
+                        <input type='file' id="imgasocia1" name="urlimagenIps[]"/>
+                        </div>
+                        <div class="col-6">
+                        <input type='file' id="imgasocia1" name="urlimagenIps[]"/>
+                        </div>
+                        <div class="col-6">
+                        <input type='file' id="imgasocia1" name="urlimagenIps[]"/>
+                        </div>
+                    </div>
+            @elseif($objContadorIps->cantidad == 1)
+                    <div class="col-12">
+                        <label for="title">  Suba imágenes con respecto a los convenios que tengan con las IPS </label>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenIps[]"/>
+                        </div>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenIps[]"/>
+                        </div>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenIps[]"/>
+                        </div>
+                    </div>
+            @elseif($objContadorIps->cantidad == 2)
+                    <div class="col-12">
+                        <label for="title">  Suba imágenes con respecto a los convenios que tengan con las IPS </label>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenIps[]"/>
+                        </div>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenIps[]"/>
+                        </div>
+                    </div>
+            @elseif($objContadorIps->cantidad == 3)
+                    <div class="col-12">
+                        <label for="title">  Suba imágenes con respecto a los convenios que tengan con las IPS </label>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenIps[]"/>
+                        </div>
+                    </div>
+            @elseif($objContadorIps->cantidad == 4)
+                    <span>No se pueden agregar mas </span>
+            @endif
 
+            <!--formulario prepagada-->
+            @if($objContadorIps->cantidad == 0)
+                    <div class="col-12">
+                        <label for="title">  Suba imágenes con respecto a los convenios que tengan con Medicina Prepagada</label>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenPre[]"/>
+                        </div>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenPre[]"/>
+                        </div>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenPre[]"/>
+                        </div>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenPre[]"/>
+                        </div>
+                    </div>
+            @elseif($objContadorIps->cantidad == 1)
+                    <div class="col-12">
+                        <label for="title">  Suba imágenes con respecto a los convenios que tengan con Medicina Prepagada</label>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenPre[]"/>
+                        </div>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenPre[]"/>
+                        </div>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenPre[]"/>
+                        </div>
+                    </div>
+            @elseif($objContadorIps->cantidad == 2)
+                    <div class="col-12">
+                        <label for="title">  Suba imágenes con respecto a los convenios que tengan con Medicina Prepagada</label>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenPre[]"/>
+                        </div>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenPre[]"/>
+                        </div>
+                    </div>
+            @elseif($objContadorIps->cantidad == 3)
+                    <div class="col-12">
+                        <label for="title">  Suba imágenes con respecto a los convenios que tengan con Medicina Prepagada</label>
+                        <div class="col-6">
+                          <input type='file' id="imgasocia1" name="urlimagenPre[]"/>
+                        </div>
+                    </div>
+            @elseif($objContadorIps->cantidad == 4)
+                    <span>No se pueden agregar mas </span>
+            @endif
+            </div>
+            <div class="col-lg-12 content_btnEnviar-formProf">
+            <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+            </button>
+        </div>
+    </form>
 </div>
 <!--------------------------------------------Fin septima parte del formulario------------------------------------------------> 
 

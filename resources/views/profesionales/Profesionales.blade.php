@@ -38,12 +38,11 @@
                         </div>
                       <p>{{$objcarruselprofesionalespremiun->descripcionPerfil}}</p>
                     </div>
-                    
                      <div class="contains_buttons">
                         <a href="">Agende su cita
                             <i class="fas fa-arrow-right arrow_mas"></i>
                         </a>
-                        <a href="">Ver perfil
+                        <a href="{{url('PerfilProfesional/'.$objcarruselprofesionalespremiun->idPerfilProfesional)}}">Ver perfil
                             <i class="fas fa-arrow-right arrow_mas"></i>
                         </a>
                      </div>
@@ -91,7 +90,7 @@
                         <a href="">Agendar
                             <i class="fas fa-arrow-right arrow_mas"></i>
                         </a>
-                        <a href="">Ver más
+                        <a href="{{url('PerfilProfesional/'.$objmedicospagonormal->idPerfilProfesional)}}">Ver más
                             <i class="fas fa-arrow-right arrow_mas"></i>
                         </a>
                       </div>

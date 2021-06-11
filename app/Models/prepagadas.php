@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class prepagada extends Model
+class prepagadas extends Model
 {
     protected $fillable = [
         'id_prepagada',
-        'nombre',
+        'id_institucion',
         'urlimagen'
     ];
 }
