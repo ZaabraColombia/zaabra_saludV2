@@ -39,7 +39,7 @@ class entidadesController extends Controller
     // consulta para cargar todas las profesiones disponibles, activas y en el orden secuencial según diseño
     public function cargarInstituciones(){
         return DB::select('SELECT tp.nombretipo, tp.descripcioninstitucion, tp.urlimagen,tp.id
-        FROM tipoinstitucion  tp
+        FROM tipoinstituciones  tp
         WHERE tp.estado<>0');
     }
 

@@ -16,9 +16,9 @@ class perfilInstitucionController extends Controller
     {
         $objinstitucionlandin= $this->cargarInfoInstitucLandin($id);
         $objinstitucionlandinservicios= $this->cargarInfoInstitucLandinServicios($id);
-        $objinstitucionlandinprepagada= $this->cargarInfoInstitucLandinPrepagada($id);
-        $objinstitucionlandinips= $this->cargarInfoInstitucLandinIps($id);
-        $objinstitucionlandineps= $this->cargarInfoInstitucLandinEps($id);
+        $objinstitucionlandinprepagada= $this->cargarPrepagada($id);
+        $objinstitucionlandinips= $this->cargarIps($id);
+        $objinstitucionlandineps= $this->cargarEps($id);
         $objinstitucionlandinpremios= $this->cargarInfoInstitucLandinPremios($id);
         $objinstitucionlandinpublicaci= $this->cargarInfoInstitucLandinPublicaciones($id);
         $objinstitucionlandingaleria= $this->cargarInfoInstitucLandinGaleria($id);
@@ -43,9 +43,9 @@ class perfilInstitucionController extends Controller
         return DB::select("SELECT ints.logo,ints.imagen , us.nombreinstitucion, ints.url, ints.telefonouno, ints.direccion, mn.nombre ciudad, p.nombre pais, ints.quienessomos, ints.propuestavalor, ints.DescripcionGeneralServicios, tpi.nombretipo
         FROM instituciones ints
         INNER JOIN users us ON ints.idUser=us.id
-        INNER JOIN municipio mn ON ints.id_municipio=mn.id_municipio
+        INNER JOIN municipios mn ON ints.id_municipio=mn.id_municipio
         INNER JOIN pais p ON ints.idPais=p.id_pais
-        INNER JOIN tipoinstitucion tpi ON ints.idtipoInstitucion=tpi.id
+        INNER JOIN tipoinstituciones tpi ON ints.idtipoInstitucion=tpi.id
         WHERE ints.aprobado<>0 AND ints.id=$id");
         }
 
@@ -58,29 +58,26 @@ class perfilInstitucionController extends Controller
         }
 
         // consulta para cargar informacion de la landing convenio prepagada
-        public function cargarInfoInstitucLandinPrepagada($id){
+        public function cargarPrepagada($id){
         return DB::select("SELECT pr.urlimagen
         FROM instituciones ints
-        INNER JOIN institucionprepagada ip ON ints.id=ip.idinstitucion
-        INNER JOIN prepagada pr ON ip.id_prepagada=pr.id_prepagada
+        INNER JOIN prepagada pr ON ints.id=pr.id_institucion
         WHERE ints.aprobado<>0 AND ints.id=$id");
         }
 
         // consulta para cargar informacion de la landing convenio ips
-        public function cargarInfoInstitucLandinIps($id){
+        public function cargarIps($id){
         return DB::select("SELECT ip.urlimagen
         FROM instituciones ints
-        INNER JOIN intitucionesips ii ON ints.id=ii.idinstitucion
-        INNER JOIN ips ip ON ii.idips=ip.id
+        INNER JOIN ips ip ON ints.id=ip .id_institucion
         WHERE ints.aprobado<>0 AND ints.id=$id");
         }
 
         // consulta para cargar informacion de la landing convenio ips
-        public function cargarInfoInstitucLandinEps($id){
+        public function cargarEps($id){
         return DB::select("SELECT ep.urlimagen
         FROM instituciones ints
-        INNER JOIN intitucioneseps ie ON ints.id=ie.idinstitucion
-        INNER JOIN eps ep ON ie.ideps=ep.id
+        INNER JOIN eps ep ON ints.id=ep.id_institucion
         WHERE ints.aprobado<>0 AND ints.id=$id");
         }
 
@@ -104,7 +101,7 @@ class perfilInstitucionController extends Controller
         public function cargarInfoInstitucLandinGaleria($id){
         return DB::select("SELECT ga.imggaleria, ga.nombrefoto, ga.descripcion
         FROM instituciones ints
-        INNER JOIN galeria ga ON ints.id=ga.idinstitucion        
+        INNER JOIN galerias ga ON ints.id=ga.idinstitucion        
         WHERE ints.aprobado<>0 AND ints.id=$id");
         }
         
