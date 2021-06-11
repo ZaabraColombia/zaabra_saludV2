@@ -2,47 +2,47 @@
 
 @section('content')
 
-<!-- Contenedor principal de las tarjetas de datos -->
-<div class="container-fluid content_principal-formProf">
-
 <!--     Sección lista de opciones     -->
 <ol  class="lista_opciones-usuario-formProf">
-    <div>
-        <li class="icon_opcion-datoPersonal active" onclick="colorTransition(this)" data-codigo="1">
-            <label class="text_opcion-formProfesional" > Datos personales </label>
+    <div class="content_icons-formProf"> <!-- clase "content_icons-formProf" para evento ocultar y mostrar contenido de la opción. Ubicado en el archivo formularios.js -->
+        <li class="iconAzul_datoPersonal dato-personal">
+            <p class="text_opcion-formProfesional" > Datos personales </p>
         </li>
     </div>
 
-    <div>
-        <li class="icon_opcion-perfProf" onclick="colorTransition(this)" data-codigo="2">
-            <label class="text_opcion-formProfesional" > Perfil profesional </label>
+    <div class="content_icons-formProf">
+        <li class="iconGris_perfProf perfil-profesional">
+            <p class="text_opcion-formProfesional" > Perfil profesional </p>
         </li>
     </div>
 
-    <div>
-        <li class="icon_opcion-trataProced" onclick="colorTransition(this)" data-codigo="3">
-            <label class="text_opcion-formProfesional" > Tratamientos y procedimientos </label>
+    <div class="content_icons-formProf">
+        <li class="iconGris_trataProced tratamiento-procedimiento">
+            <p class="text_opcion-formProfesional" > Tratamientos y procedimientos </p>
         </li>
     </div>
 
-    <div>
-        <li class="icon_opcion-premioRecon" onclick="colorTransition(this)" data-codigo="4">
-            <label class="text_opcion-formProfesional" > Premios y reconocimientos </label>
+    <div class="content_icons-formProf">
+        <li class="iconGris_premioRecon premio-reconocimiento">
+            <p class="text_opcion-formProfesional" > Premios y reconocimientos </p>
         </li>
     </div>
 
-    <div>
-        <li class="icon_opcion-public" onclick="colorTransition(this)" data-codigo="5">
-            <label class="text_opcion-formProfesional" > Publicaciones </label>
+    <div class="content_icons-formProf">
+        <li class="iconGris_public publicacion">
+            <p class="text_opcion-formProfesional" > Publicaciones </p>
         </li>
     </div>
 
-    <div>
-        <li class="icon_opcion-galeriaVideo" onclick="colorTransition(this)" data-codigo="6">
-            <label class="text_opcion-formProfesional" > Galería </label>
+    <div class="content_icons-formProf">
+        <li class="iconGris_galeriaVideo galeria-video">
+            <p class="text_opcion-formProfesional" > Galería </p>
         </li>
     </div>
 </ol> 
+
+<!-- Contenedor principal de las tarjetas de datos -->
+<div class="container-fluid content_principal-formProf">
 
 <!--  -->
 <div class="col-lg-10 content_textPrincipal-formProf">
@@ -52,13 +52,14 @@
 </div>
 
 <!--------------------------------------------      Inicio 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      ------------------------------------------------>
-<div class="col-lg-10 infoBasica_formProf">
+<div class="content_dato-person col-lg-10 infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf"> Información básica </h5> 
 
     <form method="POST" action="{{ url ('/FormularioProfesionalSave') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
         <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio---------------------> 
+
         @if(!empty($objFormulario))
             <div class="row fila_infoBasica-formProf">
                 <!-- Sección imagen de usuario --> 
@@ -259,7 +260,7 @@
 <!--------------------------------------------      Fin 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      ------------------------------------------------>
 
 <!--------------------------------------------      Inicio 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ------------------------------------------------>
-<div class="col-lg-10 infoBasica_formProf">
+<div class="content_dato-person col-lg-10 infoBasica_formProf">
     <form method="POST" action="{{ url ('/FormularioProfesionalSave2') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
         <h5 class="col-lg-12 icon_infoBasica-formProf"> Información de contacto </h5>
@@ -394,14 +395,14 @@
 <!--------------------------------------------      Fin 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ------------------------------------------------>
 
 <!--------------------------------------------      Inicio 3 tercera parte del formulario *** INFORMACIÓN CONSULTA ***      ------------------------------------------------>
-<div class="col-lg-10 pb-3 infoBasica_formProf">
+<div class="content_dato-person col-lg-10 pb-3 infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf"> Información consulta </h5>
     @foreach($objConsultas as $objConsultas)
         @if(!empty($objConsultas->nombreconsulta))
             <div class="col-12">
                 <span>{{$objConsultas->nombreconsulta}} $ {{$objConsultas->valorconsulta}}</span>
                 
-                <a href="{{url('/FormularioProfesionaldelete5/'.$objConsultas->id)}}">
+                <a href="{{url('/FormularioProfesionaldelete3/'.$objConsultas->id)}}">
                     <button type="submit" class="close" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -433,7 +434,7 @@
                 </div>
             </div>
 
-            <div class="col-12 seccion_consulta-formProf">
+            <div class="col-12 seccion_consulta-formProf hidden-section-formProf">
                 <div class="col-6 pr-0">
                     <label for="inputState"> Tipo Consulta </label>
 
@@ -452,7 +453,7 @@
                 </div>
             </div>
 
-            <div class="col-12 seccion_consulta-formProf">
+            <div class="col-12 seccion_consulta-formProf hidden-section-formProf">
                 <div class="col-6 pr-0">
                     <label for="inputState"> Tipo Consulta </label>
 
@@ -542,7 +543,7 @@
 <!--------------------------------------------      Fin 3 tercera parte del formulario *** INFORMACIÓN CONSULTA ***      ------------------------------------------------> 
 
 <!--------------------------------------------      Inicio 4 cuarta parte del formulario *** PERFIL PROFESIONAL ***      ------------------------------------------------>
-<div class="col-lg-10 pb-3 infoBasica_formProf">
+<div class="content_perfil-prof col-lg-10 pb-3 infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf"> Perfil Profesional </h5>
 
     <form method="POST" action="{{ url ('/FormularioProfesionalSave4') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
@@ -575,8 +576,22 @@
 <!--------------------------------------------      Fin 4 cuarta parte del formulario *** PERFIL PROFESIONAL ***      ------------------------------------------------>
 
 <!--------------------------------------------      Inicio 5 quinta parte del formulario *** EDUCACIÓN ***      ------------------------------------------------>
-<div class="col-lg-10 pb-3 infoBasica_formProf">
+<div class="content_perfil-prof col-lg-10 pb-3 infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf"> Educación </h5>
+
+    @foreach($objEducacion as $objEducacion)
+        @if(!empty($objEducacion->nombreuniversidad))
+            <div class="col-12">
+                <span>{{$objEducacion->nombreuniversidad}}  {{$objEducacion->nombreestudio}} {{$objEducacion->fechaestudio}}</span>
+                
+                <a href="{{url('/FormularioProfesionaldelete5/'.$objEducacion->id_universidadperfil)}}">
+                    <button type="submit" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </a>
+            </div>
+        @endif
+    @endforeach
 
     <form method="POST" action="{{ url ('/FormularioProfesionalSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
@@ -609,7 +624,7 @@
             </div>
         </div>
 
-        <div class="row p-0 m-0">
+        <div class="row p-0 m-0 hidden-section-formProf">
             <div class="col-6 pr-0">
                 <label for="title"> Selecione Universidad </label>
 
@@ -638,7 +653,7 @@
         </div>
 
                     
-        <div class="row p-0 m-0">
+        <div class="row p-0 m-0 hidden-section-formProf">
             <div class="col-6 pr-0">
                 <label for="title"> Selecione Universidad </label>
                     <select  class="form-control" name="id_universidad[]">
@@ -665,7 +680,7 @@
            </div>
         </div>
 
-        <div class="row p-0 m-0">
+        <div class="row p-0 m-0 hidden-section-formProf">
             <div class="col-6 pr-0">
                 <label for="title"> Selecione Universidad </label>
 
@@ -703,7 +718,7 @@
 <!--------------------------------------------      Fin 5 quinta parte del formulario *** EDUCACIÓN ***      ------------------------------------------------>
 
 <!--------------------------------------------      Inicio 6 sexta parte del formulario *** EXPERIENCIA ***      ------------------------------------------------>
-<div class="col-lg-10 pb-3 infoBasica_formProf">
+<div class="content_perfil-prof col-lg-10 pb-3 infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf"> Experiencia </h5>
 
     <!--------------muestra una lista de la experinecia ingresada---------------> 
@@ -766,7 +781,7 @@
 <!--------------------------------------------      Fin 6 sexta parte del formulario *** EXPERIENCIA ***      ------------------------------------------------>
 
 <!--------------------------------------------      Inicio 7 septima parte del formulario *** ASOCIACIONES ***      ------------------------------------------------>
-<div class="col-lg-10 pb-3 infoBasica_formProf">
+<div class="content_perfil-prof col-lg-10 pb-3 infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf"> Asociaciones </h5>
 
     <div class="row col-12 px-0 pt-3 m-0">
@@ -810,7 +825,7 @@
                     </div>
                 </div> 
 
-                <div class="col-6 content_agregarImg-formProf form-group">
+                <div class="col-6 content_agregarImg-formProf form-group hidden-section-formProf">
                     <div class="col-10 img_selccionada-formProf">
                         <div class="img_anexada-formProf" id="preview3"></div>
                     </div>
@@ -820,7 +835,7 @@
                     </div>
                 </div> 
                 
-                <div class="col-6 content_agregarImg-formProf form-group">
+                <div class="col-6 content_agregarImg-formProf form-group hidden-section-formProf">
                     <div class="col-10 img_selccionada-formProf">
                         <div class="img_anexada-formProf" id="preview4"></div>
                     </div>
@@ -914,7 +929,7 @@
 <!--------------------------------------------      Fin 7 septima parte del formulario *** ASOCIACIONES ***      ------------------------------------------------>
 
 <!--------------------------------------------      Inicio 8 octava parte del formulario *** IDIOMAS ***      ------------------------------------------------>
-<div class="col-lg-10 pb-3 infoBasica_formProf">
+<div class="content_perfil-prof col-lg-10 pb-3 infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf"> Idiomas </h5>
 
     <div class="row p-0 m-0">
@@ -951,7 +966,7 @@
                     </select>
                 </div>                    
 
-                <div class="col-6 pr-0">
+                <div class="col-6 pr-0 hidden-section-formProf">
                     <label for="title"> Seleccione idioma </label>
 
                     <select  class="form-control" name="id_idioma[]">
@@ -962,7 +977,7 @@
                     </select>
                 </div>
 
-                <div class="col-6 pr-0">
+                <div class="col-6 pr-0 hidden-section-formProf">
                     <label for="title"> Seleccione idioma </label>
 
                     <select  class="form-control" name="id_idioma[]">
@@ -1025,7 +1040,7 @@
 <!--------------------------------------------      Fin 8 octava parte del formulario *** IDIOMAS ***      ------------------------------------------------>
 
 <!--------------------------------------------      Inicio 9 novena parte del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      ------------------------------------------------>
-<div class="col-lg-10 pb-3 infoBasica_formProf">
+<div class="content_tratam-proced col-lg-10 pb-3 infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf"> Tratamientos y procedimientos </h5>
 
     <p class="text_superior-proced-formProf"> A continuación suba imágenes con respecto a los procedimientos y tratamientos, con su título y descripción. </p>
@@ -1158,7 +1173,7 @@
             </div>
 
             <!-- Modulo de los contenidos ANTES y DESPUÉS -->
-            <div class="row content_antDesp-formProf">
+            <div class="row content_antDesp-formProf hidden-section-formProf">
                 <!-- Contenido ANTES -->
                 <div class="col-6 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
@@ -1302,7 +1317,7 @@
 <!--------------------------------------------      Fin 9 novena parte del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      ------------------------------------------------>
 
 <!--------------------------------------------      Inicio 10 decima parte del formulario *** PREMIOS y RECONOCIMIENTOS ***      ------------------------------------------------>
-<div class="col-lg-10 pb-3 infoBasica_formProf">
+<div class="content_premio-recono col-lg-10 pb-3 infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf"> Premios y reconocimientos </h5>
 
     <p class="text_superior-proced-formProf"> A continuación suba imágenes relacionadas con sus premios y reconocimientos, con nombre y descripción. </p>
@@ -1432,7 +1447,7 @@
             </div>
 
             <!-- Modulo de los PREMIOS sin información-->
-            <div class="row content_antDesp-formProf">
+            <div class="row content_antDesp-formProf hidden-section-formProf">
                 <!-- Contenido PREMIO izquierdo -->
                 <div class="col-6 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
@@ -1755,7 +1770,7 @@
 <!--------------------------------------------      Fin 10 decima parte del formulario *** PREMIOS y RECONOCIMIENTOS ***      ------------------------------------------------>
 
 <!--------------------------------------------      Inicio 11 onceava parte del formulario *** PUBLICACIONES ***      ------------------------------------------------>
-<div class="col-lg-10 pb-3 infoBasica_formProf">
+<div class="content_publicacion col-lg-10 pb-3 infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf"> Publicaciones </h5>
 
     <p class="text_superior-proced-formProf"> A continuación suba imágenes de las publicaciones que ha realizado a lo largo de su experiencia. </p>
@@ -1862,7 +1877,7 @@
             </div>
 
             <!-- Modulos de los contenidos ANTES y DESPUÉS -->
-            <div class="row content_antDesp-formProf">
+            <div class="row content_antDesp-formProf hidden-section-formProf">
                 <!-- Contenido ANTES -->
                 <div class="col-6 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
@@ -2121,7 +2136,7 @@
 <!--------------------------------------------      Fin 11 onceava parte del formulario *** PUBLICACIONES ***      ------------------------------------------------>
 
 <!--------------------------------------------      Inicio 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------>
-<div class="col-lg-10 pb-3 infoBasica_formProf">
+<div class="content_galeria-video col-lg-10 pb-3 infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf"> Galeria </h5>
 
     <p class="text_superior-proced-formProf"> A continuación suba 10 imágenes como mínimo, con su respectivo nombre y descripción. </p>
@@ -2310,7 +2325,7 @@
             </div>
 
             <!-- Modulos de los contenidos ANTES y DESPUÉS -->
-            <div class="row content_antDesp-formProf">
+            <div class="row content_antDesp-formProf hidden-section-formProf">
                 <!-- Contenido ANTES -->
                 <div class="col-6 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
@@ -3487,10 +3502,10 @@
 <!--------------------------------------------      Fin 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------>
 
 <!--------------------------------------------      Inicio 13 treceava parte del formulario *** VIDEOS ***      ------------------------------------------------>
-<div class="col-lg-10 pb-3 infoBasica_formProf">
+<div class="content_galeria-video col-lg-10 pb-3 infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf"> Videos </h5>
 
-    <p class="text_superior-proced-formProf"> A continuación suba imágenes al carrusel con respecto a los premios y reconocimientos, con su respectivo nombre y descripción. </p>
+    <p class="text_superior-proced-formProf"> A continuación suba el link del video, con su respectivo nombre y descripción. </p>
 
     <!-- Modulo de la GALERIA con información -->
     <div class="row col-12 p-0 m-0">
@@ -3605,7 +3620,7 @@
             </div>
 
             <!-- Modulos de los contenidos ANTES y DESPUÉS -->
-            <div class="row content_antDesp-formProf">
+            <div class="row content_antDesp-formProf hidden-section-formProf">
                 <!-- Contenido ANTES -->
                 <div class="col-6 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">

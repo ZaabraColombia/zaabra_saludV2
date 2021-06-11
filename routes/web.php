@@ -48,7 +48,7 @@ Route::post('/FormularioProfesionalSave2',[App\Http\Controllers\profesionales\fo
 /*-----guardar formulario parte 3----*/ 
 Route::post('/FormularioProfesionalSave3',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create3'])->name('FormularioProfesional');
 /*-----borrar formulario parte 3----*/ 
-Route::get('/FormularioProfesionaldelete3/{idAsociaciones}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete3'])->name('FormularioProfesional');
+Route::get('/FormularioProfesionaldelete3/{id}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete3'])->name('FormularioProfesional');
 
 /*-----guardar formulario parte 4----*/ 
 Route::post('/FormularioProfesionalSave4',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create4'])->name('FormularioProfesional');
@@ -57,7 +57,7 @@ Route::post('/FormularioProfesionalSave4',[App\Http\Controllers\profesionales\fo
 /*-----guardar formulario parte 5----*/ 
 Route::post('/FormularioProfesionalSave5',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create5'])->name('FormularioProfesional');
 /*-----borrar formulario parte 5----*/ 
-Route::get('/FormularioProfesionaldelete5/{idexperiencias}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete5'])->name('FormularioProfesional');
+Route::get('/FormularioProfesionaldelete5/{id_universidadperfil}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete5'])->name('FormularioProfesional');
 
 /*-----guardar formulario parte 6----*/ 
 Route::post('/FormularioProfesionalSave6',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create6'])->name('FormularioProfesional');

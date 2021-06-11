@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Request;
+use Conner\Tagging\Providers\TaggingServiceProvider;
 
 
 class AppServiceProvider extends ServiceProvider
