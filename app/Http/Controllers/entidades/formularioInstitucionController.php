@@ -7,9 +7,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Arr;
 use App\Models\instituciones;
+use App\Models\tipoinstituciones;
 use App\Models\serviciosinstituciones;
+use App\Models\eps;
+use App\Models\ips;
+use App\Models\prepagada;
 use App\Models\intitucioneseps;
 use App\Models\intitucionesips;
+use App\Models\institucionprepagada;
 use App\Models\profesionales_instituciones;
 use App\Models\certificaciones;
 use App\Models\sedesinstituciones;
@@ -24,17 +29,22 @@ use File;
 class formularioInstitucionController extends Controller{
 
         public function index(){
+            $tipoinstitucion = tipoinstituciones::all();
             $pais = pais::all();
             $id_user=auth()->user()->id;/*id usuario logueado*/
             $objuser = $this->cargaDatosUser($id_user);
             $objFormulario=$this->cargaFormulario($id_user);
-
+            $objServicio=$this->cargaServicios($id_user);
+            $objContadorServicio=$this->contadorServicios($id_user);
         
 
             return view('instituciones.FormularioInstitucion',compact(
+            'tipoinstitucion',
             'objuser',
             'pais',
-            'objFormulario'
+            'objFormulario',
+            'objServicio',
+            'objContadorServicio'
             ));
         }
 
@@ -92,6 +102,25 @@ public function cargaFormulario($id_user){
     LEFT JOIN  municipios mu ON ins.id_municipio= mu.id_municipio
     WHERE ins.idUser=$id_user");
     }
+
+    public function  cargaServicios($id_user){
+    return DB::select("SELECT st.id_servicio, st.tituloServicios, st.DescripcioServicios, st.sucursalservicio
+    FROM instituciones ins
+    INNER JOIN users us   ON ins.idUser=us.id
+    LEFT JOIN  serviciosinstituciones st ON ins.id= st.id
+    WHERE ins.idUser=$id_user");
+    }
+    
+    public function contadorServicios($id_user){
+    /*cuenta los los valores ingresados*/
+    $contadorservicio = DB::table('instituciones')
+    ->select(DB::raw('COUNT(serviciosinstituciones.id) as cantidad'))
+    ->join('users', 'instituciones.idUser', '=', 'users.id')
+    ->leftjoin('serviciosinstituciones', 'instituciones.id', '=', 'serviciosinstituciones.id')
+    ->where('users.id', '=',$id_user)
+    ->first();
+    return $contadorservicio;
+    } 
 /*------------Fin busquedad datos basicos usuario logueado y data resgistrada de la institucion-----------------*/
     
 
@@ -112,9 +141,9 @@ public function cargaFormulario($id_user){
             /*captura el nombre del logo*/
             $nombrelogo=$request->logoInstitucion->getClientOriginalName();
 
-            /*crea una nueva carpeta con el id del perfil nuevo*/
+            /*crea una nueva carpeta con el id del perfil nuevo
             $path = public_path().'img/instituciones/' . $id_user;
-            File::makeDirectory($path,  0777, true);
+            File::makeDirectory($path,  0777, true);*/
 
             /*guarda la imagen en carpeta con el id del usuario*/
             $imagen = $request->file('imagenInstitucion');
@@ -172,7 +201,120 @@ public function cargaFormulario($id_user){
     }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 1----------------------*/
 
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 2----------------------*/
+protected function create2(Request $request){
 
 
+    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
+    $verificaPerfil = $this->verificaPerfil();
 
+    /*id usuario logueado*/
+    $id_user=auth()->user()->id;
+
+    unset($request['_token']);
+
+    instituciones::where('idUser', $id_user)->update($request->all());
+
+    return redirect('FormularioInstitucion'); 
+}
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 2----------------------*/
+
+
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 3----------------------*/
+public function create3(Request $request){
+
+    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
+    $verificaPerfil = $this->verificaPerfil();
+
+    /*id usuario logueado*/
+    $id_user=auth()->user()->id;
+
+    unset($request['_token']);
+    unset($request['updated_at']);
+    unset($request['created_at']);
+    instituciones::where('idUser', $id_user)->update($request->all());
+
+    return redirect('FormularioInstitucion'); 
+}
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 3----------------------*/
+
+
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 4----------------------*/
+public function create4(Request $request){
+
+    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idInstitucion=$verificaPerfil;
+    }
+
+
+    foreach ($request->input('tituloServicios', []) as $i => $tituloServicios) {
+        serviciosinstituciones::create([
+            'id' => $idInstitucion,
+            'tituloServicios' => $request->input('tituloServicios.'.$i),
+            'DescripcioServicios' => $request->input('DescripcioServicios.'.$i),
+            'sucursalservicio' => $request->input('sucursalservicio.'.$i),
+        ]);
+    }
+
+    return redirect('FormularioInstitucion'); 
+
+}
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 4----------------------*/
+/*-------------------------------------Inicio Eliminacion  formulario parte 4----------------------*/
+public function delete4($id_servicio){
+
+
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idInstitucion=$verificaPerfil;
+    }
+
+    $serviciosinstituciones = serviciosinstituciones::where('id_servicio', $id_servicio)->where('id', $idInstitucion);
+    $serviciosinstituciones->delete();
+
+    return redirect('FormularioInstitucion'); 
+
+}
+/*-------------------------------------Fin Eliminacion formulario parte 4----------------------*/
+
+
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 5----------------------*/
+public function create5(Request $request){
+
+    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
+    $verificaPerfil = $this->verificaPerfil();
+
+    /*id usuario logueado*/
+    $id_user=auth()->user()->id;
+
+    unset($request['_token']);
+    unset($request['updated_at']);
+    unset($request['created_at']);
+    instituciones::where('idUser', $id_user)->update($request->all());
+
+    return redirect('FormularioInstitucion'); 
+}
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 5----------------------*/
+
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 6----------------------*/
+public function create6(Request $request){
+
+    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
+    $verificaPerfil = $this->verificaPerfil();
+
+    /*id usuario logueado*/
+    $id_user=auth()->user()->id;
+
+    unset($request['_token']);
+    unset($request['updated_at']);
+    unset($request['created_at']);
+    instituciones::where('idUser', $id_user)->update($request->all());
+
+    return redirect('FormularioInstitucion'); 
+}
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 6----------------------*/
 }

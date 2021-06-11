@@ -57,7 +57,7 @@ class perfilprofesionalController extends Controller
         public function cargarInfoPrfesionalLandingconsultas($idPerfilProfesional){
         return DB::select("SELECT  tc.nombreconsulta, tc.valorconsulta
         FROM perfilesprofesionales pf
-        INNER JOIN tipoconsulta tc ON pf.idPerfilProfesional=tc.idperfil
+        INNER JOIN tipoconsultas tc ON pf.idPerfilProfesional=tc.idperfil
         WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional");
         }
 
@@ -131,7 +131,7 @@ class perfilprofesionalController extends Controller
         public function cargarInfoPrfesionalLandinggaler($idPerfilProfesional){
         return DB::select("SELECT  gl.imggaleria, gl.nombrefoto, gl.descripcion
         FROM perfilesprofesionales pf
-        INNER JOIN galeria gl ON pf.idPerfilProfesional=gl.idPerfilProfesional
+        INNER JOIN galerias gl ON pf.idPerfilProfesional=gl.idPerfilProfesional
         WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional");
         }
 

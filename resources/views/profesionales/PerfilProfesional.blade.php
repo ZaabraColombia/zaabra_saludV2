@@ -225,15 +225,17 @@
         <section class="section_publicaciones_profesional">
             <div class="publicaciones_profesional">
                 <h2><i></i>Publicaciones</h2>
-                @foreach ($objprofesionallandingpublic as $objprofesionallandingpublic)
-                    <div class="card">
-                        <img class="card-img-top" src="{{URL::asset($objprofesionallandingpublic->imgpublicacion)}}">
-                        <div class="card-body">
-                            <h5>{{$objprofesionallandingpublic->nombrepublicacion}}</h5>
-                            <p>{{$objprofesionallandingpublic->descripcion}}</p>
+                <div class="container_cards">
+                    @foreach ($objprofesionallandingpublic as $objprofesionallandingpublic)
+                        <div class="card">
+                            <img class="card-img-top" src="{{URL::asset($objprofesionallandingpublic->imgpublicacion)}}">
+                            <div class="card-body">
+                                <h5>{{$objprofesionallandingpublic->nombrepublicacion}}</h5>
+                                <p>{{$objprofesionallandingpublic->descripcion}}</p>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </section>
 
@@ -250,17 +252,20 @@
                     @endforeach
                 </ul>    
             </div>
+            
             <div class="videos_profesional">
                 <h2><i></i>Videos</h2>
-                @foreach ($objprofesionallandingvideo as $objprofesionallandingvideo)
-                    <div class="card">
-                        <iframe class="card-img-top" src="{{$objprofesionallandingvideo->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-                        <div class="card-body">
-                            <h5>{{$objprofesionallandingvideo->nombrevideo}}</h5>
-                            <p>{{$objprofesionallandingvideo->descripcionvideo}}</p>
+                <div class="container_cards">
+                    @foreach ($objprofesionallandingvideo as $objprofesionallandingvideo)
+                        <div class="card">
+                            <iframe class="card-img-top" src="{{$objprofesionallandingvideo->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                            <div class="card-body">
+                                <h5>{{$objprofesionallandingvideo->nombrevideo}}</h5>
+                                <p>{{$objprofesionallandingvideo->descripcionvideo}}</p>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>     
         </section>
 @endsection
