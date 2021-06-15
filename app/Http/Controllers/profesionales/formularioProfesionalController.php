@@ -51,6 +51,8 @@ class formularioProfesionalController extends Controller
         $objFormulario1=$this->cargaFormulario1($id_user);
         $objContadorConsultas=$this->contadorConsultas($id_user);
         $objConsultas=$this->cargaConsultas($id_user);
+        $objContadorEducacion=$this->contadorEducacion($id_user);
+        $objEducacion=$this->cargaEducacion($id_user);
         $objExperiencia=$this->cargaExperiencia($id_user);
         $objContadorExperiencia=$this->contadorExperiencia($id_user);
         $objAsociaciones=$this->cargaAsociaciones($id_user);
@@ -79,6 +81,8 @@ class formularioProfesionalController extends Controller
         'objFormulario1',
         'objContadorConsultas',
         'objConsultas',
+        'objContadorEducacion',
+        'objEducacion',
         'objExperiencia',
         'objContadorExperiencia',
         'objAsociaciones',
@@ -185,6 +189,27 @@ class formularioProfesionalController extends Controller
     FROM perfilesprofesionales pf
     INNER JOIN users us   ON pf.idUser=us.id
     LEFT JOIN  tipoconsultas tc ON pf.idPerfilProfesional= tc.idperfil
+    WHERE pf.idUser=$id_user");
+    }
+
+    
+    public function contadorEducacion($id_user){
+    /*cuenta los los valores ingresados*/
+    $contadorConsultas = DB::table('perfilesprofesionales')
+    ->select(DB::raw('COUNT(perfilesprofesionalesuniversidades.idPerfilProfesional) as cantidad'))
+    ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
+    ->leftjoin('perfilesprofesionalesuniversidades', 'perfilesprofesionales.idPerfilProfesional', '=', 'perfilesprofesionalesuniversidades.idPerfilProfesional')
+    ->where('users.id', '=',$id_user)
+    ->first();
+    return $contadorConsultas;
+    }
+        
+    public function cargaEducacion($id_user){
+    return DB::select("SELECT pu.id_universidadperfil, u.nombreuniversidad, pu.fechaestudio,pu.nombreestudio
+    FROM perfilesprofesionales pf
+    INNER JOIN users us   ON pf.idUser=us.id
+    LEFT JOIN  perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional= pu.idPerfilProfesional
+    LEFT JOIN  universidades u ON pu.id_universidad= u.id_universidad
     WHERE pf.idUser=$id_user");
     }
 
@@ -303,6 +328,7 @@ class formularioProfesionalController extends Controller
     ->first();
     return $contadorpublicaciones;
     } 
+
     public function  cargaGaleria($id_user){
     return DB::select("SELECT g.id_galeria, g.imggaleria, g.nombrefoto, g.descripcion
     FROM perfilesprofesionales pf
@@ -522,11 +548,15 @@ public function create3(Request $request){
     // Recorre todos los "nombres" enviados, si no hay ninguno se
     //  crea un array vacío para que no devuelva un error el foreach
     foreach ($request->input('nombreconsulta', []) as $i => $nombreconsulta) {
-        tipoconsultas::create([
-            'idperfil' => $idProProfesi,
-            'nombreconsulta' => $request->input('nombreconsulta.'.$i),
-            'valorconsulta' => $request->input('valorconsulta.'.$i),
-        ]);
+
+        if(!empty($request->input('nombreconsulta.'.$i))){
+            tipoconsultas::create([
+                'idperfil' => $idProProfesi,
+                'nombreconsulta' => $request->input('nombreconsulta.'.$i),
+                'valorconsulta' => $request->input('valorconsulta.'.$i),
+            ]);
+        }
+
     }
 
 
@@ -534,7 +564,23 @@ return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 3----------------------*/
+/*-------------------------------------Inicio Eliminacion  formulario parte 3----------------------*/
+public function delete3($id){
 
+
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idProProfesi=$verificaPerfil;
+    }
+
+    $tipoconsultas = tipoconsultas::where('id', $id)->where('idperfil', $idProProfesi);
+    $tipoconsultas->delete();
+
+    return redirect('FormularioProfesional'); 
+
+}
+/*-------------------------------------Fin Eliminacion formulario parte 3----------------------*/
 
 /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 4----------------------*/
 public function create4(Request $request){
@@ -570,11 +616,15 @@ public function create5(Request $request){
     }
 
     foreach ($request->input('id_universidad', []) as $i => $id_universidad) {
-        perfilesprofesionalesuniversidades::create([
-            'idPerfilProfesional' => $idProProfesi,
-            'id_universidad' => $request->input('id_universidad.'.$i),
-            'nombreestudio' => $request->input('nombreestudio.'.$i),
-        ]);
+
+        if(!empty($request->input('id_universidad.'.$i))){
+            perfilesprofesionalesuniversidades::create([
+                'idPerfilProfesional' => $idProProfesi,
+                'id_universidad' => $request->input('id_universidad.'.$i),
+                'nombreestudio' => $request->input('nombreestudio.'.$i),
+                'fechaestudio' => $request->input('fechaestudio.'.$i),
+            ]);
+        }
     }
 
     return redirect('FormularioProfesional'); 
@@ -582,7 +632,7 @@ public function create5(Request $request){
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 5----------------------*/
 /*-------------------------------------Inicio Eliminacion  formulario parte 5----------------------*/
-public function delete5($idexperiencias){
+public function delete5($id_universidadperfil){
 
 
     $verificaPerfil = $this->verificaPerfil();
@@ -591,8 +641,8 @@ public function delete5($idexperiencias){
         $idProProfesi=$verificaPerfil;
     }
 
-    $experiencias = experiencias::where('idexperiencias', $idexperiencias)->where('idPerfilProfesional', $idProProfesi);
-    $experiencias->delete();
+    $perfilesprofesionalesuniversidades = perfilesprofesionalesuniversidades::where('id_universidadperfil', $id_universidadperfil)->where('idPerfilProfesional', $idProProfesi);
+    $perfilesprofesionalesuniversidades->delete();
 
     return redirect('FormularioProfesional'); 
 
@@ -719,10 +769,12 @@ public function create8(Request $request){
     // Recorre todos los "nombres" enviados, si no hay ninguno se
     //  crea un array vacío para que no devuelva un error el foreach
     foreach ($request->input('id_idioma', []) as $i => $id_idioma) {
-        usuario_idiomas::create([
-            'idPerfilProfesional' => $idProProfesi,
-            'id_idioma' => $request->input('id_idioma.'.$i),
-        ]);
+        if(!empty($request->input('id_idioma.'.$i))){
+            usuario_idiomas::create([
+                'idPerfilProfesional' => $idProProfesi,
+                'id_idioma' => $request->input('id_idioma.'.$i),
+            ]);
+        }
     }
 
 
@@ -769,17 +821,19 @@ public function create9(Request $request){
     $imgTratamientoAntes = $request->file('imgTratamientoAntes');
     $imgTratamientodespues = $request->file('imgTratamientodespues');
     for ($i=0; $i < count(request('tituloTrataminetoAntes')); ++$i){
-        tratamientos::create([
-        'idPerfilProfesional' => $idProProfesi,
-        'imgTratamientoAntes' =>"img/user/$id_user/".$imgTratamientoAntes[$i]->getClientOriginalName(),
-        'tituloTrataminetoAntes' => $request->input('tituloTrataminetoAntes')[$i],
-        'descripcionTratamientoAntes' => $request->input('descripcionTratamientoAntes')[$i],
-        'imgTratamientodespues' =>"img/user/$id_user/".$imgTratamientodespues[$i]->getClientOriginalName(),
-        'tituloTrataminetoDespues' => $request->input('tituloTrataminetoDespues')[$i],
-        'descripcionTratamientoDespues' => $request->input('descripcionTratamientoDespues')[$i],
-       ]);
-       $imgTratamientoAntes[$i]->move($carpetaDestino , $imgTratamientoAntes[$i]->getClientOriginalName());
-       $imgTratamientodespues[$i]->move($carpetaDestino , $imgTratamientodespues[$i]->getClientOriginalName());
+        if(!empty($request->input('tituloTrataminetoAntes.'.$i))){
+            tratamientos::create([
+            'idPerfilProfesional' => $idProProfesi,
+            'imgTratamientoAntes' =>"img/user/$id_user/".$imgTratamientoAntes[$i]->getClientOriginalName(),
+            'tituloTrataminetoAntes' => $request->input('tituloTrataminetoAntes')[$i],
+            'descripcionTratamientoAntes' => $request->input('descripcionTratamientoAntes')[$i],
+            'imgTratamientodespues' =>"img/user/$id_user/".$imgTratamientodespues[$i]->getClientOriginalName(),
+            'tituloTrataminetoDespues' => $request->input('tituloTrataminetoDespues')[$i],
+            'descripcionTratamientoDespues' => $request->input('descripcionTratamientoDespues')[$i],
+           ]);
+           $imgTratamientoAntes[$i]->move($carpetaDestino , $imgTratamientoAntes[$i]->getClientOriginalName());
+           $imgTratamientodespues[$i]->move($carpetaDestino , $imgTratamientodespues[$i]->getClientOriginalName());
+        }  
     }
 
 
@@ -810,7 +864,7 @@ public function delete9($id_tratamiento){
 
 /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 10----------------------*/
     public function create10(Request $request){
-   
+  
 
     /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
     $verificaPerfil = $this->verificaPerfil();
@@ -825,15 +879,17 @@ public function delete9($id_tratamiento){
         $carpetaDestino = "img/user/$id_user";
         $imgpremio = $request->file('imgpremio');
         for ($i=0; $i < count(request('nombrepremio')); ++$i){
-            premios::create([
-            'idPerfilProfesional' => $idProProfesi,
-            'nombrepremio' => $request->input('nombrepremio')[$i],
-            'imgpremio' =>"img/user/$id_user/".$imgpremio[$i]->getClientOriginalName(),
-            'fechapremio' => $request->input('fechapremio')[$i],
-            'descripcionpremio' => $request->input('descripcionpremio')[$i],
-            'nombrepremio' => $request->input('nombrepremio')[$i],
-           ]);
-           $imgpremio[$i]->move($carpetaDestino , $imgpremio[$i]->getClientOriginalName());
+            if(!empty($request->input('nombrepremio.'.$i))){
+                    premios::create([
+                    'idPerfilProfesional' => $idProProfesi,
+                    'nombrepremio' => $request->input('nombrepremio')[$i],
+                    'imgpremio' =>"img/user/$id_user/".$imgpremio[$i]->getClientOriginalName(),
+                    'fechapremio' => $request->input('fechapremio')[$i],
+                    'descripcionpremio' => $request->input('descripcionpremio')[$i],
+                    'nombrepremio' => $request->input('nombrepremio')[$i],
+                ]);
+                $imgpremio[$i]->move($carpetaDestino , $imgpremio[$i]->getClientOriginalName());
+            }
         }
 
         return redirect('FormularioProfesional'); 
@@ -877,13 +933,15 @@ public function create11(Request $request){
         $carpetaDestino = "img/user/$id_user";
         $imgpublicacion = $request->file('imgpublicacion');
         for ($i=0; $i < count(request('nombrepublicacion')); ++$i){
-            publicaciones::create([
-            'idPerfilProfesional' => $idProProfesi,
-            'nombrepublicacion' => $request->input('nombrepublicacion')[$i],
-            'imgpublicacion' =>"img/user/$id_user/".$imgpublicacion[$i]->getClientOriginalName(),
-            'descripcion' => $request->input('descripcion')[$i],
-           ]);
-           $imgpublicacion[$i]->move($carpetaDestino , $imgpublicacion[$i]->getClientOriginalName());
+            if(!empty($request->input('descripcion.'.$i))){
+                    publicaciones::create([
+                    'idPerfilProfesional' => $idProProfesi,
+                    'nombrepublicacion' => $request->input('nombrepublicacion')[$i],
+                    'imgpublicacion' =>"img/user/$id_user/".$imgpublicacion[$i]->getClientOriginalName(),
+                    'descripcion' => $request->input('descripcion')[$i],
+                    ]);
+                    $imgpublicacion[$i]->move($carpetaDestino , $imgpublicacion[$i]->getClientOriginalName());
+            }
         }
 
         return redirect('FormularioProfesional'); 
@@ -928,13 +986,15 @@ public function create12(Request $request){
         $carpetaDestino = "img/user/$id_user";
         $imggaleria = $request->file('imggaleria');
         for ($i=0; $i < count(request('nombrefoto')); ++$i){
-            galerias::create([
-            'idPerfilProfesional' => $idProProfesi,
-            'nombrefoto' => $request->input('nombrefoto')[$i],
-            'imggaleria' =>"img/user/$id_user/".$imggaleria[$i]->getClientOriginalName(),
-            'descripcion' => $request->input('descripcion')[$i],
-           ]);
-           $imggaleria[$i]->move($carpetaDestino , $imggaleria[$i]->getClientOriginalName());
+            if(!empty($request->input('nombrefoto.'.$i))){
+                    galerias::create([
+                    'idPerfilProfesional' => $idProProfesi,
+                    'nombrefoto' => $request->input('nombrefoto')[$i],
+                    'imggaleria' =>"img/user/$id_user/".$imggaleria[$i]->getClientOriginalName(),
+                    'descripcion' => $request->input('descripcion')[$i],
+                    ]);
+                    $imggaleria[$i]->move($carpetaDestino , $imggaleria[$i]->getClientOriginalName());
+            }
         }
 
         return redirect('FormularioProfesional'); 
@@ -978,13 +1038,15 @@ public function create13(Request $request){
 
 
         for ($i=0; $i < count(request('nombrevideo')); ++$i){
-            videos::create([
-            'idPerfilProfesional' => $idProProfesi,
-            'nombrevideo' => $request->input('nombrevideo')[$i],
-            'descripcionvideo' => $request->input('descripcionvideo')[$i],
-            'urlvideo' => $request->input('urlvideo')[$i],
-            'fechavideo' => $request->input('fechavideo')[$i],
-           ]);
+            if(!empty($request->input('nombrevideo.'.$i))){
+                    videos::create([
+                    'idPerfilProfesional' => $idProProfesi,
+                    'nombrevideo' => $request->input('nombrevideo')[$i],
+                    'descripcionvideo' => $request->input('descripcionvideo')[$i],
+                    'urlvideo' => $request->input('urlvideo')[$i],
+                    'fechavideo' => $request->input('fechavideo')[$i],
+                  ]);
+            }
         }
 
         return redirect('FormularioProfesional'); 
