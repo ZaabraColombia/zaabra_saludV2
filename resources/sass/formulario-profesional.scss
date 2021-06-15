@@ -1,101 +1,168 @@
 .content_principal-formProf {
     background: #F9F9F9;
 }
-.alista {
-    width: 15%;
-}
-.alista2 {
-    width: 10%;
+.content_icons-formProf {
+    width: 17%;
 }
 .lista_opciones-usuario-formProf {
     display: flex;
     list-style: none;
     padding: 0;
     margin: 5% auto;
-    width: 75%;
-    height: 10vh;
+    width: 80%;
+    height: 12vh;
 }
 .text_opcion-formProfesional {
     margin: 0;
-    color: black;
     text-align: center;
     width: 100%;
+    height: 30%;
 }
-.icon_opcion-datoPersonal {
-    background-image: url('/img/formulario-profesional/icono-datos-personales-azul.svg');
-    background-repeat: no-repeat;
-    width: 105%;
-    height: 100%;
-    background-size: 80%;
-    background-position-x: right;
-    display: flex;
-    align-items: flex-end;
-    line-height: 1;
-}
-.icon_opcion-perfProf {
+// Iconos grises de las opciones del usuario
+.iconGris_perfProf {
     background-image: url('/img/formulario-profesional/icono-perfil-profesional-gris.svg');
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-    background-size: 104%;
-    background-position-x: left;
+    background-size: 50%;
+    background-position-x: center;
     display: flex;
     align-items: flex-end;
     line-height: 1;
+    font-size: 1em;
+    color: #000000;
 }
-.icon_opcion-trataProced {
+.iconGris_trataProced {
+    background-image: url('/img/formulario-profesional/icono-tratamientos-y-procedimientos-gris.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 50%;
+    background-position-x: center;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+    font-size: 1em;
+    color: #000000;
+}
+.iconGris_premioRecon {
+    background-image: url('/img/formulario-profesional/icono-premios-y-reconocimientos-gris.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 50%;
+    background-position-x: center;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+    font-size: 1em;
+    color: #000000;
+}
+.iconGris_public {
+    background-image: url('/img/formulario-profesional/icono-publicaciones-gris.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 50%;
+    background-position-x: center;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+    font-size: 1em;
+    color: #000000;
+}
+.iconGris_galeriaVideo {
+    background-image: url('/img/formulario-profesional/icono-galeria-gris.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 50%;
+    background-position-x: center;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+    font-size: 1em;
+    color: #000000;
+}
+// Icono azules de las opciones del usuario
+.iconAzul_datoPersonal {
+    background-image: url('/img/formulario-profesional/icono-datos-personales.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 50%;
+    background-position-x: center;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+    font-size: 1em !important;
+    color: #0083D6 !important;
+}
+.iconAzul_perfProf {
+    background-image: url('/img/formulario-profesional/icono-perfil-profesional.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 50%;
+    background-position-x: center;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+    font-size: 1em !important;
+    color: #0083D6 !important;
+}
+.iconAzul_trataProced {
     background-image: url('/img/formulario-profesional/icono-tratamientos-y-procedimientos.svg');
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-    background-size: 104%;
-    background-position-x: left;
-    display: flex;
-    align-items: flex-end;
-    line-height: 1;
-}
-.icon_opcion-premioRecon {
-    background-image: url('/img/formulario-profesional/icono-de-premios-y-reconocimientos.svg');
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    background-size: 104%;
-    background-position-x: left;
-    display: flex;
-    align-items: flex-end;
-    line-height: 1;
-}
-.icon_opcion-public {
-    background-image: url('/img/formulario-profesional/icono-de-publicaciones.svg');
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    background-size: 107%;
+    background-size: 50%;
     background-position-x: center;
     display: flex;
     align-items: flex-end;
     line-height: 1;
+    font-size: 1em !important;
+    color: #0083D6 !important;
 }
-.icon_opcion-galeriaVideo {
+.iconAzul_premioRecon {
+    background-image: url('/img/formulario-profesional/icono-premios-y-reconocimientos.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 50%;
+    background-position-x: center;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+    font-size: 1em !important;
+    color: #0083D6 !important;
+}
+.iconAzul_public {
+    background-image: url('/img/formulario-profesional/icono-publicaciones.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 50%;
+    background-position-x: center;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+    font-size: 1em !important;
+    color: #0083D6 !important;
+}
+.iconAzul_galeriaVideo {
     background-image: url('/img/formulario-profesional/icono-galeria.svg');
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-    background-size: 104%;
+    background-size: 50%;
     background-position-x: center;
     display: flex;
     align-items: flex-end;
     line-height: 1;
+    font-size: 1em !important;
+    color: #0083D6 !important;
 }
-
-
-
-
-
-
-
-
-
 .content_textPrincipal-formProf {
     margin: auto;
     padding: 0;
@@ -311,4 +378,8 @@
 .img_publi-formProf {
     height: 25vh;
     width: 100%;
+}
+// clase para ocultar las secciones en cada una de las opciones del formulario profesional
+.hidden-section-formProf {
+    display: none;
 }
