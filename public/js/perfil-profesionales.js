@@ -66,13 +66,19 @@ document.addEventListener('DOMContentLoaded', function () {
       1600: {
         slidesPerView: 3,
         slidesPerGroup: 1,
-        spaceBetween: 5,
+        spaceBetween: 20,
       },
     }
   });
 
-  const select = document.querySelector.bind(document);
   const gallery = new Viewer(select(".gallery_profesional"));
   
+});
+
+const select = document.querySelectorAll.bind(document);
+
+select('.profesional_menu').addEventListener("click", function(){
+  let getcode = select('.profesional_menu').getAttribute('data-codigo');
+  console.log(getcode);
 });
     

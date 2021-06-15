@@ -80,36 +80,20 @@
             <h1>¿Por qué es un doctor de alto nivel?</h1>
             <div class="swiper-container swiper_profesional">
                 <div class="swiper-wrapper">
-
                     <div class="swiper-slide">
-                        <div class="profesional_menu perfil">
-                            <i></i>
-                            <p>Perfil profesional</p>
-                        </div>
+                        <li class="profesional_menu perfil" data-codigo="perfil"><span>Perfil profesional</span></li>
                     </div>
                     <div class="swiper-slide">
-                        <div class="profesional_menu tratamientos">
-                            <i></i>
-                            <p>Tratamientos y procedimientos</p>
-                        </div>
+                        <li class="profesional_menu tratamientos" data-codigo="tratamiento"><span>Tratamientos y procedimientos</span></li>
                     </div>
                     <div class="swiper-slide">
-                        <div class="profesional_menu premios">
-                            <i></i>
-                            <p>Premios y reconocimientos</p>
-                        </div>
+                        <li class="profesional_menu premios" data-codigo="premio"><span>Premios y reconocimientos</span></li>
                     </div>
                     <div class="swiper-slide">
-                        <div class="profesional_menu publicaciones">
-                            <i></i>
-                            <p>Publicaciones</p>
-                        </div>
+                        <li class="profesional_menu publicaciones" data-codigo="publicacion"><span>Publicaciones</span></li>
                     </div>
                     <div class="swiper-slide">
-                        <div class="profesional_menu galeria">
-                            <i></i>
-                            <p>Galería</p>
-                        </div>
+                        <li class="profesional_menu galeria" data-codigo="galeria"><span>Galería</span></li>
                     </div>
                 </div>
             </div>
