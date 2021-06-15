@@ -11,7 +11,7 @@ use App\Models\tipoinstituciones;
 use App\Models\serviciosinstituciones;
 use App\Models\eps;
 use App\Models\ips;
-use App\Models\prepagada;
+use App\Models\prepagadas;
 use App\Models\intitucioneseps;
 use App\Models\intitucionesips;
 use App\Models\institucionprepagada;
@@ -36,7 +36,12 @@ class formularioInstitucionController extends Controller{
             $objFormulario=$this->cargaFormulario($id_user);
             $objServicio=$this->cargaServicios($id_user);
             $objContadorServicio=$this->contadorServicios($id_user);
-        
+            $objIps=$this->cargaIps($id_user);
+            $objContadorIps=$this->contadorIps($id_user);
+            $objEps=$this->cargaEps($id_user);
+            $objContadorEps=$this->contadorEps($id_user);
+            $objPrepa=$this->cargaPrepa($id_user);
+            $objContadorPrepa=$this->contadorPrepa($id_user);
 
             return view('instituciones.FormularioInstitucion',compact(
             'tipoinstitucion',
@@ -44,7 +49,13 @@ class formularioInstitucionController extends Controller{
             'pais',
             'objFormulario',
             'objServicio',
-            'objContadorServicio'
+            'objContadorServicio',
+            'objPrepa',
+            'objContadorPrepa',
+            'objIps',
+            'objContadorIps',
+            'objEps',
+            'objContadorEps'
             ));
         }
 
@@ -121,6 +132,66 @@ public function cargaFormulario($id_user){
     ->first();
     return $contadorservicio;
     } 
+    
+    public function  cargaEps($id_user){
+    return DB::select("SELECT e.id, e.urlimagen
+    FROM instituciones ins
+    INNER JOIN users us   ON ins.idUser=us.id
+    LEFT JOIN  eps e ON ins.id= e.id_institucion
+    WHERE ins.idUser=$id_user");
+    }
+
+    public function contadorEps($id_user){
+    /*cuenta los los valores ingresados*/
+    $contadoreps = DB::table('instituciones')
+    ->select(DB::raw('COUNT(eps.id_institucion) as cantidad'))
+    ->join('users', 'instituciones.idUser', '=', 'users.id')
+    ->leftjoin('eps', 'instituciones.id', '=', 'eps.id_institucion')
+    ->where('users.id', '=',$id_user)
+    ->first();
+    return $contadoreps;
+    } 
+
+
+    public function  cargaIps($id_user){
+    return DB::select("SELECT i.id ,i.urlimagen
+    FROM instituciones ins
+    INNER JOIN users us   ON ins.idUser=us.id
+    LEFT JOIN  ips i ON ins.id= i.id_institucion
+    WHERE ins.idUser=$id_user");
+    }
+
+    public function contadorIps($id_user){
+    /*cuenta los los valores ingresados*/
+    $contadorips = DB::table('instituciones')
+    ->select(DB::raw('COUNT(ips.id_institucion) as cantidad'))
+    ->join('users', 'instituciones.idUser', '=', 'users.id')
+    ->leftjoin('ips', 'instituciones.id', '=', 'ips.id_institucion')
+    ->where('users.id', '=',$id_user)
+    ->first();
+    return $contadorips;
+    } 
+
+    public function  cargaPrepa($id_user){
+    return DB::select("SELECT p.id_prepagada ,p.urlimagen
+    FROM instituciones ins
+    INNER JOIN users us   ON ins.idUser=us.id
+    LEFT JOIN  prepagadas p ON ins.id= p.id_institucion
+    WHERE ins.idUser=$id_user");
+    }
+
+    public function contadorPrepa($id_user){
+    /*cuenta los los valores ingresados*/
+    $contadorprepa = DB::table('instituciones')
+    ->select(DB::raw('COUNT(prepagadas.id_institucion) as cantidad'))
+    ->join('users', 'instituciones.idUser', '=', 'users.id')
+    ->leftjoin('prepagadas', 'instituciones.id', '=', 'prepagadas.id_institucion')
+    ->where('users.id', '=',$id_user)
+    ->first();
+    return $contadorprepa;
+    } 
+        
+
 /*------------Fin busquedad datos basicos usuario logueado y data resgistrada de la institucion-----------------*/
     
 
@@ -285,8 +356,6 @@ public function delete4($id_servicio){
 /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 5----------------------*/
 public function create5(Request $request){
 
-    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
-    $verificaPerfil = $this->verificaPerfil();
 
     /*id usuario logueado*/
     $id_user=auth()->user()->id;
@@ -306,15 +375,96 @@ public function create6(Request $request){
     /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
     $verificaPerfil = $this->verificaPerfil();
 
+    foreach($verificaPerfil as $verificaPerfil){
+        $idInstitucion=$verificaPerfil;
+    }
+
     /*id usuario logueado*/
     $id_user=auth()->user()->id;
 
     unset($request['_token']);
-    unset($request['updated_at']);
-    unset($request['created_at']);
-    instituciones::where('idUser', $id_user)->update($request->all());
+    $carpetaDestino = "img/instituciones/$id_user";
+
+    if ($request->hasFile('urlimagenEps')) {
+        $imagenes = $request->file('urlimagenEps');
+        foreach ($imagenes as $imageneps) {
+            $nombreFoto = $imageneps->getClientOriginalName();
+            $imageneps->move($carpetaDestino , $nombreFoto); 
+            $nombreFotoCompletaeps="img/instituciones/$id_user/$nombreFoto";
+            eps::create([
+                'id_institucion' => $idInstitucion,
+                'urlimagen'  => $nombreFotoCompletaeps
+               ]);
+        }
+    }
+
+    if ($request->hasFile('urlimagenIps')) {
+        $imagenes = $request->file('urlimagenIps');
+        foreach ($imagenes as $imagenips) {
+            $nombreFoto = $imagenips->getClientOriginalName();
+            $imagenips->move($carpetaDestino , $nombreFoto); 
+            $nombreFotoCompletaips="img/instituciones/$id_user/$nombreFoto";
+            ips::create([
+                'id_institucion' => $idInstitucion,
+                'urlimagen'  => $nombreFotoCompletaips
+               ]);
+        }
+    }
+
+    if ($request->hasFile('urlimagenPre')) {
+        $imagenes = $request->file('urlimagenPre');
+        foreach ($imagenes as $imagenpre) {
+            $nombreFoto = $imagenpre->getClientOriginalName();
+            $imagenpre->move($carpetaDestino , $nombreFoto); 
+            $nombreFotoCompletaprepa="img/instituciones/$id_user/$nombreFoto";
+            prepagadas::create([
+                'id_institucion' => $idInstitucion,
+                'urlimagen'  => $nombreFotoCompletaprepa
+               ]);
+        }
+    }
 
     return redirect('FormularioInstitucion'); 
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 6----------------------*/
+/*-------------------------------------Inicio Eliminacion  formulario parte 6 donde se unifica eps ips y prepagada----------------------*/
+public function delete6($id){
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idInstitucion=$verificaPerfil;
+    }
+
+    $eps = eps::where('id', $id)->where('id_institucion', $idInstitucion);
+    $eps->delete();
+
+    return redirect('FormularioInstitucion'); 
+}
+
+public function delete7($id){
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idInstitucion=$verificaPerfil;
+    }
+
+    $ips = ips::where('id', $id)->where('id_institucion', $idInstitucion);
+    $ips->delete();
+
+    return redirect('FormularioInstitucion'); 
+}
+
+public function delete8($id_prepagada){
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idInstitucion=$verificaPerfil;
+    }
+
+    $prepagadas = prepagadas::where('id_prepagada', $id_prepagada)->where('id_institucion', $idInstitucion);
+    $prepagadas->delete();
+
+    return redirect('FormularioInstitucion'); 
+}
+/*-------------------------------------Fin Eliminacion formulario parte 6 donde se unifica eps ips y prepagada----------------------*/
 }
