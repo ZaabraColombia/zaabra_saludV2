@@ -30,7 +30,7 @@
                 <div class="contains_text">
                     <h1 class="titulo_home">Especialidades médicas</h1>
                     <p class="parrafo_home">Accede a un directorio con cientos de especialistas de todas las ramas de la salud.</p>
-                    <a href="" class="ver_mas especialistas hvr-sweep-to-right">Ver mas
+                    <a href="{{url('/Profesiones')}}" class="ver_mas especialistas hvr-sweep-to-right">Ver mas
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>
                 </div>
@@ -45,7 +45,7 @@
                 <div class="contains_text">
                     <h1 class="titulo_home">Instituciones médicas</h1>
                     <p class="parrafo_home">Clinicas, centros medicos y odontologicos, toma de examenes y mucho mas</p>
-                    <a href="" class="ver_mas instituciones hvr-sweep-to-right">Ver mas
+                    <a href="{{url('/Entidades')}}" class="ver_mas instituciones hvr-sweep-to-right">Ver mas
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>
                 </div>

@@ -9,8 +9,7 @@ class eps extends Model
 {
     protected $fillable = [
         'id',
-        'codigo',
-        'nombre',
+        'id_institucion',
         'urlimagen'
     ];
 }
