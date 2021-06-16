@@ -13351,54 +13351,78 @@ a:link, a:visited, a:active, a:hover {
   font-weight: 500;
 }
 
-.perfil i {
-  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+.perfil {
+  background-image: url("/img/landing-profesional/icono-principal-perfil-profesional-normal.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.tratamientos i {
-  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+.tratamientos {
+  background-image: url("/img/landing-profesional/icono-principal-tratamientos-y-procedimientos.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.premios i {
-  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+.premios {
+  background-image: url("/img/landing-profesional/icono-pricipal-premios-y-reconocimientos.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.publicaciones i {
-  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+.publicaciones {
+  background-image: url("/img/landing-profesional/icono-principal-publicaciones.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.galeria i {
-  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+.galeria {
+  background-image: url("/img/landing-profesional/icono-principal-galeria.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.conotains_swiper_profesional {
+.perfil:hover {
+  background-image: url("/img/landing-profesional/icono-principal-perfil-profesional-azul.svg");
+}
+
+.tratamientos:hover {
+  background-image: url("/img/landing-profesional/icono-principal-tratamientos-y-procedimientos-azul.svg");
+}
+
+.premios:hover {
+  background-image: url("/img/landing-profesional/icono-pricipal-premios-y-reconocimientos-azul.svg");
+}
+
+.publicaciones:hover {
+  background-image: url("/img/landing-profesional/icono-principal-publicaciones-azul.svg");
+}
+
+.galeria:hover {
+  background-image: url("/img/landing-profesional/icono-principal-galeria-azul.svg");
+}
+
+.contains_swiper_profesional {
   max-width: 100%;
 }
 
 .profesional_menu {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-content: center;
   justify-content: center;
-  align-items: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100px;
+  background-position: center;
+  margin-bottom: 28%;
 }
 
-.profesional_menu p {
+.profesional_menu span {
   text-align: center;
   font-family: "Quicksand", sans-serif;
   font-weight: bolder;
   color: #232323;
+  margin-top: 100px;
+  line-height: 20px;
 }
 
 .contains_swiper_profesional h1 {
@@ -15428,7 +15452,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .swiper_premios {
-    max-width: 65%;
+    max-width: 60%;
   }
 
   .data_profesionales,
@@ -15531,6 +15555,17 @@ a:link, a:visited, a:active, a:hover {
 
   .data_consulta ul {
     width: 45%;
+  }
+
+  .tratamientos_profesional .card {
+    width: 22%;
+    margin-bottom: 0;
+  }
+
+  .tratamientos_profesional .card,
+.publicaciones_profesional .card {
+    width: 22%;
+    margin-bottom: 0;
   }
 }
 .contains_slide .contains_image_profesional img {
@@ -18848,12 +18883,8 @@ a:link, a:visited, a:active, a:hover {
   background: #F9F9F9;
 }
 
-.alista {
-  width: 15%;
-}
-
-.alista2 {
-  width: 10%;
+.content_icons-formProf {
+  width: 17%;
 }
 
 .lista_opciones-usuario-formProf {
@@ -18861,87 +18892,169 @@ a:link, a:visited, a:active, a:hover {
   list-style: none;
   padding: 0;
   margin: 5% auto;
-  width: 75%;
-  height: 10vh;
+  width: 80%;
+  height: 12vh;
 }
 
 .text_opcion-formProfesional {
   margin: 0;
-  color: black;
   text-align: center;
   width: 100%;
+  height: 30%;
 }
 
-.icon_opcion-datoPersonal {
-  background-image: url("/img/formulario-profesional/icono-datos-personales-azul.svg");
-  background-repeat: no-repeat;
-  width: 105%;
-  height: 100%;
-  background-size: 80%;
-  background-position-x: right;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-}
-
-.icon_opcion-perfProf {
+.iconGris_perfProf {
   background-image: url("/img/formulario-profesional/icono-perfil-profesional-gris.svg");
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
-  background-size: 104%;
-  background-position-x: left;
+  background-size: 50%;
+  background-position-x: center;
   display: flex;
   align-items: flex-end;
   line-height: 1;
+  font-size: 1em;
+  color: #000000;
 }
 
-.icon_opcion-trataProced {
+.iconGris_trataProced {
+  background-image: url("/img/formulario-profesional/icono-tratamientos-y-procedimientos-gris.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em;
+  color: #000000;
+}
+
+.iconGris_premioRecon {
+  background-image: url("/img/formulario-profesional/icono-premios-y-reconocimientos-gris.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em;
+  color: #000000;
+}
+
+.iconGris_public {
+  background-image: url("/img/formulario-profesional/icono-publicaciones-gris.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em;
+  color: #000000;
+}
+
+.iconGris_galeriaVideo {
+  background-image: url("/img/formulario-profesional/icono-galeria-gris.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em;
+  color: #000000;
+}
+
+.iconAzul_datoPersonal {
+  background-image: url("/img/formulario-profesional/icono-datos-personales.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em !important;
+  color: #0083D6 !important;
+}
+
+.iconAzul_perfProf {
+  background-image: url("/img/formulario-profesional/icono-perfil-profesional.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em !important;
+  color: #0083D6 !important;
+}
+
+.iconAzul_trataProced {
   background-image: url("/img/formulario-profesional/icono-tratamientos-y-procedimientos.svg");
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
-  background-size: 104%;
-  background-position-x: left;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-}
-
-.icon_opcion-premioRecon {
-  background-image: url("/img/formulario-profesional/icono-de-premios-y-reconocimientos.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 104%;
-  background-position-x: left;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-}
-
-.icon_opcion-public {
-  background-image: url("/img/formulario-profesional/icono-de-publicaciones.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 107%;
+  background-size: 50%;
   background-position-x: center;
   display: flex;
   align-items: flex-end;
   line-height: 1;
+  font-size: 1em !important;
+  color: #0083D6 !important;
 }
 
-.icon_opcion-galeriaVideo {
+.iconAzul_premioRecon {
+  background-image: url("/img/formulario-profesional/icono-premios-y-reconocimientos.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em !important;
+  color: #0083D6 !important;
+}
+
+.iconAzul_public {
+  background-image: url("/img/formulario-profesional/icono-publicaciones.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em !important;
+  color: #0083D6 !important;
+}
+
+.iconAzul_galeriaVideo {
   background-image: url("/img/formulario-profesional/icono-galeria.svg");
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
-  background-size: 104%;
+  background-size: 50%;
   background-position-x: center;
   display: flex;
   align-items: flex-end;
   line-height: 1;
+  font-size: 1em !important;
+  color: #0083D6 !important;
 }
 
 .content_textPrincipal-formProf {
@@ -19184,6 +19297,10 @@ a:link, a:visited, a:active, a:hover {
 .img_publi-formProf {
   height: 25vh;
   width: 100%;
+}
+
+.hidden-section-formProf {
+  display: none;
 }
 
 .section_principal-institucion {

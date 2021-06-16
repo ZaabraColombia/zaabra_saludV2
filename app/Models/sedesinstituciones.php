@@ -11,14 +11,11 @@ class sedesinstituciones extends Model
     use \Conner\Tagging\Taggable;
     
     protected $fillable = [
-        'id',
-        'idinstitucion',
+        'idInstitucion',
+        'imgsede',
         'nombre',
         'direccion',
-        'telefono',
-        'idPais',
-        'id_departamento',
-        'id_provincia',
-        'id_municipio'
+        'horario_sede',
+        'telefono'
     ];
 }
