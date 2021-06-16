@@ -33,6 +33,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
     </head>
     <body>
+        <label for="cursos">Cursos: </label>
+        <input id="cursos">
         <div id="app">
             <!-------------------------------------------Headaer-------------------------------------------->
             <nav class="navbar navbar_zaabrasalud">
@@ -195,6 +197,32 @@
         <script src="{{ asset('js/cargaFoto.js') }}"></script>
         <script src="{{ asset('js/contacto.js') }}"></script>
         <script src="{{ asset('js/adicionarcamposformulario.js') }}"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(function(){
+                $("#cursos").autocomplete({
+                source: function(request, response) {
+                    $.ajax({
+                    url: "{{route('search.cursos')}}",
+                    dataType: "json",
+                    data: {
+                        term: request.term
+                    },
+                    success: function( data ) {
+                        response( data );
+                    }
+                    });
+                },
+                select: function (event, ui) {
+                    $('#cursos').val(ui.item.label);
+                    $('#cursos').val(ui.item.value); 
+                    return false;
+                    }
+
+                });
+            });
+        </script>
 
     </body>
 

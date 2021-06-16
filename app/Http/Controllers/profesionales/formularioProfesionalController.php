@@ -254,13 +254,13 @@ class formularioProfesionalController extends Controller
     }
 
     public function  cargaIdiomas($id_user){
-        return DB::select("SELECT usi.id_idioma, i.nombreidioma, i.imgidioma
-        FROM perfilesprofesionales pf
-        INNER JOIN users us   ON pf.idUser=us.id
-        LEFT JOIN  usuario_idiomas usi ON pf.idPerfilProfesional= usi.idPerfilProfesional
-        LEFT JOIN  idiomas i ON usi.id_idioma= i.id_idioma
-        WHERE pf.idUser=$id_user");
-        }
+    return DB::select("SELECT usi.id_idioma, i.nombreidioma, i.imgidioma
+    FROM perfilesprofesionales pf
+    INNER JOIN users us   ON pf.idUser=us.id
+    LEFT JOIN  usuario_idiomas usi ON pf.idPerfilProfesional= usi.idPerfilProfesional
+    LEFT JOIN  idiomas i ON usi.id_idioma= i.id_idioma
+    WHERE pf.idUser=$id_user");
+    }
 
     public function contadorIdiomas($id_user){
     /*cuenta los los valores ingresados*/

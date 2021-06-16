@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <g id="Grupo_1558" data-name="Grupo 1558" transform="translate(8971 -854)">
+    <g id="Grupo_1184" data-name="Grupo 1184" transform="translate(-9282 388)">
+      <g id="Grupo_1182" data-name="Grupo 1182">
+        <g id="Grupo_1180" data-name="Grupo 1180" transform="translate(-8 -167)">
+          <g id="Grupo_1158" data-name="Grupo 1158">
+            <g id="Elipse_129" data-name="Elipse 129" transform="translate(319 633)" fill="none" stroke="#019f86" stroke-width="2">
+              <circle cx="13" cy="13" r="13" stroke="none"/>
+              <circle cx="13" cy="13" r="12" fill="none"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="book-open" transform="translate(-8967 859.017)">
+      <path id="Trazado_432" data-name="Trazado 432" d="M2,3H6.05a2.7,2.7,0,0,1,2.7,2.7v9.45a2.025,2.025,0,0,0-2.025-2.025H2Z" transform="translate(0 0)" fill="none" stroke="#019f86" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+      <path id="Trazado_433" data-name="Trazado 433" d="M18.75,3H14.7A2.7,2.7,0,0,0,12,5.7v9.45a2.025,2.025,0,0,1,2.025-2.025H18.75Z" transform="translate(-3.25 0)" fill="none" stroke="#019f86" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+    </g>
+  </g>
+</svg>
