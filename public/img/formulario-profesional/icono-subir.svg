@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="upload" transform="translate(-2 -2)">
+    <path id="Trazado_321" data-name="Trazado 321" d="M21,15v4a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2V15" fill="none" stroke="#232323" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Trazado_322" data-name="Trazado 322" d="M17,8,12,3,7,8" fill="none" stroke="#232323" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <line id="Línea_105" data-name="Línea 105" y2="12" transform="translate(12 3)" fill="none" stroke="#232323" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>

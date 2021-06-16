@@ -44,15 +44,15 @@
 <!-- Contenedor principal de las tarjetas de datos -->
 <div class="container-fluid content_principal-formProf">
 
-<!--  -->
+<!-- Titulo y texto superior -->
 <div class="col-lg-10 content_textPrincipal-formProf">
     <h5 class="titulo_principal-formProf"> LE DAMOS LA BIENVENIDA A ZAABRA SALUD </h5>
 
     <p class="texto_superior-formProf"> Ingrese los datos según corresponda y finalice el proceso completamente en línea. </p>
 </div>
 
-<!--------------------------------------------      Inicio 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      ------------------------------------------------>
-<div class="content_dato-person col-lg-10 infoBasica_formProf">
+<!--------------------------------------------      Inicio 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      --------------------------------------------->
+<div class="col-lg-10 content_dato-person infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf"> Información básica </h5> 
 
     <form method="POST" action="{{ url ('/FormularioProfesionalSave') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
@@ -71,7 +71,7 @@
      
                     <input type="file" class="input_imgUsuario-formProf" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg">
 
-                    <label class="text_usuario-formProf"> Subir foto de perfil </label>
+                    <label class="col-12 icon_subirFoto-formProf text_usuario-formProf"> Subir foto de perfil </label>
                 </div>
                 
                 <!-- Sección datos personales -->
@@ -79,7 +79,7 @@
             
                     @foreach ($objuser as $objuser)
                     <div class="col-lg-6 pr-0">
-                        <label for="example-date-input" class="col-12 col-form-label px-0"> Nombres </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Nombres </label>
 
                         
                         <div class="col-12 nombres_usuario-formProf">
@@ -89,7 +89,7 @@
                     </div>
 
                     <div class="col-lg-6 pr-0">
-                        <label for="example-date-input"class="col-12 col-form-label px-0"> Apellidos </label>
+                        <label for="example-date-input"class="col-12 text_label-formProf"> Apellidos </label>
 
                         <div class="col-12 nombres_usuario-formProf">
                             <input class="input_nomApl-formProf" value="{{$objuser->primerapellido}}" readonly></input>
@@ -99,17 +99,17 @@
                     @endforeach
 
                         <div class="col-lg-6 pr-0">
-                            <label for="title">  Fecha de nacimiento </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de nacimiento </label>
 
                             <input class="col-lg-12 form-control" type="date" value="{{$objFormulario->fechanacimiento}}" id="example-date-input" name="fechanacimiento">
                         </div>
          
 
                     <div class="col-lg-6 pr-0">
-                        <label for="title"> Selecione Área </label> 
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Selecione área </label> 
 
                         <select id="idarea" name="idarea" class="col-lg-12 form-control">
-                            <option value="" selected disabled>Seleccione area</option>
+                            <option value="" selected disabled>Seleccione área</option>
 
                             @foreach($area as $area)
                                 <option value="{{$area->idArea}}"> {{$area->nombreArea}}</option>
@@ -118,19 +118,19 @@
                     </div>
 
                     <div class="col-lg-6 pr-0">
-                        <label for="title"> Selecione Profesión </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Selecione profesión </label>
 
                         <select name="idprofesion" id="idprofesion" class="col-lg-12 form-control"></select>
                     </div>
 
                     <div class="col-lg-6 pr-0">
-                        <label for="title"> Seleccione especialidad </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione especialidad </label>
 
                         <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control"></select>
                     </div>
             
                     <div class="col-lg-6 pr-0">
-                        <label for="title"> Selecione Universidad </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
 
                         <select  class="col-lg-12 form-control" name="id_universidad">
                             @foreach($objFormulario1 as $objFormulario1)
@@ -145,14 +145,14 @@
 
                     <div class="col-lg-6 pr-0">
                         <div class="form-group">
-                            <label for="title"> Tarjeta Profesional </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Tarjeta profesional </label>
 
                             <input class="col-lg-12 form-control" id="tarjeta" placeholder="N. Tarjeta" type="number" name="numeroTarjeta" value="{{$objFormulario->numeroTarjeta}}">
                         </div>
                     </div>
 
                     <div class="col-lg-3 content_btnEnviar-formProf">
-                        <button type="submit" class="btn_enviar-formProf">Enviar
+                        <button type="submit" class="btn_enviar-formProf"> Guardar
                             <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
                         </button>
                     </div>
@@ -176,7 +176,7 @@
                 <div class="row col-lg-9 datos_principales-formProf">
                     @foreach ($objuser as $objuser)
                         <div class="col-lg-6 pr-0">
-                            <label for="example-date-input" class="col-12 col-form-label px-0"> Nombres </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Nombres </label>
 
                             <div class="col-12 nombres_usuario-formProf">
                                 <input class="input_nomApl-formProf" value="{{$objuser->primernombre}}" readonly></input>
@@ -185,7 +185,7 @@
                         </div>
 
                         <div class="col-lg-6 pr-0">
-                            <label for="example-date-input" class="col-lg-12 col-form-label px-0"> Apellidos </label>
+                            <label for="example-date-input" class="col-lg-12 text_label-formProf"> Apellidos </label>
 
                             <div class="col-12 nombres_usuario-formProf">
                                 <input class="input_nomApl-formProf" value="{{$objuser->primerapellido}}" readonly></input>
@@ -195,13 +195,13 @@
                     @endforeach
        
                     <div class="col-lg-6 pr-0">
-                        <label for="title">  Fecha de nacimiento </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf">  Fecha de nacimiento </label>
                         
                         <input class="col-lg-12 form-control" type="date" value="2011-08-19" id="example-date-input" name="fechanacimiento">
                     </div>
 
                     <div class="col-lg-6 pr-0">
-                        <label for="title"> Selecione Área </label> 
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Selecione área </label> 
 
                         <select id="idarea" name="idarea" class="col-lg-12 form-control" style="width:350px" >
                             <option value="" selected disabled> Seleccione area</option>
@@ -213,20 +213,20 @@
                     </div>
 
                     <div class="col-lg-6 pr-0">
-                        <label for="title"> Selecione Profesión </label> 
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Selecione profesión </label> 
 
                         <select name="idprofesion" id="idprofesion" class="col-lg-12 form-control" style="width:350px"></select>
                     </div>
 
                     <div class="col-lg-6 pr-0">
-                        <label for="title"> Seleccione especialidad </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione especialidad </label>
 
                         <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control" style="width:350px"></select>
                     </div>
                   
                     <div class="col-lg-6 pr-0">
                         <div class="form-group">
-                            <label for="title"> Selecione Universidad </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
 
                             <select  class="col-lg-12 form-control" style="width:350px" name="id_universidad">
                                 <option value="">Seleccione Universidad</option>
@@ -240,14 +240,14 @@
 
                     <div class="col-6 pr-0">
                         <div class="form-group">
-                            <label for="title"> Tarjeta Profesional </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Tarjeta profesional </label>
 
                             <input class="col-lg-12 form-control" id="tarjeta" placeholder="nombre" type="number" name="numeroTarjeta">
                         </div>
                     </div>
 
                     <div class="col-lg-3 content_btnEnviar-formProf">
-                        <button type="submit" class="btn_enviar-formProf"> Enviar
+                        <button type="submit" class="btn_enviar-formProf"> Guaradar
                             <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
                         </button>
                     </div>
@@ -259,16 +259,16 @@
 </div>
 <!--------------------------------------------      Fin 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      ------------------------------------------------>
 
-<!--------------------------------------------      Inicio 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ------------------------------------------------>
-<div class="content_dato-person col-lg-10 infoBasica_formProf">
+<!--------------------------------------------      Inicio 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ------------------------------------------->
+<div class="col-lg-10 content_dato-person infoBasica_formProf">
     <form method="POST" action="{{ url ('/FormularioProfesionalSave2') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-        <h5 class="col-lg-12 icon_infoBasica-formProf"> Información de contacto </h5>
+        <h5 class="col-lg-12 icon_infoContac-formProf"> Información de contacto </h5>
         <div class="row fila_infoBasica-formProf">
             @if(!empty($objFormulario))
-                <div class="col-6 pr-0">
+                <div class="col-6 pl-0">
                     <div class="form-group">
-                        <label for="title"> Celular </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
 
                         <input class="col-lg-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="celular" value="{{$objFormulario->celular}}">
                     </div>
@@ -276,15 +276,15 @@
 
                 <div class="col-6 pr-0">
                     <div class="form-group">
-                        <label for="title"> Teléfono </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Teléfono </label>
 
                         <input class="col-lg-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono" value="{{$objFormulario->telefono}}">
                     </div>
                 </div>
                 
-                <div class="col-6 pr-0">
+                <div class="col-6 pl-0">
                     <div class="form-group">
-                        <label for="title"> Dirección </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Dirección </label>
                         
                         <input class="col-lg-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" value="{{$objFormulario->direccion}}">
                     </div>
@@ -292,44 +292,44 @@
 
                 <!--menu dinamico ciudades -->
                 <div class="col-6 pr-0">
-                    <label for="title"> Selecione País </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Selecione país </label>
 
                     <select id="idpais" name="idpais" class="col-12 form-control">
-                        <option value="" selected disabled>Seleccione pais</option>
+                        <option value="" selected disabled>Seleccione país</option>
                         @foreach($pais as $pais)
                             <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
                         @endforeach
                     </select>
                 </div>
 
-                <div class="col-6 pr-0">
-                    <label for="title"> Selecione Departamento </label>
+                <div class="col-6 pl-0">
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Selecione departamento </label>
 
                     <select name="id_departamento" id="id_departamento" class="col-12 form-control"></select>
                 </div>
             
                 <div class="col-6 pr-0">
-                    <label for="title"> Seleccione Provincia </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione provincia </label>
 
                     <select name="id_provincia" id="id_provincia" class="col-12 form-control"></select>
                 </div>
 
-                <div class="col-6 pr-0">
-                    <label for="title"> Seleccione Ciudad </label>
+                <div class="col-6 pl-0">
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione ciudad </label>
 
                     <select name="id_municipio" id="id_municipio" class="col-12 form-control"></select>
                 </div>
 
-                <div class="col-lg-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf">Enviar
+                <div class="col-lg-12 mt-3 content_btnEnviar-formProf">
+                    <button type="submit" class="btn2_enviar-formProf"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
                     </button>
                 </div>
                 
             @else
-                <div class="col-6 pr-0">
+                <div class="col-6 pl-0">
                     <div class="form-group">
-                        <label for="title"> Celular </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
                         
                         <input class="col-lg-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="celular" >
                     </div>
@@ -337,15 +337,15 @@
 
                 <div class="col-6 pr-0">
                     <div class="form-group">
-                        <label for="title"> Teléfono </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Teléfono </label>
 
                         <input class="col-lg-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono" >
                     </div>
                 </div>
 
-                <div class="col-6 pr-0">
+                <div class="col-6 pl-0">
                     <div class="form-group">
-                        <label for="title"> Dirección </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Dirección </label>
 
                         <input class="col-lg-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" >
                     </div>
@@ -353,7 +353,7 @@
 
                 <!--menu dinamico ciudades -->
                 <div class="col-6 pr-0">
-                    <label for="title"> Seleccione País </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione país </label>
 
                     <select id="idpais" name="idpais" class="form-control">
                         <option value="" selected disabled>Seleccione pais</option>
@@ -363,28 +363,28 @@
                     </select>
                 </div>
 
-                <div class="col-6 pr-0">
-                    <label for="title"> Selecione Departamento </label>
+                <div class="col-6 pl-0">
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Selecione departamento </label>
 
                     <select name="id_departamento" id="id_departamento" class="form-control">
                     </select>
                 </div>
         
                 <div class="col-6 pr-0">
-                    <label for="title"> Seleccione provincia </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione provincia </label>
                     <select name="id_provincia" id="id_provincia" class="form-control">
                     </select>
                 </div>
 
-                <div class="col-6 pr-0">
-                    <label for="title"> Seleccione Ciudad </label>
+                <div class="col-6 pl-0">
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione ciudad </label>
 
                     <select name="id_municipio" id="id_municipio" class="form-control">
                     </select>
                 </div>
 
-                <div class="col-lg-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf">Enviar
+                <div class="col-lg-12 mt-3 content_btnEnviar-formProf">
+                    <button type="submit" class="btn2_enviar-formProf"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
                     </button>
                 </div>
@@ -392,11 +392,11 @@
         </div>
     </form>
 </div>
-<!--------------------------------------------      Fin 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ------------------------------------------------>
+<!--------------------------------------------      Fin 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ---------------------------------------------->
 
-<!--------------------------------------------      Inicio 3 tercera parte del formulario *** INFORMACIÓN CONSULTA ***      ------------------------------------------------>
-<div class="content_dato-person col-lg-10 pb-3 infoBasica_formProf">
-    <h5 class="col-lg-12 icon_infoBasica-formProf"> Información consulta </h5>
+<!--------------------------------------------      Inicio 3 tercera parte del formulario *** INFORMACIÓN CONSULTA ***      ------------------------------------------->
+<div class="col-lg-10 pb-3 content_dato-person infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoConsult-formProf"> Información consulta </h5>
     @foreach($objConsultas as $objConsultas)
         @if(!empty($objConsultas->nombreconsulta))
             <div class="col-12">
@@ -416,8 +416,8 @@
             
         @if($objContadorConsultas->cantidad == 0)
             <div class="col-12 seccion_consulta-formProf">
-                <div class="col-6 pr-0">
-                    <label for="inputState"> Tipo Consulta </label>
+                <div class="col-6 pl-0">
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label>
 
                     <select id="inputState" class="form-control" name="nombreconsulta[]">
                         <option value=" " selected> Seleccionar </option>
@@ -428,15 +428,15 @@
                 </div>
 
                 <div class="col-6 pr-0">
-                    <label for="inputZip"> Valor </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
                         
                     <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
                 </div>
             </div>
 
             <div class="col-12 seccion_consulta-formProf hidden-section-formProf">
-                <div class="col-6 pr-0">
-                    <label for="inputState"> Tipo Consulta </label>
+                <div class="col-6 pl-0">
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label>
 
                     <select id="inputState" class="form-control" name="nombreconsulta[]">
                         <option value=" " selected> Seleccionar </option>
@@ -447,15 +447,15 @@
                 </div>
 
                 <div class="col-6 pr-0">
-                    <label for="inputZip"> Valor </label> 
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label> 
 
                     <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
                 </div>
             </div>
 
             <div class="col-12 seccion_consulta-formProf hidden-section-formProf">
-                <div class="col-6 pr-0">
-                    <label for="inputState"> Tipo Consulta </label>
+                <div class="col-6 pl-0">
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label>
 
                     <select id="inputState" class="form-control" name="nombreconsulta[]">
                         <option value=" " selected> Seleccionar </option>
@@ -466,15 +466,15 @@
                 </div>
 
                 <div class="col-6 pr-0">
-                    <label for="inputZip"> Valor </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
                     <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
                 </div>
             </div>
         @elseif($objContadorConsultas->cantidad == 1)
             <div class="col-12 seccion_consulta-formProf">
-                <div class="col-6 pr-0">
-                    <label for="inputState"> Tipo Consulta </label> 
+                <div class="col-6 pl-0">
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label> 
 
                     <select id="inputState" class="form-control" name="nombreconsulta[]">
                         <option value=" " selected> Seleccionar </option>
@@ -485,15 +485,15 @@
                 </div>
 
                 <div class="col-6 pr-0">
-                    <label for="inputZip"> Valor </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
                     <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
                 </div>
             </div>
 
             <div class="col-12 seccion_consulta-formProf">
-                <div class="col-6 pr-0">
-                    <label for="inputState"> Tipo Consulta </label> 
+                <div class="col-6 pl-0">
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label> 
 
                     <select id="inputState" class="form-control" name="nombreconsulta[]">
                         <option value=" " selected> Seleccionar </option>
@@ -504,7 +504,7 @@
                 </div>
 
                 <div class="col-6 pr-0">
-                    <label for="inputZip"> Valor </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
                     <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
                 </div>
@@ -512,8 +512,8 @@
 
         @elseif($objContadorConsultas->cantidad == 2)
             <div class="col-12 seccion_consulta-formProf">
-                <div class="col-6 pr-0">
-                    <label for="inputState"> Tipo Consulta </label>
+                <div class="col-6 pl-0">
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label>
 
                     <select id="inputState" class="form-control" name="nombreconsulta[]">
                         <option value=" " selected> Seleccionar </option>
@@ -524,7 +524,7 @@
                 </div>
 
                 <div class="col-6 pr-0">
-                    <label for="inputZip"> Valor </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
                     <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
                 </div>
@@ -534,33 +534,33 @@
         @endif
 
         <div class="col-lg-12 content_btnEnviar-formProf">
-            <button type="submit" class="btn2_enviar-formProf">Enviar
+            <button type="submit" class="btn2_enviar-formProf"> Guardar
                 <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
             </button>
         </div>
     </form>
 </div>
-<!--------------------------------------------      Fin 3 tercera parte del formulario *** INFORMACIÓN CONSULTA ***      ------------------------------------------------> 
+<!--------------------------------------------      Fin 3 tercera parte del formulario *** INFORMACIÓN CONSULTA ***      ----------------------------------------------> 
 
-<!--------------------------------------------      Inicio 4 cuarta parte del formulario *** PERFIL PROFESIONAL ***      ------------------------------------------------>
-<div class="content_perfil-prof col-lg-10 pb-3 infoBasica_formProf">
-    <h5 class="col-lg-12 icon_infoBasica-formProf"> Perfil Profesional </h5>
+<!--------------------------------------------      Inicio 4 cuarta parte del formulario *** PERFIL PROFESIONAL ***      ---------------------------------------------->
+<div class="col-lg-10 pb-3 content_perfil-prof  infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoSubPerfil-formProf"> Perfil profesional </h5>
 
     <form method="POST" action="{{ url ('/FormularioProfesionalSave4') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
         @if(!empty($objFormulario))
-            <div class="col-12 pr-0">
+            <div class="col-12 px-0">
                 <div class="form-group">
-                    <label for="title"> Escriba una breve descripción de su Biografía </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Escriba una breve descripción de su biografía </label>
 
                     <textarea class="form-control" id="descripcionPerfil"  type="text" name="descripcionPerfil" >{{$objFormulario->descripcionPerfil}}</textarea>
                 </div>
             </div>
         @else
-            <div class="col-12 pr-0">
+            <div class="col-12 px-0">
                 <div class="form-group">
-                    <label for="title"> Escriba una breve descripción de su Biografía </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Escriba una breve descripción de su biografía </label>
 
                     <textarea class="form-control" id="descripcionPerfil"  type="text" name="descripcionPerfil" ></textarea>
                 </div>
@@ -573,11 +573,11 @@
         </div>
     </form>
 </div>
-<!--------------------------------------------      Fin 4 cuarta parte del formulario *** PERFIL PROFESIONAL ***      ------------------------------------------------>
+<!--------------------------------------------      Fin 4 cuarta parte del formulario *** PERFIL PROFESIONAL ***      ------------------------------------------------->
 
-<!--------------------------------------------      Inicio 5 quinta parte del formulario *** EDUCACIÓN ***      ------------------------------------------------>
-<div class="content_perfil-prof col-lg-10 pb-3 infoBasica_formProf">
-    <h5 class="col-lg-12 icon_infoBasica-formProf"> Educación </h5>
+<!--------------------------------------------      Inicio 5 quinta parte del formulario *** EDUCACIÓN ***      ------------------------------------------------------->
+<div class="col-lg-10 pb-3 content_perfil-prof infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoEduc-formProf"> Educación </h5>
 
     @foreach($objEducacion as $objEducacion)
         @if(!empty($objEducacion->nombreuniversidad))
@@ -597,11 +597,11 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
         <div class="row p-0 m-0">
-            <div class="col-6 pr-0">
-                <label for="title"> Selecione Universidad </label>
+            <div class="col-6 pl-0">
+                <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
 
                 <select  class="form-control" name="id_universidad[]">
-                    <option value="">Seleccione Universidad</option>
+                    <option value=""> Seleccione universidad </option>
 
                     @foreach($universidades as $universidad)
                         <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
@@ -610,14 +610,14 @@
             </div>
             
             <div class="col-6 pr-0">
-                <label for="title"> Fecha de finalización </label>
+                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
             
                 <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
             </div>
 
-            <div class="col-6 pr-0">
+            <div class="col-6 pl-0">
                 <div class="form-group">
-                    <label for="title"> Disciplina académica </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
 
                     <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
                 </div>
@@ -625,11 +625,11 @@
         </div>
 
         <div class="row p-0 m-0 hidden-section-formProf">
-            <div class="col-6 pr-0">
-                <label for="title"> Selecione Universidad </label>
+            <div class="col-6 pl-0">
+                <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
 
                 <select  class="form-control" name="id_universidad[]">
-                    <option value="">Seleccione Universidad</option>
+                    <option value="">Seleccione universidad</option>
 
                     @foreach($universidades as $universidad)
                         <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
@@ -638,14 +638,14 @@
             </div>
       
             <div class="col-6 pr-0">
-                <label for="title"> Fecha de finalización </label>
+                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
 
                 <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
             </div>
 
-            <div class="col-6 pr-0">
+            <div class="col-6 pl-0">
                 <div class="form-group">
-                    <label for="title"> Disciplina académica </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
 
                     <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
                 </div>
@@ -654,10 +654,10 @@
 
                     
         <div class="row p-0 m-0 hidden-section-formProf">
-            <div class="col-6 pr-0">
-                <label for="title"> Selecione Universidad </label>
+            <div class="col-6 pl-0">
+                <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
                     <select  class="form-control" name="id_universidad[]">
-                        <option value="">Seleccione Universidad</option>
+                        <option value="">Seleccione universidad</option>
 
                         @foreach($universidades as $universidad)
                             <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
@@ -666,14 +666,14 @@
             </div>
 
             <div class="col-6 pr-0">
-                <label for="title"> Fecha de finalización </label>
+                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
 
                 <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
             </div>
 
-            <div class="col-6 pr-0">
+            <div class="col-6 pl-0">
                 <div class="form-group">
-                    <label for="title"> Disciplina académica </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
 
                     <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
                 </div>
@@ -681,11 +681,11 @@
         </div>
 
         <div class="row p-0 m-0 hidden-section-formProf">
-            <div class="col-6 pr-0">
-                <label for="title"> Selecione Universidad </label>
+            <div class="col-6 pl-0">
+                <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
 
                 <select  class="form-control" name="id_universidad[]">
-                    <option value="">Seleccione Universidad</option>
+                    <option value="">Seleccione universidad</option>
 
                     @foreach($universidades as $universidad)
                         <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
@@ -694,14 +694,14 @@
             </div>
 
             <div class="col-6 pr-0">
-                <label for="title"> Fecha de finalización </label>
+                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
 
                 <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
             </div>
 
-            <div class="col-6 pr-0">
+            <div class="col-6 pl-0">
                 <div class="form-group">
-                    <label for="title"> Disciplina académica </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
 
                     <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
                 </div>
@@ -715,11 +715,11 @@
         </div>
     </form> 
 </div>
-<!--------------------------------------------      Fin 5 quinta parte del formulario *** EDUCACIÓN ***      ------------------------------------------------>
+<!--------------------------------------------      Fin 5 quinta parte del formulario *** EDUCACIÓN ***      ---------------------------------------------------------->
 
-<!--------------------------------------------      Inicio 6 sexta parte del formulario *** EXPERIENCIA ***      ------------------------------------------------>
-<div class="content_perfil-prof col-lg-10 pb-3 infoBasica_formProf">
-    <h5 class="col-lg-12 icon_infoBasica-formProf"> Experiencia </h5>
+<!--------------------------------------------      Inicio 6 sexta parte del formulario *** EXPERIENCIA ***      ------------------------------------------------------>
+<div class="col-lg-10 pb-3 content_perfil-prof infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoExper-formProf"> Experiencia </h5>
 
     <!--------------muestra una lista de la experinecia ingresada---------------> 
     @foreach($objExperiencia as $objExperiencia)
@@ -744,26 +744,26 @@
         @else
             
             <div class="row fila_infoBasica-formProf" id="listas"> 
-                <div class="col-6 pr-0">
-                    <label for="title"> Empresa </label>
+                <div class="col-6 pl-0">
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
                     <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
                 </div>
 
                 <div class="col-6 pr-0">
-                    <label for="title"> Cargo </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
 
                     <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
                 </div>
 
-                <div class="col-6 pr-0">
-                    <label for="example-date-input" class="col-form-label"> Fecha de inicio </label>
+                <div class="col-6 pl-0">
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
 
                     <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
                 </div>
 
                 <div class="col-6 pr-0">
-                    <label for="example-date-input" class="col-form-label"> Fecha de terminación </label>
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
 
                     <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
                 </div>
@@ -778,13 +778,13 @@
         <!-- <input class="contadorexperinecia" name="contadorexperinecia" type="text" value="1">-->
     </form>
 </div>
-<!--------------------------------------------      Fin 6 sexta parte del formulario *** EXPERIENCIA ***      ------------------------------------------------>
+<!--------------------------------------------      Fin 6 sexta parte del formulario *** EXPERIENCIA ***      --------------------------------------------------------->
 
-<!--------------------------------------------      Inicio 7 septima parte del formulario *** ASOCIACIONES ***      ------------------------------------------------>
-<div class="content_perfil-prof col-lg-10 pb-3 infoBasica_formProf">
-    <h5 class="col-lg-12 icon_infoBasica-formProf"> Asociaciones </h5>
+<!--------------------------------------------      Inicio 7 septima parte del formulario *** ASOCIACIONES ***      --------------------------------------------------->
+<div class="col-lg-10 pb-3 content_perfil-prof infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoAsocia-formProf"> Asociaciones </h5>
 
-    <div class="row col-12 px-0 pt-3 m-0">
+    <div class="row col-12 px-0 mt-3 m-0">
         @foreach($objAsociaciones as $objAsociaciones)
             @if(!empty($objAsociaciones->imgasociacion))
                 <div class="col-6 content_imgGuardada-formProf">
@@ -804,7 +804,7 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
             
         @if($objContadorAsociaciones->cantidad == 0)
-            <div class="row col-12 px-0 pt-3 m-0">
+            <div class="row col-12 px-0 m-0">
                 <div class="col-6 content_agregarImg-formProf form-group">
                     <div class="col-10 img_selccionada-formProf">
                         <div class="img_anexada-formProf" id="preview1"></div>
@@ -813,6 +813,9 @@
                     <div class="agregar_archivo-formProf">
                         <input type='file' id="imgasocia1" name="imgasociacion[]"/>
                     </div>
+
+                    
+                    <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label> 
                 </div> 
 
                 <div class="col-6 content_agregarImg-formProf form-group">
@@ -823,6 +826,8 @@
                     <div class="agregar_archivo-formProf">
                         <input type='file' id="imgasocia2" name="imgasociacion[]"/>
                     </div>
+
+                    <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label> 
                 </div> 
 
                 <div class="col-6 content_agregarImg-formProf form-group hidden-section-formProf">
@@ -833,6 +838,8 @@
                     <div class="agregar_archivo-formProf">
                         <input type='file' id="imgasocia3" name="imgasociacion[]"/>
                     </div>
+
+                    <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label> 
                 </div> 
                 
                 <div class="col-6 content_agregarImg-formProf form-group hidden-section-formProf">
@@ -843,11 +850,13 @@
                     <div class="agregar_archivo-formProf">
                         <input type='file' id="imgasocia4" name="imgasociacion[]"/>
                     </div>
+
+                    <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label> 
                 </div>  
             </div>
 
         @elseif($objContadorAsociaciones->cantidad == 1)
-            <div class="row col-12 px-0 pt-3 m-0">
+            <div class="row col-12 px-0 m-0">
                 <div class="col-6 content_agregarImg-formProf form-group">
                     <div class="col-10 img_selccionada-formProf">
                         <div class="img_anexada-formProf" id="preview1"></div>   
@@ -856,6 +865,8 @@
                     <div class="agregar_archivo-formProf">
                         <input type='file' id="imgasocia1" name="imgasociacion[]"/> 
                     </div>
+
+                    <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label> 
                 </div> 
 
                 <div class="col-6 content_agregarImg-formProf form-group">
@@ -866,6 +877,8 @@
                     <div class="agregar_archivo-formProf">
                         <input type='file' id="imgasocia2" name="imgasociacion[]"/>
                     </div>
+
+                    <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label> 
                 </div> 
 
                 <div class="col-6 content_agregarImg-formProf form-group">
@@ -876,11 +889,13 @@
                     <div class="agregar_archivo-formProf">
                         <input type='file' id="imgasocia3" name="imgasociacion[]"/>
                     </div>
+
+                    <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label> 
                 </div>  
             </div>
 
         @elseif($objContadorAsociaciones->cantidad == 2)
-            <div class="row col-12 px-0 pt-3 m-0">
+            <div class="row col-12 px-0 m-0">
                 <div class="col-6 content_agregarImg-formProf form-group">
                     <div class="col-10 img_selccionada-formProf">
                         <div class="img_anexada-formProf" id="preview1"></div>
@@ -889,6 +904,8 @@
                     <div class="agregar_archivo-formProf">
                         <input type='file' id="imgasocia1" name="imgasociacion[]"/>
                     </div>
+
+                    <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label> 
                 </div> 
 
                 <div class="col-6 content_agregarImg-formProf form-group">
@@ -900,10 +917,12 @@
                         <input type='file' id="imgasocia2" name="imgasociacion[]"/>
                     </div>
                 </div> 
+
+                <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label> 
             </div> 
 
         @elseif($objContadorAsociaciones->cantidad == 3)
-            <div class="row col-12 px-0 pt-3 m-0">
+            <div class="row col-12 px-0 m-0">
                 <div class="col-6 content_agregarImg-formProf form-group">
                     <div class="col-10 img_selccionada-formProf">
                         <div class="img_anexada-formProf" id="preview1"></div>
@@ -913,38 +932,40 @@
                         <input type='file' id="imgasocia1" name="imgasociacion[]"/>
                     </div>
                 </div> 
+
+                <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label> 
             </div> 
 
         @elseif($objContadorAsociaciones->cantidad >= 4)
             <span>no se puede agregar mas fotos</span>
         @endif
             
-        <div class="col-lg-12 content_btnEnviar-formProf">
+        <div class="col-lg-12 mt-2 content_btnEnviar-formProf">
             <button type="submit" class="btn2_enviar-formProf"> Guardar
                 <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
             </button>
         </div>
     </form>
 </div>
-<!--------------------------------------------      Fin 7 septima parte del formulario *** ASOCIACIONES ***      ------------------------------------------------>
+<!--------------------------------------------      Fin 7 septima parte del formulario *** ASOCIACIONES ***      ------------------------------------------------------>
 
-<!--------------------------------------------      Inicio 8 octava parte del formulario *** IDIOMAS ***      ------------------------------------------------>
-<div class="content_perfil-prof col-lg-10 pb-3 infoBasica_formProf">
-    <h5 class="col-lg-12 icon_infoBasica-formProf"> Idiomas </h5>
+<!--------------------------------------------      Inicio 8 octava parte del formulario *** IDIOMAS ***      --------------------------------------------------------->
+<div class="col-lg-10 pb-3 content_perfil-prof infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoIdioma-formProf"> Idiomas </h5>
 
-    <div class="row p-0 m-0">
+    <div class="row p-0 mt-3 m-0">
         @foreach($objIdiomas as $objIdiomas)
             @if(!empty($objIdiomas->imgidioma))
-                <div class="col-4 mt-3">
+                <div class="col-4 pl-0">
                     <a href="{{url('/FormularioProfesionaldelete8/'.$objIdiomas->id_idioma)}}">
                         <button type="submit" class="close" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </a>
 
-                    <label for="title">{{$objIdiomas->nombreidioma}}</label>
+                    <label for="example-date-input" class="mr-2 text_label-formProf"> {{$objIdiomas->nombreidioma}}</label>
 
-                    <img id="imagenPrevisualizacion" src="{{URL::asset($objIdiomas->imgidioma)}}">
+                    <img id="imagenPrevisualizacion" class="img_bandera-forProf" src="{{URL::asset($objIdiomas->imgidioma)}}">
                 </div>
             @endif
         @endforeach
@@ -954,12 +975,12 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">  
             
         @if($objContadorIdiomas->cantidad == 0)
-            <div class="row p-0 m-0">
-                <div class="col-6 pr-0">
-                    <label for="title"> Seleccione idioma </label>
+            <div class="row p-0 mt-3 m-0">
+                <div class="col-6 pl-0">
+                    <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
 
                     <select  class="form-control" name="id_idioma[]">
-                        <option value=" ">Seleccione</option>
+                        <option value=" "> Seleccione </option>
                         @foreach($idiomas as $idiomas1)
                             <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
                         @endforeach
@@ -967,21 +988,21 @@
                 </div>                    
 
                 <div class="col-6 pr-0 hidden-section-formProf">
-                    <label for="title"> Seleccione idioma </label>
+                    <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
 
                     <select  class="form-control" name="id_idioma[]">
-                        <option value=" ">Seleccione</option>
+                        <option value=" "> Seleccione </option>
                         @foreach($idiomas as $idiomas2)
                             <option value="{{$idiomas2->id_idioma}}"> {{$idiomas2->nombreidioma}}</option>
                         @endforeach
                     </select>
                 </div>
 
-                <div class="col-6 pr-0 hidden-section-formProf">
-                    <label for="title"> Seleccione idioma </label>
+                <div class="col-6 pl-0 hidden-section-formProf">
+                    <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
 
                     <select  class="form-control" name="id_idioma[]">
-                        <option value=" ">Seleccione</option>
+                        <option value=" "> Seleccione </option>
                         @foreach($idiomas as $idiomas3)
                             <option value="{{$idiomas3->id_idioma}}"> {{$idiomas3->nombreidioma}}</option>
                         @endforeach
@@ -990,12 +1011,12 @@
             </div>
 
         @elseif($objContadorIdiomas->cantidad == 1)
-            <div class="row p-0 m-0">
+            <div class="row p-0 mt-3 m-0">
                 <div class="col-6 pr-0">
-                    <label for="title"> Seleccione idioma </label>
+                    <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
 
                     <select  class="form-control" name="id_idioma[]">
-                        <option value=" ">Seleccione</option>
+                        <option value=" "> Seleccione </option>
                         @foreach($idiomas as $idiomas1)
                             <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
                         @endforeach
@@ -1003,10 +1024,10 @@
                 </div>
 
                 <div class="col-6 pr-0">
-                    <label for="title"> Seleccione idioma </label>
+                    <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
 
                     <select  class="form-control" name="id_idioma[]">
-                        <option value=" ">Seleccione</option>
+                        <option value=" "> Seleccione </option>
                         @foreach($idiomas as $idiomas2)
                             <option value="{{$idiomas2->id_idioma}}"> {{$idiomas2->nombreidioma}}</option>
                         @endforeach
@@ -1014,12 +1035,12 @@
                 </div>
             </div>  
         @elseif($objContadorIdiomas->cantidad == 2)
-            <div class="row p-0 m-0">
+            <div class="row p-0 mt-3 m-0">
                 <div class="col-6 pr-0">
-                    <label for="title"> Seleccione idioma </label>
+                    <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
 
                     <select  class="form-control" style="width:350px" name="id_idioma[]">
-                        <option value=" ">Seleccione</option>
+                        <option value=" "> Seleccione </option>
                         @foreach($idiomas as $idiomas1)
                             <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
                         @endforeach
@@ -1030,25 +1051,25 @@
             <span>No se puede agragrar</span>
         @endif 
 
-        <div class="col-lg-12 content_btnEnviar-formProf">
+        <div class="col-lg-12 mt-3 content_btnEnviar-formProf">
             <button type="submit" class="btn2_enviar-formProf"> Guardar
                 <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
             </button>
         </div>
     </form>
 </div>
-<!--------------------------------------------      Fin 8 octava parte del formulario *** IDIOMAS ***      ------------------------------------------------>
+<!--------------------------------------------      Fin 8 octava parte del formulario *** IDIOMAS ***      ------------------------------------------------------------>
 
-<!--------------------------------------------      Inicio 9 novena parte del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      ------------------------------------------------>
-<div class="content_tratam-proced col-lg-10 pb-3 infoBasica_formProf">
-    <h5 class="col-lg-12 icon_infoBasica-formProf"> Tratamientos y procedimientos </h5>
+<!--------------------------------------------      Inicio 9 novena parte del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      ----------------------------------->
+<div class="col-lg-10 pb-3 content_tratam-proced infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoTratam-formProf"> Tratamientos y procedimientos </h5>
 
     <p class="text_superior-proced-formProf"> A continuación suba imágenes con respecto a los procedimientos y tratamientos, con su título y descripción. </p>
 
     @foreach($objTratamiento as $objTratamiento)
         @if(!empty($objTratamiento->imgTratamientoAntes))
             <div class="row col-12 p-0 m-0">
-                <div class="col-12">
+                <div class="col-12 content_btnX-cierre-formProf">
                     <a href="{{url('/FormularioProfesionaldelete9/'.$objTratamiento->id_tratamiento)}}">
                         <button type="submit" class="close" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -1059,7 +1080,7 @@
                 <!-- Contenido ANTES -->
                 <div class="col-6 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
-                        <label for="title"> Antes </label> 
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Antes </label> 
 
                         <div class="col-10 img_selccionada-formProf">
                             <img src="{{URL::asset($objTratamiento->imgTratamientoAntes)}}">
@@ -1067,13 +1088,13 @@
 
                         <div class="col-12 pl-0">
                             <div class="form-group">
-                                <span>{{$objTratamiento->tituloTrataminetoAntes}}</span>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> {{$objTratamiento->tituloTrataminetoAntes}} </label>
                             </div>
                         </div>
 
                         <div class="col-12 pl-0">
                             <div class="form-group">
-                                <span>{{$objTratamiento->descripcionTratamientoAntes}}</span>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> {{$objTratamiento->descripcionTratamientoAntes}} </label>
                             </div>
                         </div>
                     </div>
@@ -1081,7 +1102,7 @@
 
                 <!-- Contenido DESPUÉS -->
                 <div class="col-6 content_agregarImg-formProf form-group">
-                    <label for="title"> Después </label> 
+                    <label for="example-date-input" class="col-12 text_label-formProf"> Después </label> 
 
                     <div class="col-10 img_selccionada-formProf">
                         <img  src="{{URL::asset($objTratamiento->imgTratamientodespues)}}">
@@ -1089,13 +1110,13 @@
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <span>{{$objTratamiento->tituloTrataminetoDespues}}</span>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> {{$objTratamiento->tituloTrataminetoDespues}} </label>
                         </div>
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <span>{{$objTratamiento->descripcionTratamientoDespues}}</span>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> {{$objTratamiento->descripcionTratamientoDespues}} </label>
                         </div>
                     </div>
                 </div>
@@ -1112,7 +1133,7 @@
                 <!-- Contenido ANTES -->
                 <div class="col-6 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
-                        <label for="title"> Antes </label> 
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Antes </label> 
 
                         <div class="col-10 img_selccionada-formProf">
                             <div class="img_anexada-formProf" id="previewates1"></div>
@@ -1120,12 +1141,15 @@
 
                         <div class="agregar_archivo-formProf">
                             <input type='file' id="imgantes1" name="imgTratamientoAntes[]"/>
+                            
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label> 
                     </div> 
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title"> Título de la imagen Antes </label> 
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen antes </label> 
 
                             <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoAntes[]" value="">
                         </div>
@@ -1133,7 +1157,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title"> Descripción Antes </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción antes </label>
 
                             <input class="form-control" id="descripcionExperiencia"  type="text" name="descripcionTratamientoAntes[]" value="">
                         </div>
@@ -1141,22 +1165,24 @@
                 </div>
 
                 <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <div class="col-6 content_despues-formProf pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
-                        <label for="title"> Después </label> 
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Después </label> 
 
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="preview1"></div>
+                            <div class="img_anexada-formProf" id="previewdespues1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgasocia1" name="imgTratamientodespues[]"/>
+                            <input type='file' id="imgdespues1" name="imgTratamientodespues[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label> 
                     </div> 
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title"> Título de la imagen Después </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen después </label>
 
                             <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoDespues[]" value="">
                         </div>
@@ -1164,7 +1190,7 @@
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title"> Descripción Después </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción después </label>
 
                             <input class="form-control" id="descripcionExperiencia"  type="text" name="descripcionTratamientoDespues[]" value="">
                         </div>
@@ -1177,21 +1203,23 @@
                 <!-- Contenido ANTES -->
                 <div class="col-6 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
-                        <label for="title"> Antes </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Antes </label>
 
 
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates1"></div>
+                            <div class="img_anexada-formProf" id="previewates2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes1" name="imgTratamientoAntes[]"/>
+                            <input type='file' id="imgantes2" name="imgTratamientoAntes[]"/>
                         </div> 
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label> 
                     </div> 
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title"> Título de la imagen Antes </label> 
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen antes </label> 
 
                             <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoAntes[]" value="">
                         </div>
@@ -1199,7 +1227,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title"> Descripción Antes </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción antes </label>
 
                             <input class="form-control" id="descripcionExperiencia"  type="text" name="descripcionTratamientoAntes[]" value="">
                         </div>
@@ -1207,22 +1235,24 @@
                 </div>
 
                 <!-- Contenido DESPUÉS -->
-                <div class="col-6">
+                <div class="col-6 content_despues-formProf">
                     <div class="col-12 content_agregarImg-formProf form-group">
-                        <label for="title"> Después </label> 
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Después </label> 
 
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="preview1"></div>
+                            <div class="img_anexada-formProf" id="previewdespues2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgasocia1" name="imgTratamientodespues[]"/>
+                            <input type='file' id="imgdespues2" name="imgTratamientodespues[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label> 
                     </div> 
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title"> Título de la imagen Después </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen después </label>
 
                             <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoDespues[]" value="">
                         </div>
@@ -1230,7 +1260,7 @@
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title"> Descripción Después </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción después </label>
 
                             <input class="form-control" id="descripcionExperiencia"  type="text" name="descripcionTratamientoDespues[]" value="">
                         </div>
@@ -1243,7 +1273,7 @@
                 <!-- Contenido ANTES -->
                 <div class="col-6 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
-                        <label for="title"> Antes </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Antes </label>
 
 
                         <div class="col-10 img_selccionada-formProf">
@@ -1253,11 +1283,13 @@
                         <div class="agregar_archivo-formProf">
                             <input type='file' id="imgantes1" name="imgTratamientoAntes[]"/>
                         </div> 
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label> 
                     </div> 
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title"> Título de la imagen Antes </label> 
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen antes </label> 
 
                             <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoAntes[]" value="">
                         </div>
@@ -1265,7 +1297,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title"> Descripción Antes </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción antes </label>
 
                             <input class="form-control" id="descripcionExperiencia"  type="text" name="descripcionTratamientoAntes[]" value="">
                         </div>
@@ -1275,20 +1307,22 @@
                 <!-- Contenido DESPUÉS -->
                 <div class="col-6">
                     <div class="col-12 content_agregarImg-formProf form-group">
-                        <label for="title"> Después </label> 
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Después </label> 
 
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="preview1"></div>
+                            <div class="img_anexada-formProf" id="previewdespues2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgasocia1" name="imgTratamientodespues[]"/>
+                            <input type='file' id="imgdespues2" name="imgTratamientodespues[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label> 
                     </div> 
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title"> Título de la imagen Después </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen después </label>
 
                             <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoDespues[]" value="">
                         </div>
@@ -1296,7 +1330,7 @@
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title"> Descripción Después </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción después </label>
 
                             <input class="form-control" id="descripcionExperiencia"  type="text" name="descripcionTratamientoDespues[]" value="">
                         </div>
@@ -1304,7 +1338,7 @@
                 </div>
             </div>
         @elseif($objContadorIdiomas->cantidad == 2)
-            <span>No se pueden agregar mas</span>
+            <span> No se pueden agregar más </span>
         @endif 
 
         <div class="col-lg-12 content_btnEnviar-formProf">
@@ -1314,11 +1348,11 @@
         </div>
     </form>
 </div>
-<!--------------------------------------------      Fin 9 novena parte del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      ------------------------------------------------>
+<!--------------------------------------------      Fin 9 novena parte del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      -------------------------------------->
 
-<!--------------------------------------------      Inicio 10 decima parte del formulario *** PREMIOS y RECONOCIMIENTOS ***      ------------------------------------------------>
-<div class="content_premio-recono col-lg-10 pb-3 infoBasica_formProf">
-    <h5 class="col-lg-12 icon_infoBasica-formProf"> Premios y reconocimientos </h5>
+<!--------------------------------------------      Inicio 10 decima parte del formulario *** PREMIOS y RECONOCIMIENTOS ***      -------------------------------------->
+<div class="col-lg-10 pb-3 content_premio-recono infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoPremReco-formProf"> Premios y reconocimientos </h5>
 
     <p class="text_superior-proced-formProf"> A continuación suba imágenes relacionadas con sus premios y reconocimientos, con nombre y descripción. </p>
 
@@ -1328,7 +1362,7 @@
             @if(!empty($objPremios->nombrepremio))
                 <!-- Contenido PREMIO -->    
                 <div class="col-6 mt-3 content_antes-formProf">
-                    <div class="col-12">
+                    <div class="col-12 content_btnX-cierre-formProf">
                         <a href="{{url('/FormularioProfesionaldelete10/'.$objPremios->id)}}">
                             <button type="submit" class="close" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -1337,26 +1371,25 @@
                     </div>
                     
                     <div class="col-12 content_agregarImg-formProf form-group">
-
                         <div class="col-10 img_selccionada-formProf">
                             <img  src="{{URL::asset($objPremios->imgpremio)}}">
                         </div>
 
                         <div class="col-12 pl-0">
                             <div class="form-group">
-                                <span>{{$objPremios->nombrepremio}}</span>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> {{$objPremios->nombrepremio}}  </label>
                             </div>
                         </div>
 
                         <div class="col-12 pl-0">
                             <div class="form-group">
-                                <span>{{$objPremios->descripcionpremio}}</span>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> {{$objPremios->descripcionpremio}} </label>
                             </div>
                         </div>
 
                         <div class="col-12 pl-0">
                             <div class="form-group">
-                                <span>{{$objPremios->fechapremio}}</span>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> {{$objPremios->fechapremio}} </label>
                             </div>
                         </div>
                     </div>
@@ -1372,36 +1405,38 @@
             <!-- Modulo de los PREMIOS sin información-->
             <div class="row content_antDesp-formProf">
                 <!-- Contenido PREMIO izquierdo -->
-                <div class="col-6 content_antes-formProf">
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPremioLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpremio[]"/>
+                            <input type='file' id="imgPremio1" name="imgpremio[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                         
                             <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
                         </div>
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">titulo premio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título premio </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
                         </div>
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descrpcion premio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
                             
                             <input class="form-control" id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
                         </div>
@@ -1409,27 +1444,29 @@
                 </div>
 
                 <!-- Contenido PREMIO derecho -->
-                <div class="col-6 pr-0">
+                <div class="col-6 photo2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="form-group col-12 ">
                             <div class="col-10 img_selccionada-formProf">
-                                <div class="img_anexada-formProf" id="previewates"></div>
+                                <div class="img_anexada-formProf" id="previewPremioRight1"></div>
                             </div>
 
                             <div class="agregar_archivo-formProf">
-                                <input type='file' id="imgantes" name="imgpremio[]"/>
+                                <input type='file' id="imgPremio2" name="imgpremio[]"/>
                             </div>
+
+                            <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                         </div>
 
                         <div class="col-12 pr-0">
-                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                             
                             <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
                         </div>
 
                         <div class="col-12 pr-0">
                             <div class="form-group">
-                                <label for="title">titulo premio</label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título premio </label>
 
                                 <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
                             </div>
@@ -1437,7 +1474,7 @@
 
                         <div class="col-12 pr-0">
                             <div class="form-group">
-                                <label for="title">Descrpcion premio</label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
 
                                 <input class="form-control" id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
                             </div>
@@ -1449,36 +1486,38 @@
             <!-- Modulo de los PREMIOS sin información-->
             <div class="row content_antDesp-formProf hidden-section-formProf">
                 <!-- Contenido PREMIO izquierdo -->
-                <div class="col-6 content_antes-formProf">
+                <div class="col-6 photo3 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPremioLeft2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpremio[]"/>
+                            <input type='file' id="imgPremio3" name="imgpremio[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                         
                             <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
                         </div>
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">titulo premio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título premio </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
                         </div>
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descrpcion premio</label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio</label>
                             
                             <input class="form-control" id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
                         </div>
@@ -1486,27 +1525,29 @@
                 </div>
 
                 <!-- Contenido PREMIO derecho -->
-                <div class="col-6 pr-0">
+                <div class="col-6 photo4 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="form-group col-12 ">
                             <div class="col-10 img_selccionada-formProf">
-                                <div class="img_anexada-formProf" id="previewates"></div>
+                                <div class="img_anexada-formProf" id="previewPremioRight2"></div>
                             </div>
 
                             <div class="agregar_archivo-formProf">
-                                <input type='file' id="imgantes" name="imgpremio[]"/>
+                                <input type='file' id="imgPremio4" name="imgpremio[]"/>
                             </div>
+
+                            <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                         </div>
 
                         <div class="col-12 pr-0">
-                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                             
                             <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
                         </div>
 
                         <div class="col-12 pr-0">
                             <div class="form-group">
-                                <label for="title">titulo premio</label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título premio </label>
 
                                 <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
                             </div>
@@ -1514,7 +1555,7 @@
 
                         <div class="col-12 pr-0">
                             <div class="form-group">
-                                <label for="title">Descrpcion premio</label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
 
                                 <input class="form-control" id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
                             </div>
@@ -1526,36 +1567,38 @@
             <!-- Modulo de los PREMIOS sin información-->
             <div class="row content_antDesp-formProf">
                 <!-- Contenido PREMIO izquierdo -->
-                <div class="col-6 content_antes-formProf">
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPremioLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpremio[]"/>
+                            <input type='file' id="imgPremio1" name="imgpremio[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                         
                             <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
                         </div>
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">titulo premio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título premio </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
                         </div>
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descrpcion premio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descrpción premio </label>
                             
                             <input class="form-control" id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
                         </div>
@@ -1563,16 +1606,18 @@
                 </div>
 
                 <!-- Contenido PREMIO derecho -->
-                <div class="col-6 pr-0">
+                <div class="col-6 photo2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="form-group col-12 ">
                             <div class="col-10 img_selccionada-formProf">
-                                <div class="img_anexada-formProf" id="previewates"></div>
+                                <div class="img_anexada-formProf" id="previewPremioRight1"></div>
                             </div>
 
                             <div class="agregar_archivo-formProf">
-                                <input type='file' id="imgantes" name="imgpremio[]"/>
+                                <input type='file' id="imgPremio2" name="imgpremio[]"/>
                             </div>
+
+                            <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                         </div>
 
                         <div class="col-12 pr-0">
@@ -1603,36 +1648,38 @@
             <!-- Modulo de los PREMIOS sin información-->
             <div class="row content_antDesp-formProf">
                 <!-- Contenido PREMIO izquierdo -->
-                <div class="col-6 content_antes-formProf">
+                <div class="col-6 photo3 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPremioLeft2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpremio[]"/>
+                            <input type='file' id="imgPremio3" name="imgpremio[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                         
                             <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
                         </div>
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">titulo premio</label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Título premio </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
                         </div>
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descrpcion premio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
                             
                             <input class="form-control" id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
                         </div>
@@ -1643,36 +1690,38 @@
             <!-- Modulo de los PREMIOS sin información-->
             <div class="row content_antDesp-formProf">
                 <!-- Contenido PREMIO izquierdo -->
-                <div class="col-6 content_antes-formProf">
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPremioLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpremio[]"/>
+                            <input type='file' id="imgPremio1" name="imgpremio[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                         
                             <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
                         </div>
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">titulo premio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título premio </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
                         </div>
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descrpcion premio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descrpción premio </label>
                             
                             <input class="form-control" id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
                         </div>
@@ -1680,16 +1729,18 @@
                 </div>
 
                 <!-- Contenido PREMIO derecho -->
-                <div class="col-6 pr-0">
+                <div class="col-6 photo2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="form-group col-12 ">
                             <div class="col-10 img_selccionada-formProf">
-                                <div class="img_anexada-formProf" id="previewates"></div>
+                                <div class="img_anexada-formProf" id="previewPremioRight1"></div>
                             </div>
 
                             <div class="agregar_archivo-formProf">
-                                <input type='file' id="imgantes" name="imgpremio[]"/>
+                                <input type='file' id="imgPremio2" name="imgpremio[]"/>
                             </div>
+
+                            <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                         </div>
 
                         <div class="col-12 pr-0">
@@ -1720,36 +1771,38 @@
             <!-- Modulo de los PREMIOS sin información-->
             <div class="row content_antDesp-formProf">
                 <!-- Contenido PREMIO izquierdo -->
-                <div class="col-6 content_antes-formProf">
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPremioLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpremio[]"/>
+                            <input type='file' id="imgPremio1" name="imgpremio[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                         
                             <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
                         </div>
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">titulo premio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título premio </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
                         </div>
                     </div>
 
-                    <div class="col-12 pr-0">
+                    <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descrpcion premio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descrpción premio </label>
                             
                             <input class="form-control" id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
                         </div>
@@ -1767,11 +1820,11 @@
         </div>
     </form>
 </div>
-<!--------------------------------------------      Fin 10 decima parte del formulario *** PREMIOS y RECONOCIMIENTOS ***      ------------------------------------------------>
+<!--------------------------------------------      Fin 10 decima parte del formulario *** PREMIOS y RECONOCIMIENTOS ***      ----------------------------------------->
 
-<!--------------------------------------------      Inicio 11 onceava parte del formulario *** PUBLICACIONES ***      ------------------------------------------------>
-<div class="content_publicacion col-lg-10 pb-3 infoBasica_formProf">
-    <h5 class="col-lg-12 icon_infoBasica-formProf"> Publicaciones </h5>
+<!--------------------------------------------      Inicio 11 onceava parte del formulario *** PUBLICACIONES ***      ------------------------------------------------->
+<div class="col-lg-10 pb-3 content_publicacion infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoPublic-formProf"> Publicaciones </h5>
 
     <p class="text_superior-proced-formProf"> A continuación suba imágenes de las publicaciones que ha realizado a lo largo de su experiencia. </p>
 
@@ -1781,7 +1834,7 @@
             @if(!empty($Publicaciones->nombrepublicacion))
                 <!-- Contenido PUBLICACIÓN -->    
                 <div class="col-6 mt-3 content_antes-formProf">
-                    <div class="col-12">
+                    <div class="col-12 content_btnX-cierre-formProf">
                         <a href="{{url('/FormularioProfesionaldelete11/'.$Publicaciones->id)}}">
                             <button type="submit" class="close" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -1796,13 +1849,13 @@
 
                         <div class="col-12 pl-0">
                             <div class="form-group">
-                                <span>{{$Publicaciones->nombrepublicacion}}</span>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> {{$Publicaciones->nombrepublicacion}} </label>
                             </div>
                         </div>
 
                         <div class="col-12 pl-0">
                             <div class="form-group">
-                                <span>{{$Publicaciones->descripcion}}</span>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> {{$Publicaciones->descripcion}} </label>
                             </div>
                         </div>
                     </div>               
@@ -1815,23 +1868,25 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
         @if($objContadorPublicaciones->cantidad == 0)
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos del contenido PUBLICACIONES -->
             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido publicación left -->
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPublicLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpublicacion[]"/>
+                            <input type='file' id="imgPublic1" name="imgpublicacion[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">titulo publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título publicación </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
                         </div>
@@ -1839,28 +1894,30 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                             
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido publicación right -->
+                <div class="col-6 photo2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPublicRight1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpublicacion[]"/>
+                            <input type='file' id="imgPublic2" name="imgpublicacion[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título publicación </label>
                             
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
                         </div>
@@ -1868,7 +1925,7 @@
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                             
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -1876,23 +1933,25 @@
                 </div>
             </div>
 
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos del contenido PUBLICACIONES -->
             <div class="row content_antDesp-formProf hidden-section-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido publicación left -->
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPublicLeft2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpublicacion[]"/>
+                            <input type='file' id="imgPublic3" name="imgpublicacion[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">titulo publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título publicación </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
                         </div>
@@ -1900,28 +1959,30 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                             
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido publicación right -->
+                <div class="col-6 photo2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPublicRight2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpublicacion[]"/>
+                            <input type='file' id="imgPublic4" name="imgpublicacion[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título publicación </label>
                             
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
                         </div>
@@ -1929,7 +1990,7 @@
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                             
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -1937,23 +1998,25 @@
                 </div>
             </div>
         @elseif($objContadorPublicaciones->cantidad == 1)
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
-            <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+            <!-- Modulos del contenido PUBLICACIONES -->
+            <div class="row content_antDesp-formProf hidden-section-formProf">
+                <!-- Contenido publicación left -->
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPublicLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpublicacion[]"/>
+                            <input type='file' id="imgPublic1" name="imgpublicacion[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">titulo publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título publicación </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
                         </div>
@@ -1961,28 +2024,30 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                             
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido publicación right -->
+                <div class="col-6 photo2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPublicRight1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpublicacion[]"/>
+                            <input type='file' id="imgPublic2" name="imgpublicacion[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título publicación </label>
                             
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
                         </div>
@@ -1990,7 +2055,7 @@
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                             
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -1998,23 +2063,25 @@
                 </div>
             </div>
 
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos del contenido PUBLICACIONES -->
             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido publicación left -->
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPublicLeft2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpublicacion[]"/>
+                            <input type='file' id="imgPublic3" name="imgpublicacion[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">titulo publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título publicación </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
                         </div>
@@ -2022,7 +2089,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                             
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -2030,23 +2097,25 @@
                 </div>
             </div>
         @elseif($objContadorPublicaciones->cantidad == 2)
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
-            <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+            <!-- Modulos del contenido PUBLICACIONES -->
+            <div class="row content_antDesp-formProf hidden-section-formProf">
+                <!-- Contenido publicación left -->
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPublicLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpublicacion[]"/>
+                            <input type='file' id="imgPublic1" name="imgpublicacion[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">titulo publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título publicación </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
                         </div>
@@ -2054,28 +2123,30 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                             
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido publicación right -->
+                <div class="col-6 photo2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPublicRight1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpublicacion[]"/>
+                            <input type='file' id="imgPublic2" name="imgpublicacion[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título publicación </label>
                             
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
                         </div>
@@ -2083,7 +2154,7 @@
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                             
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -2091,23 +2162,25 @@
                 </div>
             </div>
         @elseif($objContadorPublicaciones->cantidad == 3)
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos del contenido PUBLICACIONES -->
             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido publicación left -->
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewPublicLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imgpublicacion[]"/>
+                            <input type='file' id="imgPublic1" name="imgpublicacion[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">titulo publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título publicación </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
                         </div>
@@ -2115,7 +2188,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion publicacion</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                             
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -2123,7 +2196,7 @@
                 </div>
             </div>
         @elseif($objContadorPublicaciones->cantidad == 4)
-            <span>No se puede agrrgar mas</span>
+            <span> No se puede agrrgar más </span>
         @endif 
                 
         <div class="col-lg-12 content_btnEnviar-formProf">
@@ -2133,11 +2206,11 @@
         </div>
     </form>
 </div>         
-<!--------------------------------------------      Fin 11 onceava parte del formulario *** PUBLICACIONES ***      ------------------------------------------------>
+<!--------------------------------------------      Fin 11 onceava parte del formulario *** PUBLICACIONES ***      ---------------------------------------------------->
 
-<!--------------------------------------------      Inicio 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------>
-<div class="content_galeria-video col-lg-10 pb-3 infoBasica_formProf">
-    <h5 class="col-lg-12 icon_infoBasica-formProf"> Galeria </h5>
+<!--------------------------------------------      Inicio 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------------->
+<div class="col-lg-10 pb-3 content_galeria-video infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoGale-formProf"> Galeria </h5>
 
     <p class="text_superior-proced-formProf"> A continuación suba 10 imágenes como mínimo, con su respectivo nombre y descripción. </p>
 
@@ -2147,7 +2220,7 @@
             @if(!empty($objGaleria->nombrefoto))
                 <!-- Contenido GALERIA -->    
                 <div class="col-6 mt-3 content_antes-formProf">
-                    <div class="col-12">
+                    <div class="col-12 content_btnX-cierre-formProf">
                         <a href="{{url('/FormularioProfesionaldelete12/'.$objGaleria->id_galeria)}}">
                             <button type="submit" class="close" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -2181,29 +2254,31 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
         @if($objContadorGaleria->cantidad == 0)
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos del contenido GALERIA -->
             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal1" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2211,34 +2286,36 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleRight1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal2" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2246,34 +2323,36 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo3 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal3" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
 
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2281,34 +2360,36 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo4 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleRight2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal4" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2316,7 +2397,7 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -2324,22 +2405,24 @@
                 </div>
             </div>
 
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos del contenido GALERIA -->
             <div class="row content_antDesp-formProf hidden-section-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo5 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft3"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal5" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <div class="col-10">
                             <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
@@ -2348,7 +2431,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2356,34 +2439,36 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo6 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleRight3"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal6" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2391,27 +2476,29 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo7 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft4"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal7" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <div class="col-10">
                             <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
@@ -2420,7 +2507,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2428,34 +2515,36 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo8 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleRight4"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal8" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2463,37 +2552,40 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
             </div>
+
         @elseif($objContadorGaleria->cantidad == 1)
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos del contenido GALERIA -->
             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal1" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2501,34 +2593,36 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleRight1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal2" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2536,34 +2630,36 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo3 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal3" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
 
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2571,34 +2667,36 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo4 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleRight2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal4" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2606,7 +2704,7 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -2614,10 +2712,10 @@
                 </div>
             </div>
 
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
-            <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+            <!-- Modulos del contenido GALERIA -->
+            <div class="row content_antDesp-formProf hidden-section-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo5 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
                             <div class="img_anexada-formProf" id="previewates"></div>
@@ -2626,10 +2724,12 @@
                         <div class="agregar_archivo-formProf">
                             <input type='file' id="imgantes" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <div class="col-10">
                             <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
@@ -2638,7 +2738,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2646,15 +2746,15 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo6 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
                             <div class="img_anexada-formProf" id="previewates"></div>
@@ -2663,17 +2763,19 @@
                         <div class="agregar_archivo-formProf">
                             <input type='file' id="imgantes" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2681,15 +2783,15 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo7 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
                             <div class="img_anexada-formProf" id="previewates"></div>
@@ -2698,10 +2800,12 @@
                         <div class="agregar_archivo-formProf">
                             <input type='file' id="imgantes" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <div class="col-10">
                             <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
@@ -2710,7 +2814,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2718,7 +2822,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
@@ -2726,29 +2830,31 @@
                 </div>
             </div>
         @elseif($objContadorGaleria->cantidad == 2)
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos del contenido GALERIA -->
             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal1" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2756,34 +2862,36 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleRight1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal2" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2791,34 +2899,36 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo3 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal3" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
 
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2826,34 +2936,36 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo4 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleRight2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal4" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2861,7 +2973,7 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -2869,10 +2981,10 @@
                 </div>
             </div>
 
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
-            <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+            <!-- Modulos del contenido GALERIA -->
+            <div class="row content_antDesp-formProf hidden-section-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo5 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
                             <div class="img_anexada-formProf" id="previewates"></div>
@@ -2881,10 +2993,12 @@
                         <div class="agregar_archivo-formProf">
                             <input type='file' id="imgantes" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <div class="col-10">
                             <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
@@ -2893,7 +3007,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2901,15 +3015,15 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo6 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
                             <div class="img_anexada-formProf" id="previewates"></div>
@@ -2918,17 +3032,19 @@
                         <div class="agregar_archivo-formProf">
                             <input type='file' id="imgantes" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2936,7 +3052,7 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -2944,29 +3060,31 @@
                 </div>
             </div>
         @elseif($objContadorGaleria->cantidad == 3)
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos del contenido GALERIA -->
             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal1" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -2974,34 +3092,36 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleRight1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal2" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3009,34 +3129,36 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo3 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal3" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
 
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3044,34 +3166,36 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo4 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleRight2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal4" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3079,7 +3203,7 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -3087,10 +3211,10 @@
                 </div>
             </div>
 
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
-            <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+            <!-- Modulos del contenido GALERIA -->
+            <div class="row content_antDesp-formProf hidden-section-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo5 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
                             <div class="img_anexada-formProf" id="previewates"></div>
@@ -3099,10 +3223,12 @@
                         <div class="agregar_archivo-formProf">
                             <input type='file' id="imgantes" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <div class="col-10">
                             <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
@@ -3111,7 +3237,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3119,7 +3245,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
@@ -3127,29 +3253,31 @@
                 </div>
             </div>
         @elseif($objContadorGaleria->cantidad == 4)
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos del contenido GALERIA -->
             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal1" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3157,34 +3285,36 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleRight1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal2" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3192,34 +3322,36 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo3 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal3" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
 
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3227,34 +3359,36 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo4 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleRight2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal4" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3262,7 +3396,7 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -3270,29 +3404,31 @@
                 </div>
             </div>
         @elseif($objContadorGaleria->cantidad == 5)
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos del contenido GALERIA -->
             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal1" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3300,34 +3436,36 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleRight1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal2" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3335,34 +3473,36 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo3 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft2"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal3" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
 
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3370,7 +3510,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
@@ -3378,29 +3518,31 @@
                 </div>
             </div>
         @elseif($objContadorGaleria->cantidad == 6)
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos del contenido GALERIA -->
             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal1" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3408,34 +3550,36 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 photo2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleRight1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal2" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">titulo foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3443,7 +3587,7 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -3451,29 +3595,31 @@
                 </div>
             </div>
         @elseif($objContadorGaleria->cantidad == 7)
-             <!-- Modulos de los contenidos ANTES y DESPUÉS -->
-             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+            <!-- Modulos del contenido GALERIA -->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 photo1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
-                            <div class="img_anexada-formProf" id="previewates"></div>
+                            <div class="img_anexada-formProf" id="previewGaleLeft1"></div>
                         </div>
 
                         <div class="agregar_archivo-formProf">
-                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                            <input type='file' id="imgGal1" name="imggaleria[]"/>
                         </div>
+
+                        <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">nombre foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3481,7 +3627,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion foto</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
@@ -3489,7 +3635,7 @@
                 </div>
             </div>
         @elseif($objContadorGaleria->cantidad == 8)
-            <span>no se puede agregar mas</span>
+            <span> No se puede agregar más </span>
         @endif 
 
         <div class="col-lg-12 content_btnEnviar-formProf">
@@ -3499,9 +3645,9 @@
         </div>  
     </form>
 </div>  
-<!--------------------------------------------      Fin 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------>
+<!--------------------------------------------      Fin 12 doceava parte del formulario *** GALERIA ***      ---------------------------------------------------------->
 
-<!--------------------------------------------      Inicio 13 treceava parte del formulario *** VIDEOS ***      ------------------------------------------------>
+<!--------------------------------------------      Inicio 13 treceava parte del formulario *** VIDEOS ***      ------------------------------------------------------->
 <div class="content_galeria-video col-lg-10 pb-3 infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf"> Videos </h5>
 
@@ -3892,5 +4038,5 @@
         </div>
     </form>
 </div>
-<!--------------------------------------------      Fin 13 treceava parte del formulario *** VIDEOS ***      ------------------------------------------------>
+<!--------------------------------------------      Fin 13 treceava parte del formulario *** VIDEOS ***      ---------------------------------------------------------->
 @endsection

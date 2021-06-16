@@ -1,5 +1,6 @@
 .content_principal-formProf {
     background: #F9F9F9;
+    padding-top: 3%;
 }
 .content_icons-formProf {
     width: 17%;
@@ -13,6 +14,7 @@
     height: 12vh;
 }
 .text_opcion-formProfesional {
+    font-family: 'Quicksand', 'Regular';
     margin: 0;
     text-align: center;
     width: 100%;
@@ -30,7 +32,7 @@
     align-items: flex-end;
     line-height: 1;
     font-size: 1em;
-    color: #000000;
+    color: #D1D1D1;
 }
 .iconGris_trataProced {
     background-image: url('/img/formulario-profesional/icono-tratamientos-y-procedimientos-gris.svg');
@@ -43,7 +45,7 @@
     align-items: flex-end;
     line-height: 1;
     font-size: 1em;
-    color: #000000;
+    color: #D1D1D1;
 }
 .iconGris_premioRecon {
     background-image: url('/img/formulario-profesional/icono-premios-y-reconocimientos-gris.svg');
@@ -56,7 +58,7 @@
     align-items: flex-end;
     line-height: 1;
     font-size: 1em;
-    color: #000000;
+    color: #D1D1D1;
 }
 .iconGris_public {
     background-image: url('/img/formulario-profesional/icono-publicaciones-gris.svg');
@@ -69,7 +71,7 @@
     align-items: flex-end;
     line-height: 1;
     font-size: 1em;
-    color: #000000;
+    color: #D1D1D1;
 }
 .iconGris_galeriaVideo {
     background-image: url('/img/formulario-profesional/icono-galeria-gris.svg');
@@ -82,7 +84,7 @@
     align-items: flex-end;
     line-height: 1;
     font-size: 1em;
-    color: #000000;
+    color: #D1D1D1;
 }
 // Icono azules de las opciones del usuario
 .iconAzul_datoPersonal {
@@ -109,6 +111,7 @@
     align-items: flex-end;
     line-height: 1;
     font-size: 1em !important;
+    font-family: "Quicksand", "Regular";
     color: #0083D6 !important;
 }
 .iconAzul_trataProced {
@@ -167,21 +170,21 @@
     margin: auto;
     padding: 0;
 }
-// Sección titulo y testo superior
+// Sección titulo y texto superior
 .titulo_principal-formProf {
-    font-family: 'Quicksand';
+    font-family: 'Quicksand', 'Regular';
     font-size: 2em;
+    font-weight: bold;
     color: #0083D6;
     text-align: initial;
-    margin-top: 2%;
 }
 .texto_superior-formProf {
     font-family: 'Roboto','Regular';
-    font-size: 1.25em;
+    font-size: 1em;
     color: #3E3E3E;
     text-align: initial;
     padding: 0;
-    margin: 2% 0;
+    margin: 3% 0;
 }
 .infoBasica_formProf {
     background: #ffffff;
@@ -190,16 +193,23 @@
     padding: 0;
     box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
 }
+///// *****   SECCIÓN TARJETA INFORMACIÓN BÁSICA    ***** /////
+
 // Sección titulo de la tarjeta información básica
 .icon_infoBasica-formProf {
-    background-image: url('/img/header/icono-presencial.svg') ;
+    background-image: url('/img/formulario-profesional/icono-informacion-basica.svg') ;
     background-repeat: no-repeat ;
     background-position-y: center;
-    padding-left: 5%;
+    background-size: 2.5%;
+    padding-left: 4%;
     height: 5vh;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #0083d6;
+    border-bottom: 1px solid #019F86;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #019F86;
+    text-transform: inherit;
 }
 // Fila información básica
 .fila_infoBasica-formProf {
@@ -226,24 +236,46 @@
     right: 0px;
     bottom: 0px;
     width: 90%;
-    height: 80%;
+    height: 100%;
     opacity: 0;
     overflow: auto;
     margin: 0 auto;
 }
+.icon_subirFoto-formProf {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 8%;
+}
 .text_usuario-formProf {
+    font-family: "Quicksand", "Regular";
+    font-size: 1.15em;
+    color: #434343;
     margin: 10% 0 5% 0;
+    padding-right: 0;
 }
 // Sección datos personales
 .datos_principales-formProf {
     margin: 0;
     padding: 0;
-    border-left: 1px solid #707070;
+    border-left: 1px solid #D1D1D1;
 }
 .nombres_usuario-formProf {
     display: flex;
     justify-content: space-between;
     padding: 0;
+}
+.text_label-formProf {
+    font-family: 'Quicksand';
+    font-size: 1.15em;
+    color: #232323;
+    font-weight: bold;
+    padding-top: calc(0.375rem + 1px);
+    padding-bottom: calc(0.375rem + 1px);
+    padding-left: 2%;
+    padding-right: 0;
+    margin-bottom: 0;
+    line-height: 1.6;
 }
 .input_nomApl-formProf {
     display: block;
@@ -260,7 +292,7 @@
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-// Sección botón enviar
+// Sección botón guardar
 .content_btnEnviar-formProf {
     margin-left: auto;
     padding: 0;
@@ -269,7 +301,7 @@
 }
 .btn_enviar-formProf {
     font-family: "Quicksand";
-    font-size: 1em;
+    font-size: 1.15em;
     color: #ffffff;
     background: #0083d6;
     border: none;
@@ -277,9 +309,27 @@
     height: calc(1.6em + 0.75rem + 2px);
     width: 100%;
 }
+///// *****   SECCIÓN TARJETA INFORMACIÓN DEL CONTACTO    ***** /////
+
+// Sección titulo de la tarjeta información del contacto
+.icon_infoContac-formProf {
+    background-image: url('/img/formulario-profesional/icono-informacion-de-contacto.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #019F86;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #019F86;
+    text-transform: inherit;
+}
 .btn2_enviar-formProf {
     font-family: "Quicksand";
-    font-size: 1em;
+    font-size: 1.15em;
     color: #ffffff;
     background: #0083d6;
     border: none;
@@ -287,18 +337,106 @@
     height: calc(1.6em + 0.75rem + 2px);
     width: 19%;
 }
-// Sección tipo de consulta
+///// *****   SECCIÓN TARJETA INFORMACIÓN CONSULTA   ***** /////
+
+// Sección titulo de la tarjeta información consulta
+.icon_infoConsult-formProf {
+    background-image: url('/img/formulario-profesional/icono-informacion-de-consulta.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #019F86;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #019F86;
+    text-transform: inherit;
+}
 .seccion_consulta-formProf {
     display: flex;
     margin: 3% 0;
     padding: 0;
 }
-// Sección experiencia
+///// *****   SECCIÓN TARJETA PERFIL PROFESIONAL   ***** /////
+
+// Sección titulo de la tarjeta perfil profesional
+.icon_infoSubPerfil-formProf {
+    background-image: url('/img/formulario-profesional/icono-subperfil-profesional.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #019F86;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #019F86;
+    text-transform: inherit;
+}
+///// *****   SECCIÓN TARJETA EDUCACIÓN   ***** /////
+
+// Sección titulo de la tarjeta educación
+.icon_infoEduc-formProf {
+    background-image: url('/img/formulario-profesional/icono-educacion.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #019F86;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #019F86;
+    text-transform: inherit;
+}
+///// *****   SECCIÓN TARJETA EXPERIENCIA   ***** /////
+
+// Sección titulo de la tarjeta experiencia
+.icon_infoExper-formProf {
+    background-image: url('/img/formulario-profesional/icono-experiencia.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #019F86;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #019F86;
+    text-transform: inherit;
+}
 .content_btnEnviar-experiencia-formProf {
     margin-left: auto;
     padding: 0;
     display: flex;
     justify-content: space-between;
+}
+///// *****   SECCIÓN TARJETA ASOCIACIONES   ***** /////
+
+// Sección titulo de la tarjeta asociaciones
+.icon_infoAsocia-formProf {
+    background-image: url('/img/formulario-profesional/icono-asociaciones.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #019F86;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #019F86;
+    text-transform: inherit;
 }
 .img_selccionada-formProf {
     display: flex;
@@ -306,10 +444,17 @@
     margin: auto;
     padding: 0;
     align-items: center;
-    height: 25vh;
+    width: 120px;
+    height: 60px;
     object-fit: contain;
 }
 .img_anexada-formProf {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.img_anexada-formProf img {
+    width: 100%;
     height: 100%;
     object-fit: contain;
 }
@@ -321,52 +466,150 @@
     position: relative;
     display: flex;
     justify-content: center;
-    margin: 3% auto;
+    margin: auto;
     padding: 0;
     width: 77%;
-}
-.img_anexada-formProf img{
-    height: 100%;
-    object-fit: scale-down;
-}  
+} 
 .agregar_archivo-formProf::before {
-    background-color: #0083D6;
-    color: white;
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 10%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
     display: flex;            
     justify-content: center;
     align-items: center;
     border-radius: 3px;
-    content: 'Subir foto de asociación'; /* texto por defecto */
+    content: 'Subir foto de asociación'; /* texto botón subir foto asociación */
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;              
-}
-   
+}  
 .agregar_archivo-formProf input[type="file"] {
     opacity: 0;
     width: 100%;
     height: 32px;
     display: flex;            
 }
+.text_infoImg-formProf {
+    font-family: 'Roboto', 'Regular';
+    font-size: 1em;
+    color: #DBDADA;
+}
 // Sección imagen GUARDADA
 .content_imgGuardada-formProf {
     margin: 0;
-    padding: 0 5%;
-    height: 25VH;
+    padding: 0 3% 0 0;
+    height: 10VH;
 }
 .img_guardada-formProf {
-    height: 100%;
     width: 100%;
+    height: 32px;
     object-fit: contain;
 }
-// Sección Procedimientos y tratamientos
+.content_btnX-cierre-formProf {
+    height: 3vh;
+}
+///// *****   SECCIÓN TARJETA IDIOMAS   ***** /////
+
+// Sección titulo de la tarjeta idiomas
+.icon_infoIdioma-formProf {
+    background-image: url('/img/formulario-profesional/icono-idiomas.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #019F86;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #019F86;
+    text-transform: inherit;
+}
+.img_bandera-forProf {
+    padding-bottom: 3%;
+}
+///// *****   SECCIÓN TARJETA TRATAMIENTOS Y PROCEDIMIENTOS   ***** /////
+
+// Sección titulo de la tarjeta tratamientos y procedimientos
+.icon_infoTratam-formProf {
+    background-image: url('/img/formulario-profesional/icono-interno-tratamientos-y-procedimientos.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #019F86;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #019F86;
+    text-transform: inherit;
+}
+.content_antes-formProf .agregar_archivo-formProf::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 15%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto de antes'; /* texto botón subir foto asociación */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}  
+.content_despues-formProf .agregar_archivo-formProf::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 10%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto de después'; /* texto botón subir foto asociación */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}  
+.content_tratam-proced .img_selccionada-formProf {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    align-items: center;
+    width: 225px;
+    height: 225px;
+    object-fit: contain;
+}
 .content_antDesp-formProf {
     padding: 0;
     margin: 3% 0 0 0;
 }
 .text_superior-proced-formProf {
+    font-family: 'Roboto', 'Regular';
     font-size: 1em;
     color: #434343;
     margin-top: 3%;
@@ -379,7 +622,242 @@
     height: 25vh;
     width: 100%;
 }
-// clase para ocultar las secciones en cada una de las opciones del formulario profesional
-.hidden-section-formProf {
-    display: none;
+///// *****   SECCIÓN TARJETA PREMIOS Y RECONOCIMIENTOS   ***** /////
+
+// Sección titulo de la tarjeta premios y reconocimientos
+.icon_infoPremReco-formProf {
+    background-image: url('/img/formulario-profesional/icono-interno-premios-y-reconocimientos.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #019F86;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #019F86;
+    text-transform: inherit;
 }
+.content_premio-recono .img_selccionada-formProf {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    align-items: center;
+    width: 356px;
+    height: 326px;
+    object-fit: contain;
+}
+.photo1 .agregar_archivo-formProf::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 1'; /* texto botón subir foto asociación */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}
+.photo2 .agregar_archivo-formProf::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 2'; /* texto botón subir foto asociación */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}
+.photo3 .agregar_archivo-formProf::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 3'; /* texto botón subir foto asociación */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}
+.photo4 .agregar_archivo-formProf::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 4'; /* texto botón subir foto asociación */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}
+///// *****   SECCIÓN TARJETA PUBLICACIONES   ***** /////
+
+// Sección titulo de la tarjeta publicaciones
+.icon_infoPublic-formProf {
+    background-image: url('/img/formulario-profesional/icono-interno-publicaciones.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #019F86;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #019F86;
+    text-transform: inherit;
+}
+.content_publicacion .img_selccionada-formProf {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    align-items: center;
+    width: 356px;
+    height: 326px;
+    object-fit: contain;
+}
+///// *****   SECCIÓN TARJETA GALERIA   ***** /////
+
+// Sección titulo de la tarjeta galeria
+.icon_infoGale-formProf {
+    background-image: url('/img/formulario-profesional/icono-interno-galeria.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #019F86;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #019F86;
+    text-transform: inherit;
+}
+.photo5 .agregar_archivo-formProf::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 5'; /* texto botón subir foto asociación */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}
+.photo6 .agregar_archivo-formProf::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 6'; /* texto botón subir foto asociación */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}
+.photo7 .agregar_archivo-formProf::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 7'; /* texto botón subir foto asociación */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}
+.photo8 .agregar_archivo-formProf::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 8'; /* texto botón subir foto asociación */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}
+
+// clase para ocultar las secciones en cada una de las opciones del formulario profesional
+/*.hidden-section-formProf {
+    display: none;
+}*/
