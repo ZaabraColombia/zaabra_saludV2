@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28.5" height="27.5" viewBox="0 0 28.5 27.5">
+  <g id="Grupo_1549" data-name="Grupo 1549" transform="translate(17829.5 -2284.584)">
+    <g id="info" transform="translate(-17830.164 2283.334)">
+      <ellipse id="Elipse_128" data-name="Elipse 128" cx="13" cy="12.5" rx="13" ry="12.5" transform="translate(1.914 2.5)" fill="none" stroke="#019f86" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    </g>
+    <g id="phone-forwarded" transform="translate(-17824.361 2291.17)">
+      <path id="Trazado_429" data-name="Trazado 429" d="M19,1l2.516,2.516L19,6.032" transform="translate(-6.265)" fill="none" stroke="#019f86" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="Línea_142" data-name="Línea 142" x2="5.032" transform="translate(10.219 3.516)" fill="none" stroke="#019f86" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Trazado_430" data-name="Trazado 430" d="M14.622,11.385v1.887A1.258,1.258,0,0,1,13.25,14.53,12.448,12.448,0,0,1,7.822,12.6,12.266,12.266,0,0,1,4.048,8.825,12.448,12.448,0,0,1,2.117,3.371,1.258,1.258,0,0,1,3.369,2H5.256A1.258,1.258,0,0,1,6.514,3.082a8.076,8.076,0,0,0,.44,1.767,1.258,1.258,0,0,1-.283,1.327l-.8.8a10.064,10.064,0,0,0,3.774,3.774l.8-.8a1.258,1.258,0,0,1,1.327-.283,8.076,8.076,0,0,0,1.767.44,1.258,1.258,0,0,1,1.082,1.277Z" transform="translate(0 -0.371)" fill="none" stroke="#019f86" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

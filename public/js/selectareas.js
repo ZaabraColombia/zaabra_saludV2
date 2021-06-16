@@ -8,7 +8,7 @@ $('#idarea').change(function(){
            console.log(res);              
             if(res){
                 $("#idprofesion").empty();
-                $("#idprofesion").append('<option>Seleccione profesion</option>');
+                $("#idprofesion").append('<option>Seleccione profesión</option>');
                 $.each(res,function(key){
                     $("#idprofesion").append('<option value="'+res[key].idProfesion+'">'+res[key].nombreProfesion+'</option>');
                 });
