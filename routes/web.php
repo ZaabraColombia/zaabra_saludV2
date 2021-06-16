@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-/*----------------------------------------------Pertenece al index o home-------------------------------------------------------------------------------*/
+/*----------------------------------------------Pertenece al index o home----------------------------------------------------------------------*/
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 
@@ -14,6 +14,8 @@ Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
 
+/*----------------------------------------------Buscador del home----------------------------------------------------------------------------*/
+Route::get('/search/cursos', [App\Http\Controllers\buscador\buscadorController::class, 'filtroBusquedad'])->name('search.cursos');
 
 /*----------------------------------------------Pertenece a salud-------------------------------------------------------------------------------*/
 
@@ -150,17 +152,42 @@ Route::post('/FormularioInstitucionSave5',[App\Http\Controllers\entidades\formul
 
 /*-----guardar formulario parte 6----*/ 
 Route::post('/FormularioInstitucionSave6',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create6'])->name('FormularioInstitucion');
-/*-----borrar formulario parte 6 eps----*/ 
+
+/*-----guardar formulario parte 7----*/ 
+Route::post('/FormularioInstitucionSave7',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create6'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 7 eps----*/ 
+Route::get('/FormularioInstituciondelete5/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete5'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 7 ips----*/ 
 Route::get('/FormularioInstituciondelete6/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete6'])->name('FormularioInstitucion');
-/*-----borrar formulario parte 6 ips----*/ 
-Route::get('/FormularioInstituciondelete7/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete7'])->name('FormularioInstitucion');
-/*-----borrar formulario parte 6 prepagada----*/ 
-Route::get('/FormularioInstituciondelete8/{id_prepagada}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete8'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 7 prepagada----*/ 
+Route::get('/FormularioInstituciondelete7/{id_prepagada}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete7'])->name('FormularioInstitucion');
+
+/*-----guardar formulario parte 8----*/ 
+Route::post('/FormularioInstitucionSave8',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create8'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 8 Institucioness----*/ 
+Route::get('/FormularioInstituciondelete8/{id_profesional_inst}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete8'])->name('FormularioInstitucion');
+
+/*-----guardar formulario parte 9----*/ 
+Route::post('/FormularioInstitucionSave9',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create9'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 9 Institucioness----*/ 
+Route::get('/FormularioInstituciondelete9/{id_certificacion}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete9'])->name('FormularioInstitucion');
+
+
+/*-----guardar formulario parte 10----*/ 
+Route::post('/FormularioInstitucionSave10',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create10'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 10 Institucioness----*/ 
+Route::get('/FormularioInstituciondelete10/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete10'])->name('FormularioInstitucion');
+
+/*-----guardar formulario parte 11----*/ 
+Route::post('/FormularioInstitucionSave11',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create11'])->name('FormularioInstitucion');
+
+/*-----guardar formulario parte 12----*/ 
+Route::post('/FormularioInstitucionSave12',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create12'])->name('FormularioInstitucion');
+/*-----borrar formulario parte 12----*/ 
+Route::get('/FormularioInstituciondelete12/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete12'])->name('FormularioInstitucion');
 
 
 /*-------------------------------------------------Pertenece a otras vistas-------------------------------------------------------------------------------*/
-
-
 /*Esta ruta direcciona a la vista de Acerca de Zaabra*/
 Route::get('/acerca', function () { return view('quienes-somos/acerca');})->name('acerca');
 

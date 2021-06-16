@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class profesionales_instituciones extends Model
 {
     protected $fillable = [
-        'id_profesional_inst',
         'id_institucion',
         'primer_nombre',
         'segundo_nombre',

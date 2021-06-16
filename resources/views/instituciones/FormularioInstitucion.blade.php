@@ -866,7 +866,7 @@
 <div class="col-lg-10 pb-3 infoBasica_formProf">
     <h5 class="col-lg-12 icon_infoBasica-formProf">Propuesta de valor </h5>
 
-    <form method="POST" action="{{ url ('/FormularioInstitucionSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+    <form method="POST" action="{{ url ('/FormularioInstitucionSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
         @if(!empty($objFormulario))
@@ -897,13 +897,13 @@
 
 <!--------------------------------------------Inicio septima parte del formulario------------------------------------------------>
 <div class="col-lg-10 pb-3 infoBasica_formProf">
-       <h5 class="col-lg-12 icon_infoBasica-formProf">Propuesta de valor </h5>
+       <h5 class="col-lg-12 icon_infoBasica-formProf">Convenios</h5>
         <div class="col-12 row">
 
                 @foreach($objEps as $objEps)
                     @if(!empty($objEps->urlimagen))
                     <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objEps->urlimagen)}}">
-                    <a href="{{url('/FormularioInstituciondelete6/'.$objEps->id)}}">
+                    <a href="{{url('/FormularioInstituciondelete5/'.$objEps->id)}}">
                         <button type="submit" class="close" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -913,7 +913,7 @@
                 @foreach($objIps as $objIps)
                     @if(!empty($objIps->urlimagen))
                     <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objIps->urlimagen)}}">
-                    <a href="{{url('/FormularioInstituciondelete7/'.$objIps->id)}}">
+                    <a href="{{url('/FormularioInstituciondelete6/'.$objIps->id)}}">
                         <button type="submit" class="close" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -923,7 +923,7 @@
                 @foreach($objPrepa as $objPrepa)
                     @if(!empty($objPrepa->urlimagen))
                     <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objPrepa->urlimagen)}}">
-                    <a href="{{url('/FormularioInstituciondelete8/'.$objPrepa->id_prepagada)}}">
+                    <a href="{{url('/FormularioInstituciondelete7/'.$objPrepa->id_prepagada)}}">
                         <button type="submit" class="close" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -931,7 +931,7 @@
                     @endif
                 @endforeach
         </div>
-    <form method="POST" action="{{ url ('/FormularioInstitucionSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+    <form method="POST" action="{{ url ('/FormularioInstitucionSave7') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
             <div class="col-12 row">
             <!--formulario eps-->
@@ -1094,5 +1094,2992 @@
     </form>
 </div>
 <!--------------------------------------------Fin septima parte del formulario------------------------------------------------> 
+
+
+<!--------------------------------------------Inicio octava parte del formulario------------------------------------------------>
+<div class="col-lg-10 pb-3 infoBasica_formProf">
+       <h5 class="col-lg-12 icon_infoBasica-formProf">Profesionales </h5>
+        <div class="col-12 row">
+                @foreach($objProfeInsti as $objProfeInsti)
+                    @if(!empty($objProfeInsti->foto_perfil_institucion))
+                    <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objProfeInsti->foto_perfil_institucion)}}">
+                    <span>{{$objProfeInsti->primer_nombre}} {{$objProfeInsti->segundo_nombre}} {{$objProfeInsti->primer_apellido}} {{$objProfeInsti->segundo_apellido}}</span>
+                    <span>{{$objProfeInsti->especialidad_uno}} {{$objProfeInsti->especialidad_dos}}</span>
+                    <a href="{{url('/FormularioInstituciondelete8/'.$objProfeInsti->id_profesional_inst)}}">
+                        <button type="submit" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </a>   
+                    @endif
+                @endforeach
+        </div>
+        <form method="POST" action="{{ url ('/FormularioInstitucionSave8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+            @if($objContadorProfeInsti->cantidad == 0)
+                <div class="col-12 row">
+                    <div class="col-2">
+                        <input type='file' id="imgasocia1" name="foto_perfil_institucion[]"/>
+                    </div>
+                    <div class="col-10 row">
+                            <label for="title"> Primer nombre </label>
+                            <input class="col-2 form-control" type="text" name="primer_nombre[]" value="">
+                            <label for="title"> Segundo Nombre </label>
+                            <input class="col-2 form-control"   type="text" name="segundo_nombre[]" value="">
+                            <label for="title"> Primer apellido </label>
+                            <input class="col-2 form-control"   type="text" name="primer_apellido[]" value="">
+                            <label for="title"> Segundo apellido </label>
+                            <input class="col-2 form-control"   type="text" name="segundo_apellido[]" value="">
+                            <label for="title"> Especialidades </label>
+                            <input class="col-12 form-control"   type="text" name="especialidad_uno[]" value="">
+                            <label for="title"> Especialidades </label>
+                            <input class="col-12 form-control"   type="text" name="especialidad_dos[]" value="">
+                    </div>
+                </div> 
+                <div class="col-12 row">
+                    <div class="col-2">
+                        <input type='file' id="imgasocia1" name="foto_perfil_institucion[]"/>
+                    </div>
+                    <div class="col-10 row">
+                            <label for="title"> Primer nombre </label>
+                            <input class="col-2 form-control" type="text" name="primer_nombre[]" value="">
+                            <label for="title"> Segundo Nombre </label>
+                            <input class="col-2 form-control"   type="text" name="segundo_nombre[]" value="">
+                            <label for="title"> Primer apellido </label>
+                            <input class="col-2 form-control"   type="text" name="primer_apellido[]" value="">
+                            <label for="title"> Segundo apellido </label>
+                            <input class="col-2 form-control"   type="text" name="segundo_apellido[]" value="">
+                            <label for="title"> Especialidades </label>
+                            <input class="col-12 form-control"   type="text" name="especialidad_uno[]" value="">
+                            <label for="title"> Especialidades </label>
+                            <input class="col-12 form-control"   type="text" name="especialidad_dos[]" value="">
+                    </div>
+                </div> 
+                <div class="col-12 row">
+                    <div class="col-2">
+                        <input type='file' id="imgasocia1" name="foto_perfil_institucion[]"/>
+                    </div>
+                    <div class="col-10 row">
+                            <label for="title"> Primer nombre </label>
+                            <input class="col-2 form-control" type="text" name="primer_nombre[]" value="">
+                            <label for="title"> Segundo Nombre </label>
+                            <input class="col-2 form-control"   type="text" name="segundo_nombre[]" value="">
+                            <label for="title"> Primer apellido </label>
+                            <input class="col-2 form-control"   type="text" name="primer_apellido[]" value="">
+                            <label for="title"> Segundo apellido </label>
+                            <input class="col-2 form-control"   type="text" name="segundo_apellido[]" value="">
+                            <label for="title"> Especialidades </label>
+                            <input class="col-12 form-control"   type="text" name="especialidad_uno[]" value="">
+                            <label for="title"> Especialidades </label>
+                            <input class="col-12 form-control"   type="text" name="especialidad_dos[]" value="">
+                    </div>
+                </div> 
+            @elseif($objContadorProfeInsti->cantidad == 1)
+                <div class="col-12 row">
+                    <div class="col-2">
+                        <input type='file' id="imgasocia1" name="foto_perfil_institucion[]"/>
+                    </div>
+                    <div class="col-10 row">
+                            <label for="title"> Primer nombre </label>
+                            <input class="col-2 form-control" type="text" name="primer_nombre[]" value="">
+                            <label for="title"> Segundo Nombre </label>
+                            <input class="col-2 form-control"   type="text" name="segundo_nombre[]" value="">
+                            <label for="title"> Primer apellido </label>
+                            <input class="col-2 form-control"   type="text" name="primer_apellido[]" value="">
+                            <label for="title"> Segundo apellido </label>
+                            <input class="col-2 form-control"   type="text" name="segundo_apellido[]" value="">
+                            <label for="title"> Especialidades </label>
+                            <input class="col-12 form-control"   type="text" name="especialidad_uno[]" value="">
+                            <label for="title"> Especialidades </label>
+                            <input class="col-12 form-control"   type="text" name="especialidad_dos[]" value="">
+                    </div>
+                </div> 
+                <div class="col-12 row">
+                    <div class="col-2">
+                        <input type='file' id="imgasocia1" name="foto_perfil_institucion[]"/>
+                    </div>
+                    <div class="col-10 row">
+                            <label for="title"> Primer nombre </label>
+                            <input class="col-2 form-control" type="text" name="primer_nombre[]" value="">
+                            <label for="title"> Segundo Nombre </label>
+                            <input class="col-2 form-control"   type="text" name="segundo_nombre[]" value="">
+                            <label for="title"> Primer apellido </label>
+                            <input class="col-2 form-control"   type="text" name="primer_apellido[]" value="">
+                            <label for="title"> Segundo apellido </label>
+                            <input class="col-2 form-control"   type="text" name="segundo_apellido[]" value="">
+                            <label for="title"> Especialidades </label>
+                            <input class="col-12 form-control"   type="text" name="especialidad_uno[]" value="">
+                            <label for="title"> Especialidades </label>
+                            <input class="col-12 form-control"   type="text" name="especialidad_dos[]" value="">
+                    </div>
+                </div>  
+            @elseif($objContadorProfeInsti->cantidad == 2)
+                <div class="col-12 row">
+                    <div class="col-2">
+                        <input type='file' id="imgasocia1" name="foto_perfil_institucion[]"/>
+                    </div>
+                    <div class="col-10 row">
+                            <label for="title"> Primer nombre </label>
+                            <input class="col-2 form-control" type="text" name="primer_nombre[]" value="">
+                            <label for="title"> Segundo Nombre </label>
+                            <input class="col-2 form-control"   type="text" name="segundo_nombre[]" value="">
+                            <label for="title"> Primer apellido </label>
+                            <input class="col-2 form-control"   type="text" name="primer_apellido[]" value="">
+                            <label for="title"> Segundo apellido </label>
+                            <input class="col-2 form-control"   type="text" name="segundo_apellido[]" value="">
+                            <label for="title"> Especialidades </label>
+                            <input class="col-12 form-control"   type="text" name="especialidad_uno[]" value="">
+                            <label for="title"> Especialidades </label>
+                            <input class="col-12 form-control"   type="text" name="especialidad_dos[]" value="">
+                    </div>
+                </div>  
+            @elseif($objContadorProfeInsti->cantidad == 3)
+            <span>No se peden agregar mas</span>
+            @endif
+ 
+ 
+
+           <div class="col-lg-12 content_btnEnviar-formProf">
+            <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+            </button>
+        </div>
+        </form>
+</div>
+<!--------------------------------------------Fin octava parte del formulario------------------------------------------------>
+
+<!--------------------------------------------   Inicio novena parte del formulario ------------------------------------------------>
+<div class="col-lg-10 pb-3 infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoBasica-formProf"> Certificaciones </h5>
+
+    <p class="text_superior-proced-formProf"> A continuación suba imágenes relacionadas con sus certificaciones, con fecha, nombre y descripción. </p>
+
+    <!-- Modulo de los Certificaciones con información -->
+    <div class="row col-12 p-0 m-0">
+        @foreach($objCertificaciones as $objCertificaciones)
+            @if(!empty($objCertificaciones->imgcertificado))
+                <!-- Contenido Certificaciones -->    
+                <div class="col-6 mt-3 content_antes-formProf">
+                    <div class="col-12">
+                        <a href="{{url('/FormularioInstituciondelete9/'.$objCertificaciones->id_certificacion)}}">
+                            <button type="submit" class="close" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </a>
+                    </div>
+                    
+                    <div class="col-12 content_agregarImg-formProf form-group">
+
+                        <div class="col-10 img_selccionada-formProf">
+                            <img  src="{{URL::asset($objCertificaciones->imgcertificado)}}">
+                        </div>
+
+                        <div class="col-12 pl-0">
+                            <div class="form-group">
+                                <span>{{$objCertificaciones->titulocertificado}}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 pl-0">
+                            <div class="form-group">
+                                <span>{{$objCertificaciones->descrpcioncertificado}}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 pl-0">
+                            <div class="form-group">
+                                <span>{{$objCertificaciones->fechacertificado}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @endforeach 
+    </div>
+
+    <form method="POST" action="{{ url ('/FormularioInstitucionSave9') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+
+        @if($objContadorCertificaciones->cantidad == 0)
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imgcertificado[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                        
+                            <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo premio</label>
+
+                            <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descrpcion premio</label>
+                            
+                            <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido Certificaciones derecho -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="form-group col-12 ">
+                            <div class="col-10 img_selccionada-formProf">
+                                <div class="img_anexada-formProf" id="previewates"></div>
+                            </div>
+
+                            <div class="agregar_archivo-formProf">
+                                <input type='file' id="imgantes" name="imgcertificado[]"/>
+                            </div>
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                            
+                            <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <div class="form-group">
+                                <label for="title">titulo premio</label>
+
+                                <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <div class="form-group">
+                                <label for="title">Descrpcion premio</label>
+
+                                <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imgcertificado[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                        
+                            <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo premio</label>
+
+                            <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descrpcion premio</label>
+                            
+                            <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido Certificaciones derecho -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="form-group col-12 ">
+                            <div class="col-10 img_selccionada-formProf">
+                                <div class="img_anexada-formProf" id="previewates"></div>
+                            </div>
+
+                            <div class="agregar_archivo-formProf">
+                                <input type='file' id="imgantes" name="imgcertificado[]"/>
+                            </div>
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                            
+                            <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <div class="form-group">
+                                <label for="title">titulo premio</label>
+
+                                <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <div class="form-group">
+                                <label for="title">Descrpcion premio</label>
+
+                                <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorCertificaciones->cantidad == 1)
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imgcertificado[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                        
+                            <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo premio</label>
+
+                            <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descrpcion premio</label>
+                            
+                            <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido Certificaciones derecho -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="form-group col-12 ">
+                            <div class="col-10 img_selccionada-formProf">
+                                <div class="img_anexada-formProf" id="previewates"></div>
+                            </div>
+
+                            <div class="agregar_archivo-formProf">
+                                <input type='file' id="imgantes" name="imgcertificado[]"/>
+                            </div>
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                            
+                            <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <div class="form-group">
+                                <label for="title">titulo premio</label>
+
+                                <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <div class="form-group">
+                                <label for="title">Descrpcion premio</label>
+
+                                <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imgcertificado[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                        
+                            <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo premio</label>
+
+                            <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descrpcion premio</label>
+                            
+                            <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorCertificaciones->cantidad == 2)
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imgcertificado[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                        
+                            <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo premio</label>
+
+                            <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descrpcion premio</label>
+                            
+                            <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido Certificaciones derecho -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="form-group col-12 ">
+                            <div class="col-10 img_selccionada-formProf">
+                                <div class="img_anexada-formProf" id="previewates"></div>
+                            </div>
+
+                            <div class="agregar_archivo-formProf">
+                                <input type='file' id="imgantes" name="imgcertificado[]"/>
+                            </div>
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                            
+                            <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <div class="form-group">
+                                <label for="title">titulo premio</label>
+
+                                <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
+                            </div>
+                        </div>
+
+                        <div class="col-12 pr-0">
+                            <div class="form-group">
+                                <label for="title">Descrpcion premio</label>
+
+                                <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorCertificaciones->cantidad == 3)
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imgcertificado[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="example-date-input" class="col-form-label">Fecha de inicio</label>
+                        
+                            <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo premio</label>
+
+                            <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descrpcion premio</label>
+                            
+                            <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorCertificaciones->cantidad == 4)
+            <span> No se puede agregar más </span>
+        @endif 
+
+        <div class="col-lg-12 content_btnEnviar-formProf">
+            <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+            </button>
+        </div>
+    </form>
+</div>
+<!--------------------------------------------      Fin novena parte del formulario  ------------------------------------------------>
+
+<!--------------------------------------------      Inicio decima parte del formulario ------------------------------------------------>
+<div class="col-lg-10 pb-3 infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoBasica-formProf"> Sedes </h5>
+
+    <p class="text_superior-proced-formProf"> A continuación suba imágenes e información de las sedes que tengan de la institución </p>
+
+    <!-- Modulo de los Certificaciones con información -->
+    <div class="row col-12 p-0 m-0">
+        @foreach($objSedes as $objSedes)
+            @if(!empty($objSedes->imgsede))
+                <!-- Contenido Certificaciones -->    
+                <div class="col-6 mt-3 content_antes-formProf">
+                    <div class="col-12">
+                        <a href="{{url('/FormularioInstituciondelete10/'.$objSedes->id)}}">
+                            <button type="submit" class="close" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </a>
+                    </div>
+                    
+                    <div class="col-12 content_agregarImg-formProf form-group">
+
+                        <div class="col-10 img_selccionada-formProf">
+                            <img  src="{{URL::asset($objSedes->imgsede)}}">
+                        </div>
+
+                        <div class="col-12 pl-0">
+                            <div class="form-group">
+                                <span>{{$objSedes->nombre}}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 pl-0">
+                            <div class="form-group">
+                                <span>{{$objSedes->direccion}}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 pl-0">
+                            <div class="form-group">
+                                <span>{{$objSedes->horario_sede}}</span>
+                            </div>
+                        </div>
+                        <div class="col-12 pl-0">
+                            <div class="form-group">
+                                <span>{{$objSedes->telefono}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @endforeach 
+    </div>
+
+    <form method="POST" action="{{ url ('/FormularioInstitucionSave10') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+
+        @if($objContadorSedes->cantidad == 0)
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido Certificaciones derecho -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido Certificaciones derecho -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido Certificaciones derecho -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        @elseif($objContadorSedes->cantidad == 1)
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido Certificaciones derecho -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido Certificaciones derecho -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorSedes->cantidad == 2)
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido Certificaciones derecho -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido Certificaciones derecho -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorSedes->cantidad == 3)
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido Certificaciones derecho -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorSedes->cantidad == 4)
+            <!-- Modulo de los Certificaciones sin información-->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido Certificaciones derecho -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorSedes->cantidad == 5)
+                    <!-- Modulo de los Certificaciones sin información-->
+                    <div class="row content_antDesp-formProf">
+                <!-- Contenido Certificaciones izquierdo -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgsede" name="imgsede[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Nombre de la sede</label>
+
+                            <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Dirrección</label>
+                            
+                            <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Horario</label>
+                            
+                            <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                        </div>
+                    </div>
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Teléfono</label>
+                            
+                            <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorSedes->cantidad == 6)
+        <span>No se puede agregar mas</span>
+        @endif 
+
+        <div class="col-lg-12 content_btnEnviar-formProf">
+            <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+            </button>
+        </div>
+    </form>
+</div>
+<!--------------------------------------------      Fin decima parte del formulario  ------------------------------------------------>
+
+
+<!--------------------------------------------Inicio once parte del formulario------------------------------------------------> 
+<div class="col-lg-10 pb-3 infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoBasica-formProf">Ubique la sede </h5>
+
+    <form method="POST" action="{{ url ('/FormularioInstitucionSave11') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+
+        @if(!empty($objFormulario))
+            <div class="col-12 pr-0">
+                <div class="form-group">
+                    <label for="title"> A continuación enlace las sedes en Google Maps </label>
+                    <iframe src="{{$objFormulario->url_maps}}" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        @else
+            <div class="col-12 pr-0">
+                <div class="form-group">
+                    <label for="title">  A continuación enlace las sedes en Google Maps </label>
+                    <input class="form-control" id="descripcionPerfil"  type="text" name="url_maps" >
+                </div>
+            </div>
+        @endif
+        <div class="col-lg-12 content_btnEnviar-formProf">
+            <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+            </button>
+        </div>
+    </form>
+</div>
+<!--------------------------------------------Fin once parte del formulario------------------------------------------------>
+
+
+<!--------------------------------------------      Inicio 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------>
+<div class="col-lg-10 pb-3 infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoBasica-formProf"> Galeria </h5>
+
+    <p class="text_superior-proced-formProf"> A continuación suba 10 imágenes como mínimo, con su respectivo nombre y descripción. </p>
+
+    <!-- Modulo de la GALERIA con información -->
+    <div class="row col-12 p-0 m-0">
+        @foreach($objGaleria as $objGaleria)
+            @if(!empty($objGaleria->nombrefoto))
+                <!-- Contenido GALERIA -->    
+                <div class="col-6 mt-3 content_antes-formProf">
+                    <div class="col-12">
+                        <a href="{{url('/FormularioInstituciondelete12/'.$objGaleria->id_galeria)}}">
+                            <button type="submit" class="close" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </a>
+                    </div>
+
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <img  class="col-10 img_publi-formProf" src="{{URL::asset($objGaleria->imggaleria)}}">
+                        </div>
+
+                        <div class="col-12 pl-0">
+                            <div class="form-group">
+                                <span>{{$objGaleria->nombrefoto}}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 pl-0">
+                            <div class="form-group">
+                                <span>{{$objGaleria->descripcion}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @endforeach 
+    </div>
+
+    <form method="POST" action="{{ url ('/FormularioInstitucionSave12') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+
+        @if($objContadorGaleria->cantidad == 0)
+            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <div class="col-10">
+                            <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <div class="col-10">
+                            <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorGaleria->cantidad == 1)
+            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <div class="col-10">
+                            <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <div class="col-10">
+                            <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorGaleria->cantidad == 2)
+            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <div class="col-10">
+                            <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorGaleria->cantidad == 3)
+            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <div class="col-10">
+                            <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorGaleria->cantidad == 4)
+            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorGaleria->cantidad == 5)
+            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorGaleria->cantidad == 6)
+            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <div class="row content_antDesp-formProf">
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenido DESPUÉS -->
+                <div class="col-6 pr-0">
+                    <div class="col-12 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">titulo foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+
+                            <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorGaleria->cantidad == 7)
+             <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+             <div class="row content_antDesp-formProf">
+                <!-- Contenido ANTES -->
+                <div class="col-6 content_antes-formProf">
+                    <div class="col-12 pl-0 content_agregarImg-formProf form-group">
+                        <div class="col-10 img_selccionada-formProf">
+                            <div class="img_anexada-formProf" id="previewates"></div>
+                        </div>
+
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgantes" name="imggaleria[]"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        
+                        <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">nombre foto</label>
+
+                            <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 pl-0">
+                        <div class="form-group">
+                            <label for="title">Descripcion foto</label>
+                            
+                            <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($objContadorGaleria->cantidad == 8)
+            <span>no se puede agregar mas</span>
+        @endif 
+
+        <div class="col-lg-12 content_btnEnviar-formProf">
+            <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+            </button>
+        </div>  
+    </form>
+</div>  
+<!--------------------------------------------      Fin 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------>
 
 @endsection

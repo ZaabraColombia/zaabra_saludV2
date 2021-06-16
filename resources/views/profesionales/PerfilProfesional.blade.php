@@ -79,27 +79,27 @@
         <section class="contains_swiper_profesional">
             <h1>¿Por qué es un doctor de alto nivel?</h1>
             <div class="swiper-container swiper_profesional">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <li class="profesional_menu perfil" data-codigo="perfil"><span>Perfil profesional</span></li>
-                    </div>
-                    <div class="swiper-slide">
-                        <li class="profesional_menu tratamientos" data-codigo="tratamiento"><span>Tratamientos y procedimientos</span></li>
-                    </div>
-                    <div class="swiper-slide">
-                        <li class="profesional_menu premios" data-codigo="premio"><span>Premios y reconocimientos</span></li>
-                    </div>
-                    <div class="swiper-slide">
-                        <li class="profesional_menu publicaciones" data-codigo="publicacion"><span>Publicaciones</span></li>
-                    </div>
-                    <div class="swiper-slide">
-                        <li class="profesional_menu galeria" data-codigo="galeria"><span>Galería</span></li>
-                    </div>
+                <div class="swiper-wrapper menu_profesional">
+                    <li class="swiper-slide">
+                        <a class="menu_item perfil" data-codigo="0"><span>Perfil profesional</span></a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a class="menu_item tratamientos" data-codigo="1"><span>Tratamientos y procedimientos</span></a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a class="menu_item premios" data-codigo="2"><span>Premios y reconocimientos</span></a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a class="menu_item publicaciones" data-codigo="3"><span>Publicaciones</span></a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a class="menu_item galeria" data-codigo="4"><span>Galería</span></a>
+                    </li>
                 </div>
             </div>
         </section>
 
-        <section class="section_perfil_profesional">
+        <section class="sections section_perfil_profesional">
 
             <div class="perfil_profesional">
                 <h2><i></i>Perfil Profesional</h2>
@@ -164,7 +164,7 @@
             </div>
         </section>
 
-        <section class="section_tratamientos_profesional">
+        <section class="sections section_tratamientos_profesional">
             <div class="tratamientos_profesional">
                 <h2><i></i>Tratamientos y procedimientos</h2>
                 <div class="container_cards">
@@ -190,7 +190,7 @@
             </div>
         </section>
 
-        <section class="contains_swiper_premios">
+        <section class="sections contains_swiper_premios">
             <h2><i></i>Premios y Reconocimientos</h2>
             <div class="swiper-container swiper_premios">
                 <div class="swiper-wrapper">
@@ -206,7 +206,7 @@
             </div>
         </section>
 
-        <section class="section_publicaciones_profesional">
+        <section class="sections section_publicaciones_profesional">
             <div class="publicaciones_profesional">
                 <h2><i></i>Publicaciones</h2>
                 <div class="container_cards">
@@ -223,7 +223,7 @@
             </div>
         </section>
 
-        <section class="galeriayvideo">
+        <section class="sections galeriayvideo">
             <div class="galeria_profesional">
                 <h2><i></i>Galería</h2>
                 <ul class="gallery_profesional">
