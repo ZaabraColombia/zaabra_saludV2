@@ -194,7 +194,7 @@
 .contains_swiper_profesional{
     max-width: 100%;
 }
-.profesional_menu {
+.menu_item {
     display: flex;
     justify-content: center;
     background-size: contain;
@@ -204,7 +204,7 @@
     background-position: center;
     margin-bottom: 28%;
 }
-.profesional_menu span{
+.menu_item span{
     text-align: center;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
@@ -505,6 +505,12 @@
     color: #3E3E3E;
     text-align: center;
 }
+.sections{
+    display: none;
+}
+.sections_active{
+    display: block;
+}
 
 @media (min-width: 320px){
     .section_data_profesionales{
@@ -626,12 +632,12 @@
     .swiper_profesional{
         width: 85%;
     }
-    .profesional_menu i{
+    .menu_item i{
         width: 100%;
         height: 50px;
         background-position: center;
     }
-    .profesional_menu p{
+    .menu_item p{
         font-size: 0.6em;
     }
     .contains_swiper_profesional{
@@ -1087,10 +1093,10 @@
         font-size: 2.2em;
         margin-top: 7%;
     }
-    .profesional_menu i{
+    .menu_item i{
         height: 90px;
     }
-    .profesional_menu p {
+    .menu_item p {
         margin-top: 5%;
         font-size: 1.05em;
         max-width: 65%;
@@ -1510,10 +1516,10 @@
     .destacado h2 {
         font-size: 1.5em;
     }
-    .profesional_menu i {
+    .menu_item i {
         height: 75px;
     }
-    .profesional_menu p {
+    .menu_item p {
         margin-top: 5%;
         font-size: 0.9em;
         max-width: 80%;
@@ -1733,10 +1739,10 @@
         font-size: 1.5em;
         padding-left: 2%;
     }
-    .profesional_menu i {
+    .menu_item i {
         height: 75px;
     }
-    .profesional_menu p {
+    .menu_item p {
         margin-top: 5%;
         font-size: 0.9em;
         max-width: 80%;
