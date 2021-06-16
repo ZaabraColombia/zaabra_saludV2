@@ -856,6 +856,64 @@
     top: 0;
     bottom: 0;              
 }
+///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
+
+// Sección titulo de la tarjeta videos
+.icon_infoVideo-formProf {
+    background-image: url('/img/formulario-profesional/icono-videos.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #019F86;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #019F86;
+    text-transform: inherit;
+}
+.video1 .agregar_archivo-formProf::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir video 1'; /* texto botón subir foto asociación */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}
+.video2 .agregar_archivo-formProf::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir video 2'; /* texto botón subir foto asociación */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}
 
 // clase para ocultar las secciones en cada una de las opciones del formulario profesional
 /*.hidden-section-formProf {

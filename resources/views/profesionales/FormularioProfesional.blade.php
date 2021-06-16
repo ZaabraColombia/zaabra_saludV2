@@ -2235,13 +2235,13 @@
 
                         <div class="col-12 pl-0">
                             <div class="form-group">
-                                <span>{{$objGaleria->nombrefoto}}</span>
+                                <labe class="col-12 text_infoImg-formProf"> {{$objGaleria->nombrefoto}} </label>
                             </div>
                         </div>
 
                         <div class="col-12 pl-0">
                             <div class="form-group">
-                                <span>{{$objGaleria->descripcion}}</span>
+                                <labe class="col-12 text_infoImg-formProf"> {{$objGaleria->descripcion}} </label>
                             </div>
                         </div>
                     </div>
@@ -3648,8 +3648,8 @@
 <!--------------------------------------------      Fin 12 doceava parte del formulario *** GALERIA ***      ---------------------------------------------------------->
 
 <!--------------------------------------------      Inicio 13 treceava parte del formulario *** VIDEOS ***      ------------------------------------------------------->
-<div class="content_galeria-video col-lg-10 pb-3 infoBasica_formProf">
-    <h5 class="col-lg-12 icon_infoBasica-formProf"> Videos </h5>
+<div class="col-lg-10 pb-3 content_galeria-video infoBasica_formProf">
+    <h5 class="col-lg-12 icon_infoVideo-formProf"> Videos </h5>
 
     <p class="text_superior-proced-formProf"> A continuación suba el link del video, con su respectivo nombre y descripción. </p>
 
@@ -3675,19 +3675,19 @@
 
                         <div class="col-12 pl-0">
                             <div class="form-group">
-                                <span>{{$objVideo->nombrevideo}}</span>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> {{$objVideo->nombrevideo}} </label>
                             </div>
                         </div>
 
                         <div class="col-12 pl-0">
                             <div class="form-group">
-                                <span>{{$objVideo->descripcionvideo}}</span>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> {{$objVideo->descripcionvideo}} </label>
                             </div>
                         </div>
 
                         <div class="col-12 pl-0">
                             <div class="form-group">
-                                <span>{{$objVideo->fechavideo}}</span>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> {{$objVideo->fechavideo}} </label>
                             </div>
                         </div>
                     </div>
@@ -3700,10 +3700,10 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         @if($objContadorVideo->cantidad == 0)
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos de los VIDEOS -->
             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 video1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="agregar_archivo-formProf">
                             <input id="nombrefoto"  type="text" name="urlvideo[]" value="">
@@ -3711,14 +3711,14 @@
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Titulo Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3726,15 +3726,15 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 video2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="agregar_archivo-formProf">
                             <input id="nombrefoto"  type="text" name="urlvideo[]" value="">
@@ -3742,14 +3742,14 @@
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Titulo Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3757,7 +3757,7 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -3765,10 +3765,10 @@
                 </div>
             </div>
 
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos de los VIDEOS -->
             <div class="row content_antDesp-formProf hidden-section-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 video1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="agregar_archivo-formProf">
                             <input id="nombrefoto"  type="text" name="urlvideo[]" value="">
@@ -3776,14 +3776,14 @@
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Titulo Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3791,15 +3791,15 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 video2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="agregar_archivo-formProf">
                             <input id="nombrefoto"  type="text" name="urlvideo[]" value="">
@@ -3807,14 +3807,14 @@
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Titulo Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3822,7 +3822,7 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -3830,10 +3830,10 @@
                 </div>
             </div>
         @elseif($objContadorVideo->cantidad == 1)
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos de los VIDEOS -->
             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 video1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="agregar_archivo-formProf">
                             <input id="nombrefoto"  type="text" name="urlvideo[]" value="">
@@ -3841,14 +3841,14 @@
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Titulo Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3856,15 +3856,15 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 video2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="agregar_archivo-formProf">
                             <input id="nombrefoto"  type="text" name="urlvideo[]" value="">
@@ -3872,14 +3872,14 @@
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Titulo Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3887,7 +3887,7 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -3897,8 +3897,8 @@
 
             <!-- Modulos de los contenidos ANTES y DESPUÉS -->
             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 video1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="agregar_archivo-formProf">
                             <input id="nombrefoto"  type="text" name="urlvideo[]" value="">
@@ -3906,14 +3906,14 @@
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Titulo Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3921,7 +3921,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
@@ -3929,10 +3929,10 @@
                 </div>
             </div>
         @elseif($objContadorVideo->cantidad == 2)
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos de los VIDEOS -->
             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 video1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="agregar_archivo-formProf">
                             <input id="nombrefoto"  type="text" name="urlvideo[]" value="">
@@ -3940,14 +3940,14 @@
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Titulo Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3955,15 +3955,15 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenido DESPUÉS -->
-                <div class="col-6 pr-0">
+                <!-- Contenido DERECHO -->
+                <div class="col-6 video2 pr-0">
                     <div class="col-12 content_agregarImg-formProf form-group">
                         <div class="agregar_archivo-formProf">
                             <input id="nombrefoto"  type="text" name="urlvideo[]" value="">
@@ -3971,14 +3971,14 @@
                     </div>
 
                     <div class="col-12 pr-0">
-                        <label for="example-date-input" class="col-2 col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Titulo Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -3986,7 +3986,7 @@
                     
                     <div class="col-12 pr-0">
                         <div class="form-group">
-                            <label for="title">Descripcion Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
 
                             <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
                         </div>
@@ -3994,10 +3994,10 @@
                 </div>
             </div>
         @elseif($objContadorVideo->cantidad == 3)
-            <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+            <!-- Modulos de los VIDEOS -->
             <div class="row content_antDesp-formProf">
-                <!-- Contenido ANTES -->
-                <div class="col-6 content_antes-formProf">
+                <!-- Contenido IZQUIERDO -->
+                <div class="col-6 video1 content_antes-formProf">
                     <div class="col-12 pl-0 content_agregarImg-formProf form-group">
                         <div class="agregar_archivo-formProf">
                             <input id="nombrefoto"  type="text" name="urlvideo[]" value="">
@@ -4005,14 +4005,14 @@
                     </div>
 
                     <div class="col-12 pl-0">
-                        <label for="example-date-input" class="col-form-label">Fecha </label>
+                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                         
                         <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                     </div>
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Titulo Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
                             <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                         </div>
@@ -4020,7 +4020,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                            <label for="title">Descripcion Video</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
                             
                             <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
                         </div>
@@ -4028,7 +4028,7 @@
                 </div>
             </div>
         @elseif($objContadorVideo->cantidad == 4)
-            <span>no se pueden agregar mas </span>
+            <span> No se pueden agregar más </span>
         @endif 
 
         <div class="col-lg-12 content_btnEnviar-formProf">

@@ -230,7 +230,7 @@ document.getElementById("imgPublic1").onchange = function(e) {
 	let reader = new FileReader();
   
   reader.onload = function(){
-    let preview = document.getElementById('previewPublicLeft1'),
+    let preview = document.getElementById('previewPublicL1'),
     		image = document.createElement('img');
 
     image.src = reader.result;
@@ -246,7 +246,7 @@ document.getElementById("imgPublic2").onchange = function(e) {
 	let reader = new FileReader();
   
   reader.onload = function(){
-    let preview = document.getElementById('previewPublicRight1'),
+    let preview = document.getElementById('previewPublicL2'),
     		image = document.createElement('img');
 
     image.src = reader.result;
@@ -262,7 +262,7 @@ document.getElementById("imgPublic3").onchange = function(e) {
 	let reader = new FileReader();
   
   reader.onload = function(){
-    let preview = document.getElementById('previewPublicLeft2'),
+    let preview = document.getElementById('previewPublicR1'),
     		image = document.createElement('img');
 
     image.src = reader.result;
@@ -278,7 +278,7 @@ document.getElementById("imgPublic4").onchange = function(e) {
 	let reader = new FileReader();
   
   reader.onload = function(){
-    let preview = document.getElementById('previewPublicRight2'),
+    let preview = document.getElementById('previewPublicR2'),
     		image = document.createElement('img');
 
     image.src = reader.result;
