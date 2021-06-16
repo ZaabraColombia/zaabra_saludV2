@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const swiper_profesional = new Swiper(".swiper_profesional", {
   
-    loop: true,
-    loopFillGroupWithBlank: true,
+    //loop: false,
+    loopFillGroupWithBlank: false,
   
     /*autoplay: {
       delay: 4500,
@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
   
     // If we need pagination
     pagination: {
-        el: '.swiper-pagination',
+        el: '.slide-counter',
+        type: 'fraction'
     },
   
     breakpoints: {
@@ -23,8 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
       },
        // when window width is >= 1024px
       1024: {
+        //enabled: false,
         slidesPerView: 5,
-        slidesPerGroup: 1,
+        slidesPerGroup: 5,
       },
         // when window width is >= 1600px
       1600: {
@@ -34,6 +36,10 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     }
   });
+  
+  /*swiper_profesional.on('transitionEnd', function() {
+    console.log('*** swiper_profesional.realIndex', swiper_profesional.realIndex);
+  });*/
 
   const swiper_premios = new Swiper(".swiper_premios", {
 
@@ -71,14 +77,26 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  const gallery = new Viewer(select(".gallery_profesional"));
+  const select = document.querySelector.bind(document);
+  const gallery = new Viewer(select('.gallery_profesional'));
+
+  //const iterator = document.querySelectorAll('.profesional_menu');
+  const menu_item = [].slice.apply(document.querySelectorAll('.menu_item'));
+  const sections = [].slice.apply(document.querySelectorAll('.sections'));
   
-});
+  document.querySelector('.menu_profesional').addEventListener('click', el =>{
+    if (el.target.classList.contains('menu_item')) {
 
-const select = document.querySelectorAll.bind(document);
+      let iterator = menu_item.indexOf(el.target, el.target);
+      console.log(iterator);
+      sections.map(seccion => seccion.setAttribute("display", "none"));
+      sections[iterator].classList.toggle('sections_active');
+    }
+  });
 
-select('.profesional_menu').addEventListener("click", function(){
-  let getcode = select('.profesional_menu').getAttribute('data-codigo');
-  console.log(getcode);
-});
+
+  //const sections = document.querySelectorAll('.sections');
     
+});
+
+
