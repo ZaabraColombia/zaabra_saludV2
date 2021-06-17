@@ -33,8 +33,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
     </head>
     <body>
-        <label for="cursos">Cursos: </label>
-        <input id="cursos">
+        
+       
+
         <div id="app">
             <!-------------------------------------------Headaer-------------------------------------------->
             <nav class="navbar navbar_zaabrasalud">
@@ -47,11 +48,8 @@
                     <!-- Sección barra de busqueda -->
                     <div class="contains_boxsearch">
                         <div class="barra_busqueda">
-                            <form action="http://portal-test.zaabra.local/busqueda" method="POST" class="form-inline heigFormHeader" id="buscar">
-                                <input type="hidden" name="_token" value="tzFtz8TstiTocmap8vuJp4Py7sMc0zcQiC63SuyF">
-                                <input class="inputBarraBusquedad" type="buttton" name="buscar" id="barra_buscar" autocomplete="off">
-                                <input type="image" class="contenedorLupa" src="{{URL::asset('/img/header/icono-buscador-azul.svg')}}">
-                            </form>
+                                <input class="inputBarraBusquedad" id="filtro">
+                                
                         </div> 
                     </div>
 
@@ -199,30 +197,7 @@
         <script src="{{ asset('js/adicionarcamposformulario.js') }}"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script>
-            $(function(){
-                $("#cursos").autocomplete({
-                source: function(request, response) {
-                    $.ajax({
-                    url: "{{route('search.cursos')}}",
-                    dataType: "json",
-                    data: {
-                        term: request.term
-                    },
-                    success: function( data ) {
-                        response( data );
-                    }
-                    });
-                },
-                select: function (event, ui) {
-                    $('#cursos').val(ui.item.label);
-                    $('#cursos').val(ui.item.value); 
-                    return false;
-                    }
-
-                });
-            });
-        </script>
+        <script src="{{ asset('js/filtroBusquedad.js') }}"></script>
 
     </body>
 
