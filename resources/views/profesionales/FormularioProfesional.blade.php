@@ -1496,7 +1496,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                        <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                         
                             <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
                         </div>
@@ -1512,7 +1512,7 @@
 
                     <div class="col-12 pl-0">
                         <div class="form-group">
-                        <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio</label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
                             
                             <input class="form-control" id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
                         </div>
@@ -1520,7 +1520,7 @@
                 </div>
 
                 <!-- Contenido PREMIO derecho -->
-                <div class="col-lgl-6 photo4 content_despues-formProf pr-0">
+                <div class="col-lg-6 photo4 content_despues-formProf pr-0">
                     <div class="col-12 pr-0 content_agregarImg-formProf form-group">
                         <div class="col-10 img_selccionada-formProf">
                             <div class="img_anexada-formProf" id="previewPremioRight2"></div>
@@ -1558,6 +1558,7 @@
                     </div>
                 </div>
             </div>
+
         @elseif($objContadorPremios->cantidad == 1)
             <!-- Modulo de los PREMIOS sin información-->
             <div class="row content_antDesp-formProf">
