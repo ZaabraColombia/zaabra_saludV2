@@ -15,7 +15,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 /*----------------------------------------------Buscador del home----------------------------------------------------------------------------*/
-Route::get('/search/cursos', [App\Http\Controllers\buscador\buscadorController::class, 'filtroBusquedad'])->name('search.cursos');
+Route::get('/search/filtro', [App\Http\Controllers\buscador\buscadorController::class, 'filtroBusquedad'])->name('search.filtro');
 
 /*----------------------------------------------Pertenece a salud-------------------------------------------------------------------------------*/
 
