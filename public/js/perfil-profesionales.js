@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const swiper_profesional = new Swiper(".swiper_profesional", {
   
     //loop: false,
-    loopFillGroupWithBlank: false,
   
     /*autoplay: {
       delay: 4500,
@@ -37,19 +36,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
   
-  /*swiper_profesional.on('transitionEnd', function() {
-    console.log('*** swiper_profesional.realIndex', swiper_profesional.realIndex);
-  });*/
-
   const swiper_premios = new Swiper(".swiper_premios", {
 
     loop: true,
-    loopFillGroupWithBlank: true,
-  
-    /*autoplay: {
-      delay: 4500,
+   
+    autoplay: {
+      delay: 3500,
       disableOnInteraction: false,
-    },*/
+    },
   
     // If we need pagination
     pagination: {
@@ -76,26 +70,37 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     }
   });
-
+  
+  
   const select = document.querySelector.bind(document);
   const gallery = new Viewer(select('.gallery_profesional'));
-
-  //const iterator = document.querySelectorAll('.profesional_menu');
-  const menu_item = [].slice.apply(document.querySelectorAll('.menu_item'));
+  
+  const menu_item = [].slice.apply(document.querySelectorAll('.item_landing'));
   const sections = [].slice.apply(document.querySelectorAll('.sections'));
   
-  document.querySelector('.menu_profesional').addEventListener('click', el =>{
-    if (el.target.classList.contains('menu_item')) {
+  document.querySelector('.landingProf').addEventListener('click', el =>{
+    let count;
+    if (el.target.classList.contains('item_landing')) {
 
-      let iterator = menu_item.indexOf(el.target, el.target);
-      console.log(iterator);
-      sections.map(seccion => seccion.setAttribute("display", "none"));
+      let iterator = menu_item.indexOf(el.target);
+      
+      sections.map(seccion => seccion.classList.remove('sections_active'));
+      menu_item.map(item => item.classList.remove('perfil_clicked',
+      'tratamientos_clicked',
+      'premios_clicked',
+      'publicaciones_clicked',
+      'galeria_clicked'));
+
       sections[iterator].classList.toggle('sections_active');
+  
+      (iterator == 0) ? menu_item[0].classList.toggle('perfil_clicked'): count++
+      (iterator == 1) ? menu_item[1].classList.toggle('tratamientos_clicked'): count++
+      (iterator == 2) ? menu_item[2].classList.toggle('premios_clicked'): count++  
+      (iterator == 3) ? menu_item[3].classList.toggle('publicaciones_clicked'): count++
+      (iterator == 4) ? menu_item[4].classList.toggle('galeria_clicked'): count++
+  
     }
   });
-
-
-  //const sections = document.querySelectorAll('.sections');
     
 });
 

@@ -79,27 +79,27 @@
         <section class="contains_swiper_profesional">
             <h1>¿Por qué es un doctor de alto nivel?</h1>
             <div class="swiper-container swiper_profesional">
-                <div class="swiper-wrapper menu_profesional">
+                <div class="swiper-wrapper landingProf">
                     <li class="swiper-slide">
-                        <a class="menu_item perfil" data-codigo="0"><span>Perfil profesional</span></a>
+                        <a class="item_landing perfil perfil_clicked"><span>Perfil profesional</span></a>
                     </li>
                     <li class="swiper-slide">
-                        <a class="menu_item tratamientos" data-codigo="1"><span>Tratamientos y procedimientos</span></a>
+                        <a class="item_landing tratamientos"><span>Tratamientos y procedimientos</span></a>
                     </li>
                     <li class="swiper-slide">
-                        <a class="menu_item premios" data-codigo="2"><span>Premios y reconocimientos</span></a>
+                        <a class="item_landing premios"><span>Premios y reconocimientos</span></a>
                     </li>
                     <li class="swiper-slide">
-                        <a class="menu_item publicaciones" data-codigo="3"><span>Publicaciones</span></a>
+                        <a class="item_landing publicaciones"><span>Publicaciones</span></a>
                     </li>
                     <li class="swiper-slide">
-                        <a class="menu_item galeria" data-codigo="4"><span>Galería</span></a>
+                        <a class="item_landing galeria"><span>Galería</span></a>
                     </li>
                 </div>
             </div>
         </section>
 
-        <section class="sections section_perfil_profesional">
+        <section class="sections sections_active section_perfil_profesional">
 
             <div class="perfil_profesional">
                 <h2><i></i>Perfil Profesional</h2>
