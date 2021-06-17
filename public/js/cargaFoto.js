@@ -156,6 +156,7 @@ document.getElementById("imgdespues2").onchange = function(e) {
   reader.readAsDataURL(e.target.files[0]);
 };
 
+
 //--------------------------------------------      Fin 9 novena parte selección archivo del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      ------------------------------------------------
 
 //--------------------------------------------      Inicio 10 decima parte selección archivo del formulario *** PREMIOS Y RECONOCIMIENTOS ***      ------------------------------------------------
@@ -225,8 +226,9 @@ document.getElementById("imgPremio4").onchange = function(e) {
 
 //--------------------------------------------      Fin 10 decima parte selección archivo del formulario *** PREMIOS Y RECONOCIMIENTOS ***      ------------------------------------------------
 
-//--------------------------------------------      Inicio 11 onceava parte selección archivo del formulario *** PUBLICACIONES ***      --------------------------------------------------------
-document.getElementById("imgPublic1").onchange = function(e) {
+
+//--------------------------------------------      Inicio 11 onceava parte selección archivo del formulario *** PUBLICACIONES ***      ------------------------------------------------
+document.getElementById('imgPublicL1').onchange = function(e) {
 	let reader = new FileReader();
   
   reader.onload = function(){
@@ -242,23 +244,7 @@ document.getElementById("imgPublic1").onchange = function(e) {
   reader.readAsDataURL(e.target.files[0]);
 };
 
-document.getElementById("imgPublic2").onchange = function(e) {
-	let reader = new FileReader();
-  
-  reader.onload = function(){
-    let preview = document.getElementById('previewPublicL2'),
-    		image = document.createElement('img');
-
-    image.src = reader.result;
-    
-    preview.innerHTML = '';
-    preview.append(image);
-  };
- 
-  reader.readAsDataURL(e.target.files[0]);
-};
-
-document.getElementById("imgPublic3").onchange = function(e) {
+document.getElementById('imgPublicR1').onchange = function(e) {
 	let reader = new FileReader();
   
   reader.onload = function(){
@@ -274,7 +260,23 @@ document.getElementById("imgPublic3").onchange = function(e) {
   reader.readAsDataURL(e.target.files[0]);
 };
 
-document.getElementById("imgPublic4").onchange = function(e) {
+document.getElementById('imgPublicL2').onchange = function(e) {
+	let reader = new FileReader();
+  
+  reader.onload = function(){
+    let preview = document.getElementById('previewPublicL2'),
+    		image = document.createElement('img');
+
+    image.src = reader.result;
+    
+    preview.innerHTML = '';
+    preview.append(image);
+  };
+ 
+  reader.readAsDataURL(e.target.files[0]);
+};
+
+document.getElementById('imgPublicR2').onchange = function(e) {
 	let reader = new FileReader();
   
   reader.onload = function(){
@@ -289,19 +291,16 @@ document.getElementById("imgPublic4").onchange = function(e) {
  
   reader.readAsDataURL(e.target.files[0]);
 };
-
-//--------------------------------------------      Fin 11 onceava parte selección archivo del formulario *** PUBLICACIONES ***      ------------------------------------------------
-
+//--------------------------------------------      Inicio 11 onceava parte selección archivo del formulario *** PUBLICACIONES ***      ------------------------------------------------
 
 
 
-
-
-document.getElementById("imgGal1").onchange = function(e) {
+//--------------------------------------------      Inicio 11 onceava parte selección archivo del formulario *** PUBLICACIONES ***      ------------------------------------------------
+document.getElementById('imgGalL1').onchange = function(e) {
 	let reader = new FileReader();
   
   reader.onload = function(){
-    let preview = document.getElementById('previewGaleLeft1'),
+    let preview = document.getElementById('previewGaleL1'),
     		image = document.createElement('img');
 
     image.src = reader.result;
@@ -313,11 +312,11 @@ document.getElementById("imgGal1").onchange = function(e) {
   reader.readAsDataURL(e.target.files[0]);
 };
 
-document.getElementById("imgGal2").onchange = function(e) {
+document.getElementById('imgGalR1').onchange = function(e) {
 	let reader = new FileReader();
   
   reader.onload = function(){
-    let preview = document.getElementById('previewGaleRight1'),
+    let preview = document.getElementById('previewGaleR1'),
     		image = document.createElement('img');
 
     image.src = reader.result;
@@ -329,11 +328,11 @@ document.getElementById("imgGal2").onchange = function(e) {
   reader.readAsDataURL(e.target.files[0]);
 };
 
-document.getElementById("imgGal3").onchange = function(e) {
+document.getElementById('imgGalL2').onchange = function(e) {
 	let reader = new FileReader();
   
   reader.onload = function(){
-    let preview = document.getElementById('previewGaleLeft2'),
+    let preview = document.getElementById('previewGaleL2'),
     		image = document.createElement('img');
 
     image.src = reader.result;
@@ -345,11 +344,11 @@ document.getElementById("imgGal3").onchange = function(e) {
   reader.readAsDataURL(e.target.files[0]);
 };
 
-document.getElementById("imgGal4").onchange = function(e) {
+document.getElementById('imgGalR2').onchange = function(e) {
 	let reader = new FileReader();
   
   reader.onload = function(){
-    let preview = document.getElementById('previewGaleRight2'),
+    let preview = document.getElementById('previewGaleR2'),
     		image = document.createElement('img');
 
     image.src = reader.result;
@@ -361,16 +360,11 @@ document.getElementById("imgGal4").onchange = function(e) {
   reader.readAsDataURL(e.target.files[0]);
 };
 
-
-
-
-
-
-document.getElementById("imgGal5").onchange = function(e) {
+document.getElementById('imgGalL3').onchange = function(e) {
 	let reader = new FileReader();
   
   reader.onload = function(){
-    let preview = document.getElementById('previewGaleLeft3'),
+    let preview = document.getElementById('previewGaleL3'),
     		image = document.createElement('img');
 
     image.src = reader.result;
@@ -382,11 +376,11 @@ document.getElementById("imgGal5").onchange = function(e) {
   reader.readAsDataURL(e.target.files[0]);
 };
 
-document.getElementById("imgGal6").onchange = function(e) {
+document.getElementById('imgGalR3').onchange = function(e) {
 	let reader = new FileReader();
   
   reader.onload = function(){
-    let preview = document.getElementById('previewGaleRight3'),
+    let preview = document.getElementById('previewGaleR3'),
     		image = document.createElement('img');
 
     image.src = reader.result;
@@ -398,11 +392,11 @@ document.getElementById("imgGal6").onchange = function(e) {
   reader.readAsDataURL(e.target.files[0]);
 };
 
-document.getElementById("imgGal7").onchange = function(e) {
+document.getElementById('imgPublicL2').onchange = function(e) {
 	let reader = new FileReader();
   
   reader.onload = function(){
-    let preview = document.getElementById('previewGaleLeft4'),
+    let preview = document.getElementById('previewGaleL4'),
     		image = document.createElement('img');
 
     image.src = reader.result;
@@ -414,11 +408,11 @@ document.getElementById("imgGal7").onchange = function(e) {
   reader.readAsDataURL(e.target.files[0]);
 };
 
-document.getElementById("imgGal8").onchange = function(e) {
+document.getElementById('imgPublicR2').onchange = function(e) {
 	let reader = new FileReader();
   
   reader.onload = function(){
-    let preview = document.getElementById('previewGaleRight4'),
+    let preview = document.getElementById('previewPublicR2'),
     		image = document.createElement('img');
 
     image.src = reader.result;
@@ -429,3 +423,4 @@ document.getElementById("imgGal8").onchange = function(e) {
  
   reader.readAsDataURL(e.target.files[0]);
 };
+//--------------------------------------------      Inicio 11 onceava parte selección archivo del formulario *** PUBLICACIONES ***      ------------------------------------------------
