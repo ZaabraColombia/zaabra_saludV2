@@ -1,6 +1,6 @@
 // Función anonima para ocultar el NEWSLWTTER del FOOTER en las vistas Login, Register, Email
 // acerca de Zaabra, políticas de uso, preguntas frecuentes, contactenos, errores
-// membresiaProfesional, membresiaInstitucion
+// membresiaProfesional, membresiaInstitucion, FormularioProfesional
 !function() {
     let selector = document.querySelector.bind(document);
     let queryRuta = window.location.pathname;
@@ -11,7 +11,8 @@
        || queryRuta.includes("membresiaProfesional") || queryRuta.includes("membresiaInstitucion")
        || queryRuta.includes("/contacto")
        || queryRuta.includes("error101") || queryRuta.includes("error403")
-       || queryRuta.includes("error404") || queryRuta.includes("error505") ) {
+       || queryRuta.includes("error404") || queryRuta.includes("error505")
+       || queryRuta.includes("FormularioProfesional") ) {
        selector(".footer_newsletter").style.display = "none";
     }
 }();
