@@ -61,7 +61,7 @@ class perfilInstitucionController extends Controller
         public function cargarPrepagada($id){
         return DB::select("SELECT pr.urlimagen
         FROM instituciones ints
-        INNER JOIN prepagada pr ON ints.id=pr.id_institucion
+        INNER JOIN prepagadas pr ON ints.id=pr.id_institucion
         WHERE ints.aprobado<>0 AND ints.id=$id");
         }
 

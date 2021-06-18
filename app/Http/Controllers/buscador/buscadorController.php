@@ -18,31 +18,32 @@ class buscadorController extends Controller
         //Recuperamos lo que el usuario escribió en el buscador
         $term = $request->get('term');
 
-        //Busqued profesionales junto a la especialidad y envia a la landing del mismo
+        //Busquedad profesiones paar envio a la vista de profesiones
+        $queryProfesion = profesiones::where('nombreProfesion','like','%' . $term . '%')->get();
+
+
+        //Busquedad profesionales junto a la especialidad y envia a la landing del mismo
         $querysProfeespe = DB::table('perfilesprofesionales')
-        ->select(DB::raw('CONCAT(users.primernombre," ", users.primerapellido," / " ,especialidades.nombreEspecialidad) as nombreEspecialidad'))
+        ->select(DB::raw('CONCAT("Dr/Dra. ",users.primernombre," ", users.primerapellido," / " ,especialidades.nombreEspecialidad) as nombreEspecialidad, perfilesprofesionales.idPerfilProfesional as idprofe') )
         ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
         ->leftjoin('especialidades', 'perfilesprofesionales.idespecialidad', '=', 'especialidades.idEspecialidad')
         ->where('especialidades.nombreEspecialidad','like','%' . $term . '%')
         ->where('perfilesprofesionales.aprobado', '<>',0)
         ->get();
 
-        //Busquedad profesiones paar envio a la vista de profesiones
-        $queryProfesion = profesiones::where('nombreProfesion','like','%' . $term . '%')->get();
-
 
         //Busquedad profesionales del filtro para envio la landing del mismo
         $querysProfesional = DB::table('perfilesprofesionales')
-        ->select(DB::raw('CONCAT(users.primernombre, " " ,users.primerapellido) as nombreProfesional, perfilesprofesionales.fotoperfil'))
+        ->select(DB::raw('CONCAT("Dr/Dra. ",users.primernombre, " " ,users.primerapellido) as nombreProfesional, perfilesprofesionales.idPerfilProfesional as idprofe'))
         ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
         ->where('users.primernombre','like','%' . $term . '%')
         ->where('perfilesprofesionales.aprobado', '<>',0)
         ->get();
 
-
+        
         //Busquedad instituciones del filtro para envio la landing del mismo
         $querysInstitucion = DB::table('instituciones')
-        ->select('users.nombreinstitucion')
+        ->select(DB::raw('users.nombreinstitucion, instituciones.id as idInstitucion'))
         ->join('users', 'instituciones.idUser', '=', 'users.id')
         ->where('users.nombreinstitucion','like','%' . $term . '%')
         ->where('instituciones.aprobado', '<>',0)
@@ -50,7 +51,7 @@ class buscadorController extends Controller
 
         //Busquedad instituciones junto a su tipo del filtro para envio la landing del mismo
         $querysTipoInstitucion = DB::table('instituciones')
-        ->select(DB::raw('CONCAT(users.nombreinstitucion, " / " ,tipoinstituciones.nombretipo) as nombretipo'))
+        ->select(DB::raw('CONCAT(users.nombreinstitucion, " / " ,tipoinstituciones.nombretipo) as nombretipo,instituciones.id as idInstitucion'))
         ->join('users', 'instituciones.idUser', '=', 'users.id')
         ->join('tipoinstituciones', 'instituciones.idtipoInstitucion', '=', 'tipoinstituciones.id')
         ->where('tipoinstituciones.nombretipo','like','%' . $term . '%')
@@ -58,36 +59,40 @@ class buscadorController extends Controller
         ->get();
 
         $data1=[];
-   
+
+        /*Recorrido para profesiones*/
         foreach($queryProfesion as $queryprofesion){
             $data1[]=[
-                'value'=>"/hola",
+                'id'=>"/Profesiones",
                 'label'=>$queryprofesion->nombreProfesion,
             ];
            }
 
+        /*Recorrido para profesionales junto a especialidades*/
         foreach($querysProfeespe as $queryprofeespe){
             $data1[]=[
-                'value'=>"/Profesiones",
+                'id'=>'PerfilProfesional/'.$queryprofeespe->idprofe,
                 'label'=>$queryprofeespe->nombreEspecialidad,
             ];
         }
+        /*Recorrido para profesionales solo el nombre*/
        foreach($querysProfesional as $queryprofesional){
         $data1[]=[
-            'value'=>"/hola2",
+            'id'=>"PerfilProfesional/".$queryprofesional->idprofe,
             'label'=>$queryprofesional->nombreProfesional,
-            'icon'=> $queryprofesional->fotoperfil
         ];
        }
+        /*Recorrido para institucion solo el nombre*/
        foreach($querysInstitucion as $querysinstitucion){
         $data1[]=[
-            'value'=>"/hola2",
+            'id'=>"PerfilInstitucion/".$querysinstitucion->idInstitucion,
             'label'=>$querysinstitucion->nombreinstitucion
         ];
        }
+        /*Recorrido para institucion junto al tipo de institucion*/
        foreach($querysTipoInstitucion as $querysTipoinstitucion){
         $data1[]=[
-            'value'=>"/hola2",
+            'value'=>"PerfilInstitucion/".$querysTipoinstitucion->idInstitucion,
             'label'=>$querysTipoinstitucion->nombretipo
         ];
        }
