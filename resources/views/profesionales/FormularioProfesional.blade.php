@@ -59,7 +59,6 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
             <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio---------------------> 
-
             @if(!empty($objFormulario))
                 <div class="row fila_infoBasica-formProf">
                     <!-- Sección imagen de usuario --> 
