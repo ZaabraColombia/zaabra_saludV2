@@ -1,6 +1,7 @@
 // Función para ocultar y mostrar el contenido de cada una de las opciones del FORMULARIO PROFESIONAL
 $(document).ready(function() {
     $(".content_dato-person").show();
+    $(".content_textPrincipal-formProf").show();
     $(".content_perfil-prof").hide();
     $(".content_tratam-proced").hide();
     $(".content_premio-recono").hide();
@@ -15,6 +16,7 @@ $(document).ready(function() {
         $(".publicacion").removeClass('iconAzul_public')
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
      
+        $(".content_textPrincipal-formProf").show();
         $(".content_perfil-prof").hide();
         $(".content_tratam-proced").hide();
         $(".content_premio-recono").hide();
@@ -30,6 +32,7 @@ $(document).ready(function() {
         $(".publicacion").removeClass('iconAzul_public')
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
 
+        $(".content_textPrincipal-formProf").hide();
         $(".content_dato-person").hide();
         $(".content_tratam-proced").hide();
         $(".content_premio-recono").hide();
@@ -45,6 +48,7 @@ $(document).ready(function() {
         $(".publicacion").removeClass('iconAzul_public')
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
 
+        $(".content_textPrincipal-formProf").hide();
         $(".content_dato-person").hide();
         $(".content_perfil-prof").hide();
         $(".content_premio-recono").hide();
@@ -60,6 +64,7 @@ $(document).ready(function() {
         $(".publicacion").removeClass('iconAzul_public')
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
 
+        $(".content_textPrincipal-formProf").hide();
         $(".content_dato-person").hide();
         $(".content_perfil-prof").hide();
         $(".content_tratam-proced").hide();
@@ -75,6 +80,7 @@ $(document).ready(function() {
         $(".publicacion").addClass('iconAzul_public')
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
 
+        $(".content_textPrincipal-formProf").hide();
         $(".content_dato-person").hide();
         $(".content_perfil-prof").hide();
         $(".content_tratam-proced").hide();
@@ -90,6 +96,7 @@ $(document).ready(function() {
         $(".publicacion").addClass('iconAzul_public')
         $(".galeria-video").addClass('iconAzul_galeriaVideo')
 
+        $(".content_textPrincipal-formProf").hide();
         $(".content_dato-person").hide();
         $(".content_perfil-prof").hide();
         $(".content_tratam-proced").hide();
