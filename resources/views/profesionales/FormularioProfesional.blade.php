@@ -55,7 +55,7 @@
     <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
         <h5 class="col-12 icon_infoBasica-formProf"> Información básica </h5> 
 
-        <form method="POST" action="{{ url ('/FormularioProfesionalSave') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+        <form method="POST" action="{{ url ('/FormularioProfesionalSave') }}" enctype="multipart/form-data" accept-charset="UTF-8">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
             <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio---------------------> 
@@ -81,6 +81,7 @@
                             
                             <div class="col-12 nombres_usuario-formProf">
                                 <input class="input_nomApl-formProf" value="{{$objuser->primernombre}}" readonly></input>
+
                                 <input class="input_nomApl-formProf" value="{{$objuser->segundonombre}}" readonly></input>
                             </div>
                         </div>
@@ -90,6 +91,7 @@
 
                             <div class="col-12 nombres_usuario-formProf">
                                 <input class="input_nomApl-formProf" value="{{$objuser->primerapellido}}" readonly></input>
+
                                 <input class="input_nomApl-formProf" value="{{$objuser->segundoapellido}}" readonly></input>
                             </div>
                         </div>
@@ -166,7 +168,7 @@
 
                         <input class="input_imgUsuario-formProf" type="file" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg">
 
-                        <label class="text_usuario-formProf"> Subir foto de perfil </label>
+                        <label class="col-12 icon_subirFoto-formProf text_usuario-formProf"> Subir foto de perfil </label>
                     </div>
             
                     <!-- Sección datos personales -->
@@ -177,6 +179,7 @@
 
                                 <div class="col-12 nombres_usuario-formProf">
                                     <input class="input_nomApl-formProf" value="{{$objuser->primernombre}}" readonly></input>
+
                                     <input class="input_nomApl-formProf" value="{{$objuser->segundonombre}}" readonly></input>
                                 </div>
                             </div>
@@ -186,6 +189,7 @@
 
                                 <div class="col-12 nombres_usuario-formProf">
                                     <input class="input_nomApl-formProf" value="{{$objuser->primerapellido}}" readonly></input>
+
                                     <input class="input_nomApl-formProf" value="{{$objuser->segundoapellido}}" readonly></input>
                                 </div>
                             </div>
@@ -260,14 +264,16 @@
     <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
         <form method="POST" action="{{ url ('/FormularioProfesionalSave2') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+
             <h5 class="col-12 icon_infoContac-formProf"> Información de contacto </h5>
+
             <div class="row fila_infoBasica-formProf">
                 @if(!empty($objFormulario))
                     <div class="col-md-6 section_inputLeft-text-formProf">
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
 
-                            <input class="col-lg-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="celular" value="{{$objFormulario->celular}}">
+                            <input class="col-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="celular" value="{{$objFormulario->celular}}">
                         </div>
                     </div>
 
@@ -275,7 +281,7 @@
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Teléfono </label>
 
-                            <input class="col-lg-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono" value="{{$objFormulario->telefono}}">
+                            <input class="col-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono" value="{{$objFormulario->telefono}}">
                         </div>
                     </div>
                     
@@ -283,7 +289,7 @@
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Dirección </label>
                             
-                            <input class="col-lg-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" value="{{$objFormulario->direccion}}">
+                            <input class="col-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" value="{{$objFormulario->direccion}}">
                         </div>
                     </div>
 
@@ -293,6 +299,7 @@
 
                         <select id="idpais" name="idpais" class="col-12 form-control">
                             <option value="" selected disabled>Seleccione país</option>
+
                             @foreach($pais as $pais)
                                 <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
                             @endforeach
@@ -317,7 +324,8 @@
                         <select name="id_municipio" id="id_municipio" class="col-12 form-control"></select>
                     </div>
 
-                    <div class="col-lg-12 mt-3 content_btnEnviar-formProf">
+                    <!-- Botón guardar información -->
+                    <div class="col-12 mt-3 content_btnEnviar-formProf">
                         <button type="submit" class="btn2_enviar-formProf"> Guardar
                             <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                         </button>
@@ -328,7 +336,7 @@
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
                             
-                            <input class="col-lg-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="celular" >
+                            <input class="col-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="celular" >
                         </div>
                     </div>
 
@@ -336,7 +344,7 @@
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Teléfono </label>
 
-                            <input class="col-lg-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono" >
+                            <input class="col-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono" >
                         </div>
                     </div>
 
@@ -344,7 +352,7 @@
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Dirección </label>
 
-                            <input class="col-lg-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" >
+                            <input class="col-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" >
                         </div>
                     </div>
 
@@ -353,33 +361,32 @@
                         <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione país </label>
 
                         <select id="idpais" name="idpais" class="form-control">
-                            <option value="" selected disabled>Seleccione pais</option>
-                                @foreach($pais as $pais)
-                            <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
-                                @endforeach
+                            <option value="" selected disabled> Seleccione país </option>
+
+                            @foreach($pais as $pais)
+                                <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
+                            @endforeach
                         </select>
                     </div>
 
                     <div class="col-md-6 section_inputLeft-text-formProf">
                         <label for="example-date-input" class="col-12 text_label-formProf"> Selecione departamento </label>
 
-                        <select name="id_departamento" id="id_departamento" class="form-control">
-                        </select>
+                        <select name="id_departamento" id="id_departamento" class="form-control"></select>
                     </div>
             
                     <div class="col-md-6 section_inputRight-text-formProf">
                         <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione provincia </label>
-                        <select name="id_provincia" id="id_provincia" class="form-control">
-                        </select>
+                        <select name="id_provincia" id="id_provincia" class="form-control"></select>
                     </div>
 
                     <div class="col-md-6 section_inputLeft-text-formProf">
                         <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione ciudad </label>
 
-                        <select name="id_municipio" id="id_municipio" class="form-control">
-                        </select>
+                        <select name="id_municipio" id="id_municipio" class="form-control"></select>
                     </div>
 
+                    <!-- Botón guardar información -->
                     <div class="col-12 mt-3 content_btnEnviar-formProf">
                         <button type="submit" class="btn2_enviar-formProf"> Guardar
                             <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
@@ -394,10 +401,12 @@
     <!--------------------------------------------      Inicio 3 tercera parte del formulario *** INFORMACIÓN CONSULTA ***      ------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_dato-person infoBasica_formProf">
         <h5 class="col-12 icon_infoConsult-formProf"> Información consulta </h5>
+
         @foreach($objConsultas as $objConsultas)
             @if(!empty($objConsultas->nombreconsulta))
                 <div class="col-md-6">
                     <span> {{$objConsultas->nombreconsulta}} </span>
+
                     <span> {{$objConsultas->valorconsulta}} </span>
                     
                     <a href="{{url('/FormularioProfesionaldelete3/'.$objConsultas->id)}}">
@@ -1401,7 +1410,7 @@
                 <!-- Modulo de los PREMIOS sin información-->
                 <div class="row content_antDesp-formProf">
                     <!-- Contenido PREMIO izquierdo -->
-                    <div class="col-md-6 photo1  section_inputLeft-text-formProf">
+                    <div class="col-md-6 photo1 section_inputLeft-text-formProf">
                         <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
                             <div class="col-10 img_selccionada-formProf">
                                 <div class="img_anexada-formProf" id="previewPremioLeft1"></div>

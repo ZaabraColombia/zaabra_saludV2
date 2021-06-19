@@ -200,7 +200,8 @@ Route::get('/politicas', function () { return view('quienes-somos/politicas');})
 
 /*------------------------------------------------- Pertenece a CONTACTO -------------------------------------------------------------------------------*/
 /* Esta ruta direcciona a la vista Contactenos */
-Route::get('/contacto', function () { return view('contacto');})->name('contacto');
+Route:: get('/contacto',[App\Http\Controllers\contactecnosController::class,'index'])->name('contacto');
+Route:: post('/contacto',[App\Http\Controllers\contactecnosController::class,'save'])->name('contacto');
 
 
 /*------------------------------------------------- Pertenece a ERRORES -------------------------------------------------------------------------------*/

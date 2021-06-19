@@ -14,10 +14,16 @@ $(function(){
         });  
     },
     select: function (event, ui) {
+        $('#barra_busqueda').val(ui.item.id); // save selected id to input
         // Set selection
-        $('#filtro').val(ui.item.label); // display the selected text
-        $('#employeeid').val(ui.item.id); // save selected id to input
-        return false;
+        $('#barra_busqueda').keypress(function(e){
+            var keycode = (e.keyCode ? e.keyCode : e.which);
+            if (keycode == '13') {
+                e.preventDefault();
+                window.location = ui.item.id;
+              }
+        });
+
      }
     })
     .data( "ui-autocomplete" )._renderItem = function( ul, item ) { 
@@ -28,6 +34,8 @@ $(function(){
              
     }
 });
+
+
 
 
 
