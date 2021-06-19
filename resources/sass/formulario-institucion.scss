@@ -35,6 +35,19 @@
 
 
 // Iconos grises de las opciones de la INSTITUCIÓN
+.iconGris_datoPersonal {
+    background-image: url('/img/formulario-profesional/icono-datos-personales-gris.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 50%;
+    background-position-x: center;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+    font-size: 1em !important;
+    color: #0083D6 !important;
+}
 .iconGris_perfProf {
     background-image: url('/img/formulario-profesional/icono-perfil-profesional-gris.svg');
     background-repeat: no-repeat;
@@ -99,6 +112,21 @@
     line-height: 1;
     font-size: 1em;
     color: #D1D1D1;
+}
+
+// Icono azules de las opciones del usuario
+.iconVerde_datoInst {
+    background-image: url('/img/formulario-profesional/datos-institucionales-verde.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 50%;
+    background-position-x: center;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+    font-size: 1em !important;
+    color: #0083D6 !important;
 }
 // Icono azules de las opciones del usuario
 .iconAzul_datoPersonal {

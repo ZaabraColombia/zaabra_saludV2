@@ -5,7 +5,7 @@
 <!--     Sección lista de opciones     -->
 <ol  class="lista_opciones-usuario-formProf">
     <div class="content_icons-formProf"> <!-- clase "content_icons-formProf" para evento ocultar y mostrar contenido de la opción. Ubicado en el archivo formularios.js -->
-        <li class="iconAzul_datoPersonal dato-personal">
+        <li class="iconVerde_datoInst dato-personal">
             <p class="text_opcion-formProfesional" > Datos institucionales </p>
         </li>
     </div>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="content_icons-formProf">
-        <li class="iconGris_perfProf profesional-institution">
+        <li class="iconGris_datoPersonal profesional-institution">
             <p class="text_opcion-formProfesional" > Profesionales </p>
         </li>
     </div>
@@ -3318,7 +3318,7 @@
 
 
 
-    
+
 
 
     <!--------------------------------------------      Inicio 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------------->
