@@ -7,9 +7,8 @@
                     </a>
                     <!-- Sección barra de busqueda -->
                     <div class="contains_boxsearch">
-                        <div class="barra_busqueda" id="oscar">
+                        <div class="barra_busqueda" id="barra_busqueda">
                                 <input  class="inputBarraBusquedad" id="filtro">
-                                <input type="text" id="employeeid">
                         </div> 
                     </div>
 
