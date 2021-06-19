@@ -38,21 +38,6 @@
                     </div>
                 </div>
                 @endforeach
-            </div>
-        </section>
-
-        <!-- seccion datos consulta perfil profesional-->
-        <section class="section_data_consulta">
-            <h2>Tipo de consulta</h2>
-            <div class="data_consulta">
-                <ul>
-                    @foreach ($objprofesionallandingconsultas as $objprofesionallandingconsultas)
-                        <li>
-                            <p class="menu_{{$loop->iteration}}"><i></i>{{$objprofesionallandingconsultas->nombreconsulta}}</p>
-                            <span><i></i>${{$objprofesionallandingconsultas->valorconsulta}}</span>
-                        </li>
-                    @endforeach
-                </ul>
                 <div class="contains_buttons">
                     <a href="">Agende su cita
                         <i class="fas fa-arrow-right arrow_mas"></i>
@@ -65,35 +50,21 @@
         </section>
 
         <!-- seccion datos consulta perfil profesional-->
-        <section class="section_destacado">
-            <div class="destacado">
-                <h2><i></i>Destacado en:</h2>
-                <ul>
-                    @foreach ($objprofesionallandingexperto as $objprofesionallandingexperto)
-                        <li>
-                            <p>{{$objprofesionallandingexperto->nombreExpertoEn}}</p>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </section>
-
-        <!-- seccion datos consulta perfil profesional-->
         <section class="contains_swiper_institucion">
-            <h1>¿Por qué es un doctor de alto nivel?</h1>
+            <h1>¿Por qué es un centro médico de alto nivel?</h1>
             <div class="swiper-container swiper_institucion">
                 <div class="swiper-wrapper landingProf">
                     <li class="swiper-slide">
-                        <a class="item_landing perfil perfil_clicked"><span>Perfil profesional</span></a>
+                        <a class="item_landing perfil perfil_clicked"><span>Servicios profesionales</span></a>
                     </li>
                     <li class="swiper-slide">
-                        <a class="item_landing tratamientos"><span>Tratamientos y procedimientos</span></a>
+                        <a class="item_landing tratamientos"><span>Acerca de la Institución</span></a>
                     </li>
                     <li class="swiper-slide">
-                        <a class="item_landing premios"><span>Premios y reconocimientos</span></a>
+                        <a class="item_landing premios"><span>Certificaciones</span></a>
                     </li>
                     <li class="swiper-slide">
-                        <a class="item_landing publicaciones"><span>Publicaciones</span></a>
+                        <a class="item_landing publicaciones"><span>Sedes</span></a>
                     </li>
                     <li class="swiper-slide">
                         <a class="item_landing galeria"><span>Galería</span></a>
@@ -102,11 +73,34 @@
             </div>
         </section>
 
+        
+        @foreach ($objinstitucionlandinservicios as $objinstitucionlandinservicios)
+            <div class="card containt_options-collapse-membresia">
+                <div id="headingTwo">
+                    <button class="boton_collapse-off-membresia" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">{{$objinstitucionlandinservicios->tituloServicios}}<</button>
+                </div>
+
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body text_interno-toggle-membresia">
+                        <p>{{$objinstitucionlandinservicios->DescripcioServicios}}</p>
+                    </div>
+                    <div>
+                        @if($objinstitucionlandinservicios->sucursalservicio) 
+                            @php  $new_array = explode(',',$objinstitucionlandinservicios->sucursalservicio); @endphp
+                        @endif
+                        @foreach($new_array as $info)
+                            <option>{{$info}}</option>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        @endforeach
+
         <section class="sections sections_active section_perfil_institucion">
 
             <div class="perfil_institucion">
-                <h2><i></i>Perfil Profesional</h2>
-                <p>{{$objprofesionallanding->descripcionPerfil}}</p>
+                <h2><i></i>Servicios profesionales</h2>
+                <p>{{$objinstitucionlandin->DescripcionGeneralServicios}}</p>
             </div>
 
             <div class="educacion">
