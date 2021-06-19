@@ -99,65 +99,54 @@
         <section class="sections sections_active section_perfil_institucion">
 
             <div class="perfil_institucion">
-                <h2><i></i>Servicios profesionales</h2>
-                <p>{{$objinstitucionlandin->DescripcionGeneralServicios}}</p>
+                <h2><i></i>¿Quiénes somos?</h2>
+                <p>{{$objinstitucionlandin->quienessomos}}</p>
             </div>
 
-            <div class="educacion">
-                <h2><i></i>Educación</h2>
-                <ul>
-                    @foreach ($objprofesionallandingestudios as $objprofesionallandingestudios)
-                        <li>
-                            <h5>{{$objprofesionallandingestudios->nombreestudio}}</h5>
-                            <p>{{$objprofesionallandingestudios->nombreuniversidad}}</p>
-                            <p>{{$objprofesionallandingestudios->fechaestudio}}</p>                            
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-
-            <div class="experiencia">
-                <h2><i></i>Experiencia</h2>
-                <ul>
-                    @foreach ($objprofesionallandingexperi as $objprofesionallandingexperi)
-                        <li>
-                            <div class="contains_info">
-                                <h5>{{$objprofesionallandingexperi->nombreEmpresaExperiencia}}</h5>
-                                <p>{{$objprofesionallandingexperi->descripcionExperiencia}}</p>
-                                <p><strong>Desde </strong>{{$objprofesionallandingexperi->fechaInicioExperiencia}}</p>
-                                <p><strong>hasta </strong>{{$objprofesionallandingexperi->fechaFinExperiencia}}</p>
-                            </div>
-                            <div class="contains_logo">
-                                <img src="{{URL::asset($objprofesionallandingexperi->imgexperiencia)}}"> 
-                            </div>           
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-
-            <div class="asociaciones">
-                <h2><i></i>Asociaciones</h2>
+            <div class="propuesta">
+                <h2><i></i>Propuesta de valor</h2>
                 <ul>
                     <li>
-                        @foreach ($objprofesionallandingasocia as $objprofesionallandingasocia)
-                            <img src="{{URL::asset($objprofesionallandingasocia->imgasociacion)}}">
-                        @endforeach
+                        <p>{{$objinstitucionlandin->propuestavalor}}</p>                            
                     </li>
                 </ul>
             </div>
 
-            <div class="idiomas">
-                <h2><i></i>Idiomas</h2>
+            <div class="convenios">
+                <h2><i></i>Convenios</h2>
                 <ul>
                     <li>
-                        @foreach ($objprofesionallandingidioma as $objprofesionallandingidioma)
-                        <div class="contains_idioma">
-                            <p>{{$objprofesionallandingidioma->nombreidioma}}</p>
-                            <img src="{{URL::asset($objprofesionallandingidioma->imgidioma)}}">
+                        @foreach ($objinstitucionlandineps as $objinstitucionlandineps)
+                            <img src="{{URL::asset($objinstitucionlandineps->urlimagen)}}">
+                        @endforeach
+                    </li>
+                    <li>
+                        @foreach ($objinstitucionlandinips as $objinstitucionlandinips)
+                            <img src="{{URL::asset($objinstitucionlandinips->urlimagen)}}">
+                        @endforeach
+                    </li>
+                    <li>
+                        @foreach ($objinstitucionlandinprepagada as $objinstitucionlandinprepagada)
+                            <img src="{{URL::asset($objinstitucionlandinprepagada->urlimagen)}}">
+                        @endforeach
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="sections contains_swiper_certificados">
+            <h2><i></i>Premios y Reconocimientos</h2>
+            <div class="swiper-container swiper_certificados">
+                <div class="swiper-wrapper">
+                    @foreach ($objinstitucionlandinpremios as $objinstitucionlandinpremios)
+                        <div class="swiper-slide">
+                            <img src="{{URL::asset($objinstitucionlandinpremios->imgpremio)}}">
+                            <h6>{{$objinstitucionlandinpremios->fechapremio}}</h6>
+                            <h5>{{$objinstitucionlandinpremios->nombrepremio}}</h5>
+                            <p>{{$objinstitucionlandinpremios->descripcionpremio}}</p>
                         </div>
-                        @endforeach
-                    </li>
-                </ul>
+                    @endforeach
+                </div>
             </div>
         </section>
 
@@ -180,39 +169,6 @@
                             <div class="card-body">
                                 <h5>{{$objprofesionallandingtratam->tituloTrataminetoDespues}}</h5>
                                 <p>{{$objprofesionallandingtratam->descripcionTratamientoDespues}}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-
-        <section class="sections contains_swiper_premios">
-            <h2><i></i>Premios y Reconocimientos</h2>
-            <div class="swiper-container swiper_premios">
-                <div class="swiper-wrapper">
-                    @foreach ($objprofesionallandingpremio as $objprofesionallandingpremio)
-                        <div class="swiper-slide">
-                            <img src="{{URL::asset($objprofesionallandingpremio->imgpremio)}}">
-                            <h6>{{$objprofesionallandingpremio->fechapremio}}</h6>
-                            <h5>{{$objprofesionallandingpremio->nombrepremio}}</h5>
-                            <p>{{$objprofesionallandingpremio->descripcionpremio}}</p>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-
-        <section class="sections section_publicaciones_institucion">
-            <div class="publicaciones_institucion">
-                <h2><i></i>Publicaciones</h2>
-                <div class="container_cards">
-                    @foreach ($objprofesionallandingpublic as $objprofesionallandingpublic)
-                        <div class="card">
-                            <img class="card-img-top" src="{{URL::asset($objprofesionallandingpublic->imgpublicacion)}}">
-                            <div class="card-body">
-                                <h5>{{$objprofesionallandingpublic->nombrepublicacion}}</h5>
-                                <p>{{$objprofesionallandingpublic->descripcion}}</p>
                             </div>
                         </div>
                     @endforeach
