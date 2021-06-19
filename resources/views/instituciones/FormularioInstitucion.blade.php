@@ -3,63 +3,63 @@
 @section('content')
 
 <!--     Sección lista de opciones     -->
-<ol  class="lista_opciones-usuario-formProf">
-    <div class="content_icons-formProf"> <!-- clase "content_icons-formProf" para evento ocultar y mostrar contenido de la opción. Ubicado en el archivo formularios.js -->
-        <li class="iconVerde_datoInst dato-personal">
-            <p class="text_opcion-formProfesional" > Datos institucionales </p>
+<ol  class="lista_opciones-usuario-formInst">
+    <div class="content_icons-formInst"> <!-- clase "content_icons-formInst" para evento ocultar y mostrar contenido de la opción. Ubicado en el archivo formularios.js -->
+        <li class="iconVerde_datoInst dato_institution"> <!-- clase "dato_institution" para activar el evento on click de la opción. Ubicado en el archivo formulario.js  -->
+            <p class="text_opcion-formInst" > Datos institucionales </p>
         </li>
     </div>
 
-    <div class="content_icons-formProf">
-        <li class="iconGris_perfProf perfil-profesional">
-            <p class="text_opcion-formProfesional" > Servicios profesionales </p>
+    <div class="content_icons-formInst">
+        <li class="iconGris_servProfesional serv_profesional">
+            <p class="text_opcion-formInst" > Servicios profesionales </p>
         </li>
     </div>
 
-    <div class="content_icons-formProf">
-        <li class="iconGris_trataProced tratamiento-procedimiento">
-            <p class="text_opcion-formProfesional" > Acerca de la institución </p>
+    <div class="content_icons-formInst">
+        <li class="iconGris_acercaInst acerca_institution">
+            <p class="text_opcion-formInst" > Acerca de la institución </p>
         </li>
     </div>
 
-    <div class="content_icons-formProf">
-        <li class="iconGris_datoPersonal profesional-institution">
-            <p class="text_opcion-formProfesional" > Profesionales </p>
+    <div class="content_icons-formInst">
+        <li class="iconGris_profesionalInst profesional_institution">
+            <p class="text_opcion-formInst" > Profesionales </p>
         </li>
     </div>
 
-    <div class="content_icons-formProf">
-        <li class="iconGris_premioRecon premio-reconocimiento">
-            <p class="text_opcion-formProfesional" > Certificaciones </p>
+    <div class="content_icons-formInst">
+        <li class="iconGris_certifInst certificado_institution">
+            <p class="text_opcion-formInst" > Certificaciones </p>
         </li>
     </div>
 
-    <div class="content_icons-formProf">
-        <li class="iconGris_public publicacion">
-            <p class="text_opcion-formProfesional" > Sedes </p>
+    <div class="content_icons-formInst">
+        <li class="iconGris_sedeInst sede_institution">
+            <p class="text_opcion-formInst" > Sedes </p>
         </li>
     </div>
 
-    <div class="content_icons-formProf">
-        <li class="iconGris_galeriaVideo galeria-video">
-            <p class="text_opcion-formProfesional" > Galería </p>
+    <div class="content_icons-formInst">
+        <li class="iconGris_galeInst galeria_institution">
+            <p class="text_opcion-formInst" > Galería </p>
         </li>
     </div>
 </ol> 
 
-<!-- Contenedor principal de las tarjetas de datos -->
-<div class="container-fluid content_principal-formProf">
+<!-- Contenedor principal de las tarjetas -->
+<div class="container-fluid content_principal-formInst">
 
     <!-- Titulo y texto superior -->
-    <div class="col-lg-10 col-xl-8 content_textPrincipal-formProf">
-        <h5 class="titulo_principal-formProf"> LE DAMOS LA BIENVENIDA A ZAABRA SALUD </h5>
+    <div class="col-lg-10 col-xl-8 content_textPrincipal-formInst">
+        <h5 class="titulo_principal-formInst"> LE DAMOS LA BIENVENIDA A ZAABRA SALUD </h5>
 
-        <p class="texto_superior-formProf"> Ingrese los datos según corresponda y finalice el proceso completamente en línea. </p>
+        <p class="texto_superior-formInst"> Ingrese los datos según corresponda y finalice el proceso completamente en línea. </p>
     </div>
 
     <!--------------------------------------------      Inicio 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      --------------------------------------------->
-    <div class="col-lg-10 col-xl-8 content_dato-Institution infoBasica_formProf">
-        <h5 class="col-12 icon_infoBasica-formProf"> Información básica </h5> 
+    <div class="col-lg-10 col-xl-8 content_dato-Institution content_tarjetasInfo-formInst">
+        <h5 class="col-12 icon_infoBasica-formInst"> Información básica </h5> 
 
         <form method="POST" action="{{ url ('/FormularioInstitucionSave') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
@@ -173,11 +173,11 @@
     <!--------------------------------------------      Fin 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      ------------------------------------------------>
 
     <!--------------------------------------------      Inicio 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ------------------------------------------->
-    <div class="col-lg-10 col-xl-8 content_dato-Institution infoBasica_formProf">
+    <div class="col-lg-10 col-xl-8 content_dato-Institution content_tarjetasInfo-formInst">
         <form method="POST" action="{{ url ('/FormularioInstitucionSave2') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-            <h5 class="col-12 icon_infoContac-formProf"> Información de contacto </h5>
+            <h5 class="col-12 icon_infoContac-formInst"> Información de contacto </h5>
 
             <div class="row fila_infoBasica-formProf">
                 @if(!empty($objFormulario->telefonouno))
@@ -317,8 +317,8 @@
     
 
     <!--------------------------------------------      Inicio 3 tercera parte del formulario *** SERVICIO PROFESIONAL ***      ------------------------------------------->
-    <div class="col-lg-10 col-xl-8 pb-3 content_serv-prof  infoBasica_formProf">
-        <h5 class="col-12 icon_infoConsult-formProf"> Servicios profesionales </h5>
+    <div class="col-lg-10 col-xl-8 pb-3 content_servProf-institution  content_tarjetasInfo-formInst">
+        <h5 class="col-12 icon_servProf-formInst"> Servicios profesionales </h5>
 
         <form method="POST" action="{{ url ('/FormularioInstitucionSave3') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
@@ -354,8 +354,8 @@
     <!--------------------------------------------      Fin 3 tercera parte del formulario *** SERVICIO PROFESIONAL ***      ---------------------------------------------->
 
     <!--------------------------------------------      Inicio 4 cuarta parte del formulario *** SERVICIO ***      -------------------------------------------------------->
-    <div class="col-lg-10 col-xl-8 pb-3 content_serv-prof  infoBasica_formProf">
-        <h5 class="col-lg-12 icon_infoBasica-formProf"> Servicios </h5>
+    <div class="col-lg-10 col-xl-8 pb-3 content_servProf-institution  content_tarjetasInfo-formInst">
+        <h5 class="col-lg-12 icon_servicios-formInst"> Servicios </h5>
         <!-- Modulo contenido SERVICIOS -->
         <div class="col-12 row section_servicio-formInst">
             @foreach($objServicio as $objServicio)
@@ -933,8 +933,8 @@
 
 
     <!--------------------------------------------      Inicio 5 quinta parte del formulario *** QUIENES SOMOS ***      --------------------------------------------------->
-    <div class="col-lg-10 col-xl-8 pb-3 content_acerca-institution infoBasica_formProf">
-        <h5 class="col-lg-12 icon_infoBasica-formProf"> ¿Quiénes somos? </h5>
+    <div class="col-lg-10 col-xl-8 pb-3 content_acerca-institution content_tarjetasInfo-formInst">
+        <h5 class="col-lg-12 icon_quienes-formInst"> ¿Quiénes somos? </h5>
 
         <form method="POST" action="{{ url ('/FormularioInstitucionSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
@@ -970,8 +970,8 @@
     <!--------------------------------------------      Fin 5 quinta parte del formulario *** QUIENES SOMOS ***      ------------------------------------------------------>
 
     <!--------------------------------------------      Inicio 6 sexta parte del formulario *** PROPUESTA DE VALOR ***      ----------------------------------------------->
-    <div class="col-lg-10 col-xl-8 pb-3 content_acerca-institution infoBasica_formProf">
-        <h5 class="col-lg-12 icon_infoBasica-formProf">Propuesta de valor </h5>
+    <div class="col-lg-10 col-xl-8 pb-3 content_acerca-institution content_tarjetasInfo-formInst">
+        <h5 class="col-lg-12 icon_propuestaValor-formInst">Propuesta de valor </h5>
 
         <form method="POST" action="{{ url ('/FormularioInstitucionSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
@@ -1007,8 +1007,8 @@
     <!--------------------------------------------      Fin 6 sexta parte del formulario *** PROPUESTA DE VALOR ***      -------------------------------------------------->
 
     <!--------------------------------------------      Inicio 7 septima parte del formulario *** CONVENIOS ***      ------------------------------------------------------>
-    <div class="col-lg-10 col-xl-8 pb-3 content_acerca-institution infoBasica_formProf">
-        <h5 class="col-lg-12 icon_infoBasica-formProf">Convenios</h5>
+    <div class="col-lg-10 col-xl-8 pb-3 content_acerca-institution content_tarjetasInfo-formInst">
+        <h5 class="col-lg-12 icon_convenios-formInst">Convenios</h5>
 
         <div class="col-12 row">
             @foreach($objEps as $objEps)
@@ -1384,7 +1384,7 @@
 
 
     <!--------------------------------------------      Inicio 8 octava parte del formulario *** PROFESIONALES ***      --------------------------------------------------->
-    <div class="col-lg-10 col-xl-8 pb-3 content_profesional-inst infoBasica_formProf">
+    <div class="col-lg-10 col-xl-8 pb-3 content_profesional-institution content_tarjetasInfo-formInst">
         <h5 class="col-lg-12 icon_infoBasica-formProf"> Profesionales </h5>
 
         <div class="col-12 row">
@@ -1703,8 +1703,8 @@
 
 
     <!--------------------------------------------      Inicio 9 novena parte del formulario *** CERTIFICACIONES ***      ------------------------------------------------->
-    <div class="col-lg-10 col-xl-8 pb-3 content_certif-institution infoBasica_formProf">
-        <h5 class="col-lg-12 icon_infoBasica-formProf"> Certificaciones </h5>
+    <div class="col-lg-10 col-xl-8 pb-3 content_certif-institution content_tarjetasInfo-formInst">
+        <h5 class="col-lg-12 icon_certificaciones-formInst"> Certificaciones </h5>
 
         <p class="text_superior-proced-formProf"> A continuación suba imágenes relacionadas con sus certificaciones, con fecha, nombre y descripción. </p>
 
@@ -2209,7 +2209,7 @@
 
 
     <!--------------------------------------------      Inicio 10 decima parte del formulario *** SEDES ***      ---------------------------------------------------------->
-    <div class="col-lg-10 col-xl-8 pb-3 content_sede-institution infoBasica_formProf">
+    <div class="col-lg-10 col-xl-8 pb-3 content_sede-institution content_tarjetasInfo-formInst">
         <h5 class="col-lg-12 icon_infoBasica-formProf"> Sedes </h5>
 
         <p class="text_superior-proced-formProf"> A continuación suba imágenes e información de las sedes que tengan de la institución </p>
@@ -3281,7 +3281,7 @@
     <!--------------------------------------------      Fin 10 decima parte del formulario *** SEDES ***      ------------------------------------------------------------->
 
     <!--------------------------------------------      Inicio 11 onceava parte del formulario *** UBIQUE LA SEDE ***      -------------------------------------------->
-    <div class="col-lg-10 col-xl-8 pb-3 content_sede-institution infoBasica_formProf">
+    <div class="col-lg-10 col-xl-8 pb-3 content_sede-institution content_tarjetasInfo-formInst">
         <h5 class="col-lg-12 icon_infoBasica-formProf"> Ubique la sede </h5>
 
         <form method="POST" action="{{ url ('/FormularioInstitucionSave11') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
@@ -3322,7 +3322,7 @@
 
 
     <!--------------------------------------------      Inicio 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------------->
-    <div class="col-lg-10 col-xl-8 pb-3 content_galeria-institution infoBasica_formProf">
+    <div class="col-lg-10 col-xl-8 pb-3 content_galeria-institution content_tarjetasInfo-formInst">
         <h5 class="col-lg-12 icon_infoBasica-formProf"> Galeria </h5>
 
         <p class="text_superior-proced-formProf"> A continuación suba 10 imágenes como mínimo, con su respectivo nombre y descripción. </p>
