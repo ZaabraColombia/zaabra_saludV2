@@ -55,7 +55,7 @@
     <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
         <h5 class="col-12 icon_infoBasica-formProf"> Información básica </h5> 
 
-        <form method="POST" action="{{ url ('/FormularioProfesionalSave') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+        <form method="POST" action="{{ url ('/FormularioProfesionalSave') }}" enctype="multipart/form-data" accept-charset="UTF-8">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
             <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio---------------------> 
