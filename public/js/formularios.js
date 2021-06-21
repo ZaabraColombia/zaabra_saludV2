@@ -1,282 +1,331 @@
 // Función para ocultar y mostrar el contenido de cada una de las opciones del FORMULARIO PROFESIONAL
 $(document).ready(function() {
-    $(".content_dato-person").show();
-    $(".content_textPrincipal-formInst").show();
-    $(".content_perfil-prof").hide();
-    $(".content_tratam-proced").hide();
-    $(".content_premio-recono").hide();
-    $(".content_publicacion").hide();
-    $(".content_galeria-video").hide();
+    $(".personal_data").show();
+    $(".professional_profile").hide();
+    $(".treatments_procedures").hide();
+    $(".Awards_honours").hide();
+    $(".publications_formInst").hide();
+    $(".gallery_formInst").hide();
+});
 
-    $(".dato-personal").click(function() {
-        $(".content_dato-person").toggle("650","swing")
+// Evento onclick para desplegar las tarjetas del formulario de registro y el cambio de color del icono en la linea de opciones FORMULARIO PROFESIONALES
+function containtHideOption (t){
+    let myvar = t.getAttribute('data-position');
+    
+    let selector = document.querySelector.bind(document);
+    
+    // Condicional para el despliegue de elementos opción DATOS PERSONALES
+    if (myvar == "personalData") {
+        selector(".personal_data").style.display = "block";
+        selector(".professional_profile").style.display = "none";
+        selector(".treatments_procedures").style.display = "none";
+        selector(".Awards_honours").style.display = "none";
+        selector(".publications_formInst").style.display = "none";
+        selector(".gallery_formInst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
         $(".perfil-profesional").removeClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").removeClass('iconAzul_trataProced')
         $(".premio-reconocimiento").removeClass('iconAzul_premioRecon')
         $(".publicacion").removeClass('iconAzul_public')
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
-     
-        $(".content_textPrincipal-formInst").show();
-        $(".content_perfil-prof").hide();
-        $(".content_tratam-proced").hide();
-        $(".content_premio-recono").hide();
-        $(".content_publicacion").hide();
-        $(".content_galeria-video").hide();
-    });
+    }
 
-    $(".perfil-profesional").click(function() {
-        $(".content_perfil-prof").toggle("650","swing")
+    // Condicional para el despliegue de elementos opción PERFIL PROFESIONAL
+    else if (myvar == "professionalProfile") {
+        selector(".personal_data").style.display = "none";
+        selector(".professional_profile").style.display = "block";
+        selector(".treatments_procedures").style.display = "none";
+        selector(".Awards_honours").style.display = "none";
+        selector(".publications_formInst").style.display = "none";
+        selector(".gallery_formInst").style.display = "none";
+ 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").removeClass('iconAzul_trataProced')
         $(".premio-reconocimiento").removeClass('iconAzul_premioRecon')
         $(".publicacion").removeClass('iconAzul_public')
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
 
-        $(".content_textPrincipal-formInst").hide();
-        $(".content_dato-person").hide();
-        $(".content_tratam-proced").hide();
-        $(".content_premio-recono").hide();
-        $(".content_publicacion").hide();
-        $(".content_galeria-video").hide();
-    });
+    }
 
-    $(".tratamiento-procedimiento").click(function() {
-        $(".content_tratam-proced").toggle("650","swing")
+    // Condicional para el despliegue de elementos opción TRATAMIENTOS Y PROCEDIMIENTOS
+    else if (myvar == "treatmentsProcedures") {
+        selector(".personal_data").style.display = "none";
+        selector(".professional_profile").style.display = "none";
+        selector(".treatments_procedures").style.display = "block";
+        selector(".Awards_honours").style.display = "none";
+        selector(".publications_formInst").style.display = "none";
+        selector(".gallery_formInst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
         $(".premio-reconocimiento").removeClass('iconAzul_premioRecon')
         $(".publicacion").removeClass('iconAzul_public')
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
+    }
 
-        $(".content_textPrincipal-formInst").hide();
-        $(".content_dato-person").hide();
-        $(".content_perfil-prof").hide();
-        $(".content_premio-recono").hide();
-        $(".content_publicacion").hide();
-        $(".content_galeria-video").hide();
-    });
+    // Condicional para el despliegue de elementos opción PREMIOS Y RECONOCIMIENTOS
+    else if (myvar == "AwardsHonours") {
+        selector(".personal_data").style.display = "none";
+        selector(".professional_profile").style.display = "none";
+        selector(".treatments_procedures").style.display = "none";
+        selector(".Awards_honours").style.display = "block";
+        selector(".publications_formInst").style.display = "none";
+        selector(".gallery_formInst").style.display = "none";
 
-    $(".premio-reconocimiento").click(function() {
-        $(".content_premio-recono").toggle("650","swing")
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
         $(".premio-reconocimiento").addClass('iconAzul_premioRecon')
         $(".publicacion").removeClass('iconAzul_public')
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
+    }
 
-        $(".content_textPrincipal-formInst").hide();
-        $(".content_dato-person").hide();
-        $(".content_perfil-prof").hide();
-        $(".content_tratam-proced").hide();
-        $(".content_publicacion").hide();
-        $(".content_galeria-video").hide();
-    });
+    // Condicional para el despliegue de elementos opción PUBLICACIONES
+    else if (myvar == "publicationsFormProf") {
+        selector(".personal_data").style.display = "none";
+        selector(".professional_profile").style.display = "none";
+        selector(".treatments_procedures").style.display = "none";
+        selector(".Awards_honours").style.display = "none";
+        selector(".publications_formInst").style.display = "block";
+        selector(".gallery_formInst").style.display = "none";
 
-    $(".publicacion").click(function() {
-        $(".content_publicacion").toggle("650","swing")
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
         $(".premio-reconocimiento").addClass('iconAzul_premioRecon')
         $(".publicacion").addClass('iconAzul_public')
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
+    }
 
-        $(".content_textPrincipal-formInst").hide();
-        $(".content_dato-person").hide();
-        $(".content_perfil-prof").hide();
-        $(".content_tratam-proced").hide();
-        $(".content_premio-recono").hide();
-        $(".content_galeria-video").hide();
-    });
+    // Condicional para el despliegue de elementos opción GALERIA Y VIDEOS
+    else if (myvar == "galleryFormProf") {
+        selector(".personal_data").style.display = "none";
+        selector(".professional_profile").style.display = "none";
+        selector(".treatments_procedures").style.display = "none";
+        selector(".Awards_honours").style.display = "none";
+        selector(".publications_formInst").style.display = "none";
+        selector(".gallery_formInst").style.display = "block";
 
-    $(".galeria-video").click(function() {
-        $(".content_galeria-video").toggle("650","swing")
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
         $(".premio-reconocimiento").addClass('iconAzul_premioRecon')
         $(".publicacion").addClass('iconAzul_public')
         $(".galeria-video").addClass('iconAzul_galeriaVideo')
-
-        $(".content_textPrincipal-formInst").hide();
-        $(".content_dato-person").hide();
-        $(".content_perfil-prof").hide();
-        $(".content_tratam-proced").hide();
-        $(".content_premio-recono").hide();
-        $(".content_publicacion").hide();
-    });
-});
-
-
-/* Función para ocultar y mostrar el contenido de cada una de las opciones del FORMULARIO INSTITUCIÓN
-$(document).ready(function() {
-    // Elementos que se muestran al cargar la vista
-    $(".content_dato-Institution").show(); // Clase para mostrar la tarjeta de " DATOS DE LA INSTITUCIOÓN ".
-    $(".content_textPrincipal-formInst").show(); // clase que muestra el titulo y texto en la tarjeta datos de la institución y lo oculta en las demas.
-
-    // Elementos que se encuentran ocultos
-    $(".content_servProf-institution").hide();
-    $(".content_acerca-institution").hide();
-    $(".content_profesional-institution").hide();
-    $(".content_certif-institution").hide();
-    $(".content_sede-institution").hide();
-    $(".content_galeria-institution").hide();
-
-    // Función de evento on click para ocultar y mostrar los elementos de las tarjetas del formulario
-    $(".dato_institution").click(function() {   //Clase para evento on click en el icono de la linea de opciones parte superior del formulario
-        $(".content_dato-Institution").toggle("650","swing")   // Despliegue del contenido de la tarjeta " DATOS INSTITUCIONALES " 
-
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
-        $(".serv_profesional").removeClass('iconVerde_servProfesional')
-        $(".acerca_institution").removeClass('iconVerde_acercaInst')
-        $(".profesional_institution").removeClass('iconVerde_profesionalInst')
-        $(".certificado_institution").removeClass('iconVerde_certifInst')
-        $(".sede_institution").removeClass('iconVerde_sedeInst')
-        $(".galeria_institution").removeClass('iconVerde_galeInst')
-     
-        // Contenidos que se muestran y se ocultan con el evento on click
-        $(".content_textPrincipal-formInst").show();
-        $(".content_servProf-institution").hide();
-        $(".content_acerca-institution").hide();
-        $(".content_profesional-institution").hide();
-        $(".content_certif-institution").hide();
-        $(".content_sede-institution").hide();
-        $(".content_galeria-institution").hide();
-    });
-
-    $(".serv_profesional").click(function() {   //Clase para evento on click en el icono de la linea de opciones parte superior del formulario
-        $(".content_servProf-institution").toggle("650","swing")   // Despliegue del contenido de la tarjeta " SERVICIOS PROFESIONALES "
-
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
-        $(".serv_profesional").addClass('iconVerde_servProfesional')
-        $(".acerca_institution").removeClass('iconVerde_acercaInst')
-        $(".profesional_institution").removeClass('iconVerde_profesionalInst')
-        $(".certificado_institution").removeClass('iconVerde_certifInst')
-        $(".sede_institution").removeClass('iconVerde_sedeInst')
-        $(".galeria_institution").removeClass('iconVerde_galeInst')
-
-        // Contenidos que se ocultan con el evento on click
-        $(".content_textPrincipal-formInst").hide();
-        $(".content_dato-Institution").hide();
-        $(".content_acerca-institution").hide();
-        $(".content_profesional-institution").hide();
-        $(".content_certif-institution").hide();
-        $(".content_sede-institution").hide();
-        $(".content_galeria-institution").hide();
-    });
-
-    $(".acerca_institution").click(function() {   //Clase para evento on click en el icono de la linea de opciones parte superior del formulario
-        $(".content_acerca-institution").toggle("650","swing")   // Despliegue del contenido de la tarjeta " ACERCA DE LA INSTITUCIÓN "
-
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
-        $(".serv_profesional").addClass('iconVerde_servProfesional')
-        $(".acerca_institution").addClass('iconVerde_acercaInst')
-        $(".profesional_institution").removeClass('iconVerde_profesionalInst')
-        $(".certificado_institution").removeClass('iconVerde_certifInst')
-        $(".sede_institution").removeClass('iconVerde_sedeInst')
-        $(".galeria_institution").removeClass('iconVerde_galeInst')
-
-        // Contenidos que se ocultan con el evento on click
-        $(".content_textPrincipal-formInst").hide();
-        $(".content_dato-Institution").hide();
-        $(".content_servProf-institution").hide();
-        $(".content_profesional-institution").hide();
-        $(".content_certif-institution").hide();
-        $(".content_sede-institution").hide();
-        $(".content_galeria-institution").hide();
-    });
-
-    $(".profesional_institution").click(function() {   //Clase para evento on click en el icono de la linea de opciones parte superior del formulario
-        $(".content_profesional-institution").toggle("650","swing")   // Despliegue del contenido de la tarjeta " PROFESIONALES "
-
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
-        $(".serv_profesional").addClass('iconVerde_servProfesional')
-        $(".acerca_institution").addClass('iconVerde_acercaInst')
-        $(".profesional_institution").addClass('iconVerde_profesionalInst')
-        $(".certificado_institution").removeClass('iconVerde_certifInst')
-        $(".sede_institution").removeClass('iconVerde_sedeInst')
-        $(".galeria_institution").removeClass('iconVerde_galeInst')
-
-        // Contenidos que se ocultan con el evento on click
-        $(".content_textPrincipal-formInst").hide();
-        $(".content_dato-Institution").hide();
-        $(".content_servProf-institution").hide();
-        $(".content_acerca-institution").hide();
-        $(".content_certif-institution").hide();
-        $(".content_sede-institution").hide();
-        $(".content_galeria-institution").hide();
-    });
-
-    $(".certificado_institution").click(function() {   //Clase para evento on click en el icono de la linea de opciones parte superior del formulario
-        $(".content_certif-institution").toggle("650","swing")   // Despliegue del contenido de la tarjeta " CERTIFICACIONES "
-
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
-        $(".serv_profesional").addClass('iconVerde_servProfesional')
-        $(".acerca_institution").addClass('iconVerde_acercaInst')
-        $(".profesional_institution").addClass('iconVerde_profesionalInst')
-        $(".certificado_institution").addClass('iconVerde_certifInst')
-        $(".sede_institution").removeClass('iconVerde_sedeInst')
-        $(".galeria_institution").removeClass('iconVerde_galeInst')
-
-        // Contenidos que se ocultan con el evento on click
-        $(".content_textPrincipal-formInst").hide();
-        $(".content_dato-Institution").hide();
-        $(".content_servProf-institution").hide();
-        $(".content_acerca-institution").hide();
-        $(".content_profesional-institution").hide();
-        $(".content_sede-institution").hide();
-        $(".content_galeria-institution").hide();
-    });
-
-    $(".sede_institution").click(function() {   //Clase para evento on click en el icono de la linea de opciones parte superior del formulario
-        $(".content_sede-institution").toggle("650","swing")   // Despliegue del contenido de la tarjeta " SEDES "
-
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
-        $(".serv_profesional").addClass('iconVerde_servProfesional')
-        $(".acerca_institution").addClass('iconVerde_acercaInst')
-        $(".profesional_institution").addClass('iconVerde_profesionalInst')
-        $(".certificado_institution").addClass('iconVerde_certifInst')
-        $(".sede_institution").addClass('iconVerde_sedeInst')
-        $(".galeria_institution").removeClass('iconVerde_galeInst')
-
-        // Contenidos que se ocultan con el evento on click
-        $(".content_textPrincipal-formInst").hide();
-        $(".content_dato-Institution").hide();
-        $(".content_servProf-institution").hide();
-        $(".content_acerca-institution").hide();
-        $(".content_profesional-institution").hide();
-        $(".content_certif-institution").hide();
-        $(".content_galeria-institution").hide();
-    });
-
-    $(".galeria_institution").click(function() {   //Clase para evento on click en el icono de la linea de opciones parte superior del formulario
-        $(".content_galeria-institution").toggle("650","swing")   // Despliegue del contenido de la tarjeta " GALERIAS "
-
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
-        $(".serv_profesional").addClass('iconVerde_servProfesional')
-        $(".acerca_institution").addClass('iconVerde_acercaInst')
-        $(".profesional_institution").addClass('iconVerde_profesionalInst')
-        $(".certificado_institution").addClass('iconVerde_certifInst')
-        $(".sede_institution").addClass('iconVerde_sedeInst')
-        $(".galeria_institution").addClass('iconVerde_galeInst')
-
-        // Contenidos que se ocultan con el evento on click
-        $(".content_textPrincipal-formInst").hide();
-        $(".content_dato-Institution").hide();
-        $(".content_servProf-institution").hide();
-        $(".content_acerca-institution").hide();
-        $(".content_profesional-institution").hide();
-        $(".content_certif-institution").hide();
-        $(".content_sede-institution").hide();
-    });
-});*/
-
-
+    }
+}
 
 // Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto en la vista " register "
-function hideForm (z){
-    let myvar = z.getAttribute('data-position');
+function btnHideNext (u){
+    let varBtnFormProf = u.getAttribute('code-position')
+    
+    let selector = document.querySelector.bind(document);
+    
+    // Condicional para el registro de usuario rol Paciente
+    if (varBtnFormProf == "personalData") {
+        selector(".personal_data").style.display = "none";
+        selector(".professional_profile").style.display = "block";
+        selector(".treatments_procedures").style.display = "none";
+        selector(".Awards_honours").style.display = "none";
+        selector(".publications_formInst").style.display = "none";
+        selector(".gallery_formInst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".perfil-profesional").addClass('iconAzul_perfProf')
+    }
+
+    // Condicional para el registro de usuario rol Medico/a
+    else if (varBtnFormProf == "professionalProfile") {
+        selector(".personal_data").style.display = "none";
+        selector(".professional_profile").style.display = "none";
+        selector(".treatments_procedures").style.display = "block";
+        selector(".Awards_honours").style.display = "none";
+        selector(".publications_formInst").style.display = "none";
+        selector(".gallery_formInst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".perfil-profesional").addClass('iconAzul_perfProf')
+        $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
+    }
+
+    // Condicional para el registro de usuario rol Medico/a
+    else if (varBtnFormProf == "treatmentsProcedures") {
+        selector(".personal_data").style.display = "none";
+        selector(".professional_profile").style.display = "none";
+        selector(".treatments_procedures").style.display = "none";
+        selector(".Awards_honours").style.display = "block";
+        selector(".publications_formInst").style.display = "none";
+        selector(".gallery_formInst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".perfil-profesional").addClass('iconAzul_perfProf')
+        $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
+        $(".premio-reconocimiento").addClass('iconAzul_premioRecon')
+    }
+
+    // Condicional para el registro de usuario rol Medico/a
+    else if (varBtnFormProf == "AwardsHonours") {
+        selector(".personal_data").style.display = "none";
+        selector(".professional_profile").style.display = "none";
+        selector(".treatments_procedures").style.display = "none";
+        selector(".Awards_honours").style.display = "none";
+        selector(".publications_formInst").style.display = "block";
+        selector(".gallery_formInst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".perfil-profesional").addClass('iconAzul_perfProf')
+        $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
+        $(".premio-reconocimiento").addClass('iconAzul_premioRecon')
+        $(".publicacion").addClass('iconAzul_public')
+    }
+
+    // Condicional para el registro de usuario rol Medico/a
+    else if (varBtnFormProf == "publicationsFormInst") {
+        selector(".personal_data").style.display = "none";
+        selector(".professional_profile").style.display = "none";
+        selector(".treatments_procedures").style.display = "none";
+        selector(".Awards_honours").style.display = "none";
+        selector(".publications_formInst").style.display = "none";
+        selector(".gallery_formInst").style.display = "block";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".perfil-profesional").addClass('iconAzul_perfProf')
+        $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
+        $(".premio-reconocimiento").addClass('iconAzul_premioRecon')
+        $(".publicacion").addClass('iconAzul_public')
+        $(".galeria-video").addClass('iconAzul_galeriaVideo')
+    }
+}
+
+// Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto en la vista " register "
+function btnHidePrevious (v){
+    let varBtnPrevious = v.getAttribute('code-position')
     
     let selector = document.querySelector.bind(document);
     // Condicional para el registro de usuario rol Paciente
+    if (varBtnPrevious == "galleryFormProf") {
+        selector(".personal_data").style.display = "none";
+        selector(".professional_profile").style.display = "none";
+        selector(".treatments_procedures").style.display = "none";
+        selector(".Awards_honours").style.display = "none";
+        selector(".publications_formInst").style.display = "block";
+        selector(".gallery_formInst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".galeria-video").removeClass('iconAzul_galeriaVideo')
+    }
+
+    // Condicional para el registro de usuario rol Paciente
+    if (varBtnPrevious == "publicationsFormProf") {
+        selector(".personal_data").style.display = "none";
+        selector(".professional_profile").style.display = "none";
+        selector(".treatments_procedures").style.display = "none";
+        selector(".Awards_honours").style.display = "block";
+        selector(".publications_formInst").style.display = "none";
+        selector(".gallery_formInst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".publicacion").removeClass('iconAzul_public')
+        $(".galeria-video").removeClass('iconAzul_galeriaVideo')
+    }
+
+    // Condicional para el registro de usuario rol Paciente
+    if (varBtnPrevious == "AwardsHonours") {
+        selector(".personal_data").style.display = "none";
+        selector(".professional_profile").style.display = "none";
+        selector(".treatments_procedures").style.display = "block";
+        selector(".Awards_honours").style.display = "none";
+        selector(".publications_formInst").style.display = "none";
+        selector(".gallery_formInst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".premio-reconocimiento").removeClass('iconAzul_premioRecon')
+        $(".publicacion").removeClass('iconAzul_public')
+        $(".galeria-video").removeClass('iconAzul_galeriaVideo')
+    }
+
+    // Condicional para el registro de usuario rol Paciente
+    if (varBtnPrevious == "treatmentsProcedures") {
+        selector(".personal_data").style.display = "none";
+        selector(".professional_profile").style.display = "block";
+        selector(".treatments_procedures").style.display = "none";
+        selector(".Awards_honours").style.display = "none";
+        selector(".publications_formInst").style.display = "none";
+        selector(".gallery_formInst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".tratamiento-procedimiento").removeClass('iconAzul_trataProced')
+        $(".premio-reconocimiento").removeClass('iconAzul_premioRecon')
+        $(".publicacion").removeClass('iconAzul_public')
+        $(".galeria-video").removeClass('iconAzul_galeriaVideo')
+    }
+
+    // Condicional para el registro de usuario rol Paciente
+    if (varBtnPrevious == "professionalProfile") {
+        selector(".personal_data").style.display = "block";
+        selector(".professional_profile").style.display = "none";
+        selector(".treatments_procedures").style.display = "none";
+        selector(".Awards_honours").style.display = "none";
+        selector(".publications_formInst").style.display = "none";
+        selector(".gallery_formInst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".perfil-profesional").removeClass('iconAzul_perfProf')
+        $(".tratamiento-procedimiento").removeClass('iconAzul_trataProced')
+        $(".premio-reconocimiento").removeClass('iconAzul_premioRecon')
+        $(".publicacion").removeClass('iconAzul_public')
+        $(".galeria-video").removeClass('iconAzul_galeriaVideo')
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Función para ocultar y mostrar el contenido de cada una de las opciones del FORMULARIO INSTITUCIÓN
+$(document).ready(function() {
+    // Elementos que se muestran al cargar la vista
+    $(".date_institution").show(); // Clase para mostrar la tarjeta de " DATOS DE LA INSTITUCIOÓN ".
+
+    // Elementos que se encuentran ocultos
+    $(".professional_services").hide();
+    $(".about_institution").hide();
+    $(".professional_inst").hide();
+    $(".certifications_inst").hide();
+    $(".venues_inst").hide();
+    $(".gallery_inst").hide();
+});
+
+// Evento onclick para desplegar las tarjetas del formulario de registro y el cambio de color del icono en la linea de opciones FORMULARIO INSTITUCIONES
+function hideContaintOption (w){
+    let myvar = w.getAttribute('data-position');
+    
+    let selector = document.querySelector.bind(document);
+    
+    // Condicional para el despliegue de elementos opción DATOS INSTITUCIONALES
     if (myvar == "dateInstitution") {
         selector(".date_institution").style.display = "block";
         selector(".professional_services").style.display = "none";
@@ -285,19 +334,17 @@ function hideForm (z){
         selector(".certifications_inst").style.display = "none";
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
-        // Metodo para realizar el cambio de color de los iconos y el texto en las opciones de la vista " register ", por medio de la función hideForm
-        // Opción paciente
-        document.getElementById ("inpt1"). src = '/img/iconos/icono-paciente-amarillo.svg';
-        document.getElementById ("txt1").style.color = "#E6C804";
-        //Opción doctor
-        document.getElementById ("inpt2"). src = '/img/iconos/icono-doctor.svg';
-        document.getElementById ("txt2").style.color = "#3E3E3E";
-        // Opción institución
-        document.getElementById ("inpt3"). src = '/img/iconos/icono-institucion.svg';
-        document.getElementById ("txt3").style.color = "#3E3E3E";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".serv_profesional").removeClass('iconVerde_servProfesional')
+        $(".acerca_institution").removeClass('iconVerde_acercaInst')
+        $(".profesional_institution").removeClass('iconVerde_profesionalInst')
+        $(".certificado_institution").removeClass('iconVerde_certifInst')
+        $(".sede_institution").removeClass('iconVerde_sedeInst')
+        $(".galeria_institution").removeClass('iconVerde_galeInst')
     }
 
-    // Condicional para el registro de usuario rol Medico/a
+    // Condicional para el despliegue de elementos opción SERVICIOS PROFESIONALES
     else if (myvar == "professionalServices") {
         selector(".professional_services").style.display = "block";
         selector(".date_institution").style.display = "none";
@@ -306,32 +353,321 @@ function hideForm (z){
         selector(".certifications_inst").style.display = "none";
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
-        // Metodo para realizar el cambio de color de los iconos y el texto en las opciones de la vista " register ", por medio de la función hideForm
-        //Opción doctor
-        document.getElementById ("inpt2"). src = '/img/iconos/icono-doctor-azul.svg';
-        document.getElementById ("txt2").style.color = "#0083d6";
-        // Opción paciente
-        document.getElementById ("inpt1"). src = '/img/iconos/icono-paciente.svg';
-        document.getElementById ("txt1").style.color = "#3E3E3E";
-        // Opción institución
-        document.getElementById ("inpt3"). src = '/img/iconos/icono-institucion.svg';
-        document.getElementById ("txt3").style.color = "#3E3E3E";
+ 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".serv_profesional").addClass('iconVerde_servProfesional')
+        $(".acerca_institution").removeClass('iconVerde_acercaInst')
+        $(".profesional_institution").removeClass('iconVerde_profesionalInst')
+        $(".certificado_institution").removeClass('iconVerde_certifInst')
+        $(".sede_institution").removeClass('iconVerde_sedeInst')
+        $(".galeria_institution").removeClass('iconVerde_galeInst')
+
     }
 
-    // Condicional para el registro de usuario rol Institución
-    else if (myvar == "institucion") {
-        selector(".names_institution").style.display = "block";
-        selector(".datos_secundarios").style.display = "block";
-        selector(".names_person").style.display = "none";
-        // Metodo para realizar el cambio de color de los iconos y el texto en las opciones de la vista " register ", por medio de la función hideForm
-        // Opción institución
-        document.getElementById ("inpt3"). src = '/img/iconos/icono-institucion-verde.svg';
-        document.getElementById ("txt3").style.color = "#019F86";
-        // Opción paciente
-        document.getElementById ("inpt1"). src = '/img/iconos/icono-paciente.svg';
-        document.getElementById ("txt1").style.color = "#3E3E3E";
-        //Opción doctor
-        document.getElementById ("inpt2"). src = '/img/iconos/icono-doctor.svg';
-        document.getElementById ("txt2").style.color = "#3E3E3E";
+    // Condicional para el despliegue de elementos opción ACERCA DE LA INSTITUCIÓN
+    else if (myvar == "aboutInstitution") {
+        selector(".about_institution").style.display = "block";
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "none";
+        selector(".professional_inst").style.display = "none";
+        selector(".certifications_inst").style.display = "none";
+        selector(".venues_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".serv_profesional").addClass('iconVerde_servProfesional')
+        $(".acerca_institution").addClass('iconVerde_acercaInst')
+        $(".profesional_institution").removeClass('iconVerde_profesionalInst')
+        $(".certificado_institution").removeClass('iconVerde_certifInst')
+        $(".sede_institution").removeClass('iconVerde_sedeInst')
+        $(".galeria_institution").removeClass('iconVerde_galeInst')
+    }
+
+    // Condicional para el despliegue de elementos opción PROFESIONALES
+    else if (myvar == "professionalInst") {
+        selector(".professional_inst").style.display = "block";
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "none";
+        selector(".about_institution").style.display = "none";
+        selector(".certifications_inst").style.display = "none";
+        selector(".venues_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".serv_profesional").addClass('iconVerde_servProfesional')
+        $(".acerca_institution").addClass('iconVerde_acercaInst')
+        $(".profesional_institution").addClass('iconVerde_profesionalInst')
+        $(".certificado_institution").removeClass('iconVerde_certifInst')
+        $(".sede_institution").removeClass('iconVerde_sedeInst')
+        $(".galeria_institution").removeClass('iconVerde_galeInst')
+    }
+
+    // Condicional para el despliegue de elementos opción CERTIFICACIONES
+    else if (myvar == "certificationsInst") {
+        selector(".certifications_inst").style.display = "block";
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "none";
+        selector(".about_institution").style.display = "none";
+        selector(".professional_inst").style.display = "none";
+        selector(".venues_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".serv_profesional").addClass('iconVerde_servProfesional')
+        $(".acerca_institution").addClass('iconVerde_acercaInst')
+        $(".profesional_institution").addClass('iconVerde_profesionalInst')
+        $(".certificado_institution").addClass('iconVerde_certifInst')
+        $(".sede_institution").removeClass('iconVerde_sedeInst')
+        $(".galeria_institution").removeClass('iconVerde_galeInst')
+    }
+
+    // Condicional para el despliegue de elementos opción SEDES
+    else if (myvar == "venuesInst") {
+        selector(".venues_inst").style.display = "block";
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "none";
+        selector(".about_institution").style.display = "none";
+        selector(".professional_inst").style.display = "none";
+        selector(".certifications_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".serv_profesional").addClass('iconVerde_servProfesional')
+        $(".acerca_institution").addClass('iconVerde_acercaInst')
+        $(".profesional_institution").addClass('iconVerde_profesionalInst')
+        $(".certificado_institution").addClass('iconVerde_certifInst')
+        $(".sede_institution").addClass('iconVerde_sedeInst')
+        $(".galeria_institution").removeClass('iconVerde_galeInst')
+    }
+
+    // Condicional para el despliegue de elementos opción GALERIA
+    else if (myvar == "galleryInst") {
+        selector(".gallery_inst").style.display = "block";
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "none";
+        selector(".about_institution").style.display = "none";
+        selector(".professional_inst").style.display = "none";
+        selector(".certifications_inst").style.display = "none";
+        selector(".venues_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".serv_profesional").addClass('iconVerde_servProfesional')
+        $(".acerca_institution").addClass('iconVerde_acercaInst')
+        $(".profesional_institution").addClass('iconVerde_profesionalInst')
+        $(".certificado_institution").addClass('iconVerde_certifInst')
+        $(".sede_institution").addClass('iconVerde_sedeInst')
+        $(".galeria_institution").addClass('iconVerde_galeInst')
+    }   
+
+}
+
+// Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto en la vista " register "
+function hideBtnNext (x){
+    let varBtn = x.getAttribute('code-position')
+    
+    let selector = document.querySelector.bind(document);
+    
+    // Condicional para el registro de usuario rol Paciente
+    if (varBtn == "dateInstitution") {
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "block";
+        selector(".about_institution").style.display = "none";
+        selector(".professional_inst").style.display = "none";
+        selector(".certifications_inst").style.display = "none";
+        selector(".venues_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".serv_profesional").addClass('iconVerde_servProfesional')
+    }
+
+    // Condicional para el registro de usuario rol Medico/a
+    else if (varBtn == "professionalServices") {
+        selector(".about_institution").style.display = "block";
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "none";
+        selector(".professional_inst").style.display = "none";
+        selector(".certifications_inst").style.display = "none";
+        selector(".venues_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".serv_profesional").addClass('iconVerde_servProfesional')
+        $(".acerca_institution").addClass('iconVerde_acercaInst')
+    }
+
+    // Condicional para el registro de usuario rol Medico/a
+    else if (varBtn == "aboutInstitution") {
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "none";
+        selector(".about_institution").style.display = "none";
+        selector(".professional_inst").style.display = "block";
+        selector(".certifications_inst").style.display = "none";
+        selector(".venues_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".serv_profesional").addClass('iconVerde_servProfesional')
+        $(".acerca_institution").addClass('iconVerde_acercaInst')
+        $(".profesional_institution").addClass('iconVerde_profesionalInst')
+    }
+
+    // Condicional para el registro de usuario rol Medico/a
+    else if (varBtn == "professionalInst") {
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "none";
+        selector(".about_institution").style.display = "none";
+        selector(".professional_inst").style.display = "none";
+        selector(".certifications_inst").style.display = "block";
+        selector(".venues_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".serv_profesional").addClass('iconVerde_servProfesional')
+        $(".acerca_institution").addClass('iconVerde_acercaInst')
+        $(".profesional_institution").addClass('iconVerde_profesionalInst')
+        $(".certificado_institution").addClass('iconVerde_certifInst')
+    }
+
+    // Condicional para el registro de usuario rol Medico/a
+    else if (varBtn == "certificationsInst") {
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "none";
+        selector(".about_institution").style.display = "none";
+        selector(".professional_inst").style.display = "none";
+        selector(".certifications_inst").style.display = "none";
+        selector(".venues_inst").style.display = "block";
+        selector(".gallery_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".serv_profesional").addClass('iconVerde_servProfesional')
+        $(".acerca_institution").addClass('iconVerde_acercaInst')
+        $(".profesional_institution").addClass('iconVerde_profesionalInst')
+        $(".certificado_institution").addClass('iconVerde_certifInst')
+        $(".sede_institution").addClass('iconVerde_sedeInst')
+    }
+
+    // Condicional para el registro de usuario rol Medico/a
+    else if (varBtn == "venuesInst") {
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "none";
+        selector(".about_institution").style.display = "none";
+        selector(".professional_inst").style.display = "none";
+        selector(".certifications_inst").style.display = "none";
+        selector(".venues_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "block";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".serv_profesional").addClass('iconVerde_servProfesional')
+        $(".acerca_institution").addClass('iconVerde_acercaInst')
+        $(".profesional_institution").addClass('iconVerde_profesionalInst')
+        $(".certificado_institution").addClass('iconVerde_certifInst')
+        $(".sede_institution").addClass('iconVerde_sedeInst')
+        $(".galeria_institution").addClass('iconVerde_galeInst')
+    }
+}
+
+// Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto en la vista " register "
+function hideBtnPrevious (y){
+    let varBtnPrevious = y.getAttribute('code-position')
+    
+    let selector = document.querySelector.bind(document);
+    // Condicional para el registro de usuario rol Paciente
+    if (varBtnPrevious == "galleryInst") {
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "none";
+        selector(".about_institution").style.display = "none";
+        selector(".professional_inst").style.display = "none";
+        selector(".certifications_inst").style.display = "none";
+        selector(".venues_inst").style.display = "block";
+        selector(".gallery_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".galeria_institution").removeClass('iconVerde_galeInst')
+    }
+
+    // Condicional para el registro de usuario rol Paciente
+    if (varBtnPrevious == "venuesInst") {
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "none";
+        selector(".about_institution").style.display = "none";
+        selector(".professional_inst").style.display = "none";
+        selector(".certifications_inst").style.display = "block";
+        selector(".venues_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".sede_institution").removeClass('iconVerde_sedeInst')
+        $(".galeria_institution").removeClass('iconVerde_galeInst')
+    }
+
+    // Condicional para el registro de usuario rol Paciente
+    if (varBtnPrevious == "certificationsInst") {
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "none";
+        selector(".about_institution").style.display = "none";
+        selector(".professional_inst").style.display = "block";
+        selector(".certifications_inst").style.display = "none";
+        selector(".venues_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".certificado_institution").removeClass('iconVerde_certifInst')
+        $(".sede_institution").removeClass('iconVerde_sedeInst')
+        $(".galeria_institution").removeClass('iconVerde_galeInst')
+    }
+
+    // Condicional para el registro de usuario rol Paciente
+    if (varBtnPrevious == "professionalInst") {
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "none";
+        selector(".about_institution").style.display = "block";
+        selector(".professional_inst").style.display = "none";
+        selector(".certifications_inst").style.display = "none";
+        selector(".venues_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".profesional_institution").removeClass('iconVerde_profesionalInst')
+        $(".certificado_institution").removeClass('iconVerde_certifInst')
+        $(".sede_institution").removeClass('iconVerde_sedeInst')
+        $(".galeria_institution").removeClass('iconVerde_galeInst')
+    }
+
+    // Condicional para el registro de usuario rol Paciente
+    if (varBtnPrevious == "aboutInstitution") {
+        selector(".date_institution").style.display = "none";
+        selector(".professional_services").style.display = "block";
+        selector(".about_institution").style.display = "none";
+        selector(".professional_inst").style.display = "none";
+        selector(".certifications_inst").style.display = "none";
+        selector(".venues_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".acerca_institution").removeClass('iconVerde_acercaInst')
+        $(".profesional_institution").removeClass('iconVerde_profesionalInst')
+        $(".certificado_institution").removeClass('iconVerde_certifInst')
+        $(".sede_institution").removeClass('iconVerde_sedeInst')
+        $(".galeria_institution").removeClass('iconVerde_galeInst')
+    }
+
+    // Condicional para el registro de usuario rol Paciente
+    if (varBtnPrevious == "professionalServices") {
+        selector(".date_institution").style.display = "block";
+        selector(".professional_services").style.display = "none";
+        selector(".about_institution").style.display = "none";
+        selector(".professional_inst").style.display = "none";
+        selector(".certifications_inst").style.display = "none";
+        selector(".venues_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "none";
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        $(".serv_profesional").removeClass('iconVerde_servProfesional')
+        $(".acerca_institution").removeClass('iconVerde_acercaInst')
+        $(".profesional_institution").removeClass('iconVerde_profesionalInst')
+        $(".certificado_institution").removeClass('iconVerde_certifInst')
+        $(".sede_institution").removeClass('iconVerde_sedeInst')
+        $(".galeria_institution").removeClass('iconVerde_galeInst')
     }
 }
