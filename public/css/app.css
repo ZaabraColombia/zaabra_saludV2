@@ -18917,7 +18917,7 @@ a:link, a:visited, a:active, a:hover {
   display: flex;
   list-style: none;
   padding: 0;
-  margin: 5% auto;
+  margin: 2% auto;
   width: 80%;
   height: 12vh;
 }
@@ -20267,7 +20267,7 @@ a:link, a:visited, a:active, a:hover {
     display: flex;
     list-style: none;
     padding: 0;
-    margin: 5% auto;
+    margin: 2% auto;
     width: 100%;
     height: 12vh;
   }
@@ -21125,6 +21125,1737 @@ a:link, a:visited, a:active, a:hover {
 
   .texto_lineaAtencion-institucion {
     padding: 3% 15%;
+  }
+}
+.content_principal-formProf {
+  background: #F9F9F9;
+  padding-top: 3%;
+}
+
+.content_icons-formProf {
+  width: 17%;
+}
+
+.lista_opciones-usuario-formProf {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 2% auto;
+  width: 80%;
+  height: 12vh;
+}
+
+.text_opcion-formProfesional {
+  font-family: "Quicksand", "Regular";
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  height: 30%;
+}
+
+.iconGris_datoPersonal {
+  background-image: url("/img/formulario-profesional/icono-datos-personales-gris.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em !important;
+  color: #0083D6 !important;
+}
+
+.iconGris_perfProf {
+  background-image: url("/img/formulario-profesional/icono-perfil-profesional-gris.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em;
+  color: #D1D1D1;
+}
+
+.iconGris_trataProced {
+  background-image: url("/img/formulario-profesional/icono-tratamientos-y-procedimientos-gris.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em;
+  color: #D1D1D1;
+}
+
+.iconGris_premioRecon {
+  background-image: url("/img/formulario-profesional/icono-premios-y-reconocimientos-gris.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em;
+  color: #D1D1D1;
+}
+
+.iconGris_public {
+  background-image: url("/img/formulario-profesional/icono-publicaciones-gris.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em;
+  color: #D1D1D1;
+}
+
+.iconGris_galeriaVideo {
+  background-image: url("/img/formulario-profesional/icono-galeria-gris.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em;
+  color: #D1D1D1;
+}
+
+.iconVerde_datoInst {
+  background-image: url("/img/formulario-profesional/datos-institucionales-verde.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em !important;
+  color: #0083D6 !important;
+}
+
+.iconAzul_datoPersonal {
+  background-image: url("/img/formulario-profesional/icono-datos-personales.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em !important;
+  color: #0083D6 !important;
+}
+
+.iconAzul_perfProf {
+  background-image: url("/img/formulario-profesional/icono-perfil-profesional.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em !important;
+  font-family: "Quicksand", "Regular";
+  color: #0083D6 !important;
+}
+
+.iconAzul_trataProced {
+  background-image: url("/img/formulario-profesional/icono-tratamientos-y-procedimientos.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em !important;
+  color: #0083D6 !important;
+}
+
+.iconAzul_premioRecon {
+  background-image: url("/img/formulario-profesional/icono-premios-y-reconocimientos.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em !important;
+  color: #0083D6 !important;
+}
+
+.iconAzul_public {
+  background-image: url("/img/formulario-profesional/icono-publicaciones.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em !important;
+  color: #0083D6 !important;
+}
+
+.iconAzul_galeriaVideo {
+  background-image: url("/img/formulario-profesional/icono-galeria.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em !important;
+  color: #0083D6 !important;
+}
+
+.content_textPrincipal-formProf {
+  margin: auto;
+  padding: 0;
+}
+
+.titulo_principal-formProf {
+  font-family: "Quicksand", "Regular";
+  font-size: 2em;
+  font-weight: bold;
+  color: #0083D6;
+  text-align: initial;
+}
+
+.texto_superior-formProf {
+  font-family: "Roboto", "Regular";
+  font-size: 1em;
+  color: #3E3E3E;
+  text-align: initial;
+  padding: 0;
+  margin: 3% 0;
+}
+
+.infoBasica_formProf {
+  background: #ffffff;
+  margin: auto;
+  margin-bottom: 5%;
+  padding: 0;
+  box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
+}
+
+.icon_infoBasica-formProf {
+  background-image: url("/img/formulario-profesional/icono-informacion-basica.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #019F86;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #019F86;
+  text-transform: inherit;
+}
+
+.fila_infoBasica-formProf {
+  margin: 0;
+  padding: 2% 0;
+}
+
+.section_inputRight-text-formProf {
+  padding: 0 0 0 15px;
+}
+
+.section_inputLeft-text-formProf {
+  padding: 0 15px 0 0;
+}
+
+.contain_imgUsuario-formProf {
+  align-self: center;
+  text-align: center;
+}
+
+.img_usuario-formProf {
+  height: 22vh;
+  width: 100%;
+  border-radius: 135px;
+  background: #D1D1D1;
+  border: 1px solid #707070;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.contain_imgInst-formInst {
+  align-self: center;
+  text-align: center;
+  padding-top: 5%;
+}
+
+.img_institucion-formInst {
+  height: 20vh;
+  width: 100%;
+  border-radius: 3px;
+  background: #D1D1D1;
+  border: 1px solid #707070;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.contain_imgInst-formInst .icon_subirFoto-formProf {
+  background-image: url(/img/formulario-profesional/icono-subir.svg);
+  background-repeat: no-repeat;
+  background-size: 5%;
+  background-position-x: 20%;
+}
+
+.contain_imgInst-formInst .text_usuario-formProf {
+  font-family: "Quicksand", "Regular";
+  font-size: 1.15em;
+  color: #434343;
+  margin: 6% 0 0% 0%;
+  padding-right: 0;
+}
+
+.btn_guardar-formInst {
+  font-family: "Quicksand";
+  font-size: 1.15em;
+  color: #ffffff;
+  background: #0083d6;
+  border: none;
+  border-radius: 3px;
+  height: calc(1.6em + 0.75rem + 2px);
+  width: 100%;
+  margin-bottom: 10%;
+}
+
+.flechaBtn_guardar-formInst {
+  width: 9%;
+}
+
+.section_servicio-formInst {
+  margin: 0;
+  padding: 2% 0;
+}
+
+.content_cierreX-formInst {
+  height: 3vh;
+  padding: 0;
+}
+
+.input_imgUsuario-formProf {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 90%;
+  height: 100%;
+  opacity: 0;
+  overflow: auto;
+  margin: 0 auto;
+}
+
+.icon_subirFoto-formProf {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 8%;
+}
+
+.text_usuario-formProf {
+  font-family: "Quicksand", "Regular";
+  font-size: 1.15em;
+  color: #434343;
+  margin: 10% 0 5% 0;
+  padding-right: 0;
+}
+
+.datos_principales-formInst {
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid #D1D1D1;
+}
+
+.datos_principales2-formInst {
+  margin: 0;
+  padding: 0;
+}
+
+.nombres_usuario-formProf {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.text_label-formProf {
+  font-family: "Quicksand";
+  font-size: 1.15em;
+  color: #232323;
+  font-weight: bold;
+  padding-top: calc(0.375rem + 1px);
+  padding-bottom: calc(0.375rem + 1px);
+  padding-left: 2%;
+  padding-right: 0;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.input_nomApl-formInst {
+  display: block;
+  height: calc(1.6em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.content_btnEnviar-formProf {
+  margin-left: auto;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon_infoContac-formProf {
+  background-image: url("/img/formulario-profesional/icono-informacion-de-contacto.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #019F86;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #019F86;
+  text-transform: inherit;
+}
+
+.btn2_enviar-formProf {
+  font-family: "Quicksand";
+  font-size: 1.15em;
+  color: #ffffff;
+  background: #0083d6;
+  border: none;
+  border-radius: 3px;
+  height: calc(1.6em + 0.75rem + 2px);
+  width: 19%;
+}
+
+.icon_infoConsult-formProf {
+  background-image: url("/img/formulario-profesional/icono-informacion-de-consulta.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #019F86;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #019F86;
+  text-transform: inherit;
+}
+
+.seccion_consulta-formProf {
+  display: flex;
+  margin: 3% 0;
+  padding: 0;
+}
+
+.icon_infoSubPerfil-formProf {
+  background-image: url("/img/formulario-profesional/icono-subperfil-profesional.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #019F86;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #019F86;
+  text-transform: inherit;
+}
+
+.icon_infoEduc-formProf {
+  background-image: url("/img/formulario-profesional/icono-educacion.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #019F86;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #019F86;
+  text-transform: inherit;
+}
+
+.icon_infoExper-formProf {
+  background-image: url("/img/formulario-profesional/icono-experiencia.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #019F86;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #019F86;
+  text-transform: inherit;
+}
+
+.content_btnEnviar-experiencia-formProf {
+  margin-left: auto;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon_infoAsocia-formProf {
+  background-image: url("/img/formulario-profesional/icono-asociaciones.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #019F86;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #019F86;
+  text-transform: inherit;
+}
+
+.img_selccionada-formProf {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
+  align-items: center;
+  width: 120px;
+  height: 60px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.img_anexada-formProf {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.img_anexada-formProf img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.content_agregarImg-formProf {
+  margin: 0;
+  padding-right: 0;
+}
+
+.agregar_archivo-formProf {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
+  width: 77%;
+}
+
+.agregar_archivo-formProf::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 10%;
+  background-size: 5%;
+  font-size: 1.15em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto de asociación";
+  /* texto botón subir foto asociación */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.agregar_archivo-formProf input[type=file] {
+  opacity: 0;
+  width: 100%;
+  height: 32px;
+  display: flex;
+}
+
+.text_infoImg-formProf {
+  font-family: "Roboto", "Regular";
+  font-size: 1em;
+  color: #DBDADA;
+  padding: 0 15px;
+}
+
+.content_imgGuardada-formProf {
+  margin: 0;
+  padding: 0 3% 0 0;
+  height: 10VH;
+}
+
+.img_guardada-formProf {
+  width: 100%;
+  height: 32px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.content_btnX-cierre-formProf {
+  height: 3vh;
+  padding: 0;
+}
+
+.icon_infoIdioma-formProf {
+  background-image: url("/img/formulario-profesional/icono-idiomas.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #019F86;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #019F86;
+  text-transform: inherit;
+}
+
+.img_bandera-forProf {
+  padding-bottom: 3%;
+}
+
+.content_idmBandera-formProf {
+  padding: 0 15px;
+}
+
+.icon_infoTratam-formProf {
+  background-image: url("/img/formulario-profesional/icono-interno-tratamientos-y-procedimientos.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #019F86;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #019F86;
+  text-transform: inherit;
+}
+
+.content_antes-formProf .agregar_archivo-formProf::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 15%;
+  background-size: 5%;
+  font-size: 1.15em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto de antes";
+  /* texto botón subir foto asociación */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.content_despues-formProf .agregar_archivo-formProf::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 10%;
+  background-size: 5%;
+  font-size: 1.15em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto de después";
+  /* texto botón subir foto asociación */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.content_tratam-proced .img_selccionada-formProf {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
+  align-items: center;
+  width: 225px;
+  height: 225px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.content_antDesp-formProf {
+  padding: 0;
+  margin: 3% 0 0 0;
+}
+
+.text_superior-proced-formProf {
+  font-family: "Roboto", "Regular";
+  font-size: 1em;
+  color: #434343;
+  margin-top: 3%;
+}
+
+.content_antes-formProf {
+  border-right: 1px solid #D1D1D1;
+}
+
+.img_publi-formProf {
+  height: 100%;
+  width: 100%;
+}
+
+.icon_infoPremReco-formProf {
+  background-image: url("/img/formulario-profesional/icono-interno-premios-y-reconocimientos.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #019F86;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #019F86;
+  text-transform: inherit;
+}
+
+.content_premio-recono .img_selccionada-formProf {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
+  align-items: center;
+  width: 356px;
+  height: 326px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.photo1 .agregar_archivo-formProf::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 25%;
+  background-size: 5%;
+  font-size: 1.15em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto 1";
+  /* texto botón subir foto asociación */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.photo2 .agregar_archivo-formProf::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 25%;
+  background-size: 5%;
+  font-size: 1.15em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto 2";
+  /* texto botón subir foto asociación */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.photo3 .agregar_archivo-formProf::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 25%;
+  background-size: 5%;
+  font-size: 1.15em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto 3";
+  /* texto botón subir foto asociación */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.photo4 .agregar_archivo-formProf::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 25%;
+  background-size: 5%;
+  font-size: 1.15em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto 4";
+  /* texto botón subir foto asociación */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.icon_infoPublic-formProf {
+  background-image: url("/img/formulario-profesional/icono-interno-publicaciones.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #019F86;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #019F86;
+  text-transform: inherit;
+}
+
+.content_publicacion .img_selccionada-formProf {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
+  align-items: center;
+  width: 275px;
+  height: 250px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.photoPub1 .agregar_archivo-formProf::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 25%;
+  background-size: 5%;
+  font-size: 1.15em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto 1";
+  /* texto botón subir foto asociación */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.photoPub2 .agregar_archivo-formProf::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 25%;
+  background-size: 5%;
+  font-size: 1.15em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto 2";
+  /* texto botón subir foto asociación */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.icon_infoGale-formProf {
+  background-image: url("/img/formulario-profesional/icono-interno-galeria.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #019F86;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #019F86;
+  text-transform: inherit;
+}
+
+.content_galeria-video .img_selccionada-formProf {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
+  align-items: center;
+  width: 365px;
+  height: 326px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.photo5 .agregar_archivo-formProf::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 25%;
+  background-size: 5%;
+  font-size: 1.15em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto 5";
+  /* texto botón subir foto asociación */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.photo6 .agregar_archivo-formProf::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 25%;
+  background-size: 5%;
+  font-size: 1.15em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto 6";
+  /* texto botón subir foto asociación */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.photo7 .agregar_archivo-formProf::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 25%;
+  background-size: 5%;
+  font-size: 1.15em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto 7";
+  /* texto botón subir foto asociación */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.photo8 .agregar_archivo-formProf::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 25%;
+  background-size: 5%;
+  font-size: 1.15em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto 8";
+  /* texto botón subir foto asociación */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.icon_infoVideo-formProf {
+  background-image: url("/img/formulario-profesional/icono-videos.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #019F86;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #019F86;
+  text-transform: inherit;
+}
+
+.video1 .agregar_archivo-formProf::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 25%;
+  background-size: 5%;
+  font-size: 1.15em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir video 1";
+  /* texto botón subir foto asociación */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.video2 .agregar_archivo-formProf::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 25%;
+  background-size: 5%;
+  font-size: 1.15em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir video 2";
+  /* texto botón subir foto asociación */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.hidden-section-formProf {
+  display: none;
+}
+
+@media (min-width: 320px) and (orientation: portrait) {
+  .lista_opciones-usuario-formProf {
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 40vh;
+  }
+
+  .content_icons-formProf {
+    width: 30%;
+    height: 15vh;
+  }
+
+  .iconAzul_datoPersonal {
+    font-size: 0.75em !important;
+  }
+
+  .iconGris_perfProf {
+    font-size: 0.75em !important;
+  }
+
+  .iconGris_trataProced {
+    font-size: 0.75em !important;
+  }
+
+  .iconGris_premioRecon {
+    font-size: 0.75em !important;
+  }
+
+  .iconGris_public {
+    font-size: 0.75em !important;
+  }
+
+  .iconGris_galeriaVideo {
+    font-size: 0.75em !important;
+  }
+
+  .titulo_principal-formProf {
+    font-size: 1.45em;
+    text-align: center;
+  }
+
+  .texto_superior-formProf {
+    font-size: 0.75em;
+  }
+
+  .icon_infoBasica-formProf {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+    display: flex;
+  }
+
+  .img_usuario-formProf {
+    height: 35vh;
+    width: 75%;
+  }
+
+  .text_usuario-formProf {
+    font-size: 0.85em;
+    margin: 5% 0;
+  }
+
+  .icon_subirFoto-formProf {
+    background-position-x: 25%;
+    background-size: 4.5%;
+  }
+
+  .section_inputRight-text-formProf {
+    padding: 0 0 0 0;
+  }
+
+  .section_inputLeft-text-formProf {
+    padding: 0 0 0 0;
+  }
+
+  .text_label-formProf {
+    font-size: 1em;
+  }
+
+  .nombres_usuario-formProf {
+    flex-direction: column;
+    padding: 0;
+    height: 15vh;
+  }
+
+  .input_nomApl-formInst {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+
+  .btn_guardar-formInst {
+    font-size: 1em;
+    width: 45%;
+  }
+
+  .flechaBtn_guardar-formInst {
+    width: 13%;
+  }
+
+  .icon_infoContac-formProf {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .btn2_enviar-formProf {
+    font-size: 1em;
+    width: 45%;
+  }
+
+  .icon_infoConsult-formProf {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .seccion_consulta-formProf {
+    flex-direction: column;
+  }
+
+  .icon_infoSubPerfil-formProf {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .icon_infoEduc-formProf {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .icon_infoExper-formProf {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .icon_infoAsocia-formProf {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .agregar_archivo-formProf::before {
+    background-position-x: 1%;
+    background-size: 7%;
+    font-size: 0.9em;
+    padding-left: 8%;
+  }
+
+  .icon_infoIdioma-formProf {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .content_idmBandera-formProf {
+    padding: 0 10px;
+  }
+
+  .icon_infoTratam-formProf {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .text_superior-proced-formProf {
+    font-size: 0.75em;
+  }
+
+  .content_antes-formProf {
+    border-right: none;
+  }
+
+  .photo1 .agregar_archivo-formProf::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .photo2 .agregar_archivo-formProf::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .photo3 .agregar_archivo-formProf::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .photo4 .agregar_archivo-formProf::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .content_agregarImg-formProf {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .agregar_archivo-formProf {
+    width: 80%;
+  }
+
+  .content_antes-formProf .agregar_archivo-formProf::before {
+    background-position-x: 5%;
+    background-size: 6%;
+    font-size: 1em;
+  }
+
+  .content_despues-formProf .agregar_archivo-formProf::before {
+    background-position-x: 0;
+    background-size: 6%;
+    font-size: 1em;
+  }
+
+  .text_infoImg-formProf {
+    font-size: 0.75em;
+    padding: 0;
+  }
+
+  .icon_infoPremReco-formProf {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .content_premio-recono .img_selccionada-formProf {
+    width: 258px;
+    height: 200px;
+  }
+
+  .icon_infoPublic-formProf {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .photoPub1 .agregar_archivo-formProf::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .photoPub2 .agregar_archivo-formProf::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .icon_infoGale-formProf {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .content_galeria-video .img_selccionada-formProf {
+    width: 260px;
+    height: 220px;
+  }
+
+  .photo5 .agregar_archivo-formProf::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .photo6 .agregar_archivo-formProf::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .photo7 .agregar_archivo-formProf::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .photo8 .agregar_archivo-formProf::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .icon_infoVideo-formProf {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .video1 .agregar_archivo-formProf::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .video2 .agregar_archivo-formProf::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+  .content_icons-formProf {
+    width: 16%;
+    height: 10vh;
+  }
+
+  .lista_opciones-usuario-formProf {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 2% auto;
+    width: 100%;
+    height: 12vh;
+  }
+
+  .text_opcion-formProfesional {
+    font-family: "Quicksand", "Regular";
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    height: 30%;
+  }
+
+  .iconGris_perfProf {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconGris_trataProced {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconGris_premioRecon {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconGris_public {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconGris_galeriaVideo {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconAzul_datoPersonal {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconAzul_perfProf {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconAzul_trataProced {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconAzul_premioRecon {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconAzul_public {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconAzul_galeriaVideo {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .titulo_principal-formProf {
+    font-size: 2em;
+  }
+
+  .texto_superior-formProf {
+    font-size: 1em;
+  }
+
+  .icon_infoBasica-formProf {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .img_usuario-formProf {
+    height: 13vh;
+    width: 100%;
+  }
+
+  .icon_subirFoto-formProf {
+    background-position-x: 2%;
+    background-size: 8%;
+  }
+
+  .text_usuario-formProf {
+    font-size: 1em;
+  }
+
+  .datos_principales-formInst {
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid #D1D1D1;
+  }
+
+  .datos_principales2-formInst {
+    margin: 0;
+    padding: 0;
+  }
+
+  .nombres_usuario-formProf {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    height: 3vh;
+  }
+
+  .section_inputRight-text-formProf {
+    padding: 0 0 0 15px;
+  }
+
+  .section_inputLeft-text-formProf {
+    padding: 0 15px 0 0;
+  }
+
+  .text_label-formProf {
+    font-size: 1em;
+  }
+
+  .input_nomApl-formInst {
+    width: 48.7%;
+    margin-bottom: 0%;
+  }
+
+  .btn_guardar-formInst {
+    font-size: 1em;
+    width: 95%;
+  }
+
+  .flechaBtn_guardar-formInst {
+    width: 11%;
+  }
+
+  .icon_infoContac-formProf {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .btn2_enviar-formProf {
+    font-size: 1em;
+    width: 17%;
+  }
+
+  .icon_infoConsult-formProf {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .seccion_consulta-formProf {
+    flex-direction: row;
+  }
+
+  .icon_infoSubPerfil-formProf {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .text_infoImg-formProf {
+    font-family: "Roboto", "Regular";
+    font-size: 1em;
+    color: #DBDADA;
+    padding: 0 15px;
+  }
+
+  .icon_infoEduc-formProf {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .icon_infoExper-formProf {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .icon_infoAsocia-formProf {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .agregar_archivo-formProf::before {
+    background-position-x: 13%;
+    background-size: 5%;
+    font-size: 1em;
+    padding-left: 0;
+  }
+
+  .icon_infoIdioma-formProf {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .icon_infoTratam-formProf {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .text_superior-proced-formProf {
+    font-size: 1em;
+  }
+
+  .content_antes-formProf .agregar_archivo-formProf::before {
+    background-position-x: 16%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .content_despues-formProf .agregar_archivo-formProf::before {
+    background-position-x: 12%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .icon_infoPremReco-formProf {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .icon_infoPublic-formProf {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .icon_infoGale-formProf {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .icon_infoVideo-formProf {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+}
+@media (min-width: 1200px) {
+  .lista_opciones-usuario-formProf {
+    width: 60%;
+    height: 12vh;
+  }
+
+  .img_usuario-formProf {
+    height: 20vh;
+  }
+}
+@media (min-width: 1440px) {
+  .img_usuario-formProf {
+    height: 22vh;
+  }
+}
+@media (min-width: 1920px) {
+  .lista_opciones-usuario-formProf {
+    width: 55%;
+    height: 13vh;
+  }
+
+  .img_usuario-formProf {
+    height: 26vh;
+  }
+
+  .flechaBtn_guardar-formInst {
+    width: 8%;
   }
 }
 .imagen_bannerPrin-contac {
