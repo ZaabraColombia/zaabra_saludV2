@@ -21127,16 +21127,7 @@ a:link, a:visited, a:active, a:hover {
     padding: 3% 15%;
   }
 }
-.content_principal-formProf {
-  background: #F9F9F9;
-  padding-top: 3%;
-}
-
-.content_icons-formProf {
-  width: 17%;
-}
-
-.lista_opciones-usuario-formProf {
+.lista_opciones-usuario-formInst {
   display: flex;
   list-style: none;
   padding: 0;
@@ -21145,16 +21136,67 @@ a:link, a:visited, a:active, a:hover {
   height: 12vh;
 }
 
-.text_opcion-formProfesional {
-  font-family: "Quicksand", "Regular";
-  margin: 0;
-  text-align: center;
-  width: 100%;
-  height: 30%;
+.content_icons-formInst {
+  width: 17%;
 }
 
-.iconGris_datoPersonal {
-  background-image: url("/img/formulario-profesional/icono-datos-personales-gris.svg");
+.content_principal-formInst {
+  background: #F9F9F9;
+  padding-top: 3%;
+}
+
+.content_textPrincipal-formInst {
+  margin: auto;
+  padding: 0;
+}
+
+.titulo_principal-formInst {
+  font-family: "Quicksand", "Regular";
+  font-size: 2em;
+  font-weight: bold;
+  color: #019F86;
+  text-align: initial;
+}
+
+.texto_superior-formInst {
+  font-family: "Roboto", "Regular";
+  font-size: 1em;
+  color: #3E3E3E;
+  text-align: initial;
+  padding: 0;
+  margin: 3% 0;
+}
+
+.iconGris_servProfesional {
+  background-image: url("/img/formulario-institucion/icono-servicios-profesionales-gris.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em;
+  color: #D1D1D1;
+}
+
+.iconGris_acercaInst {
+  background-image: url("/img/formulario-institucion/acerca-de-la-institucion-gris.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em;
+  color: #D1D1D1;
+}
+
+.iconGris_profesionalInst {
+  background-image: url("/img/formulario-institucion/icono-profesionales-gris.svg");
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -21164,11 +21206,11 @@ a:link, a:visited, a:active, a:hover {
   align-items: flex-end;
   line-height: 1;
   font-size: 1em !important;
-  color: #0083D6 !important;
+  color: #D1D1D1 !important;
 }
 
-.iconGris_perfProf {
-  background-image: url("/img/formulario-profesional/icono-perfil-profesional-gris.svg");
+.iconGris_certifInst {
+  background-image: url("/img/formulario-institucion/icono-certificaciones-gris.svg");
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -21181,8 +21223,8 @@ a:link, a:visited, a:active, a:hover {
   color: #D1D1D1;
 }
 
-.iconGris_trataProced {
-  background-image: url("/img/formulario-profesional/icono-tratamientos-y-procedimientos-gris.svg");
+.iconGris_sedeInst {
+  background-image: url("/img/formulario-institucion/icono-sede-gris.svg");
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -21195,36 +21237,8 @@ a:link, a:visited, a:active, a:hover {
   color: #D1D1D1;
 }
 
-.iconGris_premioRecon {
-  background-image: url("/img/formulario-profesional/icono-premios-y-reconocimientos-gris.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em;
-  color: #D1D1D1;
-}
-
-.iconGris_public {
-  background-image: url("/img/formulario-profesional/icono-publicaciones-gris.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em;
-  color: #D1D1D1;
-}
-
-.iconGris_galeriaVideo {
-  background-image: url("/img/formulario-profesional/icono-galeria-gris.svg");
+.iconGris_galeInst {
+  background-image: url("/img/formulario-institucion/icono-galeria-gris.svg");
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -21238,7 +21252,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .iconVerde_datoInst {
-  background-image: url("/img/formulario-profesional/datos-institucionales-verde.svg");
+  background-image: url("/img/formulario-institucion/datos-institucionales-verde.svg");
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -21248,25 +21262,11 @@ a:link, a:visited, a:active, a:hover {
   align-items: flex-end;
   line-height: 1;
   font-size: 1em !important;
-  color: #0083D6 !important;
+  color: #019F86 !important;
 }
 
-.iconAzul_datoPersonal {
-  background-image: url("/img/formulario-profesional/icono-datos-personales.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em !important;
-  color: #0083D6 !important;
-}
-
-.iconAzul_perfProf {
-  background-image: url("/img/formulario-profesional/icono-perfil-profesional.svg");
+.iconVerde_servProfesional {
+  background-image: url("/img/formulario-institucion/icono-servicios-profesionales.svg");
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -21277,11 +21277,11 @@ a:link, a:visited, a:active, a:hover {
   line-height: 1;
   font-size: 1em !important;
   font-family: "Quicksand", "Regular";
-  color: #0083D6 !important;
+  color: #019F86 !important;
 }
 
-.iconAzul_trataProced {
-  background-image: url("/img/formulario-profesional/icono-tratamientos-y-procedimientos.svg");
+.iconVerde_acercaInst {
+  background-image: url("/img/formulario-institucion/acerca-de-la-institucion.svg");
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -21291,11 +21291,11 @@ a:link, a:visited, a:active, a:hover {
   align-items: flex-end;
   line-height: 1;
   font-size: 1em !important;
-  color: #0083D6 !important;
+  color: #019F86 !important;
 }
 
-.iconAzul_premioRecon {
-  background-image: url("/img/formulario-profesional/icono-premios-y-reconocimientos.svg");
+.iconVerde_profesionalInst {
+  background-image: url("/img/formulario-institucion/icono-profesionales.svg");
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -21305,11 +21305,11 @@ a:link, a:visited, a:active, a:hover {
   align-items: flex-end;
   line-height: 1;
   font-size: 1em !important;
-  color: #0083D6 !important;
+  color: #019F86 !important;
 }
 
-.iconAzul_public {
-  background-image: url("/img/formulario-profesional/icono-publicaciones.svg");
+.iconVerde_certifInst {
+  background-image: url("/img/formulario-institucion/icono-certificaciones.svg");
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -21319,11 +21319,11 @@ a:link, a:visited, a:active, a:hover {
   align-items: flex-end;
   line-height: 1;
   font-size: 1em !important;
-  color: #0083D6 !important;
+  color: #019F86 !important;
 }
 
-.iconAzul_galeriaVideo {
-  background-image: url("/img/formulario-profesional/icono-galeria.svg");
+.iconVerde_sedeInst {
+  background-image: url("/img/formulario-institucion/icono-sede.svg");
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -21333,32 +21333,32 @@ a:link, a:visited, a:active, a:hover {
   align-items: flex-end;
   line-height: 1;
   font-size: 1em !important;
-  color: #0083D6 !important;
+  color: #019F86 !important;
 }
 
-.content_textPrincipal-formProf {
-  margin: auto;
-  padding: 0;
+.iconVerde_galeInst {
+  background-image: url("/img/formulario-institucion/icono-galeria.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: 50%;
+  background-position-x: center;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-size: 1em !important;
+  color: #019F86 !important;
 }
 
-.titulo_principal-formProf {
+.text_opcion-formInst {
   font-family: "Quicksand", "Regular";
-  font-size: 2em;
-  font-weight: bold;
-  color: #0083D6;
-  text-align: initial;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  height: 30%;
 }
 
-.texto_superior-formProf {
-  font-family: "Roboto", "Regular";
-  font-size: 1em;
-  color: #3E3E3E;
-  text-align: initial;
-  padding: 0;
-  margin: 3% 0;
-}
-
-.infoBasica_formProf {
+.content_tarjetasInfo-formInst {
   background: #ffffff;
   margin: auto;
   margin-bottom: 5%;
@@ -21366,8 +21366,8 @@ a:link, a:visited, a:active, a:hover {
   box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
 }
 
-.icon_infoBasica-formProf {
-  background-image: url("/img/formulario-profesional/icono-informacion-basica.svg");
+.icon_infoBasica-formInst {
+  background-image: url("/img/formulario-institucion/icono-informacion-basica.svg");
   background-repeat: no-repeat;
   background-position-y: center;
   background-size: 2.5%;
@@ -21375,10 +21375,203 @@ a:link, a:visited, a:active, a:hover {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #019F86;
+  border-bottom: 1px solid #0083d6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #019F86;
+  color: #0083d6;
+  text-transform: inherit;
+}
+
+.icon_infoContac-formInst {
+  background-image: url("/img/formulario-institucion/icono-informacion-de-contacto.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #0083d6;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #0083d6;
+  text-transform: inherit;
+}
+
+.btn2_enviar-formProf {
+  font-family: "Quicksand";
+  font-size: 1.15em;
+  color: #ffffff;
+  background: #0083d6;
+  border: none;
+  border-radius: 3px;
+  height: calc(1.6em + 0.75rem + 2px);
+  width: 19%;
+}
+
+.icon_servProf-formInst {
+  background-image: url("/img/formulario-institucion/icono-servicios-profesionales-azul.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #0083d6;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #0083d6;
+  text-transform: inherit;
+}
+
+.seccion_consulta-formProf {
+  display: flex;
+  margin: 3% 0;
+  padding: 0;
+}
+
+.icon_servicios-formInst {
+  background-image: url("/img/formulario-institucion/icono-servicios.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #0083d6;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #0083d6;
+  text-transform: inherit;
+}
+
+.icon_quienes-formInst {
+  background-image: url("/img/formulario-institucion/icono-quienes-somos.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #0083d6;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #0083d6;
+  text-transform: inherit;
+}
+
+.icon_propuestaValor-formInst {
+  background-image: url("/img/formulario-institucion/icono-propuesta-valor.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #0083d6;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #0083d6;
+  text-transform: inherit;
+}
+
+.icon_convenios-formInst {
+  background-image: url("/img/formulario-institucion/icono-convenios.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #0083d6;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #0083d6;
+  text-transform: inherit;
+}
+
+.icon_certificaciones-formInst {
+  background-image: url("/img/formulario-institucion/icono-certificaciones-azul.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #0083d6;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #0083d6;
+  text-transform: inherit;
+}
+
+.icon_sedes-formInst {
+  background-image: url("/img/formulario-institucion/icono-sedes-azul.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #0083d6;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #0083d6;
+  text-transform: inherit;
+}
+
+.icon_ubiqueSede-formInst {
+  background-image: url("/img/formulario-institucion/icono-ubique-la-sede.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #0083d6;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #0083d6;
+  text-transform: inherit;
+}
+
+.icon_galeriaInst-formInst {
+  background-image: url("/img/formulario-institucion/icono-galeria-azul.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #0083d6;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #0083d6;
+  text-transform: inherit;
+}
+
+.icon_videosInst-formInst {
+  background-image: url("/img/formulario-institucion/icono-videos-azul.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #0083d6;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #0083d6;
   text-transform: inherit;
 }
 
@@ -21413,7 +21606,7 @@ a:link, a:visited, a:active, a:hover {
 .contain_imgInst-formInst {
   align-self: center;
   text-align: center;
-  padding-top: 5%;
+  padding-top: 0;
 }
 
 .img_institucion-formInst {
@@ -21502,6 +21695,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .datos_principales2-formInst {
+  display: flex;
   margin: 0;
   padding: 0;
 }
@@ -21545,55 +21739,6 @@ a:link, a:visited, a:active, a:hover {
   padding: 0;
   display: flex;
   justify-content: flex-end;
-}
-
-.icon_infoContac-formProf {
-  background-image: url("/img/formulario-profesional/icono-informacion-de-contacto.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #019F86;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #019F86;
-  text-transform: inherit;
-}
-
-.btn2_enviar-formProf {
-  font-family: "Quicksand";
-  font-size: 1.15em;
-  color: #ffffff;
-  background: #0083d6;
-  border: none;
-  border-radius: 3px;
-  height: calc(1.6em + 0.75rem + 2px);
-  width: 19%;
-}
-
-.icon_infoConsult-formProf {
-  background-image: url("/img/formulario-profesional/icono-informacion-de-consulta.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #019F86;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #019F86;
-  text-transform: inherit;
-}
-
-.seccion_consulta-formProf {
-  display: flex;
-  margin: 3% 0;
-  padding: 0;
 }
 
 .icon_infoSubPerfil-formProf {
@@ -22242,61 +22387,242 @@ a:link, a:visited, a:active, a:hover {
   bottom: 0;
 }
 
+.content_botonesInferiores-formProf {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  margin-bottom: 3%;
+  padding: 0;
+}
+
+.content_btn-anter {
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.content_btn-siguient {
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.boton_inferior-anterior-formProf {
+  font-family: "Quicksand";
+  font-size: 1.15em;
+  color: #434343;
+  background: transparent;
+  border: 1px solid #434343;
+  border-radius: 3px;
+  height: calc(1.6em + 0.75rem + 2px);
+  width: 75%;
+}
+
+.boton_inferior-siguiente-formProf {
+  font-family: "Quicksand";
+  font-size: 1.15em;
+  color: #ffffff;
+  background: #019F86;
+  border: none;
+  border-radius: 3px;
+  height: calc(1.6em + 0.75rem + 2px);
+  width: 75%;
+}
+
 .hidden-section-formProf {
   display: none;
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
-  .lista_opciones-usuario-formProf {
-    justify-content: center;
+  .lista_opciones-usuario-formInst {
+    justify-content: flex-start;
     flex-wrap: wrap;
     width: 100%;
-    height: 40vh;
+    height: 30vh;
   }
 
-  .content_icons-formProf {
-    width: 30%;
-    height: 15vh;
+  .content_icons-formInst {
+    width: 25%;
+    height: 13vh;
   }
 
-  .iconAzul_datoPersonal {
+  .contain_imgInst-formInst {
+    align-self: center;
+    text-align: center;
+    padding-top: 5%;
+  }
+
+  .contain_imgInst-formInst .text_usuario-formProf {
+    font-size: 1em;
+  }
+
+  .contain_imgInst-formInst .icon_subirFoto-formProf {
+    background-position-x: 20%;
+  }
+
+  .iconGris_servProfesional {
+    background-size: 65%;
     font-size: 0.75em !important;
   }
 
-  .iconGris_perfProf {
+  .iconGris_acercaInst {
+    background-size: 65%;
     font-size: 0.75em !important;
   }
 
-  .iconGris_trataProced {
+  .iconGris_profesionalInst {
+    background-size: 65%;
     font-size: 0.75em !important;
   }
 
-  .iconGris_premioRecon {
+  .iconGris_certifInst {
+    background-size: 65%;
     font-size: 0.75em !important;
   }
 
-  .iconGris_public {
+  .iconGris_sedeInst {
+    background-size: 65%;
     font-size: 0.75em !important;
   }
 
-  .iconGris_galeriaVideo {
+  .iconGris_galeInst {
+    background-size: 65%;
     font-size: 0.75em !important;
   }
 
-  .titulo_principal-formProf {
+  .iconVerde_datoInst {
+    background-size: 65%;
+    font-size: 0.75em !important;
+  }
+
+  .iconVerde_servProfesional {
+    background-size: 65%;
+    font-size: 0.75em !important;
+  }
+
+  .iconVerde_acercaInst {
+    background-size: 65%;
+    font-size: 0.75em !important;
+  }
+
+  .iconVerde_profesionalInst {
+    background-size: 65%;
+    font-size: 0.75em !important;
+  }
+
+  .iconVerde_certifInst {
+    background-size: 65%;
+    font-size: 0.75em !important;
+  }
+
+  .iconVerde_sedeInst {
+    background-size: 65%;
+    font-size: 0.75em !important;
+  }
+
+  .iconVerde_galeInst {
+    background-size: 65%;
+    font-size: 0.75em !important;
+  }
+
+  .titulo_principal-formInst {
     font-size: 1.45em;
     text-align: center;
   }
 
-  .texto_superior-formProf {
+  .texto_superior-formInst {
     font-size: 0.75em;
   }
 
-  .icon_infoBasica-formProf {
+  .icon_infoBasica-formInst {
     background-size: 8%;
     padding-left: 10%;
     height: 6vh;
     display: flex;
+  }
+
+  .icon_servProf-formInst {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .seccion_consulta-formProf {
+    flex-direction: column;
+  }
+
+  .icon_servicios-formInst {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .seccion_consulta-formProf {
+    flex-direction: column;
+  }
+
+  .icon_quienes-formInst {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .seccion_consulta-formProf {
+    flex-direction: column;
+  }
+
+  .icon_propuestaValor-formInst {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .seccion_consulta-formProf {
+    flex-direction: column;
+  }
+
+  .icon_convenios-formInst {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .seccion_consulta-formProf {
+    flex-direction: column;
+  }
+
+  .icon_certificaciones-formInst {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .seccion_consulta-formProf {
+    flex-direction: column;
+  }
+
+  .icon_sedes-formInst {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .icon_ubiqueSede-formInst {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .icon_galeriaInst-formInst {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
+  }
+
+  .icon_videosInst-formInst {
+    background-size: 8%;
+    padding-left: 10%;
+    height: 6vh;
   }
 
   .img_usuario-formProf {
@@ -22305,13 +22631,13 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .text_usuario-formProf {
-    font-size: 0.85em;
+    font-size: 1em;
     margin: 5% 0;
   }
 
   .icon_subirFoto-formProf {
-    background-position-x: 25%;
-    background-size: 4.5%;
+    background-position-x: 21%;
+    background-size: 5%;
   }
 
   .section_inputRight-text-formProf {
@@ -22340,13 +22666,14 @@ a:link, a:visited, a:active, a:hover {
   .btn_guardar-formInst {
     font-size: 1em;
     width: 45%;
+    margin-bottom: 5%;
   }
 
   .flechaBtn_guardar-formInst {
     width: 13%;
   }
 
-  .icon_infoContac-formProf {
+  .icon_infoContac-formInst {
     background-size: 8%;
     padding-left: 10%;
     height: 6vh;
@@ -22355,16 +22682,6 @@ a:link, a:visited, a:active, a:hover {
   .btn2_enviar-formProf {
     font-size: 1em;
     width: 45%;
-  }
-
-  .icon_infoConsult-formProf {
-    background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
-  }
-
-  .seccion_consulta-formProf {
-    flex-direction: column;
   }
 
   .icon_infoSubPerfil-formProf {
@@ -22555,21 +22872,84 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 768px) and (orientation: portrait) {
-  .content_icons-formProf {
-    width: 16%;
-    height: 10vh;
+  .lista_opciones-usuario-formInst {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 85%;
+    height: 25vh;
   }
 
-  .lista_opciones-usuario-formProf {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 2% auto;
-    width: 100%;
+  .content_icons-formInst {
+    width: 25%;
     height: 12vh;
   }
 
-  .text_opcion-formProfesional {
+  .iconGris_servProfesional {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconGris_acercaInst {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconGris_profesionalInst {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconGris_certifInst {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconGris_sedeInst {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconGris_galeInst {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconVerde_datoInst {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconVerde_servProfesional {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconVerde_acercaInst {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconVerde_profesionalInst {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconVerde_certifInst {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconVerde_sedeInst {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .iconVerde_galeInst {
+    background-size: 65%;
+    font-size: 1em !important;
+  }
+
+  .text_opcion-formInst {
     font-family: "Quicksand", "Regular";
     margin: 0;
     text-align: center;
@@ -22577,70 +22957,113 @@ a:link, a:visited, a:active, a:hover {
     height: 30%;
   }
 
-  .iconGris_perfProf {
-    background-size: 65%;
-    font-size: 1em !important;
-  }
-
-  .iconGris_trataProced {
-    background-size: 65%;
-    font-size: 1em !important;
-  }
-
-  .iconGris_premioRecon {
-    background-size: 65%;
-    font-size: 1em !important;
-  }
-
-  .iconGris_public {
-    background-size: 65%;
-    font-size: 1em !important;
-  }
-
-  .iconGris_galeriaVideo {
-    background-size: 65%;
-    font-size: 1em !important;
-  }
-
-  .iconAzul_datoPersonal {
-    background-size: 65%;
-    font-size: 1em !important;
-  }
-
-  .iconAzul_perfProf {
-    background-size: 65%;
-    font-size: 1em !important;
-  }
-
-  .iconAzul_trataProced {
-    background-size: 65%;
-    font-size: 1em !important;
-  }
-
-  .iconAzul_premioRecon {
-    background-size: 65%;
-    font-size: 1em !important;
-  }
-
-  .iconAzul_public {
-    background-size: 65%;
-    font-size: 1em !important;
-  }
-
-  .iconAzul_galeriaVideo {
-    background-size: 65%;
-    font-size: 1em !important;
-  }
-
-  .titulo_principal-formProf {
+  .titulo_principal-formInst {
     font-size: 2em;
   }
 
-  .texto_superior-formProf {
+  .texto_superior-formInst {
     font-size: 1em;
   }
 
-  .icon_infoBasica-formProf {
+  .icon_infoBasica-formInst {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .img_institucion-formInst {
+    height: 12vh;
+  }
+
+  .icon_servProf-formInst {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .seccion_consulta-formProf {
+    flex-direction: row;
+  }
+
+  .icon_servicios-formInst {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .seccion_consulta-formProf {
+    flex-direction: row;
+  }
+
+  .icon_quienes-formInst {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .seccion_consulta-formProf {
+    flex-direction: row;
+  }
+
+  .icon_propuestaValor-formInst {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .seccion_consulta-formProf {
+    flex-direction: row;
+  }
+
+  .icon_convenios-formInst {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .seccion_consulta-formProf {
+    flex-direction: row;
+  }
+
+  .icon_certificaciones-formInst {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .seccion_consulta-formProf {
+    flex-direction: row;
+  }
+
+  .icon_sedes-formInst {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .icon_ubiqueSede-formInst {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .icon_galeriaInst-formInst {
+    background-size: 3%;
+    padding-left: 5%;
+    height: 2.5vh;
+    font-size: 1.2em;
+  }
+
+  .icon_videosInst-formInst {
     background-size: 3%;
     padding-left: 5%;
     height: 2.5vh;
@@ -22668,8 +23091,15 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .datos_principales2-formInst {
+    display: flex;
     margin: 0;
     padding: 0;
+  }
+
+  .contain_imgInst-formInst {
+    align-self: center;
+    text-align: center;
+    padding-top: 0;
   }
 
   .nombres_usuario-formProf {
@@ -22693,20 +23123,21 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .input_nomApl-formInst {
-    width: 48.7%;
+    width: 100%;
     margin-bottom: 0%;
   }
 
   .btn_guardar-formInst {
     font-size: 1em;
-    width: 95%;
+    width: 17%;
+    margin-bottom: 2%;
   }
 
   .flechaBtn_guardar-formInst {
     width: 11%;
   }
 
-  .icon_infoContac-formProf {
+  .icon_infoContac-formInst {
     background-size: 3%;
     padding-left: 5%;
     height: 2.5vh;
@@ -22716,17 +23147,6 @@ a:link, a:visited, a:active, a:hover {
   .btn2_enviar-formProf {
     font-size: 1em;
     width: 17%;
-  }
-
-  .icon_infoConsult-formProf {
-    background-size: 3%;
-    padding-left: 5%;
-    height: 2.5vh;
-    font-size: 1.2em;
-  }
-
-  .seccion_consulta-formProf {
-    flex-direction: row;
   }
 
   .icon_infoSubPerfil-formProf {
@@ -22830,7 +23250,7 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1200px) {
-  .lista_opciones-usuario-formProf {
+  .lista_opciones-usuario-formInst {
     width: 60%;
     height: 12vh;
   }
@@ -22845,7 +23265,7 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1920px) {
-  .lista_opciones-usuario-formProf {
+  .lista_opciones-usuario-formInst {
     width: 55%;
     height: 13vh;
   }
