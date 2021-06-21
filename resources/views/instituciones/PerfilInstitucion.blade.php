@@ -75,12 +75,13 @@
 
         
         @foreach ($objinstitucionlandinservicios as $objinstitucionlandinservicios)
+        <div id="accordion">
             <div class="card containt_options-collapse-membresia">
-                <div id="headingTwo">
-                    <button class="boton_collapse-off-membresia" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">{{$objinstitucionlandinservicios->tituloServicios}}<</button>
+                <div class="card-header" id="heading_{{$loop->iteration}}">
+                    <button class="boton_collapse-off-membresia" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapse_{{$loop->iteration}}" aria-expanded="true" aria-controls="collapse_{{$loop->iteration}}">{{$objinstitucionlandinservicios->tituloServicios}}</button>
                 </div>
 
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div id="collapse_{{$loop->iteration}}" class="collapse" aria-labelledby="heading_{{$loop->iteration}}" data-parent="#accordion">
                     <div class="card-body text_interno-toggle-membresia">
                         <p>{{$objinstitucionlandinservicios->DescripcioServicios}}</p>
                     </div>
@@ -94,6 +95,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         @endforeach
 
         <section class="sections sections_active section_perfil_institucion">
@@ -150,25 +152,18 @@
             </div>
         </section>
 
-        <section class="sections section_tratamientos_institucion">
-            <div class="tratamientos_institucion">
-                <h2><i></i>Tratamientos y procedimientos</h2>
+        <section class="sections section_sedes_institucion">
+            <div class="sedes_institucion">
+                <h2><i></i>Sedes</h2>
                 <div class="container_cards">
-                    @foreach ($objprofesionallandingtratam as $objprofesionallandingtratam)
+                    @foreach ($objinstitucionlandinSedes as $objinstitucionlandinSedes)
                         <div class="card">
-                            <h4>Antes</h4>
-                            <img class="card-img-top" src="{{URL::asset($objprofesionallandingtratam->imgTratamientoAntes)}}">
+                            <img class="card-img-top" src="{{URL::asset($objinstitucionlandinSedes->imgsede)}}">
                             <div class="card-body">
-                                <h5>{{$objprofesionallandingtratam->tituloTrataminetoAntes}}</h5>
-                                <p>{{$objprofesionallandingtratam->descripcionTratamientoAntes}}</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <h6>Después</h6>
-                            <img class="card-img-top" src="{{URL::asset($objprofesionallandingtratam->imgTratamientodespues)}}">
-                            <div class="card-body">
-                                <h5>{{$objprofesionallandingtratam->tituloTrataminetoDespues}}</h5>
-                                <p>{{$objprofesionallandingtratam->descripcionTratamientoDespues}}</p>
+                                <h5>{{$objinstitucionlandinSedes->nombre}}</h5>
+                                <p>{{$objinstitucionlandinSedes->direccion}}</p>
+                                <p>{{$objinstitucionlandinSedes->horario_sede}}</p>
+                                <p>{{$objinstitucionlandinSedes->telefono}}</p>
                             </div>
                         </div>
                     @endforeach
@@ -180,12 +175,10 @@
             <div class="galeria_institucion">
                 <h2><i></i>Galería</h2>
                 <ul class="gallery_institucion">
-                    @foreach ($objprofesionallandinggaler as $objprofesionallandinggaler)
-                    <li>
-                        <img src="{{URL::asset($objprofesionallandinggaler->imggaleria)}}" alt="{{$objprofesionallandinggaler->descripcion}}"> 
-                    </li>       
-                    <!-- <p>{{$objprofesionallandinggaler->nombrefoto}}</p>
-                    <p>{{$objprofesionallandinggaler->descripcion}}</p> -->
+                    @foreach ($objinstitucionlandingaleria as $objinstitucionlandingaleria)
+                        <li>
+                            <img src="{{URL::asset($objinstitucionlandingaleria->imggaleria)}}" alt="{{$objinstitucionlandingaleria->descripcion}}"> 
+                        </li>       
                     @endforeach
                 </ul>    
             </div>
@@ -193,12 +186,12 @@
             <div class="videos_institucion">
                 <h2><i></i>Videos</h2>
                 <div class="container_cards">
-                    @foreach ($objprofesionallandingvideo as $objprofesionallandingvideo)
+                    @foreach ($objinstitucionlandinvideo as $objinstitucionlandinvideo)
                         <div class="card">
-                            <iframe class="card-img-top" src="{{$objprofesionallandingvideo->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                            <iframe class="card-img-top" src="{{$objinstitucionlandinvideo->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                             <div class="card-body">
-                                <h5>{{$objprofesionallandingvideo->nombrevideo}}</h5>
-                                <p>{{$objprofesionallandingvideo->descripcionvideo}}</p>
+                                <h5>{{$objinstitucionlandinvideo->nombrevideo}}</h5>
+                                <p>{{$objinstitucionlandinvideo->descripcionvideo}}</p>
                             </div>
                         </div>
                     @endforeach

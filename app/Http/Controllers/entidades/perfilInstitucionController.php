@@ -23,6 +23,7 @@ class perfilInstitucionController extends Controller
         $objinstitucionlandinpublicaci= $this->cargarInfoInstitucLandinPublicaciones($id);
         $objinstitucionlandingaleria= $this->cargarInfoInstitucLandinGaleria($id);
         $objinstitucionlandinvideo= $this->cargarInfoInstitucLandinVideo($id);
+        $objinstitucionlandinSedes= $this->cargarInfoInstitucLandinSedes($id);
         
         return view('instituciones.PerfilInstitucion', compact(
             'objinstitucionlandin',
@@ -33,9 +34,9 @@ class perfilInstitucionController extends Controller
             'objinstitucionlandinpremios',
             'objinstitucionlandinpublicaci',
             'objinstitucionlandingaleria',
-            'objinstitucionlandinvideo'
+            'objinstitucionlandinvideo',
+            'objinstitucionlandinSedes'
         ));
-
     }
 
          // consulta para cargar informacion de la landing 
@@ -111,6 +112,13 @@ class perfilInstitucionController extends Controller
         FROM instituciones ints
         INNER JOIN videos vi ON ints.id=vi.idinstitucion        
         WHERE ints.aprobado<>0 AND ints.id=$id");
+        }
+        // consulta para cargar informacion de la landing sedes
+        public function cargarInfoInstitucLandinSedes($id){
+            return DB::select("SELECT s.imgsede, s.nombre, s.direccion, s.horario_sede, s.telefono
+            FROM instituciones ints
+            INNER JOIN sedesinstituciones s ON ints.id=s.idInstitucion        
+            WHERE ints.aprobado<>0 AND ints.id=$id");
         }
 
 }
