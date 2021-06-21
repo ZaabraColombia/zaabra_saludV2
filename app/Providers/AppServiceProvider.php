@@ -27,11 +27,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
          $urlZaabra= "http://localhost:8000/";
-        //$urlZaabra = 'https://zaabrasalud.co/';
-        //$urlZaabra= "http://portal-test.zaabra.local/";
- 
         $GLOBALS["urlZaabra"] = $urlZaabra;
- 
+
 
     }
 }

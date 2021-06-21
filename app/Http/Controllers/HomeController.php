@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -32,8 +33,7 @@ class HomeController extends Controller
         $objprofesionaleshome = $this->cargarProfesionaleshome();
         $objbanneruniversidad = $this->cargarbannerUniversidad();
         $objcarruselTriple = $this->cargarBannertriple();
-     
-        
+
         return view('home', compact(
             'objbannersprincipalHome',
             'objbannersparallaxHome',
@@ -95,6 +95,7 @@ class HomeController extends Controller
         ->get();
         return $consuluniversidad ;
     }
+
 }
 
 

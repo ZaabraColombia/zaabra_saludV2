@@ -188,7 +188,7 @@
                                         <label for="primernombre" class="col-md-12 col-form-label texto_label-contac">{{ __('Nombres') }}</label>
 
                                         <div class="col-md-6 mb-3 mb-md-0">
-                                            <input id="primernombre" type="text" class="form-control input_height-fullhd-contac @error('primernombre') is-invalid @enderror" name="primernombre" value="{{ old('primernombre') }}" required autocomplete="primernombre"  placeholder="Primer Nombre">
+                                            <input id="primernombre" type="text" class="form-control input_height-fullhd-contac @error('primernombre') is-invalid @enderror" name="primernombre" value="{{ old('primernombre') }}"  autocomplete="primernombre"  placeholder="Primer Nombre">
 
                                             @error('primernombre')
                                                 <span class="invalid-feedback" role="alert">
@@ -207,7 +207,7 @@
                                         <label for="primerapellido" class="col-md-12 col-form-label texto_label-contac">{{ __('Apellidos') }}</label>
 
                                         <div class="col-md-6 mb-3 mb-md-0">
-                                            <input id="primerapellido" type="text" class="form-control input_height-fullhd-contac @error('primerapellido') is-invalid @enderror" name="primerapellido" value="{{ old('primerapellido') }}" required autocomplete="primerapellido"  placeholder="Primer Apellido">
+                                            <input id="primerapellido" type="text" class="form-control input_height-fullhd-contac @error('primerapellido') is-invalid @enderror" name="primerapellido" value="{{ old('primerapellido') }}" autocomplete="primerapellido"  placeholder="Primer Apellido">
 
                                             @error('primerapellido')
                                                 <span class="invalid-feedback" role="alert">
@@ -230,7 +230,7 @@
                                     <label for="nombreinstitucion" class="col-md-12 col-form-label texto_label-contac">{{ __('Nombre Institución') }}</label>
 
                                     <div class="col-md-12">
-                                        <input id="nombreinstitucion" type="text" class="form-control input_height-fullhd-contac @error('nombreinstitucion') is-invalid @enderror" name="nombreinstitucion" value="{{ old('nombreinstitucion') }}"  placeholder="Nombre Institucion">
+                                        <input id="nombreinstitucion" type="text" class="form-control input_height-fullhd-contac" name="nombreinstitucion" value="{{ old('nombreinstitucion') }}"  placeholder="Nombre Institucion">
                                     </div>
                                 </div>
                             </div>
@@ -243,7 +243,7 @@
                                     <label for="email" class="col-md-12 pl-0 col-form-label texto_label-contac">{{ __('Correo electrónico') }}</label>
 
                                     <div class="col-12 p-0">
-                                        <input id="email" type="email" class="form-control input_height-fullhd-contac @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="zaabra@gmail.com">
+                                        <input id="email" type="email" class="form-control input_height-fullhd-contac" name="email" value="{{ old('email') }}" autocomplete="email" placeholder="zaabra@gmail.com">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -257,7 +257,7 @@
                                     <label for="email" class="col-md-12 pl-0 col-form-label texto_label-contac">{{ __('Asunto') }}</label>
 
                                     <div class="col-12 p-0">
-                                        <textarea class="form-control input_height-fullhd-contac" name="asunto" id="asunto" required placeholder="Escribe Aqui"></textarea>
+                                        <textarea class="form-control input_height-fullhd-contac" name="asunto" id="asunto" placeholder="Escribe Aqui"></textarea>
                                     </div>
                                 </div>
                             </div>

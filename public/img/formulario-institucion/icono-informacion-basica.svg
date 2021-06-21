@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <g id="Grupo_1579" data-name="Grupo 1579" transform="translate(17923.25 -6615.167)">
+    <g id="Grupo_1158" data-name="Grupo 1158" transform="translate(-18242.25 5982.167)">
+      <g id="Elipse_129" data-name="Elipse 129" transform="translate(319 633)" fill="none" stroke="#0083d6" stroke-width="2">
+        <circle cx="13" cy="13" r="13" stroke="none"/>
+        <circle cx="13" cy="13" r="12" fill="none"/>
+      </g>
+      <g id="user" transform="translate(321.5 634.688)">
+        <path id="Trazado_330" data-name="Trazado 330" d="M17,19.875V18.25A3.25,3.25,0,0,0,13.75,15H7.25A3.25,3.25,0,0,0,4,18.25v1.625" transform="translate(0 -2.25)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <circle id="Elipse_130" data-name="Elipse 130" cx="3.5" cy="3.5" r="3.5" transform="translate(7 3)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

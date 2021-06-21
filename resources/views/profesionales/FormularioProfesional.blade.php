@@ -204,7 +204,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Selecione área </label> 
 
-                            <select id="idarea" name="idarea" class="col-lg-12 form-control" style="width:350px" >
+                            <select id="idarea" name="idarea" class="col-lg-12 form-control">
                                 <option value="" selected disabled> Seleccione area</option>
 
                                 @foreach($area as $area)
@@ -216,20 +216,20 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Selecione profesión </label> 
 
-                            <select name="idprofesion" id="idprofesion" class="col-lg-12 form-control" style="width:350px"></select>
+                            <select name="idprofesion" id="idprofesion" class="col-lg-12 form-control"></select>
                         </div>
 
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione especialidad </label>
 
-                            <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control" style="width:350px"></select>
+                            <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control"></select>
                         </div>
                     
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <div class="form-group">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
 
-                                <select  class="col-lg-12 form-control" style="width:350px" name="id_universidad">
+                                <select  class="col-lg-12 form-control" name="id_universidad">
                                     <option value="">Seleccione Universidad</option>
 
                                     @foreach($universidades as $universidades2)

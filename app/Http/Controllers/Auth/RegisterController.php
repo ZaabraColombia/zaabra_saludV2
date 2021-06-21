@@ -86,7 +86,7 @@ class RegisterController extends Controller{
 
 
         $id_user=$user->id;
-        
+      
          users_roles::create([
             'iduser' =>  $id_user,
             'idrol' => $data['idrol'],
