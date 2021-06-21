@@ -18,6 +18,8 @@ function hideForm (z){
         // Opción institución
         document.getElementById ("inpt3"). src = '/img/iconos/icono-institucion.svg';
         document.getElementById ("txt3").style.color = "#3E3E3E";
+
+        document.getElementById("valor_tipo").value = document.getElementById("inpt1").value;
     }
 
     // Condicional para el registro de usuario rol Medico/a
@@ -35,6 +37,8 @@ function hideForm (z){
         // Opción institución
         document.getElementById ("inpt3"). src = '/img/iconos/icono-institucion.svg';
         document.getElementById ("txt3").style.color = "#3E3E3E";
+
+        document.getElementById("valor_tipo").value = document.getElementById("inpt2").value;
     }
 
     // Condicional para el registro de usuario rol Institución
@@ -52,5 +56,8 @@ function hideForm (z){
         //Opción doctor
         document.getElementById ("inpt2"). src = '/img/iconos/icono-doctor.svg';
         document.getElementById ("txt2").style.color = "#3E3E3E";
+
+        document.getElementById("valor_tipo").value = document.getElementById("inpt3").value;
     }
 }
+

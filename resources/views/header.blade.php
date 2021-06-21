@@ -11,7 +11,7 @@
                                 <input  class="inputBarraBusquedad" id="filtro">
                         </div> 
                     </div>
-
+                  
                     <!--******************************     Sección BARRA DE BUSQUEDA version MOBILE      *************************************-->
                     <!-- SECCION BARRA DE BUSQUEDA HEADER -->
                     <div class="contain_lupa-mobile">
@@ -21,17 +21,30 @@
                         </button>
                     </div>
                     <!--******************************     End sección BARRA DE BUSQUEDA version MOBILE      *********************************-->
-
                     <!-- Sección Soy paciente -->
                     <div class="soy_paciente dropdown">
                         <a class="dropdown-toggle icon_paciente" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-
+    
                         <div class="dropdown-menu dropdown-menu-right menu_paciente" aria-labelledby="dropdownMenuLink" style="">
-                            <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Paciente</span></a>
-                            <div class="dropdown-divider m-0"></div>
-                            <a class="dropdown-item menu_item-paciente icon-medico" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Doctor</span></a>
-                            <div class="dropdown-divider m-0"></div>
-                            <a class="dropdown-item menu_item-paciente icon-instituciones" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy institución</span></a>
+                            @guest
+                                <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Paciente</span></a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item menu_item-paciente icon-medico" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Doctor</span></a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item menu_item-paciente icon-instituciones" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy institución</span></a>
+                            @else
+                                <a class="dropdown-item menu_item-paciente icon-medico" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    <span class="texto_item-menu-paciente">Salir</span>
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                                <div class="dropdown-divider m-0"></div>   
+                              
+                            @endguest
+                                  
                         </div>
                     </div>
 
