@@ -47,9 +47,8 @@
     </div>
 </ol> 
 
-<!-- Contenedor principal de las tarjetas -->
-<div class="container-fluid content_principal-formInst">
-
+<!-- Contenedor principal de la opción DATOS INSTITUCIONALES -->
+<div class="container-fluid date_institution content_principal-formInst" data-position="dateInstitution">
     <!-- Titulo y texto superior -->
     <div class="col-lg-10 col-xl-8 content_textPrincipal-formInst">
         <h5 class="titulo_principal-formInst"> LE DAMOS LA BIENVENIDA A ZAABRA SALUD </h5>
@@ -146,7 +145,13 @@
                             <label for="example-date-input" class="col-12 text_label-formProf"> Pagina web </label>
 
                             <input class="col-lg-12 form-control" id="url" placeholder="nombre" type="text" name="url">
-                        </div>                    
+                        </div>
+                        
+                        <div class="col-12 section_inputRight-text-formProf">
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione entidad </label> 
+
+                            <select class="col-lg-12 form-control" name="idprofesion" id="idprofesion"></select>
+                        </div>
                     </div>
 
                     <!-- Sección imagen datos institución -->
@@ -170,6 +175,7 @@
             <!--------------- Fin campos vacios--------------------->  
         </form>
     </div>
+
     <!--------------------------------------------      Fin 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      ------------------------------------------------>
 
     <!--------------------------------------------      Inicio 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ------------------------------------------->
@@ -311,11 +317,25 @@
     </div>
     <!--------------------------------------------      Fin 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ---------------------------------------------->
 
+    <!-- Secciones de los botones anterior y siguiente -->
+    <div class="col-md-10 content_botonesInferiores-formProf">
+        <div class="col-md-3 content_btn-anter">
+            <button type="submit" class="boton_inferior-anterior-formProf">
+                <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+                Anterior
+            </button>
+        </div>
 
+        <div class="col-md-3 content_btn-siguient">
+            <button type="submit" class="boton_inferior-siguiente-formProf"> Siguiente
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+            </button>
+        </div>
+    </div>
+</div>
 
-
-    
-
+<!-- Contenedor principal de la opción SERVICIOS PROFESIONALES -->
+<div class="container-fluid professional_services content_principal-formInst" data-position="professionalServices">
     <!--------------------------------------------      Inicio 3 tercera parte del formulario *** SERVICIO PROFESIONAL ***      ------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_servProf-institution  content_tarjetasInfo-formInst">
         <h5 class="col-12 icon_servProf-formInst"> Servicios profesionales </h5>
@@ -927,11 +947,10 @@
     </div>
     <!--------------------------------------------      Fin 4 cuarta parte del formulario *** SERVICIO ***      ----------------------------------------------------------->
 
+</div>
 
-
-
-
-
+<!-- Contenedor principal de la opción ACERCA DE LA INSTITUCIÓN -->
+<div class="container-fluid about_institution content_principal-formInst" data-position="aboutInstitution">
     <!--------------------------------------------      Inicio 5 quinta parte del formulario *** QUIENES SOMOS ***      --------------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_acerca-institution content_tarjetasInfo-formInst">
         <h5 class="col-lg-12 icon_quienes-formInst"> ¿Quiénes somos? </h5>
@@ -1378,11 +1397,10 @@
     </div>
     <!--------------------------------------------      Fin 7 septima parte del formulario *** CONVENIOS ***      --------------------------------------------------------->
 
+</div>
 
-
-
-
-
+<!-- Contenedor principal de la opción PROFESIONALES -->
+<div class="container-fluid professional_inst content_principal-formInst" data-position="professionalInst">
     <!--------------------------------------------      Inicio 8 octava parte del formulario *** PROFESIONALES ***      --------------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_profesional-institution content_tarjetasInfo-formInst">
         <h5 class="col-lg-12 icon_infoBasica-formProf"> Profesionales </h5>
@@ -1697,11 +1715,10 @@
     </div>
     <!--------------------------------------------      Fin 8 octava parte del formulario *** PROFESIONALES ***      ------------------------------------------------------>
 
+</div>
 
-
-
-
-
+<!-- Contenedor principal de la opción CERTIFICACIONES -->
+<div class="container-fluid certifications_inst content_principal-formInst" data-position="certificationsInst">
     <!--------------------------------------------      Inicio 9 novena parte del formulario *** CERTIFICACIONES ***      ------------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_certif-institution content_tarjetasInfo-formInst">
         <h5 class="col-lg-12 icon_certificaciones-formInst"> Certificaciones </h5>
@@ -2199,18 +2216,13 @@
     </div>
     <!--------------------------------------------      Fin 9 novena parte del formulario *** CERTIFICACIONES ***      ---------------------------------------------------->
 
+</div>
 
-
-
-
-
-
-
-
-
+<!-- Contenedor principal de la opción SEDES -->
+<div class="container-fluid venues_inst content_principal-formInst" data-position="venuesInst">
     <!--------------------------------------------      Inicio 10 decima parte del formulario *** SEDES ***      ---------------------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_sede-institution content_tarjetasInfo-formInst">
-        <h5 class="col-lg-12 icon_infoBasica-formProf"> Sedes </h5>
+        <h5 class="col-lg-12 icon_sedes-formInst"> Sedes </h5>
 
         <p class="text_superior-proced-formProf"> A continuación suba imágenes e información de las sedes que tengan de la institución </p>
 
@@ -3282,7 +3294,7 @@
 
     <!--------------------------------------------      Inicio 11 onceava parte del formulario *** UBIQUE LA SEDE ***      -------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_sede-institution content_tarjetasInfo-formInst">
-        <h5 class="col-lg-12 icon_infoBasica-formProf"> Ubique la sede </h5>
+        <h5 class="col-lg-12 icon_ubiqueSede-formInst"> Ubique la sede </h5>
 
         <form method="POST" action="{{ url ('/FormularioInstitucionSave11') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
@@ -3314,16 +3326,13 @@
     </div>
     <!--------------------------------------------      Fin 11 onceava parte del formulario *** UBIQUE LA SEDE ***      --------------------------------------------------->
     
+</div>
 
-
-
-
-
-
-
+<!-- Contenedor principal de la opción GALERIAS -->
+<div class="container-fluid gallery_inst content_principal-formInst" data-position="galleryInst">
     <!--------------------------------------------      Inicio 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_galeria-institution content_tarjetasInfo-formInst">
-        <h5 class="col-lg-12 icon_infoBasica-formProf"> Galeria </h5>
+        <h5 class="col-lg-12 icon_galeriaInst-formInst"> Galeria </h5>
 
         <p class="text_superior-proced-formProf"> A continuación suba 10 imágenes como mínimo, con su respectivo nombre y descripción. </p>
 
@@ -4795,6 +4804,7 @@
         </form>
     </div>  
     <!--------------------------------------------      Fin 12 doceava parte del formulario *** GALERIA ***      ---------------------------------------------------------->
-    
+
 </div>
+
 @endsection

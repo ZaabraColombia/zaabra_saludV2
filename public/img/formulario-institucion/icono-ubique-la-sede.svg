@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <g id="Grupo_1584" data-name="Grupo 1584" transform="translate(-308 -1462.5)">
+    <g id="Grupo_1347" data-name="Grupo 1347" transform="translate(-3 61.5)">
+      <g id="Grupo_1183" data-name="Grupo 1183" transform="translate(0 935)">
+        <g id="Grupo_1182" data-name="Grupo 1182">
+          <g id="Grupo_1180" data-name="Grupo 1180" transform="translate(-8 -167)">
+            <g id="Grupo_1158" data-name="Grupo 1158">
+              <g id="Elipse_129" data-name="Elipse 129" transform="translate(319 633)" fill="none" stroke="#0083d6" stroke-width="2">
+                <circle cx="13" cy="13" r="13" stroke="none"/>
+                <circle cx="13" cy="13" r="12" fill="none"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="map_1_" data-name="map (1)" transform="translate(313.319 1467.427)">
+      <path id="Trazado_434" data-name="Trazado 434" d="M1,4.429v9.717l4.251-2.429,4.858,2.429,4.251-2.429V2L10.11,4.429,5.251,2Z" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+      <line id="Línea_145" data-name="Línea 145" y2="9.75" transform="translate(5.333 2)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+      <line id="Línea_146" data-name="Línea 146" y2="8.333" transform="translate(9.666 4.167)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+    </g>
+  </g>
+</svg>

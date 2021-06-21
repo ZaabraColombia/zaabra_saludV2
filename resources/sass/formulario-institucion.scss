@@ -37,7 +37,7 @@
 }
 //----- ********* Sección de los ICONOS GRISES DE LA LINEA DE OPCIONES ******** -------//
 .iconGris_servProfesional {
-    background-image: url('/img/formulario-profesional/icono-perfil-profesional-gris.svg');
+    background-image: url('/img/formulario-institucion/icono-servicios-profesionales-gris.svg');
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -50,7 +50,7 @@
     color: #D1D1D1;
 }
 .iconGris_acercaInst {
-    background-image: url('/img/formulario-profesional/icono-tratamientos-y-procedimientos-gris.svg');
+    background-image: url('/img/formulario-institucion/acerca-de-la-institucion-gris.svg');
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -63,7 +63,7 @@
     color: #D1D1D1;
 }
 .iconGris_profesionalInst {
-    background-image: url('/img/formulario-profesional/icono-datos-personales-gris.svg');
+    background-image: url('/img/formulario-institucion/icono-profesionales-gris.svg');
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -76,7 +76,7 @@
     color: #D1D1D1 !important;
 }
 .iconGris_certifInst {
-    background-image: url('/img/formulario-profesional/icono-premios-y-reconocimientos-gris.svg');
+    background-image: url('/img/formulario-institucion/icono-certificaciones-gris.svg');
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -89,7 +89,7 @@
     color: #D1D1D1;
 }
 .iconGris_sedeInst {
-    background-image: url('/img/formulario-profesional/icono-publicaciones-gris.svg');
+    background-image: url('/img/formulario-institucion/icono-sede-gris.svg');
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -102,7 +102,7 @@
     color: #D1D1D1;
 }
 .iconGris_galeInst {
-    background-image: url('/img/formulario-profesional/icono-galeria-gris.svg');
+    background-image: url('/img/formulario-institucion/icono-galeria-gris.svg');
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -129,7 +129,7 @@
     color: #019F86 !important;
 }
 .iconVerde_servProfesional {
-    background-image: url('/img/formulario-profesional/icono-perfil-profesional.svg');
+    background-image: url('/img/formulario-institucion/icono-servicios-profesionales.svg');
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -143,7 +143,7 @@
     color: #019F86 !important;
 }
 .iconVerde_acercaInst {
-    background-image: url('/img/formulario-profesional/icono-tratamientos-y-procedimientos.svg');
+    background-image: url('/img/formulario-institucion/acerca-de-la-institucion.svg');
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -156,7 +156,7 @@
     color: #019F86 !important;
 }
 .iconVerde_profesionalInst {
-    background-image: url('/img/formulario-profesional/icono-datos-personales.svg');
+    background-image: url('/img/formulario-institucion/icono-profesionales.svg');
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -169,7 +169,7 @@
     color: #019F86 !important;
 }
 .iconVerde_certifInst {
-    background-image: url('/img/formulario-profesional/icono-premios-y-reconocimientos.svg');
+    background-image: url('/img/formulario-institucion/icono-certificaciones.svg');
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -182,7 +182,7 @@
     color: #019F86 !important;
 }
 .iconVerde_sedeInst {
-    background-image: url('/img/formulario-profesional/icono-publicaciones.svg');
+    background-image: url('/img/formulario-institucion/icono-sede.svg');
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -195,7 +195,7 @@
     color: #019F86 !important;
 }
 .iconVerde_galeInst {
-    background-image: url('/img/formulario-profesional/icono-galeria.svg');
+    background-image: url('/img/formulario-institucion/icono-galeria.svg');
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -381,6 +381,78 @@
     color: #0083d6;
     text-transform: inherit;
 }
+///// *****   SECCIÓN TARJETA SEDES   ***** /////
+
+// Sección titulo de la tarjeta sedes
+.icon_sedes-formInst {
+    background-image: url('/img/formulario-institucion/icono-sedes-azul.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #0083d6;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #0083d6;
+    text-transform: inherit;
+}
+///// *****   SECCIÓN TARJETA UBIQUE SEDE   ***** /////
+
+// Sección titulo de la tarjeta ubique la sede
+.icon_ubiqueSede-formInst {
+    background-image: url('/img/formulario-institucion/icono-ubique-la-sede.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #0083d6;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #0083d6;
+    text-transform: inherit;
+}
+///// *****   SECCIÓN TARJETA GALERIA   ***** /////
+
+// Sección titulo de la tarjeta galeria
+.icon_galeriaInst-formInst {
+    background-image: url('/img/formulario-institucion/icono-galeria-azul.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #0083d6;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #0083d6;
+    text-transform: inherit;
+}
+///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
+
+// Sección titulo de la tarjeta videos
+.icon_videosInst-formInst {
+    background-image: url('/img/formulario-institucion/icono-videos-azul.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #0083d6;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #0083d6;
+    text-transform: inherit;
+}
 
 
 
@@ -453,7 +525,7 @@
 .contain_imgInst-formInst {
     align-self: center;
     text-align: center;
-    padding-top: 5%;
+    padding-top: 0;
 }
 .img_institucion-formInst {     // *************************************************************************************************
     height: 20vh;
@@ -531,6 +603,7 @@
     border-left: 1px solid #D1D1D1;
 }
 .datos_principales2-formInst {               // *************************************************************************************************
+    display: flex;
     margin: 0;
     padding: 0;
 }
@@ -1182,6 +1255,54 @@
     top: 0;
     bottom: 0;              
 }
+
+
+
+
+
+// Secciones botones inferiores anterior y siguoente
+.content_botonesInferiores-formProf {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-bottom: 3%;
+    padding: 0;
+}
+.content_btn-anter {
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+.content_btn-siguient {
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+.boton_inferior-anterior-formProf {
+    font-family: "Quicksand";
+    font-size: 1.15em;
+    color: #434343;
+    background: transparent;
+    border: 1px solid #434343;
+    border-radius: 3px;
+    height: calc(1.6em + 0.75rem + 2px);
+    width: 75%;
+}
+.boton_inferior-siguiente-formProf {
+    font-family: "Quicksand";
+    font-size: 1.15em;
+    color: #ffffff;
+    background: #019F86;
+    border: none;
+    border-radius: 3px;
+    height: calc(1.6em + 0.75rem + 2px);
+    width: 75%;
+}
+
+
+
+
+
 // clase para ocultar las secciones en cada una de las opciones del formulario profesional
 .hidden-section-formProf {
     display: none;
@@ -1190,36 +1311,79 @@
 @media (min-width: 320px) and (orientation: portrait) {
     // Sección lista de las opciones 
     .lista_opciones-usuario-formInst {
-        justify-content: center;
+        justify-content: flex-start;
         flex-wrap: wrap;
         width: 100%;
-        height: 40vh;
+        height: 30vh;
     }
     .content_icons-formInst {
-        width: 30%;
-        height: 15vh;
+        width: 25%;
+        height: 13vh;
+    }
+    // Sección imagen de la institución         *****************************************************************************
+    .contain_imgInst-formInst {
+        align-self: center;
+        text-align: center;
+        padding-top: 5%;
+    }
+    .contain_imgInst-formInst .text_usuario-formProf {
+        font-size: 1em;
+    }
+    .contain_imgInst-formInst .icon_subirFoto-formProf {
+        background-position-x: 20%;
     }
     //----- ********* Sección de los ICONOS GRISES LINEA DE OPCIONES ******** -------//
     .iconGris_servProfesional {
+        background-size: 65%;
         font-size: .75em !important;
     }
     .iconGris_acercaInst {
+        background-size: 65%;
         font-size: .75em !important;
     }
     .iconGris_profesionalInst {
+        background-size: 65%;
         font-size: .75em !important;
     }
     .iconGris_certifInst {
+        background-size: 65%;
         font-size: .75em !important;
     }
-    .iiconGris_sedeInst {
+    .iconGris_sedeInst {
+        background-size: 65%;
         font-size: .75em !important;
     }
     .iconGris_galeInst {
+        background-size: 65%;
         font-size: .75em !important;
     }
     //----- ********* Sección de los ICONOS VERDES LINEA DE OPCIONES ******** -------//
     .iconVerde_datoInst {
+        background-size: 65%;
+        font-size: .75em !important;
+    }
+    .iconVerde_servProfesional {
+        background-size: 65%;
+        font-size: .75em !important;
+    }
+    .iconVerde_acercaInst {
+        background-size: 65%;
+        font-size: .75em !important;
+    }
+    .iconVerde_profesionalInst {
+        background-size: 65%;
+        font-size: .75em !important;
+    }
+    .iconVerde_certifInst {
+        background-size: 65%;
+        font-size: .75em !important;
+    }
+    .iconVerde_sedeInst {
+        background-size: 65%;
+        font-size: .75em !important;
+    }
+    .iconVerde_galeInst {
+        background-size: 65%;
         font-size: .75em !important;
     }
     // Sección del título y texto principal
@@ -1304,6 +1468,45 @@
     .seccion_consulta-formProf {
         flex-direction: column;
     }
+    ///// *****   SECCIÓN TARJETA SEDES   ***** /////
+
+    // Sección titulo de la tarjeta sedes
+    .icon_sedes-formInst {
+        background-size: 8%;
+        padding-left: 10%;
+        height: 6vh;
+    }
+    ///// *****   SECCIÓN TARJETA UBIQUE SEDE   ***** /////
+
+    // Sección titulo de la tarjeta ubique la sede
+    .icon_ubiqueSede-formInst {
+        background-size: 8%;
+        padding-left: 10%;
+        height: 6vh;
+    }
+    ///// *****   SECCIÓN TARJETA GALERIA   ***** /////
+
+    // Sección titulo de la tarjeta galeria
+    .icon_galeriaInst-formInst {
+        background-size: 8%;
+        padding-left: 10%;
+        height: 6vh;
+    }
+    ///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
+
+    // Sección titulo de la tarjeta videos
+    .icon_videosInst-formInst {
+        background-size: 8%;
+        padding-left: 10%;
+        height: 6vh;
+    }
+
+
+
+
+
+
+
 
 
 
@@ -1319,12 +1522,12 @@
         width: 75%;
     }
     .text_usuario-formProf {
-        font-size: .85em;
+        font-size: 1em;
         margin: 5% 0;
     }
     .icon_subirFoto-formProf {
-        background-position-x: 25%;
-        background-size: 4.5%;
+        background-position-x: 21%;
+        background-size: 5%;
     }
     // Sección cajas de texto datos personales
     .section_inputRight-text-formProf {
@@ -1349,6 +1552,7 @@
     .btn_guardar-formInst {
         font-size: 1em;
         width: 45%;
+        margin-bottom: 5%;
     }
     .flechaBtn_guardar-formInst {
         width: 13%;
@@ -1549,17 +1753,16 @@
 }
 @media (min-width: 768px) and (orientation: portrait) {
     // Sección lista de las opciones
+    // Sección lista de las opciones 
     .lista_opciones-usuario-formInst {
-        display: flex;
-        list-style: none;
-        padding: 0;
-        margin: 2% auto;
-        width: 100%;
-        height: 12vh;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        width: 85%;
+        height: 25vh;
     }
     .content_icons-formInst {
-        width: 16%;
-        height: 10vh;
+        width: 25%;
+        height: 12vh;
     }
     //----- ********* Sección de los ICONOS GRISES LINEA DE OPCIONES ******** -------//
     .iconGris_servProfesional {
@@ -1578,7 +1781,7 @@
         background-size: 65%;
         font-size: 1em !important;
     }
-    .iiconGris_sedeInst {
+    .iconGris_sedeInst {
         background-size: 65%;
         font-size: 1em !important;
     }
@@ -1638,7 +1841,10 @@
         height: 2.5vh;
         font-size: 1.2em;
     }
-        ///// *****   SECCIÓN TARJETA SERVICIOS PROFESIONALES   ***** /////
+    .img_institucion-formInst {
+        height: 12vh;
+    }
+    ///// *****   SECCIÓN TARJETA SERVICIOS PROFESIONALES   ***** /////
 
     // Sección titulo de la tarjeta servicios profesionales
     .icon_servProf-formInst {
@@ -1650,7 +1856,7 @@
     .seccion_consulta-formProf {
         flex-direction: row;
     }
-        ///// *****   SECCIÓN TARJETA SERVICIOS   ***** /////
+    ///// *****   SECCIÓN TARJETA SERVICIOS   ***** /////
 
     // Sección titulo de la tarjeta servicios
     .icon_servicios-formInst {
@@ -1710,6 +1916,53 @@
     .seccion_consulta-formProf {
         flex-direction: row;
     }
+    ///// *****   SECCIÓN TARJETA SEDES   ***** /////
+
+    // Sección titulo de la tarjeta sedes
+    .icon_sedes-formInst {
+        background-size: 3%;
+        padding-left: 5%;
+        height: 2.5vh;
+        font-size: 1.2em;
+    }
+    ///// *****   SECCIÓN TARJETA UBIQUE SEDE   ***** /////
+
+    // Sección titulo de la tarjeta ubique la sede
+    .icon_ubiqueSede-formInst {
+        background-size: 3%;
+        padding-left: 5%;
+        height: 2.5vh;
+        font-size: 1.2em;
+    }
+    ///// *****   SECCIÓN TARJETA GALERIA   ***** /////
+
+    // Sección titulo de la tarjeta galeria
+    .icon_galeriaInst-formInst {
+        background-size: 3%;
+        padding-left: 5%;
+        height: 2.5vh;
+        font-size: 1.2em;
+    }
+    ///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
+
+    // Sección titulo de la tarjeta videos
+    .icon_videosInst-formInst {
+        background-size: 3%;
+        padding-left: 5%;
+        height: 2.5vh;
+        font-size: 1.2em;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1738,8 +1991,14 @@
         border-left: 1px solid #D1D1D1;
     }
     .datos_principales2-formInst {               // *************************************************************************************************
+        display: flex;
         margin: 0;
         padding: 0;
+    }
+    .contain_imgInst-formInst {
+        align-self: center;
+        text-align: center;
+        padding-top: 0;
     }
     .nombres_usuario-formProf {
         display: flex;
@@ -1758,15 +2017,16 @@
         font-size: 1em;
     }
     .input_nomApl-formInst {                // *************************************************************************************************
-        width: 48.7%;
+        width: 100%;
         margin-bottom: 0%;
     }
     // botón inferior de guardar
-    .btn_guardar-formInst {
+    .btn_guardar-formInst {         // *************************************************************************************************
         font-size: 1em;
-        width: 95%;
+        width: 17%;
+        margin-bottom: 2%;
     }
-    .flechaBtn_guardar-formInst {
+    .flechaBtn_guardar-formInst {       // *************************************************************************************************
         width: 11%;
     }
     //      ***** SECCIÓN TARJETA DE --- INFORMACIÓN DEL CONTACTO --- *****         //

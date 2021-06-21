@@ -106,7 +106,7 @@ $(document).ready(function() {
 });
 
 
-// Función para ocultar y mostrar el contenido de cada una de las opciones del FORMULARIO INSTITUCIÓN
+/* Función para ocultar y mostrar el contenido de cada una de las opciones del FORMULARIO INSTITUCIÓN
 $(document).ready(function() {
     // Elementos que se muestran al cargar la vista
     $(".content_dato-Institution").show(); // Clase para mostrar la tarjeta de " DATOS DE LA INSTITUCIOÓN ".
@@ -267,4 +267,71 @@ $(document).ready(function() {
         $(".content_certif-institution").hide();
         $(".content_sede-institution").hide();
     });
-});
+});*/
+
+
+
+// Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto en la vista " register "
+function hideForm (z){
+    let myvar = z.getAttribute('data-position');
+    
+    let selector = document.querySelector.bind(document);
+    // Condicional para el registro de usuario rol Paciente
+    if (myvar == "dateInstitution") {
+        selector(".date_institution").style.display = "block";
+        selector(".professional_services").style.display = "none";
+        selector(".about_institution").style.display = "none";
+        selector(".professional_inst").style.display = "none";
+        selector(".certifications_inst").style.display = "none";
+        selector(".venues_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "none";
+        // Metodo para realizar el cambio de color de los iconos y el texto en las opciones de la vista " register ", por medio de la función hideForm
+        // Opción paciente
+        document.getElementById ("inpt1"). src = '/img/iconos/icono-paciente-amarillo.svg';
+        document.getElementById ("txt1").style.color = "#E6C804";
+        //Opción doctor
+        document.getElementById ("inpt2"). src = '/img/iconos/icono-doctor.svg';
+        document.getElementById ("txt2").style.color = "#3E3E3E";
+        // Opción institución
+        document.getElementById ("inpt3"). src = '/img/iconos/icono-institucion.svg';
+        document.getElementById ("txt3").style.color = "#3E3E3E";
+    }
+
+    // Condicional para el registro de usuario rol Medico/a
+    else if (myvar == "professionalServices") {
+        selector(".professional_services").style.display = "block";
+        selector(".date_institution").style.display = "none";
+        selector(".about_institution").style.display = "none";
+        selector(".professional_inst").style.display = "none";
+        selector(".certifications_inst").style.display = "none";
+        selector(".venues_inst").style.display = "none";
+        selector(".gallery_inst").style.display = "none";
+        // Metodo para realizar el cambio de color de los iconos y el texto en las opciones de la vista " register ", por medio de la función hideForm
+        //Opción doctor
+        document.getElementById ("inpt2"). src = '/img/iconos/icono-doctor-azul.svg';
+        document.getElementById ("txt2").style.color = "#0083d6";
+        // Opción paciente
+        document.getElementById ("inpt1"). src = '/img/iconos/icono-paciente.svg';
+        document.getElementById ("txt1").style.color = "#3E3E3E";
+        // Opción institución
+        document.getElementById ("inpt3"). src = '/img/iconos/icono-institucion.svg';
+        document.getElementById ("txt3").style.color = "#3E3E3E";
+    }
+
+    // Condicional para el registro de usuario rol Institución
+    else if (myvar == "institucion") {
+        selector(".names_institution").style.display = "block";
+        selector(".datos_secundarios").style.display = "block";
+        selector(".names_person").style.display = "none";
+        // Metodo para realizar el cambio de color de los iconos y el texto en las opciones de la vista " register ", por medio de la función hideForm
+        // Opción institución
+        document.getElementById ("inpt3"). src = '/img/iconos/icono-institucion-verde.svg';
+        document.getElementById ("txt3").style.color = "#019F86";
+        // Opción paciente
+        document.getElementById ("inpt1"). src = '/img/iconos/icono-paciente.svg';
+        document.getElementById ("txt1").style.color = "#3E3E3E";
+        //Opción doctor
+        document.getElementById ("inpt2"). src = '/img/iconos/icono-doctor.svg';
+        document.getElementById ("txt2").style.color = "#3E3E3E";
+    }
+}
