@@ -32,25 +32,25 @@
                             <div class="col-3 form-check input_option-register"> 
                                 <!-- Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto. La función " hedeForm " se encuentra en el archivo register.js -->
                                 <!-- Opción paciente -->
-                                <input id="inpt1" class="form-check-input input_img-option icon_pac" onclick="hideForm(this)" type="image" src="/img/iconos/icono-paciente.svg" name="idrol" value="1" data-position="paciente">
+                                <input id="inpt1" class="form-check-input input_img-option icon_pac" onclick="hideForm(this)" type="image" src="/img/iconos/icono-paciente.svg" value="1"  data-position="paciente">
                                 <label id="txt1" class="form-check-label texto_option-input" for="idrol"> Paciente </label>
                             </div>
 
                             <div class="col-3 form-check input_option-register">
                                 <!-- Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto. La función " hedeForm " se encuentra en el archivo register.js -->
                                 <!-- Opción doctor -->
-                                <input id="inpt2" class="form-check-input input_img-option" onclick="hideForm(this)" type="image" src="/img/iconos/icono-doctor.svg" name="idrol" value="2" data-position="doctor">
+                                <input id="inpt2" class="form-check-input input_img-option" onclick="hideForm(this)" type="image" src="/img/iconos/icono-doctor.svg"  value="2"  data-position="doctor">
                                 <label id="txt2" class="form-check-label texto_option-input" for="idrol"> Doctor/a </label>
                             </div>
 
                             <div class="col-3 form-check input_option-register"> 
                                 <!-- Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto. La función " hedeForm " se encuentra en el archivo register.js -->
                                 <!-- Opción institución -->
-                                <input id="inpt3" class="form-check-input input_img-option" onclick="hideForm(this)" type="image" src="/img/iconos/icono-institucion.svg" name="idrol" value="3" data-position="institucion">
+                                <input id="inpt3" class="form-check-input input_img-option" onclick="hideForm(this)" type="image" src="/img/iconos/icono-institucion.svg"  value="3"  data-position="institucion">
                                 <label id="txt3" class="form-check-label texto_option-input" for="idrol"> Institución </label>
                             </div>
                         </div>
-
+                         <input type="hidden" name="idrol"  id="valor_tipo">
                         <!-- Sección campos de validación Nombres y Apellidos -->
                         <div class="names_person">
                             <!-- Campos de Nombres -->
