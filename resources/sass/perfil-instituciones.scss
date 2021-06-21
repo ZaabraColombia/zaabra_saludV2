@@ -235,13 +235,13 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
-.educacion ul li{
+.propuesta ul li{
     list-style: none;
 }
-.educacion ul li:nth-child(1){
+.propuesta ul li:nth-child(1){
     background: #F5F5F5;
 }
-.educacion h2 {
+.propuesta h2 {
     display: flex;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
@@ -250,27 +250,27 @@
     justify-content: flex-start;
     align-items: center;
 }
-.educacion p {
+.propuesta p {
     font-family: "Roboto";
     color: #806868;
 }
-.educacion i {
+.propuesta i {
     background-image: url('/img/landing-profesional/icono-perfil-profesional.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
 
-.experiencia ul li{
+.convenios ul li{
     display: flex;
     list-style: none;
     align-content: center;
     justify-content: space-between;
     align-items: center;
 }
-.experiencia ul li:nth-child(1){
+.convenios ul li:nth-child(1){
     background: #F5F5F5;
 }
-.experiencia h2 {
+.convenios h2 {
     display: flex;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
@@ -279,36 +279,7 @@
     justify-content: flex-start;
     align-items: center;
 }
-.experiencia p {
-    font-family: "Roboto";
-    color: #806868;
-}
-.experiencia i {
-    background-image: url('/img/landing-profesional/icono-perfil-profesional.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.asociaciones ul li{
-    display: flex;
-    list-style: none;
-    align-content: center;
-    justify-content: space-between;
-    align-items: center;
-}
-.asociaciones ul li:nth-child(1){
-    background: #F5F5F5;
-}
-.asociaciones h2 {
-    display: flex;
-    font-family: "Quicksand", sans-serif;
-    font-weight: bolder;
-    color: #434343;
-    align-content: center;
-    justify-content: flex-start;
-    align-items: center;
-}
-.asociaciones i {
+.convenios i {
     background-image: url('/img/landing-profesional/icono-perfil-profesional.svg');
     background-repeat: no-repeat;
     background-size: contain;
@@ -385,7 +356,7 @@
     color: #3E3E3E;
     font-weight: bolder;
 }
-.contains_swiper_premios h2 {
+.contains_swiper_certificados h2 {
     display: flex;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
@@ -394,61 +365,24 @@
     justify-content: flex-start;
     align-items: center;
 }
-.contains_swiper_premios i {
+.contains_swiper_certificados i {
     background-image: url('/img/landing-profesional/icono-perfil-profesional.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
-.swiper_premios h6{
+.swiper_certificados h6{
     font-family: "Roboto";
     color: #3E3E3E;
     font-weight: bolder;
 }
-.swiper_premios h5{
+.swiper_certificados h5{
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
     text-transform: capitalize;
 }
-.swiper_premios p{
+.swiper_certificados p{
     font-family: "Roboto";
     color: #232323;
-}
-
-.publicaciones_institucion h2 {
-    display: flex;
-    font-family: "Quicksand", sans-serif;
-    font-weight: bolder;
-    color: #0083D6;
-    align-content: center;
-    justify-content: flex-start;
-    align-items: center;
-}
-.publicaciones_institucion i {
-    background-image: url('/img/landing-profesional/icono-perfil-profesional.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-.publicaciones_institucion .card{
-    border: 0;
-}
-.publicaciones_institucion .card h4, h6{
-    text-align: center;
-    font-family: "Quicksand", sans-serif;
-    font-weight: bolder;
-}
-.publicaciones_institucion .card h4{
-    color: #434343;
-}
-.publicaciones_institucion .card h6{
-    color: #0083D6;
-}
-.publicaciones_institucion .card-body{
-    padding: 0;
-}
-.publicaciones_institucion p {
-    font-family: "Roboto";
-    color: #3E3E3E;
-    text-align: center;
 }
 .galeria_institucion h2 {
     display: flex;
@@ -666,74 +600,42 @@
         width: 14%;
         height: 30px;
     }
-    .educacion{
+    .propuesta{
         width: 90%;
         margin: auto;
     }
-    .educacion h2{
+    .propuesta h2{
         font-size: 1.1em;
     }
-    .educacion h5{
+    .propuesta h5{
         font-size: 1em;
     }
-    .educacion p {
+    .propuesta p {
         font-size: 0.75em;
     }
-    .educacion i {
+    .propuesta i {
         width: 14%;
         height: 30px;
     }
-    .experiencia{
+    .convenios{
         width: 90%;
         margin: auto;
     }
-    .experiencia ul li{
-        margin-bottom: 5%;
-    }
-    .experiencia ul li .contains_info{
-        max-width: 70%;
-    }
-    .experiencia ul li .contains_logo{
-        max-width: 30%;
-    }
-    .experiencia .contains_logo img{
-        max-width: 100%;
-        object-fit: cover;
-        height: 45px;
-        image-rendering: -webkit-optimize-contrast;
-    }
-    .experiencia h2{
-        font-size: 1.1em;
-    }
-    .experiencia h5{
-        font-size: 0.9em;
-    }
-    .experiencia p {
-        font-size: 0.75em;
-    }
-    .experiencia i {
-        width: 14%;
-        height: 30px;
-    }
-    .asociaciones{
-        width: 90%;
-        margin: auto;
-    }
-    .asociaciones ul li{
+    .convenios ul li{
         margin-bottom: 5%;
         height: 12vh;
     }
-    .asociaciones img{
+    .convenios img{
         max-width: 30%;
         -o-object-fit: cover;
         object-fit: contain;
         height: 40px;
         image-rendering: -webkit-optimize-contrast;
     }
-    .asociaciones h2{
+    .convenios h2{
         font-size: 1.1em;
     }
-    .asociaciones i {
+    .convenios i {
         width: 14%;
         height: 30px;
     }
@@ -795,67 +697,33 @@
     .tratamientos_institucion h2{
         font-size: 1.1em;
     }
-    .swiper_premios{
+    .swiper_certificados{
         max-width: 70%;
     }
-    .swiper_premios img{
+    .swiper_certificados img{
         max-width: 100%;
     }
-    .contains_swiper_premios h2{
+    .contains_swiper_certificados h2{
         font-size: 1.1em;
         text-align: center;
         margin-left: auto;
         margin-right: auto;
         max-width: 90%;
     }
-    .contains_swiper_premios i{
+    .contains_swiper_certificados i{
         width: 14%;
         height: 30px;
     }
-    .swiper_premios h6{
+    .swiper_certificados h6{
         font-size: 0.9em;
         margin-bottom: 0;
         text-align: left;
     }
-    .swiper_premios h5{
+    .swiper_certificados h5{
         font-size: 1.1em;
     }
-    .swiper_premios p{
+    .swiper_certificados p{
         font-size: 0.7em;
-    }
-
-    .publicaciones_institucion{
-        width: 90%;
-        margin: auto;
-    }
-    .publicaciones_institucion h2{
-        font-size: 1.1em;
-    }
-    .publicaciones_institucion p {
-        font-size: 0.75em;
-    }
-    .publicaciones_institucion i {
-        width: 14%;
-        height: 30px;
-    }
-    .publicaciones_institucion .card{
-        width: 85%;
-        margin: auto;
-        margin-top: 5%;
-        margin-bottom: 10%;
-    }
-    .publicaciones_institucion .card h4, h6{
-        font-size: 1em;
-    }
-    .publicaciones_institucion .card-body{
-        padding-top: 4%;
-    }
-    .publicaciones_institucion .card-body h5{
-        font-size: 1em;
-        text-align: center;
-    }
-    .publicaciones_institucion h2{
-        font-size: 1.1em;
     }
     .galeria_institucion{
         height: 55vh;
@@ -943,34 +811,22 @@
     .perfil_institucion p{
         font-size: 0.8em;
     }
-    .educacion h2{
+    .propuesta h2{
         font-size: 1.3em;
     }
-    .educacion i{
+    .propuesta i{
         width: 12%;
     }
-    .educacion h5{
+    .propuesta h5{
         font-size: 1em;
     }
-    .educacion p {
+    .propuesta p {
         font-size: 0.8em;
     }
-    .experiencia h2 {
+    .convenios h2 {
         font-size: 1.3em;
     }
-    .experiencia i{
-        width: 12%;
-    }
-    .experiencia h5 {
-        font-size: 1.05em;
-    }
-    .experiencia p {
-        font-size: 0.8em;
-    }
-    .asociaciones h2 {
-        font-size: 1.3em;
-    }
-    .asociaciones i{
+    .convenios i{
         width: 12%;
     }
     .idiomas h2 {
@@ -991,16 +847,10 @@
     .videos_institucion .card h4, h6 {
         font-size: 1.1em;
     }
-    .contains_swiper_premios h2{
+    .contains_swiper_certificados h2{
         font-size: 1.3em;
     }
-    .contains_swiper_premios i{
-        width: 12%;
-    }
-    .publicaciones_institucion h2 {
-        font-size: 1.3em;
-    }
-    .publicaciones_institucion i{
+    .contains_swiper_certificados i{
         width: 12%;
     }
     .galeria_institucion h2{
@@ -1116,68 +966,42 @@
         font-size: 1.3em;
         padding-left: 10%;
     }
-    .educacion h2 {
+    .propuesta h2 {
         font-size: 1.8em;
     }
-    .educacion i {
+    .propuesta i {
         width: 10%;
         height: 45px;
     }
-    .educacion ul{
+    .propuesta ul{
         padding-left: 10%;
     }
-    .educacion ul li {
+    .propuesta ul li {
         list-style: none;
         padding-top: 1%;
         padding-bottom: 1%;
     }
-    .educacion h5 {
+    .propuesta h5 {
         font-size: 1.5em;
     }
-    .educacion p {
+    .propuesta p {
         font-size: 1.1em;
         color: #3E3E3E;
     }
-    .experiencia h2 {
+    .convenios h2 {
         font-size: 1.8em;
     }
-    .experiencia i {
+    .convenios i {
         width: 10%;
         height: 45px;
     }
-    .experiencia ul{
+    .convenios ul{
         padding-left: 10%;
     }
-    .experiencia ul li {
-        list-style: none;
-        padding-top: 1%;
-        padding-bottom: 1%;
-        margin-bottom: 0%;
-    }
-    .experiencia h5 {
-        font-size: 1.5em;
-    }
-    .experiencia p {
-        font-size: 1.1em;
-        color: #3E3E3E;
-    }
-    .experiencia .contains_logo img{
-        height: 60px;
-    }
-    .asociaciones h2 {
-        font-size: 1.8em;
-    }
-    .asociaciones i {
-        width: 10%;
-        height: 45px;
-    }
-    .asociaciones ul{
-        padding-left: 10%;
-    }
-    .asociaciones ul li{
+    .convenios ul li{
         justify-content: space-evenly;
     }
-    .asociaciones img{
+    .convenios img{
         max-width: 50%;
         height: 65px;
     }
@@ -1232,48 +1056,29 @@
     .tratamientos_institucion p {
         font-size: 1.3em;
     }
-    .contains_swiper_premios h2 {
+    .contains_swiper_certificados h2 {
         font-size: 1.8em;
         margin-bottom: 7%;
     }
-    .contains_swiper_premios i {
+    .contains_swiper_certificados i {
         width: 10%;
         height: 45px;
     }
-    .swiper_premios {
+    .swiper_certificados {
         max-width: 50%;
     }
-    .swiper_premios h6 {
+    .swiper_certificados h6 {
         font-size: 1.2em;
         margin-bottom: 0;
         text-align: left;
         margin-top: 4%;
     }
-    .swiper_premios h5 {
+    .swiper_certificados h5 {
         font-size: 1.5em;
     }
-    .swiper_premios p {
+    .swiper_certificados p {
         font-size: 1.1em;
     }
-    .publicaciones_institucion h2 {
-        font-size: 1.8em;
-    }
-    .publicaciones_institucion i {
-        width: 10%;
-        height: 45px;
-    }
-    .publicaciones_institucion .card{
-        width: 70%;
-    }
-    .publicaciones_institucion .card-body h5 {
-        font-size: 1.7em;
-        text-align: center;
-    }
-    .publicaciones_institucion p {
-        font-size: 1.2em;
-        font-weight: 500;
-    }
-
     .galeria_institucion h2 {
         font-size: 1.8em;
     }
@@ -1357,24 +1162,20 @@
         width: 80%;
     }
     .perfil_institucion,
-    .educacion,
-    .experiencia,
-    .asociaciones,
+    .propuesta,
+    .convenios,
     .idiomas,
     .tratamientos_institucion,
-    .publicaciones_institucion,
     .videos_institucion {
         width: 80%;
         margin: auto;
     }
     .perfil_institucion i,
-    .educacion i,
-    .experiencia i,
-    .asociaciones i,
+    .propuesta i,
+    .convenios i,
     .idiomas i,
     .tratamientos_institucion i,
-    .contains_swiper_premios i,
-    .publicaciones_institucion i,
+    .contains_swiper_certificados i,
     .galeria_institucion i,
     .videos_institucion i {
         width: 8%;
@@ -1383,20 +1184,16 @@
     .perfil_institucion p{
         padding-left: 8%;
     }
-    .educacion ul,
-    .experiencia ul,
-    .asociaciones ul,
+    .propuesta ul,
+    .convenios ul,
     .idiomas ul {
         padding-left: 8%;
     }
-    .contains_swiper_premios h2{
+    .contains_swiper_certificados h2{
         width: 80%;
     }
-    .swiper_premios {
+    .swiper_certificados {
         max-width: 35%;
-    }
-    .publicaciones_institucion .card {
-        width: 55%;
     }
     .gallery_institucion > li > img {
         height: 165px;
@@ -1539,7 +1336,7 @@
         padding-left: 5%;
     }
     .tratamientos_institucion .container_cards,
-    .publicaciones_institucion .container_cards,
+    .container_cards,
     .videos_institucion .container_cards{
         display: flex;
         flex-direction: row;
@@ -1559,33 +1356,20 @@
         font-size: 1.1em;
         font-weight: 500;
     }
-    .swiper_premios {
+    .swiper_certificados {
         max-width: 75%;
     }
-    .contains_swiper_premios h2{
+    .contains_swiper_certificados h2{
         margin-bottom: 4%;
     }
-    .swiper_premios h6{
+    .swiper_certificados h6{
         font-size: 1em;
     }
-    .swiper_premios h5 {
+    .swiper_certificados h5 {
         font-size: 1.2em;
     }
-    .swiper_premios p {
+    .swiper_certificados p {
         font-size: 0.9em;
-    }
-    .publicaciones_institucion .card {
-        width: 40%;
-        margin-bottom: 0;
-    }
-    .publicaciones_institucion .card-body h5 {
-        font-size: 1.3em;
-        text-align: left;
-    }
-    .publicaciones_institucion p {
-        font-size: 1em;
-        font-weight: 500;
-        text-align: left;
     }
     .galeria_institucion {
         height: 55vh;
@@ -1611,13 +1395,11 @@
         padding-top: 2%;
     }
     .perfil_institucion i, 
-    .educacion i, 
-    .experiencia i, 
-    .asociaciones i, 
+    .propuesta i,  
+    .convenios i, 
     .idiomas i, 
     .tratamientos_institucion i, 
-    .contains_swiper_premios i, 
-    .publicaciones_institucion i, 
+    .contains_swiper_certificados i,  
     .galeria_institucion i, 
     .videos_institucion i {
         width: 6%;
@@ -1626,9 +1408,8 @@
     .perfil_institucion p {
         padding-left: 6%;
     }
-    .educacion ul, 
-    .experiencia ul, 
-    .asociaciones ul, 
+    .propuesta ul, 
+    .convenios ul, 
     .idiomas ul {
         padding-left: 6%;
     }
@@ -1762,7 +1543,7 @@
         padding-left: 5%;
     }
     .tratamientos_institucion .container_cards,
-    .publicaciones_institucion .container_cards,
+    .container_cards,
     .videos_institucion .container_cards{
         display: flex;
         flex-direction: row;
@@ -1782,33 +1563,20 @@
         font-size: 1.1em;
         font-weight: 500;
     }
-    .swiper_premios {
+    .swiper_certificados {
         max-width: 75%;
     }
-    .contains_swiper_premios h2{
+    .contains_swiper_certificados h2{
         margin-bottom: 4%;
     }
-    .swiper_premios h6{
+    .swiper_certificados h6{
         font-size: 1em;
     }
-    .swiper_premios h5 {
+    .swiper_certificados h5 {
         font-size: 1.5em;
     }
-    .swiper_premios p {
+    .swiper_certificados p {
         font-size: 0.9em;
-    }
-    .publicaciones_institucion .card {
-        width: 40%;
-        margin-bottom: 0;
-    }
-    .publicaciones_institucion .card-body h5 {
-        font-size: 1.4em;
-        text-align: left;
-    }
-    .publicaciones_institucion p {
-        font-size: 1em;
-        font-weight: 500;
-        text-align: left;
     }
     .galeria_institucion {
         height: 55vh;
@@ -1838,10 +1606,6 @@
     .section_destacado{
         padding-top: 3%;
     }
-    .publicaciones_institucion .card {
-        width: 35%;
-        margin-bottom: 0;
-    }
     .videos_institucion .card {
         width: 27%;
     }
@@ -1862,20 +1626,18 @@
     }
 
     .perfil_institucion, 
-    .educacion, 
-    .experiencia, 
-    .asociaciones, 
+    .propuesta, 
+    .convenios, 
     .idiomas, 
-    .tratamientos_institucion, 
-    .publicaciones_institucion, 
+    .tratamientos_institucion,  
     .videos_institucion {
         width: 75%;
         margin: auto;
     }
-    .contains_swiper_premios h2 {
+    .contains_swiper_certificados h2 {
         width: 75%;
     }
-    .swiper_premios {
+    .swiper_certificados {
         max-width: 60%;
     }
     .data_instituciones,
@@ -1917,13 +1679,11 @@
         width: 60%;
     }
     .perfil_institucion i, 
-    .educacion i, 
-    .experiencia i, 
-    .asociaciones i, 
+    .propuesta i, 
+    .convenios i, 
     .idiomas i, 
     .tratamientos_institucion i, 
-    .contains_swiper_premios i, 
-    .publicaciones_institucion i, 
+    .contains_swiper_certificados i,
     .galeria_institucion i, 
     .videos_institucion i {
         width: 5%;
@@ -1932,9 +1692,8 @@
     .perfil_institucion p {
         padding-left: 5%;
     }
-    .educacion ul, 
-    .experiencia ul, 
-    .asociaciones ul, 
+    .propuesta ul,  
+    .convenios ul, 
     .idiomas ul {
         padding-left: 5%;
     }
@@ -1964,11 +1723,6 @@
         width: 45%;
     }
     .tratamientos_institucion .card {
-        width: 22%;
-        margin-bottom: 0;
-    }
-    .tratamientos_institucion .card,
-    .publicaciones_institucion .card{
         width: 22%;
         margin-bottom: 0;
     }
