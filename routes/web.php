@@ -198,11 +198,18 @@ Route::get('/preguntas', function () { return view('quienes-somos/preguntas');})
 Route::get('/politicas', function () { return view('quienes-somos/politicas');})->name('politicas');
 
 
+/*------------------------------------------------- Pertenece a calificacion y comentarios-------------------------------------------------------------------------------*/
+
+Route:: post('/comentarios',[App\Http\Controllers\comentarios\comentariosController::class,'save'])->name('comentarios');
+
 /*------------------------------------------------- Pertenece a CONTACTO -------------------------------------------------------------------------------*/
 /* Esta ruta direcciona a la vista Contactenos */
 Route:: get('/contacto',[App\Http\Controllers\contactecnosController::class,'index'])->name('contacto');
 Route:: post('/contacto',[App\Http\Controllers\contactecnosController::class,'save'])->name('contacto');
 
+/*------------------------------------------------- Pertenece a newsletter -------------------------------------------------------------------------------*/
+
+Route:: post('/newsletter',[App\Http\Controllers\newsletter\newsletterController::class,'save'])->name('newsletter');
 
 /*------------------------------------------------- Pertenece a ERRORES -------------------------------------------------------------------------------*/
 

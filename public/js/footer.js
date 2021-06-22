@@ -60,3 +60,31 @@ $('.evento_acordion .containt_options-collapse-membresia').on( "click", function
         $(element).attr('aria-expanded', 'true')
     }
 }*/
+
+
+
+
+$('#newsletter').on('submit',function(e){
+
+    e.preventDefault();
+    $('#send_form').html('enviando...');
+    $.ajax({
+      url: "newsletter",
+      type:"POST",
+      data:{
+        "_token": $("meta[name='csrf-token']").attr("content"),
+        "correo_newsletter": $('#correo_newsletter').val(),
+      },
+      success:function(response){
+        $('#send_form').hide();
+        $('#res_message').show();
+        $('#res_message').html(response.msg);
+        $('#msg_div').removeClass('d-none');
+        document.getElementById("newsletter").reset(); 
+        setTimeout(function(){
+            $('#res_message').hide();
+            $('#msg_div').hide();
+            },70000);
+         },
+     });
+    });
