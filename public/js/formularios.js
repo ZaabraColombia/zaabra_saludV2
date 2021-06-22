@@ -1,3 +1,9 @@
+
+Document.getElementById 
+
+
+
+// *********    FORMULARIO PROFESIONAL   **************
 // Función para ocultar y mostrar el contenido de cada una de las opciones del FORMULARIO PROFESIONAL
 $(document).ready(function() {
     $(".personal_data").show();
@@ -118,13 +124,13 @@ function containtHideOption (t){
     }
 }
 
-// Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto en la vista " register "
+// Evento onclick para ocultar y mostrar elementos y cambio de color de iconos por medio del bóton siguiente en la vista " FORMULARIO PROFESIONALES "
 function btnHideNext (u){
     let varBtnFormProf = u.getAttribute('code-position')
     
     let selector = document.querySelector.bind(document);
     
-    // Condicional para el registro de usuario rol Paciente
+    // Condicional para mostrar elementos de la opción DATOS PERSONALES
     if (varBtnFormProf == "personalData") {
         selector(".personal_data").style.display = "none";
         selector(".professional_profile").style.display = "block";
@@ -133,11 +139,11 @@ function btnHideNext (u){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos azules que se adicionan de la linea de opciones con el evento on  click 
         $(".perfil-profesional").addClass('iconAzul_perfProf')
     }
 
-    // Condicional para el registro de usuario rol Medico/a
+    // Condicional para mostrar elementos de la opción PERFIL PROFESIONAL
     else if (varBtnFormProf == "professionalProfile") {
         selector(".personal_data").style.display = "none";
         selector(".professional_profile").style.display = "none";
@@ -146,12 +152,12 @@ function btnHideNext (u){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos azules que se adicionan de la linea de opciones con el evento on  click  
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
     }
 
-    // Condicional para el registro de usuario rol Medico/a
+    // Condicional para mostrar elementos de la opción TRATAMIENTOS Y PROCEDIMIENTOS
     else if (varBtnFormProf == "treatmentsProcedures") {
         selector(".personal_data").style.display = "none";
         selector(".professional_profile").style.display = "none";
@@ -160,13 +166,13 @@ function btnHideNext (u){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos azules que se adicionan de la linea de opciones con el evento on  click 
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
         $(".premio-reconocimiento").addClass('iconAzul_premioRecon')
     }
 
-    // Condicional para el registro de usuario rol Medico/a
+    // Condicional para mostrar elementos de la opción PREMIOS Y RECONOCIMIENTOS
     else if (varBtnFormProf == "AwardsHonours") {
         selector(".personal_data").style.display = "none";
         selector(".professional_profile").style.display = "none";
@@ -175,14 +181,14 @@ function btnHideNext (u){
         selector(".publications_formInst").style.display = "block";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos azules que se adicionan de la linea de opciones con el evento on  click 
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
         $(".premio-reconocimiento").addClass('iconAzul_premioRecon')
         $(".publicacion").addClass('iconAzul_public')
     }
 
-    // Condicional para el registro de usuario rol Medico/a
+    // Condicional para mostrar elementos de la opción PUBLICACIONES
     else if (varBtnFormProf == "publicationsFormInst") {
         selector(".personal_data").style.display = "none";
         selector(".professional_profile").style.display = "none";
@@ -191,7 +197,7 @@ function btnHideNext (u){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "block";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos azules que se adicionan de la linea de opciones con el evento on  click 
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
         $(".premio-reconocimiento").addClass('iconAzul_premioRecon')
@@ -200,12 +206,12 @@ function btnHideNext (u){
     }
 }
 
-// Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto en la vista " register "
+// Evento onclick para ocultar y mostrar elementos y cambio de color de iconos por medio del bóton anterior en la vista " FORMULARIO PROFESIONALES "
 function btnHidePrevious (v){
     let varBtnPrevious = v.getAttribute('code-position')
     
     let selector = document.querySelector.bind(document);
-    // Condicional para el registro de usuario rol Paciente
+    // Condicional para mostrar elementos de la opción GALERIA
     if (varBtnPrevious == "galleryFormProf") {
         selector(".personal_data").style.display = "none";
         selector(".professional_profile").style.display = "none";
@@ -214,11 +220,11 @@ function btnHidePrevious (v){
         selector(".publications_formInst").style.display = "block";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos azules que se remuenen de la linea de opciones con el evento on  click
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
     }
 
-    // Condicional para el registro de usuario rol Paciente
+    // Condicional para mostrar elementos de la opción PUBLICACIONES
     if (varBtnPrevious == "publicationsFormProf") {
         selector(".personal_data").style.display = "none";
         selector(".professional_profile").style.display = "none";
@@ -227,12 +233,12 @@ function btnHidePrevious (v){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos azules que se remuenen de la linea de opciones con el evento on  click 
         $(".publicacion").removeClass('iconAzul_public')
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
     }
 
-    // Condicional para el registro de usuario rol Paciente
+    // Condicional para mostrar elementos de la opción PREMIOS Y RECONOCIMIENTOS
     if (varBtnPrevious == "AwardsHonours") {
         selector(".personal_data").style.display = "none";
         selector(".professional_profile").style.display = "none";
@@ -241,13 +247,13 @@ function btnHidePrevious (v){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos azules que se remuenen de la linea de opciones con el evento on  click 
         $(".premio-reconocimiento").removeClass('iconAzul_premioRecon')
         $(".publicacion").removeClass('iconAzul_public')
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
     }
 
-    // Condicional para el registro de usuario rol Paciente
+    // Condicional para mostrar elementos de la opción TRATAMIENTOS Y PROCEDIMIENTOS
     if (varBtnPrevious == "treatmentsProcedures") {
         selector(".personal_data").style.display = "none";
         selector(".professional_profile").style.display = "block";
@@ -256,14 +262,14 @@ function btnHidePrevious (v){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos azules que se remuenen de la linea de opciones con el evento on  click 
         $(".tratamiento-procedimiento").removeClass('iconAzul_trataProced')
         $(".premio-reconocimiento").removeClass('iconAzul_premioRecon')
         $(".publicacion").removeClass('iconAzul_public')
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
     }
 
-    // Condicional para el registro de usuario rol Paciente
+    // Condicional para mostrar elementos de la opción PERFIL PROFESIONAL
     if (varBtnPrevious == "professionalProfile") {
         selector(".personal_data").style.display = "block";
         selector(".professional_profile").style.display = "none";
@@ -272,7 +278,7 @@ function btnHidePrevious (v){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos azules que se remuenen de la linea de opciones con el evento on  click 
         $(".perfil-profesional").removeClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").removeClass('iconAzul_trataProced')
         $(".premio-reconocimiento").removeClass('iconAzul_premioRecon')
@@ -282,29 +288,7 @@ function btnHidePrevious (v){
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// *********    FORMULARIO INSTITUCIONES   **************
 // Función para ocultar y mostrar el contenido de cada una de las opciones del FORMULARIO INSTITUCIÓN
 $(document).ready(function() {
     // Elementos que se muestran al cargar la vista
@@ -319,7 +303,7 @@ $(document).ready(function() {
     $(".gallery_inst").hide();
 });
 
-// Evento onclick para desplegar las tarjetas del formulario de registro y el cambio de color del icono en la linea de opciones FORMULARIO INSTITUCIONES
+// Evento onclick para ocultar y mostrar elementos y cambio de color de iconos en la vista " FORMULARIO INSTITUCIONES "
 function hideContaintOption (w){
     let myvar = w.getAttribute('data-position');
     
@@ -461,7 +445,7 @@ function hideContaintOption (w){
 
 }
 
-// Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto en la vista " register "
+// Evento onclick para ocultar y mostrar elementos y cambio de color de iconos por medio del bóton siguiente en la vista " FORMULARIO INSTITUCIONES "
 function hideBtnNext (x){
     let varBtn = x.getAttribute('code-position')
     
@@ -567,7 +551,7 @@ function hideBtnNext (x){
     }
 }
 
-// Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto en la vista " register "
+// Evento onclick para ocultar y mostrar elementos y cambio de color de iconos por medio del bóton anterior en la vista " FORMULARIO INSTITUCIONES "
 function hideBtnPrevious (y){
     let varBtnPrevious = y.getAttribute('code-position')
     
