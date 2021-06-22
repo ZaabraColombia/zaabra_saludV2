@@ -1,7 +1,11 @@
        <?php 
-        $var=Route::current()->getName() ; 
+       $nombreRuta = Request::route()->getName();
+       echo($nombreRuta);
         ?>
-        <span id="rutta" hidden="hidden">{{$var}}</span>
+
+  <span>{{ Request::route()->getName() }}</span>
+
+ 
             <!-------------------------------------------Headaer-------------------------------------------->
             <nav class="navbar navbar_zaabrasalud">
                 <div class="container contains_header">
