@@ -5,50 +5,50 @@
 <!--     Sección lista de opciones     -->
 <ol  class="lista_opciones-usuario-formInst">
     <div class="content_icons-formInst"> <!-- clase "content_icons-formInst" para evento ocultar y mostrar contenido de la opción. Ubicado en el archivo formularios.js -->
-        <li class="iconVerde_datoInst dato_institution"> <!-- clase "dato_institution" para activar el evento on click de la opción. Ubicado en el archivo formulario.js  -->
+        <li class="iconVerde_datoInst dato_institution" onclick="hideContaintOption(this)" data-position="dateInstitution"> <!-- clase "dato_institution" para activar el evento on click de la opción. Ubicado en el archivo formulario.js  -->
             <p class="text_opcion-formInst" > Datos institucionales </p>
         </li>
     </div>
 
     <div class="content_icons-formInst">
-        <li class="iconGris_servProfesional serv_profesional">
+        <li class="iconGris_servProfesional serv_profesional" onclick="hideContaintOption(this)" data-position="professionalServices">
             <p class="text_opcion-formInst" > Servicios profesionales </p>
         </li>
     </div>
 
     <div class="content_icons-formInst">
-        <li class="iconGris_acercaInst acerca_institution">
+        <li class="iconGris_acercaInst acerca_institution" onclick="hideContaintOption(this)" data-position="aboutInstitution">
             <p class="text_opcion-formInst" > Acerca de la institución </p>
         </li>
     </div>
 
     <div class="content_icons-formInst">
-        <li class="iconGris_profesionalInst profesional_institution">
+        <li class="iconGris_profesionalInst profesional_institution" onclick="hideContaintOption(this)" data-position="professionalInst">
             <p class="text_opcion-formInst" > Profesionales </p>
         </li>
     </div>
 
     <div class="content_icons-formInst">
-        <li class="iconGris_certifInst certificado_institution">
+        <li class="iconGris_certifInst certificado_institution" onclick="hideContaintOption(this)" data-position="certificationsInst">
             <p class="text_opcion-formInst" > Certificaciones </p>
         </li>
     </div>
 
     <div class="content_icons-formInst">
-        <li class="iconGris_sedeInst sede_institution">
+        <li class="iconGris_sedeInst sede_institution" onclick="hideContaintOption(this)" data-position="venuesInst">
             <p class="text_opcion-formInst" > Sedes </p>
         </li>
     </div>
 
     <div class="content_icons-formInst">
-        <li class="iconGris_galeInst galeria_institution">
+        <li class="iconGris_galeInst galeria_institution" onclick="hideContaintOption(this)" data-position="galleryInst">
             <p class="text_opcion-formInst" > Galería </p>
         </li>
     </div>
 </ol> 
 
 <!-- Contenedor principal de la opción DATOS INSTITUCIONALES -->
-<div class="container-fluid date_institution content_principal-formInst" data-position="dateInstitution">
+<div class="container-fluid date_institution content_principal-formInst">
     <!-- Titulo y texto superior -->
     <div class="col-lg-10 col-xl-8 content_textPrincipal-formInst">
         <h5 class="titulo_principal-formInst"> LE DAMOS LA BIENVENIDA A ZAABRA SALUD </h5>
@@ -69,7 +69,7 @@
                     <!-- Sección logo datos institución --> 
                     <div class="col-md-3 contain_imgUsuario-formProf">
                         @foreach($objFormulario as $objFormulario)
-                            <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objFormulario->logo)}}">
+                            <img id="imagenPrevisualizacion" class="img_usuario-formInst" src="{{URL::asset($objFormulario->logo)}}">
                         @endforeach 
 
                         <input type="file" class="input_imgUsuario-formProf" name="logoInstitucion"  id="seleccionArchivos" accept="image/png, image/jpeg">
@@ -118,7 +118,7 @@
                 <div class="row fila_infoBasica-formProf">
                     <!-- Sección logo datos institución --> 
                     <div class="col-md-3 contain_imgUsuario-formProf"> 
-                        <img id="imagenPrevisualizacion" class="img_usuario-formProf">
+                        <img id="imagenPrevisualizacion" class="img_usuario-formInst">
 
                         <input type="file" class="input_imgUsuario-formProf" name="logoInstitucion"  id="seleccionArchivos" accept="image/png, image/jpeg">
 
@@ -244,7 +244,7 @@
 
                     <!-- Botón guardar información -->
                     <div class="col-12 mt-3 content_btnEnviar-formProf">
-                        <button type="submit" class="btn2_enviar-formProf"> Guardar
+                        <button type="submit" class="btn2_enviar-formInst"> Guardar
                             <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                         </button>
                     </div>
@@ -307,7 +307,7 @@
 
                     <!-- Botón guardar información -->
                     <div class="col-12 mt-3 content_btnEnviar-formProf">
-                        <button type="submit" class="btn2_enviar-formProf"> Guardar
+                        <button type="submit" class="btn2_enviar-formInst"> Guardar
                             <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                         </button>
                     </div>
@@ -318,24 +318,17 @@
     <!--------------------------------------------      Fin 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ---------------------------------------------->
 
     <!-- Secciones de los botones anterior y siguiente -->
-    <div class="col-md-10 content_botonesInferiores-formProf">
-        <div class="col-md-3 content_btn-anter">
-            <button type="submit" class="boton_inferior-anterior-formProf">
-                <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flecha_ingreso-membresia" alt=""> 
-                Anterior
-            </button>
-        </div>
-
+    <div class="col-lg-10 col-xl-8 content_botonInferior-next-formProf">
         <div class="col-md-3 content_btn-siguient">
-            <button type="submit" class="boton_inferior-siguiente-formProf"> Siguiente
-                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+            <button type="submit" class="boton_inferior-siguiente-formProf btn-next-320-formInst" onclick="hideBtnNext(this)" code-position="dateInstitution"> Siguiente
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
             </button>
         </div>
     </div>
 </div>
 
 <!-- Contenedor principal de la opción SERVICIOS PROFESIONALES -->
-<div class="container-fluid professional_services content_principal-formInst" data-position="professionalServices">
+<div class="container-fluid professional_services content_principal-formInst">
     <!--------------------------------------------      Inicio 3 tercera parte del formulario *** SERVICIO PROFESIONAL ***      ------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_servProf-institution  content_tarjetasInfo-formInst">
         <h5 class="col-12 icon_servProf-formInst"> Servicios profesionales </h5>
@@ -365,7 +358,7 @@
 
             <!-- Botón guardar información -->
             <div class="col-12 content_btnEnviar-formProf">
-                <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <button type="submit" class="btn2_enviar-formInst"> Guardar
                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                 </button>
             </div>
@@ -939,7 +932,7 @@
 
             <!-- Botón guardar información -->
             <div class="col-12 content_btnEnviar-formProf">
-                <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <button type="submit" class="btn2_enviar-formInst"> Guardar
                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                 </button>
             </div>
@@ -947,10 +940,26 @@
     </div>
     <!--------------------------------------------      Fin 4 cuarta parte del formulario *** SERVICIO ***      ----------------------------------------------------------->
 
+    <!-- Secciones de los botones anterior y siguiente -->
+    <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
+        <div class="col-md-3 content_btn-anter">
+            <button type="submit" class="boton_inferior-anterior-formProf" onclick="hideBtnPrevious(this)" code-position="professionalServices">
+                <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                Anterior
+            </button>
+        </div>
+
+        <div class="col-md-3 content_btn-siguient">
+            <button type="submit" class="boton_inferior-siguiente-formProf" onclick="hideBtnNext(this)" code-position="professionalServices"> Siguiente
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+            </button>
+        </div>
+    </div>
+
 </div>
 
 <!-- Contenedor principal de la opción ACERCA DE LA INSTITUCIÓN -->
-<div class="container-fluid about_institution content_principal-formInst" data-position="aboutInstitution">
+<div class="container-fluid about_institution content_principal-formInst">
     <!--------------------------------------------      Inicio 5 quinta parte del formulario *** QUIENES SOMOS ***      --------------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_acerca-institution content_tarjetasInfo-formInst">
         <h5 class="col-lg-12 icon_quienes-formInst"> ¿Quiénes somos? </h5>
@@ -980,7 +989,7 @@
 
             <!-- Botón guardar información -->
             <div class="col-12 content_btnEnviar-formProf">
-                <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <button type="submit" class="btn2_enviar-formInst"> Guardar
                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                 </button>
             </div>
@@ -1017,7 +1026,7 @@
 
             <!-- Botón guardar información -->
             <div class="col-12 content_btnEnviar-formProf">
-                <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <button type="submit" class="btn2_enviar-formInst"> Guardar
                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                 </button>
             </div>
@@ -1038,7 +1047,7 @@
                         </button>
                     </a> 
 
-                    <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objEps->urlimagen)}}">  
+                    <img id="imagenPrevisualizacion" class="img_usuario-formInst" src="{{URL::asset($objEps->urlimagen)}}">  
                 @endif
             @endforeach
 
@@ -1050,7 +1059,7 @@
                         </button>
                     </a>  
                     
-                    <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objIps->urlimagen)}}"> 
+                    <img id="imagenPrevisualizacion" class="img_usuario-formInst" src="{{URL::asset($objIps->urlimagen)}}"> 
                 @endif
             @endforeach
 
@@ -1062,7 +1071,7 @@
                         </button>
                     </a>  
                     
-                    <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objPrepa->urlimagen)}}"> 
+                    <img id="imagenPrevisualizacion" class="img_usuario-formInst" src="{{URL::asset($objPrepa->urlimagen)}}"> 
                 @endif
             @endforeach
         </div>
@@ -1389,7 +1398,7 @@
 
             <!-- Botón guardar información -->
             <div class="col-12 content_btnEnviar-formProf">
-                <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <button type="submit" class="btn2_enviar-formInst"> Guardar
                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                 </button>
             </div>
@@ -1397,13 +1406,29 @@
     </div>
     <!--------------------------------------------      Fin 7 septima parte del formulario *** CONVENIOS ***      --------------------------------------------------------->
 
+    <!-- Secciones de los botones anterior y siguiente -->
+    <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
+        <div class="col-md-3 content_btn-anter">
+            <button type="submit" class="boton_inferior-anterior-formProf" onclick="hideBtnPrevious(this)" code-position="aboutInstitution">
+                <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                Anterior
+            </button>
+        </div>
+
+        <div class="col-md-3 content_btn-siguient">
+            <button type="submit" class="boton_inferior-siguiente-formProf" onclick="hideBtnNext(this)" code-position="aboutInstitution"> Siguiente
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+            </button>
+        </div>
+    </div>
+
 </div>
 
 <!-- Contenedor principal de la opción PROFESIONALES -->
-<div class="container-fluid professional_inst content_principal-formInst" data-position="professionalInst">
+<div class="container-fluid professional_inst content_principal-formInst">
     <!--------------------------------------------      Inicio 8 octava parte del formulario *** PROFESIONALES ***      --------------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_profesional-institution content_tarjetasInfo-formInst">
-        <h5 class="col-lg-12 icon_infoBasica-formProf"> Profesionales </h5>
+        <h5 class="col-lg-12 icon_profesionales-formInst"> Profesionales </h5>
 
         <div class="col-12 row">
             @foreach($objProfeInsti as $objProfeInsti)
@@ -1414,7 +1439,7 @@
                         </button>
                     </a> 
 
-                    <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objProfeInsti->foto_perfil_institucion)}}">
+                    <img id="imagenPrevisualizacion" class="img_usuario-formInst" src="{{URL::asset($objProfeInsti->foto_perfil_institucion)}}">
                     <span>{{$objProfeInsti->primer_nombre}} {{$objProfeInsti->segundo_nombre}} {{$objProfeInsti->primer_apellido}} {{$objProfeInsti->segundo_apellido}}</span>
                     <span>{{$objProfeInsti->especialidad_uno}} {{$objProfeInsti->especialidad_dos}}</span>  
                 @endif
@@ -1427,7 +1452,7 @@
             @if($objContadorProfeInsti->cantidad == 0)
                 <div class="row fila_infoBasica-formProf">
                     <div class="col-md-3 contain_imgUsuario-formProf">
-                        <img class="img_usuario-formProf" id="imagenPrevisualizacion">
+                        <img class="img_usuario-formInst" id="imagenPrevisualizacion">
 
                         <input class="input_imgUsuario-formProf" type="file" id="imgasocia1" name="foto_perfil_institucion[]" accept="image/png, image/jpeg">
 
@@ -1473,7 +1498,7 @@
 
                 <div class="row fila_infoBasica-formProf">
                     <div class="col-md-3 contain_imgUsuario-formProf">
-                        <img class="img_usuario-formProf" id="imagenPrevisualizacion">
+                        <img class="img_usuario-formInst" id="imagenPrevisualizacion">
 
                         <input class="input_imgUsuario-formProf" type="file" id="imgasocia1" name="foto_perfil_institucion[]" accept="image/png, image/jpeg">
 
@@ -1519,7 +1544,7 @@
 
                 <div class="row fila_infoBasica-formProf">
                     <div class="col-md-3 contain_imgUsuario-formProf">
-                        <img class="img_usuario-formProf" id="imagenPrevisualizacion">
+                        <img class="img_usuario-formInst" id="imagenPrevisualizacion">
 
                         <input class="input_imgUsuario-formProf" type="file" id="imgasocia1" name="foto_perfil_institucion[]" accept="image/png, image/jpeg">
 
@@ -1566,7 +1591,7 @@
             @elseif($objContadorProfeInsti->cantidad == 1)
                 <div class="row fila_infoBasica-formProf">
                     <div class="col-md-3 contain_imgUsuario-formProf">
-                        <img class="img_usuario-formProf" id="imagenPrevisualizacion">
+                        <img class="img_usuario-formInst" id="imagenPrevisualizacion">
 
                         <input class="input_imgUsuario-formProf" type="file" id="imgasocia1" name="foto_perfil_institucion[]" accept="image/png, image/jpeg">
 
@@ -1612,7 +1637,7 @@
 
                 <div class="row fila_infoBasica-formProf">
                     <div class="col-md-3 contain_imgUsuario-formProf">
-                        <img class="img_usuario-formProf" id="imagenPrevisualizacion">
+                        <img class="img_usuario-formInst" id="imagenPrevisualizacion">
 
                         <input class="input_imgUsuario-formProf" type="file" id="imgasocia1" name="foto_perfil_institucion[]" accept="image/png, image/jpeg">
 
@@ -1658,7 +1683,7 @@
             @elseif($objContadorProfeInsti->cantidad == 2)
                 <div class="row fila_infoBasica-formProf">
                     <div class="col-md-3 contain_imgUsuario-formProf">
-                        <img class="img_usuario-formProf" id="imagenPrevisualizacion">
+                        <img class="img_usuario-formInst" id="imagenPrevisualizacion">
 
                         <input class="input_imgUsuario-formProf" type="file" id="imgasocia1" name="foto_perfil_institucion[]" accept="image/png, image/jpeg">
 
@@ -1707,7 +1732,7 @@
 
             <!-- Botón guardar información -->
             <div class="col-12 content_btnEnviar-formProf">
-                <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <button type="submit" class="btn2_enviar-formInst"> Guardar
                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                 </button>
             </div>
@@ -1715,10 +1740,26 @@
     </div>
     <!--------------------------------------------      Fin 8 octava parte del formulario *** PROFESIONALES ***      ------------------------------------------------------>
 
+    <!-- Secciones de los botones anterior y siguiente -->
+    <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
+        <div class="col-md-3 content_btn-anter">
+            <button type="submit" class="boton_inferior-anterior-formProf" onclick="hideBtnPrevious(this)" code-position="professionalInst">
+                <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                Anterior
+            </button>
+        </div>
+
+        <div class="col-md-3 content_btn-siguient">
+            <button type="submit" class="boton_inferior-siguiente-formProf" onclick="hideBtnNext(this)" code-position="professionalInst"> Siguiente
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+            </button>
+        </div>
+    </div>
+    
 </div>
 
 <!-- Contenedor principal de la opción CERTIFICACIONES -->
-<div class="container-fluid certifications_inst content_principal-formInst" data-position="certificationsInst">
+<div class="container-fluid certifications_inst content_principal-formInst">
     <!--------------------------------------------      Inicio 9 novena parte del formulario *** CERTIFICACIONES ***      ------------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_certif-institution content_tarjetasInfo-formInst">
         <h5 class="col-lg-12 icon_certificaciones-formInst"> Certificaciones </h5>
@@ -2208,7 +2249,7 @@
 
             <!-- Botón guardar información -->
             <div class="col-12 content_btnEnviar-formProf">
-                <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <button type="submit" class="btn2_enviar-formInst"> Guardar
                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                 </button>
             </div>
@@ -2216,10 +2257,26 @@
     </div>
     <!--------------------------------------------      Fin 9 novena parte del formulario *** CERTIFICACIONES ***      ---------------------------------------------------->
 
+    <!-- Secciones de los botones anterior y siguiente -->
+    <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
+        <div class="col-md-3 content_btn-anter">
+            <button type="submit" class="boton_inferior-anterior-formProf" onclick="hideBtnPrevious(this)" code-position="certificationsInst">
+                <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                Anterior
+            </button>
+        </div>
+
+        <div class="col-md-3 content_btn-siguient">
+            <button type="submit" class="boton_inferior-siguiente-formProf" onclick="hideBtnNext(this)" code-position="certificationsInst"> Siguiente
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+            </button>
+        </div>
+    </div>
+
 </div>
 
 <!-- Contenedor principal de la opción SEDES -->
-<div class="container-fluid venues_inst content_principal-formInst" data-position="venuesInst">
+<div class="container-fluid venues_inst content_principal-formInst">
     <!--------------------------------------------      Inicio 10 decima parte del formulario *** SEDES ***      ---------------------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_sede-institution content_tarjetasInfo-formInst">
         <h5 class="col-lg-12 icon_sedes-formInst"> Sedes </h5>
@@ -3284,7 +3341,7 @@
 
             <!-- Botón guardar información -->
             <div class="col-12 content_btnEnviar-formProf">
-                <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <button type="submit" class="btn2_enviar-formInst"> Guardar
                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                 </button>
             </div>
@@ -3318,7 +3375,7 @@
             @endif
             <!-- Botón guardar información -->
             <div class="col-12 content_btnEnviar-formProf">
-                <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <button type="submit" class="btn2_enviar-formInst"> Guardar
                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                 </button>
             </div>
@@ -3326,10 +3383,26 @@
     </div>
     <!--------------------------------------------      Fin 11 onceava parte del formulario *** UBIQUE LA SEDE ***      --------------------------------------------------->
     
+    <!-- Secciones de los botones anterior y siguiente -->
+    <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
+        <div class="col-md-3 content_btn-anter">
+            <button type="submit" class="boton_inferior-anterior-formProf" onclick="hideBtnPrevious(this)" code-position="venuesInst">
+                <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                Anterior
+            </button>
+        </div>
+
+        <div class="col-md-3 content_btn-siguient">
+            <button type="submit" class="boton_inferior-siguiente-formProf" onclick="hideBtnNext(this)" code-position="venuesInst"> Siguiente
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+            </button>
+        </div>
+    </div>
+
 </div>
 
 <!-- Contenedor principal de la opción GALERIAS -->
-<div class="container-fluid gallery_inst content_principal-formInst" data-position="galleryInst">
+<div class="container-fluid gallery_inst content_principal-formInst">
     <!--------------------------------------------      Inicio 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_galeria-institution content_tarjetasInfo-formInst">
         <h5 class="col-lg-12 icon_galeriaInst-formInst"> Galeria </h5>
@@ -4797,13 +4870,29 @@
 
             <!-- Botón guardar información -->
             <div class="col-12 content_btnEnviar-formProf">
-                <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <button type="submit" class="btn2_enviar-formInst"> Guardar
                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                 </button>
             </div>  
         </form>
     </div>  
     <!--------------------------------------------      Fin 12 doceava parte del formulario *** GALERIA ***      ---------------------------------------------------------->
+
+    <!-- Secciones de los botones anterior y siguiente -->
+    <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
+        <div class="col-md-3 content_btn-anter">
+            <button type="submit" class="boton_inferior-anterior-formProf" onclick="hideBtnPrevious(this)" code-position="galleryInst">
+                <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                Anterior
+            </button>
+        </div>
+
+        <div class="col-md-3 content_btn-siguient">
+            <a type="submit" class="boton_inferior-finalizar-formInst" href="{{ route('contacto') }}"> Finalizar
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_finalizar-formInst" alt=""> 
+            </a>
+        </div>
+    </div>
 
 </div>
 
