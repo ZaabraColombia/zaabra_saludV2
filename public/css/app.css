@@ -22722,7 +22722,8 @@ a:link, a:visited, a:active, a:hover {
 
   .img_usuario-formProf {
     height: 19vh;
-    width: 75%;
+
+    width: 63%;
   }
 
   .flecha_guardar-formProf {
@@ -25548,7 +25549,7 @@ a:link, a:visited, a:active, a:hover {
 
   .img_usuario-formInst {
     height: 20vh;
-    width: 75%;
+    width: 68%;
   }
 
   .icon_subirFoto-formProf {
