@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class profesionesController extends Controller
 {
 
@@ -18,7 +19,8 @@ class profesionesController extends Controller
         $objbannersprincipalProfesiones = $this->cargarBannerPrincipalProfesiones();
         $objprofesiones = $this->cargarProfesiones();
         $objcarruselprofesiones = $this->cargarCarruselProfesiones();
-
+       
+   
         return view('profesionales.Profesiones', compact(
             'objbannersprincipalProfesiones',
             'objprofesiones',

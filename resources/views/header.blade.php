@@ -1,3 +1,7 @@
+       <?php 
+        $var=Route::current()->getName() ; 
+        ?>
+        <span id="rutta" hidden="hidden">{{$var}}</span>
             <!-------------------------------------------Headaer-------------------------------------------->
             <nav class="navbar navbar_zaabrasalud">
                 <div class="container contains_header">
@@ -11,8 +15,7 @@
                                 <input  class="inputBarraBusquedad" id="filtro">
                         </div> 
                     </div>
-                  
-                    <!--******************************     Sección BARRA DE BUSQUEDA version MOBILE      *************************************-->
+         <!--******************************     Sección BARRA DE BUSQUEDA version MOBILE      *************************************-->
                     <!-- SECCION BARRA DE BUSQUEDA HEADER -->
                     <div class="contain_lupa-mobile">
                         <!--///      Función para desplegar y ocultar barra de busqueda en la vista "header" versión Mobile ubicada en el archivo header.js      ///-->
@@ -42,7 +45,11 @@
                                     @csrf
                                 </form>
                                 <div class="dropdown-divider m-0"></div>   
-                              
+                              @if($objtipoUsuarioLogueado->idrol==2)
+                              <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioProfesional') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
+                              @else($objtipoUsuarioLogueado->idrol==2)
+                              <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioInstitucion') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
+                              @endif
                             @endguest
                                   
                         </div>
