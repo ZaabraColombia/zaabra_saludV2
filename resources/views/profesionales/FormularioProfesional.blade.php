@@ -5,44 +5,44 @@
 <!--     Sección lista de opciones     -->
 <ol  class="lista_opciones-usuario-formProf">
     <div class="content_icons-formProf"> <!-- clase "content_icons-formProf" para evento ocultar y mostrar contenido de la opción. Ubicado en el archivo formularios.js -->
-        <li class="iconAzul_datoPersonal dato-personal">
+        <li class="iconAzul_datoPersonal dato-personal" onclick="containtHideOption(this)" data-position="personalData">
             <p class="text_opcion-formProfesional" > Datos personales </p>
         </li>
     </div>
 
     <div class="content_icons-formProf">
-        <li class="iconGris_perfProf perfil-profesional">
+        <li class="iconGris_perfProf perfil-profesional" onclick="containtHideOption(this)" data-position="professionalProfile">
             <p class="text_opcion-formProfesional" > Perfil profesional </p>
         </li>
     </div>
 
     <div class="content_icons-formProf">
-        <li class="iconGris_trataProced tratamiento-procedimiento">
+        <li class="iconGris_trataProced tratamiento-procedimiento" onclick="containtHideOption(this)" data-position="treatmentsProcedures">
             <p class="text_opcion-formProfesional" > Tratamientos y procedimientos </p>
         </li>
     </div>
 
     <div class="content_icons-formProf">
-        <li class="iconGris_premioRecon premio-reconocimiento">
+        <li class="iconGris_premioRecon premio-reconocimiento" onclick="containtHideOption(this)" data-position="AwardsHonours">
             <p class="text_opcion-formProfesional" > Premios y reconocimientos </p>
         </li>
     </div>
 
     <div class="content_icons-formProf">
-        <li class="iconGris_public publicacion">
+        <li class="iconGris_public publicacion" onclick="containtHideOption(this)" data-position="publicationsFormProf">
             <p class="text_opcion-formProfesional" > Publicaciones </p>
         </li>
     </div>
 
     <div class="content_icons-formProf">
-        <li class="iconGris_galeriaVideo galeria-video">
+        <li class="iconGris_galeriaVideo galeria-video" onclick="containtHideOption(this)" data-position="galleryFormProf">
             <p class="text_opcion-formProfesional" > Galería </p>
         </li>
     </div>
 </ol> 
 
-<!-- Contenedor principal de las tarjetas de datos -->
-<div class="container-fluid content_principal-formProf">
+<!-- 1 Contenedor principal de las tarjetas de datos -->
+<div class="container-fluid personal_data content_principal-formProf">
 
     <!-- Titulo y texto superior -->
     <div class="col-lg-10 col-xl-8 content_textPrincipal-formProf">
@@ -549,6 +549,26 @@
     </div>
     <!--------------------------------------------      Fin 3 tercera parte del formulario *** INFORMACIÓN CONSULTA ***      ----------------------------------------------> 
 
+    <!-- Secciones de los botones anterior y siguiente -->
+    <div class="col-lg-10 col-xl-8 content_botonInferior-next-formProf">
+        <div class="col-md-3 content_btn-siguient">
+            <button type="submit" class="boton_inferior-siguiente-formProf btn-next-320-formInst" onclick="btnHideNext(this)" code-position="personalData"> Siguiente
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid professional_profile content_principal-formProf">
     <!--------------------------------------------      Inicio 4 cuarta parte del formulario *** PERFIL PROFESIONAL ***      ---------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_perfil-prof  infoBasica_formProf">
         <h5 class="col-12 icon_infoSubPerfil-formProf"> Perfil profesional </h5>
@@ -1067,6 +1087,35 @@
     </div>
     <!--------------------------------------------      Fin 8 octava parte del formulario *** IDIOMAS ***      ------------------------------------------------------------>
 
+    <!-- Secciones de los botones anterior y siguiente -->
+    <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
+        <div class="col-md-3 content_btn-anter">
+            <button type="submit" class="boton_inferior-anterior-formProf" onclick="btnHidePrevious(this)" code-position="professionalProfile">
+                <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                Anterior
+            </button>
+        </div>
+
+        <div class="col-md-3 content_btn-siguient">
+            <button type="submit" class="boton_inferior-siguiente-formProf" onclick="btnHideNext(this)" code-position="professionalProfile"> Siguiente
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid treatments_procedures content_principal-formProf">
     <!--------------------------------------------      Inicio 9 novena parte del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      ----------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_tratam-proced infoBasica_formProf">
         <h5 class="col-12 icon_infoTratam-formProf"> Tratamientos y procedimientos </h5>
@@ -1355,6 +1404,35 @@
     </div>
     <!--------------------------------------------      Fin 9 novena parte del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      -------------------------------------->
 
+    <!-- Secciones de los botones anterior y siguiente -->
+    <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
+        <div class="col-md-3 content_btn-anter">
+            <button type="submit" class="boton_inferior-anterior-formProf" onclick="btnHidePrevious(this)" code-position="treatmentsProcedures">
+                <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                Anterior
+            </button>
+        </div>
+
+        <div class="col-md-3 content_btn-siguient">
+            <button type="submit" class="boton_inferior-siguiente-formProf" onclick="btnHideNext(this)" code-position="treatmentsProcedures"> Siguiente
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid Awards_honours content_principal-formProf">
     <!--------------------------------------------      Inicio 10 decima parte del formulario *** PREMIOS y RECONOCIMIENTOS ***      -------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_premio-recono infoBasica_formProf">
         <h5 class="col-12 icon_infoPremReco-formProf"> Premios y reconocimientos </h5>
@@ -1829,6 +1907,37 @@
     </div>
     <!--------------------------------------------      Fin 10 decima parte del formulario *** PREMIOS y RECONOCIMIENTOS ***      ----------------------------------------->
 
+    <!-- Secciones de los botones anterior y siguiente -->
+    <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
+        <div class="col-md-3 content_btn-anter">
+            <button type="submit" class="boton_inferior-anterior-formProf" onclick="btnHidePrevious(this)" code-position="AwardsHonours">
+                <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                Anterior
+            </button>
+        </div>
+
+        <div class="col-md-3 content_btn-siguient">
+            <button type="submit" class="boton_inferior-siguiente-formProf" onclick="btnHideNext(this)" code-position="AwardsHonours"> Siguiente
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid publications_formInst content_principal-formProf">
     <!--------------------------------------------      Inicio 11 onceava parte del formulario *** PUBLICACIONES ***      ------------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_publicacion infoBasica_formProf">
         <h5 class="col-12 icon_infoPublic-formProf"> Publicaciones </h5>
@@ -2215,6 +2324,41 @@
     </div>         
     <!--------------------------------------------      Fin 11 onceava parte del formulario *** PUBLICACIONES ***      ---------------------------------------------------->
 
+    <!-- Secciones de los botones anterior y siguiente -->
+    <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
+        <div class="col-md-3 content_btn-anter">
+            <button type="submit" class="boton_inferior-anterior-formProf" onclick="btnHidePrevious(this)" code-position="publicationsFormProf">
+                <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                Anterior
+            </button>
+        </div>
+
+        <div class="col-md-3 content_btn-siguient">
+            <button type="submit" class="boton_inferior-siguiente-formProf" onclick="btnHideNext(this)" code-position="publicationsFormInst"> Siguiente
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+            </button>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid gallery_formInst content_principal-formProf">
     <!--------------------------------------------      Inicio 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------------->
     <div class="col-lg-10 col-xl-8 pb-3 content_galeria-video infoBasica_formProf">
         <h5 class="col-12 icon_infoGale-formProf"> Galeria </h5>
@@ -4036,6 +4180,22 @@
         </form>
     </div>
     <!--------------------------------------------      Fin 13 treceava parte del formulario *** VIDEOS ***      ---------------------------------------------------------->
+
+    <!-- Secciones de los botones anterior y siguiente -->
+    <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
+        <div class="col-md-3 content_btn-anter">
+            <button type="submit" class="boton_inferior-anterior-formProf" onclick="btnHidePrevious(this)" code-position="galleryFormProf">
+                <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                Anterior
+            </button>
+        </div>
+
+        <div class="col-md-3 content_btn-siguient">
+            <a type="submit" class="boton_inferior-finalizar-formInst" href="{{ route('contacto') }}"> Finalizar
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_finalizar-formInst" alt=""> 
+            </a>
+        </div>
+    </div>
 
 </div>
 @endsection
