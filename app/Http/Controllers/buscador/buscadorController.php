@@ -58,7 +58,6 @@ class buscadorController extends Controller
         ->where('instituciones.aprobado', '<>',0)
         ->get();
 
-
         $data1=[];
 
         /*Recorrido para profesiones*/
@@ -72,14 +71,14 @@ class buscadorController extends Controller
         /*Recorrido para profesionales junto a especialidades*/
         foreach($querysProfeespe as $queryprofeespe){
             $data1[]=[
-                'id'=>'/PerfilProfesional'.'/'.$queryprofeespe->idprofe,
+                'id'=>'PerfilProfesional/'.$queryprofeespe->idprofe,
                 'label'=>$queryprofeespe->nombreEspecialidad,
             ];
         }
         /*Recorrido para profesionales solo el nombre*/
        foreach($querysProfesional as $queryprofesional){
         $data1[]=[
-            'id'=>"/PerfilProfesional".'/'.$queryprofesional->idprofe,
+            'id'=>"PerfilProfesional/".$queryprofesional->idprofe,
             'label'=>$queryprofesional->nombreProfesional,
         ];
        }
