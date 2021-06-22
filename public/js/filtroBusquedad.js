@@ -3,7 +3,7 @@ $(function(){
         autoFocus: true,
     source: function(request, response) {
         $.ajax({
-        url: "/search/filtro",
+        url: "search/filtro",
         dataType: "json",
         data: {
             term: request.term
