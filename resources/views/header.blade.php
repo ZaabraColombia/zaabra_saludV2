@@ -1,7 +1,11 @@
        <?php 
-        $var=Route::current()->getName() ; 
+       $nombreRuta = Request::route()->getName();
+       echo($nombreRuta);
         ?>
-        <span id="rutta" hidden="hidden">{{$var}}</span>
+
+  <span>{{ Request::route()->getName() }}</span>
+
+ 
             <!-------------------------------------------Headaer-------------------------------------------->
             <nav class="navbar navbar_zaabrasalud">
                 <div class="container contains_header">
@@ -45,11 +49,7 @@
                                     @csrf
                                 </form>
                                 <div class="dropdown-divider m-0"></div>   
-                              @if($objtipoUsuarioLogueado->idrol==2)
-                              <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioProfesional') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
-                              @else($objtipoUsuarioLogueado->idrol==2)
-                              <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioInstitucion') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
-                              @endif
+          
                             @endguest
                                   
                         </div>
