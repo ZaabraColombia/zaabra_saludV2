@@ -75,7 +75,7 @@
 
         <section class="section_servicios_institucion">
 
-            <div class="servicios_institucion">
+            <div class="servicios_instituciones">
                 <h2><i></i>Servicios profesionales</h2>
                 <p>{{$objinstitucionlandin->DescripcionGeneralServicios}}</p>
             </div>

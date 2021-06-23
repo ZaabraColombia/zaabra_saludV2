@@ -152,7 +152,7 @@
     font-weight: bolder;
     color: #232323;
 }
-.servicios_institucion h2 {
+.servicios_instituciones h2 {
     display: flex;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
@@ -161,11 +161,11 @@
     justify-content: flex-start;
     align-items: center;
 }
-.servicios_institucion p {
+.servicios_instituciones p {
     font-family: "Roboto";
     color: #3E3E3E;
 }
-.servicios_institucion i {
+.servicios_instituciones i {
     background-image: url('/img/landing-profesional/icono-perfil-profesional.svg');
     background-repeat: no-repeat;
     background-size: contain;
@@ -464,21 +464,21 @@
         margin-left: auto;
         margin-right: auto;
     }
-    .servicios_institucion{
+    .servicios_instituciones{
         width: 90%;
         margin: auto;
         margin-bottom: 8%;
     }
-    .servicios_institucion h2{
+    .servicios_instituciones h2{
         font-size: 1.1em;
     }
-    .servicios_institucion p {
+    .servicios_instituciones p {
         font-size: 0.75em;
         padding-bottom: 3%;
         padding-left: 14%;
         padding-right: 5%;
     }
-    .servicios_institucion i {
+    .servicios_instituciones i {
         width: 14%;
         height: 30px;
     }
@@ -698,10 +698,10 @@
     .contains_swiper_institucion h1{
         font-size: 1.25em;
     }
-    .servicios_institucion h2 {
+    .servicios_instituciones h2 {
         font-size: 1.3em;
     }
-    .servicios_institucion p{
+    .servicios_instituciones p{
         font-size: 0.8em;
     }
     .propuesta h2{
@@ -798,14 +798,14 @@
     .contains_swiper_institucion {
         margin-bottom: 5%;
     }
-    .servicios_institucion h2 {
+    .servicios_instituciones h2 {
         font-size: 1.8em;
     }
-    .servicios_institucion i {
+    .servicios_instituciones i {
         width: 10%;
         height: 45px;
     }
-    .servicios_institucion p {
+    .servicios_instituciones p {
         font-size: 1.3em;
         padding-left: 10%;
     }
@@ -985,7 +985,7 @@
         width: 10%;
         height: 30px;
     }
-    .servicios_institucion,
+    .servicios_instituciones,
     .propuesta,
     .convenios,
     .idiomas,
@@ -994,7 +994,7 @@
         width: 80%;
         margin: auto;
     }
-    .servicios_institucion i,
+    .servicios_instituciones i,
     .propuesta i,
     .convenios i,
     .idiomas i,
@@ -1005,7 +1005,7 @@
         width: 8%;
         height: 45px;
     }
-    .servicios_institucion p{
+    .servicios_instituciones p{
         padding-left: 8%;
     }
     .propuesta ul,
@@ -1164,7 +1164,7 @@
         height: auto;
         padding-top: 2%;
     }
-    .servicios_institucion i, 
+    .servicios_instituciones i, 
     .propuesta i,  
     .convenios i, 
     .idiomas i, 
@@ -1175,7 +1175,7 @@
         width: 6%;
         height: 45px;
     }
-    .servicios_institucion p {
+    .servicios_instituciones p {
         padding-left: 6%;
     }
     .propuesta ul, 
@@ -1315,7 +1315,7 @@
 
 @media (min-width: 1600px){
 
-    .servicios_institucion, 
+    .servicios_instituciones, 
     .propuesta, 
     .convenios, 
     .idiomas, 
@@ -1357,7 +1357,7 @@
     .swiper_institucion {
         width: 60%;
     }
-    .servicios_institucion i, 
+    .servicios_instituciones i, 
     .propuesta i, 
     .convenios i, 
     .idiomas i, 
@@ -1368,7 +1368,7 @@
         width: 5%;
         height: 45px;
     }
-    .servicios_institucion p {
+    .servicios_instituciones p {
         padding-left: 5%;
     }
     .propuesta ul,  
