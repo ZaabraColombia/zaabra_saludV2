@@ -154,7 +154,7 @@ Route::post('/FormularioInstitucionSave5',[App\Http\Controllers\entidades\formul
 Route::post('/FormularioInstitucionSave6',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create6'])->name('FormularioInstitucion');
 
 /*-----guardar formulario parte 7----*/ 
-Route::post('/FormularioInstitucionSave7',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create6'])->name('FormularioInstitucion');
+Route::post('/FormularioInstitucionSave7',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create7'])->name('FormularioInstitucion');
 /*-----borrar formulario parte 7 eps----*/ 
 Route::get('/FormularioInstituciondelete5/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete5'])->name('FormularioInstitucion');
 /*-----borrar formulario parte 7 ips----*/ 

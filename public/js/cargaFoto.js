@@ -30,3 +30,11 @@ function previewImage(nb) {
   };     
 }
 
+// Función para cargar y previsualizar las imagenes en el FORMULARIO PROFESIONALES
+function previewImageProf(np) {        
+  var reader = new FileReader();         
+  reader.readAsDataURL(document.getElementById('selecArchivos'+np).files[0]);         
+  reader.onload = function (e) {             
+    document.getElementById('imagenPrevi'+np).src = e.target.result;         
+  };     
+}
