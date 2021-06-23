@@ -1,8 +1,3 @@
-
-Document.getElementById 
-
-
-
 // *********    FORMULARIO PROFESIONAL   **************
 // Función para ocultar y mostrar el contenido de cada una de las opciones del FORMULARIO PROFESIONAL
 $(document).ready(function() {
@@ -655,3 +650,4 @@ function hideBtnPrevious (y){
         $(".galeria_institution").removeClass('iconVerde_galeInst')
     }
 }
+
