@@ -128,30 +128,31 @@
 .contains_swiper_institucion{
     max-width: 100%;
 }
-.item_landing {
+.swiper_institucion .item_landing {
     display: flex;
     justify-content: center;
     background-size: contain;
     background-repeat: no-repeat;
     width: 100%;
-    height: 100px;
+    height: 70px;
     background-position: center;
-    margin-bottom: 28%;
+    margin-bottom: 50%;
 }
-.item_landing span{
+.swiper_institucion .item_landing span{
     text-align: center;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
     color: #232323;
-    margin-top: 100px;
-    line-height: 20px;
+    line-height: 15px;
+    margin-top: 70px;
+    height: 100%;
 }
 .contains_swiper_institucion h1 {
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
     color: #232323;
 }
-.perfil_institucion h2 {
+.servicios_institucion h2 {
     display: flex;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
@@ -160,11 +161,11 @@
     justify-content: flex-start;
     align-items: center;
 }
-.perfil_institucion p {
+.servicios_institucion p {
     font-family: "Roboto";
     color: #3E3E3E;
 }
-.perfil_institucion i {
+.servicios_institucion i {
     background-image: url('/img/landing-profesional/icono-perfil-profesional.svg');
     background-repeat: no-repeat;
     background-size: contain;
@@ -380,13 +381,14 @@
     display: none;
 }
 
-
 @media (min-width: 320px){
     .section_data_instituciones{
         width: 100%;
         height: auto;
         padding-top: 8%;
+        padding-bottom: 8%;
     }
+    .item_landing
     .data_instituciones .contains_info{
         width: 100%;
     }
@@ -451,29 +453,48 @@
         font-size: 0.6em;
     }
     .contains_swiper_institucion{
-        margin-bottom: 10%;
+        margin-bottom: 0;
     }
     .contains_swiper_institucion h1 {
-        font-size: 1em;
+        max-width: 90%;
+        font-size: 1.3em;
+        margin-top: 5%;
         margin-bottom: 8%;
         text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
-    .perfil_institucion{
+    .servicios_institucion{
         width: 90%;
         margin: auto;
+        margin-bottom: 8%;
     }
-    .perfil_institucion h2{
+    .servicios_institucion h2{
         font-size: 1.1em;
     }
-    .perfil_institucion p {
+    .servicios_institucion p {
         font-size: 0.75em;
         padding-bottom: 3%;
         padding-left: 14%;
         padding-right: 5%;
     }
-    .perfil_institucion i {
+    .servicios_institucion i {
         width: 14%;
         height: 30px;
+    }
+    .desplegable_institucion .card{
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .desplegable_institucion .card-header{
+        padding-top: 2%;
+        padding-bottom: 2%;
+        padding-right: 3%;
+        padding-left: 5%;
+    }
+    .desplegable_institucion .card-header button{
+        font-size: 1em;
     }
     .propuesta{
         width: 90%;
@@ -677,10 +698,10 @@
     .contains_swiper_institucion h1{
         font-size: 1.25em;
     }
-    .perfil_institucion h2 {
+    .servicios_institucion h2 {
         font-size: 1.3em;
     }
-    .perfil_institucion p{
+    .servicios_institucion p{
         font-size: 0.8em;
     }
     .propuesta h2{
@@ -777,14 +798,14 @@
     .contains_swiper_institucion {
         margin-bottom: 5%;
     }
-    .perfil_institucion h2 {
+    .servicios_institucion h2 {
         font-size: 1.8em;
     }
-    .perfil_institucion i {
+    .servicios_institucion i {
         width: 10%;
         height: 45px;
     }
-    .perfil_institucion p {
+    .servicios_institucion p {
         font-size: 1.3em;
         padding-left: 10%;
     }
@@ -964,7 +985,7 @@
         width: 10%;
         height: 30px;
     }
-    .perfil_institucion,
+    .servicios_institucion,
     .propuesta,
     .convenios,
     .idiomas,
@@ -973,7 +994,7 @@
         width: 80%;
         margin: auto;
     }
-    .perfil_institucion i,
+    .servicios_institucion i,
     .propuesta i,
     .convenios i,
     .idiomas i,
@@ -984,7 +1005,7 @@
         width: 8%;
         height: 45px;
     }
-    .perfil_institucion p{
+    .servicios_institucion p{
         padding-left: 8%;
     }
     .propuesta ul,
@@ -1143,7 +1164,7 @@
         height: auto;
         padding-top: 2%;
     }
-    .perfil_institucion i, 
+    .servicios_institucion i, 
     .propuesta i,  
     .convenios i, 
     .idiomas i, 
@@ -1154,7 +1175,7 @@
         width: 6%;
         height: 45px;
     }
-    .perfil_institucion p {
+    .servicios_institucion p {
         padding-left: 6%;
     }
     .propuesta ul, 
@@ -1294,7 +1315,7 @@
 
 @media (min-width: 1600px){
 
-    .perfil_institucion, 
+    .servicios_institucion, 
     .propuesta, 
     .convenios, 
     .idiomas, 
@@ -1336,7 +1357,7 @@
     .swiper_institucion {
         width: 60%;
     }
-    .perfil_institucion i, 
+    .servicios_institucion i, 
     .propuesta i, 
     .convenios i, 
     .idiomas i, 
@@ -1347,7 +1368,7 @@
         width: 5%;
         height: 45px;
     }
-    .perfil_institucion p {
+    .servicios_institucion p {
         padding-left: 5%;
     }
     .propuesta ul,  

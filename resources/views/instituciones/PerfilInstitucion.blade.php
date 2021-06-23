@@ -73,32 +73,39 @@
             </div>
         </section>
 
-        
-        @foreach ($objinstitucionlandinservicios as $objinstitucionlandinservicios)
-        <div id="accordion">
-            <div class="card containt_options-collapse-membresia">
-                <div class="card-header" id="heading_{{$loop->iteration}}">
-                    <button class="boton_collapse-off-membresia" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapse_{{$loop->iteration}}" aria-expanded="true" aria-controls="collapse_{{$loop->iteration}}">{{$objinstitucionlandinservicios->tituloServicios}}</button>
-                </div>
+        <section class="section_servicios_institucion">
 
-                <div id="collapse_{{$loop->iteration}}" class="collapse" aria-labelledby="heading_{{$loop->iteration}}" data-parent="#accordion">
-                    <div class="card-body text_interno-toggle-membresia">
-                        <p>{{$objinstitucionlandinservicios->DescripcioServicios}}</p>
+            <div class="servicios_institucion">
+                <h2><i></i>Servicios profesionales</h2>
+                <p>{{$objinstitucionlandin->DescripcionGeneralServicios}}</p>
+            </div>
+ 
+            @foreach ($objinstitucionlandinservicios as $objinstitucionlandinservicios)
+            <div class="desplegable_institucion" id="accordion">
+                <div class="card containt_options-collapse-membresia">
+                    <div class="card-header" id="heading_{{$loop->iteration}}">
+                        <button class="boton_collapse-off-membresia" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapse_{{$loop->iteration}}" aria-expanded="true" aria-controls="collapse_{{$loop->iteration}}">{{$objinstitucionlandinservicios->tituloServicios}}</button>
                     </div>
-                    <div>
-                        @if($objinstitucionlandinservicios->sucursalservicio) 
-                            @php  $new_array = explode(',',$objinstitucionlandinservicios->sucursalservicio); @endphp
-                        @endif
-                        @foreach($new_array as $info)
-                            <option>{{$info}}</option>
-                        @endforeach
+
+                    <div id="collapse_{{$loop->iteration}}" class="collapse" aria-labelledby="heading_{{$loop->iteration}}" data-parent="#accordion">
+                        <div class="card-body text_interno-toggle-membresia">
+                            <p>{{$objinstitucionlandinservicios->DescripcioServicios}}</p>
+                        </div>
+                        <div>
+                            @if($objinstitucionlandinservicios->sucursalservicio) 
+                                @php  $new_array = explode(',',$objinstitucionlandinservicios->sucursalservicio); @endphp
+                            @endif
+                            @foreach($new_array as $info)
+                                <option>{{$info}}</option>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        @endforeach
+            @endforeach
+        </section>
 
-        <section class="sections sections_active section_perfil_institucion">
+        <section class="sections sections_active section_acerca_institucion">
 
             <div class="perfil_institucion">
                 <h2><i></i>¿Quiénes somos?</h2>
