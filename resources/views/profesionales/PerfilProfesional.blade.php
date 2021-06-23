@@ -252,4 +252,14 @@
                 </div>
             </div>     
         </section>
+
+        <section class="col-12">
+            <div class="col-12">
+                <form action="">
+                    calificar:
+                        <div id="Estrellas"></div>
+                    
+                </form>
+            </div>
+        </section>
 @endsection

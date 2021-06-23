@@ -45,7 +45,7 @@ $('#contactForm').on('submit',function(e){
         "asunto": $('#asunto').val(),
       },
       success:function(response){
-        $('#send_form').html('Enviar');
+        $('#send_form').hide();
         $('#res_message').show();
         $('#res_message').html(response.msg);
         $('#msg_div').removeClass('d-none');
