@@ -1,9 +1,8 @@
        <?php 
-       $nombreRuta = Request::route()->getName();
-       echo($nombreRuta);
+       $nombreRuta = Request::root();
         ?>
-
-  <span>{{ Request::route()->getName() }}</span>
+<span hidden="hidden" id="ruta"></span>
+ 
 
  
             <!-------------------------------------------Headaer-------------------------------------------->
@@ -48,13 +47,15 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-                                <div class="dropdown-divider m-0"></div>   
-                                
-                                @if($objtipoUsuarioLogueado->idrol==2)
-                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioProfesional') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
-                                @else($objtipoUsuarioLogueado->idrol==2)
-                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioInstitucion') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
-                                @endif
+
+                                <div class="dropdown-divider m-0"></div>  
+                                @if($objtipoUsuarioLogueado->idrol==1) 
+                                @elseif($objtipoUsuarioLogueado->idrol==2)
+                                   <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioProfesional') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
+                                 @elseif($objtipoUsuarioLogueado->idrol==3)
+                                   <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioInstitucion') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
+                                 @endif
+
                             @endguest
                                   
                         </div>
@@ -83,9 +84,9 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right menu_hamburguesa" aria-labelledby="dropdownMenuLink" style="">
-                            <a class="dropdown-item menu_item item-cel icon-especialidades" href="#"><span class="texto_item-menu">Especialidades medicas</span></a>
+                            <a class="dropdown-item menu_item item-cel icon-especialidades" href="{{route('Profesiones')}}"><span class="texto_item-menu">Especialidades medicas</span></a>
                             <div class="dropdown-divider m-0"></div>
-                            <a class="dropdown-item menu_item item-cel icon-instituciones-burger" href="#"><span class="texto_item-menu">Instituciones medicas</span></a>
+                            <a class="dropdown-item menu_item item-cel icon-instituciones-burger" href="{{route('Entidades')}}"><span class="texto_item-menu">Instituciones medicas</span></a>
                             <div class="dropdown-divider m-0"></div>
                             <a class="dropdown-item menu_item item-cel icon-quienes" href="{{route('acerca')}}"><span class="texto_item-menu">Acerca de Zaabra</span></a>
                             <div class="dropdown-divider m-0"></div>
