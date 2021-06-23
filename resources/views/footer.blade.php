@@ -12,30 +12,33 @@
 
             <!-- Column form suscribirme -->
             <div class="col-lg-7 suscribirme_contenido d-none d-lg-block">
-                <form  class="row form_suscribirme" action="" id="" method="get">
-                    <input class="col-lg-8 col-xl-7 input_suscribirme" type="email" id="" name="txtNewLeeter" placeholder="zaabra@gmail.com">
-                    <button class="col-lg-3 col-xl-2 boton_suscribirme" type="submit" value="Suscribirme">
+                <form id="newsletter" method="post" action="javascript:void(0)" class="row form_suscribirme">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                    <input class="col-lg-8 col-xl-7 input_suscribirme" type="email" id="correo_newsletter" name="correo_newsletter" placeholder="zaabra@gmail.com">
+                    <button class="col-lg-3 col-xl-2 boton_suscribirme" id="send_form" type="submit">
                     <span> Suscribirme </span>
                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="boton_icon-flecha" alt=""> 
                 </form>
             </div>
-
             <!-- Column terminos -->
             <div class="col-lg-8 terminos_contenido d-none d-lg-flex">
                 <input class="checkBox_terminos" type="checkbox" id="">
                 <h4 class="texto_terminos">Acepto <b><u>términos y condiciones</u></b> y autorizo el <b><u>tratamiento de mis datos personales</u></b></h4>
             </div>
-
+            <div class="alert alert-success d-none mt-5" id="msg_div">
+                 <span id="res_message"></span>
+            </div>
             <!--******************************     Column form suscribirme version MOBILE      *********************************-->
-            <form class="row col-10 col-md-9 p-0 m-auto d-block d-lg-none" action="" id="" method="get">
-                <input class="input_suscribirme-cel" type="email" id="" name="txtNewLeeter" placeholder="zaabra@gmail.com">
+            <form id="newsletter" method="post" action="javascript:void(0)" class="row col-10 col-md-9 p-0 m-auto d-block d-lg-none">
+               <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                <input class="input_suscribirme-cel" type="email" id="correo_newsletter" name="correo_newsletter" placeholder="zaabra@gmail.com">
                 <div class="col-12 check_terminos-cel">
                     <input type="checkbox" class="boton_check-terminos-cel" id=""> 
                     <span class="texto_terminos-cel">Acepto <b><u>términos y condiciones</u></b>
                         y autorizo el <b><u>tratamiento de mis datos personales</u></b>
                     </span>
                 </div>
-                <button type="submit" value="Suscribirme" class="col-5 col-md-4 mb-2 boton_suscribirme-cel" >
+                <button id="send_form" type="submit" class="col-5 col-md-4 mb-2 boton_suscribirme-cel" >
                 <span> Suscribirme </span>
                 <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icono_flecha-suscribirme-cel" alt=""> 
             </form>

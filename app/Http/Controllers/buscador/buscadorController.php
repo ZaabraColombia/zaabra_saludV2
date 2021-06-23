@@ -15,6 +15,9 @@ class buscadorController extends Controller
 {
     public function filtroBusquedad(Request $request){
        
+        //tomamos la ruta actual 
+        $ruta='http://127.0.0.1:8000/';
+
         //Recuperamos lo que el usuario escribió en el buscador
         $term = $request->get('term');
 
@@ -63,7 +66,7 @@ class buscadorController extends Controller
         /*Recorrido para profesiones*/
         foreach($queryProfesion as $queryprofesion){
             $data1[]=[
-                'id'=>"/Profesiones",
+                'id'=> $ruta."Profesiones",
                 'label'=>$queryprofesion->nombreProfesion,
             ];
            }
@@ -71,28 +74,28 @@ class buscadorController extends Controller
         /*Recorrido para profesionales junto a especialidades*/
         foreach($querysProfeespe as $queryprofeespe){
             $data1[]=[
-                'id'=>'PerfilProfesional/'.$queryprofeespe->idprofe,
+                'id'=> $ruta.'PerfilProfesional/'.$queryprofeespe->idprofe,
                 'label'=>$queryprofeespe->nombreEspecialidad,
             ];
         }
         /*Recorrido para profesionales solo el nombre*/
        foreach($querysProfesional as $queryprofesional){
         $data1[]=[
-            'id'=>"PerfilProfesional/".$queryprofesional->idprofe,
+            'id'=> $ruta."PerfilProfesional/".$queryprofesional->idprofe,
             'label'=>$queryprofesional->nombreProfesional,
         ];
        }
         /*Recorrido para institucion solo el nombre*/
        foreach($querysInstitucion as $querysinstitucion){
         $data1[]=[
-            'id'=>"PerfilInstitucion/".$querysinstitucion->idInstitucion,
+            'id'=> $ruta."PerfilInstitucion/".$querysinstitucion->idInstitucion,
             'label'=>$querysinstitucion->nombreinstitucion
         ];
        }
         /*Recorrido para institucion junto al tipo de institucion*/
        foreach($querysTipoInstitucion as $querysTipoinstitucion){
         $data1[]=[
-            'value'=>"PerfilInstitucion/".$querysTipoinstitucion->idInstitucion,
+            'value'=> $ruta."PerfilInstitucion/".$querysTipoinstitucion->idInstitucion,
             'label'=>$querysTipoinstitucion->nombretipo
         ];
        }

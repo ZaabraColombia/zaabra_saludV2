@@ -12,7 +12,7 @@ class contactecnosController extends Controller
     {
         /*varifica si existe un sesion iniciada y en caso de
         que asi sea consulta, verifica que usuario es y realiza la
-        consulta de los datos del mismo, en caso contrario re*/
+        consulta de los datos del mismo, en caso contrario mustra el formulario con campos vacios*/
         if (!Auth::guest()){
             $id_user=auth()->user()->id;/*id usuario logueado*/
             $objuser = $this->cargaDatosUser($id_user);
