@@ -4,6 +4,9 @@ namespace App\Http\Controllers\profesionales;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\users_roles;
 
 class perfilprofesionalController extends Controller
 {
@@ -23,6 +26,10 @@ class perfilprofesionalController extends Controller
         $objprofesionallandingpublic= $this->cargarInfoPrfesionalLandingpublic($idPerfilProfesional);
         $objprofesionallandinggaler= $this->cargarInfoPrfesionalLandinggaler($idPerfilProfesional);
         $objprofesionallandingvideo= $this->cargarInfoPrfesionalLandingvideo($idPerfilProfesional);
+        $objTipoUsu= $this->verificaTipousuarioComnetario();
+        $objprofesionalComentario= $this->cargarInfoPrfesionalComentario($idPerfilProfesional);
+        
+ 
 
         return view('profesionales.PerfilProfesional', compact(
             'objprofesionallanding',
@@ -36,14 +43,16 @@ class perfilprofesionalController extends Controller
             'objprofesionallandingpremio',
             'objprofesionallandingpublic',
             'objprofesionallandinggaler',
-            'objprofesionallandingvideo'
+            'objprofesionallandingvideo',
+            'objTipoUsu',
+            'objprofesionalComentario'
         ));
 
     }
 
          // consulta para cargar todas los profesionales segun su area profesion y especialidad
         public function cargarInfoPrfesionalLanding($idPerfilProfesional){
-            return DB::select("SELECT  pf.fotoperfil, us.primernombre, us.primerapellido, ep.nombreEspecialidad, pf.numeroTarjeta, pf.direccion, un.nombreuniversidad, pf.descripcionPerfil, mn.nombre
+            return DB::select("SELECT pf.idPerfilProfesional, pf.fotoperfil, us.primernombre, us.primerapellido, ep.nombreEspecialidad, pf.numeroTarjeta, pf.direccion, un.nombreuniversidad, pf.descripcionPerfil, mn.nombre
             FROM perfilesprofesionales pf
             INNER JOIN users us ON pf.idUser=us.id
             INNER JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
@@ -144,7 +153,26 @@ class perfilprofesionalController extends Controller
         }
 
 
-  
+        // consulta para cargar lista publicaciones
+        public function verificaTipousuarioComnetario(){
+            if (!Auth::guest()){
+                $id_user=auth()->user()->id;/*id usuario logueado*/
+
+                return DB::select("SELECT ur.idrol
+                FROM users us
+                INNER JOIN users_roles ur on us.id=ur.iduser
+                WHERE us.id=$id_user");
+                
+            }
+        }
+
+        // consulta comentarios
+        public function cargarInfoPrfesionalComentario($idPerfilProfesional){
+        return DB::select("SELECT  vd.urlvideo, vd.nombrevideo, vd.descripcionvideo
+        FROM perfilesprofesionales pf
+        INNER JOIN videos vd ON pf.idPerfilProfesional=vd.idPerfilProfesional
+        WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional");
+        }
 
 
 }
