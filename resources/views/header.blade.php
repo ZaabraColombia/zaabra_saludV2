@@ -1,9 +1,4 @@
-       <?php 
-       $nombreRuta = Request::root();
-        ?>
-<span hidden="hidden" id="ruta"></span>
  
-
  
             <!-------------------------------------------Headaer-------------------------------------------->
             <nav class="navbar navbar_zaabrasalud">
@@ -49,12 +44,14 @@
                                 </form>
 
                                 <div class="dropdown-divider m-0"></div>  
-                                @if($objtipoUsuarioLogueado->idrol==1) 
-                                @elseif($objtipoUsuarioLogueado->idrol==2)
-                                   <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioProfesional') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
-                                 @elseif($objtipoUsuarioLogueado->idrol==3)
-                                   <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioInstitucion') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
-                                 @endif
+                                @if(!empty($objtipoUsuarioLogueado))
+                                    @if($objtipoUsuarioLogueado->idrol==1) 
+                                        @elseif($objtipoUsuarioLogueado->idrol==2)
+                                        <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioProfesional') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
+                                        @elseif($objtipoUsuarioLogueado->idrol==3)
+                                        <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioInstitucion') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
+                                    @endif
+                                 @endif   
 
                             @endguest
                                   
