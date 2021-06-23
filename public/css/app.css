@@ -21900,94 +21900,86 @@ a:link, a:visited, a:active, a:hover {
      object-fit: contain;
 }
 
-.photo5 .agregar_archivo-formProf::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 25%;
-  background-size: 5%;
-  font-size: 1.15em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto 5";
-  /* texto botón subir foto asociación */
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+/*.photo5 .agregar_archivo-formProf::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 5'; // texto botón subir foto asociación
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
 }
-
 .photo6 .agregar_archivo-formProf::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 25%;
-  background-size: 5%;
-  font-size: 1.15em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto 6";
-  /* texto botón subir foto asociación */
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 6'; // texto botón subir foto asociación 
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
 }
-
 .photo7 .agregar_archivo-formProf::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 25%;
-  background-size: 5%;
-  font-size: 1.15em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto 7";
-  /* texto botón subir foto asociación */
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 7'; // texto botón subir foto asociación 
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
 }
-
 .photo8 .agregar_archivo-formProf::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 25%;
-  background-size: 5%;
-  font-size: 1.15em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto 8";
-  /* texto botón subir foto asociación */
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 8'; // texto botón subir foto asociación
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}*/
 .icon_infoVideo-formProf {
   background-image: url("/img/formulario-profesional/icono-videos.svg");
   background-repeat: no-repeat;
@@ -22268,7 +22260,7 @@ a:link, a:visited, a:active, a:hover {
 
   .agregar_archivo-formProf::before {
     background-position-x: 1%;
-    background-size: 7%;
+    background-size: 6%;
     font-size: 0.9em;
     padding-left: 8%;
   }
@@ -22387,30 +22379,26 @@ a:link, a:visited, a:active, a:hover {
     height: 220px;
   }
 
-  .photo5 .agregar_archivo-formProf::before {
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1em;
+  /*.photo5 .agregar_archivo-formProf::before {
+      background-position-x: 25%;
+      background-size: 5%;
+      font-size: 1em;             
   }
-
   .photo6 .agregar_archivo-formProf::before {
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1em;
+      background-position-x: 25%;
+      background-size: 5%;
+      font-size: 1em;             
   }
-
   .photo7 .agregar_archivo-formProf::before {
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1em;
+      background-position-x: 25%;
+      background-size: 5%;
+      font-size: 1em;             
   }
-
   .photo8 .agregar_archivo-formProf::before {
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1em;
-  }
-
+      background-position-x: 25%;
+      background-size: 5%;
+      font-size: 1em;             
+  }*/
   .icon_infoVideo-formProf {
     background-size: 8%;
     padding-left: 10%;

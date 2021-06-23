@@ -839,7 +839,7 @@
     height: 326px;
     object-fit: contain;
 }
-.photo5 .agregar_archivo-formProf::before {
+/*.photo5 .agregar_archivo-formProf::before {
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
     background-repeat: no-repeat ;
     background-position-y: center;
@@ -852,7 +852,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 3px;
-    content: 'Subir foto 5'; /* texto botón subir foto asociación */
+    content: 'Subir foto 5'; // texto botón subir foto asociación
     position: absolute;
     left: 0;
     right: 0;
@@ -872,7 +872,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 3px;
-    content: 'Subir foto 6'; /* texto botón subir foto asociación */
+    content: 'Subir foto 6'; // texto botón subir foto asociación 
     position: absolute;
     left: 0;
     right: 0;
@@ -892,7 +892,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 3px;
-    content: 'Subir foto 7'; /* texto botón subir foto asociación */
+    content: 'Subir foto 7'; // texto botón subir foto asociación 
     position: absolute;
     left: 0;
     right: 0;
@@ -912,13 +912,13 @@
     justify-content: center;
     align-items: center;
     border-radius: 3px;
-    content: 'Subir foto 8'; /* texto botón subir foto asociación */
+    content: 'Subir foto 8'; // texto botón subir foto asociación
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;              
-}
+}*/
 ///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
 
 // Sección titulo de la tarjeta videos
@@ -1178,7 +1178,7 @@
     }
     .agregar_archivo-formProf::before {
         background-position-x: 1%;
-        background-size: 7%;
+        background-size: 6%;
         font-size: .9em;
         padding-left: 8%;         
     } 
@@ -1280,7 +1280,7 @@
         width: 260px;
         height: 220px;
     }
-    .photo5 .agregar_archivo-formProf::before {
+    /*.photo5 .agregar_archivo-formProf::before {
         background-position-x: 25%;
         background-size: 5%;
         font-size: 1em;             
@@ -1299,7 +1299,7 @@
         background-position-x: 25%;
         background-size: 5%;
         font-size: 1em;             
-    }
+    }*/
     //      ***** SECCIÓN TARJETA DE --- VIDEO --- *****         //
     .icon_infoVideo-formProf {
         background-size: 8%;

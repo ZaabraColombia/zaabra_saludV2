@@ -12,10 +12,10 @@
                 <div class="contains_info">
                     <h2>{{$objinstitucionlandin->nombreinstitucion}}</h2>
                     <h1>{{$objinstitucionlandin->nombretipo}}</h1>
-                    <h5>{{$objinstitucionlandin->url}}</h5>
-                    <h5>{{$objinstitucionlandin->telefonouno}}</h5>
-                    <h5>{{$objinstitucionlandin->direccion}}</h5>
-                    <h5>{{$objinstitucionlandin->ciudad}} {{$objinstitucionlandin->pais}}}</h5>
+                    <h5 class="title-url"><i></i>{{$objinstitucionlandin->url}}</h5>
+                    <h5 class="title-tel"><i></i>{{$objinstitucionlandin->telefonouno}}</h5>
+                    <h5 class="title-adress"><i></i>{{$objinstitucionlandin->direccion}}</h5>
+                    <h5>{{$objinstitucionlandin->ciudad}} {{$objinstitucionlandin->pais}}</h5>
                     <!-- Rating Stars Box -->
                     <div class='rating-stars text-center'>
                         <ul id='stars'>
