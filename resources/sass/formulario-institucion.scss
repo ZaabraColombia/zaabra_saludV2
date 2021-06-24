@@ -273,31 +273,15 @@
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
     background-repeat: no-repeat ;
     background-position-y: center;
-    background-size: 8%;
-}
-.contain_imgInst-formInst {
-    align-self: center;
-    text-align: center;
-    padding-top: 0;
-}
-.contain_imgInst-formInst .icon_subirFoto-formInst {
-    background-image: url('/img/formulario-profesional/icono-subir.svg');
-    background-repeat: no-repeat;
-    background-size: 5%;
-    background-position-x: 20%;
+    background-position-x: 7%;
+    background-size: 7%;
+    margin-top: 3%;
 }
 .text_usuario-formInst {
     font-family: "Quicksand", "Regular";
     font-size: 1.15em;
     color: #434343;
     margin: 10% 0 5% 0;
-    padding-right: 0;
-}
-.contain_imgInst-formInst .text_usuario-formInst {
-    font-family: "Quicksand", "Regular";
-    font-size: 1.15em;
-    color: #434343;
-    margin: 6% 0 0% 0%;
     padding-right: 0;
 }
 // Sección datos institución
@@ -343,13 +327,31 @@
     margin: 0;
     padding: 0;
 }
+.contain_imgInst-formInst {
+    align-self: center;
+    text-align: center;
+    padding-top: 0;
+}
 .img_institucion-formInst {
-    height: 20vh;
+    height: 23vh;
     width: 100%;
     border-radius: 3px;
     background: #D1D1D1;
     border: 1px solid #707070;
     object-fit: cover;
+}
+.contain_imgInst-formInst .icon_subirFoto-formInst {
+    background-image: url('/img/formulario-profesional/icono-subir.svg');
+    background-repeat: no-repeat;
+    background-size: 4%;
+    background-position-x: 23%;
+}
+.contain_imgInst-formInst .text_usuario-formInst {
+    font-family: "Quicksand", "Regular";
+    font-size: 1.15em;
+    color: #434343;
+    margin: 6% 0 0% 0%;
+    padding-right: 0;
 }
 // Sección botón guardar
 .content_btnEnviar-formInst {
@@ -503,6 +505,12 @@
     color: #0083d6;
     text-transform: inherit;
 }
+.text_infoConvenio-formInst {
+    font-family: 'Roboto', 'Regular';
+    font-size: .85em;
+    color: #DBDADA;
+    padding: 0 15px;
+}
 // Sección imagen GUARDADA
 .content_imgGuardada-formInst {
     margin: 3% 0 0 0;
@@ -528,7 +536,7 @@
     justify-content: center;
     margin: auto;
     padding: 0;
-    width: 77%;
+    width: 100%;
 } 
 .agregar_archivo-formInst input[type="file"] {
     opacity: 0;
@@ -541,8 +549,8 @@
     background-repeat: no-repeat ;
     background-position-y: center;
     background-position-x: 10%;
-    background-size: 5%;
-    font-size: 1.15em;
+    background-size: 4%;
+    font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
     display: flex;            
@@ -562,7 +570,7 @@
     justify-content: center;
     margin: auto;
     padding: 0;
-    width: 77%;
+    width: 100%;
 } 
 .agregar_archivo-formInst2 input[type="file"] {
     opacity: 0;
@@ -575,8 +583,8 @@
     background-repeat: no-repeat ;
     background-position-y: center;
     background-position-x: 10%;
-    background-size: 5%;
-    font-size: 1.15em;
+    background-size: 4%;
+    font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
     display: flex;            
@@ -584,6 +592,40 @@
     align-items: center;
     border-radius: 3px;
     content: 'Subir foto de asociación 2'; // texto botón subir foto asociación
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+} 
+.agregar_archivo-formInst3 {          
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+} 
+.agregar_archivo-formInst3 input[type="file"] {
+    opacity: 0;
+    width: 100%;
+    height: 32px;
+    display: flex;            
+}
+.agregar_archivo-formInst3::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 10%;
+    background-size: 4%;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto de asociación 3'; // texto botón subir foto asociación
     position: absolute;
     left: 0;
     right: 0;
@@ -617,6 +659,11 @@
     margin: 0;
     padding: 0;
     border-left: 1px solid #D1D1D1;
+}
+.containt_loadProfes-formInst {
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 .nombres_usuario-formInst {
     display: flex;
@@ -854,8 +901,8 @@
 ///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
 
 // Sección titulo de la tarjeta videos
-.icon_videosInst-formInst {
-    background-image: url('/img/formulario-institucion/icono-videos-azul.svg') ;
+.icon_infoVideo-formInst {
+    background-image: url('/img/formulario-profesional/icono-videos.svg') ;
     background-repeat: no-repeat ;
     background-position-y: center;
     background-size: 2.5%;
@@ -863,11 +910,51 @@
     height: 5vh;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #0083d6;
+    border-bottom: 1px solid #019F86;
     font-size: 1em;
     font-family: 'Quicksand', 'Regular';
-    color: #0083d6;
+    color: #019F86;
     text-transform: inherit;
+}
+.video1 .agregar_archivo-formInst::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir video 1'; /* texto botón subir foto asociación */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}
+.video2 .agregar_archivo-formInst::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1.15em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir video 2'; /* texto botón subir foto asociación */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
 }
 // Secciones botones inferiores anterior y siguoente
 .content_botonInferior-next-formInst {
@@ -933,6 +1020,22 @@
 }
 // clase para ocultar las secciones en cada una de las opciones del formulario profesional
 .hidden-section-formInst {
+    display: none;
+}
+
+
+
+
+
+// Sección botón agregar más
+.btn_agregarMas-formInst {
+    background: transparent;
+    border: none;
+    text-decoration-line: underline;
+    padding: 0;
+    width: 25%;
+}
+.message-not{
     display: none;
 }
 @media (min-width: 320px) and (orientation: portrait) {
@@ -1117,6 +1220,10 @@
         margin: 0 auto;
         padding: 0;
     }
+    .text_infoConvenio-formInst {
+        font-size: .75em;
+        padding: 0;
+    }
     ///// *****   SECCIÓN TARJETA PROFESIONALES   ***** /////
     // Sección titulo de la tarjeta profesionales
     .icon_profesionales-formInst {
@@ -1198,10 +1305,20 @@
     ///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
 
     // Sección titulo de la tarjeta videos
-    .icon_videosInst-formInst {
+    .icon_infoVideo-formInst {
         background-size: 8%;
         padding-left: 10%;
         height: 6vh;
+    }
+    .video1 .agregar_archivo-formInst::before {
+        background-position-x: 25%;
+        background-size: 5%;
+        font-size: 1em;             
+    }
+    .video2 .agregar_archivo-formInst::before {
+        background-position-x: 25%;
+        background-size: 5%;
+        font-size: 1em;              
     }
     // Sección botones inferiores
     .boton_inferior-siguiente-formInst {
@@ -1423,6 +1540,12 @@
         height: 2.5vh;
         font-size: 1.2em;
     }
+    .text_infoConvenio-formInst {
+        font-family: 'Roboto', 'Regular';
+        font-size: 1em;
+        color: #DBDADA;
+        padding: 0 15px;
+    }
     ///// *****   SECCIÓN TARJETA PROFESIONALES   ***** /////
     // Sección titulo de la tarjeta profesionales
     .icon_profesionales-formInst {
@@ -1497,7 +1620,7 @@
     ///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
 
     // Sección titulo de la tarjeta videos
-    .icon_videosInst-formInst {
+    .icon_infoVideo-formInst {
         background-size: 3%;
         padding-left: 5%;
         height: 2.5vh;
