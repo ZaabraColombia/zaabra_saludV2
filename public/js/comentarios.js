@@ -68,5 +68,4 @@ $('#comentarioFormProf').on('submit',function(e){
             },3000);
          },
      });
-
     });

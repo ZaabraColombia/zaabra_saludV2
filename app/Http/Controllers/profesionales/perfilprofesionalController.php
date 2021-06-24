@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\users_roles;
+use App\Models\perfilesprofesionales;
 
 class perfilprofesionalController extends Controller
 {
@@ -26,10 +27,8 @@ class perfilprofesionalController extends Controller
         $objprofesionallandingpublic= $this->cargarInfoPrfesionalLandingpublic($idPerfilProfesional);
         $objprofesionallandinggaler= $this->cargarInfoPrfesionalLandinggaler($idPerfilProfesional);
         $objprofesionallandingvideo= $this->cargarInfoPrfesionalLandingvideo($idPerfilProfesional);
-        $objTipoUsu= $this->verificaTipousuarioComnetario();
         $objprofesionalComentario= $this->cargarInfoPrfesionalComentario($idPerfilProfesional);
-        
- 
+        $objTipoUser= $this->cargarTipoUser();
 
         return view('profesionales.PerfilProfesional', compact(
             'objprofesionallanding',
@@ -44,8 +43,8 @@ class perfilprofesionalController extends Controller
             'objprofesionallandingpublic',
             'objprofesionallandinggaler',
             'objprofesionallandingvideo',
-            'objTipoUsu',
-            'objprofesionalComentario'
+            'objprofesionalComentario',
+            'objTipoUser'
         ));
 
     }
@@ -153,26 +152,31 @@ class perfilprofesionalController extends Controller
         }
 
 
-        // consulta para cargar lista publicaciones
-        public function verificaTipousuarioComnetario(){
-            if (!Auth::guest()){
-                $id_user=auth()->user()->id;/*id usuario logueado*/
-
-                return DB::select("SELECT ur.idrol
-                FROM users us
-                INNER JOIN users_roles ur on us.id=ur.iduser
-                WHERE us.id=$id_user");
-                
-            }
-        }
-
         // consulta comentarios
         public function cargarInfoPrfesionalComentario($idPerfilProfesional){
-        return DB::select("SELECT  vd.urlvideo, vd.nombrevideo, vd.descripcionvideo
-        FROM perfilesprofesionales pf
-        INNER JOIN videos vd ON pf.idPerfilProfesional=vd.idPerfilProfesional
-        WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional");
+        return DB::select("SELECT us.primernombre, us.primerapellido, c.comentario,c.calificacion,
+        (SELECT (ROUND(SUM(c.calificacion) / COUNT(c.calificacion)))
+        FROM comentarios c
+        INNER JOIN perfilesprofesionales p ON c.idperfil=p.idPerfilProfesional
+        WHERE p.idPerfilProfesional=$idPerfilProfesional) AS calificacionRedondeada
+        FROM  users_roles ur
+        LEFT JOIN users us  ON ur.iduser=us.id
+        LEFT JOIN perfilesprofesionales pf  ON us.id=Pf.idUser
+        LEFT JOIN comentarios c ON ur.iduser=c.idusuariorol
+        WHERE c.comentario<>'' AND c.idperfil=$idPerfilProfesional");
         }
 
+    
+       public function cargarTipoUser(){
+           if(Auth::user()){
+            $id_user=auth()->user()->id;
+            return DB::select("SELECT ur.idrol 
+            FROM users us
+            INNER JOIN users_roles ur on us.id=ur.iduser
+            WHERE us.id =$id_user");
+           }
 
+       }
+    
+        
 }
