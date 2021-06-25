@@ -14,6 +14,7 @@ $(function(){
         }
         });  
     },
+    
     select: function (event, ui) {
         $('#barra_busqueda').val(ui.item.id); // save selected id to input
         // Set selection
