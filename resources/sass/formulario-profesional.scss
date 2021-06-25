@@ -977,9 +977,6 @@
     top: 0;
     bottom: 0;              
 }
-
-
-
 // Secciones botones inferiores anterior y siguoente
 .content_botonInferior-next-formProf {
     display: flex;
@@ -1019,17 +1016,17 @@
     font-family: "Quicksand";
     font-size: 1.15em;
     color: #ffffff;
-    background: #0083d6;
+    background: #019F86;
     border: none;
     border-radius: 3px;
     height: calc(1.6em + 0.75rem + 2px);
     width: 75%;
 }
-.boton_inferior-finalizar-formInst {
+.boton_inferior-finalizar-formProf {
     font-family: "Quicksand";
     font-size: 1.15em;
     color: #ffffff;
-    background: #0083d6;
+    background: #019F86;
     border: none;
     border-radius: 3px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -1038,7 +1035,7 @@
     align-items: center;
     justify-content: center;
 }
-.flechaBtn_finalizar-formInst {
+.flechaBtn_finalizar-formProf {
     width: 10%;
     margin-left: 5%;
 }
@@ -1316,6 +1313,26 @@
         background-size: 5%;
         font-size: 1em;              
     }
+    // Sección botones inferiores anterior y siguiente
+        .boton_inferior-siguiente-formProf {
+            width: 90%;
+        }
+        .btn-next-320-formProf {
+            font-family: "Quicksand";
+            font-size: 1.15em;
+            color: #ffffff;
+            background: #019F86;
+            border: none;
+            border-radius: 3px;
+            height: calc(1.6em + 0.75rem + 2px);
+            width: 45%;
+        }
+        .boton_inferior-anterior-formProf {
+            width: 90%;
+        }
+        .boton_inferior-finalizar-formProf {
+            width: 90%;
+        }
 }
 @media (min-width: 768px) and (orientation: portrait) {
     .content_icons-formProf {
@@ -1559,6 +1576,20 @@
         height: 2.5vh;
         font-size: 1.2em;
     }
+    // Sección botones inferiores anterior y siguiente
+        .btn-next-320-formProf {
+            width: 68%;
+        }
+        .boton_inferior-siguiente-formProf {
+            width: 68%;
+        }
+        .boton_inferior-anterior-formProf {
+            width: 68%;
+        }
+        .boton_inferior-finalizar-formProf {
+            width: 68%;
+            background: #019F86;
+        }
 }
 @media (min-width: 1200px) {
     .lista_opciones-usuario-formProf {
