@@ -23,6 +23,7 @@ use App\Models\departamento;
 use App\Models\municipio;
 use App\Models\provincia;
 use App\Models\galerias;
+use App\Models\videos;
 use File;
 
 
@@ -50,6 +51,9 @@ class formularioInstitucionController extends Controller{
             $objContadorSedes=$this->contadorSedes($id_user);
             $objGaleria=$this->cargaGaleria($id_user);
             $objContadorGaleria=$this->contadorGaleria($id_user);
+            $objVideo=$this->cargaVideo($id_user);
+            $objContadorVideo=$this->contadorVideo($id_user);
+         
 
             return view('instituciones.FormularioInstitucion',compact(
             'tipoinstitucion',
@@ -71,7 +75,9 @@ class formularioInstitucionController extends Controller{
             'objSedes',
             'objContadorSedes',
             'objGaleria',
-            'objContadorGaleria'
+            'objContadorGaleria',
+            'objVideo',
+            'objContadorVideo'
             ));
         }
 
@@ -282,6 +288,26 @@ public function cargaFormulario($id_user){
     ->first();
     return $contadorGaleria;
     } 
+
+    public function  cargaVideo($id_user){
+        return DB::select("SELECT v.id, v.nombrevideo, v.descripcionvideo,
+        REPLACE(v.urlvideo, '/watch?v=', '/embed/') AS urlvideo, v.fechavideo
+       FROM instituciones ins
+       INNER JOIN users us   ON ins.idUser=us.id
+       LEFT JOIN  videos v ON ins.id= v.idPerfilProfesional
+       WHERE ins.idUser=$id_user");
+    }
+                
+        public function contadorVideo($id_user){
+        /*cuenta los los valores ingresados*/
+        $contadorvideos = DB::table('instituciones')
+        ->select(DB::raw('COUNT(videos.idinstitucion) as cantidad'))
+        ->join('users', 'instituciones.idUser', '=', 'users.id')
+        ->leftjoin('videos', 'instituciones.id', '=', 'videos.idinstitucion')
+        ->where('users.id', '=',$id_user)
+        ->first();
+        return $contadorvideos;
+    }
 /*------------Fin busquedad datos basicos usuario logueado y data resgistrada de la institucion-----------------*/
     
 
@@ -802,15 +828,66 @@ public function delete12($id_galeria){
     $verificaPerfil = $this->verificaPerfil();
 
     foreach($verificaPerfil as $verificaPerfil){
-        $idProProfesi=$verificaPerfil;
+        $idInstitucion=$verificaPerfil;
     }
 
 
-    $galeria = galerias::where('id_galeria', $id_galeria)->where('idinstitucion', $idProProfesi);
+    $galeria = galerias::where('id_galeria', $id_galeria)->where('idinstitucion', $idInstitucion);
     $galeria->delete();
 
     return redirect('FormularioInstitucion'); 
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 12----------------------*/
+
+
+/*-------------------------------------Inicio Creacion y/o modificacion formulario parte 13----------------------*/
+public function create13(Request $request){
+  
+
+    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idInstitucion=$verificaPerfil;
+    }
+
+    /*id usuario logueado*/
+    $id_user=auth()->user()->id;
+
+
+        for ($i=0; $i < count(request('nombrevideo')); ++$i){
+            if(!empty($request->input('nombrevideo.'.$i))){
+                    videos::create([
+                    'idinstitucion' => $idProProfesi,
+                    'nombrevideo' => $request->input('nombrevideo')[$i],
+                    'descripcionvideo' => $request->input('descripcionvideo')[$i],
+                    'urlvideo' => $request->input('urlvideo')[$i],
+                    'fechavideo' => $request->input('fechavideo')[$i],
+                  ]);
+            }
+        }
+
+        return redirect('FormularioInstitucion'); 
+
+    }
+/*-------------------------------------Fin Creacion y/o modificacion formulario parte 13----------------------*/
+/*-------------------------------------Inicio Eliminacion  formulario parte 13----------------------*/
+public function delete13($id){
+
+
+    $verificaPerfil = $this->verificaPerfil();
+
+    foreach($verificaPerfil as $verificaPerfil){
+        $idInstitucion=$verificaPerfil;
+    }
+
+
+    $videos = videos::where('id', $id)->where('idinstitucion', $idInstitucion);
+    $videos->delete();
+
+    return redirect('FormularioInstitucion.'); 
+
+}
+/*-------------------------------------Fin Eliminacion formulario parte 13----------------------*/
 }
