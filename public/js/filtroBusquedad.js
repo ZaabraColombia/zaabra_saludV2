@@ -1,6 +1,4 @@
-var ruta = document.getElementById('ruta').innerText;
-ruta=ruta+'/'
-
+ruta='http://127.0.0.1:8000/';
 $(function(){
     $("#filtro").autocomplete({
         autoFocus: true,
@@ -16,6 +14,7 @@ $(function(){
         }
         });  
     },
+    
     select: function (event, ui) {
         $('#barra_busqueda').val(ui.item.id); // save selected id to input
         // Set selection

@@ -18,6 +18,7 @@ class ComposerServiceProvider extends ServiceProvider
         //
     }
 
+    
     /**
      * Bootstrap services.
      *

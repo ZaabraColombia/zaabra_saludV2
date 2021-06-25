@@ -63,6 +63,7 @@ class buscadorController extends Controller
 
         $data1=[];
 
+        
         /*Recorrido para profesiones*/
         foreach($queryProfesion as $queryprofesion){
             $data1[]=[
