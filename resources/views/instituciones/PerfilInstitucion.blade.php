@@ -73,34 +73,41 @@
             </div>
         </section>
 
-        
-        @foreach ($objinstitucionlandinservicios as $objinstitucionlandinservicios)
-        <div id="accordion">
-            <div class="card containt_options-collapse-membresia">
-                <div class="card-header" id="heading_{{$loop->iteration}}">
-                    <button class="boton_collapse-off-membresia" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapse_{{$loop->iteration}}" aria-expanded="true" aria-controls="collapse_{{$loop->iteration}}">{{$objinstitucionlandinservicios->tituloServicios}}</button>
-                </div>
+        <section class="section_servicios_institucion">
 
-                <div id="collapse_{{$loop->iteration}}" class="collapse" aria-labelledby="heading_{{$loop->iteration}}" data-parent="#accordion">
-                    <div class="card-body text_interno-toggle-membresia">
-                        <p>{{$objinstitucionlandinservicios->DescripcioServicios}}</p>
-                    </div>
-                    <div>
-                        @if($objinstitucionlandinservicios->sucursalservicio) 
-                            @php  $new_array = explode(',',$objinstitucionlandinservicios->sucursalservicio); @endphp
-                        @endif
-                        @foreach($new_array as $info)
-                            <option>{{$info}}</option>
-                        @endforeach
-                    </div>
-                </div>
+            <div class="servicios_instituciones">
+                <h2><i></i>Servicios profesionales</h2>
+                <p>{{$objinstitucionlandin->DescripcionGeneralServicios}}</p>
             </div>
-        </div>
-        @endforeach
 
-        <section class="sections sections_active section_perfil_institucion">
+            <div class="desplegable_institucion" id="accordion">
+                @foreach ($objinstitucionlandinservicios as $objinstitucionlandinservicios)
+                    <div class="card containt_options-collapse-membresia">
+                        <div class="card-header" id="heading_{{$loop->iteration}}">
+                            <button class="boton_collapse-off-membresia" data-toggle="collapse" data-target="#collapse_{{$loop->iteration}}" aria-expanded="true" aria-controls="collapse_{{$loop->iteration}}">{{$objinstitucionlandinservicios->tituloServicios}}</button>
+                        </div>
 
-            <div class="perfil_institucion">
+                        <div id="collapse_{{$loop->iteration}}" class="collapse" aria-labelledby="heading_{{$loop->iteration}}" data-parent="#accordion">
+                            <div class="card-body text_interno-toggle-membresia">
+                                <p>{{$objinstitucionlandinservicios->DescripcioServicios}}</p>
+                            </div>
+                            <div class="lista_sede">
+                                @if($objinstitucionlandinservicios->sucursalservicio) 
+                                    @php  $new_array = explode(',',$objinstitucionlandinservicios->sucursalservicio); @endphp
+                                @endif
+                                @foreach($new_array as $info)
+                                    <li>{{$info}}</li>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </section>
+
+        <section class=".sections_insti .sections_insti_active section_acerca_institucion">
+
+            <div class="quienes_somos">
                 <h2><i></i>¿Quiénes somos?</h2>
                 <p>{{$objinstitucionlandin->quienessomos}}</p>
             </div>
@@ -136,7 +143,7 @@
             </div>
         </section>
 
-        <section class="sections contains_swiper_certificados">
+        <section class=".sections_insti contains_swiper_certificados">
             <h2><i></i>Premios y Reconocimientos</h2>
             <div class="swiper-container swiper_certificados">
                 <div class="swiper-wrapper">
@@ -152,7 +159,7 @@
             </div>
         </section>
 
-        <section class="sections section_sedes_institucion">
+        <section class=".sections_insti section_sedes_institucion">
             <div class="sedes_institucion">
                 <h2><i></i>Sedes</h2>
                 <div class="container_cards">
@@ -171,7 +178,7 @@
             </div>
         </section>
 
-        <section class="sections galeriayvideo">
+        <section class=".sections_insti galeriayvideo">
             <div class="galeria_institucion">
                 <h2><i></i>Galería</h2>
                 <ul class="gallery_institucion">
