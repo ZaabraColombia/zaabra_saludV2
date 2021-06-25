@@ -21,7 +21,7 @@ $seleccionArchivos.addEventListener("change", () => {
 });
 //----------------------------------Fin Seleccion archivo primer formulario----------------------------------------------------
 
-// Función para cargar y previsualizar las imagenes en el FORMULARIO PROFESIONALES
+// Función para cargar y previsualizar las imagenes en el FORMULARIO PROFESIONALES e INSTITUCIONES
 function previewImage(nb) {        
   var reader = new FileReader();         
   reader.readAsDataURL(document.getElementById('uploadImage'+nb).files[0]);         
@@ -30,7 +30,7 @@ function previewImage(nb) {
   };     
 }
 
-// Función para cargar y previsualizar las imagenes en el FORMULARIO PROFESIONALES
+// Función para cargar y previsualizar las imagenes de la tarjeta profesionales del FORMULARIO INSTITUCIONES
 function previewImageProf(np) {        
   var reader = new FileReader();         
   reader.readAsDataURL(document.getElementById('selecArchivos'+np).files[0]);         
