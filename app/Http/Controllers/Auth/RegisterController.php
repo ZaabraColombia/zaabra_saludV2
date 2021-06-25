@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Carbon\Carbon ; 
 use App\Models\User;
 use App\Models\users_roles;
+use App\Models\pagos;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -92,7 +94,25 @@ class RegisterController extends Controller{
             'idrol' => $data['idrol'],
         ]);
 
-        return $user;
+      
+        $id_rol=$data['idrol'];
+        $fechaActual = Carbon::now();
+        $fecha_fin_actual= Carbon::now();
+        $fecha_fin = $fecha_fin_actual->addDays(15);
+
+        if($id_rol <> 1){
+            pagos::create([
+                'fecha'=> $fechaActual,
+                'fechaFin'=> $fecha_fin,
+                'idUsuario' =>  $id_user,
+                'idtipopago' => 14,
+                'valor'=> 0,
+                'aprobado'=>1,
+            ]);
+        }
+
+
+        return $user; 
     }
 
 

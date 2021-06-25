@@ -27,5 +27,6 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
        view::composer(['*'], 'App\Http\ViewComposers\HeaderComposer');
+       view::composer(['*'], 'App\Http\ViewComposers\FormularioComposer');
     }
 }
