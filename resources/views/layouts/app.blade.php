@@ -59,11 +59,13 @@
         <script src="{{ asset('js/perfil-profesionales.js') }}"></script>
         <script src="{{ asset('js/galeriaProfesiones.js') }}"></script>
         <script src="{{ asset('js/instituciones.js') }}"></script>
+        <script src="{{ asset('js/perfil-instituciones.js') }}"></script>
         <script src="{{ asset('js/selectareas.js') }}"></script>
         <script src="{{ asset('js/selectpais.js') }}"></script>
         <script src="{{ asset('js/cargaFoto.js') }}"></script>
         <script src="{{ asset('js/contacto.js') }}"></script>
         <script src="{{ asset('js/adicionarcamposformulario.js') }}"></script>
+        <script src="{{ asset('js/comentarios.js') }}"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="{{ asset('js/filtroBusquedad.js') }}"></script>

@@ -71,6 +71,7 @@ class formularioProfesionalController extends Controller
         $objContadorVideo=$this->contadorVideo($id_user);
     
 
+        
         return view('profesionales.FormularioProfesional',compact(
         'objuser',
         'area',

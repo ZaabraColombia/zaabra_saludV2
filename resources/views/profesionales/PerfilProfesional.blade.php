@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
         <!-- seccion datos perfil profesional-->
         <section class="section_data_profesionales">
             <div class="data_profesionales">
@@ -12,24 +13,20 @@
                     <h5>N° Tarjeta profesional: {{$objprofesionallanding->numeroTarjeta}}</h5>
                     <!-- Rating Stars Box -->
                     <div class='rating-stars text-center'>
-                        <ul id='stars'>
-                            <li class='star' title='Poor' data-value='1'>
-                              <i class='fa fa-star fa-fw'></i>
+                        @foreach($objprofesionalComentario as $promedioEstrellas)
+                        @endforeach
+                        @for ($i=1; $i <= $promedioEstrellas->calificacionRedondeada; $i++)
+                            <li class='star' title='Poor'>
+                                <i class='fa fa-star fa-fw' style="color: yellow;"></i>
                             </li>
-                            <li class='star' title='Fair' data-value='2'>
-                              <i class='fa fa-star fa-fw'></i>
+                        @endfor
+                        @for ($i=$promedioEstrellas->calificacionRedondeada; $i <= 4; $i++)
+                            <li class='star' title='Poor'>
+                                <i class='fa fa-star fa-fw' style="color: red;"></i>
                             </li>
-                            <li class='star' title='Good' data-value='3'>
-                              <i class='fa fa-star fa-fw'></i>
-                            </li>
-                            <li class='star' title='Excellent' data-value='4'>
-                              <i class='fa fa-star fa-fw'></i>
-                            </li>
-                            <li class='star' title='WOW!!!' data-value='5'>
-                              <i class='fa fa-star fa-fw'></i>
-                            </li>
-                        </ul>
+                        @endfor
                     </div>
+
                     <!-- <div class="contains_direccion"></div> -->
                     <h5 class="title-adress"><i></i>{{$objprofesionallanding->direccion}}</h5>
                     <h5>{{$objprofesionallanding->nombre}}</h5>
@@ -253,13 +250,69 @@
             </div>     
         </section>
 
-        <section class="col-12">
+        <section class="container">
             <div class="col-12">
-                <form action="">
-                    calificar:
-                        <div id="Estrellas"></div>
-                    
-                </form>
+            <div id="resultados">
+                <div class="alert alert-success d-none mt-5" id="msg_comentario">
+                    <span id="res_message"></span>
+                </div>
+                @if(!empty($objTipoUser))
+                        @foreach ($objTipoUser as $tipo)
+                        @endforeach
+
+                        @if($tipo->idrol==1)
+                            <form id="comentarioFormProf" method="post">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="hidden" id="idperfil" name="idperfil" value="{{$objprofesionallanding->idPerfilProfesional}}">
+                                <textarea class="col-12" id="comentario" name="comentario" rows="4" cols="50"></textarea>
+                                    <div class="col-12 row">
+                                        <div class='col-md-6 rating-stars text-center'>
+                                            <ul id='stars'>
+                                                <li class='star' title='Poor' data-value='1'>
+                                                <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='Fair' data-value='2'>
+                                                <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='Good' data-value='3'>
+                                                <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='Excellent' data-value='4'>
+                                                <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='WOW!!!' data-value='5'>
+                                                <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6 content_btnEnviar-formProf">
+                                                <button id="send_form_coment_prof" type="submit" class="btn_enviar-contac">Agregar</button>
+                                        </div>
+                                    </div>
+                            </form>
+                        @endif
+                @endif
+                       
+                <div class="col-12 row" id="oscar" style="border: 1px solid forestgreen;">
+                    @foreach ($objprofesionalComentario as $data)
+                        <div class="col-6">
+                        <i class="fas fa-circle"></i>
+                            <span>{{$data->primernombre}} {{$data->primerapellido}}</span>
+                        </div>
+                        <div class="col-6">
+                            @for ($i=1; $i <= $data->calificacion; $i++)
+                            <i class='fa fa-star fa-fw' style="color: yellow;"></i>
+                            @endfor 
+                            @for ($i=$data->calificacion; $i <= 4; $i++)
+                            <i class='fa fa-star fa-fw' style="color: red;"></i>
+                            @endfor
+                        </div>
+                        <div class="col-12">
+                            <span>{{$data->comentario}}</span>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </section>
+       
 @endsection

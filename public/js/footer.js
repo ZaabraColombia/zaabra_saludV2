@@ -69,7 +69,7 @@ $('#newsletter').on('submit',function(e){
     e.preventDefault();
     $('#send_form').html('enviando...');
     $.ajax({
-      url: "newsletter",
+      url: "/newsletter",
       type:"POST",
       data:{
         "_token": $("meta[name='csrf-token']").attr("content"),
