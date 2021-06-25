@@ -1,4 +1,5 @@
 // *********    FORMULARIO PROFESIONAL   **************
+
 // Función para ocultar y mostrar el contenido de cada una de las opciones del FORMULARIO PROFESIONAL
 $(document).ready(function() {
     $(".personal_data").show();
@@ -651,3 +652,21 @@ function hideBtnPrevious (y){
     }
 }
 
+
+
+
+/*
+Boton agregar mas par aimplementar en los formularios
+<button type="submit" class="btn_agregar_field"> Agragar más médicos
+<img src="{{URL::asset('/img/formulario-institucion/icono-agregar.svg')}}" class="ml-2" alt=""> 
+</button>
+
+
+!function anonimous(){
+    let arrayForm = [].slice.apply(document.querySelectorAll('.count_forms'));
+    arrayForm[1].classList.add('hidden-section-formProf');
+    arrayForm[2].classList.add('hidden-section-formProf');
+    console.log(arrayForm.length);
+    let myvar = document.querySelector('.div-count').getAttribute('data-info');
+    console.log(myvar);
+}();*/

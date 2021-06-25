@@ -52,7 +52,7 @@ class contactecnosController extends Controller
         if (!Auth::guest()){
             $id_user=auth()->user()->id;/*id usuario logueado*/
 
-            /*anexo iduser y img logoempresa  al request*/
+            /*anexo iduser   al request*/
             $request->merge([
                 'id_user' => "$id_user", 
                 ]);
