@@ -144,7 +144,7 @@
         </section>
 
         <section class=".sections_insti contains_swiper_certificados">
-            <h2><i></i>Premios y Reconocimientos</h2>
+            <h2><i></i>Certificados</h2>
             <div class="swiper-container swiper_certificados">
                 <div class="swiper-wrapper">
                     @foreach ($objinstitucionlandinpremios as $objinstitucionlandinpremios)
@@ -170,7 +170,7 @@
                                 <h5>{{$objinstitucionlandinSedes->nombre}}</h5>
                                 <p>{{$objinstitucionlandinSedes->direccion}}</p>
                                 <p>{{$objinstitucionlandinSedes->horario_sede}}</p>
-                                <p>{{$objinstitucionlandinSedes->telefono}}</p>
+                                <span>{{$objinstitucionlandinSedes->telefono}}</span>
                             </div>
                         </div>
                     @endforeach
