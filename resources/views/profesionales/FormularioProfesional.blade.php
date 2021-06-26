@@ -2,6 +2,48 @@
 
 @section('content')
 
+
+        @if(!empty($objTiempoRestante->dias_transcurrido))
+                <!--     Sección lista de opciones     -->
+                <ol  class="lista_opciones-usuario-formProf">
+                    <div class="content_icons-formProf"> <!-- clase "content_icons-formProf" para evento ocultar y mostrar contenido de la opción. Ubicado en el archivo formularios.js -->
+                        <li class="iconAzul_datoPersonal dato-personal">
+                            <p class="text_opcion-formProfesional" > Datos personales </p>
+                        </li>
+                    </div>
+
+                    <div class="content_icons-formProf">
+                        <li class="iconGris_perfProf perfil-profesional">
+                            <p class="text_opcion-formProfesional" > Perfil profesional </p>
+                        </li>
+                    </div>
+
+                    <div class="content_icons-formProf">
+                        <li class="iconGris_trataProced tratamiento-procedimiento">
+                            <p class="text_opcion-formProfesional" > Tratamientos y procedimientos </p>
+                        </li>
+                    </div>
+
+                    <div class="content_icons-formProf">
+                        <li class="iconGris_premioRecon premio-reconocimiento">
+                            <p class="text_opcion-formProfesional" > Premios y reconocimientos </p>
+                        </li>
+                    </div>
+                    <div class="content_icons-formProf">
+                        <li class="iconGris_public publicacion">
+                            <p class="text_opcion-formProfesional" > Publicaciones </p>
+                        </li>
+                    </div>
+
+                    <div class="content_icons-formProf">
+                        <li class="iconGris_galeriaVideo galeria-video">
+                            <p class="text_opcion-formProfesional" > Galería </p>
+                        </li>
+                    </div>
+                </ol>  
+            @else
+            @endif
+
     <!--     Sección lista de opciones     -->
     <ol  class="lista_opciones-usuario-formProf">
         <div class="content_icons-formProf"> <!-- clase "content_icons-formProf" para evento ocultar y mostrar contenido de la opción. Ubicado en el archivo formularios.js -->
@@ -27,7 +69,6 @@
                 <p class="text_opcion-formProfesional" > Premios y reconocimientos </p>
             </li>
         </div>
-
         <div class="content_icons-formProf">
             <li class="iconGris_public publicacion" onclick="containtHideOption(this)" data-position="publicationsFormProf">
                 <p class="text_opcion-formProfesional" > Publicaciones </p>
@@ -40,7 +81,11 @@
             </li>
         </div>
     </ol> 
-
+    @if(!empty($objTiempoRestante))
+        @if($objTiempoRestante->dias_transcurrido <=15) 
+           <span>quedan {{$objTiempoRestante->dias_transcurrido}} dias</span>
+        @endif
+    @endif
     <!-- 1* Contenedor principal de la tarjeta DATOS PERSONALES -->
     <div class="container-fluid personal_data content_principal-formProf">
         <!-- Titulo y texto superior -->
