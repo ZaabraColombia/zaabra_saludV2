@@ -17307,12 +17307,30 @@ a:link, a:visited, a:active, a:hover {
   justify-content: flex-start;
   align-items: center;
 }
+.quienes_somos p {
+  font-family: "Roboto";
+  color: #3E3E3E;
+}
+.servicios_instituciones i {
+  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.quienes_somos h2 {
+  display: flex;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bolder;
+  color: #019F86;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+}
 
 .quienes_somos p {
   font-family: "Roboto";
   color: #3E3E3E;
 }
-
 .quienes_somos i {
   background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
   background-repeat: no-repeat;

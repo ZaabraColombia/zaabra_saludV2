@@ -50,7 +50,7 @@
                                 <label id="txt3" class="form-check-label texto_option-input" for="idrol"> Institución </label>
                             </div>
                         </div>
-                         <input  name="idrol"  id="valor_tipo">
+                         <input type="hidden" name="idrol"  id="valor_tipo">
                         <!-- Sección campos de validación Nombres y Apellidos -->
                         <div class="names_person">
                             <!-- Campos de Nombres -->
