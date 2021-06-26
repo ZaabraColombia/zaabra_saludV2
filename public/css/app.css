@@ -17307,12 +17307,30 @@ a:link, a:visited, a:active, a:hover {
   justify-content: flex-start;
   align-items: center;
 }
+.quienes_somos p {
+  font-family: "Roboto";
+  color: #3E3E3E;
+}
+.servicios_instituciones i {
+  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.quienes_somos h2 {
+  display: flex;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bolder;
+  color: #019F86;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+}
 
 .quienes_somos p {
   font-family: "Roboto";
   color: #3E3E3E;
 }
-
 .quienes_somos i {
   background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
   background-repeat: no-repeat;
@@ -23490,6 +23508,18 @@ a:link, a:visited, a:active, a:hover {
   padding: 0;
 }
 
+.divicion_bottom-serv {
+  border-bottom: 1px solid #DBDADA;
+  padding-bottom: 2%;
+}
+
+.txtInfo_limitante-formInst {
+  font-family: "Roboto", "Regular";
+  color: #E3342F;
+  font-weight: 500;
+  padding: 2% 0;
+}
+
 /*.bootstrap-tagsinput  input {
     background: yellow;
 
@@ -23526,6 +23556,11 @@ a:link, a:visited, a:active, a:hover {
   text-transform: inherit;
 }
 
+.modulo_convenio-formInst {
+  padding: 0;
+  margin: 1% 0;
+}
+
 .icon_convenios-formInst {
   background-image: url("/img/formulario-institucion/icono-convenios.svg");
   background-repeat: no-repeat;
@@ -23549,6 +23584,18 @@ a:link, a:visited, a:active, a:hover {
   padding: 0 15px;
 }
 
+.img_selccionada-formInst {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
+  align-items: center;
+  width: 120px;
+  height: 60px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .content_imgGuardada-formInst {
   margin: 3% 0 0 0;
   padding: 0 3% 0 0;
@@ -23564,11 +23611,6 @@ a:link, a:visited, a:active, a:hover {
   height: 60px;
   -o-object-fit: contain;
      object-fit: contain;
-}
-
-.content_agregarImg-formInst {
-  margin: 0;
-  padding-right: 0;
 }
 
 .agregar_archivo-formInst {
@@ -23588,6 +23630,43 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .agregar_archivo-formInst::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 10%;
+  background-size: 4%;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto de asociación 1";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.agregar_archivo-formInst1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.agregar_archivo-formInst1 input[type=file] {
+  opacity: 0;
+  width: 100%;
+  height: 32px;
+  display: flex;
+}
+
+.agregar_archivo-formInst1::before {
   background-image: url("/img/formulario-profesional/icono-subir.svg");
   background-repeat: no-repeat;
   background-position-y: center;
@@ -23689,6 +23768,17 @@ a:link, a:visited, a:active, a:hover {
      object-fit: contain;
 }
 
+.txt_informativo-formProf {
+  text-align: center;
+  padding: 0;
+}
+
+.content_loadImg-profes {
+  border: 1px solid #DBDADA;
+  border-radius: 5px;
+  padding: 2% 0;
+}
+
 .icon_profesionales-formInst {
   background-image: url("/img/formulario-institucion/icono-profesionales-institucion.svg");
   background-repeat: no-repeat;
@@ -23740,8 +23830,14 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .containt_profGuardado-formInst {
-  margin: 3% auto;
+  margin: 3% 0;
   padding: 0;
+  justify-content: space-evenly;
+}
+
+.img_save-formProf {
+  padding: 0;
+  margin: auto;
 }
 
 .icon_certificaciones-formInst {
@@ -23828,9 +23924,9 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/formulario-profesional/icono-subir.svg");
   background-repeat: no-repeat;
   background-position-y: center;
-  background-position-x: 25%;
-  background-size: 5%;
-  font-size: 1.15em;
+  background-position-x: 35%;
+  background-size: 3%;
+  font-size: 1em;
   font-family: "Quicksand", "Regular";
   color: #434343;
   display: flex;
@@ -23849,9 +23945,9 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/formulario-profesional/icono-subir.svg");
   background-repeat: no-repeat;
   background-position-y: center;
-  background-position-x: 25%;
-  background-size: 5%;
-  font-size: 1.15em;
+  background-position-x: 35%;
+  background-size: 3%;
+  font-size: 1em;
   font-family: "Quicksand", "Regular";
   color: #434343;
   display: flex;
@@ -23870,9 +23966,9 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/formulario-profesional/icono-subir.svg");
   background-repeat: no-repeat;
   background-position-y: center;
-  background-position-x: 25%;
-  background-size: 5%;
-  font-size: 1.15em;
+  background-position-x: 35%;
+  background-size: 3%;
+  font-size: 1em;
   font-family: "Quicksand", "Regular";
   color: #434343;
   display: flex;
@@ -23891,9 +23987,9 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/formulario-profesional/icono-subir.svg");
   background-repeat: no-repeat;
   background-position-y: center;
-  background-position-x: 25%;
-  background-size: 5%;
-  font-size: 1.15em;
+  background-position-x: 35%;
+  background-size: 3%;
+  font-size: 1em;
   font-family: "Quicksand", "Regular";
   color: #434343;
   display: flex;
@@ -23966,6 +24062,90 @@ a:link, a:visited, a:active, a:hover {
   width: 100%;
 }
 
+.photo5 .agregar_archivo-formInst::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 35%;
+  background-size: 3%;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto 5";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.photo6 .agregar_archivo-formInst::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 35%;
+  background-size: 3%;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto 6";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.photo7 .agregar_archivo-formInst::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 35%;
+  background-size: 3%;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto 7";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.photo8 .agregar_archivo-formInst::before {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 35%;
+  background-size: 3%;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #434343;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Subir foto 8";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
 .icon_infoVideo-formInst {
   background-image: url("/img/formulario-profesional/icono-videos.svg");
   background-repeat: no-repeat;
@@ -23986,9 +24166,9 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/formulario-profesional/icono-subir.svg");
   background-repeat: no-repeat;
   background-position-y: center;
-  background-position-x: 25%;
-  background-size: 5%;
-  font-size: 1.15em;
+  background-position-x: 35%;
+  background-size: 3%;
+  font-size: 1em;
   font-family: "Quicksand", "Regular";
   color: #434343;
   display: flex;
@@ -24008,9 +24188,9 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/formulario-profesional/icono-subir.svg");
   background-repeat: no-repeat;
   background-position-y: center;
-  background-position-x: 25%;
-  background-size: 5%;
-  font-size: 1.15em;
+  background-position-x: 35%;
+  background-size: 3%;
+  font-size: 1em;
   font-family: "Quicksand", "Regular";
   color: #434343;
   display: flex;
@@ -24223,7 +24403,9 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contain_imgInst-formInst .icon_subirFoto-formInst {
-    background-position-x: 20%;
+    background-position-x: 18%;
+    background-size: 5%;
+    margin-bottom: 5%;
   }
 
   .text_usuario-formInst {
@@ -24252,6 +24434,10 @@ a:link, a:visited, a:active, a:hover {
     margin-bottom: 5%;
   }
 
+  .content_tarjetasInfo-formInst {
+    margin-bottom: 10%;
+  }
+
   .btn_guardar-formInst {
     font-size: 1em;
     width: 45%;
@@ -24260,6 +24446,14 @@ a:link, a:visited, a:active, a:hover {
 
   .flechaBtn_guardar-formInst {
     width: 13%;
+  }
+
+  .content_botonesInferiores-formInst {
+    margin-bottom: 10%;
+  }
+
+  .content_botonInferior-next-formInst {
+    margin-bottom: 10%;
   }
 
   .icon_infoContac-formInst {
@@ -24281,13 +24475,18 @@ a:link, a:visited, a:active, a:hover {
 
   .text_infoImg-formInst {
     font-size: 0.75em;
-    padding: 0;
   }
 
   .icon_servicios-formInst {
     background-size: 8%;
     padding-left: 10%;
     height: 6vh;
+  }
+
+  .divicion_bottom-serv {
+    border-bottom: 1px solid #DBDADA;
+    padding-bottom: 5%;
+    margin-bottom: 3%;
   }
 
   .icon_quienes-formInst {
@@ -24308,14 +24507,20 @@ a:link, a:visited, a:active, a:hover {
     height: 6vh;
   }
 
-  .content_agregarImg-formInst {
-    margin: 0 auto;
-    padding: 0;
+  .text_infoConvenio-formInst {
+    font-size: 0.85em;
   }
 
-  .text_infoConvenio-formInst {
-    font-size: 0.75em;
-    padding: 0;
+  .agregar_archivo-formInst1::before {
+    background-position-x: 14%;
+  }
+
+  .agregar_archivo-formInst2::before {
+    background-position-x: 14%;
+  }
+
+  .agregar_archivo-formInst3::before {
+    background-position-x: 14%;
   }
 
   .icon_profesionales-formInst {
@@ -24333,6 +24538,18 @@ a:link, a:visited, a:active, a:hover {
   .input_nomApl-prefes-formProf {
     width: 100%;
     margin-bottom: 5%;
+  }
+
+  .containt_profGuardado-formInst {
+    margin: 5% auto;
+    padding: 0;
+    justify-content: space-evenly;
+  }
+
+  .img_save-formProf {
+    padding: 0;
+    display: flex;
+    justify-content: center;
   }
 
   .icon_certificaciones-formInst {
@@ -24399,6 +24616,30 @@ a:link, a:visited, a:active, a:hover {
     background-size: 8%;
     padding-left: 10%;
     height: 6vh;
+  }
+
+  .photo5 .agregar_archivo-formInst::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .photo6 .agregar_archivo-formInst::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .photo7 .agregar_archivo-formInst::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
+  }
+
+  .photo8 .agregar_archivo-formInst::before {
+    background-position-x: 25%;
+    background-size: 5%;
+    font-size: 1em;
   }
 
   .icon_infoVideo-formInst {
@@ -24596,6 +24837,16 @@ a:link, a:visited, a:active, a:hover {
     padding-top: 0;
   }
 
+  .contain_imgInst-formInst .icon_subirFoto-formInst {
+    background-position-x: 21%;
+    background-size: 4.5%;
+    margin-bottom: 0;
+  }
+
+  .content_tarjetasInfo-formInst {
+    margin-bottom: 5%;
+  }
+
   .btn_guardar-formInst {
     font-size: 1em;
     width: 17%;
@@ -24604,6 +24855,14 @@ a:link, a:visited, a:active, a:hover {
 
   .flechaBtn_guardar-formInst {
     width: 11%;
+  }
+
+  .content_botonesInferiores-formInst {
+    margin-bottom: 3%;
+  }
+
+  .content_botonInferior-next-formInst {
+    margin-bottom: 3%;
   }
 
   .icon_infoContac-formInst {
@@ -24639,6 +24898,12 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.2em;
   }
 
+  .divicion_bottom-serv {
+    border-bottom: 1px solid #DBDADA;
+    padding-bottom: 2%;
+    margin-bottom: 0;
+  }
+
   .icon_quienes-formInst {
     background-size: 3%;
     padding-left: 5%;
@@ -24667,6 +24932,21 @@ a:link, a:visited, a:active, a:hover {
     padding: 0 15px;
   }
 
+  .agregar_archivo-formInst1::before {
+    background-position-x: 8%;
+    background-size: 5%;
+  }
+
+  .agregar_archivo-formInst2::before {
+    background-position-x: 8%;
+    background-size: 5%;
+  }
+
+  .agregar_archivo-formInst3::before {
+    background-position-x: 8%;
+    background-size: 5%;
+  }
+
   .icon_profesionales-formInst {
     background-size: 3%;
     padding-left: 5%;
@@ -24693,6 +24973,12 @@ a:link, a:visited, a:active, a:hover {
     margin-bottom: 0%;
   }
 
+  .content_loadImg-profes {
+    border: 1px solid #DBDADA;
+    border-radius: 5px;
+    padding: 2% 0;
+  }
+
   .icon_certificaciones-formInst {
     background-size: 3%;
     padding-left: 5%;
@@ -24717,6 +25003,18 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1em;
   }
 
+  .photo1 .agregar_archivo-formInst::before {
+    background-position-x: 31%;
+    background-size: 4%;
+    font-size: 1em;
+  }
+
+  .photo2 .agregar_archivo-formInst::before {
+    background-position-x: 31%;
+    background-size: 4%;
+    font-size: 1em;
+  }
+
   .icon_sedes-formInst {
     background-size: 3%;
     padding-left: 5%;
@@ -24736,6 +25034,42 @@ a:link, a:visited, a:active, a:hover {
     padding-left: 5%;
     height: 2.5vh;
     font-size: 1.2em;
+  }
+
+  .photo3 .agregar_archivo-formInst::before {
+    background-position-x: 31%;
+    background-size: 4%;
+    font-size: 1em;
+  }
+
+  .photo4 .agregar_archivo-formInst::before {
+    background-position-x: 31%;
+    background-size: 4%;
+    font-size: 1em;
+  }
+
+  .photo5 .agregar_archivo-formInst::before {
+    background-position-x: 31%;
+    background-size: 4%;
+    font-size: 1em;
+  }
+
+  .photo6 .agregar_archivo-formInst::before {
+    background-position-x: 31%;
+    background-size: 4%;
+    font-size: 1em;
+  }
+
+  .photo7 .agregar_archivo-formInst::before {
+    background-position-x: 31%;
+    background-size: 4%;
+    font-size: 1em;
+  }
+
+  .photo8 .agregar_archivo-formInst::before {
+    background-position-x: 31%;
+    background-size: 4%;
+    font-size: 1em;
   }
 
   .icon_infoVideo-formInst {
@@ -24760,6 +25094,18 @@ a:link, a:visited, a:active, a:hover {
   .boton_inferior-finalizar-formInst {
     width: 68%;
   }
+
+  .video1 .agregar_archivo-formInst::before {
+    background-position-x: 29%;
+    background-size: 4%;
+    font-size: 1em;
+  }
+
+  .video2 .agregar_archivo-formInst::before {
+    background-position-x: 29%;
+    background-size: 4%;
+    font-size: 1em;
+  }
 }
 @media (min-width: 1200px) {
   .lista_opciones-usuario-formInst {
@@ -24770,31 +25116,123 @@ a:link, a:visited, a:active, a:hover {
   .img_usuario-formInst {
     height: 20vh;
   }
+
+  .icon_subirFoto-formInst {
+    background-position-x: 3%;
+  }
+
+  .contain_imgInst-formInst .icon_subirFoto-formInst {
+    background-size: 5%;
+    background-position-x: 13%;
+  }
 }
 @media (min-width: 1440px) {
   .img_usuario-formInst {
-    height: 22vh;
+    height: 23vh;
+  }
+
+  .icon_subirFoto-formInst {
+    background-position-x: 10%;
+  }
+
+  .contain_imgInst-formInst .icon_subirFoto-formInst {
+    background-size: 4%;
+    background-position-x: 20%;
+  }
+
+  .content_tarjetasInfo-formInst {
+    margin-bottom: 3%;
+  }
+
+  .agregar_archivo-formInst1::before {
+    background-position-x: 15%;
+  }
+
+  .agregar_archivo-formInst2::before {
+    background-position-x: 15%;
+  }
+
+  .agregar_archivo-formInst3::before {
+    background-position-x: 15%;
+  }
+
+  .photo1 .agregar_archivo-formInst::before {
+    background-position-x: 37%;
+    background-size: 2.8%;
+  }
+
+  .photo2 .agregar_archivo-formInst::before {
+    background-position-x: 37%;
+    background-size: 2.8%;
+  }
+
+  .photo3 .agregar_archivo-formInst::before {
+    background-position-x: 37%;
+    background-size: 2.8%;
+  }
+
+  .photo4 .agregar_archivo-formInst::before {
+    background-position-x: 37%;
+    background-size: 2.8%;
+  }
+
+  .photo5 .agregar_archivo-formInst::before {
+    background-position-x: 37%;
+    background-size: 2.8%;
+  }
+
+  .photo6 .agregar_archivo-formInst::before {
+    background-position-x: 37%;
+    background-size: 2.8%;
+  }
+
+  .photo7 .agregar_archivo-formInst::before {
+    background-position-x: 37%;
+    background-size: 2.8%;
+  }
+
+  .photo8 .agregar_archivo-formInst::before {
+    background-position-x: 37%;
+    background-size: 2.8%;
+  }
+
+  .video1 .agregar_archivo-formInst::before {
+    background-position-x: 37%;
+    background-size: 2.8%;
+  }
+
+  .video2 .agregar_archivo-formInst::before {
+    background-position-x: 37%;
+    background-size: 2.8%;
   }
 }
 @media (min-width: 1920px) {
+  .content_tarjetasInfo-formInst {
+    margin-bottom: 2%;
+  }
+
+  .content_botonInferior-next-formInst {
+    margin-bottom: 2%;
+  }
+
+  .contain_imgInst-formInst .icon_subirFoto-formInst {
+    background-size: 2.8%;
+    background-position-x: 28%;
+  }
+
   .lista_opciones-usuario-formInst {
     width: 55%;
     height: 13vh;
   }
 
   .img_usuario-formInst {
-    height: 20vh;
+    height: 21vh;
     width: 68%;
   }
 
   .icon_subirFoto-formInst {
-    background-position-x: 17%;
-    background-size: 6%;
-  }
-
-  .contain_imgInst-formInst .icon_subirFoto-formInst {
-    background-size: 3.5%;
-    background-position-x: 29%;
+    background-position-x: 23%;
+    background-size: 4.5%;
   }
 
   .text_usuario-formInst {
@@ -24806,7 +25244,72 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .img_institucion-formInst {
-    height: 19vh;
+    height: 23vh;
+  }
+
+  .agregar_archivo-formInst1::before {
+    background-position-x: 25%;
+    background-size: 2.8%;
+  }
+
+  .agregar_archivo-formInst2::before {
+    background-position-x: 25%;
+    background-size: 2.8%;
+  }
+
+  .agregar_archivo-formInst3::before {
+    background-position-x: 25%;
+    background-size: 2.8%;
+  }
+
+  .photo1 .agregar_archivo-formInst::before {
+    background-position-x: 41%;
+    background-size: 2%;
+  }
+
+  .photo2 .agregar_archivo-formInst::before {
+    background-position-x: 41%;
+    background-size: 2%;
+  }
+
+  .photo3 .agregar_archivo-formInst::before {
+    background-position-x: 41%;
+    background-size: 2%;
+  }
+
+  .photo4 .agregar_archivo-formInst::before {
+    background-position-x: 41%;
+    background-size: 2%;
+  }
+
+  .photo5 .agregar_archivo-formInst::before {
+    background-position-x: 41%;
+    background-size: 2%;
+  }
+
+  .photo6 .agregar_archivo-formInst::before {
+    background-position-x: 41%;
+    background-size: 2%;
+  }
+
+  .photo7 .agregar_archivo-formInst::before {
+    background-position-x: 41%;
+    background-size: 2%;
+  }
+
+  .photo8 .agregar_archivo-formInst::before {
+    background-position-x: 41%;
+    background-size: 2%;
+  }
+
+  .video1 .agregar_archivo-formInst::before {
+    background-position-x: 40%;
+    background-size: 2%;
+  }
+
+  .video2 .agregar_archivo-formInst::before {
+    background-position-x: 40%;
+    background-size: 2%;
   }
 
   .flechaBtn_guardar-formInst {
