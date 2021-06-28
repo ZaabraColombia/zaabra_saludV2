@@ -194,7 +194,6 @@
     box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
 }
 ///// *****   SECCIÓN TARJETA INFORMACIÓN BÁSICA    ***** /////
-
 // Sección titulo de la tarjeta información básica
 .icon_infoBasica-formProf {
     background-image: url('/img/formulario-profesional/icono-informacion-basica.svg') ;
@@ -277,11 +276,9 @@
     color: #232323;
     font-weight: bold;
     padding-top: calc(0.375rem + 1px);
-    padding-bottom: calc(0.375rem + 1px);
     padding-left: 2%;
     padding-right: 0;
     margin-bottom: 0;
-    line-height: 1.6;
 }
 .input_nomApl-formProf {
     display: block;
@@ -301,6 +298,7 @@
 // Sección botón guardar
 .content_btnEnviar-formProf {
     margin-left: auto;
+    margin-bottom: 3%;
     padding: 0;
     display: flex;
     justify-content: flex-end;
@@ -319,7 +317,6 @@
     width: 11%;
 }
 ///// *****   SECCIÓN TARJETA INFORMACIÓN DEL CONTACTO    ***** /////
-
 // Sección titulo de la tarjeta información del contacto
 .icon_infoContac-formProf {
     background-image: url('/img/formulario-profesional/icono-informacion-de-contacto.svg') ;
@@ -347,7 +344,6 @@
     width: 19%;
 }
 ///// *****   SECCIÓN TARJETA INFORMACIÓN CONSULTA   ***** /////
-
 // Sección titulo de la tarjeta información consulta
 .icon_infoConsult-formProf {
     background-image: url('/img/formulario-profesional/icono-informacion-de-consulta.svg') ;
@@ -368,6 +364,66 @@
     display: flex;
     margin: 3% 0;
     padding: 0;
+}
+.txtInfo_limitante-formProf {
+    font-family: 'Roboto', 'Regular';
+    color: #E3342F;
+    font-weight: 500;
+    padding: 2% 0;
+}
+// Información guardada
+.consulta_guardada-formProf {
+    margin: 0;
+    margin-top: 3%;
+    padding:0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.section_infoConsulta-formProf {
+    width: 32%;
+    padding: 1% 2%;
+    border: 1px solid #DBDADA;
+    border-radius: 3px;
+    box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
+}
+.btn_delete-formProf {
+    border-radius: 57px;
+    border: 1px solid #dbdada;
+    width: 11%;
+    height: 100%;
+    background: #019F86;
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.option_consulta-formProf {
+    margin-bottom: 3%;
+    border-bottom: 1px solid #019F86;
+}
+.option_consulta-formProf li::marker{
+    color: #019F86;
+}
+.title_infoGuardada-formProf {
+    font-family: "Quicksand";
+    font-size: 1.1em;
+    color: #232323;
+    font-weight: bold;
+    padding: 0;
+    margin-bottom: 0;
+}
+.text_infoGuardada-formProf {
+    font-family: "Roboto";
+    font-size: 1em;
+    color: #232323;
+    padding-left: 2%;
+    padding-right: 0;
+    margin-bottom: 0;
 }
 ///// *****   SECCIÓN TARJETA PERFIL PROFESIONAL   ***** /////
 
@@ -405,6 +461,41 @@
     color: #019F86;
     text-transform: inherit;
 }
+.educacion_guardada-formProf {
+    margin: 0;
+    margin-top: 3%;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: self-start;
+    flex-flow: wrap;
+    flex-wrap: wrap;
+}
+.section_infoEducacion-formProf {
+    width: 32%;
+    padding: 1%;
+    border: 1px solid #DBDADA;
+    border-radius: 3px;
+    box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
+    display: flex;
+    flex-direction: column;
+}
+.btn_deleteEduc-formProf {
+    border-radius: 57px;
+    border: 1px solid #dbdada;
+    width: 10%;
+    height: 3vh;
+    background: #019F86;
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    font-size: 1.25em;
+    font-weight: bold;
+}
 ///// *****   SECCIÓN TARJETA EXPERIENCIA   ***** /////
 
 // Sección titulo de la tarjeta experiencia
@@ -428,6 +519,30 @@
     padding: 0;
     display: flex;
     justify-content: space-between;
+}
+.section_infoExper-formProf {
+    width: 48%;
+    padding: 1%;
+    border: 1px solid #DBDADA;
+    border-radius: 3px;
+    box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+}
+.btn_deleteExper-formProf {
+    border-radius: 57px;
+    border: 1px solid #dbdada;
+    width: 7%;
+    height: 3vh;
+    background: #019F86;
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    font-size: 1.25em;
+    font-weight: bold;
 }
 ///// *****   SECCIÓN TARJETA ASOCIACIONES   ***** /////
 
@@ -483,9 +598,9 @@
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
     background-repeat: no-repeat ;
     background-position-y: center;
-    background-position-x: 10%;
+    background-position-x: 0%;
     background-size: 5%;
-    font-size: 1.15em;
+    font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
     display: flex;            
@@ -507,25 +622,60 @@
 }
 .text_infoImg-formProf {
     font-family: 'Roboto', 'Regular';
-    font-size: 1em;
+    font-size: .9em;
     color: #DBDADA;
-    padding: 0 15px;
+    padding: 0;
 }
 // Sección imagen GUARDADA
-.content_imgGuardada-formProf {
+.asociacion_guardada-formProf {
     margin: 0;
-    padding: 0 3% 0 0;
-    height: 10VH;
+    margin-top: 3%;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.section_infoAsocia-formProf {
+    width: 32%;
+    padding: 1%;
+    border: 1px solid #DBDADA;
+    border-radius: 3px;
+    box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
+}
+.content_btnX-cierre-formProf {
+    height: 3vh;
+    padding: 0;
+}
+.btn_deleteAsocia-formProf {
+    border-radius: 57px;
+    border: 1px solid #dbdada;
+    width: 10%;
+    height: 100%;
+    background: #019F86;
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.option_asociacion-formProf {
+    margin-bottom: 3%;
 }
 .img_guardada-formProf {
     width: 100%;
     height: 32px;
     object-fit: contain;
 }
-.content_btnX-cierre-formProf {
-    height: 3vh;
-    padding: 0;
+/*.content_imgGuardada-formProf {
+    margin: 0;
+    padding: 0 3% 0 0;
+    height: 10VH;
 }
+
+}*/
 ///// *****   SECCIÓN TARJETA IDIOMAS   ***** /////
 
 // Sección titulo de la tarjeta idiomas
@@ -544,11 +694,35 @@
     color: #019F86;
     text-transform: inherit;
 }
-.img_bandera-forProf {
-    padding-bottom: 3%;
+.btn_deleteIdioma-formProf {
+    border-radius: 57px;
+    border: 1px solid #dbdada;
+    width: 10%;
+    height: 100%;
+    background: #019F86;
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 .content_idmBandera-formProf {
     padding: 0 15px;
+}
+
+.text_idioma-formProf {
+    font-family: "Quicksand";
+    font-size: 1.15em;
+    color: #232323;
+    font-weight: bold;
+    padding: 0;
+    margin-right: 3%;
+    line-height: 1.6;
+}
+.img_bandera-forProf {
+    padding-bottom: 3%;
 }
 ///// *****   SECCIÓN TARJETA TRATAMIENTOS Y PROCEDIMIENTOS   ***** /////
 
@@ -614,9 +788,8 @@
     margin: auto;
     padding: 0;
     align-items: center;
-    width: 225px;
-    height: 225px;
-    object-fit: contain;
+    width: 100%;
+    height: 30vh;
 }
 .content_antDesp-formProf {
     padding: 0;
@@ -634,6 +807,58 @@
 .img_publi-formProf {
     height: 100%;
     width: 100%;
+}
+.title_trata-formProf {
+    font-family: "Quicksand";
+    font-size: 1.1em;
+    color: #232323;
+    font-weight: bold;
+    padding-bottom: calc(0.375rem + 1px);
+    margin: 0;
+    line-height: 1.6;
+    text-align: center;
+}
+.traProce_guardada-formProf {
+    margin: 0;
+    margin-top: 3%;
+    padding-bottom: 3%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: self-start;
+    flex-flow: wrap;
+    flex-wrap: wrap;
+    border: 1px solid #DBDADA;
+    border-radius: 3px;
+    box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
+}
+.content_btnDelet-trata-formProf {
+    height: 4vh;
+    padding: 0;
+}
+.btn_deleteTrata-formProf {
+    border-radius: 57px;
+    border: 1px solid #dbdada;
+    width: 3%;
+    height: 3vh;
+    background: #019F86;
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin: .5%;
+}
+.img_traProced-formProf {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.after_formProf {
+    border-left: 1px solid #DBDADA;
 }
 ///// *****   SECCIÓN TARJETA PREMIOS Y RECONOCIMIENTOS   ***** /////
 
@@ -659,9 +884,8 @@
     margin: auto;
     padding: 0;
     align-items: center;
-    width: 356px;
-    height: 326px;
-    object-fit: contain;
+    width: 100%;
+    height: 30vh;
 }
 .photo1 .agregar_archivo-formProf::before {
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
@@ -743,6 +967,48 @@
     top: 0;
     bottom: 0;              
 }
+.btn_deletePremio-formProf {
+    border-radius: 57px;
+    border: 1px solid #dbdada;
+    width: 6%;
+    height: 3vh;
+    background: #019F86;
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.text_fechaPremio-formProf {
+    font-family: "Roboto";
+    font-size: 1em;
+    color: #232323;
+    padding: 2% 0 0 0;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+.text_titlePremio-formProf {
+    font-family: "Quicksand";
+    font-size: 1.15em;
+    color: #232323;
+    font-weight: bold;
+}
+.descripcion_Premio-formProf {
+    font-family: "Roboto";
+    font-size: 1em;
+    color: #232323;
+    height: 15vh;
+}
+.text_descPremio-formProf {
+    font-family: "Roboto";
+    font-size: 1em;
+    color: #232323;
+    margin-bottom: 0;
+    padding: 0;
+    line-height: 1.4;
+}
 ///// *****   SECCIÓN TARJETA PUBLICACIONES   ***** /////
 
 // Sección titulo de la tarjeta publicaciones
@@ -767,9 +1033,8 @@
     margin: auto;
     padding: 0;
     align-items: center;
-    width: 275px;
-    height: 250px;
-    object-fit: contain;
+    width: 100%;
+    height: 30vh;
 }
 .photoPub1 .agregar_archivo-formProf::before {
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
@@ -811,6 +1076,14 @@
     top: 0;
     bottom: 0;              
 }
+.text_titlePublic-formProf {
+    font-family: "Quicksand";
+    font-size: 1.15em;
+    color: #232323;
+    font-weight: bold;
+    padding: 0;
+    margin-top: 5%;
+}
 ///// *****   SECCIÓN TARJETA GALERIA   ***** /////
 
 // Sección titulo de la tarjeta galeria
@@ -835,9 +1108,8 @@
     margin: auto;
     padding: 0;
     align-items: center;
-    width: 365px;
-    height: 326px;
-    object-fit: contain;
+    width: 100%;
+    height: 30vh;
 }
 /*.photo5 .agregar_archivo-formProf::before {
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;

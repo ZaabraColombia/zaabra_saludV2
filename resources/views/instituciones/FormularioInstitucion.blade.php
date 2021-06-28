@@ -340,7 +340,7 @@
             <form method="POST" action="{{ url ('/FormularioInstitucionSave3') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-                @if(!empty($objFormulario))
+                @if(!empty($objFormulario->DescripcionGeneralServicios))
                     <div class="col-12 px-0">
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Escriba una breve descripción de su servicio </label>
@@ -972,7 +972,7 @@
             <form method="POST" action="{{ url ('/FormularioInstitucionSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-                @if(!empty($objFormulario))
+                @if(!empty($objFormulario->quienessomos))
                     <div class="col-12 px-0">
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Escriba una breve descripción de ¿Quiénes son? </label>
@@ -1009,7 +1009,7 @@
             <form method="POST" action="{{ url ('/FormularioInstitucionSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-                @if(!empty($objFormulario))
+                @if(!empty($objFormulario->propuestavalor))
                     <div class="col-12 px-0">
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Escriba una breve descripción de la propuesta de valor </label>
@@ -3559,7 +3559,7 @@
             <form method="POST" action="{{ url ('/FormularioInstitucionSave11') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-                @if(!empty($objFormulario))
+                @if(!empty($objFormulario->url_maps))
                     <div class="col-12 px-0">
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formInst"> A continuación enlace las sedes en Google Maps </label>
