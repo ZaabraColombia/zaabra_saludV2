@@ -133,8 +133,10 @@ public function cargaFormulario($id_user){
     LEFT JOIN  departamentos de ON ins.id_departamento= de.id_departamento
     LEFT JOIN  provincias prv ON ins.id_provincia= prv.id_provincia
     LEFT JOIN  municipios mu ON ins.id_municipio= mu.id_municipio
+    LEFT JOIN  tipoinstituciones ti ON ins.idtipoInstitucion= ti.id
     WHERE ins.idUser=$id_user");
     }
+  
 
     public function  cargaServicios($id_user){
     return DB::select("SELECT st.id_servicio, st.tituloServicios, st.DescripcioServicios, st.sucursalservicio

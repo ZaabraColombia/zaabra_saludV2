@@ -17,7 +17,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 /*----------------------------------------------Buscador del home----------------------------------------------------------------------------*/
 Route::get('/search/filtro', [App\Http\Controllers\buscador\buscadorController::class, 'filtroBusquedad'])->name('search.filtro');
 
-/*----------------------------------------------Pertenece a salud-------------------------------------------------------------------------------*/
+/*----------------------------------------------Pertenece a profesionales-------------------------------------------------------------------------------*/
 
 /*Esta ruta es de galeria profesiones y dirige al controlador encargado de traer la informacion a la vista*/
 Route:: get('/Profesiones',[App\Http\Controllers\profesionales\profesionesController::class,'index'])->name('Profesiones');
@@ -190,6 +190,12 @@ Route::get('/FormularioInstituciondelete12/{id}',[App\Http\Controllers\entidades
 Route::post('/FormularioInstitucionSave13',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create13'])->name('FormularioInstitucion');
 /*-----borrar formulario parte 13----*/ 
 Route::get('/FormularioInstituciondelete13/{id}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete13'])->name('FormularioInstitucion');
+
+
+/*------------------------------------------------Pertenece a pacientes-------------------------------------------------------------------------------*/
+/*Esta ruta es del admin del paciente*/
+Route:: get('/admindPaciente',[App\Http\Controllers\pacientes\admindPacienteController::class,'index'])->name('admindPaciente');
+Route:: get('/admindPaciente/{idPerfilProfesional}',[App\Http\Controllers\pacientes\admindPacienteController::class,'cita'])->name('admindPaciente');
 
 /*-------------------------------------------------Pertenece a otras vistas-------------------------------------------------------------------------------*/
 /*Esta ruta direcciona a la vista de Acerca de Zaabra*/
