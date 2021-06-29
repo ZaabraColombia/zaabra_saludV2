@@ -47,8 +47,9 @@
                         </li>
                     @endforeach
                 </ul>
+           
                 <div class="contains_buttons">
-                    <a href="">Agende su cita
+                    <a href="{{url('admindPaciente/'.$objprofesionallanding->idPerfilProfesional)}}">Agende su cita
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>
                     <a href="">Ver agenda

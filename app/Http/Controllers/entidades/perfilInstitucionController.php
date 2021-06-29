@@ -24,6 +24,8 @@ class perfilInstitucionController extends Controller
         $objinstitucionlandingaleria= $this->cargarInfoInstitucLandinGaleria($id);
         $objinstitucionlandinvideo= $this->cargarInfoInstitucLandinVideo($id);
         $objinstitucionlandinSedes= $this->cargarInfoInstitucLandinSedes($id);
+        $objinstitucionlandInstitucion= $this->cargarInfoProfesionalInstitucion($id);
+        
       
         return view('instituciones.PerfilInstitucion', compact(
             'objinstitucionlandin',
@@ -35,7 +37,8 @@ class perfilInstitucionController extends Controller
             'objinstitucionlandinpublicaci',
             'objinstitucionlandingaleria',
             'objinstitucionlandinvideo',
-            'objinstitucionlandinSedes'
+            'objinstitucionlandinSedes',
+            'objinstitucionlandInstitucion'
         ));
     }
 
@@ -115,10 +118,19 @@ class perfilInstitucionController extends Controller
         }
         // consulta para cargar informacion de la landing sedes
         public function cargarInfoInstitucLandinSedes($id){
-            return DB::select("SELECT s.imgsede, s.nombre, s.direccion, s.horario_sede, s.telefono
-            FROM instituciones ints
-            INNER JOIN sedesinstituciones s ON ints.id=s.idInstitucion        
-            WHERE ints.aprobado<>0 AND ints.id=$id");
+        return DB::select("SELECT s.imgsede, s.nombre, s.direccion, s.horario_sede, s.telefono
+        FROM instituciones ints
+        INNER JOIN sedesinstituciones s ON ints.id=s.idInstitucion        
+        WHERE ints.aprobado<>0 AND ints.id=$id");
         }
 
+        
+        // consulta para cargar profesionales institucion
+        public function cargarInfoProfesionalInstitucion($id){
+        return DB::select("SELECT pins.primer_nombre, pins.segundo_nombre, pins.primer_apellido, pins.segundo_apellido, 
+        pins.especialidad_uno, pins.especialidad_dos, pins.foto_perfil_institucion
+        FROM instituciones ints
+        INNER JOIN profesionales_instituciones pins ON ints.id=pins.id_institucion        
+        WHERE ints.aprobado<>0 AND ints.id=$id");
+        }
 }
