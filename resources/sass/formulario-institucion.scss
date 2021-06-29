@@ -449,7 +449,16 @@
     height: 3vh;
     padding: 0;
 }
-
+.divicion_bottom-serv {
+    border-bottom: 1px solid #DBDADA;
+    padding-bottom: 2%;
+}
+.txtInfo_limitante-formInst {
+    font-family: 'Roboto', 'Regular';
+    color: #E3342F;
+    font-weight: 500;
+    padding: 2% 0;
+}
 /*.bootstrap-tagsinput  input {
     background: yellow;
 
@@ -490,6 +499,10 @@
 }
 ///// *****   SECCIÓN TARJETA CONVENIOS   ***** /////
 // Sección titulo de la tarjeta convenios
+.modulo_convenio-formInst {
+    padding: 0;
+    margin: 1% 0;
+}
 .icon_convenios-formInst {
     background-image: url('/img/formulario-institucion/icono-convenios.svg') ;
     background-repeat: no-repeat ;
@@ -512,6 +525,16 @@
     padding: 0 15px;
 }
 // Sección imagen GUARDADA
+.img_selccionada-formInst {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    align-items: center;
+    width: 120px;
+    height: 60px;
+    object-fit: contain;
+}
 .content_imgGuardada-formInst {
     margin: 3% 0 0 0;
     padding: 0 3% 0 0;
@@ -525,10 +548,6 @@
     width: 120px;
     height: 60px;
     object-fit: contain;
-}
-.content_agregarImg-formInst {
-    margin: 0;
-    padding-right: 0;
 }
 .agregar_archivo-formInst {          
     position: relative;
@@ -564,6 +583,40 @@
     top: 0;
     bottom: 0;              
 }  
+.agregar_archivo-formInst1 {          
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+} 
+.agregar_archivo-formInst1 input[type="file"] {
+    opacity: 0;
+    width: 100%;
+    height: 32px;
+    display: flex;            
+}
+.agregar_archivo-formInst1::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 10%;
+    background-size: 4%;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto de asociación 1'; // texto botón subir foto asociación
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+} 
 .agregar_archivo-formInst2 {          
     position: relative;
     display: flex;
@@ -637,8 +690,17 @@
     height: 60px;
     object-fit: contain;
 }
+.txt_informativo-formProf {
+    text-align: center;
+    padding: 0;
+}
 ///// *****   SECCIÓN TARJETA PROFESIONALES   ***** /////
 // Sección titulo de la tarjeta profesionales
+.content_loadImg-profes {
+    border: 1px solid #DBDADA;
+    border-radius: 5px;
+    padding: 2% 0;
+}
 .icon_profesionales-formInst {
     background-image: url('/img/formulario-institucion/icono-profesionales-institucion.svg') ;
     background-repeat: no-repeat ;
@@ -686,8 +748,13 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .containt_profGuardado-formInst {
-    margin: 3% auto;
+    margin: 3% 0;
     padding: 0;
+    justify-content: space-evenly;
+}
+.img_save-formProf {
+    padding: 0;
+    margin: auto;
 }
 ///// *****   SECCIÓN TARJETA CERTIFICACIONES   ***** /////
 // Sección titulo de la tarjeta certificaciones
@@ -735,19 +802,17 @@
     top: 0;
     bottom: 0;              
 }  
-.img_selccionada-formInst {
+.img_saveCertifi-formInst {
     display: flex;
     justify-content: center;
     margin: auto;
     padding: 0;
     align-items: center;
-    width: 120px;
-    height: 60px;
+    width: 100%;
+    height: 30vh;
     object-fit: contain;
 }
 .img_anexada-formInst {
-    width: 100%;
-    height: 100%;
     object-fit: contain;
 }
 .img_anexada-formInst img {
@@ -763,9 +828,9 @@
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
     background-repeat: no-repeat ;
     background-position-y: center;
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1.15em;
+    background-position-x: 35%;
+    background-size: 3%;
+    font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
     display: flex;            
@@ -783,9 +848,9 @@
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
     background-repeat: no-repeat ;
     background-position-y: center;
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1.15em;
+    background-position-x: 35%;
+    background-size: 3%;
+    font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
     display: flex;            
@@ -803,9 +868,9 @@
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
     background-repeat: no-repeat ;
     background-position-y: center;
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1.15em;
+    background-position-x: 35%;
+    background-size: 3%;
+    font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
     display: flex;            
@@ -823,9 +888,9 @@
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
     background-repeat: no-repeat ;
     background-position-y: center;
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1.15em;
+    background-position-x: 35%;
+    background-size: 3%;
+    font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
     display: flex;            
@@ -855,6 +920,16 @@
     font-family: 'Quicksand', 'Regular';
     color: #0083d6;
     text-transform: inherit;
+}
+.img_saveSede-formInst {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    align-items: center;
+    width: 100%;
+    height: 30vh;
+    object-fit: contain;
 }
 ///// *****   SECCIÓN TARJETA UBIQUE SEDE   ***** /////
 // Sección titulo de la tarjeta ubique la sede
@@ -898,6 +973,96 @@
     height: 100%;
     width: 100%;
 }
+.photo5 .agregar_archivo-formInst::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 35%;
+    background-size: 3%;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 5'; // texto botón subir foto asociación
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}
+.photo6 .agregar_archivo-formInst::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 35%;
+    background-size: 3%;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 6'; // texto botón subir foto asociación 
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}
+.photo7 .agregar_archivo-formInst::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 35%;
+    background-size: 3%;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 7'; // texto botón subir foto asociación 
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}
+.photo8 .agregar_archivo-formInst::before {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-position-x: 35%;
+    background-size: 3%;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #434343;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Subir foto 8'; // texto botón subir foto asociación
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;              
+}
+.img_saveGallery-formInst {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    align-items: center;
+    width: 100%;
+    height: 30vh;
+    object-fit: contain;
+}
 ///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
 
 // Sección titulo de la tarjeta videos
@@ -920,9 +1085,9 @@
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
     background-repeat: no-repeat ;
     background-position-y: center;
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1.15em;
+    background-position-x: 35%;
+    background-size: 3%;
+    font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
     display: flex;            
@@ -940,9 +1105,9 @@
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
     background-repeat: no-repeat ;
     background-position-y: center;
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1.15em;
+    background-position-x: 35%;
+    background-size: 3%;
+    font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
     display: flex;            
@@ -1135,7 +1300,9 @@
         padding-top: 5%;
     }
     .contain_imgInst-formInst .icon_subirFoto-formInst {
-        background-position-x: 20%;
+        background-position-x: 18%;
+        background-size: 5%;
+        margin-bottom: 5%;
     }
     .text_usuario-formInst {
         font-size: 1em;
@@ -1157,6 +1324,9 @@
         width: 100%;
         margin-bottom: 5%;
     }
+    .content_tarjetasInfo-formInst {
+        margin-bottom: 10%;
+    }
     // botón inferior de guardar
     .btn_guardar-formInst {
         font-size: 1em;
@@ -1165,6 +1335,12 @@
     }
     .flechaBtn_guardar-formInst {
         width: 13%;
+    }
+    .content_botonesInferiores-formInst {
+        margin-bottom: 10%;
+    }
+    .content_botonInferior-next-formInst {
+        margin-bottom: 10%;
     }
      ///// *****   SECCIÓN TARJETA INFORMACIÓN CONTACTO    ***** /////
     // Sección titulo de la tarjeta información del contacto
@@ -1186,7 +1362,6 @@
     }
     .text_infoImg-formInst {
         font-size: .75em;
-        padding: 0;
     }
     ///// *****   SECCIÓN TARJETA SERVICIOS   ***** /////
     // Sección titulo de la tarjeta servicios
@@ -1194,6 +1369,11 @@
         background-size: 8%;
         padding-left: 10%;
         height: 6vh;
+    }
+    .divicion_bottom-serv {
+        border-bottom: 1px solid #DBDADA;
+        padding-bottom: 5%;
+        margin-bottom: 3%;
     }
     ///// *****   SECCIÓN TARJETA QUIENES SOMOS   ***** /////
     // Sección titulo de la tarjeta quienes somos
@@ -1216,14 +1396,18 @@
         padding-left: 10%;
         height: 6vh;
     }
-    .content_agregarImg-formInst {
-        margin: 0 auto;
-        padding: 0;
-    }
     .text_infoConvenio-formInst {
-        font-size: .75em;
-        padding: 0;
+        font-size: .85em;
     }
+    .agregar_archivo-formInst1::before {
+        background-position-x: 14%;            
+    } 
+    .agregar_archivo-formInst2::before {
+        background-position-x: 14%;            
+    } 
+    .agregar_archivo-formInst3::before {
+        background-position-x: 14%;            
+    } 
     ///// *****   SECCIÓN TARJETA PROFESIONALES   ***** /////
     // Sección titulo de la tarjeta profesionales
     .icon_profesionales-formInst {
@@ -1239,6 +1423,16 @@
     .input_nomApl-prefes-formProf {
         width: 100%;
         margin-bottom: 5%;
+    }
+    .containt_profGuardado-formInst {
+        margin: 5% auto;
+        padding: 0;
+        justify-content: space-evenly;
+    }
+    .img_save-formProf {
+        padding: 0;
+        display: flex;
+        justify-content: center;
     }
     ///// *****   SECCIÓN TARJETA CERTIFICACIONES   ***** /////
     // Sección titulo de la tarjeta certificaciones
@@ -1301,6 +1495,26 @@
         background-size: 8%;
         padding-left: 10%;
         height: 6vh;
+    }
+    .photo5 .agregar_archivo-formInst::before {
+        background-position-x: 25%;
+        background-size: 5%;
+        font-size: 1em;             
+    }
+    .photo6 .agregar_archivo-formInst::before {
+        background-position-x: 25%;
+        background-size: 5%;
+        font-size: 1em;            
+    }
+    .photo7 .agregar_archivo-formInst::before {
+        background-position-x: 25%;
+        background-size: 5%;
+        font-size: 1em;              
+    }
+    .photo8 .agregar_archivo-formInst::before {
+        background-position-x: 25%;
+        background-size: 5%;
+        font-size: 1em;             
     }
     ///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
 
@@ -1474,6 +1688,14 @@
         text-align: center;
         padding-top: 0;
     }
+    .contain_imgInst-formInst .icon_subirFoto-formInst {
+        background-position-x: 21%;
+        background-size: 4.5%;
+        margin-bottom: 0;
+    }
+    .content_tarjetasInfo-formInst {
+        margin-bottom: 5%;
+    }
     // botón inferior de guardar
     .btn_guardar-formInst {
         font-size: 1em;
@@ -1482,6 +1704,12 @@
     }
     .flechaBtn_guardar-formInst { 
         width: 11%;
+    }
+    .content_botonesInferiores-formInst {
+        margin-bottom: 3%;
+    }
+    .content_botonInferior-next-formInst {
+        margin-bottom: 3%;
     }
     ///// *****   SECCIÓN TARJETA INFORMACIÓN CONTACTO    ***** /////
     .icon_infoContac-formInst {
@@ -1516,6 +1744,11 @@
         height: 2.5vh;
         font-size: 1.2em;
     }
+    .divicion_bottom-serv {
+        border-bottom: 1px solid #DBDADA;
+        padding-bottom: 2%;
+        margin-bottom: 0;
+    }
     ///// *****   SECCIÓN TARJETA QUIENES SOMOS   ***** /////
     // Sección titulo de la tarjeta quienes somos
     .icon_quienes-formInst {
@@ -1544,8 +1777,20 @@
         font-family: 'Roboto', 'Regular';
         font-size: 1em;
         color: #DBDADA;
-        padding: 0 15px;
+        padding: 0 21px;
     }
+    .agregar_archivo-formInst1::before {
+        background-position-x: 8%;   
+        background-size: 5%;         
+    } 
+    .agregar_archivo-formInst2::before {
+        background-position-x: 8%;   
+        background-size: 5%;           
+    } 
+    .agregar_archivo-formInst3::before {
+        background-position-x: 8%;   
+        background-size: 5%;          
+    } 
     ///// *****   SECCIÓN TARJETA PROFESIONALES   ***** /////
     // Sección titulo de la tarjeta profesionales
     .icon_profesionales-formInst {
@@ -1571,6 +1816,11 @@
         width: 48.7%;
         margin-bottom: 0%;
     }
+    .content_loadImg-profes {
+        border: 1px solid #DBDADA;
+        border-radius: 5px;
+        padding: 2% 0;
+    }
     ///// *****   SECCIÓN TARJETA CERTIFICACIONES   ***** /////
     // Sección titulo de la tarjeta certificaciones
     .icon_certificaciones-formInst {
@@ -1582,7 +1832,7 @@
     .text_superior-proced-formInst {
         font-size: 1em;
     }
-    .agregar_archivo-formInst::before {  //*****************************************************************************************************************
+    .agregar_archivo-formInst::before {
         background-position-x: 13%;
         background-size: 5%;
         font-size: 1em;
@@ -1591,6 +1841,16 @@
     .content_antes-formInst .agregar_archivo-formInst::before {
         background-position-x: 16%;
         background-size: 5%;
+        font-size: 1em;
+    }
+    .photo1 .agregar_archivo-formInst::before {
+        background-position-x: 31%;
+        background-size: 4%;
+        font-size: 1em;
+    }
+    .photo2 .agregar_archivo-formInst::before {
+        background-position-x: 31%;
+        background-size: 4%;
         font-size: 1em;
     }
     ///// *****   SECCIÓN TARJETA SEDES   ***** /////
@@ -1617,6 +1877,36 @@
         height: 2.5vh;
         font-size: 1.2em;
     }
+    .photo3 .agregar_archivo-formInst::before {
+        background-position-x: 31%;
+        background-size: 4%;
+        font-size: 1em;
+    }
+    .photo4 .agregar_archivo-formInst::before {
+        background-position-x: 31%;
+        background-size: 4%;
+        font-size: 1em;
+    }
+    .photo5 .agregar_archivo-formInst::before {
+        background-position-x: 31%;
+        background-size: 4%;
+        font-size: 1em;
+    }
+    .photo6 .agregar_archivo-formInst::before {
+        background-position-x: 31%;
+        background-size: 4%;
+        font-size: 1em;
+    }
+    .photo7 .agregar_archivo-formInst::before {
+        background-position-x: 31%;
+        background-size: 4%;
+        font-size: 1em;
+    }
+    .photo8 .agregar_archivo-formInst::before {
+        background-position-x: 31%;
+        background-size: 4%;
+        font-size: 1em;
+    }
     ///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
 
     // Sección titulo de la tarjeta videos
@@ -1639,6 +1929,16 @@
     .boton_inferior-finalizar-formInst {
         width: 68%;
     }
+    .video1 .agregar_archivo-formInst::before {
+        background-position-x: 29%;
+        background-size: 4%;
+        font-size: 1em;
+    }
+    .video2 .agregar_archivo-formInst::before {
+        background-position-x: 29%;
+        background-size: 4%;
+        font-size: 1em;
+    }
 }
 @media (min-width: 1200px) {
     // Sección lista de las opciones
@@ -1650,14 +1950,97 @@
     .img_usuario-formInst {
         height: 20vh;
     }
+    .icon_subirFoto-formInst {
+        background-position-x: 3%;
+    }
+    .contain_imgInst-formInst .icon_subirFoto-formInst {
+        background-size: 5%;
+        background-position-x: 13%;
+    }
 }
 @media (min-width: 1440px) {
+    ///// *****   SECCIÓN TARJETA INFORMACIÓN BÁSICA    ***** /////
     // Sección logo datos institución
     .img_usuario-formInst {
-        height: 22vh;
+        height: 23vh;
+    }
+    .icon_subirFoto-formInst {
+        background-position-x: 10%;
+    }
+    .contain_imgInst-formInst .icon_subirFoto-formInst {
+        background-size: 4%;
+        background-position-x: 20%;
+    }
+    .content_tarjetasInfo-formInst {
+        margin-bottom: 3%;
+    }
+    ///// *****   SECCIÓN TARJETA CONVENIOS   ***** /////
+    .agregar_archivo-formInst1::before {
+        background-position-x: 15%;
+    }
+    .agregar_archivo-formInst2::before {
+        background-position-x: 15%;
+    }
+    .agregar_archivo-formInst3::before {
+        background-position-x: 15%;
+    }
+    ///// *****   SECCIÓN TARJETA CERTIFICACIONES   ***** /////
+    .photo1 .agregar_archivo-formInst::before {
+        background-position-x: 37%;
+        background-size: 2.8%;
+    }
+    .photo2 .agregar_archivo-formInst::before {
+        background-position-x: 37%;
+        background-size: 2.8%;
+    }
+    .photo3 .agregar_archivo-formInst::before {
+        background-position-x: 37%;
+        background-size: 2.8%;
+    }
+    .photo4 .agregar_archivo-formInst::before {
+        background-position-x: 37%;
+        background-size: 2.8%;
+    }
+    ///// *****   SECCIÓN TARJETA GALERIA   ***** /////
+    .photo5 .agregar_archivo-formInst::before {
+        background-position-x: 37%;
+        background-size: 2.8%;
+    }
+    .photo6 .agregar_archivo-formInst::before {
+        background-position-x: 37%;
+        background-size: 2.8%;
+    }
+    .photo7 .agregar_archivo-formInst::before {
+        background-position-x: 37%;
+        background-size: 2.8%;
+    }
+    .photo8 .agregar_archivo-formInst::before {
+        background-position-x: 37%;
+        background-size: 2.8%;
+    }
+    ///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
+    .video1 .agregar_archivo-formInst::before {
+        background-position-x: 37%;
+        background-size: 2.8%;            
+    }
+    .video2 .agregar_archivo-formInst::before {
+        background-position-x: 37%;
+        background-size: 2.8%;             
     }
 } 
 @media (min-width: 1920px) {
+    ///// *****   SECCIÓN TARJETA INFORMACIÓN BÁSICA    ***** /////
+    // Sección logo datos institución
+    .content_tarjetasInfo-formInst {
+        margin-bottom: 2%;
+    }
+    .content_botonInferior-next-formInst {
+        margin-bottom: 2%;
+    }
+    .contain_imgInst-formInst .icon_subirFoto-formInst {
+        background-size: 2.8%;
+        background-position-x: 28%;
+    }
     // Sección lista de las opciones
     .lista_opciones-usuario-formInst {
         width: 55%;
@@ -1665,16 +2048,12 @@
     }
     // Sección logo datos institución
     .img_usuario-formInst {
-        height: 20vh;
+        height: 21vh;
         width: 68%;
     } 
     .icon_subirFoto-formInst {
-        background-position-x: 17%;
-        background-size: 6%;
-    }
-    .contain_imgInst-formInst .icon_subirFoto-formInst {
-        background-size: 3.5%;
-        background-position-x: 29%;
+        background-position-x: 23%;
+        background-size: 4.5%;
     }
     .text_usuario-formInst {
         margin: 5% 0;
@@ -1683,7 +2062,62 @@
         margin: 3% 0 0 0;
     }
     .img_institucion-formInst {
-        height: 19vh;
+        height: 23vh;
+    }
+    ///// *****   SECCIÓN TARJETA CONVENIOS   ***** /////
+    .agregar_archivo-formInst1::before {
+        background-position-x: 25%;
+        background-size: 2.8%;
+    }
+    .agregar_archivo-formInst2::before {
+        background-position-x: 25%;
+        background-size: 2.8%;
+    }
+    .agregar_archivo-formInst3::before {
+        background-position-x: 25%;
+        background-size: 2.8%;
+    }
+    ///// *****   SECCIÓN TARJETA CERTIFICACIONES   ***** /////
+    .photo1 .agregar_archivo-formInst::before {
+        background-position-x: 41%;
+        background-size: 2%;
+    }
+    .photo2 .agregar_archivo-formInst::before {
+        background-position-x: 41%;
+        background-size: 2%;
+    }
+    .photo3 .agregar_archivo-formInst::before {
+        background-position-x: 41%;
+        background-size: 2%;
+    }
+    .photo4 .agregar_archivo-formInst::before {
+        background-position-x: 41%;
+        background-size: 2%;
+    }
+    .photo5 .agregar_archivo-formInst::before {
+        background-position-x: 41%;
+        background-size: 2%;
+    }
+    .photo6 .agregar_archivo-formInst::before {
+        background-position-x: 41%;
+        background-size: 2%;
+    }
+    .photo7 .agregar_archivo-formInst::before {
+        background-position-x: 41%;
+        background-size: 2%;
+    }
+    .photo8 .agregar_archivo-formInst::before {
+        background-position-x: 41%;
+        background-size: 2%;
+    }
+    ///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
+    .video1 .agregar_archivo-formInst::before {
+        background-position-x: 40%;
+        background-size: 2%;            
+    }
+    .video2 .agregar_archivo-formInst::before {
+        background-position-x: 40%;
+        background-size: 2%;          
     }
     // botón inferior de guardar
     .flechaBtn_guardar-formInst {

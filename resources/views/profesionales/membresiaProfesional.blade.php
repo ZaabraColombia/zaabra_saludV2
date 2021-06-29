@@ -51,9 +51,11 @@
 
       <!-- Botón Registrar -->
       <div class="col-10 content_btn-ingresar-membresia">
-        <button type="submit" class="btn_Ingreso-membresia"> {{ __('Registro') }}
-          <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
-        </button>
+        <a href="{{route('register')}}">
+          <button type="submit" class="btn_Ingreso-membresia"> {{ __('Registro') }}
+            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+          </button>
+        </a>
       </div>
     </div>
 

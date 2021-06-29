@@ -77,7 +77,7 @@
                         </div>
 
                         <!-- Sección datos institución -->
-                        <div class="col-md-4 datos_principales-formInst"> 
+                        <div class="col-md-4 col-xl-5 datos_principales-formInst"> 
                             @foreach ($objuser as $objuser)
                                 <div class="col-12 section_inputRight-text-formInst">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Nombres Institucion</label>
@@ -106,11 +106,11 @@
                         </div>
 
                         <!-- Sección imagen datos institución -->
-                        <div class="col-md-5 datos_principales2-formInst">  
+                        <div class="col-md-5 col-xl-4 datos_principales2-formInst">  
                             <div class="col-12 contain_imgInst-formInst">       
-                                <img class="img_institucion-formInst" id="imagenPrevisualizacion" src="{{URL::asset($objFormulario->imagen)}}">
+                                <img class="img_institucion-formInst" id="imagenPrevi4" src="{{URL::asset($objFormulario->imagen)}}">
                     
-                                <input type="file" class="input_imgUsuario-formInst" name="imagenInstitucion"  id="seleccionArchivos" accept="image/png, image/jpeg">
+                                <input type="file" class="input_imgUsuario-formInst" name="imagenInstitucion"  id="selecArchivos4" onchange="previewImageProf(4)" accept="image/png, image/jpeg">
 
                                 <p class="icon_subirFoto-formInst"> Subir foto de la sede </p>
                             </div>
@@ -131,7 +131,7 @@
                         </div>
                 
                         <!-- Sección datos institución -->
-                        <div class="col-md-4 datos_principales-formInst">
+                        <div class="col-md-4 col-xl-5 datos_principales-formInst">
                             @foreach ($objuser as $objuser)
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Nombres Institucion</label>
@@ -160,11 +160,11 @@
                         </div>
 
                         <!-- Sección imagen datos institución -->
-                        <div class="col-md-5 datos_principales2-formInst">  
+                        <div class="col-md-5 col-xl-4 datos_principales2-formInst">  
                             <div class="col-12 contain_imgInst-formInst">   
-                                <img class="img_institucion-formInst" id="imagenPrevisualizacion">
+                                <img class="img_institucion-formInst" id="imagenPrevi4">
 
-                                <input class="input_imgUsuario-formInst" type="file" name="imagenInstitucion"  id="seleccionArchivos" accept="image/png, image/jpeg">
+                                <input class="input_imgUsuario-formInst" type="file" name="imagenInstitucion"  id="selecArchivos4" onchange="previewImageProf(4)" accept="image/png, image/jpeg">
 
                                 <p class="icon_subirFoto-formInst"> Subir foto de la sede </p>
                             </div>
@@ -340,7 +340,7 @@
             <form method="POST" action="{{ url ('/FormularioInstitucionSave3') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-                @if(!empty($objFormulario))
+                @if(!empty($objFormulario->DescripcionGeneralServicios))
                     <div class="col-12 px-0">
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Escriba una breve descripción de su servicio </label>
@@ -397,11 +397,15 @@
                             
                                 <span>{{$objServicio->DescripcioServicios}} </span>
                             </div>
-
+                            
                             <div class="col-12 px-0">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
-                            
-                                <span>{{$objServicio->sucursalservicio}} </span>
+                                @if($objServicio->sucursalservicio) 
+                                    @php  $new_array = explode(',',$objServicio->sucursalservicio); @endphp
+                                @endif
+                                @foreach($new_array as $info)
+                                    <li> {{$info}} </li>
+                                @endforeach
                             </div>
                         </div>   
                     @endif
@@ -415,7 +419,7 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst">
+                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -437,7 +441,7 @@
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst">
+                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -463,7 +467,7 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst">
+                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -486,7 +490,7 @@
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst">
+                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -512,7 +516,7 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst">
+                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -535,7 +539,7 @@
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst">
+                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -561,7 +565,7 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst">
+                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -584,7 +588,7 @@
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst">
+                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -610,7 +614,7 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst">
+                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -633,7 +637,7 @@
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst">
+                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -659,7 +663,7 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst">
+                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -685,7 +689,7 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst">
+                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -708,7 +712,7 @@
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst">
+                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -734,7 +738,7 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst">
+                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -757,7 +761,7 @@
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst">
+                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -783,7 +787,7 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst">
+                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -806,7 +810,7 @@
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst">
+                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -832,7 +836,7 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst">
+                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -858,7 +862,7 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst">
+                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -881,7 +885,7 @@
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst">
+                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -907,7 +911,7 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst">
+                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
@@ -930,7 +934,7 @@
                         </div>
                     </div>
                 @elseif($objContadorServicio->cantidad == 6)
-                    <label for="example-date-input" class="col-12 text_label-formInst pb-0"> No se pueden agregar más servicios </label>
+                    <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más servicios </label>
                 @endif
 
                 <!-- Botón guardar información -->
@@ -968,7 +972,7 @@
             <form method="POST" action="{{ url ('/FormularioInstitucionSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-                @if(!empty($objFormulario))
+                @if(!empty($objFormulario->quienessomos))
                     <div class="col-12 px-0">
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Escriba una breve descripción de ¿Quiénes son? </label>
@@ -1005,7 +1009,7 @@
             <form method="POST" action="{{ url ('/FormularioInstitucionSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-                @if(!empty($objFormulario))
+                @if(!empty($objFormulario->propuestavalor))
                     <div class="col-12 px-0">
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Escriba una breve descripción de la propuesta de valor </label>
@@ -1042,7 +1046,7 @@
             <div class="row col-12 p-0 m-0">
                 @foreach($objEps as $objEps)
                     @if(!empty($objEps->urlimagen))
-                        <div class="col-4 p-0 form-group">
+                        <div class="col-md-4 modulo_convenio-formInst">
                             <label for="example-date-input" class="text_label-formInst pb-0"> Convenio EPS </label>
 
                             <div class="col-12 pr-3 content_btnX-cierre-formInst">
@@ -1064,7 +1068,7 @@
             <div class="row col-12 p-0 m-0">
                 @foreach($objIps as $objIps)
                     @if(!empty($objIps->urlimagen))
-                        <div class="col-4 p-0 form-group">
+                        <div class="col-md-4 modulo_convenio-formInst">
                             <label for="example-date-input" class="text_label-formInst pb-0"> Convenio IPS </label>
 
                             <div class="col-12 pr-3 content_btnX-cierre-formInst">
@@ -1086,7 +1090,7 @@
             <div class="row col-12 p-0 m-0">
                 @foreach($objPrepa as $objPrepa)
                     @if(!empty($objPrepa->urlimagen))
-                        <div class="col-4 p-0 form-group">
+                        <div class="col-md-4 modulo_convenio-formInst">
                             <label for="example-date-input" class="text_label-formInst pb-0"> Convenio medicina prepagada </label>
 
                             <div class="col-12 pr-3 content_btnX-cierre-formInst">
@@ -1114,21 +1118,23 @@
                         <div class="row col-12 p-0 m-0">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS </label>
                     
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4  modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview2"/>
                                     </div>
                                 </div>
 
-                                <div class="agregar_archivo-formInst">
+                                <div class="agregar_archivo-formInst1">
                                     <input type='file' id="uploadImage2" name="urlimagenEps[]" onchange="previewImage(2);"/>
                                 </div>
 
-                                <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview3"/>
@@ -1139,10 +1145,12 @@
                                     <input type='file' id="uploadImage3" name="urlimagenEps[]" onchange="previewImage(3);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview4"/>
@@ -1153,7 +1161,9 @@
                                     <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
                         </div>   
 
@@ -1161,7 +1171,7 @@
                         <div class="row col-12 p-0 m-0">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS </label>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview3"/>
@@ -1172,10 +1182,12 @@
                                     <input type='file' id="uploadImage3" name="urlimagenEps[]" onchange="previewImage(3);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview4"/>
@@ -1186,14 +1198,16 @@
                                     <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
                         </div>   
                     @elseif($objContadorEps->cantidad == 2)
                         <div class="row col-12 p-0 m-0">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS </label>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview4"/>
@@ -1204,20 +1218,22 @@
                                     <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>        
                             </div>
                         </div>  
 
                     @elseif($objContadorEps->cantidad == 3)
-                        <label for="example-date-input" class="col-12 text_label-formInst pb-0"> No se pueden agregar más convenios de EPS </label>
+                        <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más convenios de EPS </label>
                     @endif
 
                     <!-- **************************************************************** FORMULARIO IPS ************************************************************** -->
                     @if($objContadorIps->cantidad == 0)
                         <div class="row col-12 p-0 m-0">
-                            <label for="example-date-input" class="text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS </label>
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS </label>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview6"/>
@@ -1228,10 +1244,12 @@
                                     <input type='file' id="uploadImage6" name="urlimagenIps[]" onchange="previewImage(6);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview7"/>
@@ -1242,10 +1260,12 @@
                                     <input type='file' id="uploadImage7" name="urlimagenIps[]" onchange="previewImage(7);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview8"/>
@@ -1256,15 +1276,17 @@
                                     <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
                         </div>
 
                     @elseif($objContadorIps->cantidad == 1)
                         <div class="row col-12 p-0 m-0">
-                            <label for="example-date-input" class="text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS </label>
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS </label>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview7"/>
@@ -1275,10 +1297,12 @@
                                     <input type='file' id="uploadImage7" name="urlimagenIps[]" onchange="previewImage(7);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview8"/>
@@ -1289,15 +1313,17 @@
                                     <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
                         </div>
 
                     @elseif($objContadorIps->cantidad == 2)
                         <div class="row col-12 p-0 m-0">
-                            <label for="example-date-input" class="text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS </label>
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS </label>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview8"/>
@@ -1308,20 +1334,22 @@
                                     <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>  
                             </div>
                         </div>
 
                     @elseif($objContadorIps->cantidad == 3)
-                        <label for="example-date-input" class="col-12 text_label-formInst pb-0"> No se pueden agregar más convenios de IPS </label>
+                        <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más convenios de IPS </label>
                     @endif
  
                     <!-- **************************************************************** FORMULARIO PREPAGADA ************************************************************** -->
                     @if($objContadorPrepa->cantidad == 0)
                         <div class="row col-12 p-0 m-0">
-                            <label for="example-date-input" class="text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada </label>
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada </label>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview10"/>
@@ -1332,10 +1360,12 @@
                                     <input type='file' id="uploadImage10" name="urlimagenPre[]" onchange="previewImage(10);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview11"/>
@@ -1346,10 +1376,12 @@
                                     <input type='file' id="uploadImage11" name="urlimagenPre[]" onchange="previewImage(11);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview12"/>
@@ -1360,15 +1392,17 @@
                                     <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
                         </div>
 
                     @elseif($objContadorPrepa->cantidad == 1)
                         <div class="row col-12 p-0 m-0">
-                            <label for="example-date-input" class="text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada </label>
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada </label>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview11"/>
@@ -1379,10 +1413,12 @@
                                     <input type='file' id="uploadImage11" name="urlimagenPre[]" onchange="previewImage(11);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>        
                             </div>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview12"/>
@@ -1393,15 +1429,17 @@
                                     <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>        
                             </div>
                         </div>
 
                     @elseif($objContadorPrepa->cantidad == 2)
                         <div class="row col-12 p-0 m-0">
-                            <label for="example-date-input" class="text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada </label>
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada </label>
 
-                            <div class="col-4 p-0 form-group">
+                            <div class="col-md-4 modulo_convenio-formInst">
                                 <div class="img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
                                         <img id="uploadPreview12"/>
@@ -1412,12 +1450,14 @@
                                     <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>        
                             </div>
                         </div>
 
                     @elseif($objContadorPrepa->cantidad == 3)
-                        <label for="example-date-input" class="col-12 text_label-formInst pb-0"> No se pueden agregar más convenios de medicina prepagada </label>
+                        <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más convenios de medicina prepagada </label>
                     @endif
                   
                 </div>
@@ -1455,42 +1495,40 @@
         <div class="col-lg-10 col-xl-8 pb-3 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_profesionales-formInst"> Profesionales </h5>
 
-            <div class="col-12 row containt_profGuardado-formInst">
+            <div class="col-11 col-md-12 row containt_profGuardado-formInst">
                 @foreach($objProfeInsti as $objProfeInsti)
                     @if(!empty($objProfeInsti->foto_perfil_institucion))
-                        <div class="col-4">
-                            <div class="col-md-10 m-auto contain_imgUsuario-formImg">
-                                <a href="{{url('/FormularioInstituciondelete8/'.$objProfeInsti->id_profesional_inst)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a> 
+                        <div class="col-md-3 content_loadImg-profes">
+                            <div class="col-12 p-0 contain_imgUsuario-formImg">
+                                <div class="col-12 pr-2 content_cierreX-formInst">
+                                    <a href="{{url('/FormularioInstituciondelete8/'.$objProfeInsti->id_profesional_inst)}}">
+                                        <button type="submit" class="close" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </a> 
+                                </div>
 
-                                <img id="imagenPrevisualizacion" class="img_usuario-formInst" src="{{URL::asset($objProfeInsti->foto_perfil_institucion)}}">
+                                <div class="col-12 col-md-10 img_save-formProf">
+                                    <img class="img_usuario-formInst" src="{{URL::asset($objProfeInsti->foto_perfil_institucion)}}">
+                                </div>
                             </div>
                             
                             <div class="col-12 mt-3 containt_loadProfes-formInst">
                                 <div class="col-md-12 section_inputRight-text-formInst">
-                                    <div class="form-group">
-                                        <span>{{$objProfeInsti->primer_nombre}} {{$objProfeInsti->segundo_nombre}}</span>
-                                    </div>
+                                    <span>{{$objProfeInsti->primer_nombre}} {{$objProfeInsti->segundo_nombre}}</span>
                                 </div>
 
                                 <div class="col-md-12 section_inputRight-text-formInst">
-                                    <div class="form-group">
-                                        <span>{{$objProfeInsti->primer_apellido}} {{$objProfeInsti->segundo_apellido}}</span>
-                                    </div>
+                                    <span>{{$objProfeInsti->primer_apellido}} {{$objProfeInsti->segundo_apellido}}</span>
                                 </div>
 
                                 <div class="col-md-12 section_inputRight-text-formInst">
-                                    <div class="form-group">
-                                        <span>{{$objProfeInsti->especialidad_uno}}</span>
-                                    </div> 
-
-                                    <div class="form-group">
-                                        <span> {{$objProfeInsti->especialidad_dos}}</span>
-                                    </div> 
+                                    <span>{{$objProfeInsti->especialidad_uno}}</span>
                                 </div>  
+
+                                <div class="col-md-12 section_inputRight-text-formInst">
+                                    <span> {{$objProfeInsti->especialidad_dos}}</span>
+                                </div> 
                             </div>
                         </div>
                     @endif
@@ -1550,7 +1588,7 @@
                     </div> 
 
                     <!-- Profesional numero 2 -->
-                    <div class="row fila_infoBasica-formInst hidden-section-formInst">
+                    <div class="row fila_infoBasica-formInst">
                         <div class="col-md-3 contain_imgUsuario-formImg">
                             <img class="img_usuario-formInst" id="imagenPrevi2">
 
@@ -1597,7 +1635,7 @@
                     </div> 
 
                     <!-- Profesional numero 3 -->
-                    <div class="row fila_infoBasica-formInst hidden-section-formInst">
+                    <div class="row fila_infoBasica-formInst">
                         <div class="col-md-3 contain_imgUsuario-formImg">
                             <img class="img_usuario-formInst" id="imagenPrevi3">
 
@@ -1692,7 +1730,7 @@
                     </div> 
 
                     <!-- Profesional numero 3 -->
-                    <div class="row fila_infoBasica-formInst hidden-section-formInst">
+                    <div class="row fila_infoBasica-formInst">
                         <div class="col-md-3 contain_imgUsuario-formImg">
                             <img class="img_usuario-formInst" id="imagenPrevi3">
 
@@ -1739,7 +1777,7 @@
                     </div> 
                 @elseif($objContadorProfeInsti->cantidad == 2)
                     <!-- Profesional numero 3 -->
-                    <div class="row fila_infoBasica-formInst hidden-section-formInst">
+                    <div class="row fila_infoBasica-formInst">
                         <div class="col-md-3 contain_imgUsuario-formImg">
                             <img class="img_usuario-formInst" id="imagenPrevi3">
 
@@ -1786,7 +1824,7 @@
                     </div> 
 
                 @elseif($objContadorProfeInsti->cantidad == 3)
-                    <label for="example-date-input" class="col-12 text_label-formInst pb-0"> No se peden agregar más profesionales </label>
+                    <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se peden agregar más profesionales </label>
                 @endif
 
 
@@ -1830,7 +1868,7 @@
                 @foreach($objCertificaciones as $objCertificaciones)
                     @if(!empty($objCertificaciones->imgcertificado))
                         <!-- Contenido Certificaciones -->    
-                        <div class="col-6 mt-3 content_antes-formInst">
+                        <div class="col-md-6 mt-3 content_antes-formInst">
                             <div class="col-12 content_cierreX-formInst">
                                 <a href="{{url('/FormularioInstituciondelete9/'.$objCertificaciones->id_certificacion)}}">
                                     <button type="submit" class="close" aria-label="Close">
@@ -1839,9 +1877,9 @@
                                 </a>
                             </div>
                             
-                            <div class="col-12 content_agregarImg-formInst form-group">
+                            <div class="col-12  form-group">
 
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <img class="img_anexada-formInst"  src="{{URL::asset($objCertificaciones->imgcertificado)}}">
                                 </div>
 
@@ -1876,8 +1914,8 @@
                     <div class="row content_antDesp-formInst">
                         <!-- CERTIFICACIÓN izquierda -->
                         <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview13">
                                     </div>
@@ -1887,7 +1925,9 @@
                                     <input type='file' id="uploadImage13" name="imgcertificado[]" onchange="previewImage(13);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>        
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -1919,8 +1959,8 @@
 
                         <!-- CERTIFICACIÓN derecha -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview14">
                                     </div>
@@ -1930,143 +1970,9 @@
                                     <input type='file' id="uploadImage14" name="imgcertificado[]" onchange="previewImage(14);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                    
-                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
-
-                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
-
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulo CERTIFICACIONES-->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
-                        <!-- CERTIFICACIÓN izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst">
-                                    <img id="uploadPreview15">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage15" name="imgcertificado[]" onchange="previewImage(15);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
-
-                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-                                    
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
-
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- CERTIFICACIÓN derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview16">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage16" name="imgcertificado[]" onchange="previewImage(16);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                    
-                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
-
-                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
-
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                @elseif($objContadorCertificaciones->cantidad == 1)
-                    <!-- Modulo CERTIFICACIONES-->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
-                        <!-- CERTIFICACIÓN derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview14">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage14" name="imgcertificado[]" onchange="previewImage(14);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -2100,9 +2006,9 @@
                     <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
                         <!-- CERTIFICACIÓN izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                     <img id="uploadPreview15">
                                     </div>
@@ -2112,7 +2018,9 @@
                                     <input type='file' id="uploadImage15" name="imgcertificado[]" onchange="previewImage(15);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -2125,7 +2033,7 @@
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
 
                                     <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
                                 </div>
@@ -2143,9 +2051,9 @@
                         </div>
 
                         <!-- CERTIFICACIÓN derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview16">
                                     </div>
@@ -2155,7 +2063,57 @@
                                     <input type='file' id="uploadImage16" name="imgcertificado[]" onchange="previewImage(16);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>        
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                    
+                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
+
+                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
+
+                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @elseif($objContadorCertificaciones->cantidad == 1)
+                    <!-- Modulo CERTIFICACIONES-->
+                    <div class="row content_antDesp-formInst">
+                        <!-- CERTIFICACIÓN derecha -->
+                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveCertifi-formInst">
+                                    <div class="img_anexada-formInst">
+                                        <img id="uploadPreview14">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage14" name="imgcertificado[]" onchange="previewImage(14);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -2186,15 +2144,107 @@
                         </div>
                     </div>
 
+                    <!-- Modulo CERTIFICACIONES-->
+                    <div class="row content_antDesp-formInst">
+                        <!-- CERTIFICACIÓN izquierda -->
+                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveCertifi-formInst">
+                                    <div class="img_anexada-formInst">
+                                    <img id="uploadPreview15">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage15" name="imgcertificado[]" onchange="previewImage(15);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
+
+                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
+                                    
+                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CERTIFICACIÓN derecha -->
+                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveCertifi-formInst">
+                                    <div class="img_anexada-formInst">
+                                        <img id="uploadPreview16">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage16" name="imgcertificado[]" onchange="previewImage(16);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>        
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                    
+                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
+
+                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
+
+                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @elseif($objContadorCertificaciones->cantidad == 2)
                     <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
                         <!-- CERTIFICACIÓN izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
-                                        <img id="uploadPreview15">
+                                    <img id="uploadPreview15">
                                     </div>
                                 </div>
 
@@ -2202,7 +2252,9 @@
                                     <input type='file' id="uploadImage15" name="imgcertificado[]" onchange="previewImage(15);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -2215,7 +2267,7 @@
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
 
                                     <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
                                 </div>
@@ -2233,9 +2285,9 @@
                         </div>
 
                         <!-- CERTIFICACIÓN derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview16">
                                     </div>
@@ -2245,7 +2297,9 @@
                                     <input type='file' id="uploadImage16" name="imgcertificado[]" onchange="previewImage(16);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>        
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -2258,7 +2312,7 @@
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
 
                                     <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
                                 </div>
@@ -2279,9 +2333,9 @@
                     <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
                         <!-- CERTIFICACIÓN derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview16">
                                     </div>
@@ -2291,7 +2345,9 @@
                                     <input type='file' id="uploadImage16" name="imgcertificado[]" onchange="previewImage(16);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>        
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -2304,7 +2360,7 @@
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
 
                                     <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
                                 </div>
@@ -2321,9 +2377,8 @@
                             </div>
                         </div>
                     </div>
-
                 @elseif($objContadorCertificaciones->cantidad == 4)
-                    <label for="example-date-input" class="col-12 text_label-formInst pb-0"> No se pueden agregar más certificados </label>
+                    <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más certificados </label>
                 @endif 
 
                 <!-- Botón guardar información -->
@@ -2366,7 +2421,7 @@
                 @foreach($objSedes as $objSedes)
                     @if(!empty($objSedes->imgsede))
                         <!-- Contenido Certificaciones -->    
-                        <div class="col-6 mt-3 content_antes-formInst">
+                        <div class="col-md-6 mt-3 content_antes-formInst">
                             <div class="col-12 content_cierreX-formInst">
                                 <a href="{{url('/FormularioInstituciondelete10/'.$objSedes->id)}}">
                                     <button type="submit" class="close" aria-label="Close">
@@ -2375,8 +2430,8 @@
                                 </a>
                             </div>
                             
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <img class="img_anexada-formInst" src="{{URL::asset($objSedes->imgsede)}}">
                                 </div>
 
@@ -2416,8 +2471,8 @@
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview17">
                                     </div>
@@ -2427,7 +2482,9 @@
                                     <input type='file' id="uploadImage17" name="imgsede[]" onchange="previewImage(17);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -2465,8 +2522,8 @@
 
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview18">
                                     </div>
@@ -2476,7 +2533,9 @@
                                     <input type='file' id="uploadImage18" name="imgsede[]" onchange="previewImage(18);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -2511,11 +2570,11 @@
                     </div>
 
                     <!-- Modulo SEDES-->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
+                    <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview19">
                                     </div>
@@ -2525,7 +2584,9 @@
                                     <input type='file' id="uploadImage19" name="imgsede[]" onchange="previewImage(19);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -2562,9 +2623,9 @@
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview20">
                                     </div>
@@ -2574,7 +2635,9 @@
                                     <input type='file' id="uploadImage20" name="imgsede[]" onchange="previewImage(20);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -2609,11 +2672,11 @@
                     </div>
 
                     <!-- Modulo SEDES-->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
+                    <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview21">
                                     </div>
@@ -2623,7 +2686,9 @@
                                     <input type='file' id="uploadImage21" name="imgsede[]" onchange="previewImage(21);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -2660,9 +2725,9 @@
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview22">
                                     </div>
@@ -2672,7 +2737,9 @@
                                     <input type='file' id="uploadImage22" name="imgsede[]" onchange="previewImage(22);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -2708,11 +2775,11 @@
                     
                 @elseif($objContadorSedes->cantidad == 1)
                     <!-- Modulo SEDES-->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
+                    <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview18">
                                     </div>
@@ -2722,7 +2789,9 @@
                                     <input type='file' id="uploadImage18" name="imgsede[]" onchange="previewImage(18);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -2759,9 +2828,9 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview19">
                                     </div>
@@ -2771,7 +2840,9 @@
                                     <input type='file' id="uploadImage19" name="imgsede[]" onchange="previewImage(19);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -2808,9 +2879,9 @@
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview20">
                                     </div>
@@ -2820,7 +2891,9 @@
                                     <input type='file' id="uploadImage20" name="imgsede[]" onchange="previewImage(20);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -2855,11 +2928,11 @@
                     </div>
 
                     <!-- Modulo SEDES-->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
+                    <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview21">
                                     </div>
@@ -2869,7 +2942,9 @@
                                     <input type='file' id="uploadImage21" name="imgsede[]" onchange="previewImage(21);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -2906,9 +2981,9 @@
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview22">
                                     </div>
@@ -2918,7 +2993,9 @@
                                     <input type='file' id="uploadImage22" name="imgsede[]" onchange="previewImage(22);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -2951,14 +3028,13 @@
                             </div>
                         </div>
                     </div>
-
                 @elseif($objContadorSedes->cantidad == 2)
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview19">
                                     </div>
@@ -2968,7 +3044,9 @@
                                     <input type='file' id="uploadImage19" name="imgsede[]" onchange="previewImage(19);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -3005,9 +3083,9 @@
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview20">
                                     </div>
@@ -3017,155 +3095,9 @@
                                     <input type='file' id="uploadImage20" name="imgsede[]" onchange="previewImage(20);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
-
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
-                            </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
-                            </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
-                            </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulo SEDES-->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
-                        <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview21">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage21" name="imgsede[]" onchange="previewImage(21);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
-
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview22">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage22" name="imgsede[]" onchange="previewImage(22);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
-
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
-                            </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
-                            </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
-                            </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                @elseif($objContadorSedes->cantidad == 3)
-                    <!-- Modulo SEDES-->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
-                        <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview20">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage20" name="imgsede[]" onchange="previewImage(20);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -3202,9 +3134,9 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview21">
                                     </div>
@@ -3214,7 +3146,9 @@
                                     <input type='file' id="uploadImage21" name="imgsede[]" onchange="previewImage(21);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -3251,9 +3185,9 @@
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview22">
                                     </div>
@@ -3263,7 +3197,60 @@
                                     <input type='file' id="uploadImage22" name="imgsede[]" onchange="previewImage(22);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+
+                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                                </div>
+                            </div>
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+                                    
+                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                                </div>
+                            </div>
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+                                    
+                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                                </div>
+                            </div>
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
+                                    
+                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @elseif($objContadorSedes->cantidad == 3)
+                    <!-- Modulo SEDES-->
+                    <div class="row content_antDesp-formInst">
+                        <!-- Contenido SEDES derecho -->
+                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
+                                    <div class="img_anexada-formInst">
+                                        <img id="uploadPreview20">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage20" name="imgsede[]" onchange="previewImage(20);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -3297,13 +3284,114 @@
                         </div>
                     </div>
 
+                    <!-- Modulo SEDES-->
+                    <div class="row content_antDesp-formInst">
+                        <!-- Contenido SEDES izquierdo -->
+                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
+                                    <div class="img_anexada-formInst">
+                                        <img id="uploadPreview21">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage21" name="imgsede[]" onchange="previewImage(21);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+
+                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+                                    
+                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+                                    
+                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
+                                    
+                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contenido SEDES derecho -->
+                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
+                                    <div class="img_anexada-formInst">
+                                        <img id="uploadPreview22">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage22" name="imgsede[]" onchange="previewImage(22);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+
+                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
+                                </div>
+                            </div>
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+                                    
+                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
+                                </div>
+                            </div>
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+                                    
+                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
+                                </div>
+                            </div>
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
+                                    
+                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @elseif($objContadorSedes->cantidad == 4)
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview21">
                                     </div>
@@ -3313,7 +3401,9 @@
                                     <input type='file' id="uploadImage21" name="imgsede[]" onchange="previewImage(21);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -3350,9 +3440,9 @@
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview22">
                                     </div>
@@ -3362,7 +3452,9 @@
                                     <input type='file' id="uploadImage22" name="imgsede[]" onchange="previewImage(22);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -3395,14 +3487,13 @@
                             </div>
                         </div>
                     </div>
-
                 @elseif($objContadorSedes->cantidad == 5)
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst  form-group">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview22">
                                     </div>
@@ -3412,7 +3503,9 @@
                                     <input type='file' id="uploadImage22" name="imgsede[]" onchange="previewImage(22);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -3445,9 +3538,8 @@
                             </div>
                         </div>
                     </div>
-
                 @elseif($objContadorSedes->cantidad == 6)
-                    <label for="example-date-input" class="col-12 text_label-formInst pb-0"> No se pueden agregar más sedes </label>
+                    <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más sedes </label>
                 @endif 
 
                 <!-- Botón guardar información -->
@@ -3467,7 +3559,7 @@
             <form method="POST" action="{{ url ('/FormularioInstitucionSave11') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-                @if(!empty($objFormulario))
+                @if(!empty($objFormulario->url_maps))
                     <div class="col-12 px-0">
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formInst"> A continuación enlace las sedes en Google Maps </label>
@@ -3511,13 +3603,13 @@
         </div>
     </div>
 
-    <!-- 7* Contenedor principal de la opción GALERIAS -->
+    <!-- 7* Contenedor principal de la opción GALERIA -->
     <div class="container-fluid gallery_inst content_principal-formInst"> <!-- Clase "gallery_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
         <!--------------------------------------------      Inicio 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------------->
         <div class="col-lg-10 col-xl-8 pb-3 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_galeriaInst-formInst"> Galería </h5>
 
-            <p class="text_superior-proced-formInst"> A continuación suba 10 imágenes como mínimo, con su respectivo nombre y descripción. </p>
+            <p class="text_superior-proced-formInst"> A continuación suba 8 imágenes como máximo, con su respectivo nombre y descripción. </p>
 
             <!-- Modulo de la GALERIA con información -->
             <div class="row col-12 p-0 m-0">
@@ -3533,9 +3625,9 @@
                                 </a>
                             </div>
 
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formInst">
-                                    <img  class="img_publi-formInst" src="{{URL::asset($objGaleria->imggaleria)}}">
+                            <div class="col-12  form-group">
+                                <div class="img_saveGallery-formInst">
+                                    <img  class="img_anexada-formInst" src="{{URL::asset($objGaleria->imggaleria)}}">
                                 </div>
 
                                 <div class="col-12 p-0">
@@ -3563,8 +3655,8 @@
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview23">
                                     </div>
@@ -3574,7 +3666,9 @@
                                     <input type='file' id="uploadImage23" name="imggaleria[]" onchange="previewImage(23);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -3604,8 +3698,8 @@
 
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview24">
                                     </div>
@@ -3615,7 +3709,9 @@
                                     <input type='file' id="uploadImage24" name="imggaleria[]" onchange="previewImage(24);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -3626,299 +3722,7 @@
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
-                        <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview25">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage25" name="imggaleria[]" onchange="previewImage(25);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
-
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
-
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview26">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage26" name="imggaleria[]" onchange="previewImage(26);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
-                        <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview27">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage27" name="imggaleria[]" onchange="previewImage(27);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
-
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
-
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview28">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage28" name="imggaleria[]" onchange="previewImage(28);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
-                        <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
-
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
-
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                @elseif($objContadorGaleria->cantidad == 1)
-                    <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
-                        <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview24">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage24" name="imggaleria[]" onchange="previewImage(24);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
 
                                     <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -3937,9 +3741,9 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview25">
                                     </div>
@@ -3949,7 +3753,9 @@
                                     <input type='file' id="uploadImage25" name="imggaleria[]" onchange="previewImage(25);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -3960,7 +3766,7 @@
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
 
                                     <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -3978,9 +3784,9 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview26">
                                     </div>
@@ -3990,7 +3796,9 @@
                                     <input type='file' id="uploadImage26" name="imggaleria[]" onchange="previewImage(26);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -4001,7 +3809,7 @@
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
 
                                     <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4018,11 +3826,11 @@
                     </div>
 
                     <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
+                    <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview27">
                                     </div>
@@ -4032,7 +3840,9 @@
                                     <input type='file' id="uploadImage27" name="imggaleria[]" onchange="previewImage(27);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -4043,7 +3853,7 @@
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 5 </label>
 
                                     <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4061,9 +3871,9 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview28">
                                     </div>
@@ -4073,7 +3883,9 @@
                                     <input type='file' id="uploadImage28" name="imggaleria[]" onchange="previewImage(28);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -4084,7 +3896,7 @@
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
 
                                     <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4101,11 +3913,11 @@
                     </div>
 
                     <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
+                    <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo7 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview29">
                                     </div>
@@ -4115,7 +3927,9 @@
                                     <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -4126,7 +3940,7 @@
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
 
                                     <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4144,9 +3958,9 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview30">
                                     </div>
@@ -4156,7 +3970,9 @@
                                     <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -4167,7 +3983,313 @@
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                @elseif($objContadorGaleria->cantidad == 1)
+                    <!-- Modulos del contenido GALERIA -->
+                    <div class="row content_antDesp-formInst">
+                        <!-- Contenido GALERIA derecha -->
+                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
+                                    <div class="img_anexada-formInst" id="previewGaleR1">
+                                        <img id="uploadPreview24">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage24" name="imggaleria[]" onchange="previewImage(24);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modulos del contenido GALERIA -->
+                    <div class="row content_antDesp-formInst">
+                        <!-- Contenido GALERIA izquierda -->
+                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
+                                    <div class="img_anexada-formInst" id="previewGaleL1">
+                                        <img id="uploadPreview25">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage25" name="imggaleria[]" onchange="previewImage(25);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
+
+                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+                                    
+                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contenido GALERIA derecha -->
+                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
+                                    <div class="img_anexada-formInst" id="previewGaleR1">
+                                        <img id="uploadPreview26">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage26" name="imggaleria[]" onchange="previewImage(26);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modulos del contenido GALERIA -->
+                    <div class="row content_antDesp-formInst">
+                        <!-- Contenido GALERIA izquierda -->
+                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
+                                    <div class="img_anexada-formInst" id="previewGaleL1">
+                                        <img id="uploadPreview27">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage27" name="imggaleria[]" onchange="previewImage(27);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 5 </label>
+
+                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+                                    
+                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contenido GALERIA derecha -->
+                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
+                                    <div class="img_anexada-formInst" id="previewGaleR1">
+                                        <img id="uploadPreview28">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage28" name="imggaleria[]" onchange="previewImage(28);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modulos del contenido GALERIA -->
+                    <div class="row content_antDesp-formInst">
+                        <!-- Contenido GALERIA izquierda -->
+                        <div class="col-md-6 photo7 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
+                                    <div class="img_anexada-formInst" id="previewGaleL1">
+                                        <img id="uploadPreview29">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
+
+                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+                                    
+                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contenido GALERIA derecha -->
+                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
+                                    <div class="img_anexada-formInst" id="previewGaleR1">
+                                        <img id="uploadPreview30">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
 
                                     <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4187,9 +4309,9 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview25">
                                     </div>
@@ -4199,7 +4321,9 @@
                                     <input type='file' id="uploadImage25" name="imggaleria[]" onchange="previewImage(25);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -4210,7 +4334,7 @@
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
 
                                     <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4228,9 +4352,9 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview26">
                                     </div>
@@ -4240,7 +4364,9 @@
                                     <input type='file' id="uploadImage26" name="imggaleria[]" onchange="previewImage(26);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -4251,216 +4377,7 @@
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
-                        <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview27">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage27" name="imggaleria[]" onchange="previewImage(27);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
-
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
-
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview28">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage28" name="imggaleria[]" onchange="previewImage(28);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
-                        <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
-
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
-
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                @elseif($objContadorGaleria->cantidad == 3)
-                    <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
-                        <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview26">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage26" name="imggaleria[]" onchange="previewImage(26);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
 
                                     <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4479,9 +4396,9 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview27">
                                     </div>
@@ -4491,7 +4408,9 @@
                                     <input type='file' id="uploadImage27" name="imggaleria[]" onchange="previewImage(27);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -4502,7 +4421,7 @@
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 5 </label>
 
                                     <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4520,9 +4439,9 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview28">
                                     </div>
@@ -4532,7 +4451,9 @@
                                     <input type='file' id="uploadImage28" name="imggaleria[]" onchange="previewImage(28);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -4543,7 +4464,7 @@
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
 
                                     <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4560,11 +4481,11 @@
                     </div>
 
                     <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
+                    <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo7 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview29">
                                     </div>
@@ -4574,7 +4495,9 @@
                                     <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -4585,7 +4508,7 @@
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
 
                                     <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4603,9 +4526,9 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview30">
                                     </div>
@@ -4615,7 +4538,9 @@
                                     <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -4626,7 +4551,225 @@
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                @elseif($objContadorGaleria->cantidad == 3)
+                    <!-- Modulos del contenido GALERIA -->
+                        <!-- Contenido GALERIA derecha -->
+                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
+                                    <div class="img_anexada-formInst" id="previewGaleR1">
+                                        <img id="uploadPreview26">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage26" name="imggaleria[]" onchange="previewImage(26);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modulos del contenido GALERIA -->
+                    <div class="row content_antDesp-formInst">
+                        <!-- Contenido GALERIA izquierda -->
+                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
+                                    <div class="img_anexada-formInst" id="previewGaleL1">
+                                        <img id="uploadPreview27">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage27" name="imggaleria[]" onchange="previewImage(27);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 5 </label>
+
+                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+                                    
+                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contenido GALERIA derecha -->
+                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
+                                    <div class="img_anexada-formInst" id="previewGaleR1">
+                                        <img id="uploadPreview28">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage28" name="imggaleria[]" onchange="previewImage(28);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modulos del contenido GALERIA -->
+                    <div class="row content_antDesp-formInst">
+                        <!-- Contenido GALERIA izquierda -->
+                        <div class="col-md-6 photo7 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
+                                    <div class="img_anexada-formInst" id="previewGaleL1">
+                                        <img id="uploadPreview29">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
+
+                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+                                    
+                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contenido GALERIA derecha -->
+                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
+                                    <div class="img_anexada-formInst" id="previewGaleR1">
+                                        <img id="uploadPreview30">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
 
                                     <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4646,9 +4789,9 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview27">
                                     </div>
@@ -4658,7 +4801,9 @@
                                     <input type='file' id="uploadImage27" name="imggaleria[]" onchange="previewImage(27);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -4669,7 +4814,7 @@
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 5 </label>
 
                                     <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4687,9 +4832,9 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview28">
                                     </div>
@@ -4699,7 +4844,9 @@
                                     <input type='file' id="uploadImage28" name="imggaleria[]" onchange="previewImage(28);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -4710,133 +4857,7 @@
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
-                        <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
-
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
-
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                @elseif($objContadorGaleria->cantidad == 5)
-                    <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
-                        <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview28">
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage28" name="imggaleria[]" onchange="previewImage(28);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
 
                                     <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4855,9 +4876,9 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo7 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview29">
                                     </div>
@@ -4867,7 +4888,9 @@
                                     <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -4878,7 +4901,7 @@
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
 
                                     <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4896,9 +4919,9 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview30">
                                     </div>
@@ -4908,7 +4931,9 @@
                                     <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -4919,7 +4944,139 @@
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                @elseif($objContadorGaleria->cantidad == 5)
+                    <!-- Modulos del contenido GALERIA -->
+                    <div class="row content_antDesp-formInst">
+                        <!-- Contenido GALERIA derecha -->
+                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
+                                    <div class="img_anexada-formInst" id="previewGaleR1">
+                                        <img id="uploadPreview28">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage28" name="imggaleria[]" onchange="previewImage(28);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modulos del contenido GALERIA -->
+                    <div class="row content_antDesp-formInst">
+                        <!-- Contenido GALERIA izquierda -->
+                        <div class="col-md-6 photo7 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
+                                    <div class="img_anexada-formInst" id="previewGaleL1">
+                                        <img id="uploadPreview29">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
+
+                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+                                    
+                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contenido GALERIA derecha -->
+                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
+                                    <div class="img_anexada-formInst" id="previewGaleR1">
+                                        <img id="uploadPreview30">
+                                    </div>
+                                </div>
+
+                                <div class="agregar_archivo-formInst">
+                                    <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
 
                                     <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4939,9 +5096,9 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo7 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview29">
                                     </div>
@@ -4951,7 +5108,9 @@
                                     <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
@@ -4962,7 +5121,7 @@
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
 
                                     <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -4980,9 +5139,9 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview30">
                                     </div>
@@ -4992,7 +5151,9 @@
                                     <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -5003,7 +5164,7 @@
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
 
                                     <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -5023,9 +5184,9 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
+                            <div class="col-12  form-group">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview30">
                                     </div>
@@ -5035,7 +5196,9 @@
                                     <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
@@ -5046,7 +5209,7 @@
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
 
                                     <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
                                 </div>
@@ -5063,7 +5226,7 @@
                     </div>
 
                 @elseif($objContadorGaleria->cantidad == 8)
-                    <label for="example-date-input" class="col-12 text_label-formInst pb-0"> No se pueden agregar más imágenes en la galería </label>
+                    <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más imágenes en la galería </label>
                 @endif 
 
                 <!-- Botón guardar información -->
@@ -5097,7 +5260,7 @@
                             </div>
                         
 
-                            <div class="col-12 content_agregarImg-formInst form-group">
+                            <div class="col-12  form-group">
                                 <div class="col-10 img_selccionada-formProf">
                                     <iframe src="{{$objVideo->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
@@ -5133,7 +5296,7 @@
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido VIDEOS izquierda -->
                         <div class="col-md-6 video1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
                                 <div class="agregar_archivo-formInst">
                                     <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
                                 </div>
@@ -5164,106 +5327,7 @@
 
                         <!-- Contenido DERECHO -->
                         <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulos de los VIDEOS -->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
-                        <!-- Contenido VIDEOS izquierda -->
-                        <div class="col-md-6 video1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
-
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
-                                    
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorVideo->cantidad == 1)
-                    <!-- Modulos de los VIDEOS -->
-                    <div class="row content_antDesp-formInst hidden-section-formInst">
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
+                            <div class="col-12 section_inputRight-text-formInst form-group">
                                 <div class="agregar_archivo-formInst">
                                     <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
                                 </div>
@@ -5297,7 +5361,7 @@
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido VIDEOS izquierda -->
                         <div class="col-md-6 video1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
                                 <div class="agregar_archivo-formInst">
                                     <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
                                 </div>
@@ -5328,7 +5392,106 @@
 
                         <!-- Contenido DERECHO -->
                         <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
+                            <div class="col-12 section_inputRight-text-formInst form-group">
+                                <div class="agregar_archivo-formInst">
+                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @elseif($objContadorVideo->cantidad == 1)
+                    <!-- Modulos de los VIDEOS -->
+                    <div class="row content_antDesp-formInst">
+                        <!-- Contenido DERECHO -->
+                        <div class="col-md-6 video2 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst form-group">
+                                <div class="agregar_archivo-formInst">
+                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
+
+                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modulos de los VIDEOS -->
+                    <div class="row content_antDesp-formInst">
+                        <!-- Contenido VIDEOS izquierda -->
+                        <div class="col-md-6 video1 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
+                                <div class="agregar_archivo-formInst">
+                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
+
+                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
+                                    
+                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contenido DERECHO -->
+                        <div class="col-md-6 video2 section_inputRight-text-formInst">
+                            <div class="col-12 section_inputRight-text-formInst form-group">
                                 <div class="agregar_archivo-formInst">
                                     <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
                                 </div>
@@ -5362,7 +5525,7 @@
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido VIDEOS izquierda -->
                         <div class="col-md-6 video1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst content_agregarImg-formInst form-group">
+                            <div class="col-12 section_inputLeft-text-formInst  form-group">
                                 <div class="agregar_archivo-formInst">
                                     <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
                                 </div>
@@ -5393,7 +5556,7 @@
 
                         <!-- Contenido DERECHO -->
                         <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
+                            <div class="col-12 section_inputRight-text-formInst form-group">
                                 <div class="agregar_archivo-formInst">
                                     <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
                                 </div>
@@ -5427,7 +5590,7 @@
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido DERECHO -->
                         <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 content_agregarImg-formInst form-group">
+                            <div class="col-12 section_inputRight-text-formInst form-group">
                                 <div class="agregar_archivo-formInst">
                                     <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
                                 </div>
@@ -5457,7 +5620,7 @@
                         </div>
                     </div>
                 @elseif($objContadorVideo->cantidad == 4)
-                    <label for="example-date-input" class="col-12 text_label-formInst pb-0"> No se pueden agregar más videos </label>
+                    <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más videos </label>
                 @endif 
 
                 <div class="col-12 content_btnEnviar-formProf">
@@ -5469,7 +5632,7 @@
         </div>
         <!--------------------------------------------      Fin 13 treceava parte del formulario *** VIDEOS ***      ---------------------------------------------------------->
         
-        <!-- Secciones de los botones anterior y siguiente -->
+        <!-- Secciones de los botones anterior y finalizar -->
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formInst">
             <div class="col-md-3 content_btn-anter-formInst">
                 <button type="submit" class="boton_inferior-anterior-formInst" onclick="hideBtnPrevious(this)" code-position="galleryInst">
