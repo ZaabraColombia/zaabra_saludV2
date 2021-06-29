@@ -25,7 +25,6 @@ class perfilInstitucionController extends Controller
         $objinstitucionlandinvideo= $this->cargarInfoInstitucLandinVideo($id);
         $objinstitucionlandinSedes= $this->cargarInfoInstitucLandinSedes($id);
         $objinstitucionlandInstitucion= $this->cargarInfoProfesionalInstitucion($id);
-        
       
         return view('instituciones.PerfilInstitucion', compact(
             'objinstitucionlandin',

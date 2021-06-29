@@ -802,19 +802,17 @@
     top: 0;
     bottom: 0;              
 }  
-.img_selccionada-formInst {
+.img_saveCertifi-formInst {
     display: flex;
     justify-content: center;
     margin: auto;
     padding: 0;
     align-items: center;
-    width: 120px;
-    height: 60px;
+    width: 100%;
+    height: 30vh;
     object-fit: contain;
 }
 .img_anexada-formInst {
-    width: 100%;
-    height: 100%;
     object-fit: contain;
 }
 .img_anexada-formInst img {
@@ -922,6 +920,16 @@
     font-family: 'Quicksand', 'Regular';
     color: #0083d6;
     text-transform: inherit;
+}
+.img_saveSede-formInst {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    align-items: center;
+    width: 100%;
+    height: 30vh;
+    object-fit: contain;
 }
 ///// *****   SECCIÓN TARJETA UBIQUE SEDE   ***** /////
 // Sección titulo de la tarjeta ubique la sede
@@ -1044,6 +1052,16 @@
     right: 0;
     top: 0;
     bottom: 0;              
+}
+.img_saveGallery-formInst {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    align-items: center;
+    width: 100%;
+    height: 30vh;
+    object-fit: contain;
 }
 ///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
 
@@ -1759,7 +1777,7 @@
         font-family: 'Roboto', 'Regular';
         font-size: 1em;
         color: #DBDADA;
-        padding: 0 15px;
+        padding: 0 21px;
     }
     .agregar_archivo-formInst1::before {
         background-position-x: 8%;   

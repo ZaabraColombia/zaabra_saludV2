@@ -13493,7 +13493,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .educacion i {
-  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+  background-image: url("/img/landing-profesional/icono-educacion.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -13526,7 +13526,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .experiencia i {
-  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+  background-image: url("/img/landing-profesional/icono-experiencia.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -13554,7 +13554,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .asociaciones i {
-  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+  background-image: url("/img/landing-profesional/icono-asociaciones.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -13587,7 +13587,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .idiomas i {
-  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+  background-image: url("/img/landing-profesional/icono-experiencia.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -13611,7 +13611,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .tratamientos_profesional i {
-  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+  background-image: url("/img/landing-profesional/icono-tratamientos-y-procedimientos.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -13655,7 +13655,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .contains_swiper_premios i {
-  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+  background-image: url("/img/landing-profesional/icono-premios-y-reconocimientos.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -13688,7 +13688,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .publicaciones_profesional i {
-  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+  background-image: url("/img/landing-profesional/icono-publicaciones.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -13732,7 +13732,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .galeria_profesional i {
-  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+  background-image: url("/img/landing-profesional/icono-galeria.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -13754,7 +13754,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .videos_profesional i {
-  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+  background-image: url("/img/landing-profesional/icono-video.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -17406,7 +17406,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .idiomas i {
-  background-image: url("/img/landing-profesional/icono-perfil-profesional.svg");
+  background-image: url("/img/landing-profesional/icono-idiomas.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -21060,11 +21060,9 @@ a:link, a:visited, a:active, a:hover {
   color: #232323;
   font-weight: bold;
   padding-top: calc(0.375rem + 1px);
-  padding-bottom: calc(0.375rem + 1px);
   padding-left: 2%;
   padding-right: 0;
   margin-bottom: 0;
-  line-height: 1.6;
 }
 
 .input_nomApl-formProf {
@@ -21085,6 +21083,7 @@ a:link, a:visited, a:active, a:hover {
 
 .content_btnEnviar-formProf {
   margin-left: auto;
+  margin-bottom: 3%;
   padding: 0;
   display: flex;
   justify-content: flex-end;
@@ -21154,6 +21153,73 @@ a:link, a:visited, a:active, a:hover {
   padding: 0;
 }
 
+.txtInfo_limitante-formProf {
+  font-family: "Roboto", "Regular";
+  color: #E3342F;
+  font-weight: 500;
+  padding: 2% 0;
+}
+
+.consulta_guardada-formProf {
+  margin: 0;
+  margin-top: 3%;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.section_infoConsulta-formProf {
+  width: 32%;
+  padding: 1% 2%;
+  border: 1px solid #DBDADA;
+  border-radius: 3px;
+  box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
+}
+
+.btn_delete-formProf {
+  border-radius: 57px;
+  border: 1px solid #dbdada;
+  width: 11%;
+  height: 100%;
+  background: #019F86;
+  color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.option_consulta-formProf {
+  margin-bottom: 3%;
+  border-bottom: 1px solid #019F86;
+}
+
+.option_consulta-formProf li::marker {
+  color: #019F86;
+}
+
+.title_infoGuardada-formProf {
+  font-family: "Quicksand";
+  font-size: 1.1em;
+  color: #232323;
+  font-weight: bold;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.text_infoGuardada-formProf {
+  font-family: "Roboto";
+  font-size: 1em;
+  color: #232323;
+  padding-left: 2%;
+  padding-right: 0;
+  margin-bottom: 0;
+}
+
 .icon_infoSubPerfil-formProf {
   background-image: url("/img/formulario-profesional/icono-subperfil-profesional.svg");
   background-repeat: no-repeat;
@@ -21186,6 +21252,44 @@ a:link, a:visited, a:active, a:hover {
   text-transform: inherit;
 }
 
+.educacion_guardada-formProf {
+  margin: 0;
+  margin-top: 3%;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: self-start;
+  flex-flow: wrap;
+  flex-wrap: wrap;
+}
+
+.section_infoEducacion-formProf {
+  width: 32%;
+  padding: 1%;
+  border: 1px solid #DBDADA;
+  border-radius: 3px;
+  box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+.btn_deleteEduc-formProf {
+  border-radius: 57px;
+  border: 1px solid #dbdada;
+  width: 10%;
+  height: 3vh;
+  background: #019F86;
+  color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
 .icon_infoExper-formProf {
   background-image: url("/img/formulario-profesional/icono-experiencia.svg");
   background-repeat: no-repeat;
@@ -21207,6 +21311,32 @@ a:link, a:visited, a:active, a:hover {
   padding: 0;
   display: flex;
   justify-content: space-between;
+}
+
+.section_infoExper-formProf {
+  width: 48%;
+  padding: 1%;
+  border: 1px solid #DBDADA;
+  border-radius: 3px;
+  box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2%;
+}
+
+.btn_deleteExper-formProf {
+  border-radius: 57px;
+  border: 1px solid #dbdada;
+  width: 7%;
+  height: 3vh;
+  background: #019F86;
+  color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  font-size: 1.25em;
+  font-weight: bold;
 }
 
 .icon_infoAsocia-formProf {
@@ -21269,9 +21399,9 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/formulario-profesional/icono-subir.svg");
   background-repeat: no-repeat;
   background-position-y: center;
-  background-position-x: 10%;
+  background-position-x: 0%;
   background-size: 5%;
-  font-size: 1.15em;
+  font-size: 1em;
   font-family: "Quicksand", "Regular";
   color: #434343;
   display: flex;
@@ -21296,15 +21426,51 @@ a:link, a:visited, a:active, a:hover {
 
 .text_infoImg-formProf {
   font-family: "Roboto", "Regular";
-  font-size: 1em;
+  font-size: 0.9em;
   color: #DBDADA;
-  padding: 0 15px;
+  padding: 0;
 }
 
-.content_imgGuardada-formProf {
+.asociacion_guardada-formProf {
   margin: 0;
-  padding: 0 3% 0 0;
-  height: 10VH;
+  margin-top: 3%;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.section_infoAsocia-formProf {
+  width: 32%;
+  padding: 1%;
+  border: 1px solid #DBDADA;
+  border-radius: 3px;
+  box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
+}
+
+.content_btnX-cierre-formProf {
+  height: 3vh;
+  padding: 0;
+}
+
+.btn_deleteAsocia-formProf {
+  border-radius: 57px;
+  border: 1px solid #dbdada;
+  width: 10%;
+  height: 100%;
+  background: #019F86;
+  color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.option_asociacion-formProf {
+  margin-bottom: 3%;
 }
 
 .img_guardada-formProf {
@@ -21314,11 +21480,13 @@ a:link, a:visited, a:active, a:hover {
      object-fit: contain;
 }
 
-.content_btnX-cierre-formProf {
-  height: 3vh;
-  padding: 0;
+/*.content_imgGuardada-formProf {
+    margin: 0;
+    padding: 0 3% 0 0;
+    height: 10VH;
 }
 
+}*/
 .icon_infoIdioma-formProf {
   background-image: url("/img/formulario-profesional/icono-idiomas.svg");
   background-repeat: no-repeat;
@@ -21335,12 +21503,37 @@ a:link, a:visited, a:active, a:hover {
   text-transform: inherit;
 }
 
-.img_bandera-forProf {
-  padding-bottom: 3%;
+.btn_deleteIdioma-formProf {
+  border-radius: 57px;
+  border: 1px solid #dbdada;
+  width: 10%;
+  height: 100%;
+  background: #019F86;
+  color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 .content_idmBandera-formProf {
   padding: 0 15px;
+}
+
+.text_idioma-formProf {
+  font-family: "Quicksand";
+  font-size: 1.15em;
+  color: #232323;
+  font-weight: bold;
+  padding: 0;
+  margin-right: 3%;
+  line-height: 1.6;
+}
+
+.img_bandera-forProf {
+  padding-bottom: 3%;
 }
 
 .icon_infoTratam-formProf {
@@ -21409,10 +21602,8 @@ a:link, a:visited, a:active, a:hover {
   margin: auto;
   padding: 0;
   align-items: center;
-  width: 225px;
-  height: 225px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  width: 100%;
+  height: 30vh;
 }
 
 .content_antDesp-formProf {
@@ -21434,6 +21625,65 @@ a:link, a:visited, a:active, a:hover {
 .img_publi-formProf {
   height: 100%;
   width: 100%;
+}
+
+.title_trata-formProf {
+  font-family: "Quicksand";
+  font-size: 1.1em;
+  color: #232323;
+  font-weight: bold;
+  padding-bottom: calc(0.375rem + 1px);
+  margin: 0;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.traProce_guardada-formProf {
+  margin: 0;
+  margin-top: 3%;
+  padding-bottom: 3%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: self-start;
+  flex-flow: wrap;
+  flex-wrap: wrap;
+  border: 1px solid #DBDADA;
+  border-radius: 3px;
+  box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
+}
+
+.content_btnDelet-trata-formProf {
+  height: 4vh;
+  padding: 0;
+}
+
+.btn_deleteTrata-formProf {
+  border-radius: 57px;
+  border: 1px solid #dbdada;
+  width: 3%;
+  height: 3vh;
+  background: #019F86;
+  color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  font-size: 1.25em;
+  font-weight: bold;
+  margin: 0.5%;
+}
+
+.img_traProced-formProf {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.after_formProf {
+  border-left: 1px solid #DBDADA;
 }
 
 .icon_infoPremReco-formProf {
@@ -21458,10 +21708,8 @@ a:link, a:visited, a:active, a:hover {
   margin: auto;
   padding: 0;
   align-items: center;
-  width: 356px;
-  height: 326px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  width: 100%;
+  height: 30vh;
 }
 
 .photo1 .agregar_archivo-formProf::before {
@@ -21552,6 +21800,53 @@ a:link, a:visited, a:active, a:hover {
   bottom: 0;
 }
 
+.btn_deletePremio-formProf {
+  border-radius: 57px;
+  border: 1px solid #dbdada;
+  width: 6%;
+  height: 3vh;
+  background: #019F86;
+  color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.text_fechaPremio-formProf {
+  font-family: "Roboto";
+  font-size: 1em;
+  color: #232323;
+  padding: 2% 0 0 0;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.text_titlePremio-formProf {
+  font-family: "Quicksand";
+  font-size: 1.15em;
+  color: #232323;
+  font-weight: bold;
+}
+
+.descripcion_Premio-formProf {
+  font-family: "Roboto";
+  font-size: 1em;
+  color: #232323;
+  height: 15vh;
+}
+
+.text_descPremio-formProf {
+  font-family: "Roboto";
+  font-size: 1em;
+  color: #232323;
+  margin-bottom: 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
 .icon_infoPublic-formProf {
   background-image: url("/img/formulario-profesional/icono-interno-publicaciones.svg");
   background-repeat: no-repeat;
@@ -21574,10 +21869,8 @@ a:link, a:visited, a:active, a:hover {
   margin: auto;
   padding: 0;
   align-items: center;
-  width: 275px;
-  height: 250px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  width: 100%;
+  height: 30vh;
 }
 
 .photoPub1 .agregar_archivo-formProf::before {
@@ -21624,6 +21917,15 @@ a:link, a:visited, a:active, a:hover {
   bottom: 0;
 }
 
+.text_titlePublic-formProf {
+  font-family: "Quicksand";
+  font-size: 1.15em;
+  color: #232323;
+  font-weight: bold;
+  padding: 0;
+  margin-top: 5%;
+}
+
 .icon_infoGale-formProf {
   background-image: url("/img/formulario-profesional/icono-interno-galeria.svg");
   background-repeat: no-repeat;
@@ -21646,10 +21948,8 @@ a:link, a:visited, a:active, a:hover {
   margin: auto;
   padding: 0;
   align-items: center;
-  width: 365px;
-  height: 326px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  width: 100%;
+  height: 30vh;
 }
 
 /*.photo5 .agregar_archivo-formProf::before {
@@ -23944,21 +24244,19 @@ a:link, a:visited, a:active, a:hover {
   bottom: 0;
 }
 
-.img_selccionada-formInst {
+.img_saveCertifi-formInst {
   display: flex;
   justify-content: center;
   margin: auto;
   padding: 0;
   align-items: center;
-  width: 120px;
-  height: 60px;
+  width: 100%;
+  height: 30vh;
   -o-object-fit: contain;
      object-fit: contain;
 }
 
 .img_anexada-formInst {
-  width: 100%;
-  height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -24073,6 +24371,18 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand", "Regular";
   color: #0083d6;
   text-transform: inherit;
+}
+
+.img_saveSede-formInst {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
+  align-items: center;
+  width: 100%;
+  height: 30vh;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .icon_ubiqueSede-formInst {
@@ -24199,6 +24509,18 @@ a:link, a:visited, a:active, a:hover {
   right: 0;
   top: 0;
   bottom: 0;
+}
+
+.img_saveGallery-formInst {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
+  align-items: center;
+  width: 100%;
+  height: 30vh;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .icon_infoVideo-formInst {
@@ -24984,7 +25306,7 @@ a:link, a:visited, a:active, a:hover {
     font-family: "Roboto", "Regular";
     font-size: 1em;
     color: #DBDADA;
-    padding: 0 15px;
+    padding: 0 21px;
   }
 
   .agregar_archivo-formInst1::before {
