@@ -205,4 +205,13 @@
                 </div>
             </div>     
         </section>
+        <section>
+          <h2><i></i>Profesionales</h2>
+                @foreach ($objinstitucionlandInstitucion as $objinstitucionlandInstitucion)
+                      <p>{{$objinstitucionlandInstitucion->primer_nombre}} {{$objinstitucionlandInstitucion->primer_apellido}}</p>
+                      <p>{{$objinstitucionlandInstitucion->especialidad_uno}}</p>
+                      <p>{{$objinstitucionlandInstitucion->especialidad_dos}}</p>
+                      <img src="{{URL::asset($objinstitucionlandInstitucion->foto_perfil_institucion)}}">
+                @endforeach
+        </section>
 @endsection
