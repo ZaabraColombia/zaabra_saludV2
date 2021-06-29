@@ -70,6 +70,25 @@ document.addEventListener('DOMContentLoaded', function () {
           },
         }
       });
+      
+      const menu_insti = [].slice.apply(document.querySelectorAll('.item_landing_insti'))
+      const sections_insti = [].slice.apply(document.querySelectorAll('.sections_insti'))
+
+      document.querySelector('.landingInsti').addEventListener('click', el => {
+
+        if (el.target.classList.contains('item_landing_insti')) {
+
+           let itera_insti = menu_insti.indexOf(el.target)
+           sections_insti.map(seccionInst => seccionInst.classList.remove('sections_insti_active'))
+           menu_insti.map(menuInst => menuInst.classList.remove(
+             'servicios_clicked',
+             'acerca_clicked',
+             'certificados_clicked',
+             'sedes_clicked',
+             'gale-inst_clicked'))
+
+        }
+      })
 
 });
 

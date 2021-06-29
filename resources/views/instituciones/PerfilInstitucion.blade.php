@@ -53,27 +53,27 @@
         <section class="contains_swiper_institucion">
             <h1>¿Por qué es un centro médico de alto nivel?</h1>
             <div class="swiper-container swiper_institucion">
-                <div class="swiper-wrapper landingProf">
+                <div class="swiper-wrapper landingInsti">
                     <li class="swiper-slide">
-                        <a class="item_landing perfil perfil_clicked"><span>Servicios profesionales</span></a>
+                        <a class="item_landing_insti servicios servicios_clicked"><span>Servicios profesionales</span></a>
                     </li>
                     <li class="swiper-slide">
-                        <a class="item_landing tratamientos"><span>Acerca de la Institución</span></a>
+                        <a class="item_landing_insti acerca"><span>Acerca de la Institución</span></a>
                     </li>
                     <li class="swiper-slide">
-                        <a class="item_landing premios"><span>Certificaciones</span></a>
+                        <a class="item_landing_insti certificados"><span>Certificaciones</span></a>
                     </li>
                     <li class="swiper-slide">
-                        <a class="item_landing publicaciones"><span>Sedes</span></a>
+                        <a class="item_landing_insti sedes"><span>Sedes</span></a>
                     </li>
                     <li class="swiper-slide">
-                        <a class="item_landing galeria"><span>Galería</span></a>
+                        <a class="item_landing_insti galeria"><span>Galería</span></a>
                     </li>
                 </div>
             </div>
         </section>
 
-        <section class="section_servicios_institucion">
+        <section class="sections_insti_active section_servicios_institucion">
 
             <div class="servicios_instituciones">
                 <h2><i></i>Servicios profesionales</h2>
@@ -105,7 +105,7 @@
             </div>
         </section>
 
-        <section class=".sections_insti .sections_insti_active section_acerca_institucion">
+        <section class="sections_insti section_acerca_institucion">
 
             <div class="quienes_somos">
                 <h2><i></i>¿Quiénes somos?</h2>
@@ -143,7 +143,7 @@
             </div>
         </section>
 
-        <section class=".sections_insti contains_swiper_certificados">
+        <section class="sections_insti contains_swiper_certificados">
             <h2><i></i>Certificados</h2>
             <div class="swiper-container swiper_certificados">
                 <div class="swiper-wrapper">
@@ -159,7 +159,7 @@
             </div>
         </section>
 
-        <section class=".sections_insti section_sedes_institucion">
+        <section class="sections_insti section_sedes_institucion">
             <div class="sedes_institucion">
                 <h2><i></i>Sedes</h2>
                 <div class="container_cards">
@@ -178,7 +178,7 @@
             </div>
         </section>
 
-        <section class=".sections_insti galeriayvideo">
+        <section class="sections_insti galeriayvideo">
             <div class="galeria_institucion">
                 <h2><i></i>Galería</h2>
                 <ul class="gallery_institucion">
