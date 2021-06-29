@@ -340,7 +340,7 @@
             <form method="POST" action="{{ url ('/FormularioInstitucionSave3') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-                @if(!empty($objFormulario))
+                @if(!empty($objFormulario->DescripcionGeneralServicios))
                     <div class="col-12 px-0">
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Escriba una breve descripción de su servicio </label>
@@ -397,11 +397,15 @@
                             
                                 <span>{{$objServicio->DescripcioServicios}} </span>
                             </div>
-
+                            
                             <div class="col-12 px-0">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
-                            
-                                <span>{{$objServicio->sucursalservicio}} </span>
+                                @if($objServicio->sucursalservicio) 
+                                    @php  $new_array = explode(',',$objServicio->sucursalservicio); @endphp
+                                @endif
+                                @foreach($new_array as $info)
+                                    <li> {{$info}} </li>
+                                @endforeach
                             </div>
                         </div>   
                     @endif
@@ -968,7 +972,7 @@
             <form method="POST" action="{{ url ('/FormularioInstitucionSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-                @if(!empty($objFormulario))
+                @if(!empty($objFormulario->quienessomos))
                     <div class="col-12 px-0">
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Escriba una breve descripción de ¿Quiénes son? </label>
@@ -1005,7 +1009,7 @@
             <form method="POST" action="{{ url ('/FormularioInstitucionSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-                @if(!empty($objFormulario))
+                @if(!empty($objFormulario->propuestavalor))
                     <div class="col-12 px-0">
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Escriba una breve descripción de la propuesta de valor </label>
@@ -1875,7 +1879,7 @@
                             
                             <div class="col-12  form-group">
 
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <img class="img_anexada-formInst"  src="{{URL::asset($objCertificaciones->imgcertificado)}}">
                                 </div>
 
@@ -1911,7 +1915,7 @@
                         <!-- CERTIFICACIÓN izquierda -->
                         <div class="col-md-6 photo1 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview13">
                                     </div>
@@ -1956,7 +1960,7 @@
                         <!-- CERTIFICACIÓN derecha -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview14">
                                     </div>
@@ -2004,7 +2008,7 @@
                         <!-- CERTIFICACIÓN izquierda -->
                         <div class="col-md-6 photo3 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                     <img id="uploadPreview15">
                                     </div>
@@ -2049,7 +2053,7 @@
                         <!-- CERTIFICACIÓN derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview16">
                                     </div>
@@ -2091,14 +2095,13 @@
                             </div>
                         </div>
                     </div>
-
                 @elseif($objContadorCertificaciones->cantidad == 1)
                     <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
                         <!-- CERTIFICACIÓN derecha -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview14">
                                     </div>
@@ -2146,7 +2149,7 @@
                         <!-- CERTIFICACIÓN izquierda -->
                         <div class="col-md-6 photo3 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                     <img id="uploadPreview15">
                                     </div>
@@ -2191,7 +2194,7 @@
                         <!-- CERTIFICACIÓN derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview16">
                                     </div>
@@ -2233,14 +2236,13 @@
                             </div>
                         </div>
                     </div>
-
                 @elseif($objContadorCertificaciones->cantidad == 2)
                     <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
                         <!-- CERTIFICACIÓN izquierda -->
                         <div class="col-md-6 photo3 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                     <img id="uploadPreview15">
                                     </div>
@@ -2285,7 +2287,7 @@
                         <!-- CERTIFICACIÓN derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview16">
                                     </div>
@@ -2333,7 +2335,7 @@
                         <!-- CERTIFICACIÓN derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveCertifi-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview16">
                                     </div>
@@ -2429,7 +2431,7 @@
                             </div>
                             
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <img class="img_anexada-formInst" src="{{URL::asset($objSedes->imgsede)}}">
                                 </div>
 
@@ -2470,7 +2472,7 @@
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo1 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview17">
                                     </div>
@@ -2521,7 +2523,7 @@
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview18">
                                     </div>
@@ -2572,7 +2574,7 @@
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo3 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview19">
                                     </div>
@@ -2623,7 +2625,7 @@
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview20">
                                     </div>
@@ -2674,7 +2676,7 @@
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo5 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview21">
                                     </div>
@@ -2725,7 +2727,7 @@
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview22">
                                     </div>
@@ -2777,7 +2779,7 @@
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview18">
                                     </div>
@@ -2828,7 +2830,7 @@
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo3 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview19">
                                     </div>
@@ -2879,7 +2881,7 @@
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview20">
                                     </div>
@@ -2930,7 +2932,7 @@
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo5 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview21">
                                     </div>
@@ -2981,7 +2983,7 @@
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview22">
                                     </div>
@@ -3026,14 +3028,13 @@
                             </div>
                         </div>
                     </div>
-
                 @elseif($objContadorSedes->cantidad == 2)
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo3 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview19">
                                     </div>
@@ -3084,7 +3085,7 @@
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview20">
                                     </div>
@@ -3135,7 +3136,7 @@
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo5 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview21">
                                     </div>
@@ -3186,7 +3187,7 @@
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview22">
                                     </div>
@@ -3231,14 +3232,13 @@
                             </div>
                         </div>
                     </div>
-
                 @elseif($objContadorSedes->cantidad == 3)
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview20">
                                     </div>
@@ -3289,7 +3289,7 @@
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo5 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview21">
                                     </div>
@@ -3340,7 +3340,7 @@
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview22">
                                     </div>
@@ -3391,7 +3391,7 @@
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo5 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview21">
                                     </div>
@@ -3442,7 +3442,7 @@
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview22">
                                     </div>
@@ -3487,14 +3487,13 @@
                             </div>
                         </div>
                     </div>
-
                 @elseif($objContadorSedes->cantidad == 5)
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveSede-formInst">
                                     <div class="img_anexada-formInst">
                                         <img id="uploadPreview22">
                                     </div>
@@ -3539,7 +3538,6 @@
                             </div>
                         </div>
                     </div>
-
                 @elseif($objContadorSedes->cantidad == 6)
                     <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más sedes </label>
                 @endif 
@@ -3561,7 +3559,7 @@
             <form method="POST" action="{{ url ('/FormularioInstitucionSave11') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-                @if(!empty($objFormulario))
+                @if(!empty($objFormulario->url_maps))
                     <div class="col-12 px-0">
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formInst"> A continuación enlace las sedes en Google Maps </label>
@@ -3628,8 +3626,8 @@
                             </div>
 
                             <div class="col-12  form-group">
-                                <div class="img_selccionada-formInst">
-                                    <img  class="img_publi-formInst" src="{{URL::asset($objGaleria->imggaleria)}}">
+                                <div class="img_saveGallery-formInst">
+                                    <img  class="img_anexada-formInst" src="{{URL::asset($objGaleria->imggaleria)}}">
                                 </div>
 
                                 <div class="col-12 p-0">
@@ -3658,7 +3656,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo1 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview23">
                                     </div>
@@ -3701,7 +3699,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview24">
                                     </div>
@@ -3745,7 +3743,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo3 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview25">
                                     </div>
@@ -3788,7 +3786,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview26">
                                     </div>
@@ -3832,7 +3830,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo5 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview27">
                                     </div>
@@ -3875,7 +3873,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview28">
                                     </div>
@@ -3919,7 +3917,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo7 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview29">
                                     </div>
@@ -3962,7 +3960,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview30">
                                     </div>
@@ -4007,7 +4005,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview24">
                                     </div>
@@ -4051,7 +4049,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo3 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview25">
                                     </div>
@@ -4094,7 +4092,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview26">
                                     </div>
@@ -4138,7 +4136,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo5 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview27">
                                     </div>
@@ -4181,7 +4179,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview28">
                                     </div>
@@ -4225,7 +4223,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo7 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview29">
                                     </div>
@@ -4268,7 +4266,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview30">
                                     </div>
@@ -4313,7 +4311,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo3 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview25">
                                     </div>
@@ -4356,7 +4354,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview26">
                                     </div>
@@ -4400,7 +4398,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo5 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview27">
                                     </div>
@@ -4443,7 +4441,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview28">
                                     </div>
@@ -4487,7 +4485,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo7 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview29">
                                     </div>
@@ -4530,7 +4528,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview30">
                                     </div>
@@ -4574,7 +4572,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview26">
                                     </div>
@@ -4618,7 +4616,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo5 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview27">
                                     </div>
@@ -4661,7 +4659,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview28">
                                     </div>
@@ -4705,7 +4703,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo7 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview29">
                                     </div>
@@ -4748,7 +4746,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview30">
                                     </div>
@@ -4793,7 +4791,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo5 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview27">
                                     </div>
@@ -4836,7 +4834,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview28">
                                     </div>
@@ -4880,7 +4878,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo7 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview29">
                                     </div>
@@ -4923,7 +4921,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview30">
                                     </div>
@@ -4968,7 +4966,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview28">
                                     </div>
@@ -5012,7 +5010,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo7 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview29">
                                     </div>
@@ -5055,7 +5053,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview30">
                                     </div>
@@ -5100,7 +5098,7 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo7 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleL1">
                                         <img id="uploadPreview29">
                                     </div>
@@ -5143,7 +5141,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview30">
                                     </div>
@@ -5188,7 +5186,7 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_selccionada-formInst">
+                                <div class="col-10 img_saveGallery-formInst">
                                     <div class="img_anexada-formInst" id="previewGaleR1">
                                         <img id="uploadPreview30">
                                     </div>
@@ -5634,7 +5632,7 @@
         </div>
         <!--------------------------------------------      Fin 13 treceava parte del formulario *** VIDEOS ***      ---------------------------------------------------------->
         
-        <!-- Secciones de los botones anterior y siguiente -->
+        <!-- Secciones de los botones anterior y finalizar -->
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formInst">
             <div class="col-md-3 content_btn-anter-formInst">
                 <button type="submit" class="boton_inferior-anterior-formInst" onclick="hideBtnPrevious(this)" code-position="galleryInst">
