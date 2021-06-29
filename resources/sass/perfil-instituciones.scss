@@ -84,46 +84,46 @@
     margin-left: auto;
     margin-right: auto;
 }
-.perfil {
-    background-image: url('/img/landing-profesional/icono-principal-perfil-profesional-normal.svg');
+.servicios {
+    background-image: url('/img/landing-institucion/icono-principal-servicios-profesionales.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
-.tratamientos {
-    background-image: url('/img/landing-profesional/icono-principal-tratamientos-y-procedimientos.svg');
+.acerca {
+    background-image: url('/img/landing-institucion/icono-acerca-de-la-institucion.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
-.premios {
-    background-image: url('/img/landing-profesional/icono-pricipal-premios-y-reconocimientos.svg');
+.certificados {
+    background-image: url('/img/landing-institucion/icono-certificaciones.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
-.publicaciones {
-    background-image: url('/img/landing-profesional/icono-principal-publicaciones.svg');
+.sedes {
+    background-image: url('/img/landing-institucion/icono-principal-sedes.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
 .galeria {
-    background-image: url('/img/landing-profesional/icono-principal-galeria.svg');
+    background-image: url('/img/landing-institucion/icono-galeria.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
 
-.perfil_clicked {
-    background-image: url('/img/landing-profesional/icono-principal-perfil-profesional-azul.svg');
+.servicios_clicked {
+    background-image: url('/img/landing-institucion/icono-principal-servicios-profesionales-verde.svg');
 }
-.tratamientos_clicked {
-    background-image: url('/img/landing-profesional/icono-principal-tratamientos-y-procedimientos-azul.svg');
+.acerca_clicked {
+    background-image: url('/img/landing-institucion/icono-acerca-de-la-institucion-verde.svg');
 }
-.premios_clicked {
-    background-image: url('/img/landing-profesional/icono-pricipal-premios-y-reconocimientos-azul.svg');
+.certificados_clicked {
+    background-image: url('/img/landing-institucion/icono-certificaciones-verde.svg');
 }
-.publicaciones_clicked {
-    background-image: url('/img/landing-profesional/icono-principal-publicaciones-azul.svg');
+.sedes_clicked {
+    background-image: url('/img/landing-institucion/icono-principal-sedes-verde.svg');
 }
-.galeria_clicked {
-    background-image: url('/img/landing-profesional/icono-principal-galeria-azul.svg');
+.gale-inst_clicked {
+    background-image: url('/img/landing-institucion/icono-galeria-verde.svg');
 }
 .contains_swiper_institucion{
     max-width: 100%;
@@ -408,10 +408,10 @@
     color: #3E3E3E;
     text-align: center;
 }
-.sections_active{
+.sections_insti_active{
     display: block !important;
 }
-.sections{
+.section_insti{
     display: none;
 }
 .lista_sede{

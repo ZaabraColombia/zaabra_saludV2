@@ -1825,7 +1825,7 @@
                             <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
                                 <div class="col-10 img_selccionada-formProf">
                                     <div class="img_anexada-formProf">
-                                        <img id="uploadPreview9" width="150" height="150"/>
+                                        <img id="uploadPreview9"/>
                                     </div>
                                 </div>
 
@@ -2027,7 +2027,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
 
-                                    <input class="form-control" id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio"  type="text" maxlength="200" name="descripcionpremio[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -2071,7 +2071,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
                                     
-                                    <input class="form-control" id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio"  type="text" maxlength="200" name="descripcionpremio[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -2112,7 +2112,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
 
-                                    <input class="form-control" id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio"  type="text" maxlength="200" name="descripcionpremio[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -2157,7 +2157,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
                                     
-                                    <input class="form-control" id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio"  type="text" maxlength="200" name="descripcionpremio[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -2198,7 +2198,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
 
-                                    <input class="form-control" id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio"  type="text" maxlength="200" name="descripcionpremio[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -2243,7 +2243,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
 
-                                    <input class="form-control" id="descripcionpremio"  type="text" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio"  type="text" maxlength="200" name="descripcionpremio[]" value="">
                                 </div>
                             </div>
                         </div>
