@@ -15,19 +15,22 @@
                 <form id="newsletter" method="post" action="javascript:void(0)" class="row form_suscribirme">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                     <input class="col-lg-8 col-xl-7 input_suscribirme" type="email" id="correo_newsletter" name="correo_newsletter" placeholder="zaabra@gmail.com">
-                    <button class="col-lg-3 col-xl-2 boton_suscribirme" id="send_form" type="submit">
-                    <span> Suscribirme </span>
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="boton_icon-flecha" alt=""> 
+
+                    <button class="col-lg-3 col-xl-2 boton_suscribirme" id="send_form" type="submit"  data-toggle="modal" data-target="#exampleModa">
+                        <span> Suscribirme </span>
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="boton_icon-flecha" alt=""> 
+                    </button>
+
+                    <div class="col-lg-10 terminos_contenido d-none d-lg-flex">
+                        <input class="checkBox_terminos" type="checkbox" id="">
+                        <h4 class="texto_terminos">Acepto <b><u>términos y condiciones</u></b> y autorizo el <b><u>tratamiento de mis datos personales</u></b></h4>
+                    </div>
                 </form>
             </div>
+
+
             <!-- Column terminos -->
-            <div class="col-lg-8 terminos_contenido d-none d-lg-flex">
-                <input class="checkBox_terminos" type="checkbox" id="">
-                <h4 class="texto_terminos">Acepto <b><u>términos y condiciones</u></b> y autorizo el <b><u>tratamiento de mis datos personales</u></b></h4>
-            </div>
-            <div class="alert alert-success d-none mt-5" id="msg_div">
-                 <span id="res_message"></span>
-            </div>
+
             <!--******************************     Column form suscribirme version MOBILE      *********************************-->
             <form id="newsletter" method="post" action="javascript:void(0)" class="row col-10 col-md-9 p-0 m-auto d-block d-lg-none">
                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
@@ -38,7 +41,7 @@
                         y autorizo el <b><u>tratamiento de mis datos personales</u></b>
                     </span>
                 </div>
-                <button id="send_form" type="submit" class="col-5 col-md-4 mb-2 boton_suscribirme-cel" >
+                <button id="send_form" type="submit" class="col-5 col-md-4 mb-2 boton_suscribirme-cel" data-toggle="modal" data-target="#exampleModa">
                 <span> Suscribirme </span>
                 <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icono_flecha-suscribirme-cel" alt=""> 
             </form>

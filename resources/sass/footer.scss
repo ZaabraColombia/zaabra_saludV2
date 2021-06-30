@@ -28,7 +28,8 @@
 }
 // Newsletter input y botón suscribirme
 .suscribirme_contenido {
-    margin: 1% auto;
+    margin: auto;
+    margin-top: 1%;
     padding: 0; 
 }
 .form_suscribirme {
@@ -60,7 +61,7 @@
 }
 // Newaletter check terminos y condiciones
 .terminos_contenido {
-    margin: auto;
+    margin: 1% auto;
     padding: 0;
     display: flex;
     align-items: center;
@@ -179,6 +180,22 @@
     color: #ffffff;
 
 }
+
+
+.alert1 {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    color: #1d643b;
+    background-color: #d7f3e3;
+    border-color: #c7eed8;
+    width: 100%;
+    height: 10vh;
+}
+
+
 @media (min-width: 320px) and (orientation: portrait) {
     // Newslwtter titulo y texto
     .newsletter_titulo {
@@ -419,7 +436,7 @@
     // Newsletter check terminos y condiciones
     .boton_check-terminos-cel {
         width: 4%;
-        height: 2vh;
+        height: 1.5vh;
     }
     .texto_terminos-cel {
         font-size: 1em;
