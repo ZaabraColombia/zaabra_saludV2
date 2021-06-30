@@ -629,15 +629,15 @@
                         <div class="form-group">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Escriba una breve descripción de su biografía </label>
 
-                            <textarea class="form-control" id="descripcionPerfil"  type="text" name="descripcionPerfil" >{{$objFormulario->descripcionPerfil}}</textarea>
+                            <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil" >{{$objFormulario->descripcionPerfil}}</textarea>
                         </div>
                     </div>
                 @else
                     <div class="col-12 px-0">
                         <div class="form-group">
-                            <label for="example-date-input" class="col-12 text_label-formProf" maxlength="270" > Escriba una breve descripción de su biografía </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Escriba una breve descripción de su biografía </label>
 
-                            <textarea class="form-control" id="descripcionPerfil"  type="text" name="descripcionPerfil" ></textarea>
+                            <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil" ></textarea>
 
                             <labe class="col-12 text_infoImg-formProf"> 270 Caracteres </label> 
                         </div>
@@ -1344,9 +1344,9 @@
                             </div>
 
                             <div class="">
-                                <label for="example-date-input" class="text_idioma-formProf"> {{$objIdiomas->nombreidioma}}</label>
-
                                 <img id="imagenPrevisualizacion" class="img_bandera-forProf" src="{{URL::asset($objIdiomas->imgidioma)}}">
+                                
+                                <label for="example-date-input" class="text_idioma-formProf"> {{$objIdiomas->nombreidioma}}</label>
                             </div>
                         </div>
                     @endif
