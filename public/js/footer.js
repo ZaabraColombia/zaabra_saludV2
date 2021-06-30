@@ -42,26 +42,12 @@ $('.evento_acordion .containt_options-collapse-membresia').on( "click", function
 	$(this).find(".boton_collapse-off-membresia").toggleClass("boton_collapse-on-membresia");
 });
 
-// Función para el cambio de background y del icono (+ y -) de las opciones de Acerca de zzaabra, politicas de uso y preguntas frecuentes del FOOTER 
-// Acerca de Zaabra
-/*unction colorBtnToggle (element) {
-    let cambioColorBtn = element.getAttribute("aria-expanded");
 
-    if (cambioColorBtn == 'false') {
-        $(element).removeClass('boton_collapse-off-acerca');
-        $(element).addClass('boton_collapse-on-acerca');
-        $(element).attr('aria-expanded', 'false')
-    }
-    
-    // Condicional para oopciones en estado activo o desplegadas
-    else{
-        $(element).removeClass('boton_collapse-on-acerca');
-        $(element).addClass('boton_collapse-off-acerca');
-        $(element).attr('aria-expanded', 'true')
-    }
-}*/
-
-
+// Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "membresiaProfesional" y "membresiaInstitucion" 
+$('.evento_acordion .containt_options-collapse-institucion').on( "click", function() {
+	$(this).siblings().find(".boton_collapse-off-institucion").removeClass("boton_collapse-on-institucion");
+	$(this).find(".boton_collapse-off-institucion").toggleClass("boton_collapse-on-institucion");
+});
 
 
 $('#newsletter').on('submit',function(e){
