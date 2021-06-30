@@ -478,14 +478,14 @@
     }
     .title-adress i, .title-url i, .title-tel i{
         width: 16%;
-        height: 16px;
+        height: 20px;
     }
     .data_instituciones h5{
         font-size: 0.8em;
         text-transform: none;
     }
     .data_instituciones .title-adress{
-        width: 120%;
+        width: 85%;
         margin-left: 0;
     }
     .data_instituciones .rating-stars ul{
@@ -686,6 +686,13 @@
         width: 90px;
         height: 90px;
     }
+    .mapa{
+        width: 85%;
+        margin : auto;
+    }
+    .mapa iframe{
+        width: 100%;
+    }
     .swiper_certificados{
         max-width: 70%;
     }
@@ -882,7 +889,7 @@
     }
     .title-adress i, .title-url i, .title-tel i {
         width: 19%;
-        height: 25px;
+        height: 30px;
     }
     .contains_swiper_institucion h1 {
         font-size: 2em;
@@ -917,7 +924,7 @@
     }
     .servicios_instituciones p,
     .quienes_somos p {
-        font-size: 1.3em;
+        font-size: 1.1em;
         padding-left: 10%;
     }
     .desplegable_institucion .card{
@@ -1030,6 +1037,11 @@
         width: 150px;
         height: 150px;
     }
+    .mapa {
+        width: 75%;
+        margin: auto;
+        margin-top: 5%;
+    }
     .contains_swiper_certificados h2 {
         font-size: 1.8em;
         margin-bottom: 7%;
@@ -1081,7 +1093,7 @@
         height: 45px;
     }
     .videos_institucion .card{
-        width: 60%;
+        width: 45%;
     }
     .videos_institucion .card .card-img-top{
         height: 35vh;
@@ -1092,6 +1104,12 @@
     }
     .videos_institucion p {
         font-size: 1.1em;
+    }
+    .rating-stars ul > li.star > i.fa{
+        font-size: 1.8em;
+    }
+    .data_instituciones .contains_buttons{
+        width: 70%;
     }
 }
 @media (min-width: 1024px){
@@ -1204,13 +1222,20 @@
         padding-top: 5%;
         padding-bottom: 5%;
     }
-    .desplegable_institucion .boton_collapse-off-membresia{
+    .desplegable_institucion .boton_collapse-off-institucion{
         height: 4vh;
         background-size: 3%;
     }
+    .boton_collapse-on-institucion{
+        background-size: 3% !important;
+    }
+
 }
 @media (min-width: 1024px) and (max-height: 800px){
 
+    .rating-stars ul > li.star > i.fa{
+        font-size: 1.4em;
+    }
     .section_data_instituciones{
         height: auto;
         padding-top: 2%;
@@ -1263,6 +1288,7 @@
         margin-bottom: 2%;
     }
     .data_instituciones .contains_buttons{
+        width: 55%;
         margin-top: 2%;
     }
     .data_instituciones .contains_buttons a {
@@ -1371,6 +1397,13 @@
         width: 80%;
         margin-bottom: 3%;
     }
+    .desplegable_institucion .boton_collapse-off-institucion{
+        height: 7vh;
+        background-size: 3%;
+    }
+    .boton_collapse-on-institucion{
+        background-size: 3% !important;
+    }
 }
 
 
@@ -1450,6 +1483,11 @@
         padding-left: 4%;
         font-weight: 500;
     }
+    .data_instituciones .title-url, .title-tel {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+    }
     .title-adress i, .title-url i, .title-tel i {
         width: 15%;
         height: 28px;
@@ -1485,12 +1523,8 @@
     .desplegable_institucion .card-header button {
         font-size: 1.5em;
         color: #434343;
-        background-size: 2.5%;
-    }
-    .boton_collapse-on-institucion {
         background-size: 2.5% !important;
     }
-
     .idiomas ul li {
         flex-direction: row;
         justify-content: space-evenly;
@@ -1512,18 +1546,21 @@
         flex-wrap: wrap;
     }
     .sedes_institucion .card {
-        width: 35%;
+        width: 45%;
         margin-bottom: 0;
     }
     .sedes_institucion .card h4, h6 {
         font-size: 1.3em;
     }
     .sedes_institucion .card-body h5 {
-        font-size: 1.5em;
+        font-size: 1.2em;
     }
     .sedes_institucion p {
-        font-size: 1.1em;
+        font-size: 1em;
         font-weight: 500;
+    }
+    .sedes_institucion span {
+        font-size: 1em;
     }
     .sedes_institucion h2{
         font-size: 1.6em;
@@ -1550,6 +1587,11 @@
     .videos_institucion .card {
         width: 30%;
     }
+    .galeria_institucion {
+        display: flow-root;
+        height: auto;
+        margin-bottom: 5%;
+    }
     .videos_institucion .card-body h5 {
         font-size: 1.4em;
         text-align: left;
@@ -1557,6 +1599,12 @@
     .videos_institucion p {
         font-size: 0.8em;
         text-align: left;
+    }
+    .videos_institucion h2 {
+        font-size: 1.6em;
+    }
+    .videos_institucion .card .card-img-top {
+        height: 25vh;
     }
 }
 
