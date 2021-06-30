@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Carbon\Carbon ; 
 use App\Models\User;
+use App\Models\users_roles;
+use App\Models\pagos;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -12,8 +15,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MailNotify;
 
-class RegisterController extends Controller
-{
+
+class RegisterController extends Controller{
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -50,12 +53,11 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
     protected function validator(array $data)
     {
-        
+
         return Validator::make($data, [
-            'primernombre' => ['required', 'string', 'max:25'],
-            'primerapellido' => ['required', 'string', 'max:25'],
             'tipodocumento' => ['required', 'string', 'max:10'],
             'numerodocumento' => ['required', 'numeric', 'max:9923372036854775807'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -69,13 +71,9 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
-    {
+    protected function create(array $data){
 
-        
-
-        $data['confirmation_code'] = str::random(25);
-
+     
         $user = User::create([
             'primernombre' => $data['primernombre'],
             'segundonombre' => $data['segundonombre'],
@@ -88,22 +86,34 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+
+        $id_user=$user->id;
       
-        return $user;
+         users_roles::create([
+            'iduser' =>  $id_user,
+            'idrol' => $data['idrol'],
+        ]);
+
+      
+        $id_rol=$data['idrol'];
+        $fechaActual = Carbon::now();
+        $fecha_fin_actual= Carbon::now();
+        $fecha_fin = $fecha_fin_actual->addDays(15);
+
+        if($id_rol <> 1){
+            pagos::create([
+                'fecha'=> $fechaActual,
+                'fechaFin'=> $fecha_fin,
+                'idUsuario' =>  $id_user,
+                'idtipopago' => 14,
+                'valor'=> 0,
+                'aprobado'=>1,
+            ]);
+        }
+
+
+        return $user; 
     }
 
-    public function verify($code)
-    {
-     $user = User::where('confirmation_code', $code)->first();
 
-     if (!$user)
-     {
-         return redirect('/');
-     }
-     $user->confirmed=true;
-     $user->confirmation_code=null;
-     $user->save();
-
-     return redirect('/login')->with('notification', 'Has confirmado correctamente tu correo');
-    }
 }

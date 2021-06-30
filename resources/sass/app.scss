@@ -6,6 +6,28 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
 @import 'header';
 @import 'footer';
+@import 'acerca';
+@import 'politicas';
+@import 'preguntas';
+@import 'home';
+@import 'galeria-profesiones';
+@import 'galeria-especialidades';
+@import 'perfil-profesionales';
+@import 'profesionales';
+@import 'instituciones';
+@import 'perfil-instituciones';
+@import 'entidades';
+@import 'login';
+@import 'register';
+@import 'email';
+@import 'membresia-profesional';
+@import 'formulario-profesional';
+@import 'membresia-institucion';
+@import 'formulario-institucion';
+@import 'contacto';
+@import 'error101';
+@import 'popup-pago';
+@import 'dashboard';
+$urlZaabra: 'http://localhost:8000/';

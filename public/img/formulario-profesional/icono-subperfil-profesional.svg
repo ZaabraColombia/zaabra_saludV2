@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <g id="Grupo_1884" data-name="Grupo 1884" transform="translate(-313 -465)">
+    <g id="Grupo_1160" data-name="Grupo 1160" transform="translate(-6 -168)">
+      <g id="Grupo_1158" data-name="Grupo 1158">
+        <g id="Elipse_129" data-name="Elipse 129" transform="translate(319 633)" fill="none" stroke="#019f86" stroke-width="2">
+          <circle cx="13" cy="13" r="13" stroke="none"/>
+          <circle cx="13" cy="13" r="12" fill="none"/>
+        </g>
+      </g>
+    </g>
+    <g id="user-plus" transform="translate(318 467.25)">
+      <path id="Trazado_431" data-name="Trazado 431" d="M11.88,19.352V17.9a2.9,2.9,0,0,0-2.9-2.9H3.9A2.9,2.9,0,0,0,1,17.9v1.451" transform="translate(0 -3.296)" fill="none" stroke="#019f86" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <circle id="Elipse_157" data-name="Elipse 157" cx="2.901" cy="2.901" r="2.901" transform="translate(3.539 3)" fill="none" stroke="#019f86" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="Línea_143" data-name="Línea 143" y2="4" transform="translate(15 6.75)" fill="none" stroke="#019f86" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="Línea_144" data-name="Línea 144" x1="4" transform="translate(13 8.75)" fill="none" stroke="#019f86" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class pais extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'id_pais',
+        'codigo',
+        'nombre'
+    ];
 }

@@ -1,0 +1,1975 @@
+.section_data_profesionales, .section_data_consulta{
+    background: #F5F5F5;
+}
+.data_profesionales{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.data_profesionales img{
+    box-shadow: 0px 3px 6px #00000029
+}
+.data_profesionales .contains_info{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.data_profesionales h2{
+    font-family: "Quicksand", sans-serif;
+    color: #0083d6;
+    font-weight: bold;
+    text-align: center;
+}
+.data_profesionales h1{
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #232323;
+}
+.data_profesionales h5{
+    font-family: "Roboto";
+    font-weight: bolder;
+    color: #3E3E3E;
+}
+.data_profesionales h5:nth-child(1){
+    font-weight: 500;
+}
+.data_profesionales .title-adress{
+    display: flex;
+    align-items: center;
+}
+.data_profesionales .title-adress i{
+    background-image: url('/img/landing-profesional/icono-direccion.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.section_data_consulta{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border-top: solid 0.05em #dcdcdc;
+}
+.section_data_consulta h2{
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #232323;
+}
+.data_consulta ul{
+    display: flex;
+    padding: 0;
+    list-style: none;
+}
+.data_consulta li{
+    line-height: 10px;
+}
+.data_consulta p{
+    font-family: "Roboto";
+    font-weight: 500;
+    color: #3E3E3E;
+}
+.data_consulta span{
+    font-family: "Roboto";
+    font-weight: 500;
+    color: #0083d6;
+}
+.data_consulta .menu_1, .menu_2, .menu_3{
+    display: flex;
+    align-items: center;
+}
+.data_consulta .menu_1 i{
+    background-image: url('/img/landing-profesional/icono-presencial.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.data_consulta .menu_2 i{
+    background-image: url('/img/landing-profesional/icono-virtual.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.data_consulta .menu_3 i{
+    background-image: url('/img/landing-profesional/icono-control-medico.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.data_consulta .contains_buttons a:nth-child(2) {
+    font-family: "Quicksand";
+    font-weight: lighter;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    background: #EFEFEF;
+    color: #232323;
+    border: 0.5px solid #434343;
+    margin-left: auto;
+    margin-right: auto;
+}
+.data_consulta .contains_buttons a:nth-child(1) {
+    font-family: "Quicksand";
+    font-weight: lighter;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    background: #0083D6;
+    color: #ffff;
+    margin-left: auto;
+    margin-right: auto;
+}
+.section_destacado{
+    max-width: 100%;
+}
+.destacado{
+    border-radius: 5px;
+    background-color: #E1F0F9;
+    box-shadow: 0px 3px 6px #00000029;
+}
+.destacado i{
+    background-image: url('/img/landing-profesional/icono-destacado-en.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.destacado h2{
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #232323;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.destacado p{
+    font-family: "Roboto";
+    color: #3E3E3E;
+    font-weight: 500;
+}
+.perfil {
+    background-image: url('/img/landing-profesional/icono-principal-perfil-profesional-normal.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.tratamientos {
+    background-image: url('/img/landing-profesional/icono-principal-tratamientos-y-procedimientos.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.premios {
+    background-image: url('/img/landing-profesional/icono-pricipal-premios-y-reconocimientos.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.publicaciones {
+    background-image: url('/img/landing-profesional/icono-principal-publicaciones.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.galeria {
+    background-image: url('/img/landing-profesional/icono-principal-galeria.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.perfil_clicked {
+    background-image: url('/img/landing-profesional/icono-principal-perfil-profesional-azul.svg');
+}
+.tratamientos_clicked {
+    background-image: url('/img/landing-profesional/icono-principal-tratamientos-y-procedimientos-azul.svg');
+}
+.premios_clicked {
+    background-image: url('/img/landing-profesional/icono-pricipal-premios-y-reconocimientos-azul.svg');
+}
+.publicaciones_clicked {
+    background-image: url('/img/landing-profesional/icono-principal-publicaciones-azul.svg');
+}
+.galeria_clicked {
+    background-image: url('/img/landing-profesional/icono-principal-galeria-azul.svg');
+}
+.contains_swiper_profesional{
+    max-width: 100%;
+}
+.item_landing {
+    display: flex;
+    justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100px;
+    background-position: center;
+    margin-bottom: 28%;
+}
+.item_landing span{
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #232323;
+    margin-top: 100px;
+    line-height: 20px;
+}
+.contains_swiper_profesional h1 {
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #232323;
+}
+.perfil_profesional h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #0083D6;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.perfil_profesional p {
+    font-family: "Roboto";
+    color: #3E3E3E;
+}
+.perfil_profesional i {
+    background-image: url('/img/landing-profesional/icono-perfil-profesional.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.educacion ul li{
+    list-style: none;
+}
+.educacion ul li:nth-child(1){
+    background: #F5F5F5;
+}
+.educacion h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #434343;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.educacion p {
+    font-family: "Roboto";
+    color: #806868;
+}
+.educacion i {
+    background-image: url('/img/landing-profesional/icono-educacion.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.experiencia ul li{
+    display: flex;
+    list-style: none;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+.experiencia ul li:nth-child(1){
+    background: #F5F5F5;
+}
+.experiencia h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #434343;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.experiencia p {
+    font-family: "Roboto";
+    color: #806868;
+}
+.experiencia i {
+    background-image: url('/img/landing-profesional/icono-experiencia.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.asociaciones ul li{
+    display: flex;
+    list-style: none;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+.asociaciones ul li:nth-child(1){
+    background: #F5F5F5;
+}
+.asociaciones h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #434343;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.asociaciones i {
+    background-image: url('/img/landing-profesional/icono-asociaciones.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.idiomas ul li{
+    display: flex;
+    list-style: none;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+.idiomas ul li:nth-child(1){
+    background: #F5F5F5;
+}
+.idiomas h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #434343;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.idiomas p {
+    font-family: "Roboto";
+    color: #3E3E3E;
+}
+.idiomas i {
+    background-image: url('/img/landing-profesional/icono-experiencia.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.idiomas .contains_idioma{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.tratamientos_profesional h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #0083D6;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.tratamientos_profesional i {
+    background-image: url('/img/landing-profesional/icono-tratamientos-y-procedimientos.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.tratamientos_profesional .card{
+    border: 0;
+}
+.tratamientos_profesional .card h4, h6{
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+}
+.tratamientos_profesional .card h4{
+    color: #434343;
+}
+.tratamientos_profesional .card h6{
+    color: #0083D6;
+}
+.tratamientos_profesional .card-body{
+    padding: 0;
+}
+.tratamientos_profesional p {
+    font-family: "Roboto";
+    color: #3E3E3E;
+    font-weight: bolder;
+}
+.contains_swiper_premios h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #0083D6;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.contains_swiper_premios i {
+    background-image: url('/img/landing-profesional/icono-premios-y-reconocimientos.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.swiper_premios h6{
+    font-family: "Roboto";
+    color: #3E3E3E;
+    font-weight: bolder;
+}
+.swiper_premios h5{
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    text-transform: capitalize;
+}
+.swiper_premios p{
+    font-family: "Roboto";
+    color: #232323;
+}
+
+.publicaciones_profesional h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #0083D6;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.publicaciones_profesional i {
+    background-image: url('/img/landing-profesional/icono-publicaciones.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.publicaciones_profesional .card{
+    border: 0;
+}
+.publicaciones_profesional .card h4, h6{
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+}
+.publicaciones_profesional .card h4{
+    color: #434343;
+}
+.publicaciones_profesional .card h6{
+    color: #0083D6;
+}
+.publicaciones_profesional .card-body{
+    padding: 0;
+}
+.publicaciones_profesional p {
+    font-family: "Roboto";
+    color: #3E3E3E;
+    text-align: center;
+}
+.galeria_profesional h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #0083D6;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.galeria_profesional i {
+    background-image: url('/img/landing-profesional/icono-galeria.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.galeria_profesional ul{
+    list-style: none;
+    margin: auto;
+    padding: 0;
+}
+.videos_profesional h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #0083D6;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.videos_profesional i {
+    background-image: url('/img/landing-profesional/icono-video.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.videos_profesional .card{
+    border: 0;
+}
+.videos_profesional .card h4, h6{
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+}
+.videos_profesional .card h4{
+    color: #434343;
+}
+.videos_profesional .card h6{
+    color: #0083D6;
+}
+.videos_profesional .card-body{
+    padding: 0;
+}
+.videos_profesional p {
+    font-family: "Roboto";
+    color: #3E3E3E;
+    text-align: center;
+}
+.sections_active{
+    display: block !important;
+}
+.sections{
+    display: none;
+}
+
+
+@media (min-width: 320px){
+    .section_data_profesionales{
+        width: 100%;
+        height: 55vh;
+    }
+    .data_profesionales .contains_info{
+        width: 100%;
+    }
+    .data_profesionales img{
+        border-radius: 50%;
+        width: 130px;
+        height: 130px;
+        object-fit: cover;
+    }
+    .data_profesionales h2{
+        margin-top: 1%;
+        margin-bottom: 1%;
+        font-size: 1.4em;
+    }
+    .data_profesionales h1{
+        font-size: 1.3em;
+        margin-bottom: 1%;
+    }
+    .data_profesionales .title-adress i{
+        width: 8%;
+        height: 16px;
+    }
+    .data_profesionales h5{
+        font-size: 0.8em;
+    }
+    .data_profesionales .title-adress{
+        width: 70%;
+    }
+    .data_profesionales .rating-stars ul{
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
+    .section_data_consulta{
+        width: 100%;
+        height: 25vh;
+    }
+    .section_data_consulta h2{
+        font-size: 1.2em;
+        padding-top: 3%;
+        margin-bottom: 0;
+    }
+    .data_consulta{
+        width: 90%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: space-evenly;
+    }
+    .data_consulta p, span{
+        font-size: 0.8em;
+    }
+    .data_consulta span{
+        margin-left: 20px;
+    }
+    .data_consulta ul{
+        width: 100%;
+        align-content: center;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 0;
+    }
+    .data_consulta .menu_1 i{
+        width: 20px;
+        height: 17px;
+    }
+    .data_consulta .menu_2 i{
+        width: 20px;
+        height: 17px;
+    }
+    .data_consulta .menu_3 i{
+        width: 20px;
+        height: 17px;
+    }
+    .data_consulta .contains_buttons {
+        max-width: 100%;
+        display: flex;
+        height: 30%;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .data_consulta .contains_buttons a {
+        display: flex;
+        width: 45%;
+        height: 100%;
+    }
+    .section_destacado{
+        max-width: 100%;
+        height: auto;
+        padding-top: 5%;
+    }
+    .destacado{
+        width: 85%;
+        margin: auto;
+    }
+    .destacado i{
+        width: 15%;
+        height: 30px;
+    }
+    .destacado h2{
+        font-size: 1.1em;
+        padding-left: 8%;
+        padding-top: 2%;
+    }
+    .destacado li::marker{
+        color: #0083D6;
+    }
+    .destacado p{
+        font-size: 0.9em;
+        padding-bottom: 3%;
+    }
+    .swiper_profesional{
+        width: 85%;
+    }
+    .item_landing i{
+        width: 100%;
+        height: 50px;
+        background-position: center;
+    }
+    .item_landing p{
+        font-size: 0.6em;
+    }
+    .contains_swiper_profesional{
+        margin-bottom: 10%;
+    }
+    .contains_swiper_profesional h1 {
+        font-size: 1em;
+        margin-bottom: 8%;
+        text-align: center;
+    }
+    .perfil_profesional{
+        width: 90%;
+        margin: auto;
+    }
+    .perfil_profesional h2{
+        font-size: 1.1em;
+    }
+    .perfil_profesional p {
+        font-size: 0.75em;
+        padding-bottom: 3%;
+        padding-left: 14%;
+        padding-right: 5%;
+    }
+    .perfil_profesional i {
+        width: 14%;
+        height: 30px;
+    }
+    .educacion{
+        width: 90%;
+        margin: auto;
+    }
+    .educacion h2{
+        font-size: 1.1em;
+    }
+    .educacion h5{
+        font-size: 1em;
+    }
+    .educacion p {
+        font-size: 0.75em;
+    }
+    .educacion i {
+        width: 14%;
+        height: 30px;
+    }
+    .experiencia{
+        width: 90%;
+        margin: auto;
+    }
+    .experiencia ul li{
+        margin-bottom: 5%;
+    }
+    .experiencia ul li .contains_info{
+        max-width: 70%;
+    }
+    .experiencia ul li .contains_logo{
+        max-width: 30%;
+    }
+    .experiencia .contains_logo img{
+        max-width: 100%;
+        object-fit: cover;
+        height: 45px;
+        image-rendering: -webkit-optimize-contrast;
+    }
+    .experiencia h2{
+        font-size: 1.1em;
+    }
+    .experiencia h5{
+        font-size: 0.9em;
+    }
+    .experiencia p {
+        font-size: 0.75em;
+    }
+    .experiencia i {
+        width: 14%;
+        height: 30px;
+    }
+    .asociaciones{
+        width: 90%;
+        margin: auto;
+    }
+    .asociaciones ul li{
+        margin-bottom: 5%;
+        height: 12vh;
+    }
+    .asociaciones img{
+        max-width: 30%;
+        -o-object-fit: cover;
+        object-fit: contain;
+        height: 40px;
+        image-rendering: -webkit-optimize-contrast;
+    }
+    .asociaciones h2{
+        font-size: 1.1em;
+    }
+    .asociaciones i {
+        width: 14%;
+        height: 30px;
+    }
+
+    .idiomas{
+        width: 90%;
+        margin: auto;
+    }
+    .idiomas ul li{
+        margin-bottom: 5%;
+        height: 12vh;
+    }
+    .idiomas img{
+        max-width: 100%;
+        -o-object-fit: cover;
+        object-fit: contain;
+        height: 20px;
+        image-rendering: -webkit-optimize-contrast;
+    }
+    .idiomas h2{
+        font-size: 1.1em;
+    }
+    .idiomas p{
+        font-size: 0.8em;
+    }
+    .idiomas i {
+        width: 14%;
+        height: 30px;
+    }
+    .tratamientos_profesional{
+        width: 90%;
+        margin: auto;
+    }
+    .tratamientos_profesional h2{
+        font-size: 1.1em;
+    }
+    .tratamientos_profesional p {
+        font-size: 0.75em;
+    }
+    .tratamientos_profesional i {
+        width: 14%;
+        height: 30px;
+    }
+    .tratamientos_profesional .card{
+        width: 80%;
+        margin: auto;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    .tratamientos_profesional .card h4, h6{
+        font-size: 1em;
+    }
+    .tratamientos_profesional .card-body{
+        padding-top: 4%;
+    }
+    .tratamientos_profesional .card-body h5{
+        font-size: 1.1em;
+    }
+    .tratamientos_profesional h2{
+        font-size: 1.1em;
+    }
+    .swiper_premios{
+        max-width: 70%;
+    }
+    .swiper_premios img{
+        max-width: 100%;
+    }
+    .contains_swiper_premios h2{
+        font-size: 1.1em;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%;
+    }
+    .contains_swiper_premios i{
+        width: 14%;
+        height: 30px;
+    }
+    .swiper_premios h6{
+        font-size: 0.9em;
+        margin-bottom: 0;
+        text-align: left;
+    }
+    .swiper_premios h5{
+        font-size: 1.1em;
+    }
+    .swiper_premios p{
+        font-size: 0.7em;
+    }
+
+    .publicaciones_profesional{
+        width: 90%;
+        margin: auto;
+    }
+    .publicaciones_profesional h2{
+        font-size: 1.1em;
+    }
+    .publicaciones_profesional p {
+        font-size: 0.75em;
+    }
+    .publicaciones_profesional i {
+        width: 14%;
+        height: 30px;
+    }
+    .publicaciones_profesional .card{
+        width: 85%;
+        margin: auto;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    .publicaciones_profesional .card h4, h6{
+        font-size: 1em;
+    }
+    .publicaciones_profesional .card-body{
+        padding-top: 4%;
+    }
+    .publicaciones_profesional .card-body h5{
+        font-size: 1em;
+        text-align: center;
+    }
+    .publicaciones_profesional h2{
+        font-size: 1.1em;
+    }
+    .galeria_profesional{
+        height: 55vh;
+    }
+    .galeria_profesional h2 {
+        font-size: 1.1em;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%;
+    }
+    .galeria_profesional i {
+        width: 14%;
+        height: 30px;
+    }
+    .galeria_profesional ul{
+        max-width: 85%;
+    }
+    .gallery_profesional > li {
+        border: 1px solid transparent;
+        float: left;
+        height: calc(100% / 2);
+        margin: 0 -1px -1px 0;
+        overflow: hidden;
+        width: calc(100% / 2);
+    }
+    .gallery_profesional > li > img{
+        cursor: zoom-in;
+        width: 100%;
+        height: 80px;
+        object-fit: cover;
+    }
+    .videos_profesional{
+        width: 90%;
+        margin: auto;
+    }
+    .videos_profesional h2{
+        font-size: 1.1em;
+    }
+    .videos_profesional p {
+        font-size: 0.75em;
+    }
+    .videos_profesional i {
+        width: 14%;
+        height: 30px;
+    }
+    .videos_profesional .card{
+        width: 85%;
+        margin: auto;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+    .videos_profesional .card h4, h6{
+        font-size: 1em;
+    }
+    .videos_profesional .card-body{
+        padding-top: 4%;
+    }
+    .videos_profesional .card-body h5{
+        font-size: 1em;
+        text-align: center;
+    }
+    .videos_profesional h2{
+        font-size: 1.1em;
+    }
+}
+@media (min-width: 375px){
+
+    .data_profesionales img{
+        width: 180px;
+        height: 180px;
+    }
+    .data_consulta p, span {
+        font-size: 0.9em;
+    }
+    .data_profesionales .title-adress {
+        width: 62%;
+    }
+    .contains_swiper_profesional h1{
+        font-size: 1.25em;
+    }
+    .perfil_profesional h2 {
+        font-size: 1.3em;
+    }
+    .perfil_profesional p{
+        font-size: 0.8em;
+    }
+    .educacion h2{
+        font-size: 1.3em;
+    }
+    .educacion i{
+        width: 12%;
+    }
+    .educacion h5{
+        font-size: 1em;
+    }
+    .educacion p {
+        font-size: 0.8em;
+    }
+    .experiencia h2 {
+        font-size: 1.3em;
+    }
+    .experiencia i{
+        width: 12%;
+    }
+    .experiencia h5 {
+        font-size: 1.05em;
+    }
+    .experiencia p {
+        font-size: 0.8em;
+    }
+    .asociaciones h2 {
+        font-size: 1.3em;
+    }
+    .asociaciones i{
+        width: 12%;
+    }
+    .idiomas h2 {
+        font-size: 1.3em;
+    }
+    .tratamientos_profesional h2 {
+        font-size: 1.3em;
+    }
+    .tratamientos_profesional i{
+        width: 12%;
+    }
+    .tratamientos_profesional .card h4, h6 {
+        font-size: 1.1em;
+    }
+    .tratamientos_profesional .card-body h5 {
+        font-size: 1.2em;
+    }
+    .videos_profesional .card h4, h6 {
+        font-size: 1.1em;
+    }
+    .contains_swiper_premios h2{
+        font-size: 1.3em;
+    }
+    .contains_swiper_premios i{
+        width: 12%;
+    }
+    .publicaciones_profesional h2 {
+        font-size: 1.3em;
+    }
+    .publicaciones_profesional i{
+        width: 12%;
+    }
+    .galeria_profesional h2{
+        font-size: 1.3em;
+    }
+    .galeria_profesional i{
+        width: 12%;
+    }
+    .gallery_profesional > li > img{
+        height: 100px;
+    }
+    .videos_profesional h2{
+        font-size: 1.3em;
+    }
+    .videos_profesional i{
+        width: 12%;
+    }
+}
+@media (min-width: 768px){
+    .data_profesionales img {
+        width: 250px;
+        height: 250px;
+    }
+    .data_profesionales h2{
+        font-size: 2em;
+    }
+    .data_profesionales h1{
+        font-size: 1.8em;
+    }
+    .data_profesionales h5 {
+        font-size: 1.2em;
+    }
+    .data_profesionales .title-adress {
+        width: 46%;
+    }
+    .data_profesionales .title-adress i {
+        width: 10%;
+        height: 25px;
+    }
+    .section_data_consulta h2{
+        font-size: 1.7em;
+    }
+    .data_consulta{
+        width: 65%;
+        justify-content: space-around;
+    }
+    .data_consulta i {
+        width: 35px !important;
+        height: 30px !important;
+    }
+    .data_consulta p, span {
+        font-size: 1.3em;
+    }
+    .data_consulta span {
+        margin-left: 35px;
+    }
+    .data_consulta .contains_buttons{
+        height: 25%;
+    }
+    .data_consulta .contains_buttons a{
+        font-size: 1.4em;
+    }
+    .data_consulta .contains_buttons i {
+        width: 35px !important;
+        height: 100% !important;
+        display: flex;
+        align-items: center;
+    }
+    .destacado h2{
+        font-size: 1.8em;
+    }
+    .destacado i {
+        width: 11%;
+        height: 45px;
+    }
+    .destacado ul{
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 2%;
+    }
+    .destacado ul li{
+        width: 45%;
+    }
+    .destacado p{
+        font-size: 1.2em;
+    }
+    .contains_swiper_profesional h1 {
+        font-size: 2.2em;
+        margin-top: 7%;
+    }
+    .item_landing i{
+        height: 90px;
+    }
+    .item_landing p {
+        margin-top: 5%;
+        font-size: 1.05em;
+        max-width: 65%;
+    }
+    .contains_swiper_profesional {
+        margin-bottom: 5%;
+    }
+    .perfil_profesional h2 {
+        font-size: 1.8em;
+    }
+    .perfil_profesional i {
+        width: 10%;
+        height: 45px;
+    }
+    .perfil_profesional p {
+        font-size: 1.3em;
+        padding-left: 10%;
+    }
+    .educacion h2 {
+        font-size: 1.8em;
+    }
+    .educacion i {
+        width: 10%;
+        height: 45px;
+    }
+    .educacion ul{
+        padding-left: 10%;
+    }
+    .educacion ul li {
+        list-style: none;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+    .educacion h5 {
+        font-size: 1.5em;
+    }
+    .educacion p {
+        font-size: 1.1em;
+        color: #3E3E3E;
+    }
+    .experiencia h2 {
+        font-size: 1.8em;
+    }
+    .experiencia i {
+        width: 10%;
+        height: 45px;
+    }
+    .experiencia ul{
+        padding-left: 10%;
+    }
+    .experiencia ul li {
+        list-style: none;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        margin-bottom: 0%;
+    }
+    .experiencia h5 {
+        font-size: 1.5em;
+    }
+    .experiencia p {
+        font-size: 1.1em;
+        color: #3E3E3E;
+    }
+    .experiencia .contains_logo img{
+        height: 60px;
+    }
+    .asociaciones h2 {
+        font-size: 1.8em;
+    }
+    .asociaciones i {
+        width: 10%;
+        height: 45px;
+    }
+    .asociaciones ul{
+        padding-left: 10%;
+    }
+    .asociaciones ul li{
+        justify-content: space-evenly;
+    }
+    .asociaciones img{
+        max-width: 50%;
+        height: 65px;
+    }
+    .idiomas h2 {
+        font-size: 1.8em;
+    }
+    .idiomas i {
+        width: 10%;
+        height: 45px;
+    }
+    .idiomas ul{
+        padding-left: 10%;
+    }
+    .idiomas ul li{
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        padding-left: 5%;
+    }
+    .idiomas .contains_idioma {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .idiomas img{
+        max-width: 50%;
+        height: 30px;
+    }
+    .idiomas p {
+        width: 90px;
+        font-size: 1.2em;
+        font-weight: 500;
+    }
+    .tratamientos_profesional h2 {
+        font-size: 1.8em;
+    }
+    .tratamientos_profesional i {
+        width: 10%;
+        height: 45px;
+    }
+    .tratamientos_profesional .card h4, h6 {
+        font-size: 1.6em;
+    }
+    .tratamientos_profesional .card{
+        width: 75%;
+    }
+    .tratamientos_profesional .card-body h5 {
+        font-size: 1.8em;
+    }
+    .tratamientos_profesional p {
+        font-size: 1.3em;
+    }
+    .contains_swiper_premios h2 {
+        font-size: 1.8em;
+        margin-bottom: 7%;
+    }
+    .contains_swiper_premios i {
+        width: 10%;
+        height: 45px;
+    }
+    .swiper_premios {
+        max-width: 50%;
+    }
+    .swiper_premios h6 {
+        font-size: 1.2em;
+        margin-bottom: 0;
+        text-align: left;
+        margin-top: 4%;
+    }
+    .swiper_premios h5 {
+        font-size: 1.5em;
+    }
+    .swiper_premios p {
+        font-size: 1.1em;
+    }
+    .publicaciones_profesional h2 {
+        font-size: 1.8em;
+    }
+    .publicaciones_profesional i {
+        width: 10%;
+        height: 45px;
+    }
+    .publicaciones_profesional .card{
+        width: 70%;
+    }
+    .publicaciones_profesional .card-body h5 {
+        font-size: 1.7em;
+        text-align: center;
+    }
+    .publicaciones_profesional p {
+        font-size: 1.2em;
+        font-weight: 500;
+    }
+
+    .galeria_profesional h2 {
+        font-size: 1.8em;
+    }
+    .galeria_profesional i {
+        width: 10%;
+        height: 45px;
+    }
+    .galeria_profesional {
+        height: 40vh;
+    }
+    .galeria_profesional ul {
+        max-width: 75%;
+    }
+    .gallery_profesional > li{
+        width: calc(100% / 3);
+        height: calc(100% / 3);
+    }
+    .gallery_profesional > li > img {
+        height: 145px;
+    }
+    .videos_profesional h2 {
+        font-size: 1.8em;
+    }
+    .videos_profesional i {
+        width: 10%;
+        height: 45px;
+    }
+    .videos_profesional .card{
+        width: 60%;
+    }
+    .videos_profesional .card .card-img-top{
+        height: 35vh;
+    }
+    .videos_profesional .card-body h5 {
+        font-size: 1.7em;
+        text-align: center;
+    }
+    .videos_profesional p {
+        font-size: 1.1em;
+    }
+}
+@media (min-width: 1024px){
+
+    .data_profesionales img {
+        width: 360px;
+        height: 360px;
+    }
+    .data_profesionales h2 {
+        font-size: 2.5em;
+    }
+    .data_profesionales h1 {
+        font-size: 2em;
+    }
+    .data_profesionales h5 {
+        font-size: 1.3em;
+    }
+    .data_profesionales .title-adress {
+        width: 40%;
+    }
+    .data_profesionales .title-adress i {
+        width: 10%;
+        height: 30px;
+    }
+    .section_data_consulta h2 {
+        font-size: 2em;
+    }
+    .data_consulta i {
+        width: 45px !important;
+        height: 35px !important;
+    }
+    .data_consulta p, span {
+        font-size: 1.4em;
+    }
+    .data_consulta span {
+        margin-left: 45px;
+    }
+    .data_consulta .contains_buttons {
+        height: 20%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+    }
+    .perfil_profesional,
+    .educacion,
+    .experiencia,
+    .asociaciones,
+    .idiomas,
+    .tratamientos_profesional,
+    .publicaciones_profesional,
+    .videos_profesional {
+        width: 80%;
+        margin: auto;
+    }
+    .perfil_profesional i,
+    .educacion i,
+    .experiencia i,
+    .asociaciones i,
+    .idiomas i,
+    .tratamientos_profesional i,
+    .contains_swiper_premios i,
+    .publicaciones_profesional i,
+    .galeria_profesional i,
+    .videos_profesional i {
+        width: 8%;
+        height: 45px;
+    }
+    .perfil_profesional p{
+        padding-left: 8%;
+    }
+    .educacion ul,
+    .experiencia ul,
+    .asociaciones ul,
+    .idiomas ul {
+        padding-left: 8%;
+    }
+    .contains_swiper_premios h2{
+        width: 80%;
+    }
+    .swiper_premios {
+        max-width: 35%;
+    }
+    .publicaciones_profesional .card {
+        width: 55%;
+    }
+    .gallery_profesional > li > img {
+        height: 165px;
+    }
+    .galeria_profesional h2{
+        width: 80%;
+    }
+    .galeria_profesional ul {
+        max-width: 70%;
+    }
+    .galeria_profesional {
+        height: 35vh;
+    }
+    .videos_profesional .card .card-img-top {
+        height: 30vh;
+    }
+
+}
+@media (min-width: 1024px) and (max-height: 800px){
+
+    .section_data_profesionales{
+        height: auto;
+        padding-top: 2%;
+    }
+    .data_profesionales{
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        padding-left: 37%;
+    }
+    .data_profesionales img {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        left: 12%;
+        top: 16%;
+    }
+    .data_profesionales .contains_info {
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+    .data_profesionales .title-adress {
+        width: 80%;
+        font-weight: 500;
+    }
+    .data_profesionales h2 {
+        font-size: 2em;
+    }
+    .data_profesionales h1 {
+        font-size: 1.7em;
+    }
+    .data_profesionales h5 {
+        font-size: 1.2em;
+    }
+    .data_profesionales .title-adress i {
+        width: 8%;
+        height: 24px;
+    }
+    .data_profesionales h5:nth-child(7){
+        padding-left: 6.5%;
+        font-weight: 500;
+    }
+    .section_data_consulta {
+        width: 100%;
+        height: auto;
+        padding-left: 37%;
+        align-content: flex-start;
+        justify-content: center;
+        align-items: flex-start;
+        border-top: 0;
+    }
+    .section_data_consulta h2{
+        padding-top: 1%;
+        font-size: 1.4em;
+    }
+    .data_consulta{
+        width: 87%;
+        padding-top: 0;
+        flex-direction: row;
+    }
+    .data_consulta ul{
+        width: 70%;
+    }
+    .data_consulta i {
+        width: 30px !important;
+        height: 24px !important;
+    }
+    .data_consulta p, span {
+        font-size: 1.1em;
+    }
+    .data_consulta span {
+        margin-left: 30px;
+    }
+    .data_consulta li {
+        line-height: 20px;
+    }
+    .data_consulta .contains_buttons{
+        width: 40%;
+        flex-direction: column;
+    }
+    .data_consulta .contains_buttons a{
+        width: 85%;
+        padding: 4%;
+        font-size: 1em;
+        margin-bottom: 4%;
+    }
+    .destacado ul li {
+        width: 38%;
+    }
+    .destacado i {
+        width: 7%;
+        height: 45px;
+    }
+    .destacado h2 {
+        font-size: 1.5em;
+    }
+    .item_landing i {
+        height: 75px;
+    }
+    .item_landing p {
+        margin-top: 5%;
+        font-size: 0.9em;
+        max-width: 80%;
+    }
+    .swiper_profesional {
+        width: 70%;
+    }
+    .contains_swiper_profesional h1{
+        margin-top: 5%;
+        margin-bottom: 4%;
+    }
+    .idiomas ul li {
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-left: 5%;
+    }
+    .tratamientos_profesional .container_cards,
+    .publicaciones_profesional .container_cards,
+    .videos_profesional .container_cards{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .tratamientos_profesional .card {
+        width: 40%;
+        margin-bottom: 0;
+    }
+    .tratamientos_profesional .card h4, h6 {
+        font-size: 1.5em;
+    }
+    .tratamientos_profesional .card-body h5 {
+        font-size: 1.5em;
+    }
+    .tratamientos_profesional p {
+        font-size: 1.1em;
+        font-weight: 500;
+    }
+    .swiper_premios {
+        max-width: 75%;
+    }
+    .contains_swiper_premios h2{
+        margin-bottom: 4%;
+    }
+    .swiper_premios h6{
+        font-size: 1em;
+    }
+    .swiper_premios h5 {
+        font-size: 1.2em;
+    }
+    .swiper_premios p {
+        font-size: 0.9em;
+    }
+    .publicaciones_profesional .card {
+        width: 40%;
+        margin-bottom: 0;
+    }
+    .publicaciones_profesional .card-body h5 {
+        font-size: 1.3em;
+        text-align: left;
+    }
+    .publicaciones_profesional p {
+        font-size: 1em;
+        font-weight: 500;
+        text-align: left;
+    }
+    .galeria_profesional {
+        height: 55vh;
+    }
+    .videos_profesional .card {
+        width: 30%;
+    }
+    .videos_profesional .card-body h5 {
+        font-size: 1.2em;
+        text-align: left;
+    }
+    .videos_profesional p {
+        font-size: 0.8em;
+        text-align: left;
+    }
+}
+
+
+@media (min-width: 1200px) {
+
+    .section_data_profesionales{
+        height: auto;
+        padding-top: 2%;
+    }
+    .perfil_profesional i, 
+    .educacion i, 
+    .experiencia i, 
+    .asociaciones i, 
+    .idiomas i, 
+    .tratamientos_profesional i, 
+    .contains_swiper_premios i, 
+    .publicaciones_profesional i, 
+    .galeria_profesional i, 
+    .videos_profesional i {
+        width: 6%;
+        height: 45px;
+    }
+    .perfil_profesional p {
+        padding-left: 6%;
+    }
+    .educacion ul, 
+    .experiencia ul, 
+    .asociaciones ul, 
+    .idiomas ul {
+        padding-left: 6%;
+    }
+    .data_profesionales{
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        align-items: flex-end;
+        padding-left: 35%;
+    }
+    .data_profesionales img {
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        left: 12%;
+        top: 16%;
+    }
+    .data_profesionales .contains_info {
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+    .data_profesionales .title-adress {
+        width: 80%;
+        font-weight: 500;
+    }
+    .data_profesionales h2 {
+        font-size: 2em;
+    }
+    .data_profesionales h1 {
+        font-size: 1.7em;
+    }
+    .data_profesionales h5 {
+        font-size: 1.2em;
+    }
+    .data_profesionales .title-adress i {
+        width: 5%;
+        height: 24px;
+    }
+    .data_profesionales h5:nth-child(7){
+        padding-left: 4%;
+        font-weight: 500;
+    }
+    .section_data_consulta {
+        width: 100%;
+        height: auto;
+        padding-left: 35%;
+        align-content: flex-start;
+        justify-content: center;
+        align-items: flex-start;
+        border-top: 0;
+    }
+    .section_data_consulta h2{
+        padding-top: 1%;
+        font-size: 1.4em;
+    }
+    .data_consulta{
+        width: 87%;
+        padding-top: 0;
+        flex-direction: row;
+    }
+    .data_consulta ul{
+        width: 53%;
+        justify-content: space-between;
+    }
+    .data_consulta i {
+        width: 30px !important;
+        height: 24px !important;
+    }
+    .data_consulta p, span {
+        font-size: 1.1em;
+    }
+    .data_consulta span {
+        margin-left: 30px;
+    }
+    .data_consulta li {
+        line-height: 20px;
+    }
+    .data_consulta .contains_buttons{
+        width: 35%;
+        flex-direction: column;
+    }
+    .data_consulta .contains_buttons a{
+        width: 85%;
+        padding: 3%;
+        font-size: 1.2em;
+        margin-bottom: 4%;
+    }
+    .destacado ul {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: flex-start;
+        align-items: center;
+        padding-bottom: 2%;
+        padding-left: 8%;
+    }
+    .destacado ul li {
+        width: 30%;
+    }
+    .destacado i {
+        width: 5%;
+        height: 35px;
+    }
+    .destacado h2 {
+        font-size: 1.5em;
+        padding-left: 2%;
+    }
+    .item_landing i {
+        height: 75px;
+    }
+    .item_landing p {
+        margin-top: 5%;
+        font-size: 0.9em;
+        max-width: 80%;
+    }
+    .swiper_profesional {
+        width: 70%;
+    }
+    .contains_swiper_profesional h1{
+        margin-top: 5%;
+        margin-bottom: 4%;
+    }
+    .idiomas ul li {
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-left: 5%;
+    }
+    .tratamientos_profesional .container_cards,
+    .publicaciones_profesional .container_cards,
+    .videos_profesional .container_cards{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .tratamientos_profesional .card {
+        width: 35%;
+        margin-bottom: 0;
+    }
+    .tratamientos_profesional .card h4, h6 {
+        font-size: 1.3em;
+    }
+    .tratamientos_profesional .card-body h5 {
+        font-size: 1.5em;
+    }
+    .tratamientos_profesional p {
+        font-size: 1.1em;
+        font-weight: 500;
+    }
+    .swiper_premios {
+        max-width: 75%;
+    }
+    .contains_swiper_premios h2{
+        margin-bottom: 4%;
+    }
+    .swiper_premios h6{
+        font-size: 1em;
+    }
+    .swiper_premios h5 {
+        font-size: 1.5em;
+    }
+    .swiper_premios p {
+        font-size: 0.9em;
+    }
+    .publicaciones_profesional .card {
+        width: 40%;
+        margin-bottom: 0;
+    }
+    .publicaciones_profesional .card-body h5 {
+        font-size: 1.4em;
+        text-align: left;
+    }
+    .publicaciones_profesional p {
+        font-size: 1em;
+        font-weight: 500;
+        text-align: left;
+    }
+    .galeria_profesional {
+        height: 55vh;
+    }
+    .videos_profesional .card {
+        width: 30%;
+    }
+    .videos_profesional .card-body h5 {
+        font-size: 1.4em;
+        text-align: left;
+    }
+    .videos_profesional p {
+        font-size: 0.8em;
+        text-align: left;
+    }
+}
+
+@media (min-width: 1440px){
+
+    .destacado i {
+        width: 5%;
+        height: 39px;
+    }
+    .destacado ul{
+        padding-left: 9%;
+    }
+    .section_destacado{
+        padding-top: 3%;
+    }
+    .publicaciones_profesional .card {
+        width: 35%;
+        margin-bottom: 0;
+    }
+    .videos_profesional .card {
+        width: 27%;
+    }
+    .gallery_profesional > li {
+        width: calc(100% / 4);
+        height: calc(100% / 4);
+    }
+    .gallery_profesional > li > img {
+        height: 180px;
+    }
+}
+
+@media (min-width: 1600px){
+
+    .destacado {
+        width: 75%;
+        margin: auto;
+    }
+
+    .perfil_profesional, 
+    .educacion, 
+    .experiencia, 
+    .asociaciones, 
+    .idiomas, 
+    .tratamientos_profesional, 
+    .publicaciones_profesional, 
+    .videos_profesional {
+        width: 75%;
+        margin: auto;
+    }
+    .contains_swiper_premios h2 {
+        width: 75%;
+    }
+    .swiper_premios {
+        max-width: 60%;
+    }
+    .data_profesionales,
+    .section_data_consulta {
+        padding-left: 32%;
+    }
+    .data_consulta ul{
+        width: 45%;
+    }
+    .data_profesionales .title-adress {
+        width: 60%;
+        font-weight: 500;
+    }
+    .data_profesionales h5:nth-child(7){
+        padding-left: 3%;
+    }
+    .data_consulta .contains_buttons {
+        width: 25%;
+        flex-direction: column;
+        padding-bottom: 1%;
+        margin-left: 2%;
+    }
+    .data_consulta .contains_buttons a{
+        align-items: flex-start;
+        margin: 0;
+        margin-bottom: 4%;
+    }
+    .destacado i {
+        width: 4%;
+        height: 39px;
+    }
+    .destacado ul {
+        padding-left: 7%;
+    }
+    .contains_swiper_profesional h1{
+        font-size: 2.5em;
+    }
+    .swiper_profesional {
+        width: 60%;
+    }
+    .perfil_profesional i, 
+    .educacion i, 
+    .experiencia i, 
+    .asociaciones i, 
+    .idiomas i, 
+    .tratamientos_profesional i, 
+    .contains_swiper_premios i, 
+    .publicaciones_profesional i, 
+    .galeria_profesional i, 
+    .videos_profesional i {
+        width: 5%;
+        height: 45px;
+    }
+    .perfil_profesional p {
+        padding-left: 5%;
+    }
+    .educacion ul, 
+    .experiencia ul, 
+    .asociaciones ul, 
+    .idiomas ul {
+        padding-left: 5%;
+    }
+    .tratamientos_profesional .card {
+        width: 34%;
+        margin-bottom: 0;
+    }
+    .tratamientos_profesional .card h4, h6 {
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 1920px){
+    .data_profesionales img{
+        width: 280px;
+        height: 280px;
+        left: 25%;
+        top: 14%;
+    }
+    .data_profesionales, .section_data_consulta {
+        padding-left: 45%;
+    }
+    .data_consulta ul {
+        width: 35%;
+    }
+    .data_consulta ul {
+        width: 45%;
+    }
+    .tratamientos_profesional .card {
+        width: 22%;
+        margin-bottom: 0;
+    }
+    .tratamientos_profesional .card,
+    .publicaciones_profesional .card{
+        width: 22%;
+        margin-bottom: 0;
+    }
+}
