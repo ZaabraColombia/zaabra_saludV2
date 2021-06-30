@@ -28,5 +28,8 @@ class ComposerServiceProvider extends ServiceProvider
     {
        view::composer(['*'], 'App\Http\ViewComposers\HeaderComposer');
        view::composer(['*'], 'App\Http\ViewComposers\FormularioComposer');
+       view::composer(['menuAdmin'], 'App\Http\ViewComposers\ListaPermisosComposer');
     }
 }
+
+
