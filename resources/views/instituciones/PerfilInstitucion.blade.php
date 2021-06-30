@@ -14,8 +14,7 @@
                     <h1>{{$objinstitucionlandin->nombretipo}}</h1>
                     <h5 class="title-url"><i></i>{{$objinstitucionlandin->url}}</h5>
                     <h5 class="title-tel"><i></i>{{$objinstitucionlandin->telefonouno}}</h5>
-                    <h5 class="title-adress"><i></i>{{$objinstitucionlandin->direccion}}</h5>
-                    <h5>{{$objinstitucionlandin->ciudad}} {{$objinstitucionlandin->pais}}</h5>
+                    <h5 class="title-adress"><i></i>{{$objinstitucionlandin->direccion}}<br>{{$objinstitucionlandin->ciudad}} {{$objinstitucionlandin->pais}}</h5>
                     <!-- Rating Stars Box -->
                     <div class='rating-stars text-center'>
                         <ul id='stars'>
@@ -73,7 +72,7 @@
             </div>
         </section>
 
-        <section class="sections_insti_active section_servicios_institucion">
+        <section class="section_insti section_insti_active section_servicios_institucion">
 
             <div class="servicios_instituciones">
                 <h2><i></i>Servicios profesionales</h2>
@@ -84,7 +83,7 @@
                 @foreach ($objinstitucionlandinservicios as $objinstitucionlandinservicios)
                     <div class="card containt_options-collapse-membresia">
                         <div class="card-header" id="heading_{{$loop->iteration}}">
-                            <button class="boton_collapse-off-membresia" data-toggle="collapse" data-target="#collapse_{{$loop->iteration}}" aria-expanded="true" aria-controls="collapse_{{$loop->iteration}}">{{$objinstitucionlandinservicios->tituloServicios}}</button>
+                            <button class="boton_collapse-off-institucion" data-toggle="collapse" data-target="#collapse_{{$loop->iteration}}" aria-expanded="true" aria-controls="collapse_{{$loop->iteration}}">{{$objinstitucionlandinservicios->tituloServicios}}</button>
                         </div>
 
                         <div id="collapse_{{$loop->iteration}}" class="collapse" aria-labelledby="heading_{{$loop->iteration}}" data-parent="#accordion">
@@ -105,7 +104,7 @@
             </div>
         </section>
 
-        <section class="sections_insti section_acerca_institucion">
+        <section class="section_insti section_acerca_institucion">
 
             <div class="quienes_somos">
                 <h2><i></i>¿Quiénes somos?</h2>
@@ -143,7 +142,7 @@
             </div>
         </section>
 
-        <section class="sections_insti contains_swiper_certificados">
+        <section class="section_insti contains_swiper_certificados">
             <h2><i></i>Certificados</h2>
             <div class="swiper-container swiper_certificados">
                 <div class="swiper-wrapper">
@@ -159,7 +158,7 @@
             </div>
         </section>
 
-        <section class="sections_insti section_sedes_institucion">
+        <section class="section_insti section_sedes_institucion">
             <div class="sedes_institucion">
                 <h2><i></i>Sedes</h2>
                 <div class="container_cards">
@@ -178,7 +177,7 @@
             </div>
         </section>
 
-        <section class="sections_insti galeriayvideo">
+        <section class="section_insti galeriayvideo">
             <div class="galeria_institucion">
                 <h2><i></i>Galería</h2>
                 <ul class="gallery_institucion">
@@ -204,14 +203,5 @@
                     @endforeach
                 </div>
             </div>     
-        </section>
-        <section>
-          <h2><i></i>Profesionales</h2>
-                @foreach ($objinstitucionlandInstitucion as $objinstitucionlandInstitucion)
-                      <p>{{$objinstitucionlandInstitucion->primer_nombre}} {{$objinstitucionlandInstitucion->primer_apellido}}</p>
-                      <p>{{$objinstitucionlandInstitucion->especialidad_uno}}</p>
-                      <p>{{$objinstitucionlandInstitucion->especialidad_dos}}</p>
-                      <img src="{{URL::asset($objinstitucionlandInstitucion->foto_perfil_institucion)}}">
-                @endforeach
         </section>
 @endsection
