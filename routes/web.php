@@ -194,8 +194,8 @@ Route::get('/FormularioInstituciondelete13/{id}',[App\Http\Controllers\profesion
 
 /*------------------------------------------------Pertenece a pacientes-------------------------------------------------------------------------------*/
 /*Esta ruta es del admin del paciente*/
-Route:: get('/admindPaciente',[App\Http\Controllers\pacientes\admindPacienteController::class,'index'])->name('admindPaciente');
-Route:: get('/admindPaciente/{idPerfilProfesional}',[App\Http\Controllers\pacientes\admindPacienteController::class,'cita'])->name('admindPaciente');
+Route:: get('/panelAdministrativo',[App\Http\Controllers\pacientes\admindPacienteController::class,'index'])->name('panelAdministrativo');
+Route:: get('/panelAdministrativo/{idPerfilProfesional}',[App\Http\Controllers\pacientes\admindPacienteController::class,'cita'])->name('panelAdministrativo');
 
 /*-------------------------------------------------Pertenece a otras vistas-------------------------------------------------------------------------------*/
 /*Esta ruta direcciona a la vista de Acerca de Zaabra*/

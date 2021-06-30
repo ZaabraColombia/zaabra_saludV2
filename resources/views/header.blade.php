@@ -23,17 +23,95 @@
                     </div>
                     <!--******************************     End sección BARRA DE BUSQUEDA version MOBILE      *********************************-->
                     <!-- Sección Soy paciente -->
-                    <div class="soy_paciente dropdown">
-                        <a class="dropdown-toggle icon_paciente" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-    
-                        <div class="dropdown-menu dropdown-menu-right menu_paciente" aria-labelledby="dropdownMenuLink" style="">
-                            @guest
-                                <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Paciente</span></a>
+                    @guest
+                        <div class="soy_paciente dropdown">
+                            <a class="dropdown-toggle icon_paciente" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                            <div class="dropdown-menu dropdown-menu-right menu_paciente" aria-labelledby="dropdownMenuLink" style="">
+                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Paciente</span></a>
+                                    <div class="dropdown-divider m-0"></div>
+                                    <a class="dropdown-item menu_item-paciente icon-medico" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Doctor</span></a>
+                                    <div class="dropdown-divider m-0"></div>
+                                    <a class="dropdown-item menu_item-paciente icon-instituciones" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy institución</span></a>    
+                            </div>
+                        </div>
+                        <!-- Sección Botón membresía Desktop -->
+                        <div class="button-membresia">
+                            <a class="" href="{{ route('membresiaProfesional') }}">
+                                <img class="img-button-membresia" src="{{URL::asset('/img/header/boton-membresia.png')}}">
+                            </a>  
+                        </div>
+
+                        <!--******************************     Sección Botón Membresía version MOBILE      *************************************-->
+                        <!-- SECCION BOTÓN MEMBRESÍA HEADER -->
+                        <div class="button-membresia-mobile">
+                            <a class="" href="{{ route('membresiaProfesional') }}">
+                                <img class="img-button-membresia-mobile" src="{{URL::asset('/img/header/boton-de-memebresia-mob.png')}}"> 
+                            </a>  
+                        </div>
+                        <!--******************************     End sección Botón Membresía version MOBILE      *********************************-->
+
+                        <!-- Sección Menú hamburguesa -->
+                        <div class="menu-hamburger dropdown">
+                            <a class="icon-menu dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right menu_hamburguesa" aria-labelledby="dropdownMenuLink" style="">
+                                <a class="dropdown-item menu_item item-cel icon-especialidades" href="{{route('Profesiones')}}"><span class="texto_item-menu">Especialidades medicas</span></a>
                                 <div class="dropdown-divider m-0"></div>
-                                <a class="dropdown-item menu_item-paciente icon-medico" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Doctor</span></a>
+                                <a class="dropdown-item menu_item item-cel icon-instituciones-burger" href="{{route('Entidades')}}"><span class="texto_item-menu">Instituciones medicas</span></a>
                                 <div class="dropdown-divider m-0"></div>
-                                <a class="dropdown-item menu_item-paciente icon-instituciones" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy institución</span></a>
-                            @else
+                                <a class="dropdown-item menu_item item-cel icon-quienes" href="{{route('acerca')}}"><span class="texto_item-menu">Acerca de Zaabra</span></a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item menu_item item-cel icon-contactenos" href="{{route('contacto')}}"><span class="texto_item-menu">Contáctenos</span></a>
+                            </div>
+                        </div>
+                    @else
+                        <!-- Sección Botón membresía Desktop -->
+                        <div class="button-membresia">
+                            <a class="" href="{{ route('membresiaProfesional') }}">
+                                <img class="img-button-membresia" src="{{URL::asset('/img/header/boton-membresia.png')}}">
+                            </a>  
+                        </div>
+
+                        <!--******************************     Sección Botón Membresía version MOBILE      *************************************-->
+                        <!-- SECCION BOTÓN MEMBRESÍA HEADER -->
+                        <div class="button-membresia-mobile">
+                            <a class="" href="{{ route('membresiaProfesional') }}">
+                                <img class="img-button-membresia-mobile" src="{{URL::asset('/img/header/boton-de-memebresia-mob.png')}}"> 
+                            </a>  
+                        </div>
+                        <!--******************************     End sección Botón Membresía version MOBILE      *********************************-->
+
+                        <!-- Sección Menú hamburguesa -->
+                        <div class="menu-hamburger dropdown">
+                            <a class="icon-menu dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right menu_hamburguesa" aria-labelledby="dropdownMenuLink" style="">
+                                @if(!empty($objtipoUsuarioLogueado))
+                                    @if($objtipoUsuarioLogueado->idrol==1) 
+                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/panelAdministrativo') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
+                                    @elseif($objtipoUsuarioLogueado->idrol==2)
+                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioProfesional') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
+                                    <div class="dropdown-divider m-0"></div>
+                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/panelAdministrativo') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
+                                    @elseif($objtipoUsuarioLogueado->idrol==3)
+                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioInstitucion') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
+                                    <div class="dropdown-divider m-0"></div>
+                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/panelAdministrativo') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
+                                    @endif
+                                 @endif 
+                                 <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item menu_item item-cel icon-especialidades" href="{{route('Profesiones')}}"><span class="texto_item-menu">Especialidades medicas</span></a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item menu_item item-cel icon-instituciones-burger" href="{{route('Entidades')}}"><span class="texto_item-menu">Instituciones medicas</span></a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item menu_item item-cel icon-quienes" href="{{route('acerca')}}"><span class="texto_item-menu">Acerca de Zaabra</span></a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item menu_item item-cel icon-contactenos" href="{{route('contacto')}}"><span class="texto_item-menu">Contáctenos</span></a>
+                                <div class="dropdown-divider m-0"></div>
                                 <a class="dropdown-item menu_item-paciente icon-medico" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
@@ -42,56 +120,10 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-
-                                <div class="dropdown-divider m-0"></div>  
-                                @if(!empty($objtipoUsuarioLogueado))
-                                    @if($objtipoUsuarioLogueado->idrol==1) 
-                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/admindPaciente') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
-                                    @elseif($objtipoUsuarioLogueado->idrol==2)
-                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioProfesional') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
-                                    @elseif($objtipoUsuarioLogueado->idrol==3)
-                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioInstitucion') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
-                                    @endif
-                                 @endif   
-
-                            @endguest
-                                  
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Sección Botón membresía Desktop -->
-                    <div class="button-membresia">
-                        <a class="" href="{{ route('membresiaProfesional') }}">
-                            <img class="img-button-membresia" src="{{URL::asset('/img/header/boton-membresia.png')}}">
-                        </a>  
-                    </div>
-
-                    <!--******************************     Sección Botón Membresía version MOBILE      *************************************-->
-                    <!-- SECCION BOTÓN MEMBRESÍA HEADER -->
-                    <div class="button-membresia-mobile">
-                        <a class="" href="{{ route('membresiaProfesional') }}">
-                            <img class="img-button-membresia-mobile" src="{{URL::asset('/img/header/boton-de-memebresia-mob.png')}}"> 
-                        </a>  
-                    </div>
-                    <!--******************************     End sección Botón Membresía version MOBILE      *********************************-->
-
-                    <!-- Sección Menú hamburguesa -->
-                    <div class="menu-hamburger dropdown">
-                        <a class="icon-menu dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span></span>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right menu_hamburguesa" aria-labelledby="dropdownMenuLink" style="">
-                            <a class="dropdown-item menu_item item-cel icon-especialidades" href="{{route('Profesiones')}}"><span class="texto_item-menu">Especialidades medicas</span></a>
-                            <div class="dropdown-divider m-0"></div>
-                            <a class="dropdown-item menu_item item-cel icon-instituciones-burger" href="{{route('Entidades')}}"><span class="texto_item-menu">Instituciones medicas</span></a>
-                            <div class="dropdown-divider m-0"></div>
-                            <a class="dropdown-item menu_item item-cel icon-quienes" href="{{route('acerca')}}"><span class="texto_item-menu">Acerca de Zaabra</span></a>
-                            <div class="dropdown-divider m-0"></div>
-                            <a class="dropdown-item menu_item item-cel icon-contactenos" href="{{route('contacto')}}"><span class="texto_item-menu">Contáctenos</span></a>
-                        </div>
-                    </div>
-
+                    @endguest
                     
                     <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
