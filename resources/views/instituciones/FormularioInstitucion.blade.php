@@ -1129,7 +1129,7 @@
                                     <input type='file' id="uploadImage2" name="urlimagenEps[]" onchange="previewImage(2);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf"> 
+                                <div class="txt_informativo-formInst"> 
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1145,7 +1145,7 @@
                                     <input type='file' id="uploadImage3" name="urlimagenEps[]" onchange="previewImage(3);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1161,7 +1161,7 @@
                                     <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1182,7 +1182,7 @@
                                     <input type='file' id="uploadImage3" name="urlimagenEps[]" onchange="previewImage(3);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1198,7 +1198,7 @@
                                     <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1218,7 +1218,7 @@
                                     <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>        
                             </div>
@@ -1244,7 +1244,7 @@
                                     <input type='file' id="uploadImage6" name="urlimagenIps[]" onchange="previewImage(6);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1260,7 +1260,7 @@
                                     <input type='file' id="uploadImage7" name="urlimagenIps[]" onchange="previewImage(7);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1276,7 +1276,7 @@
                                     <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1297,7 +1297,7 @@
                                     <input type='file' id="uploadImage7" name="urlimagenIps[]" onchange="previewImage(7);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1313,7 +1313,7 @@
                                     <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1334,7 +1334,7 @@
                                     <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>  
                             </div>
@@ -1360,7 +1360,7 @@
                                     <input type='file' id="uploadImage10" name="urlimagenPre[]" onchange="previewImage(10);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1376,7 +1376,7 @@
                                     <input type='file' id="uploadImage11" name="urlimagenPre[]" onchange="previewImage(11);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1392,7 +1392,7 @@
                                     <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1413,7 +1413,7 @@
                                     <input type='file' id="uploadImage11" name="urlimagenPre[]" onchange="previewImage(11);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>        
                             </div>
@@ -1429,7 +1429,7 @@
                                     <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>        
                             </div>
@@ -1450,7 +1450,7 @@
                                     <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>        
                             </div>
@@ -1925,7 +1925,7 @@
                                     <input type='file' id="uploadImage13" name="imgcertificado[]" onchange="previewImage(13);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>        
                             </div>
@@ -1970,7 +1970,7 @@
                                     <input type='file' id="uploadImage14" name="imgcertificado[]" onchange="previewImage(14);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -2018,7 +2018,7 @@
                                     <input type='file' id="uploadImage15" name="imgcertificado[]" onchange="previewImage(15);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -2063,7 +2063,7 @@
                                     <input type='file' id="uploadImage16" name="imgcertificado[]" onchange="previewImage(16);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>        
                             </div>
@@ -2111,7 +2111,7 @@
                                     <input type='file' id="uploadImage14" name="imgcertificado[]" onchange="previewImage(14);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -2159,7 +2159,7 @@
                                     <input type='file' id="uploadImage15" name="imgcertificado[]" onchange="previewImage(15);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -2204,7 +2204,7 @@
                                     <input type='file' id="uploadImage16" name="imgcertificado[]" onchange="previewImage(16);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>        
                             </div>
@@ -2252,7 +2252,7 @@
                                     <input type='file' id="uploadImage15" name="imgcertificado[]" onchange="previewImage(15);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -2297,7 +2297,7 @@
                                     <input type='file' id="uploadImage16" name="imgcertificado[]" onchange="previewImage(16);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>        
                             </div>
@@ -2345,7 +2345,7 @@
                                     <input type='file' id="uploadImage16" name="imgcertificado[]" onchange="previewImage(16);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>        
                             </div>
@@ -2482,7 +2482,7 @@
                                     <input type='file' id="uploadImage17" name="imgsede[]" onchange="previewImage(17);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -2533,7 +2533,7 @@
                                     <input type='file' id="uploadImage18" name="imgsede[]" onchange="previewImage(18);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -2584,7 +2584,7 @@
                                     <input type='file' id="uploadImage19" name="imgsede[]" onchange="previewImage(19);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -2635,7 +2635,7 @@
                                     <input type='file' id="uploadImage20" name="imgsede[]" onchange="previewImage(20);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -2686,7 +2686,7 @@
                                     <input type='file' id="uploadImage21" name="imgsede[]" onchange="previewImage(21);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -2737,7 +2737,7 @@
                                     <input type='file' id="uploadImage22" name="imgsede[]" onchange="previewImage(22);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -2789,7 +2789,7 @@
                                     <input type='file' id="uploadImage18" name="imgsede[]" onchange="previewImage(18);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -2840,7 +2840,7 @@
                                     <input type='file' id="uploadImage19" name="imgsede[]" onchange="previewImage(19);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -2891,7 +2891,7 @@
                                     <input type='file' id="uploadImage20" name="imgsede[]" onchange="previewImage(20);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -2942,7 +2942,7 @@
                                     <input type='file' id="uploadImage21" name="imgsede[]" onchange="previewImage(21);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -2993,7 +2993,7 @@
                                     <input type='file' id="uploadImage22" name="imgsede[]" onchange="previewImage(22);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -3044,7 +3044,7 @@
                                     <input type='file' id="uploadImage19" name="imgsede[]" onchange="previewImage(19);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -3095,7 +3095,7 @@
                                     <input type='file' id="uploadImage20" name="imgsede[]" onchange="previewImage(20);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -3146,7 +3146,7 @@
                                     <input type='file' id="uploadImage21" name="imgsede[]" onchange="previewImage(21);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -3197,7 +3197,7 @@
                                     <input type='file' id="uploadImage22" name="imgsede[]" onchange="previewImage(22);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -3248,7 +3248,7 @@
                                     <input type='file' id="uploadImage20" name="imgsede[]" onchange="previewImage(20);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -3299,7 +3299,7 @@
                                     <input type='file' id="uploadImage21" name="imgsede[]" onchange="previewImage(21);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -3350,7 +3350,7 @@
                                     <input type='file' id="uploadImage22" name="imgsede[]" onchange="previewImage(22);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -3401,7 +3401,7 @@
                                     <input type='file' id="uploadImage21" name="imgsede[]" onchange="previewImage(21);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -3452,7 +3452,7 @@
                                     <input type='file' id="uploadImage22" name="imgsede[]" onchange="previewImage(22);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -3503,7 +3503,7 @@
                                     <input type='file' id="uploadImage22" name="imgsede[]" onchange="previewImage(22);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>
                             </div>
@@ -3666,7 +3666,7 @@
                                     <input type='file' id="uploadImage23" name="imggaleria[]" onchange="previewImage(23);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -3709,7 +3709,7 @@
                                     <input type='file' id="uploadImage24" name="imggaleria[]" onchange="previewImage(24);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -3753,7 +3753,7 @@
                                     <input type='file' id="uploadImage25" name="imggaleria[]" onchange="previewImage(25);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -3796,7 +3796,7 @@
                                     <input type='file' id="uploadImage26" name="imggaleria[]" onchange="previewImage(26);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -3840,7 +3840,7 @@
                                     <input type='file' id="uploadImage27" name="imggaleria[]" onchange="previewImage(27);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -3883,7 +3883,7 @@
                                     <input type='file' id="uploadImage28" name="imggaleria[]" onchange="previewImage(28);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -3927,7 +3927,7 @@
                                     <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -3970,7 +3970,7 @@
                                     <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4015,7 +4015,7 @@
                                     <input type='file' id="uploadImage24" name="imggaleria[]" onchange="previewImage(24);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4059,7 +4059,7 @@
                                     <input type='file' id="uploadImage25" name="imggaleria[]" onchange="previewImage(25);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4102,7 +4102,7 @@
                                     <input type='file' id="uploadImage26" name="imggaleria[]" onchange="previewImage(26);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4146,7 +4146,7 @@
                                     <input type='file' id="uploadImage27" name="imggaleria[]" onchange="previewImage(27);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4189,7 +4189,7 @@
                                     <input type='file' id="uploadImage28" name="imggaleria[]" onchange="previewImage(28);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4233,7 +4233,7 @@
                                     <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4276,7 +4276,7 @@
                                     <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4321,7 +4321,7 @@
                                     <input type='file' id="uploadImage25" name="imggaleria[]" onchange="previewImage(25);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4364,7 +4364,7 @@
                                     <input type='file' id="uploadImage26" name="imggaleria[]" onchange="previewImage(26);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4408,7 +4408,7 @@
                                     <input type='file' id="uploadImage27" name="imggaleria[]" onchange="previewImage(27);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4451,7 +4451,7 @@
                                     <input type='file' id="uploadImage28" name="imggaleria[]" onchange="previewImage(28);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4495,7 +4495,7 @@
                                     <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4538,7 +4538,7 @@
                                     <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4582,7 +4582,7 @@
                                     <input type='file' id="uploadImage26" name="imggaleria[]" onchange="previewImage(26);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4626,7 +4626,7 @@
                                     <input type='file' id="uploadImage27" name="imggaleria[]" onchange="previewImage(27);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4669,7 +4669,7 @@
                                     <input type='file' id="uploadImage28" name="imggaleria[]" onchange="previewImage(28);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4713,7 +4713,7 @@
                                     <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4756,7 +4756,7 @@
                                     <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4801,7 +4801,7 @@
                                     <input type='file' id="uploadImage27" name="imggaleria[]" onchange="previewImage(27);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4844,7 +4844,7 @@
                                     <input type='file' id="uploadImage28" name="imggaleria[]" onchange="previewImage(28);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4888,7 +4888,7 @@
                                     <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4931,7 +4931,7 @@
                                     <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -4976,7 +4976,7 @@
                                     <input type='file' id="uploadImage28" name="imggaleria[]" onchange="previewImage(28);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -5020,7 +5020,7 @@
                                     <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -5063,7 +5063,7 @@
                                     <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -5108,7 +5108,7 @@
                                     <input type='file' id="uploadImage29" name="imggaleria[]" onchange="previewImage(29);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -5151,7 +5151,7 @@
                                     <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
@@ -5196,7 +5196,7 @@
                                     <input type='file' id="uploadImage30" name="imggaleria[]" onchange="previewImage(30);"/>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
+                                <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
