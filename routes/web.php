@@ -193,10 +193,10 @@ Route::get('/FormularioInstituciondelete13/{id}',[App\Http\Controllers\profesion
 
 
 /*------------------------------------------------Pertenece a pacientes-------------------------------------------------------------------------------*/
-/*Esta ruta es del admin del paciente*/
-Route:: get('/panelAdministrativo',[App\Http\Controllers\pacientes\admindPacienteController::class,'index'])->name('panelAdministrativo');
-Route:: get('/panelAdministrativo/{idPerfilProfesional}',[App\Http\Controllers\pacientes\admindPacienteController::class,'cita'])->name('panelAdministrativo');
-
+/*Esta ruta es del admin*/
+Route:: get('/panelPrincipal',[App\Http\Controllers\admin\adminController::class,'index'])->name('panelPrincipal');
+Route:: get('/panelAdministrativo/{idPerfilProfesional}',[App\Http\Controllers\admin\adminController::class,'cita'])->name('panelAdministrativo');
+Route:: get('/panelServicios',[App\Http\Controllers\admin\adminController::class,'oscar2'])->name('panelServicios');
 /*-------------------------------------------------Pertenece a otras vistas-------------------------------------------------------------------------------*/
 /*Esta ruta direcciona a la vista de Acerca de Zaabra*/
 Route::get('/acerca', function () { return view('quienes-somos/acerca');})->name('acerca');

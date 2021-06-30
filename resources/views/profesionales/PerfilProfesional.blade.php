@@ -254,9 +254,6 @@
         <section class="container">
             <div class="col-12">
             <div id="resultados">
-                <div class="alert alert-success d-none mt-5" id="msg_comentario">
-                    <span id="res_message"></span>
-                </div>
                 @if(!empty($objTipoUser))
                         @foreach ($objTipoUser as $tipo)
                         @endforeach
@@ -291,6 +288,9 @@
                                         </div>
                                     </div>
                             </form>
+                            <div class="alert alert-success d-none mt-5" id="msg_comentario">
+                                <span id="res_message"></span>
+                            </div>
                         @endif
                 @endif
                        
