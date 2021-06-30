@@ -1,56 +1,54 @@
+
 <div id="sidebar" class="active">
             <div class="sidebar-wrapper active ps ps--active-y">
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
-                        <li class="sidebar-item  has-sub">
-                            <a href="#" class="sidebar-link">
-                                <i class="bi bi-stack"></i>
-                                <span>Components</span>
-                            </a>
-                            <ul class="submenu ">
-                                <li class="submenu-item ">
-                                    <a href="component-alert.html">Alert</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="component-badge.html">Badge</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="sidebar-item  has-sub">
-                            <a href="#" class="sidebar-link">
-                                <i class="bi bi-collection-fill"></i>
-                                <span>Extra Components</span>
-                            </a>
-                            <ul class="submenu ">
-                                <li class="submenu-item ">
-                                    <a href="extra-component-avatar.html">Avatar</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="extra-component-sweetalert.html">Sweet Alert</a>
-                                </li>
-
-                            </ul>
-                        </li>
-
-                        <li class="sidebar-item  has-sub">
-                            <a href="#" class="sidebar-link">
-                                <i class="bi bi-grid-1x2-fill"></i>
-                                <span>Layouts</span>
-                            </a>
-                            <ul class="submenu ">
-                                <li class="submenu-item ">
-                                    <a href="layout-default.html">Default Layout</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="layout-vertical-1-column.html">1 Column</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="sidebar-title">Extra UI</li>
-
+                        @if(!empty($objListaUsuario1->isNotEmpty()))
+                            <li class="sidebar-item  has-sub">
+                                <a href="#" class="sidebar-link">
+                                    <i class="bi bi-stack"></i>
+                                    <span>Mis citas</span>
+                                </a>
+                                <ul class="submenu ">
+                                    @foreach($objListaUsuario1 as $objListaUsuario1)
+                                        <li class="submenu-item ">
+                                            <a href="component-alert.html">{{$objListaUsuario1->nombrePermiso}}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endif
+                        @if(!empty($objListaUsuario2->isNotEmpty()))
+                            <li class="sidebar-item  has-sub">
+                                <a href="#" class="sidebar-link">
+                                    <i class="bi bi-collection-fill"></i>
+                                    <span>Mi Historia Clínica</span>
+                                </a>
+                                <ul class="submenu ">
+                                    @foreach($objListaUsuario2 as $objListaUsuario2)
+                                        <li class="submenu-item ">
+                                           <a href="component-alert.html">{{$objListaUsuario2->nombrePermiso}}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endif
+                        @if(!empty($objListaUsuario3->isNotEmpty()))
+                            <li class="sidebar-item  has-sub">
+                                <a href="#" class="sidebar-link">
+                                    <i class="bi bi-grid-1x2-fill"></i>
+                                    <span>Mis favoritos</span>
+                                </a>
+                                <ul class="submenu ">
+                                    @foreach($objListaUsuario3 as $objListaUsuario3)
+                                        <li class="submenu-item ">
+                                        <a href="layout-default.html">{{$objListaUsuario3->nombrePermiso}}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endif
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
