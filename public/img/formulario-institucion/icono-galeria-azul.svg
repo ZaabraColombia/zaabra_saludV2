@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <g id="Grupo_1186" data-name="Grupo 1186" transform="translate(-311 -466)">
+    <g id="Grupo_1183" data-name="Grupo 1183">
+      <g id="Grupo_1182" data-name="Grupo 1182">
+        <g id="Grupo_1180" data-name="Grupo 1180" transform="translate(-8 -167)">
+          <g id="Grupo_1158" data-name="Grupo 1158">
+            <g id="Elipse_129" data-name="Elipse 129" transform="translate(319 633)" fill="none" stroke="#0083d6" stroke-width="2">
+              <circle cx="13" cy="13" r="13" stroke="none"/>
+              <circle cx="13" cy="13" r="12" fill="none"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="image" transform="translate(314.577 469.578)">
+      <rect id="Rectángulo_324" data-name="Rectángulo 324" width="13" height="13" rx="2" transform="translate(2.714 2.714)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <circle id="Elipse_133" data-name="Elipse 133" cx="1.5" cy="1.5" r="1.5" transform="translate(5.714 5.714)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Trazado_340" data-name="Trazado 340" d="M15.651,13.459,12.323,10,5,17.609" transform="translate(0.063 -1.893)" fill="none" stroke="#0083d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

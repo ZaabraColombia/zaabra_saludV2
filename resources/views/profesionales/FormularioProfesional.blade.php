@@ -2,48 +2,6 @@
 
 @section('content')
 
-
-    @if(!empty($objTiempoRestante->dias_transcurrido))
-            <!--     Sección lista de opciones     -->
-            <ol  class="lista_opciones-usuario-formProf">
-                <div class="content_icons-formProf"> <!-- clase "content_icons-formProf" para evento ocultar y mostrar contenido de la opción. Ubicado en el archivo formularios.js -->
-                    <li class="iconAzul_datoPersonal dato-personal">
-                        <p class="text_opcion-formProfesional" > Datos personales </p>
-                    </li>
-                </div>
-
-                <div class="content_icons-formProf">
-                    <li class="iconGris_perfProf perfil-profesional">
-                        <p class="text_opcion-formProfesional" > Perfil profesional </p>
-                    </li>
-                </div>
-
-                <div class="content_icons-formProf">
-                    <li class="iconGris_trataProced tratamiento-procedimiento">
-                        <p class="text_opcion-formProfesional" > Tratamientos y procedimientos </p>
-                    </li>
-                </div>
-
-                <div class="content_icons-formProf">
-                    <li class="iconGris_premioRecon premio-reconocimiento">
-                        <p class="text_opcion-formProfesional" > Premios y reconocimientos </p>
-                    </li>
-                </div>
-                <div class="content_icons-formProf">
-                    <li class="iconGris_public publicacion">
-                        <p class="text_opcion-formProfesional" > Publicaciones </p>
-                    </li>
-                </div>
-
-                <div class="content_icons-formProf">
-                    <li class="iconGris_galeriaVideo galeria-video">
-                        <p class="text_opcion-formProfesional" > Galería </p>
-                    </li>
-                </div>
-            </ol>  
-    @else
-    @endif
-
     <!--     Sección lista de opciones     -->
     <ol  class="lista_opciones-usuario-formProf">
         <div class="content_icons-formProf"> <!-- clase "content_icons-formProf" para evento ocultar y mostrar contenido de la opción. Ubicado en el archivo formularios.js -->
@@ -83,7 +41,7 @@
     </ol> 
     @if(!empty($objTiempoRestante))
         @if($objTiempoRestante->dias_transcurrido <=15) 
-           <span>quedan {{$objTiempoRestante->dias_transcurrido}} dias</span>
+           <p class="alert-message"> Quedan {{$objTiempoRestante->dias_transcurrido}} días </p>
         @endif
     @endif
     <!-- 1* Contenedor principal de la tarjeta DATOS PERSONALES -->
@@ -113,7 +71,7 @@
             
                             <input type="file" class="input_imgUsuario-formProf" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg">
 
-                            <p class="col-12 icon_subirFoto-formProf text_usuario-formProf"> Subir foto de perfil </p>
+                            <p class="icon_subirFoto-formProf text_usuario-formProf"> Subir foto de perfil </p>
                         </div>
                         
                         <!-- Sección datos personales -->
@@ -313,28 +271,22 @@
 
                 <div class="row fila_infoBasica-formProf">
                     @if(!empty($objFormulario))
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
+                        <div class="col-md-6 section_inputLeft-text-formProf">    
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
 
-                                <input class="col-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="celular" value="{{$objFormulario->celular}}">
-                            </div>
+                            <input class="col-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="celular" value="{{$objFormulario->celular}}">
                         </div>
 
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Teléfono </label>
+                        <div class="col-md-6 section_inputRight-text-formProf">    
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Teléfono </label>
 
-                                <input class="col-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono" value="{{$objFormulario->telefono}}">
-                            </div>
+                            <input class="col-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono" value="{{$objFormulario->telefono}}">
                         </div>
                         
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Dirección </label>
+                        <div class="col-md-6 section_inputLeft-text-formProf">    
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Dirección </label>
                                 
-                                <input class="col-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" value="{{$objFormulario->direccion}}">
-                            </div>
+                            <input class="col-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" value="{{$objFormulario->direccion}}">
                         </div>
 
                         <!--menu dinamico ciudades -->
@@ -377,27 +329,21 @@
                         
                     @else
                         <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
                                 
-                                <input class="col-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="celular" >
-                            </div>
+                            <input class="col-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="celular" >
                         </div>
 
                         <div class="col-md-6 section_inputRight-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Teléfono </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Teléfono </label>
 
-                                <input class="col-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono" >
-                            </div>
+                            <input class="col-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono" >
                         </div>
 
                         <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Dirección </label>
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Dirección </label>
 
-                                <input class="col-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" >
-                            </div>
+                            <input class="col-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" >
                         </div>
 
                         <!--menu dinamico ciudades -->
@@ -443,7 +389,7 @@
         <!--------------------------------------------      Fin 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ---------------------------------------------->
 
         <!--------------------------------------------      Inicio 3 tercera parte del formulario *** INFORMACIÓN CONSULTA ***      ------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_dato-person infoBasica_formProf">
+        <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
             <h5 class="col-12 icon_infoConsult-formProf"> Información consulta </h5>
 
             <div class="consulta_guardada-formProf">
@@ -452,7 +398,7 @@
                         <div class="section_infoConsulta-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
                                 <a href="{{url('/FormularioProfesionaldelete3/'.$objConsultas->id)}}">
-                                    <button type="submit" class="btn_delete-formProf" aria-label="Close">
+                                    <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </a>
@@ -618,7 +564,7 @@
     <!-- 2* Contenedor principal de la tarjeta PERFIL PROFESIONAL -->
     <div class="container-fluid professional_profile content_principal-formProf">
         <!--------------------------------------------      Inicio 4 cuarta parte del formulario *** PERFIL PROFESIONAL ***      ---------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_perfil-prof  infoBasica_formProf">
+        <div class="col-lg-10 col-xl-8 content_perfil-prof  infoBasica_formProf">
             <h5 class="col-12 icon_infoSubPerfil-formProf"> Perfil profesional </h5>
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave4') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
@@ -653,7 +599,7 @@
         <!--------------------------------------------      Fin 4 cuarta parte del formulario *** PERFIL PROFESIONAL ***      ------------------------------------------------->
 
         <!--------------------------------------------      Inicio 5 quinta parte del formulario *** EDUCACIÓN ***      ------------------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_perfil-prof infoBasica_formProf">
+        <div class="col-lg-10 col-xl-8 content_perfil-prof infoBasica_formProf">
             <h5 class="col-12 icon_infoEduc-formProf"> Educación </h5>
 
             <div class="educacion_guardada-formProf">
@@ -662,7 +608,7 @@
                         <div class="section_infoEducacion-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
                                 <a href="{{url('/FormularioProfesionaldelete5/'.$objEducacion->id_universidadperfil)}}">
-                                    <button type="submit" class="btn_deleteEduc-formProf" aria-label="Close">
+                                    <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </a>
@@ -875,7 +821,7 @@
         <!--------------------------------------------      Fin 5 quinta parte del formulario *** EDUCACIÓN ***      ---------------------------------------------------------->
 
         <!--------------------------------------------      Inicio 6 sexta parte del formulario *** EXPERIENCIA ***      ------------------------------------------------------>
-        <div class="col-lg-10 col-xl-8 pb-3 content_perfil-prof infoBasica_formProf">
+        <div class="col-lg-10 col-xl-8 content_perfil-prof infoBasica_formProf">
             <h5 class="col-12 icon_infoExper-formProf"> Experiencia </h5>
 
             <!--------------muestra una lista de la experinecia ingresada---------------> 
@@ -885,7 +831,7 @@
                         <div class="section_infoExper-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
                                 <a href="{{url('/FormularioProfesionaldelete6/'.$objExperiencia->idexperiencias)}}">
-                                    <button type="submit" class="btn_deleteExper-formProf" aria-label="Close">
+                                    <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </a>
@@ -1189,7 +1135,7 @@
         <!--------------------------------------------      Fin 6 sexta parte del formulario *** EXPERIENCIA ***      --------------------------------------------------------->
 
         <!--------------------------------------------      Inicio 7 septima parte del formulario *** ASOCIACIONES ***      --------------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_perfil-prof infoBasica_formProf">
+        <div class="col-lg-10 col-xl-8 content_perfil-prof infoBasica_formProf">
             <h5 class="col-12 icon_infoAsocia-formProf"> Asociaciones </h5>
 
             <div class="asociacion_guardada-formProf">
@@ -1198,7 +1144,7 @@
                     <div class="section_infoAsocia-formProf">
                         <div class="col-12 content_btnX-cierre-formProf">
                             <a href="{{url('/FormularioProfesionaldelete7/'.$objAsociaciones->idAsociaciones)}}">
-                                <button type="submit" class="btn_deleteAsocia-formProf" aria-label="Close">
+                                <button type="submit" class="close" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </a>
@@ -1328,7 +1274,7 @@
         <!--------------------------------------------      Fin 7 septima parte del formulario *** ASOCIACIONES ***      ------------------------------------------------------>
 
         <!--------------------------------------------      Inicio 8 octava parte del formulario *** IDIOMAS ***      --------------------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_perfil-prof infoBasica_formProf">
+        <div class="col-lg-10 col-xl-8 content_perfil-prof infoBasica_formProf">
             <h5 class="col-12 icon_infoIdioma-formProf"> Idiomas </h5>
 
             <div class="idioma_guardada-formProf">
@@ -1337,7 +1283,7 @@
                         <div class="section_infoAsocia-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
                                 <a href="{{url('/FormularioProfesionaldelete8/'.$objIdiomas->id_idioma)}}">
-                                    <button type="submit" class="btn_deleteIdioma-formProf" aria-label="Close">
+                                    <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </a>
@@ -1345,7 +1291,7 @@
 
                             <div class="">
                                 <img id="imagenPrevisualizacion" class="img_bandera-forProf" src="{{URL::asset($objIdiomas->imgidioma)}}">
-                                
+
                                 <label for="example-date-input" class="text_idioma-formProf"> {{$objIdiomas->nombreidioma}}</label>
                             </div>
                         </div>
@@ -1462,7 +1408,7 @@
     <!-- 3* Contenedor principal de la tarjeta TRATAMIENTOS Y PROCEDIMIENTOS -->
     <div class="container-fluid treatments_procedures content_principal-formProf">
         <!--------------------------------------------      Inicio 9 novena parte del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      ----------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_tratam-proced infoBasica_formProf">
+        <div class="col-lg-10 col-xl-8 content_tratam-proced infoBasica_formProf">
             <h5 class="col-12 icon_infoTratam-formProf"> Tratamientos y procedimientos </h5>
 
             <p class="text_superior-proced-formProf"> A continuación suba imágenes con respecto a los procedimientos y tratamientos, con su título y descripción. </p>
@@ -1472,7 +1418,7 @@
                     <div class="traProce_guardada-formProf">
                         <div class="col-12 content_btnDelet-trata-formProf">
                             <a href="{{url('/FormularioProfesionaldelete9/'.$objTratamiento->id_tratamiento)}}">
-                                <button type="submit" class="btn_deleteTrata-formProf" aria-label="Close">
+                                <button type="submit" class="close" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </a>
@@ -1779,22 +1725,10 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- 4* Contenedor principal de la tarjeta PREMIOS Y RECONOCIMIENTOS -->
     <div class="container-fluid Awards_honours content_principal-formProf">
         <!--------------------------------------------      Inicio 10 decima parte del formulario *** PREMIOS y RECONOCIMIENTOS ***      -------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_premio-recono infoBasica_formProf">
+        <div class="col-lg-10 col-xl-8 content_premio-recono infoBasica_formProf">
             <h5 class="col-12 icon_infoPremReco-formProf"> Premios y reconocimientos </h5>
 
             <p class="text_superior-proced-formProf"> A continuación suba imágenes relacionadas con sus premios y reconocimientos, con nombre y descripción. </p>
@@ -1807,7 +1741,7 @@
                         <div class="section_infoExper-formProf">
                             <div class="col-12 content_btnDelet-trata-formProf">
                                 <a href="{{url('/FormularioProfesionaldelete10/'.$objPremios->id)}}">
-                                    <button type="submit" class="btn_deletePremio-formProf" aria-label="Close">
+                                    <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </a>
@@ -2322,7 +2256,7 @@
     <!-- 5* Contenedor principal de la tarjeta PUBLICACIONES -->
     <div class="container-fluid publications_formInst content_principal-formProf">
         <!--------------------------------------------      Inicio 11 onceava parte del formulario *** PUBLICACIONES ***      ------------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_publicacion infoBasica_formProf">
+        <div class="col-lg-10 col-xl-8 content_publicacion infoBasica_formProf">
             <h5 class="col-12 icon_infoPublic-formProf"> Publicaciones </h5>
 
             <p class="text_superior-proced-formProf"> A continuación suba imágenes de las publicaciones que ha realizado a lo largo de su experiencia. </p>
@@ -2335,7 +2269,7 @@
                         <div class="section_infoExper-formProf">
                             <div class="col-12 content_btnDelet-trata-formProf">
                                 <a href="{{url('/FormularioProfesionaldelete11/'.$Publicaciones->id)}}">
-                                    <button type="submit" class="btn_deletePremio-formProf" aria-label="Close">
+                                    <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </a>
@@ -2763,7 +2697,7 @@
     <!-- 6* Contenedor principal de la tarjeta GALERIA -->
     <div class="container-fluid gallery_formInst content_principal-formProf">
         <!--------------------------------------------      Inicio 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_galeria-video infoBasica_formProf">
+        <div class="col-lg-10 col-xl-8 content_galeria-video infoBasica_formProf">
             <h5 class="col-12 icon_infoGale-formProf"> Galeria </h5>
 
             <p class="text_superior-proced-formProf"> A continuación suba 10 imágenes como mínimo, con su respectivo nombre y descripción. </p>
@@ -2776,7 +2710,7 @@
                         <div class="section_infoExper-formProf">
                             <div class="col-12 content_btnDelet-trata-formProf">
                                 <a href="{{url('/FormularioProfesionaldelete12/'.$objGaleria->id_galeria)}}">
-                                    <button type="submit" class="btn_deletePremio-formProf" aria-label="Close">
+                                    <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </a>
@@ -4298,20 +4232,20 @@
         <!--------------------------------------------      Fin 12 doceava parte del formulario *** GALERIA ***      ---------------------------------------------------------->
 
         <!--------------------------------------------      Inicio 13 treceava parte del formulario *** VIDEOS ***      ------------------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_galeria-video infoBasica_formProf">
+        <div class="col-lg-10 col-xl-8 content_galeria-video infoBasica_formProf">
             <h5 class="col-12 icon_infoVideo-formProf"> Videos </h5>
 
             <p class="text_superior-proced-formProf"> A continuación suba el link del video, con su respectivo nombre y descripción. </p>
 
             <!-- Modulos de los VIDEOS -->
-            <div class="educacion_guardada-formProf">
+            <div class="premios_guardada-formProf">
                 @foreach($objVideo as $objVideo)
                     @if(!empty($objVideo->nombrevideo))
                         <!-- Contenido VIDEOS -->    
                         <div class="section_infoExper-formProf">
                             <div class="col-12 content_btnDelet-trata-formProf">
                                 <a href="{{url('/FormularioProfesionaldelete13/'.$objVideo->id)}}">
-                                    <button type="submit" class="btn_deletePremio-formProf" aria-label="Close">
+                                    <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </a>
@@ -4320,25 +4254,19 @@
 
                             <div class="col-12 my-2">
                                 <div class="img_selccionada-formProf">
-                                    <iframe src="{{$objVideo->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe class="img_anexada-formProf" src="{{$objVideo->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
 
-                                <div class="col-12 p-0">
-                                    <div class="form-group">
-                                        <label for="example-date-input" class="col-12 text_label-formProf"> {{$objVideo->nombrevideo}} </label>
-                                    </div>
+                                <div class="col-12 p-0 mt-2">
+                                    <label class="col-12 text_fechaPremio-formProf"> {{$objVideo->fechavideo}} </label>
                                 </div>
 
-                                <div class="col-12 p-0">
-                                    <div class="form-group">
-                                        <label for="example-date-input" class="col-12 text_label-formProf"> {{$objVideo->descripcionvideo}} </label>
-                                    </div>
+                                <div class="col-12 text_label-formProf">
+                                    <label class="col-12 title_infoGuardada-formProf"> {{$objVideo->nombrevideo}} </label>
                                 </div>
 
-                                <div class="col-12 p-0">
-                                    <div class="form-group">
-                                        <label for="example-date-input" class="col-12 text_label-formProf"> {{$objVideo->fechavideo}} </label>
-                                    </div>
+                                <div class="col-12 descripcion_Premio-formProf">
+                                    <p class="col-12 text_descPremio-formProf"> {{$objVideo->descripcionvideo}} </p>
                                 </div>
                             </div>
                         </div>
@@ -4353,24 +4281,24 @@
                     <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formProf">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 video1 section_inputLeft-text-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="agregar_archivo-formProf">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 section_inputLeft-text-formProf content_antes-formProf">
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Url video 1 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
 
@@ -4378,30 +4306,32 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="agregar_archivo-formProf">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 section_inputRight-text-formProf">
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Url video 2 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
                             
@@ -4409,33 +4339,35 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Modulos de los VIDEOS -->
-                    <div class="row content_antDesp-formProf ">
+                    <div class="row content_antDesp-formProf">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 video1 section_inputLeft-text-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="agregar_archivo-formProf">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 section_inputLeft-text-formProf content_antes-formProf">
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Url video 3 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
 
@@ -4443,30 +4375,32 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="agregar_archivo-formProf">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 section_inputRight-text-formProf">
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Url video 4 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
                             
@@ -4474,64 +4408,36 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 @elseif($objContadorVideo->cantidad == 1)
                     <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formProf">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 video1 section_inputLeft-text-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="agregar_archivo-formProf">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
-
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
-                                    
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="agregar_archivo-formProf">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 section_inputRight-text-formProf">
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Url video 2 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
                             
@@ -4539,33 +4445,35 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Modulos de los contenidos ANTES y DESPUÉS -->
+                    <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formProf">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 video1 section_inputLeft-text-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="agregar_archivo-formProf">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 section_inputLeft-text-formProf content_antes-formProf">
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Url video 3 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
 
@@ -4573,33 +4481,69 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contenido DERECHO -->
+                        <div class="col-md-6 section_inputRight-text-formProf">
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Url video 4 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
+
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
+
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 @elseif($objContadorVideo->cantidad == 2)
                     <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formProf">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 video1 section_inputLeft-text-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="agregar_archivo-formProf">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 section_inputLeft-text-formProf content_antes-formProf">
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Url video 3 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
 
@@ -4607,30 +4551,32 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="agregar_archivo-formProf">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 section_inputRight-text-formProf">
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Url video 4 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
                             
@@ -4638,7 +4584,9 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -4646,39 +4594,41 @@
                 @elseif($objContadorVideo->cantidad == 3)
                     <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formProf">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 video1 section_inputLeft-text-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="agregar_archivo-formProf">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <!-- Contenido DERECHO -->
+                        <div class="col-md-6 section_inputRight-text-formProf">
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Url video 4 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formProf">
+                            <div class="col-12 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formProf">
+                            <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
+                            
+                            <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
-                                    
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
                     </div>
                 @elseif($objContadorVideo->cantidad == 4)
-                    <span> No se pueden agregar más </span>
+                    <label for="example-date-input" class="col-12 txtInfo_limitante-formProf"> No se pueden agregar más videos. </label>
                 @endif 
 
                 <div class="col-12 content_btnEnviar-formProf">
