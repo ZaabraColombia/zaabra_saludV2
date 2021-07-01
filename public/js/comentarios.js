@@ -57,7 +57,7 @@ $('#comentarioFormProf').on('submit',function(e){
         "comentario": $('#comentario').val(),
       },
       success:function(response){ 
-        $('#send_form_coment_prof').hide();
+        $('#oscar').hide();
         $('#res_message').show();
         $('#res_message').html(response.msg);
         $('#msg_comentario').removeClass('d-none');

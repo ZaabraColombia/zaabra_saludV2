@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <!-- contenedor principal -->
 <div class="container-fluid contenedorPrin_Register">
     <!-- fila principal -->
@@ -12,7 +11,7 @@
         <div class="card col-11 col-md-10 col-lg-8 section_principal-register">
             <!-- seccion body login -->
             <div class="card-body section_body-register">
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('register') }}" onsubmit="return validateform()" name="formularioRegistro">
                     <!-- seccion iniciar sesion, creaar cuenta y titulo interno -->
                     <div class="row card-header content_iniciar-crear">
                         <div class="col-6 section_texto-inicio">
@@ -24,7 +23,6 @@
                         </div>
                         <p class="texto_superior-tarjeta-register"> Registrarme como </p>
                     </div>
-
                     @csrf
                     <div id="persona">
                         <!-- Seccion opciones paara Registrarse -->
@@ -55,10 +53,10 @@
                         <div class="names_person">
                             <!-- Campos de Nombres -->
                             <div class="form-group row mb-0">
-                                <label for="primernombre" class="col-md-12 col-form-label texto_label-register">{{ __('Nombres') }}</label>
+                                <label for="primernombre" class="col-md-12 col-form-label texto_label-register">{{ __('Nombres *') }}</label>
 
                                 <div class="col-md-6 mb-3 mb-md-0">
-                                    <input id="primernombre" type="text" class="form-control input_height-fullhd-register @error('primernombre') is-invalid @enderror" name="primernombre" value="{{ old('primernombre') }}"  autocomplete="primernombre" autofocus placeholder="Primer Nombre">
+                                    <input id="primernombre" type="text" class="form-control input_height-fullhd-register" name="primernombre" value="{{ old('primernombre') }}"  autocomplete="primernombre" autofocus placeholder="Primer Nombre">
 
                                     @error('primernombre')
                                         <span class="invalid-feedback" role="alert">
@@ -74,7 +72,7 @@
 
                             <!-- Campos de Apellidos -->
                             <div class="form-group row mb-0">
-                                <label for="primerapellido" class="col-md-12 col-form-label texto_label-register">{{ __('Apellidos') }}</label>
+                                <label for="primerapellido" class="col-md-12 col-form-label texto_label-register">{{ __('Apellidos *') }}</label>
 
                                 <div class="col-md-6 mb-3 mb-md-0">
                                     <input id="primerapellido" type="text" class="form-control input_height-fullhd-register @error('primerapellido') is-invalid @enderror" name="primerapellido" value="{{ old('primerapellido') }}"  autocomplete="primerapellido" autofocus placeholder="Primer Apellido">
@@ -97,7 +95,7 @@
                     <div id="institucion" class="names_institution">
                         <!-- Campo de nombre de la institución -->
                         <div class="form-group row name_institution m-0">
-                            <label for="nombreinstitucion" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Nombre Institución') }}</label>
+                            <label for="nombreinstitucion" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Nombre Institución *') }}</label>
 
                             <div class="col-md-12 px-0">
                                 <input id="nombreinstitucion" type="text" class="form-control input_height-fullhd-register @error('nombreinstitucion') is-invalid @enderror" name="nombreinstitucion" value="{{ old('nombreinstitucion') }}" autofocus placeholder="Nombre Institucion">
@@ -111,10 +109,10 @@
                         <div class="row">
                             <!-- Campo Tipo de documento -->
                             <div class="form-group col-12 col-md-6 m-0">
-                                <label for="tipodocumento" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Tipo Documento') }}</label>
+                                <label for="tipodocumento" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Tipo Documento *') }}</label>
                                 
-                                <select class="form-select col-12 form-control input_height-fullhd-register" name="tipodocumento" required>
-                                    <option selected> Seleccione </option>
+                                <select class="form-select col-12 form-control input_height-fullhd-register @error('tipodocumento') is-invalid @enderror" name="tipodocumento" required>
+                                    <option value="" selected> Seleccione </option>
                                     <option value="1"> Cedula Ciudadania </option>
                                     <option value="2"> Cedula Extranjeria </option>
                                     <option value="3"> Nit </option>
@@ -123,9 +121,9 @@
 
                             <!-- Número de documento -->
                             <div class="form-group col-md-6 m-0">
-                                <label for="numerodocumento" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Numero Documento') }}</label>
+                                <label for="numerodocumento" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Numero Documento *') }}</label>
                                 <div class="col-md-12 p-0">
-                                    <input id="numerodocumento" type="number" class="form-control input_height-fullhd-register @error('numerodocumento') is-invalid @enderror" name="numerodocumento" value="{{ old('numerodocumento') }}" required autocomplete="numerodocumento" autofocus>
+                                    <input id="numerodocumento" type="number" class="form-control input_height-fullhd-register" name="numerodocumento" value="{{ old('numerodocumento') }}" autocomplete="numerodocumento" autofocus>
                                     @error('numerodocumento')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -134,13 +132,12 @@
                                 </div>
                             </div>
                         </div>
- 
                         <!-- Correo electrónico -->
                         <div class="form-group col-12 p-0 m-0">
-                            <label for="email" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Correo electrónico') }}</label>
+                            <label for="email" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Correo electrónico *') }}</label>
 
                             <div class="col-12 p-0">
-                                <input id="email" type="email" class="form-control input_height-fullhd-register @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="zaabra@gmail.com">
+                                <input id="email" type="email" class="form-control input_height-fullhd-register" name="email" value="{{ old('email') }}" autocomplete="email" required placeholder="zaabra@gmail.com">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -154,7 +151,7 @@
 
                             <!-- Contraseña -->
                             <div class="form-group col-md-6 m-0">
-                                <label for="password" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Contraseña') }}</label>
+                                <label for="password" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Contraseña *') }}</label>
 
                                 <div class="col-md-12 px-0">
                                     <input id="password" type="password" class="form-control input_height-fullhd-register @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Contraseña"> 
@@ -168,7 +165,7 @@
 
                             <!-- Confirmar contraseña -->
                             <div class="form-group col-md-6">
-                                <label for="password-confirm" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Confirmar contraseña') }}</label>
+                                <label for="password-confirm" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Confirmar contraseña *') }}</label>
 
                                 <div class="col-md-12 px-0">
                                     <input id="password-confirm" type="password" class="form-control input_height-fullhd-register" name="password_confirmation" required autocomplete="new-password" placeholder="Contraseña">
@@ -179,7 +176,7 @@
                         <!-- Check Políticas y terminos -->
                         <div class="form-group row mb-0">
                             <div class="col-12">
-                                <input type="checkbox" class="check_option-register" id=""> 
+                                <input type="checkbox" class="check_option-register" id="aceptoTerminos" name="aceptoTerminos" value="1"  required> 
                                 <div class="col-12 section_terminos-register">
                                     <span class="texto_inferior-tarjeta-register"> Declaro que he leído y acepto la <a href="#" class="text_link-register">Política de Privacidad</a> y los <a href="#" class="text_link-register">Términos y condiciones</a> de Zaabra Salud. </span>
                                 </div>

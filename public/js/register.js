@@ -61,3 +61,59 @@ function hideForm (z){
     }
 }
 
+function validateform(){  
+    var idrol=document.formularioRegistro.idrol.value; 
+        if (idrol==1 && idrol!=null) {
+            var primernombre=document.formularioRegistro.primernombre.value;
+                if (primernombre == null || primernombre=="") {
+                    var elem = document.getElementById('primernombre');
+                    elem.style.border = "solid 1px red"; 
+                return false; 
+                }
+            var primerapellido=document.formularioRegistro.primerapellido.value;
+                if (primerapellido == null || primerapellido=="") {
+                    var elem = document.getElementById('primerapellido');
+                    elem.style.border = "solid 1px red"; 
+                return false; 
+                }
+            var numerodocumento=document.formularioRegistro.numerodocumento.value;
+                if (numerodocumento == null || numerodocumento=="") {
+                    var elem = document.getElementById('numerodocumento');
+                    elem.style.border = "solid 1px red"; 
+                return false; 
+                }
+        }else if(idrol==2 && idrol!=null){
+            var primernombre=document.formularioRegistro.primernombre.value;
+                if (primernombre == null || primernombre=="") {
+                    var elem = document.getElementById('primernombre');
+                    elem.style.border = "solid 1px red"; 
+                return false; 
+            }
+            var primerapellido=document.formularioRegistro.primerapellido.value;
+                if (primerapellido == null || primerapellido=="") {
+                    var elem = document.getElementById('primerapellido');
+                    elem.style.border = "solid 1px red"; 
+                return false; 
+            }
+            var numerodocumento=document.formularioRegistro.numerodocumento.value;
+                if (numerodocumento == null || numerodocumento=="") {
+                    var elem = document.getElementById('numerodocumento');
+                    elem.style.border = "solid 1px red"; 
+                return false; 
+                }
+        }else if(idrol==3 && idrol!=null){
+            var nombreinstitucion=document.formularioRegistro.nombreinstitucion.value;
+                if (nombreinstitucion == null || nombreinstitucion=="") {
+                    var elem = document.getElementById('nombreinstitucion');
+                    elem.style.border = "solid 1px red"; 
+                return false; 
+                }
+            var numerodocumento=document.formularioRegistro.numerodocumento.value;
+                if (numerodocumento == null || numerodocumento=="") {
+                    var elem = document.getElementById('numerodocumento');
+                    elem.style.border = "solid 1px red"; 
+                return false; 
+                }
+        }
+    return true; 
+} 
