@@ -12,7 +12,7 @@
                     <h5>{{$objprofesionallanding->nombreuniversidad}}</h5>
                     <h5>N° Tarjeta profesional: {{$objprofesionallanding->numeroTarjeta}}</h5>
                     <!-- Rating Stars Box -->
-                    <div class='rating-stars text-center'>
+                    <div class='rating-stars star_box'>
                         @foreach($objprofesionalComentario as $promedioEstrellas)
                         @endforeach
                         @for ($i=1; $i <= $promedioEstrellas->calificacionRedondeada; $i++)
@@ -251,8 +251,12 @@
             </div>     
         </section>
 
-        <section class="container-fluid p-0">
-            <div id="resultados">
+        <section class="container-fluid content_options-prof">
+            <h2 class="icono_opiniones-prof title_opiniones"> Opiniones de pacientes </h2>
+
+            <p class="text_cabecera-prof"> Describa su opinión y seleccione las estrellas según el puntaje que le quiera asignar al médico. </p>
+
+            <div class="visible_container" id="resultados">
                 <div class="alert alert-success d-none mt-5" id="msg_comentario">
                     <span id="res_message"></span>
                 </div>
@@ -298,13 +302,19 @@
                     @endif
                 @endif
                        
-                <div class="row col-12 content_optionsLprof" id="oscar">
-                    @foreach ($objprofesionalComentario as $data)
-                        <div class="col-6">
-                        <i class="fas fa-circle"></i>
-                            <span>{{$data->primernombre}} {{$data->primerapellido}}</span>
+            
+                @foreach ($objprofesionalComentario as $data)
+                <div class="section_opciones" id="oscar">
+                    <div class="section_usuario-prof">
+                        <div class="contains_avatar">
+                            <i class="fas fa-circle circle_opinion-prof"></i>
                         </div>
-                        <div class="col-6">
+                        <div class="contains_text">
+                            <p class="name_usuario-prof">{{$data->primernombre}} {{$data->primerapellido}}</p>
+                            <p class="icono_verify verify_usuario-prof"> Paciente verificado </p>       
+                        </div>
+
+                        <div class="section_stars-prof">
                             @for ($i=1; $i <= $data->calificacion; $i++)
                             <i class='fa fa-star fa-fw' style="color: yellow;"></i>
                             @endfor 
@@ -312,11 +322,19 @@
                             <i class='fa fa-star fa-fw' style="color: red;"></i>
                             @endfor
                         </div>
-                        <div class="col-12">
-                            <span>{{$data->comentario}}</span>
-                        </div>
-                    @endforeach
+                    </div>
+                    <div class="section_comentario-prof">
+                        <span>{{$data->comentario}}</span>
+                    </div>
                 </div>
+                @endforeach
+            </div>
+
+            <!-- <div class="section_masComent-prof">
+                <a class="txt_comentarios-prof" href=""> Más comentarios </a>
+            </div> -->
+            <div class="section_verificado-prof">
+                <h3 class="icono_verificado-prof txt_verify-bottom"> Todos los comentarios son de pacientes verificados. </h3>
             </div>
         </section>
        

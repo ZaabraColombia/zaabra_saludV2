@@ -170,6 +170,18 @@
     margin: auto;
     padding: 0;
 }
+.alert-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    width: 92%;
+    height: 7vh;
+    padding: 3% 1% 1% 1%;
+    text-align: center;
+    border-radius: 3px;
+    margin-left: 4%;
+    margin-bottom: 2%;
+}
 // Sección titulo y texto superior
 .titulo_principal-formProf {
     font-family: 'Quicksand', 'Regular';
@@ -189,7 +201,7 @@
 .infoBasica_formProf {
     background: #ffffff;
     margin: auto;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     padding: 0;
     box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
 }
@@ -213,7 +225,7 @@
 // Fila información básica
 .fila_infoBasica-formProf {
     margin: 0;
-    padding: 2% 0;
+    padding-top: 2%;
 }
 .section_inputRight-text-formProf {
     padding: 0 0 0 15px;
@@ -256,8 +268,7 @@
     font-family: "Quicksand", "Regular";
     font-size: 1em;
     color: #434343;
-    margin: 10% 0 5% 0;
-    padding-right: 0;
+    padding: 10% 0 5% 0;
 }
 // Sección datos personales
 .datos_principales-formProf {
@@ -367,24 +378,24 @@
     font-family: 'Roboto', 'Regular';
     color: #E3342F;
     font-weight: 500;
-    padding: 2% 0;
+    padding: 0;
+    margin: 0;
 }
 // Información guardada
 .consulta_guardada-formProf {
     margin: 0;
-    margin-top: 0;
-    padding:0;
+    padding-top: 3%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 100%;
 }
 .section_infoConsulta-formProf {
-    width: 32%;
+    width: 30%;
     padding: 1%;
-    border: 1px solid #DBDADA;
+    border: 0.1px solid #DBDADA;
     border-radius: 3px;
-    box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
+    box-shadow: 0px 0px 10px -2px rgb(0 0 0 / 38%);
 }
 .option_consulta-formProf {
     margin-bottom: 3%;
@@ -1166,7 +1177,8 @@
     display: flex;
     justify-content: flex-end;
     margin: auto;
-    margin-bottom: 3%;
+    margin-top: 2%;
+    margin-bottom: 5%;
     padding: 0;
 }
 .content_botonesInferiores-formProf {
@@ -1235,7 +1247,7 @@
         justify-content: center;
         flex-wrap: wrap;
         width: 100%;
-        height: 40vh;
+        height: 35vh;
     }
     .content_icons-formProf {
         width: 30%;
@@ -1265,26 +1277,37 @@
         text-align: center;
     }
     .texto_superior-formProf {
-        font-size: .75em;
+        font-size: .85em;
     }
     //      ***** SECCIÓN TARJETA DE --- INFORMACIÓN BÁSICA --- *****
+    .datos_principales-formProf {
+        border-left: none;
+    }
     .icon_infoBasica-formProf {
         background-size: 8%;
         padding-left: 10%;
         height: 6vh;
         display: flex;
     }
+    .fila_infoBasica-formProf {
+        padding-top: 5%;
+    }
     // Imagen del usuario
+    .contain_imgUsuario-formProf {
+        align-self: center;
+        text-align: center;
+        margin-top: 5%;
+    }
     .img_usuario-formProf {
         height: 35vh;
         width: 75%;
     }
     .text_usuario-formProf {
         font-size: .85em;
-        margin: 5% 0;
+        padding: 5% 0 5% 10%;
     }
     .icon_subirFoto-formProf {
-        background-position-x: 25%;
+        background-position-x: 26%;
         background-size: 4.5%;
     }
     // Sección cajas de texto datos personales
@@ -1296,6 +1319,7 @@
     }
     .text_label-formProf {
         font-size: 1em;
+        margin-top: 3%;
     }
     .nombres_usuario-formProf {
         flex-direction: column;
@@ -1306,6 +1330,10 @@
         width: 100%;
         margin-bottom: 5%;
     }
+    // Sección botón guardar
+    .content_btnEnviar-formProf {
+        margin-bottom: 5%;
+    }
     // botón inferior de guardar
     .btn_enviar-formProf {
         font-size: 1em;
@@ -1313,6 +1341,9 @@
     }
     .flecha_guardar-formProf {
         width: 13%;
+    }
+    .txtInfo_limitante-formProf {
+        font-size: .85em;
     }
     //      ***** SECCIÓN TARJETA DE --- INFORMACIÓN DEL CONTACTO --- *****         //
     .icon_infoContac-formProf {
@@ -1323,6 +1354,7 @@
     .btn2_enviar-formProf {
         font-size: 1em;
         width: 45%;
+        margin: 3% 0 5% 0;
     }
     //      ***** SECCIÓN TARJETA DE --- INFORMACIÓN DE LA CONSULTA --- *****         //
     .icon_infoConsult-formProf {
@@ -1335,17 +1367,16 @@
     }
     .consulta_guardada-formProf {
         margin: 0;
-        margin-top: 3%;
-        padding: 0;
+        padding-top: 5%;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
         width: 100%;
         flex-flow: wrap;
     }
     .section_infoConsulta-formProf {
         width: 100%;
-        margin-top: 5%;
+        margin-bottom: 5%;
     }
     .content_btnX-cierre-formProf {
         height: 3vh;
@@ -1491,7 +1522,7 @@
         height: 14vh;
     }
     .text_infoGuardada-formProf {
-        font-size: .75em;
+        font-size: .85em;
     }
     //      ***** SECCIÓN TARJETA DE --- PREMIOS Y RECONOCIMIENTOS --- *****         //
     .icon_infoPremReco-formProf {
@@ -1665,6 +1696,11 @@
         font-size: 1.2em;
     }
     // Imagen del usuario
+    .contain_imgUsuario-formProf {
+        align-self: center;
+        text-align: center;
+        margin-top: 5%;
+    }
     .img_usuario-formProf {
         height: 13vh;
         width: 100%;
@@ -1733,11 +1769,10 @@
     }
     .consulta_guardada-formProf {
         margin: 0;
-        margin-top: 3%;
-        padding: 0;
+        padding-top: 5%;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
         width: 100%;
         flex-flow: nowrap;
     }
@@ -1987,9 +2022,9 @@
     .img_usuario-formProf {
         height: 23vh;
     }
-    .text_usuario-formProf {
+    /*.text_usuario-formProf {
         margin: 5% 0;
-    }
+    }*/
     .icon_subirFoto-formProf {
         background-position-x: 2%;
         background-size: 7%;
@@ -2054,7 +2089,7 @@
         background-size: 5%;
     }
     .text_usuario-formProf {
-        margin: 3% 0;
+        padding: 3% 0 3% 3%;
     } 
     .flecha_guardar-formProf {
         width: 8%;
