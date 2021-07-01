@@ -446,6 +446,9 @@
 .sedes_institucion .card-body h5{
     color: #019F86;
 }
+.desplegable_institucion .card-header{
+    border: 0;
+}
 @media (min-width: 320px){
     .section_data_instituciones{
         width: 100%;
@@ -1610,6 +1613,13 @@
 
 @media (min-width: 1440px){
 
+    .data_instituciones img{
+        left: 15%;
+        top: 15%;
+    }
+    .data_instituciones .contains_buttons {
+        width: 50%;
+    }
     .videos_institucion .card {
         width: 27%;
     }
@@ -1620,10 +1630,40 @@
     .gallery_institucion > li > img {
         height: 180px;
     }
+    .data_instituciones .rating-stars ul {
+        margin-top: 8%;
+        margin-bottom: 0%;
+    }
+    .rating-stars ul > li.star > i.fa {
+        font-size: 1.5em;
+    }
+    .contains_swiper_institucion {
+        margin-bottom: 0;
+    }
+    .contains_swiper_institucion h1{
+        font-size: 2.5em;
+    }
+    .desplegable_institucion .card-header button{
+        font-size: 1.6em;
+    }
+    .desplegable_institucion .boton_collapse-off-institucion{
+        height: 6vh;
+    }
 }
 
 @media (min-width: 1600px){
 
+    .data_instituciones img{
+        width: 240px;
+        height: 240px;
+        left: 15%;
+        top: 18%;
+    }
+    .section_data_instituciones {
+        height: auto;
+        padding-top: 5%;
+        padding-bottom: 2%;
+    }
     .servicios_instituciones,
     .quienes_somos, 
     .propuesta, 
@@ -1644,25 +1684,43 @@
         padding-left: 32%;
     }
     .data_instituciones .title-adress {
-        width: 60%;
+        width: 100%;
         font-weight: 500;
     }
     .data_instituciones h5:nth-child(7){
         padding-left: 3%;
     }
     .data_instituciones .contains_buttons {
-        width: 25%;
-        flex-direction: column;
+        width: 45%;
+        flex-direction: row;
         padding-bottom: 1%;
-        margin-left: 2%;
+        margin-left: 0;
     }
     .data_instituciones .contains_buttons a{
         align-items: flex-start;
         margin: 0;
         margin-bottom: 4%;
     }
+    .data_instituciones h2 {
+        font-size: 2.2em;
+    }
+    .data_instituciones h1 {
+        font-size: 2em;
+    }
+    .data_instituciones h5 {
+        font-size: 1.4em;
+    }
+    .desplegable_institucion .card{
+        padding: 0.4% 3%;
+    }
+    .desplegable_institucion .card-header button{
+        background-size: 2% !important;
+    }
     .contains_swiper_institucion h1{
         font-size: 2.5em;
+    }
+    .rating-stars ul > li.star > i.fa {
+        font-size: 1.4em;
     }
     .swiper_institucion {
         width: 60%;
@@ -1682,32 +1740,85 @@
     .servicios_instituciones p {
         padding-left: 5%;
     }
+    .servicios_instituciones h2, .quienes_somos h2 {
+        font-size: 1.8em;
+    }
+    .propuesta h2, .convenios h2{
+        font-size: 1.8em;
+    }
     .propuesta ul,  
     .convenios ul, 
     .idiomas ul {
         padding-left: 5%;
     }
+    .servicios_instituciones p, .quienes_somos p{
+        font-size: 1.3em;
+        padding-left: 6%;
+    }
+    .propuesta p{
+        font-size: 1.3em;
+    }
     .sedes_institucion .card {
-        width: 34%;
-        margin-bottom: 0;
+        width: 45%;
+        padding-right: 8%;
     }
     .sedes_institucion .card h4, h6 {
         font-size: 1.5em;
+    }
+    .sedes_institucion .card-body h5 {
+        font-size: 1.3em;
+    }
+    .sedes_institucion p{
+        font-size: 1.1em; 
+    }
+    .sedes_institucion span {
+        font-size: 1.1em;
+    }
+    .sedes_institucion .card-img-top {
+        border-radius: 50%;
+        width: 135px;
+        height: 135px;
+    }
+    .contains_swiper_certificados h2 {
+        font-size: 1.8em;
+        margin-bottom: 4%;
+    }
+    .mapa {
+        width: 70%;
+        margin: auto;
+        margin-top: 5%;
+    }
+    .sedes_institucion h2, .galeria_institucion h2, .videos_institucion h2 {
+        font-size: 1.8em;
+    }
+    .galeria_institucion h2 {
+        font-size: 1.6em;
     }
 }
 
 @media (min-width: 1920px){
     .data_instituciones img{
-        width: 280px;
-        height: 280px;
+        width: 250px;
+        height: 250px;
         left: 25%;
-        top: 14%;
+        top: 17%;
     }
     .data_instituciones{
-        padding-left: 45%;
+        padding-left: 41%;
     }
     .sedes_institucion .card {
-        width: 22%;
+        width: 40%;
         margin-bottom: 0;
+        margin-top: 3%;
+    }
+    .swiper_institucion .item_landing_insti span{
+        margin-top: 115px;
+    }
+    .swiper_institucion .item_landing_insti{
+        height: 115px;
+    }
+    .desplegable_institucion .card-header button{
+        height: 7vh;
+        font-size: 1.8em;
     }
 }
