@@ -810,15 +810,11 @@
     align-items: center;
     width: 100%;
     height: 30vh;
-    object-fit: contain;
 }
 .img_anexada-formInst {
-    object-fit: contain;
-}
-.img_anexada-formInst img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 .content_antDesp-formInst {
     padding: 0;
@@ -1067,7 +1063,7 @@
 
 // Sección titulo de la tarjeta videos
 .icon_infoVideo-formInst {
-    background-image: url('/img/formulario-profesional/icono-videos.svg') ;
+    background-image: url('/img/formulario-institucion/icono-videos-azul.svg') ;
     background-repeat: no-repeat ;
     background-position-y: center;
     background-size: 2.5%;
@@ -1075,51 +1071,11 @@
     height: 5vh;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #019F86;
+    border-bottom: 1px solid #0083d6;
     font-size: 1em;
     font-family: 'Quicksand', 'Regular';
-    color: #019F86;
+    color: #0083d6;
     text-transform: inherit;
-}
-.video1 .agregar_archivo-formInst::before {
-    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
-    background-repeat: no-repeat ;
-    background-position-y: center;
-    background-position-x: 35%;
-    background-size: 3%;
-    font-size: 1em;
-    font-family: 'Quicksand', 'Regular';
-    color: #434343;
-    display: flex;            
-    justify-content: center;
-    align-items: center;
-    border-radius: 3px;
-    content: 'Subir video 1'; /* texto botón subir foto asociación */
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;              
-}
-.video2 .agregar_archivo-formInst::before {
-    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
-    background-repeat: no-repeat ;
-    background-position-y: center;
-    background-position-x: 35%;
-    background-size: 3%;
-    font-size: 1em;
-    font-family: 'Quicksand', 'Regular';
-    color: #434343;
-    display: flex;            
-    justify-content: center;
-    align-items: center;
-    border-radius: 3px;
-    content: 'Subir video 2'; /* texto botón subir foto asociación */
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;              
 }
 // Secciones botones inferiores anterior y siguoente
 .content_botonInferior-next-formInst {
@@ -1202,6 +1158,50 @@
 }
 .message-not{
     display: none;
+}
+
+
+
+
+
+.premios_guardada-formInst {
+    margin: 0;
+    margin-top: 3%;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: self-start;
+    flex-flow: wrap;
+    flex-wrap: wrap;
+}
+.section_infoExper-formInst {
+    width: 48%;
+    padding: 1%;
+    border: 1px solid #DBDADA;
+    border-radius: 3px;
+    box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+}
+.content_antes-formInst {
+    border-right: 1px solid #D1D1D1;
+}
+.text_label-formInst {
+    font-family: 'Quicksand';
+    font-size: 1.15em;
+    color: #232323;
+    font-weight: bold;
+    padding: 0;
+    margin-bottom: 0;
+}
+.text_infoImg-formInst {
+    font-family: 'Roboto', 'Regular';
+    font-size: .9em;
+    color: #DBDADA;
+    padding: 0;
 }
 @media (min-width: 320px) and (orientation: portrait) {
     // Sección lista de las opciones 
@@ -1475,6 +1475,10 @@
         background-size: 5%;
         font-size: 1em;             
     }
+    .img_saveCertifi-formInst {
+        width: 100%;
+        height: 35vh;
+    }
     ///// *****   SECCIÓN TARJETA SEDES   ***** /////
     // Sección titulo de la tarjeta sedes
     .icon_sedes-formInst {
@@ -1524,16 +1528,6 @@
         padding-left: 10%;
         height: 6vh;
     }
-    .video1 .agregar_archivo-formInst::before {
-        background-position-x: 25%;
-        background-size: 5%;
-        font-size: 1em;             
-    }
-    .video2 .agregar_archivo-formInst::before {
-        background-position-x: 25%;
-        background-size: 5%;
-        font-size: 1em;              
-    }
     // Sección botones inferiores
     .boton_inferior-siguiente-formInst {
         width: 90%;
@@ -1553,6 +1547,31 @@
     }
     .boton_inferior-finalizar-formInst {
         width: 90%;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .section_infoExper-formInst {
+        width: 100%;
+        padding: 2%;
+        margin-bottom: 5%;
+    }
+    .text_label-formInst {
+        font-size: 1em;
+    }
+    .text_infoImg-formInst {
+        font-size: .75em;
+        padding: 0;
     }
 }
 @media (min-width: 768px) and (orientation: portrait) {
@@ -1853,6 +1872,10 @@
         background-size: 4%;
         font-size: 1em;
     }
+    .img_saveCertifi-formInst {
+        width: 100%;
+        height: 20vh;
+    }
     ///// *****   SECCIÓN TARJETA SEDES   ***** /////
     // Sección titulo de la tarjeta sedes
     .icon_sedes-formInst {
@@ -1929,15 +1952,29 @@
     .boton_inferior-finalizar-formInst {
         width: 68%;
     }
-    .video1 .agregar_archivo-formInst::before {
-        background-position-x: 29%;
-        background-size: 4%;
+
+
+
+
+
+
+
+    .premios_guardada-formInst {
+        flex-flow: wrap;
+    }
+    .section_infoExper-formInst {
+        width: 48%;
+        padding: 2%;
+        margin-bottom: 3%;
+    }
+    .text_label-formInst {
         font-size: 1em;
     }
-    .video2 .agregar_archivo-formInst::before {
-        background-position-x: 29%;
-        background-size: 4%;
+    .text_infoImg-formInst {
+        font-family: 'Roboto', 'Regular';
         font-size: 1em;
+        color: #DBDADA;
+        padding: 0;
     }
 }
 @media (min-width: 1200px) {
@@ -2019,14 +2056,7 @@
         background-size: 2.8%;
     }
     ///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
-    .video1 .agregar_archivo-formInst::before {
-        background-position-x: 37%;
-        background-size: 2.8%;            
-    }
-    .video2 .agregar_archivo-formInst::before {
-        background-position-x: 37%;
-        background-size: 2.8%;             
-    }
+
 } 
 @media (min-width: 1920px) {
     ///// *****   SECCIÓN TARJETA INFORMACIÓN BÁSICA    ***** /////
@@ -2111,14 +2141,6 @@
         background-size: 2%;
     }
     ///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
-    .video1 .agregar_archivo-formInst::before {
-        background-position-x: 40%;
-        background-size: 2%;            
-    }
-    .video2 .agregar_archivo-formInst::before {
-        background-position-x: 40%;
-        background-size: 2%;          
-    }
     // botón inferior de guardar
     .flechaBtn_guardar-formInst {
         width: 8%;

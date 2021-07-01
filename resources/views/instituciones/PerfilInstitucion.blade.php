@@ -81,7 +81,7 @@
 
             <div class="desplegable_institucion" id="accordion">
                 @foreach ($objinstitucionlandinservicios as $objinstitucionlandinservicios)
-                    <div class="card containt_options-collapse-membresia">
+                    <div class="card containt_options-collapse-institucion">
                         <div class="card-header" id="heading_{{$loop->iteration}}">
                             <button class="boton_collapse-off-institucion" data-toggle="collapse" data-target="#collapse_{{$loop->iteration}}" aria-expanded="true" aria-controls="collapse_{{$loop->iteration}}">{{$objinstitucionlandinservicios->tituloServicios}}</button>
                         </div>
@@ -174,6 +174,9 @@
                         </div>
                     @endforeach
                 </div>
+            </div>
+            <div class="mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.7670370514384!2d-74.07662168467442!3d4.635601943507973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a2d7480bc75%3A0x893a7b8651243c29!2sMedPlus%20Medicina%20Prepagada%20Palermo%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1625066882913!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </section>
 
