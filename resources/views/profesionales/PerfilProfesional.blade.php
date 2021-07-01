@@ -12,7 +12,7 @@
                     <h5>{{$objprofesionallanding->nombreuniversidad}}</h5>
                     <h5>N° Tarjeta profesional: {{$objprofesionallanding->numeroTarjeta}}</h5>
                     <!-- Rating Stars Box -->
-                    <div class='rating-stars text-center'>
+                    <div class='rating-stars star_box'>
                         @foreach($objprofesionalComentario as $promedioEstrellas)
                         @endforeach
                         @for ($i=1; $i <= $promedioEstrellas->calificacionRedondeada; $i++)
@@ -250,16 +250,16 @@
                 </div>
             </div>     
         </section>
+        
+        <section class="content_options-prof">
+            <h2 class="icono_opiniones-prof title_opiniones"> Opiniones de pacientes </h2>
 
-        <section class="container">
-            <div class="col-12">
-            <div id="resultados">
+            <p class="text_cabecera-prof"> Describa su opinión y seleccione las estrellas según el puntaje que le quiera asignar al médico. </p>
+
+            <div class="visible_container" id="resultados">
                 <div class="alert alert-success d-none mt-5" id="msg_comentario">
                     <span id="res_message"></span>
                 </div>
-                @if(!empty($objTipoUser))
-                        @foreach ($objTipoUser as $tipo)
-                        @endforeach
 
                         @if($tipo->idrol==1)
                             <form id="comentarioFormProf" method="post">
@@ -291,16 +291,61 @@
                                         </div>
                                     </div>
                             </form>
+                            <div class="alert alert-success d-none mt-5" id="msg_comentario">
+                                <span id="res_message"></span>
+                            </div>
                         @endif
+                        
+                    @if($tipo->idrol==1)
+                        <form id="comentarioFormProf" method="post">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                            <input type="hidden" id="idperfil" name="idperfil" value="{{$objprofesionallanding->idPerfilProfesional}}">
+
+                            <textarea class="col-12" id="comentario" name="comentario" rows="4" cols="50"></textarea>
+
+                            <div class="col-12 row">
+                                <div class='col-md-6 rating-stars text-center'>
+                                    <ul id='stars'>
+                                        <li class='star' title='Poor' data-value='1'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                        <li class='star' title='Fair' data-value='2'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                        <li class='star' title='Good' data-value='3'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                        <li class='star' title='Excellent' data-value='4'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                        <li class='star' title='WOW!!!' data-value='5'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-6 content_btnEnviar-formProf">
+                                        <button id="send_form_coment_prof" type="submit" class="btn_enviar-contac">Agregar</button>
+                                </div>
+                            </div>
+                        </form>
+                    @endif
                 @endif
                        
-                <div class="col-12 row" id="oscar" style="border: 1px solid forestgreen;">
-                    @foreach ($objprofesionalComentario as $data)
-                        <div class="col-6">
-                        <i class="fas fa-circle"></i>
-                            <span>{{$data->primernombre}} {{$data->primerapellido}}</span>
+            
+                @foreach ($objprofesionalComentario as $data)
+                <div class="section_opciones" id="oscar">
+                    <div class="section_usuario-prof">
+                        <div class="contains_avatar">
+                            <i class="fas fa-circle circle_opinion-prof"></i>
                         </div>
-                        <div class="col-6">
+                        <div class="contains_text">
+                            <p class="name_usuario-prof">{{$data->primernombre}} {{$data->primerapellido}}</p>
+                            <p class="icono_verify verify_usuario-prof"> Paciente verificado </p>       
+                        </div>
+
+                        <div class="section_stars-prof">
                             @for ($i=1; $i <= $data->calificacion; $i++)
                             <i class='fa fa-star fa-fw' style="color: yellow;"></i>
                             @endfor 
@@ -308,11 +353,19 @@
                             <i class='fa fa-star fa-fw' style="color: red;"></i>
                             @endfor
                         </div>
-                        <div class="col-12">
-                            <span>{{$data->comentario}}</span>
-                        </div>
-                    @endforeach
+                    </div>
+                    <div class="section_comentario-prof">
+                        <span>{{$data->comentario}}</span>
+                    </div>
                 </div>
+                @endforeach
+            </div>
+
+            <!-- <div class="section_masComent-prof">
+                <a class="txt_comentarios-prof" href=""> Más comentarios </a>
+            </div> -->
+            <div class="section_verificado-prof">
+                <h3 class="icono_verificado-prof txt_verify-bottom"> Todos los comentarios son de pacientes verificados. </h3>
             </div>
         </section>
        

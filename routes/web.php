@@ -187,16 +187,16 @@ Route::post('/FormularioInstitucionSave12',[App\Http\Controllers\entidades\formu
 Route::get('/FormularioInstituciondelete12/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete12'])->name('FormularioInstitucion');
 
 /*-----guardar formulario parte 13----*/ 
-Route::post('/FormularioInstitucionSave13',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create13'])->name('FormularioInstitucion');
+Route::post('/FormularioInstitucionSave13',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create13'])->name('FormularioInstitucion');
 /*-----borrar formulario parte 13----*/ 
-Route::get('/FormularioInstituciondelete13/{id}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete13'])->name('FormularioInstitucion');
+Route::get('/FormularioInstituciondelete13/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete13'])->name('FormularioInstitucion');
 
 
-/*------------------------------------------------Pertenece a pacientes-------------------------------------------------------------------------------*/
-/*Esta ruta es del admin del paciente*/
-Route:: get('/panelAdministrativo',[App\Http\Controllers\pacientes\admindPacienteController::class,'index'])->name('panelAdministrativo');
-Route:: get('/panelAdministrativo/{idPerfilProfesional}',[App\Http\Controllers\pacientes\admindPacienteController::class,'cita'])->name('panelAdministrativo');
-
+/*------------------------------------------------Pertenece al admin-------------------------------------------------------------------------------*/
+/*Esta ruta es del admin*/
+Route:: get('/panelPrincipal',[App\Http\Controllers\admin\adminController::class,'index'])->name('panelPrincipal');
+Route:: get('/panelAdministrativo/{idPerfilProfesional}',[App\Http\Controllers\admin\adminController::class,'cita'])->name('panelAdministrativo');
+Route:: get('/servicios',[App\Http\Controllers\admin\adminController::class,'oscar2'])->name('servicios');
 /*-------------------------------------------------Pertenece a otras vistas-------------------------------------------------------------------------------*/
 /*Esta ruta direcciona a la vista de Acerca de Zaabra*/
 Route::get('/acerca', function () { return view('quienes-somos/acerca');})->name('acerca');

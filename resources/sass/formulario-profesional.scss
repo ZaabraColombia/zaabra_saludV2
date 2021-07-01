@@ -170,6 +170,18 @@
     margin: auto;
     padding: 0;
 }
+.alert-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    width: 92%;
+    height: 7vh;
+    padding: 3% 1% 1% 1%;
+    text-align: center;
+    border-radius: 3px;
+    margin-left: 4%;
+    margin-bottom: 2%;
+}
 // Sección titulo y texto superior
 .titulo_principal-formProf {
     font-family: 'Quicksand', 'Regular';
@@ -189,7 +201,7 @@
 .infoBasica_formProf {
     background: #ffffff;
     margin: auto;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     padding: 0;
     box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
 }
@@ -213,7 +225,7 @@
 // Fila información básica
 .fila_infoBasica-formProf {
     margin: 0;
-    padding: 2% 0;
+    padding-top: 2%;
 }
 .section_inputRight-text-formProf {
     padding: 0 0 0 15px;
@@ -256,8 +268,7 @@
     font-family: "Quicksand", "Regular";
     font-size: 1em;
     color: #434343;
-    margin: 10% 0 5% 0;
-    padding-right: 0;
+    padding: 10% 0 5% 0;
 }
 // Sección datos personales
 .datos_principales-formProf {
@@ -367,38 +378,24 @@
     font-family: 'Roboto', 'Regular';
     color: #E3342F;
     font-weight: 500;
-    padding: 2% 0;
+    padding: 0;
+    margin: 0;
 }
 // Información guardada
 .consulta_guardada-formProf {
     margin: 0;
-    margin-top: 0;
-    padding:0;
+    padding-top: 3%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 100%;
 }
 .section_infoConsulta-formProf {
-    width: 32%;
+    width: 30%;
     padding: 1%;
-    border: 1px solid #DBDADA;
+    border: 0.1px solid #DBDADA;
     border-radius: 3px;
-    box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
-}
-.btn_delete-formProf {
-    border-radius: 57px;
-    border: 1px solid #dbdada;
-    width: 8%;
-    height: 120%;
-    background: #019F86;
-    color: antiquewhite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float: right;
-    font-size: 1em;
-    font-weight: bold;
+    box-shadow: 0px 0px 10px -2px rgb(0 0 0 / 38%);
 }
 .option_consulta-formProf {
     margin-bottom: 3%;
@@ -479,20 +476,6 @@
     display: flex;
     flex-direction: column;
 }
-.btn_deleteEduc-formProf {
-    border-radius: 57px;
-    border: 1px solid #dbdada;
-    width: 8%;
-    height: 65%;
-    background: #019F86;
-    color: antiquewhite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float: right;
-    font-size: 1em;
-    font-weight: bold;
-}
 ///// *****   SECCIÓN TARJETA EXPERIENCIA   ***** /////
 
 // Sección titulo de la tarjeta experiencia
@@ -538,20 +521,6 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 2%;
-}
-.btn_deleteExper-formProf {
-    border-radius: 57px;
-    border: 1px solid #dbdada;
-    width: 5.5%;
-    height: 2.5vh;
-    background: #019F86;
-    color: antiquewhite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float: right;
-    font-size: 1em;
-    font-weight: bold;
 }
 ///// *****   SECCIÓN TARJETA ASOCIACIONES   ***** /////
 
@@ -661,20 +630,6 @@
     height: 2vh;
     padding: 0;
 }
-.btn_deleteAsocia-formProf {
-    border-radius: 57px;
-    border: 1px solid #dbdada;
-    width: 8%;
-    height: 125%;
-    background: #019F86;
-    color: antiquewhite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float: right;
-    font-size: 1em;
-    font-weight: bold;
-}
 .option_asociacion-formProf {
     display: flex;
     justify-content: center;
@@ -713,20 +668,6 @@
     font-family: 'Quicksand', 'Regular';
     color: #019F86;
     text-transform: inherit;
-}
-.btn_deleteIdioma-formProf {
-    border-radius: 57px;
-    border: 1px solid #dbdada;
-    width: 8%;
-    height: 125%;
-    background: #019F86;
-    color: antiquewhite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float: right;
-    font-size: 1em;
-    font-weight: bold;
 }
 .content_idmBandera-formProf {
     padding: 0 15px;
@@ -887,21 +828,6 @@
     height: 3vh;
     padding: 0;
 }
-.btn_deleteTrata-formProf {
-    border-radius: 57px;
-    border: 1px solid #dbdada;
-    width: 2.5%;
-    height: 80%;
-    background: #019F86;
-    color: antiquewhite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float: right;
-    font-size: 1em;
-    font-weight: bold;
-    margin: .5%;
-}
 .after_formProf {
     border-left: 1px solid #DBDADA;
 }
@@ -1040,20 +966,6 @@
     right: 0;
     top: 0;
     bottom: 0;              
-}
-.btn_deletePremio-formProf {
-    border-radius: 57px;
-    border: 1px solid #dbdada;
-    width: 5.5%;
-    height: 70%;
-    background: #019F86;
-    color: antiquewhite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float: right;
-    font-size: 1em;
-    font-weight: bold;
 }
 .text_fechaPremio-formProf {
     font-family: "Roboto";
@@ -1259,52 +1171,14 @@
     color: #019F86;
     text-transform: inherit;
 }
-.video1 .agregar_archivo-formProf::before {
-    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
-    background-repeat: no-repeat ;
-    background-position-y: center;
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1.15em;
-    font-family: 'Quicksand', 'Regular';
-    color: #434343;
-    display: flex;            
-    justify-content: center;
-    align-items: center;
-    border-radius: 3px;
-    content: 'Subir video 1'; /* texto botón subir foto asociación */
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;              
-}
-.video2 .agregar_archivo-formProf::before {
-    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
-    background-repeat: no-repeat ;
-    background-position-y: center;
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1.15em;
-    font-family: 'Quicksand', 'Regular';
-    color: #434343;
-    display: flex;            
-    justify-content: center;
-    align-items: center;
-    border-radius: 3px;
-    content: 'Subir video 2'; /* texto botón subir foto asociación */
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;              
-}
+
 // Secciones botones inferiores anterior y siguoente
 .content_botonInferior-next-formProf {
     display: flex;
     justify-content: flex-end;
     margin: auto;
-    margin-bottom: 3%;
+    margin-top: 2%;
+    margin-bottom: 5%;
     padding: 0;
 }
 .content_botonesInferiores-formProf {
@@ -1373,7 +1247,7 @@
         justify-content: center;
         flex-wrap: wrap;
         width: 100%;
-        height: 40vh;
+        height: 35vh;
     }
     .content_icons-formProf {
         width: 30%;
@@ -1403,26 +1277,37 @@
         text-align: center;
     }
     .texto_superior-formProf {
-        font-size: .75em;
+        font-size: .85em;
     }
     //      ***** SECCIÓN TARJETA DE --- INFORMACIÓN BÁSICA --- *****
+    .datos_principales-formProf {
+        border-left: none;
+    }
     .icon_infoBasica-formProf {
         background-size: 8%;
         padding-left: 10%;
         height: 6vh;
         display: flex;
     }
+    .fila_infoBasica-formProf {
+        padding-top: 5%;
+    }
     // Imagen del usuario
+    .contain_imgUsuario-formProf {
+        align-self: center;
+        text-align: center;
+        margin-top: 5%;
+    }
     .img_usuario-formProf {
         height: 35vh;
         width: 75%;
     }
     .text_usuario-formProf {
         font-size: .85em;
-        margin: 5% 0;
+        padding: 5% 0 5% 10%;
     }
     .icon_subirFoto-formProf {
-        background-position-x: 25%;
+        background-position-x: 26%;
         background-size: 4.5%;
     }
     // Sección cajas de texto datos personales
@@ -1434,6 +1319,7 @@
     }
     .text_label-formProf {
         font-size: 1em;
+        margin-top: 3%;
     }
     .nombres_usuario-formProf {
         flex-direction: column;
@@ -1444,6 +1330,10 @@
         width: 100%;
         margin-bottom: 5%;
     }
+    // Sección botón guardar
+    .content_btnEnviar-formProf {
+        margin-bottom: 5%;
+    }
     // botón inferior de guardar
     .btn_enviar-formProf {
         font-size: 1em;
@@ -1451,6 +1341,9 @@
     }
     .flecha_guardar-formProf {
         width: 13%;
+    }
+    .txtInfo_limitante-formProf {
+        font-size: .85em;
     }
     //      ***** SECCIÓN TARJETA DE --- INFORMACIÓN DEL CONTACTO --- *****         //
     .icon_infoContac-formProf {
@@ -1461,6 +1354,7 @@
     .btn2_enviar-formProf {
         font-size: 1em;
         width: 45%;
+        margin: 3% 0 5% 0;
     }
     //      ***** SECCIÓN TARJETA DE --- INFORMACIÓN DE LA CONSULTA --- *****         //
     .icon_infoConsult-formProf {
@@ -1473,26 +1367,20 @@
     }
     .consulta_guardada-formProf {
         margin: 0;
-        margin-top: 3%;
-        padding: 0;
+        padding-top: 5%;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
         width: 100%;
         flex-flow: wrap;
     }
     .section_infoConsulta-formProf {
         width: 100%;
-        margin-top: 5%;
+        margin-bottom: 5%;
     }
     .content_btnX-cierre-formProf {
         height: 3vh;
         padding: 0;
-    }
-    .btn_delete-formProf {
-        width: 7%;
-        height: 115%;
-        font-size: 1.5em;
     }
     //      ***** SECCIÓN TARJETA DE --- PERFIL PROFESIONAL --- *****         //
     .icon_infoSubPerfil-formProf {
@@ -1511,11 +1399,6 @@
         padding: 2%;
         margin: 2% 0;
     }
-    .btn_deleteEduc-formProf {
-        width: 7.5%;
-        height: 66%;
-        font-size: 1.5em;
-    }
     //      ***** SECCIÓN TARJETA DE --- EXPERIENCIA --- *****         //
     .icon_infoExper-formProf {
         background-size: 8%;
@@ -1526,11 +1409,6 @@
         width: 100%;
         padding: 2%;
         margin-bottom: 5%;
-    }
-    .btn_deleteExper-formProf {
-        width: 8%;
-        height: 71%;
-        font-size: 1.5em;
     }
     //      ***** SECCIÓN TARJETA DE --- ASOCIACIONES --- *****         //
     .icon_infoAsocia-formProf {
@@ -1571,9 +1449,6 @@
         width: 57%;
         height: 7vh;
     }
-    .btn_deleteAsocia-formProf {
-        font-size: 1.5em;
-    }
     //      ***** SECCIÓN TARJETA DE --- IDIOMAS --- *****         //
     .icon_infoIdioma-formProf {
         background-size: 8%;
@@ -1588,9 +1463,6 @@
         width: 100%;
         height: auto;
         flex-flow: wrap;
-    }
-    .btn_deleteIdioma-formProf {
-        font-size: 1.5em;
     }
     //      ***** SECCIÓN TARJETA DE --- TRATAMIENTOS Y PROCEDIMIENTOS --- *****         //
     .icon_infoTratam-formProf {
@@ -1646,17 +1518,11 @@
         height: 4vh;
         padding: 0;
     }
-    .btn_deleteTrata-formProf {
-        width: 8%;
-        height: 100%;
-        font-size: 1.5em;
-
-    }
     .descripcion_Premio-formProf {
         height: 14vh;
     }
     .text_infoGuardada-formProf {
-        font-size: .75em;
+        font-size: .85em;
     }
     //      ***** SECCIÓN TARJETA DE --- PREMIOS Y RECONOCIMIENTOS --- *****         //
     .icon_infoPremReco-formProf {
@@ -1666,11 +1532,6 @@
     }
     .content_premio-recono .agregar_archivo-formProf {          
         width: 45%;
-    }
-    .btn_deletePremio-formProf {
-        width: 8%;
-        height: 69%;
-        font-size: 1.5em;
     }
     .title_infoGuardada-formProf {
         font-size: 1em;
@@ -1732,16 +1593,6 @@
         background-size: 8%;
         padding-left: 10%;
         height: 6vh;
-    }
-    .video1 .agregar_archivo-formProf::before {
-        background-position-x: 25%;
-        background-size: 5%;
-        font-size: 1em;             
-    }
-    .video2 .agregar_archivo-formProf::before {
-        background-position-x: 25%;
-        background-size: 5%;
-        font-size: 1em;              
     }
     // Sección botones inferiores anterior y siguiente
         .boton_inferior-siguiente-formProf {
@@ -1845,6 +1696,11 @@
         font-size: 1.2em;
     }
     // Imagen del usuario
+    .contain_imgUsuario-formProf {
+        align-self: center;
+        text-align: center;
+        margin-top: 5%;
+    }
     .img_usuario-formProf {
         height: 13vh;
         width: 100%;
@@ -1913,11 +1769,10 @@
     }
     .consulta_guardada-formProf {
         margin: 0;
-        margin-top: 3%;
-        padding: 0;
+        padding-top: 5%;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
         width: 100%;
         flex-flow: nowrap;
     }
@@ -1928,11 +1783,6 @@
     .content_btnX-cierre-formProf {
         height: 2vh;
         padding: 0;
-    }
-    .btn_delete-formProf {
-        width: 9%;
-        height: 95%;
-        font-size: 1em;
     }
     //      ***** SECCIÓN TARJETA DE --- PERFIL PROFESIONAL --- *****         //
     .icon_infoSubPerfil-formProf {
@@ -1960,11 +1810,6 @@
     .section_infoEducacion-formProf {
         margin: 0;
     }
-    .btn_deleteEduc-formProf {
-        width: 10%;
-        height: 66%;
-        font-size: 1em;
-    }
     //      ***** SECCIÓN TARJETA DE --- EXPERIENCIA --- *****         //
     .icon_infoExper-formProf {
         background-size: 3%;
@@ -1976,11 +1821,6 @@
         width: 48%;
         padding: 2%;
         margin-bottom: 3%;
-    }
-    .btn_deleteExper-formProf {
-        width: 8%;
-        height: 80%;
-        font-size: 1em;
     }
     //      ***** SECCIÓN TARJETA DE --- ASOCIACIONES --- *****         //
     .icon_infoAsocia-formProf {
@@ -2013,11 +1853,6 @@
         padding: 1%;
         margin: 0;
     }
-    .btn_deleteAsocia-formProf {
-        width: 10%;
-        height: 95%;
-        font-size: 1em;
-    }
     .option_asociacion-formProf {
         width: 75%;
         height: 3vh;
@@ -2031,11 +1866,6 @@
     }
     .idioma_guardada-formProf {
         flex-flow: nowrap;
-    }
-    .btn_deleteIdioma-formProf {
-        width: 10%;
-        height: 100%;
-        font-size: 1em;
     }
     //      ***** SECCIÓN TARJETA DE --- TRATAMIENTOS Y PROCEDIMIENTOS --- *****         //
     .icon_infoTratam-formProf {
@@ -2060,11 +1890,6 @@
     .content_btnDelet-trata-formProf {
         height: 3vh;
         padding: 0;
-    }
-    .btn_deleteTrata-formProf {
-        width: 4%;
-        height: 77%;
-        font-size: 1em;
     }
     .content_tratam-proced .img_selccionada-formProf {
         display: flex;
@@ -2110,11 +1935,6 @@
     }
     .premios_guardada-formProf {
         flex-flow: wrap;
-    }
-    .btn_deletePremio-formProf {
-        width: 8%;
-        height: 80%;
-        font-size: 1em;
     }
     .content_premio-recono .img_selccionada-formProf {
         width: 100%;
@@ -2202,9 +2022,9 @@
     .img_usuario-formProf {
         height: 23vh;
     }
-    .text_usuario-formProf {
+    /*.text_usuario-formProf {
         margin: 5% 0;
-    }
+    }*/
     .icon_subirFoto-formProf {
         background-position-x: 2%;
         background-size: 7%;
@@ -2269,7 +2089,7 @@
         background-size: 5%;
     }
     .text_usuario-formProf {
-        margin: 3% 0;
+        padding: 3% 0 3% 3%;
     } 
     .flecha_guardar-formProf {
         width: 8%;

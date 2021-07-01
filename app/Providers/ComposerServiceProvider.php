@@ -24,11 +24,10 @@ class ComposerServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot(){
        view::composer(['*'], 'App\Http\ViewComposers\HeaderComposer');
        view::composer(['*'], 'App\Http\ViewComposers\FormularioComposer');
-       view::composer(['menuAdmin'], 'App\Http\ViewComposers\ListaPermisosComposer');
+       view::composer(['*'], 'App\Http\ViewComposers\ListaPermisosComposer');
     }
 }
 
