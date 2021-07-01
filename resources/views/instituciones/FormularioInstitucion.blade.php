@@ -1043,13 +1043,13 @@
         <div class="col-lg-10 col-xl-8 pb-3 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_convenios-formInst"> Convenios </h5>
 
-            <div class="row col-12 p-0 m-0">
+            <div class="asociacion_guardada-formProf">
                 @foreach($objEps as $objEps)
                     @if(!empty($objEps->urlimagen))
-                        <div class="col-md-4 modulo_convenio-formInst">
+                        <div class="section_infoAsocia-formProf">
                             <label for="example-date-input" class="text_label-formInst pb-0"> Convenio EPS </label>
 
-                            <div class="col-12 pr-3 content_btnX-cierre-formInst">
+                            <div class="col-12 content_btnX-cierre-formProf">
                                 <a href="{{url('/FormularioInstituciondelete5/'.$objEps->id)}}">
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -1057,21 +1057,21 @@
                                 </a> 
                             </div> 
 
-                            <div class="col-12 img_selccionada-formInst">
-                                <img class="imgConvenio_guardada-formInst" src="{{URL::asset($objEps->urlimagen)}}"> 
+                            <div class="option_asociacion-formProf">
+                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objEps->urlimagen)}}"> 
                             </div>
                         </div> 
                     @endif
                 @endforeach
             </div> 
 
-            <div class="row col-12 p-0 m-0">
+            <div class="asociacion_guardada-formProf">
                 @foreach($objIps as $objIps)
                     @if(!empty($objIps->urlimagen))
-                        <div class="col-md-4 modulo_convenio-formInst">
+                        <div class="section_infoAsocia-formProf">
                             <label for="example-date-input" class="text_label-formInst pb-0"> Convenio IPS </label>
 
-                            <div class="col-12 pr-3 content_btnX-cierre-formInst">
+                            <div class="col-12 content_btnX-cierre-formProf">
                                 <a href="{{url('/FormularioInstituciondelete6/'.$objIps->id)}}">
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -1079,21 +1079,21 @@
                                 </a> 
                             </div>  
                             
-                            <div class="col-12 img_selccionada-formInst">
-                                <img class="imgConvenio_guardada-formInst" src="{{URL::asset($objIps->urlimagen)}}"> 
+                            <div class="option_asociacion-formProf">
+                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objIps->urlimagen)}}"> 
                             </div>  
                         </div>
                     @endif
                 @endforeach
             </div>
 
-            <div class="row col-12 p-0 m-0">
+            <div class="asociacion_guardada-formProf">
                 @foreach($objPrepa as $objPrepa)
                     @if(!empty($objPrepa->urlimagen))
-                        <div class="col-md-4 modulo_convenio-formInst">
+                        <div class="section_infoAsocia-formProf">
                             <label for="example-date-input" class="text_label-formInst pb-0"> Convenio medicina prepagada </label>
 
-                            <div class="col-12 pr-3 content_btnX-cierre-formInst">
+                            <div class="col-12 content_btnX-cierre-formProf">
                                 <a href="{{url('/FormularioInstituciondelete7/'.$objPrepa->id_prepagada)}}">
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -1101,8 +1101,8 @@
                                 </a> 
                             </div>  
                             
-                            <div class="col-12 img_selccionada-formInst">
-                                <img class="imgConvenio_guardada-formInst" src="{{URL::asset($objPrepa->urlimagen)}}">
+                            <div class="option_asociacion-formProf">
+                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objPrepa->urlimagen)}}">
                             </div>  
                         </div> 
                     @endif
@@ -1118,14 +1118,12 @@
                         <div class="row col-12 p-0 m-0">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS </label>
                     
-                            <div class="col-md-4  modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview2"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview2"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst1">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage2" name="urlimagenEps[]" onchange="previewImage(2);"/>
                                 </div>
 
@@ -1134,93 +1132,83 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview3"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview3"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst2">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage3" name="urlimagenEps[]" onchange="previewImage(3);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview4"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview4"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
                         </div>   
 
                     @elseif($objContadorEps->cantidad == 1)
-                        <div class="row col-12 p-0 m-0">
+                    <div class="row col-12 p-0 m-0">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS </label>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview3"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview3"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst2">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage3" name="urlimagenEps[]" onchange="previewImage(3);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview4"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview4"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
-                        </div>   
+                        </div>    
                     @elseif($objContadorEps->cantidad == 2)
-                        <div class="row col-12 p-0 m-0">
+                    <div class="row col-12 p-0 m-0">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS </label>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview4"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview4"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>        
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
                         </div>  
 
@@ -1233,110 +1221,98 @@
                         <div class="row col-12 p-0 m-0">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS </label>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview6"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview6"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst1">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage6" name="urlimagenIps[]" onchange="previewImage(6);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview7"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview7"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst2">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage7" name="urlimagenIps[]" onchange="previewImage(7);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview8"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview8"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
                         </div>
 
                     @elseif($objContadorIps->cantidad == 1)
-                        <div class="row col-12 p-0 m-0">
+                    <div class="row col-12 p-0 m-0">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS </label>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview7"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview7"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst2">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage7" name="urlimagenIps[]" onchange="previewImage(7);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview8"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview8"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
                         </div>
 
                     @elseif($objContadorIps->cantidad == 2)
-                        <div class="row col-12 p-0 m-0">
+                    <div class="row col-12 p-0 m-0">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS </label>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview8"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview8"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>  
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
                         </div>
 
@@ -1349,110 +1325,98 @@
                         <div class="row col-12 p-0 m-0">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada </label>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview10"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview10"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst1">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage10" name="urlimagenPre[]" onchange="previewImage(10);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview11"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview11"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst2">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage11" name="urlimagenPre[]" onchange="previewImage(11);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview12"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
                         </div>
 
                     @elseif($objContadorPrepa->cantidad == 1)
-                        <div class="row col-12 p-0 m-0">
+                    <div class="row col-12 p-0 m-0">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada </label>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview11"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview11"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst2">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage11" name="urlimagenPre[]" onchange="previewImage(11);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>        
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview12"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>        
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
                         </div>
 
                     @elseif($objContadorPrepa->cantidad == 2)
-                        <div class="row col-12 p-0 m-0">
+                    <div class="row col-12 p-0 m-0">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada </label>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formProf form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview12"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>        
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
                         </div>
 
@@ -1915,10 +1879,8 @@
                         <!-- CERTIFICACIÓN izquierda -->
                         <div class="col-md-6 photo1 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview13">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview13">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -1950,7 +1912,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
                                     
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                    <input class="form-control" id="descrpcioncertificado"  type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -1960,10 +1922,8 @@
                         <!-- CERTIFICACIÓN derecha -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview14">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview14">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -1995,7 +1955,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
 
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                    <input class="form-control" id="descrpcioncertificado"  type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2008,10 +1968,8 @@
                         <!-- CERTIFICACIÓN izquierda -->
                         <div class="col-md-6 photo3 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                    <img id="uploadPreview15">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview15">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2043,7 +2001,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
                                     
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                    <input class="form-control" id="descrpcioncertificado"  type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2053,10 +2011,8 @@
                         <!-- CERTIFICACIÓN derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview16">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview16">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2088,7 +2044,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
 
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                    <input class="form-control" id="descrpcioncertificado"  type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2101,10 +2057,8 @@
                         <!-- CERTIFICACIÓN derecha -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview14">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview14">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2136,7 +2090,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
 
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                    <input class="form-control" id="descrpcioncertificado"  type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2149,10 +2103,8 @@
                         <!-- CERTIFICACIÓN izquierda -->
                         <div class="col-md-6 photo3 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                    <img id="uploadPreview15">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview15">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2184,7 +2136,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
                                     
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                    <input class="form-control" id="descrpcioncertificado"  type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2194,10 +2146,8 @@
                         <!-- CERTIFICACIÓN derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview16">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview16">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2229,7 +2179,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
 
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                    <input class="form-control" id="descrpcioncertificado"  type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2242,10 +2192,8 @@
                         <!-- CERTIFICACIÓN izquierda -->
                         <div class="col-md-6 photo3 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                    <img id="uploadPreview15">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview15">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2277,7 +2225,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
                                     
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                    <input class="form-control" id="descrpcioncertificado"  type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2287,10 +2235,8 @@
                         <!-- CERTIFICACIÓN derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview16">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview16">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2322,7 +2268,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
 
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                    <input class="form-control" id="descrpcioncertificado"  type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2332,13 +2278,12 @@
                 @elseif($objContadorCertificaciones->cantidad == 3)
                     <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
+
                         <!-- CERTIFICACIÓN derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview16">
-                                    </div>
+                            <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview16">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2370,7 +2315,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
 
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                    <input class="form-control" id="descrpcioncertificado"  type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2472,10 +2417,8 @@
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo1 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview17">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview17">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2523,10 +2466,8 @@
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview18">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview18">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2572,12 +2513,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
+                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview19">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview19">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2623,12 +2562,10 @@
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview20">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview20">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2674,12 +2611,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
+                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview21">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview21">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2725,12 +2660,10 @@
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview22">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview22">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2779,10 +2712,8 @@
                         <!-- Contenido SEDES derecho -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview18">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview18">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2828,12 +2759,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
+                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview19">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview19">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2879,12 +2808,10 @@
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview20">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview20">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2930,12 +2857,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
+                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview21">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview21">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2981,12 +2906,10 @@
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview22">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview22">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3032,12 +2955,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
+                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview19">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview19">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3083,12 +3004,10 @@
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview20">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview20">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3134,12 +3053,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
+                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview21">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview21">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3185,12 +3102,10 @@
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview22">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview22">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3236,12 +3151,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
+                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview20">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview20">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3287,12 +3200,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
+                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview21">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview21">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3338,12 +3249,10 @@
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview22">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview22">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3389,12 +3298,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
+                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview21">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview21">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3440,12 +3347,10 @@
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview22">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview22">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3491,12 +3396,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
+                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview22">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview22">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3656,10 +3559,8 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo1 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview23">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview23">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3689,7 +3590,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -3699,10 +3600,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview24">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview24">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3732,7 +3631,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -3743,10 +3642,8 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo3 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview25">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview25">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3776,7 +3673,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -3786,10 +3683,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview26">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview26">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3819,7 +3714,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -3830,10 +3725,8 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo5 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview27">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview27">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3863,7 +3756,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -3873,10 +3766,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview28">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview28">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3906,7 +3797,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -3917,10 +3808,8 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo7 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview29">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3950,7 +3839,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -3960,10 +3849,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3993,7 +3880,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4005,10 +3892,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo2 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview24">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview24">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4038,7 +3923,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4049,10 +3934,8 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo3 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview25">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview25">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4082,7 +3965,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4092,10 +3975,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview26">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview26">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4125,7 +4006,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4136,10 +4017,8 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo5 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview27">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview27">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4169,7 +4048,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4179,10 +4058,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview28">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview28">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4212,7 +4089,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4223,10 +4100,8 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo7 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview29">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4256,7 +4131,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4266,10 +4141,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4299,7 +4172,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4311,10 +4184,8 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo3 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview25">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview25">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4344,7 +4215,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4354,10 +4225,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview26">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview26">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4387,7 +4256,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4398,10 +4267,8 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo5 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview27">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview27">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4431,7 +4298,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4441,10 +4308,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview28">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview28">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4474,7 +4339,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4485,10 +4350,8 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo7 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview29">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4518,7 +4381,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4528,10 +4391,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4561,7 +4422,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4569,13 +4430,12 @@
 
                 @elseif($objContadorGaleria->cantidad == 3)
                     <!-- Modulos del contenido GALERIA -->
+                    <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo4 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview26">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview26">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4605,7 +4465,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4616,10 +4476,8 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo5 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview27">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview27">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4649,7 +4507,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4659,10 +4517,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview28">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview28">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4692,7 +4548,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4703,10 +4559,8 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo7 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview29">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4736,7 +4590,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4746,10 +4600,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4779,22 +4631,19 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 @elseif($objContadorGaleria->cantidad == 4)
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo5 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview27">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview27">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4824,7 +4673,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4834,10 +4683,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview28">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview28">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4867,7 +4714,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4878,10 +4725,8 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo7 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview29">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4911,7 +4756,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4921,10 +4766,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4954,7 +4797,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4966,10 +4809,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo6 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview28">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview28">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4999,7 +4840,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -5010,10 +4851,8 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo7 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview29">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -5043,7 +4882,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -5053,10 +4892,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -5086,7 +4923,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -5098,10 +4935,8 @@
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo7 section_inputLeft-text-formInst">
                             <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview29">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -5131,7 +4966,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion"  type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -5141,10 +4976,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -5174,7 +5007,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -5186,10 +5019,8 @@
                         <!-- Contenido GALERIA derecha -->
                         <div class="col-md-6 photo8 section_inputRight-text-formInst">
                             <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -5219,7 +5050,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -5250,8 +5081,8 @@
                 @foreach($objVideo as $objVideo)
                     @if(!empty($objVideo->nombrevideo))
                         <!-- Contenido VIDEOS -->    
-                        <div class="col-md-6 mt-3 content_antes-formProf">
-                            <div class="col-12">
+                        <div class="section_infoExper-formInst">
+                            <div class="col-12 content_cierreX-formInst">
                                 <a href="{{url('/FormularioInstituciondelete13/'.$objVideo->id)}}">
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -5260,27 +5091,21 @@
                             </div>
                         
 
-                            <div class="col-12  form-group">
+                            <div class="col-12 my-2">
                                 <div class="col-10 img_selccionada-formProf">
-                                    <iframe src="{{$objVideo->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe class="img_anexada-formProf" src="{{$objVideo->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
 
-                                <div class="col-12 p-0">
-                                    <div class="form-group">
-                                        <label for="example-date-input" class="col-12 text_label-formInst"> {{$objVideo->nombrevideo}} </label>
-                                    </div>
+                                <div class="col-12 p-0 mt-2">
+                                    <label class="col-12 text_fechaPremio-formProf"> {{$objVideo->fechavideo}} </label>
                                 </div>
 
-                                <div class="col-12 p-0">
-                                    <div class="form-group">
-                                        <label for="example-date-input" class="col-12 text_label-formInst"> {{$objVideo->descripcionvideo}} </label>
-                                    </div>
+                                <div class="col-12 text_label-formInst">
+                                    <label class="col-12 title_infoGuardada-formProf"> {{$objVideo->nombrevideo}} </label>
                                 </div>
 
-                                <div class="col-12 p-0">
-                                    <div class="form-group">
-                                        <label for="example-date-input" class="col-12 text_label-formInst"> {{$objVideo->fechavideo}} </label>
-                                    </div>
+                                <div class="col-12 descripcion_Premio-formProf">
+                                    <p class="col-12 text_descPremio-formProf"> {{$objVideo->descripcionvideo}} </p>
                                 </div>
                             </div>
                         </div>
@@ -5295,24 +5120,24 @@
                     <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido VIDEOS izquierda -->
-                        <div class="col-md-6 video1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 section_inputLeft-text-formInst content_antes-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 1 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
 
@@ -5320,38 +5145,42 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
                         <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 2 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
-                            
+
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
+                                    
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -5360,24 +5189,24 @@
                     <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido VIDEOS izquierda -->
-                        <div class="col-md-6 video1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 section_inputLeft-text-formInst content_antes-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 3 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
 
@@ -5385,38 +5214,42 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
                         <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 4 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
-                            
+
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
+                                    
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -5426,31 +5259,33 @@
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido DERECHO -->
                         <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 2 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
-                            
+
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
+                                    
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -5459,24 +5294,24 @@
                     <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido VIDEOS izquierda -->
-                        <div class="col-md-6 video1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 section_inputLeft-text-formInst content_antes-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 3 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
 
@@ -5484,38 +5319,42 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
                         <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 4 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
-                            
+
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
+                                    
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -5524,24 +5363,24 @@
                     <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido VIDEOS izquierda -->
-                        <div class="col-md-6 video1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 section_inputLeft-text-formInst content_antes-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 3 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
 
@@ -5549,38 +5388,42 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
                         <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 4 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
-                            
+
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
+                                    
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -5590,31 +5433,33 @@
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido DERECHO -->
                         <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                            <div class="col-12 section_inputRight-text-formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 4 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
-                            
+
                             <div class="col-12 section_inputRight-text-formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
+                                    
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>

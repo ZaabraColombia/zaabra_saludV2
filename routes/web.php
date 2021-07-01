@@ -187,9 +187,9 @@ Route::post('/FormularioInstitucionSave12',[App\Http\Controllers\entidades\formu
 Route::get('/FormularioInstituciondelete12/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete12'])->name('FormularioInstitucion');
 
 /*-----guardar formulario parte 13----*/ 
-Route::post('/FormularioInstitucionSave13',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create13'])->name('FormularioInstitucion');
+Route::post('/FormularioInstitucionSave13',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create13'])->name('FormularioInstitucion');
 /*-----borrar formulario parte 13----*/ 
-Route::get('/FormularioInstituciondelete13/{id}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete13'])->name('FormularioInstitucion');
+Route::get('/FormularioInstituciondelete13/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete13'])->name('FormularioInstitucion');
 
 
 /*------------------------------------------------Pertenece a pacientes-------------------------------------------------------------------------------*/

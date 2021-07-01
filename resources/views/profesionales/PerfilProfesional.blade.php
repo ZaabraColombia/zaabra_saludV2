@@ -251,50 +251,54 @@
             </div>     
         </section>
 
-        <section class="container">
-            <div class="col-12">
+        <section class="container-fluid p-0">
             <div id="resultados">
                 <div class="alert alert-success d-none mt-5" id="msg_comentario">
                     <span id="res_message"></span>
                 </div>
-                @if(!empty($objTipoUser))
-                        @foreach ($objTipoUser as $tipo)
-                        @endforeach
 
-                        @if($tipo->idrol==1)
-                            <form id="comentarioFormProf" method="post">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <input type="hidden" id="idperfil" name="idperfil" value="{{$objprofesionallanding->idPerfilProfesional}}">
-                                <textarea class="col-12" id="comentario" name="comentario" rows="4" cols="50"></textarea>
-                                    <div class="col-12 row">
-                                        <div class='col-md-6 rating-stars text-center'>
-                                            <ul id='stars'>
-                                                <li class='star' title='Poor' data-value='1'>
-                                                <i class='fa fa-star fa-fw'></i>
-                                                </li>
-                                                <li class='star' title='Fair' data-value='2'>
-                                                <i class='fa fa-star fa-fw'></i>
-                                                </li>
-                                                <li class='star' title='Good' data-value='3'>
-                                                <i class='fa fa-star fa-fw'></i>
-                                                </li>
-                                                <li class='star' title='Excellent' data-value='4'>
-                                                <i class='fa fa-star fa-fw'></i>
-                                                </li>
-                                                <li class='star' title='WOW!!!' data-value='5'>
-                                                <i class='fa fa-star fa-fw'></i>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6 content_btnEnviar-formProf">
-                                                <button id="send_form_coment_prof" type="submit" class="btn_enviar-contac">Agregar</button>
-                                        </div>
-                                    </div>
-                            </form>
-                        @endif
+                @if(!empty($objTipoUser))
+                    @foreach ($objTipoUser as $tipo)
+                    @endforeach
+
+                    @if($tipo->idrol==1)
+                        <form id="comentarioFormProf" method="post">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                            <input type="hidden" id="idperfil" name="idperfil" value="{{$objprofesionallanding->idPerfilProfesional}}">
+
+                            <textarea class="col-12" id="comentario" name="comentario" rows="4" cols="50"></textarea>
+
+                            <div class="col-12 row">
+                                <div class='col-md-6 rating-stars text-center'>
+                                    <ul id='stars'>
+                                        <li class='star' title='Poor' data-value='1'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                        <li class='star' title='Fair' data-value='2'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                        <li class='star' title='Good' data-value='3'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                        <li class='star' title='Excellent' data-value='4'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                        <li class='star' title='WOW!!!' data-value='5'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-6 content_btnEnviar-formProf">
+                                        <button id="send_form_coment_prof" type="submit" class="btn_enviar-contac">Agregar</button>
+                                </div>
+                            </div>
+                        </form>
+                    @endif
                 @endif
                        
-                <div class="col-12 row" id="oscar" style="border: 1px solid forestgreen;">
+                <div class="row col-12 content_optionsLprof" id="oscar">
                     @foreach ($objprofesionalComentario as $data)
                         <div class="col-6">
                         <i class="fas fa-circle"></i>

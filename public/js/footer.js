@@ -70,7 +70,32 @@ $('#newsletter').on('submit',function(e){
         setTimeout(function(){
             $('#res_message').hide();
             $('#msg_div').hide();
-            },70000);
+            },4000);
+         },
+     });
+    });
+    
+$('#newsletter2').on('submit',function(e){
+
+    e.preventDefault();
+    $('#send_form2').html('enviando...');
+    $.ajax({
+      url: "/newsletter",
+      type:"POST",
+      data:{
+        "_token": $("meta[name='csrf-token']").attr("content"),
+        "correo_newsletter": $('#correo_newsletter2').val(),
+      },
+      success:function(response){
+        $('#send_form2').hide();
+        $('#res_message2').show();
+        $('#res_message2').html(response.msg);
+        $('#msg_div2').removeClass('d-none');
+        document.getElementById("newsletter2").reset(); 
+        setTimeout(function(){
+            $('#res_message2').hide();
+            $('#msg_div2').hide();
+            },4000);
          },
      });
     });
