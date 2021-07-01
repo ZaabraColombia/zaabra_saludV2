@@ -92,15 +92,15 @@
                             <div class="dropdown-menu dropdown-menu-right menu_hamburguesa" aria-labelledby="dropdownMenuLink" style="">
                                 @if(!empty($objtipoUsuarioLogueado))
                                     @if($objtipoUsuarioLogueado->idrol==1) 
-                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/panelPrincipal') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
+                                    <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
                                     @elseif($objtipoUsuarioLogueado->idrol==2)
-                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioProfesional') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
+                                    <a class="dropdown-item menu_item-paciente icon-perfil" href="{{ url('/FormularioProfesional') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
                                     <div class="dropdown-divider m-0"></div>
-                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/panelPrincipal') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
+                                    <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
                                     @elseif($objtipoUsuarioLogueado->idrol==3)
-                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/FormularioInstitucion') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
+                                    <a class="dropdown-item menu_item-paciente icon-perfil" href="{{ url('/FormularioInstitucion') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
                                     <div class="dropdown-divider m-0"></div>
-                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ url('/panelPrincipal') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
+                                    <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
                                     @endif
                                  @endif 
                                  <div class="dropdown-divider m-0"></div>
@@ -112,7 +112,7 @@
                                 <div class="dropdown-divider m-0"></div>
                                 <a class="dropdown-item menu_item item-cel icon-contactenos" href="{{route('contacto')}}"><span class="texto_item-menu">Contáctenos</span></a>
                                 <div class="dropdown-divider m-0"></div>
-                                <a class="dropdown-item menu_item-paciente icon-medico" href="{{ route('logout') }}"
+                                <a class="dropdown-item menu_item-paciente icon-cerrarSesion" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     <span class="texto_item-menu-paciente">Salir</span>

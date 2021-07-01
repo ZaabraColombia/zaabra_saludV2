@@ -26,7 +26,7 @@ class institucionesController extends Controller
 
          // consulta para cargar todas los profesionales segun su especialidad y que pagan premiun
          public function cargarCarruselinstitucionesPremiun($id){
-            return DB::select("SELECT us.nombreinstitucion, ins.url, mn.nombre, ins.imagen, ins.quienessomos, tns.nombretipo
+            return DB::select("SELECT ins.id, us.nombreinstitucion, ins.url, mn.nombre, ins.imagen, ins.quienessomos, tns.nombretipo
             FROM  users us
             INNER JOIN instituciones ins ON us.id=ins.idUser
             INNER JOIN tipoinstituciones tns ON ins.idtipoInstitucion=tns.id
@@ -37,7 +37,7 @@ class institucionesController extends Controller
 
             // consulta para cargar todas los profesionales segun su especialidad y el pago normal
             public function cargarinstitucionesPagoNormal($id){
-            return DB::select("SELECT us.nombreinstitucion, ins.url, mn.nombre, ins.imagen, ins.quienessomos, tns.nombretipo
+            return DB::select("SELECT ins.id, us.nombreinstitucion, ins.url, mn.nombre, ins.imagen, ins.quienessomos, tns.nombretipo
             FROM  users us
             INNER JOIN instituciones ins ON us.id=ins.idUser
             INNER JOIN tipoinstituciones tns ON ins.idtipoInstitucion=tns.id
@@ -48,7 +48,7 @@ class institucionesController extends Controller
 
             // consulta para cargar todas los profesionales segun su especialidad y el pago normal
             public function cargarinstitucionesSinPago($id){
-            return DB::select("SELECT us.nombreinstitucion, tns.nombretipo
+            return DB::select("SELECT  us.nombreinstitucion, tns.nombretipo
             FROM  users us
             INNER JOIN instituciones ins ON us.id=ins.idUser
             INNER JOIN tipoinstituciones tns ON ins.idtipoInstitucion=tns.id

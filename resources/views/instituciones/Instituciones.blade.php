@@ -5,6 +5,7 @@
       <section class="contains_swiper_premium_insti">
         <div class="swiper-container swiper_premium_insti">
           <div class="swiper-wrapper">
+            
               @foreach ($objcarruselinstitucionespremiun as $objcarruselinstitucionespremiun)
                 <div class="swiper-slide contains_slide_insti">
                   <div class="contains_image_institucion">
@@ -43,7 +44,7 @@
                         <a href="">Agende su cita
                             <i class="fas fa-arrow-right arrow_mas"></i>
                         </a>
-                        <a href="">Ver perfil
+                        <a href="{{url('PerfilInstitucion/'.$objcarruselinstitucionespremiun->id)}}">Ver perfil
                             <i class="fas fa-arrow-right arrow_mas"></i>
                         </a>
                      </div>
@@ -60,6 +61,7 @@
 
         <!--galeria instituciones pago normal-->
         <section class="container_cards_normal_insti">
+          
             @foreach ($objinstitucionespagonormal as $objinstitucionespagonormal)
               <div class="card card_normal_insti">
                 <img class="card-img-top" src="{{URL::asset($objinstitucionespagonormal->imagen)}}">
@@ -92,7 +94,7 @@
                         <a href="">Agendar
                             <i class="fas fa-arrow-right arrow_mas"></i>
                         </a>
-                        <a href="">Ver más
+                        <a href="{{url('PerfilInstitucion/'.$objinstitucionespagonormal->id)}}">Ver más
                             <i class="fas fa-arrow-right arrow_mas"></i>
                         </a>
                       </div>
