@@ -351,9 +351,9 @@
                 @else
                     <div class="col-12 px-0">
                         <div class="form-group">
-                            <label for="example-date-input" class="col-12 text_label-formInst" maxlength="270"> Escriba una breve descripción de su servicio </label>
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Escriba una breve descripción de su servicio </label>
 
-                            <textarea class="form-control" id="descripcionPerfil"  type="text" name="DescripcionGeneralServicios" ></textarea>
+                            <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="DescripcionGeneralServicios" ></textarea>
 
                             <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                         </div>

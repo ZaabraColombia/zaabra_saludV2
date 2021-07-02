@@ -114,7 +114,7 @@ a:link, a:visited, a:active, a:hover {
 }
 .menu_paciente {
     padding: 0;
-    height: 22vh;
+    height: auto;
 }
 .menu_hamburguesa {
     height: auto;
@@ -123,7 +123,7 @@ a:link, a:visited, a:active, a:hover {
 .dropdown-menu .dropdown-item {
     display: flex;
     width: 100%;
-    height: 33%;
+    height: 6.5vh;
     clear: both;
     font-weight: 400;
     color: #212529;
@@ -593,7 +593,8 @@ a:link, a:visited, a:active, a:hover {
     // Seccion boton usuario 
     .menu_paciente {
         padding: 0;
-        height: 15vh;
+        height: auto;
+        width: 215px;
     }
     .icon-paciente {
         background-size: 22%;
@@ -601,7 +602,7 @@ a:link, a:visited, a:active, a:hover {
     .dropdown-menu .dropdown-item {
         display: flex;
         width: 100%;
-        height: 33%;
+        height: 5vh;
         clear: both;
         font-weight: 400;
         color: #212529;
@@ -617,11 +618,7 @@ a:link, a:visited, a:active, a:hover {
         margin-left: 0;
         font-size: 1em;
     }
-    .menu_paciente {
-        padding: 0;
-        height: 15vh;
-        width: 215px;
-    }
+ 
     // Seccion icono boton usuario 
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
@@ -749,7 +746,7 @@ a:link, a:visited, a:active, a:hover {
     }
     .menu_paciente {
         padding: 0;
-        height: 18vh;
+        height: auto;
     }
     .texto_item-menu {
         width: 60%;
@@ -844,7 +841,7 @@ a:link, a:visited, a:active, a:hover {
     }
     .menu_paciente {
         padding: 0;
-        height: 18vh;
+        height: auto;
         width: 200px;
     }
     .texto_item-menu {
@@ -932,7 +929,7 @@ a:link, a:visited, a:active, a:hover {
     }
     .menu_paciente {
         padding: 0;
-        height: 17vh;
+        height: auto;
         width: 190%;
     }
     // Seccion boton membresia
