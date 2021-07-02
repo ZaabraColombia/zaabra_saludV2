@@ -348,6 +348,6 @@
 
     <!-- Copyright -->
     <div class="col-12 footer_copy-right">
-      <span class="texto_copy-right">&copy; Zaabra 2021 </span>  
+      <span class="texto_copy-right">&copy; Zaabra_salud 2021 </span>  
     </div>
 </footer>
