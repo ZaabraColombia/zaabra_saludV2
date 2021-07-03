@@ -221,7 +221,7 @@
     margin: auto;
     margin-bottom: 3%;
     padding: 0;
-    box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
+    box-shadow: 0px 2px 5px -2px rgb(0 0 0 / 25%);
 }
 ///// *****   SECCIÓN TARJETA INFORMACIÓN BÁSICA    ***** /////
 // Sección titulo de la tarjeta información básica
@@ -305,12 +305,26 @@
     font-size: 1.15em;
     color: #232323;
     font-weight: bold;
-    padding-top: calc(0.375rem + 1px);
-    padding-bottom: calc(0.375rem + 1px);
-    padding-left: 2%;
-    padding-right: 0;
-    margin-bottom: 0;
-    line-height: 1.6;
+    padding: 0;
+    margin: 4% 0 3% 0;
+    line-height: 1;
+}
+.texto_saved-formInst {
+    font-family: 'Quicksand';
+    font-size: 1.15em;
+    color: #232323;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+}
+.text_saved-formInst {
+    font-family: 'Quicksand';
+    font-size: 1em;
+    color: #232323;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
 }
 .input_nomApl-formInst {
     display: block;
@@ -529,6 +543,14 @@
     color: #DBDADA;
     padding: 0 15px;
 }
+.section_infoAsocia-formInst {
+    width: 32%;
+    padding: 0 1% 1% 1%;
+    margin: 3% 0 2% 0;
+    border: 1px solid #DBDADA;
+    border-radius: 3px;
+    box-shadow: 0px 2px 5px -2px rgb(0 0 0 / 25%);
+}
 // Sección imagen GUARDADA
 .img_selccionada-formInst {
     display: flex;
@@ -553,6 +575,10 @@
     width: 120px;
     height: 60px;
     object-fit: contain;
+}
+.content_agregarImg-formInst {
+    margin: 0;
+    padding: 0 1%;
 }
 .agregar_archivo-formInst {          
     position: relative;
@@ -697,8 +723,8 @@
 }
 .txt_informativo-formInst {
     text-align: center;
-    line-height: .5;
-    margin-bottom: 5%;
+    line-height: 1;
+    margin-bottom: 0;
     padding: 0;
 }
 ///// *****   SECCIÓN TARJETA PROFESIONALES   ***** /////
@@ -706,7 +732,8 @@
 .content_loadImg-profes {
     border: 1px solid #DBDADA;
     border-radius: 5px;
-    padding: 2% 0;
+    padding: 1% 0;
+    box-shadow: 0px 2px 5px -2px rgb(0 0 0 / 25%);
 }
 .icon_profesionales-formInst {
     background-image: url('/img/formulario-institucion/icono-profesionales-institucion.svg') ;
@@ -780,6 +807,7 @@
     font-size: 1em;
     color: #434343;
     margin: 2% 0;
+    width: 100%;
 }
 .content_antes-formInst {
     border-right: 1px solid #D1D1D1;
@@ -1183,21 +1211,13 @@
     padding: 1%;
     border: 1px solid #DBDADA;
     border-radius: 3px;
-    box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
+    box-shadow: 0px 2px 5px -2px rgb(0 0 0 / 25%);
     display: flex;
     flex-direction: column;
     margin-bottom: 2%;
 }
 .content_antes-formInst {
     border-right: 1px solid #D1D1D1;
-}
-.text_label-formInst {
-    font-family: 'Quicksand';
-    font-size: 1.15em;
-    color: #232323;
-    font-weight: bold;
-    padding: 0;
-    margin-bottom: 0;
 }
 .text_infoImg-formInst {
     font-family: 'Roboto', 'Regular';
@@ -1320,9 +1340,7 @@
     .section_inputLeft-text-formInst {
         padding: 0 0 0 0;
     }
-    .text_label-formInst {
-        font-size: 1em;
-    }
+
     .input_nomApl-formInst {
         width: 100%;
     }
@@ -1412,6 +1430,11 @@
         padding-left: 10%;
         height: 6vh;
     }
+    .txt_informativo-formInst {
+        line-height: .5;
+        margin-bottom: 3%;
+
+    }
     .text_infoConvenio-formInst {
         font-size: .85em;
         padding: 0;
@@ -1428,6 +1451,16 @@
     .row_convenio-form{
         padding: 0;
         margin: 0;
+    }
+    .section_infoAsocia-formInst {
+        width: 100%;
+        padding: 0 3% 3% 3%;
+        margin: 4% 0 2% 0;
+    }
+    .content_agregarImg-formInst {
+        margin: auto;
+        padding: 0;
+        margin-bottom: 5%;
     }
     ///// *****   SECCIÓN TARJETA PROFESIONALES   ***** /////
     // Sección titulo de la tarjeta profesionales
@@ -1591,7 +1624,18 @@
     }
     .text_label-formInst {
         font-size: 1em;
-        margin-top: 5%;
+        margin: 4% 0 3% 0;
+        padding: 0;
+    }
+    .texto_saved-formInst {
+        font-size: 1em;
+        margin: 0;
+        padding: 0;
+    }
+    .text_saved-formInst {
+        font-size: 1em;
+        margin-top: 0;
+        padding: 0;
     }
     .text_infoImg-formInst {
         font-size: .75em;
@@ -1718,6 +1762,13 @@
     .text_label-formInst {
         font-size: 1em;
     }
+    .texto_saved-formInst {
+        font-size: 1em;
+    }
+    .text_saved-formInst {
+        font-size: .9em;
+        margin-top: 0%;
+    }
     .input_nomApl-formInst {
         width: 100%;
         margin-bottom: 0%;
@@ -1821,7 +1872,7 @@
     // Sección titulo de la tarjeta convenios
     .row_convenio-form{
         padding: 0;
-        margin: 5% 0;
+        margin: 1% 0;
     }
     .icon_convenios-formInst {
         background-size: 3%;
@@ -1834,6 +1885,15 @@
         font-size: 1em;
         color: #DBDADA;
         padding: 0 21px;
+    }
+    .section_infoAsocia-formInst {
+        width: 32%;
+        padding: 0 1% 2% 1%;
+        margin: 2% 0;
+    }
+    .content_agregarImg-formInst {
+        margin: 1% 0;
+        padding: 0;
     }
     .agregar_archivo-formInst1::before {
         background-position-x: 8%;   
@@ -1850,7 +1910,7 @@
     .txt_informativo-formInst {
         text-align: center;
         line-height: 1;
-        margin-bottom: 5%;
+        margin-bottom: 0;
         padding: 0;
     }
     ///// *****   SECCIÓN TARJETA PROFESIONALES   ***** /////
@@ -1896,6 +1956,9 @@
         width: 100%;
         margin: 2% 0;
     }
+    .content_antes-formInst {
+        border-right: 1px solid #D1D1D1;
+    }
     .agregar_archivo-formInst::before {
         background-position-x: 13%;
         background-size: 5%;
@@ -1928,6 +1991,10 @@
         padding-left: 5%;
         height: 2.5vh;
         font-size: 1.2em;
+    }
+    .img_saveSede-formInst {
+        width: 100%;
+        height: 20vh;
     }
     ///// *****   SECCIÓN TARJETA UBIQUE SEDE   ***** /////
     // Sección titulo de la tarjeta ubique la sede
@@ -2011,9 +2078,6 @@
         width: 48%;
         padding: 2%;
         margin-bottom: 3%;
-    }
-    .text_label-formInst {
-        font-size: 1em;
     }
     .text_infoImg-formInst {
         font-family: 'Roboto', 'Regular';
@@ -2137,6 +2201,13 @@
         height: 23vh;
     }
     ///// *****   SECCIÓN TARJETA CONVENIOS   ***** /////
+    .content_agregarImg-formInst {
+        margin: 2% 0 3% 0;
+        padding: 0 1%;
+    }
+    .section_infoAsocia-formInst {
+        margin: 2% 0;
+    }
     .agregar_archivo-formInst1::before {
         background-position-x: 25%;
         background-size: 2.8%;
