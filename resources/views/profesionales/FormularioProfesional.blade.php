@@ -864,7 +864,7 @@
             <form method="POST" action="{{ url ('/FormularioProfesionalSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_experiencia">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                     @if($objContadorExperiencia->cantidad == 0)
-                        <div class="row fila_infoBasica-formProf" id="listas"> 
+                        <div class="row fila_infoBasica-formProf bottom_boder" id="listas"> 
                             <div class="col-md-6 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
@@ -889,7 +889,7 @@
                                 <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
                             </div>
                         </div>
-                        <div class="row fila_infoBasica-formProf" id="listas"> 
+                        <div class="row fila_infoBasica-formProf bottom_boder" id="listas"> 
                             <div class="col-md-6 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
@@ -914,7 +914,7 @@
                                 <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
                             </div>
                         </div>
-                        <div class="row fila_infoBasica-formProf" id="listas"> 
+                        <div class="row fila_infoBasica-formProf bottom_boder" id="listas"> 
                             <div class="col-md-6 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
@@ -965,7 +965,7 @@
                             </div>
                         </div>
                     @elseif($objContadorExperiencia->cantidad == 1)
-                        <div class="row fila_infoBasica-formProf" id="listas"> 
+                        <div class="row fila_infoBasica-formProf bottom_boder" id="listas"> 
                             <div class="col-md-6 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
@@ -990,7 +990,7 @@
                                 <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
                             </div>
                         </div>
-                        <div class="row fila_infoBasica-formProf" id="listas"> 
+                        <div class="row fila_infoBasica-formProf bottom_boder" id="listas"> 
                             <div class="col-md-6 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
@@ -1041,7 +1041,7 @@
                             </div>
                         </div>
                     @elseif($objContadorExperiencia->cantidad == 2)
-                        <div class="row fila_infoBasica-formProf" id="listas"> 
+                        <div class="row fila_infoBasica-formProf bottom_boder" id="listas"> 
                             <div class="col-md-6 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
