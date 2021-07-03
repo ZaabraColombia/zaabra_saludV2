@@ -72,6 +72,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   
   
+
+  
   const select = document.querySelector.bind(document);
   const gallery = new Viewer(select('.gallery_profesional'));
   
