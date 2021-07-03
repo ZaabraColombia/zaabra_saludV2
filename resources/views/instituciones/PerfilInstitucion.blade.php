@@ -68,6 +68,7 @@
                     <li class="swiper-slide">
                         <a class="item_landing_insti galeria"><span>Galería</span></a>
                     </li>
+                    
                 </div>
             </div>
         </section>
