@@ -439,7 +439,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
                                 
-                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000" class="form-control" name="valorconsulta[]">
                         </div>
                     </div>
 
@@ -458,7 +458,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label> 
 
-                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000"  class="form-control" name="valorconsulta[]">
                         </div>
                     </div>
 
@@ -477,7 +477,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
-                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000"  class="form-control" name="valorconsulta[]">
                         </div>
                     </div>
                 @elseif($objContadorConsultas->cantidad == 1)
@@ -496,7 +496,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
-                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000"  class="form-control" name="valorconsulta[]">
                         </div>
                     </div>
 
@@ -515,7 +515,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
-                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000"  class="form-control" name="valorconsulta[]">
                         </div>
                     </div>
 
@@ -535,7 +535,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
-                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000"  class="form-control" name="valorconsulta[]">
                         </div>
                     </div>
                 @elseif($objContadorConsultas->cantidad == 3)
