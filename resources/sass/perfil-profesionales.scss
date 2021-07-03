@@ -517,6 +517,20 @@
 }
 
 
+.button_send-form {
+    font-family: "Quicksand";
+    font-size: 1em;
+    color: #ffffff;
+    background: #0083d6;
+    border: none;
+    border-radius: 5px;
+    height: calc(1.6em + 0.75rem + 2px);
+    width: 30%;
+}
+.icon_arrow-form {
+    width: 10%;
+    margin-left: 5%;
+}
 .content_options-prof {
     background: #F5F5F5;
     padding: 3% 0;
@@ -1015,7 +1029,34 @@
         font-size: 1.1em;
     }
 
-    .visible_container {
+
+    .opinion_form-prof {
+        width: 92%;
+        margin: auto;
+    }
+    .txtarea_form-prof {
+        width: 100%;
+        padding: 1%;
+    }
+    .content_btnStart-form {
+        display: flex;
+    }
+    .section_Starts-form {
+        width: 50%;
+    }
+    .section_btnStart-form {
+        margin-left: auto;
+        margin-bottom: 3%;
+        padding: 0;
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .button_send-form {
+        font-size: .85em;
+        width: 80%;
+    }
+    .visible_container {    
         height: calc(1vw + 50vh);
         overflow: auto;
     }
@@ -1032,7 +1073,8 @@
     }
     .text_cabecera-prof {
         font-size: .85em;
-        width: 72%;
+        width: 83%;
+        margin-left: 13%;
     }
     .section_opciones {
         width: 100%;
@@ -1487,6 +1529,26 @@
     .videos_profesional p {
         font-size: 1.1em;
     }
+
+
+    .opinion_form-prof {
+        width: 90%;
+        margin: auto;
+    }
+    .button_send-form {
+        font-family: "Quicksand";
+        font-size: 1.25em;
+        color: #ffffff;
+        background: #0083d6;
+        border: none;
+        border-radius: 5px;
+        height: calc(1.6em + 0.75rem + 2px);
+        width: 50%;
+    }
+    .content_btnStart-form {
+        display: flex;
+        margin-top: 1%;
+    }
     .title_opiniones {
         font-size: 1.8em;
         padding-left: 7%;
@@ -1630,6 +1692,11 @@
     }
     .videos_profesional .card .card-img-top {
         height: 30vh;
+    }
+
+    .opinion_form-prof {
+        width: 77%;
+        margin: auto;
     }
     .title_opiniones {
         font-size: 1.8em;
@@ -2074,6 +2141,11 @@
         font-size: 0.8em;
         text-align: left;
     }
+
+
+    .button_send-form {
+        width: 45%;
+    }
     .section_comentario-prof {
         padding-left: 14%;
     }
@@ -2103,6 +2175,15 @@
     }
     .gallery_profesional > li > img {
         height: 180px;
+    }
+
+
+    .opinion_form-prof {
+        width: 80%;
+        margin: auto;
+    }
+    .button_send-form {
+        font-size: 1.5em;
     }
     .section_opciones {
         width: 80%;
@@ -2257,6 +2338,14 @@
     .publicaciones_profesional .card{
         width: 22%;
         margin-bottom: 0;
+    }
+
+    .opinion_form-prof {
+        width: 75%;
+        margin: auto;
+    }
+    .button_send-form {
+        width: 30%;
     }
     .content_options-prof {
         padding: 2% 0;
