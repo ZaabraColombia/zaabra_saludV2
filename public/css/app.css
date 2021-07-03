@@ -25040,7 +25040,7 @@ a:link, a:visited, a:active, a:hover {
 .content_tarjetasInfo-formInst {
   background: #ffffff;
   margin: auto;
-  margin-bottom: 5%;
+  margin-bottom: 3%;
   padding: 0;
   box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
 }
@@ -25063,7 +25063,12 @@ a:link, a:visited, a:active, a:hover {
 
 .fila_infoBasica-formInst {
   margin: 0;
-  padding: 0;
+  padding: 2% 0 0 0;
+}
+
+.fila_infoUser-formInst {
+  margin: 0;
+  padding: 2% 0;
 }
 
 .contain_imgUsuario-formImg {
@@ -25238,6 +25243,7 @@ a:link, a:visited, a:active, a:hover {
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
   width: 19%;
+  margin: 3% 0;
 }
 
 .icon_servProf-formInst {
@@ -25637,7 +25643,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Roboto", "Regular";
   font-size: 1em;
   color: #434343;
-  margin: 3% 0;
+  margin: 2% 0;
 }
 
 .content_antes-formInst {
@@ -26240,6 +26246,16 @@ a:link, a:visited, a:active, a:hover {
     width: 13%;
   }
 
+  .fila_infoBasica-formInst {
+    margin: 0;
+    padding: 0;
+  }
+
+  .fila_infoUser-formInst {
+    margin: 0;
+    padding: 0;
+  }
+
   .icon_infoContac-formInst {
     background-size: 8%;
     padding-left: 10%;
@@ -26675,7 +26691,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .content_tarjetasInfo-formInst {
-    margin-bottom: 5%;
+    margin-bottom: 3%;
   }
 
   .btn_guardar-formInst {
@@ -26686,6 +26702,24 @@ a:link, a:visited, a:active, a:hover {
 
   .flechaBtn_guardar-formInst {
     width: 11%;
+  }
+
+  .content_btn-anter-formInst {
+    margin-bottom: 3%;
+  }
+
+  .content_btn-siguient-formInst {
+    margin-bottom: 3%;
+  }
+
+  .fila_infoBasica-formInst {
+    margin: 0;
+    padding: 0;
+  }
+
+  .fila_infoUser-formInst {
+    margin: 0;
+    padding: 0;
   }
 
   .icon_infoContac-formInst {
@@ -26824,7 +26858,7 @@ a:link, a:visited, a:active, a:hover {
   .text_superior-proced-formInst {
     font-size: 1em;
     width: 100%;
-    margin: 3% 0;
+    margin: 2% 0;
   }
 
   .agregar_archivo-formInst::before {

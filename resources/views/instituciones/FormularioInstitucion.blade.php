@@ -64,7 +64,7 @@
 
                 @if(!empty($objFormulario))
                     <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio---------------------> 
-                    <div class="row fila_infoBasica-formInst">
+                    <div class="row fila_infoUser-formInst">
                         <!-- Sección logo datos institución --> 
                         <div class="col-md-3 contain_imgUsuario-formImg">
                             @foreach($objFormulario as $objFormulario)
@@ -120,7 +120,7 @@
 
                 @else
                     <!--------------- Inicio campos vacios--------------------->  
-                    <div class="row fila_infoBasica-formInst">
+                    <div class="row fila_infoUser-formInst">
                         <!-- Sección logo datos institución --> 
                         <div class="col-md-3 contain_imgUsuario-formImg"> 
                             <img id="imagenPrevisualizacion" class="img_usuario-formInst">
@@ -189,7 +189,7 @@
 
                 <h5 class="col-12 icon_infoContac-formInst"> Información de contacto </h5>
 
-                <div class="row fila_infoBasica-formInst">
+                <div class="row fila_infoUser-formInst">
                     @if(!empty($objFormulario->telefonouno))
                         <div class="col-md-6 section_inputLeft-text-formInst">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Celular </label>
@@ -330,11 +330,9 @@
 
                 @if(!empty($objFormulario->DescripcionGeneralServicios))
                     <div class="col-12 px-0">
-                        <div class="form-group">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Escriba una breve descripción de su servicio. </p>
+                        <p for="example-date-input" class="text_superior-proced-formInst"> Escriba una breve descripción de su servicio. </p>
 
-                            <textarea class="form-control" id="descripcionPerfil"  type="text" name="DescripcionGeneralServicios" >{{$objFormulario->DescripcionGeneralServicios}}</textarea>
-                        </div>
+                        <textarea class="form-control" id="descripcionPerfil"  type="text" name="DescripcionGeneralServicios" >{{$objFormulario->DescripcionGeneralServicios}}</textarea>
                     </div>
                 @else
                     <div class="col-12 px-0">
@@ -420,9 +418,9 @@
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
                             
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 section_inputLeft-text-formInst form-group">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
+                            
                                 <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
