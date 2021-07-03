@@ -148,7 +148,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Tarjeta profesional </label>
 
-                                    <input class="col-lg-12 form-control" id="tarjeta" placeholder="N. Tarjeta" type="number" name="numeroTarjeta" value="{{$objFormulario->numeroTarjeta}}">
+                                    <input class="col-lg-12 form-control" id="tarjeta" placeholder="Número de tarjeta" type="number" name="numeroTarjeta" value="{{$objFormulario->numeroTarjeta}}">
                                 </div>
                             </div>
 
@@ -241,11 +241,11 @@
                                 </div>
                             </div>
 
-                            <div class="col-6 section_inputRight-text-formProf">
+                            <div class="col-md-6 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Tarjeta profesional </label>
 
-                                    <input class="col-lg-12 form-control" id="tarjeta" placeholder="nombre" type="number" name="numeroTarjeta">
+                                    <input class="col-lg-12 form-control" id="tarjeta" placeholder="Número de tarjeta" type="number" name="numeroTarjeta">
                                 </div>
                             </div>
 
@@ -274,19 +274,19 @@
                         <div class="col-md-6 section_inputLeft-text-formProf">    
                             <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
 
-                            <input class="col-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="celular" value="{{$objFormulario->celular}}">
+                            <input class="col-12 form-control" id="tarjeta" placeholder="Número de celular" type="number" name="celular" value="{{$objFormulario->celular}}">
                         </div>
 
                         <div class="col-md-6 section_inputRight-text-formProf">    
                             <label for="example-date-input" class="col-12 text_label-formProf"> Teléfono </label>
 
-                            <input class="col-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono" value="{{$objFormulario->telefono}}">
+                            <input class="col-12 form-control" id="telefono" placeholder="Número de teléfono" type="number" name="telefono" value="{{$objFormulario->telefono}}">
                         </div>
                         
                         <div class="col-md-6 section_inputLeft-text-formProf">    
                             <label for="example-date-input" class="col-12 text_label-formProf"> Dirección </label>
                                 
-                            <input class="col-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" value="{{$objFormulario->direccion}}">
+                            <input class="col-12 form-control" id="direccion" placeholder="Direccion" type="text" name="direccion" value="{{$objFormulario->direccion}}">
                         </div>
 
                         <!--menu dinamico ciudades -->
@@ -321,7 +321,7 @@
                         </div>
 
                         <!-- Botón guardar información -->
-                        <div class="col-12 mt-3 content_btnEnviar-formProf">
+                        <div class="col-12 content_btnEnviar-formProf">
                             <button type="submit" class="btn2_enviar-formProf"> Guardar
                                 <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                             </button>
@@ -331,19 +331,19 @@
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
                                 
-                            <input class="col-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="celular" >
+                            <input class="col-12 form-control" id="tarjeta" placeholder="Número de celular" type="number" name="celular" >
                         </div>
 
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Teléfono </label>
 
-                            <input class="col-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono" >
+                            <input class="col-12 form-control" id="telefono" placeholder="Número de teléfono" type="number" name="telefono" >
                         </div>
 
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Dirección </label>
 
-                            <input class="col-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" >
+                            <input class="col-12 form-control" id="direccion" placeholder="Direccion" type="text" name="direccion" >
                         </div>
 
                         <!--menu dinamico ciudades -->
@@ -377,7 +377,7 @@
                         </div>
 
                         <!-- Botón guardar información -->
-                        <div class="col-12 mt-3 content_btnEnviar-formProf">
+                        <div class="col-12 content_btnEnviar-formProf">
                             <button type="submit" class="btn2_enviar-formProf"> Guardar
                                 <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                             </button>
@@ -543,7 +543,7 @@
                 @endif
 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                     </button>
                 </div>
@@ -572,25 +572,21 @@
 
                 @if(!empty($objFormulario))
                     <div class="col-12 px-0">
-                        <div class="form-group">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Escriba una breve descripción de su biografía </label>
+                        <p for="example-date-input" class="text_superior-proced-formProf"> Escriba una breve descripción de su biografía </p>
 
-                            <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil" >{{$objFormulario->descripcionPerfil}}</textarea>
-                        </div>
+                        <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil" >{{$objFormulario->descripcionPerfil}}</textarea>
                     </div>
                 @else
                     <div class="col-12 px-0">
-                        <div class="form-group">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Escriba una breve descripción de su biografía </label>
+                        <p for="example-date-input" class="text_superior-proced-formProf"> Escriba una breve descripción de su biografía </p>
 
-                            <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil" ></textarea>
+                        <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil" ></textarea>
 
-                            <labe class="col-12 text_infoImg-formProf"> 270 Caracteres </label> 
-                        </div>
+                        <labe class="col-12 text_infoImg-formProf"> 270 Caracteres </label> 
                     </div>
                 @endif
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mt-md-3 mb-md-3"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                     </button>
                 </div>
@@ -812,7 +808,7 @@
                 @endif
 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                     </button>
                 </div>
@@ -1126,7 +1122,7 @@
                     @endif
 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                     </button>
                 </div>
@@ -1163,7 +1159,7 @@
                     
                 @if($objContadorAsociaciones->cantidad == 0)
                     <!-- Modulo ASOCIACIONES -->
-                    <div class="row col-12 p-0 m-0">
+                    <div class="row col-12 row_asocia-prof">
                         <!-- campo 1 -->
                         <div class="col-md-4 content_agregarImg-formProf form-group">
                             <div class="img_selccionada-formProf">
@@ -1211,7 +1207,7 @@
                     </div> 
                 @elseif($objContadorAsociaciones->cantidad == 1)
                     <!-- Modulo ASOCIACIONES -->
-                    <div class="row col-12 p-0 m-0">
+                    <div class="row col-12 row_asocia-prof">
                         <!-- campo 2 -->
                         <div class="col-md-4 content_agregarImg-formProf form-group">
                             <div class="img_selccionada-formProf">
@@ -1244,7 +1240,7 @@
                     </div> 
                 @elseif($objContadorAsociaciones->cantidad == 2)
                     <!-- Modulo ASOCIACIONES -->
-                    <div class="row col-12 p-0 m-0">
+                    <div class="row col-12 row_asocia-prof">
                         <!-- campo 3 -->
                         <div class="col-md-4 content_agregarImg-formProf form-group">
                             <div class="img_selccionada-formProf">
@@ -1265,7 +1261,7 @@
                 @endif
             
                 <div class="col-12 mt-2 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                     </button>
                 </div>
@@ -1303,7 +1299,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">  
                     
                 @if($objContadorIdiomas->cantidad == 0)
-                    <div class="row p-0 mt-3 m-0">
+                    <div class="row p-0 m-0">
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
 
@@ -1339,7 +1335,7 @@
                     </div>
 
                 @elseif($objContadorIdiomas->cantidad == 1)
-                    <div class="row p-0 mt-3 m-0">
+                    <div class="row p-0 m-0">
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
 
@@ -1363,7 +1359,7 @@
                         </div>
                     </div>  
                 @elseif($objContadorIdiomas->cantidad == 2)
-                    <div class="row p-0 mt-3 m-0">
+                    <div class="row p-0 m-0">
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
 
@@ -1379,8 +1375,8 @@
                     <label for="example-date-input" class="col-12 txtInfo_limitante-formProf"> No se pueden agregar más idiomas. </label>
                 @endif 
 
-                <div class="col-12 mt-3 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf"> Guardar
+                <div class="col-12 content_btnEnviar-formProf">
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                     </button>
                 </div>
@@ -1486,18 +1482,16 @@
                             </div> 
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen antes </label> 
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen antes </label> 
 
-                                    <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoAntes[]" value="">
-                                </div>
+                                <input class="form-control" id="descripcionExperiencia" placeholder="Título de la imagen" type="text" name="tituloTrataminetoAntes[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción antes </label>
 
-                                    <input class="form-control" id="descripcionExperiencia"  type="text" maxlength="160" name="descripcionTratamientoAntes[]" value="">
+                                    <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoAntes[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -1523,18 +1517,16 @@
                             </div> 
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen después </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen después </label>
 
-                                    <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoDespues[]" value="">
-                                </div>
+                                <input class="form-control" id="descripcionExperiencia" placeholder="Título de la imagen" type="text" name="tituloTrataminetoDespues[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción después </label>
 
-                                    <input class="form-control" id="descripcionExperiencia"  type="text" maxlength="160" name="descripcionTratamientoDespues[]" value="">
+                                    <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoDespues[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -1563,18 +1555,16 @@
                             </div> 
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen antes </label> 
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen antes </label> 
 
-                                    <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoAntes[]" value="">
-                                </div>
+                                <input class="form-control" id="descripcionExperiencia" placeholder="Título de la imagen" type="text" name="tituloTrataminetoAntes[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción antes </label>
 
-                                    <input class="form-control" id="descripcionExperiencia"  type="text" maxlength="160" name="descripcionTratamientoAntes[]" value="">
+                                    <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoAntes[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -1600,18 +1590,16 @@
                             </div> 
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen después </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen después </label>
 
-                                    <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoDespues[]" value="">
-                                </div>
+                                <input class="form-control" id="descripcionExperiencia" placeholder="Título de la imagen" type="text" name="tituloTrataminetoDespues[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción después </label>
 
-                                    <input class="form-control" id="descripcionExperiencia"  type="text" maxlength="160" name="descripcionTratamientoDespues[]" value="">
+                                    <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoDespues[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -1640,18 +1628,16 @@
                             </div> 
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen antes </label> 
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen antes </label> 
 
-                                    <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoAntes[]" value="">
-                                </div>
+                                <input class="form-control" id="descripcionExperiencia" placeholder="Título de la imagen" type="text" name="tituloTrataminetoAntes[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción antes </label>
 
-                                    <input class="form-control" id="descripcionExperiencia"  type="text" maxlength="160" name="descripcionTratamientoAntes[]" value="">
+                                    <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoAntes[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -1677,18 +1663,16 @@
                             </div> 
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen después </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen después </label>
 
-                                    <input class="form-control" id="descripcionExperiencia"  type="text" name="tituloTrataminetoDespues[]" value="">
-                                </div>
+                                <input class="form-control" id="descripcionExperiencia" placeholder="Título de la imagen" type="text" name="tituloTrataminetoDespues[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción después </label>
 
-                                    <input class="form-control" id="descripcionExperiencia"  type="text" maxlength="160" name="descripcionTratamientoDespues[]" value="">
+                                    <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoDespues[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -1700,7 +1684,7 @@
                 @endif 
 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                     </button>
                 </div>
@@ -1792,26 +1776,22 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-                                
-                                    <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                                </div>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
+                            
+                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 1 </label>
+
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 1 </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
                                     
-                                    <input class="form-control" id="descripcionpremio"  type="text"  maxlength="160" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -1835,26 +1815,22 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                                     
-                                    <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 2 </label>
+
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 2 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
-
-                                    <input class="form-control" id="descripcionpremio"  type="text"  maxlength="160" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>                                     
                                 </div>
@@ -1881,26 +1857,22 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                                 
-                                    <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 3 </label>
+
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 3 </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
                                     
-                                    <input class="form-control" id="descripcionpremio"  type="text" maxlength="160" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionpremio[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -1924,26 +1896,22 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                                     
-                                    <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
+
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
-
-                                    <input class="form-control" id="descripcionpremio"  type="text"  maxlength="160" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -1971,26 +1939,22 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                                     
-                                    <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 2 </label>
+
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 2 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
-
-                                    <input class="form-control" id="descripcionpremio"  type="text"  maxlength="160" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>                                     
                                 </div>
@@ -2017,26 +1981,22 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                                 
-                                    <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 3 </label>
+
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 3 </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
                                     
-                                    <input class="form-control" id="descripcionpremio"  type="text" maxlength="160" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionpremio[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2060,26 +2020,22 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                                     
-                                    <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
+
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
-
-                                    <input class="form-control" id="descripcionpremio"  type="text"  maxlength="160" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2107,26 +2063,22 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                                 
-                                    <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 3 </label>
+
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 3 </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
                                     
-                                    <input class="form-control" id="descripcionpremio"  type="text" maxlength="160" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionpremio[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2150,26 +2102,22 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                                     
-                                    <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
+
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
-
-                                    <input class="form-control" id="descripcionpremio"  type="text"  maxlength="160" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2197,26 +2145,22 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
                                     
-                                    <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
+
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepremio[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción premio </label>
-
-                                    <input class="form-control" id="descripcionpremio"  type="text"  maxlength="160" name="descripcionpremio[]" value="">
+                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2228,7 +2172,7 @@
                 @endif 
 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                     </button>
                 </div>
@@ -2316,18 +2260,16 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="nombrepremio" maxlength="160"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" maxlength="160" placeholder="Escribir descripción..." type="text" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2351,18 +2293,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
                                     
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                                     
-                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2389,18 +2329,16 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="nombrepremio" maxlength="160"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" maxlength="160" placeholder="Escribir descripción..." type="text" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2424,18 +2362,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
                                     
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                                     
-                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2462,18 +2398,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
                                     
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                                     
-                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2500,18 +2434,16 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="nombrepremio" maxlength="160"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" maxlength="160" placeholder="Escribir descripción..." type="text" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2535,18 +2467,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
                                     
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                                     
-                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2573,18 +2503,16 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="nombrepremio" maxlength="160"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" maxlength="160" placeholder="Escribir descripción..." type="text" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2608,18 +2536,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
                                     
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                                     
-                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2646,18 +2572,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
                                     
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrepublicacion[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
                                     
-                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2669,7 +2593,7 @@
                 @endif 
                         
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                     </button>
                 </div>
@@ -2763,18 +2687,16 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 1 </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 1 </label>
 
-                                    <input class="form-control" id="nombrefoto" type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion" type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2804,18 +2726,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 2 </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 2 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2848,18 +2768,16 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 3 </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 3 </label>
 
-                                    <input class="form-control" id="nombrefoto" type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion" type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2889,18 +2807,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2933,18 +2849,16 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 5 </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 5 </label>
 
-                                    <input class="form-control" id="nombrefoto" type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion" type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -2974,18 +2888,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 6 </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 6 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -3018,18 +2930,16 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 7 </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 7 </label>
 
-                                    <input class="form-control" id="nombrefoto" type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion" type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -3059,18 +2969,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 8 </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 8 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" maxlength="160" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -3080,21 +2988,21 @@
 
                 @elseif($objContadorGaleria->cantidad == 1)
                     <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formProf ">
+                    <div class="row content_antDesp-formProf">
                         <!-- Contenido DERECHO -->
                         <div class="col-md-6 photo2 section_inputRight-text-formProf">
                             <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview18" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview18"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage18" name="imggaleria[]" onchange="previewImage(18);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
@@ -3104,18 +3012,18 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 2 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -3124,58 +3032,58 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formProf">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formProf">
+                        <div class="col-md-6 photo3 section_inputLeft-text-formProf content_antes-formProf">
                             <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview19" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview19"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage19" name="imggaleria[]" onchange="previewImage(19);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date" id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 3 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
+                        <div class="col-md-6 photo4 section_inputRight-text-formProf">
                             <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview20" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview20"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage20" name="imggaleria[]" onchange="previewImage(20);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
@@ -3185,78 +3093,78 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formProf ">
+                    <div class="row content_antDesp-formProf">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formProf">
+                        <div class="col-md-6 photo5 section_inputLeft-text-formProf content_antes-formProf">
                             <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview21" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview21"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage21" name="imggaleria[]" onchange="previewImage(21);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date" id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 5 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
+                        <div class="col-md-6 photo6 section_inputRight-text-formProf">
                             <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview22" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview22"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage22" name="imggaleria[]" onchange="previewImage(22);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
@@ -3266,78 +3174,78 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 6 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formProf ">
+                    <div class="row content_antDesp-formProf">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formProf">
+                        <div class="col-md-6 photo7 section_inputLeft-text-formProf content_antes-formProf">
                             <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview23" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview23"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage23" name="imggaleria[]" onchange="previewImage(23);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date" id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 7 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
+                        <div class="col-md-6 photo8 section_inputRight-text-formProf">
                             <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview24" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview24"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage24" name="imggaleria[]" onchange="previewImage(24);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
@@ -3347,18 +3255,18 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 8 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -3367,58 +3275,58 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formProf">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formProf">
+                        <div class="col-md-6 photo3 section_inputLeft-text-formProf content_antes-formProf">
                             <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview19" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview19"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage19" name="imggaleria[]" onchange="previewImage(19);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date" id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 3 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
+                        <div class="col-md-6 photo4 section_inputRight-text-formProf">
                             <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview20" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview20"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage20" name="imggaleria[]" onchange="previewImage(20);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
@@ -3428,222 +3336,18 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                    <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formProf ">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview21" width="150" height="150"/>
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage21" name="imggaleria[]" onchange="previewImage(21);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
-                                    
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview22" width="150" height="150"/>
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage22" name="imggaleria[]" onchange="previewImage(22);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formProf ">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview23" width="150" height="150"/>
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage23" name="imggaleria[]" onchange="previewImage(23);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
-                                    
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview24" width="150" height="150"/>
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage24" name="imggaleria[]" onchange="previewImage(24);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorGaleria->cantidad == 3)
-                    <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formProf ">
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview20" width="150" height="150"/>
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage20" name="imggaleria[]" onchange="previewImage(20);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -3652,58 +3356,58 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formProf">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formProf">
+                        <div class="col-md-6 photo5 section_inputLeft-text-formProf content_antes-formProf">
                             <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview21" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview21"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage21" name="imggaleria[]" onchange="previewImage(21);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date" id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 5 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
+                        <div class="col-md-6 photo6 section_inputRight-text-formProf">
                             <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview22" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview22"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage22" name="imggaleria[]" onchange="previewImage(22);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
@@ -3713,78 +3417,78 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 6 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formProf ">
+                    <div class="row content_antDesp-formProf">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formProf">
+                        <div class="col-md-6 photo7 section_inputLeft-text-formProf content_antes-formProf">
                             <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview23" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview23"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage23" name="imggaleria[]" onchange="previewImage(23);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date" id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 7 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
+                        <div class="col-md-6 photo8 section_inputRight-text-formProf">
                             <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview24" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview24"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage24" name="imggaleria[]" onchange="previewImage(24);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
@@ -3794,18 +3498,222 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 8 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @elseif($objContadorGaleria->cantidad == 3)
+                    <!-- Modulos del contenido GALERIA -->
+                    <div class="row content_antDesp-formProf">
+                        <!-- Contenido DERECHO -->
+                        <div class="col-md-6 photo4 section_inputRight-text-formProf">
+                            <div class="col-12 content_agregarImg-formProf form-group">
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview20"/>
+                                </div>
+
+                                <div class="agregar_archivo-formProf">
+                                    <input type='file' id="uploadImage20" name="imggaleria[]" onchange="previewImage(20);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
+
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
+
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modulos del contenido GALERIA -->
+                    <div class="row content_antDesp-formProf">
+                        <!-- Contenido IZQUIERDO -->
+                        <div class="col-md-6 photo5 section_inputLeft-text-formProf content_antes-formProf">
+                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview21"/>
+                                </div>
+
+                                <div class="agregar_archivo-formProf">
+                                    <input type='file' id="uploadImage21" name="imggaleria[]" onchange="previewImage(21);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
+                                
+                                <input class="form-control" type="date" id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 5 </label>
+
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
+                                    
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contenido DERECHO -->
+                        <div class="col-md-6 photo6 section_inputRight-text-formProf">
+                            <div class="col-12 content_agregarImg-formProf form-group">
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview22"/>
+                                </div>
+
+                                <div class="agregar_archivo-formProf">
+                                    <input type='file' id="uploadImage22" name="imggaleria[]" onchange="previewImage(22);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 6 </label>
+
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
+
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modulos del contenido GALERIA -->
+                    <div class="row content_antDesp-formProf">
+                        <!-- Contenido IZQUIERDO -->
+                        <div class="col-md-6 photo7 section_inputLeft-text-formProf content_antes-formProf">
+                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview23"/>
+                                </div>
+
+                                <div class="agregar_archivo-formProf">
+                                    <input type='file' id="uploadImage23" name="imggaleria[]" onchange="previewImage(23);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
+                                
+                                <input class="form-control" type="date" id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 7 </label>
+
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
+                                    
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contenido DERECHO -->
+                        <div class="col-md-6 photo8 section_inputRight-text-formProf">
+                            <div class="col-12 content_agregarImg-formProf form-group">
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview24"/>
+                                </div>
+
+                                <div class="agregar_archivo-formProf">
+                                    <input type='file' id="uploadImage24" name="imggaleria[]" onchange="previewImage(24);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 8 </label>
+
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
+
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -3814,58 +3722,58 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formProf">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formProf">
+                        <div class="col-md-6 photo5 section_inputLeft-text-formProf content_antes-formProf">
                             <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview21" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview21"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage21" name="imggaleria[]" onchange="previewImage(21);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date" id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 5 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
+                        <div class="col-md-6 photo6 section_inputRight-text-formProf">
                             <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview22" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview22"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage22" name="imggaleria[]" onchange="previewImage(22);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
@@ -3875,141 +3783,18 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 6 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                    <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formProf ">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview23" width="150" height="150"/>
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage23" name="imggaleria[]" onchange="previewImage(23);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
-                                    
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview24" width="150" height="150"/>
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage24" name="imggaleria[]" onchange="previewImage(24);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorGaleria->cantidad == 5)
-                    <!-- Modulos del contenido GALERIA -->
-                    <div class="row content_antDesp-formProf ">
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview22" width="150" height="150"/>
-                                    </div>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage22" name="imggaleria[]" onchange="previewImage(22);"/>
-                                </div>
-
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
-                                
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -4018,58 +3803,58 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formProf">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formProf">
+                        <div class="col-md-6 photo7 section_inputLeft-text-formProf content_antes-formProf">
                             <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview23" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview23"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage23" name="imggaleria[]" onchange="previewImage(23);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date" id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 7 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
+                        <div class="col-md-6 photo8 section_inputRight-text-formProf">
                             <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview24" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview24"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage24" name="imggaleria[]" onchange="previewImage(24);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
@@ -4079,18 +3864,141 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 8 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @elseif($objContadorGaleria->cantidad == 5)
+                    <!-- Modulos del contenido GALERIA -->
+                    <div class="row content_antDesp-formProf">
+                        <!-- Contenido DERECHO -->
+                        <div class="col-md-6 photo6 section_inputRight-text-formProf">
+                            <div class="col-12 content_agregarImg-formProf form-group">
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview22"/>
+                                </div>
+
+                                <div class="agregar_archivo-formProf">
+                                    <input type='file' id="uploadImage22" name="imggaleria[]" onchange="previewImage(22);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 6 </label>
+
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
+
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modulos del contenido GALERIA -->
+                    <div class="row content_antDesp-formProf">
+                        <!-- Contenido IZQUIERDO -->
+                        <div class="col-md-6 photo7 section_inputLeft-text-formProf content_antes-formProf">
+                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview23"/>
+                                </div>
+
+                                <div class="agregar_archivo-formProf">
+                                    <input type='file' id="uploadImage23" name="imggaleria[]" onchange="previewImage(23);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
+                                
+                                <input class="form-control" type="date" id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 7 </label>
+
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputLeft-text-formProf">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
+                                    
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contenido DERECHO -->
+                        <div class="col-md-6 photo8 section_inputRight-text-formProf">
+                            <div class="col-12 content_agregarImg-formProf form-group">
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview24"/>
+                                </div>
+
+                                <div class="agregar_archivo-formProf">
+                                    <input type='file' id="uploadImage24" name="imggaleria[]" onchange="previewImage(24);"/>
+                                </div>
+
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                            </div>
+
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 8 </label>
+
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
+                            </div>
+                            
+                            <div class="col-12 section_inputRight-text-formProf">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
+
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -4099,58 +4007,58 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formProf">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formProf">
+                        <div class="col-md-6 photo7 section_inputLeft-text-formProf content_antes-formProf">
                             <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview23" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview23"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage23" name="imggaleria[]" onchange="previewImage(23);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date" id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 7 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
+                        <div class="col-md-6 photo8 section_inputRight-text-formProf">
                             <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview24" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview24"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage24" name="imggaleria[]" onchange="previewImage(24);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
@@ -4160,18 +4068,18 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 8 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -4180,19 +4088,19 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formProf">
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
+                        <div class="col-md-6 photo8 section_inputRight-text-formProf">
                             <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="col-10 img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview24" width="150" height="150"/>
-                                    </div>
+                                <div class="img_selccionada-formProf">
+                                    <img class="img_anexada-formProf" id="uploadPreview24"/>
                                 </div>
 
                                 <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage24" name="imggaleria[]" onchange="previewImage(24);"/>
                                 </div>
 
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                <div class="txt_informativo-formProf">
+                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label> 
+                                </div>
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
@@ -4202,18 +4110,18 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 8 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -4223,7 +4131,7 @@
                 @endif 
 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                     </button>
                 </div>  
@@ -4295,18 +4203,16 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título video </label>
 
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción video </label>
                                     
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -4328,18 +4234,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título video </label>
 
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción video </label>
 
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -4364,18 +4268,16 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título video </label>
 
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción video </label>
                                     
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -4397,18 +4299,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título video </label>
 
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción video </label>
 
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -4434,18 +4334,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título video </label>
 
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción video </label>
 
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -4470,18 +4368,16 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título video </label>
 
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción video </label>
                                     
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -4503,18 +4399,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título video </label>
 
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción video </label>
 
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -4540,18 +4434,16 @@
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título video </label>
 
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
                             </div>
 
                             <div class="col-12 section_inputLeft-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción video </label>
                                     
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -4573,18 +4465,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título video </label>
 
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción video </label>
 
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -4609,18 +4499,16 @@
                             </div>
 
                             <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Título Video </label>
+                                <label for="example-date-input" class="col-12 text_label-formProf"> Título video </label>
 
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
                             </div>
                             
                             <div class="col-12 section_inputRight-text-formProf">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción Video </label>
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción video </label>
 
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
                                     <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label> 
                                 </div>
@@ -4634,7 +4522,7 @@
 
                 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                     </button>
                 </div>

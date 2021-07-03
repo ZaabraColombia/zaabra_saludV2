@@ -34,12 +34,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 
        <!--Framewor Agenda-->
-        <link rel="stylesheet" href="{{ asset('fullcalendar-5.7.0/lib/main.css') }}">
-        <script src="{{ asset('fullcalendar-5.7.0/lib/main.js') }}" defer></script>
+        <link rel="stylesheet" href="{{ asset('fullCalendar/main.css') }}">
+        <script src="{{ asset('fullCalendar/main.js') }}"></script>
 
     </head>
     <body>
-        
     @include('header')
 
         <div id="app">
@@ -76,11 +75,10 @@
         <script src="{{ asset('js/filtroBusquedad.js') }}"></script>
 
      <!--js admin template-->
-        <script src="{{ asset('js/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
         <script src="{{ asset('js/admin.js') }}"></script>
-        <script src="{{ asset('js/dashboard.js') }}"></script>
+    
     </body>
-    <link href="{{url('/templateAdmin/css/admin.css') }}" rel="stylesheet" type="text/css" />
+
     <!--/////    MODAL POPUP DE PAGO de las tarjetas de membresia de las vistas "membresiaProfesional" y "membresiaInstitucion". Estilos ubicados en la vista "popup-pagos.scss"  /////-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal_dialog-popup" role="document">

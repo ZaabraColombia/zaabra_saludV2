@@ -219,7 +219,7 @@
 .content_tarjetasInfo-formInst {
     background: #ffffff;
     margin: auto;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     padding: 0;
     box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
 }
@@ -241,6 +241,10 @@
     text-transform: inherit;
 }
 .fila_infoBasica-formInst {
+    margin: 0;
+    padding: 2% 0 0 0;
+}
+.fila_infoUser-formInst {
     margin: 0;
     padding: 2% 0;
 }
@@ -400,6 +404,7 @@
     border-radius: 3px;
     height: calc(1.6em + 0.75rem + 2px);
     width: 19%;
+    margin: 3% 0; 
 }
 ///// *****   SECCIÓN TARJETA SERVICIOS PROFESIONALES   ***** /////
 // Sección titulo de la tarjeta servicios profesionales
@@ -443,7 +448,7 @@
 }
 .section_servicio-formInst {
     margin: 0;
-    padding: 2% 0;
+    padding: 0;
 }
 .content_cierreX-formInst {
     height: 3vh;
@@ -451,10 +456,10 @@
 }
 .divicion_bottom-serv {
     border-bottom: 1px solid #DBDADA;
-    padding-bottom: 2%;
 }
 .txtInfo_limitante-formInst {
     font-family: 'Roboto', 'Regular';
+    font-size: .85em;
     color: #E3342F;
     font-weight: 500;
     padding: 2% 0;
@@ -692,6 +697,8 @@
 }
 .txt_informativo-formInst {
     text-align: center;
+    line-height: .5;
+    margin-bottom: 5%;
     padding: 0;
 }
 ///// *****   SECCIÓN TARJETA PROFESIONALES   ***** /////
@@ -717,11 +724,6 @@
     text-transform: inherit;
 }
 // Sección datos personales
-.datos_principales-formInst {
-    margin: 0;
-    padding: 0;
-    border-left: 1px solid #D1D1D1;
-}
 .containt_loadProfes-formInst {
     margin: 0;
     padding: 0;
@@ -777,7 +779,7 @@
     font-family: 'Roboto', 'Regular';
     font-size: 1em;
     color: #434343;
-    margin-top: 3%;
+    margin: 2% 0;
 }
 .content_antes-formInst {
     border-right: 1px solid #D1D1D1;
@@ -1082,25 +1084,25 @@
     display: flex;
     justify-content: flex-end;
     margin: auto;
-    margin-bottom: 3%;
     padding: 0;
 }
 .content_botonesInferiores-formInst {
     display: flex;
     justify-content: space-between;
     margin: auto;
-    margin-bottom: 3%;
     padding: 0;
 }
 .content_btn-anter-formInst {
     padding: 0;
     display: flex;
     justify-content: flex-start;
+    margin-bottom: 3%;
 }
 .content_btn-siguient-formInst {
     padding: 0;
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 3%;
 }
 .boton_inferior-anterior-formInst {
     font-family: "Quicksand";
@@ -1284,6 +1286,7 @@
         padding-left: 10%;
         height: 6vh;
         display: flex;
+        margin-bottom: 5%;
     }
     // Sección logo datos institución
     .img_usuario-formInst {
@@ -1297,12 +1300,12 @@
     .contain_imgInst-formInst {
         align-self: center;
         text-align: center;
-        padding-top: 5%;
+        padding: 0 5%;
+        margin-top: 5%;
     }
     .contain_imgInst-formInst .icon_subirFoto-formInst {
         background-position-x: 18%;
         background-size: 5%;
-        margin-bottom: 5%;
     }
     .text_usuario-formInst {
         font-size: 1em;
@@ -1322,28 +1325,29 @@
     }
     .input_nomApl-formInst {
         width: 100%;
-        margin-bottom: 5%;
     }
     .content_tarjetasInfo-formInst {
-        margin-bottom: 10%;
+        margin-bottom: 5%;
     }
     // botón inferior de guardar
     .btn_guardar-formInst {
         font-size: 1em;
         width: 45%;
-        margin-bottom: 5%;
+        margin: 5% 0;
     }
     .flechaBtn_guardar-formInst {
         width: 13%;
     }
-    .content_botonesInferiores-formInst {
-        margin-bottom: 10%;
-    }
-    .content_botonInferior-next-formInst {
-        margin-bottom: 10%;
-    }
-     ///// *****   SECCIÓN TARJETA INFORMACIÓN CONTACTO    ***** /////
+    ///// *****   SECCIÓN TARJETA INFORMACIÓN CONTACTO    ***** /////
     // Sección titulo de la tarjeta información del contacto
+    .fila_infoBasica-formInst {
+        margin: 0;
+        padding: 0;
+    }
+    .fila_infoUser-formInst {
+        margin: 0;
+        padding: 0;
+    }
     .icon_infoContac-formInst {
         background-size: 8%;
         padding-left: 10%;
@@ -1352,6 +1356,7 @@
     .btn2_enviar-formInst {
         font-size: 1em;
         width: 45%;
+        margin: 5% 0; 
     }
     ///// *****   SECCIÓN TARJETA SERVICIOS PROFESIONALES   ***** /////
     // Sección titulo de la tarjeta servicios profesionales
@@ -1373,7 +1378,18 @@
     .divicion_bottom-serv {
         border-bottom: 1px solid #DBDADA;
         padding-bottom: 5%;
-        margin-bottom: 3%;
+    }
+    .content_btn-anter-formInst {
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 5%;
+    }
+    .content_btn-siguient-formInst {
+        padding: 0;
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 5%;
     }
     ///// *****   SECCIÓN TARJETA QUIENES SOMOS   ***** /////
     // Sección titulo de la tarjeta quienes somos
@@ -1398,6 +1414,7 @@
     }
     .text_infoConvenio-formInst {
         font-size: .85em;
+        padding: 0;
     }
     .agregar_archivo-formInst1::before {
         background-position-x: 14%;            
@@ -1408,8 +1425,17 @@
     .agregar_archivo-formInst3::before {
         background-position-x: 14%;            
     } 
+    .row_convenio-form{
+        padding: 0;
+        margin: 0;
+    }
     ///// *****   SECCIÓN TARJETA PROFESIONALES   ***** /////
     // Sección titulo de la tarjeta profesionales
+    .datos_principales-formInst {
+        margin: 0;
+        padding: 0;
+        border-left: none;
+    }
     .icon_profesionales-formInst {
         background-size: 8%;
         padding-left: 10%;
@@ -1434,6 +1460,12 @@
         display: flex;
         justify-content: center;
     }
+    .content_loadImg-profes {
+        border: 1px solid #DBDADA;
+        border-radius: 5px;
+        padding: 2% 0;
+        margin-bottom: 5%;
+    }
     ///// *****   SECCIÓN TARJETA CERTIFICACIONES   ***** /////
     // Sección titulo de la tarjeta certificaciones
     .icon_certificaciones-formInst {
@@ -1443,6 +1475,7 @@
     }
     .text_superior-proced-formInst {
         font-size: .75em;
+        margin: 5% 0;
     }
     .content_antes-formInst {
         border-right: none;
@@ -1531,10 +1564,11 @@
     // Sección botones inferiores
     .boton_inferior-siguiente-formInst {
         width: 90%;
+        font-size: 1em;
     }
     .btn-next-320-formInst {
         font-family: "Quicksand";
-        font-size: 1.15em;
+        font-size: 1em;
         color: #ffffff;
         background: #0083d6;
         border: none;
@@ -1544,23 +1578,12 @@
     }
     .boton_inferior-anterior-formInst {
         width: 90%;
+        font-size: 1em;
     }
     .boton_inferior-finalizar-formInst {
         width: 90%;
+        font-size: 1em;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
     .section_infoExper-formInst {
         width: 100%;
         padding: 2%;
@@ -1568,6 +1591,7 @@
     }
     .text_label-formInst {
         font-size: 1em;
+        margin-top: 5%;
     }
     .text_infoImg-formInst {
         font-size: .75em;
@@ -1662,6 +1686,7 @@
         padding-left: 5%;
         height: 2.5vh;
         font-size: 1.2em;
+        margin-bottom: 3%;
     }
     // Sección logo datos institución
     .img_usuario-formInst {
@@ -1713,24 +1738,32 @@
         margin-bottom: 0;
     }
     .content_tarjetasInfo-formInst {
-        margin-bottom: 5%;
+        margin-bottom: 3%;
     }
     // botón inferior de guardar
     .btn_guardar-formInst {
         font-size: 1em;
         width: 17%;
-        margin-bottom: 2%;
+        margin: 3% 0;
     }
     .flechaBtn_guardar-formInst { 
         width: 11%;
     }
-    .content_botonesInferiores-formInst {
+    .content_btn-anter-formInst {
         margin-bottom: 3%;
     }
-    .content_botonInferior-next-formInst {
+    .content_btn-siguient-formInst {
         margin-bottom: 3%;
     }
     ///// *****   SECCIÓN TARJETA INFORMACIÓN CONTACTO    ***** /////
+    .fila_infoBasica-formInst {
+        margin: 0;
+        padding: 0;
+    }
+    .fila_infoUser-formInst {
+        margin: 0;
+        padding: 0;
+    }
     .icon_infoContac-formInst {
         background-size: 3%;
         padding-left: 5%;
@@ -1740,6 +1773,7 @@
     .btn2_enviar-formInst {
         font-size: 1em;
         width: 17%;
+        margin: 3% 0; 
     }
     ///// *****   SECCIÓN TARJETA SERVICIOS PROFESIONALES   ***** /////
     // Sección titulo de la tarjeta servicios profesionales
@@ -1766,7 +1800,6 @@
     .divicion_bottom-serv {
         border-bottom: 1px solid #DBDADA;
         padding-bottom: 2%;
-        margin-bottom: 0;
     }
     ///// *****   SECCIÓN TARJETA QUIENES SOMOS   ***** /////
     // Sección titulo de la tarjeta quienes somos
@@ -1786,6 +1819,10 @@
     }
     ///// *****   SECCIÓN TARJETA CONVENIOS   ***** /////
     // Sección titulo de la tarjeta convenios
+    .row_convenio-form{
+        padding: 0;
+        margin: 5% 0;
+    }
     .icon_convenios-formInst {
         background-size: 3%;
         padding-left: 5%;
@@ -1810,8 +1847,19 @@
         background-position-x: 8%;   
         background-size: 5%;          
     } 
+    .txt_informativo-formInst {
+        text-align: center;
+        line-height: 1;
+        margin-bottom: 5%;
+        padding: 0;
+    }
     ///// *****   SECCIÓN TARJETA PROFESIONALES   ***** /////
     // Sección titulo de la tarjeta profesionales
+    .containt_profGuardado-formInst {
+        margin: 1% auto;
+        padding: 0;
+        justify-content: space-evenly;
+    }
     .icon_profesionales-formInst {
         background-size: 3%;
         padding-left: 5%;
@@ -1819,11 +1867,6 @@
         font-size: 1.2em;
     }
     // Sección cajas de texto datos personales
-    .datos_principales-formInst {
-        margin: 0;
-        padding: 0;
-        border-left: 1px solid #D1D1D1;
-    }
     .nombres_usuario-formInst {
         display: flex;
         flex-direction: row;
@@ -1850,6 +1893,8 @@
     }
     .text_superior-proced-formInst {
         font-size: 1em;
+        width: 100%;
+        margin: 2% 0;
     }
     .agregar_archivo-formInst::before {
         background-position-x: 13%;
@@ -2062,9 +2107,6 @@
     ///// *****   SECCIÓN TARJETA INFORMACIÓN BÁSICA    ***** /////
     // Sección logo datos institución
     .content_tarjetasInfo-formInst {
-        margin-bottom: 2%;
-    }
-    .content_botonInferior-next-formInst {
         margin-bottom: 2%;
     }
     .contain_imgInst-formInst .icon_subirFoto-formInst {

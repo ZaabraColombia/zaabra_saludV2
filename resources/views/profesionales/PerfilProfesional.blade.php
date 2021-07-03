@@ -257,7 +257,7 @@
 
             <p class="text_cabecera-prof"> Describa su opinión y seleccione las estrellas según el puntaje que le quiera asignar al médico. </p>
 
-            <div class="visible_container" id="resultados">
+            <div id="resultados">
                 <div class="alert alert-success d-none mt-5" id="msg_comentario">
                     <span id="res_message"></span>
                 </div>
@@ -267,15 +267,15 @@
                     @endforeach
 
                     @if($tipo->idrol==1)
-                        <form id="comentarioFormProf" method="post">
+                        <form class="opinion_form-prof" id="comentarioFormProf" method="post">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <input type="hidden" id="idperfil" name="idperfil" value="{{$objprofesionallanding->idPerfilProfesional}}">
 
-                            <textarea class="col-12" id="comentario" name="comentario" rows="4" cols="50"></textarea>
+                            <textarea class="txtarea_form-prof" id="comentario" placeholder="Escribe tus comentarios aquí..." name="comentario" rows="4" cols="50"></textarea>
 
-                            <div class="col-12 row">
-                                <div class='col-md-6 rating-stars text-center'>
+                            <div class="content_btnStart-form">
+                                <div class="rating-stars section_Starts-form">
                                     <ul id='stars'>
                                         <li class='star' title='Poor' data-value='1'>
                                         <i class='fa fa-star fa-fw'></i>
@@ -295,40 +295,43 @@
                                     </ul>
                                 </div>
 
-                                <div class="col-md-6 content_btnEnviar-formProf">
-                                        <button id="send_form_coment_prof" type="submit" class="btn_enviar-contac">Agregar</button>
+                                <div class="section_btnStart-form">
+                                    <button id="send_form_coment_prof" type="submit" class="button_send-form"> Agregar
+                                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icon_arrow-form" alt=""> 
+                                    </button>
                                 </div>
                             </div>
                         </form>
                     @endif
                 @endif
                        
-            
-                @foreach ($objprofesionalComentario as $data)
-                <div class="section_opciones" id="oscar">
-                    <div class="section_usuario-prof">
-                        <div class="contains_avatar">
-                            <i class="fas fa-circle circle_opinion-prof"></i>
-                        </div>
-                        <div class="contains_text">
-                            <p class="name_usuario-prof">{{$data->primernombre}} {{$data->primerapellido}}</p>
-                            <p class="icono_verify verify_usuario-prof"> Paciente verificado </p>       
-                        </div>
+                <div class="visible_container">
+                    @foreach ($objprofesionalComentario as $data)
+                    <div class="section_opciones" id="oscar">
+                        <div class="section_usuario-prof">
+                            <div class="contains_avatar">
+                                <i class="fas fa-circle circle_opinion-prof"></i>
+                            </div>
+                            <div class="contains_text">
+                                <p class="name_usuario-prof">{{$data->primernombre}} {{$data->primerapellido}}</p>
+                                <p class="icono_verify verify_usuario-prof"> Paciente verificado </p>       
+                            </div>
 
-                        <div class="section_stars-prof">
-                            @for ($i=1; $i <= $data->calificacion; $i++)
-                            <i class='fa fa-star fa-fw' style="color: yellow;"></i>
-                            @endfor 
-                            @for ($i=$data->calificacion; $i <= 4; $i++)
-                            <i class='fa fa-star fa-fw' style="color: red;"></i>
-                            @endfor
+                            <div class="section_stars-prof">
+                                @for ($i=1; $i <= $data->calificacion; $i++)
+                                <i class='fa fa-star fa-fw' style="color: yellow;"></i>
+                                @endfor 
+                                @for ($i=$data->calificacion; $i <= 4; $i++)
+                                <i class='fa fa-star fa-fw' style="color: red;"></i>
+                                @endfor
+                            </div>
+                        </div>
+                        <div class="section_comentario-prof">
+                            <span>{{$data->comentario}}</span>
                         </div>
                     </div>
-                    <div class="section_comentario-prof">
-                        <span>{{$data->comentario}}</span>
-                    </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
 
             <!-- <div class="section_masComent-prof">
