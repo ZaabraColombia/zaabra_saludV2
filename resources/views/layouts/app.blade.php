@@ -34,12 +34,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 
        <!--Framewor Agenda-->
-        <link rel="stylesheet" href="{{ asset('fullcalendar-5.7.0/lib/main.css') }}">
-        <script src="{{ asset('fullcalendar-5.7.0/lib/main.js') }}" defer></script>
+        <link rel="stylesheet" href="{{ asset('fullCalendar/main.css') }}">
+        <script src="{{ asset('fullCalendar/main.js') }}"></script>
 
     </head>
     <body>
-        
     @include('header')
 
         <div id="app">
@@ -74,7 +73,6 @@
         <script src="{{ asset('js/filtroBusquedad.js') }}"></script>
 
      <!--js admin template-->
-        <script src="{{ asset('js/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
         <script src="{{ asset('js/admin.js') }}"></script>
     
     </body>
