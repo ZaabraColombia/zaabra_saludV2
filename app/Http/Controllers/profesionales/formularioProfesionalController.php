@@ -451,10 +451,10 @@ class formularioProfesionalController extends Controller
 
             }else{
 
-                 
-                    /*captura el nombre del logo*/
+                 if(!empty($request->file())){
+                      /*captura el nombre del logo*/
                     $nombrelogo=$request->logo->getClientOriginalName();
-                
+
                     /*guarda la imagen en carpeta con el id del usuario*/
                     $image = $request->file('logo');
                     $image->move("img/user/$id_user", $image->getClientOriginalName());
@@ -464,9 +464,8 @@ class formularioProfesionalController extends Controller
                     'idUser' => "$id_user", 
                     'imglogoempresa' => "img/user/$id_user/$nombrelogo"
                     ]);
-            
-
-
+                 }
+                 
                     $dataPerfilesprofesionales = request()->all();
                     unset($dataPerfilesprofesionales['_token']);
                     unset($dataPerfilesprofesionales['id_universidad']);
