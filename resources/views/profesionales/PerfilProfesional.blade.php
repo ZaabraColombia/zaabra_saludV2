@@ -192,6 +192,7 @@
             <h2><i></i>Premios y Reconocimientos</h2>
             <div class="swiper-container swiper_premios">
                 <div class="swiper-wrapper">
+                    
                     @foreach ($objprofesionallandingpremio as $objprofesionallandingpremio)
                         <div class="swiper-slide">
                             <img src="{{URL::asset($objprofesionallandingpremio->imgpremio)}}">
