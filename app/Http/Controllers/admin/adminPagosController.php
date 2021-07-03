@@ -5,8 +5,9 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class adminCalendarioController extends Controller{
+class adminPagosController extends Controller
+{
     public function index(){
-        return view('panelAdministrativo.calendario');
+        return view('panelAdministrativo.pagos');
     }
 }
