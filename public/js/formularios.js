@@ -652,17 +652,45 @@ function hideBtnPrevious (y){
     }
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector("#formulario_basico").addEventListener('submit', validaBasico);
+    document.querySelector("#formulario_asociacion").addEventListener('submit', validaAsociacion); 
+});
+
+function validaBasico(event) {
+    event.preventDefault();
+    let inputs = document.querySelectorAll('#formulario_basico input[type=file]')
+  
+    
+    inputs.forEach((element) => {
+        if (element.files.length !=0) {
+            this.submit();
+        }
+        else {
+            alert("debe subir una foto")
+        }
+    })
+} 
+
+
+function validaAsociacion(event) {
+    event.preventDefault();
+    let inputs = document.querySelectorAll('#formulario_asociacion input[type=file]')
+  
+    
+    inputs.forEach((element) => {
+        if (element.files.length !=0) {
+            this.submit();
+        }
+        else {
+            alert("debe subir una foto")
+        }
+    })
+} 
 
 
 
-/*
-Boton agregar mas par aimplementar en los formularios
-<button type="submit" class="btn_agregar_field"> Agragar más médicos
-<img src="{{URL::asset('/img/formulario-institucion/icono-agregar.svg')}}" class="ml-2" alt=""> 
-</button>
-
-
-!function anonimous(){
+/*!function anonimous(){
     let arrayForm = [].slice.apply(document.querySelectorAll('.count_forms'));
     arrayForm[1].classList.add('hidden-section-formProf');
     arrayForm[2].classList.add('hidden-section-formProf');

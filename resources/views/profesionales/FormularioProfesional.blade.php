@@ -57,7 +57,7 @@
         <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
             <h5 class="col-12 icon_infoBasica-formProf"> Información básica </h5> 
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave') }}" enctype="multipart/form-data" accept-charset="UTF-8">
+            <form method="POST" action="{{ url ('/FormularioProfesionalSave') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_basico">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
                 <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio---------------------> 
@@ -69,7 +69,7 @@
                                 <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objFormulario->imglogoempresa)}}">
                             @endforeach
             
-                            <input type="file" class="input_imgUsuario-formProf" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg">
+                            <input type="file" class="input_imgUsuario-formProf" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg" value="{{$objFormulario->imglogoempresa}}">
 
                             <p class="icon_subirFoto-formProf text_usuario-formProf"> Subir foto de perfil </p>
                         </div>
@@ -264,7 +264,7 @@
 
         <!--------------------------------------------      Inicio 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave2') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+            <form method="POST" action="{{ url ('/FormularioProfesionalSave2') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_contacto">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
                 <h5 class="col-12 icon_infoContac-formProf"> Información de contacto </h5>
@@ -420,7 +420,7 @@
                 @endforeach
             </div>
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave3') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+            <form method="POST" action="{{ url ('/FormularioProfesionalSave3') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_consulta">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                     
                 @if($objContadorConsultas->cantidad == 0)
@@ -567,7 +567,7 @@
         <div class="col-lg-10 col-xl-8 content_perfil-prof  infoBasica_formProf">
             <h5 class="col-12 icon_infoSubPerfil-formProf"> Perfil profesional </h5>
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave4') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+            <form method="POST" action="{{ url ('/FormularioProfesionalSave4') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_descripcion">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
                 @if(!empty($objFormulario))
@@ -636,7 +636,7 @@
                 @endforeach
             </div>
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+            <form method="POST" action="{{ url ('/FormularioProfesionalSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_educacion">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                 
                 @if($objContadorEducacion->cantidad == 0)
@@ -865,7 +865,7 @@
                 @endforeach
             </div>
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+            <form method="POST" action="{{ url ('/FormularioProfesionalSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_experiencia">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                     @if($objContadorExperiencia->cantidad == 0)
                         <div class="row fila_infoBasica-formProf" id="listas"> 
@@ -1158,7 +1158,7 @@
                 @endforeach
             </div>
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave7') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+            <form method="POST" action="{{ url ('/FormularioProfesionalSave7') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_asociacion">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                     
                 @if($objContadorAsociaciones->cantidad == 0)
@@ -1299,7 +1299,7 @@
                 @endforeach
             </div>
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+            <form method="POST" action="{{ url ('/FormularioProfesionalSave8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_idioma">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">  
                     
                 @if($objContadorIdiomas->cantidad == 0)
@@ -1461,7 +1461,7 @@
                 @endif
             @endforeach 
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave9') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+            <form method="POST" action="{{ url ('/FormularioProfesionalSave9') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_tratamientos">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             
                 @if($objContadorTratamiento->cantidad == 0)
@@ -1769,7 +1769,7 @@
                 @endforeach 
             </div>
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave10') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+            <form method="POST" action="{{ url ('/FormularioProfesionalSave10') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_premio">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
                 @if($objContadorPremios->cantidad == 0)
@@ -2293,7 +2293,7 @@
                 @endforeach 
             </div>
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave11') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+            <form method="POST" action="{{ url ('/FormularioProfesionalSave11') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_publicaciones">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
                 @if($objContadorPublicaciones->cantidad == 0)
@@ -2734,7 +2734,7 @@
                 @endforeach 
             </div>
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave12') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+            <form method="POST" action="{{ url ('/FormularioProfesionalSave12') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_galeria">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
                 @if($objContadorGaleria->cantidad == 0)

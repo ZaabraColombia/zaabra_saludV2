@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
       
       const menu_insti = [].slice.apply(document.querySelectorAll('.item_landing_insti'))
       const sections_insti = [].slice.apply(document.querySelectorAll('.section_insti'))
-
+  
       document.querySelector('.landingInsti').addEventListener('click', el => {
 
         let count;
