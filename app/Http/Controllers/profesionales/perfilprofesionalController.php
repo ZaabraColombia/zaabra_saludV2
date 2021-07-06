@@ -161,7 +161,7 @@ class perfilprofesionalController extends Controller
         WHERE p.idPerfilProfesional=$idPerfilProfesional) AS calificacionRedondeada
         FROM  users_roles ur
         LEFT JOIN users us  ON ur.iduser=us.id
-        LEFT JOIN perfilesprofesionales pf  ON us.id=Pf.idUser
+        LEFT JOIN perfilesprofesionales pf  ON us.id=pf.idUser
         LEFT JOIN comentarios c ON ur.iduser=c.idusuariorol
         WHERE c.comentario<>'' AND c.idperfil=$idPerfilProfesional");
         }

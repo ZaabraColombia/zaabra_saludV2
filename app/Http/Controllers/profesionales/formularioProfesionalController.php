@@ -149,7 +149,7 @@ class formularioProfesionalController extends Controller
     
     public function cargaFormulario($id_user){
     return DB::select("SELECT pf.direccion,  pf.genero, pf.EmpresaActual, pf.celular, pf.telefono,
-    pf.imglogoempresa, pf.fechanacimiento, pf.numeroTarjeta, pf.entidadCertificoTarjeta,
+    pf.fotoperfil, pf.fechanacimiento, pf.numeroTarjeta, pf.entidadCertificoTarjeta,
     pf.descripcionPerfil,ar.idarea, ar.nombreArea ,pr.idprofesion, pr.nombreProfesion, 
     ep.idEspecialidad,  ep.nombreEspecialidad, p.id_pais,p.nombre, de.id_departamento, de.nombre,
     prv.id_provincia,prv.nombre, mu.id_municipio, mu.nombre
@@ -425,7 +425,7 @@ class formularioProfesionalController extends Controller
                     /*anexo iduser y img logoempresa  al request*/
                     $request->merge([
                         'idUser' => "$id_user", 
-                        'imglogoempresa' => "img/user/$id_user/$nombrelogo"
+                        'fotoperfil' => "img/user/$id_user/$nombrelogo"
                     ]);
                 
                     perfilesprofesionales::create($request->all());
@@ -462,7 +462,7 @@ class formularioProfesionalController extends Controller
                     /*anexo iduser y img logoempresa  al request*/
                     $request->merge([
                     'idUser' => "$id_user", 
-                    'imglogoempresa' => "img/user/$id_user/$nombrelogo"
+                    'fotoperfil' => "img/user/$id_user/$nombrelogo"
                     ]);
                  }
                  
@@ -494,7 +494,7 @@ class formularioProfesionalController extends Controller
                     unset($perfilesprofesionalesuniversidades['_token']);
                     unset($perfilesprofesionalesuniversidades['fechanacimiento']);
                     unset($perfilesprofesionalesuniversidades['numeroTarjeta']);
-                    unset($perfilesprofesionalesuniversidades['imglogoempresa']);
+                    unset($perfilesprofesionalesuniversidades['fotoperfil']);
                     unset($perfilesprofesionalesuniversidades['idarea']);
                     unset($perfilesprofesionalesuniversidades['idprofesion']);
                     unset($perfilesprofesionalesuniversidades['idespecialidad']);

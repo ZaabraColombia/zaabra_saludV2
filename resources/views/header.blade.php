@@ -1,6 +1,4 @@
- 
- 
-            <!-------------------------------------------Headaer-------------------------------------------->
+
             <nav class="navbar navbar_zaabrasalud">
                 <div class="container contains_header">
                     <!-- Sección Logo Zaabra -->
@@ -10,10 +8,11 @@
                     <!-- Sección barra de busqueda -->
                     <div class="contains_boxsearch">
                         <div class="barra_busqueda" id="barra_busqueda">
-                                <input  class="inputBarraBusquedad" id="filtro">
+                            <input  class="inputBarraBusquedad" id="filtro">
                         </div> 
                     </div>
-         <!--******************************     Sección BARRA DE BUSQUEDA version MOBILE      *************************************-->
+
+                    <!--******************************     Sección BARRA DE BUSQUEDA version MOBILE      *************************************-->
                     <!-- SECCION BARRA DE BUSQUEDA HEADER -->
                     <div class="contain_lupa-mobile">
                         <!--///      Función para desplegar y ocultar barra de busqueda en la vista "header" versión Mobile ubicada en el archivo header.js      ///-->
@@ -22,6 +21,7 @@
                         </button>
                     </div>
                     <!--******************************     End sección BARRA DE BUSQUEDA version MOBILE      *********************************-->
+                    
                     <!-- Sección Soy paciente -->
                     @guest
                         <div class="soy_paciente dropdown">

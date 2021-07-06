@@ -350,13 +350,24 @@ a:link, a:visited, a:active, a:hover {
 #ui-id-1{
     z-index: 100 !important;
     background: white;
-    width: 27% !important;
-    height: 500px;
+    width: 30% !important;
+    height: auto;
     overflow: scroll;
+    border-radius: 3px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    left: 26.4% !important;
 }
+/*.ui-menu {
+    display: block !important;
+    left: 26.4%;
+}*/
 .ui-menu-item > .ui-menu-item-wrapper{
     color: black !important;
     font-size: 1em !important;
+}
+.ui-menu li::marker {
+    color: #0083D6 !important;
 }
 @media (min-width: 320px) and (orientation: portrait) {
     // Contenedor principal del header
