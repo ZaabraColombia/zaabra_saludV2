@@ -10,7 +10,7 @@
                     <!-- Sección barra de busqueda -->
                     <div class="contains_boxsearch">
                         <div class="barra_busqueda" id="barra_busqueda">
-                                <input  class="inputBarraBusquedad" id="filtro">
+                            <input  class="inputBarraBusquedad" id="filtro">
                         </div> 
                     </div>
          <!--******************************     Sección BARRA DE BUSQUEDA version MOBILE      *************************************-->
@@ -176,10 +176,11 @@
                 <!-- Clase "contains_barra"utilizada para mostrar y ocultar la barra de busqueda en el HEADER tamaño Mobile, función ubicada en el archivo header.js -->
                 <div class="contains_barra"> 
                     <div class="barra_oculta" id="buscador">
-                        <div class="barra_busqueda-mobile">
+                        <div class="barra_busqueda-mobile" id="barra_busqueda2">
                             <form action="http://portal-test.zaabra.local/busqueda" method="POST" class="form-inline heigFormHeader" id="buscar">
                                 <input type="hidden" name="_token" value="tzFtz8TstiTocmap8vuJp4Py7sMc0zcQiC63SuyF">
-                                <input class="inputBarraBusquedad" type="buttton" name="buscar" id="barra_buscar" autocomplete="off">
+                                <input  class="inputBarraBusquedad" id="filtro2">
+                                <!-- <input class="inputBarraBusquedad" type="buttton" name="buscar" id="barra_buscar" autocomplete="off"> -->
                                 <input type="image" class="contenedorLupa" src="{{URL::asset('/img/header/icono-buscador-azul.svg')}}">
                             </form>
                         </div> 
