@@ -1,5 +1,5 @@
 // Sección lista de las opciones
-.lista_opciones-usuario-formInst {
+.optionList_formInst {
     display: flex;
     list-style: none;
     padding: 0;
@@ -294,10 +294,10 @@
     padding: 0;
     border-left: 1px solid #D1D1D1;
 }
-.section_inputRight-text-formInst {
+.rightSection_formInst {
     padding: 0 0 0 15px;
 }
-.section_inputLeft-text-formInst {
+.leftSection_formInst {
     padding: 0 15px 0 0;
 }
 .text_label-formInst {
@@ -468,8 +468,9 @@
     height: 3vh;
     padding: 0;
 }
-.divicion_bottom-serv {
+.downLine_formInst {
     border-bottom: 1px solid #DBDADA;
+    padding-bottom: 2%;
 }
 .txtInfo_limitante-formInst {
     font-family: 'Roboto', 'Regular';
@@ -477,6 +478,19 @@
     color: #E3342F;
     font-weight: 500;
     padding: 2% 0;
+}
+.center_lineForm {
+    border-right: 1px solid #D1D1D1;
+}
+.savedData_formInst {
+    width: 48%;
+    padding: 1%;
+    border: 1px solid #DBDADA;
+    border-radius: 3px;
+    box-shadow: 0px 2px 5px -2px rgb(0 0 0 / 25%);
+    display: flex;
+    flex-direction: column;
+    margin: 3% 0 0 0;
 }
 /*.bootstrap-tagsinput  input {
     background: yellow;
@@ -1216,9 +1230,6 @@
     flex-direction: column;
     margin-bottom: 2%;
 }
-.content_antes-formInst {
-    border-right: 1px solid #D1D1D1;
-}
 .text_infoImg-formInst {
     font-family: 'Roboto', 'Regular';
     font-size: .9em;
@@ -1227,7 +1238,7 @@
 }
 @media (min-width: 320px) and (orientation: portrait) {
     // Sección lista de las opciones 
-    .lista_opciones-usuario-formInst {
+    .optionList_formInst {
         justify-content: flex-start;
         flex-wrap: wrap;
         width: 100%;
@@ -1334,11 +1345,11 @@
     .contain_imgInst-formInst .text_usuario-formInst {
         font-size: 1em;
     }
-    .section_inputRight-text-formInst {
+    .rightSection_formInst {
         padding: 0 0 0 0;
     }
-    .section_inputLeft-text-formInst {
-        padding: 0 0 0 0;
+    .leftSection_formInst {
+        padding: 0;
     }
 
     .input_nomApl-formInst {
@@ -1393,7 +1404,7 @@
         padding-left: 10%;
         height: 6vh;
     }
-    .divicion_bottom-serv {
+    .downLine_formInst {
         border-bottom: 1px solid #DBDADA;
         padding-bottom: 5%;
     }
@@ -1408,6 +1419,11 @@
         display: flex;
         justify-content: flex-end;
         margin-bottom: 5%;
+    }
+    .savedData_formInst {
+        width: 100%;
+        padding: 2%;
+        margin: 5% 0 1% 0;
     }
     ///// *****   SECCIÓN TARJETA QUIENES SOMOS   ***** /////
     // Sección titulo de la tarjeta quienes somos
@@ -1644,7 +1660,7 @@
 }
 @media (min-width: 768px) and (orientation: portrait) {
     // Sección lista de las opciones 
-    .lista_opciones-usuario-formInst {
+    .optionList_formInst {
         justify-content: flex-start;
         flex-wrap: wrap;
         width: 75%;
@@ -1753,10 +1769,10 @@
         padding: 0;
         border-left: 1px solid #D1D1D1;
     }
-    .section_inputRight-text-formInst {
+    .rightSection_formInst {
         padding: 0 0 0 15px;
     }
-    .section_inputLeft-text-formInst {
+    .leftSection_formInst {
         padding: 0 15px 0 0;
     }
     .text_label-formInst {
@@ -1848,9 +1864,14 @@
         height: 2.5vh;
         font-size: 1.2em;
     }
-    .divicion_bottom-serv {
+    .downLine_formInst {
         border-bottom: 1px solid #DBDADA;
         padding-bottom: 2%;
+    }
+    .savedData_formInst {
+        width: 48%;
+        padding: 2%;
+        margin: 3% 0 0 0;
     }
     ///// *****   SECCIÓN TARJETA QUIENES SOMOS   ***** /////
     // Sección titulo de la tarjeta quienes somos
@@ -2088,7 +2109,7 @@
 }
 @media (min-width: 1200px) {
     // Sección lista de las opciones
-    .lista_opciones-usuario-formInst {
+    .optionList_formInst {
         width: 60%;
         height: 12vh;
     }
@@ -2168,6 +2189,11 @@
 
 } 
 @media (min-width: 1920px) {
+    // Sección lista de las opciones
+    .optionList_formInst {
+        width: 55%;
+        height: 13vh;
+    }
     ///// *****   SECCIÓN TARJETA INFORMACIÓN BÁSICA    ***** /////
     // Sección logo datos institución
     .content_tarjetasInfo-formInst {
@@ -2176,11 +2202,6 @@
     .contain_imgInst-formInst .icon_subirFoto-formInst {
         background-size: 2.8%;
         background-position-x: 28%;
-    }
-    // Sección lista de las opciones
-    .lista_opciones-usuario-formInst {
-        width: 55%;
-        height: 13vh;
     }
     // Sección logo datos institución
     .img_usuario-formInst {

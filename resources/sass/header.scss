@@ -18,7 +18,7 @@ a:link, a:visited, a:active, a:hover {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    height: 8vh;
+    height: calc(2.6em + 0.75rem + 2px);
 }
 .logo_header {
     width: 50%;
@@ -34,7 +34,7 @@ a:link, a:visited, a:active, a:hover {
     border-radius: 0;
     font-size: 17px;
     border: none;
-    padding: 0 2%;
+    padding: 2%;
     background: #faebd700;
 }
 .contenedorLupa {  
@@ -51,6 +51,16 @@ a:link, a:visited, a:active, a:hover {
     height: 100%;
 }
 .barra_busqueda {
+    width: 100%;
+    height: 50%;
+    background: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border-radius: 2px;
+}
+.barra_busqueda2 {
     width: 100%;
     height: 50%;
     background: #ffff;
@@ -347,21 +357,38 @@ a:link, a:visited, a:active, a:hover {
 .barra_busqueda > #ui-id-1{
     left: 0% !important;
 }
+.barra_busqueda2 > #ui-id-1{
+    left: 0% !important;
+}
 #ui-id-1{
     z-index: 100 !important;
     background: white;
     width: 30% !important;
-    height: auto;
+
+    height: 25vh;
     overflow: scroll;
     border-radius: 3px;
     padding-top: 1%;
-    padding-bottom: 1%;
     left: 26.4% !important;
 }
-/*.ui-menu {
-    display: block !important;
-    left: 26.4%;
-}*/
+.ui-menu::-webkit-scrollbar {
+    display: none !important;
+}
+.ui-menu {
+   // display: block !important;
+    z-index: 100 !important;
+    background: white;
+    width: 90% !important;
+    height: 25vh;
+    overflow: scroll;
+    border-radius: 3px;
+    padding-top: 1%;
+    left: 5.4% !important;
+}
+.ui-menu-item {
+    padding-top: 3%;
+}
+
 .ui-menu-item > .ui-menu-item-wrapper{
     color: black !important;
     font-size: 1em !important;
@@ -369,6 +396,11 @@ a:link, a:visited, a:active, a:hover {
 .ui-menu li::marker {
     color: #0083D6 !important;
 }
+
+.ui-helper-hidden-accessible{
+    display: none !important;
+}
+
 @media (min-width: 320px) and (orientation: portrait) {
     // Contenedor principal del header
     .contains_header{
@@ -405,7 +437,7 @@ a:link, a:visited, a:active, a:hover {
         width: 100%;
         height: 79%;
         z-index: 20;
-        padding: 0;
+        padding: 8% 0;
     }
     .barra_oculta {
         width: 90%;
@@ -426,7 +458,7 @@ a:link, a:visited, a:active, a:hover {
         border-radius: 0;
         font-size: 17px;
         border: none;
-        padding: 0 2%;
+        padding: 1% 2%;
         background: #faebd700;
     }
     .contenedorLupa {
@@ -561,7 +593,7 @@ a:link, a:visited, a:active, a:hover {
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        height: 7vh;
+        height: calc(5em + 0.75rem + 2px);
     }
     .contains_header {
         max-width: 85%;
@@ -600,6 +632,10 @@ a:link, a:visited, a:active, a:hover {
         margin-right: 3%;
         right: 0;
         align-items: flex-end;
+    }
+    .ui-menu {
+        width: 90% !important;
+        left: 5% !important;
     }
     // Seccion boton usuario 
     .menu_paciente {
@@ -797,6 +833,9 @@ a:link, a:visited, a:active, a:hover {
     .button-membresia {
         max-width: 135px;
     }
+    #ui-id-1 {
+        left: 25.45% !important;
+    }
 }
 @media (min-width: 1440px) {
     .contains_barra{
@@ -915,6 +954,10 @@ a:link, a:visited, a:active, a:hover {
         margin-right: 3%;
         right: 0;
         align-items: flex-end;
+    }
+    #ui-id-1 {
+        left: 24.7% !important;
+        width: 29.7% !important;
     }
     // Seccion icono boton usuario 
     .soy_paciente .dropdown-toggle {
