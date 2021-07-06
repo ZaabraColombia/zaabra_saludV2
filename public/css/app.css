@@ -10026,7 +10026,7 @@ a:link, a:visited, a:active, a:hover {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  height: 8vh;
+  height: calc(2.6em + 0.75rem + 2px);
 }
 
 .logo_header {
@@ -10045,7 +10045,7 @@ a:link, a:visited, a:active, a:hover {
   border-radius: 0;
   font-size: 17px;
   border: none;
-  padding: 0 2%;
+  padding: 2%;
   background: #faebd700;
 }
 
@@ -10064,6 +10064,17 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .barra_busqueda {
+  width: 100%;
+  height: 50%;
+  background: #ffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  border-radius: 2px;
+}
+
+.barra_busqueda2 {
   width: 100%;
   height: 50%;
   background: #ffff;
@@ -10390,17 +10401,51 @@ a:link, a:visited, a:active, a:hover {
   left: 0% !important;
 }
 
+.barra_busqueda2 > #ui-id-1 {
+  left: 0% !important;
+}
+
 #ui-id-1 {
   z-index: 100 !important;
   background: white;
-  width: 27% !important;
-  height: 500px;
+  width: 30% !important;
+  height: 25vh;
   overflow: scroll;
+  border-radius: 3px;
+  padding-top: 1%;
+  left: 26.4% !important;
+}
+
+.ui-menu::-webkit-scrollbar {
+  display: none !important;
+}
+
+.ui-menu {
+  z-index: 100 !important;
+  background: white;
+  width: 90% !important;
+  height: 25vh;
+  overflow: scroll;
+  border-radius: 3px;
+  padding-top: 1%;
+  left: 5.4% !important;
+}
+
+.ui-menu-item {
+  padding-top: 3%;
 }
 
 .ui-menu-item > .ui-menu-item-wrapper {
   color: black !important;
   font-size: 1em !important;
+}
+
+.ui-menu li::marker {
+  color: #0083D6 !important;
+}
+
+.ui-helper-hidden-accessible {
+  display: none !important;
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
@@ -10442,7 +10487,7 @@ a:link, a:visited, a:active, a:hover {
     width: 100%;
     height: 79%;
     z-index: 20;
-    padding: 0;
+    padding: 8% 0;
   }
 
   .barra_oculta {
@@ -10466,7 +10511,7 @@ a:link, a:visited, a:active, a:hover {
     border-radius: 0;
     font-size: 17px;
     border: none;
-    padding: 0 2%;
+    padding: 1% 2%;
     background: #faebd700;
   }
 
@@ -10614,7 +10659,7 @@ a:link, a:visited, a:active, a:hover {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    height: 7vh;
+    height: calc(5em + 0.75rem + 2px);
   }
 
   .contains_header {
@@ -10657,6 +10702,11 @@ a:link, a:visited, a:active, a:hover {
     margin-right: 3%;
     right: 0;
     align-items: flex-end;
+  }
+
+  .ui-menu {
+    width: 90% !important;
+    left: 5% !important;
   }
 
   .menu_paciente {
@@ -10873,6 +10923,10 @@ a:link, a:visited, a:active, a:hover {
   .button-membresia {
     max-width: 135px;
   }
+
+  #ui-id-1 {
+    left: 25.45% !important;
+  }
 }
 @media (min-width: 1440px) {
   .contains_barra {
@@ -10998,6 +11052,11 @@ a:link, a:visited, a:active, a:hover {
     margin-right: 3%;
     right: 0;
     align-items: flex-end;
+  }
+
+  #ui-id-1 {
+    left: 24.7% !important;
+    width: 29.7% !important;
   }
 
   .soy_paciente .dropdown-toggle {
@@ -20428,7 +20487,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .section_principal-login {
-    margin-bottom: 14%;
+    margin-bottom: 15.5%;
   }
 
   .section_body-login {
@@ -24810,7 +24869,7 @@ a:link, a:visited, a:active, a:hover {
     padding: 3% 15%;
   }
 }
-.lista_opciones-usuario-formInst {
+.optionList_formInst {
   display: flex;
   list-style: none;
   padding: 0;
@@ -25126,11 +25185,11 @@ a:link, a:visited, a:active, a:hover {
   border-left: 1px solid #D1D1D1;
 }
 
-.section_inputRight-text-formInst {
+.rightSection_formInst {
   padding: 0 0 0 15px;
 }
 
-.section_inputLeft-text-formInst {
+.leftSection_formInst {
   padding: 0 15px 0 0;
 }
 
@@ -25315,8 +25374,9 @@ a:link, a:visited, a:active, a:hover {
   padding: 0;
 }
 
-.divicion_bottom-serv {
+.downLine_formInst {
   border-bottom: 1px solid #DBDADA;
+  padding-bottom: 2%;
 }
 
 .txtInfo_limitante-formInst {
@@ -25325,6 +25385,21 @@ a:link, a:visited, a:active, a:hover {
   color: #E3342F;
   font-weight: 500;
   padding: 2% 0;
+}
+
+.center_lineForm {
+  border-right: 1px solid #D1D1D1;
+}
+
+.savedData_formInst {
+  width: 48%;
+  padding: 1%;
+  border: 1px solid #DBDADA;
+  border-radius: 3px;
+  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  margin: 3% 0 0 0;
 }
 
 /*.bootstrap-tagsinput  input {
@@ -26106,10 +26181,6 @@ a:link, a:visited, a:active, a:hover {
   margin-bottom: 2%;
 }
 
-.content_antes-formInst {
-  border-right: 1px solid #D1D1D1;
-}
-
 .text_infoImg-formInst {
   font-family: "Roboto", "Regular";
   font-size: 0.9em;
@@ -26118,7 +26189,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
-  .lista_opciones-usuario-formInst {
+  .optionList_formInst {
     justify-content: flex-start;
     flex-wrap: wrap;
     width: 100%;
@@ -26243,12 +26314,12 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1em;
   }
 
-  .section_inputRight-text-formInst {
+  .rightSection_formInst {
     padding: 0 0 0 0;
   }
 
-  .section_inputLeft-text-formInst {
-    padding: 0 0 0 0;
+  .leftSection_formInst {
+    padding: 0;
   }
 
   .input_nomApl-formInst {
@@ -26307,7 +26378,7 @@ a:link, a:visited, a:active, a:hover {
     height: 6vh;
   }
 
-  .divicion_bottom-serv {
+  .downLine_formInst {
     border-bottom: 1px solid #DBDADA;
     padding-bottom: 5%;
   }
@@ -26324,6 +26395,12 @@ a:link, a:visited, a:active, a:hover {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 5%;
+  }
+
+  .savedData_formInst {
+    width: 100%;
+    padding: 2%;
+    margin: 5% 0 1% 0;
   }
 
   .icon_quienes-formInst {
@@ -26583,7 +26660,7 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 768px) and (orientation: portrait) {
-  .lista_opciones-usuario-formInst {
+  .optionList_formInst {
     justify-content: flex-start;
     flex-wrap: wrap;
     width: 75%;
@@ -26708,11 +26785,11 @@ a:link, a:visited, a:active, a:hover {
     border-left: 1px solid #D1D1D1;
   }
 
-  .section_inputRight-text-formInst {
+  .rightSection_formInst {
     padding: 0 0 0 15px;
   }
 
-  .section_inputLeft-text-formInst {
+  .leftSection_formInst {
     padding: 0 15px 0 0;
   }
 
@@ -26818,9 +26895,15 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.2em;
   }
 
-  .divicion_bottom-serv {
+  .downLine_formInst {
     border-bottom: 1px solid #DBDADA;
     padding-bottom: 2%;
+  }
+
+  .savedData_formInst {
+    width: 48%;
+    padding: 2%;
+    margin: 3% 0 0 0;
   }
 
   .icon_quienes-formInst {
@@ -27071,7 +27154,7 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1200px) {
-  .lista_opciones-usuario-formInst {
+  .optionList_formInst {
     width: 60%;
     height: 12vh;
   }
@@ -27160,6 +27243,11 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1920px) {
+  .optionList_formInst {
+    width: 55%;
+    height: 13vh;
+  }
+
   .content_tarjetasInfo-formInst {
     margin-bottom: 2%;
   }
@@ -27167,11 +27255,6 @@ a:link, a:visited, a:active, a:hover {
   .contain_imgInst-formInst .icon_subirFoto-formInst {
     background-size: 2.8%;
     background-position-x: 28%;
-  }
-
-  .lista_opciones-usuario-formInst {
-    width: 55%;
-    height: 13vh;
   }
 
   .img_usuario-formInst {

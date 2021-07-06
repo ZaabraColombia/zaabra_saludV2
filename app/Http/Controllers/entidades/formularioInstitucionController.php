@@ -440,12 +440,15 @@ public function create4(Request $request){
 
 
     foreach ($request->input('tituloServicios', []) as $i => $tituloServicios) {
-        serviciosinstituciones::create([
-            'id' => $idInstitucion,
-            'tituloServicios' => $request->input('tituloServicios.'.$i),
-            'DescripcioServicios' => $request->input('DescripcioServicios.'.$i),
-            'sucursalservicio' => $request->input('sucursalservicio.'.$i),
-        ]);
+        
+        if(!empty($request->input('tituloServicios')[$i])){
+            serviciosinstituciones::create([
+                'id' => $idInstitucion,
+                'tituloServicios' => $request->input('tituloServicios.'.$i),
+                'DescripcioServicios' => $request->input('DescripcioServicios.'.$i),
+                'sucursalservicio' => $request->input('sucursalservicio.'.$i),
+            ]);
+        }
     }
 
     return redirect('FormularioInstitucion'); 
