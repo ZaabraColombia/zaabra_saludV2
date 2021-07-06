@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-      <h1 class="titulo_profesionales">Traumatología</h1>
+
+    @foreach ($objmedicossinpago as $tituloPaginaActual)
+    @endforeach
+      @if(!empty($objmedicossinpago))
+        <h1 class="titulo_profesionales">{{$tituloPaginaActual->nombreEspecialidad}}</h1>
+      @endif
       <section class="contains_swiper_premium">
         <div class="swiper-container swiper_premium">
           <div class="swiper-wrapper">
