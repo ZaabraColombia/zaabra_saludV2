@@ -27,11 +27,11 @@
                         <div class="soy_paciente dropdown">
                             <a class="dropdown-toggle icon_paciente" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                             <div class="dropdown-menu dropdown-menu-right menu_paciente" aria-labelledby="dropdownMenuLink" style="">
-                                    <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Paciente</span></a>
-                                    <div class="dropdown-divider m-0"></div>
-                                    <a class="dropdown-item menu_item-paciente icon-medico" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Doctor</span></a>
-                                    <div class="dropdown-divider m-0"></div>
-                                    <a class="dropdown-item menu_item-paciente icon-instituciones" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy institución</span></a>    
+                                <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Paciente</span></a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item menu_item-paciente icon-medico" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Doctor</span></a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item menu_item-paciente icon-instituciones" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy institución</span></a>    
                             </div>
                         </div>
                         <!-- Sección Botón membresía Desktop -->
