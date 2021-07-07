@@ -14,12 +14,11 @@
                     <!-- Rating Stars Box -->
                     <div class='rating-stars star_box'>
                         @if(!empty($objprofesionalComentario))
-                       
                             @foreach($objprofesionalComentario as $promedioEstrellas)
                             @endforeach
                             @for ($i=1; $i <= $promedioEstrellas->calificacionRedondeada; $i++)
                                 <li class='star' title='Poor'>
-                                    <i class='fa fa-star fa-fw' style="color: yellow;"></i>
+                                    <i class='fa fa-star fa-fw' style="color: #E6C804;"></i>
                                 </li>
                             @endfor
                             @for ($i=$promedioEstrellas->calificacionRedondeada; $i <= 4; $i++)
@@ -323,7 +322,7 @@
 
                                 <div class="section_stars-prof">
                                     @for ($i=1; $i <= $data->calificacion; $i++)
-                                    <i class='fa fa-star fa-fw' style="color: yellow;"></i>
+                                    <i class='fa fa-star fa-fw' style="color: #E6C804;"></i>
                                     @endfor 
                                     @for ($i=$data->calificacion; $i <= 4; $i++)
                                     <i class='fa fa-star fa-fw' style="color: red;"></i>

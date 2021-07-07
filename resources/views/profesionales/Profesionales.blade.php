@@ -13,7 +13,7 @@
               @foreach ($objcarruselprofesionalespremiun as $objcarruselprofesionalespremiun)
                 <div class="swiper-slide contains_slide">
                   <div class="contains_image_profesional">
-                    <img src="{{URL::asset($objcarruselprofesionalespremiun->fotoperfil)}}">
+                    <img class="image_profesional_gallery" src="{{URL::asset($objcarruselprofesionalespremiun->fotoperfil)}}">
                   </div>
 
                   <div class="contains_body">
