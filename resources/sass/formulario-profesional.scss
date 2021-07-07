@@ -784,7 +784,7 @@
     padding: 0;
     align-items: center;
     width: 100%;
-    height: 30vh;
+    height: 40vh;
 }
 .img_traProced-formProf {
     height: 100%;
@@ -1501,6 +1501,9 @@
     .content_antes-formProf {
         border-right: none;
     }
+    .content_tratam-proced .img_selccionada-formProf {
+        height: 45vh;
+    }
     .photo1 .agregar_archivo-formProf::before {
         background-position-x: 10%;
         background-size: 10%;
@@ -1959,7 +1962,7 @@
         padding: 0;
         align-items: center;
         width: 100%;
-        height: 20vh;
+        height: 30vh;
     }
     .title_infoGuardada-formProf {
         font-size: 1.1em;
@@ -2194,6 +2197,9 @@
     .content_antDesp-formProf {
         padding: 0;
         margin: 0;
+    }
+    .content_tratam-proced .img_selccionada-formProf {
+        height: 65vh;
     }
     .antes .agregar_archivo-formProf {
         width: 40%;
