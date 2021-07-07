@@ -12,6 +12,7 @@
             <!-- seccion body login -->
             <div class="card-body section_body-register">
                 <form method="POST" action="{{ route('register') }}" onsubmit="return validateform()" name="formularioRegistro">
+                @csrf
                     <!-- seccion iniciar sesion, creaar cuenta y titulo interno -->
                     <div class="row card-header content_iniciar-crear">
                         <div class="col-6 section_texto-inicio">
@@ -23,7 +24,7 @@
                         </div>
                         <p class="texto_superior-tarjeta-register"> Registrarme como </p>
                     </div>
-                    @csrf
+          
                     <div id="persona">
                         <!-- Seccion opciones paara Registrarse -->
                         <div class="row section_input-option-register">

@@ -66,10 +66,10 @@
                         <!-- Sección imagen de usuario --> 
                         <div class="col-md-3 contain_imgUsuario-formProf">
                             @foreach($objFormulario as $objFormulario)
-                                <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objFormulario->imglogoempresa)}}">
+                                <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objFormulario->fotoperfil)}}">
                             @endforeach
             
-                            <input type="file" class="input_imgUsuario-formProf" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg" value="{{$objFormulario->imglogoempresa}}">
+                            <input type="file" class="input_imgUsuario-formProf" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg" value="{{$objFormulario->fotoperfil}}">
 
                             <p class="icon_subirFoto-formProf text_usuario-formProf"> Subir foto de perfil </p>
                         </div>
@@ -439,7 +439,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
                                 
-                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000" class="form-control" name="valorconsulta[]">
                         </div>
                     </div>
 
@@ -458,7 +458,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label> 
 
-                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000"  class="form-control" name="valorconsulta[]">
                         </div>
                     </div>
 
@@ -477,7 +477,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
-                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000"  class="form-control" name="valorconsulta[]">
                         </div>
                     </div>
                 @elseif($objContadorConsultas->cantidad == 1)
@@ -496,7 +496,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
-                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000"  class="form-control" name="valorconsulta[]">
                         </div>
                     </div>
 
@@ -515,7 +515,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
-                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000"  class="form-control" name="valorconsulta[]">
                         </div>
                     </div>
 
@@ -535,7 +535,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
-                            <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000"  class="form-control" name="valorconsulta[]">
                         </div>
                     </div>
                 @elseif($objContadorConsultas->cantidad == 3)
@@ -864,7 +864,7 @@
             <form method="POST" action="{{ url ('/FormularioProfesionalSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_experiencia">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                     @if($objContadorExperiencia->cantidad == 0)
-                        <div class="row fila_infoBasica-formProf" id="listas"> 
+                        <div class="row fila_infoBasica-formProf bottom_boder" id="listas"> 
                             <div class="col-md-6 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
@@ -889,7 +889,7 @@
                                 <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
                             </div>
                         </div>
-                        <div class="row fila_infoBasica-formProf" id="listas"> 
+                        <div class="row fila_infoBasica-formProf bottom_boder" id="listas"> 
                             <div class="col-md-6 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
@@ -914,7 +914,7 @@
                                 <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
                             </div>
                         </div>
-                        <div class="row fila_infoBasica-formProf" id="listas"> 
+                        <div class="row fila_infoBasica-formProf bottom_boder" id="listas"> 
                             <div class="col-md-6 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
@@ -965,7 +965,7 @@
                             </div>
                         </div>
                     @elseif($objContadorExperiencia->cantidad == 1)
-                        <div class="row fila_infoBasica-formProf" id="listas"> 
+                        <div class="row fila_infoBasica-formProf bottom_boder" id="listas"> 
                             <div class="col-md-6 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
@@ -990,7 +990,7 @@
                                 <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
                             </div>
                         </div>
-                        <div class="row fila_infoBasica-formProf" id="listas"> 
+                        <div class="row fila_infoBasica-formProf bottom_boder" id="listas"> 
                             <div class="col-md-6 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
@@ -1041,7 +1041,7 @@
                             </div>
                         </div>
                     @elseif($objContadorExperiencia->cantidad == 2)
-                        <div class="row fila_infoBasica-formProf" id="listas"> 
+                        <div class="row fila_infoBasica-formProf bottom_boder" id="listas"> 
                             <div class="col-md-6 section_inputLeft-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 

@@ -13,18 +13,21 @@
                     <h5>N° Tarjeta profesional: {{$objprofesionallanding->numeroTarjeta}}</h5>
                     <!-- Rating Stars Box -->
                     <div class='rating-stars star_box'>
-                        @foreach($objprofesionalComentario as $promedioEstrellas)
-                        @endforeach
-                        @for ($i=1; $i <= $promedioEstrellas->calificacionRedondeada; $i++)
-                            <li class='star' title='Poor'>
-                                <i class='fa fa-star fa-fw' style="color: yellow;"></i>
-                            </li>
-                        @endfor
-                        @for ($i=$promedioEstrellas->calificacionRedondeada; $i <= 4; $i++)
-                            <li class='star' title='Poor'>
-                                <i class='fa fa-star fa-fw' style="color: red;"></i>
-                            </li>
-                        @endfor
+                        @if(!empty($objprofesionalComentario))
+                       
+                            @foreach($objprofesionalComentario as $promedioEstrellas)
+                            @endforeach
+                            @for ($i=1; $i <= $promedioEstrellas->calificacionRedondeada; $i++)
+                                <li class='star' title='Poor'>
+                                    <i class='fa fa-star fa-fw' style="color: yellow;"></i>
+                                </li>
+                            @endfor
+                            @for ($i=$promedioEstrellas->calificacionRedondeada; $i <= 4; $i++)
+                                <li class='star' title='Poor'>
+                                    <i class='fa fa-star fa-fw' style="color: red;"></i>
+                                </li>
+                            @endfor
+                        @endif
                     </div>
 
                     <!-- <div class="contains_direccion"></div> -->
@@ -306,31 +309,33 @@
                 @endif
                        
                 <div class="visible_container">
-                    @foreach ($objprofesionalComentario as $data)
-                    <div class="section_opciones" id="oscar">
-                        <div class="section_usuario-prof">
-                            <div class="contains_avatar">
-                                <i class="fas fa-circle circle_opinion-prof"></i>
-                            </div>
-                            <div class="contains_text">
-                                <p class="name_usuario-prof">{{$data->primernombre}} {{$data->primerapellido}}</p>
-                                <p class="icono_verify verify_usuario-prof"> Paciente verificado </p>       
-                            </div>
+                    @if(!empty($objprofesionalComentario))
+                        @foreach ($objprofesionalComentario as $data)
+                        <div class="section_opciones" id="oscar">
+                            <div class="section_usuario-prof">
+                                <div class="contains_avatar">
+                                    <i class="fas fa-circle circle_opinion-prof"></i>
+                                </div>
+                                <div class="contains_text">
+                                    <p class="name_usuario-prof">{{$data->primernombre}} {{$data->primerapellido}}</p>
+                                    <p class="icono_verify verify_usuario-prof"> Paciente verificado </p>       
+                                </div>
 
-                            <div class="section_stars-prof">
-                                @for ($i=1; $i <= $data->calificacion; $i++)
-                                <i class='fa fa-star fa-fw' style="color: yellow;"></i>
-                                @endfor 
-                                @for ($i=$data->calificacion; $i <= 4; $i++)
-                                <i class='fa fa-star fa-fw' style="color: red;"></i>
-                                @endfor
+                                <div class="section_stars-prof">
+                                    @for ($i=1; $i <= $data->calificacion; $i++)
+                                    <i class='fa fa-star fa-fw' style="color: yellow;"></i>
+                                    @endfor 
+                                    @for ($i=$data->calificacion; $i <= 4; $i++)
+                                    <i class='fa fa-star fa-fw' style="color: red;"></i>
+                                    @endfor
+                                </div>
+                            </div>
+                            <div class="section_comentario-prof">
+                                <span>{{$data->comentario}}</span>
                             </div>
                         </div>
-                        <div class="section_comentario-prof">
-                            <span>{{$data->comentario}}</span>
-                        </div>
-                    </div>
-                    @endforeach
+                        @endforeach
+                    @endif
                 </div>
             </div>
 
