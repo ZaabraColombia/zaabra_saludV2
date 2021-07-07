@@ -548,11 +548,17 @@
         height: 3.5vh;
         font-size: 1.3em;
     }
+    .contains_slider_especialistas .card-body p{
+        height: 3vh;
+    }
     .zaabrasalud_parallax {
         height: 45vh;
     }
     .swiper_especialistas {
         max-width: 65%;
+    }
+    .contains_slider_especialistas{
+        margin-bottom: 0;
     }
     .contains_slider_especialistas .card-body h5{
         font-size: 1.5em;
@@ -561,7 +567,7 @@
         height: 4vh;
     }
     .btn-profesional{
-        max-width: 75%;
+        max-width: 90%;
         font-size: 1.2em;
     }
     .btn-next{
