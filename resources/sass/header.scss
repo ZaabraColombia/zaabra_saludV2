@@ -18,7 +18,7 @@ a:link, a:visited, a:active, a:hover {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    height: calc(2.6em + 0.75rem + 2px);
+    height: calc(2.6em + 1.75rem + 2px);
 }
 .logo_header {
     width: 50%;
@@ -402,6 +402,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
+    .navbar_zaabrasalud{
+        height: calc(2.6em + 1rem + 2px);
+    }
     // Contenedor principal del header
     .contains_header{
         max-width: 100%;
@@ -593,7 +596,7 @@ a:link, a:visited, a:active, a:hover {
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        height: calc(5em + 0.75rem + 2px);
+        height: calc(5em + 1rem + 2px);
     }
     .contains_header {
         max-width: 85%;
@@ -927,6 +930,9 @@ a:link, a:visited, a:active, a:hover {
     }
 }
 @media (min-width: 1920px) {
+    .navbar_zaabrasalud{
+        height: calc(2.6em + 2.75rem + 2px);
+    }
    //Seccion logo Zaabra
    .logo_header {
         width: 95%;

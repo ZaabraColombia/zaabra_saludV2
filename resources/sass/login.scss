@@ -1,3 +1,7 @@
+.height_verify {
+    margin: 14.9% 0;
+}
+
 // Contenedor principal login
    .contenedorPrin_login {
     background: #F9F9F9;
@@ -240,6 +244,9 @@
     }
 }   
 @media (min-width: 768px) and (orientation: portrait) {
+    .height_verify {
+        margin: 25.5% 0;
+    }
     // Titulo principal
     .titulo_principal-login {
         font-size: 1.438em;
