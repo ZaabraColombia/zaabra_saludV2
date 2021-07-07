@@ -398,8 +398,6 @@ class formularioProfesionalController extends Controller
     /*-------------------------------------Creacion y/o modificacion formulario parte 1----------------------*/
         protected function create1(Request $request)
         {
-
-
             /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
             $verificaPerfil = $this->verificaPerfil();
 
