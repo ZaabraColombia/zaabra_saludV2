@@ -209,3 +209,5 @@
             </div>     
         </section>
 @endsection
+<!-- Archivo JS for formulario profesional-->
+<script src="{{ asset('js/perfil-instituciones.js') }}"></script>
