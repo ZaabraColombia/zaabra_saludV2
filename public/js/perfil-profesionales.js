@@ -8,13 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
       delay: 4500,
       disableOnInteraction: false,
     },*/
-  
+    autoHeight: true,
     // If we need pagination
-    pagination: {
-        el: '.slide-counter',
-        type: 'fraction'
-    },
-  
     breakpoints: {
        // when window width is >= 320px
       320: {
