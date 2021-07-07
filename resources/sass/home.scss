@@ -501,6 +501,7 @@
     }
     .contains_slider_especialistas {
         height: 45vh;
+        margin-bottom: 0;
     }
     .contains_slider_especialistas .card {
         max-width: 23%;
@@ -527,6 +528,15 @@
         margin-top: 3vh;
         margin-bottom: 3vh;
         font-size: calc(0.95em + 1vw);
+    }
+    .contains_slider_especialistas .btn-profesional{
+        height: 4vh;
+    }
+    .btn-profesional{
+        max-width: 90%;
+    }
+    .contains_slider_especialistas .card-body p {
+        height: 3.5vh;
     }
 }
 
