@@ -110,7 +110,8 @@ class perfilInstitucionController extends Controller
         
         // consulta para cargar informacion de la landing videos
         public function cargarInfoInstitucLandinVideo($id){
-        return DB::select("SELECT vi.urlvideo, vi.nombrevideo, vi.descripcionvideo
+        return DB::select("SELECT  vi.nombrevideo, vi.descripcionvideo,
+         REPLACE(vi.urlvideo, 'watch?v=', 'embed/') AS urlvideo
         FROM instituciones ints
         INNER JOIN videos vi ON ints.id=vi.idinstitucion        
         WHERE ints.aprobado<>0 AND ints.id=$id");

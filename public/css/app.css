@@ -16516,8 +16516,8 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slide .contains_image_profesional img {
-    -o-object-fit: cover;
-       object-fit: cover;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
 
   .contains_slide .contains_body {
