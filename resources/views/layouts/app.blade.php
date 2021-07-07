@@ -10,8 +10,6 @@
 
 
         <!-- Scripts -->
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.js" integrity="sha512-Cpto2uFAGrtCArBkIckJacfNjZ6yFJ1F61YIOH3Nj4dpccnCK1AGkudN9g+HM+OQMIHxeFvcRmkIUKbJ/7Qxyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="{{ asset('js/selectareas.js') }}" defer></script>
 
@@ -42,10 +40,6 @@
     @include('header')
 
         <div id="app">
-
-
-
-        
             <!-------------------------------------------Contenido-------------------------------------------->
             <main>
                 @yield('content')
@@ -53,6 +47,10 @@
             @include('footer')
         </div>
         <!--///      Ubicación de los SCRIPT de cada uno de los archivos .js utilizados en el proyecto zaabrasalud      ///-->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.js" integrity="sha512-Cpto2uFAGrtCArBkIckJacfNjZ6yFJ1F61YIOH3Nj4dpccnCK1AGkudN9g+HM+OQMIHxeFvcRmkIUKbJ/7Qxyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/header.js') }}"></script>
         <script src="{{ asset('js/register.js') }}"></script>
@@ -60,18 +58,14 @@
         <script src="{{ asset('js/footer.js') }}"></script>
         <script src="{{ asset('js/formularios.js') }}"></script>
         <script src="{{ asset('js/profesionales.js') }}"></script>
-        <script src="{{ asset('js/perfil-profesionales.js') }}"></script>
         <script src="{{ asset('js/galeriaProfesiones.js') }}"></script>
         <script src="{{ asset('js/instituciones.js') }}"></script>
-        <script src="{{ asset('js/perfil-instituciones.js') }}"></script>
         <script src="{{ asset('js/selectareas.js') }}"></script>
         <script src="{{ asset('js/selectpais.js') }}"></script>
         <script src="{{ asset('js/cargaFoto.js') }}"></script>
         <script src="{{ asset('js/contacto.js') }}"></script>
         <script src="{{ asset('js/adicionarcamposformulario.js') }}"></script>
         <script src="{{ asset('js/comentarios.js') }}"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="{{ asset('js/filtroBusquedad.js') }}"></script>
 
      <!--js admin template-->

@@ -346,3 +346,5 @@
             </div>
         </section>
 @endsection
+<!-- Script JS for perfil profesional -->
+<script src="{{ asset('js/perfil-profesionales.js') }}"></script>
