@@ -13032,12 +13032,20 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.3em;
   }
 
+  .contains_slider_especialistas .card-body p {
+    height: 3vh;
+  }
+
   .zaabrasalud_parallax {
     height: 45vh;
   }
 
   .swiper_especialistas {
     max-width: 65%;
+  }
+
+  .contains_slider_especialistas {
+    margin-bottom: 0;
   }
 
   .contains_slider_especialistas .card-body h5 {
@@ -13049,7 +13057,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .btn-profesional {
-    max-width: 75%;
+    max-width: 90%;
     font-size: 1.2em;
   }
 
