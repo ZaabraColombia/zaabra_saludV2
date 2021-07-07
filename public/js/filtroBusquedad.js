@@ -32,16 +32,8 @@ $(function(){
         return $( "<li></li>" )  
             .data( "item.autocomplete", item )  
             .append( "<a href='"  + item.id + "'>" +item.label +"</a>" )   
+            .append( "<div class='dropdown-divider m-0'></div>" ) 
             .appendTo( ul ); 
              
     }
 });
-
-
-
-
-
-
-
-
-
