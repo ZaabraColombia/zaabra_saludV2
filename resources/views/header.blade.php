@@ -8,7 +8,8 @@
                     <!-- Sección barra de busqueda -->
                     <div class="contains_boxsearch">
                         <div class="barra_busqueda" id="barra_busqueda">
-                            <input  class="inputBarraBusquedad" id="filtro">
+                            <input  class="inputBarraBusquedad " id="filtro">
+                            <button class="button_SearchBarH icon_searchH"></button>
                         </div> 
                     </div>
 
@@ -177,10 +178,10 @@
                 <div class="contains_barra"> 
                     <div class="barra_oculta" id="buscador">
                         <div class="barra_busqueda-mobile" id="barra_busqueda2">
-                                <input type="hidden" name="_token" value="tzFtz8TstiTocmap8vuJp4Py7sMc0zcQiC63SuyF">
-                                <input  class="inputBarraBusquedad" id="filtro2">
-                                <!-- <input class="inputBarraBusquedad" type="buttton" name="buscar" id="barra_buscar" autocomplete="off"> -->
-                                <input type="image" class="contenedorLupa" src="{{URL::asset('/img/header/icono-buscador-azul.svg')}}">
+                            <input type="hidden" name="_token" value="tzFtz8TstiTocmap8vuJp4Py7sMc0zcQiC63SuyF">
+                            <input  class="inputBarraBusquedad" id="filtro2">
+                            <!-- <input class="inputBarraBusquedad" type="buttton" name="buscar" id="barra_buscar" autocomplete="off"> -->
+                            <input type="image" class="contenedorLupa" src="{{URL::asset('/img/header/icono-buscador-azul.svg')}}">
                         </div> 
                     </div>
                 </div>
