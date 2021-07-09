@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const swiper_premios = new Swiper(".swiper_premios", {
 
     loop: true,
+    resizeObserver: true,
    
     autoplay: {
       delay: 3500,
@@ -44,12 +45,23 @@ document.addEventListener('DOMContentLoaded', function () {
     pagination: {
         el: '.swiper-pagination',
     },
+     // Navigation arrows
+     navigation: {
+      nextEl: '.btn-next',
+      prevEl: '.btn-prev',
+    },
   
     breakpoints: {
        // when window width is >= 320px
       320: {
         slidesPerView: 1,
         slidesPerGroup: 1,
+      },
+       // when window width is >= 768px
+       768: {
+        slidesPerView: 2,
+        slidesPerGroup: 1,
+        spaceBetween: 20,
       },
        // when window width is >= 1024px
       1024: {
@@ -65,13 +77,54 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     }
   });
-  
-  
 
+  const swiper_galeria_prof = new Swiper(".swiper_galeria_prof", {
+
+    loop: true,
+    resizeObserver: true,
+   
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+    },
   
-  const select = document.querySelector.bind(document);
-  const gallery = new Viewer(select('.gallery_profesional'));
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination',
+    },
+     // Navigation arrows
+     navigation: {
+      nextEl: '.btn-next',
+      prevEl: '.btn-prev',
+    },
   
+    breakpoints: {
+       // when window width is >= 320px
+      320: {
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+      },
+       // when window width is >= 768px
+       768: {
+        slidesPerView: 2,
+        slidesPerGroup: 1,
+        spaceBetween: 20,
+      },
+       // when window width is >= 1024px
+      1024: {
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+        spaceBetween: 20,
+      },
+        // when window width is >= 1600px
+      1600: {
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+        spaceBetween: 20,
+      },
+    }
+  });
+    
   const menu_item = [].slice.apply(document.querySelectorAll('.item_landing'));
   const sections = [].slice.apply(document.querySelectorAll('.sections'));
   
@@ -100,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   let favorito = document.querySelector('.fa-heart');
-
   favorito.onclick = function(){
     favorito.classList.toggle('background-heart');
   }

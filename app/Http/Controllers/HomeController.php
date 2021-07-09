@@ -66,7 +66,7 @@ class HomeController extends Controller
 
 // consulta para cargar profesionales que realizen el pago por aparecer en el home
     public function cargarProfesionaleshome(){
-        return DB::select('SELECT us.primernombre, us.primerapellido, pf.descripcionPerfil, sp.nombreEspecialidad, un.nombreuniversidad,pf.fotoperfil
+        return DB::select('SELECT pf.idPerfilProfesional, us.primernombre, us.primerapellido, pf.descripcionPerfil, sp.nombreEspecialidad, un.nombreuniversidad,pf.fotoperfil
         FROM pagos  pg
         INNER JOIN users us ON pg.idUsuario=us.id
         INNER JOIN  perfilesprofesionales pf ON us.id=pf.idUser

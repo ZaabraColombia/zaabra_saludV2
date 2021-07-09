@@ -330,9 +330,11 @@ public function cargaFormulario($id_user){
             /*captura el nombre del logo*/
             $nombrelogo=$request->logoInstitucion->getClientOriginalName();
 
-            /*crea una nueva carpeta con el id del perfil nuevo
+            /*crea una nueva carpeta con el id del perfil nuevo*/
             $path = public_path().'img/instituciones/' . $id_user;
-            File::makeDirectory($path,  0777, true);*/
+             if (!File::exists($path)) {
+                 File::makeDirectory($path,  0777, true);
+             }
 
             /*guarda la imagen en carpeta con el id del usuario*/
             $imagen = $request->file('imagenInstitucion');

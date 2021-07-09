@@ -110,8 +110,7 @@
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Selecione área </label> 
 
                                 <select id="idarea" name="idarea" class="col-lg-12 form-control">
-                                    <option value="" selected disabled>Seleccione área</option>
-
+                                    <option value="" selected disabled>{{$objFormulario->nombreArea}}</option>
                                     @foreach($area as $area)
                                         <option value="{{$area->idArea}}"> {{$area->nombreArea}}</option>
                                     @endforeach
@@ -121,13 +120,17 @@
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Selecione profesión </label>
 
-                                <select name="idprofesion" id="idprofesion" class="col-lg-12 form-control"></select>
+                                <select name="idprofesion" id="idprofesion" class="col-lg-12 form-control">
+                                      <option value="" selected disabled>{{$objFormulario->nombreProfesion}}</option>
+                                </select>
                             </div>
 
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione especialidad </label>
 
-                                <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control"></select>
+                                <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control">
+                                      <option value="" selected disabled>{{$objFormulario->nombreEspecialidad}}</option>
+                                </select>
                             </div>
                     
                             <div class="col-md-6 section_inputRight-text-formProf">
@@ -168,7 +171,7 @@
                         <div class="col-md-3 contain_imgUsuario-formProf">   
                             <img class="img_usuario-formProf" id="imagenPrevisualizacion">
 
-                            <input class="input_imgUsuario-formProf" type="file" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg">
+                            <input class="input_imgUsuario-formProf" type="file" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg" required>
 
                             <p class="icon_subirFoto-formProf text_usuario-formProf"> Subir foto de perfil </p>
                         </div>
@@ -200,13 +203,13 @@
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf">  Fecha de nacimiento </label>
                                 
-                                <input class="col-lg-12 form-control" type="date" value="2011-08-19" id="example-date-input" name="fechanacimiento">
+                                <input class="col-lg-12 form-control" type="date" value="2011-08-19" id="example-date-input" name="fechanacimiento" required>
                             </div>
 
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Selecione área </label> 
 
-                                <select id="idarea" name="idarea" class="col-lg-12 form-control">
+                                <select id="idarea" name="idarea" class="col-lg-12 form-control" required>
                                     <option value="" selected disabled> Seleccione area</option>
 
                                     @foreach($area as $area)
@@ -217,21 +220,25 @@
 
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Selecione profesión </label> 
-
-                                <select name="idprofesion" id="idprofesion" class="col-lg-12 form-control"></select>
+                                <div id="popover_profesion" class="popover" style="display:none;">
+                                    Debe seleccionar una profesion
+                                </div>
+                                <select name="idprofesion" id="idprofesion" class="col-lg-12 form-control" required></select>
                             </div>
 
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione especialidad </label>
-
-                                <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control"></select>
+                                <div id="popover_especilaidad" class="popover" style="display:none;">
+                                    Debe seleccionar una especialidad
+                                </div>
+                                <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control" required></select>
                             </div>
                         
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
 
-                                    <select  class="col-lg-12 form-control" name="id_universidad">
+                                    <select  class="col-lg-12 form-control" name="id_universidad" required>
                                         <option value="">Seleccione Universidad</option>
 
                                         @foreach($universidades as $universidades2)
@@ -245,7 +252,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Tarjeta profesional </label>
 
-                                    <input class="col-lg-12 form-control" id="tarjeta" placeholder="Número de tarjeta" type="number" name="numeroTarjeta">
+                                    <input class="col-lg-12 form-control" id="tarjeta" placeholder="Número de tarjeta" type="number" name="numeroTarjeta" required>
                                 </div>
                             </div>
 
@@ -331,7 +338,7 @@
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
                                 
-                            <input class="col-12 form-control" id="tarjeta" placeholder="Número de celular" type="number" name="celular" >
+                            <input class="col-12 form-control" id="tarjeta" placeholder="Número de celular" type="number" name="celular"required >
                         </div>
 
                         <div class="col-md-6 section_inputRight-text-formProf">
@@ -343,14 +350,14 @@
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Dirección </label>
 
-                            <input class="col-12 form-control" id="direccion" placeholder="Direccion" type="text" name="direccion" >
+                            <input class="col-12 form-control" id="direccion" placeholder="Direccion" type="text" name="direccion" required>
                         </div>
 
                         <!--menu dinamico ciudades -->
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione país </label>
 
-                            <select id="idpais" name="idpais" class="form-control">
+                            <select id="idpais" name="idpais" class="form-control" required>
                                 <option value="" selected disabled> Seleccione país </option>
 
                                 @foreach($pais as $pais)
@@ -362,18 +369,18 @@
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Selecione departamento </label>
 
-                            <select name="id_departamento" id="id_departamento" class="form-control"></select>
+                            <select name="id_departamento" id="id_departamento" class="form-control" required></select>
                         </div>
                 
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione provincia </label>
-                            <select name="id_provincia" id="id_provincia" class="form-control"></select>
+                            <select name="id_provincia" id="id_provincia" class="form-control" required></select>
                         </div>
 
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione ciudad </label>
 
-                            <select name="id_municipio" id="id_municipio" class="form-control"></select>
+                            <select name="id_municipio" id="id_municipio" class="form-control" required></select>
                         </div>
 
                         <!-- Botón guardar información -->

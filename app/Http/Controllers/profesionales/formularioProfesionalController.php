@@ -413,8 +413,10 @@ class formularioProfesionalController extends Controller
                     $nombrelogo=$request->logo->getClientOriginalName();
 
                     /*crea una nueva carpeta con el id del perfil nuevo*/
-                    $path = public_path().'img/user/' . $id_user;
-                    File::makeDirectory($path,  0777, true);
+                     $path = public_path().'img/user/' . $id_user;
+                    if (!File::exists($path)) {
+                        File::makeDirectory($path,  0777, true);
+                    }
 
                     /*guarda la imagen en carpeta con el id del usuario*/
                     $image = $request->file('logo');
