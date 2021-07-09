@@ -47,17 +47,22 @@
     background: #0083d6;
     margin-left: 2%;
     padding: 0;
-    font-family: 'Quicksand', sans-serif; 
-    font-size: .8em;
-    color:#ffffff;
     height: 3.5vh;
     width: 23%;
     border: solid .1px #0083d6;
     border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text_sucrib-foot {
+    font-family: 'Quicksand', sans-serif; 
+    font-size: 1em;
+    color:#ffffff;
 }
 .boton_icon-flecha {
     margin-left: 5%;
-    width: 8%;
+    width: 9%;
 }
 // Newaletter check terminos y condiciones
 .terminos_contenido {
@@ -230,17 +235,25 @@
         line-height: 1.5;
         padding-left: 5%;  
     }
+    .texto_terminos-cel a{
+        color:#232323 !important;
+        font-weight: bold !important;
+        text-decoration: underline !important;
+    }
     .boton_suscribirme-cel {
         background: #0083d6;
-        font-size: .85em;
-        color: #ffffff;
         margin: auto;
         height: 5vh;
+        font-family: 'Quicksand', sans-serif; 
+        color:#ffffff;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
         border: solid .1px #0083d6;
         border-radius: 4px;
+    }
+    .text_sucrib-foot {
+        font-size: .85em;
     }
     .icono_flecha-suscribirme-cel {
         width: 14%;
@@ -446,8 +459,10 @@
         padding-left: 2%;
     }
     .boton_suscribirme-cel {
-        font-size: 1.25em;
         height: 3vh;
+    }
+    .text_sucrib-foot {
+        font-size: 1.25em;
     }
     .icono_flecha-suscribirme-cel {
         width: 12%;
@@ -542,16 +557,11 @@
     }
     // Newsletter input y botón suscribirme
     .input_suscribirme {
-        font-size: 1.25em;
+        font-size: 1em;
         height: 4vh;
     }
     .boton_suscribirme {
-        font-size: 1.25em;
         height: 4vh;
-    }
-    .boton_icon-flecha {
-        margin-left: 5%;
-        width: 7%;
     }
     // Newaletter check terminos y condiciones
     .texto_terminos {
@@ -594,5 +604,8 @@
     //Seccion logo Zaabra
     .logo_header-footer {
         width: 95%;
+    }
+    .boton_icon-flecha {
+        width: 7%;
     }
 }

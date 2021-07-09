@@ -19,6 +19,10 @@ a:link, a:visited, a:active, a:hover {
     align-items: center;
     justify-content: space-between;
     height: calc(2.6em + 1.75rem + 2px);
+    position: sticky;
+    width: 100%;
+    z-index: 500;
+    top: .1px;
 }
 .logo_header {
     width: 50%;
@@ -28,7 +32,7 @@ a:link, a:visited, a:active, a:hover {
     width: 100%;
 }
 .inputBarraBusquedad {
-    width: 90%;
+    width: 100%;
     height: 100% !important;
     padding-left: 0;
     border-radius: 0;
@@ -36,6 +40,23 @@ a:link, a:visited, a:active, a:hover {
     border: none;
     padding: 2%;
     background: #faebd700;
+}
+.button_SearchBarH {
+    background: #ffffff;
+    height: 100%;
+    width: 10%;
+    border: none;
+    padding: 0;
+    border-radius: 3px;
+}
+.icon_searchH {
+    background-image: url('/img/header/icono-buscador-azul.svg');
+    background-repeat: no-repeat;
+    background-size: 75%;
+    background-position-y: center;
+}
+.button_SearchBarH::after {
+    border: none !important;
 }
 .contenedorLupa {  
     padding: 0;
@@ -597,6 +618,10 @@ a:link, a:visited, a:active, a:hover {
         align-items: center;
         justify-content: space-between;
         height: calc(5em + 1rem + 2px);
+        position: sticky;
+        width: 100%;
+        z-index: 500;
+        top: .1px;
     }
     .contains_header {
         max-width: 85%;
@@ -617,15 +642,9 @@ a:link, a:visited, a:active, a:hover {
         background: #0083d6;
     }
     
-    .inputBarraBusquedad {
-        width: 90%;
-        height: 100%;
-        padding-left: 0;
-        border-radius: 0;
+    .inputBarraBusquedad {  
         font-size: 1.5em;
-        border: none;
         padding: 0 2%;
-        background: #faebd700;
     }
     .contenedorLupa {
         padding: 1% 0;
