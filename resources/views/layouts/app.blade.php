@@ -10,13 +10,11 @@
 
 
         <!-- Scripts -->
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.js" integrity="sha512-Cpto2uFAGrtCArBkIckJacfNjZ6yFJ1F61YIOH3Nj4dpccnCK1AGkudN9g+HM+OQMIHxeFvcRmkIUKbJ/7Qxyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="{{ asset('js/selectareas.js') }}" defer></script>
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-
+        <link rel="shortcat icon" href="{{URL::asset('/img/logos/zaabrasalud-favicon.png')}}"> 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -34,17 +32,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 
        <!--Framewor Agenda-->
-        <link rel="stylesheet" href="{{ asset('fullcalendar-5.7.0/lib/main.css') }}">
-        <script src="{{ asset('fullcalendar-5.7.0/lib/main.js') }}" defer></script>
+        <link rel="stylesheet" href="{{ asset('fullCalendar/main.css') }}">
+        <script src="{{ asset('fullCalendar/main.js') }}"></script>
 
     </head>
     <body>
-        
     @include('header')
 
         <div id="app">
-
-
             <!-------------------------------------------Contenido-------------------------------------------->
             <main>
                 @yield('content')
@@ -52,6 +47,10 @@
             @include('footer')
         </div>
         <!--///      Ubicación de los SCRIPT de cada uno de los archivos .js utilizados en el proyecto zaabrasalud      ///-->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.js" integrity="sha512-Cpto2uFAGrtCArBkIckJacfNjZ6yFJ1F61YIOH3Nj4dpccnCK1AGkudN9g+HM+OQMIHxeFvcRmkIUKbJ/7Qxyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/header.js') }}"></script>
         <script src="{{ asset('js/register.js') }}"></script>
@@ -59,26 +58,21 @@
         <script src="{{ asset('js/footer.js') }}"></script>
         <script src="{{ asset('js/formularios.js') }}"></script>
         <script src="{{ asset('js/profesionales.js') }}"></script>
-        <script src="{{ asset('js/perfil-profesionales.js') }}"></script>
         <script src="{{ asset('js/galeriaProfesiones.js') }}"></script>
         <script src="{{ asset('js/instituciones.js') }}"></script>
-        <script src="{{ asset('js/perfil-instituciones.js') }}"></script>
         <script src="{{ asset('js/selectareas.js') }}"></script>
         <script src="{{ asset('js/selectpais.js') }}"></script>
         <script src="{{ asset('js/cargaFoto.js') }}"></script>
         <script src="{{ asset('js/contacto.js') }}"></script>
         <script src="{{ asset('js/adicionarcamposformulario.js') }}"></script>
         <script src="{{ asset('js/comentarios.js') }}"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="{{ asset('js/filtroBusquedad.js') }}"></script>
 
      <!--js admin template-->
-        <script src="{{ asset('js/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
         <script src="{{ asset('js/admin.js') }}"></script>
-        <script src="{{ asset('js/dashboard.js') }}"></script>
+    
     </body>
-    <link href="{{url('/templateAdmin/css/admin.css') }}" rel="stylesheet" type="text/css" />
+
     <!--/////    MODAL POPUP DE PAGO de las tarjetas de membresia de las vistas "membresiaProfesional" y "membresiaInstitucion". Estilos ubicados en la vista "popup-pagos.scss"  /////-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal_dialog-popup" role="document">
@@ -132,30 +126,6 @@
                             <button class=" btn-modalPagos-PremiunHome"> Seleccionar</button>
                         </a>
                     @endif -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!--/////    MODAL POPUP DE PAGO de las tarjetas de membresia de las vistas "membresiaProfesional" y "membresiaInstitucion". Estilos ubicados en la vista "popup-pagos.scss"  /////-->
-    <div class="modal fade" id="exampleModa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal_dialog-popup" role="document">
-            <div class="modal-content modal_content-popup">
-                <!-- Sección boton derecho de cierre "X" -->
-                <div class="modal-header modal_header-popup">
-                    <button type="button" class="btn_close-popup" data-dismiss="modal" aria-label="Close">
-                        <span class="Xcierre_modal-popup" aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body p-0">
-                    <div class="section_icons-popup">
-                        <div class="alert1 d-none" id="msg_div">
-                            <span id="res_message"></span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -145,7 +145,8 @@ class perfilprofesionalController extends Controller
 
         // consulta para cargar lista publicaciones
         public function cargarInfoPrfesionalLandingvideo($idPerfilProfesional){
-        return DB::select("SELECT  vd.urlvideo, vd.nombrevideo, vd.descripcionvideo
+        return DB::select("SELECT  vd.nombrevideo, vd.descripcionvideo, 
+        REPLACE(vd.urlvideo, 'watch?v=', 'embed/') AS urlvideo
         FROM perfilesprofesionales pf
         INNER JOIN videos vd ON pf.idPerfilProfesional=vd.idPerfilProfesional
         WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional");
@@ -161,7 +162,7 @@ class perfilprofesionalController extends Controller
         WHERE p.idPerfilProfesional=$idPerfilProfesional) AS calificacionRedondeada
         FROM  users_roles ur
         LEFT JOIN users us  ON ur.iduser=us.id
-        LEFT JOIN perfilesprofesionales pf  ON us.id=Pf.idUser
+        LEFT JOIN perfilesprofesionales pf  ON us.id=pf.idUser
         LEFT JOIN comentarios c ON ur.iduser=c.idusuariorol
         WHERE c.comentario<>'' AND c.idperfil=$idPerfilProfesional");
         }

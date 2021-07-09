@@ -1,14 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-      <h1 class="titulo_profesionales">Traumatología</h1>
+
+    @foreach ($objmedicossinpago as $tituloPaginaActual)
+    @endforeach
+      @if(!empty($objmedicossinpago))
+        <h1 class="titulo_profesionales">{{$tituloPaginaActual->nombreEspecialidad}}</h1>
+      @endif
       <section class="contains_swiper_premium">
         <div class="swiper-container swiper_premium">
           <div class="swiper-wrapper">
               @foreach ($objcarruselprofesionalespremiun as $objcarruselprofesionalespremiun)
                 <div class="swiper-slide contains_slide">
                   <div class="contains_image_profesional">
-                    <img src="{{URL::asset($objcarruselprofesionalespremiun->fotoperfil)}}">
+                    <img class="image_profesional_gallery" src="{{URL::asset($objcarruselprofesionalespremiun->fotoperfil)}}">
                   </div>
 
                   <div class="contains_body">

@@ -18,7 +18,7 @@ a:link, a:visited, a:active, a:hover {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    height: 8vh;
+    height: calc(2.6em + 1.75rem + 2px);
 }
 .logo_header {
     width: 50%;
@@ -34,7 +34,7 @@ a:link, a:visited, a:active, a:hover {
     border-radius: 0;
     font-size: 17px;
     border: none;
-    padding: 0 2%;
+    padding: 2%;
     background: #faebd700;
 }
 .contenedorLupa {  
@@ -51,6 +51,16 @@ a:link, a:visited, a:active, a:hover {
     height: 100%;
 }
 .barra_busqueda {
+    width: 100%;
+    height: 50%;
+    background: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border-radius: 2px;
+}
+.barra_busqueda2 {
     width: 100%;
     height: 50%;
     background: #ffff;
@@ -114,16 +124,16 @@ a:link, a:visited, a:active, a:hover {
 }
 .menu_paciente {
     padding: 0;
-    height: 22vh;
+    height: auto;
 }
 .menu_hamburguesa {
-    height: 16vh;
+    height: auto;
     width: 175px;
 }
 .dropdown-menu .dropdown-item {
     display: flex;
     width: 100%;
-    height: 33%;
+    height: 6.5vh;
     clear: both;
     font-weight: 400;
     color: #212529;
@@ -182,6 +192,27 @@ a:link, a:visited, a:active, a:hover {
 }
 .icon-contactenos{
     background-image: url('/img/header/iconos-de-contactenos.svg');
+    background-repeat: no-repeat;
+    background-position-x: 10%;
+    background-position-y: center;
+    background-size: 16%;
+}
+.icon-agenda{
+    background-image: url('/img/header/icono-agenda-gris.svg');
+    background-repeat: no-repeat;
+    background-position-x: 10%;
+    background-position-y: center;
+    background-size: 16%;
+}
+.icon-perfil{
+    background-image: url('/img/header/icono-mi-perfil-gris.svg');
+    background-repeat: no-repeat;
+    background-position-x: 10%;
+    background-position-y: center;
+    background-size: 16%;
+}
+.icon-cerrarSesion{
+    background-image: url('/img/header/icono-cerrar-sesion-gris.svg');
     background-repeat: no-repeat;
     background-position-x: 10%;
     background-position-y: center;
@@ -259,6 +290,36 @@ a:link, a:visited, a:active, a:hover {
     background-position-y: center;
     background-size: 16%;
 }
+.menu_hamburguesa > .icon-agenda:hover{
+    background: #0083d6;
+    color: #ffffff;
+    border: 1px solid #0083d6;
+    background-image: url('/img/header/icono-agenda-blanco.svg');
+    background-repeat: no-repeat;
+    background-position-x: 10%;
+    background-position-y: center;
+    background-size: 16%;
+}
+.menu_hamburguesa > .icon-perfil:hover{
+    background: #0083d6;
+    color: #ffffff;
+    border: 1px solid #0083d6;
+    background-image: url('/img/header/icono-mi-perfil-blanco.svg');
+    background-repeat: no-repeat;
+    background-position-x: 10%;
+    background-position-y: center;
+    background-size: 16%;
+}
+.menu_hamburguesa > .icon-cerrarSesion:hover{
+    background: #0083d6;
+    color: #ffffff;
+    border: 1px solid #0083d6;
+    background-image: url('/img/header/icono-cerrar-sesion-blanco.svg');
+    background-repeat: no-repeat;
+    background-position-x: 10%;
+    background-position-y: center;
+    background-size: 16%;
+}
 .button-membresia {
     flex: 115px;
     height: 100%;
@@ -269,11 +330,14 @@ a:link, a:visited, a:active, a:hover {
 .img-button-membresia{
     max-width: 100%;
 }
-
+.menu_hamburguesa {
+    height: auto;
+    width: 260px;
+}
 .dropdown-menu .menu_item {
     display: flex;
     width: 100%;
-    height: 25%;
+    height: 6.5vh;
     clear: both;
     font-weight: 400;
     color: #212529;
@@ -293,18 +357,54 @@ a:link, a:visited, a:active, a:hover {
 .barra_busqueda > #ui-id-1{
     left: 0% !important;
 }
+.barra_busqueda2 > #ui-id-1{
+    left: 0% !important;
+}
 #ui-id-1{
     z-index: 100 !important;
     background: white;
-    width: 27% !important;
-    height: 500px;
+    width: 30% !important;
+
+    height: 25vh;
     overflow: scroll;
+    border-radius: 3px;
+    padding-top: 1%;
+    left: 26.4% !important;
 }
+.ui-menu::-webkit-scrollbar {
+    display: none !important;
+}
+.ui-menu {
+   // display: block !important;
+    z-index: 100 !important;
+    background: white;
+    width: 90% !important;
+    height: 25vh;
+    overflow: scroll;
+    border-radius: 3px;
+    padding-top: 1%;
+    left: 5.4% !important;
+}
+.ui-menu-item {
+    padding-top: 3%;
+}
+
 .ui-menu-item > .ui-menu-item-wrapper{
     color: black !important;
     font-size: 1em !important;
 }
+.ui-menu li::marker {
+    color: #0083D6 !important;
+}
+
+.ui-helper-hidden-accessible{
+    display: none !important;
+}
+
 @media (min-width: 320px) and (orientation: portrait) {
+    .navbar_zaabrasalud{
+        height: calc(2.6em + 1rem + 2px);
+    }
     // Contenedor principal del header
     .contains_header{
         max-width: 100%;
@@ -340,7 +440,7 @@ a:link, a:visited, a:active, a:hover {
         width: 100%;
         height: 79%;
         z-index: 20;
-        padding: 0;
+        padding: 8% 0;
     }
     .barra_oculta {
         width: 90%;
@@ -361,7 +461,7 @@ a:link, a:visited, a:active, a:hover {
         border-radius: 0;
         font-size: 17px;
         border: none;
-        padding: 0 2%;
+        padding: 1% 2%;
         background: #faebd700;
     }
     .contenedorLupa {
@@ -451,8 +551,13 @@ a:link, a:visited, a:active, a:hover {
     }
     // Menú desplegable
     .menu_hamburguesa {
-        height: 35vh;
+        height: auto;
         width: 225px;
+    }
+    .dropdown-menu .item-cel {
+        background-position-x: 7%;
+        padding-left: 25%;
+        height: 8vh;
     }
     .icon-especialidades{
         background-size: 16%;
@@ -469,9 +574,17 @@ a:link, a:visited, a:active, a:hover {
         background-position-x: 7%;
         background-size: 16%;
     }
-    .dropdown-menu .item-cel {
+    .icon-agenda{
         background-position-x: 7%;
-        padding-left: 25%;
+        background-size: 16%;
+    }
+    .icon-perfil{
+        background-position-x: 7%;
+        background-size: 16%;
+    }
+    .icon-cerrarSesion{
+        background-position-x: 7%;
+        background-size: 16%;
     }
 }
 @media (min-width: 768px) and (orientation: portrait) {
@@ -483,7 +596,7 @@ a:link, a:visited, a:active, a:hover {
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        height: 7vh;
+        height: calc(5em + 1rem + 2px);
     }
     .contains_header {
         max-width: 85%;
@@ -503,6 +616,7 @@ a:link, a:visited, a:active, a:hover {
         width: 130%;
         background: #0083d6;
     }
+    
     .inputBarraBusquedad {
         width: 90%;
         height: 100%;
@@ -523,10 +637,15 @@ a:link, a:visited, a:active, a:hover {
         right: 0;
         align-items: flex-end;
     }
+    .ui-menu {
+        width: 90% !important;
+        left: 5% !important;
+    }
     // Seccion boton usuario 
     .menu_paciente {
         padding: 0;
-        height: 15vh;
+        height: auto;
+        width: 215px;
     }
     .icon-paciente {
         background-size: 22%;
@@ -534,7 +653,7 @@ a:link, a:visited, a:active, a:hover {
     .dropdown-menu .dropdown-item {
         display: flex;
         width: 100%;
-        height: 33%;
+        height: 5vh;
         clear: both;
         font-weight: 400;
         color: #212529;
@@ -545,11 +664,12 @@ a:link, a:visited, a:active, a:hover {
         align-items: center;
         font-size: 1.2em;
     }
-    .menu_paciente {
-        padding: 0;
-        height: 15vh;
-        width: 215px;
+    .texto_item-menu {
+        width: 60%;
+        margin-left: 0;
+        font-size: 1em;
     }
+ 
     // Seccion icono boton usuario 
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
@@ -585,31 +705,44 @@ a:link, a:visited, a:active, a:hover {
     }
     // Seccion menu hamburguesa
     .menu_hamburguesa {
-        height: 25vh;
-        width: 290px;
+        height: auto;
+        width: 365px;
+    }
+    .dropdown-menu .item-cel {
+        background-position-x: 7%;
+        padding-left: 25%;
+        height: 5.5vh;
+    }
+    .texto_item-menu-paciente {
+        width: 60%;
+        margin-left: 0;
+        font-size: 1em;
     }
     // Seccion icono menu hamburguesa
     .menu-hamburger .dropdown-toggle {
         background-size: 40%;
     }
     .icon-especialidades {
-        background-size: 20%;
+        background-size: 15%;
     }
     .icon-instituciones-burger {
-        background-size: 20%;
+        background-size: 15%;
     }
     .icon-quienes {
-        background-size: 20%;
+        background-size: 15%;
     }
     .icon-contactenos {
-        background-size: 20%;
+        background-size: 15%;
     }
-    .dropdown-menu .item-cel {
-        background-position-x: 7%;
-        padding-left: 30%;
-        height: 25%;
+    .icon-agenda{
+        background-size: 15%;
     }
-   
+    .icon-perfil{
+        background-size: 15%;
+    }
+    .icon-cerrarSesion{
+        background-size: 15%;
+    }
 }
 @media (min-width: 1024px) and (max-height: 800px) {
     .contains_barra{
@@ -664,15 +797,17 @@ a:link, a:visited, a:active, a:hover {
     }
     .menu_paciente {
         padding: 0;
-        height: 18vh;
+        height: auto;
     }
     .texto_item-menu {
         width: 60%;
         margin-left: 20%;
+        font-size: 1em;
     }
     .texto_item-menu-paciente {
         width: 60%;
         margin-left: 35%;
+        font-size: 1em;
     }
     //Seccion membresia
     .button-membresia {
@@ -692,10 +827,6 @@ a:link, a:visited, a:active, a:hover {
         justify-content: center;
         align-items: center;
     }     
-    .menu_hamburguesa {
-        height: 28vh;
-        width: 260px;
-    }
 }
 @media (min-width: 1200px) {
     //Seccion barra de busqueda
@@ -705,6 +836,9 @@ a:link, a:visited, a:active, a:hover {
     // Seccion boton membresia
     .button-membresia {
         max-width: 135px;
+    }
+    #ui-id-1 {
+        left: 25.45% !important;
     }
 }
 @media (min-width: 1440px) {
@@ -761,7 +895,8 @@ a:link, a:visited, a:active, a:hover {
     }
     .menu_paciente {
         padding: 0;
-        height: 18vh;
+        height: auto;
+        width: 200px;
     }
     .texto_item-menu {
         width: 60%;
@@ -791,11 +926,14 @@ a:link, a:visited, a:active, a:hover {
         align-items: center;
     }   
     .menu_hamburguesa {
-        height: 28vh;
+        height: auto;
         width: 260px;
     }
 }
 @media (min-width: 1920px) {
+    .navbar_zaabrasalud{
+        height: calc(2.6em + 2.75rem + 2px);
+    }
    //Seccion logo Zaabra
    .logo_header {
         width: 95%;
@@ -824,6 +962,10 @@ a:link, a:visited, a:active, a:hover {
         right: 0;
         align-items: flex-end;
     }
+    #ui-id-1 {
+        left: 24.7% !important;
+        width: 29.7% !important;
+    }
     // Seccion icono boton usuario 
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
@@ -848,7 +990,7 @@ a:link, a:visited, a:active, a:hover {
     }
     .menu_paciente {
         padding: 0;
-        height: 17vh;
+        height: auto;
         width: 190%;
     }
     // Seccion boton membresia
@@ -867,6 +1009,10 @@ a:link, a:visited, a:active, a:hover {
         display: flex;
         flex-wrap: nowrap;
         margin: auto;
+    }
+    .menu_hamburguesa {
+        height: auto;
+        width: 260px;
     }
     // Seccion icono menu hamburguesa
     .menu-hamburger .dropdown-toggle {

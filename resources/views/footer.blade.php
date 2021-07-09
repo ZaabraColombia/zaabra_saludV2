@@ -16,7 +16,7 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                     <input class="col-lg-8 col-xl-7 input_suscribirme" type="email" id="correo_newsletter" name="correo_newsletter" placeholder="zaabra@gmail.com">
 
-                    <button class="col-lg-3 col-xl-2 boton_suscribirme" id="send_form" type="submit"  data-toggle="modal" data-target="#exampleModa">
+                    <button class="col-lg-3 col-xl-2 boton_suscribirme" id="send_form" type="submit">
                         <span> Suscribirme </span>
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="boton_icon-flecha" alt=""> 
                     </button>
@@ -26,25 +26,33 @@
                         <h4 class="texto_terminos">Acepto <b><u>términos y condiciones</u></b> y autorizo el <b><u>tratamiento de mis datos personales</u></b></h4>
                     </div>
                 </form>
+                <div class="alert_Newsletter d-none" id="msg_div">
+                    <span id="res_message"></span>
+                </div>
             </div>
-
 
             <!-- Column terminos -->
 
-            <!--******************************     Column form suscribirme version MOBILE      *********************************-->
-            <form id="newsletter" method="post" action="javascript:void(0)" class="row col-10 col-md-9 p-0 m-auto d-block d-lg-none">
+            <!--******************************     Column form suscribirme version MOBILE      *********************************--> 
+            <form id="newsletter2" method="post" action="javascript:void(0)" class="row col-10 col-md-9 p-0 m-auto d-block d-lg-none">
                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-                <input class="input_suscribirme-cel" type="email" id="correo_newsletter" name="correo_newsletter" placeholder="zaabra@gmail.com">
+                <input class="input_suscribirme-cel" type="email" id="correo_newsletter2" name="correo_newsletter" placeholder="zaabra@gmail.com">
                 <div class="col-12 check_terminos-cel">
                     <input type="checkbox" class="boton_check-terminos-cel" id=""> 
                     <span class="texto_terminos-cel">Acepto <b><u>términos y condiciones</u></b>
                         y autorizo el <b><u>tratamiento de mis datos personales</u></b>
                     </span>
                 </div>
-                <button id="send_form" type="submit" class="col-5 col-md-4 mb-2 boton_suscribirme-cel" data-toggle="modal" data-target="#exampleModa">
-                <span> Suscribirme </span>
-                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icono_flecha-suscribirme-cel" alt=""> 
+                <button id="send_form2" type="submit" class="col-5 col-md-4 mb-2 boton_suscribirme-cel">
+                    <span> Suscribirme </span>
+                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icono_flecha-suscribirme-cel" alt=""> 
+                </button>
             </form>
+
+            <div class="alert_Newsletter2 d-none" id="msg_div2">
+                <span id="res_message2"></span>
+            </div>
+          
             <!--******************************     Column end form suscribirme version MOBILE      *********************************-->
         </div>
 
@@ -340,6 +348,6 @@
 
     <!-- Copyright -->
     <div class="col-12 footer_copy-right">
-      <span class="texto_copy-right">&copy; Zaabra 2021 </span>  
+      <span class="texto_copy-right">&copy; Zaabra_salud 2021 </span>  
     </div>
 </footer>

@@ -2,7 +2,7 @@
 
 @section('content')
     <!--     Sección lista de opciones     -->
-    <ol  class="lista_opciones-usuario-formInst">
+    <ol  class="optionList_formInst">
         <div class="content_icons-formInst"> <!-- clase "content_icons-formInst" para evento ocultar y mostrar contenido de la opción. Ubicado en el archivo formularios.js -->
             <li class="iconVerde_datoInst dato_institution" onclick="hideContaintOption(this)" data-position="dateInstitution"> <!-- clase "dato_institution" para activar el evento on click de la opción. Ubicado en el archivo formulario.js  -->
                 <p class="text_opcion-formInst" > Datos institucionales </p>
@@ -64,7 +64,7 @@
 
                 @if(!empty($objFormulario))
                     <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio---------------------> 
-                    <div class="row fila_infoBasica-formInst">
+                    <div class="row fila_infoUser-formInst">
                         <!-- Sección logo datos institución --> 
                         <div class="col-md-3 contain_imgUsuario-formImg">
                             @foreach($objFormulario as $objFormulario)
@@ -79,26 +79,26 @@
                         <!-- Sección datos institución -->
                         <div class="col-md-4 col-xl-5 datos_principales-formInst"> 
                             @foreach ($objuser as $objuser)
-                                <div class="col-12 section_inputRight-text-formInst">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombres Institucion</label>
+                                <div class="col-12 rightSection_formInst">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombres Institución</label>
 
                                     <input class="col-12 input_nomApl-formInst" value="{{$objuser->nombreinstitucion}}" readonly></input>
                                 </div>
                             @endforeach  
         
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst">  Fecha  </label>
 
                                 <input class="col-12 form-control" type="date" value="{{$objFormulario->fechainicio}}" id="example-date-input" name="fechainicio">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Pagina web </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Página web </label>
 
-                                <input class="col-12 form-control" id="url" placeholder="nombre" type="text" name="url" value="{{$objFormulario->url}}">
+                                <input class="col-12 form-control" id="url" placeholder="Url" type="text" name="url" value="{{$objFormulario->url}}">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Selecione entidad </label> 
 
                                 <select class="col-lg-12 form-control" name="idprofesion" id="idprofesion"></select>
@@ -120,7 +120,7 @@
 
                 @else
                     <!--------------- Inicio campos vacios--------------------->  
-                    <div class="row fila_infoBasica-formInst">
+                    <div class="row fila_infoUser-formInst">
                         <!-- Sección logo datos institución --> 
                         <div class="col-md-3 contain_imgUsuario-formImg"> 
                             <img id="imagenPrevisualizacion" class="img_usuario-formInst">
@@ -133,26 +133,26 @@
                         <!-- Sección datos institución -->
                         <div class="col-md-4 col-xl-5 datos_principales-formInst">
                             @foreach ($objuser as $objuser)
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres Institucion</label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres Institución</label>
 
                                 <input class="col-12 input_nomApl-formInst" value="{{$objuser->nombreinstitucion}}" readonly></input>
                             </div>
                             @endforeach
             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="col-lg-12 form-control" type="date" value="2011-08-19" id="example-date-input" name="fechainicio">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Pagina web </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Página web </label>
 
-                                <input class="col-lg-12 form-control" id="url" placeholder="nombre" type="text" name="url">
+                                <input class="col-lg-12 form-control" id="url" placeholder="Url" type="text" name="url">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Selecione entidad </label> 
 
                                 <select class="col-lg-12 form-control" name="idprofesion" id="idprofesion"></select>
@@ -189,38 +189,32 @@
 
                 <h5 class="col-12 icon_infoContac-formInst"> Información de contacto </h5>
 
-                <div class="row fila_infoBasica-formInst">
+                <div class="row fila_infoUser-formInst">
                     @if(!empty($objFormulario->telefonouno))
-                        <div class="col-md-6 section_inputLeft-text-formInst">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Celular </label>
+                        <div class="col-md-6 leftSection_formInst">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Celular </label>
 
-                                <input class="col-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="telefonouno" value="{{$objFormulario->telefonouno}}">
-                            </div>
+                            <input class="col-12 form-control" id="tarjeta" placeholder="Número de celular" type="number" name="telefonouno" value="{{$objFormulario->telefonouno}}">
                         </div>
 
-                        <div class="col-md-6 section_inputRight-text-formInst">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono fijo </label>
+                        <div class="col-md-6 rightSection_formInst">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono fijo </label>
 
-                                <input class="col-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono2" value="{{$objFormulario->telefono2}}">
-                            </div>
+                            <input class="col-12 form-control" id="telefono" placeholder="Número Teléfono" type="number" name="telefono2" value="{{$objFormulario->telefono2}}">
                         </div>
                         
-                        <div class="col-md-6 section_inputLeft-text-formInst">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirección </label>
+                        <div class="col-md-6 leftSection_formInst">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Dirección </label>
                                 
-                                <input class="col-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" value="{{$objFormulario->direccion}}">
-                            </div>
+                            <input class="col-12 form-control" id="direccion" placeholder="Dirección" type="text" name="direccion" value="{{$objFormulario->direccion}}">
                         </div>
 
                         <!--menu dinamico ciudades -->
-                        <div class="col-md-6 section_inputRight-text-formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Selecione país </label>
+                        <div class="col-md-6 rightSection_formInst">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione país </label>
 
                             <select id="idpais" name="idpais" class="col-12 form-control">
-                                <option value="" selected disabled>Seleccione pais</option>
+                                <option value="" selected disabled> Seleccione país </option>
 
                                 @foreach($pais as $pais)
                                     <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
@@ -228,62 +222,56 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6 section_inputLeft-text-formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Selecione departamento </label>
+                        <div class="col-md-6 leftSection_formInst">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione departamento </label>
 
                             <select name="id_departamento" id="id_departamento" class="col-12 form-control"></select>
                         </div>
                     
-                        <div class="col-md-6 section_inputRight-text-formInst">
+                        <div class="col-md-6 rightSection_formInst">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione provincia </label>
 
                             <select name="id_provincia" id="id_provincia" class="col-12 form-control"></select>
                         </div>
 
-                        <div class="col-md-6 section_inputLeft-text-formInst">
+                        <div class="col-md-6 leftSection_formInst">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione ciudad </label>
 
                             <select name="id_municipio" id="id_municipio" class="col-12 form-control"></select>
                         </div>
 
                         <!-- Botón guardar información -->
-                        <div class="col-12 mt-3 content_btnEnviar-formInst">
+                        <div class="col-12 content_btnEnviar-formInst">
                             <button type="submit" class="btn2_enviar-formInst"> Guardar
                                 <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                             </button>
                         </div>
                         
                     @else
-                        <div class="col-md-6 section_inputLeft-text-formInst">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Celular </label>
+                        <div class="col-md-6 leftSection_formInst">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Celular </label>
                                 
-                                <input class="col-12 form-control" id="tarjeta" placeholder="N. Celular" type="number" name="telefonouno" >
-                            </div>
+                            <input class="col-12 form-control" id="tarjeta" placeholder="Número de celular" type="number" name="telefonouno" >
                         </div>
 
-                        <div class="col-md-6 section_inputRight-text-formInst">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono fijo </label>
+                        <div class="col-md-6 rightSection_formInst">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono fijo </label>
 
-                                <input class="col-12 form-control" id="telefono" placeholder="N. Telefono" type="number" name="telefono2" >
-                            </div>
+                            <input class="col-12 form-control" id="telefono" placeholder="Número de teléfono" type="number" name="telefono2" >
                         </div>
 
-                        <div class="col-md-6 section_inputLeft-text-formInst">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirección </label>
+                        <div class="col-md-6 leftSection_formInst">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Dirección </label>
 
-                                <input class="col-12 form-control" id="direccion" placeholder="N. direccion" type="text" name="direccion" >
-                            </div>
+                            <input class="col-12 form-control" id="direccion" placeholder="Dirección" type="text" name="direccion" >
                         </div>
 
                         <!--menu dinamico ciudades -->
-                        <div class="col-md-6 section_inputRight-text-formInst">
+                        <div class="col-md-6 rightSection_formInst">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione país </label>
 
                             <select id="idpais" name="idpais" class="form-control">
-                                <option value="" selected disabled>Seleccione pais</option>
+                                <option value="" selected disabled> Seleccione país </option>
 
                                 @foreach($pais as $pais)
                                     <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
@@ -291,26 +279,26 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6 section_inputLeft-text-formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Selecione departamento </label>
+                        <div class="col-md-6 leftSection_formInst">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione departamento </label>
 
                             <select name="id_departamento" id="id_departamento" class="form-control"></select>
                         </div>
                 
-                        <div class="col-md-6 section_inputRight-text-formInst">
+                        <div class="col-md-6 rightSection_formInst">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione provincia </label>
 
                             <select name="id_provincia" id="id_provincia" class="form-control"></select>
                         </div>
 
-                        <div class="col-md-6 section_inputLeft-text-formInst">
+                        <div class="col-md-6 leftSection_formInst">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione ciudad </label>
 
                             <select name="id_municipio" id="id_municipio" class="form-control"> </select>
                         </div>
 
                         <!-- Botón guardar información -->
-                        <div class="col-12 mt-3 content_btnEnviar-formInst">
+                        <div class="col-12 content_btnEnviar-formInst">
                             <button type="submit" class="btn2_enviar-formInst"> Guardar
                                 <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                             </button>
@@ -334,7 +322,7 @@
     <!-- 2* Contenedor principal de la opción SERVICIOS PROFESIONALES -->
     <div class="container-fluid professional_services content_principal-formInst"> <!-- Clase "professional_services" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
         <!--------------------------------------------      Inicio 3 tercera parte del formulario *** SERVICIO PROFESIONAL ***      ------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_tarjetasInfo-formInst">
+        <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-12 icon_servProf-formInst"> Servicios profesionales </h5>
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave3') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
@@ -342,21 +330,17 @@
 
                 @if(!empty($objFormulario->DescripcionGeneralServicios))
                     <div class="col-12 px-0">
-                        <div class="form-group">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Escriba una breve descripción de su servicio </label>
+                        <p for="example-date-input" class="text_superior-proced-formInst"> Escriba una breve descripción de su servicio. </p>
 
-                            <textarea class="form-control" id="descripcionPerfil"  type="text" name="DescripcionGeneralServicios" >{{$objFormulario->DescripcionGeneralServicios}}</textarea>
-                        </div>
+                        <textarea class="form-control" id="descripcionPerfil"  type="text" name="DescripcionGeneralServicios" >{{$objFormulario->DescripcionGeneralServicios}}</textarea>
                     </div>
                 @else
                     <div class="col-12 px-0">
-                        <div class="form-group">
-                            <label for="example-date-input" class="col-12 text_label-formInst" maxlength="270"> Escriba una breve descripción de su servicio </label>
+                        <p for="example-date-input" class="text_superior-proced-formInst"> Escriba una breve descripción de su servicio. </p>
 
-                            <textarea class="form-control" id="descripcionPerfil"  type="text" name="DescripcionGeneralServicios" ></textarea>
+                        <textarea class="form-control" id="descripcionPerfil" placeholder="Escribir descripción..." type="text" maxlength="270" name="DescripcionGeneralServicios" ></textarea>
 
-                            <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                        </div>
+                        <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                     </div>
                 @endif
 
@@ -371,13 +355,13 @@
         <!--------------------------------------------      Fin 3 tercera parte del formulario *** SERVICIO PROFESIONAL ***      ---------------------------------------------->
 
         <!--------------------------------------------      Inicio 4 cuarta parte del formulario *** SERVICIO ***      -------------------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_tarjetasInfo-formInst">
+        <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_servicios-formInst"> Servicios </h5>
             <!-- Modulo contenido SERVICIOS -->
-            <div class="col-12 row section_servicio-formInst">
+            <div class="experiencia_guardada-formProf">
                 @foreach($objServicio as $objServicio)
                     @if(!empty($objServicio->tituloServicios))
-                        <div class="col-6">
+                        <div class="savedData_formInst">
                             <div class="col-12 content_cierreX-formInst">
                                 <a href="{{url('/FormularioInstituciondelete4/'.$objServicio->id_servicio)}}">
                                     <button type="submit" class="close" aria-label="Close">
@@ -386,25 +370,25 @@
                                 </a>
                             </div>
 
-                            <div class="col-12 px-0">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
+                            <div class="option_consulta-formProf">
+                                <label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Título del servicio </label>
 
-                                <span>{{$objServicio->tituloServicios}} </span>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$objServicio->tituloServicios}} </label>
                             </div>
 
-                            <div class="col-12 px-0">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descrpcion del servicio </label>
+                            <div class="option_consulta-formProf">
+                                <label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Descrpción </label>
                             
-                                <span>{{$objServicio->DescripcioServicios}} </span>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$objServicio->DescripcioServicios}} </label>
                             </div>
                             
-                            <div class="col-12 px-0">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
+                            <div class="option_consulta-formProf">
+                                <label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Sedes en la que está el servicio </label>
                                 @if($objServicio->sucursalservicio) 
                                     @php  $new_array = explode(',',$objServicio->sucursalservicio); @endphp
                                 @endif
                                 @foreach($new_array as $info)
-                                    <li> {{$info}} </li>
+                                    <li class="col-12 text_infoGuardada-formProf"> {{$info}} </li>
                                 @endforeach
                             </div>
                         </div>   
@@ -419,47 +403,48 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputLeft-text-formInst">
+                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
                             
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
+                         
+                            <div class="col-12 leftSection_formInst form-group">
+                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputRight-text-formInst">
+                        <div class="col-md-6 rightSection_formInst downLine_formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">        
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 rightSection_formInst">        
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">    
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
+                            <div class="col-12 rightSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                                 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -467,48 +452,47 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputLeft-text-formInst">
+                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
                             
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
-    
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputRight-text-formInst">
+                        <div class="col-md-6 rightSection_formInst downLine_formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">        
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 rightSection_formInst">        
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">    
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
+                            <div class="col-12 rightSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                                 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -516,97 +500,73 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputLeft-text-formInst">
+                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
                             
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
-    
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputRight-text-formInst">
+                        <div class="col-md-6 rightSection_formInst downLine_formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">        
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 rightSection_formInst">        
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">    
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
+                            <div class="col-12 rightSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                                 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
                 @elseif($objContadorServicio->cantidad == 1)
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-                            
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
-    
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputRight-text-formInst">
+                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">        
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">        
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">    
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
+                            <div class="col-12 leftSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                                 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -614,48 +574,47 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputLeft-text-formInst">
+                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
                             
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
-    
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputRight-text-formInst">
+                        <div class="col-md-6 rightSection_formInst downLine_formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">        
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 rightSection_formInst">        
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">    
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
+                            <div class="col-12 rightSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                                 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -663,25 +622,47 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputLeft-text-formInst">
+                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
                             
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
-    
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                            </div>
+                        </div>
+
+                        <!-- Contenido DERECHO -->
+                        <div class="col-md-6 rightSection_formInst downLine_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
+
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
+                            </div>
+
+                            <div class="col-12 rightSection_formInst">        
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+
+                                <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
+                            </div>
+
+                            <div class="col-12 rightSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
+                                
+                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -689,48 +670,47 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputLeft-text-formInst">
+                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
                             
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
-    
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputRight-text-formInst">
+                        <div class="col-md-6 rightSection_formInst downLine_formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">        
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 rightSection_formInst">        
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">    
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
+                            <div class="col-12 rightSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                                 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -738,97 +718,73 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputLeft-text-formInst">
+                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
                             
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
-    
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputRight-text-formInst">
+                        <div class="col-md-6 rightSection_formInst downLine_formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">        
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 rightSection_formInst">        
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">    
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
+                            <div class="col-12 rightSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                                 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
                 @elseif($objContadorServicio->cantidad == 3)
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-                            
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
-    
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputRight-text-formInst">
+                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">        
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">        
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">    
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
+                            <div class="col-12 leftSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                                 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -836,25 +792,47 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputLeft-text-formInst">
+                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
                             
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
-    
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                            </div>
+                        </div>
+
+                        <!-- Contenido DERECHO -->
+                        <div class="col-md-6 rightSection_formInst downLine_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
+
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
+                            </div>
+
+                            <div class="col-12 rightSection_formInst">        
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+
+                                <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
+                            </div>
+
+                            <div class="col-12 rightSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
+                                
+                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -862,74 +840,73 @@
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
                         <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputLeft-text-formInst">
+                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
                             
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
-    
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">
+                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 section_inputRight-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputRight-text-formInst">
+                        <div class="col-md-6 rightSection_formInst downLine_formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">        
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 rightSection_formInst">        
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">    
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
+                            <div class="col-12 rightSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                                 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
                 @elseif($objContadorServicio->cantidad == 5)
                     <!-- Modulo contenido SERVICIOS -->
                     <div class="row fila_infoBasica-formInst">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 section_inputLeft-text-formInst divicion_bottom-serv">
-                            <div class="col-12 section_inputLeft-text-formInst">
+                        <!-- Contenido DERECHO -->
+                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
 
-                                <input class="form-control" id="tituloServicios" placeholder="tituloServicios" type="text" name="tituloServicios[]" value="">
+                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción y sede en la que está el servicio </label>
+                            <div class="col-12 leftSection_formInst">        
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="DescripcioServicios" maxlength="270" name="DescripcioServicios[]" value=""></textarea>
+                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
-                            
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sucursales </label>
-    
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="tituloServicios" type="text" name="sucursalservicio[]" value="">
+
+                            <div class="col-12 leftSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
+                                
+                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -966,7 +943,8 @@
 
     <!-- 3* Contenedor principal de la opción ACERCA DE LA INSTITUCIÓN -->
     <div class="container-fluid about_institution content_principal-formInst"> <!-- Clase "about_institution" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
-        <div class="col-lg-10 col-xl-8 pb-3 content_tarjetasInfo-formInst">
+        <!--------------------------------------------      Inicio 5 quinta parte del formulario *** QUIENES SOMOS ***      ------------------------------------------------------>
+        <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_quienes-formInst"> ¿Quiénes somos? </h5>
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
@@ -974,21 +952,17 @@
 
                 @if(!empty($objFormulario->quienessomos))
                     <div class="col-12 px-0">
-                        <div class="form-group">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Escriba una breve descripción de ¿Quiénes son? </label>
+                        <p for="example-date-input" class="text_superior-proced-formInst"> Escriba una breve descripción de ¿Quiénes son?. </p>
 
-                            <textarea class="form-control" id="descripcionPerfil"  type="text" name="quienessomos" >{{$objFormulario->quienessomos}}</textarea>
-                        </div>
+                        <textarea class="form-control" id="descripcionPerfil"  type="text" name="quienessomos" >{{$objFormulario->quienessomos}}</textarea>
                     </div>
                 @else
                     <div class="col-12 px-0">
-                        <div class="form-group">
-                            <label for="example-date-input" class="col-12 text_label-formInst" maxlength="500"> Escriba una breve descripción de ¿Quiénes son? </label>
+                        <p for="example-date-input" class="text_superior-proced-formInst"> Escriba una breve descripción de ¿Quiénes son?. </p>
 
-                            <textarea class="form-control" id="descripcionPerfil"  type="text" name="quienessomos" ></textarea>
+                        <textarea class="form-control" id="descripcionPerfil" placeholder="Escribir descripción..." type="text"  maxlength="500" name="quienessomos" ></textarea>
 
-                            <labe class="col-12 text_infoImg-formInst"> 500 Caracteres </label>
-                        </div>
+                        <labe class="col-12 text_infoImg-formInst"> 500 Caracteres </label>
                     </div>
                 @endif
 
@@ -1003,29 +977,25 @@
         <!--------------------------------------------      Fin 5 quinta parte del formulario *** QUIENES SOMOS ***      ------------------------------------------------------>
 
         <!--------------------------------------------      Inicio 6 sexta parte del formulario *** PROPUESTA DE VALOR ***      ----------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_tarjetasInfo-formInst">
-            <h5 class="col-lg-12 icon_propuestaValor-formInst">Propuesta de valor </h5>
+        <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
+            <h5 class="col-lg-12 icon_propuestaValor-formInst"> Propuesta de valor </h5>
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
                 @if(!empty($objFormulario->propuestavalor))
                     <div class="col-12 px-0">
-                        <div class="form-group">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Escriba una breve descripción de la propuesta de valor </label>
+                        <p for="example-date-input" class="text_superior-proced-formInst"> Escriba una breve descripción de la propuesta de valor. </p>
 
-                            <textarea class="form-control" id="descripcionPerfil"  type="text" name="propuestavalor" >{{$objFormulario->propuestavalor}}</textarea>
-                        </div>
+                        <textarea class="form-control" id="descripcionPerfil"  type="text" name="propuestavalor" >{{$objFormulario->propuestavalor}}</textarea>
                     </div>
                 @else
                     <div class="col-12 px-0">
-                        <div class="form-group">
-                            <label for="example-date-input" class="col-12 text_label-formInst" maxlength="300">  Escriba una breve descripción de la propuesta de valor </label>
+                        <p for="example-date-input" class="text_superior-proced-formInst">  Escriba una breve descripción de la propuesta de valor. </p>
 
-                            <textarea class="form-control" id="descripcionPerfil"  type="text" name="propuestavalor" ></textarea>
+                        <textarea class="form-control" id="descripcionPerfil" placeholder="Escribir descripción..." type="text" maxlength="300" name="propuestavalor" ></textarea>
 
-                            <labe class="col-12 text_infoImg-formInst"> 300 Caracteres </label>
-                        </div>
+                        <labe class="col-12 text_infoImg-formInst"> 300 Caracteres </label>
                     </div>
                 @endif
 
@@ -1040,16 +1010,16 @@
         <!--------------------------------------------      Fin 6 sexta parte del formulario *** PROPUESTA DE VALOR ***      -------------------------------------------------->
 
         <!--------------------------------------------      Inicio 7 septima parte del formulario *** CONVENIOS ***      ------------------------------------------------------>
-        <div class="col-lg-10 col-xl-8 pb-3 content_tarjetasInfo-formInst">
+        <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_convenios-formInst"> Convenios </h5>
 
-            <div class="row col-12 p-0 m-0">
+            <div class="asociacion_guardada-formProf">
                 @foreach($objEps as $objEps)
                     @if(!empty($objEps->urlimagen))
-                        <div class="col-md-4 modulo_convenio-formInst">
-                            <label for="example-date-input" class="text_label-formInst pb-0"> Convenio EPS </label>
+                        <div class="section_infoAsocia-formInst">
+                            <div class="col-12 content_btnX-cierre-formProf my-2">
+                                <label for="example-date-input" class="text_saved-formInst pb-0"> Convenio EPS </label>
 
-                            <div class="col-12 pr-3 content_btnX-cierre-formInst">
                                 <a href="{{url('/FormularioInstituciondelete5/'.$objEps->id)}}">
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -1057,21 +1027,23 @@
                                 </a> 
                             </div> 
 
-                            <div class="col-12 img_selccionada-formInst">
-                                <img class="imgConvenio_guardada-formInst" src="{{URL::asset($objEps->urlimagen)}}"> 
+                          
+
+                            <div class="option_asociacion-formProf">
+                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objEps->urlimagen)}}"> 
                             </div>
                         </div> 
                     @endif
                 @endforeach
             </div> 
 
-            <div class="row col-12 p-0 m-0">
+            <div class="asociacion_guardada-formProf">
                 @foreach($objIps as $objIps)
                     @if(!empty($objIps->urlimagen))
-                        <div class="col-md-4 modulo_convenio-formInst">
-                            <label for="example-date-input" class="text_label-formInst pb-0"> Convenio IPS </label>
+                        <div class="section_infoAsocia-formInst">
+                            <div class="col-12 content_btnX-cierre-formProf my-2">
+                                <label for="example-date-input" class="text_saved-formInst pb-0"> Convenio IPS </label>
 
-                            <div class="col-12 pr-3 content_btnX-cierre-formInst">
                                 <a href="{{url('/FormularioInstituciondelete6/'.$objIps->id)}}">
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -1079,21 +1051,21 @@
                                 </a> 
                             </div>  
                             
-                            <div class="col-12 img_selccionada-formInst">
-                                <img class="imgConvenio_guardada-formInst" src="{{URL::asset($objIps->urlimagen)}}"> 
+                            <div class="option_asociacion-formProf">
+                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objIps->urlimagen)}}"> 
                             </div>  
                         </div>
                     @endif
                 @endforeach
             </div>
 
-            <div class="row col-12 p-0 m-0">
+            <div class="asociacion_guardada-formProf">
                 @foreach($objPrepa as $objPrepa)
                     @if(!empty($objPrepa->urlimagen))
-                        <div class="col-md-4 modulo_convenio-formInst">
-                            <label for="example-date-input" class="text_label-formInst pb-0"> Convenio medicina prepagada </label>
+                        <div class="section_infoAsocia-formInst">
+                            <div class="col-12 content_btnX-cierre-formProf my-2">
+                                <label for="example-date-input" class="text_saved-formInst pb-0"> Convenio medicina prepagada </label>
 
-                            <div class="col-12 pr-3 content_btnX-cierre-formInst">
                                 <a href="{{url('/FormularioInstituciondelete7/'.$objPrepa->id_prepagada)}}">
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -1101,8 +1073,8 @@
                                 </a> 
                             </div>  
                             
-                            <div class="col-12 img_selccionada-formInst">
-                                <img class="imgConvenio_guardada-formInst" src="{{URL::asset($objPrepa->urlimagen)}}">
+                            <div class="option_asociacion-formProf">
+                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objPrepa->urlimagen)}}">
                             </div>  
                         </div> 
                     @endif
@@ -1112,20 +1084,18 @@
             <form method="POST" action="{{ url ('/FormularioInstitucionSave7') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-                <div class="row col-12 px-0 m-0">
+                <div class="row col-12 row_convenio-form">
                     <!-- **************************************************************** FORMULARIO EPS ************************************************************** -->
                     @if($objContadorEps->cantidad == 0)
                         <div class="row col-12 p-0 m-0">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS </label>
+                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS. </p>
                     
-                            <div class="col-md-4  modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview2"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview2"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst1">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage2" name="urlimagenEps[]" onchange="previewImage(2);"/>
                                 </div>
 
@@ -1134,93 +1104,83 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview3"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview3"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst2">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage3" name="urlimagenEps[]" onchange="previewImage(3);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview4"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview4"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
                         </div>   
 
                     @elseif($objContadorEps->cantidad == 1)
-                        <div class="row col-12 p-0 m-0">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS </label>
+                    <div class="row col-12 p-0 m-0">
+                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS. </p>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview3"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview3"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst2">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage3" name="urlimagenEps[]" onchange="previewImage(3);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview4"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview4"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
-                        </div>   
+                        </div>    
                     @elseif($objContadorEps->cantidad == 2)
-                        <div class="row col-12 p-0 m-0">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS </label>
+                    <div class="row col-12 p-0 m-0">
+                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS. </p>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview4"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview4"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>        
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
                         </div>  
 
@@ -1231,112 +1191,100 @@
                     <!-- **************************************************************** FORMULARIO IPS ************************************************************** -->
                     @if($objContadorIps->cantidad == 0)
                         <div class="row col-12 p-0 m-0">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS </label>
+                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS. </p>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview6"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview6"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst1">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage6" name="urlimagenIps[]" onchange="previewImage(6);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview7"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview7"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst2">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage7" name="urlimagenIps[]" onchange="previewImage(7);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview8"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview8"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
                         </div>
 
                     @elseif($objContadorIps->cantidad == 1)
-                        <div class="row col-12 p-0 m-0">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS </label>
+                    <div class="row col-12 p-0 m-0">
+                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS. </p>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview7"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview7"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst2">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage7" name="urlimagenIps[]" onchange="previewImage(7);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview8"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview8"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
                         </div>
 
                     @elseif($objContadorIps->cantidad == 2)
-                        <div class="row col-12 p-0 m-0">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS </label>
+                    <div class="row col-12 p-0 m-0">
+                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS. </p>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview8"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview8"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>  
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
                         </div>
 
@@ -1347,112 +1295,100 @@
                     <!-- **************************************************************** FORMULARIO PREPAGADA ************************************************************** -->
                     @if($objContadorPrepa->cantidad == 0)
                         <div class="row col-12 p-0 m-0">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada </label>
+                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada. </p>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview10"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview10"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst1">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage10" name="urlimagenPre[]" onchange="previewImage(10);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview11"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview11"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst2">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage11" name="urlimagenPre[]" onchange="previewImage(11);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview12"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
                         </div>
 
                     @elseif($objContadorPrepa->cantidad == 1)
-                        <div class="row col-12 p-0 m-0">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada </label>
+                    <div class="row col-12 p-0 m-0">
+                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada. </p>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview11"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview11"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst2">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage11" name="urlimagenPre[]" onchange="previewImage(11);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>        
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview12"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>        
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
                         </div>
 
                     @elseif($objContadorPrepa->cantidad == 2)
-                        <div class="row col-12 p-0 m-0">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada </label>
+                    <div class="row col-12 p-0 m-0">
+                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada. </p>
 
-                            <div class="col-md-4 modulo_convenio-formInst">
+                            <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
-                                    <div class="img_anexada-formProf">
-                                        <img id="uploadPreview12"/>
-                                    </div>
+                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
                                 </div>
 
-                                <div class="agregar_archivo-formInst3">
+                                <div class="agregar_archivo-formProf">
                                     <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>        
+                                <div class="txt_informativo-formInst"> 
+                                    <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                </div>
                             </div>
                         </div>
 
@@ -1464,7 +1400,7 @@
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst"> Guardar
+                    <button type="submit" class="btn2_enviar-formInst mt-0 mt-md-3"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                     </button>
                 </div>
@@ -1492,7 +1428,7 @@
     <!-- 4* Contenedor principal de la opción PROFESIONALES -->
     <div class="container-fluid professional_inst content_principal-formInst"> <!-- Clase "professional_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
         <!--------------------------------------------      Inicio 8 octava parte del formulario *** PROFESIONALES ***      --------------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_tarjetasInfo-formInst">
+        <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_profesionales-formInst"> Profesionales </h5>
 
             <div class="col-11 col-md-12 row containt_profGuardado-formInst">
@@ -1514,19 +1450,19 @@
                             </div>
                             
                             <div class="col-12 mt-3 containt_loadProfes-formInst">
-                                <div class="col-md-12 section_inputRight-text-formInst">
+                                <div class="col-md-12 rightSection_formInst">
                                     <span>{{$objProfeInsti->primer_nombre}} {{$objProfeInsti->segundo_nombre}}</span>
                                 </div>
 
-                                <div class="col-md-12 section_inputRight-text-formInst">
+                                <div class="col-md-12 rightSection_formInst">
                                     <span>{{$objProfeInsti->primer_apellido}} {{$objProfeInsti->segundo_apellido}}</span>
                                 </div>
 
-                                <div class="col-md-12 section_inputRight-text-formInst">
+                                <div class="col-md-12 rightSection_formInst">
                                     <span>{{$objProfeInsti->especialidad_uno}}</span>
                                 </div>  
 
-                                <div class="col-md-12 section_inputRight-text-formInst">
+                                <div class="col-md-12 rightSection_formInst">
                                     <span> {{$objProfeInsti->especialidad_dos}}</span>
                                 </div> 
                             </div>
@@ -1541,7 +1477,7 @@
 
                 @if($objContadorProfeInsti->cantidad == 0)
                     <!-- Profesional numero 1 -->
-                    <div class="row fila_infoBasica-formInst">
+                    <div class="row fila_infoBasica-formInst mb-4">
                         <div class="col-md-3 contain_imgUsuario-formImg">
                             <img class="img_usuario-formInst" id="imagenPrevi1">
 
@@ -1551,44 +1487,42 @@
                         </div>
 
                         <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 section_inputRight-text-formInst">
+                            <div class="col-md-6 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
 
                                 <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" type="text" name="primer_nombre[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
 
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="segundo_nombre[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
                                 </div>        
                             </div>
 
-                            <div class="col-md-6 section_inputRight-text-formInst">
+                            <div class="col-md-6 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
 
                                 <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="primer_apellido[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
                     
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="segundo_apellido[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
                                 </div>  
                             </div>
 
-                            <div class="col-md-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
+                            <div class="col-md-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
 
-                                    <input class="col-12 form-control"   type="text" name="especialidad_uno[]" value="">
-                                </div>
+                                <input class="col-12 form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
 
-                                    <input class="col-12 form-control"   type="text" name="especialidad_dos[]" value="">
+                                    <input class="col-12 form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
                                 </div>
                             </div>
                         </div>
                     </div> 
 
                     <!-- Profesional numero 2 -->
-                    <div class="row fila_infoBasica-formInst">
+                    <div class="row fila_infoBasica-formInst mb-4">
                         <div class="col-md-3 contain_imgUsuario-formImg">
                             <img class="img_usuario-formInst" id="imagenPrevi2">
 
@@ -1598,37 +1532,35 @@
                         </div>
 
                         <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 section_inputRight-text-formInst">
+                            <div class="col-md-6 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
 
                                 <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" type="text" name="primer_nombre[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
 
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="segundo_nombre[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
                                 </div>        
                             </div>
 
-                            <div class="col-md-6 section_inputRight-text-formInst">
+                            <div class="col-md-6 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
 
                                 <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="primer_apellido[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
                     
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="segundo_apellido[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
                                 </div>  
                             </div>
 
-                            <div class="col-md-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
+                            <div class="col-md-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
 
-                                    <input class="col-12 form-control"   type="text" name="especialidad_uno[]" value="">
-                                </div>
+                                <input class="col-12 form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
 
-                                    <input class="col-12 form-control"   type="text" name="especialidad_dos[]" value="">
+                                    <input class="col-12 form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -1645,45 +1577,42 @@
                         </div>
 
                         <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 section_inputRight-text-formInst">
+                            <div class="col-md-6 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
 
                                 <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" type="text" name="primer_nombre[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
 
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="segundo_nombre[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
                                 </div>        
                             </div>
 
-                            <div class="col-md-6 section_inputRight-text-formInst">
+                            <div class="col-md-6 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
 
                                 <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="primer_apellido[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
                     
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="segundo_apellido[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
                                 </div>  
                             </div>
 
-                            <div class="col-md-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
+                            <div class="col-md-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
 
-                                    <input class="col-12 form-control"   type="text" name="especialidad_uno[]" value="">
-                                </div>
+                                <input class="col-12 form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
 
-                                    <input class="col-12 form-control"   type="text" name="especialidad_dos[]" value="">
+                                    <input class="col-12 form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 @elseif($objContadorProfeInsti->cantidad == 1)
                     <!-- Profesional numero 2 -->
-                    <div class="row fila_infoBasica-formInst">
+                    <div class="row fila_infoBasica-formInst mb-4">
                         <div class="col-md-3 contain_imgUsuario-formImg">
                             <img class="img_usuario-formInst" id="imagenPrevi2">
 
@@ -1693,37 +1622,35 @@
                         </div>
 
                         <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 section_inputRight-text-formInst">
+                            <div class="col-md-6 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
 
                                 <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" type="text" name="primer_nombre[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
 
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="segundo_nombre[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
                                 </div>        
                             </div>
 
-                            <div class="col-md-6 section_inputRight-text-formInst">
+                            <div class="col-md-6 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
 
                                 <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="primer_apellido[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
                     
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="segundo_apellido[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
                                 </div>  
                             </div>
 
-                            <div class="col-md-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
+                            <div class="col-md-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
 
-                                    <input class="col-12 form-control"   type="text" name="especialidad_uno[]" value="">
-                                </div>
+                                <input class="col-12 form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
 
-                                    <input class="col-12 form-control"   type="text" name="especialidad_dos[]" value="">
+                                    <input class="col-12 form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -1740,41 +1667,39 @@
                         </div>
 
                         <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 section_inputRight-text-formInst">
+                            <div class="col-md-6 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
 
                                 <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" type="text" name="primer_nombre[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
 
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="segundo_nombre[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
                                 </div>        
                             </div>
 
-                            <div class="col-md-6 section_inputRight-text-formInst">
+                            <div class="col-md-6 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
 
                                 <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="primer_apellido[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
                     
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="segundo_apellido[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
                                 </div>  
                             </div>
 
-                            <div class="col-md-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
+                            <div class="col-md-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
 
-                                    <input class="col-12 form-control"   type="text" name="especialidad_uno[]" value="">
-                                </div>
+                                <input class="col-12 form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
 
-                                    <input class="col-12 form-control"   type="text" name="especialidad_dos[]" value="">
+                                    <input class="col-12 form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 @elseif($objContadorProfeInsti->cantidad == 2)
                     <!-- Profesional numero 3 -->
                     <div class="row fila_infoBasica-formInst">
@@ -1787,50 +1712,46 @@
                         </div>
 
                         <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 section_inputRight-text-formInst">
+                            <div class="col-md-6 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
 
                                 <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" type="text" name="primer_nombre[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
 
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="segundo_nombre[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
                                 </div>        
                             </div>
 
-                            <div class="col-md-6 section_inputRight-text-formInst">
+                            <div class="col-md-6 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
 
                                 <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="primer_apellido[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
                     
-                                    <input class="input_nomApl-prefes-formProf"   type="text" name="segundo_apellido[]" value="">
+                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
                                 </div>  
                             </div>
 
-                            <div class="col-md-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
+                            <div class="col-md-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
 
-                                    <input class="col-12 form-control"   type="text" name="especialidad_uno[]" value="">
-                                </div>
+                                <input class="col-12 form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
 
-                                    <input class="col-12 form-control"   type="text" name="especialidad_dos[]" value="">
+                                    <input class="col-12 form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
                                 </div>
                             </div>
                         </div>
-                    </div> 
-
+                    </div>
                 @elseif($objContadorProfeInsti->cantidad == 3)
                     <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se peden agregar más profesionales </label>
                 @endif
 
-
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst"> Guardar
+                    <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                     </button>
                 </div>
@@ -1858,18 +1779,18 @@
     <!-- 5* Contenedor principal de la opción CERTIFICACIONES -->
     <div class="container-fluid certifications_inst content_principal-formInst"> <!-- Clase "certifications_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
         <!--------------------------------------------      Inicio 9 novena parte del formulario *** CERTIFICACIONES ***      ------------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_tarjetasInfo-formInst">
+        <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_certificaciones-formInst"> Certificaciones </h5>
 
             <p class="text_superior-proced-formInst"> A continuación suba imágenes relacionadas con sus certificaciones, con fecha, nombre y descripción. </p>
 
             <!-- Modulo de los Certificaciones con información -->
-            <div class="row col-12 p-0 m-0">
+            <div class="premios_guardada-formProf">
                 @foreach($objCertificaciones as $objCertificaciones)
                     @if(!empty($objCertificaciones->imgcertificado))
                         <!-- Contenido Certificaciones -->    
-                        <div class="col-md-6 mt-3 content_antes-formInst">
-                            <div class="col-12 content_cierreX-formInst">
+                        <div class="savedData_formInst">
+                            <div class="col-12 content_btnDelet-trata-formProf">
                                 <a href="{{url('/FormularioInstituciondelete9/'.$objCertificaciones->id_certificacion)}}">
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -1877,28 +1798,21 @@
                                 </a>
                             </div>
                             
-                            <div class="col-12  form-group">
-
-                                <div class="col-10 img_saveCertifi-formInst">
+                            <div class="col-12 mt-2 p-0">
+                                <div class="img_saveCertifi-formInst">
                                     <img class="img_anexada-formInst"  src="{{URL::asset($objCertificaciones->imgcertificado)}}">
                                 </div>
 
-                                <div class="col-12 px-0">
-                                    <div class="form-group">
-                                        <span>{{$objCertificaciones->titulocertificado}}</span>
-                                    </div>
+                                <div class="col-12 p-0 mt-2">
+                                    <label class="col-12 text_fechaPremio-formProf"> {{$objCertificaciones->fechacertificado}} </label>
                                 </div>
 
-                                <div class="col-12 px-0">
-                                    <div class="form-group">
-                                        <span>{{$objCertificaciones->descrpcioncertificado}}</span>
-                                    </div>
+                                <div class="col-12 text_label-formProf">
+                                    <label class="col-12 title_infoGuardada-formProf"> {{$objCertificaciones->titulocertificado}} </label>
                                 </div>
 
-                                <div class="col-12 px-0">
-                                    <div class="form-group">
-                                        <span>{{$objCertificaciones->fechacertificado}}</span>
-                                    </div>
+                                <div class="col-12 descripcion_Premio-formProf">
+                                    <label class="col-12 text_descPremio-formProf"> {{$objCertificaciones->descrpcioncertificado}} </label>
                                 </div>
                             </div>
                         </div>
@@ -1913,12 +1827,10 @@
                     <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
                         <!-- CERTIFICACIÓN izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview13">
-                                    </div>
+                        <div class="col-md-6 photo1 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview13">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -1926,31 +1838,27 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>        
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                            <div class="col-12 leftSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
 
-                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
-                                </div>
+                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst"> 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-                                    
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                
+                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -1958,12 +1866,10 @@
                         </div>
 
                         <!-- CERTIFICACIÓN derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview14">
-                                    </div>
+                        <div class="col-md-6 photo2 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst  form-group">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview14">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -1975,27 +1881,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                     
-                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
 
-                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
-                                </div>
+                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
 
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2006,12 +1908,10 @@
                     <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
                         <!-- CERTIFICACIÓN izquierda -->
-                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                    <img id="uploadPreview15">
-                                    </div>
+                        <div class="col-md-6 photo3 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview15">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2019,31 +1919,27 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                                </div>
+                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>        
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                            <div class="col-12 leftSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
 
-                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
-                                </div>
+                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst"> 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-                                    
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                
+                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2051,12 +1947,10 @@
                         </div>
 
                         <!-- CERTIFICACIÓN derecha -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview16">
-                                    </div>
+                        <div class="col-md-6 photo4 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst  form-group">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview16">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2065,30 +1959,26 @@
 
                                 <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                                </div>        
+                                </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                     
-                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
 
-                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
-                                </div>
+                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
 
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2098,13 +1988,11 @@
                 @elseif($objContadorCertificaciones->cantidad == 1)
                     <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
-                        <!-- CERTIFICACIÓN derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview14">
-                                    </div>
+                        <!-- CERTIFICACIÓN izquierda -->
+                        <div class="col-md-6 photo2 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview14">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2112,31 +2000,27 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                                </div>
+                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>        
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                    
-                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                                </div>
+                            <div class="col-12 leftSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
 
-                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
-                                </div>
+                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 leftSection_formInst"> 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                
+                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2147,12 +2031,10 @@
                     <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
                         <!-- CERTIFICACIÓN izquierda -->
-                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                    <img id="uploadPreview15">
-                                    </div>
+                        <div class="col-md-6 photo3 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview15">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2160,31 +2042,27 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                                </div>
+                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>        
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                            <div class="col-12 leftSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
 
-                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
-                                </div>
+                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst"> 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-                                    
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                
+                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2192,12 +2070,10 @@
                         </div>
 
                         <!-- CERTIFICACIÓN derecha -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview16">
-                                    </div>
+                        <div class="col-md-6 photo4 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst  form-group">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview16">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2206,30 +2082,26 @@
 
                                 <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                                </div>        
+                                </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                     
-                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
 
-                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
-                                </div>
+                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
 
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2240,12 +2112,10 @@
                     <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
                         <!-- CERTIFICACIÓN izquierda -->
-                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                    <img id="uploadPreview15">
-                                    </div>
+                        <div class="col-md-6 photo3 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview15">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2253,31 +2123,27 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                                </div>
+                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                </div>        
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                            <div class="col-12 leftSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
 
-                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
-                                </div>
+                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst"> 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-                                    
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                
+                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2285,12 +2151,10 @@
                         </div>
 
                         <!-- CERTIFICACIÓN derecha -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview16">
-                                    </div>
+                        <div class="col-md-6 photo4 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst  form-group">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview16">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2299,30 +2163,26 @@
 
                                 <div class="txt_informativo-formInst">
                                     <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                                </div>        
+                                </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                     
-                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                                </div>
+                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
 
-                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
-                                </div>
+                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
 
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2330,15 +2190,12 @@
                         </div>
                     </div>
                 @elseif($objContadorCertificaciones->cantidad == 3)
-                    <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
-                        <!-- CERTIFICACIÓN derecha -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveCertifi-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview16">
-                                    </div>
+                        <!-- CERTIFICACIÓN izquierda -->
+                        <div class="col-md-6 photo4 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview16">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2346,31 +2203,27 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
                                 </div>        
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                    
-                                    <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                                </div>
+                            <div class="col-12 leftSection_formInst">    
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
+                                
+                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
 
-                                    <input class="form-control" id="titulocertificado"  type="text" name="titulocertificado[]" value="">
-                                </div>
+                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 leftSection_formInst"> 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-
-                                    <input class="form-control" id="descrpcioncertificado"  type="text" name="descrpcioncertificado[]" value="">
+                                
+                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -2383,7 +2236,7 @@
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst"> Guardar
+                    <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                     </button>
                 </div>
@@ -2411,18 +2264,18 @@
     <!-- 6* Contenedor principal de la opción SEDES -->
     <div class="container-fluid venues_inst content_principal-formInst"> <!-- Clase "venues_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
         <!--------------------------------------------      Inicio 10 decima parte del formulario *** SEDES ***      ---------------------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_tarjetasInfo-formInst">
+        <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_sedes-formInst"> Sedes </h5>
 
-            <p class="text_superior-proced-formInst"> A continuación suba imágenes e información de las sedes que tengan de la institución </p>
+            <p class="text_superior-proced-formInst"> A continuación suba imágenes e información de las sedes que tengan de la institución. </p>
 
             <!-- Modulo de los Sedes con información -->
-            <div class="row col-12 p-0 m-0">
+            <div class="premios_guardada-formProf">
                 @foreach($objSedes as $objSedes)
                     @if(!empty($objSedes->imgsede))
                         <!-- Contenido Certificaciones -->    
-                        <div class="col-md-6 mt-3 content_antes-formInst">
-                            <div class="col-12 content_cierreX-formInst">
+                        <div class="savedData_formInst">
+                            <div class="col-12 content_btnDelet-trata-formProf">
                                 <a href="{{url('/FormularioInstituciondelete10/'.$objSedes->id)}}">
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -2430,32 +2283,25 @@
                                 </a>
                             </div>
                             
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveSede-formInst">
+                            <div class="col-12 mt-2 p-0">
+                                <div class="img_saveSede-formInst">
                                     <img class="img_anexada-formInst" src="{{URL::asset($objSedes->imgsede)}}">
                                 </div>
 
-                                <div class="col-12 px-0">
-                                    <div class="form-group">
-                                        <span>{{$objSedes->nombre}}</span>
-                                    </div>
+                                <div class="col-12 text_label-formInst">
+                                    <label class="col-12 title_infoGuardada-formProf">{{$objSedes->nombre}} </label>
                                 </div>
 
-                                <div class="col-12 px-0">
-                                    <div class="form-group">
-                                        <span>{{$objSedes->direccion}}</span>
-                                    </div>
+                                <div class="col-12 texto_saved-formInst">
+                                    <label class="col-12 text_descPremio-formProf"> {{$objSedes->direccion}} </label>
                                 </div>
 
-                                <div class="col-12 px-0">
-                                    <div class="form-group">
-                                        <span>{{$objSedes->horario_sede}}</span>
-                                    </div>
+                                <div class="col-12 texto_saved-formInst">
+                                    <label class="col-12 text_descPremio-formProf"> {{$objSedes->horario_sede}} </label>
                                 </div>
-                                <div class="col-12 px-0">
-                                    <div class="form-group">
-                                        <span>{{$objSedes->telefono}}</span>
-                                    </div>
+
+                                <div class="col-12 texto_saved-formInst">
+                                    <label class="col-12 text_descPremio-formProf">{{$objSedes->telefono}} </label>
                                 </div>
                             </div>
                         </div>
@@ -2470,12 +2316,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview17">
-                                    </div>
+                        <div class="col-md-6 photo1 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview17">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2487,46 +2331,38 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview18">
-                                    </div>
+                        <div class="col-md-6 photo2 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview18">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2538,32 +2374,29 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -2572,12 +2405,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview19">
-                                    </div>
+                        <div class="col-md-6 photo3 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview19">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2589,46 +2420,38 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview20">
-                                    </div>
+                        <div class="col-md-6 photo4 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview20">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2640,32 +2463,29 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -2674,12 +2494,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview21">
-                                    </div>
+                        <div class="col-md-6 photo5 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview21">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2691,46 +2509,38 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview22">
-                                    </div>
+                        <div class="col-md-6 photo6 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview22">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2742,32 +2552,29 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -2776,13 +2583,11 @@
                 @elseif($objContadorSedes->cantidad == 1)
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
-                        <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview18">
-                                    </div>
+                        <!-- Contenido SEDES izquierdo -->
+                        <div class="col-md-6 photo2 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview18">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2794,32 +2599,29 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -2828,12 +2630,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview19">
-                                    </div>
+                        <div class="col-md-6 photo3 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview19">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2845,46 +2645,38 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview20">
-                                    </div>
+                        <div class="col-md-6 photo4 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview20">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2896,32 +2688,29 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -2930,12 +2719,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview21">
-                                    </div>
+                        <div class="col-md-6 photo5 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview21">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2947,46 +2734,38 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview22">
-                                    </div>
+                        <div class="col-md-6 photo6 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview22">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -2998,32 +2777,29 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -3032,12 +2808,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview19">
-                                    </div>
+                        <div class="col-md-6 photo3 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview19">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3049,46 +2823,38 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview20">
-                                    </div>
+                        <div class="col-md-6 photo4 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview20">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3100,32 +2866,29 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -3134,12 +2897,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview21">
-                                    </div>
+                        <div class="col-md-6 photo5 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview21">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3151,46 +2912,38 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview22">
-                                    </div>
+                        <div class="col-md-6 photo6 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview22">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3202,32 +2955,29 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -3235,13 +2985,11 @@
                 @elseif($objContadorSedes->cantidad == 3)
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
-                        <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview20">
-                                    </div>
+                        <!-- Contenido SEDES izquierdo -->
+                        <div class="col-md-6 photo4 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview20">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3253,32 +3001,29 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -3287,12 +3032,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview21">
-                                    </div>
+                        <div class="col-md-6 photo5 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview21">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3304,46 +3047,38 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview22">
-                                    </div>
+                        <div class="col-md-6 photo6 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview22">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3355,32 +3090,29 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -3389,12 +3121,10 @@
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
-                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview21">
-                                    </div>
+                        <div class="col-md-6 photo5 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview21">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3406,46 +3136,38 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview22">
-                                    </div>
+                        <div class="col-md-6 photo6 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview22">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3457,32 +3179,29 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -3490,13 +3209,11 @@
                 @elseif($objContadorSedes->cantidad == 5)
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
-                        <!-- Contenido SEDES derecho -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst  form-group">
-                                <div class="col-10 img_saveSede-formInst">
-                                    <div class="img_anexada-formInst">
-                                        <img id="uploadPreview22">
-                                    </div>
+                        <!-- Contenido SEDES izquierdo -->
+                        <div class="col-md-6 photo6 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview22">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3508,32 +3225,29 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombre de la sede </label>
 
-                                    <input class="form-control" id="nombre"  type="text" name="nombre[]" value="">
-                                </div>
+                                <input class="form-control" id="nombre" placeholder="Nombre de la sede" type="text" name="nombre[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
+
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
                                     
-                                    <input class="form-control" id="direccion"  type="text" name="direccion[]" value="">
-                                </div>
+                                <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
+
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
                                     
-                                    <input class="form-control" id="horario_sede"  type="text" name="horario_sede[]" value="">
-                                </div>
+                                <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
                                     
-                                    <input class="form-control" id="telefono"  type="text" name="telefono[]" value="">
+                                    <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -3544,7 +3258,7 @@
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst"> Guardar
+                    <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                     </button>
                 </div>
@@ -3553,7 +3267,7 @@
         <!--------------------------------------------      Fin 10 decima parte del formulario *** SEDES ***      ------------------------------------------------------------->
 
         <!--------------------------------------------      Inicio 11 onceava parte del formulario *** UBIQUE LA SEDE ***      -------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_tarjetasInfo-formInst">
+        <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_ubiqueSede-formInst"> Ubique la sede </h5>
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave11') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
@@ -3561,19 +3275,15 @@
 
                 @if(!empty($objFormulario->url_maps))
                     <div class="col-12 px-0">
-                        <div class="form-group">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> A continuación enlace las sedes en Google Maps </label>
+                        <p for="example-date-input" class="text_superior-proced-formInst"> A continuación enlace las sedes en Google Maps. </p>
 
-                            <iframe src="{{$objFormulario->url_maps}}" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
+                        <iframe src="{{$objFormulario->url_maps}}" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 @else
                     <div class="col-12 px-0">
-                        <div class="form-group">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> A continuación enlace las sedes en Google Maps </label>
+                        <p for="example-date-input" class="text_superior-proced-formInst"> A continuación enlace las sedes en Google Maps. </p>
 
-                            <input class="form-control" id="descripcionPerfil" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" type="text" name="url_maps" >
-                        </div>
+                        <input class="form-control" id="descripcionPerfil" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" type="text" name="url_maps" >
                     </div>
                 @endif
                 <!-- Botón guardar información -->
@@ -3606,18 +3316,18 @@
     <!-- 7* Contenedor principal de la opción GALERIA -->
     <div class="container-fluid gallery_inst content_principal-formInst"> <!-- Clase "gallery_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
         <!--------------------------------------------      Inicio 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_tarjetasInfo-formInst">
+        <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_galeriaInst-formInst"> Galería </h5>
 
             <p class="text_superior-proced-formInst"> A continuación suba 8 imágenes como máximo, con su respectivo nombre y descripción. </p>
 
             <!-- Modulo de la GALERIA con información -->
-            <div class="row col-12 p-0 m-0">
+            <div class="premios_guardada-formProf">
                 @foreach($objGaleria as $objGaleria)
                     @if(!empty($objGaleria->nombrefoto))
                         <!-- Contenido GALERIA -->    
-                        <div class="col-md-6 mt-3 content_antes-formInst">
-                            <div class="col-12 content_btnX-cierre-forminst">
+                        <div class="savedData_formInst">
+                            <div class="col-12 content_btnDelet-trata-formProf">
                                 <a href="{{url('/FormularioInstituciondelete12/'.$objGaleria->id_galeria)}}">
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -3625,21 +3335,17 @@
                                 </a>
                             </div>
 
-                            <div class="col-12  form-group">
-                                <div class="img_saveGallery-formInst">
+                            <div class="col-12 mt-2 p-0">
+                                <div class="img_saveSede-formInst">
                                     <img  class="img_anexada-formInst" src="{{URL::asset($objGaleria->imggaleria)}}">
                                 </div>
 
-                                <div class="col-12 p-0">
-                                    <div class="form-group">
-                                        <span>{{$objGaleria->nombrefoto}}</span>
-                                    </div>
+                                <div class="col-12 text_label-formInst">
+                                    <label class="col-12 title_infoGuardada-formProf"> {{$objGaleria->nombrefoto}} </label>
                                 </div>
 
-                                <div class="col-12 p-0">
-                                    <div class="form-group">
-                                        <span>{{$objGaleria->descripcion}}</span>
-                                    </div>
+                                <div class="col-12 descripcion_Premio-formProf">
+                                    <label class="col-12 text_descPremio-formProf">{{$objGaleria->descripcion}} </label>
                                 </div>
                             </div>
                         </div>
@@ -3654,12 +3360,10 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview23">
-                                    </div>
+                        <div class="col-md-6 photo1 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview23">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3671,25 +3375,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -3697,12 +3399,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview24">
-                                    </div>
+                        <div class="col-md-6 photo2 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview24">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3714,25 +3414,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -3741,12 +3439,10 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview25">
-                                    </div>
+                        <div class="col-md-6 photo3 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview25">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3758,25 +3454,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -3784,12 +3478,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview26">
-                                    </div>
+                        <div class="col-md-6 photo4 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview26">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3801,25 +3493,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -3828,12 +3518,10 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview27">
-                                    </div>
+                        <div class="col-md-6 photo5 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview27">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3845,25 +3533,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 5 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 5 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -3871,12 +3557,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview28">
-                                    </div>
+                        <div class="col-md-6 photo6 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview28">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3888,25 +3572,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -3915,12 +3597,10 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo7 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
+                        <div class="col-md-6 photo7 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview29">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3932,25 +3612,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -3958,12 +3636,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                        <div class="col-md-6 photo8 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -3975,25 +3651,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4002,13 +3676,11 @@
                 @elseif($objContadorGaleria->cantidad == 1)
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
-                        <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview24">
-                                    </div>
+                        <!-- Contenido GALERIA izquierda -->
+                        <div class="col-md-6 photo2 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview24">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4020,39 +3692,37 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+                                    
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
-                        </div>
+                        </div>    
                     </div>
 
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview25">
-                                    </div>
+                        <div class="col-md-6 photo3 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview25">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4064,25 +3734,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4090,12 +3758,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview26">
-                                    </div>
+                        <div class="col-md-6 photo4 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview26">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4107,25 +3773,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4134,12 +3798,10 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview27">
-                                    </div>
+                        <div class="col-md-6 photo5 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview27">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4151,25 +3813,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 5 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 5 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4177,12 +3837,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview28">
-                                    </div>
+                        <div class="col-md-6 photo6 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview28">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4194,25 +3852,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4221,12 +3877,10 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo7 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
+                        <div class="col-md-6 photo7 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview29">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4238,25 +3892,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4264,12 +3916,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                        <div class="col-md-6 photo8 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4281,25 +3931,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4309,12 +3957,10 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo3 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview25">
-                                    </div>
+                        <div class="col-md-6 photo3 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview25">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4326,25 +3972,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4352,12 +3996,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview26">
-                                    </div>
+                        <div class="col-md-6 photo4 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview26">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4369,25 +4011,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4396,12 +4036,10 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview27">
-                                    </div>
+                        <div class="col-md-6 photo5 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview27">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4413,25 +4051,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 5 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 5 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4439,12 +4075,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview28">
-                                    </div>
+                        <div class="col-md-6 photo6 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview28">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4456,25 +4090,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4483,12 +4115,10 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo7 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
+                        <div class="col-md-6 photo7 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview29">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4500,25 +4130,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4526,12 +4154,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                        <div class="col-md-6 photo8 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4543,25 +4169,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4569,13 +4193,12 @@
 
                 @elseif($objContadorGaleria->cantidad == 3)
                     <!-- Modulos del contenido GALERIA -->
-                        <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview26">
-                                    </div>
+                    <div class="row content_antDesp-formInst">
+                        <!-- Contenido GALERIA izquierda -->
+                        <div class="col-md-6 photo4 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview26">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4587,39 +4210,37 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+                                    
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
-                        </div>
+                        </div>  
                     </div>
 
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview27">
-                                    </div>
+                        <div class="col-md-6 photo5 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview27">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4631,25 +4252,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 5 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 5 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4657,12 +4276,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview28">
-                                    </div>
+                        <div class="col-md-6 photo6 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview28">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4674,25 +4291,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4701,12 +4316,10 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo7 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
+                        <div class="col-md-6 photo7 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview29">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4718,25 +4331,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4744,12 +4355,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                        <div class="col-md-6 photo8 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4761,40 +4370,35 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 @elseif($objContadorGaleria->cantidad == 4)
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo5 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview27">
-                                    </div>
+                        <div class="col-md-6 photo5 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview27">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4806,25 +4410,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 5 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 5 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4832,12 +4434,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview28">
-                                    </div>
+                        <div class="col-md-6 photo6 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview28">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4849,25 +4449,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4876,12 +4474,10 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo7 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
+                        <div class="col-md-6 photo7 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview29">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4893,25 +4489,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -4919,12 +4513,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                        <div class="col-md-6 photo8 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4936,25 +4528,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -4963,13 +4553,11 @@
                 @elseif($objContadorGaleria->cantidad == 5)
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
-                        <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo6 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview28">
-                                    </div>
+                        <!-- Contenido GALERIA izquierda -->
+                        <div class="col-md-6 photo6 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview28">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -4981,39 +4569,37 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 6 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+                                    
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
-                        </div>
+                        </div>  
                     </div>
 
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo7 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
+                        <div class="col-md-6 photo7 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview29">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -5025,25 +4611,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -5051,12 +4635,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                        <div class="col-md-6 photo8 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -5068,25 +4650,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -5096,12 +4676,10 @@
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
-                        <div class="col-md-6 photo7 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleL1">
-                                        <img id="uploadPreview29">
-                                    </div>
+                        <div class="col-md-6 photo7 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview29">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -5113,25 +4691,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 7 </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
@@ -5139,12 +4715,10 @@
                         </div>
 
                         <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                        <div class="col-md-6 photo8 rightSection_formInst">
+                            <div class="col-12">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -5156,25 +4730,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
                             
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -5183,13 +4755,11 @@
                 @elseif($objContadorGaleria->cantidad == 7)
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
-                        <!-- Contenido GALERIA derecha -->
-                        <div class="col-md-6 photo8 section_inputRight-text-formInst">
-                            <div class="col-12  form-group">
-                                <div class="col-10 img_saveGallery-formInst">
-                                    <div class="img_anexada-formInst" id="previewGaleR1">
-                                        <img id="uploadPreview30">
-                                    </div>
+                        <!-- Contenido GALERIA izquierda -->
+                        <div class="col-md-6 photo8 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <div class="img_saveCertifi-formInst">
+                                    <img class="img_anexada-formInst" id="uploadPreview30">
                                 </div>
 
                                 <div class="agregar_archivo-formInst">
@@ -5201,28 +4771,28 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 8 </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrefoto" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
+                                    
+                                    <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                     </div>
 
                 @elseif($objContadorGaleria->cantidad == 8)
@@ -5231,7 +4801,7 @@
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst"> Guardar
+                    <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                     </button>
                 </div>  
@@ -5240,18 +4810,18 @@
         <!--------------------------------------------      Fin 12 doceava parte del formulario *** GALERIA ***      ---------------------------------------------------------->
 
         <!--------------------------------------------      Inicio 13 treceava parte del formulario *** VIDEOS ***      ------------------------------------------------------->
-        <div class="col-lg-10 col-xl-8 pb-3 content_tarjetasInfo-formInst">
+        <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-12 icon_infoVideo-formInst"> Videos </h5>
 
-            <p class="text_superior-proced-formInst"> A continuación suba el link del video, con su respectivo nombre y descripción. </p>
+            <p class="text_superior-proced-formInst mb-0"> A continuación suba el link del video, con su respectivo nombre y descripción. </p>
 
             <!-- Modulos de los VIDEOS -->
             <div class="row col-12 p-0 m-0">
                 @foreach($objVideo as $objVideo)
                     @if(!empty($objVideo->nombrevideo))
                         <!-- Contenido VIDEOS -->    
-                        <div class="col-md-6 mt-3 content_antes-formProf">
-                            <div class="col-12">
+                        <div class="section_infoExper-formInst">
+                            <div class="col-12 content_cierreX-formInst">
                                 <a href="{{url('/FormularioInstituciondelete13/'.$objVideo->id)}}">
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -5260,27 +4830,21 @@
                             </div>
                         
 
-                            <div class="col-12  form-group">
+                            <div class="col-12 my-2">
                                 <div class="col-10 img_selccionada-formProf">
-                                    <iframe src="{{$objVideo->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe class="img_anexada-formProf" src="{{$objVideo->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
 
-                                <div class="col-12 p-0">
-                                    <div class="form-group">
-                                        <label for="example-date-input" class="col-12 text_label-formInst"> {{$objVideo->nombrevideo}} </label>
-                                    </div>
+                                <div class="col-12 p-0 mt-2">
+                                    <label class="col-12 text_fechaPremio-formProf"> {{$objVideo->fechavideo}} </label>
                                 </div>
 
-                                <div class="col-12 p-0">
-                                    <div class="form-group">
-                                        <label for="example-date-input" class="col-12 text_label-formInst"> {{$objVideo->descripcionvideo}} </label>
-                                    </div>
+                                <div class="col-12 text_label-formInst">
+                                    <label class="col-12 title_infoGuardada-formProf"> {{$objVideo->nombrevideo}} </label>
                                 </div>
 
-                                <div class="col-12 p-0">
-                                    <div class="form-group">
-                                        <label for="example-date-input" class="col-12 text_label-formInst"> {{$objVideo->fechavideo}} </label>
-                                    </div>
+                                <div class="col-12 descripcion_Premio-formProf">
+                                    <p class="col-12 text_descPremio-formProf"> {{$objVideo->descripcionvideo}} </p>
                                 </div>
                             </div>
                         </div>
@@ -5293,65 +4857,65 @@
 
                 @if($objContadorVideo->cantidad == 0)
                     <!-- Modulos de los VIDEOS -->
-                    <div class="row content_antDesp-formInst">
+                    <div class="row content_antDesp-formInst mt-0">
                         <!-- Contenido VIDEOS izquierda -->
-                        <div class="col-md-6 video1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 1 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título video </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción video </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 2 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
                             </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                            <div class="col-12 rightSection_formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción video </label>
+                                    
+                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -5360,63 +4924,63 @@
                     <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido VIDEOS izquierda -->
-                        <div class="col-md-6 video1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 3 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título video </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción video </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 4 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Título video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
-                                </div>
+                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
                             </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                            <div class="col-12 rightSection_formInst">
+                                <div class="form-group">
+                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción video </label>
+                                    
+                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -5425,32 +4989,34 @@
                     <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 video2 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 2 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
+                                    
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -5459,63 +5025,67 @@
                     <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido VIDEOS izquierda -->
-                        <div class="col-md-6 video1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 3 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 video2 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 4 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
+                                    
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -5524,63 +5094,67 @@
                     <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido VIDEOS izquierda -->
-                        <div class="col-md-6 video1 section_inputLeft-text-formInst">
-                            <div class="col-12 section_inputLeft-text-formInst  form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 leftSection_formInst content_antes-formInst">
+                            <div class="col-12 leftSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 3 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrefoto"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formInst">
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
                                     
-                                    <input class="form-control" id="descripcion"  type="text" name="descripcion[]" value="">
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
+
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 video2 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 4 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
+                                    
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -5589,32 +5163,34 @@
                     <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 section_inputRight-text-formInst">
-                            <div class="col-12 section_inputRight-text-formInst form-group">
-                                <div class="agregar_archivo-formInst">
-                                    <input id="nombrefoto"  type="file" name="urlvideo[]" value="">
-                                </div>
+                        <div class="col-md-6 video2 rightSection_formInst">
+                            <div class="col-12 rightSection_formInst">
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 4 </label>
+
+                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
                                 
-                                <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
+                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formInst">
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="nombrefoto[]" value="">
+                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
                                 </div>
                             </div>
-                            
-                            <div class="col-12 section_inputRight-text-formInst">
+
+                            <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
+                                    
+                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <input class="form-control" id="nombrepremio"  type="text" name="descripcion[]" value="">
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
                                 </div>
                             </div>
                         </div>
@@ -5623,11 +5199,11 @@
                     <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más videos </label>
                 @endif 
 
-                <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
+                <div class="col-12 content_btnEnviar-formInst">
+                    <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
                     </button>
-                </div>
+                </div>  
             </form>
         </div>
         <!--------------------------------------------      Fin 13 treceava parte del formulario *** VIDEOS ***      ---------------------------------------------------------->

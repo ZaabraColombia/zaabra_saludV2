@@ -440,12 +440,15 @@ public function create4(Request $request){
 
 
     foreach ($request->input('tituloServicios', []) as $i => $tituloServicios) {
-        serviciosinstituciones::create([
-            'id' => $idInstitucion,
-            'tituloServicios' => $request->input('tituloServicios.'.$i),
-            'DescripcioServicios' => $request->input('DescripcioServicios.'.$i),
-            'sucursalservicio' => $request->input('sucursalservicio.'.$i),
-        ]);
+        
+        if(!empty($request->input('tituloServicios')[$i])){
+            serviciosinstituciones::create([
+                'id' => $idInstitucion,
+                'tituloServicios' => $request->input('tituloServicios.'.$i),
+                'DescripcioServicios' => $request->input('DescripcioServicios.'.$i),
+                'sucursalservicio' => $request->input('sucursalservicio.'.$i),
+            ]);
+        }
     }
 
     return redirect('FormularioInstitucion'); 
@@ -847,21 +850,18 @@ public function delete12($id_galeria){
 public function create13(Request $request){
   
 
-    /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
     $verificaPerfil = $this->verificaPerfil();
 
     foreach($verificaPerfil as $verificaPerfil){
         $idInstitucion=$verificaPerfil;
     }
 
-    /*id usuario logueado*/
-    $id_user=auth()->user()->id;
 
 
         for ($i=0; $i < count(request('nombrevideo')); ++$i){
             if(!empty($request->input('nombrevideo.'.$i))){
                     videos::create([
-                    'idinstitucion' => $idProProfesi,
+                    'idinstitucion' => $idInstitucion,
                     'nombrevideo' => $request->input('nombrevideo')[$i],
                     'descripcionvideo' => $request->input('descripcionvideo')[$i],
                     'urlvideo' => $request->input('urlvideo')[$i],

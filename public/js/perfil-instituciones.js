@@ -71,9 +71,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
       
+
+      
       const menu_insti = [].slice.apply(document.querySelectorAll('.item_landing_insti'))
       const sections_insti = [].slice.apply(document.querySelectorAll('.section_insti'))
-
+  
       document.querySelector('.landingInsti').addEventListener('click', el => {
 
         let count;
@@ -103,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
  // Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "membresiaProfesional" y "membresiaInstitucion" 
- $('.boton_collapse-off-institucion').on( "click", function() {
-  $(this).siblings().find(".boton_collapse-off-membresia").removeClass("boton_collapse-on-institucion");
-  $(this).find(".boton_collapse-off-membresia").toggleClass("boton_collapse-on-institucion");
+ $('.desplegable_institucion .containt_options-collapse-institucion').on( "click", function() {
+  $(this).siblings().find(".boton_collapse-off-institucion").removeClass("boton_collapse-on-institucion");
+  $(this).find(".boton_collapse-off-institucion").toggleClass("boton_collapse-on-institucion");
 });
