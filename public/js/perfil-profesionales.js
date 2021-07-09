@@ -8,13 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
       delay: 4500,
       disableOnInteraction: false,
     },*/
-  
+    autoHeight: true,
     // If we need pagination
-    pagination: {
-        el: '.slide-counter',
-        type: 'fraction'
-    },
-  
     breakpoints: {
        // when window width is >= 320px
       320: {
@@ -72,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   
   
+
+  
   const select = document.querySelector.bind(document);
   const gallery = new Viewer(select('.gallery_profesional'));
   
@@ -101,6 +98,12 @@ document.addEventListener('DOMContentLoaded', function () {
   
     }
   });
+
+  let favorito = document.querySelector('.fa-heart');
+
+  favorito.onclick = function(){
+    favorito.classList.toggle('background-heart');
+  }
     
 });
 

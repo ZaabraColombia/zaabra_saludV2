@@ -90,8 +90,17 @@
     background-attachment: fixed;
     margin-bottom: 0;
 }
-.contains_text{
-     text-align: center;
+
+.contains_submenu .contains_text{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-self: flex-start;
+    padding-left: 2%;
+    align-content: center;
 }
 .titulo_home{
     font-family: 'Quicksand', sans-serif;
@@ -119,7 +128,6 @@
     text-align: center;
 }
 .ver_mas {
-    max-width: 45%;
     height: 4.5vh;
     font-size: 1.2em;
     display: flex;
@@ -266,9 +274,7 @@
 }
 //SMALL MOBILE >= 320
 @media (min-width: 320px){
-    .swiper_principal{
-        height: 40vh;
-    }
+
     .titulo_portafolio{
         font-size: 1.3em;
         margin-top: 10%;
@@ -276,13 +282,12 @@
     }
     .contains_menu{
         max-width: 100%;
-        height: 45vh;
+        margin-bottom: 10%;
     }
     .row_contains{
         max-width: 95%;
         margin-left: auto;
         margin-right: auto;
-        height: 40vh;
     }
     .contains-card{
         max-width: 45%;
@@ -299,17 +304,22 @@
     .titulo_home{
         margin-top: 2%;
         font-size: 0.8em;
-        padding-left: 2%;
-        padding-right: 2%;
+        padding: 0;
     }
     .parrafo_home{
         margin-top: 2%;
-        font-size: 0.6em;
-        margin-bottom: 5%;
+        font-size: 0.7em;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: stretch;
     }
-    .ver_mas{
-        max-width: 70%;
-        font-size: 0.85em;
+    .contains_submenu{
+        padding-bottom: 20%;
+    }
+    .contains_submenu .ver_mas{
+        width: 70%;
+        font-size: 1em;
     }
     .zaabrasalud_parallax{
         height: 35vh;
@@ -322,6 +332,8 @@
     .contains_slider_especialistas .card-img-top{
         height: 40vh;
     }
+
+    
     .contains_slider_especialistas .btn-profesional{
         height: 4.5vh;
     }
@@ -343,12 +355,14 @@
     .swiper_logoshome{
         max-width: 90%;
     }
+    .contains_submenu .contains_text{
+        width: 95%;
+        margin: auto;
+        height: 50%;
+    }
 }
 //MEDIUM-BIG MOBILE >= 375
 @media (min-width: 375px){
-    .row_contains{
-        height: 80%;
-    }
     .ver_mas{
         font-size: 0.95em;
     }
@@ -370,7 +384,6 @@
     }
     .contains_menu {
         max-width: 60%;
-        height: 45vh;
         margin-left: auto;
         margin-right: auto;
     }
@@ -403,9 +416,6 @@
         height: 100%;
         -o-object-fit: fill;
         object-fit: fill;
-    }
-    .row_contains{
-        height: 88%;
     }
     .contains_slider_especialistas{
         max-width: 100%;
@@ -486,14 +496,12 @@
     .titulo_home{
         font-size: calc(0.65em + 1vw);
     }
-    .row_contains{
-        height: 88%;
-    }
     .swiper_especialistas {
         max-width: 80%;
     }
     .contains_slider_especialistas {
         height: 45vh;
+        margin-bottom: 0;
     }
     .contains_slider_especialistas .card {
         max-width: 23%;
@@ -521,14 +529,20 @@
         margin-bottom: 3vh;
         font-size: calc(0.95em + 1vw);
     }
+    .contains_slider_especialistas .btn-profesional{
+        height: 4vh;
+    }
+    .btn-profesional{
+        max-width: 90%;
+    }
+    .contains_slider_especialistas .card-body p {
+        height: 3.5vh;
+    }
 }
 
 @media (min-width: 1920px){
     .contains_menu {
         max-width: 40%;
-    }
-    .row_contains {
-        height: 80%;
     }
     .titulo_home {
         font-size: calc(0.45em + 1vw);
@@ -544,16 +558,29 @@
         height: 3.5vh;
         font-size: 1.3em;
     }
+    .contains_slider_especialistas .card-body p{
+        height: 3.5vh;
+    }
     .zaabrasalud_parallax {
         height: 45vh;
     }
     .swiper_especialistas {
         max-width: 65%;
     }
+    .contains_slider_especialistas{
+        margin-bottom: 0;
+    }
+    .contains_slider_especialistas .card-body{
+        padding: 3% 0 6% 0;
+    }
     .contains_slider_especialistas .card-body h5{
         font-size: 1.5em;
     }
+    .contains_slider_especialistas .btn-profesional{
+        height: 4vh;
+    }
     .btn-profesional{
+        max-width: 90%;
         font-size: 1.2em;
     }
     .btn-next{
