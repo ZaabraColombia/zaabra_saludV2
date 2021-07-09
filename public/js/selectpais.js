@@ -23,6 +23,7 @@ $('#idpais').change(function(){
     }      
    });
 
+   
     $('#id_departamento').on('change',function(){
     var id_departamento = $(this).val();    
     if(id_departamento){
