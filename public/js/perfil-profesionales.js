@@ -98,6 +98,12 @@ document.addEventListener('DOMContentLoaded', function () {
   
     }
   });
+
+  let favorito = document.querySelector('.fa-heart');
+
+  favorito.onclick = function(){
+    favorito.classList.toggle('background-heart');
+  }
     
 });
 

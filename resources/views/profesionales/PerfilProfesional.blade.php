@@ -5,6 +5,16 @@
         <section class="section_data_profesionales">
             <div class="data_profesionales">
                 @foreach ($objprofesionallanding as $objprofesionallanding)
+                <div class="section_backArrow">
+                    <a class="back_arrow back_text" href="#"> atras </a>
+
+                    <div class="heart-wrapper">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </div>
+
+ 
+
                 <img src="{{URL::asset($objprofesionallanding->fotoperfil)}}">
                 <div class="contains_info">
                     <h2>{{$objprofesionallanding->primernombre}} {{$objprofesionallanding->primerapellido}}</h2>
