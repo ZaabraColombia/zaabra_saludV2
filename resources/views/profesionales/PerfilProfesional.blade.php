@@ -51,7 +51,7 @@
                     @foreach ($objprofesionallandingconsultas as $objprofesionallandingconsultas)
                         <li>
                             <p class="menu_{{$loop->iteration}}"><i></i>{{$objprofesionallandingconsultas->nombreconsulta}}</p>
-                            <span><i></i>${{$objprofesionallandingconsultas->valorconsulta}}</span>
+                            <span><i></i>${{number_format($objprofesionallandingconsultas->valorconsulta, 2, ",", ".") }}</span>
                         </li>
                     @endforeach
                 </ul>
