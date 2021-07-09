@@ -6,10 +6,14 @@
             <div class="data_profesionales">
                 <div class="section_backArrow">
                     <a class="back_arrow back_text" href="#"> atras </a>
+
                     <div class="heart-wrapper">
                         <i class="far fa-heart"></i>
                     </div>
                 </div>
+
+
+
                 @foreach ($objprofesionallanding as $objprofesionallanding)
                 <img src="{{URL::asset($objprofesionallanding->fotoperfil)}}">
                 <div class="contains_info">
@@ -211,9 +215,6 @@
                     @endforeach
                 </div>
             </div>
-            <div class="btn-prev"></div>
-            <div class="btn-next"></div>
-            <a class="btn-procedimientos" href="">Ver agenda</a>
         </section>
 
         <section class="sections section_publicaciones_profesional">
@@ -236,20 +237,15 @@
         <section class="sections galeriayvideo">
             <div class="galeria_profesional">
                 <h2><i></i>Galería</h2>
-                <div class="swiper-container swiper_galeria_prof">
-                    <div class="swiper-wrapper">
-                        @foreach ($objprofesionallandinggaler as $objprofesionallandinggaler)
-                            <div class="swiper-slide">
-                                <img src="{{URL::asset($objprofesionallandinggaler->imggaleria)}}">
-                                <h5>{{$objprofesionallandinggaler->nombrefoto}}</h5>
-                                <p>{{$objprofesionallandinggaler->descripcion}}</p>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="btn-prev"></div>
-                <div class="btn-next"></div>
-                <a class="btn-procedimientos" href="">Ver agenda</a>    
+                <ul class="gallery_profesional">
+                    @foreach ($objprofesionallandinggaler as $objprofesionallandinggaler)
+                    <li>
+                        <img src="{{URL::asset($objprofesionallandinggaler->imggaleria)}}" alt="{{$objprofesionallandinggaler->descripcion}}"> 
+                    </li>       
+                    <!-- <p>{{$objprofesionallandinggaler->nombrefoto}}</p>
+                    <p>{{$objprofesionallandinggaler->descripcion}}</p> -->
+                    @endforeach
+                </ul>    
             </div>
             
             <div class="videos_profesional">
