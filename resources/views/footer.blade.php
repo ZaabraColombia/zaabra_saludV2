@@ -14,10 +14,10 @@
             <div class="col-lg-7 suscribirme_contenido d-none d-lg-block">
                 <form id="newsletter" method="post" action="javascript:void(0)" class="row form_suscribirme">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-                    <input class="col-lg-8 col-xl-7 input_suscribirme" type="email" id="correo_newsletter" name="correo_newsletter" placeholder="zaabra@gmail.com">
+                    <input class="col-lg-8 col-xl-7 input_suscribirme" type="email" id="correo_newsletter" name="correo_newsletter" placeholder="servicioalcliente@zaabrasalud.com.co">
 
                     <button class="col-lg-3 col-xl-2 boton_suscribirme" id="send_form" type="submit">
-                        <span> Suscribirme </span>
+                        <span class="text_sucrib-foot"> Suscribirme </span>
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="boton_icon-flecha" alt=""> 
                     </button>
 
@@ -36,10 +36,10 @@
             <!--******************************     Column form suscribirme version MOBILE      *********************************--> 
             <form id="newsletter2" method="post" action="javascript:void(0)" class="row col-10 col-md-9 p-0 m-auto d-block d-lg-none">
                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-                <input class="input_suscribirme-cel" type="email" id="correo_newsletter2" name="correo_newsletter" placeholder="zaabra@gmail.com">
+                <input class="input_suscribirme-cel" type="email" id="correo_newsletter2" name="correo_newsletter" placeholder="servicioalcliente@zaabrasalud.com.co">
                 <div class="col-12 check_terminos-cel">
                     <input type="checkbox" class="boton_check-terminos-cel" id=""> 
-                    <span class="texto_terminos-cel">Acepto <b><u>términos y condiciones</u></b>
+                    <span class="texto_terminos-cel">Acepto <a href="{{url('politicas')}}"> términos y condiciones </a>
                         y autorizo el <b><u>tratamiento de mis datos personales</u></b>
                     </span>
                 </div>
@@ -101,15 +101,15 @@
                         </a>
                     </div>
 
-                    <div class="col-lg-1 mr-lg-2 mr-xl-0 p-0">
+                    <!-- <div class="col-lg-1 mr-lg-2 mr-xl-0 p-0">
                         <a href="https://co.pinterest.com/" target="_blank">
                             <img class="" src="{{URL::asset('/img/iconos/icono-gmail-blanco.svg')}}"> 
                         </a> 
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="col-lg-9 d-flex p-0">
-                    <span class="correo_contactanos"> servicioalcliente@zaabra.com.co </span>
+                    <span class="correo_contactanos"> servicioalcliente@zaabrasalud.com.co </span>
                 </div>
             </div>
 
@@ -222,11 +222,11 @@
                         </a>
                     </div>
 
-                    <div class="col-2 icono_red-social-cel">
+                    <!-- <div class="col-2 icono_red-social-cel">
                         <a href="https://co.pinterest.com/" target="_blank">
                             <img class="imagen_red-social-cel" src="{{URL::asset('/img/iconos/icono-gmail-blanco.svg')}}"> 
                         </a> 
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -348,6 +348,6 @@
 
     <!-- Copyright -->
     <div class="col-12 footer_copy-right">
-      <span class="texto_copy-right">&copy; Zaabra_salud 2021 </span>  
+      <span class="texto_copy-right">&copy; Zaabrasalud 2021 </span>  
     </div>
 </footer>
