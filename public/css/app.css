@@ -15650,6 +15650,7 @@ a:link, a:visited, a:active, a:hover {
 
   .data_profesionales .title-adress {
     width: 100%;
+    justify-content: center;
   }
 
   .data_profesionales .title-adress i {
@@ -16204,6 +16205,7 @@ a:link, a:visited, a:active, a:hover {
 
   .data_profesionales .title-adress {
     width: 40%;
+    justify-content: flex-start;
   }
 
   .data_profesionales .title-adress i {
