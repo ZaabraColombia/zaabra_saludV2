@@ -106,7 +106,7 @@
                         <div class="secction_tarjeta-popup">
                             <img id="img_pagoPse" src="{{URL::asset('/img/popup-pago/medios-online-pse-azul.svg')}}" class="icon_popup"> 
 
-                            <h3 class="textoCheck_popup"> Medio online (PSE) </h3>   
+                            <h3 class="textoCheck_popup"> Pago en línea (PSE) </h3>   
 
                             <input class="inputCheck_popup" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                         </div>  
