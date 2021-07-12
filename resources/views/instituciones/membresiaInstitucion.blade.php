@@ -49,9 +49,11 @@
 
       <!-- Botón Registrar -->
       <div class="col-10 content_btn-ingresar-institucion">
-        <button type="submit" class="btn_Ingreso-institucion"> {{ __('Registro') }}
-          <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-institucion" alt=""> 
-        </button>
+        <a href="{{route('register')}}">
+          <button type="submit" class="btn_Ingreso-institucion"> {{ __('Registro') }}
+            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-institucion" alt=""> 
+          </button>
+        </a>
       </div>
     </div>
 
@@ -243,11 +245,11 @@
         </div>
       </div>
 
-      <p class="texto_inferior-institucion"> Puede complementar y personalizar su plan con recursos publicitarios adicionales. <a class="contac_institucion" href="{{route('contacto')}}"> Contáctenos </a> para ser atendido por un representante. *Vigencia anual. </p>
+      <p class="texto_inferior-institucion"> Puede complementar y personalizar su plan con recursos publicitarios adicionales. <a class="contac_institucion" href="{{route('contacto')}}" target="blank"> Contáctenos </a> para ser atendido por un representante. *Vigencia anual. </p>
 
       <!-- Botón Empezar -->
       <div class="col-10 content_btn-ingresar-institucion">
-        <button type="submit" class="btn_Ingreso-institucion"> {{ __('Empezar') }}
+        <button type="submit" class="btn_Ingreso-institucion" data-toggle="modal" data-target="#exampleModal"> {{ __('Empezar') }}
           <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-institucion" alt=""> 
         </button>
       </div>
