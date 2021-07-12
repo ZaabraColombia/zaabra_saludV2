@@ -14844,6 +14844,13 @@ a:link, a:visited, a:active, a:hover {
     margin-bottom: 1%;
   }
 
+  .data_profesionales .title-adress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
   .data_profesionales .title-adress i {
     width: 7%;
     height: 18px;
@@ -15642,11 +15649,11 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .data_profesionales .title-adress {
-    width: 20%;
+    width: 100%;
   }
 
   .data_profesionales .title-adress i {
-    width: 20%;
+    width: 4%;
     height: 25px;
   }
 
