@@ -275,70 +275,68 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
                 <h5 class="col-12 icon_infoContac-formProf"> Información de contacto </h5>
-
+                
                 <div class="row fila_infoBasica-formProf">
                     @if(!empty($objFormulario))
-                        <div class="col-md-6 section_inputLeft-text-formProf">    
+                        <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
-
-                            <input class="col-12 form-control" id="tarjeta" placeholder="Número de celular" type="number" name="celular" value="{{$objFormulario->celular}}">
+                            <input class="col-12 form-control" id="tarjeta" placeholder="{{$objFormulario->celular}}" value="{{$objFormulario->celular}}" type="number" name="celular" required >
                         </div>
 
-                        <div class="col-md-6 section_inputRight-text-formProf">    
+                        <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Teléfono </label>
-
-                            <input class="col-12 form-control" id="telefono" placeholder="Número de teléfono" type="number" name="telefono" value="{{$objFormulario->telefono}}">
+                            <input class="col-12 form-control" id="telefono" placeholder="{{$objFormulario->telefono}}" value="{{$objFormulario->telefono}}" type="number" name="telefono" >
                         </div>
-                        
-                        <div class="col-md-6 section_inputLeft-text-formProf">    
+
+                        <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Dirección </label>
-                                
-                            <input class="col-12 form-control" id="direccion" placeholder="Direccion" type="text" name="direccion" value="{{$objFormulario->direccion}}">
+                            <input class="col-12 form-control" id="direccion" placeholder="{{$objFormulario->direccion}}" value="{{$objFormulario->direccion}}" type="text" name="direccion" required>
                         </div>
 
                         <!--menu dinamico ciudades -->
                         <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione país </label>
-
-                            <select id="idpais" name="idpais" class="col-12 form-control">
-                                <option value="" selected disabled>Seleccione país</option>
-
-                                @foreach($pais as $pais)
-                                    <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
-                                @endforeach
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione país </label>
+                            <select id="idpais" name="idpais" class="form-control" required>
+                                <option value="{{$objFormulario->id_pais}}" selected disabled>{{$objFormulario->nombrePais}}</option>
+                                    @foreach($pais as $pais)
+                                        <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
+                                    @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-6 section_inputLeft-text-formProf">
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione departamento </label>
+                                <div id="popover_departamento" class="popover" style="display:none;">
+                                    Debe seleccionar un departamento
+                                </div>
+                            <select name="id_departamento" id="id_departamento" class="form-control" required>
+                                 <option value="{{$objFormulario->id_departamento}}" selected disabled>{{$objFormulario->nombreDepartamento}}</option>
+                            </select>
+                        </div>
+                
+                        <div class="col-md-6 section_inputRight-text-formProf">
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione provincia </label>
+                                <div id="popover_provincia" class="popover" style="display:none;">
+                                    Debe seleccionar una provincia
+                                </div>
+                            <select name="id_provincia" id="id_provincia" class="form-control" required>
+                                  <option value="{{$objFormulario->id_provincia}}" selected disabled>{{$objFormulario->nombreProvincia}}</option>
                             </select>
                         </div>
 
                         <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione departamento </label>
-
-                            <select name="id_departamento" id="id_departamento" class="col-12 form-control"></select>
-                        </div>
-                    
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione provincia </label>
-
-                            <select name="id_provincia" id="id_provincia" class="col-12 form-control"></select>
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione ciudad </label>
-
-                            <select name="id_municipio" id="id_municipio" class="col-12 form-control"></select>
+                               <div id="popover_ciudad" class="popover" style="display:none;">
+                                    Debe seleccionar una ciudad
+                                </div>
+                            <select name="id_municipio" id="id_municipio" class="form-control" required>
+                                 <option value="{{$objFormulario->id_municipio}}" selected disabled>{{$objFormulario->nombreMunicipio}}</option>
+                            </select>
                         </div>
-
-                        <!-- Botón guardar información -->
-                        <div class="col-12 content_btnEnviar-formProf">
-                            <button type="submit" class="btn2_enviar-formProf"> Guardar
-                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
-                            </button>
-                        </div>
-                        
                     @else
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
                                 
-                            <input class="col-12 form-control" id="tarjeta" placeholder="Número de celular" type="number" name="celular"required >
+                            <input class="col-12 form-control" id="tarjeta" placeholder="Número de celular" type="number" name="celular" required >
                         </div>
 
                         <div class="col-md-6 section_inputRight-text-formProf">
@@ -356,40 +354,44 @@
                         <!--menu dinamico ciudades -->
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione país </label>
-
                             <select id="idpais" name="idpais" class="form-control" required>
                                 <option value="" selected disabled> Seleccione país </option>
-
-                                @foreach($pais as $pais)
-                                    <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
-                                @endforeach
+                                    @foreach($pais as $pais)
+                                        <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
+                                    @endforeach
                             </select>
                         </div>
 
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Selecione departamento </label>
-
+                                <div id="popover_departamento" class="popover" style="display:none;">
+                                    Debe seleccionar un departamento
+                                </div>
                             <select name="id_departamento" id="id_departamento" class="form-control" required></select>
                         </div>
                 
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione provincia </label>
+                                <div id="popover_provincia" class="popover" style="display:none;">
+                                    Debe seleccionar una provincia
+                                </div>
                             <select name="id_provincia" id="id_provincia" class="form-control" required></select>
                         </div>
 
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione ciudad </label>
-
+                               <div id="popover_ciudad" class="popover" style="display:none;">
+                                    Debe seleccionar una ciudad
+                                </div>
                             <select name="id_municipio" id="id_municipio" class="form-control" required></select>
                         </div>
-
+                    @endif
                         <!-- Botón guardar información -->
                         <div class="col-12 content_btnEnviar-formProf">
                             <button type="submit" class="btn2_enviar-formProf"> Guardar
                                 <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                             </button>
                         </div>
-                    @endif
                 </div>
             </form>
         </div>
@@ -581,13 +583,13 @@
                     <div class="col-12 px-0">
                         <p for="example-date-input" class="text_superior-proced-formProf"> Escriba una breve descripción de su biografía </p>
 
-                        <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil" >{{$objFormulario->descripcionPerfil}}</textarea>
+                        <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil" required>{{$objFormulario->descripcionPerfil}}</textarea>
                     </div>
                 @else
                     <div class="col-12 px-0">
                         <p for="example-date-input" class="text_superior-proced-formProf"> Escriba una breve descripción de su biografía </p>
 
-                        <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil" ></textarea>
+                        <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil" required></textarea>
 
                         <labe class="col-12 text_infoImg-formProf"> 270 Caracteres </label> 
                     </div>
@@ -1144,19 +1146,18 @@
             <div class="asociacion_guardada-formProf">
                 @foreach($objAsociaciones as $objAsociaciones)
                     @if(!empty($objAsociaciones->imgasociacion))
-                    <div class="section_infoAsocia-formProf">
-                        <div class="col-12 content_btnX-cierre-formProf">
-                            <a href="{{url('/FormularioProfesionaldelete7/'.$objAsociaciones->idAsociaciones)}}">
-                                <button type="submit" class="close" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </a>
+                        <div class="section_infoAsocia-formProf">
+                            <div class="col-12 content_btnX-cierre-formProf">
+                                <a href="{{url('/FormularioProfesionaldelete7/'.$objAsociaciones->idAsociaciones)}}">
+                                    <button type="submit" class="close" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="option_asociacion-formProf">
+                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objAsociaciones->imgasociacion)}}">
+                            </div>
                         </div>
-                            
-                        <div class="option_asociacion-formProf">
-                            <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objAsociaciones->imgasociacion)}}">
-                        </div>
-                    </div>
                     @endif
                 @endforeach
             </div>

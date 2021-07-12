@@ -23,7 +23,7 @@
 
                     <div class="col-lg-10 terminos_contenido d-none d-lg-flex">
                         <input class="checkBox_terminos" type="checkbox" id="">
-                        <h4 class="texto_terminos">Acepto <b><u>términos y condiciones</u></b> y autorizo el <b><u>tratamiento de mis datos personales</u></b></h4>
+                        <h4 class="texto_terminos">Acepto <a href="{{url('politicas')}}"> términos y condiciones </a> y autorizo el <b><u>tratamiento de mis datos personales</u></b></h4>
                     </div>
                 </form>
                 <div class="alert_Newsletter d-none" id="msg_div">
@@ -188,7 +188,7 @@
                         <img class="logo_header-footer" src="{{URL::asset('/img/header/logo-zaabra-salud.png')}}">
                     </a>
                     <span class="titulo_contactanos-cel"> CONTÁCTENOS </span>
-                    <span class="correo_contactanos-cel"> seervicioalcliente@zaabra.com.co </span>
+                    <span class="correo_contactanos-cel">servicioalcliente@zaabrasalud.com.co</span>
                 </div>
 
                 <div class="iconos_redes-sociales-cel">

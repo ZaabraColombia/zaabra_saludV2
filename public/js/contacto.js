@@ -30,7 +30,7 @@ function elementHidden (z){
 
 $('#contactForm').on('submit',function(e){
     e.preventDefault();
-    $('#send_form').html('enviando...');
+    //$('#send_form').html('enviando...');
     $.ajax({
       url: "contacto",
       type:"POST",
