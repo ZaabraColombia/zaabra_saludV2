@@ -3,23 +3,33 @@
 @section('content')
     <!--carrusel banner principal home--> 
 <section class="swiper-container swiper_principal">
-      <div class="swiper-wrapper">
-            @foreach ($objbannersprincipalHome as $objbannersprincipalHome)
-                  <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
-            @endforeach
+    <div class="section_txtBanner">
+        <h2 class="txt_banner"> LE DAMOS LA <br> BIENVENIDA A <br> ZAABRA SALUD <br></h2>
+        <h2 class="txt2_banner"> Agenda tu cita médica fácil <br> y rápido con: <br></h2>
+        <h2 class="txt3_banner"> - Especialistas de todas las ramas <br> - instituciones, clínicas y mucho más </h2>
+
+        <div class="content_btn-agendarHome">
+        <button type="submit" class="btn_agendarHome"> {{ __('Agende su cita') }} 
+          <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+        </button>
       </div>
+    </div>
+    
+    <div class="swiper-wrapper">
+        @foreach ($objbannersprincipalHome as $objbannersprincipalHome)
+                <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
+        @endforeach
+    </div>
 
-      <div class="swiper-pagination"></div>
+    <div class="swiper-pagination"></div>
 
-      <!-- If we need navigation buttons -->
-      <!-- <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div> -->
+    <!-- If we need navigation buttons -->
+    <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
 
 </section>
 <!--MENU PORTAFOLIO-->
 <h1 class="titulo_portafolio">Nuestro Portafolio</h1>
-
-
 
 <section class="contains_menu">
     <div class="row row_contains">
