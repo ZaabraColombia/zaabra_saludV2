@@ -151,8 +151,8 @@ class formularioProfesionalController extends Controller
     return DB::select("SELECT pf.direccion,  pf.genero, pf.EmpresaActual, pf.celular, pf.telefono,
     pf.fotoperfil, pf.fechanacimiento, pf.numeroTarjeta, pf.entidadCertificoTarjeta,
     pf.descripcionPerfil,ar.idarea, ar.nombreArea ,pr.idprofesion, pr.nombreProfesion, 
-    ep.idEspecialidad,  ep.nombreEspecialidad, p.id_pais,p.nombre, de.id_departamento, de.nombre,
-    prv.id_provincia,prv.nombre, mu.id_municipio, mu.nombre
+    ep.idEspecialidad,  ep.nombreEspecialidad, p.id_pais, p.nombre nombrePais, de.id_departamento, de.nombre nombreDepartamento,
+    prv.id_provincia, prv.nombre nombreProvincia, mu.id_municipio, mu.nombre nombreMunicipio
     FROM perfilesprofesionales pf
     INNER JOIN users us   ON pf.idUser=us.id
     LEFT JOIN  areas ar ON pf.idarea= ar.idArea
