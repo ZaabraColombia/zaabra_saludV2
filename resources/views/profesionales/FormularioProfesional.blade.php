@@ -77,26 +77,26 @@
                         <!-- Sección datos personales -->
                         <div class="row col-md-9 datos_principales-formProf">
                             @foreach ($objuser as $objuser)
-                            <div class="col-lg-6 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Nombres </label>
+                                <div class="col-lg-6 section_inputRight-text-formProf">
+                                    <label for="example-date-input" class="col-12 text_label-formProf"> Nombres </label>
 
-                                
-                                <div class="col-12 nombres_usuario-formProf">
-                                    <input class="input_nomApl-formProf" value="{{$objuser->primernombre}}" readonly></input>
+                                    
+                                    <div class="col-12 nombres_usuario-formProf">
+                                        <input class="input_nomApl-formProf" value="{{$objuser->primernombre}}" readonly></input>
 
-                                    <input class="input_nomApl-formProf" value="{{$objuser->segundonombre}}" readonly></input>
+                                        <input class="input_nomApl-formProf" value="{{$objuser->segundonombre}}" readonly></input>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-lg-6 section_inputRight-text-formProf">
-                                <label for="example-date-input"class="col-12 text_label-formProf"> Apellidos </label>
+                                <div class="col-lg-6 section_inputRight-text-formProf">
+                                    <label for="example-date-input"class="col-12 text_label-formProf"> Apellidos </label>
 
-                                <div class="col-12 nombres_usuario-formProf">
-                                    <input class="input_nomApl-formProf" value="{{$objuser->primerapellido}}" readonly></input>
+                                    <div class="col-12 nombres_usuario-formProf">
+                                        <input class="input_nomApl-formProf" value="{{$objuser->primerapellido}}" readonly></input>
 
-                                    <input class="input_nomApl-formProf" value="{{$objuser->segundoapellido}}" readonly></input>
+                                        <input class="input_nomApl-formProf" value="{{$objuser->segundoapellido}}" readonly></input>
+                                    </div>
                                 </div>
-                            </div>
                             @endforeach
 
                             <div class="col-md-6 section_inputRight-text-formProf">
@@ -257,7 +257,7 @@
                             </div>
 
                             <div class="col-md-3 content_btnEnviar-formProf">
-                                <button type="submit" class="btn_enviar-formProf"> Guaradar
+                                <button type="submit" class="btn_enviar-formProf"> Guardar
                                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                                 </button>
                             </div>
@@ -292,7 +292,7 @@
                             <label for="example-date-input" class="col-12 text_label-formProf"> Dirección </label>
                             <input class="col-12 form-control" id="direccion" placeholder="{{$objFormulario->direccion}}" value="{{$objFormulario->direccion}}" type="text" name="direccion" required>
                         </div>
-
+                       
                         <!--menu dinamico ciudades -->
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione país </label>
@@ -576,29 +576,30 @@
         <div class="col-lg-10 col-xl-8 content_perfil-prof  infoBasica_formProf">
             <h5 class="col-12 icon_infoSubPerfil-formProf"> Perfil profesional </h5>
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave4') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_descripcion">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-
-                @if(!empty($objFormulario))
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formProf"> Escriba una breve descripción de su biografía </p>
-
-                        <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil" required>{{$objFormulario->descripcionPerfil}}</textarea>
-                    </div>
-                @else
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formProf"> Escriba una breve descripción de su biografía </p>
-
-                        <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil" required></textarea>
-
-                        <labe class="col-12 text_infoImg-formProf"> 270 Caracteres </label> 
-                    </div>
-                @endif
-                <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mt-md-3 mb-md-3"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
-                    </button>
+            <form id="formulario_descripcion" method="post" action="javascript:void(0)" enctype="multipart/form-data" accept-charset="UTF-8">
+                <div class="alert alert-success d-none" id="msg_div">
+                   <span id="res_message">Su información se guardó correctamente</span>
                 </div>
+                    @csrf
+                    @if(!empty($objFormulario))
+                        <div class="col-12 px-0">
+                            <p for="example-date-input" class="text_superior-proced-formProf"> Escriba una breve descripción de su biografía </p>
+                            <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil">{{$objFormulario->descripcionPerfil}}</textarea>
+                            <span class="text-danger">{{ $errors->first('name') }}</span>
+                        </div>
+                    @else
+                        <div class="col-12 px-0">
+                            <p for="example-date-input" class="text_superior-proced-formProf"> Escriba una breve descripción de su biografía </p>
+                            <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil"></textarea>
+                            <span class="text-danger">{{ $errors->first('name') }}</span>
+                            <labe class="col-12 text_infoImg-formProf"> 270 Caracteres </label> 
+                        </div>
+                    @endif
+                    <div class="col-12 content_btnEnviar-formProf">
+                        <button type="submit" id="envia_perfil" class="btn2_enviar-formProf mt-md-3 mb-md-3"> Guardar
+                            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
+                        </button>
+                    </div>
             </form>
         </div>
         <!--------------------------------------------      Fin 4 cuarta parte del formulario *** PERFIL PROFESIONAL ***      ------------------------------------------------->
