@@ -28,7 +28,7 @@ use App\Models\publicaciones;
 use App\Models\galerias;
 use App\Models\videos;
 use File;
-
+use Auth;
 
 class formularioProfesionalController extends Controller
 {
@@ -41,66 +41,70 @@ class formularioProfesionalController extends Controller
 
 
     public function index(){
-        $pais = pais::all();
-        $area = areas::all();
-        $universidades = universidades::all();
-        $idiomas = idiomas::all();
-        $id_user=auth()->user()->id;/*id usuario logueado*/
-        $objuser = $this->cargaDatosUser($id_user);
-        $objFormulario=$this->cargaFormulario($id_user);
-        $objFormulario1=$this->cargaFormulario1($id_user);
-        $objContadorConsultas=$this->contadorConsultas($id_user);
-        $objConsultas=$this->cargaConsultas($id_user);
-        $objContadorEducacion=$this->contadorEducacion($id_user);
-        $objEducacion=$this->cargaEducacion($id_user);
-        $objExperiencia=$this->cargaExperiencia($id_user);
-        $objContadorExperiencia=$this->contadorExperiencia($id_user);
-        $objAsociaciones=$this->cargaAsociaciones($id_user);
-        $objContadorAsociaciones=$this->contadorAsociaciones($id_user);
-        $objIdiomas=$this->cargaIdiomas($id_user);
-        $objContadorIdiomas=$this->contadorIdiomas($id_user);
-        $objTratamiento=$this->cargaTratamiento($id_user);
-        $objContadorTratamiento=$this->contadorTratamiento($id_user);
-        $objPremios=$this->cargaPremios($id_user);
-        $objContadorPremios=$this->contadorPremios($id_user);
-        $Publicaciones=$this->cargaPublicaciones($id_user);
-        $objContadorPublicaciones=$this->contadorPublicaciones($id_user);
-        $objGaleria=$this->cargaGaleria($id_user);
-        $objContadorGaleria=$this->contadorGaleria($id_user);
-        $objVideo=$this->cargaVideo($id_user);
-        $objContadorVideo=$this->contadorVideo($id_user);
-    
 
-        
-        return view('profesionales.FormularioProfesional',compact(
-        'objuser',
-        'area',
-        'pais',
-        'idiomas',
-        'universidades',
-        'objFormulario',
-        'objFormulario1',
-        'objContadorConsultas',
-        'objConsultas',
-        'objContadorEducacion',
-        'objEducacion',
-        'objExperiencia',
-        'objContadorExperiencia',
-        'objAsociaciones',
-        'objContadorAsociaciones',
-        'objIdiomas',
-        'objContadorIdiomas',
-        'objTratamiento',
-        'objContadorTratamiento',
-        'objPremios',
-        'objContadorPremios',
-        'Publicaciones',
-        'objContadorPublicaciones',
-        'objGaleria',
-        'objContadorGaleria',
-        'objVideo',
-        'objContadorVideo'
-        ));
+        if (Auth::check()){
+            $id_user=auth()->user()->id;/*id usuario logueado*/
+            $pais = pais::all();
+            $area = areas::all();
+            $universidades = universidades::all();
+            $idiomas = idiomas::all();
+            $objuser = $this->cargaDatosUser($id_user);
+            $objFormulario=$this->cargaFormulario($id_user);
+            $objFormulario1=$this->cargaFormulario1($id_user);
+            $objContadorConsultas=$this->contadorConsultas($id_user);
+            $objConsultas=$this->cargaConsultas($id_user);
+            $objContadorEducacion=$this->contadorEducacion($id_user);
+            $objEducacion=$this->cargaEducacion($id_user);
+            $objExperiencia=$this->cargaExperiencia($id_user);
+            $objContadorExperiencia=$this->contadorExperiencia($id_user);
+            $objAsociaciones=$this->cargaAsociaciones($id_user);
+            $objContadorAsociaciones=$this->contadorAsociaciones($id_user);
+            $objIdiomas=$this->cargaIdiomas($id_user);
+            $objContadorIdiomas=$this->contadorIdiomas($id_user);
+            $objTratamiento=$this->cargaTratamiento($id_user);
+            $objContadorTratamiento=$this->contadorTratamiento($id_user);
+            $objPremios=$this->cargaPremios($id_user);
+            $objContadorPremios=$this->contadorPremios($id_user);
+            $Publicaciones=$this->cargaPublicaciones($id_user);
+            $objContadorPublicaciones=$this->contadorPublicaciones($id_user);
+            $objGaleria=$this->cargaGaleria($id_user);
+            $objContadorGaleria=$this->contadorGaleria($id_user);
+            $objVideo=$this->cargaVideo($id_user);
+            $objContadorVideo=$this->contadorVideo($id_user);
+
+            return view('profesionales.FormularioProfesional',compact(
+            'objuser',
+            'area',
+            'pais',
+            'idiomas',
+            'universidades',
+            'objFormulario',
+            'objFormulario1',
+            'objContadorConsultas',
+            'objConsultas',
+            'objContadorEducacion',
+            'objEducacion',
+            'objExperiencia',
+            'objContadorExperiencia',
+            'objAsociaciones',
+            'objContadorAsociaciones',
+            'objIdiomas',
+            'objContadorIdiomas',
+            'objTratamiento',
+            'objContadorTratamiento',
+            'objPremios',
+            'objContadorPremios',
+            'Publicaciones',
+            'objContadorPublicaciones',
+            'objGaleria',
+            'objContadorGaleria',
+            'objVideo',
+            'objContadorVideo'
+            ));
+
+        }else{
+            return redirect()->guest('/login');
+        }
     }
 
 
@@ -583,9 +587,6 @@ public function delete3($id){
 
 /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 4----------------------*/
 public function create4(Request $request){
-
-
-
     /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
     $verificaPerfil = $this->verificaPerfil();
 
@@ -598,7 +599,6 @@ public function create4(Request $request){
     perfilesprofesionales::where('idUser', $id_user)->update($request->all());
 
     return redirect('FormularioProfesional'); 
-
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 4----------------------*/
 

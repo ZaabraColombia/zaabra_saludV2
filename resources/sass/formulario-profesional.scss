@@ -1248,33 +1248,12 @@
     display: none;
 }
 
-.popover{
-    color: red;
-    position: absolute;
-    top: 11%;
-    left: 0;
-    z-index: 1070;
-    display: block;
-    max-width: 276px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: left;
-    text-align: start;
-    text-decoration: none;
-    text-shadow: none;
-    text-transform: none;
-    letter-spacing: normal;
-    word-break: normal;
-    word-spacing: normal;
-    white-space: normal;
-    line-break: auto;
-    font-size: .875rem;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,.2);
-    border-radius: .3rem;
+label.error{
+color: #721c24;
+background-color: #f8d7da;
+border-color: #f5c6cb;
+border-radius: 5px;
+z-index: 199;
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
