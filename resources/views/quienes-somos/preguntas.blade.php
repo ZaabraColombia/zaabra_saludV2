@@ -11,13 +11,13 @@
         <h5 class="titulo_principal-pregunta"> ¿Dudas? ¿Inquietudes? </h5>
         <p class="titulo_superior-pregunta"> En esta sección resolveremos todas las preguntas más frecuentes sobre Zaabra salud. </p>
 
-        <div class="mb-3 mb-md-5 contain_accordion-pregunta" id="accordion">
-            <div class="card containt_options-collapse-pregunta">
+        <div class="mb-3 mb-md-5 evento_acordion contain_accordion-pregunta" id="accordion">
+            <div class="card containt_options-collapse-acerca">
                 <div id="headingOne">
-                    <button class="boton_collapse-on-pregunta" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> ¿Qué es Zaabra Salud? </button>
+                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> ¿Qué es Zaabra Salud? </button>
                 </div>
 
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body text_interno-toggle-pregunta">
                         <p>
                         Zaabra es una empresa de desarrollo de productos digitales, con soluciones alrededor del e-commerce y plataformas especializadas en potenciar a profesionales y empresarios colombianos. <br><br> 
@@ -38,9 +38,9 @@
                 </div>
             </div>
 
-            <div class="card containt_options-collapse-pregunta">
+            <div class="card containt_options-collapse-acerca">
                 <div id="headingTwo">
-                    <button class="boton_collapse-off-pregunta" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> ¿Cómo funciona Zaabra Salud? </button>
+                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> ¿Cómo funciona Zaabra Salud? </button>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div class="card-body text_interno-toggle-pregunta">
@@ -58,9 +58,9 @@
                 </div>
             </div>
 
-            <div class="card containt_options-collapse-pregunta">
+            <div class="card containt_options-collapse-acerca">
                 <div id="headingThree">
-                    <button class="boton_collapse-off-pregunta" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> ¿Quién puede utilizar Zaabra Salud? </button>
+                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> ¿Quién puede utilizar Zaabra Salud? </button>
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                     <div class="card-body text_interno-toggle-pregunta">
@@ -69,9 +69,9 @@
                 </div>
             </div>
 
-            <div class="card containt_options-collapse-pregunta">
+            <div class="card containt_options-collapse-acerca">
                 <div id="headingFour">
-                    <button class="boton_collapse-off-pregunta" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"> ¿Cómo me registro en Zaabra Salud? </button>
+                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"> ¿Cómo me registro en Zaabra Salud? </button>
                 </div>
                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                     <div class="card-body text_interno-toggle-pregunta">
@@ -80,9 +80,9 @@
                 </div>
             </div>
 
-            <div class="card containt_options-collapse-pregunta">
+            <div class="card containt_options-collapse-acerca">
                 <div id="headingFive">
-                    <button class="boton_collapse-off-pregunta" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive"> ¿Puedo registrarme bajo más de un tipo de perfil? </button>
+                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive"> ¿Puedo registrarme bajo más de un tipo de perfil? </button>
                 </div>
                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
                     <div class="card-body text_interno-toggle-pregunta">
@@ -91,9 +91,9 @@
                 </div>
             </div>
             
-            <div class="card containt_options-collapse-pregunta">
+            <div class="card containt_options-collapse-acerca">
                 <div id="headingSix">
-                    <button class="boton_collapse-off-pregunta" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix"> ¿Debo pagar para registrarme? </button>
+                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix"> ¿Debo pagar para registrarme? </button>
                 </div>
                 <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
                     <div class="card-body text_interno-toggle-pregunta">
@@ -102,9 +102,9 @@
                 </div>
             </div>
 
-            <div class="card containt_options-collapse-pregunta">
+            <div class="card containt_options-collapse-acerca">
                 <div id="headingSeven">
-                    <button class="boton_collapse-off-pregunta" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven"> ¿Cuáles especialidades puedo conseguir en Zaabra Salud? </button>
+                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven"> ¿Cuáles especialidades puedo conseguir en Zaabra Salud? </button>
                 </div>
                 <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
                     <div class="card-body text_interno-toggle-pregunta">
@@ -113,9 +113,9 @@
                 </div>
             </div>
 
-            <div class="card containt_options-collapse-pregunta">
+            <div class="card containt_options-collapse-acerca">
                 <div id="headingEight">
-                    <button class="boton_collapse-off-pregunta" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight"> ¿Cuáles tipos de entidades puedo conseguir en Zaabra Salud? </button>
+                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight"> ¿Cuáles tipos de entidades puedo conseguir en Zaabra Salud? </button>
                 </div>
                 <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
                     <div class="card-body text_interno-toggle-pregunta">
@@ -124,9 +124,9 @@
                 </div>
             </div>
 
-            <div class="card containt_options-collapse-pregunta">
+            <div class="card containt_options-collapse-acerca">
                 <div id="headingNine">
-                    <button class="boton_collapse-off-pregunta" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine"> ¿Puedo tener más de una cita agendada? </button>
+                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine"> ¿Puedo tener más de una cita agendada? </button>
                 </div>
                 <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
                     <div class="card-body text_interno-toggle-pregunta">
@@ -135,9 +135,9 @@
                 </div>
             </div>
 
-            <div class="card containt_options-collapse-pregunta">
+            <div class="card containt_options-collapse-acerca">
                 <div id="headingTen">
-                    <button class="boton_collapse-off-pregunta" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen"> ¿Puedo agendar una cita para un tercero? </button>
+                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen"> ¿Puedo agendar una cita para un tercero? </button>
                 </div>
                 <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordion">
                     <div class="card-body text_interno-toggle-pregunta">
@@ -146,9 +146,9 @@
                 </div>
             </div>
 
-            <div class="card containt_options-collapse-pregunta">
+            <div class="card containt_options-collapse-acerca">
                 <div id="headingEleven">
-                    <button class="boton_collapse-off-pregunta" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven"> Para agendar una cita, ¿Debo pagarla? </button>
+                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven"> Para agendar una cita, ¿Debo pagarla? </button>
                 </div>
                 <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordion">
                     <div class="card-body text_interno-toggle-pregunta">
@@ -157,9 +157,9 @@
                 </div>
             </div>
 
-            <div class="card containt_options-collapse-pregunta">
+            <div class="card containt_options-collapse-acerca">
                 <div id="headingTwelve">
-                    <button class="boton_collapse-off-pregunta" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve"> ¿Puedo hacer modificaciones o cancelaciones sobre una cita agendada? </button>
+                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve"> ¿Puedo hacer modificaciones o cancelaciones sobre una cita agendada? </button>
                 </div>
                 <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordion">
                     <div class="card-body text_interno-toggle-pregunta">
@@ -168,9 +168,9 @@
                 </div>
             </div>
 
-            <div class="card containt_options-collapse-pregunta">
+            <div class="card containt_options-collapse-acerca">
                 <div id="headingThirteen">
-                    <button class="boton_collapse-off-pregunta" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen"> ¿Zaabra Salud garantiza la seguridad y privacidad de mi información y datos personales? </button>
+                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen"> ¿Zaabra Salud garantiza la seguridad y privacidad de mi información y datos personales? </button>
                 </div>
                 <div id="collapseThirteen" class="collapse" aria-labelledby="headingThirteen" data-parent="#accordion">
                     <div class="card-body text_interno-toggle-pregunta">

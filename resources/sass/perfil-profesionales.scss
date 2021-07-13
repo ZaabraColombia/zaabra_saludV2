@@ -287,7 +287,7 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
-.galeria {
+.galerias {
     background-image: url('/img/landing-profesional/icono-principal-galeria.svg');
     background-repeat: no-repeat;
     background-size: contain;
@@ -431,17 +431,17 @@
     background-size: contain;
 }
 
-.idiomas ul li{
+.idomas ul li{
     display: flex;
     list-style: none;
     align-content: center;
     justify-content: space-around;
     align-items: center;
 }
-.idiomas ul li:nth-child(odd){
+.idomas ul li:nth-child(odd){
     background: #F5F5F5;
 }
-.idiomas h2 {
+.idomas h2 {
     display: flex;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
@@ -450,16 +450,16 @@
     justify-content: flex-start;
     align-items: center;
 }
-.idiomas p {
+.idomas p {
     font-family: "Roboto";
     color: #3E3E3E;
 }
-.idiomas i {
-    background-image: url('/img/landing-profesional/icono-experiencia.svg');
+.idomas i {
+    background-image: url('/img/landing-profesional/icono-idiomas.svg') ;
     background-repeat: no-repeat;
     background-size: contain;
 }
-.idiomas .contains_idioma{
+.idomas .contains_idioma{
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -1055,28 +1055,28 @@
         height: 30px;
     }
 
-    .idiomas{
+    .idomas{
         width: 90%;
         margin: auto;
     }
-    .idiomas ul li{
+    .idomas ul li{
         margin-bottom: 5%;
         height: 12vh;
     }
-    .idiomas img{
+    .idomas img{
         max-width: 100%;
         -o-object-fit: cover;
         object-fit: contain;
         height: 20px;
         image-rendering: -webkit-optimize-contrast;
     }
-    .idiomas h2{
+    .idomas h2{
         font-size: 1.1em;
     }
-    .idiomas p{
+    .idomas p{
         font-size: 0.8em;
     }
-    .idiomas i {
+    .idomas i {
         width: 14%;
         height: 30px;
     }
@@ -1114,6 +1114,7 @@
     }
     .swiper_premios{
         max-width: 70%;
+        height: fit-content;
     }
     .swiper_premios img{
         max-width: 100%;
@@ -1176,9 +1177,9 @@
     .publicaciones_profesional h2{
         font-size: 1.1em;
     }
-    .galeria_profesional{
+    /*.galeria_profesional{
         height: 55vh;
-    }
+    }*/
     .galeria_profesional h2 {
         font-size: 1.1em;
         text-align: center;
@@ -1206,6 +1207,15 @@
         width: 100%;
         height: 80px;
         object-fit: cover;
+    }
+    .swiper_galeria_prof {
+        width: 75%;
+        height: fit-content;
+    }
+    .img_galleryLprof {
+        width: 100%;
+        height: 25vh;
+        object-fit: fill;
     }
     .videos_profesional{
         width: 90%;
@@ -1345,6 +1355,12 @@
         margin: 0;
     }
 }
+@media (min-width: 360px){
+    .section_backArrow {
+        width: 75%;
+        height: 4vh;
+    }
+}
 @media (min-width: 375px){
 
     .data_profesionales img{
@@ -1396,7 +1412,7 @@
     .asociaciones i{
         width: 12%;
     }
-    .idiomas h2 {
+    .idomas h2 {
         font-size: 1.3em;
     }
     .tratamientos_profesional h2 {
@@ -1654,34 +1670,34 @@
         max-width: 50%;
         height: 65px;
     }
-    .idiomas h2 {
+    .idomas h2 {
         font-size: 1.8em;
     }
-    .idiomas i {
+    .idomas i {
         width: 10%;
         height: 45px;
     }
-    .idiomas ul{
+    .idomas ul{
         padding-left: 10%;
     }
-    .section_perfil_profesional .idiomas ul li{
+    .section_perfil_profesional .idomas ul li{
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
         padding-left: 0;
     }
-    .idiomas .contains_idioma {
+    .idomas .contains_idioma {
         display: flex;
         flex-direction: row;
         align-content: center;
         justify-content: space-between;
         align-items: center;
     }
-    .idiomas img{
+    .idomas img{
         max-width: 50%;
         height: 30px;
     }
-    .idiomas p {
+    .idomas p {
         width: 90px;
         font-size: 1.2em;
         font-weight: 500;
@@ -1783,7 +1799,7 @@
         height: 45px;
     }
     .galeria_profesional {
-        height: 40vh;
+        height: fit-content;
     }
     .galeria_profesional ul {
         max-width: 75%;
@@ -1794,6 +1810,20 @@
     }
     .gallery_profesional > li > img {
         height: 145px;
+    }
+    .galeria_profesional .btn-prev {
+        width: 15px;
+        height: 20px;
+        left: 15%;
+        color: #0083D6;
+        margin-top: -20%;
+    }
+    .galeria_profesional .btn-next {
+        width: 15px;
+        height: 20px;
+        right: 15%;
+        color: #0083D6;
+        margin-top: -20%;
     }
     .videos_profesional h2 {
         font-size: 1.8em;
@@ -1963,7 +1993,7 @@
     .educacion,
     .experiencia,
     .asociaciones,
-    .idiomas,
+    .idomas,
     .tratamientos_profesional,
     .publicaciones_profesional,
     .videos_profesional {
@@ -1974,7 +2004,7 @@
     .educacion i,
     .experiencia i,
     .asociaciones i,
-    .idiomas i,
+    .idomas i,
     .tratamientos_profesional i,
     .contains_swiper_premios i,
     .publicaciones_profesional i,
@@ -1989,7 +2019,7 @@
     .educacion ul,
     .experiencia ul,
     .asociaciones ul,
-    .idiomas ul {
+    .idomas ul {
         padding-left: 8%;
     }
     .contains_swiper_premios h2{
@@ -2150,7 +2180,7 @@
     .educacion ul,
     .experiencia ul,
     .asociaciones ul,
-    .idiomas ul {
+    .idomas ul {
         padding-left: 30%;
     }
     .destacado ul li {
@@ -2185,7 +2215,7 @@
         margin-top: 5%;
         margin-bottom: 4%;
     }
-    .idiomas ul li {
+    .idomas ul li {
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
@@ -2275,7 +2305,7 @@
     .educacion i, 
     .experiencia i, 
     .asociaciones i, 
-    .idiomas i, 
+    .idomas i, 
     .tratamientos_profesional i, 
     .contains_swiper_premios i, 
     .publicaciones_profesional i, 
@@ -2290,7 +2320,7 @@
     .educacion ul, 
     .experiencia ul, 
     .asociaciones ul, 
-    .idiomas ul {
+    .idomas ul {
         padding-left: 30%;
     }
     .data_profesionales{
@@ -2422,7 +2452,7 @@
         margin-top: 5%;
         margin-bottom: 4%;
     }
-    .idiomas ul li {
+    .idomas ul li {
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
@@ -2593,7 +2623,7 @@
     .educacion, 
     .experiencia, 
     .asociaciones, 
-    .idiomas, 
+    .idomas, 
     .tratamientos_profesional, 
     .publicaciones_profesional, 
     .videos_profesional {
@@ -2648,7 +2678,7 @@
     .educacion i, 
     .experiencia i, 
     .asociaciones i, 
-    .idiomas i, 
+    .idomas i, 
     .tratamientos_profesional i, 
     .contains_swiper_premios i, 
     .publicaciones_profesional i, 
@@ -2663,7 +2693,7 @@
     .educacion ul, 
     .experiencia ul, 
     .asociaciones ul, 
-    .idiomas ul {
+    .idomas ul {
         padding-left: 30%;
     }
     .tratamientos_profesional .card {

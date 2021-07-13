@@ -2,7 +2,7 @@
 
 @section('content')
     <!--carrusel banner principal home--> 
-<section class="swiper-container swiper_principal">
+<section class="swiper-container swiper_principal banner_principalHom">
     <div class="section_txtBanner">
         <h2 class="txt_banner"> LE DAMOS LA <br> BIENVENIDA A <br> ZAABRA SALUD <br></h2>
         <h2 class="txt2_banner"> Agenda tu cita médica fácil <br> y rápido con: <br></h2>
@@ -21,7 +21,7 @@
         @endforeach
     </div>
 
-    <div class="swiper-pagination"></div>
+    <div class="swiper-pagination pagination_home"></div>
 
     <!-- If we need navigation buttons -->
     <!-- <div class="swiper-button-prev"></div>
@@ -41,8 +41,8 @@
 
                 <div class="contains_text">
                     <h1 class="titulo_home">Especialidades médicas</h1>
-                    <p class="parrafo_home">Accede a un directorio con cientos de especialistas de todas las ramas de la salud.</p>
-                    <a href="{{url('/Profesiones')}}" class="ver_mas especialistas hvr-sweep-to-right">Ver mas
+                    <p class="parrafo_home"> Acceda a contenido de los mejores especialistas y agende su cita médica. </p>
+                    <a href="{{url('/Profesiones')}}" class="ver_mas especialistas hvr-sweep-to-right">Ver más
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>
                 </div>
@@ -56,8 +56,8 @@
 
                 <div class="contains_text">
                     <h1 class="titulo_home">Instituciones médicas</h1>
-                    <p class="parrafo_home">Clinicas, centros medicos y odontologicos, toma de examenes y mucho mas</p>
-                    <a href="{{url('/Entidades')}}" class="ver_mas instituciones hvr-sweep-to-right">Ver mas
+                    <p class="parrafo_home"> Clínicas, centros médicos y odontológicos, toma de exámenes y mucho más.</p>
+                    <a href="{{url('/Entidades')}}" class="ver_mas instituciones hvr-sweep-to-right">Ver más
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>
                 </div>
@@ -119,6 +119,10 @@
             @endforeach
         </div>
     </div>
+
+    <!-- If we need navigation buttons -->
+    <div class="btn-prev"></div>
+    <div class="btn-next"></div>
 </section>
 
 

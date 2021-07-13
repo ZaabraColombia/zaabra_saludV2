@@ -61,8 +61,6 @@ function hideForm (z){
     }
 }
 
-
-
 function validateform(){  
     var idrol=document.formularioRegistro.idrol.value; 
         if (idrol==1 && idrol!=null) {

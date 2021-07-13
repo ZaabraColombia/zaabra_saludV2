@@ -10,13 +10,13 @@
     <section class="section_principal-acerca">
         <p class="titulo_superior-acerca">Zaabra Salud, es el sitio donde están, los mejores especialistas e instituciones medicas de todas partes del país al alcance de sus manos y con tan solo un click.</p>
 
-        <div class="mb-3 mb-md-5 contain_accordion-acerca" id="accordion">
+        <div class="mb-3 mb-md-5 evento_acordion contain_accordion-acerca" id="accordion">
             <div class="card containt_options-collapse-acerca">
                 <div id="headingOne">
-                    <button class="boton_collapse-on-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> ¿Quiénes somos? </button>
+                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> ¿Quiénes somos? </button>
                 </div>
 
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body text_interno-toggle-acerca">
                         <p>
                         Zaabra es una empresa de desarrollo de productos digitales, con soluciones alrededor del e-commerce y plataformas especializadas en potenciar a profesionales y empresarios colombianos. <br><br> 
