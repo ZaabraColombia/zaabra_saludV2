@@ -99,7 +99,7 @@
                         <a class="item_landing publicaciones"><span>Publicaciones</span></a>
                     </li>
                     <li class="swiper-slide">
-                        <a class="item_landing galeria"><span>Galería</span></a>
+                        <a class="item_landing galerias"><span>Galería</span></a>
                     </li>
                 </div>
             </div>
@@ -155,7 +155,7 @@
                 </ul>
             </div>
 
-            <div class="idiomas">
+            <div class="idomas">
                 <h2><i></i>Idiomas</h2>
                 <ul>
                     <li>
@@ -240,7 +240,7 @@
                     <div class="swiper-wrapper">
                         @foreach ($objprofesionallandinggaler as $objprofesionallandinggaler)
                             <div class="swiper-slide">
-                                <img src="{{URL::asset($objprofesionallandinggaler->imggaleria)}}">
+                                <img class="img_galleryLprof" src="{{URL::asset($objprofesionallandinggaler->imggaleria)}}">
                                 <h5>{{$objprofesionallandinggaler->nombrefoto}}</h5>
                                 <p>{{$objprofesionallandinggaler->descripcion}}</p>
                             </div>

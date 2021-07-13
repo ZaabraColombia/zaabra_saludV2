@@ -23,7 +23,9 @@
 
                     <div class="col-lg-10 terminos_contenido d-none d-lg-flex">
                         <input class="checkBox_terminos" type="checkbox" id="">
-                        <h4 class="texto_terminos">Acepto <a href="{{url('politicas')}}"> términos y condiciones </a> y autorizo el <a href="{{url('politicas')}}"> tratamiento de mis datos personales </a></h4>
+                        <h4 class="texto_terminos"> Acepto 
+                            <a href="{{url('politicas')}}" target="blank"> términos y condiciones </a> y autorizo el <a href="{{url('politicas')}}" target="blank"> tratamiento de mis datos personales </a>
+                        </h4>
                     </div>
                 </form>
                 <div class="alert_Newsletter d-none" id="msg_div">
@@ -39,8 +41,8 @@
                 <input class="input_suscribirme-cel" type="email" id="correo_newsletter2" name="correo_newsletter" placeholder="servicioalcliente@zaabrasalud.co">
                 <div class="col-12 check_terminos-cel">
                     <input type="checkbox" class="boton_check-terminos-cel" id=""> 
-                    <span class="texto_terminos-cel">Acepto <a href="{{url('politicas')}}"> términos y condiciones </a>
-                        y autorizo el <a href="{{url('politicas')}}"> tratamiento de mis datos personales </a>
+                    <span class="texto_terminos-cel">Acepto 
+                        <a href="{{url('politicas')}}" target="blank"> términos y condiciones </a> y autorizo el <a href="{{url('politicas')}}" target="blank"> tratamiento de mis datos personales </a>
                     </span>
                 </div>
                 <button id="send_form2" type="submit" class="col-5 col-md-4 mb-2 boton_suscribirme-cel">

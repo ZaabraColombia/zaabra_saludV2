@@ -30,7 +30,7 @@
     <div class="evento_acordion contain_accordion-institucion" id="accordion1">
       <h5 class="titulo_tarjeta-institucion"> Plan Gratuito </h5>
       <p class="texto_superior-institucion"> Inícielo gratis hoy y después conviértase al Premium. </p>
-      <p class="texto_tiempo-institucion"> Tiempo de vigencia: 15 días </p>
+      <p class="texto_tiempo-institucion"> Tiempo de vigencia: 8 días </p>
 
       <!-- Sección opcion tarjeta PLAN GRAATUITO -->
       <div class="card containt_options-collapse-institucion">
@@ -41,7 +41,7 @@
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1">
           <div class="card-body text_interno-toggle-institucion">
             <p>
-              Podrá previsualizar su información en una tarjeta ubicada en la galería de Instituciones. Vigencia 15 días.
+              Podrá previsualizar su información en una tarjeta ubicada en la galería de Instituciones. Vigencia 8 días.
             </p>
           </div>
         </div>
