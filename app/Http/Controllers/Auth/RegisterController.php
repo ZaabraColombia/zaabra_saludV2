@@ -95,7 +95,7 @@ class RegisterController extends Controller{
         $id_rol=$data['idrol'];
         $fechaActual = Carbon::now();
         $fecha_fin_actual= Carbon::now();
-        $fecha_fin = $fecha_fin_actual->addDays(15);
+        $fecha_fin = $fecha_fin_actual->addDays(8);
 
         if($id_rol <> 1){
             pagos::create([
