@@ -191,7 +191,8 @@
         height: 45%;
     }
     .contains_slide .contains_image_profesional img{
-        object-fit: contain;
+        object-fit: cover;
+        object-position: top;
     }
     .contains_slide .contains_body{
         height: 55%;

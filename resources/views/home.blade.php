@@ -111,7 +111,7 @@
 
 <!--carousel universidades--> 
 <section class="contains_slider_logoshome">
-    <h1 class="titulo_logos">Ellos Confian en Nosotros</h1>
+    <h1 class="titulo_logos">Ellos confian en nosotros</h1>
     <div class="swiper-container swiper_logoshome">
         <div class="swiper-wrapper">
             @foreach ($objbanneruniversidad as $objbanneruniversidad)

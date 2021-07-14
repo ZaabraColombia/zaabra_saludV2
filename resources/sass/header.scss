@@ -397,14 +397,16 @@ a:link, a:visited, a:active, a:hover {
 }
 .ui-menu {
    // display: block !important;
-    z-index: 100 !important;
-    background: white;
-    width: 90% !important;
-    height: 25vh;
-    overflow: scroll;
-    border-radius: 3px;
-    padding-top: 1%;
-    left: 5.4% !important;
+   z-index: 500 !important;
+   background: white;
+   width: 89.5% !important;
+   height: 28vh;
+   overflow: scroll;
+   border-radius: 3px;
+   padding-top: 1%;
+   top: 95px !important; 
+   left: 5% !important;
+   position: fixed !important;
 }
 .ui-menu-item {
     padding-top: 3%;
@@ -608,6 +610,12 @@ a:link, a:visited, a:active, a:hover {
         background-size: 16%;
     }
 }
+
+@media (min-width: 320px) and (orientation: portrait) {
+    .ui-menu {
+        height: 30vh;
+    }
+} 
 @media (min-width: 768px) and (orientation: portrait) {
     //Contenedor general
     .navbar_zaabrasalud {
@@ -659,6 +667,8 @@ a:link, a:visited, a:active, a:hover {
     .ui-menu {
         width: 90% !important;
         left: 5% !important;
+        top: 180px !important;
+        height: 29vh;
     }
     // Seccion boton usuario 
     .menu_paciente {
@@ -763,7 +773,7 @@ a:link, a:visited, a:active, a:hover {
         background-size: 15%;
     }
 }
-@media (min-width: 1024px) and (max-height: 800px) {
+@media (min-width: 1024px) {
     .contains_barra{
         display: none;
     }
