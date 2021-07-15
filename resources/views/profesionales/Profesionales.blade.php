@@ -7,6 +7,7 @@
       @if(!empty($objmedicossinpago))
         <h1 class="titulo_profesionales">{{$tituloPaginaActual->nombreEspecialidad}}</h1>
       @endif
+
       <section class="contains_swiper_premium">
         <div class="swiper-container swiper_premium">
           <div class="swiper-wrapper">
@@ -70,6 +71,7 @@
                 <div class="card-body">
                   <h2>{{$objmedicospagonormal->nombreEspecialidad}}</h2>
                   <h5>{{$objmedicospagonormal->primernombre}} {{$objmedicospagonormal->primerapellido}}</h5>
+                  <span>{{$objmedicospagonormal->concatNombreEspecialidad}}</span>
                   <p>{{$objmedicospagonormal->nombreuniversidad}}</p>
                   <!-- Rating Stars Box -->
                     <div class='rating-stars text-center'>
