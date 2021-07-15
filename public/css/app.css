@@ -10272,9 +10272,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_paciente > .icon-paciente:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-paciente-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10283,9 +10283,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_paciente > .icon-medico:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-soy-medico-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10294,9 +10294,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_paciente > .icon-instituciones:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10305,9 +10305,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_hamburguesa > .icon-especialidades:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-especialidades-medicas-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10316,9 +10316,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_hamburguesa > .icon-instituciones-burger:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10327,9 +10327,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_hamburguesa > .icon-quienes:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-quienes-somos-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10338,9 +10338,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_hamburguesa > .icon-contactenos:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-contactenos-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10349,9 +10349,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_hamburguesa > .icon-agenda:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-agenda-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10360,9 +10360,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_hamburguesa > .icon-perfil:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-mi-perfil-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10371,9 +10371,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_hamburguesa > .icon-cerrarSesion:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-cerrar-sesion-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10509,12 +10509,12 @@ a:link, a:visited, a:active, a:hover {
 
   .icon_lupa-mobile {
     width: 28px;
-    background: #0083d6;
+    background: #0083D6;
   }
 
   .contains_barra {
     display: none;
-    background-color: #0083d6 !important;
+    background-color: #0083D6 !important;
     width: 100%;
     height: 79%;
     z-index: 20;
@@ -10723,7 +10723,7 @@ a:link, a:visited, a:active, a:hover {
 
   .icon_lupa-mobile {
     width: 130%;
-    background: #0083d6;
+    background: #0083D6;
   }
 
   .inputBarraBusquedad {
@@ -11248,12 +11248,12 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .boton_suscribirme {
-  background: #0083d6;
+  background: #0083D6;
   margin-left: 2%;
   padding: 0;
   height: 3.5vh;
   width: 23%;
-  border: solid 0.1px #0083d6;
+  border: solid 0.1px #0083D6;
   border-radius: 3px;
   display: flex;
   justify-content: center;
@@ -11300,7 +11300,7 @@ a:link, a:visited, a:active, a:hover {
 .footer_info-zaabrasalud {
   margin: 0;
   padding: 1% 0;
-  background: #0083d6;
+  background: #0083D6;
   justify-content: center;
   align-items: center;
 }
@@ -11391,7 +11391,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .footer_copy-right {
-  background: #0083d6;
+  background: #0083D6;
   padding: 0;
   height: 5vh;
   display: flex;
@@ -11467,7 +11467,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .boton_suscribirme-cel {
-    background: #0083d6;
+    background: #0083D6;
     margin: auto;
     height: 5vh;
     font-family: "Quicksand", sans-serif;
@@ -11475,7 +11475,7 @@ a:link, a:visited, a:active, a:hover {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border: solid 0.1px #0083d6;
+    border: solid 0.1px #0083D6;
     border-radius: 4px;
   }
 
@@ -11524,7 +11524,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .iconos_redes-sociales-cel {
-    background: #0083d6;
+    background: #0083D6;
     margin: 2% auto;
     padding: 0;
     height: 5vh;
@@ -11541,7 +11541,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .infoZaabra_contenido-cel {
-    background: #0083d6;
+    background: #0083D6;
   }
 
   .contenido_desplegable-cel {
@@ -11554,7 +11554,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .boton_infoZaabra-cel {
-    background: #0083d6;
+    background: #0083D6;
     padding: 0;
     height: 100%;
     border: none;
@@ -11600,7 +11600,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .desplegable_infoZaabra-cel {
-    background: #0083d6 !important;
+    background: #0083D6 !important;
     padding: 0 0 5% 0 !important;
     line-height: 1.4;
     border: none !important;
@@ -11613,7 +11613,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contenido_linea-blanca-cel {
-    background: #0083d6;
+    background: #0083D6;
     margin: 0;
     padding: 0;
     height: 1vh;
@@ -11961,9 +11961,32 @@ a:link, a:visited, a:active, a:hover {
   background-size: 3%;
 }
 
-.text_interno-toggle-acerca {
+.section_toggleFoot {
+  padding: 5% 4% 0 4%;
+}
+
+.txt_interno_toggleFoot {
   font-size: 0.85em;
+  font-family: "Roboto", "Regular";
   color: #3E3E3E;
+}
+
+.title_interno_toggleFoot {
+  font-size: 1em;
+  font-family: "Roboto", "Regular";
+  font-weight: bolder;
+  color: #3E3E3E;
+  margin-bottom: 2%;
+}
+
+.option_toggleFoot {
+  list-style-type: none;
+  list-style-type: none;
+  font-size: 0.85em;
+  font-family: "Roboto", "Regular";
+  color: #3E3E3E;
+  padding-left: 3%;
+  margin-bottom: 5%;
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
@@ -11989,8 +12012,23 @@ a:link, a:visited, a:active, a:hover {
     background-size: 6%;
   }
 
-  .text_interno-toggle-acerca {
+  .txt_interno_toggleFoot {
     font-size: 0.6em;
+    margin-bottom: 5%;
+  }
+
+  .title_interno_toggleFoot {
+    font-size: 0.653em;
+    margin-bottom: 2%;
+  }
+
+  .option_toggleFoot {
+    list-style-type: none;
+    font-size: 0.6em;
+    font-family: "Roboto", "Regular";
+    color: #3E3E3E;
+    padding-left: 3%;
+    margin-bottom: 5%;
   }
 }
 @media (min-width: 375px) and (orientation: portrait) {
@@ -12009,7 +12047,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .titulo_superior-acerca {
-    font-size: 1.6em;
+    font-size: 1.4em;
     padding: 0;
     margin: 9.8% 0;
   }
@@ -12022,12 +12060,29 @@ a:link, a:visited, a:active, a:hover {
 
   .boton_collapse-off-acerca {
     font-size: 1.4em;
+    padding: 0 10% 0 3%;
     height: 5vh;
     background-size: 4% !important;
+    background-position-x: 97%;
   }
 
-  .text_interno-toggle-acerca {
-    font-size: 1.1em;
+  .txt_interno_toggleFoot {
+    font-size: 1.2em;
+    margin-bottom: 5%;
+  }
+
+  .title_interno_toggleFoot {
+    font-size: 1.4em;
+    margin-bottom: 2%;
+  }
+
+  .option_toggleFoot {
+    list-style-type: none;
+    font-size: 1.2em;
+    font-family: "Roboto", "Regular";
+    color: #3E3E3E;
+    padding-left: 3%;
+    margin-bottom: 5%;
   }
 }
 @media (min-width: 1200px) {
@@ -12058,7 +12113,7 @@ a:link, a:visited, a:active, a:hover {
     background-size: 3% !important;
   }
 
-  .text_interno-toggle-acerca {
+  .txt_interno_toggleFoot {
     font-size: 1em;
   }
 }
@@ -14028,7 +14083,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .btnVer_ramSalud {
-    background: #0083d6;
+    background: #0083D6;
     font-family: "Quicksand", sans-serif;
     font-size: 0.625em;
     color: #ffffff;
@@ -14091,7 +14146,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .btnVer_ramSalud {
-    background: #0083d6;
+    background: #0083D6;
     font-family: "Quicksand", sans-serif;
     font-size: 1.25em;
     color: #ffffff;
@@ -14116,7 +14171,7 @@ a:link, a:visited, a:active, a:hover {
     font-size: calc(0.95em + 1vw);
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
-    color: #0083d6;
+    color: #0083D6;
     margin: 4% 0;
     text-align: center;
   }
@@ -14161,7 +14216,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .btnVer_ramSalud {
-    background: #0083d6;
+    background: #0083D6;
     font-family: "Quicksand", sans-serif;
     font-size: calc(.2em + .8vw);
     color: #ffffff;
@@ -14253,7 +14308,7 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.3em;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
-    color: #0083d6;
+    color: #0083D6;
     margin: 5% 0;
     text-align: center;
   }
@@ -14299,7 +14354,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .btnVer_espMed {
-    background: #0083d6;
+    background: #0083D6;
     font-family: "Quicksand", sans-serif;
     font-size: 0.625em;
     color: #ffffff;
@@ -14342,7 +14397,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .btnVer_espMed {
-    background: #0083d6;
+    background: #0083D6;
     font-family: "Quicksand", sans-serif;
     font-size: 1.25em;
     color: #ffffff;
@@ -14367,7 +14422,7 @@ a:link, a:visited, a:active, a:hover {
     font-size: calc(0.95em + 1vw);
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
-    color: #0083d6;
+    color: #0083D6;
     margin: 4% 0;
     text-align: center;
   }
@@ -14399,7 +14454,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .btnVer_espMed {
-    background: #0083d6;
+    background: #0083D6;
     font-family: "Quicksand", sans-serif;
     font-size: calc(.2em + .8vw);
     color: #ffffff;
@@ -14614,7 +14669,7 @@ a:link, a:visited, a:active, a:hover {
 
 .data_profesionales h2 {
   font-family: "Quicksand", sans-serif;
-  color: #0083d6;
+  color: #0083D6;
   font-weight: bold;
   text-align: center;
 }
@@ -14687,7 +14742,7 @@ a:link, a:visited, a:active, a:hover {
 .data_consulta span {
   font-family: "Roboto";
   font-weight: 500;
-  color: #0083d6;
+  color: #0083D6;
 }
 
 .data_consulta .menu_1, .menu_2, .menu_3 {
@@ -15203,7 +15258,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 5px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -15235,7 +15290,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1.5em;
   font-weight: bold;
-  color: #0083d6;
+  color: #0083D6;
   padding-left: 5%;
   height: 5vh;
   display: flex;
@@ -15273,7 +15328,7 @@ a:link, a:visited, a:active, a:hover {
   font-size: 3em;
   width: 10%;
   margin-left: 10%;
-  color: #0083d69e;
+  color: #0083D69e;
 }
 
 .contains_text {
@@ -16712,7 +16767,7 @@ a:link, a:visited, a:active, a:hover {
     font-family: "Quicksand";
     font-size: 1.25em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -17847,7 +17902,7 @@ a:link, a:visited, a:active, a:hover {
 
 .titulo_profesionales {
   font-family: "Quicksand", sans-serif;
-  color: #0083d6;
+  color: #0083D6;
   font-weight: bold;
   text-align: center;
 }
@@ -21610,7 +21665,7 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.125em;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
-    color: #019f86;
+    color: #019F86;
     margin: 10% 0;
     text-align: center;
   }
@@ -21662,7 +21717,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .boton_ver-entidades {
-    background: #019f86;
+    background: #019F86;
     font-family: "quicksand", sans-serif;
     font-size: 0.563em;
     color: #ffffff;
@@ -21706,7 +21761,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .boton_ver-entidades {
-    background: #019f86;
+    background: #019F86;
     font-family: "quicksand", sans-serif;
     font-size: 1.25em;
     color: #ffffff;
@@ -21727,7 +21782,7 @@ a:link, a:visited, a:active, a:hover {
     font-size: 2.5em;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
-    color: #019f86;
+    color: #019F86;
     margin: 5% 0;
     text-align: center;
   }
@@ -21757,7 +21812,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .boton_ver-entidades {
-    background: #019f86;
+    background: #019F86;
     font-family: "quicksand", sans-serif;
     font-size: 0.9em;
     color: #ffffff;
@@ -21794,7 +21849,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .boton_ver-entidades {
-    background: #019f86;
+    background: #019F86;
     font-family: "quicksand", sans-serif;
     font-size: 1.25em;
     color: #ffffff;
@@ -21888,7 +21943,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 5px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -21902,7 +21957,7 @@ a:link, a:visited, a:active, a:hover {
 .texto_olvide-login {
   font-family: "Roboto", "Regular";
   font-size: 1em;
-  color: #0083d6 !important;
+  color: #0083D6 !important;
   text-decoration: underline !important;
   display: flex;
   justify-content: center;
@@ -21985,7 +22040,7 @@ a:link, a:visited, a:active, a:hover {
     text-decoration: none;
     text-align: center;
     align-items: center;
-    border-bottom: 5px solid #1558d6;
+    border-bottom: 5px solid #0083D6;
     padding: 0;
   }
 
@@ -22013,7 +22068,7 @@ a:link, a:visited, a:active, a:hover {
     font-family: "Quicksand";
     font-size: 0.85em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -22027,7 +22082,7 @@ a:link, a:visited, a:active, a:hover {
   .texto_olvide-login {
     font-family: "Roboto", "Regular";
     font-size: 0.85em;
-    color: #0083d6 !important;
+    color: #0083D6 !important;
     text-decoration: underline !important;
     display: flex;
     justify-content: center;
@@ -22330,7 +22385,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 5px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -22381,7 +22436,7 @@ a:link, a:visited, a:active, a:hover {
     text-decoration: none;
     text-align: center;
     align-items: center;
-    border-bottom: 5px solid #1558d6;
+    border-bottom: 5px solid #0083D6;
     padding: 0;
   }
 
@@ -22420,7 +22475,7 @@ a:link, a:visited, a:active, a:hover {
     font-family: "Quicksand";
     font-size: 0.85em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -22533,7 +22588,7 @@ a:link, a:visited, a:active, a:hover {
     font-family: "Quicksand";
     font-size: 1.438em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -22693,7 +22748,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 5px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -22734,7 +22789,7 @@ a:link, a:visited, a:active, a:hover {
     font-family: "Quicksand";
     font-size: 0.85em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -22785,7 +22840,7 @@ a:link, a:visited, a:active, a:hover {
     font-family: "Quicksand";
     font-size: 1.25em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -22949,7 +23004,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .btn_precio-tarjeta-membresia {
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 7px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -23036,7 +23091,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1.5em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -23725,7 +23780,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1.15em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -23756,7 +23811,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1.15em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -26724,10 +26779,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -26913,10 +26968,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -26941,10 +26996,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -26964,10 +27019,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27022,10 +27077,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27038,10 +27093,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27059,10 +27114,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27294,10 +27349,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27349,10 +27404,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27505,10 +27560,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27533,10 +27588,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27549,10 +27604,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27671,10 +27726,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27721,7 +27776,7 @@ label.error {
   font-family: "Quicksand";
   font-size: 1.15em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -27732,7 +27787,7 @@ label.error {
   font-family: "Quicksand";
   font-size: 1.15em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -28220,7 +28275,7 @@ label.error {
     font-family: "Quicksand";
     font-size: 1em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 3px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -29037,7 +29092,7 @@ label.error {
   font-size: 1.3em;
   font-family: "Quicksand", sans-serif;
   font-weight: bolder;
-  color: #019f86;
+  color: #019F86;
   margin: 3% 0;
   text-align: center;
 }
@@ -29096,7 +29151,7 @@ label.error {
   font-family: "Quicksand";
   font-size: 1em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 5px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -29200,7 +29255,7 @@ label.error {
     font-family: "Quicksand";
     font-size: 0.85em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -29359,7 +29414,7 @@ label.error {
     font-family: "Quicksand";
     font-size: 1.25em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -29384,7 +29439,7 @@ label.error {
     font-size: 2em;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
-    color: #019f86;
+    color: #019F86;
     margin: 3% 10% 2% 10%;
     text-align: center;
   }
@@ -29724,7 +29779,7 @@ label.error {
 
 .btn_close-popup {
   border-radius: 18px !important;
-  background-color: #0083d6;
+  background-color: #0083D6;
   padding: 0 !important;
   margin-top: 0 !important;
   margin-right: 0 !important;
@@ -29800,7 +29855,7 @@ label.error {
   font-family: "Quicksand";
   font-size: 1.3em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);

@@ -139,7 +139,7 @@
                             <label for="email" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Correo electrónico *') }}</label>
 
                             <div class="col-12 p-0">
-                                <input id="email" type="email" class="form-control input_height-fullhd-register" name="email" value="{{ old('email') }}" autocomplete="email" required placeholder="zaabra@gmail.com">
+                                <input id="email" type="email" class="form-control input_height-fullhd-register" name="email" value="{{ old('email') }}" autocomplete="email" required placeholder="servicioalcliente@zaabrasalud.co">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -180,7 +180,10 @@
                             <div class="col-12">
                                 <input type="checkbox" class="check_option-register" id="aceptoTerminos" name="aceptoTerminos" value="1"  required> 
                                 <div class="col-12 section_terminos-register">
-                                    <span class="texto_inferior-tarjeta-register"> Declaro que he leído y acepto la <a href="#" class="text_link-register">Política de Privacidad</a> y los <a href="#" class="text_link-register">Términos y condiciones</a> de Zaabra Salud. </span>
+                                    <h4 class="texto_inferior-tarjeta-register"> Declaro que he leído y acepto la  
+                                        <a class="text_link-register" href="{{url('politicas')}}" target="blank"> política de privacidad</a>  y los  
+                                        <a class="text_link-register" href="{{url('politicas')}}" target="blank"> términos y condiciones</a>  de Zaabrasalud. 
+                                    </h4>
                                 </div>
                             </div>
                         </div>

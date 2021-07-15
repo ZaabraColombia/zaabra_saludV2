@@ -39,7 +39,7 @@
   <!-- Carrusel de logos inferior, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
   <!--carousel universidades--> 
   <section class="contains_slider_logoshome">
-      <h1 class="titulo_logos">Ellos confian en nosotros</h1>
+      <h1 class="titulo_logos">Ellos confían en nosotros</h1>
       <div class="swiper-container swiper_logoshome">
           <div class="swiper-wrapper">
             @foreach ($objcarruselespecialidades as $objcarruselespecialidades)
