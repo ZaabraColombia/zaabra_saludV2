@@ -653,24 +653,8 @@ function hideBtnPrevious (y){
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector("#formulario_basico").addEventListener('submit', validaBasico);
     document.querySelector("#formulario_asociacion").addEventListener('submit', validaAsociacion); 
 });
-
-function validaBasico(event) {
-    event.preventDefault();
-    let inputs = document.querySelectorAll('#formulario_basico input[type=file]')
-  
-    
-    inputs.forEach((element) => {
-        if (element.files.length !=0) {
-            this.submit();
-        }
-        else {
-            alert("debe subir una foto")
-        }
-    })
-} 
 
 
 function validaAsociacion(event) {

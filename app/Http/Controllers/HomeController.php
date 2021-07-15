@@ -66,16 +66,14 @@ class HomeController extends Controller
 
 // consulta para cargar profesionales que realizen el pago por aparecer en el home
     public function cargarProfesionaleshome(){
-        return DB::select('SELECT pf.idPerfilProfesional, us.primernombre, us.primerapellido, pf.descripcionPerfil, sp.nombreEspecialidad, un.nombreuniversidad,pf.fotoperfil
+        return DB::select('SELECT pf.idPerfilProfesional, CONCAT("Dr/Dra. ",  us.primernombre) AS primernombre, us.primerapellido, pf.descripcionPerfil, sp.nombreEspecialidad, un.nombreuniversidad,pf.fotoperfil
         FROM pagos  pg
         INNER JOIN users us ON pg.idUsuario=us.id
         INNER JOIN  perfilesprofesionales pf ON us.id=pf.idUser
         INNER JOIN  areas ar ON pf.idarea=ar.idArea
         INNER JOIN  profesiones pr ON pf.idprofesion=pr.idProfesion
         INNER JOIN  especialidades sp ON pf.idespecialidad=sp.idEspecialidad
-        JOIN (SELECT id_universidad, idPerfilProfesional
-        FROM perfilesprofesionalesuniversidades GROUP BY idPerfilProfesional) AS pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
-        INNER JOIN universidades un ON pu.id_universidad=un.id_universidad
+        INNER JOIN universidades un ON pf.id_universidad=un.id_universidad
         where pg.aprobado=1  and pf.aprobado <> 0 and pg.idtipopago =3');
     }
     // consulta para cargar el banner triple del home
