@@ -10430,14 +10430,15 @@ a:link, a:visited, a:active, a:hover {
 }
 
 #ui-id-1 {
-  z-index: 100 !important;
+  z-index: 500 !important;
   background: white;
-  width: 30% !important;
+  width: 29.7% !important;
   height: 25vh;
   overflow: scroll;
   border-radius: 3px;
   padding-top: 1%;
-  left: 26.4% !important;
+  left: 26.5% !important;
+  top: 51px !important;
 }
 
 .ui-menu::-webkit-scrollbar {
@@ -10556,6 +10557,10 @@ a:link, a:visited, a:active, a:hover {
     right: 0;
     align-items: flex-end;
     height: 100%;
+  }
+
+  .ui-menu {
+    height: 29vh;
   }
 
   .soy_paciente {
@@ -10681,9 +10686,9 @@ a:link, a:visited, a:active, a:hover {
     background-size: 16%;
   }
 }
-@media (min-width: 320px) and (orientation: portrait) {
+@media (min-width: 360px) and (orientation: portrait) {
   .ui-menu {
-    height: 30vh;
+    height: 35vh;
   }
 }
 @media (min-width: 768px) and (orientation: portrait) {
@@ -10960,7 +10965,15 @@ a:link, a:visited, a:active, a:hover {
   }
 
   #ui-id-1 {
-    left: 25.45% !important;
+    left: 25.6% !important;
+    width: 29.7% !important;
+    height: 27vh;
+  }
+}
+@media (min-width: 1360px) {
+  #ui-id-1 {
+    left: 25.2% !important;
+    height: 30vh;
   }
 }
 @media (min-width: 1440px) {
@@ -11004,6 +11017,10 @@ a:link, a:visited, a:active, a:hover {
 
   .icon_searchH {
     background-size: 60%;
+  }
+
+  #ui-id-1 {
+    left: 25.65% !important;
   }
 
   .dropdown-paciente {
@@ -11100,6 +11117,8 @@ a:link, a:visited, a:active, a:hover {
   #ui-id-1 {
     left: 24.7% !important;
     width: 29.7% !important;
+    height: 31vh;
+    top: 63px !important;
   }
 
   .soy_paciente .dropdown-toggle {
@@ -22742,7 +22761,7 @@ a:link, a:visited, a:active, a:hover {
   .titulo_principal-email {
     font-size: 1.3em;
     font-weight: 500;
-    margin: 14% 15% 5%;
+    margin: 15% 15% 5%;
   }
 
   .section_principal-email {

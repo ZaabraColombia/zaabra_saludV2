@@ -382,15 +382,15 @@ a:link, a:visited, a:active, a:hover {
     left: 0% !important;
 }
 #ui-id-1{
-    z-index: 100 !important;
+    z-index: 500 !important;
     background: white;
-    width: 30% !important;
-
+    width: 29.7% !important;
     height: 25vh;
     overflow: scroll;
     border-radius: 3px;
     padding-top: 1%;
-    left: 26.4% !important;
+    left: 26.5% !important;
+    top: 51px !important;
 }
 .ui-menu::-webkit-scrollbar {
     display: none !important;
@@ -498,6 +498,9 @@ a:link, a:visited, a:active, a:hover {
         right: 0;
         align-items: flex-end;
         height: 100%;
+    }
+    .ui-menu {
+        height: 29vh;
     }
     // Sección botón usuario
     .soy_paciente{
@@ -611,11 +614,12 @@ a:link, a:visited, a:active, a:hover {
     }
 }
 
-@media (min-width: 320px) and (orientation: portrait) {
+@media (min-width: 360px) and (orientation: portrait) {
     .ui-menu {
-        height: 30vh;
+        height: 35vh;
     }
-} 
+}
+
 @media (min-width: 768px) and (orientation: portrait) {
     //Contenedor general
     .navbar_zaabrasalud {
@@ -867,7 +871,16 @@ a:link, a:visited, a:active, a:hover {
         max-width: 135px;
     }
     #ui-id-1 {
-        left: 25.45% !important;
+        left: 25.6% !important;
+        width: 29.7% !important;
+        height: 27vh;
+
+    }
+}
+@media (min-width: 1360px) {
+    #ui-id-1 {
+        left: 25.2% !important;
+        height: 30vh;
     }
 }
 @media (min-width: 1440px) {
@@ -909,6 +922,9 @@ a:link, a:visited, a:active, a:hover {
     }
     .icon_searchH {
         background-size: 60%;
+    }
+    #ui-id-1 {
+        left: 25.65% !important;
     }
     //Seccion boton usuario
     .dropdown-paciente {
@@ -997,6 +1013,8 @@ a:link, a:visited, a:active, a:hover {
     #ui-id-1 {
         left: 24.7% !important;
         width: 29.7% !important;
+        height: 31vh;
+        top: 63px !important;
     }
     // Seccion icono boton usuario 
     .soy_paciente .dropdown-toggle {
