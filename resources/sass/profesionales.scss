@@ -169,7 +169,9 @@
   .rating-stars ul > li.star.selected > i.fa {
     color:#FFCC36;
   }
-
+  .card_normal .card-img-top{
+    background: white;
+}
 @media (min-width: 320px){
 
     .titulo_profesionales{
@@ -504,7 +506,7 @@
         padding-right: 8%;
     }
     .card_normal{
-        height: 37vh;
+        height: 42vh;
     }
     .card_normal .card-img-top {
         width: 140px;
@@ -621,7 +623,7 @@
         padding-right: 18%;
     }
     .card_normal{
-        height: 35vh;
+        height: 38vh;
     }
     .card_normal .card-img-top {
         width: 170px;

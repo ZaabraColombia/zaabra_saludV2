@@ -18095,6 +18095,10 @@ a:link, a:visited, a:active, a:hover {
   color: #FFCC36;
 }
 
+.card_normal .card-img-top {
+  background: white;
+}
+
 @media (min-width: 320px) {
   .titulo_profesionales {
     margin-top: 5%;
@@ -18490,7 +18494,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .card_normal {
-    height: 37vh;
+    height: 42vh;
   }
 
   .card_normal .card-img-top {
@@ -18622,7 +18626,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .card_normal {
-    height: 35vh;
+    height: 38vh;
   }
 
   .card_normal .card-img-top {
