@@ -17,21 +17,32 @@
                 </div>
 
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body text_interno-toggle-acerca">
-                        <p>
-                        Zaabra es una empresa de desarrollo de productos digitales, con soluciones alrededor del e-commerce y plataformas especializadas en potenciar a profesionales y empresarios colombianos. <br><br> 
-                        Creamos soluciones digitales integrales, hechas a la medida de las necesidades del mercado. <br>
-                        Potenciamos la comercialización de productos y servicios, incrementamos el alcance de los profesionales en el entorno digital y propiciamos su apertura a nuevos nichos de mercado. <br><br>
-                        Nos caracteriza: <br><br>
-                        - Productos digitales a la medida de las necesidades del mercado. <br>
-                        - Seguridad y confianza. <br>
-                        - Competitividad en el mercado <br>
-                        - Un equipo idóneo <br>
-                        - Garantía y compromiso <br><br> 
-                        Nuestra Misión: <br><br>
-                        En Zaabra tenemos la misión de generar bienestar mediante el desarrollo y la innovación tecnológica, fortaleciendo la economía nacional con buenas prácticas y relaciones transparentes con nuestro entorno. <br><br>
-                        Nuestra Visión: <br><br>
-                        Zaabra, como compañía, se proyecta para ser un referente de soluciones digitales a nivel nacional en el año 2021, incursionando también en mercados internacionales. <br><br>
+                    <div class="card-body section_toggleFoot">
+                        <p class="txt_interno_toggleFoot">
+                            Zaabra es una empresa de desarrollo de productos digitales, con soluciones alrededor del e-commerce y plataformas especializadas en potenciar a profesionales y empresarios colombianos. 
+                            Creamos soluciones digitales integrales, hechas a la medida de las necesidades del mercado.
+                        </p>
+                        <p class="txt_interno_toggleFoot">
+                            Potenciamos la comercialización de productos y servicios, incrementamos el alcance de los profesionales en el entorno digital y propiciamos su apertura a nuevos nichos de mercado.
+                        </p>
+                        
+                        <h5 class="title_interno_toggleFoot"> Nos caracteriza: </h5>
+                        <ul class="option_toggleFoot">
+                            <li> - Productos digitales a la medida de las necesidades del mercado. </li>
+                            <li> - Seguridad y confianza. </li>
+                            <li> - Competitividad en el mercado </li>
+                            <li> - Un equipo idóneo </li>
+                            <li> - Garantía y compromiso </li>
+                        </ul>
+            
+                        <h5 class="title_interno_toggleFoot mb-0"> Nuestra Misión: </h5>
+                        <p class="txt_interno_toggleFoot">
+                            En Zaabra tenemos la misión de generar bienestar mediante el desarrollo y la innovación tecnológica, fortaleciendo la economía nacional con buenas prácticas y relaciones transparentes con nuestro entorno. <br><br>
+                        </p>
+                    
+                        <h5 class="title_interno_toggleFoot"> Nuestra Visión: </h5>
+                        <p class="txt_interno_toggleFoot">
+                            Zaabra, como compañía, se proyecta para ser un referente de soluciones digitales a nivel nacional en el año 2021, incursionando también en mercados internacionales.
                         </p>
                     </div>
                 </div>
@@ -42,17 +53,27 @@
                     <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> ¿Cómo funciona Zaabra Salud? </button>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                    <div class="card-body text_interno-toggle-acerca">
-                    Zaabra Salud es una plataforma digital que facilita la búsqueda y el contacto entre usuarios y profesionales e instituciones de la salud. <br> 
-                    Todas las especialidades y las mejores instituciones médicas al alcance de millones de usuarios. <br><br> 
-                    Todo esto con el fin de obtener un rápido y fácil acceso a citas y consultas médicas con todas las especialidades, citas y servicios <br> 
-                    odontológicos, centros de toma de exámenes e imágenes diagnósticas y muchos servicios más. <br><br> 
-                    5 pasos para agendar su cita o servicio médico: <br><br> 
-                    - Seleccione el servicio que busca. <br>
-                    - Acceda al catalogo de profesionales y servicios. <br>
-                    - Seleccione el profesional o institución de la salud que se ajuste a sus necesidades. <br> 
-                    - Agende y pague su cita <br> 
-                    - Disfrute de un excelente servicio avalado por cientos de usuarios. <br><br>
+                    <div class="card-body section_toggleFoot">
+                        <p class="txt_interno_toggleFoot">
+                            Zaabra Salud es una plataforma digital que facilita la búsqueda y el contacto entre usuarios y profesionales e instituciones de la salud.
+                        </p>
+                        <p class="txt_interno_toggleFoot">
+                            Todas las especialidades y las mejores instituciones médicas al alcance de millones de usuarios.
+                        </p>
+                        <p class="txt_interno_toggleFoot">
+                            Todo esto con el fin de obtener un rápido y fácil acceso a citas y consultas médicas con todas las especialidades, citas y servicios
+                            odontológicos, centros de toma de exámenes e imágenes diagnósticas y muchos servicios más.
+                        </p>
+                        <p class="txt_interno_toggleFoot mb-1">
+                            5 pasos para agendar su cita o servicio médico:
+                        </p>
+                        <ul class="option_toggleFoot">
+                            <li>- Seleccione el servicio que busca. </li>
+                            <li>- Acceda al catalogo de profesionales y servicios. </li>
+                            <li>- Seleccione el profesional o institución de la salud que se ajuste a sus necesidades. </li> 
+                            <li>- Agende y pague su cita </li> 
+                            <li>- Disfrute de un excelente servicio avalado por cientos de usuarios. </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -62,8 +83,10 @@
                     <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> Responsabilidad social </button>
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                    <div class="card-body text_interno-toggle-acerca">
-                    Zaabra hace parte del sistema de Agencia Pública de Empleo del SENA, dando así oportunidades a personas en formación.
+                    <div class="card-body section_toggleFoot">
+                        <p class="txt_interno_toggleFoot">
+                            Zaabra hace parte del sistema de Agencia Pública de Empleo del SENA, dando así oportunidades a personas en formación.
+                        </p>
                     </div>
                 </div>
             </div>

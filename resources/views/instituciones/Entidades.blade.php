@@ -43,14 +43,21 @@
     @endforeach
 </div>
 
-<section class="contains_slider-logos-galeriaProf">
-  <div class="col-lg-10 swiper-container swiper_logosGaleriaProf">
-    <div class="swiper-wrapper">
-      @foreach ($objcarruselInstituciones as $objcarruselInstituciones)
-        <img class="swiper-slide" src="{{URL::asset($objcarruselInstituciones->rutaImagenVenta)}}">
-      @endforeach
-    </div>
+<!-- Carrusel de logos inferior, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
+<!--carousel universidades--> 
+<section class="contains_slider_logoshome">
+  <h1 class="titulo_logos">Ellos confían en nosotros</h1>
+  <div class="swiper-container swiper_logoshome">
+      <div class="swiper-wrapper">
+        @foreach ($objcarruselInstituciones as $objcarruselInstituciones)
+          <img class="swiper-slide" src="{{URL::asset($objcarruselInstituciones->rutaImagenVenta)}}">
+        @endforeach
+      </div>
   </div>
+
+  <!-- If we need navigation buttons -->
+  <div class="btn-prev"></div>
+  <div class="btn-next"></div>
 </section>
 
 @endsection

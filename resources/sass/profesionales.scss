@@ -4,7 +4,7 @@
 }
 .titulo_profesionales{
     font-family: "Quicksand", sans-serif;
-    color: #0083d6;
+    color: #0083D6;
     font-weight: bold;
     text-align: center;
 }
@@ -191,7 +191,8 @@
         height: 45%;
     }
     .contains_slide .contains_image_profesional img{
-        object-fit: contain;
+        object-fit: cover;
+        object-position: top;
     }
     .contains_slide .contains_body{
         height: 55%;

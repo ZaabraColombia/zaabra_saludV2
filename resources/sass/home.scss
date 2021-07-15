@@ -328,7 +328,7 @@
         height: 23vh;
     }
     .pagination_home {
-        bottom: -7px !important;
+        bottom: -5px !important;
     }
     .section_txtBanner {
         z-index: 100;
@@ -379,8 +379,8 @@
     }
     .titulo_portafolio{
         font-size: 1.3em;
-        margin-top: 10%;
-        margin-bottom: 10%;
+        margin-top: 5%;
+        margin-bottom: 5%;
     }
     .contains_menu{
         max-width: 100%;
@@ -589,14 +589,21 @@
         height: calc(1em + 0.75rem + 2px);
         width: 53%;
     }
+    .pagination_home {
+        bottom: -2px !important;
+    }
+    .swiper-pagination-bullet {
+        width: 10px !important;
+        height: 10px !important;
+    }
     .titulo_portafolio{
-        font-size: 2em;
+        font-size: 2.5em;
         margin-top: 5%;
-        margin-bottom: 5%;
+        margin-bottom: 4%;
     }
     .titulo_home{
         margin-top: 0%;
-        font-size: 1.5em;
+        font-size: 1.8em;
     }
     .parrafo_home {
         margin-top: 0;
@@ -622,18 +629,19 @@
         margin-bottom: 10%;
     }
     .contains_slider_especialistas .card-body h5 {
-        font-size: 2em;
+        font-size: 1.8em;
     }
     .contains_slider_especialistas .card-body p {
-        font-size: 1.7em;
+        font-size: 1.5em;
     }
     .btn-profesional{
         max-width: 55%;
     }
     .contains_slider_especialistas .btn-profesional {
-        font-size: 2em;
+        font-size: 1.25em;
         margin-top: 3%;
-        height: 4vh;
+        height: 3vh;
+        max-width: 45%;
     }
     .contains_slider_especialistas .btn-next{
         width: 20px;
@@ -745,7 +753,10 @@
         height: calc(1.2em + 0.75rem + 2px);
         width: 48%;
     }
-
+    .swiper-pagination-bullet {
+        width: 10px !important;
+        height: 10px !important;
+    }
     .swiper_especialistas{
         max-width: 85%;
     }
@@ -772,8 +783,8 @@
         font-size: calc(0.6em + 1vw);
     }
     .titulo_portafolio {
-        margin-top: 3vh;
-        margin-bottom: 3vh;
+        margin-top: 4%;
+        margin-bottom: 3%;
         font-size: calc(0.95em + 1vw);
     }
     .parrafo_home {
@@ -861,20 +872,27 @@
         color: #0083D6;
     }
     .contains_slider_logoshome{
-        height: 25vh;
+        width: 100%;
+        height: 27vh;
+        padding-top: 5%;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        background-image: url('/img/home/fondo-gris-logos.png');
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     .titulo_logos {
         margin-top: 0;
-        margin-bottom: 3%;
+        margin-bottom: 2%;
         font-size: calc(0.95em + 1vw);
     }
     .contains_slider_triple {
         height: 25vh;
         margin-bottom: 0;
-    }
-    .contains_slider_logoshome {
-        height: 45vh;
-        padding-top: 14%;
     }
     .contains_slider_logoshome .btn-prev {
         width: 15px;
@@ -894,6 +912,9 @@
 @media (min-width: 1200px){
     .section_txtBanner {
         margin-top: 5%;
+    }
+    .pagination_home {
+        bottom: 5px !important;
     }
     .contains_menu {
         max-width: 50%;
@@ -924,6 +945,9 @@
         margin-right: auto;
         margin-bottom: 3%;
     }
+    .contains_menu {
+        margin-bottom: 3%;
+    }
     .zaabrasalud_parallax {
         height: 40vh;
     }
@@ -931,11 +955,11 @@
         max-width: 80%;
     }
     .contains_slider_logoshome {
-        height: 50vh;
-        padding-top: 10%;
+        height: 30vh;
+        padding-top: 5%;
     }
     .contains_slider_triple {
-        margin-top: 3%;
+        margin-top: 0;
         height: 35vh;
     }
     .swiper_triple {
@@ -992,7 +1016,10 @@
         height: calc(1.2em + 0.75rem + 2px);
         width: 48%;
     }
-
+    .swiper-pagination-bullet {
+        width: 10px !important;
+        height: 10px !important;
+    }
     .contains_image{
         max-width: 60%;
     }
@@ -1052,7 +1079,7 @@
     }
     .titulo_portafolio {
         margin-top: 3%;
-        margin-bottom: 4%;
+        margin-bottom: 2%;
         font-size: calc(0.95em + 1vw);
     }
     .contains_menu {
@@ -1075,15 +1102,27 @@
     }
     .contains_slider_triple {
         height: 25vh;
-        margin-bottom: 0;
+        margin-top: 5%;
+        margin-bottom: 5%;
     }
-    .contains_slider_logoshome {
-        height: 50vh;
+    .contains_slider_logoshome{
+        width: 100%;
+        height: 31vh;
+        padding-top: 3%;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        background-image: url('/img/home/fondo-gris-logos.png');
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     .titulo_logos {
         margin-top: 0;
         margin-bottom: 2%;
-        font-size: calc(0.95em + 1vw);
+        font-size: calc(0.7em + 1vw);
     }
     .contains_slider_logoshome .btn-prev {
         width: 18px;
@@ -1104,6 +1143,18 @@
 @media (min-width: 1920px){
     .section_txtBanner {
         margin-top: 6%;
+    }
+    .pagination_home {
+        bottom: 20px !important;
+    }
+    .swiper-pagination-bullet {
+        width: 13px !important;
+        height: 13px !important;
+        color: #0083D6 !important;
+    }
+    .titulo_portafolio {
+        margin-top: 2%;
+        margin-bottom: 2%;
     }
     .contains_menu {
         max-width: 40%;
@@ -1186,12 +1237,11 @@
         object-fit: contain;
     }
     .contains_slider_logoshome {
-        height: 60vh;
-        padding-top: 10%;
+        height: 40vh;
     }
-    .titulo_portafolio {
-        margin-top: 2%;
-        margin-bottom: 3%;
+    .titulo_logos {
+        margin-top: 0;
+        margin-bottom: 1%;
     }
     .contains_slider_triple {
         height: 25vh;
