@@ -162,48 +162,7 @@ $('#formulario_contacto').validate({
 
 
 /*-------------------------- Inicio Tercera Parte del Formulario Descripcion Perfil Profesional------------------------------*/
-$('#formulario_contacto').validate({
-    rules: {
-        celular: {
-            required: true,
-        },
 
-    },
-    messages: {
-        celular: {
-            required: "Por favor debe ingresar un numero celular",
-            maxlength: 12,
-        },
-
-    },
-    submitHandler: function(form) {
-        $.ajaxSetup({
-            /*Se anade el token al ajax para seguridad*/
-             headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-             }
-         });
-         /*Se cambia el texto al boton por enviando*/
-         $('#envia_contacto').html('Enviando..');
-         $.ajax({
-           url:  "FormularioProfesionalSave2",
-           type: "POST",
-           data: $('#formulario_contacto').serialize(),
-           success: function( response ) {
-               $('#envia_contacto').html('Enviar');
-               $('#res_message_contacto').show();
-               $('#res_message_contacto').html(response.msg);
-               $('#msg_contacto').removeClass('d-none');
-   
-               document.getElementById("#formulario_contacto").reset(); 
-               setTimeout(function(){
-               $('#res_message_contacto').hide();
-               $('#msg_contacto').hide();
-               },10000);
-           }
-         });
-       }
-})
 /*--------------------------- Fin Tercera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 
 
