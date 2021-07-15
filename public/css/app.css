@@ -10272,9 +10272,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_paciente > .icon-paciente:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-paciente-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10283,9 +10283,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_paciente > .icon-medico:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-soy-medico-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10294,9 +10294,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_paciente > .icon-instituciones:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10305,9 +10305,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_hamburguesa > .icon-especialidades:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-especialidades-medicas-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10316,9 +10316,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_hamburguesa > .icon-instituciones-burger:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10327,9 +10327,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_hamburguesa > .icon-quienes:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-quienes-somos-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10338,9 +10338,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_hamburguesa > .icon-contactenos:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-contactenos-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10349,9 +10349,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_hamburguesa > .icon-agenda:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-agenda-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10360,9 +10360,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_hamburguesa > .icon-perfil:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-mi-perfil-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10371,9 +10371,9 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .menu_hamburguesa > .icon-cerrarSesion:hover {
-  background: #0083d6;
+  background: #0083D6;
   color: #ffffff;
-  border: 1px solid #0083d6;
+  border: 1px solid #0083D6;
   background-image: url("/img/header/icono-cerrar-sesion-blanco.svg");
   background-repeat: no-repeat;
   background-position-x: 10%;
@@ -10430,14 +10430,15 @@ a:link, a:visited, a:active, a:hover {
 }
 
 #ui-id-1 {
-  z-index: 100 !important;
+  z-index: 500 !important;
   background: white;
-  width: 30% !important;
+  width: 29.7% !important;
   height: 25vh;
   overflow: scroll;
   border-radius: 3px;
   padding-top: 1%;
-  left: 26.4% !important;
+  left: 26.5% !important;
+  top: 51px !important;
 }
 
 .ui-menu::-webkit-scrollbar {
@@ -10445,14 +10446,16 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .ui-menu {
-  z-index: 100 !important;
+  z-index: 500 !important;
   background: white;
-  width: 90% !important;
-  height: 25vh;
+  width: 89.5% !important;
+  height: 28vh;
   overflow: scroll;
   border-radius: 3px;
   padding-top: 1%;
-  left: 5.4% !important;
+  top: 95px !important;
+  left: 5% !important;
+  position: fixed !important;
 }
 
 .ui-menu-item {
@@ -10506,12 +10509,12 @@ a:link, a:visited, a:active, a:hover {
 
   .icon_lupa-mobile {
     width: 28px;
-    background: #0083d6;
+    background: #0083D6;
   }
 
   .contains_barra {
     display: none;
-    background-color: #0083d6 !important;
+    background-color: #0083D6 !important;
     width: 100%;
     height: 79%;
     z-index: 20;
@@ -10554,6 +10557,10 @@ a:link, a:visited, a:active, a:hover {
     right: 0;
     align-items: flex-end;
     height: 100%;
+  }
+
+  .ui-menu {
+    height: 29vh;
   }
 
   .soy_paciente {
@@ -10679,6 +10686,11 @@ a:link, a:visited, a:active, a:hover {
     background-size: 16%;
   }
 }
+@media (min-width: 360px) and (orientation: portrait) {
+  .ui-menu {
+    height: 35vh;
+  }
+}
 @media (min-width: 768px) and (orientation: portrait) {
   .navbar_zaabrasalud {
     background-color: #0083D6;
@@ -10711,7 +10723,7 @@ a:link, a:visited, a:active, a:hover {
 
   .icon_lupa-mobile {
     width: 130%;
-    background: #0083d6;
+    background: #0083D6;
   }
 
   .inputBarraBusquedad {
@@ -10733,6 +10745,8 @@ a:link, a:visited, a:active, a:hover {
   .ui-menu {
     width: 90% !important;
     left: 5% !important;
+    top: 180px !important;
+    height: 29vh;
   }
 
   .menu_paciente {
@@ -10849,7 +10863,7 @@ a:link, a:visited, a:active, a:hover {
     background-size: 15%;
   }
 }
-@media (min-width: 1024px) and (max-height: 800px) {
+@media (min-width: 1024px) {
   .contains_barra {
     display: none;
   }
@@ -10951,7 +10965,15 @@ a:link, a:visited, a:active, a:hover {
   }
 
   #ui-id-1 {
-    left: 25.45% !important;
+    left: 25.6% !important;
+    width: 29.7% !important;
+    height: 27vh;
+  }
+}
+@media (min-width: 1360px) {
+  #ui-id-1 {
+    left: 25.2% !important;
+    height: 30vh;
   }
 }
 @media (min-width: 1440px) {
@@ -10995,6 +11017,10 @@ a:link, a:visited, a:active, a:hover {
 
   .icon_searchH {
     background-size: 60%;
+  }
+
+  #ui-id-1 {
+    left: 25.65% !important;
   }
 
   .dropdown-paciente {
@@ -11091,6 +11117,8 @@ a:link, a:visited, a:active, a:hover {
   #ui-id-1 {
     left: 24.7% !important;
     width: 29.7% !important;
+    height: 31vh;
+    top: 63px !important;
   }
 
   .soy_paciente .dropdown-toggle {
@@ -11220,12 +11248,12 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .boton_suscribirme {
-  background: #0083d6;
+  background: #0083D6;
   margin-left: 2%;
   padding: 0;
   height: 3.5vh;
   width: 23%;
-  border: solid 0.1px #0083d6;
+  border: solid 0.1px #0083D6;
   border-radius: 3px;
   display: flex;
   justify-content: center;
@@ -11272,7 +11300,7 @@ a:link, a:visited, a:active, a:hover {
 .footer_info-zaabrasalud {
   margin: 0;
   padding: 1% 0;
-  background: #0083d6;
+  background: #0083D6;
   justify-content: center;
   align-items: center;
 }
@@ -11363,7 +11391,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .footer_copy-right {
-  background: #0083d6;
+  background: #0083D6;
   padding: 0;
   height: 5vh;
   display: flex;
@@ -11439,7 +11467,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .boton_suscribirme-cel {
-    background: #0083d6;
+    background: #0083D6;
     margin: auto;
     height: 5vh;
     font-family: "Quicksand", sans-serif;
@@ -11447,7 +11475,7 @@ a:link, a:visited, a:active, a:hover {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border: solid 0.1px #0083d6;
+    border: solid 0.1px #0083D6;
     border-radius: 4px;
   }
 
@@ -11496,7 +11524,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .iconos_redes-sociales-cel {
-    background: #0083d6;
+    background: #0083D6;
     margin: 2% auto;
     padding: 0;
     height: 5vh;
@@ -11513,7 +11541,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .infoZaabra_contenido-cel {
-    background: #0083d6;
+    background: #0083D6;
   }
 
   .contenido_desplegable-cel {
@@ -11526,7 +11554,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .boton_infoZaabra-cel {
-    background: #0083d6;
+    background: #0083D6;
     padding: 0;
     height: 100%;
     border: none;
@@ -11572,7 +11600,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .desplegable_infoZaabra-cel {
-    background: #0083d6 !important;
+    background: #0083D6 !important;
     padding: 0 0 5% 0 !important;
     line-height: 1.4;
     border: none !important;
@@ -11585,7 +11613,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contenido_linea-blanca-cel {
-    background: #0083d6;
+    background: #0083D6;
     margin: 0;
     padding: 0;
     height: 1vh;
@@ -11933,9 +11961,32 @@ a:link, a:visited, a:active, a:hover {
   background-size: 3%;
 }
 
-.text_interno-toggle-acerca {
+.section_toggleFoot {
+  padding: 5% 4% 0 4%;
+}
+
+.txt_interno_toggleFoot {
   font-size: 0.85em;
+  font-family: "Roboto", "Regular";
   color: #3E3E3E;
+}
+
+.title_interno_toggleFoot {
+  font-size: 1em;
+  font-family: "Roboto", "Regular";
+  font-weight: bolder;
+  color: #3E3E3E;
+  margin-bottom: 2%;
+}
+
+.option_toggleFoot {
+  list-style-type: none;
+  list-style-type: none;
+  font-size: 0.85em;
+  font-family: "Roboto", "Regular";
+  color: #3E3E3E;
+  padding-left: 3%;
+  margin-bottom: 5%;
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
@@ -11961,8 +12012,23 @@ a:link, a:visited, a:active, a:hover {
     background-size: 6%;
   }
 
-  .text_interno-toggle-acerca {
+  .txt_interno_toggleFoot {
     font-size: 0.6em;
+    margin-bottom: 5%;
+  }
+
+  .title_interno_toggleFoot {
+    font-size: 0.653em;
+    margin-bottom: 2%;
+  }
+
+  .option_toggleFoot {
+    list-style-type: none;
+    font-size: 0.6em;
+    font-family: "Roboto", "Regular";
+    color: #3E3E3E;
+    padding-left: 3%;
+    margin-bottom: 5%;
   }
 }
 @media (min-width: 375px) and (orientation: portrait) {
@@ -11981,7 +12047,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .titulo_superior-acerca {
-    font-size: 1.6em;
+    font-size: 1.4em;
     padding: 0;
     margin: 9.8% 0;
   }
@@ -11994,12 +12060,29 @@ a:link, a:visited, a:active, a:hover {
 
   .boton_collapse-off-acerca {
     font-size: 1.4em;
+    padding: 0 10% 0 3%;
     height: 5vh;
     background-size: 4% !important;
+    background-position-x: 97%;
   }
 
-  .text_interno-toggle-acerca {
-    font-size: 1.1em;
+  .txt_interno_toggleFoot {
+    font-size: 1.2em;
+    margin-bottom: 5%;
+  }
+
+  .title_interno_toggleFoot {
+    font-size: 1.4em;
+    margin-bottom: 2%;
+  }
+
+  .option_toggleFoot {
+    list-style-type: none;
+    font-size: 1.2em;
+    font-family: "Roboto", "Regular";
+    color: #3E3E3E;
+    padding-left: 3%;
+    margin-bottom: 5%;
   }
 }
 @media (min-width: 1200px) {
@@ -12030,7 +12113,7 @@ a:link, a:visited, a:active, a:hover {
     background-size: 3% !important;
   }
 
-  .text_interno-toggle-acerca {
+  .txt_interno_toggleFoot {
     font-size: 1em;
   }
 }
@@ -12816,7 +12899,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .pagination_home {
-    bottom: -7px !important;
+    bottom: -5px !important;
   }
 
   .section_txtBanner {
@@ -12873,8 +12956,8 @@ a:link, a:visited, a:active, a:hover {
 
   .titulo_portafolio {
     font-size: 1.3em;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
 
   .contains_menu {
@@ -13115,15 +13198,24 @@ a:link, a:visited, a:active, a:hover {
     width: 53%;
   }
 
+  .pagination_home {
+    bottom: -2px !important;
+  }
+
+  .swiper-pagination-bullet {
+    width: 10px !important;
+    height: 10px !important;
+  }
+
   .titulo_portafolio {
-    font-size: 2em;
+    font-size: 2.5em;
     margin-top: 5%;
-    margin-bottom: 5%;
+    margin-bottom: 4%;
   }
 
   .titulo_home {
     margin-top: 0%;
-    font-size: 1.5em;
+    font-size: 1.8em;
   }
 
   .parrafo_home {
@@ -13155,11 +13247,11 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slider_especialistas .card-body h5 {
-    font-size: 2em;
+    font-size: 1.8em;
   }
 
   .contains_slider_especialistas .card-body p {
-    font-size: 1.7em;
+    font-size: 1.5em;
   }
 
   .btn-profesional {
@@ -13167,9 +13259,10 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slider_especialistas .btn-profesional {
-    font-size: 2em;
+    font-size: 1.25em;
     margin-top: 3%;
-    height: 4vh;
+    height: 3vh;
+    max-width: 45%;
   }
 
   .contains_slider_especialistas .btn-next {
@@ -13293,6 +13386,11 @@ a:link, a:visited, a:active, a:hover {
     width: 48%;
   }
 
+  .swiper-pagination-bullet {
+    width: 10px !important;
+    height: 10px !important;
+  }
+
   .swiper_especialistas {
     max-width: 85%;
   }
@@ -13326,8 +13424,8 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .titulo_portafolio {
-    margin-top: 3vh;
-    margin-bottom: 3vh;
+    margin-top: 4%;
+    margin-bottom: 3%;
     font-size: calc(0.95em + 1vw);
   }
 
@@ -13432,23 +13530,29 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slider_logoshome {
-    height: 25vh;
+    width: 100%;
+    height: 27vh;
+    padding-top: 5%;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("/img/home/fondo-gris-logos.png");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .titulo_logos {
     margin-top: 0;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
     font-size: calc(0.95em + 1vw);
   }
 
   .contains_slider_triple {
     height: 25vh;
     margin-bottom: 0;
-  }
-
-  .contains_slider_logoshome {
-    height: 45vh;
-    padding-top: 14%;
   }
 
   .contains_slider_logoshome .btn-prev {
@@ -13470,6 +13574,10 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 1200px) {
   .section_txtBanner {
     margin-top: 5%;
+  }
+
+  .pagination_home {
+    bottom: 5px !important;
   }
 
   .contains_menu {
@@ -13507,6 +13615,10 @@ a:link, a:visited, a:active, a:hover {
     margin-bottom: 3%;
   }
 
+  .contains_menu {
+    margin-bottom: 3%;
+  }
+
   .zaabrasalud_parallax {
     height: 40vh;
   }
@@ -13516,12 +13628,12 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slider_logoshome {
-    height: 50vh;
-    padding-top: 10%;
+    height: 30vh;
+    padding-top: 5%;
   }
 
   .contains_slider_triple {
-    margin-top: 3%;
+    margin-top: 0;
     height: 35vh;
   }
 
@@ -13582,6 +13694,11 @@ a:link, a:visited, a:active, a:hover {
     border-radius: 3px;
     height: calc(1.2em + 0.75rem + 2px);
     width: 48%;
+  }
+
+  .swiper-pagination-bullet {
+    width: 10px !important;
+    height: 10px !important;
   }
 
   .contains_image {
@@ -13657,7 +13774,7 @@ a:link, a:visited, a:active, a:hover {
 
   .titulo_portafolio {
     margin-top: 3%;
-    margin-bottom: 4%;
+    margin-bottom: 2%;
     font-size: calc(0.95em + 1vw);
   }
 
@@ -13686,17 +13803,29 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_slider_triple {
     height: 25vh;
-    margin-bottom: 0;
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
 
   .contains_slider_logoshome {
-    height: 50vh;
+    width: 100%;
+    height: 31vh;
+    padding-top: 3%;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("/img/home/fondo-gris-logos.png");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .titulo_logos {
     margin-top: 0;
     margin-bottom: 2%;
-    font-size: calc(0.95em + 1vw);
+    font-size: calc(0.7em + 1vw);
   }
 
   .contains_slider_logoshome .btn-prev {
@@ -13718,6 +13847,21 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 1920px) {
   .section_txtBanner {
     margin-top: 6%;
+  }
+
+  .pagination_home {
+    bottom: 20px !important;
+  }
+
+  .swiper-pagination-bullet {
+    width: 13px !important;
+    height: 13px !important;
+    color: #0083D6 !important;
+  }
+
+  .titulo_portafolio {
+    margin-top: 2%;
+    margin-bottom: 2%;
   }
 
   .contains_menu {
@@ -13822,13 +13966,12 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slider_logoshome {
-    height: 60vh;
-    padding-top: 10%;
+    height: 40vh;
   }
 
-  .titulo_portafolio {
-    margin-top: 2%;
-    margin-bottom: 3%;
+  .titulo_logos {
+    margin-top: 0;
+    margin-bottom: 1%;
   }
 
   .contains_slider_triple {
@@ -13840,19 +13983,19 @@ a:link, a:visited, a:active, a:hover {
   padding: 0;
 }
 
-.section_tarjetas-profesionales {
+.container_ramSalud {
   margin: auto;
   padding: 0;
   justify-content: center;
 }
 
-.imagen_profesion {
+.content_img_ramSalud {
   display: flex;
   justify-content: center;
   align-self: center;
 }
 
-.contenido_boton-ver {
+.section_btn_ramSalud {
   display: flex;
   justify-content: center;
 }
@@ -13878,76 +14021,86 @@ a:link, a:visited, a:active, a:hover {
     padding: 0;
   }
 
-  .section_titulo-rama {
-    font-size: 1.125em;
+  .title_ramSalud {
+    font-size: 1.3em;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
     color: #0083d6;
-    margin: 10% 0;
+    margin: 5% 0;
     text-align: center;
   }
 
-  .section_tarjetas-profesionales {
-    margin: 0;
+  .container_ramSalud {
+    margin-bottom: 10%;
     padding: 0;
     justify-content: space-evenly;
   }
 
-  .contenido_tarjetas-profesionales {
+  .section_ramSalud {
     margin-bottom: 3%;
     padding: 3% 1%;
     border-radius: 5px;
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
   }
 
-  .imagen_profesion {
+  .content_img_ramSalud {
     display: flex;
     justify-content: center;
     align-self: center;
   }
 
-  .icono_img-profesion {
+  .imagen_ramSalud {
     width: 85px;
     height: 85px;
   }
 
-  .nombre_profesion {
-    font-size: 0.688em;
-    font-family: "Quicksnd", sans-serif;
+  .subTitle_ramSalud {
+    font-size: 0.8em;
+    font-family: "Quicksand", sans-serif;
     font-weight: bolder;
     color: #232323;
+    margin: 5% 0;
     padding: 0;
     text-align: center;
   }
 
-  .texto_profesion {
-    font-size: 0.488em;
-    font-family: "quicksand", sans-serif;
+  .text_ramSalud {
+    font-size: 0.625em;
+    font-family: "Roboto", sans-serif;
     color: #3e3e3e;
     text-align: center;
     margin: 5% 0;
+    height: 6vh;
   }
 
-  .contenido_boton-ver {
+  .section_btn_ramSalud {
     display: flex;
     justify-content: center;
   }
 
-  .boton_ver-especialidad {
-    background: #0083d6;
-    font-family: "quicksand", sans-serif;
-    font-size: 0.563em;
+  .content_btn_ramSalud {
+    width: 85%;
+  }
+
+  .btnVer_ramSalud {
+    background: #0083D6;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.625em;
     color: #ffffff;
     padding: 0;
-    height: 25px;
-    width: 102px;
+    height: 4vh;
+    width: 100%;
     border-radius: 3px;
     border: none;
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .icono_flecha-ver {
+  .icon_arrow_ramSalud {
     width: 9%;
+    margin-left: 5%;
   }
 
   .logosUniversidades {
@@ -13958,90 +14111,129 @@ a:link, a:visited, a:active, a:hover {
     height: 20vh;
   }
 }
+@media (min-width: 360px) and (orientation: portrait) {
+  .text_ramSalud {
+    height: 5vh;
+  }
+}
 @media (min-width: 768px) and (orientation: portrait) {
-  .section_titulo-rama {
+  .title_ramSalud {
     font-size: 2.5em;
   }
 
-  .icono_img-profesion {
+  .container_ramSalud {
+    padding: 0 3%;
+  }
+
+  .imagen_ramSalud {
     width: 150px;
     height: 150px;
   }
 
-  .nombre_profesion {
+  .subTitle_ramSalud {
     font-size: 1.8em;
   }
 
-  .texto_profesion {
+  .text_ramSalud {
     font-size: 1em;
+    height: 4vh;
+    margin: 5% 0 0 0;
   }
 
-  .boton_ver-especialidad {
-    background: #0083d6;
-    font-family: "quicksand", sans-serif;
+  .content_btn_ramSalud {
+    width: 75%;
+    margin: auto;
+  }
+
+  .btnVer_ramSalud {
+    background: #0083D6;
+    font-family: "Quicksand", sans-serif;
     font-size: 1.25em;
     color: #ffffff;
     padding: 0;
-    height: 50px;
-    width: 246px;
+    height: 3vh;
+    width: 100%;
     border-radius: 3px;
     border: none;
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .icono_flecha-ver {
+  .icon_arrow_ramSalud {
     width: 7%;
+    margin-left: 3%;
   }
 }
 @media (min-width: 1024px) {
-  .section_titulo-rama {
-    font-size: 2.5em;
+  .title_ramSalud {
+    font-size: calc(0.95em + 1vw);
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
-    color: #0083d6;
-    margin: 5% 0;
+    color: #0083D6;
+    margin: 4% 0;
     text-align: center;
   }
 
-  .contenido_tarjetas-profesionales {
+  .container_ramSalud {
+    margin-bottom: 5%;
+  }
+
+  .section_ramSalud {
     margin: 1%;
     padding: 3% 1%;
     border-radius: 5px;
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
   }
 
-  .nombre_profesion {
-    font-size: 1.35em;
-    font-family: "Quicksnd", sans-serif;
+  .imagen_ramSalud {
+    width: 125px;
+    height: 125px;
+  }
+
+  .subTitle_ramSalud {
+    font-size: calc(0.5em + .9vw);
+    font-family: "Quicksand", sans-serif;
     font-weight: bolder;
     color: #232323;
     padding: 0;
     text-align: center;
+    margin-top: 3%;
   }
 
-  .texto_profesion {
-    font-size: 0.9em;
-    font-family: "quicksand", sans-serif;
+  .text_ramSalud {
+    font-size: calc(.2em + .8vw);
+    font-family: "Quicksand", sans-serif;
     color: #3e3e3e;
     text-align: center;
     margin-bottom: 5%;
+    height: 5vh;
   }
 
-  .boton_ver-especialidad {
-    background: #0083d6;
-    font-family: "quicksand", sans-serif;
-    font-size: 0.9em;
+  .content_btn_ramSalud {
+    width: 80%;
+  }
+
+  .btnVer_ramSalud {
+    background: #0083D6;
+    font-family: "Quicksand", sans-serif;
+    font-size: calc(.2em + .8vw);
     color: #ffffff;
     padding: 0;
-    height: 37px;
-    width: 150px;
+    height: 3.5vh;
+    width: 100%;
     border-radius: 3px;
     border: none;
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .icono_flecha-ver {
-    width: 8%;
+  .icon_arrow_ramSalud {
+    width: 7%;
+    margin-left: 2%;
   }
 
   .contains_slider-logos-galeriaProf {
@@ -14049,26 +14241,38 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1200px) {
-  .texto_profesion {
-    font-size: 0.8em;
-  }
-}
-@media (min-width: 1600px) {
-  .texto_profesion {
-    font-size: 1.2em;
+  .text_ramSalud {
+    font-size: calc(.1em + .8vw);
+    height: 6vh;
   }
 
-  .boton_ver-especialidad {
-    background: #0083d6;
-    font-family: "quicksand", sans-serif;
-    font-size: 1.25em;
-    color: #ffffff;
-    padding: 0;
-    height: 37px;
-    width: 246px;
-    border-radius: 3px;
-    border: none;
-    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  .btnVer_ramSalud {
+    font-size: calc(.2em + .8vw);
+    height: 4vh;
+  }
+}
+@media (min-width: 1440px) {
+  .title_ramSalud {
+    margin: 2% 0;
+  }
+
+  .text_ramSalud {
+    font-size: calc(.035em + .7vw);
+    height: 3vh;
+  }
+
+  .content_btn_ramSalud {
+    width: 75%;
+  }
+
+  .btnVer_ramSalud {
+    font-size: calc(.15em + .8vw);
+    height: 3.5vh;
+  }
+}
+@media (min-width: 1920px) {
+  .text_ramSalud {
+    height: 4vh;
   }
 }
 .imagen_bannerPrin-espc {
@@ -14076,10 +14280,21 @@ a:link, a:visited, a:active, a:hover {
   padding: 0;
 }
 
-.section_tarjetas-especilidades {
+.container_espeMed {
   margin: auto;
-  margin-bottom: 5%;
+  margin-bottom: 3%;
   padding: 0;
+  justify-content: flex-start;
+}
+
+.content_img_espeMed {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.section_btn_espeMed {
+  display: flex;
   justify-content: center;
 }
 
@@ -14089,53 +14304,203 @@ a:link, a:visited, a:active, a:hover {
     padding: 0;
   }
 
-  .imagen_especialidad {
-    width: 75%;
-    display: flex;
-    justify-content: center;
-    align-self: center;
-  }
-
-  .section_titulo-especialidad {
-    font-size: 1.125em;
+  .title_espeMed {
+    font-size: 1.3em;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
-    color: #0083d6;
-    margin: 10% 0;
+    color: #0083D6;
+    margin: 5% 0;
     text-align: center;
   }
 
-  .section_tarjetas-especilidades {
+  .container_espeMed {
     margin: auto;
     margin-bottom: 5%;
     padding: 0;
     justify-content: space-between;
   }
-}
-@media (min-width: 768px) and (orientation: portrait) {
-  .section_titulo-especialidad {
-    font-size: 2.5em;
+
+  .section_espeMed {
+    margin-bottom: 3%;
+    padding: 3% 1%;
   }
 
-  .imagen_especialidad {
-    width: 60%;
-  }
-}
-@media (min-width: 1024px) {
-  .section_titulo-especialidad {
-    font-size: 2.5em;
-    font-family: "Quicksand", sans-serif;
-    font-weight: bolder;
-    color: #0083d6;
-    margin: 5% 0;
-    text-align: center;
+  .content_img_espeMed {
+    display: flex;
+    justify-content: center;
+    align-self: center;
   }
 
-  .imagen_especialidad {
+  .imagen_espeMed {
     width: 75%;
     display: flex;
     justify-content: center;
     align-self: center;
+  }
+
+  .subTitle_espeMed {
+    font-size: 0.8em;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #232323;
+    margin: 5% 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .section_btn_espeMed {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btnVer_espMed {
+    background: #0083D6;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.625em;
+    color: #ffffff;
+    padding: 0;
+    height: 4vh;
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content_btn_espMed {
+    width: 85%;
+  }
+
+  .icon_arrow_espMed {
+    width: 9%;
+    margin-left: 5%;
+  }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+  .title_espeMed {
+    font-size: 2.5em;
+  }
+
+  .imagen_espeMed {
+    width: 60%;
+  }
+
+  .subTitle_espeMed {
+    font-size: 1.8em;
+  }
+
+  .content_btn_espMed {
+    width: 75%;
+    margin: auto;
+  }
+
+  .btnVer_espMed {
+    background: #0083D6;
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.25em;
+    color: #ffffff;
+    padding: 0;
+    height: 3vh;
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon_arrow_espMed {
+    width: 7%;
+    margin-left: 3%;
+  }
+}
+@media (min-width: 1024px) {
+  .title_espeMed {
+    font-size: calc(0.95em + 1vw);
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #0083D6;
+    margin: 4% 0;
+    text-align: center;
+  }
+
+  .section_espeMed {
+    margin: 0 0 5% 0;
+    padding: 0;
+  }
+
+  .imagen_espeMed {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+
+  .subTitle_espeMed {
+    font-size: calc(0.5em + .9vw);
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #232323;
+    padding: 0;
+    text-align: center;
+    margin-top: 3%;
+  }
+
+  .content_btn_espMed {
+    width: 80%;
+  }
+
+  .btnVer_espMed {
+    background: #0083D6;
+    font-family: "Quicksand", sans-serif;
+    font-size: calc(.2em + .8vw);
+    color: #ffffff;
+    padding: 0;
+    height: 3.5vh;
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon_arrow_espMed {
+    width: 7%;
+    margin-left: 2%;
+  }
+}
+@media (min-width: 1200px) {
+  .btnVer_espMed {
+    font-size: calc(.2em + .8vw);
+    height: 4vh;
+  }
+}
+@media (min-width: 1440px) {
+  .title_espeMed {
+    margin: 2% 0;
+  }
+
+  .content_btn_espMed {
+    width: 75%;
+  }
+
+  .btnVer_espMed {
+    font-size: calc(.15em + .8vw);
+    height: 3.5vh;
+  }
+}
+@media (min-width: 1920px) {
+  .btnVer_espMed {
+    height: 4vh;
+  }
+
+  .icon_arrow_espMed {
+    width: 7%;
   }
 }
 .section_data_profesionales, .section_data_consulta {
@@ -14304,7 +14669,7 @@ a:link, a:visited, a:active, a:hover {
 
 .data_profesionales h2 {
   font-family: "Quicksand", sans-serif;
-  color: #0083d6;
+  color: #0083D6;
   font-weight: bold;
   text-align: center;
 }
@@ -14377,7 +14742,7 @@ a:link, a:visited, a:active, a:hover {
 .data_consulta span {
   font-family: "Roboto";
   font-weight: 500;
-  color: #0083d6;
+  color: #0083D6;
 }
 
 .data_consulta .menu_1, .menu_2, .menu_3 {
@@ -14893,7 +15258,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 5px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -14925,7 +15290,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1.5em;
   font-weight: bold;
-  color: #0083d6;
+  color: #0083D6;
   padding-left: 5%;
   height: 5vh;
   display: flex;
@@ -14963,6 +15328,7 @@ a:link, a:visited, a:active, a:hover {
   font-size: 3em;
   width: 10%;
   margin-left: 10%;
+  color: #0083D69e;
 }
 
 .contains_text {
@@ -15065,6 +15431,10 @@ a:link, a:visited, a:active, a:hover {
   background-repeat: no-repeat;
   position: absolute;
   margin-top: -25%;
+}
+
+.circle_opinion-prof {
+  background-color: var(--main-bg-color);
 }
 
 @media (min-width: 320px) {
@@ -16397,7 +16767,7 @@ a:link, a:visited, a:active, a:hover {
     font-family: "Quicksand";
     font-size: 1.25em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -17532,7 +17902,7 @@ a:link, a:visited, a:active, a:hover {
 
 .titulo_profesionales {
   font-family: "Quicksand", sans-serif;
-  color: #0083d6;
+  color: #0083D6;
   font-weight: bold;
   text-align: center;
 }
@@ -17749,8 +18119,10 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slide .contains_image_profesional img {
-    -o-object-fit: contain;
-       object-fit: contain;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: top;
+       object-position: top;
   }
 
   .contains_slide .contains_body {
@@ -21293,7 +21665,7 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.125em;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
-    color: #019f86;
+    color: #019F86;
     margin: 10% 0;
     text-align: center;
   }
@@ -21345,7 +21717,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .boton_ver-entidades {
-    background: #019f86;
+    background: #019F86;
     font-family: "quicksand", sans-serif;
     font-size: 0.563em;
     color: #ffffff;
@@ -21389,7 +21761,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .boton_ver-entidades {
-    background: #019f86;
+    background: #019F86;
     font-family: "quicksand", sans-serif;
     font-size: 1.25em;
     color: #ffffff;
@@ -21410,7 +21782,7 @@ a:link, a:visited, a:active, a:hover {
     font-size: 2.5em;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
-    color: #019f86;
+    color: #019F86;
     margin: 5% 0;
     text-align: center;
   }
@@ -21440,7 +21812,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .boton_ver-entidades {
-    background: #019f86;
+    background: #019F86;
     font-family: "quicksand", sans-serif;
     font-size: 0.9em;
     color: #ffffff;
@@ -21477,7 +21849,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .boton_ver-entidades {
-    background: #019f86;
+    background: #019F86;
     font-family: "quicksand", sans-serif;
     font-size: 1.25em;
     color: #ffffff;
@@ -21571,7 +21943,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 5px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -21585,7 +21957,7 @@ a:link, a:visited, a:active, a:hover {
 .texto_olvide-login {
   font-family: "Roboto", "Regular";
   font-size: 1em;
-  color: #0083d6 !important;
+  color: #0083D6 !important;
   text-decoration: underline !important;
   display: flex;
   justify-content: center;
@@ -21668,7 +22040,7 @@ a:link, a:visited, a:active, a:hover {
     text-decoration: none;
     text-align: center;
     align-items: center;
-    border-bottom: 5px solid #1558d6;
+    border-bottom: 5px solid #0083D6;
     padding: 0;
   }
 
@@ -21696,7 +22068,7 @@ a:link, a:visited, a:active, a:hover {
     font-family: "Quicksand";
     font-size: 0.85em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -21710,7 +22082,7 @@ a:link, a:visited, a:active, a:hover {
   .texto_olvide-login {
     font-family: "Roboto", "Regular";
     font-size: 0.85em;
-    color: #0083d6 !important;
+    color: #0083D6 !important;
     text-decoration: underline !important;
     display: flex;
     justify-content: center;
@@ -22013,7 +22385,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 5px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -22064,7 +22436,7 @@ a:link, a:visited, a:active, a:hover {
     text-decoration: none;
     text-align: center;
     align-items: center;
-    border-bottom: 5px solid #1558d6;
+    border-bottom: 5px solid #0083D6;
     padding: 0;
   }
 
@@ -22103,7 +22475,7 @@ a:link, a:visited, a:active, a:hover {
     font-family: "Quicksand";
     font-size: 0.85em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -22216,7 +22588,7 @@ a:link, a:visited, a:active, a:hover {
     font-family: "Quicksand";
     font-size: 1.438em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -22376,7 +22748,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 5px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -22417,7 +22789,7 @@ a:link, a:visited, a:active, a:hover {
     font-family: "Quicksand";
     font-size: 0.85em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -22444,7 +22816,7 @@ a:link, a:visited, a:active, a:hover {
   .titulo_principal-email {
     font-size: 1.3em;
     font-weight: 500;
-    margin: 14% 15% 5%;
+    margin: 15% 15% 5%;
   }
 
   .section_principal-email {
@@ -22468,7 +22840,7 @@ a:link, a:visited, a:active, a:hover {
     font-family: "Quicksand";
     font-size: 1.25em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -22632,7 +23004,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .btn_precio-tarjeta-membresia {
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 7px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -22719,7 +23091,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1.5em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -23408,7 +23780,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1.15em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -23439,7 +23811,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Quicksand";
   font-size: 1.15em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -26408,10 +26780,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -26597,10 +26969,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -26625,10 +26997,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -26648,10 +27020,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -26706,10 +27078,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -26722,10 +27094,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -26743,10 +27115,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -26978,10 +27350,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27033,10 +27405,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27189,10 +27561,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27217,10 +27589,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27233,10 +27605,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27355,10 +27727,10 @@ label.error {
   height: 5vh;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0083d6;
+  border-bottom: 1px solid #0083D6;
   font-size: 1em;
   font-family: "Quicksand", "Regular";
-  color: #0083d6;
+  color: #0083D6;
   text-transform: inherit;
 }
 
@@ -27405,7 +27777,7 @@ label.error {
   font-family: "Quicksand";
   font-size: 1.15em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -27416,7 +27788,7 @@ label.error {
   font-family: "Quicksand";
   font-size: 1.15em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -27904,7 +28276,7 @@ label.error {
     font-family: "Quicksand";
     font-size: 1em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 3px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -28721,7 +29093,7 @@ label.error {
   font-size: 1.3em;
   font-family: "Quicksand", sans-serif;
   font-weight: bolder;
-  color: #019f86;
+  color: #019F86;
   margin: 3% 0;
   text-align: center;
 }
@@ -28780,7 +29152,7 @@ label.error {
   font-family: "Quicksand";
   font-size: 1em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 5px;
   height: calc(1.6em + 0.75rem + 2px);
@@ -28884,7 +29256,7 @@ label.error {
     font-family: "Quicksand";
     font-size: 0.85em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -29043,7 +29415,7 @@ label.error {
     font-family: "Quicksand";
     font-size: 1.25em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -29068,7 +29440,7 @@ label.error {
     font-size: 2em;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
-    color: #019f86;
+    color: #019F86;
     margin: 3% 10% 2% 10%;
     text-align: center;
   }
@@ -29408,7 +29780,7 @@ label.error {
 
 .btn_close-popup {
   border-radius: 18px !important;
-  background-color: #0083d6;
+  background-color: #0083D6;
   padding: 0 !important;
   margin-top: 0 !important;
   margin-right: 0 !important;
@@ -29484,7 +29856,7 @@ label.error {
   font-family: "Quicksand";
   font-size: 1.3em;
   color: #ffffff;
-  background: #0083d6;
+  background: #0083D6;
   border: none;
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);

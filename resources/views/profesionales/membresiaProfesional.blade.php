@@ -279,7 +279,7 @@
         </div>
       </div>
 
-      <p class="texto_inferior-membresia"> Puede complementar y personalizar su plan con recursos publicitarios adicionales. <a class="contac_membresia" href="{{route('contacto')}}" target="blank"> Contáctenos </a> para ser atendido por un representante. *Vigencia anual. </p>
+      <p class="texto_inferior-membresia"> Puede complementar y personalizar su plan con recursos publicitarios adicionales. <a class="contac_membresia" href="{{route('contacto')}}" target="blank"> contáctenos </a> para ser atendido por un representante. *Vigencia anual. </p>
 
       <!-- Botón Empezar -->
       <div class="col-10 content_btn-ingresar-membresia">

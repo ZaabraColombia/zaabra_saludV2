@@ -1,0 +1,207 @@
+.imagen_bannerPrin-espc {
+    width: 100%;
+    padding: 0;
+}
+// Sección tarjetas profesionales de al salud
+.container_espeMed {
+    margin: auto;
+    margin-bottom: 3%;
+    padding: 0;
+    justify-content: flex-start;
+}
+.content_img_espeMed {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.section_btn_espeMed { 
+    display: flex;
+    justify-content: center;
+}
+@media (min-width: 320px) and (orientation: portrait) {
+    .imagen_bannerPrin-espc {
+        width: 100%;
+        padding: 0;
+    }
+    // Sección del titulo especialidades medicina
+    .title_espeMed {
+        font-size: 1.3em;
+        font-family: 'Quicksand', sans-serif; 
+        font-weight: bolder;
+        color: #0083D6;
+        margin: 5% 0;
+        text-align: center;
+    }
+    // Tarjetas de las especialidades 
+    .container_espeMed {
+        margin: auto;
+        margin-bottom: 5%;
+        padding: 0;
+        justify-content: space-between;
+    }
+    .section_espeMed {
+        margin-bottom: 3%;
+        padding: 3% 1%;
+    }
+    .content_img_espeMed {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+    }
+    .imagen_espeMed {
+        width: 75%;
+        display: flex;
+        justify-content: center;
+        align-self: center;
+    }
+    .subTitle_espeMed {
+        font-size: .8em;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: bolder;
+        color: #232323;
+        margin: 5% 0;
+        padding: 0;
+        text-align: center;
+    }
+    .section_btn_espeMed { 
+        display: flex;
+        justify-content: center;
+    }
+    .btnVer_espMed {
+        background: #0083D6;
+        font-family: "Quicksand", sans-serif;
+        font-size: 0.625em;
+        color: #ffffff;
+        padding: 0;
+        height: 4vh;
+        width: 100%;
+        border-radius: 3px;
+        border: none;
+        box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 20%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .content_btn_espMed {
+        width: 85%;
+    }
+    .icon_arrow_espMed {
+        width: 9%;
+        margin-left: 5%;
+    }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+    // Sección del titulo erspecialidades medicina
+    .title_espeMed {
+        font-size: 2.5em;
+    }
+    // Tarjetas de las especialidades 
+     .imagen_espeMed {
+        width: 60%;
+    }
+    .subTitle_espeMed {
+        font-size: 1.8em;
+    }
+    .content_btn_espMed {
+        width: 75%;
+        margin: auto;
+    }
+    .btnVer_espMed {
+        background: #0083D6;
+        font-family: "Quicksand", sans-serif;
+        font-size: 1.25em;
+        color: #ffffff;
+        padding: 0;
+        height: 3vh;
+        width: 100%;
+        border-radius: 3px;
+        border: none;
+        box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 20%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon_arrow_espMed {
+        width: 7%;
+        margin-left: 3%;
+    }
+}
+@media (min-width: 1024px) {
+    // Sección del titulo especialidades medicina
+    .title_espeMed {
+        font-size: calc(0.95em + 1vw);
+        font-family: 'Quicksand', sans-serif; 
+        font-weight: bolder;
+        color: #0083D6;
+        margin: 4% 0;
+        text-align: center;
+    }
+    // Sección tarjetas profesionales de al salud
+    .section_espeMed {
+        margin: 0 0 5% 0;
+        padding: 0;
+    }
+    .imagen_espeMed {
+        width: 75%;
+        display: flex;
+        justify-content: center;
+        align-self: center;
+    }
+    .subTitle_espeMed {
+        font-size: calc(0.5em + .9vw);
+        font-family: 'Quicksand', sans-serif;
+        font-weight: bolder;
+        color: #232323;
+        padding: 0;
+        text-align: center;
+        margin-top: 3%;
+    }
+    .content_btn_espMed {
+        width: 80%;
+    }
+    .btnVer_espMed {
+        background: #0083D6;
+        font-family: 'Quicksand', sans-serif;
+        font-size: calc(.2em + .8vw);
+        color: #ffffff;
+        padding: 0;
+        height: 3.5vh;
+        width: 100%;
+        border-radius: 3px;
+        border: none;
+        box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon_arrow_espMed {
+        width: 7%;
+        margin-left: 2%;
+    }
+}
+@media (min-width: 1200px) {
+    .btnVer_espMed {
+        font-size: calc(.2em + .8vw);
+        height: 4vh;
+    }
+}
+@media (min-width: 1440px) {
+    .title_espeMed {
+        margin: 2% 0;
+    }
+    .content_btn_espMed {
+        width: 75%;
+    }
+    .btnVer_espMed {
+        font-size: calc(.15em + .8vw);
+        height: 3.5vh;
+    }
+}
+@media (min-width: 1920px) {
+    .btnVer_espMed {
+        height: 4vh;
+    }
+    .icon_arrow_espMed {
+        width: 7%;
+    }
+}

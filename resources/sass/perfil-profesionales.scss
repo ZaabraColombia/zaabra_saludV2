@@ -133,7 +133,7 @@
 }
 .data_profesionales h2{
     font-family: "Quicksand", sans-serif;
-    color: #0083d6;
+    color: #0083D6;
     font-weight: bold;
     text-align: center;
 }
@@ -194,7 +194,7 @@
 .data_consulta span{
     font-family: "Roboto";
     font-weight: 500;
-    color: #0083d6;
+    color: #0083D6;
 }
 .data_consulta .menu_1, .menu_2, .menu_3{
     display: flex;
@@ -634,7 +634,7 @@
     font-family: "Quicksand";
     font-size: 1em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -661,7 +661,7 @@
     font-family: "Quicksand";
     font-size: 1.5em;
     font-weight: bold;
-    color: #0083d6;
+    color: #0083D6;
     padding-left: 5%;
     height: 5vh;
     display: flex;
@@ -695,6 +695,7 @@
     font-size: 3em;
     width: 10%;
     margin-left: 10%;
+    color: #0083D69e;
 }
 .contains_text {
     width: 60%;
@@ -788,6 +789,14 @@
     position: absolute;
     margin-top: -25%;
 }
+
+
+
+
+
+.circle_opinion-prof {
+    background-color: var(--main-bg-color);
+  }
 @media (min-width: 320px){
     .section_backArrow {
         width: 85%;
@@ -1858,7 +1867,7 @@
         font-family: "Quicksand";
         font-size: 1.25em;
         color: #ffffff;
-        background: #0083d6;
+        background: #0083D6;
         border: none;
         border-radius: 5px;
         height: calc(1.6em + 0.75rem + 2px);

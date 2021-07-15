@@ -29,7 +29,7 @@
                         <label for="email" class="col-md-12 col-form-label texto_label-login"> Correo Electrónico </label>
 
                         <div class="col-12">
-                            <input id="email" type="email" class="form-control input_height-fullhd @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="zaabra@gmail.com">
+                            <input id="email" type="email" class="form-control input_height-fullhd @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="servicioalcliente@zaabrasalud.co">
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
