@@ -1,4 +1,4 @@
-ruta='https://zaabrasalud.co/';
+ruta='https://zaabrasalud.co';
 $(function(){
     $("#filtro").autocomplete({
         autoFocus: true,
