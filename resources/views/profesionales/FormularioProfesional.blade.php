@@ -56,10 +56,11 @@
         <!--------------------------------------------      Inicio 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      --------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
             <h5 class="col-12 icon_infoBasica-formProf"> Información básica </h5> 
-
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_basico">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-
+                <div class="alert alert-success d-none" id="msg_basico">
+                   <span id="res_message_basico">Su información se guardó correctamente</span>
+                </div>
+            <form id="formulario_basico" method="POST" action="javascript:void(0)" enctype="multipart/form-data" accept-charset="UTF-8">
+               @csrf
                 <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio---------------------> 
                 @if(!empty($objFormulario))
                     <div class="row fila_infoBasica-formProf">
@@ -68,9 +69,7 @@
                             @foreach($objFormulario as $objFormulario)
                                 <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objFormulario->fotoperfil)}}">
                             @endforeach
-            
                             <input type="file" class="input_imgUsuario-formProf" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg" value="{{$objFormulario->fotoperfil}}">
-
                             <p class="icon_subirFoto-formProf text_usuario-formProf"> Subir foto de perfil </p>
                         </div>
                         
@@ -79,18 +78,14 @@
                             @foreach ($objuser as $objuser)
                                 <div class="col-lg-6 section_inputRight-text-formProf">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Nombres </label>
-
-                                    
                                     <div class="col-12 nombres_usuario-formProf">
                                         <input class="input_nomApl-formProf" value="{{$objuser->primernombre}}" readonly></input>
 
                                         <input class="input_nomApl-formProf" value="{{$objuser->segundonombre}}" readonly></input>
                                     </div>
                                 </div>
-
                                 <div class="col-lg-6 section_inputRight-text-formProf">
                                     <label for="example-date-input"class="col-12 text_label-formProf"> Apellidos </label>
-
                                     <div class="col-12 nombres_usuario-formProf">
                                         <input class="input_nomApl-formProf" value="{{$objuser->primerapellido}}" readonly></input>
 
@@ -101,14 +96,10 @@
 
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de nacimiento </label>
-
-                                <input class="col-lg-12 form-control" type="date" value="{{$objFormulario->fechanacimiento}}" id="example-date-input" name="fechanacimiento">
+                                <input class="col-lg-12 form-control" type="date" value="{{$objFormulario->fechanacimiento}}" id="fechanacimiento" name="fechanacimiento">
                             </div>
-                
-
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Selecione área </label> 
-
                                 <select id="idarea" name="idarea" class="col-lg-12 form-control">
                                     <option value="" selected disabled>{{$objFormulario->nombreArea}}</option>
                                     @foreach($area as $area)
@@ -116,49 +107,33 @@
                                     @endforeach
                                 </select>
                             </div>
-
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Selecione profesión </label>
-
                                 <select name="idprofesion" id="idprofesion" class="col-lg-12 form-control">
                                       <option value="" selected disabled>{{$objFormulario->nombreProfesion}}</option>
                                 </select>
                             </div>
-
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione especialidad </label>
-
                                 <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control">
                                       <option value="" selected disabled>{{$objFormulario->nombreEspecialidad}}</option>
                                 </select>
-                            </div>
-                    
+                            </div>               
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-
                                 <select  class="col-lg-12 form-control" name="id_universidad">
-                                    @foreach($objFormulario1 as $objFormulario1)
-                                        <option value="{{$objFormulario1->id_universidad}}">{{$objFormulario1->nombreuniversidad}}</option>
-                                    @endforeach
-
-                                    @foreach($universidades as $universidades1)
-                                        <option value="{{$universidades1->id_universidad}}"> {{$universidades1->nombreuniversidad}}</option>
+                                        <option value="{{$objFormulario->id_universidad}}">{{$objFormulario->nombreuniversidad}}</option>
+                                    @foreach($universidades as $universidadesLista)
+                                        <option value="{{$universidadesLista->id_universidad}}"> {{$universidadesLista->nombreuniversidad}}</option>
                                     @endforeach
                                 </select>
                             </div>
-
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Tarjeta profesional </label>
 
                                     <input class="col-lg-12 form-control" id="tarjeta" placeholder="Número de tarjeta" type="number" name="numeroTarjeta" value="{{$objFormulario->numeroTarjeta}}">
                                 </div>
-                            </div>
-
-                            <div class="col-md-3 content_btnEnviar-formProf">
-                                <button type="submit" class="btn_enviar-formProf"> Guardar
-                                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -170,9 +145,7 @@
                         <!-- Sección imagen de usuario --> 
                         <div class="col-md-3 contain_imgUsuario-formProf">   
                             <img class="img_usuario-formProf" id="imagenPrevisualizacion">
-
                             <input class="input_imgUsuario-formProf" type="file" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg" required>
-
                             <p class="icon_subirFoto-formProf text_usuario-formProf"> Subir foto de perfil </p>
                         </div>
                 
@@ -181,17 +154,14 @@
                             @foreach ($objuser as $objuser)
                                 <div class="col-lg-6 section_inputRight-text-formProf">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Nombres </label>
-
                                     <div class="col-12 nombres_usuario-formProf">
                                         <input class="input_nomApl-formProf" value="{{$objuser->primernombre}}" readonly></input>
-
                                         <input class="input_nomApl-formProf" value="{{$objuser->segundonombre}}" readonly></input>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 section_inputRight-text-formProf">
                                     <label for="example-date-input" class="col-lg-12 text_label-formProf"> Apellidos </label>
-
                                     <div class="col-12 nombres_usuario-formProf">
                                         <input class="input_nomApl-formProf" value="{{$objuser->primerapellido}}" readonly></input>
 
@@ -202,16 +172,13 @@
             
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf">  Fecha de nacimiento </label>
-                                
-                                <input class="col-lg-12 form-control" type="date" value="2011-08-19" id="example-date-input" name="fechanacimiento" required>
+                                <input class="col-lg-12 form-control" type="date" value="2011-08-19" id="fechanacimiento" name="fechanacimiento" required>
                             </div>
-
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Selecione área </label> 
 
                                 <select id="idarea" name="idarea" class="col-lg-12 form-control" required>
                                     <option value="" selected disabled> Seleccione area</option>
-
                                     @foreach($area as $area)
                                         <option value="{{$area->idArea}}"> {{$area->nombreArea}}</option>
                                     @endforeach
@@ -220,29 +187,21 @@
 
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Selecione profesión </label> 
-                                <div id="popover_profesion" class="popover" style="display:none;">
-                                    Debe seleccionar una profesion
-                                </div>
                                 <select name="idprofesion" id="idprofesion" class="col-lg-12 form-control" required></select>
                             </div>
 
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione especialidad </label>
-                                <div id="popover_especilaidad" class="popover" style="display:none;">
-                                    Debe seleccionar una especialidad
-                                </div>
                                 <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control" required></select>
                             </div>
                         
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-
-                                    <select  class="col-lg-12 form-control" name="id_universidad" required>
+                                    <select  class="col-lg-12 form-control" name="id_universidad" id="id_universidad" required>
                                         <option value="">Seleccione Universidad</option>
-
-                                        @foreach($universidades as $universidades2)
-                                            <option value="{{$universidades2->id_universidad}}"> {{$universidades2->nombreuniversidad}}</option>
+                                        @foreach($universidades as  $universidadesLista)
+                                            <option value="{{$universidadesLista->id_universidad}}"> {{$universidadesLista->nombreuniversidad}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -251,36 +210,34 @@
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Tarjeta profesional </label>
-
-                                    <input class="col-lg-12 form-control" id="tarjeta" placeholder="Número de tarjeta" type="number" name="numeroTarjeta" required>
+                                    <input class="col-lg-12 form-control" id="numeroTarjeta" placeholder="Número de tarjeta" type="number" name="numeroTarjeta" required>
                                 </div>
-                            </div>
-
-                            <div class="col-md-3 content_btnEnviar-formProf">
-                                <button type="submit" class="btn_enviar-formProf"> Guardar
-                                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
-                                </button>
                             </div>
                         </div>
                     </div>
                 @endif
-                <!--------------- Fin campos vacios--------------------->  
+                    <div class="col-md-3 content_btnEnviar-formProf">
+                        <button type="submit" class="btn_enviar-formProf" id="envia_basico"> Guardar
+                            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
+                        </button>
+                    </div> 
             </form>
         </div>
         <!--------------------------------------------      Fin 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      ------------------------------------------------>
 
         <!--------------------------------------------      Inicio 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave2') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_contacto">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-
+            <form id="formulario_contacto" method="POST" action="javascript:void(0)"  enctype="multipart/form-data" accept-charset="UTF-8">
+               @csrf
                 <h5 class="col-12 icon_infoContac-formProf"> Información de contacto </h5>
-                
+                <div class="alert alert-success d-none" id="msg_contacto">
+                   <span id="res_message_contacto">Su información se guardó correctamente</span>
+                </div>
                 <div class="row fila_infoBasica-formProf">
                     @if(!empty($objFormulario))
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
-                            <input class="col-12 form-control" id="tarjeta" placeholder="{{$objFormulario->celular}}" value="{{$objFormulario->celular}}" type="number" name="celular" required >
+                            <input class="col-12 form-control" id="celular" placeholder="{{$objFormulario->celular}}" value="{{$objFormulario->celular}}" type="number" name="celular" required >
                         </div>
 
                         <div class="col-md-6 section_inputRight-text-formProf">
@@ -296,39 +253,30 @@
                         <!--menu dinamico ciudades -->
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione país </label>
-                            <select id="idpais" name="idpais" class="form-control" required>
-                                <option value="{{$objFormulario->id_pais}}" selected disabled>{{$objFormulario->nombrePais}}</option>
+                            <select id="idpais" name="idpais" class="form-control">
+                                    <option value="{{$objFormulario->id_pais}}" selected disabled>{{$objFormulario->nombrePais}}</option>
                                     @foreach($pais as $pais)
-                                        <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
+                                    <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
                                     @endforeach
                             </select>
                         </div>
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Selecione departamento </label>
-                                <div id="popover_departamento" class="popover" style="display:none;">
-                                    Debe seleccionar un departamento
-                                </div>
-                            <select name="id_departamento" id="id_departamento" class="form-control" required>
+                            <select name="id_departamento" id="id_departamento" class="form-control">
                                  <option value="{{$objFormulario->id_departamento}}" selected disabled>{{$objFormulario->nombreDepartamento}}</option>
                             </select>
                         </div>
                 
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione provincia </label>
-                                <div id="popover_provincia" class="popover" style="display:none;">
-                                    Debe seleccionar una provincia
-                                </div>
-                            <select name="id_provincia" id="id_provincia" class="form-control" required>
+                            <select name="id_provincia" id="id_provincia" class="form-control">
                                   <option value="{{$objFormulario->id_provincia}}" selected disabled>{{$objFormulario->nombreProvincia}}</option>
                             </select>
                         </div>
 
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione ciudad </label>
-                               <div id="popover_ciudad" class="popover" style="display:none;">
-                                    Debe seleccionar una ciudad
-                                </div>
-                            <select name="id_municipio" id="id_municipio" class="form-control" required>
+                            <select name="id_municipio" id="id_municipio" class="form-control">
                                  <option value="{{$objFormulario->id_municipio}}" selected disabled>{{$objFormulario->nombreMunicipio}}</option>
                             </select>
                         </div>
@@ -364,31 +312,22 @@
 
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Selecione departamento </label>
-                                <div id="popover_departamento" class="popover" style="display:none;">
-                                    Debe seleccionar un departamento
-                                </div>
                             <select name="id_departamento" id="id_departamento" class="form-control" required></select>
                         </div>
                 
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione provincia </label>
-                                <div id="popover_provincia" class="popover" style="display:none;">
-                                    Debe seleccionar una provincia
-                                </div>
                             <select name="id_provincia" id="id_provincia" class="form-control" required></select>
                         </div>
 
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione ciudad </label>
-                               <div id="popover_ciudad" class="popover" style="display:none;">
-                                    Debe seleccionar una ciudad
-                                </div>
                             <select name="id_municipio" id="id_municipio" class="form-control" required></select>
                         </div>
                     @endif
                         <!-- Botón guardar información -->
                         <div class="col-12 content_btnEnviar-formProf">
-                            <button type="submit" class="btn2_enviar-formProf"> Guardar
+                            <button type="submit" class="btn2_enviar-formProf" id="envia_contacto"> Guardar
                                 <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                             </button>
                         </div>
@@ -577,8 +516,8 @@
             <h5 class="col-12 icon_infoSubPerfil-formProf"> Perfil profesional </h5>
 
             <form id="formulario_descripcion" method="post" action="javascript:void(0)" enctype="multipart/form-data" accept-charset="UTF-8">
-                <div class="alert alert-success d-none" id="msg_div">
-                   <span id="res_message">Su información se guardó correctamente</span>
+                <div class="alert alert-success d-none" id="msg_descripcion">
+                   <span id="res_message_descripcion">Su información se guardó correctamente</span>
                 </div>
                     @csrf
                     @if(!empty($objFormulario))

@@ -22,6 +22,7 @@ class perfilesprofesionales extends Model
         'id_departamento', 
         'id_provincia', 
         'id_municipio', 
+        'id_universidad',
         'direccion',  
         'genero',
         'celular',

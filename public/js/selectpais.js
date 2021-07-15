@@ -8,10 +8,7 @@ $('#idpais').change(function(){
            console.log(res);              
             if(res){
                 $("#id_departamento").empty();
-                setTimeout(function(){
-                    $("#popover_departamento").fadeIn(100);
-                },100)
-                $("#id_departamento").append('<option>Seleccione departamento</option>');
+                $("#id_departamento").append('<option value=" ">Seleccione departamento</option>');
                 $.each(res,function(key){
                     $("#id_departamento").append('<option value="'+res[key].id_departamento+'">'+res[key].nombre+'</option>');
                 });
@@ -36,10 +33,7 @@ $('#idpais').change(function(){
             console.log(res);               
             if(res){
                 $("#id_provincia").empty();
-                setTimeout(function() {
-                    $("#popover_departamento").fadeIn(100);
-                },100)
-                $("#id_provincia").append('<option>Seleccione provincia</option>');
+                $("#id_provincia").append('<option value=" ">Seleccione provincia</option>');
                 $.each(res,function(key,value){
                     $("#id_provincia").append('<option value="'+res[key].id_provincia+'">'+res[key].nombre+'</option>');
                 });
@@ -65,11 +59,7 @@ $('#idpais').change(function(){
             console.log(res);               
             if(res){
                 $("#id_municipio").empty();
-                $("#popover_provincia").empty();
-                setTimeout(function() {
-                    $("#popover_ciudad").fadeIn(100);
-                },100)
-                $("#id_municipio").append('<option>Seleccione ciudad</option>');
+                $("#id_municipio").append('<option value=" ">Seleccione ciudad</option>');
                 $.each(res,function(key,value){
                     $("#id_municipio").append('<option value="'+res[key].id_municipio+'">'+res[key].nombre+'</option>');
                 });
