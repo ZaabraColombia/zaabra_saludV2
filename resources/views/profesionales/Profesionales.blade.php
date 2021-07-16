@@ -70,7 +70,7 @@
                 <img class="card-img-top" src="{{URL::asset($objmedicospagonormal->fotoperfil)}}">
                 <div class="card-body">
                   <h2>{{$objmedicospagonormal->nombreEspecialidad}}</h2>
-                  <h5>{{$objmedicospagonormal->primernombre}} {{$objmedicospagonormal->primerapellido}}</h5>
+                  <h5 class="niega_uppercase">{{$objmedicospagonormal->primernombre}} {{$objmedicospagonormal->primerapellido}}</h5>
                   <span>{{$objmedicospagonormal->concatNombreEspecialidad}}</span>
                   <p>{{$objmedicospagonormal->nombreuniversidad}}</p>
                   <!-- Rating Stars Box -->
@@ -111,7 +111,7 @@
           @foreach ($objmedicossinpago as $objmedicossinpago)
             <div class="card card_generic">
               <div class="card-body">
-                <h5>{{$objmedicossinpago->primernombre}} {{$objmedicossinpago->primerapellido}}</h5>
+                <h5 class="niega_uppercase">{{$objmedicossinpago->primernombre}} {{$objmedicossinpago->primerapellido}}</h5>
                 <p>{{$objmedicossinpago->nombreEspecialidad}}</p>
                 <!-- Rating Stars Box -->
                     <div class='rating-stars text-center'>
