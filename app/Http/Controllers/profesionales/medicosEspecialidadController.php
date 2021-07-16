@@ -24,7 +24,7 @@ class medicosEspecialidadController extends Controller{
 
     // consulta para cargar todas los profesionales segun su especialidad y que pagan premiun
     public function cargarCarruselProfesionalesPremiun($idEspecialidad){
-    return DB::select("SELECT pf.idPerfilProfesional, CONCAT('Dr/Dra. ',  us.primernombre) AS primernombre, us.primerapellido, ep.nombreEspecialidad, mn.nombre, pf.descripcionPerfil, un.nombreuniversidad, pf.fotoperfil
+    return DB::select("SELECT pf.idPerfilProfesional, CONCAT('Dr/Dra. ',  us.primernombre) AS primernombre, us.primerapellido, CONCAT('Especialista en ',  ep.nombreEspecialidad) AS nombreEspecialidad, mn.nombre, pf.descripcionPerfil, un.nombreuniversidad, pf.fotoperfil
     FROM  users us
     INNER JOIN pagos pg ON us.id=pg.idUsuario
     INNER JOIN perfilesprofesionales pf ON us.id=pf.idUser
@@ -36,7 +36,7 @@ class medicosEspecialidadController extends Controller{
 
     // consulta para cargar todas los profesionales segun su especialidad y el pago normal
     public function cargarMedicosPagoNormal($idEspecialidad){
-    return DB::select("SELECT pf.idPerfilProfesional, CONCAT('Dr/Dra. ',  us.primernombre) AS primernombre, us.primerapellido, ep.nombreEspecialidad, mn.nombre ciudad, pf.descripcionPerfil, un.nombreuniversidad, pf.fotoperfil
+    return DB::select("SELECT pf.idPerfilProfesional, CONCAT('Dr/Dra. ',  us.primernombre) AS primernombre, us.primerapellido, ep.nombreEspecialidad, CONCAT('Especialista en ',  ep.nombreEspecialidad) AS concatNombreEspecialidad, mn.nombre ciudad, pf.descripcionPerfil, un.nombreuniversidad, pf.fotoperfil
     FROM  users us
     INNER JOIN pagos pg ON us.id=pg.idUsuario
     INNER JOIN perfilesprofesionales pf ON us.id=pf.idUser
@@ -48,7 +48,7 @@ class medicosEspecialidadController extends Controller{
 
     // consulta para cargar todas los profesionales segun su especialidad y el pago normal
     public function cargarMedicosSinPago($idEspecialidad){
-    return DB::select("SELECT CONCAT('Dr/Dra. ',  us.primernombre) AS primernombre, us.primerapellido, ep.nombreEspecialidad
+    return DB::select("SELECT CONCAT('Dr/Dra. ',  us.primernombre) AS primernombre, us.primerapellido, CONCAT('Especialista en ',  ep.nombreEspecialidad) AS nombreEspecialidad
         FROM  users us
     INNER JOIN pagos pg ON us.id=pg.idUsuario
     INNER JOIN perfilesprofesionales pf ON us.id=pf.idUser
