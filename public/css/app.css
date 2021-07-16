@@ -18098,6 +18098,10 @@ a:link, a:visited, a:active, a:hover {
   background: white;
 }
 
+.niega_uppercase {
+  text-transform: initial !important;
+}
+
 @media (min-width: 320px) {
   .titulo_profesionales {
     margin-top: 5%;
