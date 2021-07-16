@@ -172,6 +172,9 @@
   .card_normal .card-img-top{
     background: white;
 }
+.niega_uppercase{
+    text-transform: initial !important;
+}
 @media (min-width: 320px){
 
     .titulo_profesionales{
