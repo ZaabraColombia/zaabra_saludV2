@@ -338,8 +338,10 @@
 
         <!--------------------------------------------      Inicio 3 tercera parte del formulario *** INFORMACIÓN CONSULTA ***      ------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
-            <h5 class="col-12 icon_infoConsult-formProf"> Información consulta </h5>
-
+                <h5 class="col-12 icon_infoConsult-formProf"> Información consulta </h5>
+                <div class="alert alert-success d-none" id="msg_consulta">
+                   <span id="res_message_consulta">Su información se guardó correctamente</span>
+                </div>
             <div class="consulta_guardada-formProf">
                 @foreach($objConsultas as $objConsultas)
                     @if(!empty($objConsultas->nombreconsulta))
@@ -368,16 +370,15 @@
                 @endforeach
             </div>
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave3') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_consulta">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-                    
+            <form id="formulario_consulta" method="POST" action="javascript:void(0)"  enctype="multipart/form-data" accept-charset="UTF-8">
+                @csrf
                 @if($objContadorConsultas->cantidad == 0)
                     <div class="col-12 seccion_consulta-formProf">
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label>
 
-                            <select id="inputState" class="form-control" name="nombreconsulta[]">
-                                <option value=" " selected> Seleccionar </option>
+                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
+                                <option value="" selected> Seleccionar </option>
                                 <option value="Presencial"> Presencial </option>
                                 <option value="Virtual"> Virtual </option>
                                 <option value="Control médico"> Control Médico </option>
@@ -387,7 +388,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
                                 
-                            <input type="number" min="0.00" max="150000" class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000" class="form-control" id="valorconsulta[]" name="valorconsulta[]">
                         </div>
                     </div>
 
@@ -395,8 +396,8 @@
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label>
 
-                            <select id="inputState" class="form-control" name="nombreconsulta[]">
-                                <option value=" " selected> Seleccionar </option>
+                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
+                                <option value="" selected> Seleccionar </option>
                                 <option value="Presencial"> Presencial </option>
                                 <option value="Virtual"> Virtual </option>
                                 <option value="Control médico"> Control Médico </option>
@@ -406,7 +407,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label> 
 
-                            <input type="number" min="0.00" max="150000"  class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000"  class="form-control" id="valorconsulta[]" name="valorconsulta[]">
                         </div>
                     </div>
 
@@ -414,8 +415,8 @@
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label>
 
-                            <select id="inputState" class="form-control" name="nombreconsulta[]">
-                                <option value=" " selected> Seleccionar </option>
+                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
+                                <option value="" selected> Seleccionar </option>
                                 <option value="Presencial"> Presencial </option>
                                 <option value="Virtual"> Virtual</option>
                                 <option value="Control médico"> Control Médico </option>
@@ -425,7 +426,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
-                            <input type="number" min="0.00" max="150000"  class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000"  class="form-control" id="valorconsulta[]" name="valorconsulta[]">
                         </div>
                     </div>
                 @elseif($objContadorConsultas->cantidad == 1)
@@ -433,8 +434,8 @@
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label> 
 
-                            <select id="inputState" class="form-control" name="nombreconsulta[]">
-                                <option value=" " selected> Seleccionar </option>
+                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
+                                <option value="" selected> Seleccionar </option>
                                 <option value="Presencial"> Presencial </option>
                                 <option value="Virtual"> Virtual </option> 
                                 <option value="Control médico"> Control Médico </option>
@@ -444,7 +445,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
-                            <input type="number" min="0.00" max="150000"  class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000"  class="form-control" id="valorconsulta[]" name="valorconsulta[]">
                         </div>
                     </div>
 
@@ -452,8 +453,8 @@
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label> 
 
-                            <select id="inputState" class="form-control" name="nombreconsulta[]">
-                                <option value=" " selected> Seleccionar </option>
+                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
+                                <option value="" selected> Seleccionar </option>
                                 <option value="Presencial"> Presencial </option>
                                 <option value="Virtual"> Virtual </option>
                                 <option value="Control médico"> Control Médico </option>
@@ -463,7 +464,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
-                            <input type="number" min="0.00" max="150000"  class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000"  class="form-control" id="valorconsulta[]" name="valorconsulta[]">
                         </div>
                     </div>
 
@@ -472,8 +473,8 @@
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label>
 
-                            <select id="inputState" class="form-control" name="nombreconsulta[]">
-                                <option value=" " selected> Seleccionar </option>
+                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
+                                <option value="" selected> Seleccionar </option>
                                 <option value="Presencial"> Presencial </option>
                                 <option value="Virtual"> Virtual </option>
                                 <option value="Control médico"> Control Médico </option>
@@ -483,7 +484,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
 
-                            <input type="number" min="0.00" max="150000"  class="form-control" name="valorconsulta[]">
+                            <input type="number" min="0.00" max="150000"  class="form-control" id="valorconsulta[]" name="valorconsulta[]">
                         </div>
                     </div>
                 @elseif($objContadorConsultas->cantidad == 3)
@@ -491,7 +492,7 @@
                 @endif
 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
+                    <button id="envia_consultas" type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                     </button>
                 </div>

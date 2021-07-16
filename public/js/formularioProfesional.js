@@ -65,7 +65,7 @@ $('#formulario_basico').validate({
            cache: false,
            processData: false,
            success: function( response ) {
-               $('#envia_basico').html('Enviar');
+               $('#envia_basico').hide();
                $('#res_message_basico').show();
                $('#res_message_basico').html(response.msg);
                $('#msg_basico').removeClass('d-none');
@@ -143,7 +143,7 @@ $('#formulario_contacto').validate({
            type: "POST",
            data: $('#formulario_contacto').serialize(),
            success: function( response ) {
-               $('#envia_contacto').html('Enviar');
+               $('#envia_contacto').hide();
                $('#res_message_contacto').show();
                $('#res_message_contacto').html(response.msg);
                $('#msg_contacto').removeClass('d-none');
@@ -162,7 +162,60 @@ $('#formulario_contacto').validate({
 
 
 /*-------------------------- Inicio Tercera Parte del Formulario Descripcion Perfil Profesional------------------------------*/
+$.validator.addMethod("selecttext", function(value, element) {
+    if (select == "") {
+        return false;
+    } else {
+        return true;
+    };
+  }, "Por favor seleccione el tipo de consulta");
 
+$('#formulario_consulta').validate({
+    rules: {
+        'nombreconsulta[]': {
+            required: true,
+            selecttext: false,
+        },
+        'valorconsulta[]': {
+            required: true,
+        },
+    },
+    messages: {
+        'nombreconsulta[]':{
+            required: "Por favor seleccione el tipo de consulta",
+        },
+        'valorconsulta[]':{
+            required: "Por favor ingrese el valor de la consulta",
+        },
+    },
+    submitHandler: function(form) {
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+             headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+             }
+         });
+         /*Se cambia el texto al boton por enviando*/
+         $('#envia_consultas').html('Enviando..');
+         $.ajax({
+           url:  "FormularioProfesionalSave3",
+           type: "POST",
+           data: $('#formulario_consulta').serialize(),
+           success: function( response ) {
+               $('#envia_consultas').hide();
+               $('#res_message_consulta').show();
+               $('#res_message_consulta').html(response.msg);
+               $('#msg_consulta').removeClass('d-none');
+   
+               document.getElementById("#formulario_consulta").reset(); 
+               setTimeout(function(){
+               $('#res_message_consulta').hide();
+               $('#msg_consulta').hide();
+               },10000);
+           }
+         });
+    }
+})
 /*--------------------------- Fin Tercera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 
 
