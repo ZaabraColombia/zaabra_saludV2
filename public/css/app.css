@@ -11980,13 +11980,15 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .option_toggleFoot {
-  list-style-type: none;
-  list-style-type: none;
   font-size: 0.85em;
   font-family: "Roboto", "Regular";
   color: #3E3E3E;
   padding-left: 3%;
   margin-bottom: 5%;
+}
+
+.option_toggleFoot li::marker {
+  color: #0083D6;
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
@@ -12023,7 +12025,6 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .option_toggleFoot {
-    list-style-type: none;
     font-size: 0.6em;
     font-family: "Roboto", "Regular";
     color: #3E3E3E;
@@ -12054,8 +12055,10 @@ a:link, a:visited, a:active, a:hover {
 
   .boton_collapse-on-acerca {
     font-size: 1.4em;
+    padding: 0 10% 0 3% !important;
     height: 5vh;
-    background-size: 4%;
+    background-size: 4% !important;
+    background-position-x: 97% !important;
   }
 
   .boton_collapse-off-acerca {
@@ -12077,11 +12080,10 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .option_toggleFoot {
-    list-style-type: none;
     font-size: 1.2em;
     font-family: "Roboto", "Regular";
     color: #3E3E3E;
-    padding-left: 3%;
+    padding-left: 6%;
     margin-bottom: 5%;
   }
 }
@@ -12213,6 +12215,12 @@ a:link, a:visited, a:active, a:hover {
   color: #3E3E3E;
 }
 
+.ancla_toggleFoot {
+  font-size: 1.5em;
+  color: #0083D6 !important;
+  text-decoration: underline !important;
+}
+
 @media (min-width: 320px) and (orientation: portrait) {
   .imagen_bannerPrin-polit {
     height: 18vh;
@@ -12275,6 +12283,10 @@ a:link, a:visited, a:active, a:hover {
 
   .text_interno-toggle-polit {
     font-size: 1.1em;
+  }
+
+  .ancla_toggleFoot {
+    font-size: 1em;
   }
 }
 @media (min-width: 1200px) {
@@ -12411,11 +12423,6 @@ a:link, a:visited, a:active, a:hover {
   margin: 0 0 0.3% 0;
 }
 
-.text_interno-toggle-pregunta {
-  font-size: 0.85em;
-  color: #3E3E3E;
-}
-
 @media (min-width: 320px) and (orientation: portrait) {
   .imagen_bannerPrin-pregunta {
     height: 18vh;
@@ -12448,10 +12455,6 @@ a:link, a:visited, a:active, a:hover {
     background-position-x: 98%;
     background-size: 6%;
   }
-
-  .text_interno-toggle-pregunta {
-    font-size: 0.6em;
-  }
 }
 @media (min-width: 375px) and (orientation: portrait) {
   .titulo_superior-pregunta {
@@ -12481,18 +12484,18 @@ a:link, a:visited, a:active, a:hover {
 
   .boton_collapse-on-pregunta {
     font-size: 1.4em;
+    padding: 0 10% 0 3% !important;
     height: 5vh;
-    background-size: 4%;
+    background-size: 4% !important;
+    background-position-x: 97% !important;
   }
 
   .boton_collapse-off-pregunta {
     font-size: 1.4em;
+    padding: 0 10% 0 3%;
     height: 5vh;
-    background-size: 4%;
-  }
-
-  .text_interno-toggle-pregunta {
-    font-size: 1.1em;
+    background-size: 4% !important;
+    background-position-x: 97%;
   }
 }
 @media (min-width: 1200px) {
@@ -12527,10 +12530,6 @@ a:link, a:visited, a:active, a:hover {
   .boton_collapse-on-pregunta {
     font-size: 1.5em;
     background-size: 3%;
-  }
-
-  .text_interno-toggle-pregunta {
-    font-size: 1em;
   }
 }
 @media (min-width: 1920px) {
