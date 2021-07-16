@@ -28,15 +28,15 @@
                         
                         <h5 class="title_interno_toggleFoot"> Nos caracteriza: </h5>
                         <ul class="option_toggleFoot">
-                            <li> - Productos digitales a la medida de las necesidades del mercado. </li>
-                            <li> - Seguridad y confianza. </li>
-                            <li> - Competitividad en el mercado </li>
-                            <li> - Un equipo idóneo </li>
-                            <li> - Garantía y compromiso </li>
+                            <li> Productos digitales a la medida de las necesidades del mercado. </li>
+                            <li> Seguridad y confianza. </li>
+                            <li> Competitividad en el mercado </li>
+                            <li> Un equipo idóneo </li>
+                            <li> Garantía y compromiso </li>
                         </ul>
             
-                        <h5 class="title_interno_toggleFoot mb-0"> Nuestra Misión: </h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_interno_toggleFoot"> Nuestra Misión: </h5>
+                        <p class="txt_interno_toggleFoot mb-0">
                             En Zaabra tenemos la misión de generar bienestar mediante el desarrollo y la innovación tecnológica, fortaleciendo la economía nacional con buenas prácticas y relaciones transparentes con nuestro entorno. <br><br>
                         </p>
                     
@@ -68,11 +68,11 @@
                             5 pasos para agendar su cita o servicio médico:
                         </p>
                         <ul class="option_toggleFoot">
-                            <li>- Seleccione el servicio que busca. </li>
-                            <li>- Acceda al catalogo de profesionales y servicios. </li>
-                            <li>- Seleccione el profesional o institución de la salud que se ajuste a sus necesidades. </li> 
-                            <li>- Agende y pague su cita </li> 
-                            <li>- Disfrute de un excelente servicio avalado por cientos de usuarios. </li>
+                            <li> Seleccione el servicio que busca. </li>
+                            <li> Acceda al catálogo de profesionales y servicios. </li>
+                            <li> Seleccione el profesional o institución de la salud que se ajuste a sus necesidades. </li> 
+                            <li> Agende y pague su cita </li> 
+                            <li> Disfrute de un excelente servicio avalado por cientos de usuarios. </li>
                         </ul>
                     </div>
                 </div>

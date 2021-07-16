@@ -80,13 +80,14 @@
     margin-bottom: 2%;
 }
 .option_toggleFoot {
-    list-style-type: none;
-    list-style-type: none;
     font-size: .85em;
     font-family: "Roboto", "Regular";
     color: #3E3E3E;
     padding-left: 3%;
     margin-bottom: 5%;
+}
+.option_toggleFoot li::marker {
+    color: #0083D6;
 }
 @media(min-width: 320px) and (orientation: portrait) {
     .imagen_bannerPrin-acerca {
@@ -115,7 +116,6 @@
         margin-bottom: 2%;
     }
     .option_toggleFoot {
-        list-style-type: none;
         font-size: 0.6em;
         font-family: "Roboto", "Regular";
         color: #3E3E3E;
@@ -143,8 +143,10 @@
     }
     .boton_collapse-on-acerca {
         font-size: 1.4em;
+        padding: 0 10% 0 3% !important;
         height: 5vh;
-        background-size: 4%;
+        background-size: 4% !important;
+        background-position-x: 97% !important;
     }
     .boton_collapse-off-acerca {
         font-size: 1.4em;
@@ -162,11 +164,10 @@
         margin-bottom: 2%;
     }
     .option_toggleFoot {
-        list-style-type: none;
         font-size: 1.2em;
         font-family: "Roboto", "Regular";
         color: #3E3E3E;
-        padding-left: 3%;
+        padding-left: 6%;
         margin-bottom: 5%;
     }
 }
