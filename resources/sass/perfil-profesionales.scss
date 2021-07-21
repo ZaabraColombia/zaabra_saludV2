@@ -11,25 +11,33 @@
     align-items: center;
 }
 
+// Corazon perfil favorito
+.section_backArrow {
+    width: 60%;
+}
+.section_backArrow .back_arrow {
+    background-image: url('/img/landing-profesional/icono-flecha-atras-landing.svg');
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-position-y: center;
+}
+.section_backArrow .back_text {
+    font-size: 1.25em;
+    font-family: 'Roboto';
+    color: #0083D6 !important;
+    text-decoration: underline !important;
+    padding-left: 5%;
+}
 .heart-wrapper {
     width: 70px;
     height: 70px;
     margin-top: 500px;
     position: relative;
     background-color: transparent;
-    //border-radius: 50px;
     margin: 0;
-    /*-webkit-box-shadow: 0px 3px 29px 0px rgba(160, 160, 160, 1);
-    -moz-box-shadow: 0px 3px 29px 0px rgba(160, 160, 160, 1);
-    box-shadow: 0px 3px 29px 0px rgba(160, 160, 160, 1);*/
     transition: 0.3s;
-  }
-  /*.heart-wrapper:hover {
-    -webkit-box-shadow: 0px 2px 15px 0px rgba(117, 117, 117, 1);
-    -moz-box-shadow: 0px 2px 15px 0px rgba(117, 117, 117, 1);
-    box-shadow: 0px 2px 15px 0px rgba(117, 117, 117, 1);
-  }*/
-  .fa-heart {
+}
+.fa-heart {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -37,11 +45,8 @@
     font-size: 40px;
     color: #0083D6;
     transition: 1s;
-  }
- /* .background-heart{
-    background-color: #0083D6;
-  }*/
-  .background-heart::after {
+}
+.background-heart::after {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     content: "\f004";
@@ -54,13 +59,12 @@
     transition: 1s;
     z-index: -1;
     animation: fill-heart 1s;
-  }
-  .background-heart::before {
+}
+.background-heart::before {
     content: "";
     width: 60px;
     height: 60px;
     opacity: 0.2;
-    //background-color: red;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -68,38 +72,39 @@
     z-index: -1;
     border-radius: 200px;
     animation: circle-expand 1s;
-  }
-  @keyframes fill-heart {
+}
+@keyframes fill-heart {
     0% {
       opacity: 0;
     }
+  
     100% {
       opacity: 1;
     }
-  }
-    @keyframes circle-expand {
+}
+@keyframes circle-expand {
     0% {
-      //width: 60px;
-      //height: 60px;
-      opacity: 1;
+        //width: 60px;
+        //height: 60px;
+        opacity: 1;
     }
     40% {
-      width: 0px;
-      height: 0px;
-      opacity: 0.2;
+        width: 0px;
+        height: 0px;
+        opacity: 0.2;
     }
     80% {
-      //width: 60px;
-      //height: 60px;
-      opacity: 0.2;
+        //width: 60px;
+        //height: 60px;
+        opacity: 0.2;
     }
-    100% {
-      //width: 60px;
-      //height: 60px;
-      opacity: 0.2;
-    }
-  }
 
+    100% {
+        //width: 60px;
+        //height: 60px;
+        opacity: 0.2;
+    }
+}
 .section_backArrow {
     width: 60%;
 }
@@ -128,7 +133,7 @@
 }
 .data_profesionales h2{
     font-family: "Quicksand", sans-serif;
-    color: #0083d6;
+    color: #0083D6;
     font-weight: bold;
     text-align: center;
 }
@@ -147,7 +152,9 @@
 }
 .data_profesionales .title-adress{
     display: flex;
+    justify-content: flex-start;
     align-items: center;
+    width: 100%;
 }
 .data_profesionales .title-adress i{
     background-image: url('/img/landing-profesional/icono-direccion.svg');
@@ -187,7 +194,7 @@
 .data_consulta span{
     font-family: "Roboto";
     font-weight: 500;
-    color: #0083d6;
+    color: #0083D6;
 }
 .data_consulta .menu_1, .menu_2, .menu_3{
     display: flex;
@@ -280,7 +287,7 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
-.galeria {
+.galerias {
     background-image: url('/img/landing-profesional/icono-principal-galeria.svg');
     background-repeat: no-repeat;
     background-size: contain;
@@ -424,17 +431,17 @@
     background-size: contain;
 }
 
-.idiomas ul li{
+.idomas ul li{
     display: flex;
     list-style: none;
     align-content: center;
     justify-content: space-around;
     align-items: center;
 }
-.idiomas ul li:nth-child(odd){
+.idomas ul li:nth-child(odd){
     background: #F5F5F5;
 }
-.idiomas h2 {
+.idomas h2 {
     display: flex;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
@@ -443,16 +450,16 @@
     justify-content: flex-start;
     align-items: center;
 }
-.idiomas p {
+.idomas p {
     font-family: "Roboto";
     color: #3E3E3E;
 }
-.idiomas i {
-    background-image: url('/img/landing-profesional/icono-experiencia.svg');
+.idomas i {
+    background-image: url('/img/landing-profesional/icono-idiomas.svg') ;
     background-repeat: no-repeat;
     background-size: contain;
 }
-.idiomas .contains_idioma{
+.idomas .contains_idioma{
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -627,7 +634,7 @@
     font-family: "Quicksand";
     font-size: 1em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -642,6 +649,9 @@
     padding: 3% 0;
     margin: 0;
 }
+.visible_container .section_opciones:nth-child(odd){
+    background: #F5F5F5;
+}
 .icono_opiniones-prof {
     background-image: url('/img/landing-profesional/icono-opiniones-de-pacientes.svg');
     background-repeat: no-repeat;
@@ -651,7 +661,7 @@
     font-family: "Quicksand";
     font-size: 1.5em;
     font-weight: bold;
-    color: #0083d6;
+    color: #0083D6;
     padding-left: 5%;
     height: 5vh;
     display: flex;
@@ -685,6 +695,7 @@
     font-size: 3em;
     width: 10%;
     margin-left: 10%;
+    color: #0083D69e;
 }
 .contains_text {
     width: 60%;
@@ -778,7 +789,45 @@
     position: absolute;
     margin-top: -25%;
 }
+
+
+
+
+
+.circle_opinion-prof {
+    background-color: var(--main-bg-color);
+  }
 @media (min-width: 320px){
+    .section_backArrow {
+        width: 85%;
+        height: 4vh;
+    }
+    .section_backArrow .back_text {
+        font-size: 1em;
+        padding-left: 7%;
+    }
+    .heart-wrapper {
+        width: 25px;
+        height: 25px;
+        top: 0;
+        left: 50;
+    }
+    .fa-heart {
+        //top: 48;
+        //left: 20;
+        font-size: 15px;
+    }
+    .background-heart::after {
+        //top: 25;
+        //left: 5;
+        font-size: 15px;
+    }
+    .background-heart::before {
+        width: 25px;
+        height: 25px;
+        //top: 30;
+        //left: 5;
+    }
     .section_data_profesionales{
         width: 100%;
         height: 55vh;
@@ -795,21 +844,25 @@
     .data_profesionales h2{
         margin-top: 1%;
         margin-bottom: 1%;
-        font-size: 1.4em;
+        font-size: 1.3em;
     }
     .data_profesionales h1{
         font-size: 1.3em;
         margin-bottom: 1%;
     }
+    .data_profesionales .title-adress {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
     .data_profesionales .title-adress i{
-        width: 20%;
+        width: 7%;
         height: 18px;
+        justify-content: center;
     }
     .data_profesionales h5{
         font-size: 0.8em;
-    }
-    .data_profesionales .title-adress{
-        width: 35%;
     }
     .data_profesionales .rating-stars ul{
         margin-top: 3%;
@@ -820,7 +873,7 @@
         height: 25vh;
     }
     .section_data_consulta h2{
-        font-size: 1.2em;
+        font-size: 1.3em;
         padding-top: 3%;
         margin-bottom: 0;
     }
@@ -833,7 +886,7 @@
         justify-content: space-evenly;
     }
     .data_consulta p, span{
-        font-size: 0.7em;
+        font-size: 0.8em;
     }
     .data_consulta span{
         margin-left: 20px;
@@ -858,6 +911,7 @@
         height: 17px;
     }
     .data_consulta .contains_buttons {
+        font-size: .8em;
         max-width: 100%;
         display: flex;
         height: 30%;
@@ -884,7 +938,7 @@
         height: 30px;
     }
     .destacado h2{
-        font-size: 1.1em;
+        font-size: 1em;
         padding-left: 8%;
         padding-top: 2%;
     }
@@ -892,7 +946,7 @@
         color: #0083D6;
     }
     .destacado p{
-        font-size: 0.9em;
+        font-size: 0.8em;
         padding-bottom: 3%;
     }
     .swiper_profesional{
@@ -917,7 +971,7 @@
         margin-bottom: 10%;
     }
     .contains_swiper_profesional h1 {
-        font-size: 1em;
+        font-size: 1.1em;
         margin-bottom: 8%;
         text-align: center;
     }
@@ -1010,28 +1064,28 @@
         height: 30px;
     }
 
-    .idiomas{
+    .idomas{
         width: 90%;
         margin: auto;
     }
-    .idiomas ul li{
+    .idomas ul li{
         margin-bottom: 5%;
         height: 12vh;
     }
-    .idiomas img{
+    .idomas img{
         max-width: 100%;
         -o-object-fit: cover;
         object-fit: contain;
         height: 20px;
         image-rendering: -webkit-optimize-contrast;
     }
-    .idiomas h2{
+    .idomas h2{
         font-size: 1.1em;
     }
-    .idiomas p{
+    .idomas p{
         font-size: 0.8em;
     }
-    .idiomas i {
+    .idomas i {
         width: 14%;
         height: 30px;
     }
@@ -1069,6 +1123,7 @@
     }
     .swiper_premios{
         max-width: 70%;
+        height: fit-content;
     }
     .swiper_premios img{
         max-width: 100%;
@@ -1131,9 +1186,9 @@
     .publicaciones_profesional h2{
         font-size: 1.1em;
     }
-    .galeria_profesional{
+    /*.galeria_profesional{
         height: 55vh;
-    }
+    }*/
     .galeria_profesional h2 {
         font-size: 1.1em;
         text-align: center;
@@ -1161,6 +1216,15 @@
         width: 100%;
         height: 80px;
         object-fit: cover;
+    }
+    .swiper_galeria_prof {
+        width: 75%;
+        height: fit-content;
+    }
+    .img_galleryLprof {
+        width: 100%;
+        height: 25vh;
+        object-fit: fill;
     }
     .videos_profesional{
         width: 90%;
@@ -1224,7 +1288,7 @@
         width: 80%;
     }
     .visible_container {    
-        height: calc(1vw + 50vh);
+        height: calc(1vw + 25vh);
         overflow: auto;
     }
     .visible_container::-webkit-scrollbar {
@@ -1300,6 +1364,12 @@
         margin: 0;
     }
 }
+@media (min-width: 360px){
+    .section_backArrow {
+        width: 75%;
+        height: 4vh;
+    }
+}
 @media (min-width: 375px){
 
     .data_profesionales img{
@@ -1351,7 +1421,7 @@
     .asociaciones i{
         width: 12%;
     }
-    .idiomas h2 {
+    .idomas h2 {
         font-size: 1.3em;
     }
     .tratamientos_profesional h2 {
@@ -1402,6 +1472,30 @@
     }
 }
 @media (min-width: 768px){
+    .section_backArrow {
+        width: 60%;
+        height: 3vh;
+    }
+    .section_backArrow .back_text {
+        font-size: 1.25em;
+        padding-left: 5%;
+    }
+    .heart-wrapper {
+        width: 25px;
+        height: 25px;
+        left: 90;
+        top: 10;
+    }
+    .fa-heart {
+        font-size: 25px;
+    }
+    .background-heart::before {
+        width: 35px;
+        height: 25px;
+      }
+    .background-heart::after {
+        font-size: 25px;
+      }
     .section_data_profesionales{
         height: 45vh;
     }
@@ -1419,10 +1513,11 @@
         font-size: 1.2em;
     }
     .data_profesionales .title-adress {
-        width: 20%;
+        width: 100%;
+        justify-content: center;
     }
     .data_profesionales .title-adress i {
-        width: 20%;
+        width: 4%;
         height: 25px;
     }
     .section_data_consulta h2{
@@ -1584,34 +1679,34 @@
         max-width: 50%;
         height: 65px;
     }
-    .idiomas h2 {
+    .idomas h2 {
         font-size: 1.8em;
     }
-    .idiomas i {
+    .idomas i {
         width: 10%;
         height: 45px;
     }
-    .idiomas ul{
+    .idomas ul{
         padding-left: 10%;
     }
-    .section_perfil_profesional .idiomas ul li{
+    .section_perfil_profesional .idomas ul li{
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
         padding-left: 0;
     }
-    .idiomas .contains_idioma {
+    .idomas .contains_idioma {
         display: flex;
         flex-direction: row;
         align-content: center;
         justify-content: space-between;
         align-items: center;
     }
-    .idiomas img{
+    .idomas img{
         max-width: 50%;
         height: 30px;
     }
-    .idiomas p {
+    .idomas p {
         width: 90px;
         font-size: 1.2em;
         font-weight: 500;
@@ -1713,7 +1808,7 @@
         height: 45px;
     }
     .galeria_profesional {
-        height: 40vh;
+        height: fit-content;
     }
     .galeria_profesional ul {
         max-width: 75%;
@@ -1724,6 +1819,20 @@
     }
     .gallery_profesional > li > img {
         height: 145px;
+    }
+    .galeria_profesional .btn-prev {
+        width: 15px;
+        height: 20px;
+        left: 15%;
+        color: #0083D6;
+        margin-top: -20%;
+    }
+    .galeria_profesional .btn-next {
+        width: 15px;
+        height: 20px;
+        right: 15%;
+        color: #0083D6;
+        margin-top: -20%;
     }
     .videos_profesional h2 {
         font-size: 1.8em;
@@ -1758,7 +1867,7 @@
         font-family: "Quicksand";
         font-size: 1.25em;
         color: #ffffff;
-        background: #0083d6;
+        background: #0083D6;
         border: none;
         border-radius: 5px;
         height: calc(1.6em + 0.75rem + 2px);
@@ -1813,13 +1922,6 @@
         font-size: 1.2em;
         padding-left: 3%;
     }
-    .section_backArrow {
-        width: 45%;
-    }
-    .section_backArrow .back_text {
-        font-size: 1.25em;
-        padding-left: 7%;
-    }
     .heart-wrapper {
         width: 25px;
         height: 25px;
@@ -1840,7 +1942,22 @@
     }
 }
 @media (min-width: 1024px){
-
+    .section_backArrow {
+        position: absolute;
+        left: 0;
+        width: 10%;
+        top: 90;
+        margin-left: 6%;
+    }
+    .section_backArrow .back_text {
+        padding-left: 25%;
+    }
+    .heart-wrapper {
+        width: 25px;
+        height: 25px;
+        left: 45;
+        top: 10;
+    }
     .data_profesionales img {
         width: 360px;
         height: 360px;
@@ -1856,6 +1973,7 @@
     }
     .data_profesionales .title-adress {
         width: 40%;
+        justify-content: flex-start;
     }
     .data_profesionales .title-adress i {
         width: 10%;
@@ -1884,7 +2002,7 @@
     .educacion,
     .experiencia,
     .asociaciones,
-    .idiomas,
+    .idomas,
     .tratamientos_profesional,
     .publicaciones_profesional,
     .videos_profesional {
@@ -1895,7 +2013,7 @@
     .educacion i,
     .experiencia i,
     .asociaciones i,
-    .idiomas i,
+    .idomas i,
     .tratamientos_profesional i,
     .contains_swiper_premios i,
     .publicaciones_profesional i,
@@ -1910,7 +2028,7 @@
     .educacion ul,
     .experiencia ul,
     .asociaciones ul,
-    .idiomas ul {
+    .idomas ul {
         padding-left: 8%;
     }
     .contains_swiper_premios h2{
@@ -2071,7 +2189,7 @@
     .educacion ul,
     .experiencia ul,
     .asociaciones ul,
-    .idiomas ul {
+    .idomas ul {
         padding-left: 30%;
     }
     .destacado ul li {
@@ -2106,7 +2224,7 @@
         margin-top: 5%;
         margin-bottom: 4%;
     }
-    .idiomas ul li {
+    .idomas ul li {
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
@@ -2196,7 +2314,7 @@
     .educacion i, 
     .experiencia i, 
     .asociaciones i, 
-    .idiomas i, 
+    .idomas i, 
     .tratamientos_profesional i, 
     .contains_swiper_premios i, 
     .publicaciones_profesional i, 
@@ -2211,7 +2329,7 @@
     .educacion ul, 
     .experiencia ul, 
     .asociaciones ul, 
-    .idiomas ul {
+    .idomas ul {
         padding-left: 30%;
     }
     .data_profesionales{
@@ -2343,7 +2461,7 @@
         margin-top: 5%;
         margin-bottom: 4%;
     }
-    .idiomas ul li {
+    .idomas ul li {
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
@@ -2422,7 +2540,17 @@
     }
 }
 @media (min-width: 1440px){
-
+    .section_backArrow {
+        top: 95px;
+        margin-left: 7%;
+    }
+    .section_backArrow .back_text {
+        padding-left: 20%;
+    }
+    .heart-wrapper {
+        left: 45px;
+        top: 20px;
+    }
     .destacado i {
         width: 5%;
         height: 39px;
@@ -2504,7 +2632,7 @@
     .educacion, 
     .experiencia, 
     .asociaciones, 
-    .idiomas, 
+    .idomas, 
     .tratamientos_profesional, 
     .publicaciones_profesional, 
     .videos_profesional {
@@ -2559,7 +2687,7 @@
     .educacion i, 
     .experiencia i, 
     .asociaciones i, 
-    .idiomas i, 
+    .idomas i, 
     .tratamientos_profesional i, 
     .contains_swiper_premios i, 
     .publicaciones_profesional i, 
@@ -2574,7 +2702,7 @@
     .educacion ul, 
     .experiencia ul, 
     .asociaciones ul, 
-    .idiomas ul {
+    .idomas ul {
         padding-left: 30%;
     }
     .tratamientos_profesional .card {
@@ -2586,6 +2714,20 @@
     }
 }
 @media (min-width: 1920px){
+    .section_backArrow {
+        position: absolute;
+        left: 0;
+        width: 5%;
+        top: 100;
+        margin-left: 14%;
+    }
+    .section_backArrow .back_text {
+        padding-left: 25%;
+    }
+    .heart-wrapper {
+        left: 110;
+        top: 0;
+    }
     .data_profesionales img{
         width: 280px;
         height: 280px;

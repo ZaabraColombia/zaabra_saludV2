@@ -68,6 +68,11 @@
     font-size: .85em;
     color: #3E3E3E;
 }
+.ancla_toggleFoot {
+    font-size: 1.5em;
+    color: #0083D6 !important;
+    text-decoration: underline !important;
+}
 @media(min-width: 320px) and (orientation: portrait) {
     .imagen_bannerPrin-polit {
         height: 18vh;
@@ -120,6 +125,9 @@
     }
     .text_interno-toggle-polit {
         font-size: 1.1em;
+    }
+    .ancla_toggleFoot {
+        font-size: 1em;
     }
 }
 @media(min-width: 1200px) {

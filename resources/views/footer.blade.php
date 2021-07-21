@@ -6,15 +6,15 @@
         <div class="row footer_newsletter">
             <!-- Column titulo-->
             <div class="col-lg-10 mt-2 mt-lg-0 newsletter_contenido">
-                <h2 class="newsletter_titulo">¡Suscríbete a nuestro newsletter!</h2>
-                <p class="newsletter_texto"> Mantente al día de todas nuestras novedades </p>
+                <h2 class="newsletter_titulo">¡Suscríbase a nuestro newsletter!</h2>
+                <p class="newsletter_texto"> Manténgase al día de todas nuestras novedades </p>
             </div>
 
             <!-- Column form suscribirme -->
             <div class="col-lg-7 suscribirme_contenido d-none d-lg-block">
                 <form id="newsletter" method="post" action="javascript:void(0)" class="row form_suscribirme">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-                    <input class="col-lg-8 col-xl-7 input_suscribirme" type="email" id="correo_newsletter" name="correo_newsletter" placeholder="servicioalcliente@zaabrasalud.com.co">
+                    <input class="col-lg-8 col-xl-7 input_suscribirme" type="email" id="correo_newsletter" name="correo_newsletter" placeholder="servicioalcliente@zaabrasalud.co">
 
                     <button class="col-lg-3 col-xl-2 boton_suscribirme" id="send_form" type="submit">
                         <span class="text_sucrib-foot"> Suscribirme </span>
@@ -23,7 +23,9 @@
 
                     <div class="col-lg-10 terminos_contenido d-none d-lg-flex">
                         <input class="checkBox_terminos" type="checkbox" id="">
-                        <h4 class="texto_terminos">Acepto <a href="{{url('politicas')}}"> términos y condiciones </a> y autorizo el <b><u>tratamiento de mis datos personales</u></b></h4>
+                        <h4 class="texto_terminos"> Acepto 
+                            <a href="{{url('politicas')}}" target="blank"> términos y condiciones </a> y autorizo el <a href="{{url('politicas')}}" target="blank"> tratamiento de mis datos personales </a>
+                        </h4>
                     </div>
                 </form>
                 <div class="alert_Newsletter d-none" id="msg_div">
@@ -36,11 +38,11 @@
             <!--******************************     Column form suscribirme version MOBILE      *********************************--> 
             <form id="newsletter2" method="post" action="javascript:void(0)" class="row col-10 col-md-9 p-0 m-auto d-block d-lg-none">
                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-                <input class="input_suscribirme-cel" type="email" id="correo_newsletter2" name="correo_newsletter" placeholder="servicioalcliente@zaabrasalud.com.co">
+                <input class="input_suscribirme-cel" type="email" id="correo_newsletter2" name="correo_newsletter" placeholder="servicioalcliente@zaabrasalud.co">
                 <div class="col-12 check_terminos-cel">
                     <input type="checkbox" class="boton_check-terminos-cel" id=""> 
-                    <span class="texto_terminos-cel">Acepto <a href="{{url('politicas')}}"> términos y condiciones </a>
-                        y autorizo el <b><u>tratamiento de mis datos personales</u></b>
+                    <span class="texto_terminos-cel">Acepto 
+                        <a href="{{url('politicas')}}" target="blank"> términos y condiciones </a> y autorizo el <a href="{{url('politicas')}}" target="blank"> tratamiento de mis datos personales </a>
                     </span>
                 </div>
                 <button id="send_form2" type="submit" class="col-5 col-md-4 mb-2 boton_suscribirme-cel">
@@ -109,7 +111,7 @@
                 </div>
 
                 <div class="col-lg-9 d-flex p-0">
-                    <span class="correo_contactanos"> servicioalcliente@zaabrasalud.com.co </span>
+                    <span class="correo_contactanos"> servicioalcliente@zaabrasalud.co </span>
                 </div>
             </div>
 
@@ -188,7 +190,7 @@
                         <img class="logo_header-footer" src="{{URL::asset('/img/header/logo-zaabra-salud.png')}}">
                     </a>
                     <span class="titulo_contactanos-cel"> CONTÁCTENOS </span>
-                    <span class="correo_contactanos-cel">servicioalcliente@zaabrasalud.com.co</span>
+                    <span class="correo_contactanos-cel">servicioalcliente@zaabrasalud.co</span>
                 </div>
 
                 <div class="iconos_redes-sociales-cel">

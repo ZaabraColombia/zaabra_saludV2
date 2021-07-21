@@ -4,7 +4,7 @@
 }
 .titulo_profesionales{
     font-family: "Quicksand", sans-serif;
-    color: #0083d6;
+    color: #0083D6;
     font-weight: bold;
     text-align: center;
 }
@@ -169,7 +169,12 @@
   .rating-stars ul > li.star.selected > i.fa {
     color:#FFCC36;
   }
-
+  .card_normal .card-img-top{
+    background: white;
+}
+.niega_uppercase{
+    text-transform: initial !important;
+}
 @media (min-width: 320px){
 
     .titulo_profesionales{
@@ -191,7 +196,8 @@
         height: 45%;
     }
     .contains_slide .contains_image_profesional img{
-        object-fit: contain;
+        object-fit: cover;
+        object-position: top;
     }
     .contains_slide .contains_body{
         height: 55%;
@@ -503,7 +509,7 @@
         padding-right: 8%;
     }
     .card_normal{
-        height: 37vh;
+        height: 42vh;
     }
     .card_normal .card-img-top {
         width: 140px;
@@ -620,7 +626,7 @@
         padding-right: 18%;
     }
     .card_normal{
-        height: 35vh;
+        height: 38vh;
     }
     .card_normal .card-img-top {
         width: 170px;

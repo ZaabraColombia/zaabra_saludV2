@@ -49,6 +49,12 @@ $('.evento_acordion .containt_options-collapse-institucion').on( "click", functi
 	$(this).find(".boton_collapse-off-institucion").toggleClass("boton_collapse-on-institucion");
 });
 
+// Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "membresiaProfesional" y "membresiaInstitucion" 
+$('.evento_acordion .containt_options-collapse-acerca').on( "click", function() {
+	$(this).siblings().find(".boton_collapse-off-acerca").removeClass("boton_collapse-on-acerca");
+	$(this).find(".boton_collapse-off-acerca").toggleClass("boton_collapse-on-acerca");
+});
+
 
 $('#newsletter').on('submit',function(e){
 
@@ -99,3 +105,8 @@ $('#newsletter2').on('submit',function(e){
          },
      });
     });
+
+      // From http://stackoverflow.com/a/5365036/2065702
+var randomColor = "#"+((1<<24)*Math.random()|0).toString(16); 
+
+document.documentElement.style.setProperty('main-bg-color', randomColor);

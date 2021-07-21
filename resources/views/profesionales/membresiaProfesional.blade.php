@@ -32,7 +32,7 @@
     <div class="evento_acordion contain_accordion-membresia" id="accordion1">
       <h5 class="titulo_tarjeta-membresia"> Plan Gratuito </h5>
       <p class="texto_superior-membresia"> Inícielo gratis hoy y después conviértase al Premium. </p>
-      <p class="texto_tiempo-membresia"> Tiempo de vigencia: 15 días </p>
+      <p class="texto_tiempo-membresia"> Tiempo de vigencia: 8 días*</p>
 
       <!-- Sección opcion tarjeta PLAN GRAATUITO -->
       <div class="card containt_options-collapse-membresia">
@@ -43,7 +43,7 @@
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1">
           <div class="card-body text_interno-toggle-membresia">
             <p>
-              Podrá previsualizar su información en una tarjeta ubicada en la galería de Especialistas. Vigencia 15 días.
+              Podrá previsualizar su información en una tarjeta ubicada en la galería de Especialistas. Vigencia 8 días.
             </p>
           </div>
         </div>
@@ -279,7 +279,7 @@
         </div>
       </div>
 
-      <p class="texto_inferior-membresia"> Puede complementar y personalizar su plan con recursos publicitarios adicionales. <a class="contac_membresia" href="{{route('contacto')}}" target="blank"> Contáctenos </a> para ser atendido por un representante. *Vigencia anual. </p>
+      <p class="texto_inferior-membresia"> Puede complementar y personalizar su plan con recursos publicitarios adicionales. <a class="contac_membresia" href="{{route('contacto')}}" target="blank"> contáctenos </a> para ser atendido por un representante. *Vigencia anual. </p>
 
       <!-- Botón Empezar -->
       <div class="col-10 content_btn-ingresar-membresia">

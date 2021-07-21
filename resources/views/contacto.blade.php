@@ -60,23 +60,24 @@
                                 <div class="row section_input-option-contac">
                                     <div class="col-3 form-check input_option-contac"> 
                                         <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
-                                        <input class="form-check-input input_img-option-contac" onclick="elementHidden(this)" type="image" src="/img/iconos/icono-paciente.svg" name="idrol" value="1" data-position="paciente" checked>
-                                        <label class="form-check-label texto_option-input-contac" for="idrol"> Paciente </label>
+                                        <input id="inpt4" class="form-check-input input_img-option-contac" onclick="elementHidden(this)" type="image" src="/img/iconos/icono-paciente.svg" name="idrol" value="1" data-position="paciente" checked>
+                                        <label id="txt4" class="form-check-label texto_option-input-contac" for="idrol"> Paciente </label>
                                     </div>
 
                                     <div class="col-3 form-check input_option-contac">
                                         <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
-                                        <input class="form-check-input input_img-option-contac" onclick="elementHidden(this)" type="image" src="/img/iconos/icono-doctor.svg" name="idrol" value="2" data-position="doctor">
-                                        <label class="form-check-label texto_option-input-contac" for="idrol"> Doctor/a </label>
+                                        <input id="inpt5" class="form-check-input input_img-option-contac" onclick="elementHidden(this)" type="image" src="/img/iconos/icono-doctor.svg" name="idrol" value="2" data-position="doctor">
+                                        <label id="txt5" class="form-check-label texto_option-input-contac" for="idrol"> Doctor/a </label>
                                     </div>
 
                                     <div class="col-3 form-check input_option-contac"> 
                                         <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
-                                        <input class="form-check-input input_img-option-contac" onclick="elementHidden(this)" type="image" src="/img/iconos/icono-institucion.svg" name="idrol" value="3" data-position="institucion">
-                                        <label class="form-check-label texto_option-input-contac" for="idrol"> Institución </label>
+                                        <input id="inpt6" class="form-check-input input_img-option-contac" onclick="elementHidden(this)" type="image" src="/img/iconos/icono-institucion.svg" name="idrol" value="3" data-position="institucion">
+                                        <label id="txt6" class="form-check-label texto_option-input-contac" for="idrol"> Institución </label>
                                     </div>
                                 </div>
 
+                                <input type="hidden" name="idrol"  id="valor_tipo1">
                                 <!-- Sección campos de validación Nombres y Apellidos -->
                                 <div class="name_user-contac">
                                     <!-- Campos de Nombres -->
@@ -164,23 +165,24 @@
                                 <div class="row section_input-option-contac">
                                     <div class="col-3 form-check input_option-contac"> 
                                         <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
-                                        <input class="form-check-input input_img-option-contac" onclick="elementHidden(this)" type="image" src="/img/iconos/icono-paciente.svg" name="idrol" value="1" data-position="paciente" checked>
-                                        <label class="form-check-label texto_option-input-contac" for="idrol"> Paciente </label>
+                                        <input id="inpt4" class="form-check-input input_img-option-contac" onclick="elementHidden(this)" type="image" src="/img/iconos/icono-paciente.svg" name="idrol" value="1" data-position="paciente" checked>
+                                        <label id="txt4"  class="form-check-label texto_option-input-contac" for="idrol"> Paciente </label>
                                     </div>
 
                                     <div class="col-3 form-check input_option-contac">
                                         <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
-                                        <input class="form-check-input input_img-option-contac" onclick="elementHidden(this)" type="image" src="/img/iconos/icono-doctor.svg" name="idrol" value="2" data-position="doctor">
-                                        <label class="form-check-label texto_option-input-contac" for="idrol"> Doctor/a </label>
+                                        <input id="inpt5" class="form-check-input input_img-option-contac" onclick="elementHidden(this)" type="image" src="/img/iconos/icono-doctor.svg" name="idrol" value="2" data-position="doctor">
+                                        <label id="txt5"  class="form-check-label texto_option-input-contac" for="idrol"> Doctor/a </label>
                                     </div>
 
                                     <div class="col-3 form-check input_option-contac"> 
                                         <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
-                                        <input class="form-check-input input_img-option-contac" onclick="elementHidden(this)" type="image" src="/img/iconos/icono-institucion.svg" name="idrol" value="3" data-position="institucion">
-                                        <label class="form-check-label texto_option-input-contac" for="idrol"> Institución </label>
+                                        <input id="inpt6" class="form-check-input input_img-option-contac" onclick="elementHidden(this)" type="image" src="/img/iconos/icono-institucion.svg" name="idrol" value="3" data-position="institucion">
+                                        <label id="txt6"  class="form-check-label texto_option-input-contac" for="idrol"> Institución </label>
                                     </div>
                                 </div>
 
+                                <input type="hidden" name="idrol"  id="valor_tipo1">
                                 <!-- Sección campos de validación Nombres y Apellidos -->
                                 <div class="name_user-contac">
                                     <!-- Campos de Nombres -->
