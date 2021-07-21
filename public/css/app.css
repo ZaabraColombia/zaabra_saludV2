@@ -11928,16 +11928,15 @@ a:link, a:visited, a:active, a:hover {
   text-decoration: none !important;
   color: #FFFFFF !important;
   text-align: left !important;
-  padding: 0 3% !important;
+  padding: 1% 3% !important;
   background: #0083D6 !important;
   border-radius: 0px !important;
   border: 1px solid #0083D6 !important;
   width: 100% !important;
-  height: 6vh;
   background-image: url("/img/iconos/icono-x.svg") !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  background-position-x: 95% !important;
+  background-position-x: 97% !important;
   background-size: 3% !important;
 }
 
@@ -11948,21 +11947,20 @@ a:link, a:visited, a:active, a:hover {
   text-decoration: none;
   color: #232323;
   text-align: left;
-  padding: 0 3%;
+  padding: 1% 3%;
   background: #F5F5F5;
   border-radius: 0px;
   border: 1px solid #F5F5F5F5;
   width: 100%;
-  height: 6vh;
   background-image: url("/img/iconos/icono-mas.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-position-x: 95%;
+  background-position-x: 97%;
   background-size: 3%;
 }
 
 .section_toggleFoot {
-  padding: 5% 4% 0 4%;
+  padding: 2% 3% 0 4%;
 }
 
 .txt_interno_toggleFoot {
@@ -11976,7 +11974,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Roboto", "Regular";
   font-weight: bolder;
   color: #3E3E3E;
-  margin-bottom: 2%;
+  margin: 2% 0 1% 0;
 }
 
 .option_toggleFoot {
@@ -11984,7 +11982,7 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Roboto", "Regular";
   color: #3E3E3E;
   padding-left: 3%;
-  margin-bottom: 5%;
+  margin-bottom: 0;
 }
 
 .option_toggleFoot li::marker {
@@ -12007,11 +12005,19 @@ a:link, a:visited, a:active, a:hover {
   .boton_collapse-on-acerca {
     font-size: 0.75em;
     background-size: 6% !important;
+    background-position-x: 97% !important;
+    padding: 2% 10% 2% 3% !important;
   }
 
   .boton_collapse-off-acerca {
     font-size: 0.75em;
     background-size: 6%;
+    background-position-x: 97%;
+    padding: 2% 10% 2% 3%;
+  }
+
+  .section_toggleFoot {
+    padding: 5% 4% 0 4%;
   }
 
   .txt_interno_toggleFoot {
@@ -12128,6 +12134,10 @@ a:link, a:visited, a:active, a:hover {
     margin: 5% 0;
   }
 
+  .section_toggleFoot {
+    padding: 2% 5% 0 5%;
+  }
+
   .boton_collapse-off-acerca {
     background-size: 2%;
   }
@@ -12216,7 +12226,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .ancla_toggleFoot {
-  font-size: 1.5em;
+  font-size: 1em;
   color: #0083D6 !important;
   text-decoration: underline !important;
 }
@@ -12246,6 +12256,10 @@ a:link, a:visited, a:active, a:hover {
 
   .text_interno-toggle-polit {
     font-size: 0.6em;
+  }
+
+  .ancla_toggleFoot {
+    font-size: 1.1em;
   }
 }
 @media (min-width: 375px) and (orientation: portrait) {
@@ -21629,20 +21643,20 @@ a:link, a:visited, a:active, a:hover {
   padding: 0;
 }
 
-.section_tarjetas-entidades {
+.container_entidades {
   margin: auto;
   padding: 0;
   justify-content: flex-start;
   margin-left: 16%;
 }
 
-.imagen_entidad {
+.content_img_entidades {
   display: flex;
   justify-content: center;
   align-self: center;
 }
 
-.contenido_boton-verEntidad {
+.section_btn_entidades {
   display: flex;
   justify-content: center;
 }
@@ -21668,76 +21682,87 @@ a:link, a:visited, a:active, a:hover {
     padding: 0;
   }
 
-  .section_titulo-entidades {
-    font-size: 1.125em;
+  .title_entidades {
+    font-size: 1.3em;
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
     color: #019F86;
-    margin: 10% 0;
+    margin: 5% 0;
     text-align: center;
   }
 
-  .section_tarjetas-entidades {
-    margin: 0;
+  .container_entidades {
+    margin-left: 0;
+    margin-bottom: 10%;
     padding: 0;
     justify-content: space-evenly;
   }
 
-  .contenido_tarjetas-entidades {
+  .section_entidades {
     margin-bottom: 3%;
     padding: 3% 1%;
     border-radius: 5px;
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
   }
 
-  .imagen_entidad {
+  .content_img_entidades {
     display: flex;
     justify-content: center;
     align-self: center;
   }
 
-  .icono_img-entidad {
+  .imagen_entidades {
     width: 85px;
     height: 85px;
   }
 
-  .nombre_entidad {
-    font-size: 0.688em;
-    font-family: "Quicksnd", sans-serif;
+  .subtitle_entidades {
+    font-size: 0.8em;
+    font-family: "Quicksand", sans-serif;
     font-weight: bolder;
     color: #232323;
+    margin: 5% 0;
     padding: 0;
     text-align: center;
   }
 
-  .texto_entidad {
-    font-size: 0.55em;
-    font-family: "quicksand", sans-serif;
+  .texto_entidades {
+    font-size: 0.625em;
+    font-family: "Roboto", sans-serif;
     color: #3e3e3e;
     text-align: center;
+    margin: 5% 0;
     height: 6vh;
   }
 
-  .contenido_boton-verEntidad {
+  .section_btn_entidades {
     display: flex;
     justify-content: center;
   }
 
-  .boton_ver-entidades {
+  .content_btn_entidades {
+    width: 85%;
+  }
+
+  .btnVer_entidades {
     background: #019F86;
-    font-family: "quicksand", sans-serif;
-    font-size: 0.563em;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.625em;
     color: #ffffff;
     padding: 0;
-    height: 25px;
-    width: 102px;
+    height: 4vh;
+    width: 100%;
     border-radius: 3px;
     border: none;
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .icono_flecha-ver {
+  .icon_arrow_entidades {
     width: 9%;
+    margin-left: 5%;
   }
 
   .logosUniversidades {
@@ -21748,91 +21773,129 @@ a:link, a:visited, a:active, a:hover {
     height: 20vh;
   }
 }
+@media (min-width: 360px) and (orientation: portrait) {
+  .texto_entidades {
+    height: 5vh;
+  }
+}
 @media (min-width: 768px) and (orientation: portrait) {
-  .section_titulo-entidades {
+  .title_entidades {
     font-size: 2.5em;
   }
 
-  .icono_img-entidad {
+  .container_entidades {
+    padding: 0 3%;
+  }
+
+  .imagen_entidades {
     width: 150px;
     height: 150px;
   }
 
-  .nombre_entidad {
+  .subtitle_entidades {
     font-size: 1.8em;
   }
 
-  .texto_entidad {
+  .texto_entidades {
     font-size: 1em;
     height: 4vh;
+    margin: 5% 0 0 0;
   }
 
-  .boton_ver-entidades {
+  .content_btn_entidades {
+    width: 75%;
+    margin: auto;
+  }
+
+  .btnVer_entidades {
     background: #019F86;
-    font-family: "quicksand", sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-size: 1.25em;
     color: #ffffff;
     padding: 0;
-    height: 50px;
-    width: 246px;
+    height: 3vh;
+    width: 100%;
     border-radius: 3px;
     border: none;
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .icono_flecha-ver {
+  .icon_arrow_entidades {
     width: 7%;
+    margin-left: 3%;
   }
 }
 @media (min-width: 1024px) {
-  .section_titulo-entidades {
-    font-size: 2.5em;
+  .title_entidades {
+    font-size: calc(0.95em + 1vw);
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
     color: #019F86;
-    margin: 5% 0;
+    margin: 3% 0;
     text-align: center;
   }
 
-  .contenido_tarjetas-entidades {
+  .container_entidades {
+    margin-bottom: 5%;
+  }
+
+  .section_entidades {
     margin: 1%;
     padding: 3% 1%;
     border-radius: 5px;
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
   }
 
-  .nombre_entidad {
-    font-size: 1.25em;
-    font-family: "Quicksnd", sans-serif;
+  .imagen_entidades {
+    width: 125px;
+    height: 125px;
+  }
+
+  .subtitle_entidades {
+    font-size: calc(0.5em + .9vw);
+    font-family: "Quicksand", sans-serif;
     font-weight: bolder;
     color: #232323;
     padding: 0;
     text-align: center;
+    margin-top: 3%;
   }
 
-  .texto_entidad {
-    font-size: 0.85em;
-    font-family: "quicksand", sans-serif;
+  .texto_entidades {
+    font-size: calc(.2em + .8vw);
+    font-family: "Quicksand", sans-serif;
     color: #3e3e3e;
     text-align: center;
-    height: 7vh;
+    margin-bottom: 5%;
+    height: 5vh;
   }
 
-  .boton_ver-entidades {
+  .content_btn_entidades {
+    width: 80%;
+  }
+
+  .btnVer_entidades {
     background: #019F86;
-    font-family: "quicksand", sans-serif;
-    font-size: 0.9em;
+    font-family: "Quicksand", sans-serif;
+    font-size: calc(.2em + .8vw);
     color: #ffffff;
     padding: 0;
-    height: 37px;
-    width: 150px;
+    height: 3.5vh;
+    width: 100%;
     border-radius: 3px;
     border: none;
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .icono_flecha-ver {
-    width: 8%;
+  .icon_arrow_entidades {
+    width: 7%;
+    margin-left: 2%;
   }
 
   .contains_slider-logos-galeriaProf {
@@ -21840,32 +21903,42 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1200px) {
-  .texto_entidad {
-    font-size: 0.8em;
-    height: 5vh;
+  .container_entidades {
+    margin-left: 23%;
+  }
+
+  .texto_entidades {
+    font-size: calc(.1em + .8vw);
+    height: 6vh;
+  }
+
+  .btnVer_entidades {
+    font-size: calc(.2em + .8vw);
+    height: 4vh;
   }
 }
 @media (min-width: 1440px) {
-  .texto_entidad {
-    font-size: 0.9em;
-  }
-}
-@media (min-width: 1600px) {
-  .texto_entidad {
-    font-size: 1.2em;
+  .title_entidades {
+    margin: 2% 0;
   }
 
-  .boton_ver-entidades {
-    background: #019F86;
-    font-family: "quicksand", sans-serif;
-    font-size: 1.25em;
-    color: #ffffff;
-    padding: 0;
-    height: 37px;
-    width: 246px;
-    border-radius: 3px;
-    border: none;
-    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  .texto_entidades {
+    font-size: calc(.035em + .7vw);
+    height: 3vh;
+  }
+
+  .content_btn_entidades {
+    width: 75%;
+  }
+}
+@media (min-width: 1920px) {
+  .texto_entidades {
+    height: 4vh;
+  }
+
+  .btnVer_entidades {
+    font-size: calc(.15em + .8vw);
+    height: 3.5vh;
   }
 }
 .height_verify {
@@ -22323,7 +22396,7 @@ a:link, a:visited, a:active, a:hover {
 
 .section_input-option-register {
   justify-content: center;
-  height: 16vh;
+  height: calc(3em + 5em);
 }
 
 .input_option-register {
@@ -22380,7 +22453,6 @@ a:link, a:visited, a:active, a:hover {
   font-weight: 500;
   color: #3E3E3E;
   text-align: initial;
-  margin-top: 2%;
   margin-right: auto;
 }
 
@@ -22463,6 +22535,11 @@ a:link, a:visited, a:active, a:hover {
     text-decoration: none;
   }
 
+  .section_input-option-register {
+    justify-content: space-around;
+    height: calc(2em + 5em);
+  }
+
   .input_img-option {
     width: 70%;
   }
@@ -22475,7 +22552,6 @@ a:link, a:visited, a:active, a:hover {
 
   .texto_inferior-tarjeta-register {
     font-size: 0.735em;
-    margin-top: 2%;
   }
 
   .btn_Ingreso-register {
@@ -22504,15 +22580,6 @@ a:link, a:visited, a:active, a:hover {
 
   .texto_superior-tarjeta-register {
     margin-top: 6%;
-  }
-
-  .section_input-option-register {
-    justify-content: space-around;
-    height: 15vh;
-  }
-
-  .texto_inferior-tarjeta-register {
-    margin-top: 2%;
   }
 }
 @media (min-width: 375px) and (orientation: portrait) {
@@ -22550,7 +22617,7 @@ a:link, a:visited, a:active, a:hover {
 
   .section_input-option-register {
     justify-content: space-around;
-    height: 10vh;
+    height: calc(2em + 7em);
   }
 
   .input_img-option {
@@ -22587,8 +22654,6 @@ a:link, a:visited, a:active, a:hover {
 
   .texto_inferior-tarjeta-register {
     font-size: 1.15em;
-    margin-top: 0;
-    margin-bottom: 5%;
   }
 
   .btn_Ingreso-register {
@@ -22652,20 +22717,23 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.5em;
   }
 
+  .section_input-option-register {
+    justify-content: center;
+    height: calc(5em + 5em);
+  }
+
   .check_option-register {
     float: left;
     width: 3%;
-    height: 2vh;
+    height: 1.7vh;
   }
 
   .section_terminos-register {
-    margin-left: 3%;
+    margin-left: 2%;
   }
 
   .texto_inferior-tarjeta-register {
     font-size: 1.25em;
-    margin-top: 3%;
-    margin-bottom: 5%;
   }
 
   .btn_Ingreso-register {
@@ -22690,12 +22758,6 @@ a:link, a:visited, a:active, a:hover {
   .input_height-fullhd-register {
     height: 5vh;
     font-size: 1.25em;
-  }
-
-  .texto_inferior-tarjeta-register {
-    font-size: 1.25em;
-    margin-top: 3%;
-    margin-bottom: 3%;
   }
 
   .flecha_ingreso-register {
@@ -23103,10 +23165,15 @@ a:link, a:visited, a:active, a:hover {
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
   width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 .flecha_ingreso-membresia {
   width: 11%;
+  margin-left: 5%;
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
@@ -23158,7 +23225,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .btn_precio-tarjeta-membresia {
-    width: 40%;
+    width: 50%;
   }
 
   .precio_tarjeta-membresia {
@@ -23195,6 +23262,7 @@ a:link, a:visited, a:active, a:hover {
 
   .flecha_ingreso-membresia {
     width: 13%;
+    margin-left: 5%;
   }
 }
 @media (min-width: 768px) and (orientation: portrait) {
@@ -23381,7 +23449,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .btn_Ingreso-membresia {
-    font-size: 2.1em;
+    font-size: 2em;
     width: 35%;
   }
 }
@@ -23418,6 +23486,10 @@ a:link, a:visited, a:active, a:hover {
     margin: 1% 0;
   }
 
+  .btn_precio-tarjeta-membresia {
+    width: 35%;
+  }
+
   .boton_collapse-off-membresia {
     background-size: 2.5%;
   }
@@ -23437,10 +23509,7 @@ a:link, a:visited, a:active, a:hover {
 
   .btn_Ingreso-membresia {
     font-size: 2em;
-  }
-
-  .flecha_ingreso-membresia {
-    width: 8%;
+    width: 25%;
   }
 }
 .content_principal-formProf {
@@ -26159,10 +26228,15 @@ label.error {
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
   width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 .flecha_ingreso-institucion {
   width: 11%;
+  margin-left: 5%;
 }
 
 .texto_lineaAtencion-institucion {
@@ -26261,6 +26335,7 @@ label.error {
 
   .flecha_ingreso-institucion {
     width: 13%;
+    margin-left: 5%;
   }
 
   .texto_lineaAtencion-institucion {
@@ -26463,7 +26538,7 @@ label.error {
   }
 
   .btn_Ingreso-institucion {
-    font-size: 2.1em;
+    font-size: 2em;
     width: 35%;
   }
 
@@ -26529,10 +26604,6 @@ label.error {
   .btn_Ingreso-institucion {
     font-size: 2em;
     width: 25%;
-  }
-
-  .flecha_ingreso-institucion {
-    width: 10%;
   }
 
   .texto_lineaAtencion-institucion {
@@ -29044,38 +29115,36 @@ label.error {
 
 .containt_contacZaabra-contac {
   display: flex;
-  justify-content: space-evenly;
-  margin: 3% 0;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5% 0;
 }
 
 .icon_ubicacion-contac {
-  background-image: url(/img/contacto/icono-ubicacion.svg);
+  background-image: url("/img/contacto/icono-ubicacion.svg");
   background-repeat: no-repeat;
-  background-size: 20%;
-  height: 6vh;
-  width: 24%;
+  background-size: contain;
+  width: 35%;
   padding-right: 0;
   padding-left: 5%;
-  margin-left: 0;
+  margin: 0;
 }
 
 .icon_telefono-contac {
-  background-image: url(/img/contacto/icono-telefono.svg);
+  background-image: url("/img/contacto/icono-telefono.svg");
   background-repeat: no-repeat;
-  background-size: 32%;
-  height: 6vh;
-  width: 15%;
+  background-size: contain;
+  width: 20%;
   padding-right: 0;
   padding-left: 5%;
-  margin-left: 0;
+  margin: 0;
 }
 
 .icon_email-contac {
-  background-image: url(/img/contacto/icono-email.svg);
+  background-image: url("/img/contacto/icono-email.svg");
   background-repeat: no-repeat;
-  background-size: 20%;
-  height: 6vh;
-  width: 24%;
+  background-size: contain;
+  width: 25%;
   padding-right: 0;
   padding-left: 5%;
   margin: 0;
@@ -29088,7 +29157,6 @@ label.error {
 
 .text_opcion-contac {
   font-size: 0.85em;
-  line-height: 1;
 }
 
 .fila_containt-options-contac {
@@ -29118,7 +29186,7 @@ label.error {
 
 .section_input-option-contac {
   justify-content: center;
-  height: 16vh;
+  height: calc(3em + 5em);
 }
 
 .input_option-contac {
@@ -29152,7 +29220,8 @@ label.error {
 }
 
 .content_btn-enviar-contac {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .btn_enviar-contac {
@@ -29164,6 +29233,8 @@ label.error {
   border-radius: 5px;
   height: calc(1.6em + 0.75rem + 2px);
   width: 30%;
+  margin-top: 5%;
+  margin-bottom: 0;
 }
 
 .flecha_envio-contac {
@@ -29187,41 +29258,38 @@ label.error {
 
   .containt_contacZaabra-contac {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
-    margin-bottom: 3%;
+    margin: 3% 0 7% 0;
+  }
+
+  .section_input-option-contac {
+    justify-content: space-around;
+    height: calc(2em + 5em);
   }
 
   .icon_ubicacion-contac {
-    background-image: url(/img/contacto/icono-ubicacion.svg);
-    background-repeat: no-repeat;
-    background-size: 20%;
-    height: 6vh;
-    width: 56%;
+    width: 100%;
     padding-right: 0;
     padding-left: 12%;
-    margin-left: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   .icon_telefono-contac {
-    background-image: url(/img/contacto/icono-telefono.svg);
-    background-repeat: no-repeat;
-    background-size: 30%;
-    height: 6vh;
-    width: 36%;
+    width: 100%;
     padding-right: 0;
     padding-left: 12%;
-    margin-left: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   .icon_email-contac {
-    background-image: url(/img/contacto/icono-email.svg);
-    background-repeat: no-repeat;
-    background-size: 19%;
-    height: 6vh;
-    width: 60%;
+    width: 100%;
     padding-right: 0;
     padding-left: 12%;
-    margin: 3% 0 3% 14%;
+    display: flex;
+    flex-direction: column;
   }
 
   .titulo_opcion-contac {
@@ -29231,7 +29299,6 @@ label.error {
 
   .text_opcion-contac {
     font-size: 0.7em;
-    line-height: 0.5;
   }
 
   .Subtitulo_interno-contac {
@@ -29268,6 +29335,8 @@ label.error {
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
     width: 50%;
+    margin-top: 5%;
+    margin-bottom: 2%;
   }
 
   .flecha_envio-contac {
@@ -29275,33 +29344,6 @@ label.error {
   }
 }
 @media (min-width: 360px) and (orientation: portrait) {
-  .section_input-option-contac {
-    justify-content: space-around;
-    height: 15vh;
-  }
-
-  .icon_ubicacion-contac {
-    background-image: url(/img/contacto/icono-ubicacion.svg);
-    background-repeat: no-repeat;
-    background-size: 21%;
-    height: 6vh;
-    width: 53%;
-    padding-right: 0;
-    padding-left: 12%;
-    margin-left: auto;
-  }
-
-  .icon_email-contac {
-    background-image: url(/img/contacto/icono-email.svg);
-    background-repeat: no-repeat;
-    background-size: 19%;
-    height: 6vh;
-    width: 60%;
-    padding-right: 0;
-    padding-left: 12%;
-    margin: 3% 0 3% 18%;
-  }
-
   .titulo_principal-contac {
     font-size: 1em;
     margin: 5% 16%;
@@ -29343,42 +29385,28 @@ label.error {
 
   .containt_contacZaabra-contac {
     display: flex;
+    flex-direction: row;
     justify-content: flex-start;
-    margin-bottom: 3%;
-    margin-left: 1%;
+    margin: 3% 0 5% 0;
   }
 
   .icon_ubicacion-contac {
-    background-image: url(/img/contacto/icono-ubicacion.svg);
-    background-repeat: no-repeat;
-    background-size: 21%;
-    height: 5vh;
-    width: 35%;
+    width: 43%;
     padding-right: 0;
-    padding-left: 8%;
-    margin-left: 0;
+    padding-left: 7%;
   }
 
   .icon_telefono-contac {
-    background-image: url(/img/contacto/icono-telefono.svg);
-    background-repeat: no-repeat;
-    background-size: 32%;
-    height: 5vh;
-    width: 23%;
+    width: 20%;
     padding-right: 0;
-    padding-left: 8%;
-    margin-left: 0;
+    padding-left: 7%;
+    margin: 0;
   }
 
   .icon_email-contac {
-    background-image: url(/img/contacto/icono-email.svg);
-    background-repeat: no-repeat;
-    background-size: 21%;
-    height: 5vh;
-    width: 35%;
+    width: 37%;
     padding-right: 0;
-    padding-left: 8%;
-    margin: 0;
+    padding-left: 7%;
   }
 
   .titulo_opcion-contac {
@@ -29388,12 +29416,11 @@ label.error {
 
   .text_opcion-contac {
     font-size: 1em;
-    line-height: 1.2;
   }
 
   .section_input-option-contac {
     justify-content: space-around;
-    height: 13vh;
+    height: calc(3em + 7em);
   }
 
   .input_img-option-contac {
@@ -29427,6 +29454,8 @@ label.error {
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
     width: 30%;
+    margin-top: 5%;
+    margin-bottom: 3%;
   }
 
   .flecha_envio-contac {
@@ -29468,29 +29497,20 @@ label.error {
     margin: 2% 15%;
   }
 
-  .containt_contacZaabra-contac {
-    display: flex;
-    justify-content: center;
-    margin: 3% 0 2% 0;
+  .icon_ubicacion-contac {
+    width: 30%;
+  }
+
+  .icon_telefono-contac {
+    width: 18%;
+  }
+
+  .icon_email-contac {
+    width: 22%;
   }
 
   .section_principal-contac {
     margin-bottom: 3%;
-  }
-
-  .icon_ubicacion-contac {
-    background-size: 18%;
-    height: 7vh;
-  }
-
-  .icon_telefono-contac {
-    background-size: 28%;
-    height: 7vh;
-  }
-
-  .icon_email-contac {
-    background-size: 18%;
-    height: 7vh;
   }
 
   .Subtext_interno-contac {
@@ -29528,24 +29548,9 @@ label.error {
     margin: 2% 10%;
   }
 
-  .containt_contacZaabra-contac {
-    justify-content: space-evenly;
-    margin: 4% 0 3% 0;
-  }
-
-  .icon_ubicacion-contac {
-    background-size: 20%;
-    height: 8vh;
-  }
-
-  .icon_telefono-contac {
-    background-size: 31%;
-    height: 8vh;
-  }
-
-  .icon_email-contac {
-    background-size: 20%;
-    height: 8vh;
+  .section_input-option-contac {
+    justify-content: center;
+    height: calc(5em + 5em);
   }
 
   .titulo_opcion-contac {
@@ -29555,7 +29560,14 @@ label.error {
 
   .text_opcion-contac {
     font-size: 1.25em;
-    line-height: 1;
+  }
+
+  .icon_ubicacion-contac {
+    width: 35%;
+  }
+
+  .icon_telefono-contac {
+    width: 20%;
   }
 
   .Subtitulo_interno-contac {
@@ -29589,26 +29601,22 @@ label.error {
   }
 
   .containt_contacZaabra-contac {
-    justify-content: space-evenly;
-    margin: 4% 0 2% 0;
+    margin-left: 2%;
   }
 
   .icon_ubicacion-contac {
-    background-size: 20%;
-    height: 8vh;
-    width: 20%;
+    width: 30%;
+    padding-left: 4%;
   }
 
   .icon_telefono-contac {
-    background-size: 28%;
-    height: 8vh;
-    width: 14%;
+    width: 20%;
+    padding-left: 4%;
   }
 
   .icon_email-contac {
-    background-size: 20%;
-    height: 8vh;
     width: 20%;
+    padding-left: 4%;
   }
 
   .input_img-option-contac {
@@ -29785,29 +29793,27 @@ label.error {
   height: 4vh;
 }
 
-.btn_close-popup {
-  border-radius: 18px !important;
-  background-color: #0083D6;
-  padding: 0 !important;
-  margin-top: 0 !important;
-  margin-right: 0 !important;
-  width: 5%;
-  height: 3.5vh;
-  text-align: center;
-  opacity: inherit;
-  border: 1px solid transparent;
-  margin-left: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/*.btn_close-popup {
+    border-radius: 18px !important;
+    background-color: #0083D6;
+    padding: 0 !important;
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    width: 5%;
+    height: 3.5vh;
+    text-align: center;
+    opacity: inherit;
+    border: 1px solid transparent;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 .Xcierre_modal-popup {
-  font-size: 1.5em;
-  font-weight: 100;
-  color: #ffffff;
-}
-
+    font-size: 1.5em;
+    font-weight: 100;
+    color: #ffffff;
+}*/
 .titulo_principal-popup {
   color: #232323;
   font-size: 1.3em;
@@ -29868,6 +29874,10 @@ label.error {
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
   width: 28%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 .btnPagar-popup-inst {
@@ -29879,10 +29889,15 @@ label.error {
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
   width: 28%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 .flecha_pagar-popup {
   width: 10%;
+  margin-left: 5%;
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
@@ -29899,17 +29914,15 @@ label.error {
     padding: 0;
   }
 
-  .btn_close-popup {
-    width: 9%;
-    height: 96%;
+  /*.btn_close-popup {
+      width: 9%;
+      height: 96%;
   }
-
   .Xcierre_modal-popup {
-    font-size: 1.2em;
-    font-weight: normal;
-    color: #ffffff;
-  }
-
+      font-size: 1.2em;
+      font-weight: normal;
+      color: #ffffff;
+  }*/
   .titulo_principal-popup {
     font-size: 1em;
   }
@@ -29936,10 +29949,15 @@ label.error {
   .btnPagar-popup {
     font-size: 0.8em;
     width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
   }
 
   .flecha_pagar-popup {
     width: 11%;
+    margin-left: 5%;
   }
 }
 @media (min-width: 768px) and (orientation: portrait) {
@@ -29952,15 +29970,13 @@ label.error {
     height: 3vh;
   }
 
-  .btn_close-popup {
-    width: 8%;
-    height: 3vh;
+  /*.btn_close-popup {
+      width: 8%;
+      height: 3vh;
   }
-
   .Xcierre_modal-popup {
-    font-size: 2em;
-  }
-
+      font-size: 2em;
+  }*/
   .titulo_principal-popup {
     font-size: 1.5em;
   }
@@ -30019,11 +30035,10 @@ label.error {
     height: 3vh;
   }
 
-  .btn_close-popup {
-    width: 3.8%;
-    height: 3.2vh;
-  }
-
+  /*.btn_close-popup {
+      width: 3.8%;
+      height: 3.2vh;
+  }*/
   .titulo_principal-popup {
     font-size: 2em;
   }

@@ -200,7 +200,7 @@
 
                         <!-- Confirmación de e-mail -->
                         <div class="form-group col-12 section_terminos-register">
-                            <p class="texto_inferior-tarjeta-register"> Recibirá un e-mail de confirmación. </p>
+                            <p class="texto_inferior-tarjeta-register mt-1 mb-3 mb-md-4 mt-lg-3"> Recibirá un e-mail de confirmación. </p>
                         </div>
 
                         <!-- Botón Ingresar -->

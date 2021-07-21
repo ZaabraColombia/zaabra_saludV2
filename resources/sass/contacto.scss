@@ -25,35 +25,33 @@
 //Información contacto Zaabra
 .containt_contacZaabra-contac {
     display: flex;
-    justify-content: space-evenly;
-    margin: 3% 0;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5% 0;
 }
 .icon_ubicacion-contac {
-    background-image: url(/img/contacto/icono-ubicacion.svg);
+    background-image: url('/img/contacto/icono-ubicacion.svg');
     background-repeat: no-repeat;
-    background-size: 20%;
-    height: 6vh;
-    width: 24%;
+    background-size: contain;
+    width: 35%;
     padding-right: 0;
     padding-left: 5%;
-    margin-left: 0;
+    margin: 0;
 }
 .icon_telefono-contac {
-    background-image: url(/img/contacto/icono-telefono.svg);
+    background-image: url('/img/contacto/icono-telefono.svg');
     background-repeat: no-repeat;
-    background-size: 32%;
-    height: 6vh;
-    width: 15%;
+    background-size: contain;
+    width: 20%;
     padding-right: 0;
     padding-left: 5%;
-    margin-left: 0;
+    margin: 0;
 }
 .icon_email-contac {
-    background-image: url(/img/contacto/icono-email.svg);
+    background-image: url('/img/contacto/icono-email.svg');
     background-repeat: no-repeat;
-    background-size: 20%;
-    height: 6vh;
-    width: 24%;
+    background-size: contain;
+    width: 25%;
     padding-right: 0;
     padding-left: 5%;
     margin: 0;
@@ -64,7 +62,6 @@
 }
 .text_opcion-contac {
     font-size: .85em;
-    line-height: 1;
 }
 // Fila contenido opciones y formulario contacto
 .fila_containt-options-contac {
@@ -94,7 +91,7 @@
 // Sección opciones principales
 .section_input-option-contac {
     justify-content: center;
-    height: 16vh;
+    height: calc(3em + 5em);
 }
 .input_option-contac {
     display: flex;
@@ -126,7 +123,8 @@
 }
 // Botón inferior enviar
 .content_btn-enviar-contac {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 .btn_enviar-contac {
     font-family: "Quicksand";
@@ -137,6 +135,8 @@
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
     width: 30%;
+    margin-top: 5%;
+    margin-bottom: 0;
 }
 .flecha_envio-contac {
     width: 10%;
@@ -159,38 +159,36 @@
     //Información contacto Zaabra
     .containt_contacZaabra-contac {
         display: flex;
+        flex-direction: column;
         justify-content: flex-start;
-        margin-bottom: 3%;
+        margin: 3% 0 7% 0;
     }
+    // Sección opciones principales
+    .section_input-option-contac {
+        justify-content: space-around;
+        height: calc(2em + 5em);
+    }
+    //Información contacto Zaabra
     .icon_ubicacion-contac {
-        background-image: url(/img/contacto/icono-ubicacion.svg);
-        background-repeat: no-repeat;
-        background-size: 20%;
-        height: 6vh;
-        width: 56%;
+        width: 100%;
         padding-right: 0;
         padding-left: 12%;
-        margin-left: auto;
+        display: flex;
+        flex-direction: column;
     }
     .icon_telefono-contac {
-        background-image: url(/img/contacto/icono-telefono.svg);
-        background-repeat: no-repeat;
-        background-size: 30%;
-        height: 6vh;
-        width: 36%;
+        width: 100%;
         padding-right: 0;
         padding-left: 12%;
-        margin-left: auto;
+        display: flex;
+        flex-direction: column;
     }
     .icon_email-contac {
-        background-image: url(/img/contacto/icono-email.svg);
-        background-repeat: no-repeat;
-        background-size: 19%;
-        height: 6vh;
-        width: 60%;
+        width: 100%;
         padding-right: 0;
         padding-left: 12%;
-        margin: 3% 0 3% 14%;    
+        display: flex;
+        flex-direction: column;  
     }
     .titulo_opcion-contac {
         font-size: .75em;
@@ -198,7 +196,6 @@
     }
     .text_opcion-contac {
         font-size: .7em;
-        line-height: .5;
     }
     // Subtitulo interno 
     .Subtitulo_interno-contac {
@@ -234,37 +231,14 @@
         border-radius: 5px;
         height: calc(1.6em + 0.75rem + 2px);
         width: 50%;
+        margin-top: 5%;
+        margin-bottom: 2%;
     }
     .flecha_envio-contac {
         width: 9%;
     }    
 }
 @media (min-width: 360px) and (orientation: portrait) {
-    // Sección opciones principales
-    .section_input-option-contac {
-        justify-content: space-around;
-        height: 15vh;
-    }
-    .icon_ubicacion-contac {
-        background-image: url(/img/contacto/icono-ubicacion.svg);
-        background-repeat: no-repeat;
-        background-size: 21%;
-        height: 6vh;
-        width: 53%;
-        padding-right: 0;
-        padding-left: 12%;
-        margin-left: auto;
-    }
-    .icon_email-contac {
-        background-image: url(/img/contacto/icono-email.svg);
-        background-repeat: no-repeat;
-        background-size: 19%;
-        height: 6vh;
-        width: 60%;
-        padding-right: 0;
-        padding-left: 12%;
-        margin: 3% 0 3% 18%;
-    }
     .titulo_principal-contac {
         font-size: 1em;
         margin: 5% 16%;
@@ -309,39 +283,25 @@
     // Sección opciones principales
     .containt_contacZaabra-contac {
         display: flex;
+        flex-direction: row;
         justify-content: flex-start;
-        margin-bottom: 3%;
-        margin-left: 1%;
+        margin: 3% 0 5% 0;
     }
     .icon_ubicacion-contac {
-        background-image: url(/img/contacto/icono-ubicacion.svg);
-        background-repeat: no-repeat;
-        background-size: 21%;
-        height: 5vh;
-        width: 35%;
+        width: 43%;
         padding-right: 0;
-        padding-left: 8%;
-        margin-left: 0;
+        padding-left: 7%;
     }
     .icon_telefono-contac {
-        background-image: url(/img/contacto/icono-telefono.svg);
-        background-repeat: no-repeat;
-        background-size: 32%;
-        height: 5vh;
-        width: 23%;
+        width: 20%;
         padding-right: 0;
-        padding-left: 8%;
-        margin-left: 0;
+        padding-left: 7%;
+        margin: 0;
     }
     .icon_email-contac {
-        background-image: url(/img/contacto/icono-email.svg);
-        background-repeat: no-repeat;
-        background-size: 21%;
-        height: 5vh;
-        width: 35%;
+        width: 37%;
         padding-right: 0;
-        padding-left: 8%;
-        margin: 0;
+        padding-left: 7%;
     }
     .titulo_opcion-contac {
         font-size: 1.2em;
@@ -349,11 +309,10 @@
     }
     .text_opcion-contac {
         font-size: 1em;
-        line-height: 1.2;
     }
     .section_input-option-contac {
         justify-content: space-around;
-        height: 13vh;
+        height: calc(3em + 7em);
     }
     .input_img-option-contac {
         margin: 0;
@@ -384,6 +343,8 @@
         border-radius: 5px;
         height: calc(1.6em + 0.75rem + 2px);
         width: 30%;
+        margin-top: 5%;
+        margin-bottom: 3%;
     }
     .flecha_envio-contac {
         width: 12%;
@@ -422,26 +383,17 @@
         font-size: 1.1em;
         margin: 2% 15%;
     }
-    // Contenedor de elementos contacto
-    .containt_contacZaabra-contac {
-        display: flex;
-        justify-content: center;
-        margin: 3% 0 2% 0;
+    .icon_ubicacion-contac {
+        width: 30%;
+    }
+    .icon_telefono-contac {
+        width: 18%;
+    }
+    .icon_email-contac {
+        width: 22%;
     }
     .section_principal-contac {
         margin-bottom: 3%;
-    }
-    .icon_ubicacion-contac {
-        background-size: 18%;
-        height: 7vh;
-    }
-    .icon_telefono-contac {
-        background-size: 28%;
-        height: 7vh;
-    }
-    .icon_email-contac {
-        background-size: 18%;
-        height: 7vh;
     }
     .Subtext_interno-contac {
         font-size: 1.1em;
@@ -475,22 +427,9 @@
         font-size: 1.5em;
         margin: 2% 10%;
     }
-    // Información contacto Zaabra
-    .containt_contacZaabra-contac {
-        justify-content: space-evenly;
-        margin: 4% 0 3% 0;
-    }
-    .icon_ubicacion-contac {
-        background-size: 20%;
-        height: 8vh;
-    }
-    .icon_telefono-contac {
-        background-size: 31%;
-        height: 8vh;
-    }
-    .icon_email-contac {
-        background-size: 20%;
-        height: 8vh;
+    .section_input-option-contac {
+        justify-content: center;
+        height: calc(5em + 5em);
     }
     .titulo_opcion-contac {
         font-size: 1.5em;
@@ -498,7 +437,12 @@
     }
     .text_opcion-contac {
         font-size: 1.25em;
-        line-height: 1;
+    }
+    .icon_ubicacion-contac {
+        width: 35%;
+    }
+    .icon_telefono-contac {
+        width: 20%;
     }
     // Fila contenido de opciones y formulario contacto
     .Subtitulo_interno-contac {
@@ -529,25 +473,20 @@
     .Subtitulo_interno-contac {
         margin: 3% 20% 2% 20%;
     }
-    // Información contacto Zaabra
     .containt_contacZaabra-contac {
-        justify-content: space-evenly;
-        margin: 4% 0 2% 0;
+        margin-left: 2%;
     }
     .icon_ubicacion-contac {
-        background-size: 20%;
-        height: 8vh;
-        width: 20%;
+        width: 30%;
+        padding-left: 4%;
     }
     .icon_telefono-contac {
-        background-size: 28%;
-        height: 8vh;
-        width: 14%;
+        width: 20%;
+        padding-left: 4%;
     }
     .icon_email-contac {
-        background-size: 20%;
-        height: 8vh;
         width: 20%;
+        padding-left: 4%;
     }
    // Sección opciones principales
    .input_img-option-contac {

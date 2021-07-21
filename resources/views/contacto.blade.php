@@ -21,17 +21,17 @@
     <div class="row containt_contacZaabra-contac">
         <div class=" icon_ubicacion-contac">
             <span class="titulo_opcion-contac"> Ubicación </span>
-            <p class="text_opcion-contac"> Carrera 64 67b 89 interior 2 </p>
+            <p class="text_opcion-contac"> Carrera 64 67b 89 interior 2 Bogotá D.C.</p>
         </div>
 
         <div class=" icon_telefono-contac">
             <span class="titulo_opcion-contac"> Teléfono </span>
-            <p class="text_opcion-contac"> 7123945 </p>
+            <p class="text_opcion-contac"> (1) 7123945 </p>
         </div>
 
         <div class=" icon_email-contac">
             <span class="titulo_opcion-contac"> E-mail </span>
-            <p class="text_opcion-contac"> servicioalcleinte@zaabrasalud.com.co </p>
+            <p class="text_opcion-contac"> servicioalcleinte@zaabrasalud.co </p>
         </div>
     </div>
 
@@ -245,7 +245,7 @@
                                     <label for="email" class="col-md-12 pl-0 col-form-label texto_label-contac">{{ __('Correo electrónico') }}</label>
 
                                     <div class="col-12 p-0">
-                                        <input id="email" type="email" class="form-control input_height-fullhd-contac" name="email" value="{{ old('email') }}" autocomplete="email" placeholder="zaabra@gmail.com">
+                                        <input id="email" type="email" class="form-control input_height-fullhd-contac" name="email" value="{{ old('email') }}" autocomplete="email" placeholder="servicioalcleinte@zaabrasalud.co">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -264,17 +264,17 @@
                                 </div>
                             </div>
                         @endif
-                            <!-- Botón enviar -->
-                            <div class="form-group row mb-2 mb-md-0">
-                                <div class="col-12 content_btn-enviar-contac">
-                                    <button id="send_form" type="submit" class="btn_enviar-contac"> {{ __('Enviar') }}
-                                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_envio-contac" alt=""> 
-                                    </button>
-                                </div>
+                        <!-- Botón enviar -->
+                        <div class="form-group row mb-2 mb-md-0">
+                            <div class="col-12 content_btn-enviar-contac">
+                                <button id="send_form" type="submit" class="btn_enviar-contac"> {{ __('Enviar') }}
+                                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_envio-contac" alt=""> 
+                                </button>
                             </div>
-                            <div class="alert alert-success d-none mt-5" id="msg_div">
-                                 <span id="res_message"></span>
-                            </div>
+                        </div>
+                        <div class="alert alert-success d-none mt-5" id="msg_div">
+                                <span id="res_message"></span>
+                        </div>
                 </form>
             </div>
         </div>

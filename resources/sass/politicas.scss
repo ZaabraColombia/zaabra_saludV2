@@ -69,7 +69,7 @@
     color: #3E3E3E;
 }
 .ancla_toggleFoot {
-    font-size: 1.5em;
+    font-size: 1em;
     color: #0083D6 !important;
     text-decoration: underline !important;
 }
@@ -93,6 +93,9 @@
     }
     .text_interno-toggle-polit {
         font-size: .6em;
+    }
+    .ancla_toggleFoot {
+        font-size: 1.1em;
     }
 }
 @media (min-width: 375px) and (orientation: portrait) {

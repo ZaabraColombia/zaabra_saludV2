@@ -54,7 +54,7 @@
                             ZAABRA COLOMBIA SAS, propietaria de la plataforma tendrá la plena libertad y autoridad para modificar, adaptar o cambiar el contenido de esta 
                             Política de cookies en cualquier momento. Usted acepta y reconoce las actualizaciones de este documento, por medio de la fecha de elaboración que está visible en la Plataforma. <br><br>
                     
-                            Si Usted tiene inquietudes adicionales sobre el uso de cookies o cualquier aspecto de esta política puede escribirnos a <a class="ancla_toggleFoot" href=""> servicioalcleinte@zaabrasalud.co </a>
+                            Si Usted tiene inquietudes adicionales sobre el uso de cookies o cualquier aspecto de esta política puede escribirnos a <a class="ancla_toggleFoot" href=""> servicioalcliente@zaabrasalud.co </a>
                         </p>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                             por razones estrictas de comercio, así como también las medidas de seguridad que ZAABRA SALUD ha tomado para protegerlos, los derechos que usted tiene como cliente y titular de sus datos personales 
                             y como puede ejercerlos en caso de no estar de acuerdo en cómo los hemos tratado. <br><br>
 
-                            Lo invitamos a leer detalladamente esta Política de Privacidad y si tiene alguna duda, le pedimos que por favor nos contacte al correo electrónico <a class="ancla_toggleFoot" href="">servicioalcleinte@zaabrasalud.co</a>
+                            Lo invitamos a leer detalladamente esta Política de Privacidad y si tiene alguna duda, le pedimos que por favor nos contacte al correo electrónico <a class="ancla_toggleFoot" href="">servicioalcliente@zaabrasalud.co</a>
                             o al teléfono celular 3212449869, o envíe una comunicación a la Carrera 64 No. 67B-89 Interior Dos, en la ciudad de Bogotá D. C. <br><br>
 
                             Del mismo modo, en caso de que el tratamiento de datos personales se haya de efectuar por empresas proveedoras de servicios para ZAABRA SALUD, dichas empresas proveedoras deberán asumir compromisos de confidencialidad 
@@ -115,7 +115,7 @@
                             salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones. <br><br>
 
                             Podrá ejercer sus derechos de la siguiente forma: dirigiéndose a ZAABRA COLOMBIA SAS, con dirección en la ciudad de Bogotá en la Carrera 64 # 67B-89 interior dos, o a través del correo electrónico 
-                            <a class="ancla_toggleFoot" href=""> servicioalcleinte@zaabrasalud.co </a> identificándose debidamente e indicando de forma expresa el concreto derecho que se quiere ejercer. <br><br>
+                            <a class="ancla_toggleFoot" href=""> servicioalcliente@zaabrasalud.co </a> identificándose debidamente e indicando de forma expresa el concreto derecho que se quiere ejercer. <br><br>
 
                             Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado 
                             en el consentimiento previo a su retirada. <br><br>
@@ -159,10 +159,10 @@
                             en la plataforma de ZAABRA SALUD, también correos informativos o de su interés. <br><br>
 
                             Se entregarán métricas del movimiento de cada perfil una vez al mes solo en caso de solicitud del profesional, esta solicitud la puede realizar 
-                            escribiendo al correo  <a class="ancla_toggleFoot" href="">servicioalcleinte@zaabrasalud.co</a>, en los siguientes tres días hábiles recibirá la respuesta al correo registrado en el perfil.  <br><br>
+                            escribiendo al correo  <a class="ancla_toggleFoot" href="">servicioalcliente@zaabrasalud.co</a>, en los siguientes tres días hábiles recibirá la respuesta al correo registrado en el perfil.  <br><br>
 
                             De igual manera por correo electrónico podremos evaluar y mejorar la calidad del servicio y del sitio web ZAABRA SALUD; en el momento que usted desee puede solicitar no recibir más correos; 
-                            si no desea que utilicemos su información de esta manera, se puede comunicar al 3212449869 o por medio de correo <a class="ancla_toggleFoot" href="">servicioalcleinte@zaabrasalud.co</a>. <br><br>
+                            si no desea que utilicemos su información de esta manera, se puede comunicar al 3212449869 o por medio de correo <a class="ancla_toggleFoot" href="">servicioalcliente@zaabrasalud.co</a>. <br><br>
 
                             La información que recopilamos sobre usted, está almacenada en servidores de la compañía. <br><br>
 
@@ -324,7 +324,7 @@
                             c) Proporcionar las herramientas y características necesarias para que el profesional, tecnólogo, docente o estudiante pueda gestionar y administrar la información dentro de su perfil, incluyendo disponibilidad 
                             en agendamientos de citas, agendamiento de citas como tal. 
                             d) Proporcionar asistencia en la edición del perfil o landing page durante toda la duración de la membresía, asistencia que se dará en los horarios estipulados, lunes a viernes de 8 am a 5 pm por medio de 
-                            nuestros canales virtuales, Teléfono 3212449869 o al correo electrónico <a class="ancla_toggleFoot" href="">servicioalcleinte@zaabrasalud.co</a>
+                            nuestros canales virtuales, Teléfono 3212449869 o al correo electrónico <a class="ancla_toggleFoot" href="">servicioalcliente@zaabrasalud.co</a>
                         </p>
 
                         <h5 class="title_interno_toggleFoot">9. OBLIGACIONES DEL PROFESIONAL, TECNÓLOGO, DOCENTE O ESTUDIANTE.</h5>
@@ -525,7 +525,7 @@
                         <h5 class="title_interno_toggleFoot">17. RESOLUCIÓN DE SOLICITUDES Y RECLAMACIONES</h5>
                         <p class="txt_interno_toggleFoot">
                             17.1 Para cualquier solicitud o reclamación que pueda surgir en el marco de la prestación de los servicios, el profesional, tecnólogo, docente, estudiante o el mismo usuario se deberá dirigir a la cuenta de correo electrónico 
-                            del asesor que ZAABRA SALUD asigne a su cuenta, o en su defecto, a <a class="ancla_toggleFoot" href="">servicioalcleinte@zaabrasalud.co</a> o al teléfono 3212449869.<br><br>
+                            del asesor que ZAABRA SALUD asigne a su cuenta, o en su defecto, a <a class="ancla_toggleFoot" href="">servicioalcliente@zaabrasalud.co</a> o al teléfono 3212449869.<br><br>
                             17.2 Las reclamaciones se deberán remitir dentro del plazo máximo de catorce (14) días a contar desde la fecha del evento que dio lugar a la reclamación. La comunicación de la reclamación deberá contener el motivo de la reclamación y 
                             los motivos que la fundamentan. En el supuesto en el que la reclamación o la queja tenga contenido ofensivo o inapropiado a criterio de ZAABRA SALUD o no se realice con la diligencia debida, esta no será atendida por ZAABRA SALUD.
                         </p>
@@ -723,7 +723,7 @@
                         <h5 class="title_interno_toggleFoot">6. ATENCIÓN AL USUARIO</h5>
                         <p class="txt_interno_toggleFoot">
                             Para realizar cualquier consulta a ZAABRA SALUD relacionada con el funcionamiento del sitio web, información o disponibilidad de servicios, el cliente deberá dirigirse al Centro de Atención al Cliente, 
-                            llamando al teléfono 3212449869 – 7123946 o enviando un correo electrónico a <a class="ancla_toggleFoot" href="">servicioalcleinte@zaabrasalud.co</a>
+                            llamando al teléfono 3212449869 – 7123946 o enviando un correo electrónico a <a class="ancla_toggleFoot" href="">servicioalcliente@zaabrasalud.co</a>
                         </p>
 
                         <h5 class="title_interno_toggleFoot">7. LEGISLACIÓN APLICABLE</h5>

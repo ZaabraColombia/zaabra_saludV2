@@ -13,34 +13,30 @@
 
 <!-- Titulo principal de la vista -->
 <section >
-  <h2 class="section_titulo-entidades"> Entidades </h2>
+  <h1 class="title_entidades"> Entidades </h1>
 </section>
 
 <!-- Contenedor de las tarjetas de las profesiones -->
-<div class="row col-12 col-lg-10 section_tarjetas-entidades">
-    @foreach ($objinstituciones as $objinstituciones)
-        <div class="col-5 col-lg-3 contenido_tarjetas-entidades">
-          <div class="imagen_entidad">
-            <img class="icono_img-entidad" src="{{URL::asset($objinstituciones->urlimagen)}}">
-          </div>
+<div class="row col-12 col-lg-10 col-xl-8 container_entidades">
+  @foreach ($objinstituciones as $objinstituciones)
+    <div class="col-5 col-lg-3 section_entidades">
+      <div class="content_img_entidades">
+        <img class="imagen_entidades" src="{{URL::asset($objinstituciones->urlimagen)}}">
+      </div>
 
-          <div class="nombre_entidad">
-            <span>{{$objinstituciones->nombretipo}}</span>
-          </div>
+      <h2 class="subtitle_entidades">{{$objinstituciones->nombretipo}}</h2>
 
-          <div class="texto_entidad">
-            <p>{{$objinstituciones->descripcioninstitucion}}</p>
-          </div>
+      <p class="texto_entidades">{{$objinstituciones->descripcioninstitucion}}</p>
 
-          <div class="contenido_boton-verEntidad">
-            <a href="{{url('Instituciones/'.$objinstituciones->id)}}">
-              <button type="submit" value="" class="boton_ver-entidades" >
-              <span> Ver especialidades </span>
-              <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icono_flecha-ver" alt=""> 
-            </a>
-          </div>
-        </div>
-    @endforeach
+      <div class="section_btn_entidades">
+        <a class="content_btn_entidades" href="{{url('Instituciones/'.$objinstituciones->id)}}">
+          <button type="submit" value="" class="btnVer_entidades"> Ver especialidades
+            <img class="icon_arrow_entidades" src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" alt=""> 
+          </button>
+        </a>
+      </div>
+    </div>
+  @endforeach
 </div>
 
 <!-- Carrusel de logos inferior, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->

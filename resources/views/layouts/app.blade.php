@@ -74,8 +74,8 @@
             <div class="modal-content modal_content-popup">
                 <!-- Sección boton derecho de cierre "X" -->
                 <div class="modal-header modal_header-popup">
-                    <button type="button" class="btn_close-popup" data-dismiss="modal" aria-label="Close">
-                        <span class="Xcierre_modal-popup" aria-hidden="true">&times;</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
