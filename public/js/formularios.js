@@ -652,35 +652,7 @@ function hideBtnPrevious (y){
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector("#formulario_asociacion").addEventListener('submit', validaAsociacion); 
-});
-
-
-function validaAsociacion(event) {
-    event.preventDefault();
-    let inputs = document.querySelectorAll('#formulario_asociacion input[type=file]')
-  
-    
-    inputs.forEach((element) => {
-        if (element.files.length !=0) {
-            this.submit();
-        }
-        else {
-            alert("debe subir una foto")
-        }
-    })
-} 
 
 
 
 
-
-/*!function anonimous(){
-    let arrayForm = [].slice.apply(document.querySelectorAll('.count_forms'));
-    arrayForm[1].classList.add('hidden-section-formProf');
-    arrayForm[2].classList.add('hidden-section-formProf');
-    console.log(arrayForm.length);
-    let myvar = document.querySelector('.div-count').getAttribute('data-info');
-    console.log(myvar);
-}();*/
