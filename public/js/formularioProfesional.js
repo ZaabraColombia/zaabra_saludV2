@@ -246,7 +246,7 @@ $('#formulario_descripcion').validate({
            type: "POST",
            data: $('#formulario_descripcion').serialize(),
            success: function( response ) {
-               $('#envia_perfil').html('Enviar');
+               $('#envia_perfil').hide();
                $('#res_message_descripcion').show();
                $('#res_message_descripcion').html(response.msg);
                $('#msg_descripcion').removeClass('d-none');
@@ -261,3 +261,60 @@ $('#formulario_descripcion').validate({
        }
 })
 /*------------------------------ Fin Cuarta Parte del Formulario Descripcion Perfil Profesional------------------------------*/
+
+/*-------------------- Inicio Quinta Parte del Formulario Educacion Perfil Profesional----------------------------------*/
+
+$('#formulario_educacion').validate({
+    rules: {
+        'id_universidad[]': {
+            required: true,
+            selecttext: false,
+        },
+        'fechaestudio[]': {
+            required: true,
+            date: true,
+        },
+        'nombreestudio[]': {
+            required: true,
+        },
+    },
+    messages: {
+        'id_universidad[]':{
+            required: "Por favor seleccione una universidad",
+        },
+        'fechaestudio[]':{
+            required: "Por favor Seleccione la fecha en que  finalizó su estudio",
+        },
+        'nombreestudio[]':{
+            required: "Por favor Ingrese el titulo obtenido ",
+        },
+    },
+    submitHandler: function(form) {
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+             headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+             }
+         });
+         /*Se cambia el texto al boton por enviando*/
+         $('#envia_estudios').html('Enviando..');
+         $.ajax({
+           url:  "FormularioProfesionalSave5",
+           type: "POST",
+           data: $('#formulario_educacion').serialize(),
+           success: function( response ) {
+               $('#envia_estudios').hide();
+               $('#res_message_consulta').show();
+               $('#res_message_consulta').html(response.msg);
+               $('#msg_consulta').removeClass('d-none');
+   
+               document.getElementById("#formulario_educacion").reset(); 
+               setTimeout(function(){
+               $('#res_message_consulta').hide();
+               $('#msg_consulta').hide();
+               },10000);
+           }
+         });
+    }
+})
+/*------------------------------ Fin Quinta Parte del Formulario Educacion Perfil Profesional------------------------------*/

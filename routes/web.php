@@ -20,7 +20,7 @@ Route::get('/search/filtro', [App\Http\Controllers\buscador\buscadorController::
 /*----------------------------------------------Pertenece a profesionales-------------------------------------------------------------------------------*/
 
 /*Esta ruta es de galeria profesiones y dirige al controlador encargado de traer la informacion a la vista*/
-Route:: get('/Profesiones',[App\Http\Controllers\profesionales\profesionesController::class,'index'])->name('Profesiones');
+Route:: get('/ramas-de-la-salud',[App\Http\Controllers\profesionales\profesionesController::class,'index'])->name('ramas-de-la-salud');
 
 /*Esta ruta es de galeria especialidades y dirige al controlador encargado de traer la informacion a la vista*/
 Route:: get('/Especialidades/{idProfesion}',[App\Http\Controllers\profesionales\especialidadesController::class,'index'])->name('Especialidades');
@@ -29,7 +29,7 @@ Route:: get('/Especialidades/{idProfesion}',[App\Http\Controllers\profesionales\
 Route:: get('/Profesionales/{idEspecialidad}',[App\Http\Controllers\profesionales\medicosEspecialidadController::class,'index'])->name('Profesionales');
 
 /*Esta ruta es de landing profesionales y dirige al controlador encargado de traer la informacion a la vista*/
-Route:: get('/PerfilProfesional/{idPerfilProfesional}',[App\Http\Controllers\profesionales\perfilprofesionalController::class,'index'])->name('PerfilProfesional')->middleware('auth');
+Route:: get('/PerfilProfesional/{idPerfilProfesional}',[App\Http\Controllers\profesionales\perfilprofesionalController::class,'index'])->name('PerfilProfesional');
 
 /*Esta ruta es del formulario del profesional */
 Route::get('/FormularioProfesional',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'index'])->name('FormularioProfesional')->middleware('auth');

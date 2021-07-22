@@ -42,7 +42,7 @@
                 <div class="contains_text">
                     <h1 class="titulo_home">Especialidades médicas</h1>
                     <p class="parrafo_home"> Acceda a contenido de los mejores especialistas y agende su cita médica. </p>
-                    <a href="{{url('/Profesiones')}}" class="ver_mas especialistas hvr-sweep-to-right">Ver más
+                    <a href="{{url('/ramas-de-la-salud')}}" class="ver_mas especialistas hvr-sweep-to-right">Ver más
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>
                 </div>
