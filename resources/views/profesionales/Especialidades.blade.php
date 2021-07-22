@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+
   <!-- Carrusel Banner principal, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
   <section class="swiper-container swiper_principalGaleriaProf">
     <div class="swiper-wrapper">
@@ -12,7 +14,7 @@
 
   <!-- Titulo principal de la vista -->
   <section>
-    <h1  class="title_espeMed"> Especialidades Medicina </h1>
+    <h1 class="title_espeMed">Especialidades {{$objnombreEspecialidad->nombreProfesion}}</h1>
   </section>
 
   <!-- Contenedor de las tarjetas de las profesiones -->
