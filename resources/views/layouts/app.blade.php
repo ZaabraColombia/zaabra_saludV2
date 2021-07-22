@@ -81,7 +81,7 @@
 
                 <div class="modal-body p-0">
                     <!-- Titulo y texto de encabezado -->
-                    <h5 class="modal-title titulo_principal-popup" id="exampleModalLabel"> Seleccione el medio de pago</h5>
+                    <h1 class="modal-title titulo_principal-popup" id="exampleModalLabel"> Seleccione el medio de pago</h1>
 
                     <p class="texto_superior-popup"> Seleccione el medio de pago que mejor se adapte a su necesidad. </p>
                     

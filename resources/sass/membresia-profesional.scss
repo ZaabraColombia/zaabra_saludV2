@@ -6,7 +6,8 @@
 }
 .titulo_principal-membresia {
     font-family: 'Quicksand';
-    font-size: 2em;
+    font-size: calc(0.95em + 1vw);
+    font-weight: bold;
     color: #0083D6;
     text-align: center;
     margin-top: 5%;
@@ -62,7 +63,7 @@
 }
 .titulo_tarjeta-membresia {
     font-family: 'Quicksand', 'Regular';
-    font-size: 1.8em;
+    font-size: calc(0.95em + 1vw);
     color: #232323;
     text-align: center;
     margin-top: 3%;
@@ -189,7 +190,7 @@
     }
     // Seccion titulo y texto principal
     .titulo_principal-membresia {
-        font-size: 1.25em;
+        font-size: 1.3em;
         margin-top: 5%;
     }
     .texto_superior-membresia {
@@ -213,7 +214,7 @@
     }
     // Sección acordion 1
     .titulo_tarjeta-membresia {
-        font-size: 1em;
+        font-size: 1.3em;
     }
     .texto_tiempo-membresia {
         font-size: .75em;
@@ -269,7 +270,7 @@
     }
     // Seccion titulo y texto principal
     .titulo_principal-membresia {
-        font-size: 2em;
+        font-size: 2.5em;
         margin-top: 5%;
     }
     .texto_superior-membresia {
@@ -293,7 +294,7 @@
     }
     // Seccion acordion 1
     .titulo_tarjeta-membresia {
-        font-size: 1.8em;
+        font-size: 2.5em;
     }
     .texto_tiempo-membresia {
         font-size: 1.5em;
@@ -368,7 +369,7 @@
 @media (min-width: 1440px) {
     // Seccion titulo y texto principal
     .titulo_principal-membresia {
-        font-size: 3.5em;
+        font-size: calc(1em + 1vw);
     }
     .texto_superior-membresia {
         font-size: 1.3em;
@@ -391,7 +392,7 @@
     }
     // Seccion acordion 1
     .titulo_tarjeta-membresia {
-        font-size: 3em;
+        font-size: calc(0.95em + 1vw);
     }
     .texto_tiempo-membresia {
         font-size: 1.8em;

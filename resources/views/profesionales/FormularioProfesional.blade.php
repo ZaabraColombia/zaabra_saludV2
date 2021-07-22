@@ -48,7 +48,7 @@
     <div class="container-fluid personal_data content_principal-formProf">
         <!-- Titulo y texto superior -->
         <div class="col-lg-10 col-xl-8 content_textPrincipal-formProf">
-            <h5 class="titulo_principal-formProf"> LE DAMOS LA BIENVENIDA A ZAABRA SALUD </h5>
+            <h1 class="titulo_principal-formProf"> LE DAMOS LA BIENVENIDA A ZAABRA SALUD </h1>
 
             <p class="texto_superior-formProf"> Ingrese los datos según corresponda y finalice el proceso completamente en línea. </p>
         </div>

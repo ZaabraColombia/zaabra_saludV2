@@ -6,7 +6,7 @@
         <div class="row footer_newsletter">
             <!-- Column titulo-->
             <div class="col-lg-10 mt-2 mt-lg-0 newsletter_contenido">
-                <h2 class="newsletter_titulo">¡Suscríbase a nuestro newsletter!</h2>
+                <h1 class="newsletter_titulo">¡Suscríbase a nuestro newsletter!</h1>
                 <p class="newsletter_texto"> Manténgase al día de todas nuestras novedades </p>
             </div>
 

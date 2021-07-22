@@ -11895,6 +11895,16 @@ a:link, a:visited, a:active, a:hover {
      object-fit: cover;
 }
 
+.title_banner_acerca {
+  color: #0083D6;
+  font-family: "Quicksand";
+  font-size: 2.2em;
+  font-weight: 700;
+  position: absolute;
+  top: 20%;
+  left: 15.7%;
+}
+
 .section_principal-acerca {
   margin: auto;
   padding: 0;
@@ -11994,6 +12004,12 @@ a:link, a:visited, a:active, a:hover {
     height: 18vh;
   }
 
+  .title_banner_acerca {
+    font-size: 0.95em;
+    top: 16.7%;
+    left: 4%;
+  }
+
   .section_principal-acerca {
     width: 100%;
   }
@@ -12038,7 +12054,20 @@ a:link, a:visited, a:active, a:hover {
     margin-bottom: 5%;
   }
 }
+@media (min-width: 360px) and (orientation: portrait) {
+  .title_banner_acerca {
+    font-size: 1em;
+    top: 16%;
+    left: 4%;
+  }
+}
 @media (min-width: 375px) and (orientation: portrait) {
+  .title_banner_acerca {
+    font-size: 1.1em;
+    top: 15%;
+    left: 4%;
+  }
+
   .titulo_superior-acerca {
     padding: 0 14%;
     margin: 8% 0;
@@ -12047,6 +12076,12 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 768px) and (orientation: portrait) {
   .imagen_bannerPrin-acerca {
     height: 20vh;
+  }
+
+  .title_banner_acerca {
+    font-size: 2.35em;
+    top: 14.8%;
+    left: 4%;
   }
 
   .section_principal-acerca {
@@ -12098,6 +12133,12 @@ a:link, a:visited, a:active, a:hover {
     height: 37vh;
   }
 
+  .title_banner_acerca {
+    font-size: 2.7em;
+    top: 22.6%;
+    left: 14.6%;
+  }
+
   .section_principal-acerca {
     width: 65%;
   }
@@ -12106,7 +12147,20 @@ a:link, a:visited, a:active, a:hover {
     padding: 0 7%;
   }
 }
+@media (min-width: 1360px) {
+  .title_banner_acerca {
+    font-size: 2.9em;
+    top: 22.7%;
+    left: 16.1%;
+  }
+}
 @media (min-width: 1440px) {
+  .title_banner_acerca {
+    font-size: 3.1em;
+    top: 22%;
+    left: 16%;
+  }
+
   .titulo_superior-acerca {
     font-size: 1.25em;
   }
@@ -12128,6 +12182,12 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 1920px) {
   .imagen_bannerPrin-acerca {
     height: 45vh;
+  }
+
+  .title_banner_acerca {
+    font-size: 4.1em;
+    top: 25.8%;
+    left: 16.2%;
   }
 
   .titulo_superior-acerca {
@@ -12152,6 +12212,17 @@ a:link, a:visited, a:active, a:hover {
   height: 30vh;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.title_banner_polit {
+  color: #0083D6;
+  font-family: "Quicksand";
+  font-size: 2.2em;
+  font-weight: 700;
+  position: absolute;
+  top: 20%;
+  left: 16%;
+  line-height: 1;
 }
 
 .section_principal-polit {
@@ -12236,6 +12307,12 @@ a:link, a:visited, a:active, a:hover {
     height: 18vh;
   }
 
+  .title_banner_polit {
+    font-size: 0.95em;
+    top: 17%;
+    left: 4%;
+  }
+
   .section_principal-polit {
     width: 100%;
   }
@@ -12262,7 +12339,20 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.1em;
   }
 }
+@media (min-width: 360px) and (orientation: portrait) {
+  .title_banner_polit {
+    font-size: 1.1em;
+    top: 16%;
+    left: 4%;
+  }
+}
 @media (min-width: 375px) and (orientation: portrait) {
+  .title_banner_polit {
+    font-size: 1.1em;
+    top: 15.5%;
+    left: 4%;
+  }
+
   .titulo_superior-polit {
     padding: 0 14%;
     margin: 8% 0;
@@ -12271,6 +12361,12 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 768px) and (orientation: portrait) {
   .imagen_bannerPrin-polit {
     height: 20vh;
+  }
+
+  .title_banner_polit {
+    font-size: 2.35em;
+    top: 15%;
+    left: 4%;
   }
 
   .section_principal-polit {
@@ -12308,6 +12404,12 @@ a:link, a:visited, a:active, a:hover {
     height: 42vh;
   }
 
+  .title_banner_polit {
+    font-size: 3.1em;
+    top: 25%;
+    left: 10%;
+  }
+
   .section_principal-polit {
     width: 65%;
   }
@@ -12317,7 +12419,20 @@ a:link, a:visited, a:active, a:hover {
     margin: 5% 0;
   }
 }
+@media (min-width: 1360px) {
+  .title_banner_polit {
+    font-size: 3em;
+    top: 25%;
+    left: 15%;
+  }
+}
 @media (min-width: 1440px) {
+  .title_banner_polit {
+    font-size: 3.5em;
+    top: 24%;
+    left: 12%;
+  }
+
   .titulo_superior-polit {
     font-size: 1.25em;
   }
@@ -12341,6 +12456,12 @@ a:link, a:visited, a:active, a:hover {
     height: 48vh;
   }
 
+  .title_banner_polit {
+    font-size: 4.25em;
+    top: 28%;
+    left: 15%;
+  }
+
   .titulo_superior-polit {
     margin: 5% 0;
   }
@@ -12359,6 +12480,17 @@ a:link, a:visited, a:active, a:hover {
   height: 30vh;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.title_banner_preFrec {
+  color: #0083D6;
+  font-family: "Quicksand";
+  font-size: 2.2em;
+  font-weight: 700;
+  position: absolute;
+  top: 17.5%;
+  left: 15.7%;
+  line-height: 1;
 }
 
 .section_principal-pregunta {
@@ -12442,6 +12574,12 @@ a:link, a:visited, a:active, a:hover {
     height: 18vh;
   }
 
+  .title_banner_preFrec {
+    font-size: 0.95em;
+    top: 15%;
+    left: 4%;
+  }
+
   .section_principal-pregunta {
     width: 100%;
   }
@@ -12470,7 +12608,20 @@ a:link, a:visited, a:active, a:hover {
     background-size: 6%;
   }
 }
+@media (min-width: 360px) and (orientation: portrait) {
+  .title_banner_preFrec {
+    font-size: 1.1em;
+    top: 16%;
+    left: 4%;
+  }
+}
 @media (min-width: 375px) and (orientation: portrait) {
+  .title_banner_preFrec {
+    font-size: 1.1em;
+    top: 14%;
+    left: 4%;
+  }
+
   .titulo_superior-pregunta {
     padding: 0 14%;
     margin: 8% 0;
@@ -12479,6 +12630,12 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 768px) and (orientation: portrait) {
   .imagen_bannerPrin-pregunta {
     height: 20vh;
+  }
+
+  .title_banner_preFrec {
+    font-size: 2.35em;
+    top: 13%;
+    left: 4%;
   }
 
   .titulo_principal-pregunta {
@@ -12517,6 +12674,12 @@ a:link, a:visited, a:active, a:hover {
     height: 42vh;
   }
 
+  .title_banner_preFrec {
+    font-size: 3.1em;
+    top: 21%;
+    left: 9.6%;
+  }
+
   .section_principal-pregunta {
     width: 65%;
   }
@@ -12526,7 +12689,20 @@ a:link, a:visited, a:active, a:hover {
     margin: 5% 0;
   }
 }
+@media (min-width: 1360px) {
+  .title_banner_preFrec {
+    font-size: 3em;
+    top: 21.4%;
+    left: 15.3%;
+  }
+}
 @media (min-width: 1440px) {
+  .title_banner_preFrec {
+    font-size: 3.5em;
+    top: 20%;
+    left: 11.6%;
+  }
+
   .titulo_principal-pregunta {
     font-size: 2em;
   }
@@ -12549,6 +12725,12 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 1920px) {
   .imagen_bannerPrin-pregunta {
     height: 48vh;
+  }
+
+  .title_banner_preFrec {
+    font-size: 4.25em;
+    top: 22.8%;
+    left: 15%;
   }
 
   .titulo_superior-pregunta {
@@ -12675,7 +12857,7 @@ a:link, a:visited, a:active, a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #0083D6;
+  background: transparent;
   transform: scaleX(0);
   transform-origin: 0 50%;
   transition-property: transform;
@@ -22982,7 +23164,8 @@ a:link, a:visited, a:active, a:hover {
 
 .titulo_principal-membresia {
   font-family: "Quicksand";
-  font-size: 2em;
+  font-size: calc(0.95em + 1vw);
+  font-weight: bold;
   color: #0083D6;
   text-align: center;
   margin-top: 5%;
@@ -23045,7 +23228,7 @@ a:link, a:visited, a:active, a:hover {
 
 .titulo_tarjeta-membresia {
   font-family: "Quicksand", "Regular";
-  font-size: 1.8em;
+  font-size: calc(0.95em + 1vw);
   color: #232323;
   text-align: center;
   margin-top: 3%;
@@ -23182,7 +23365,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .titulo_principal-membresia {
-    font-size: 1.25em;
+    font-size: 1.3em;
     margin-top: 5%;
   }
 
@@ -23210,7 +23393,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .titulo_tarjeta-membresia {
-    font-size: 1em;
+    font-size: 1.3em;
   }
 
   .texto_tiempo-membresia {
@@ -23271,7 +23454,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .titulo_principal-membresia {
-    font-size: 2em;
+    font-size: 2.5em;
     margin-top: 5%;
   }
 
@@ -23299,7 +23482,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .titulo_tarjeta-membresia {
-    font-size: 1.8em;
+    font-size: 2.5em;
   }
 
   .texto_tiempo-membresia {
@@ -23381,7 +23564,7 @@ a:link, a:visited, a:active, a:hover {
 }
 @media (min-width: 1440px) {
   .titulo_principal-membresia {
-    font-size: 3.5em;
+    font-size: calc(1em + 1vw);
   }
 
   .texto_superior-membresia {
@@ -23408,7 +23591,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .titulo_tarjeta-membresia {
-    font-size: 3em;
+    font-size: calc(0.95em + 1vw);
   }
 
   .texto_tiempo-membresia {
@@ -26173,7 +26356,7 @@ label.error {
   border: 1px solid #019F86;
   width: 100%;
   height: 6vh;
-  background-image: url("/img/iconos/icono-x.svg");
+  background-image: url("/img/iconos/circulo-cierre-x-institucion.svg") !important;
   background-repeat: no-repeat;
   background-position: center;
   background-position-x: 95%;
@@ -29096,6 +29279,17 @@ label.error {
      object-fit: cover;
 }
 
+.title_banner_contac {
+  color: #0083D6;
+  font-family: "Quicksand";
+  font-size: 2.2em;
+  font-weight: 700;
+  position: absolute;
+  top: 20%;
+  left: 16%;
+  line-height: 1;
+}
+
 .titulo_principal-contac {
   font-size: 1.3em;
   font-family: "Quicksand", sans-serif;
@@ -29246,6 +29440,12 @@ label.error {
     height: 18vh;
   }
 
+  .title_banner_contac {
+    font-size: 0.95em;
+    top: 17%;
+    left: 4%;
+  }
+
   .titulo_principal-contac {
     font-size: 1em;
     margin: 5% 6%;
@@ -29344,6 +29544,12 @@ label.error {
   }
 }
 @media (min-width: 360px) and (orientation: portrait) {
+  .title_banner_contac {
+    font-size: 1.1em;
+    top: 16%;
+    left: 4%;
+  }
+
   .titulo_principal-contac {
     font-size: 1em;
     margin: 5% 16%;
@@ -29357,9 +29563,22 @@ label.error {
     margin: 0 15% 5% 15%;
   }
 }
+@media (min-width: 375px) and (orientation: portrait) {
+  .title_banner_contac {
+    font-size: 1.1em;
+    top: 15.5%;
+    left: 4%;
+  }
+}
 @media (min-width: 768px) and (orientation: portrait) {
   .imagen_bannerPrin-contac {
     height: 20vh;
+  }
+
+  .title_banner_contac {
+    font-size: 2.35em;
+    top: 15%;
+    left: 4%;
   }
 
   .titulo_principal-contac {
@@ -29492,6 +29711,12 @@ label.error {
     height: 42vh;
   }
 
+  .title_banner_contac {
+    font-size: 3.1em;
+    top: 25%;
+    left: 10%;
+  }
+
   .texto_superior-contac {
     font-size: 1.1em;
     margin: 2% 15%;
@@ -29537,7 +29762,20 @@ label.error {
     width: 10%;
   }
 }
+@media (min-width: 1360px) {
+  .title_banner_contac {
+    font-size: 3em;
+    top: 25%;
+    left: 15%;
+  }
+}
 @media (min-width: 1440px) {
+  .title_banner_contac {
+    font-size: 3.5em;
+    top: 24%;
+    left: 12%;
+  }
+
   .titulo_principal-contac {
     font-size: 2.5em;
     margin: 3% 0;
@@ -29594,6 +29832,12 @@ label.error {
 @media (min-width: 1920px) {
   .imagen_bannerPrin-contac {
     height: 48vh;
+  }
+
+  .title_banner_contac {
+    font-size: 4.25em;
+    top: 28%;
+    left: 15%;
   }
 
   .Subtitulo_interno-contac {

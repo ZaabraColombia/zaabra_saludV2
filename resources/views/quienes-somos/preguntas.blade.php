@@ -4,6 +4,7 @@
 
 <div class="container-fluid">
     <section class="row">
+        <h1 class="title_banner_preFrec"> PREGUNTAS <br> FRECUENTES </h1>
         <img class="imagen_bannerPrin-pregunta" src="{{URL::asset('/img/banners/bannerquienessomos/banner-preguntas-frecuentes-texto.jpeg')}}">
     </section>
 

@@ -4,6 +4,15 @@
     height: 30vh;
     object-fit: cover;
 }
+.title_banner_acerca {
+    color: #0083D6;
+    font-family: "Quicksand";
+    font-size: 2.2em;
+    font-weight: 700;
+    position: absolute;
+    top: 20%;
+    left: 15.7%;
+}
 .section_principal-acerca {
     margin: auto;
     padding: 0;
@@ -91,6 +100,11 @@
     .imagen_bannerPrin-acerca {
         height: 18vh;
     }
+    .title_banner_acerca {
+        font-size: .95em;
+        top: 16.7%;
+        left: 4%;
+    }
     .section_principal-acerca {
         width: 100%;
     }
@@ -128,7 +142,19 @@
         margin-bottom: 5%;
     }
 }
+@media (min-width: 360px) and (orientation: portrait) {
+    .title_banner_acerca {
+        font-size: 1em;
+        top: 16%;
+        left: 4%;
+    }
+}
 @media (min-width: 375px) and (orientation: portrait) {
+    .title_banner_acerca {
+        font-size: 1.1em;
+        top: 15%;
+        left: 4%;
+    }
     .titulo_superior-acerca {
         padding: 0 14%;
         margin: 8% 0;
@@ -137,6 +163,11 @@
 @media (min-width: 768px) and (orientation: portrait) {
     .imagen_bannerPrin-acerca {
         height: 20vh;
+    }
+    .title_banner_acerca {
+        font-size: 2.35em;
+        top: 14.8%;
+        left: 4%;
     }
     .section_principal-acerca {
         width: 85%;
@@ -180,6 +211,11 @@
     .imagen_bannerPrin-acerca {
         height: 37vh;
     }
+    .title_banner_acerca {
+        font-size: 2.7em;
+        top: 22.6%;
+        left: 14.6%;
+    }
     .section_principal-acerca {
         width: 65%;
     }
@@ -187,7 +223,19 @@
         padding: 0 7%;
     }
 }
+@media(min-width: 1360px) {
+    .title_banner_acerca {
+        font-size: 2.9em;
+        top: 22.7%;
+        left: 16.1%;
+    }
+}
 @media (min-width: 1440px) {
+    .title_banner_acerca {
+        font-size: 3.1em;
+        top: 22%;
+        left: 16%;
+    }
     .titulo_superior-acerca {
         font-size: 1.25em;
     }
@@ -206,6 +254,11 @@
 @media (min-width: 1920px) {
     .imagen_bannerPrin-acerca {
         height: 45vh;
+    }
+    .title_banner_acerca {
+        font-size: 4.1em;
+        top: 25.8%;
+        left: 16.2%;
     }
     .titulo_superior-acerca {
         margin: 5% 0;

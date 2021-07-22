@@ -4,6 +4,7 @@
 
 <div class="container-fluid">
     <section class="row">
+        <h1 class="title_banner_polit"> POLÍTICAS DE USO </h1>
         <img class="imagen_bannerPrin-polit" src="{{URL::asset('/img/banners/bannerquienessomos/banner-politicas-de-uso-texto.jpeg')}}">
     </section>
 

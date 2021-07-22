@@ -5,6 +5,16 @@
     height: 30vh;
     object-fit: cover;
 }
+.title_banner_contac {
+    color: #0083D6;
+    font-family: "Quicksand";
+    font-size: 2.2em;
+    font-weight: 700;
+    position: absolute;
+    top: 20%;
+    left: 16%;
+    line-height: 1;
+}
 // Titulo principal superior
 .titulo_principal-contac {
     font-size: 1.3em;
@@ -146,6 +156,11 @@
     .imagen_bannerPrin-contac {
         height: 18vh;
     }
+    .title_banner_contac {
+        font-size: 0.95em;
+        top: 17%;
+        left: 4%;
+    }
     // Titulo principal superior
     .titulo_principal-contac {
         font-size: 1em;
@@ -239,6 +254,11 @@
     }    
 }
 @media (min-width: 360px) and (orientation: portrait) {
+    .title_banner_contac {
+        font-size: 1.1em;
+        top: 16%;
+        left: 4%;
+    }
     .titulo_principal-contac {
         font-size: 1em;
         margin: 5% 16%;
@@ -252,12 +272,21 @@
     }
 }
 @media (min-width: 375px) and (orientation: portrait) {
-
+    .title_banner_contac {
+        font-size: 1.1em;
+        top: 15.5%;
+        left: 4%;
+    }
 } 
 @media (min-width: 768px) and (orientation: portrait) {
     // Banner principal
     .imagen_bannerPrin-contac {
         height: 20vh;
+    }
+    .title_banner_contac {
+        font-size: 2.35em;
+        top: 15%;
+        left: 4%;
     }
     // Titulo principal superior
     .titulo_principal-contac {
@@ -379,6 +408,11 @@
     .imagen_bannerPrin-contac {
         height: 42vh;
     }
+    .title_banner_contac {
+        font-size: 3.1em;
+        top: 25%;
+        left: 10%;
+    }
     .texto_superior-contac {
         font-size: 1.1em;
         margin: 2% 15%;
@@ -417,7 +451,19 @@
         width: 10%;
     }
 }
+@media (min-width: 1360px) {
+    .title_banner_contac {
+        font-size: 3em;
+        top: 25%;
+        left: 15%;
+    }
+}
 @media (min-width: 1440px) {
+    .title_banner_contac {
+        font-size: 3.5em;
+        top: 24%;
+        left: 12%;
+    }
     .titulo_principal-contac {
         font-size: 2.5em;
         margin: 3% 0;
@@ -468,6 +514,11 @@
     // Banner principal
     .imagen_bannerPrin-contac {
         height: 48vh;
+    }
+    .title_banner_contac {
+        font-size: 4.25em;
+        top: 28%;
+        left: 15%;
     }
     // Foila contenido opciones y formulario contacto
     .Subtitulo_interno-contac {

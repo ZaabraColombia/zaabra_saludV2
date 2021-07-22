@@ -6,7 +6,7 @@
     <!-- fila principal -->
     <div class="row justify-content-center">
         <!-- titulo principal -->
-        <p class="titulo_principal-register"> Acceda a nuestro portal de Zaabra Salud o regístrese. </p>
+        <h1 class="titulo_principal-register"> Acceda a nuestro portal de Zaabra Salud o regístrese. </h1>
         <!-- contenedor de elementos login -->
         <div class="card col-11 col-md-10 col-lg-8 section_principal-register">
             <!-- seccion body login -->

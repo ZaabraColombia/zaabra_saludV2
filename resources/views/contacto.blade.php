@@ -6,6 +6,7 @@
 <div class="container-fluid">
     <!-- Banner principal de contacto -->
     <section class="row">
+        <h1 class="title_banner_contac"> CONTÁCTENOS </h1>
         <img class="imagen_bannerPrin-contac" src="{{URL::asset('/img/contacto/banner-contactenos-texto.jpeg')}}">
     </section>
 
