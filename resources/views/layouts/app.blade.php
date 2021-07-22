@@ -8,7 +8,8 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
+        
+        {!! SEO::generate() !!}
         <title>{{ config('app.name', 'Laravel') }}</title>
         <link rel="shortcat icon" href="{{URL::asset('/img/logos/zaabrasalud-favicon.png')}}"> 
         <!-- Fonts -->
@@ -65,6 +66,7 @@
         <script src="{{ asset('js/formularioProfesional.js') }}"></script>
      <!--js admin template-->
      <script src="{{ asset('fullCalendar/main.js') }}"></script>
+     <script src="{{ asset('js/admin.js') }}"></script>
     
     </body>
 

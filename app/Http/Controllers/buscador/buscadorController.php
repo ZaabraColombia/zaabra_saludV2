@@ -63,11 +63,10 @@ class buscadorController extends Controller
 
         $data1=[];
 
-        
         /*Recorrido para profesiones*/
         foreach($queryProfesion as $queryprofesion){
             $data1[]=[
-                'id'=> $ruta."Profesiones",
+                'id'=> $ruta."ramas-de-la-salud",
                 'label'=>$queryprofesion->nombreProfesion,
             ];
            }

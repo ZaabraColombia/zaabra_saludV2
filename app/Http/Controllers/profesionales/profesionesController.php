@@ -5,7 +5,7 @@ namespace App\Http\Controllers\profesionales;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use SEO;
 
 class profesionesController extends Controller
 {
@@ -14,6 +14,10 @@ class profesionesController extends Controller
     
     public function index()
     {
+        SEO::setTitle('Ramas de la Salud');
+        SEO::setDescription('En Zaabra Salud, todas las ramas de la salud: Odontología, Medicina, Psicología, Fisioterapia, Enfermería y Veterinaria.');
+        SEO::setCanonical('https://zaabrasalud.co/');
+
         //esta varible se llena con los datos recolectados en cada una de las consultas y entregan los datos
         //en la vista galeria  
         $objbannersprincipalProfesiones = $this->cargarBannerPrincipalProfesiones();
@@ -21,7 +25,7 @@ class profesionesController extends Controller
         $objcarruselprofesiones = $this->cargarCarruselProfesiones();
        
    
-        return view('profesionales.Profesiones', compact(
+        return view('profesionales.ramas-de-la-salud', compact(
             'objbannersprincipalProfesiones',
             'objprofesiones',
             'objcarruselprofesiones'

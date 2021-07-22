@@ -172,7 +172,7 @@
             
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf">  Fecha de nacimiento </label>
-                                <input class="col-lg-12 form-control" type="date" value="2011-08-19" id="fechanacimiento" name="fechanacimiento" required>
+                                <input class="col-lg-12 form-control" type="date"  id="fechanacimiento" name="fechanacimiento" required>
                             </div>
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Selecione área </label> 
@@ -548,7 +548,7 @@
         <div class="col-lg-10 col-xl-8 content_perfil-prof infoBasica_formProf">
             <h5 class="col-12 icon_infoEduc-formProf"> Educación </h5>
 
-            <div class="educacion_guardada-formProf">
+            <div class="educacion_guardada-formProf" >
                 @foreach($objEducacion as $objEducacion)
                     @if(!empty($objEducacion->nombreuniversidad))
                         <div class="section_infoEducacion-formProf">
@@ -582,15 +582,14 @@
                 @endforeach
             </div>
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_educacion">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-                
+            <form id="formulario_educacion" method="POST" action="javascript:void(0)" enctype="multipart/form-data" accept-charset="UTF-8">
+               @csrf
                 @if($objContadorEducacion->cantidad == 0)
                     <div class="row p-0 m-0">
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
 
-                            <select  class="form-control" name="id_universidad[]">
+                            <select  class="form-control" name="id_universidad[]" id="id_universidad[]">
                                 <option value=""> Seleccione universidad </option>
 
                                 @foreach($universidades as $universidad)
@@ -602,7 +601,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
                         
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
+                            <input class="form-control" type="date"  id="fechaestudio[]" name="fechaestudio[]">
                         </div>
 
                         <div class="col-md-6 section_inputLeft-text-formProf">
@@ -630,7 +629,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
 
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
+                            <input class="form-control" type="date"  id="fechaestudio[]" name="fechaestudio[]">
                         </div>
 
                         <div class="col-md-6 section_inputLeft-text-formProf">
@@ -658,7 +657,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
 
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
+                            <input class="form-control" type="date"  id="fechaestudio[]" name="fechaestudio[]">
                         </div>
 
                         <div class="col-md-6 section_inputLeft-text-formProf">
@@ -686,7 +685,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
                         
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
+                            <input class="form-control" type="date"  id="fechaestudio[]" name="fechaestudio[]">
                         </div>
 
                         <div class="col-md-6 section_inputLeft-text-formProf">
@@ -714,7 +713,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
 
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
+                            <input class="form-control" type="date"  id="fechaestudio[]" name="fechaestudio[]">
                         </div>
 
                         <div class="col-md-6 section_inputLeft-text-formProf">
@@ -742,7 +741,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
 
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
+                            <input class="form-control" type="date"  id="fechaestudio[]" name="fechaestudio[]">
                         </div>
 
                         <div class="col-md-6 section_inputLeft-text-formProf">
@@ -758,7 +757,7 @@
                 @endif
 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4"> Guardar
+                    <button id="envia_estudios"  type="submit" class="btn2_enviar-formProf mb-md-4"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                     </button>
                 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use SEO;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,12 @@ class HomeController extends Controller
      
     public function index()
     {
+
+        SEO::setTitle('Zaabra Salud | Agende su cita hoy!');
+        SEO::setDescription('Agende su cita con especialistas y entidades médicas fácil y rápido.¡Encuentre opiniones de otros pacientes y más!');
+        SEO::setCanonical('https://zaabrasalud.co/');
+
+
         //esta varible se llena con los datos recolectados en cada una de las consultas y entregan los datos en la vista del home 
         $objbannersprincipalHome = $this->cargarBannerPrincipalHome();
         $objbannersparallaxHome = $this->cargarParallax();
