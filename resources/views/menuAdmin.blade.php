@@ -49,6 +49,51 @@
                             </ul>
                         </li>
                     @endif
+                    @if(!empty($objListaUsuario5->isNotEmpty()))
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Perfiles</span>
+                            </a>
+                            <ul class="submenu ">
+                                @foreach($objListaUsuario5 as $objListaUsuario5)
+                                    <li class="submenu-item ">
+                                    <a href='{{url("$objListaUsuario5->urlPermiso")}}'>{{$objListaUsuario5->nombrePermiso}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    @endif
+                    @if(!empty($objListaUsuario6->isNotEmpty()))
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Pagos</span>
+                            </a>
+                            <ul class="submenu ">
+                                @foreach($objListaUsuario6 as $objListaUsuario6)
+                                    <li class="submenu-item ">
+                                    <a href='{{url("$objListaUsuario6->urlPermiso")}}'>{{$objListaUsuario6->nombrePermiso}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    @endif
+                    @if(!empty($objListaUsuario7->isNotEmpty()))
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Reportes</span>
+                            </a>
+                            <ul class="submenu ">
+                                @foreach($objListaUsuario7 as $objListaUsuario7)
+                                    <li class="submenu-item ">
+                                    <a href='{{url("$objListaUsuario7->urlPermiso")}}'>{{$objListaUsuario7->nombrePermiso}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    @endif
                 </ul>
             </div>
             <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use SEO;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,12 @@ class HomeController extends Controller
      
     public function index()
     {
+
+        SEO::setTitle('Zaabra Salud | Agende su cita hoy!');
+        SEO::setDescription('Agende su cita con especialistas y entidades médicas fácil y rápido.¡Encuentre opiniones de otros pacientes y más!');
+        SEO::setCanonical('https://zaabrasalud.co/');
+
+
         //esta varible se llena con los datos recolectados en cada una de las consultas y entregan los datos en la vista del home 
         $objbannersprincipalHome = $this->cargarBannerPrincipalHome();
         $objbannersparallaxHome = $this->cargarParallax();
@@ -66,16 +73,14 @@ class HomeController extends Controller
 
 // consulta para cargar profesionales que realizen el pago por aparecer en el home
     public function cargarProfesionaleshome(){
-        return DB::select('SELECT pf.idPerfilProfesional, us.primernombre, us.primerapellido, pf.descripcionPerfil, sp.nombreEspecialidad, un.nombreuniversidad,pf.fotoperfil
+        return DB::select('SELECT pf.idPerfilProfesional, CONCAT("Dr.(a) ",  us.primernombre) AS primernombre, us.primerapellido, pf.descripcionPerfil, sp.nombreEspecialidad, un.nombreuniversidad,pf.fotoperfil
         FROM pagos  pg
         INNER JOIN users us ON pg.idUsuario=us.id
         INNER JOIN  perfilesprofesionales pf ON us.id=pf.idUser
         INNER JOIN  areas ar ON pf.idarea=ar.idArea
         INNER JOIN  profesiones pr ON pf.idprofesion=pr.idProfesion
         INNER JOIN  especialidades sp ON pf.idespecialidad=sp.idEspecialidad
-        JOIN (SELECT id_universidad, idPerfilProfesional
-        FROM perfilesprofesionalesuniversidades GROUP BY idPerfilProfesional) AS pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
-        INNER JOIN universidades un ON pu.id_universidad=un.id_universidad
+        INNER JOIN universidades un ON pf.id_universidad=un.id_universidad
         where pg.aprobado=1  and pf.aprobado <> 0 and pg.idtipopago =3');
     }
     // consulta para cargar el banner triple del home

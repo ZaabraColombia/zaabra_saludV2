@@ -7,6 +7,7 @@
       @if(!empty($objmedicossinpago))
         <h1 class="titulo_profesionales">{{$tituloPaginaActual->nombreEspecialidad}}</h1>
       @endif
+
       <section class="contains_swiper_premium">
         <div class="swiper-container swiper_premium">
           <div class="swiper-wrapper">
@@ -69,7 +70,8 @@
                 <img class="card-img-top" src="{{URL::asset($objmedicospagonormal->fotoperfil)}}">
                 <div class="card-body">
                   <h2>{{$objmedicospagonormal->nombreEspecialidad}}</h2>
-                  <h5>{{$objmedicospagonormal->primernombre}} {{$objmedicospagonormal->primerapellido}}</h5>
+                  <h5 class="niega_uppercase">{{$objmedicospagonormal->primernombre}} {{$objmedicospagonormal->primerapellido}}</h5>
+                  <span>{{$objmedicospagonormal->concatNombreEspecialidad}}</span>
                   <p>{{$objmedicospagonormal->nombreuniversidad}}</p>
                   <!-- Rating Stars Box -->
                     <div class='rating-stars text-center'>
@@ -109,7 +111,7 @@
           @foreach ($objmedicossinpago as $objmedicossinpago)
             <div class="card card_generic">
               <div class="card-body">
-                <h5>{{$objmedicossinpago->primernombre}} {{$objmedicossinpago->primerapellido}}</h5>
+                <h5 class="niega_uppercase">{{$objmedicossinpago->primernombre}} {{$objmedicossinpago->primerapellido}}</h5>
                 <p>{{$objmedicossinpago->nombreEspecialidad}}</p>
                 <!-- Rating Stars Box -->
                     <div class='rating-stars text-center'>
@@ -137,18 +139,22 @@
         </section>
 
         <!--carrusel publicidad -->
-          
-        <section class="contains_slider_publiProfesionales">
-            <h1 class="titulo_logos">Ellos Confian en Nosotros</h1>
-            <div class="swiper-container swiper_logoshome">
-                <div class="swiper-wrapper">
-                    @foreach ($objcarruselPublicidadprofesionales as $objcarruselPublicidadprofesionales)
-                      <img class="swiper-slide" src="{{URL::asset($objcarruselPublicidadprofesionales->rutaImagenVenta)}}">
-                    @endforeach 
-                </div>
-            </div>
-        </section>
-     
+        <!-- Carrusel de logos inferior, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
+        <!--carousel universidades--> 
+        <section class="contains_slider_logoshome">
+          <h1 class="titulo_logos">Ellos confían en nosotros</h1>
+          <div class="swiper-container swiper_logoshome">
+              <div class="swiper-wrapper">
+                @foreach ($objcarruselPublicidadprofesionales as $objcarruselPublicidadprofesionales)
+                  <img class="swiper-slide" src="{{URL::asset($objcarruselPublicidadprofesionales->rutaImagenVenta)}}">
+                @endforeach 
+              </div>
+          </div>
 
+          <!-- If we need navigation buttons -->
+          <div class="btn-prev"></div>
+          <div class="btn-next"></div>
+        </section> 
+        
 @endsection
 

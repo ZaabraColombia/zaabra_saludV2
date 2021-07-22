@@ -28,7 +28,7 @@ use App\Models\publicaciones;
 use App\Models\galerias;
 use App\Models\videos;
 use File;
-
+use Auth;
 
 class formularioProfesionalController extends Controller
 {
@@ -41,66 +41,68 @@ class formularioProfesionalController extends Controller
 
 
     public function index(){
-        $pais = pais::all();
-        $area = areas::all();
-        $universidades = universidades::all();
-        $idiomas = idiomas::all();
-        $id_user=auth()->user()->id;/*id usuario logueado*/
-        $objuser = $this->cargaDatosUser($id_user);
-        $objFormulario=$this->cargaFormulario($id_user);
-        $objFormulario1=$this->cargaFormulario1($id_user);
-        $objContadorConsultas=$this->contadorConsultas($id_user);
-        $objConsultas=$this->cargaConsultas($id_user);
-        $objContadorEducacion=$this->contadorEducacion($id_user);
-        $objEducacion=$this->cargaEducacion($id_user);
-        $objExperiencia=$this->cargaExperiencia($id_user);
-        $objContadorExperiencia=$this->contadorExperiencia($id_user);
-        $objAsociaciones=$this->cargaAsociaciones($id_user);
-        $objContadorAsociaciones=$this->contadorAsociaciones($id_user);
-        $objIdiomas=$this->cargaIdiomas($id_user);
-        $objContadorIdiomas=$this->contadorIdiomas($id_user);
-        $objTratamiento=$this->cargaTratamiento($id_user);
-        $objContadorTratamiento=$this->contadorTratamiento($id_user);
-        $objPremios=$this->cargaPremios($id_user);
-        $objContadorPremios=$this->contadorPremios($id_user);
-        $Publicaciones=$this->cargaPublicaciones($id_user);
-        $objContadorPublicaciones=$this->contadorPublicaciones($id_user);
-        $objGaleria=$this->cargaGaleria($id_user);
-        $objContadorGaleria=$this->contadorGaleria($id_user);
-        $objVideo=$this->cargaVideo($id_user);
-        $objContadorVideo=$this->contadorVideo($id_user);
-    
 
-        
-        return view('profesionales.FormularioProfesional',compact(
-        'objuser',
-        'area',
-        'pais',
-        'idiomas',
-        'universidades',
-        'objFormulario',
-        'objFormulario1',
-        'objContadorConsultas',
-        'objConsultas',
-        'objContadorEducacion',
-        'objEducacion',
-        'objExperiencia',
-        'objContadorExperiencia',
-        'objAsociaciones',
-        'objContadorAsociaciones',
-        'objIdiomas',
-        'objContadorIdiomas',
-        'objTratamiento',
-        'objContadorTratamiento',
-        'objPremios',
-        'objContadorPremios',
-        'Publicaciones',
-        'objContadorPublicaciones',
-        'objGaleria',
-        'objContadorGaleria',
-        'objVideo',
-        'objContadorVideo'
-        ));
+        if (Auth::check()){
+            $id_user=auth()->user()->id;/*id usuario logueado*/
+            $pais = pais::all();
+            $area = areas::all();
+            $universidades = universidades::all();
+            $idiomas = idiomas::all();
+            $objuser = $this->cargaDatosUser($id_user);
+            $objFormulario=$this->cargaFormulario($id_user);
+            $objContadorConsultas=$this->contadorConsultas($id_user);
+            $objConsultas=$this->cargaConsultas($id_user);
+            $objContadorEducacion=$this->contadorEducacion($id_user);
+            $objEducacion=$this->cargaEducacion($id_user);
+            $objExperiencia=$this->cargaExperiencia($id_user);
+            $objContadorExperiencia=$this->contadorExperiencia($id_user);
+            $objAsociaciones=$this->cargaAsociaciones($id_user);
+            $objContadorAsociaciones=$this->contadorAsociaciones($id_user);
+            $objIdiomas=$this->cargaIdiomas($id_user);
+            $objContadorIdiomas=$this->contadorIdiomas($id_user);
+            $objTratamiento=$this->cargaTratamiento($id_user);
+            $objContadorTratamiento=$this->contadorTratamiento($id_user);
+            $objPremios=$this->cargaPremios($id_user);
+            $objContadorPremios=$this->contadorPremios($id_user);
+            $Publicaciones=$this->cargaPublicaciones($id_user);
+            $objContadorPublicaciones=$this->contadorPublicaciones($id_user);
+            $objGaleria=$this->cargaGaleria($id_user);
+            $objContadorGaleria=$this->contadorGaleria($id_user);
+            $objVideo=$this->cargaVideo($id_user);
+            $objContadorVideo=$this->contadorVideo($id_user);
+
+            return view('profesionales.FormularioProfesional',compact(
+            'objuser',
+            'area',
+            'pais',
+            'idiomas',
+            'universidades',
+            'objFormulario',
+            'objContadorConsultas',
+            'objConsultas',
+            'objContadorEducacion',
+            'objEducacion',
+            'objExperiencia',
+            'objContadorExperiencia',
+            'objAsociaciones',
+            'objContadorAsociaciones',
+            'objIdiomas',
+            'objContadorIdiomas',
+            'objTratamiento',
+            'objContadorTratamiento',
+            'objPremios',
+            'objContadorPremios',
+            'Publicaciones',
+            'objContadorPublicaciones',
+            'objGaleria',
+            'objContadorGaleria',
+            'objVideo',
+            'objContadorVideo'
+            ));
+
+        }else{
+            return redirect()->guest('/login');
+        }
     }
 
 
@@ -151,8 +153,8 @@ class formularioProfesionalController extends Controller
     return DB::select("SELECT pf.direccion,  pf.genero, pf.EmpresaActual, pf.celular, pf.telefono,
     pf.fotoperfil, pf.fechanacimiento, pf.numeroTarjeta, pf.entidadCertificoTarjeta,
     pf.descripcionPerfil,ar.idarea, ar.nombreArea ,pr.idprofesion, pr.nombreProfesion, 
-    ep.idEspecialidad,  ep.nombreEspecialidad, p.id_pais,p.nombre, de.id_departamento, de.nombre,
-    prv.id_provincia,prv.nombre, mu.id_municipio, mu.nombre
+    ep.idEspecialidad,  ep.nombreEspecialidad, p.id_pais, p.nombre nombrePais, de.id_departamento, de.nombre nombreDepartamento,
+    prv.id_provincia, prv.nombre nombreProvincia, mu.id_municipio, mu.nombre nombreMunicipio, u.id_universidad ,u.nombreuniversidad
     FROM perfilesprofesionales pf
     INNER JOIN users us   ON pf.idUser=us.id
     LEFT JOIN  areas ar ON pf.idarea= ar.idArea
@@ -162,17 +164,11 @@ class formularioProfesionalController extends Controller
     LEFT JOIN  departamentos de ON pf.id_departamento= de.id_departamento
     LEFT JOIN  provincias prv ON pf.id_provincia= prv.id_provincia
     LEFT JOIN  municipios mu ON pf.id_municipio= mu.id_municipio
+    LEFT JOIN  universidades u ON pf.id_universidad= u.id_universidad
     WHERE pf.idUser=$id_user");
     }
 
-    public function cargaFormulario1($id_user){
-    return DB::select("SELECT un.nombreuniversidad, un.id_universidad
-    FROM perfilesprofesionales pf
-    INNER JOIN users us   ON pf.idUser=us.id
-    LEFT JOIN  perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional= pu.idPerfilProfesional
-    LEFT JOIN  universidades un ON pu.id_universidad= un.id_universidad
-    WHERE pf.idUser=$id_user LIMIT 1");
-    }
+
 
     public function contadorConsultas($id_user){
     /*cuenta los los valores ingresados*/
@@ -373,6 +369,8 @@ class formularioProfesionalController extends Controller
 
   /*------------ Funcion solo para verificar que perfil existe y esta se utiiliza en las demas-----------------*/
          protected function verificaPerfil(){
+
+            if (Auth::check()){
                   /*id usuario logueado*/
                   $id_user=auth()->user()->id;
 
@@ -383,6 +381,9 @@ class formularioProfesionalController extends Controller
                   ->where('perfilesprofesionales.idUser', $id_user)
                   ->first();
                   return $idexisteperfil;
+                }else{
+                    return redirect()->guest('/login');
+                }
                   
         }
    /*------------Fin  Funcion solo para verificar que perfil existe y esta se utiiliza en los demas metodos-----------------*/
@@ -396,8 +397,8 @@ class formularioProfesionalController extends Controller
 
 
     /*-------------------------------------Creacion y/o modificacion formulario parte 1----------------------*/
-        protected function create1(Request $request)
-        {
+        protected function create1(Request $request){
+      
             /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
             $verificaPerfil = $this->verificaPerfil();
 
@@ -427,25 +428,8 @@ class formularioProfesionalController extends Controller
                         'idUser' => "$id_user", 
                         'fotoperfil' => "img/user/$id_user/$nombrelogo"
                     ]);
-                
+                    dump($request->all());
                     perfilesprofesionales::create($request->all());
-
-                   /*consulta el perfil registrado para despues guardarlo en la tabla de perfilesprofesionalesuniversidades*/
-                    $idPerfilProfesional = DB::table('perfilesprofesionales')
-                    ->select('idPerfilProfesional')
-                    ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
-                    ->where('perfilesprofesionales.idUser', $id_user)
-                    ->first();
-
-                    foreach($idPerfilProfesional as $idPerfilProfesional){
-                        $idProProfesi=$idPerfilProfesional;
-                    }
-
-                    /*anexo iduser y img logoempresa  al request*/
-                    $request->merge([
-                        'idPerfilProfesional' => "$idProProfesi"
-                        ]);  
-                    perfilesprofesionalesuniversidades::create($request->all());
 
                     return redirect('FormularioProfesional'); 
 
@@ -468,40 +452,11 @@ class formularioProfesionalController extends Controller
                  
                     $dataPerfilesprofesionales = request()->all();
                     unset($dataPerfilesprofesionales['_token']);
-                    unset($dataPerfilesprofesionales['id_universidad']);
                     unset($dataPerfilesprofesionales['logo']);
                    
            
                     perfilesprofesionales::where('idUser', $id_user)->update($dataPerfilesprofesionales);
 
-                    /*consulta el perfil registrado para despues guardarlo en la tabla de perfilesprofesionalesuniversidades*/
-                    $idPerfilProfesional = DB::table('perfilesprofesionales')
-                    ->select('idPerfilProfesional')
-                    ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
-                    ->where('perfilesprofesionales.idUser', $id_user)
-                    ->first();
-
-                    foreach($idPerfilProfesional as $idPerfilProfesional){
-                        $idProProfesi=$idPerfilProfesional;
-                    }
-
-                    /*anexo el id del profesional*/
-                    $request->merge([
-                        'idPerfilProfesional' => "$idProProfesi"
-                        ]);  
-
-                    $perfilesprofesionalesuniversidades = request()->all();
-                    unset($perfilesprofesionalesuniversidades['_token']);
-                    unset($perfilesprofesionalesuniversidades['fechanacimiento']);
-                    unset($perfilesprofesionalesuniversidades['numeroTarjeta']);
-                    unset($perfilesprofesionalesuniversidades['fotoperfil']);
-                    unset($perfilesprofesionalesuniversidades['idarea']);
-                    unset($perfilesprofesionalesuniversidades['idprofesion']);
-                    unset($perfilesprofesionalesuniversidades['idespecialidad']);
-                    unset($perfilesprofesionalesuniversidades['idUser']);
-                    unset($perfilesprofesionalesuniversidades['logo']);
-
-                    perfilesprofesionalesuniversidades::where('idPerfilProfesional', $idProProfesi)->update($perfilesprofesionalesuniversidades);
                     
                     return redirect('FormularioProfesional'); 
                  
@@ -583,9 +538,6 @@ public function delete3($id){
 
 /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 4----------------------*/
 public function create4(Request $request){
-
-
-
     /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
     $verificaPerfil = $this->verificaPerfil();
 
@@ -598,7 +550,6 @@ public function create4(Request $request){
     perfilesprofesionales::where('idUser', $id_user)->update($request->all());
 
     return redirect('FormularioProfesional'); 
-
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 4----------------------*/
 

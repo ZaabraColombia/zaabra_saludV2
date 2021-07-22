@@ -11,34 +11,34 @@
                     </div>
                 </div>
                 @foreach ($objprofesionallanding as $objprofesionallanding)
-                <img src="{{URL::asset($objprofesionallanding->fotoperfil)}}">
-                <div class="contains_info">
-                    <h2>{{$objprofesionallanding->primernombre}} {{$objprofesionallanding->primerapellido}}</h2>
-                    <h1>{{$objprofesionallanding->nombreEspecialidad}}</h1>
-                    <h5>{{$objprofesionallanding->nombreuniversidad}}</h5>
-                    <h5>N° Tarjeta profesional: {{$objprofesionallanding->numeroTarjeta}}</h5>
-                    <!-- Rating Stars Box -->
-                    <div class='rating-stars star_box'>
-                        @if(!empty($objprofesionalComentario))
-                            @foreach($objprofesionalComentario as $promedioEstrellas)
-                            @endforeach
-                            @for ($i=1; $i <= $promedioEstrellas->calificacionRedondeada; $i++)
-                                <li class='star' title='Poor'>
-                                    <i class='fa fa-star fa-fw' style="color: #E6C804;"></i>
-                                </li>
-                            @endfor
-                            @for ($i=$promedioEstrellas->calificacionRedondeada; $i <= 4; $i++)
-                                <li class='star' title='Poor'>
-                                    <i class='fa fa-star fa-fw' style="color: red;"></i>
-                                </li>
-                            @endfor
-                        @endif
-                    </div>
+                    <img src="{{URL::asset($objprofesionallanding->fotoperfil)}}">
+                    <div class="contains_info">
+                        <h2>{{$objprofesionallanding->primernombre}} {{$objprofesionallanding->primerapellido}}</h2>
+                        <h1>{{$objprofesionallanding->nombreEspecialidad}}</h1>
+                        <h5>{{$objprofesionallanding->nombreuniversidad}}</h5>
+                        <h5>N° Tarjeta profesional: {{$objprofesionallanding->numeroTarjeta}}</h5>
+                        <!-- Rating Stars Box -->
+                        <div class='rating-stars star_box'>
+                            @if(!empty($objprofesionalComentario))
+                                @foreach($objprofesionalComentario as $promedioEstrellas)
+                                @endforeach
+                                @for ($i=1; $i <= $promedioEstrellas->calificacionRedondeada; $i++)
+                                    <li class='star' title='Poor'>
+                                        <i class='fa fa-star fa-fw' style="color: #E6C804;"></i>
+                                    </li>
+                                @endfor
+                                @for ($i=$promedioEstrellas->calificacionRedondeada; $i <= 4; $i++)
+                                    <li class='star' title='Poor'>
+                                        <i class="far fa-star" style="color: #E6C804;"></i>
+                                    </li>
+                                @endfor
+                            @endif
+                        </div>
 
-                    <!-- <div class="contains_direccion"></div> -->
-                    <h5 class="title-adress"><i></i>{{$objprofesionallanding->direccion}}</h5>
-                    <h5>{{$objprofesionallanding->nombre}}</h5>
-                </div>
+                        <!-- <div class="contains_direccion"></div> -->
+                        <h5 class="title-adress"><i></i>{{$objprofesionallanding->direccion}}</h5>
+                        <h5>{{$objprofesionallanding->nombre}}</h5>
+                    </div>
                 @endforeach
             </div>
         </section>
@@ -51,7 +51,7 @@
                     @foreach ($objprofesionallandingconsultas as $objprofesionallandingconsultas)
                         <li>
                             <p class="menu_{{$loop->iteration}}"><i></i>{{$objprofesionallandingconsultas->nombreconsulta}}</p>
-                            <span><i></i>${{$objprofesionallandingconsultas->valorconsulta}}</span>
+                            <span><i></i>${{number_format($objprofesionallandingconsultas->valorconsulta, 0, ",", ".") }}</span>
                         </li>
                     @endforeach
                 </ul>
@@ -99,7 +99,7 @@
                         <a class="item_landing publicaciones"><span>Publicaciones</span></a>
                     </li>
                     <li class="swiper-slide">
-                        <a class="item_landing galeria"><span>Galería</span></a>
+                        <a class="item_landing galerias"><span>Galería</span></a>
                     </li>
                 </div>
             </div>
@@ -155,7 +155,7 @@
                 </ul>
             </div>
 
-            <div class="idiomas">
+            <div class="idomas">
                 <h2><i></i>Idiomas</h2>
                 <ul>
                     <li>
@@ -240,7 +240,7 @@
                     <div class="swiper-wrapper">
                         @foreach ($objprofesionallandinggaler as $objprofesionallandinggaler)
                             <div class="swiper-slide">
-                                <img src="{{URL::asset($objprofesionallandinggaler->imggaleria)}}">
+                                <img class="img_galleryLprof" src="{{URL::asset($objprofesionallandinggaler->imggaleria)}}">
                                 <h5>{{$objprofesionallandinggaler->nombrefoto}}</h5>
                                 <p>{{$objprofesionallandinggaler->descripcion}}</p>
                             </div>
@@ -339,7 +339,7 @@
                                     <i class='fa fa-star fa-fw' style="color: #E6C804;"></i>
                                     @endfor 
                                     @for ($i=$data->calificacion; $i <= 4; $i++)
-                                    <i class='fa fa-star fa-fw' style="color: red;"></i>
+                                    <i class="far fa-star" style="color: #E6C804;"></i>
                                     @endfor
                                 </div>
                             </div>

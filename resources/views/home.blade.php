@@ -2,24 +2,34 @@
 
 @section('content')
     <!--carrusel banner principal home--> 
-<section class="swiper-container swiper_principal">
-      <div class="swiper-wrapper">
-            @foreach ($objbannersprincipalHome as $objbannersprincipalHome)
-                  <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
-            @endforeach
+<section class="swiper-container swiper_principal banner_principalHom">
+    <div class="section_txtBanner">
+        <h2 class="txt_banner"> LE DAMOS LA <br> BIENVENIDA A <br> ZAABRA SALUD <br></h2>
+        <h2 class="txt2_banner"> Agenda tu cita médica fácil <br> y rápido con: <br></h2>
+        <h2 class="txt3_banner"> - Especialistas de todas las ramas <br> - instituciones, clínicas y mucho más </h2>
+
+        <div class="content_btn-agendarHome">
+        <button type="submit" class="btn_agendarHome"> {{ __('Agende su cita') }} 
+          <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+        </button>
       </div>
+    </div>
+    
+    <div class="swiper-wrapper">
+        @foreach ($objbannersprincipalHome as $objbannersprincipalHome)
+                <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
+        @endforeach
+    </div>
 
-      <div class="swiper-pagination"></div>
+    <div class="swiper-pagination pagination_home"></div>
 
-      <!-- If we need navigation buttons -->
-      <!-- <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div> -->
+    <!-- If we need navigation buttons -->
+    <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
 
 </section>
 <!--MENU PORTAFOLIO-->
 <h1 class="titulo_portafolio">Nuestro Portafolio</h1>
-
-
 
 <section class="contains_menu">
     <div class="row row_contains">
@@ -31,8 +41,8 @@
 
                 <div class="contains_text">
                     <h1 class="titulo_home">Especialidades médicas</h1>
-                    <p class="parrafo_home">Accede a un directorio con cientos de especialistas de todas las ramas de la salud.</p>
-                    <a href="{{url('/Profesiones')}}" class="ver_mas especialistas hvr-sweep-to-right">Ver mas
+                    <p class="parrafo_home"> Acceda a contenido de los mejores especialistas y agende su cita médica. </p>
+                    <a href="{{url('/ramas-de-la-salud')}}" class="ver_mas especialistas hvr-sweep-to-right">Ver más
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>
                 </div>
@@ -46,8 +56,8 @@
 
                 <div class="contains_text">
                     <h1 class="titulo_home">Instituciones médicas</h1>
-                    <p class="parrafo_home">Clinicas, centros medicos y odontologicos, toma de examenes y mucho mas</p>
-                    <a href="{{url('/Entidades')}}" class="ver_mas instituciones hvr-sweep-to-right">Ver mas
+                    <p class="parrafo_home"> Clínicas, centros médicos y odontológicos, toma de exámenes y mucho más.</p>
+                    <a href="{{url('/Entidades')}}" class="ver_mas instituciones hvr-sweep-to-right">Ver más
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>
                 </div>
@@ -101,7 +111,7 @@
 
 <!--carousel universidades--> 
 <section class="contains_slider_logoshome">
-    <h1 class="titulo_logos">Ellos Confian en Nosotros</h1>
+    <h1 class="titulo_logos">Ellos confían en nosotros</h1>
     <div class="swiper-container swiper_logoshome">
         <div class="swiper-wrapper">
             @foreach ($objbanneruniversidad as $objbanneruniversidad)
@@ -109,6 +119,10 @@
             @endforeach
         </div>
     </div>
+
+    <!-- If we need navigation buttons -->
+    <div class="btn-prev"></div>
+    <div class="btn-next"></div>
 </section>
 
 
