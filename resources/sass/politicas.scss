@@ -4,6 +4,16 @@
     height: 30vh;
     object-fit: cover;
 }
+.title_banner_polit {
+    color: #0083D6;
+    font-family: "Quicksand";
+    font-size: 2.2em;
+    font-weight: 700;
+    position: absolute;
+    top: 20%;
+    left: 16%;
+    line-height: 1;
+}
 .section_principal-polit {
     margin: auto;
     padding: 0;
@@ -69,13 +79,18 @@
     color: #3E3E3E;
 }
 .ancla_toggleFoot {
-    font-size: 1.5em;
+    font-size: 1em;
     color: #0083D6 !important;
     text-decoration: underline !important;
 }
 @media(min-width: 320px) and (orientation: portrait) {
     .imagen_bannerPrin-polit {
         height: 18vh;
+    }
+    .title_banner_polit {
+        font-size: 0.95em;
+        top: 17%;
+        left: 4%;
     }
     .section_principal-polit {
         width: 100%;
@@ -94,8 +109,23 @@
     .text_interno-toggle-polit {
         font-size: .6em;
     }
+    .ancla_toggleFoot {
+        font-size: 1.1em;
+    }
+}
+@media (min-width: 360px) and (orientation: portrait) {
+    .title_banner_polit {
+        font-size: 1.1em;
+        top: 16%;
+        left: 4%;
+    }
 }
 @media (min-width: 375px) and (orientation: portrait) {
+    .title_banner_polit {
+        font-size: 1.1em;
+        top: 15.5%;
+        left: 4%;
+    }
     .titulo_superior-polit {
         padding: 0 14%;
         margin: 8% 0;
@@ -104,6 +134,11 @@
 @media (min-width: 768px) and (orientation: portrait) {
     .imagen_bannerPrin-polit {
         height: 20vh;
+    }
+    .title_banner_polit {
+        font-size: 2.35em;
+        top: 15%;
+        left: 4%;
     }
     .section_principal-polit {
         width: 85%;
@@ -134,6 +169,11 @@
     .imagen_bannerPrin-polit {
         height: 42vh;
     }
+    .title_banner_polit {
+        font-size: 3.1em;
+        top: 25%;
+        left: 10%;
+    }
     .section_principal-polit {
         width: 65%;
     }
@@ -142,7 +182,19 @@
         margin: 5% 0;
     }
 }
+@media (min-width: 1360px) {
+    .title_banner_polit {
+        font-size: 3em;
+        top: 25%;
+        left: 15%;
+    }
+}
 @media (min-width: 1440px) {
+    .title_banner_polit {
+        font-size: 3.5em;
+        top: 24%;
+        left: 12%;
+    }
     .titulo_superior-polit {
         font-size: 1.25em;
     }
@@ -161,6 +213,11 @@
 @media (min-width: 1920px) {
     .imagen_bannerPrin-polit {
         height: 48vh;
+    }
+    .title_banner_polit {
+        font-size: 4.25em;
+        top: 28%;
+        left: 15%;
     }
     .titulo_superior-polit {
         margin: 5% 0;
