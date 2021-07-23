@@ -5,7 +5,7 @@
 <div class="container-fluid">
   <section class="section_principal-membresia">
     <!-- Titulo principal y texto superiror -->
-    <h5 class="titulo_principal-membresia"> ESCOJA SU PLAN </h5>
+    <h1 class="titulo_principal-membresia"> ESCOJA SU PLAN </h1>
     <p class="texto_superior-membresia"> Escoja el que se ajuste a sus necesidades. </p>
 
     <!-- Seccion opciones paara Registrarse -->

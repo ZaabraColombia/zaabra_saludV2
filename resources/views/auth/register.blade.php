@@ -6,7 +6,7 @@
     <!-- fila principal -->
     <div class="row justify-content-center">
         <!-- titulo principal -->
-        <p class="titulo_principal-register"> Acceda a nuestro portal de Zaabra Salud o regístrese. </p>
+        <h1 class="titulo_principal-register"> Acceda a nuestro portal de Zaabra Salud o regístrese. </h1>
         <!-- contenedor de elementos login -->
         <div class="card col-11 col-md-10 col-lg-8 section_principal-register">
             <!-- seccion body login -->
@@ -200,7 +200,7 @@
 
                         <!-- Confirmación de e-mail -->
                         <div class="form-group col-12 section_terminos-register">
-                            <p class="texto_inferior-tarjeta-register"> Recibirá un e-mail de confirmación. </p>
+                            <p class="texto_inferior-tarjeta-register mt-1 mb-3 mb-md-4 mt-lg-3"> Recibirá un e-mail de confirmación. </p>
                         </div>
 
                         <!-- Botón Ingresar -->

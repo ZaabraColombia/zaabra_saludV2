@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
   <section class="section_principal-institucion">
-    <h5 class="titulo_principal-institucion"> ESCOJA SU PLAN </h5>
+    <h1 class="titulo_principal-institucion"> ESCOJA SU PLAN </h1>
     <p class="texto_superior-institucion"> Escoja el que se ajuste a sus necesidades. </p>
 
     <!-- Seccion opciones paara Registrarse -->

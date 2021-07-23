@@ -4,7 +4,7 @@
     <!--carrusel banner principal home--> 
 <section class="swiper-container swiper_principal banner_principalHom">
     <div class="section_txtBanner">
-        <h2 class="txt_banner"> LE DAMOS LA <br> BIENVENIDA A <br> ZAABRA SALUD <br></h2>
+        <h1 class="txt_banner"> LE DAMOS LA <br> BIENVENIDA A <br> ZAABRA SALUD <br></h1>
         <h2 class="txt2_banner"> Agenda tu cita médica fácil <br> y rápido con: <br></h2>
         <h2 class="txt3_banner"> - Especialistas de todas las ramas <br> - instituciones, clínicas y mucho más </h2>
 
@@ -111,7 +111,7 @@
 
 <!--carousel universidades--> 
 <section class="contains_slider_logoshome">
-    <h1 class="titulo_logos">Ellos confían en nosotros</h1>
+    <h2 class="titulo_logos">Ellos confían en nosotros</h2>
     <div class="swiper-container swiper_logoshome">
         <div class="swiper-wrapper">
             @foreach ($objbanneruniversidad as $objbanneruniversidad)
