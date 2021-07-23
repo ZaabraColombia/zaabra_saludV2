@@ -54,8 +54,8 @@ function elementHidden (z){
         document.getElementById ("inpt4"). src = '/img/iconos/icono-paciente.svg';
         document.getElementById ("txt4").style.color = "#3E3E3E";
         //Opción doctor
-        document.getElementById ("inpt3"). src = '/img/iconos/icono-doctor.svg';
-        document.getElementById ("txt3").style.color = "#3E3E3E";
+        document.getElementById ("inpt5"). src = '/img/iconos/icono-doctor.svg';
+        document.getElementById ("txt5").style.color = "#3E3E3E";
 
         document.getElementById("valor_tipo1").value = document.getElementById("inpt6").value;
     }
