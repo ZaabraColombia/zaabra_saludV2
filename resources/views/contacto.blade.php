@@ -34,7 +34,7 @@
 
         <div class=" icon_email-contac">
             <span class="titulo_opcion-contac"> E-mail </span>
-            <p class="text_opcion-contac"> servicioalcleinte@zaabrasalud.co </p>
+            <p class="text_opcion-contac"> servicioalcliente@zaabrasalud.co </p>
         </div>
     </div>
 
@@ -248,7 +248,7 @@
                                     <label for="email" class="col-md-12 pl-0 col-form-label texto_label-contac">{{ __('Correo electrónico') }}</label>
 
                                     <div class="col-12 p-0">
-                                        <input id="email" type="email" class="form-control input_height-fullhd-contac" name="email" value="{{ old('email') }}" autocomplete="email" placeholder="servicioalcleinte@zaabrasalud.co">
+                                        <input id="email" type="email" class="form-control input_height-fullhd-contac" name="email" value="{{ old('email') }}" autocomplete="email" placeholder="servicioalcliente@zaabrasalud.co">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
