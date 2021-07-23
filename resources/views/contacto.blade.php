@@ -22,7 +22,9 @@
     <div class="row containt_contacZaabra-contac">
         <div class=" icon_ubicacion-contac">
             <span class="titulo_opcion-contac"> Ubicación </span>
+
             <p class="text_opcion-contac"> Carrera 64 67b 89 interior 2 Bogotá D.C.</p>
+
         </div>
 
         <div class=" icon_telefono-contac">
