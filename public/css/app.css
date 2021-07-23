@@ -14642,6 +14642,7 @@ a:link, a:visited, a:active, a:hover {
     padding: 0;
     text-align: center;
     margin-top: 3%;
+    height: 50px;
   }
 
   .content_btn_espMed {
