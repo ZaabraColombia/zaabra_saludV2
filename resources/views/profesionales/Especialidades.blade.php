@@ -12,7 +12,7 @@
 
   <!-- Titulo principal de la vista -->
   <section>
-    <h1  class="title_espeMed"> Especialidades Medicina </h1>
+    <h1  class="title_espeMed">Especialidades {{$objnombreEspecialidad->nombreProfesion}}</h1>
   </section>
 
   <!-- Contenedor de las tarjetas de las profesiones -->
