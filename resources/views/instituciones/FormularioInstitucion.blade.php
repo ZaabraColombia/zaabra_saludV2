@@ -50,7 +50,7 @@
     <div class="container-fluid date_institution content_principal-formInst"> <!-- Clase "date_institution" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
         <!-- Titulo y texto superior -->
         <div class="col-lg-10 col-xl-8 content_textPrincipal-formInst">
-            <h5 class="titulo_principal-formInst"> LE DAMOS LA BIENVENIDA A ZAABRA SALUD </h5>
+            <h1 class="titulo_principal-formInst"> LE DAMOS LA BIENVENIDA A ZAABRA SALUD </h1>
 
             <p class="texto_superior-formInst"> Ingrese los datos según corresponda y finalice el proceso completamente en línea. </p>
         </div>

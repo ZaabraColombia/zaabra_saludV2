@@ -6,7 +6,7 @@
         <div class="row footer_newsletter">
             <!-- Column titulo-->
             <div class="col-lg-10 mt-2 mt-lg-0 newsletter_contenido">
-                <h2 class="newsletter_titulo">¡Suscríbase a nuestro newsletter!</h2>
+                <h1 class="newsletter_titulo">¡Suscríbase a nuestro newsletter!</h1>
                 <p class="newsletter_texto"> Manténgase al día de todas nuestras novedades </p>
             </div>
 
@@ -90,7 +90,6 @@
                             <img class="" src="{{URL::asset('/img/iconos/icono-twitter-blanco.svg')}}"> 
                         </a>
                     </div>
-
                     <div class="col-lg-1 mr-lg-2 mr-xl-0 p-0">
                         <a href="https://www.youtube.com/" target="_blank">
                             <img class="" src="{{URL::asset('/img/iconos/icono-youtube-blanco.svg')}}"> 
@@ -211,7 +210,6 @@
                             <img class="imagen_red-social-cel" src="{{URL::asset('/img/iconos/icono-twitter-blanco.svg')}}"> 
                         </a>
                     </div>
-
                     <div class="col-2 icono_red-social-cel">
                         <a href="https://www.youtube.com/" target="_blank">
                             <img class="imagen_red-social-cel" src="{{URL::asset('/img/iconos/icono-youtube-blanco.svg')}}"> 

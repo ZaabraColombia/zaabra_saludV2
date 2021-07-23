@@ -4,6 +4,7 @@
 
 <div class="container-fluid">
     <section class="row">
+        <h1 class="title_banner_preFrec"> PREGUNTAS <br> FRECUENTES </h1>
         <img class="imagen_bannerPrin-pregunta" src="{{URL::asset('/img/banners/bannerquienessomos/banner-preguntas-frecuentes-texto.jpeg')}}">
     </section>
 
@@ -114,7 +115,8 @@
                     <div class="card-body section_toggleFoot">
                         <p class="txt_interno_toggleFoot mb-0">
                             Cuando el registro corresponde al de PACIENTE, NO existen las membresías, planes o similares. Solo se pagará en el momento de agendar una cita. <br><br>
-                            Cuando el registro corresponde al perfil de PROFESIONAL O ENTIDAD DE LA SALUD, si debe hacerse el pago de una Membresía. Conozca aquí toda la información <a class="ancla_toggleFoot" href="">(Enlace a "Membresía")</a>
+                            Cuando el registro corresponde al perfil de PROFESIONAL O ENTIDAD DE LA SALUD, si debe hacerse el pago de una Membresía. Conozca aquí toda la información 
+                            <a class="ancla_toggleFoot" href="{{ route('membresiaProfesional') }}">click aquí</a>
                         </p>
                     </div>
                 </div>
@@ -217,7 +219,8 @@
                 <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordion">
                     <div class="card-body section_toggleFoot">
                         <p class="txt_interno_toggleFoot mb-0">
-                            Sí. En Zaabra Salud un paciente puede cancelar una cita agendada. Para temas de devoluciones de pagos, consulte el módulo de <a class="ancla_toggleFoot" href="">Términos y Condiciones.</a>
+                            Sí. En Zaabra Salud un paciente puede cancelar una cita agendada. Para temas de devoluciones de pagos, consulte el módulo de 
+                            <a class="ancla_toggleFoot" href="{{url('politicas')}}" target="blank">Términos y Condiciones.</a>
                         </p>
                     </div>
                 </div>
