@@ -4,6 +4,16 @@
     height: 30vh;
     object-fit: cover;
 }
+.title_banner_preFrec {
+    color: #0083D6;
+    font-family: "Quicksand";
+    font-size: 2.2em;
+    font-weight: 700;
+    position: absolute;
+    top: 17.5%;
+    left: 15.7%;
+    line-height: 1;
+}
 .section_principal-pregunta {
     margin: auto;
     padding: 0;
@@ -77,6 +87,11 @@
     .imagen_bannerPrin-pregunta {
         height: 18vh;
     }
+    .title_banner_preFrec {
+        font-size: .95em;
+        top: 15%;
+        left: 4%;
+    }
     .section_principal-pregunta {
         width: 100%;
     }
@@ -101,7 +116,19 @@
         background-size: 6%;
     }
 }
+@media (min-width: 360px) and (orientation: portrait) {
+    .title_banner_preFrec {
+        font-size: 1.1em;
+        top: 16%;
+        left: 4%;
+    }
+}
 @media (min-width: 375px) and (orientation: portrait) {
+    .title_banner_preFrec {
+        font-size: 1.1em;
+        top: 14%;
+        left: 4%;
+    }
     .titulo_superior-pregunta {
         padding: 0 14%;
         margin: 8% 0;
@@ -110,6 +137,11 @@
 @media (min-width: 768px) and (orientation: portrait) {
     .imagen_bannerPrin-pregunta {
         height: 20vh;
+    }
+    .title_banner_preFrec {
+        font-size: 2.35em;
+        top: 13%;
+        left: 4%;
     }
     .titulo_principal-pregunta {
         font-size: 2em;
@@ -142,6 +174,11 @@
     .imagen_bannerPrin-pregunta {
         height: 42vh;
     }
+    .title_banner_preFrec {
+        font-size: 3.1em;
+        top: 21%;
+        left: 9.6%;
+    }
     .section_principal-pregunta {
         width: 65%;
     }
@@ -150,7 +187,19 @@
         margin: 5% 0;
     }
 }
+@media(min-width: 1360px) {
+    .title_banner_preFrec {
+        font-size: 3em;
+        top: 21.4%;
+        left: 15.3%;
+    }
+}
 @media (min-width: 1440px) {
+    .title_banner_preFrec {
+        font-size: 3.5em;
+        top: 20%;
+        left: 11.6%;
+    }
     .titulo_principal-pregunta {
         font-size: 2em;
     }
@@ -170,6 +219,11 @@
 @media (min-width: 1920px) {
     .imagen_bannerPrin-pregunta {
         height: 48vh;
+    }
+    .title_banner_preFrec {
+        font-size: 4.25em;
+        top: 22.8%;
+        left: 15%;
     }
     .titulo_superior-pregunta {
         margin: 4% 0;

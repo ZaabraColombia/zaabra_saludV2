@@ -134,18 +134,23 @@
             </div>
           @endforeach
         </section>
-    
-          <!--carrusel publicidad -->
-          
-        <section class="contains_slider_publiProfesionales">
-            <h1 class="titulo_logos">Ellos Confian en Nosotros</h1>
-            <div class="swiper-container swiper_logoshome">
-                <div class="swiper-wrapper">
-                    @foreach ($objcarruselPublicidadinstituciones as $objcarruselPublicidadinstituciones)
-                      <img class="swiper-slide" src="{{URL::asset($objcarruselPublicidadinstituciones->rutaImagenVenta)}}">
-                    @endforeach 
-                </div>
-            </div>
+
+
+        <!-- Carrusel de logos inferior, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
+        <!--carousel universidades--> 
+        <section class="contains_slider_logoshome">
+          <h2 class="titulo_logos">Ellos confían en nosotros</h2>
+          <div class="swiper-container swiper_logoshome">
+              <div class="swiper-wrapper">
+              @foreach ($objcarruselPublicidadinstituciones as $objcarruselPublicidadinstituciones)
+                <img class="swiper-slide" src="{{URL::asset($objcarruselPublicidadinstituciones->rutaImagenVenta)}}">
+              @endforeach 
+              </div>
+          </div>
+
+          <!-- If we need navigation buttons -->
+          <div class="btn-prev"></div>
+          <div class="btn-next"></div>
         </section>
      
 @endsection

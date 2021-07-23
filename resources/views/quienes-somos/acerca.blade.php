@@ -4,6 +4,7 @@
 
 <div class="container-fluid">
     <section class="row">
+        <h1 class="title_banner_acerca"> ACERCA DE ZAABRA </h1>
         <img class="imagen_bannerPrin-acerca" src="{{URL::asset('/img/banners/bannerquienessomos/banner-acerca-de-zaabra-texto.jpeg')}}">
     </section>
 
