@@ -16,7 +16,6 @@
                   <div class="contains_image_profesional">
                     <img class="image_profesional_gallery" src="{{URL::asset($objcarruselprofesionalespremiun->fotoperfil)}}">
                   </div>
-
                   <div class="contains_body">
                     <div class="contains_info">
                       <h2>{{$objcarruselprofesionalespremiun->primernombre}} {{$objcarruselprofesionalespremiun->primerapellido}}</h2>
