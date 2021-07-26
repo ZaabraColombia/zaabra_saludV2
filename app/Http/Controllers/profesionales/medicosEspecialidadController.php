@@ -5,21 +5,42 @@ namespace App\Http\Controllers\profesionales;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use SEO;
+
 
 class medicosEspecialidadController extends Controller{
 
-    public function index($idEspecialidad){
+    public function index($nombreEspecialidad){
+
+        SEO::setTitle('Especialidad | '.$nombreEspecialidad);
+        SEO::setDescription('Encuentra un especialista médico en tu ciudad! Consulta opiniones de pacientes, pregunta a los expertos en salud y agenda ahora cita por Internet.');
+        SEO::setCanonical('https://zaabrasalud.co/ramas-de-la-salud');
+
+    /*Realiza una consulta sql con el valor entrante de la seleccion de la
+     profesion y retorna el id el cual se pasa a los demas funciones*/    
+    $objIdEspeciialidad = $this->especialidadId($nombreEspecialidad);
+    $idEspecialidad= $objIdEspeciialidad->idEspecialidad;
+
     $objcarruselprofesionalespremiun= $this->cargarCarruselProfesionalesPremiun($idEspecialidad);
     $objmedicospagonormal  = $this->cargarMedicosPagoNormal($idEspecialidad);
     $objmedicossinpago  = $this->cargarMedicosSinPago($idEspecialidad);
     $objcarruselPublicidadprofesionales = $this->cargarCarruselProfesionales();
 
-    return view('profesionales.Profesionales', compact(
+    return view('profesionales.Especialistas', compact(
         'objcarruselprofesionalespremiun',
         'objmedicospagonormal',
         'objmedicossinpago',
         'objcarruselPublicidadprofesionales',
     ));
+    }
+
+    public function especialidadId($nombreEspecialidad){
+        $idEspecialidad = DB::table('especialidades')
+        ->select('especialidades.idEspecialidad')
+        ->where('especialidades.nombreEspecialidad', 'like','%'.$nombreEspecialidad.'%')
+        ->distinct()
+        ->first();
+        return $idEspecialidad;
     }
 
     // consulta para cargar todas los profesionales segun su especialidad y que pagan premiun
