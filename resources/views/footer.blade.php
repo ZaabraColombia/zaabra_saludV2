@@ -74,13 +74,13 @@
 
                 <div class="col-lg-8 iconos_redes-sociales">
                     <div class="col-lg-1 mr-lg-2 mr-xl-0 p-0">
-                        <a href="https://www.facebook.com/ZaabraCol/" target="_blank">
+                        <a href="https://www.facebook.com/zaabrasalud" target="_blank">
                             <img class="" src="{{URL::asset('/img/iconos/icono-facebook-blanco.svg')}}"> 
                         </a>
                     </div>
 
                     <div class="col-lg-1 mr-lg-2 mr-xl-0 p-0">
-                        <a href="https://www.instagram.com/zaabracol/" target="_blank">
+                        <a href="https://www.instagram.com/zaabrasalud" target="_blank">
                             <img class="" src="{{URL::asset('/img/iconos/icono-instagram-blanco.svg')}}"> 
                         </a>
                     </div>
@@ -194,13 +194,13 @@
 
                 <div class="iconos_redes-sociales-cel">
                     <div class="col-2 icono_red-social-cel">
-                        <a href="https://www.facebook.com/ZaabraCol/" target="_blank">
+                        <a href="https://www.facebook.com/zaabrasalud" target="_blank">
                             <img class="imagen_red-social-cel" src="{{URL::asset('/img/iconos/icono-facebook-blanco.svg')}}"> 
                         </a>
                     </div>
 
                     <div class="col-2 icono_red-social-cel">
-                        <a href="https://www.instagram.com/zaabracol/" target="_blank">
+                        <a href="https://www.instagram.com/zaabrasalud" target="_blank">
                             <img class="imagen_red-social-cel" src="{{URL::asset('/img/iconos/icono-instagram-blanco.svg')}}"> 
                         </a>
                     </div>

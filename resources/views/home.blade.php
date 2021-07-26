@@ -5,7 +5,7 @@
 <section class="swiper-container swiper_principal banner_principalHom">
     <div class="section_txtBanner">
         <h1 class="txt_banner"> LE DAMOS LA <br> BIENVENIDA A <br> ZAABRA SALUD <br></h1>
-        <h2 class="txt2_banner"> Agenda tu cita médica fácil <br> y rápido con: <br></h2>
+        <h2 class="txt2_banner"> Agende su cita médica fácil <br> y rápido con: <br></h2>
         <h2 class="txt3_banner"> - Especialistas de todas las ramas <br> - instituciones, clínicas y mucho más </h2>
 
         <div class="content_btn-agendarHome">
