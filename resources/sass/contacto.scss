@@ -151,6 +151,26 @@
 .flecha_envio-contac {
     width: 10%;
 }
+.content_terminos_contac {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.check_terminos_contac {
+    width: 3%;
+    height: 2vh;
+} 
+.txt_terminos_contac {
+    margin-left: 2%;
+    margin-bottom: 0;
+    font-size: .85em;
+    color: #434142;
+}
+.txt_terminos_contac a{
+    color:#434142 !important;
+    font-weight: bold !important;
+    text-decoration: underline !important;
+}
 @media (min-width: 320px) and (orientation: portrait) {
     // Banner principal
     .imagen_bannerPrin-contac {
@@ -251,7 +271,29 @@
     }
     .flecha_envio-contac {
         width: 9%;
-    }    
+    }  
+    .content_terminos_contac {
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+    .check_terminos_contac {
+        width: 7%;
+        height: 2vh;
+    }  
+    .txt_terminos_contac {
+        font-size: .7em;
+        font-weight: bold;
+        text-align: initial;
+        line-height: 1.5;
+        padding-left: 3%;  
+        margin: 0;
+    }
+    .txt_terminos_contac a{
+        color:#434142 !important;
+        font-weight: bold !important;
+        text-decoration: underline !important;
+    }
 }
 @media (min-width: 360px) and (orientation: portrait) {
     .title_banner_contac {
@@ -317,12 +359,12 @@
         margin: 3% 0 5% 0;
     }
     .icon_ubicacion-contac {
-        width: 43%;
+        width: 44%;
         padding-right: 0;
         padding-left: 7%;
     }
     .icon_telefono-contac {
-        width: 20%;
+        width: 19%;
         padding-right: 0;
         padding-left: 7%;
         margin: 0;
@@ -377,6 +419,14 @@
     }
     .flecha_envio-contac {
         width: 12%;
+    }
+    .txt_terminos_contac {
+        font-size: 1em;
+        padding-left: 2%;
+    }
+    .check_terminos_contac {
+        width: 4%;
+        height: 1.2vh;
     }
 }
 @media (min-width: 1024px) {
@@ -509,6 +559,9 @@
     .flecha_envio-contac {
         width: 11%;
     }
+    .txt_terminos_contac {
+        font-size: 1em;
+    }
 }
 @media (min-width: 1920px) {
     // Banner principal
@@ -555,5 +608,16 @@
     // Boton enviar
     .flecha_envio-contac {
         width: 8%;
+    }
+    .txt_terminos_contac {
+        margin-left: 1%;
+        font-size: 1.25em;
+    }
+    .check_terminos_contac {
+        width: 2%;
+        height: 2vh;
+    }
+    .btn_enviar-contac {
+        margin-top: 4%;
     }
 }

@@ -37,7 +37,7 @@
       <!-- Sección opcion tarjeta PLAN GRAATUITO -->
       <div class="card containt_options-collapse-membresia">
         <div id="headingOne">
-          <button class="boton_collapse-off-membresia" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Tarjeta medica </button>
+          <button class="boton_collapse-off-membresia" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Tarjeta médica </button>
         </div>
 
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1">
@@ -83,7 +83,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
             <p>
-              Zaabra Salud le permite contruir su perfil profesional, muestre su información de contacto, profesión y especialidad, 
+              Zaabra Salud le permite construir su perfil profesional, muestre su información de contacto, profesión y especialidad, 
               tipos de consulta, redes sociales, formación académica, certificados, procedimientos y más. Todo en un solo lugar.
             </p>
           </div>
@@ -106,7 +106,7 @@
 
       <div class="card containt_options-collapse-membresia">
         <div id="headingFour">
-          <button class="boton_collapse-off-membresia" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"> Historia clinica </button>
+          <button class="boton_collapse-off-membresia" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"> Historia clínica </button>
         </div>
         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
@@ -125,7 +125,7 @@
         <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
             <p>
-              Presente sus estudios, exalte  susconocimientos, habilidades y su preparación profesional.
+              Presente sus estudios, exalte  sus conocimientos, habilidades y su preparación profesional.
             </p>
           </div>
         </div>
@@ -178,7 +178,7 @@
         <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
             <P>
-              Su reputación la ha construído con su trabajo. La reputación digital exige un trabajo adicional.
+              Su reputación la ha construido con su trabajo. La reputación digital exige un trabajo adicional.
               Impulse su perfil en Zaabra Salud. Nuestro sitio web y nuestras redes sociales amplificarán su alcance. Nuestro equipo de marketing lo hará por usted.
             </P>
           </div>
@@ -219,7 +219,7 @@
         <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
             <P>
-              Cada usuario posee unas credenciales de acceso. Con estos podrá acceder al sitio 24/7. Garantizamos alta disponibilidad y acceso en múltiples dispositivos: Computadores, móviles y tablets.
+              Cada usuario posee unas credenciales de acceso. Con estos podrá acceder al sitio 24/7. Garantizamos alta disponibilidad y acceso en múltiples dispositivos: Computadores, móviles y Tablets.
             </P>
           </div>
         </div>
@@ -259,8 +259,8 @@
         <div id="collapseFiveteen" class="collapse" aria-labelledby="headingFiveteen" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
             <P>
-              Zaabra profesional tiene al servicio de los usuarios y de los profesionales comentarios, testimonios y calificación por medio de estrellas, 
-              estos comentarios son verificados por Zaabra profesional, si tiene una buena calificación, su perfil profesional será más visible.
+              Zaabra Salud tiene al servicio de los usuarios y de los profesionales comentarios, testimonios y calificación por medio de estrellas, 
+              estos comentarios son verificados por Zaabra Salud, si tiene una buena calificación, su perfil profesional será más visible.
             </P>
           </div>
         </div>
