@@ -23,10 +23,10 @@ Route::get('/search/filtro', [App\Http\Controllers\buscador\buscadorController::
 Route:: get('/ramas-de-la-salud',[App\Http\Controllers\profesionales\profesionesController::class,'index'])->name('ramas-de-la-salud');
 
 /*Esta ruta es de galeria especialidades y dirige al controlador encargado de traer la informacion a la vista*/
-Route:: get('/Especialidades-Médicas/{nombreProfesion}',[App\Http\Controllers\profesionales\especialidadesController::class,'index'])->name('Especialidades');
+Route:: get('/Especialidades-Medicas/{nombreProfesion}',[App\Http\Controllers\profesionales\especialidadesController::class,'index'])->name('Especialidades');
 
 /*Esta ruta es de galeria profesionales y dirige al controlador encargado de traer la informacion a la vista*/
-Route:: get('/Profesionales/{idEspecialidad}',[App\Http\Controllers\profesionales\medicosEspecialidadController::class,'index'])->name('Profesionales');
+Route:: get('/Especialistas/{nombreEspecialidad}',[App\Http\Controllers\profesionales\medicosEspecialidadController::class,'index'])->name('Especialistas-En');
 
 /*Esta ruta es de landing profesionales y dirige al controlador encargado de traer la informacion a la vista*/
 Route:: get('/PerfilProfesional/{idPerfilProfesional}',[App\Http\Controllers\profesionales\perfilprofesionalController::class,'index'])->name('PerfilProfesional');
