@@ -6,14 +6,15 @@
 }
 .titulo_principal-institucion {
     font-family: 'Quicksand';
-    font-size: 2em;
+    font-size: calc(0.95em + 1vw);
+    font-weight: bold;
     color: #019F86;
     text-align: center;
     margin-top: 5%;
 }
 .texto_superior-institucion {
     font-family: 'Roboto','Regular';
-    font-size: 1.25em;
+    font-size: 1.2em;
     color: #3E3E3E;
     text-align: center;
     padding: 0;
@@ -62,7 +63,7 @@
 }
 .titulo_tarjeta-institucion {
     font-family: 'Quicksand', 'Regular';
-    font-size: 1.8em;
+    font-size: calc(0.95em + 1vw);
     color: #232323;
     text-align: center;
     margin-top: 3%;
@@ -73,7 +74,7 @@
     color: #019F86;
     text-align: center;
     padding: 0;
-    margin: 1% 0 3% 0;
+    margin-top: 1%;
 }
 .containt_options-collapse-institucion {
     border-radius: 0px;
@@ -122,7 +123,7 @@
     border: 1px solid #019F86;
     width: 100%;
     height: 6vh;
-    background-image: url('/img/iconos/icono-x.svg');
+    background-image: url('/img/iconos/circulo-cierre-x-institucion.svg') !important;
     background-repeat: no-repeat;
     background-position: center;
     background-position-x: 95%;
@@ -174,9 +175,14 @@
     border-radius: 3px;
     height: calc(1.6em + 0.75rem + 2px);
     width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 .flecha_ingreso-institucion {
     width: 11%;
+    margin-left: 5%;
 }
 // Sección de la linea de atención
 .texto_lineaAtencion-institucion {
@@ -192,7 +198,7 @@
     }
     // Seccion titulo y texto principal
     .titulo_principal-institucion {
-        font-size: 1.25em;
+        font-size: 1.3em;
         margin-top: 5%;
     }
     .texto_superior-institucion {
@@ -216,8 +222,7 @@
     }
     // Sección acordion 1
     .titulo_tarjeta-institucion {
-        font-size: 1em;
-        margin-top: 5%;
+        font-size: 1.3em;
     }
     .texto_tiempo-institucion {
         font-size: .75em;
@@ -245,11 +250,11 @@
     // Seccion acordion 2
     .boton_collapse-on-institucion {
         font-size: .75em;
-        background-size: 6% !important;
+        background-size: 5.5% !important;
     }
     .boton_collapse-off-institucion {
         font-size: .75em;
-        background-size: 6%;
+        background-size: 5.5%;
     }
     // Texto inferior
     .texto_inferior-institucion {
@@ -264,6 +269,7 @@
     }
     .flecha_ingreso-institucion {
         width: 13%;
+        margin-left: 5%;
     }
     // Sección de la linea de atención
     .texto_lineaAtencion-institucion {
@@ -283,7 +289,7 @@
     }
     // Seccion titulo y texto principal
     .titulo_principal-institucion {
-        font-size: 2em;
+        font-size: 2.5em;
         margin-top: 5%;
     }
     .texto_superior-institucion {
@@ -307,10 +313,12 @@
     }
     // Seccion acordion 1
     .titulo_tarjeta-institucion {
-        font-size: 1.8em;
+        font-size: 2.5em;
     }
     .texto_tiempo-institucion {
         font-size: 1.5em;
+        margin-top: 1%;
+        margin-bottom: 3%;
     }
     // Seccion acordion 2
     .btn_precio-tarjeta-institucion {
@@ -388,10 +396,10 @@
 @media (min-width: 1440px) {
     // Seccion titulo y texto principal
     .titulo_principal-institucion {
-        font-size: 3.5em;
+        font-size: calc(1em + 1vw);
     }
     .texto_superior-institucion {
-        font-size: 1.3em;
+        font-size: 1.25em;
     }
     // Sección opciones principales
     .section_inputs-option-institucion {
@@ -411,10 +419,10 @@
     }
     // Seccion acordion 1
     .titulo_tarjeta-institucion {
-        font-size: 3em;
+        font-size: calc(0.95em + 1vw);
     }
     .texto_tiempo-institucion {
-        font-size: 1.8em;
+        font-size: 1.5em;
         margin-bottom: 2%;
     }
     // Seccion acordion 2
@@ -429,15 +437,15 @@
         font-size: 1.8em;
     }
     .boton_collapse-off-institucion {
-        font-size: 1.8em;
-        background-size: 4% !important;
+        font-size: 1.5em;
+        background-size: 3.5% !important;
     }
     .boton_collapse-on-institucion {
-        font-size: 1.8em;
-        background-size: 4%;
+        font-size: 1.5em;
+        background-size: 3.5%;
     }
     .text_interno-toggle-institucion {
-        font-size: 1em;
+        font-size: 1.1em;
     }
     // Texto inferior
     .texto_inferior-institucion {
@@ -446,7 +454,7 @@
     }
     // Seccion botones inferiores REGISTRAR y EMPEZAR
     .btn_Ingreso-institucion {
-        font-size: 2.1em;
+        font-size: 2em;
         width: 35%;
     }
     // Sección de la linea de atención
@@ -481,7 +489,6 @@
         margin: 4% 0;
     }
     .texto_tiempo-institucion {
-        font-size: 1.8em;
         margin: 1% 0;
     }
     // Seccion acordion 2
@@ -489,10 +496,10 @@
         width: 35%;
     }
     .boton_collapse-off-institucion {
-        background-size: 3% !important;
+        background-size: 2.5% !important;
     }
     .boton_collapse-on-institucion {
-        background-size: 3%;
+        background-size: 2.5%;
     }
     // Texto inferior
     .texto_inferior-institucion {
@@ -506,9 +513,6 @@
     .btn_Ingreso-institucion {
         font-size: 2em;
         width: 25%;
-    }
-    .flecha_ingreso-institucion {
-        width: 10%;
     }
     // Sección de la linea de atención
     .texto_lineaAtencion-institucion {

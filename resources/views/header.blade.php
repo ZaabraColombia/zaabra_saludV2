@@ -8,7 +8,8 @@
                     <!-- Sección barra de busqueda -->
                     <div class="contains_boxsearch">
                         <div class="barra_busqueda" id="barra_busqueda">
-                            <input  class="inputBarraBusquedad" id="filtro">
+                            <input  class="inputBarraBusquedad " id="filtro">
+                            <button class="button_SearchBarH icon_searchH"></button>
                         </div> 
                     </div>
 
@@ -27,9 +28,9 @@
                         <div class="soy_paciente dropdown">
                             <a class="dropdown-toggle icon_paciente" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                             <div class="dropdown-menu dropdown-menu-right menu_paciente" aria-labelledby="dropdownMenuLink" style="">
-                                <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Paciente</span></a>
+                                <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy paciente</span></a>
                                 <div class="dropdown-divider m-0"></div>
-                                <a class="dropdown-item menu_item-paciente icon-medico" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy Doctor</span></a>
+                                <a class="dropdown-item menu_item-paciente icon-medico" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy doctor</span></a>
                                 <div class="dropdown-divider m-0"></div>
                                 <a class="dropdown-item menu_item-paciente icon-instituciones" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy institución</span></a>    
                             </div>
@@ -57,9 +58,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right menu_hamburguesa" aria-labelledby="dropdownMenuLink" style="">
-                                <a class="dropdown-item menu_item item-cel icon-especialidades" href="{{route('Profesiones')}}"><span class="texto_item-menu">Especialidades medicas</span></a>
+                                <a class="dropdown-item menu_item item-cel icon-especialidades" href="{{route('ramas-de-la-salud')}}"><span class="texto_item-menu">Especialidades medicas</span></a>
                                 <div class="dropdown-divider m-0"></div>
-                                <a class="dropdown-item menu_item item-cel icon-instituciones-burger" href="{{route('Entidades')}}"><span class="texto_item-menu">Instituciones medicas</span></a>
+                                <a class="dropdown-item menu_item item-cel icon-instituciones-burger" href="{{route('Instituciones-Medicas')}}"><span class="texto_item-menu">Instituciones medicas</span></a>
                                 <div class="dropdown-divider m-0"></div>
                                 <a class="dropdown-item menu_item item-cel icon-quienes" href="{{route('acerca')}}"><span class="texto_item-menu">Acerca de Zaabra</span></a>
                                 <div class="dropdown-divider m-0"></div>
@@ -95,16 +96,18 @@
                                     <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
                                     @elseif($objtipoUsuarioLogueado->idrol==2)
                                     <a class="dropdown-item menu_item-paciente icon-perfil" href="{{ url('/FormularioProfesional') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
-                                    <div class="dropdown-divider m-0"></div>
+                                      <div class="dropdown-divider m-0"></div>
                                     <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
                                     @elseif($objtipoUsuarioLogueado->idrol==3)
                                     <a class="dropdown-item menu_item-paciente icon-perfil" href="{{ url('/FormularioInstitucion') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
-                                    <div class="dropdown-divider m-0"></div>
+                                      <div class="dropdown-divider m-0"></div>
                                     <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
+                                    @elseif($objtipoUsuarioLogueado->idrol==4)
+                                    <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}"><span class="texto_item-menu-paciente">Admin</span></a>
                                     @endif
                                  @endif 
                                  <div class="dropdown-divider m-0"></div>
-                                <a class="dropdown-item menu_item item-cel icon-especialidades" href="{{route('Profesiones')}}"><span class="texto_item-menu">Especialidades medicas</span></a>
+                                <a class="dropdown-item menu_item item-cel icon-especialidades" href="{{route('ramas-de-la-salud')}}"><span class="texto_item-menu">Especialidades medicas</span></a>
                                 <div class="dropdown-divider m-0"></div>
                                 <a class="dropdown-item menu_item item-cel icon-instituciones-burger" href="{{route('Entidades')}}"><span class="texto_item-menu">Instituciones medicas</span></a>
                                 <div class="dropdown-divider m-0"></div>
@@ -177,10 +180,10 @@
                 <div class="contains_barra"> 
                     <div class="barra_oculta" id="buscador">
                         <div class="barra_busqueda-mobile" id="barra_busqueda2">
-                                <input type="hidden" name="_token" value="tzFtz8TstiTocmap8vuJp4Py7sMc0zcQiC63SuyF">
-                                <input  class="inputBarraBusquedad" id="filtro2">
-                                <!-- <input class="inputBarraBusquedad" type="buttton" name="buscar" id="barra_buscar" autocomplete="off"> -->
-                                <input type="image" class="contenedorLupa" src="{{URL::asset('/img/header/icono-buscador-azul.svg')}}">
+                            <input type="hidden" name="_token" value="tzFtz8TstiTocmap8vuJp4Py7sMc0zcQiC63SuyF">
+                            <input  class="inputBarraBusquedad" id="filtro2">
+                            <!-- <input class="inputBarraBusquedad" type="buttton" name="buscar" id="barra_buscar" autocomplete="off"> -->
+                            <input type="image" class="contenedorLupa" src="{{URL::asset('/img/header/icono-buscador-azul.svg')}}">
                         </div> 
                     </div>
                 </div>

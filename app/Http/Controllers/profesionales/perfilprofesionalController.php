@@ -8,14 +8,21 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\users_roles;
 use App\Models\perfilesprofesionales;
+use SEO;
 
 class perfilprofesionalController extends Controller
 {
-    
-    
-    public function index($idPerfilProfesional)
-    {
+
+    public function index($idPerfilProfesional){
+        
         $objprofesionallanding= $this->cargarInfoPrfesionalLanding($idPerfilProfesional);
+
+        foreach ($objprofesionallanding as $items){
+        SEO::setTitle($items->primernombre.' '. $items->primerapellido. ' | Especialista en cardiología');
+        }
+        SEO::setDescription('En Zaabra Salud, más de 100 especialidades a su alcance. Busque, encuentre y reserve su cita, así de fácil');
+        SEO::setCanonical('https://zaabrasalud.co/');
+
         $objprofesionallandingconsultas= $this->cargarInfoPrfesionalLandingconsultas($idPerfilProfesional);
         $objprofesionallandingexperto= $this->cargarInfoPrfesionalLandingexperto($idPerfilProfesional);
         $objprofesionallandingestudios= $this->cargarInfoPrfesionalLandingestudios($idPerfilProfesional);
@@ -51,14 +58,14 @@ class perfilprofesionalController extends Controller
 
          // consulta para cargar todas los profesionales segun su area profesion y especialidad
         public function cargarInfoPrfesionalLanding($idPerfilProfesional){
-            return DB::select("SELECT pf.idPerfilProfesional, pf.fotoperfil, us.primernombre, us.primerapellido, ep.nombreEspecialidad, pf.numeroTarjeta, pf.direccion, un.nombreuniversidad, pf.descripcionPerfil, mn.nombre
-            FROM perfilesprofesionales pf
-            INNER JOIN users us ON pf.idUser=us.id
-            INNER JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
-            INNER JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
-            INNER JOIN universidades un ON pu.id_universidad=un.id_universidad
-            INNER JOIN municipios mn ON mn.id_municipio=pf.id_municipio
-            WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional LIMIT 1");
+        return DB::select("SELECT pf.idPerfilProfesional, pf.fotoperfil, CONCAT('Dr.(a) ',  us.primernombre) AS primernombre, us.primerapellido, ep.nombreEspecialidad, pf.numeroTarjeta, pf.direccion, un.nombreuniversidad, pf.descripcionPerfil, mn.nombre
+        FROM perfilesprofesionales pf
+        INNER JOIN users us ON pf.idUser=us.id
+        INNER JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
+        INNER JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
+        INNER JOIN universidades un ON pu.id_universidad=un.id_universidad
+        INNER JOIN municipios mn ON mn.id_municipio=pf.id_municipio
+        WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional LIMIT 1");
         }
 
         // consulta para cargar todas las tipos de consulta medicas

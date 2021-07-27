@@ -7,7 +7,7 @@
     <!-- fila principal -->
     <div class="row justify-content-center">
         <!-- titulo principal -->
-        <p class="titulo_principal-login"> Acceda a nuestro portal de Zaabra Salud o regístrese. </p>
+        <h1 class="titulo_principal-login"> Acceda a nuestro portal de Zaabra Salud o regístrese. </h1>
         <!-- contenedor de elementos login -->
         <div class="card col-11 col-md-10 col-lg-8 section_principal-login">
             <!-- seccion body login -->
@@ -29,7 +29,7 @@
                         <label for="email" class="col-md-12 col-form-label texto_label-login"> Correo Electrónico </label>
 
                         <div class="col-12">
-                            <input id="email" type="email" class="form-control input_height-fullhd @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="zaabra@gmail.com">
+                            <input id="email" type="email" class="form-control input_height-fullhd @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="servicioalcliente@zaabrasalud.co">
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -70,7 +70,6 @@
                         <div class="col-md-6 offset-md-4">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
                                 <label class="form-check-label" for="remember">
                                     {{ __('Remember Me') }}
                                 </label>
