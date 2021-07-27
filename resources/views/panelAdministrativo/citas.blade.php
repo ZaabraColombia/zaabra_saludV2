@@ -110,16 +110,15 @@
         <div class="modal-dialog modal-lg modal_dialog-popup" role="document">
             <div class="modal-content modal_content-popup">
                 <!-- Sección boton derecho de cierre "X" -->
-                <div class="modal-header modal_header-popup">
+                <div class="modal-header p-0">
+                    <h1 class="modal-title titulo_principal-popup" id="exampleModalLabel">Editar cita</h1>
+
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
                 <div class="modal-body p-0">
-                    <!-- Titulo y texto de encabezado -->
-                    <h1 class="modal-title titulo_principal-popup" id="exampleModalLabel">Editar cita</h1>
-
                     <div class="col-md-6 section_inputRight-text-formProf">
                         <label for="example-date-input" class="col-12 text_label-formProf">Especialidad</label>
                         <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control" required></select>
@@ -164,7 +163,7 @@
                     </div>
 
                     <!-- Sección botón Pagar -->
-                    <div class="">
+                    <div class="modal-footer section_btn_citas">
                         <button type="submit" class="btnAgendar-popup" id="">Guardar
                             <!-- <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_pagar-popup" alt="">  -->
                         </button>
