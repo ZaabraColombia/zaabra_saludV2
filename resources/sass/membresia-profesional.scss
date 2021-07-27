@@ -14,7 +14,7 @@
 }
 .texto_superior-membresia {
     font-family: 'Roboto','Regular';
-    font-size: 1.25em;
+    font-size: 1.2em;
     color: #3E3E3E;
     text-align: center;
     padding: 0;
@@ -33,7 +33,7 @@
 .ruta_membresiaInst {
     display: flex;
     justify-content: center;
-    width: 90%;
+    width: 93%;
 }
 .input_img-option-membresia {
     margin: 0;
@@ -372,11 +372,11 @@
         font-size: calc(1em + 1vw);
     }
     .texto_superior-membresia {
-        font-size: 1.3em;
+        font-size: 1.25em;
     }
     // Sección opciones principales
     .section_inputs-option-membresia {
-        height: 17vh;
+        height: 20vh;
     }
     .input_img-option-membresia {
         width: 50%;
@@ -395,7 +395,7 @@
         font-size: calc(0.95em + 1vw);
     }
     .texto_tiempo-membresia {
-        font-size: 1.8em;
+        font-size: 1.5em;
         margin-bottom: 2%;
     }
     // Seccion acordion 2
@@ -410,15 +410,15 @@
         font-size: 1.8em;
     }
     .boton_collapse-off-membresia {
-        font-size: 1.8em;
+        font-size: 1.5em;
         background-size: 3.5%;
     }
     .boton_collapse-on-membresia {
-        font-size: 1.8em;
+        font-size: 1.5em;
         background-size: 3.5% !important;
     }
     .text_interno-toggle-membresia {
-        font-size: 1em;
+        font-size: 1.1em;
     }
     // Texto inferior
     .texto_inferior-membresia {
@@ -457,7 +457,6 @@
         margin: 4% 0;
     }
     .texto_tiempo-membresia {
-        font-size: 1.8em;
         margin: 1% 0;
     }
     // Seccion acordion 2

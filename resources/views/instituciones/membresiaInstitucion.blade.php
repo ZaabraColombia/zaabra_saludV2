@@ -30,12 +30,12 @@
     <div class="evento_acordion contain_accordion-institucion" id="accordion1">
       <h5 class="titulo_tarjeta-institucion"> Plan Gratuito </h5>
       <p class="texto_superior-institucion"> Inícielo gratis hoy y después conviértase al Premium. </p>
-      <p class="texto_tiempo-institucion"> Tiempo de vigencia: 8 días </p>
+      <p class="texto_tiempo-institucion"> Tiempo de vigencia: 8 días* </p>
 
       <!-- Sección opcion tarjeta PLAN GRAATUITO -->
       <div class="card containt_options-collapse-institucion">
         <div id="headingOne">
-          <button class="boton_collapse-off-institucion" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Tarjeta medica </button>
+          <button class="boton_collapse-off-institucion" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Tarjeta médica </button>
         </div>
 
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1">
@@ -93,7 +93,7 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
           <div class="card-body text_interno-toggle-institucion">
             <P>
-              Los usuarios de Zaabra Salud podrán observar en la galería de su landing page institucional, imágenes de los tratamientos, cirugías o procedimientos realizados por la entidad y sus profesionales.
+              Los usuarios de Zaabra Salud podrán observar en la galería de su Landing page institucional, imágenes de los tratamientos, cirugías o procedimientos realizados por la entidad y sus profesionales.
             </P>
           </div>
         </div>
@@ -106,7 +106,8 @@
         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
           <div class="card-body text_interno-toggle-institucion">
             <P>
-              Zaabra Salud permite a todos sus usuarios realizar comentarios y calificaciones por medio de estrellas. Así entre mejores calificaciones obtenga, tendrá un mejor posicionamiento. Tranquilo, todos los comentarios son verificados por Zaabra Salud.
+              Zaabra Salud permite a todos sus usuarios realizar comentarios y calificaciones por medio de estrellas. Así entre mejores calificaciones obtenga, tendrá un mejor posicionamiento. 
+              Tranquilo, todos los comentarios son verificados por Zaabra Salud.
             </P>
           </div>
         </div>
@@ -158,7 +159,7 @@
         <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
           <div class="card-body text_interno-toggle-institucion">
             <p>
-              Cada usuario posee unas credenciales de acceso. Con estos podrá acceder al sitio 24/7. Garantizamos alta disponibilidad y acceso en múltiples dispositivos: Computadores, móviles y tablets.
+              Cada usuario posee unas credenciales de acceso. Con estos podrá acceder al sitio 24/7. Garantizamos alta disponibilidad y acceso en múltiples dispositivos: Computadores, móviles y Tablets.
             </p>
           </div>
         </div>

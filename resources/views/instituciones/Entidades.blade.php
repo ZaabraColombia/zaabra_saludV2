@@ -3,6 +3,8 @@
 @section('content')
 
 <!-- Carrusel Banner principal, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
+  <h1 class="title_banner_entidad"> INSTITUCIONES </h1>
+  <h5 class="subtitle_banner_entidad">Seleccione el tipo de institución para conocer <br> los diferentes servicios.</h5>
 <section class="swiper-container swiper_principalGaleriaProf">
   <div class="swiper-wrapper">
   @foreach ($objbannersprincipalInstituciones as $objbannersprincipalInstituciones)
@@ -13,7 +15,7 @@
 
 <!-- Titulo principal de la vista -->
 <section >
-  <h1 class="title_entidades"> Entidades </h1>
+  <h1 class="title_entidades"> Instituciones </h1>
 </section>
 
 <!-- Contenedor de las tarjetas de las profesiones -->

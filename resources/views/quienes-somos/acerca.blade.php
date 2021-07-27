@@ -6,7 +6,7 @@
     
     <section class="row">
         <h1 class="title_banner_acerca"> ACERCA DE ZAABRA </h1>
-        <img class="imagen_bannerPrin-acerca" src="{{URL::asset('/img/banners/bannerquienessomos/banner-acerca-de-zaabra-texto.jpeg')}}">
+        <img class="imagen_bannerPrin-acerca" src="{{URL::asset('/img/banners/bannerquienessomos/banner-acerca-de-zaabra.jpeg')}}">
     </section>
 
     <section class="section_principal-acerca">
@@ -32,9 +32,9 @@
                         <ul class="option_toggleFoot">
                             <li> Productos digitales a la medida de las necesidades del mercado. </li>
                             <li> Seguridad y confianza. </li>
-                            <li> Competitividad en el mercado </li>
-                            <li> Un equipo idóneo </li>
-                            <li> Garantía y compromiso </li>
+                            <li> Competitividad en el mercado. </li>
+                            <li> Un equipo idóneo. </li>
+                            <li> Garantía y compromiso. </li>
                         </ul>
             
                         <h5 class="title_interno_toggleFoot"> Nuestra Misión: </h5>
@@ -73,7 +73,7 @@
                             <li> Seleccione el servicio que busca. </li>
                             <li> Acceda al catálogo de profesionales y servicios. </li>
                             <li> Seleccione el profesional o institución de la salud que se ajuste a sus necesidades. </li> 
-                            <li> Agende y pague su cita </li> 
+                            <li> Agende y pague su cita. </li> 
                             <li> Disfrute de un excelente servicio avalado por cientos de usuarios. </li>
                         </ul>
                     </div>

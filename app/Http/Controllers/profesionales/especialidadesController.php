@@ -9,36 +9,35 @@ class especialidadesController extends Controller
 {
     public function index($nombreProfesion)
     {
-
+       
         SEO::setTitle('Especialidades Médicas');
         SEO::setDescription('En Zaabra Salud, más de 100 especialidades a su alcance. Busque, encuentre y reserve su cita, así de fácil');
         SEO::setCanonical('https://zaabrasalud.co/');
 
         //esta varible se llena con los datos recolectados en cada una de las consultas y entregan los datos
         //en la vista galeria 
-        $objnombreEspecialidad = $this->nombreEspecilalidad($nombreProfesion);
-        $idprofesion=$objnombreEspecialidad->idProfesion;
+        $objnombreProfesion = $this->nombreEspecilalidad($nombreProfesion);
+        $idprofesion=$objnombreProfesion->idProfesion;
         $objbannersprincipalEspecialidades = $this->cargarBannerPrincipalEspecialidades();
         $objEspecialidades = $this->cargarEspecialidades($idprofesion);
         $objbannerssecundarioEspecialidades = $this->cargarBannerSecundarioEspecialidades();
         $objcarruselespecialidades = $this->cargarCarruselEspecialidades();
-        return view('profesionales.Especialidades-Médicas', compact(
-            'objnombreEspecialidad',
+        return view('profesionales.Especialidades-Medicas', compact(
+            'objnombreProfesion',
             'objbannersprincipalEspecialidades',
             'objEspecialidades',
             'objbannerssecundarioEspecialidades',
             'objcarruselespecialidades'
         ));
     }
-    /*Carga nombre  especialidad*/
-    public function nombreEspecilalidad($idprofesion){
-        $nombreEspecialidad = DB::table('profesiones')
+    /*Carga nombre  profesion*/
+    public function nombreEspecilalidad($nombreProfesion){
+        $nombreProfesion = DB::table('profesiones')
         ->selectRaw('profesiones.nombreProfesion, profesiones.idProfesion')
-        ->leftjoin('especialidades', 'profesiones.idProfesion', '=', 'especialidades.idProfesion')
-        ->where('profesiones.nombreProfesion', '=',$idprofesion)
+        ->where('profesiones.nombreProfesion', 'like','%'.$nombreProfesion.'%')
         ->distinct()
         ->first();
-        return $nombreEspecialidad;
+        return $nombreProfesion;
         } 
     // consulta para cargar banner principal 
     public function cargarBannerPrincipalEspecialidades(){
@@ -50,11 +49,11 @@ class especialidadesController extends Controller
         return $consultaBannerEspecialidades;
     }
      // consulta para cargar todas las Especialidades disponibles y que esten activas
-     public function cargarEspecialidades($nombreProfesion){
+     public function cargarEspecialidades($idprofesion){
         return DB::select("SELECT es.urlimagen, es.nombreEspecialidad, es.idEspecialidad
         FROM profesiones pr
         INNER JOIN  especialidades es ON pr.idProfesion = es.idProfesion 
-        WHERE  es.estado <>0  AND es.idProfesion=$nombreProfesion ORDER BY es.orden  + 0 ASC ");
+        WHERE  es.estado <>0  AND es.idProfesion=$idprofesion ORDER BY es.orden  + 0 ASC ");
     }
     // consulta para cargar banner secundario especialidades
     public function cargarBannerSecundarioEspecialidades(){
