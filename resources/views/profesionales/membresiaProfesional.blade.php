@@ -32,7 +32,7 @@
     <div class="evento_acordion contain_accordion-membresia" id="accordion1">
       <h5 class="titulo_tarjeta-membresia"> Plan Gratuito </h5>
       <p class="texto_superior-membresia"> Inícielo gratis hoy y después conviértase al Premium. </p>
-      <p class="texto_tiempo-membresia"> Tiempo de vigencia: 8 días*</p>
+      <p class="texto_tiempo-membresia"> Tiempo de vigencia: 8 días *</p>
 
       <!-- Sección opcion tarjeta PLAN GRAATUITO -->
       <div class="card containt_options-collapse-membresia">

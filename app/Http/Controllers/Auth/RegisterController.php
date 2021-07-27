@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MailNotify;
-
+use SEO;
 
 class RegisterController extends Controller{
     /*
@@ -44,6 +44,10 @@ class RegisterController extends Controller{
      */
     public function __construct()
     {
+        SEO::setTitle('Registro');
+        SEO::setDescription('Regístrese en Zaabra Salud y acceda a los mejores servicios con especialistas e instituciones');
+        SEO::setCanonical('https://zaabrasalud.co/register');
+
         $this->middleware('guest');
     }
 
@@ -71,6 +75,7 @@ class RegisterController extends Controller{
      */
     protected function create(array $data){
 
+        
         $user = User::create([
             'primernombre' => $data['primernombre'],
             'segundonombre' => $data['segundonombre'],
