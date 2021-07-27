@@ -53,7 +53,7 @@ class medicosEspecialidadController extends Controller{
     INNER JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
     INNER JOIN universidades un ON pf.id_universidad=un.id_universidad
     WHERE pg.idtipopago=12 AND pf.idespecialidad=$idEspecialidad AND pf.aprobado<>0");
-        }
+    }
 
     // consulta para cargar todas los profesionales segun su especialidad y el pago normal
     public function cargarMedicosPagoNormal($idEspecialidad){
@@ -65,7 +65,7 @@ class medicosEspecialidadController extends Controller{
     INNER JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
     INNER JOIN universidades un ON pf.id_universidad=un.id_universidad
     WHERE pg.idtipopago=13 AND pf.idespecialidad=$idEspecialidad AND pf.aprobado<>0");
-        }
+    }
 
     // consulta para cargar todas los profesionales segun su especialidad y el pago normal
     public function cargarMedicosSinPago($idEspecialidad){
