@@ -36,7 +36,7 @@ class ListaPermisosComposer{
         ->get();
 
         $listaPermiso4 = DB::table('users')
-        ->select(DB::raw('permisos.nombrePermiso,users.id,users_roles.idrol,permisos.urlPermiso'))
+        ->select(DB::raw('permisos.nombrePermiso,users.id,users_roles.idrol,permisos.urlPermiso,permisos.urlImagen'))
         ->join('users_roles', 'users.id', '=', 'users_roles.iduser')
         ->join('roles', 'users_roles.idrol', '=', 'roles.id')
         ->join('permisos', 'roles.id', '=', 'permisos.idRoles')
