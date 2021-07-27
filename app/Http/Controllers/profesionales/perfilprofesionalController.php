@@ -8,21 +8,13 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\users_roles;
 use App\Models\perfilesprofesionales;
-use SEO;
 
 class perfilprofesionalController extends Controller
 {
-
+    
+    
     public function index($idPerfilProfesional){
-        
         $objprofesionallanding= $this->cargarInfoPrfesionalLanding($idPerfilProfesional);
-
-        foreach ($objprofesionallanding as $items){
-        SEO::setTitle($items->primernombre.' '. $items->primerapellido. ' | Especialista en cardiología');
-        }
-        SEO::setDescription('En Zaabra Salud, más de 100 especialidades a su alcance. Busque, encuentre y reserve su cita, así de fácil');
-        SEO::setCanonical('https://zaabrasalud.co/');
-
         $objprofesionallandingconsultas= $this->cargarInfoPrfesionalLandingconsultas($idPerfilProfesional);
         $objprofesionallandingexperto= $this->cargarInfoPrfesionalLandingexperto($idPerfilProfesional);
         $objprofesionallandingestudios= $this->cargarInfoPrfesionalLandingestudios($idPerfilProfesional);
