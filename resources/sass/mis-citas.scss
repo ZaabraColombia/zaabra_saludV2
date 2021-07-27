@@ -86,18 +86,9 @@
     width: 100%;
 }
 //pop up
-.section_btnAgendar-popup {
-    font-family: "Quicksand";
-    font-size: 1.3em;
-    color: #ffffff;
-    background: #0083D6;
-    border: none;
-    border-radius: 3px;
-    height: calc(1.6em + 0.75rem + 2px);
-    width: 28%;
+.section_btn_citas {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
     margin-top: 10%;
 }
 .btnAgendar-popup {
@@ -112,7 +103,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
+    margin-right: 5%;
+}
+.btnCancelar-popup {
+    font-family: "Quicksand";
+    font-size: 1.3em;
+    color: #3E3E3E;
+    background: #ffffff;
+    border: solid 1px #3E3E3E;
+    border-radius: 3px;
+    height: calc(1.6em + 0.75rem + 2px);
+    width: 28%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 //-------------------------------
 @media(min-width: 320px) and (orientation: portrait) {
@@ -151,7 +155,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: auto;
     }
     .btnCancelar-popup {
         font-size: 0.8em;
@@ -159,6 +162,5 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: auto;
     }
 }
