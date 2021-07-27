@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <section class="row">
         <h1 class="title_banner_preFrec"> PREGUNTAS <br> FRECUENTES </h1>
-        <img class="imagen_bannerPrin-pregunta" src="{{URL::asset('/img/banners/bannerquienessomos/banner-preguntas-frecuentes-texto.jpeg')}}">
+        <img class="imagen_bannerPrin-pregunta" src="{{URL::asset('/img/banners/bannerquienessomos/banner-preguntas-frecuentes.jpeg')}}">
     </section>
 
     <section class="section_principal-pregunta">
@@ -115,8 +115,8 @@
                     <div class="card-body section_toggleFoot">
                         <p class="txt_interno_toggleFoot mb-0">
                             Cuando el registro corresponde al de PACIENTE, NO existen las membresías, planes o similares. Solo se pagará en el momento de agendar una cita. <br><br>
-                            Cuando el registro corresponde al perfil de PROFESIONAL O ENTIDAD DE LA SALUD, si debe hacerse el pago de una Membresía. Conozca aquí toda la información 
-                            <a class="ancla_toggleFoot" href="{{ route('membresiaProfesional') }}">click aquí</a>
+                            Cuando el registro corresponde al perfil de PROFESIONAL O ENTIDAD DE LA SALUD, si debe hacerse el pago de una Membresía. Conozca toda la información 
+                            <a class="ancla_toggleFoot" href="{{ route('membresiaProfesional') }}" target="blank">click aquí</a>.
                         </p>
                     </div>
                 </div>

@@ -182,7 +182,7 @@
                                 <div class="col-12 section_terminos-register">
                                     <h4 class="texto_inferior-tarjeta-register"> Declaro que he leído y acepto la  
                                         <a class="text_link-register" href="{{url('politicas')}}" target="blank"> política de privacidad</a>  y los  
-                                        <a class="text_link-register" href="{{url('politicas')}}" target="blank"> términos y condiciones</a>  de Zaabrasalud. 
+                                        <a class="text_link-register" href="{{url('politicas')}}" target="blank"> términos y condiciones</a>  de Zaabra Salud. 
                                     </h4>
                                 </div>
                             </div>
