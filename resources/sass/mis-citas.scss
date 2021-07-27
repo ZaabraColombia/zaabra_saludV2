@@ -1,0 +1,164 @@
+//Sección títuo y boton mis citas
+.section_cabecera_citas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5%;
+}
+.btn_agendar_cita {
+    font-family: "Quicksand";
+    font-size: 1.5em;
+    color: #ffffff;
+    background: #0083D6;
+    border: none;
+    border-radius: 3px;
+    height: calc(1em + 0.75rem + 2px);
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flecha_btn_agendar {
+    width: 11%;
+    margin-left: 5%;
+}
+.table_citas th, .table_citas td {
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+    white-space: nowrap;
+    padding: 1.2em;
+    padding-left: 0;
+}
+.table_citas thead th {
+    border-bottom: none;
+    padding: 1.2em;
+    padding-left: 0;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: "Quicksand";
+}
+.table_citas tbody td {
+    padding: 1.2em;
+    padding-left: 0;
+    font-size: .9em;
+    font-family: "Roboto";
+}
+.table_citas th {
+    padding: .75rem;
+    vertical-align: middle;
+    border-top: none;
+    font-size: 1em;
+    font-family: "Quicksand";
+}
+.btn_editar_citas {
+    border: none;
+    background: transparent;
+    background-image: url('/img/iconos/icono-editar-misCitas.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 3vh;
+    width: 55%;
+    padding: .5em;
+    margin-right: 20%;
+}
+.btn_cierre_citas {
+    border: none;
+    background: transparent;
+    background-image: url('/img/iconos/icono-cierre-misCitas.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 3vh;
+    width: 55%;
+    padding: .5em;
+}
+
+.badge {
+    display: inline-block;
+    padding: .35em .65em;
+    font-size: .9em;
+    font-weight: 500;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    width: 100%;
+}
+//pop up
+.section_btnAgendar-popup {
+    font-family: "Quicksand";
+    font-size: 1.3em;
+    color: #ffffff;
+    background: #0083D6;
+    border: none;
+    border-radius: 3px;
+    height: calc(1.6em + 0.75rem + 2px);
+    width: 28%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+.btnAgendar-popup {
+    font-family: "Quicksand";
+    font-size: 1.3em;
+    color: #ffffff;
+    background: #0083D6;
+    border: none;
+    border-radius: 3px;
+    height: calc(1.6em + 0.75rem + 2px);
+    width: 28%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+//-------------------------------
+@media(min-width: 320px) and (orientation: portrait) {
+    //Sección títuo y boton mis citas
+    .title_miCita {
+        font-size: 1.4em;
+        font-family: 'Quicksand';
+        color: #0083D6;
+        margin: 0;
+    }
+    .subtitle_miCita {
+        font-size: .9em;
+        font-family: 'Roboto';
+        color: #3E3E3E;
+    }
+    .btn_agendar_cita {
+        font-size: .75em;
+        width: 37%;
+    }
+    .flecha_btn_agendar {
+        width: 10%;
+        margin-left: 5%;
+    }
+    //-------------------------------
+    // Pop Up
+    .section_btnAgendar-popup {
+        font-size: 0.8em;
+        width: 27%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btnAgendar-popup {
+        font-size: 0.8em;
+        width: 27%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+    .btnCancelar-popup {
+        font-size: 0.8em;
+        width: 27%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+}
