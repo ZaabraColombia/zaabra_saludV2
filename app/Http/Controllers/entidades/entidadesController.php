@@ -5,20 +5,23 @@ namespace App\Http\Controllers\entidades;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use SEO;
 
 class entidadesController extends Controller
 {
     
-    public function index()
-    {
+    public function index(){
+        SEO::setTitle('Instituciones Médicas');
+        SEO::setDescription(' Todas las instituciones médicas en Zaabra Salud, a su alcance. Clínicas, consultorios, exámenes, laboratorio y mucho más!');
+        SEO::setCanonical('https://zaabrasalud.co/');
+
         //esta varible se llena con los datos recolectados en cada una de las consultas y entregan los datos
-        //en la vista galeria  
+        //en la vista galeria  de los tipos instituciones  
         $objbannersprincipalInstituciones = $this->cargarBannerPrincipalInstituciones();
         $objinstituciones = $this->cargarInstituciones();
         $objcarruselInstituciones = $this->cargarCarruselInstituciones();
 
-
-        return view('instituciones.Entidades', compact(
+        return view('instituciones.Instituciones-Medicas', compact(
             'objbannersprincipalInstituciones',
             'objinstituciones',
             'objcarruselInstituciones'

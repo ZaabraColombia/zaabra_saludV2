@@ -57,7 +57,7 @@
                 <div class="contains_text">
                     <h1 class="titulo_home">Instituciones médicas</h1>
                     <p class="parrafo_home"> Clínicas, centros médicos y odontológicos, toma de exámenes y mucho más.</p>
-                    <a href="{{url('/Entidades')}}" class="ver_mas instituciones hvr-sweep-to-right">Ver más
+                    <a href="{{url('/Instituciones-Medicas')}}" class="ver_mas instituciones hvr-sweep-to-right">Ver más
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>
                 </div>

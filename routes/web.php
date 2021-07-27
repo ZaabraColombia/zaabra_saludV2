@@ -115,7 +115,7 @@ Route::get('/membresiaProfesional', function () { return view('profesionales/mem
 /*------------------------------------------------Pertenece a entidades-------------------------------------------------------------------------------*/
 
 /*Esta ruta es de galeria tipo entidades*/
-Route:: get('/Entidades',[App\Http\Controllers\entidades\entidadesController::class,'index'])->name('Entidades');
+Route:: get('/Instituciones-Medicas',[App\Http\Controllers\entidades\entidadesController::class,'index'])->name('Instituciones-Medicas');
 
 /*Esta ruta es de galeria instituciones segun la entidad seleccionada*/
 Route:: get('/Instituciones/{id}',[App\Http\Controllers\entidades\institucionesController::class,'index'])->name('Instituciones');
