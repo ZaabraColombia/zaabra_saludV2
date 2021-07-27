@@ -9,13 +9,11 @@
                         <div class="card" style="width: 18rem;">
                             <a  href='{{url("$objListaUsuario4->urlPermiso")}}'>
                                 <div class="card-body px-3 py-4-5 cardtipo{{$objListaUsuario4->idrol}}">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="stats-icon purple">
-                                                <i class="iconly-boldShow"></i>
-                                            </div>
+                                    <div class="target-panel">
+                                        <div>
+                                           <img src="{{URL::asset($objListaUsuario4->urlImagen)}}" alt="">
                                         </div>
-                                        <div class="col-md-8">
+                                        <div>
                                             <span class="text-muted font-semibold">{{$objListaUsuario4->nombrePermiso}}</span>
                                         </div>
                                     </div>
