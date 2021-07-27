@@ -16,7 +16,7 @@ class buscadorController extends Controller
     public function filtroBusquedad(Request $request){
        
         //tomamos la ruta actual 
-        $ruta='https://zaabrasalud.co/';
+        $ruta='http://127.0.0.1:8000/';
 
         //Recuperamos lo que el usuario escribió en el buscador
         $term = $request->get('term');

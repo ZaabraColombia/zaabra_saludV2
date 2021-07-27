@@ -12298,6 +12298,7 @@ a:link, a:visited, a:active, a:hover {
 
 .ancla_toggleFoot {
   font-size: 1em;
+  font-weight: bold;
   color: #0083D6 !important;
   text-decoration: underline !important;
 }
@@ -21826,6 +21827,30 @@ a:link, a:visited, a:active, a:hover {
   padding: 0;
 }
 
+.title_banner_entidad {
+  color: #019F86;
+  font-family: "Quicksand";
+  font-size: 2.2em;
+  font-weight: 700;
+  position: absolute;
+  top: 23%;
+  left: 16%;
+  z-index: 10;
+  margin: 0;
+}
+
+.subtitle_banner_entidad {
+  color: #232323;
+  font-family: "Quicksand";
+  font-size: 0.85em;
+  font-weight: 700;
+  position: absolute;
+  top: 29%;
+  left: 16%;
+  z-index: 10;
+  text-transform: inherit;
+}
+
 .container_entidades {
   margin: auto;
   padding: 0;
@@ -21863,6 +21888,18 @@ a:link, a:visited, a:active, a:hover {
   .imagen_bannerPrin-entid {
     width: 100%;
     padding: 0;
+  }
+
+  .title_banner_entidad {
+    font-size: 0.9em;
+    top: 15%;
+    left: 5%;
+  }
+
+  .subtitle_banner_entidad {
+    font-size: 0.5em;
+    top: 18%;
+    left: 5%;
   }
 
   .title_entidades {
@@ -21961,7 +21998,28 @@ a:link, a:visited, a:active, a:hover {
     height: 5vh;
   }
 }
+@media (min-width: 375px) and (orientation: portrait) {
+  .title_banner_entidad {
+    top: 14%;
+  }
+
+  .subtitle_banner_entidad {
+    top: 17%;
+  }
+}
 @media (min-width: 768px) and (orientation: portrait) {
+  .title_banner_entidad {
+    font-size: 2em;
+    top: 13%;
+    left: 5%;
+  }
+
+  .subtitle_banner_entidad {
+    font-size: 1em;
+    top: 16%;
+    left: 5%;
+  }
+
   .title_entidades {
     font-size: 2.5em;
   }
@@ -22086,6 +22144,18 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1200px) {
+  .title_banner_entidad {
+    font-size: 2.5em;
+    top: 24%;
+    left: 16%;
+  }
+
+  .subtitle_banner_entidad {
+    font-size: 1em;
+    top: 31%;
+    left: 16%;
+  }
+
   .container_entidades {
     margin-left: 23%;
   }
@@ -22101,6 +22171,18 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1440px) {
+  .title_banner_entidad {
+    font-size: 3.4em;
+    top: 27%;
+    left: 16%;
+  }
+
+  .subtitle_banner_entidad {
+    font-size: 1.25em;
+    top: 36%;
+    left: 16%;
+  }
+
   .title_entidades {
     margin: 2% 0;
   }
@@ -22115,6 +22197,18 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1920px) {
+  .title_banner_entidad {
+    font-size: 4em;
+    top: 26%;
+    left: 16%;
+  }
+
+  .subtitle_banner_entidad {
+    font-size: 1.7em;
+    top: 35%;
+    left: 16%;
+  }
+
   .texto_entidades {
     height: 4vh;
   }
@@ -23174,7 +23268,7 @@ a:link, a:visited, a:active, a:hover {
 
 .texto_superior-membresia {
   font-family: "Roboto", "Regular";
-  font-size: 1.25em;
+  font-size: 1.2em;
   color: #3E3E3E;
   text-align: center;
   padding: 0;
@@ -23195,7 +23289,7 @@ a:link, a:visited, a:active, a:hover {
 .ruta_membresiaInst {
   display: flex;
   justify-content: center;
-  width: 90%;
+  width: 93%;
 }
 
 .input_img-option-membresia {
@@ -23569,11 +23663,11 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .texto_superior-membresia {
-    font-size: 1.3em;
+    font-size: 1.25em;
   }
 
   .section_inputs-option-membresia {
-    height: 17vh;
+    height: 20vh;
   }
 
   .input_img-option-membresia {
@@ -23596,7 +23690,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .texto_tiempo-membresia {
-    font-size: 1.8em;
+    font-size: 1.5em;
     margin-bottom: 2%;
   }
 
@@ -23614,17 +23708,17 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .boton_collapse-off-membresia {
-    font-size: 1.8em;
+    font-size: 1.5em;
     background-size: 3.5%;
   }
 
   .boton_collapse-on-membresia {
-    font-size: 1.8em;
+    font-size: 1.5em;
     background-size: 3.5% !important;
   }
 
   .text_interno-toggle-membresia {
-    font-size: 1em;
+    font-size: 1.1em;
   }
 
   .texto_inferior-membresia {
@@ -23666,7 +23760,6 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .texto_tiempo-membresia {
-    font-size: 1.8em;
     margin: 1% 0;
   }
 
@@ -26229,7 +26322,8 @@ label.error {
 
 .titulo_principal-institucion {
   font-family: "Quicksand";
-  font-size: 2em;
+  font-size: calc(0.95em + 1vw);
+  font-weight: bold;
   color: #019F86;
   text-align: center;
   margin-top: 5%;
@@ -26237,7 +26331,7 @@ label.error {
 
 .texto_superior-institucion {
   font-family: "Roboto", "Regular";
-  font-size: 1.25em;
+  font-size: 1.2em;
   color: #3E3E3E;
   text-align: center;
   padding: 0;
@@ -26292,7 +26386,7 @@ label.error {
 
 .titulo_tarjeta-institucion {
   font-family: "Quicksand", "Regular";
-  font-size: 1.8em;
+  font-size: calc(0.95em + 1vw);
   color: #232323;
   text-align: center;
   margin-top: 3%;
@@ -26304,7 +26398,7 @@ label.error {
   color: #019F86;
   text-align: center;
   padding: 0;
-  margin: 1% 0 3% 0;
+  margin-top: 1%;
 }
 
 .containt_options-collapse-institucion {
@@ -26437,7 +26531,7 @@ label.error {
   }
 
   .titulo_principal-institucion {
-    font-size: 1.25em;
+    font-size: 1.3em;
     margin-top: 5%;
   }
 
@@ -26465,8 +26559,7 @@ label.error {
   }
 
   .titulo_tarjeta-institucion {
-    font-size: 1em;
-    margin-top: 5%;
+    font-size: 1.3em;
   }
 
   .texto_tiempo-institucion {
@@ -26498,12 +26591,12 @@ label.error {
 
   .boton_collapse-on-institucion {
     font-size: 0.75em;
-    background-size: 6% !important;
+    background-size: 5.5% !important;
   }
 
   .boton_collapse-off-institucion {
     font-size: 0.75em;
-    background-size: 6%;
+    background-size: 5.5%;
   }
 
   .texto_inferior-institucion {
@@ -26538,7 +26631,7 @@ label.error {
   }
 
   .titulo_principal-institucion {
-    font-size: 2em;
+    font-size: 2.5em;
     margin-top: 5%;
   }
 
@@ -26566,11 +26659,13 @@ label.error {
   }
 
   .titulo_tarjeta-institucion {
-    font-size: 1.8em;
+    font-size: 2.5em;
   }
 
   .texto_tiempo-institucion {
     font-size: 1.5em;
+    margin-top: 1%;
+    margin-bottom: 3%;
   }
 
   .btn_precio-tarjeta-institucion {
@@ -26654,11 +26749,11 @@ label.error {
 }
 @media (min-width: 1440px) {
   .titulo_principal-institucion {
-    font-size: 3.5em;
+    font-size: calc(1em + 1vw);
   }
 
   .texto_superior-institucion {
-    font-size: 1.3em;
+    font-size: 1.25em;
   }
 
   .section_inputs-option-institucion {
@@ -26681,11 +26776,11 @@ label.error {
   }
 
   .titulo_tarjeta-institucion {
-    font-size: 3em;
+    font-size: calc(0.95em + 1vw);
   }
 
   .texto_tiempo-institucion {
-    font-size: 1.8em;
+    font-size: 1.5em;
     margin-bottom: 2%;
   }
 
@@ -26703,17 +26798,17 @@ label.error {
   }
 
   .boton_collapse-off-institucion {
-    font-size: 1.8em;
-    background-size: 4% !important;
+    font-size: 1.5em;
+    background-size: 3.5% !important;
   }
 
   .boton_collapse-on-institucion {
-    font-size: 1.8em;
-    background-size: 4%;
+    font-size: 1.5em;
+    background-size: 3.5%;
   }
 
   .text_interno-toggle-institucion {
-    font-size: 1em;
+    font-size: 1.1em;
   }
 
   .texto_inferior-institucion {
@@ -26760,7 +26855,6 @@ label.error {
   }
 
   .texto_tiempo-institucion {
-    font-size: 1.8em;
     margin: 1% 0;
   }
 
@@ -26769,11 +26863,11 @@ label.error {
   }
 
   .boton_collapse-off-institucion {
-    background-size: 3% !important;
+    background-size: 2.5% !important;
   }
 
   .boton_collapse-on-institucion {
-    background-size: 3%;
+    background-size: 2.5%;
   }
 
   .texto_inferior-institucion {
@@ -29436,6 +29530,30 @@ label.error {
   width: 10%;
 }
 
+.content_terminos_contac {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.check_terminos_contac {
+  width: 3%;
+  height: 2vh;
+}
+
+.txt_terminos_contac {
+  margin-left: 2%;
+  margin-bottom: 0;
+  font-size: 0.85em;
+  color: #434142;
+}
+
+.txt_terminos_contac a {
+  color: #434142 !important;
+  font-weight: bold !important;
+  text-decoration: underline !important;
+}
+
 @media (min-width: 320px) and (orientation: portrait) {
   .imagen_bannerPrin-contac {
     height: 18vh;
@@ -29543,6 +29661,32 @@ label.error {
   .flecha_envio-contac {
     width: 9%;
   }
+
+  .content_terminos_contac {
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  .check_terminos_contac {
+    width: 7%;
+    height: 2vh;
+  }
+
+  .txt_terminos_contac {
+    font-size: 0.7em;
+    font-weight: bold;
+    text-align: initial;
+    line-height: 1.5;
+    padding-left: 3%;
+    margin: 0;
+  }
+
+  .txt_terminos_contac a {
+    color: #434142 !important;
+    font-weight: bold !important;
+    text-decoration: underline !important;
+  }
 }
 @media (min-width: 360px) and (orientation: portrait) {
   .title_banner_contac {
@@ -29611,13 +29755,13 @@ label.error {
   }
 
   .icon_ubicacion-contac {
-    width: 43%;
+    width: 44%;
     padding-right: 0;
     padding-left: 7%;
   }
 
   .icon_telefono-contac {
-    width: 20%;
+    width: 19%;
     padding-right: 0;
     padding-left: 7%;
     margin: 0;
@@ -29680,6 +29824,16 @@ label.error {
 
   .flecha_envio-contac {
     width: 12%;
+  }
+
+  .txt_terminos_contac {
+    font-size: 1em;
+    padding-left: 2%;
+  }
+
+  .check_terminos_contac {
+    width: 4%;
+    height: 1.2vh;
   }
 }
 @media (min-width: 1024px) {
@@ -29829,6 +29983,10 @@ label.error {
   .flecha_envio-contac {
     width: 11%;
   }
+
+  .txt_terminos_contac {
+    font-size: 1em;
+  }
 }
 @media (min-width: 1920px) {
   .imagen_bannerPrin-contac {
@@ -29881,6 +30039,20 @@ label.error {
 
   .flecha_envio-contac {
     width: 8%;
+  }
+
+  .txt_terminos_contac {
+    margin-left: 1%;
+    font-size: 1.25em;
+  }
+
+  .check_terminos_contac {
+    width: 2%;
+    height: 2vh;
+  }
+
+  .btn_enviar-contac {
+    margin-top: 4%;
   }
 }
 .contain_principal101 {
@@ -30322,6 +30494,7 @@ label.error {
 }
 .panel-Administrativo {
   background: #F9F9F9;
+  padding: 7% 3%;
 }
 
 #sidebar.active .sidebar-wrapper {
@@ -30486,4 +30659,180 @@ label.error {
   border: 1px solid #019f86;
   box-shadow: 0px 3px 7px #00000029;
   border-radius: 5px;
+}
+
+.section_cabecera_citas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5%;
+}
+
+.btn_agendar_cita {
+  font-family: "Quicksand";
+  font-size: 1.5em;
+  color: #ffffff;
+  background: #0083D6;
+  border: none;
+  border-radius: 3px;
+  height: calc(1em + 0.75rem + 2px);
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flecha_btn_agendar {
+  width: 11%;
+  margin-left: 5%;
+}
+
+.table_citas th, .table_citas td {
+  vertical-align: middle;
+  border-top: 1px solid #dee2e6;
+  white-space: nowrap;
+  padding: 1.2em;
+  padding-left: 0;
+}
+
+.table_citas thead th {
+  border-bottom: none;
+  padding: 1.2em;
+  padding-left: 0;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: "Quicksand";
+}
+
+.table_citas tbody td {
+  padding: 1.2em;
+  padding-left: 0;
+  font-size: 0.9em;
+  font-family: "Roboto";
+}
+
+.table_citas th {
+  padding: 0.75rem;
+  vertical-align: middle;
+  border-top: none;
+  font-size: 1em;
+  font-family: "Quicksand";
+}
+
+.btn_editar_citas {
+  border: none;
+  background: transparent;
+  background-image: url("/img/iconos/icono-editar-misCitas.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 3vh;
+  width: 55%;
+  padding: 0.5em;
+  margin-right: 20%;
+}
+
+.btn_cierre_citas {
+  border: none;
+  background: transparent;
+  background-image: url("/img/iconos/icono-cierre-misCitas.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 3vh;
+  width: 55%;
+  padding: 0.5em;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.35em 0.65em;
+  font-size: 0.9em;
+  font-weight: 500;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  width: 100%;
+}
+
+.section_btnAgendar-popup {
+  font-family: "Quicksand";
+  font-size: 1.3em;
+  color: #ffffff;
+  background: #0083D6;
+  border: none;
+  border-radius: 3px;
+  height: calc(1.6em + 0.75rem + 2px);
+  width: 28%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.btnAgendar-popup {
+  font-family: "Quicksand";
+  font-size: 1.3em;
+  color: #ffffff;
+  background: #0083D6;
+  border: none;
+  border-radius: 3px;
+  height: calc(1.6em + 0.75rem + 2px);
+  width: 28%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+@media (min-width: 320px) and (orientation: portrait) {
+  .title_miCita {
+    font-size: 1.4em;
+    font-family: "Quicksand";
+    color: #0083D6;
+    margin: 0;
+  }
+
+  .subtitle_miCita {
+    font-size: 0.9em;
+    font-family: "Roboto";
+    color: #3E3E3E;
+  }
+
+  .btn_agendar_cita {
+    font-size: 0.75em;
+    width: 37%;
+  }
+
+  .flecha_btn_agendar {
+    width: 10%;
+    margin-left: 5%;
+  }
+
+  .section_btnAgendar-popup {
+    font-size: 0.8em;
+    width: 27%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btnAgendar-popup {
+    font-size: 0.8em;
+    width: 27%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .btnCancelar-popup {
+    font-size: 0.8em;
+    width: 27%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
 }

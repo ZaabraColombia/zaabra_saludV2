@@ -23,11 +23,11 @@ class especialidadesController extends Controller
         $objbannerssecundarioEspecialidades = $this->cargarBannerSecundarioEspecialidades();
         $objcarruselespecialidades = $this->cargarCarruselEspecialidades();
         return view('profesionales.Especialidades-Medicas', compact(
-            'objnombreProfesion',
-            'objbannersprincipalEspecialidades',
-            'objEspecialidades',
-            'objbannerssecundarioEspecialidades',
-            'objcarruselespecialidades'
+        'objnombreProfesion',
+        'objbannersprincipalEspecialidades',
+        'objEspecialidades',
+        'objbannerssecundarioEspecialidades',
+        'objcarruselespecialidades'
         ));
     }
     /*Carga nombre  profesion*/

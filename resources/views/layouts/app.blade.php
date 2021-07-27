@@ -70,8 +70,8 @@
     
     </body>
 
-   <!--/////    MODAL POPUP DE PAGO de las tarjetas de membresia de las vistas "membresiaProfesional" y "membresiaInstitucion". Estilos ubicados en la vista "popup-pagos.scss"  /////-->
-   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!--/////    MODAL POPUP DE PAGO de las tarjetas de membresia de las vistas "membresiaProfesional" y "membresiaInstitucion". Estilos ubicados en la vista "popup-pagos.scss"  /////-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal_dialog-popup" role="document">
             <div class="modal-content modal_content-popup">
                 <!-- Sección boton derecho de cierre "X" -->
