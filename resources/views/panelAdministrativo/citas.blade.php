@@ -16,7 +16,7 @@
 
                 <div class="card">
                     <div class="card-content">
-                        <div class="card-body pt-0">
+                        <div class="card-body py-0">
                             <!-- Table with outer spacing -->
                             <div class="table-responsive">
                                 <table class="table table_citas table-lg">
@@ -39,8 +39,8 @@
                                                 <span class="badge bg-success">Confirmada</span>
                                             </td>
                                             <td>
-                                                <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
-                                                <button class="btn_cierre_citas" type="submit"></button>
+                                            <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
+                                                <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
                                             </td>
                                         </tr>
                                         <tr>
@@ -52,8 +52,34 @@
                                                 <span class="badge bg-danger">Cancelada</span>
                                             </td>
                                             <td>
-                                                <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
-                                                <button class="btn_cierre_citas" type="submit"></button>
+                                            <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
+                                                <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>25/05/2021</td>
+                                            <td>10:00 a.m.</td>
+                                            <td>Presencial</td>
+                                            <td>Juan Hernández</td>
+                                            <td>
+                                                <span class="badge bg-success">Confirmada</span>
+                                            </td>
+                                            <td>
+                                            <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
+                                                <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>25/05/2021</td>
+                                            <td>10:00 a.m.</td>
+                                            <td>Presencial</td>
+                                            <td>Juan Hernández</td>
+                                            <td>
+                                                <span class="badge bg-danger">Cancelada</span>
+                                            </td>
+                                            <td>
+                                            <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
+                                                <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
                                             </td>
                                         </tr>
                                         <tr>
@@ -66,33 +92,7 @@
                                             </td>
                                             <td>
                                                 <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
-                                                <button class="btn_cierre_citas" type="submit"></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>25/05/2021</td>
-                                            <td>10:00 a.m.</td>
-                                            <td>Presencial</td>
-                                            <td>Juan Hernández</td>
-                                            <td>
-                                                <span class="badge bg-danger">Cancelada</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
-                                                <button class="btn_cierre_citas" type="submit"></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>25/05/2021</td>
-                                            <td>10:00 a.m.</td>
-                                            <td>Presencial</td>
-                                            <td>Juan Hernández</td>
-                                            <td>
-                                                <span class="badge bg-success">Confirmada</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
-                                                <button class="btn_cierre_citas" type="submit"></button>
+                                                <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -105,20 +105,20 @@
         </div>
     </section>
 
-
+    <!-- Pop-up  editar cita -->
     <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal_dialog-popup" role="document">
-            <div class="modal-content modal_content-popup">
+            <div class="modal-content content_modalCitas">
                 <!-- Sección boton derecho de cierre "X" -->
-                <div class="modal-header p-0">
-                    <h1 class="modal-title titulo_principal-popup" id="exampleModalLabel">Editar cita</h1>
+                <div class="modal-header modal_headerCitas">
+                    <h1 class="title_popup_miCita" id="exampleModalLabel">Editar cita</h1>
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
-                <div class="modal-body p-0">
+                <div class="modal-body modal_headerCitas">
                     <div class="col-md-6 section_inputRight-text-formProf">
                         <label for="example-date-input" class="col-12 text_label-formProf">Especialidad</label>
                         <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control" required></select>
@@ -161,16 +161,62 @@
                         <label for="example-date-input" class="col-12 text_label-formProf">Sede</label>
                         <select name="id_municipio" id="id_municipio" class="form-control" required></select>
                     </div>
+                </div>
 
-                    <!-- Sección botón Pagar -->
-                    <div class="modal-footer section_btn_citas">
-                        <button type="submit" class="btnAgendar-popup" id="">Guardar
-                            <!-- <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_pagar-popup" alt="">  -->
-                        </button>
-                        <button type="submit" class="btnCancelar-popup" id="">Cancelar
-                            <!-- <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_pagar-popup" alt="">  -->
-                        </button>
-                    </div>
+                <!-- Sección botón Pagar -->
+                <div class="modal-footer section_btn_citas">
+                    <button type="submit" class="btnAgendar-popup" id="">Guardar
+                        <!-- <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_pagar-popup" alt="">  -->
+                    </button>
+                    <button type="submit" class="btnCancelar-popup" id="">Cancelar
+                        <!-- <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_pagar-popup" alt="">  -->
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up cancelar cita -->
+    <div class="modal fade modalA" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal_dialog-popup" role="document">
+            <div class="modal-content content_citaCancela">
+                <!-- Sección boton derecho de cierre "X" -->
+                <div class="modal-header modal_cancelarCitas">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body modal_cancelarCitas">
+                    <h1 class="title_cancelar_miCita" id="exampleModalLabel2">¿Está seguro de cancelar cita?</h1>
+                </div>
+
+                <!-- Sección botón Pagar -->
+                <div class="modal-footer section_cancelar_citas">
+                    <button type="submit" class="btn_cancela-cita" id="" data-toggle="modal" data-target="#exampleModal3" onclick="elementClose(this)" data-position="cancelo">Sí, cancelar cita
+                        <!-- <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_pagar-popup" alt="">  -->
+                    </button>
+                    <button type="submit" class="btn_noCancela-cita" id="">No cancelar
+                        <!-- <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_pagar-popup" alt="">  -->
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up cancelar cita -->
+    <div class="modal fade modalB" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+        <div class="modal-dialog modal-lg container_modal_cancelo" role="document">
+            <div class="modal-content content_citaCancela">
+                <!-- Sección boton derecho de cierre "X" -->
+                <div class="modal-header modal_cancelarCitas">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body modal_cancelarCitas">
+                    <h1 class="title_cancelar_miCita" id="exampleModalLabel3">Cita cancelada.</h1>
                 </div>
             </div>
         </div>
