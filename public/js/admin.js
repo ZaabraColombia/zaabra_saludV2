@@ -28,6 +28,18 @@ window.addEventListener('resize', (event) => {
     }
 });
 
-
+// Funcion para ocultar y mostrar elementos en la vista CONTACTOS
+function elementClose (z){
+    let myvar = z.getAttribute('data-position');
+    
+    let selector = document.querySelector.bind(document);
+    // Condicional para el registro de usuario rol Paciente
+    if (myvar == "cancelo") {
+        selector(".modalB").style.display = "block";
+        selector(".modalA").style.display = "none";
+        //document.getElementById('exampleModal2').classList.remove('modal-backdrop .fade .show');
+        jQuery(".modal-backdrop.show").css("display","none"); 
+    }
+}
 
 

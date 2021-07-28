@@ -30661,6 +30661,25 @@ label.error {
   border-radius: 5px;
 }
 
+.text-muted {
+  color: #232323 !important;
+  font-family: "Quicksand";
+  font-weight: 500;
+}
+
+.target-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.target-panel img {
+  width: 100%;
+}
+
 .section_cabecera_citas {
   display: flex;
   justify-content: space-between;
@@ -30674,7 +30693,7 @@ label.error {
   color: #ffffff;
   background: #0083D6;
   border: none;
-  border-radius: 3px;
+  border-radius: 2px;
   height: calc(1em + 0.75rem + 2px);
   width: 30%;
   display: flex;
@@ -30759,7 +30778,7 @@ label.error {
 .section_btn_citas {
   display: flex;
   justify-content: flex-end;
-  margin-top: 10%;
+  margin-top: 2%;
 }
 
 .btnAgendar-popup {
@@ -30768,12 +30787,13 @@ label.error {
   color: #ffffff;
   background: #0083D6;
   border: none;
-  border-radius: 3px;
+  border-radius: 2px;
   height: calc(1.6em + 0.75rem + 2px);
   width: 28%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
   margin-right: 5%;
 }
 
@@ -30783,12 +30803,95 @@ label.error {
   color: #3E3E3E;
   background: #ffffff;
   border: solid 1px #3E3E3E;
-  border-radius: 3px;
+  border-radius: 2px;
   height: calc(1.6em + 0.75rem + 2px);
   width: 28%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
+}
+
+.content_modalCitas {
+  border: none;
+  border-radius: 5px;
+  width: 75%;
+  background: linear-gradient(180deg, white 100%, #e7e2e2 50%, #cccbcb 100%);
+  margin: auto;
+  padding: 0;
+}
+
+.content_citaCancela {
+  border: none;
+  border-radius: 5px;
+  width: 75%;
+  background: linear-gradient(180deg, white 100%, #e7e2e2 50%, #cccbcb 100%);
+  margin: auto;
+  padding: 0;
+}
+
+.modal_headerCitas {
+  padding: 4% 5%;
+}
+
+.title_popup_miCita {
+  color: #232323;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+  text-transform: none;
+  margin: 0;
+}
+
+.section_cancelar_citas {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  border-top: none;
+  padding: 4% 3% 6% 3%;
+}
+
+.modal_cancelarCitas {
+  padding: 4% 5%;
+  border-bottom: none;
+}
+
+.title_cancelar_miCita {
+  color: #232323;
+  font-size: 1.3em;
+  text-align: center;
+  text-transform: none;
+  margin: 0;
+}
+
+.btn_cancela-cita {
+  font-family: "Quicksand";
+  font-size: 1.3em;
+  color: #3E3E3E;
+  background: #ffffff;
+  border: solid 1px #3E3E3E;
+  border-radius: 2px;
+  height: calc(1.6em + 0.75rem + 2px);
+  width: 28%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.btn_noCancela-cita {
+  font-family: "Quicksand";
+  font-size: 1.3em;
+  color: #ffffff;
+  background: #0083D6;
+  border: none;
+  border-radius: 2px;
+  height: calc(1.6em + 0.75rem + 2px);
+  width: 28%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
@@ -30825,7 +30928,7 @@ label.error {
 
   .btnAgendar-popup {
     font-size: 0.8em;
-    width: 27%;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30833,9 +30936,92 @@ label.error {
 
   .btnCancelar-popup {
     font-size: 0.8em;
-    width: 27%;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .content_modalCitas {
+    width: 80%;
+  }
+
+  .title_popup_miCita {
+    font-size: 1.2em;
+  }
+
+  .title_cancelar_miCita {
+    font-size: 1.2em;
+  }
+
+  .btn_cancela-cita {
+    font-size: 0.8em;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn_noCancela-cita {
+    font-size: 0.8em;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal_canceloCita {
+    background: #43434340;
+    height: inherit;
+    margin: 0;
+    display: flex;
+  }
+
+  .container_modal_cancelo {
+    background: #43434340;
+    height: inherit;
+    margin: 0;
+    display: flex;
+  }
+
+  .content_citaCancela {
+    width: 80%;
+    margin-top: 45%;
+  }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+  .panel-Administrativo {
+    padding: 7% 8%;
+  }
+
+  .title_miCita {
+    font-size: 1.8em;
+    font-family: "Quicksand";
+    color: #0083D6;
+    margin: 0;
+  }
+
+  .subtitle_miCita {
+    font-size: 1em;
+    font-family: "Roboto";
+    color: #3E3E3E;
+  }
+
+  .btn_agendar_cita {
+    font-family: "Quicksand";
+    font-size: 1em;
+    color: #ffffff;
+    background: #0083D6;
+    border: none;
+    border-radius: 2px;
+    height: calc(1em + 0.75rem + 2px);
+    width: 23%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .badge {
+    padding: 0.5em 0.65em;
   }
 }
