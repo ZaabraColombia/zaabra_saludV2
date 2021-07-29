@@ -14,86 +14,110 @@
                     </button>
                 </div>
 
-                <div class="card">
+                <div class="card container_citas">
                     <div class="card-content">
                         <div class="card-body py-0">
                             <!-- Table with outer spacing -->
                             <div class="table-responsive">
-                                <table class="table table_citas table-lg">
+                                <table class="table table-lg table_citas">
                                     <thead>
                                         <tr>
                                             <th>Fecha</th>
                                             <th>Hora</th>
+                                            <th>Dirección</th>
+                                            <th>Ciudad</th>
                                             <th>Tipo de cita</th>
-                                            <th>Paciente</th>
+                                            <th>Especialidad</th>
+                                            <th>Institución</th>
                                             <th>Estado</th>
+                                            <th>Especialista</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>25/05/2021</td>
                                             <td>10:00 a.m.</td>
+                                            <td>Cra 14 No 93B - 15</td>
+                                            <td>Bogotá</td>
                                             <td>Presencial</td>
-                                            <td>Juan Hernández</td>
+                                            <td>Traumatología</td>
+                                            <td>Clinica Reina Sofia</td>
                                             <td>
                                                 <span class="badge bg-success">Confirmada</span>
                                             </td>
-                                            <td>
+                                            <td>Sergio Santa María</td>
+                                            <!-- <td>
                                             <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
                                                 <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                         <tr>
                                             <td>25/05/2021</td>
                                             <td>10:00 a.m.</td>
+                                            <td>Cra 14 No 93B - 15</td>
+                                            <td>Bogotá</td>
                                             <td>Presencial</td>
-                                            <td>Juan Hernández</td>
+                                            <td>Traumatología</td>
+                                            <td>Clinica Reina Sofia</td>
                                             <td>
                                                 <span class="badge bg-danger">Cancelada</span>
                                             </td>
-                                            <td>
+                                            <td>Sergio Santa María</td>
+                                            <!-- <td>
                                             <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
                                                 <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                         <tr>
                                             <td>25/05/2021</td>
                                             <td>10:00 a.m.</td>
+                                            <td>Cra 14 No 93B - 15</td>
+                                            <td>Bogotá</td>
                                             <td>Presencial</td>
-                                            <td>Juan Hernández</td>
+                                            <td>Traumatología</td>
+                                            <td>Clinica Reina Sofia</td>
                                             <td>
                                                 <span class="badge bg-success">Confirmada</span>
                                             </td>
-                                            <td>
+                                            <td>Sergio Santa María</td>
+                                            <!-- <td>
                                             <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
                                                 <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                         <tr>
                                             <td>25/05/2021</td>
                                             <td>10:00 a.m.</td>
+                                            <td>Cra 14 No 93B - 15</td>
+                                            <td>Bogotá</td>
                                             <td>Presencial</td>
-                                            <td>Juan Hernández</td>
+                                            <td>Traumatología</td>
+                                            <td>Clinica Reina Sofia</td>
                                             <td>
                                                 <span class="badge bg-danger">Cancelada</span>
                                             </td>
-                                            <td>
+                                            <td>Sergio Santa María</td>
+                                            <!-- <td>
                                             <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
                                                 <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                         <tr>
                                             <td>25/05/2021</td>
                                             <td>10:00 a.m.</td>
+                                            <td>Cra 14 No 93B - 15</td>
+                                            <td>Bogotá</td>
                                             <td>Presencial</td>
-                                            <td>Juan Hernández</td>
+                                            <td>Traumatología</td>
+                                            <td>Clinica Reina Sofia</td>
                                             <td>
                                                 <span class="badge bg-success">Confirmada</span>
                                             </td>
-                                            <td>
+                                            <td>Sergio Santa María</td>
+                                            <!-- <td>
                                                 <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
                                                 <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                     </tbody>
                                 </table>
