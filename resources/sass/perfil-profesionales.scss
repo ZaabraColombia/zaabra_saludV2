@@ -1520,6 +1520,10 @@
         width: 4%;
         height: 25px;
     }
+    .section_data_consulta {
+        width: 100%;
+        height: 20vh;
+    }    
     .section_data_consulta h2{
         font-size: 1.8em;
     }
@@ -1538,8 +1542,8 @@
         margin-left: 35px;
     }
     .data_consulta .contains_buttons{
-        width: 80%;
-        height: 16%;
+        width: 75%;
+        height: 20%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -1547,7 +1551,7 @@
         font-size: 1.4em;
     }
     .data_consulta .contains_buttons i {
-        width: 35px !important;
+        width: 15px !important;
         height: 100% !important;
         display: flex;
         align-items: center;
@@ -1581,6 +1585,7 @@
     .contains_swiper_profesional h1 {
         font-size: 2.2em;
         margin-top: 7%;
+        margin-bottom: 6%;
     }
     .item_landing {
         height: 120px;
@@ -1592,9 +1597,6 @@
         margin-top: 5%;
         font-size: 1.05em;
         max-width: 65%;
-    }
-    .landingProf{
-        padding-bottom: 5%;
     }
     .item_landing span {
         margin-top: 120px;
@@ -1759,6 +1761,18 @@
     .swiper_premios p {
         font-size: 1em;
     }
+    .contains_swiper_premios .btn-prev {
+        width: 15px;
+        height: 25px;
+        left: 20%;
+        margin-top: -40%;
+    }
+    .contains_swiper_premios .btn-next {
+        width: 15px;
+        height: 25px;
+        right: 20%;
+        margin-top: -40%;
+    }
     .swiper_galeria_prof {
         margin-top: 5%;
         width: 45%;
@@ -1822,15 +1836,15 @@
     }
     .galeria_profesional .btn-prev {
         width: 15px;
-        height: 20px;
-        left: 15%;
+        height: 25px;
+        left: 20%;
         color: #0083D6;
         margin-top: -20%;
     }
     .galeria_profesional .btn-next {
         width: 15px;
-        height: 20px;
-        right: 15%;
+        height: 25px;
+        right: 20%;
         color: #0083D6;
         margin-top: -20%;
     }
@@ -1843,6 +1857,7 @@
     }
     .videos_profesional .card{
         width: 51%;
+        margin-bottom: 5%;
     }
     .videos_profesional .container_cards{
         display: flex;
@@ -2034,9 +2049,6 @@
     .contains_swiper_premios h2{
         width: 80%;
     }
-    .swiper_premios {
-        max-width: 35%;
-    }
     .publicaciones_profesional .card {
         width: 55%;
     }
@@ -2048,9 +2060,6 @@
     }
     .galeria_profesional ul {
         max-width: 70%;
-    }
-    .galeria_profesional {
-        height: 35vh;
     }
     .videos_profesional .card .card-img-top {
         height: 30vh;
@@ -2119,7 +2128,7 @@
         align-items: flex-start;
     }
     .data_profesionales .title-adress {
-        width: 80%;
+        width: 85%;
         font-weight: 500;
     }
     .data_profesionales h2 {
@@ -2252,7 +2261,8 @@
         font-weight: 500;
     }
     .swiper_premios {
-        max-width: 75%;
+        width: 75%;
+        height: 55%;
     }
     .contains_swiper_premios h2{
         margin-bottom: 4%;
@@ -2266,9 +2276,21 @@
     .swiper_premios p {
         font-size: 0.9em;
     }
+    .contains_swiper_premios .btn-prev {
+        width: 15px;
+        height: 25px;
+        left: 10%;
+        margin-top: -30%;
+    }
+    .contains_swiper_premios .btn-next {
+        width: 15px;
+        height: 25px;
+        right: 10%;
+        margin-top: -30%;
+    }
     .publicaciones_profesional .card {
         width: 40%;
-        margin-bottom: 0;
+        margin-bottom: 5%;
     }
     .publicaciones_profesional .card-body h5 {
         font-size: 1.3em;
@@ -2279,13 +2301,24 @@
         font-weight: 500;
         text-align: left;
     }
-    .galeria_profesional {
-        height: 55vh;
-    }
     .swiper_galeria_prof {
         margin-top: 5%;
         width: 80%;
         height: 85%;
+    }
+    .galeria_profesional .btn-prev {
+        width: 15px;
+        height: 25px;
+        left: 5%;
+        color: #0083D6;
+        margin-top: -15%;
+    }
+    .galeria_profesional .btn-next {
+        width: 15px;
+        height: 25px;
+        right: 5%;
+        color: #0083D6;
+        margin-top: -15%;
     }
     .videos_profesional .card {
         width: 30%;
@@ -2515,9 +2548,6 @@
         font-size: 1em;
         font-weight: 500;
         text-align: left;
-    }
-    .galeria_profesional {
-        height: 55vh;
     }
     .videos_profesional .card {
         width: 30%;

@@ -1,25 +1,39 @@
-//Sección títuo y boton mis citas
+//SECCIÓN MIS CITAS
+.container_citas {
+    box-shadow: 0px 2px 5px -2px rgb(0 0 0 / 25%);
+}
 .section_cabecera_citas {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 5%;
 }
+.title_miCita {
+    font-size: 2em;
+    font-family: 'Quicksand';
+    color: #0083D6;
+    margin: 0;
+}
+.subtitle_miCita {
+    font-size: 1.2em;
+    font-family: 'Roboto';
+    color: #3E3E3E;
+}
 .btn_agendar_cita {
     font-family: "Quicksand";
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: #ffffff;
     background: #0083D6;
     border: none;
-    border-radius: 2px;
-    height: calc(1em + 0.75rem + 2px);
-    width: 30%;
+    border-radius: 4px;
+    height: calc(1em + 1em + 2px);
+    width: 23%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .flecha_btn_agendar {
-    width: 11%;
+    width: 9%;
     margin-left: 5%;
 }
 .table_citas th, .table_citas td {
@@ -84,7 +98,33 @@
     border-radius: .25rem;
     width: 100%;
 }
-//pop up
+//-------------------------------
+// SECCIÓN PAGOS
+.container_pagos {
+    box-shadow: 0px 2px 5px -2px rgb(0 0 0 / 25%);
+}
+.content_btn_descargar {
+    width: 12%;
+}
+.btn_descargar_pago {
+    font-family: "Quicksand";
+    font-size: 1em;
+    color: #ffffff;
+    background: #0083D6;
+    border: none;
+    border-radius: 4px;
+    height: calc(1em + 1em + 2px);
+    width: 13vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon_descargar {
+    width: 10%;
+    margin-left: 10%;
+}
+//-------------------------------
+//pop up's
 .section_btn_citas {
     display: flex;
     justify-content: flex-end;
@@ -215,7 +255,17 @@
         margin-left: 5%;
     }
     //-------------------------------
-    // Pop Up
+    //SECCIÓN PAGOS
+    .btn_descargar_pago {
+        font-size: .75em;
+        width: 30vw;
+    }
+    .icon_descargar {
+        width: 12%;
+        margin-left: 8%;
+    }
+    //-------------------------------
+    // Pop Up's
     .section_btnAgendar-popup {
         font-size: 0.8em;
         width: 27%;
@@ -278,9 +328,6 @@
     }
 }
 @media (min-width: 768px) and (orientation: portrait) {
-    .panel-Administrativo {
-        padding: 7% 8%;
-    }
     .title_miCita {
         font-size: 1.8em;
         font-family: 'Quicksand';
@@ -292,20 +339,63 @@
         font-family: 'Roboto';
         color: #3E3E3E;
     }
-    .btn_agendar_cita {
-        font-family: "Quicksand";
-        font-size: 1em;
-        color: #ffffff;
-        background: #0083D6;
-        border: none;
-        border-radius: 2px;
-        height: calc(1em + 0.75rem + 2px);
-        width: 23%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
     .badge {
         padding: 0.5em 0.65em;
+    }
+    .btn_agendar_cita {
+        font-size: 1em;
+        height: calc(1em + 1em + 2px);
+        width: 23%;
+    }
+    //-------------------------------
+    //SECCIÓN PAGOS
+    .btn_descargar_pago {
+        font-size: .75em;
+        width: 13vw;
+    }
+    //-------------------------------
+}
+@media (min-width: 1200px) {
+    .btn_agendar_cita {
+        width: 20%;
+    }
+    //-------------------------------
+    //SECCIÓN PAGOS
+    .btn_descargar_pago {
+        width: 10vw;
+    }
+    //-------------------------------
+}
+@media (min-width: 1440px) {
+    .btn_agendar_cita {
+        width: 17%;
+    }
+    //-------------------------------
+    //SECCIÓN PAGOS
+
+    //-------------------------------
+}
+@media (min-width: 1920px) {
+    .btn_agendar_cita {
+        width: 13%;
+    }
+    //-------------------------------
+    //SECCIÓN PAGOS
+    .container_pagos {
+        width: 75%;
+    }
+    .btn_descargar_pago {
+        width: 8vw;
+    }
+    //-------------------------------
+    .badge {
+        width: 75%;
+        font-size: 1em;
+    }
+    .table_citas thead th {
+        font-size: 1.2em;
+    }
+    .table_citas tbody td {
+        font-size: 1em;
     }
 }
