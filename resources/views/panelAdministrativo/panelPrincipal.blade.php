@@ -1,7 +1,7 @@
 @extends('panelAdministrativo.panelAdministrativo')
 
 @section('Panel')
-    <div class="container">
+    <div class="container container_principal">
         <div class="row">
             @if(!empty($objListaUsuario4->isNotEmpty()))
                 @foreach($objListaUsuario4 as $objListaUsuario4)
