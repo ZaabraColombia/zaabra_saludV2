@@ -13,7 +13,7 @@
        || queryRuta.includes("error101") || queryRuta.includes("error403")
        || queryRuta.includes("error404") || queryRuta.includes("error505")
        || queryRuta.includes("FormularioProfesional") || queryRuta.includes("FormularioInstitucion")
-       || queryRuta.includes("citas")) {
+       || queryRuta.includes("citas") || queryRuta.includes("pagos")) {
        selector(".footer_newsletter").style.display = "none";
     }
 }();
