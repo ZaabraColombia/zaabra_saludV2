@@ -2522,7 +2522,7 @@
         font-weight: 500;
     }
     .swiper_premios {
-        max-width: 75%;
+        width: 95%;
     }
     .contains_swiper_premios h2{
         margin-bottom: 4%;
@@ -2536,8 +2536,39 @@
     .swiper_premios p {
         font-size: 0.9em;
     }
+    .swiper_galeria_prof {
+        margin-top: 5%;
+        width: 75%;
+        height: 90%;
+    }
+    .galeria_profesional .btn-next {
+        width: 15px;
+        height: 20px;
+        right: 8%;
+        color: #0083D6;
+        margin-top: -13%;
+    }
+    .galeria_profesional .btn-prev {
+        width: 15px;
+        height: 20px;
+        left: 8%;
+        color: #0083D6;
+        margin-top: -13%;
+    }
+    .contains_swiper_premios .btn-prev {
+        width: 15px;
+        height: 20px;
+        left: 10%;
+        margin-top: -23%;
+    }
+    .contains_swiper_premios .btn-next {
+        width: 15px;
+        height: 20px;
+        right: 10%;
+        margin-top: -23%;
+    }
     .publicaciones_profesional .card {
-        width: 40%;
+        width: 30%;
         margin-bottom: 0;
     }
     .publicaciones_profesional .card-body h5 {
@@ -2569,6 +2600,7 @@
         padding-left: 14%;
     }
 }
+
 @media (min-width: 1440px){
     .section_backArrow {
         top: 95px;
@@ -2592,8 +2624,19 @@
         padding-top: 3%;
     }
     .publicaciones_profesional .card {
-        width: 35%;
+        width: 30%;
         margin-bottom: 0;
+    }
+    .tratamientos_profesional 
+    .container_cards, 
+    .publicaciones_profesional 
+    .container_cards, 
+    .videos_profesional 
+    .container_cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-bottom: 5%;
     }
     .videos_profesional .card {
         width: 27%;
@@ -2605,8 +2648,6 @@
     .gallery_profesional > li > img {
         height: 180px;
     }
-
-
     .opinion_form-prof {
         width: 80%;
         margin: auto;
@@ -2649,6 +2690,40 @@
     .txt_verify-bottom {
         font-size: 1.5em;
         padding-left: 2.5%;
+    }
+    .swiper_premios{
+        height: 45%;
+    }
+    .contains_swiper_premios .btn-next {
+        width: 15px;
+        height: 20px;
+        right: 10%;
+        margin-top: -18%;
+    }
+    .contains_swiper_premios .btn-prev {
+        width: 15px;
+        height: 20px;
+        left: 10%;
+        margin-top: -18%;
+    }
+    .swiper_galeria_prof {
+        margin-top: 5%;
+        width: 70%;
+        height: 90%;
+    }
+    .galeria_profesional .btn-prev {
+        width: 15px;
+        height: 20px;
+        left: 10%;
+        color: #0083D6;
+        margin-top: -12%;
+    }
+    .galeria_profesional .btn-next {
+        width: 15px;
+        height: 20px;
+        right: 10%;
+        color: #0083D6;
+        margin-top: -12%;
     }
 }
 @media (min-width: 1600px){
@@ -2742,6 +2817,37 @@
     .tratamientos_profesional .card h4, h6 {
         font-size: 1.5em;
     }
+    .contains_swiper_premios .btn-prev {
+        width: 15px;
+        height: 20px;
+        left: 15%;
+        margin-top: -17%;
+    }
+    .contains_swiper_premios .btn-next {
+        width: 15px;
+        height: 20px;
+        right: 15%;
+        margin-top: -17%;
+    }
+    .swiper_galeria_prof {
+        margin-top: 5%;
+        width: 65%;
+        height: 90%;
+    }
+    .galeria_profesional .btn-prev {
+        width: 15px;
+        height: 20px;
+        left: 14%;
+        color: #0083D6;
+        margin-top: -10%;
+    }
+    .galeria_profesional .btn-next {
+        width: 15px;
+        height: 20px;
+        right: 14%;
+        color: #0083D6;
+        margin-top: -10%;
+    }
 }
 @media (min-width: 1920px){
     .section_backArrow {
@@ -2780,12 +2886,14 @@
         width: 22%;
         margin-bottom: 0;
     }
-    .tratamientos_profesional .card,
-    .publicaciones_profesional .card{
-        width: 22%;
+    .tratamientos_profesional .card{
+        width: 35%;
         margin-bottom: 0;
     }
-
+    .publicaciones_profesional .card{
+        width: 25%;
+        margin-bottom: 0;
+    }
     .opinion_form-prof {
         width: 75%;
         margin: auto;
@@ -2825,5 +2933,46 @@
     }
     .txt_verify-bottom {
         padding-left: 2%;
+    }
+    .swiper_premios {
+        max-width: 55%;
+    }
+    .galeria_profesional h2 {
+        width: 75%;
+    }
+    .swiper_galeria_prof {
+        margin-top: 5%;
+        width: 60%;
+        height: 90%;
+    }
+    .contains_swiper_premios .btn-prev {
+        width: 15px;
+        height: 20px;
+        left: 18%;
+        margin-top: -15%;
+    }
+    .contains_swiper_premios .btn-next {
+        width: 15px;
+        height: 20px;
+        right: 18%;
+        margin-top: -15%;
+    }
+    .galeria_profesional .btn-prev {
+        width: 15px;
+        height: 20px;
+        left: 16%;
+        color: #0083D6;
+        margin-top: -9%;
+    }
+    .galeria_profesional .btn-next {
+        width: 15px;
+        height: 20px;
+        right: 16%;
+        color: #0083D6;
+        margin-top: -9%;
+    }
+    .videos_profesional .container_cards{
+        width: 85%;
+        margin: auto;
     }
 }
