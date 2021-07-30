@@ -28,18 +28,15 @@ window.addEventListener('resize', (event) => {
     }
 });
 
-// Funcion para ocultar y mostrar elementos en la vista CONTACTOS
+// Función para ocultar y mostrar los pop-up de las tarjetas de la agenda los cuales se encuentran en la vista citas.blade.php
 function elementClose (z){
     let myvar = z.getAttribute('data-position');
     
     let selector = document.querySelector.bind(document);
-    // Condicional para el registro de usuario rol Paciente
+    // Condicional para la función del pop-up
     if (myvar == "cancelo") {
         selector(".modalB").style.display = "block";
         selector(".modalA").style.display = "none";
-        //document.getElementById('exampleModal2').classList.remove('modal-backdrop .fade .show');
         jQuery(".modal-backdrop.show").css("display","none"); 
     }
 }
-
-

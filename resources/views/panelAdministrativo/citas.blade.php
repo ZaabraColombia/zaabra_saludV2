@@ -46,10 +46,10 @@
                                                 <span class="badge bg-success">Confirmada</span>
                                             </td>
                                             <td>Sergio Santa María</td>
-                                            <!-- <td>
+                                            <td>
                                             <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
                                                 <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
-                                            </td> -->
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>25/05/2021</td>
@@ -143,17 +143,22 @@
                 </div>
 
                 <div class="modal-body modal_headerCitas">
-                    <div class="col-md-6 section_inputRight-text-formProf">
+                    <!-- <div class="col-md-6 section_inputRight-text-formProf">
                         <label for="example-date-input" class="col-12 text_label-formProf">Especialidad</label>
                         <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control" required></select>
-                    </div>
+                    </div> -->
 
-                    <div class="col-md-6 section_inputRight-text-formProf">
+                    <div class="col-md-6 p-0">
                         <label for="example-date-input" class="col-12 text_label-formProf">Estado</label>
-                        <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control" required></select>
+
+                        <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
+                            <option value="" selected> Seleccionar </option>
+                            <option value="Presencial"> Confirmada </option>
+                            <option value="Virtual"> Cancelada </option>
+                        </select>
                     </div>
 
-                    <div class="col-md-6 section_inputLeft-text-formProf">
+                    <div class="col-md-6 p-0">
                         <label for="example-date-input" class="col-12 text_label-formProf">Tipo consulta</label>
 
                         <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
@@ -164,37 +169,36 @@
                         </select>
                     </div>
 
-                    <div class="col-md-6 section_inputRight-text-formProf">
+                    <div class="col-md-6 p-0">
                         <label for="example-date-input" class="col-12 text_label-formProf">Fecha</label>
                     
                         <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
                     </div>
 
-                    <div class="col-md-6 section_inputRight-text-formProf">
+                    <div class="col-md-6 p-0">
                         <label for="example-date-input" class="col-12 text_label-formProf">Hora</label>
                     
                         <input class="form-control" type="time" value="" id="example-date-input" name="fechaestudio[]">
                     </div>
 
-                    <div class="col-md-6 section_inputLeft-text-formProf">
+                    <div class="col-md-6 p-0">
                         <label for="example-date-input" class="col-12 text_label-formProf">Ciudad</label>
-                        <select name="id_municipio" id="id_municipio" class="form-control" required></select>
+
+                        <input class="col-12 form-control" id="" placeholder="" type="text" name="" required>
                     </div>
 
-                    <div class="col-md-6 section_inputLeft-text-formProf">
+                    <div class="col-md-6 p-0">
                         <label for="example-date-input" class="col-12 text_label-formProf">Sede</label>
-                        <select name="id_municipio" id="id_municipio" class="form-control" required></select>
+
+                        <input class="col-12 form-control" id="" placeholder="" type="text" name="" required>
                     </div>
                 </div>
 
                 <!-- Sección botón Pagar -->
                 <div class="modal-footer section_btn_citas">
-                    <button type="submit" class="btnAgendar-popup" id="">Guardar
-                        <!-- <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_pagar-popup" alt="">  -->
-                    </button>
-                    <button type="submit" class="btnCancelar-popup" id="">Cancelar
-                        <!-- <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_pagar-popup" alt="">  -->
-                    </button>
+                    <button type="submit" class="btnAgendar-popup" id="">Guardar</button>
+
+                    <button type="submit" class="btnCancelar-popup" id="">Cancelar</button>
                 </div>
             </div>
         </div>
@@ -217,12 +221,10 @@
 
                 <!-- Sección botón Pagar -->
                 <div class="modal-footer section_cancelar_citas">
-                    <button type="submit" class="btn_cancela-cita" id="" data-toggle="modal" data-target="#exampleModal3" onclick="elementClose(this)" data-position="cancelo">Sí, cancelar cita
-                        <!-- <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_pagar-popup" alt="">  -->
-                    </button>
-                    <button type="submit" class="btn_noCancela-cita" id="">No cancelar
-                        <!-- <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_pagar-popup" alt="">  -->
-                    </button>
+                    <!-- Función onclick para mostrar el pop-up de cancelación y ocultar pop-up de opciones la cual esta implementada en admin.js -->
+                    <button type="submit" class="btn_cancela-cita" id="" data-toggle="modal" data-target="#exampleModal3" onclick="elementClose(this)" data-position="cancelo">Sí, cancelar cita</button>
+
+                    <button type="submit" class="btn_noCancela-cita" id="">No cancelar</button>
                 </div>
             </div>
         </div>
