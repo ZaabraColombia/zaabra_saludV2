@@ -64,6 +64,7 @@
         <script src="{{ asset('js/comentarios.js') }}"></script>
         <script src="{{ asset('js/filtroBusquedad.js') }}"></script>
         <script src="{{ asset('js/formularioProfesional.js') }}"></script>
+        <script src="{{ asset('js/favoritoEspecialidad.js') }}"></script>
      <!--js admin template-->
      <script src="{{ asset('fullCalendar/main.js') }}"></script>
      <script src="{{ asset('js/admin.js') }}"></script>

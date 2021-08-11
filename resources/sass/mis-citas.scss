@@ -36,6 +36,9 @@
     width: 9%;
     margin-left: 5%;
 }
+.section_tableCitas::-webkit-scrollbar {
+    display: none;
+}
 .table_citas th, .table_citas td {
     vertical-align: middle;
     border-top: 1px solid #dee2e6;
@@ -125,6 +128,9 @@
 }
 //-------------------------------
 //Estios de los Pop-up's cancelación de citas
+.modal_citas_popUp {
+    margin: 7% auto;
+}
 .section_btn_citas {
     display: flex;
     justify-content: flex-end;
@@ -132,7 +138,7 @@
 }
 .btnAgendar-popup {
     font-family: "Quicksand";
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: #ffffff;
     background: #0083D6;
     border: none;
@@ -147,7 +153,7 @@
 }
 .btnCancelar-popup {
     font-family: "Quicksand";
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: #3E3E3E;
     background: #ffffff;
     border: solid 1px #3E3E3E;
@@ -170,7 +176,7 @@
 .content_citaCancela {
     border: none;
     border-radius: 5px;
-    width: 75%;
+    width: 65%;
     background: linear-gradient(180deg, white 100%, #e7e2e2 50%, #cccbcb 100%);
     margin: auto;
     padding: 0;
@@ -180,7 +186,7 @@
 }
 .title_popup_miCita {
     color: #232323;
-    font-size: 1.3em;
+    font-size: 1.5em;
     font-weight: bold;
     text-align: center;
     text-transform: none;
@@ -193,26 +199,35 @@
     border-top: none;
     padding: 4% 3% 6% 3%;
 }
+.content_canceloCita {
+    border: none;
+    border-radius: 5px;
+    width: 55%;
+    background: linear-gradient(180deg, white 100%, #e7e2e2 50%, #cccbcb 100%);
+    margin: auto;
+    padding: 0;
+    margin-top: 15%;
+}
 .modal_cancelarCitas {
     padding: 4% 5%;
     border-bottom: none;
 }
 .title_cancelar_miCita {
     color: #232323;
-    font-size: 1.3em;
+    font-size: 1.2em;
     text-align: center;
     text-transform: none;
     margin: 0;
 }
 .btn_cancela-cita {
     font-family: "Quicksand";
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: #3E3E3E;
     background: #ffffff;
     border: solid 1px #3E3E3E;
     border-radius: 4px;
     height: calc(1.6em + 0.75rem + 2px);
-    width: 28%;
+    width: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -220,13 +235,13 @@
 }
 .btn_noCancela-cita {
     font-family: "Quicksand";
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: #ffffff;
     background: #0083D6;
     border: none;
     border-radius: 4px;
     height: calc(1.6em + 0.75rem + 2px);
-    width: 28%;
+    width: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -265,7 +280,10 @@
         margin-left: 8%;
     }
     //-------------------------------
-    // Pop Up's
+    //Estios de los Pop-up's cancelación de citas
+    .modal_citas_popUp {
+        margin: 18% auto;
+    }
     .section_btnAgendar-popup {
         font-size: 0.8em;
         width: 27%;
@@ -326,6 +344,10 @@
         width: 80%;
         margin-top: 45%;
     }
+    .content_canceloCita {
+        width: 80%;
+        margin-top: 45%;
+    }
 }
 @media (min-width: 768px) and (orientation: portrait) {
     .title_miCita {
@@ -354,6 +376,18 @@
         width: 13vw;
     }
     //-------------------------------
+    // Pop Up's
+    .modal_citas_popUp {
+        margin: 12% auto;
+    }
+    .container_modal_cancelo {
+        display: contents;
+    }
+    .content_canceloCita {
+        width: 45%;
+        margin-top: 30%;
+    }
+    //-------------------------------
 }
 @media (min-width: 1200px) {
     .btn_agendar_cita {
@@ -365,14 +399,24 @@
         width: 10vw;
     }
     //-------------------------------
+    //Estios de los Pop-up's cancelación de citas
+    .modal_citas_popUp {
+        margin: 5% auto;
+    }
+    //-------------------------------
 }
 @media (min-width: 1440px) {
+    .section_cabecera_citas {
+        width: 90%;
+    }
     .btn_agendar_cita {
         width: 17%;
     }
     //-------------------------------
-    //SECCIÓN PAGOS
-
+    //Estios de los Pop-up's cancelación de citas
+    .content_canceloCita {
+        margin-top: 18%;
+    }
     //-------------------------------
 }
 @media (min-width: 1920px) {
@@ -387,7 +431,6 @@
     .btn_descargar_pago {
         width: 8vw;
     }
-    //-------------------------------
     .badge {
         width: 75%;
         font-size: 1em;
@@ -398,4 +441,13 @@
     .table_citas tbody td {
         font-size: 1em;
     }
+    //-------------------------------
+    //Estios de los Pop-up's cancelación de citas
+    .modal_citas_popUp {
+        margin: 5% auto;
+    }
+    .content_canceloCita {
+        margin-top: 25%;
+    }
+    //-------------------------------
 }

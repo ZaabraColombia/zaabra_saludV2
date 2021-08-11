@@ -201,6 +201,8 @@ Route:: get('/calendario',[App\Http\Controllers\admin\adminCalendarioController:
 Route:: get('/pagos',[App\Http\Controllers\admin\adminPagosController::class,'index'])->name('pagos');
 Route:: get('/HistoriaClinica',[App\Http\Controllers\admin\adminHistoriaClinica::class,'index'])->name('HistoriaClinica');
 Route:: get('/servicios',[App\Http\Controllers\admin\adminController::class,'oscar2'])->name('servicios');
+Route:: get('/favoritosGeneral',[App\Http\Controllers\admin\adminFavoritosController::class,'index'])->name('favoritosGeneral');
+Route:: post('/favoritosGeneralSave',[App\Http\Controllers\admin\adminFavoritosController::class,'create'])->name('favoritosGeneralSave');
 
 /*-------------------------------------------------Pertenece a otras vistas-------------------------------------------------------------------------------*/
 /*Esta ruta direcciona a la vista de Acerca de Zaabra*/
