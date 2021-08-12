@@ -20,7 +20,7 @@
 
                         <form id="favorito_especialidad" class="d-none" method="post" action="javascript:void(0)" enctype="multipar/form-data" accept-charset="UTF-8">
                                 
-                            <div class="form-group" id="listas">
+                            <div class="form-group mt-3" id="listas">
                                 <input class="input_espFav"  placeholder="Especialidad favorita" type="text" name="nombre_favorito_especialidad" id="nombre_favorito_especialidad"  value="">
                             </div>
 
@@ -39,8 +39,8 @@
                         <div class="table-responsive section_tableCitas">    
                             <label for="example-date-input" class="text_label-formInst"> Ingrese especialidad </label>
                             
-                            <div class="form-group" id="listas">
-                                <input class="input_espFav" placeholder="Especialidad favorita" type="text" name="nombre_favorito_especialidad" id="nombre_favorito_especialidad"  value="">
+                            <div class="">
+                                <input class="form-group input_espFav" placeholder="Especialidad favorita" type="text" name="nombre_favorito_especialidad" id="nombre_favorito_especialidad"  value="">
                             </div>
                         </div>
 
@@ -54,7 +54,52 @@
         </div>
 
 
+        <div class="card main_card_favServ">
+            <div class="card-content"> 
+                <div class="card-body container_table_fav">
+                    <h2 class="subtitle2_fav icon2_especialidad_fav">Servicios</h2>
+                    @csrf
+                    @if(!empty($objFavoritoServicio))
+                        <div class="table_favoritos1 alto_predetServ" id="tabFav_serv">    
+                            @foreach($objFavoritoServicio as $objFavoritoServicio)
+                                <div class="celda_favorito"> {{$objFavoritoServicio->nombre_favorito_servicio}} </div>
+                            @endforeach
+                        </div>
 
+                        <form id="favorito_servicio" class="d-none" method="post" action="javascript:void(0)" enctype="multipar/form-data" accept-charset="UTF-8">
+                                    
+                            <div class="form-group mt-3">
+                                <input class="input_espFav"  placeholder="Especialidad favorita" type="text" name="nombre_favorito_servicio" id="nombre_favorito_servicio"  value="">
+                            </div>
+
+                            <div class="section_btn_fav">
+                                <button type="submit" class="btn_guardar_fav" id="guardar_data2">Guardar</button>
+                            </div>
+                        </form>
+
+                        <div class="section_verAdd_fav">
+                            <input class="btn_agregar_fav icono_agragar_fav" type="button" id="btnagregar_serv" value="Agregar más">
+                            <button class="text_vermas_fav" onclick="registerShow(this)" id="vermas_serv" data-position="mas_serv">Ver más</button>
+                            <button class="text_vermas_fav d-none" onclick="registerShow(this)" id="vermenos_serv" data-position="menos_serv">Ver menos</button>
+                        </div>
+                    @else
+                        <form id="favorito_servicio" method="post" action="javascript:void(0)" enctype="multipar/form-data" accept-charset="UTF-8">
+                            <div class="table-responsive section_tableCitas">    
+                                <label for="example-date-input" class="text_label-formInst"> Ingrese servicio </label>
+                                
+                                <div class="" id="">
+                                    <input class="form-group input_espFav" placeholder="Especialidad favorita" type="text" name="nombre_favorito_servicio" id="nombre_favorito_servicio"  value="">
+                                </div>
+                            </div>
+
+                            <div class="section_btn_fav">
+                                <button type="submit" class="btn_guardar_fav" id="guardar_data2">Guardar</button>
+                            </div>
+                        </form>    
+                    @endif
+                </div>
+            </div>
+        </div>
 
         <!-- <div class="card main_card_fav">
             <div class="card-content">
@@ -86,45 +131,5 @@
     </div>
 
 
-
-
-
-
-
-
-    <!-- Pop-up  editar cita -->
-    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal_citas_popUp" role="document">
-            <div class="modal-content content_modalCitas">
-                <!-- Sección boton derecho de cierre "X" -->
-                <div class="modal-header modal_headerCitas">
-                    <h1 class="title_popup_miCita" id="exampleModalLabel">Favoritos especialidades</h1>
-
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body modal_headerCitas">
-                    <form id="favorito_especialidad" method="post" action="javascript:void(0)" enctype="multipar/form-data" accept-charset="UTF-8">
-                        <div class="alert alert-success d-none" id="msg_info">
-                            <span id="message_info">Su información se guardó correctamente</span>
-                        </div>
-                            <div class="col-md-6 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione especialidad </label>
-
-                                <input type="text" data-role="tagsinput" name="nombre_favorito_especialidad" id="nombre_favorito_especialidad" class="col-lg-12 form-control">
-                            </div>
-
-                            <div class="modal-footer section_btn_citas">
-                                <button type="submit" class="btnAgendar-popup" id="guardar_data">Guardar</button>
-
-                                <!-- <button type="submit" class="btnCancelar-popup" id="">Cancelar</button> -->
-                            </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
 @endsection
