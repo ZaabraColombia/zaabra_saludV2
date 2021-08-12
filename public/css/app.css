@@ -31513,6 +31513,16 @@ label.error {
 }
 .main_card_fav {
   width: 48%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.main_card_favServ {
+  width: 48%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .titulo_principal_fav {
@@ -31664,10 +31674,17 @@ label.error {
   height: 15vh;
 }
 
+.alto_predetServ {
+  height: 15vh;
+}
+
 @media (min-width: 320px) and (orientation: portrait) {
   .main_card_fav {
     width: 100%;
     margin-top: 5%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
 
   .titulo_principal_fav {
@@ -31703,8 +31720,20 @@ label.error {
     font-size: 0.9em;
   }
 
+  .btn_guardar_fav {
+    font-size: 1em;
+  }
+
   .text_vermas_fav {
     font-size: 0.9em;
+  }
+
+  .main_card_favServ {
+    width: 100%;
+    margin-top: 5%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
 }
 @media (min-width: 360px) and (orientation: portrait) {
@@ -31719,6 +31748,9 @@ label.error {
 @media (min-width: 768px) and (orientation: portrait) {
   .main_card_fav {
     width: 48%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
 
   .container_principal_fav {
@@ -31747,8 +31779,19 @@ label.error {
     height: 6vh;
   }
 
+  .alto_predetServ {
+    height: 6vh;
+  }
+
   .btn_agregar_fav {
     width: 32%;
+  }
+
+  .main_card_favServ {
+    width: 48%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
 }
 @media (min-width: 1024px) {
@@ -31823,6 +31866,10 @@ label.error {
   }
 
   .alto_predet {
+    height: 9vh;
+  }
+
+  .alto_predetServ {
     height: 9vh;
   }
 }
