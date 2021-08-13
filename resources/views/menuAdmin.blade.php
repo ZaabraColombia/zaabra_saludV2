@@ -3,7 +3,9 @@
         <div class="sidebar-wrapper active ps ps--active-y">
             <div class="sidebar-menu">
                 <ul class="menu">
+                    <a href="{{ url('/panelPrincipal') }}" class="">
                     <li class="sidebar-title">Menu</li>
+                    </a>
                     @if(!empty($objListaUsuario1->isNotEmpty()))
                         <li class="sidebar-item  has-sub">
                             <!-- <a href="#" class="sidebar-link"> -->

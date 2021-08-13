@@ -60,7 +60,7 @@
                     <a href="{{url('admindPaciente/'.$objprofesionallanding->idPerfilProfesional)}}">Agende su cita
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>
-                    <a href="">Ver agenda
+                    <a href="{{ url('/panelPrincipal') }}">Ver agenda
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>
                 </div>
