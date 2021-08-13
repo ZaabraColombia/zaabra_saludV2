@@ -12,7 +12,7 @@
                     <h2 class="subtitle_fav icon_especialidad_fav">Especialidades</h2>
                     @csrf
                     @if(!empty($objFavorito))
-                        <div class="table_favoritos1 alto_predet" id="tabFav">    
+                        <div class="section_favoritos_fav alto_predet" id="tabFav">    
                             @foreach($objFavorito as $objFavorito)
                                 <div class="celda_favorito"> {{$objFavorito->nombre_favorito_especialidad}} </div>
                             @endforeach
@@ -53,14 +53,13 @@
             </div>
         </div>
 
-
         <div class="card main_card_favServ">
             <div class="card-content"> 
                 <div class="card-body container_table_fav">
-                    <h2 class="subtitle2_fav icon2_especialidad_fav">Servicios</h2>
+                    <h2 class="subtitle_serv_fav icon_servicio_fav">Servicios</h2>
                     @csrf
                     @if(!empty($objFavoritoServicio))
-                        <div class="table_favoritos1 alto_predetServ" id="tabFav_serv">    
+                        <div class="section_favoritos_fav alto_predet" id="tabFav_serv">    
                             @foreach($objFavoritoServicio as $objFavoritoServicio)
                                 <div class="celda_favorito"> {{$objFavoritoServicio->nombre_favorito_servicio}} </div>
                             @endforeach
@@ -101,33 +100,99 @@
             </div>
         </div>
 
-        <!-- <div class="card main_card_fav">
-            <div class="card-content">
+        <div class="card main_card_favServ mt-3">
+            <div class="card-content"> 
                 <div class="card-body container_table_fav">
-                    <h2 class="subtitle2_fav icon2_especialidad_fav">Servicios</h2>
-                    <div class="table-responsive section_tableCitas">    
-                        <table class="table table_favoritos">
-                            <tbody>
-                                <tr>
-                                    <td>Rayos X</td>
-                                    <td>Inyectología</td>
-                                    <td>Muestra de orina</td>
-                                </tr>
-                                <tr>
-                                    <td>Muestra de sangre</td>
-                                    <td>Vacunación</td>
-                                    <td>Oncología</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="section_verAdd_fav">
-                        <button class="btn_agregar_fav icono_agragar_fav">Agregar más</button>
-                        <button class="text_vermas_fav">Ver más</button>
-                    </div>
+                    <h2 class="subtitle_espec_fav icon_especialista_fav">Especialista</h2>
+                    @csrf
+                    @if(!empty($objFavoritoEspec))
+                        <div class="section_favoritos_fav alto_predet" id="tabFav_espec">    
+                            @foreach($objFavoritoEspec as $objFavoritoEspec)
+                                <div class="celda_favorito"> {{$objFavoritoEspec->nombre_favorito_especialista}} </div>
+                            @endforeach
+                        </div>
+
+                        <form id="favorito_especialista" class="d-none" method="post" action="javascript:void(0)" enctype="multipar/form-data" accept-charset="UTF-8">
+                                    
+                            <div class="form-group mt-3">
+                                <input class="input_espFav"  placeholder="Especialidad favorita" type="text" name="nombre_favorito_especialista" id="nombre_favorito_especialista"  value="">
+                            </div>
+
+                            <div class="section_btn_fav">
+                                <button type="submit" class="btn_guardar_fav" id="guardar_data3">Guardar</button>
+                            </div>
+                        </form>
+
+                        <div class="section_verAdd_fav">
+                            <input class="btn_agregar_fav icono_agragar_fav" type="button" id="btnagregar_espec" value="Agregar más">
+                            <button class="text_vermas_fav" onclick="registerShow(this)" id="vermas_espec" data-position="mas_espec">Ver más</button>
+                            <button class="text_vermas_fav d-none" onclick="registerShow(this)" id="vermenos_espec" data-position="menos_espec">Ver menos</button>
+                        </div>
+                    @else
+                        <form id="favorito_especialista" method="post" action="javascript:void(0)" enctype="multipar/form-data" accept-charset="UTF-8">
+                            <div class="table-responsive section_tableCitas">    
+                                <label for="example-date-input" class="text_label-formInst"> Ingrese servicio </label>
+                                
+                                <div class="" id="">
+                                    <input class="form-group input_espFav" placeholder="Especialidad favorita" type="text" name="nombre_favorito_especialista" id="nombre_favorito_especialista"  value="">
+                                </div>
+                            </div>
+
+                            <div class="section_btn_fav">
+                                <button type="submit" class="btn_guardar_fav" id="guardar_data3">Guardar</button>
+                            </div>
+                        </form>    
+                    @endif
                 </div>
             </div>
-        </div> -->
+        </div>
+
+        <div class="card main_card_favServ mt-3">
+            <div class="card-content"> 
+                <div class="card-body container_table_fav">
+                    <h2 class="subtitle_inst_fav icon_institucion_fav">Instituciones</h2>
+                    @csrf
+                    @if(!empty($objFavoritoInst))
+                        <div class="section_favoritos_fav alto_predet" id="tabFav_inst">    
+                            @foreach($objFavoritoInst as $objFavoritoInst)
+                                <div class="celda_favorito"> {{$objFavoritoInst->nombre_favorito_institucion}} </div>
+                            @endforeach
+                        </div>
+
+                        <form id="favorito_institucion" class="d-none" method="post" action="javascript:void(0)" enctype="multipar/form-data" accept-charset="UTF-8">
+                                    
+                            <div class="form-group mt-3">
+                                <input class="input_espFav"  placeholder="Especialidad favorita" type="text" name="nombre_favorito_institucion" id="nombre_favorito_institucion"  value="">
+                            </div>
+
+                            <div class="section_btn_fav">
+                                <button type="submit" class="btn_guardar_fav" id="guardar_data4">Guardar</button>
+                            </div>
+                        </form>
+
+                        <div class="section_verAdd_fav">
+                            <input class="btn_agregar_fav icono_agragar_fav" type="button" id="btnagregar_inst" value="Agregar más">
+                            <button class="text_vermas_fav" onclick="registerShow(this)" id="vermas_inst" data-position="mas_inst">Ver más</button>
+                            <button class="text_vermas_fav d-none" onclick="registerShow(this)" id="vermenos_inst" data-position="menos_inst">Ver menos</button>
+                        </div>
+                    @else
+                        <form id="favorito_institucion" method="post" action="javascript:void(0)" enctype="multipar/form-data" accept-charset="UTF-8">
+                            <div class="table-responsive section_tableCitas">    
+                                <label for="example-date-input" class="text_label-formInst"> Ingrese servicio </label>
+                                
+                                <div class="" id="">
+                                    <input class="form-group input_espFav" placeholder="Especialidad favorita" type="text" name="nombre_favorito_institucion" id="nombre_favorito_institucion"  value="">
+                                </div>
+                            </div>
+
+                            <div class="section_btn_fav">
+                                <button type="submit" class="btn_guardar_fav" id="guardar_data4">Guardar</button>
+                            </div>
+                        </form>    
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>
 
 
