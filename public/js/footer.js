@@ -14,7 +14,8 @@
        || queryRuta.includes("error404") || queryRuta.includes("error505")
        || queryRuta.includes("FormularioProfesional") || queryRuta.includes("FormularioInstitucion")
        || queryRuta.includes("citas") || queryRuta.includes("pagos")
-       || queryRuta.includes("favoritos") || queryRuta.includes("panelPrincipal")) {
+       || queryRuta.includes("favoritos") || queryRuta.includes("panelPrincipal")
+       || queryRuta.includes("ordenesMedicas") || queryRuta.includes("prescripciones")) {
        selector(".footer_newsletter").style.display = "none";
     }
 }();
