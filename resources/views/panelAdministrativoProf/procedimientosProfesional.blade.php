@@ -2,22 +2,22 @@
 
 @section('PanelProf')
         <section class="section">
-            <div class="row m-0 p-0" id="basic-table">
+            <div class="row containt_agendaProf" id="basic-table">
                 <div class="col-12 p-0">
-                    <div class="section_cabecera_citas">
+                    <div class="section_cabecera_citas padRight_agenProf">
                         <div>
                             <h1 class="title_miCita">Procedimientos (CUPS)</h1>
-                            <span class="subtitle_miCita">Procedimientos (CUPS) de acuerdo con la Resolución No.0002238 de 2020 emitida por el Ministerio de Salud y Protección Social, <br> 
+                            <span class="subtitle_miCita">Procedimientos (CUPS) de acuerdo con la Resolución No.0002238 de 2020 emitida por el Ministerio de Salud y Protección Social,
                                 la cual define la Actualización única de procedimientos en Salud - CUPS.
                             </span>
                         </div>
                     </div>    
 
-                    <div class="card container_pagos">
+                    <div class="card container_proced">
                         <div class="card-content">
                             <div class="card-body py-0">
                                 <!-- Table with outer spacing -->
-                                <div class="table-responsive">
+                                <div class="table-responsive section_tableCitas">
                                     <table class="table table-lg table_citas">
                                         <tbody>
                                             <tr>
@@ -33,6 +33,10 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+                                <button type="submit" class="btn_descargar_agenProf"> Descargar
+                                    <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt=""> 
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -2,17 +2,13 @@
 
 @section('PanelProf')
     <section class="section">
-        <div class="row containt_cita_agProf" id="basic-table">
+        <div class="row containt_agendaProf" id="basic-table">
             <div class="col-12 p-0">
                 <div class="section_cabecera_citas">
                     <div>
-                        <h1 class="title_miCita">Mis citas Profesional</h1>
+                        <h1 class="title_miCita">Mis citas</h1>
                         <span class="subtitle_miCita">Encuentre aquí las citas agendadas por sus pacientes.</span>
                     </div>
-
-                    <button type="submit" class="btn_agendar_cita"> Agende su cita
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_btn_agendar" alt=""> 
-                    </button>
                 </div>
 
                 <div class="card container_citas">
@@ -28,7 +24,6 @@
                                             <th>Tipo de cita</th>
                                             <th>Paciente</th>
                                             <th>Estado</th>
-                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -41,8 +36,10 @@
                                                 <span class="badge bg-success">Confirmada</span>
                                             </td>
                                             <td>
-                                                <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
-                                                <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
+                                                <button class="btn_editar_citasProf" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
+                                            </td>
+                                            <td>
+                                                <button class="btn_cierre_citasProf" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
                                             </td>
                                         </tr>
                                         <tr>
@@ -54,8 +51,10 @@
                                                 <span class="badge bg-danger">Cancelada</span>
                                             </td>
                                             <td>
-                                            <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
-                                                <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
+                                                <button class="btn_editar_citasProf" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
+                                            </td>
+                                            <td>
+                                                <button class="btn_cierre_citasProf" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
                                             </td>
                                         </tr>
                                         <tr>
@@ -67,8 +66,10 @@
                                                 <span class="badge bg-success">Confirmada</span>
                                             </td>
                                             <td>
-                                                <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
-                                                <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
+                                                <button class="btn_editar_citasProf" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
+                                            </td>
+                                            <td>
+                                                <button class="btn_cierre_citasProf" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -102,23 +103,18 @@
                         </div> -->
 
                         <div class="col-md-6 p-0">
+                            <label for="example-date-input" class="col-12 text_label-formProf">Especialidad</label>
+
+                            <input class="col-12 form-control" id="" placeholder="Traumatología" type="text" name="" required>
+                        </div>
+
+                        <div class="col-md-6 p-0">
                             <label for="example-date-input" class="col-12 text_label-formProf">Estado</label>
 
                             <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
                                 <option value="" selected> Seleccionar </option>
                                 <option value="Presencial"> Confirmada </option>
                                 <option value="Virtual"> Cancelada </option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 p-0">
-                            <label for="example-date-input" class="col-12 text_label-formProf">Tipo consulta</label>
-
-                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
-                                <option value="" selected> Seleccionar </option>
-                                <option value="Presencial"> Presencial </option>
-                                <option value="Virtual"> Virtual </option>
-                                <option value="Control médico"> Control Médico </option>
                             </select>
                         </div>
 
@@ -132,18 +128,6 @@
                             <label for="example-date-input" class="col-12 text_label-formProf">Hora</label>
                         
                             <input class="form-control" type="time" value="" id="example-date-input" name="fechaestudio[]">
-                        </div>
-
-                        <div class="col-md-6 p-0">
-                            <label for="example-date-input" class="col-12 text_label-formProf">Ciudad</label>
-
-                            <input class="col-12 form-control" id="" placeholder="" type="text" name="" required>
-                        </div>
-
-                        <div class="col-md-6 p-0">
-                            <label for="example-date-input" class="col-12 text_label-formProf">Sede</label>
-
-                            <input class="col-12 form-control" id="" placeholder="" type="text" name="" required>
                         </div>
                     </form>
                 </div>
@@ -189,13 +173,13 @@
         <div class="modal-dialog modal-lg container_modal_cancelo" role="document">
             <div class="modal-content content_canceloCita">
                 <!-- Sección boton derecho de cierre "X" -->
-                <div class="modal-header modal_cancelarCitas">
+                <div class="modal-header modal_cancelarCitasProf">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
-                <div class="modal-body modal_cancelarCitas">
+                <div class="modal-body modal_contentCitasProf">
                     <h1 class="title_cancelar_miCita" id="exampleModalLabel3">Cita cancelada.</h1>
                 </div>
             </div>
