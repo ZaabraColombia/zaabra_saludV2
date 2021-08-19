@@ -170,6 +170,9 @@
 
 
 @media (min-width: 320px) and (orientation: portrait) {
+    .container_principal_fav {
+        width: 100%;
+    }
     .main_card_fav {
         width: 100%;
         margin-top: 5%;

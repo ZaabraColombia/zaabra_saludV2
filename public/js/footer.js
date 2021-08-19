@@ -15,7 +15,10 @@
        || queryRuta.includes("FormularioProfesional") || queryRuta.includes("FormularioInstitucion")
        || queryRuta.includes("citas") || queryRuta.includes("pagos")
        || queryRuta.includes("favoritos") || queryRuta.includes("panelPrincipal")
-       || queryRuta.includes("ordenesMedicas") || queryRuta.includes("prescripciones")) {
+       || queryRuta.includes("ordenesMedicas") || queryRuta.includes("prescripciones")
+       || queryRuta.includes("calendarioProfesional") || queryRuta.includes("historiaClinicaProfesional")
+       || queryRuta.includes("vademecumProfesional") || queryRuta.includes("procedimientosProfesional")
+       || queryRuta.includes("diagnosticosProfesional")) {
        selector(".footer_newsletter").style.display = "none";
     }
 }();

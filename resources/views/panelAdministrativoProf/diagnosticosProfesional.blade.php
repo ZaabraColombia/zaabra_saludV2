@@ -2,7 +2,7 @@
 
 @section('PanelProf')
         <section class="section">
-            <div class="row m-0 p-0" id="basic-table">
+            <div class="row containt_agendaProf" id="basic-table">
                 <div class="col-12 p-0">
                     <div class="section_cabecera_citas">
                         <div>
@@ -11,11 +11,11 @@
                         </div>
                     </div>    
 
-                    <div class="card container_pagos">
+                    <div class="card container_proced">
                         <div class="card-content">
                             <div class="card-body py-0">
                                 <!-- Table with outer spacing -->
-                                <div class="table-responsive">
+                                <div class="table-responsive section_tableCitas">
                                     <table class="table table-lg table_citas">
                                         <tbody>
                                             <tr>
@@ -34,6 +34,10 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+                                <button type="submit" class="btn_descargar_agenProf"> Descargar
+                                    <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt=""> 
+                                </button>
                             </div>
                         </div>
                     </div>
