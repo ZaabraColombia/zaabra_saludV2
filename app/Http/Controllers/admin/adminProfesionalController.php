@@ -5,9 +5,11 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class adminExamenesController extends Controller
-{
+class adminProfesionalController extends Controller{
+
     public function index(){
-        return view('panelAdministrativo.ordenesMedicas');
+        return view('panelAdministrativoProf.panelPrincipalProfesional');
     }
+    
 }
+

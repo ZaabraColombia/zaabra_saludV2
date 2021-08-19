@@ -30896,6 +30896,21 @@ label.error {
     margin-top: 5% !important;
     margin-bottom: 2% !important;
   }
+
+  .menu_dropdown_agenda {
+    margin: 0 0 6% 0;
+  }
+
+  .icon_menu_agenda {
+    background-image: url("/img/header/icono-hamburguesa-azul.svg");
+    background-size: 100%;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 5%;
+    height: 3vh;
+    margin-right: auto;
+  }
 }
 @media (min-width: 768px) {
   .container_target {
@@ -31965,4 +31980,497 @@ label.error {
   .alto_predet {
     height: 10.5vh;
   }
+}
+.section_cabecera_ordMed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5%;
+}
+
+.title_ordMed {
+  font-size: 2em;
+  font-family: "Quicksand";
+  color: #0083D6;
+  margin: 0;
+}
+
+.subtitle_ordMed {
+  font-size: 1.2em;
+  font-family: "Roboto";
+  color: #3E3E3E;
+}
+
+.container_ordMed {
+  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25);
+}
+
+.table_ordMed th, .table_ordMed td {
+  vertical-align: middle;
+  border-bottom: 1px solid lightgrey;
+  white-space: nowrap;
+  padding: 1.2em;
+  padding-left: 0;
+}
+
+.table_ordMed thead th {
+  border-bottom: none;
+  padding: 1.2em;
+  padding-left: 0;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: "Quicksand";
+}
+
+.table_ordMed tbody td {
+  padding: 1.2em;
+  padding-left: 0;
+  font-size: 0.9em;
+  font-family: "Roboto";
+}
+
+.table_ordMed th {
+  padding: 0.75rem;
+  vertical-align: middle;
+  border-top: none;
+  font-size: 1em;
+  font-family: "Quicksand";
+}
+
+.btn_cierre_ordMed {
+  border: none;
+  background: transparent;
+  background-image: url("/img/iconos/icono-cierre-misCitas.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 3vh;
+  width: 55%;
+  padding: 0.5em;
+}
+
+.text_inferior_ordMed {
+  font-size: 1.2em;
+  font-family: "Roboto";
+  color: #3E3E3E;
+}
+
+.section_addFile_ordMed {
+  display: flex;
+  padding: 5%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cajaTxt_ordMed {
+  width: 100%;
+  margin-bottom: 5%;
+  border: 1px solid #DBDADA;
+  border-radius: 3px;
+  padding-left: 2%;
+}
+
+.addFile_ordMed {
+  width: 41%;
+  opacity: 0;
+  z-index: 5;
+  position: absolute;
+  bottom: 16px;
+  height: 5vh;
+}
+
+.text_addInput {
+  font-family: "Roboto", "Regular";
+  color: #3E3E3E;
+  margin: 0;
+  background: #DBE2E9;
+  height: 5vh;
+  padding: 2%;
+  border-radius: 3px;
+}
+
+.btnSend_ordMed {
+  background: #0083D6;
+  border-radius: 3px;
+  border: none;
+  color: #ffffff;
+}
+
+.container_pres {
+  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25);
+}
+
+.subtitulo_tarjeta_pres {
+  font-size: 1.2em;
+  font-family: "Roboto";
+  color: #3E3E3E;
+}
+
+@media (min-width: 320px) and (orientation: portrait) {
+  .title_ordMed {
+    font-size: 1.4em;
+    font-family: "Quicksand";
+    color: #0083D6;
+    margin: 0;
+  }
+
+  .subtitle_ordMed {
+    font-size: 0.9em;
+    font-family: "Roboto";
+    color: #3E3E3E;
+  }
+
+  .text_inferior_ordMed {
+    font-size: 0.9em;
+    font-family: "Roboto";
+    color: #3E3E3E;
+    padding: 1.2em;
+  }
+
+  .txt_doc_ordMed {
+    font-size: 1em;
+    font-weight: bold;
+    font-family: "Quicksand";
+    padding-left: 5%;
+    margin: 0;
+  }
+
+  .titulo_tarjeta_pres {
+    font-size: 1em;
+    font-weight: bold;
+    font-family: "Quicksand";
+    padding: 5% 0;
+    margin: 0;
+  }
+
+  .subtitulo_tarjeta_pres {
+    font-size: 0.9em;
+    font-family: "Roboto";
+    color: #3E3E3E;
+    padding: 0;
+    line-height: 0.5 !important;
+  }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+  .title_ordMed {
+    font-size: 1.8em;
+    font-family: "Quicksand";
+    color: #0083D6;
+    margin: 0;
+  }
+
+  .subtitle_ordMed {
+    font-size: 1em;
+    font-family: "Roboto";
+    color: #3E3E3E;
+  }
+
+  .table_ordMed tbody td {
+    padding: 1% 1.2em;
+  }
+
+  .btn_cierre_ordMed {
+    height: 2vh;
+  }
+
+  .text_inferior_ordMed {
+    font-size: 1em;
+    font-family: "Roboto";
+    color: #3E3E3E;
+  }
+
+  .txt_doc_ordMed {
+    font-size: 1em;
+    font-weight: bold;
+    font-family: "Quicksand";
+    padding-left: 2.5%;
+    margin: 0;
+  }
+
+  .section_addFile_ordMed {
+    display: flex;
+    padding: 2% 2% 5% 2%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    height: 6vh;
+  }
+
+  .cajaTxt_ordMed {
+    width: 65%;
+    margin-bottom: 0;
+  }
+
+  .addFile_ordMed {
+    width: 25.5%;
+    border-radius: 3px;
+    color: transparent;
+    position: absolute;
+    left: 20px;
+    bottom: 32px;
+    height: 2.5vh;
+  }
+
+  .text_addInput {
+    font-family: "Roboto", "Regular";
+    color: #3E3E3E;
+    margin: 0;
+    background: #DBE2E9;
+    height: 2.6vh;
+    padding: 1% 0;
+    border-radius: 3px;
+    position: absolute;
+    left: 18px;
+    width: 26%;
+    text-align: center;
+  }
+
+  .btnSend_ordMed {
+    background: #0083D6;
+    border-radius: 0px 3px 3px 0px;
+    border: none;
+    color: #ffffff;
+  }
+
+  .titulo_tarjeta_pres {
+    font-size: 1em;
+    font-weight: bold;
+    font-family: "Quicksand";
+    padding: 3% 0;
+    margin: 0;
+  }
+
+  .subtitulo_tarjeta_pres {
+    font-size: 1em;
+    font-family: "Roboto";
+    color: #3E3E3E;
+  }
+}
+@media (min-width: 1024px) {
+  .title_ordMed {
+    font-size: 1.8em;
+    font-family: "Quicksand";
+    color: #0083D6;
+    margin: 0;
+  }
+
+  .subtitle_ordMed {
+    font-size: 1em;
+    font-family: "Roboto";
+    color: #3E3E3E;
+  }
+
+  .text_inferior_ordMed {
+    font-size: 1em;
+    font-family: "Roboto";
+    color: #3E3E3E;
+    padding: 1% 2% 3% 3%;
+  }
+
+  .txt_doc_ordMed {
+    font-size: 1em;
+    font-weight: bold;
+    font-family: "Quicksand";
+    padding-left: 3%;
+    margin: 0;
+  }
+
+  .section_addFile_ordMed {
+    display: flex;
+    padding: 2% 2% 5% 2%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    height: 10vh;
+  }
+
+  .cajaTxt_ordMed {
+    width: 66%;
+    margin-bottom: 0;
+  }
+
+  .addFile_ordMed {
+    width: 25%;
+    border-radius: 3px;
+    color: transparent;
+    position: absolute;
+    left: 21px;
+    bottom: 32px;
+    height: 4.3vh;
+  }
+
+  .text_addInput {
+    font-family: "Roboto", "Regular";
+    color: #3E3E3E;
+    margin: 0;
+    background: #DBE2E9;
+    height: 4.3vh;
+    padding: 1% 0;
+    border-radius: 3px;
+    position: absolute;
+    left: 21px;
+    width: 25%;
+    text-align: center;
+  }
+
+  .btnSend_ordMed {
+    background: #0083D6;
+    border-radius: 0px 3px 3px 0px;
+    border: none;
+    color: #ffffff;
+  }
+
+  .titulo_tarjeta_pres {
+    font-size: 1.1em;
+    font-weight: bold;
+    font-family: "Quicksand";
+    margin: 0;
+    padding: 2% 0;
+  }
+
+  .subtitulo_tarjeta_pres {
+    font-size: 1em;
+    font-family: "Roboto";
+    color: #3E3E3E;
+    padding: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .txt_doc_ordMed {
+    padding-left: 2.5%;
+  }
+
+  .section_addFile_ordMed {
+    height: 11vh;
+  }
+
+  .cajaTxt_ordMed {
+    width: 68%;
+  }
+
+  .addFile_ordMed {
+    bottom: 38px;
+  }
+
+  .container_pres {
+    width: 75%;
+  }
+
+  .titulo_tarjeta_pres {
+    padding: 1% 0;
+  }
+}
+@media (min-width: 1360px) {
+  .text_inferior_ordMed {
+    padding: 1% 2% 3% 2.3%;
+  }
+
+  .addFile_ordMed {
+    width: 20%;
+    left: 23px;
+    bottom: 32px;
+    height: 4vh;
+  }
+
+  .section_addFile_ordMed {
+    display: flex;
+    padding: 2% 2% 3.4% 2%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    height: 10vh;
+  }
+
+  .cajaTxt_ordMed {
+    width: 74%;
+  }
+
+  .text_addInput {
+    height: 4vh;
+    padding: 0.5% 0;
+    left: 22px;
+    width: 20%;
+  }
+}
+@media (min-width: 1440px) {
+  .container_ordMed {
+    width: 75%;
+  }
+
+  .text_addInput {
+    padding: 1% 0;
+  }
+
+  .section_cabecera_ordMed {
+    width: 90%;
+  }
+
+  .section_addFile_ordMed {
+    padding: 2% 2% 4.5% 2%;
+  }
+
+  .container_pres {
+    width: 75%;
+  }
+}
+@media (min-width: 1920px) {
+  .container_ordMed {
+    width: 65%;
+  }
+
+  .section_cabecera_ordMed {
+    padding-bottom: 3%;
+  }
+
+  .table_ordMed thead th {
+    font-size: 1.2em;
+  }
+
+  .table_ordMed tbody td {
+    font-size: 1em;
+  }
+
+  .text_inferior_ordMed {
+    padding: 1% 2% 2% 2.3%;
+  }
+
+  .txt_doc_ordMed {
+    font-size: 1.1em;
+  }
+
+  .section_addFile_ordMed {
+    padding: 2% 2% 5.1% 2%;
+  }
+
+  .addFile_ordMed {
+    bottom: 48px;
+    height: 3vh;
+  }
+
+  .cajaTxt_ordMed {
+    width: 75%;
+  }
+
+  .text_addInput {
+    padding: 0.5% 0;
+    height: 3vh;
+  }
+
+  .container_pres {
+    width: 65%;
+  }
+
+  .titulo_tarjeta_pres {
+    font-size: 1.2em;
+  }
+}
+.cards_panelPrincipal_prof {
+  width: 100% !important;
+  border: 1px solid #0083D6;
+}
+
+.panel-Administrativo_prof {
+  background: #F9F9F9;
+  padding: 1% 1% 5% 1%;
+}
+
+.containt_cita_agProf {
+  margin: 0;
+  padding: 0 6%;
 }
