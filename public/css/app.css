@@ -30896,6 +30896,21 @@ label.error {
     margin-top: 5% !important;
     margin-bottom: 2% !important;
   }
+
+  .menu_dropdown_agenda {
+    margin: 0 0 6% 0;
+  }
+
+  .icon_menu_agenda {
+    background-image: url("/img/header/icono-hamburguesa-azul.svg");
+    background-size: 100%;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 5%;
+    height: 3vh;
+    margin-right: auto;
+  }
 }
 @media (min-width: 768px) {
   .container_target {
@@ -32415,12 +32430,16 @@ label.error {
     padding: 1% 2% 2% 2.3%;
   }
 
+  .txt_doc_ordMed {
+    font-size: 1.1em;
+  }
+
   .section_addFile_ordMed {
-    padding: 2% 2% 5.9% 2%;
+    padding: 2% 2% 5.1% 2%;
   }
 
   .addFile_ordMed {
-    bottom: 57px;
+    bottom: 48px;
     height: 3vh;
   }
 
@@ -32440,4 +32459,18 @@ label.error {
   .titulo_tarjeta_pres {
     font-size: 1.2em;
   }
+}
+.cards_panelPrincipal_prof {
+  width: 100% !important;
+  border: 1px solid #0083D6;
+}
+
+.panel-Administrativo_prof {
+  background: #F9F9F9;
+  padding: 1% 1% 5% 1%;
+}
+
+.containt_cita_agProf {
+  margin: 0;
+  padding: 0 6%;
 }
