@@ -6,7 +6,7 @@
         </div>
 
         <div class="col-12 col-lg-10 panel-Administrativo_prof">
-            <div class="dropdown d-lg-none menu_dropdown_agenda">
+            <div class="dropdown d-lg-none">
                 <a class="icon_menu_agenda dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -14,8 +14,9 @@
                         <div class="sidebar-wrapper active ps ps--active-y">
                             <div class="sidebar-menu">
                                 <ul class="menu">
+                                    <li class="title_agenda">AGENDA PROFESIONAL</li>
                                     <a href="{{ url('/panelPrincipalProfesional') }}" class="">
-                                        <li class="sidebar-title">Menu OSCAR</li>
+                                        <li class="sidebar-title">Menu</li>
                                     </a>
                                     @if(!empty($objListaUsuario1->isNotEmpty()))
                                         <li class="sidebar-item  has-sub">

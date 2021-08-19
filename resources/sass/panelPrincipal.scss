@@ -39,20 +39,17 @@
         margin-top: 5% !important;
         margin-bottom: 2% !important;
     }
-        // MENU HAMBURGUESA DE LA AGENDA
-        .menu_dropdown_agenda {
-            margin: 0 0 6% 0;
-        }
-        .icon_menu_agenda {
-            background-image: url('/img/header/icono-hamburguesa-azul.svg');
-            background-size: 100%;
-            background-color: #ffffff;
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 5%;
-            height: 3vh;
-            margin-right: auto;
-        }
+    // MENU HAMBURGUESA DE LA AGENDA
+    .icon_menu_agenda {
+        background-image: url('/img/header/icono-hamburguesa-azul.svg');
+        background-size: 100%;
+        background-color: #ffffff;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 5%;
+        height: 3vh;
+        margin-right: auto;
+    }
     //**********************    ESTILOS VISTA panelPrincipalProfesional.blade.php       ********************************
 }
 

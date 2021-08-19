@@ -10,4 +10,8 @@ class adminPrescripcionesProfesionalController extends Controller
     public function index(){
         return view('panelAdministrativoProf.prescripcionesProfesional');
     }
+
+    public function formulas(){
+        return view('panelAdministrativoProf.crearFormulaProfesional');
+    }
 }
