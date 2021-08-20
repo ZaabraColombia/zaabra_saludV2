@@ -32524,6 +32524,10 @@ label.error {
   list-style: none;
 }
 
+.content_histClinica {
+  width: 100%;
+}
+
 .section_cabecera_histClinica {
   display: flex;
   justify-content: space-between;
@@ -32544,6 +32548,157 @@ label.error {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.section_barraBusqueda {
+  background: #ffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  border: 1px solid #DBDADA;
+  border-radius: 3px;
+  margin-bottom: 10%;
+}
+
+.barraBusquedad_histClinica {
+  width: 100%;
+  height: 100% !important;
+  padding-left: 0;
+  font-size: 17px;
+  padding: 2%;
+  background: #faebd700;
+  border: none;
+}
+
+.btnBusqueda_histClinica {
+  background: #ffffff;
+  height: 5vh;
+  width: 10%;
+  border-left: none;
+  padding: 0;
+  border: none;
+}
+
+.icon_lupa_busqueda {
+  background-image: url("/img/header/icono-buscador-azul.svg");
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position-y: center;
+}
+
+.content_btns_histClinica {
+  margin-top: 5%;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icono_agragar_histClinica {
+  background-image: url("/img/iconos/icono-agregar-especialidad-favoritos.svg");
+  background-repeat: no-repeat;
+  background-size: inherit;
+  background-position-x: 100%;
+  background-position-y: center;
+  padding: 0;
+  width: 23%;
+}
+
+.btn_enviar_histClinica {
+  font-family: "Quicksand";
+  font-size: 1.15em;
+  color: #ffffff;
+  background: #0083D6;
+  border: none;
+  border-radius: 3px;
+  height: calc(1em + 0.75rem + 2px);
+  width: 19%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.title_cancelar_histClinica {
+  color: #232323;
+  font-size: 1.2em;
+  text-align: center;
+  text-transform: none;
+  margin: 0;
+  line-height: 2;
+}
+
+.modHistoria {
+  line-height: 2;
+}
+
+.content_btns_regPaciente {
+  margin-top: 5%;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn_enviar_pacRegistrado {
+  font-family: "Quicksand";
+  font-size: 1.15em;
+  color: #ffffff;
+  background: #0083D6;
+  border: none;
+  border-radius: 3px;
+  height: calc(1em + 0.75rem + 2px);
+  width: 25%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.text1_consulta {
+  font-size: 1em;
+  font-family: "Roboto";
+  color: #3E3E3E;
+  margin-top: 5%;
+}
+
+.text2_consulta {
+  font-size: 1.25em;
+  font-family: "Quicksand";
+  font-weight: bolder;
+  color: #3E3E3E;
+}
+
+.section_addFile_consulta {
+  display: flex;
+  padding: 5%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.addFile_consulta {
+  width: 41%;
+  opacity: 0;
+  z-index: 5;
+  position: absolute;
+  bottom: 16px;
+  height: 5vh;
+}
+
+.text_input_consulta {
+  font-family: "Roboto", "Regular";
+  color: #3E3E3E;
+  margin: 0;
+  background: #DBE2E9;
+  height: 5vh;
+  padding: 2%;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.cajaTxt_consulta {
+  width: 100%;
+  margin-bottom: 5%;
+  border: 1px solid #DBDADA;
+  border-radius: 3px;
+  padding-left: 2%;
 }
 
 .container_formula {
@@ -32663,6 +32818,40 @@ label.error {
     margin-top: 3%;
   }
 
+  .icono_agragar_histClinica {
+    width: 55%;
+  }
+
+  .btn_enviar_histClinica {
+    font-size: 1em;
+    width: 35%;
+    margin: 0;
+  }
+
+  .title_cancelar_histClinica {
+    font-size: 1em;
+  }
+
+  .btn_enviar_pacRegistrado {
+    font-size: 1em;
+    width: 62%;
+    margin: 0;
+  }
+
+  .section_addFile_consulta {
+    padding: 5% 0 0 0;
+  }
+
+  .addFile_consulta {
+    width: 43%;
+    bottom: 85px;
+  }
+
+  .text_input_consulta {
+    width: 50%;
+    padding: 1%;
+  }
+
   .btn_crear_formula {
     font-size: 0.75em;
     width: 40%;
@@ -32706,6 +32895,14 @@ label.error {
     width: 45%;
   }
 
+  .icono_agragar_histClinica {
+    width: 50%;
+  }
+
+  .addFile_consulta {
+    bottom: 78px;
+  }
+
   .btn_crear_formula {
     width: 35%;
   }
@@ -32726,6 +32923,15 @@ label.error {
     background-position-x: 45%;
   }
 }
+@media (min-width: 375px) and (orientation: portrait) {
+  .icono_agragar_histClinica {
+    width: 48%;
+  }
+
+  .text_input_consulta {
+    padding: 2%;
+  }
+}
 @media (min-width: 768px) and (orientation: portrait) {
   .section_cabecera_histClinica {
     display: flex;
@@ -32740,6 +32946,67 @@ label.error {
     height: calc(1em + 1em + 2px);
     width: 27%;
     margin-top: 0;
+  }
+
+  .btnBusqueda_histClinica {
+    height: 3.5vh;
+  }
+
+  .icono_agragar_histClinica {
+    width: 23%;
+  }
+
+  .btn_enviar_histClinica {
+    font-size: 1em;
+    width: 16%;
+    margin: 0;
+  }
+
+  .modal_contentCitasProf {
+    padding: 5% 2% 10% 2%;
+  }
+
+  .btn_enviar_pacRegistrado {
+    font-size: 1em;
+    width: 23%;
+    margin: 0;
+  }
+
+  .section_addFile_consulta {
+    display: flex;
+    padding: 2% 0 5% 2%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    height: 6vh;
+  }
+
+  .addFile_consulta {
+    width: 25.5%;
+    border-radius: 3px;
+    color: transparent;
+    position: absolute;
+    left: 56px;
+    bottom: 170px;
+    height: 2.5vh;
+  }
+
+  .text_input_consulta {
+    font-family: "Roboto", "Regular";
+    color: #3E3E3E;
+    margin: 0;
+    background: #DBE2E9;
+    height: 2.3vh;
+    padding: 0.5% 0;
+    border-radius: 3px;
+    position: absolute;
+    left: 57px;
+    width: 25%;
+    text-align: center;
+  }
+
+  .cajaTxt_consulta {
+    width: 66%;
+    margin-bottom: 0;
   }
 
   .btn_crear_formula {
@@ -32780,9 +33047,72 @@ label.error {
     margin-bottom: 3%;
   }
 }
+@media (min-width: 1024px) {
+  .section_addFile_consulta {
+    display: flex;
+    padding: 2% 17% 0 0;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    height: 5vh;
+  }
+
+  .addFile_consulta {
+    width: 20%;
+    border-radius: 3px;
+    color: transparent;
+    position: absolute;
+    left: 60px;
+    bottom: 229px;
+    height: 3.5vh;
+  }
+
+  .text_input_consulta {
+    font-family: "Roboto", "Regular";
+    color: #3E3E3E;
+    margin: 0;
+    background: #DBE2E9;
+    height: 3.5vh;
+    padding: 0.5% 0;
+    border-radius: 3px;
+    position: absolute;
+    left: 60px;
+    width: 20%;
+    text-align: center;
+  }
+
+  .cajaTxt_consulta {
+    width: 66%;
+    margin-bottom: 0;
+  }
+}
 @media (min-width: 1200px) {
+  .content_crearHistoria {
+    width: 85%;
+  }
+
   .btn_crear_histClinica {
     width: 26%;
+  }
+
+  .icono_agragar_histClinica {
+    width: 23%;
+  }
+
+  .addFile_consulta {
+    bottom: 228px;
+    width: 15%;
+    left: 70px;
+  }
+
+  .text_input_consulta {
+    padding: 0.3% 0;
+    height: 3.4vh;
+    left: 70px;
+    width: 15%;
+  }
+
+  .cajaTxt_consulta {
+    width: 69%;
   }
 
   .btn_crear_formula {
@@ -32797,9 +33127,59 @@ label.error {
     width: 10vw;
   }
 }
+@media (min-width: 1360px) {
+  .text_input_consulta {
+    left: 81px;
+  }
+
+  .addFile_consulta {
+    bottom: 207px;
+    width: 15%;
+    left: 81px;
+  }
+}
 @media (min-width: 1440px) {
+  .content_histClinica {
+    width: 75%;
+  }
+
   .btn_crear_histClinica {
-    width: 22%;
+    width: 29%;
+  }
+
+  .btnBusqueda_histClinica {
+    height: 4vh;
+  }
+
+  .icon_lupa_busqueda {
+    background-size: 60%;
+  }
+
+  .icono_agragar_histClinica {
+    width: 19%;
+  }
+
+  .btn_enviar_histClinica {
+    width: 16%;
+  }
+
+  .section_addFile_consulta {
+    padding-right: 41%;
+  }
+
+  .addFile_consulta {
+    bottom: 209px;
+    width: 12%;
+  }
+
+  .text_input_consulta {
+    padding: 0.4% 0;
+    width: 12%;
+  }
+
+  .cajaTxt_consulta {
+    width: 65%;
+    height: 3.4vh;
   }
 
   .container_formula {
@@ -32843,8 +33223,55 @@ label.error {
   }
 }
 @media (min-width: 1920px) {
+  .content_crearHistoria {
+    width: 75%;
+  }
+
   .btn_crear_histClinica {
+    width: 23%;
+  }
+
+  .icon_lupa_busqueda {
+    background-size: 50%;
+  }
+
+  .content_btns_histClinica {
+    margin-top: 4%;
+  }
+
+  .icono_agragar_histClinica {
     width: 17%;
+  }
+
+  .btn_enviar_histClinica {
+    width: 15%;
+  }
+
+  .btn_enviar_pacRegistrado {
+    width: 17%;
+  }
+
+  .content_btns_regPaciente {
+    margin-top: 4%;
+  }
+
+  .text_input_consulta {
+    padding: 0.4% 0;
+    width: 9%;
+    height: 3.5vh;
+    left: 113px;
+  }
+
+  .addFile_consulta {
+    bottom: 174px;
+    width: 9%;
+    left: 113px;
+    height: 3.5vh;
+  }
+
+  .cajaTxt_consulta {
+    width: 70%;
+    height: 3.5vh;
   }
 
   .pad_rigth_formula {
