@@ -18,7 +18,10 @@
        || queryRuta.includes("ordenesMedicas") || queryRuta.includes("prescripciones")
        || queryRuta.includes("calendarioProfesional") || queryRuta.includes("historiaClinicaProfesional")
        || queryRuta.includes("vademecumProfesional") || queryRuta.includes("procedimientosProfesional")
-       || queryRuta.includes("diagnosticosProfesional")) {
+       || queryRuta.includes("diagnosticosProfesional") || queryRuta.includes("crearFormulaProfesional")
+       || queryRuta.includes("registroPaciente") || queryRuta.includes("pacienteRegistrado")
+       || queryRuta.includes("editarConsulta") || queryRuta.includes("editarPatologia")
+       || queryRuta.includes("editarExpediente")) {
        selector(".footer_newsletter").style.display = "none";
     }
 }();
