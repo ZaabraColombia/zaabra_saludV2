@@ -192,6 +192,7 @@ Route::post('/FormularioInstitucionSave13',[App\Http\Controllers\entidades\formu
 Route::get('/FormularioInstituciondelete13/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete13'])->name('FormularioInstitucion');
 
 
+
 /*------------------------------------------------Pertenece al admin-------------------------------------------------------------------------------*/
 /*Esta ruta es del admin*/
 Route:: get('/panelPrincipal',[App\Http\Controllers\admin\adminController::class,'index'])->name('panelPrincipal');
