@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
        // when window width is >= 768px
        768: {
-        slidesPerView: 2,
+        slidesPerView: 1,
         slidesPerGroup: 1,
         spaceBetween: 20,
       },
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
        // when window width is >= 768px
        768: {
-        slidesPerView: 2,
+        slidesPerView: 1,
         slidesPerGroup: 1,
         spaceBetween: 20,
       },
@@ -152,6 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  
   let favorito = document.querySelector('.fa-heart');
   favorito.onclick = function(){
     favorito.classList.toggle('background-heart');

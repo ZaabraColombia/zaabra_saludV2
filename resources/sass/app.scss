@@ -12,8 +12,8 @@
 @import 'politicas';
 @import 'preguntas';
 @import 'home';
-@import 'galeria-profesiones';
-@import 'galeria-especialidades';
+@import 'profesiones';
+@import 'especialidades';
 @import 'perfil-profesionales';
 @import 'profesionales';
 @import 'instituciones';
@@ -30,4 +30,10 @@
 @import 'error101';
 @import 'popup-pago';
 @import 'dashboard';
+@import 'panelPrincipal';
+@import 'mis-citas';
+@import 'calendar';
+@import 'favoritos';
+@import 'ordenMedica';
+@import 'agenda-profesional';
 $urlZaabra: 'http://localhost:8000/';

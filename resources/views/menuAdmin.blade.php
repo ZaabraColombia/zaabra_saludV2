@@ -3,14 +3,16 @@
         <div class="sidebar-wrapper active ps ps--active-y">
             <div class="sidebar-menu">
                 <ul class="menu">
+                    <a href="{{ url('/panelPrincipal') }}" class="">
                     <li class="sidebar-title">Menu</li>
+                    </a>
                     @if(!empty($objListaUsuario1->isNotEmpty()))
                         <li class="sidebar-item  has-sub">
-                            <a href="#" class="sidebar-link">
+                            <!-- <a href="#" class="sidebar-link"> -->
                                 <i class="bi bi-stack"></i>
                                 <span>Mis citas</span>
-                            </a>
-                            <ul class="submenu">
+                            <!-- </a> -->
+                            <ul class="submenu active">
                                 @foreach($objListaUsuario1 as $objListaUsuario1)
                                     <li class="submenu-item ">
                                         <a href='{{url("$objListaUsuario1->urlPermiso")}}'>{{$objListaUsuario1->nombrePermiso}}</a>
@@ -34,16 +36,65 @@
                             </ul>
                         </li>
                     @endif
+
+                                  
                     @if(!empty($objListaUsuario3->isNotEmpty()))
+                        <li class="sidebar-item  has-sub">
+                            <!-- <a href="#" class="sidebar-link"> -->
+                                <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Mis favoritos</span>
+                            <!-- </a> -->
+                            <ul class="submenu active">
+                                @foreach($objListaUsuario3 as $objListaUsuario3)
+                                    <li class="submenu-item ">
+                                        <a href='{{url("$objListaUsuario3->urlPermiso")}}'>{{$objListaUsuario3->nombrePermiso}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    @endif
+
+
+                    @if(!empty($objListaUsuario5->isNotEmpty()))
                         <li class="sidebar-item  has-sub">
                             <a href="#" class="sidebar-link">
                                 <i class="bi bi-grid-1x2-fill"></i>
-                                <span>Mis favoritos</span>
+                                <span>Perfiles</span>
                             </a>
                             <ul class="submenu ">
-                                @foreach($objListaUsuario3 as $objListaUsuario3)
+                                @foreach($objListaUsuario5 as $objListaUsuario5)
                                     <li class="submenu-item ">
-                                    <a href='{{url("$objListaUsuario3->urlPermiso")}}'>{{$objListaUsuario3->nombrePermiso}}</a>
+                                    <a href='{{url("$objListaUsuario5->urlPermiso")}}'>{{$objListaUsuario5->nombrePermiso}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    @endif
+                    @if(!empty($objListaUsuario6->isNotEmpty()))
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Pagos</span>
+                            </a>
+                            <ul class="submenu ">
+                                @foreach($objListaUsuario6 as $objListaUsuario6)
+                                    <li class="submenu-item ">
+                                    <a href='{{url("$objListaUsuario6->urlPermiso")}}'>{{$objListaUsuario6->nombrePermiso}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    @endif
+                    @if(!empty($objListaUsuario7->isNotEmpty()))
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Reportes</span>
+                            </a>
+                            <ul class="submenu ">
+                                @foreach($objListaUsuario7 as $objListaUsuario7)
+                                    <li class="submenu-item ">
+                                    <a href='{{url("$objListaUsuario7->urlPermiso")}}'>{{$objListaUsuario7->nombrePermiso}}</a>
                                     </li>
                                 @endforeach
                             </ul>

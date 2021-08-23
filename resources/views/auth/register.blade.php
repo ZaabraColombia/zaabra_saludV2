@@ -6,7 +6,7 @@
     <!-- fila principal -->
     <div class="row justify-content-center">
         <!-- titulo principal -->
-        <p class="titulo_principal-register"> Acceda a nuestro portal de Zaabra Salud o regístrese. </p>
+        <h1 class="titulo_principal-register"> Acceda a nuestro portal de Zaabra Salud o regístrese. </h1>
         <!-- contenedor de elementos login -->
         <div class="card col-11 col-md-10 col-lg-8 section_principal-register">
             <!-- seccion body login -->
@@ -49,7 +49,8 @@
                                 <label id="txt3" class="form-check-label texto_option-input" for="idrol"> Institución </label>
                             </div>
                         </div>
-                         <input type="hidden" name="idrol"  id="valor_tipo">
+                        
+                        <input type="hidden" name="idrol"  id="valor_tipo">
                         <!-- Sección campos de validación Nombres y Apellidos -->
                         <div class="names_person">
                             <!-- Campos de Nombres -->
@@ -138,7 +139,7 @@
                             <label for="email" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Correo electrónico *') }}</label>
 
                             <div class="col-12 p-0">
-                                <input id="email" type="email" class="form-control input_height-fullhd-register" name="email" value="{{ old('email') }}" autocomplete="email" required placeholder="zaabra@gmail.com">
+                                <input id="email" type="email" class="form-control input_height-fullhd-register" name="email" value="{{ old('email') }}" autocomplete="email" required placeholder="servicioalcliente@zaabrasalud.co">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -179,7 +180,10 @@
                             <div class="col-12">
                                 <input type="checkbox" class="check_option-register" id="aceptoTerminos" name="aceptoTerminos" value="1"  required> 
                                 <div class="col-12 section_terminos-register">
-                                    <span class="texto_inferior-tarjeta-register"> Declaro que he leído y acepto la <a href="#" class="text_link-register">Política de Privacidad</a> y los <a href="#" class="text_link-register">Términos y condiciones</a> de Zaabra Salud. </span>
+                                    <h4 class="texto_inferior-tarjeta-register"> Declaro que he leído y acepto la  
+                                        <a class="text_link-register" href="{{url('politicas')}}" target="blank"> política de privacidad</a>  y los  
+                                        <a class="text_link-register" href="{{url('politicas')}}" target="blank"> términos y condiciones</a>  de Zaabra Salud. 
+                                    </h4>
                                 </div>
                             </div>
                         </div>
@@ -196,7 +200,7 @@
 
                         <!-- Confirmación de e-mail -->
                         <div class="form-group col-12 section_terminos-register">
-                            <p class="texto_inferior-tarjeta-register"> Recibirá un e-mail de confirmación. </p>
+                            <p class="texto_inferior-tarjeta-register mt-1 mb-3 mb-md-4 mt-lg-3"> Recibirá un e-mail de confirmación. </p>
                         </div>
 
                         <!-- Botón Ingresar -->

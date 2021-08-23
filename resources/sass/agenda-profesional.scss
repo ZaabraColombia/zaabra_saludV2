@@ -1,0 +1,765 @@
+//****************************************************      Estilos de Panel Principal       ****************************************************//
+.cards_panelPrincipal_prof {
+    width: 100% !important;
+    border: 1px solid #0083D6;
+}
+//****************************************************      Estilos de Panel Administrativo       ****************************************************//
+.panel-Administrativo_prof{
+    background: #F9F9F9;
+    padding: 1% 1% 5% 1%;
+}
+//****************************************************      Estilos de Mis Citas       ****************************************************//
+.containt_agendaProf {
+    margin: 0;
+    padding: 0 6%;
+}
+.btn_editar_citasProf{
+    border: none;
+    background: transparent;
+    background-image: url('/img/iconos/icono-editar-misCitas.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 2vh;
+    padding: 9px;
+}
+.btn_cierre_citasProf {
+    border: none;
+    background: transparent;
+    background-image: url('/img/iconos/icono-cierre-misCitas.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 2vh;
+    padding: 9px;
+}
+.modal_cancelarCitasProf {
+    padding: 1% 2%;
+    border-bottom: none;
+}
+.modal_contentCitasProf {
+    padding: 8% 2% 10% 2%;
+    border-bottom: none;
+}
+.title_agenda {
+    padding: 0;
+    margin: 1.5rem 0 1rem;
+    color: #0083D6;
+    font-weight: bolder;
+    font-size: 1.4em;
+    list-style: none;
+}
+//****************************************************      Estilos de Historia Clínica       ****************************************************//
+.content_histClinica {
+    width: 100%;
+}
+.section_cabecera_histClinica {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5%;
+    padding-top: 2%;
+}
+.btn_crear_histClinica {
+    font-family: "Quicksand";
+    font-size: 1.2em;
+    color: #ffffff;
+    background: #0083D6;
+    border: none;
+    border-radius: 4px;
+    height: calc(1em + 1em + 2px);
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section_barraBusqueda {
+    background: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid #DBDADA;
+    border-radius: 3px;
+    margin-bottom: 10%;
+}
+.barraBusquedad_histClinica {
+    width: 100%;
+    height: 100% !important;
+    padding-left: 0;
+    font-size: 17px;
+    padding: 2%;
+    background: #faebd700;
+    border: none;
+}
+.btnBusqueda_histClinica {
+    background: #ffffff;
+    height: 5vh;
+    width: 10%;
+    border-left: none;
+    padding: 0;
+    border: none;
+}
+.icon_lupa_busqueda {
+    background-image: url('/img/header/icono-buscador-azul.svg');
+    background-repeat: no-repeat;
+    background-size: 75%;
+    background-position-y: center;
+}
+.content_btns_histClinica {
+    margin-top: 5%;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.icono_agragar_histClinica {
+    background-image: url('/img/iconos/icono-agregar-especialidad-favoritos.svg');
+    background-repeat: no-repeat;
+    background-size: inherit;
+    background-position-x: 100%;
+    background-position-y: center;
+    padding: 0;
+    width: 23%;
+}
+.btn_enviar_histClinica {
+    font-family: "Quicksand";
+    font-size: 1.15em;
+    color: #ffffff;
+    background: #0083D6;
+    border: none;
+    border-radius: 3px;
+    height: calc(1em + 0.75rem + 2px);
+    width: 19%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.title_cancelar_histClinica {
+    color: #232323;
+    font-size: 1.2em;
+    text-align: center;
+    text-transform: none;
+    margin: 0;
+    line-height: 2;
+}
+.modHistoria {
+    line-height: 2;
+}
+//**********************     Estilos de Registro pacientes       **********************
+.content_btns_regPaciente {
+    margin-top: 5%;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+.btn_enviar_pacRegistrado {
+    font-family: "Quicksand";
+    font-size: 1.15em;
+    color: #ffffff;
+    background: #0083D6;
+    border: none;
+    border-radius: 3px;
+    height: calc(1em + 0.75rem + 2px);
+    width: 25%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+//**********************     Estilos Editar Consultas       **********************
+.text1_consulta {
+    font-size: 1em;
+    font-family: "Roboto";
+    color: #3E3E3E;
+    margin-top: 5%;
+}
+.text2_consulta {
+    font-size: 1.25em;
+    font-family: "Quicksand";
+    font-weight: bolder;
+    color: #3E3E3E;
+}
+.section_addFile_consulta {
+    display: flex;
+    padding: 5%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.addFile_consulta {
+    width: 41%;
+    opacity: 0;
+    z-index: 5;
+    position: absolute;
+    bottom: 16px;
+    height: 5vh;
+}
+.text_input_consulta {
+    font-family: 'Roboto', 'Regular';
+    color: #3E3E3E;
+    margin: 0;
+    background: #DBE2E9;
+    height: 5vh;
+    padding: 2%;
+    border-radius: 3px;
+    text-align: center;
+}
+.cajaTxt_consulta {
+    width: 100%;
+    margin-bottom: 5%;
+    border: 1px solid #DBDADA;
+    border-radius: 3px;
+    padding-left: 2%;
+}
+//****************************************************      Estilos de Prescripciones       ****************************************************//
+.container_formula {
+    box-shadow: 0px 2px 5px -2px rgb(0 0 0 / 25%);
+}
+.btn_descargar_formula {
+    border: none;
+    background: transparent;
+    background-image: url('/img/iconos/icono-editar-misCitas.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 2vh;
+    padding: 9px;
+}
+.btn_crear_formula {
+    font-family: "Quicksand";
+    font-size: 1.2em;
+    color: #ffffff;
+    background: #0083D6;
+    border: none;
+    border-radius: 4px;
+    height: calc(1em + 1em + 2px);
+    width: 23%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content_inputs_formula {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.section_input_formula {
+    padding: 0;
+    width: 48%;
+}
+//****************************************************      Estilos de Procedimiento      ****************************************************//
+.container_proced {
+    box-shadow: 0px 2px 5px -2px rgb(0 0 0 / 25%);
+}
+//****************************************************      Estilos de Vadecum       ****************************************************//
+.container_vademecum{
+    box-shadow: 0px 2px 5px -2px rgb(0 0 0 / 25%);
+}
+.btn_descargar_agenProf{
+    font-family: "Quicksand";
+    font-size: 1em;
+    color: #ffffff;
+    background: #0083D6;
+    border: none;
+    border-radius: 4px;
+    height: calc(1em + 1em + 2px);
+    width: 13vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+    margin-left: auto;
+}
+//****************************************************      Estilos de Mis Favoritos       ****************************************************//
+.icon_especialidad_favProf {
+    background-image: url('/img/iconos/icono-doctor-azul.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: 42%;
+}
+.icon_servicio_favProf {
+    background-image: url('/img/iconos/icono-servicios.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: 26%;
+}
+.icon_especialista_favProf {
+    background-image: url('/img/iconos/icono-especialistas-favoritos.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: 34%;
+}
+.icon_institucion_favProf {
+    background-image: url('/img/iconos/icono-instituciones-favoritas.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: 36%;
+}
+@media (min-width: 320px) and (orientation: portrait) {
+    .title_agenda {
+        padding: 0;
+        margin: 1.5rem 0 1rem;
+        color: #0083D6;
+        font-weight: bolder;
+        font-size: 1.2em;
+        list-style: none;
+    }
+    .section_cabecera_histClinica {
+        display: block;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 5%;
+        padding-top: 2%;
+    }
+    //****************************************************      Estilos de Historia Clínica       ****************************************************//
+
+    .btn_crear_histClinica {
+        font-size: .75em;
+        width: 50%;
+        margin-top: 3%;
+    }
+    .icono_agragar_histClinica {
+        width: 55%;
+    }
+    .btn_enviar_histClinica {
+        font-size: 1em;
+        width: 35%;
+        margin: 0;
+    }
+    .title_cancelar_histClinica {
+        font-size: 1em;
+    }
+    //**********************     Estilos de Registro pacientes       **********************
+    .btn_enviar_pacRegistrado {
+        font-size: 1em;
+        width: 62%;
+        margin: 0;
+    }
+    //**********************     Estilos Editar Consultas       **********************
+    .section_addFile_consulta {
+        padding: 5% 0 0 0;
+    }
+    .addFile_consulta {
+        width: 43%;
+        bottom: 85px;
+    }
+    .text_input_consulta {
+        width: 50%;
+        padding: 1%;
+    }
+    //****************************************************      Estilos de Prescripciones       ****************************************************//
+    .btn_crear_formula {
+        font-size: .75em;
+        width: 40%;
+        margin-top: 3%;
+    }
+    .section_input_formula {
+        padding: 0;
+        width: 100%;
+    }
+    //****************************************************      Estilos de Vadecum       ****************************************************//
+    .btn_descargar_agenProf{
+        font-size: .75em;
+        width: 30vw;
+        margin-bottom: 5%;
+        margin-left: auto;
+    }
+    //****************************************************      Estilos de Mis Favoritos       ****************************************************//
+    .icon_especialidad_favProf {
+        background-position-x: 60%;
+        margin-bottom: 5%;
+    }
+    .icon_servicio_favProf {
+        background-position-x: 37%;
+        margin-bottom: 5%;
+    }
+    .icon_especialista_favProf {
+        background-position-x: 48%;
+        margin-bottom: 5%;
+    }
+    .icon_institucion_favProf {
+        background-position-x: 51%;
+        margin-bottom: 5%;
+    }
+}
+@media (min-width: 360px) and (orientation: portrait) {
+    //****************************************************      Estilos de Historia Clínica       ****************************************************//
+    .btn_crear_histClinica {
+        width: 45%;
+    }
+    .icono_agragar_histClinica {
+        width: 50%;
+    }
+    //**********************     Estilos Editar Consultas       **********************
+    .addFile_consulta {
+        bottom: 78px;
+    }
+    //****************************************************      Estilos de Prescripciones       ****************************************************//
+    .btn_crear_formula {
+        width: 35%;
+    }
+    //****************************************************      Estilos de Mis Favoritos       ****************************************************//
+    .icon_especialidad_favProf {
+        background-position-x: 52%;
+    }
+    .icon_servicio_favProf {
+        background-position-x: 33%;
+    }
+    .icon_especialista_favProf {
+        background-position-x: 42%;
+    }
+    .icon_institucion_favProf {
+        background-position-x: 45%;
+    }
+}
+@media (min-width: 375px) and (orientation: portrait) {
+    //****************************************************      Estilos de Historia Clínica       ****************************************************//
+    .icono_agragar_histClinica {
+        width: 48%;
+    }
+    //**********************     Estilos Editar Consultas       **********************
+    .text_input_consulta {
+        padding: 2%;
+    }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+    //****************************************************      Estilos de Historia Clínica       ****************************************************//
+    .section_cabecera_histClinica {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 5%;
+        padding-top: 2%;
+    }
+    .btn_crear_histClinica {
+        font-size: 1em;
+        height: calc(1em + 1em + 2px);
+        width: 27%;
+        margin-top: 0;
+    }
+    .btnBusqueda_histClinica {
+        height: 3.5vh;
+    }
+    .icono_agragar_histClinica {
+        width: 23%;
+    }
+    .btn_enviar_histClinica {
+        font-size: 1em;
+        width: 16%;
+        margin: 0;
+    }
+    .modal_contentCitasProf {
+        padding: 5% 2% 10% 2%;
+    }
+    //**********************     Estilos de Registro pacientes       **********************
+    .btn_enviar_pacRegistrado {
+        font-size: 1em;
+        width: 23%;
+        margin: 0;
+    }
+    //**********************     Estilos Editar Consultas       **********************
+    .section_addFile_consulta {
+        display: flex;
+        padding: 2% 0 5% 2%;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        height: 6vh;
+    }
+    .addFile_consulta {
+        width: 25.5%;
+        border-radius: 3px;
+        color: transparent;
+        position: absolute;
+        left: 56px;
+        bottom: 170px;
+        height: 2.5vh;
+    }
+    .text_input_consulta {
+        font-family: "Roboto", "Regular";
+        color: #3E3E3E;
+        margin: 0;
+        background: #DBE2E9;
+        height: 2.3vh;
+        padding: .5% 0;
+        border-radius: 3px;
+        position: absolute;
+        left: 57px;
+        width: 25%;
+        text-align: center;
+    }
+    .cajaTxt_consulta {
+        width: 66%;
+        margin-bottom: 0;
+    }
+    //****************************************************      Estilos de Prescripciones       ****************************************************//
+    .btn_crear_formula {
+        font-size: 1em;
+        height: calc(1em + 1em + 2px);
+        width: 20%;
+        margin-top: 0;
+    }
+    .section_input_formula {
+        padding: 0;
+        width: 48%;
+    }
+    //****************************************************      Estilos de Vadecum       ****************************************************//
+    .btn_descargar_agenProf{
+        font-size: .75em;
+        width: 13vw;
+        margin-bottom: 2%;
+    }
+    //****************************************************      Estilos de Mis Favoritos       ****************************************************//
+    .icon_especialidad_favProf {
+        background-position-x: 45%;
+        margin-bottom: 3%;
+    }
+    .icon_servicio_favProf {
+        background-position-x: 28%;
+        margin-bottom: 3%;
+    }
+    .icon_especialista_favProf {
+        background-position-x: 36%;
+        margin-bottom: 3%;
+    }
+    .icon_institucion_favProf {
+        background-position-x: 39%;
+        margin-bottom: 3%;
+    }
+}
+@media (min-width: 1024px) {
+    //****************************************************      Estilos de Historia Clínica       ****************************************************//
+    //**********************     Estilos Editar Consultas       **********************
+    .section_addFile_consulta {
+        display: flex;
+        padding: 2% 17% 0 0;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        height: 5vh;
+    }
+    .addFile_consulta {
+        width: 20%;
+        border-radius: 3px;
+        color: transparent;
+        position: absolute;
+        left: 60px;
+        bottom: 229px;
+        height: 3.5vh;
+    }
+    .text_input_consulta {
+        font-family: "Roboto", "Regular";
+        color: #3E3E3E;
+        margin: 0;
+        background: #DBE2E9;
+        height: 3.5vh;
+        padding: .5% 0;
+        border-radius: 3px;
+        position: absolute;
+        left: 60px;
+        width: 20%;
+        text-align: center;
+    }
+    .cajaTxt_consulta {
+        width: 66%;
+        margin-bottom: 0;
+    }
+}
+@media (min-width: 1200px) {
+    //****************************************************      Estilos de Historia Clínica       ****************************************************//
+    .content_crearHistoria {
+        width: 85%;
+    }
+    .btn_crear_histClinica {
+        width: 26%;
+    }
+    .icono_agragar_histClinica {
+        width: 23%;
+    }
+    //**********************     Estilos Editar Consultas       **********************
+    .addFile_consulta {
+        bottom: 228px;
+        width: 15%;
+        left: 70px;
+    }
+    .text_input_consulta {
+        padding: .3% 0;
+        height: 3.4vh;
+        left: 70px;
+        width: 15%;
+    }
+    .cajaTxt_consulta {
+        width: 69%;
+    }
+    //****************************************************      Estilos de Prescripciones       ****************************************************//
+    .btn_crear_formula {
+        width: 20%;
+    }
+    //****************************************************      Estilos de Vadecum       ****************************************************//
+    .container_vademecum{
+        width: 83%;
+    }
+    .btn_descargar_agenProf{
+        width: 10vw;
+    }
+}
+@media (min-width: 1360px) {
+    .text_input_consulta {
+        left: 81px;
+    }
+    .addFile_consulta {
+        bottom: 207px;
+        width: 15%;
+        left: 81px;
+    }
+}
+@media (min-width: 1440px) {
+    //****************************************************      Estilos de Historia Clínica       ****************************************************//
+    .content_histClinica {
+        width: 75%;
+    }
+    .btn_crear_histClinica {
+        width: 29%;
+    }
+    .btnBusqueda_histClinica {
+        height: 4vh;
+    }
+    .icon_lupa_busqueda {
+        background-size: 60%;
+    }
+    .icono_agragar_histClinica {
+        width: 19%;
+    }
+    .btn_enviar_histClinica {
+        width: 16%;
+    }
+    //**********************     Estilos Editar Consultas       **********************
+    .section_addFile_consulta {
+        padding-right: 41%;
+    }
+    .addFile_consulta {
+        bottom: 209px;
+        width: 12%;
+    }
+    .text_input_consulta {
+        padding: .4% 0;
+        width: 12%;
+    }
+    .cajaTxt_consulta {
+        width: 65%;
+        height: 3.4vh;
+    }
+    //****************************************************      Estilos de Prescripciones       ****************************************************//
+    .container_formula {
+        width: 60%;
+    }
+    .pad_rigth_formula {
+        padding-right: 15%;
+    }
+    .btn_crear_formula {
+        width: 17%;
+    }
+    //****************************************************      Estilos de Procedimiento       ****************************************************//
+    .container_proced{
+        width: 70%;
+    }
+    //****************************************************      Estilos de Vadecum       ****************************************************//
+    .container_vademecum{
+        width: 70%;
+    }
+    //****************************************************      Estilos de Mis Favoritos       ****************************************************//
+    .icon_especialidad_favProf {
+        background-position-x: 46%;
+        margin-bottom: 3%;
+    }
+    .icon_servicio_favProf {
+        background-position-x: 29%;
+        margin-bottom: 3%;
+    }
+    .icon_especialista_favProf {
+        background-position-x: 38%;
+        margin-bottom: 3%;
+    }
+    .icon_institucion_favProf {
+        background-position-x: 40%;
+        margin-bottom: 3%;
+    }
+}
+@media (min-width: 1920px) {
+    //****************************************************      Estilos de Historia Clínica       ****************************************************//
+    .content_crearHistoria {
+        width: 75%;
+    }
+    .btn_crear_histClinica {
+        width: 23%;
+    }
+    .icon_lupa_busqueda {
+        background-size: 50%;
+    }
+    .content_btns_histClinica {
+        margin-top: 4%;
+    }
+    .icono_agragar_histClinica {
+        width: 17%;
+    }
+    .btn_enviar_histClinica {
+        width: 15%;
+    }
+    //**********************     Estilos de Registro pacientes       **********************
+    .btn_enviar_pacRegistrado {
+        width: 17%;
+    }
+    //**********************     Estilos de Registro pacientes       **********************
+    .content_btns_regPaciente {
+        margin-top: 4%;
+    }
+    //**********************     Estilos Editar Consultas       **********************
+    .text_input_consulta {
+        padding: .4% 0;
+        width: 9%;
+        height: 3.5vh;
+        left: 113px;
+    }
+    .addFile_consulta {
+        bottom: 174px;
+        width: 9%;
+        left: 113px;
+        height: 3.5vh;
+    }
+    .cajaTxt_consulta {
+        width: 70%;
+        height: 3.5vh;
+    }
+    //****************************************************      Estilos de Prescripciones       ****************************************************//
+    .pad_rigth_formula {
+        padding-right: 30%;
+    }
+    .container_formula {
+        width: 50%;
+    }
+    .btn_crear_formula {
+        width: 18%;
+    }
+    //****************************************************      Estilos de Procedimiento       ****************************************************//
+    .padRight_agenProf {
+        padding-right: 19%;
+    }
+    .container_proced {
+        width: 68%;
+    }
+    //****************************************************      Estilos de Vadecum       ****************************************************//
+    .container_vademecum{
+        width: 52%;
+    }
+    .btn_descargar_agenProf{
+        width: 8vw;
+    }
+    //****************************************************      Estilos de Mis Favoritos       ****************************************************//
+    .icon_especialidad_favProf {
+        background-position-x: 37%;
+    }
+    .icon_servicio_favProf {
+        background-position-x: 24%;
+    }
+    .icon_especialista_favProf {
+        background-position-x: 30%;
+    }
+    .icon_institucion_favProf {
+        background-position-x: 32%;
+    }
+}

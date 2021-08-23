@@ -75,7 +75,7 @@
 // Sección opciones principales
 .section_input-option-register {
     justify-content: center;
-    height: 16vh;
+    height: calc(3em + 5em);
 }
 .input_option-register {
     display: flex;
@@ -126,7 +126,6 @@
     font-weight: 500;
     color: #3E3E3E;
     text-align: initial;
-    margin-top: 2%;
     margin-right: auto;
 }
 // Botón inferior ingreasar
@@ -137,7 +136,7 @@
     font-family: "Quicksand";
     font-size: 1em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 5px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -186,7 +185,7 @@
         text-decoration: none;
         text-align: center;
         align-items: center;
-        border-bottom: 5px solid #1558d6;
+        border-bottom: 5px solid #0083D6;
         padding: 0;
     }
     // Crear cuenta
@@ -205,6 +204,10 @@
         text-decoration: none;
     }
     // Sección opciones principales
+    .section_input-option-register {
+        justify-content: space-around;
+        height: calc(2em + 5em);
+    }
     .input_img-option {
         width: 70%;
     }
@@ -217,14 +220,13 @@
     // Titulo inferior
     .texto_inferior-tarjeta-register {
         font-size: .735em;
-        margin-top: 2%;
     }
     // Botón inferior ingreasar
     .btn_Ingreso-register {
         font-family: "Quicksand";
         font-size: .85em;
         color: #ffffff;
-        background: #0083d6;
+        background: #0083D6;
         border: none;
         border-radius: 5px;
         height: calc(1.6em + 0.75rem + 2px);
@@ -245,15 +247,6 @@
     // Titulo interno
     .texto_superior-tarjeta-register {
         margin-top: 6%;
-    }
-    // Sección opciones principales
-    .section_input-option-register {
-        justify-content: space-around;
-        height: 15vh;
-    }
-    // Titulo inferior
-    .texto_inferior-tarjeta-register {
-        margin-top: 2%;
     }
 } 
 @media (min-width: 375px) and (orientation: portrait) {
@@ -291,7 +284,7 @@
     // Sección opciones principales
     .section_input-option-register {
         justify-content: space-around;
-        height: 10vh;
+        height: calc(2em + 7em);
     }
     .input_img-option {
         margin: 0;
@@ -323,15 +316,13 @@
     // Titulo inferior
     .texto_inferior-tarjeta-register {
         font-size: 1.15em;
-        margin-top: 0;
-        margin-bottom: 5%;
     }
     // Botón inferior ingresar
     .btn_Ingreso-register {
         font-family: "Quicksand";
         font-size: 1.438em;
         color: #ffffff;
-        background: #0083d6;
+        background: #0083D6;
         border: none;
         border-radius: 5px;
         height: calc(1.6em + 0.75rem + 2px);
@@ -385,20 +376,22 @@
     .texto_label-register {
         font-size: 1.5em;
     }
+    .section_input-option-register {
+        justify-content: center;
+        height: calc(5em + 5em);
+    }
     // Check polìticas y terminos
     .check_option-register {
         float: left;
         width: 3%;
-        height: 2vh;
+        height: 1.7vh;
     }
     .section_terminos-register {
-        margin-left: 3%;
+        margin-left: 2%;
     }
     // Titulo inferior
     .texto_inferior-tarjeta-register {
         font-size: 1.25em;
-        margin-top: 3%;
-        margin-bottom: 5%;
     }
     // Botón inferior inrgresar
     .btn_Ingreso-register {
@@ -421,11 +414,6 @@
     .input_height-fullhd-register {
         height: 5vh;
         font-size: 1.25em;
-    }
-    .texto_inferior-tarjeta-register {
-        font-size: 1.25em;
-        margin-top: 3%;
-        margin-bottom: 3%;
     }
     .flecha_ingreso-register {
         width: 6%;

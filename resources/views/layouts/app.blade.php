@@ -8,11 +8,8 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
-        <!-- Scripts -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="{{ asset('js/selectareas.js') }}" defer></script>
-
+        
+        {!! SEO::generate() !!}
         <title>{{ config('app.name', 'Laravel') }}</title>
         <link rel="shortcat icon" href="{{URL::asset('/img/logos/zaabrasalud-favicon.png')}}"> 
         <!-- Fonts -->
@@ -28,30 +25,29 @@
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.css" integrity="sha512-zwoDXU7OjppdwrN9brNSW0E2G5+BxJsDXrwoUCEYJ3mE4ZmApOp0DJc36amSk3h8iWi8+qjcii7WFb+9m8Ro4g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         
-         <!-- Styles  input tipo tag-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+
 
        <!--Framewor Agenda-->
         <link rel="stylesheet" href="{{ asset('fullCalendar/main.css') }}">
-        <script src="{{ asset('fullCalendar/main.js') }}"></script>
 
     </head>
     <body>
-    @include('header')
-
+         @include('header')
         <div id="app">
-            <!-------------------------------------------Contenido-------------------------------------------->
-            <main>
-                @yield('content')
-            </main>
-            @include('footer')
+                <!-------------------------------------------Contenido-------------------------------------------->
+                <main>
+                    @yield('content')
+                </main>
+                @include('footer')
         </div>
+        <script src="{{ asset('js/app.js') }}"></script>
         <!--///      Ubicación de los SCRIPT de cada uno de los archivos .js utilizados en el proyecto zaabrasalud      ///-->
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.js" integrity="sha512-Cpto2uFAGrtCArBkIckJacfNjZ6yFJ1F61YIOH3Nj4dpccnCK1AGkudN9g+HM+OQMIHxeFvcRmkIUKbJ/7Qxyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="{{ asset('js/app.js') }}"></script>
+        <!-- Styles  input tipo tag-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+        <!-- Scripts  areas-->
         <script src="{{ asset('js/header.js') }}"></script>
         <script src="{{ asset('js/register.js') }}"></script>
         <script src="{{ asset('js/home.js') }}"></script>
@@ -67,9 +63,11 @@
         <script src="{{ asset('js/adicionarcamposformulario.js') }}"></script>
         <script src="{{ asset('js/comentarios.js') }}"></script>
         <script src="{{ asset('js/filtroBusquedad.js') }}"></script>
-
+        <script src="{{ asset('js/formularioProfesional.js') }}"></script>
+        <script src="{{ asset('js/favoritoEspecialidad.js') }}"></script>
      <!--js admin template-->
-        <script src="{{ asset('js/admin.js') }}"></script>
+     <script src="{{ asset('fullCalendar/main.js') }}"></script>
+     <script src="{{ asset('js/admin.js') }}"></script>
     
     </body>
 
@@ -79,14 +77,14 @@
             <div class="modal-content modal_content-popup">
                 <!-- Sección boton derecho de cierre "X" -->
                 <div class="modal-header modal_header-popup">
-                    <button type="button" class="btn_close-popup" data-dismiss="modal" aria-label="Close">
-                        <span class="Xcierre_modal-popup" aria-hidden="true">&times;</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
                 <div class="modal-body p-0">
                     <!-- Titulo y texto de encabezado -->
-                    <h5 class="modal-title titulo_principal-popup" id="exampleModalLabel"> Seleccione el medio de pago</h5>
+                    <h1 class="modal-title titulo_principal-popup" id="exampleModalLabel"> Seleccione el medio de pago</h1>
 
                     <p class="texto_superior-popup"> Seleccione el medio de pago que mejor se adapte a su necesidad. </p>
                     
@@ -106,7 +104,7 @@
                         <div class="secction_tarjeta-popup">
                             <img id="img_pagoPse" src="{{URL::asset('/img/popup-pago/medios-online-pse-azul.svg')}}" class="icon_popup"> 
 
-                            <h3 class="textoCheck_popup"> Medio online (PSE) </h3>   
+                            <h3 class="textoCheck_popup"> Pago en línea (PSE) </h3>   
 
                             <input class="inputCheck_popup" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                         </div>  
@@ -132,5 +130,6 @@
     </div>
 
 </html>
+
 
 

@@ -12,7 +12,16 @@
        || queryRuta.includes("/contacto")
        || queryRuta.includes("error101") || queryRuta.includes("error403")
        || queryRuta.includes("error404") || queryRuta.includes("error505")
-       || queryRuta.includes("FormularioProfesional")  || queryRuta.includes("FormularioInstitucion")) {
+       || queryRuta.includes("FormularioProfesional") || queryRuta.includes("FormularioInstitucion")
+       || queryRuta.includes("citas") || queryRuta.includes("pagos")
+       || queryRuta.includes("favoritos") || queryRuta.includes("panelPrincipal")
+       || queryRuta.includes("ordenesMedicas") || queryRuta.includes("prescripciones")
+       || queryRuta.includes("calendarioProfesional") || queryRuta.includes("historiaClinicaProfesional")
+       || queryRuta.includes("vademecumProfesional") || queryRuta.includes("procedimientosProfesional")
+       || queryRuta.includes("diagnosticosProfesional") || queryRuta.includes("crearFormulaProfesional")
+       || queryRuta.includes("registroPaciente") || queryRuta.includes("pacienteRegistrado")
+       || queryRuta.includes("editarConsulta") || queryRuta.includes("editarPatologia")
+       || queryRuta.includes("editarExpediente")) {
        selector(".footer_newsletter").style.display = "none";
     }
 }();
@@ -47,6 +56,12 @@ $('.evento_acordion .containt_options-collapse-membresia').on( "click", function
 $('.evento_acordion .containt_options-collapse-institucion').on( "click", function() {
 	$(this).siblings().find(".boton_collapse-off-institucion").removeClass("boton_collapse-on-institucion");
 	$(this).find(".boton_collapse-off-institucion").toggleClass("boton_collapse-on-institucion");
+});
+
+// Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "membresiaProfesional" y "membresiaInstitucion" 
+$('.evento_acordion .containt_options-collapse-acerca').on( "click", function() {
+	$(this).siblings().find(".boton_collapse-off-acerca").removeClass("boton_collapse-on-acerca");
+	$(this).find(".boton_collapse-off-acerca").toggleClass("boton_collapse-on-acerca");
 });
 
 
@@ -99,3 +114,8 @@ $('#newsletter2').on('submit',function(e){
          },
      });
     });
+
+      // From http://stackoverflow.com/a/5365036/2065702
+var randomColor = "#"+((1<<24)*Math.random()|0).toString(16); 
+
+document.documentElement.style.setProperty('main-bg-color', randomColor);
