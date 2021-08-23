@@ -18,6 +18,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
+        <!--Framewor Agenda-->
+        <link rel="stylesheet" href="{{ asset('fullCalendar/main.css') }}">
         <!-- Styles -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -27,8 +29,7 @@
         
 
 
-       <!--Framewor Agenda-->
-        <link rel="stylesheet" href="{{ asset('fullCalendar/main.css') }}">
+       
 
     </head>
     <body>
@@ -47,6 +48,9 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <!-- Styles  input tipo tag-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+        <!-- Full calendar JS -->
+        <script src="{{ asset('fullCalendar/main.js') }}"></script>
+        <script src="{{ asset('fullCalendar/locales/es.js') }}"></script>
         <!-- Scripts  areas-->
         <script src="{{ asset('js/header.js') }}"></script>
         <script src="{{ asset('js/register.js') }}"></script>
@@ -65,8 +69,8 @@
         <script src="{{ asset('js/filtroBusquedad.js') }}"></script>
         <script src="{{ asset('js/formularioProfesional.js') }}"></script>
         <script src="{{ asset('js/favoritoEspecialidad.js') }}"></script>
+        <script src="{{ asset('js/fullcalendar.js') }}"></script>
      <!--js admin template-->
-     <script src="{{ asset('fullCalendar/main.js') }}"></script>
      <script src="{{ asset('js/admin.js') }}"></script>
     
     </body>

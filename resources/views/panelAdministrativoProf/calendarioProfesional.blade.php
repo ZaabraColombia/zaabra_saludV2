@@ -16,6 +16,9 @@
                     <h2 class="dias"><i></i> Días disponibles</h2>
                 </div>
             </div>
+            <div class="col-12">
+                <div id='calendar' style='width=100%;height=400px'></div>
+            </div>
         </div>
     </section>
 @endsection
