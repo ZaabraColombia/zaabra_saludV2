@@ -425,8 +425,15 @@ class formularioProfesionalController extends Controller
 
             /*id usuario logueado*/
             $id_user=auth()->user()->id;
+            //Modificar nombres del usuario\
+            $user = User::find($id_user);
 
- 
+            $user->primernombre = $request->primernombre;
+            $user->segundonombre = $request->segundonombre;
+            $user->primerapellido = $request->primerapellido;
+            $user->segundoapellido = $request->segundoapellido;
+
+            $user->save();
 
            /*valido que el profesional no exista para que cree uno nuevo en caso contrario lo modifique */
            if(is_null($verificaPerfil)){
@@ -449,7 +456,13 @@ class formularioProfesionalController extends Controller
                         'idUser' => "$id_user", 
                         'fotoperfil' => "img/user/$id_user/$nombrelogo"
                     ]);
-                    dump($request->all());
+                    //dump($request->all());
+                    $dataPerfilesprofesionales = request()->all();
+                    
+                    unset($dataPerfilesprofesionales['primernombre']);
+                    unset($dataPerfilesprofesionales['segundonombre']);
+                    unset($dataPerfilesprofesionales['primerapellido']);
+                    unset($dataPerfilesprofesionales['segundoapellido']);
                     perfilesprofesionales::create($request->all());
 
                     return redirect('FormularioProfesional'); 
@@ -474,7 +487,12 @@ class formularioProfesionalController extends Controller
                     $dataPerfilesprofesionales = request()->all();
                     unset($dataPerfilesprofesionales['_token']);
                     unset($dataPerfilesprofesionales['logo']);
+                    unset($dataPerfilesprofesionales['primernombre']);
+                    unset($dataPerfilesprofesionales['segundonombre']);
+                    unset($dataPerfilesprofesionales['primerapellido']);
+                    unset($dataPerfilesprofesionales['segundoapellido']);
                    
+                    //die(request);
            
                     perfilesprofesionales::where('idUser', $id_user)->update($dataPerfilesprofesionales);
 

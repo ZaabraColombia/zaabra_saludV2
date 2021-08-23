@@ -65,6 +65,8 @@ $('#formulario_basico').validate({
            cache: false,
            processData: false,
            success: function( response ) {
+               
+            console.log(response);
                $('#envia_basico').hide();
                $('#res_message_basico').show();
                $('#res_message_basico').html(response.msg);
@@ -78,7 +80,7 @@ $('#formulario_basico').validate({
            }
          });
        }
-})
+});
 /*--------------------------- Fin Primera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 
 /*-------------------------- Inicio Segunda Parte del Formulario Descripcion Perfil Profesional------------------------------*/

@@ -79,17 +79,17 @@
                                 <div class="col-lg-6 section_inputRight-text-formProf">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Nombres </label>
                                     <div class="col-12 nombres_usuario-formProf">
-                                        <input class="input_nomApl-formProf" value="{{$objuser->primernombre}}" readonly></input>
+                                        <input class="input_nomApl-formProf" value="{{$objuser->primernombre}}" name="primernombre"></input>
 
-                                        <input class="input_nomApl-formProf" value="{{$objuser->segundonombre}}" readonly></input>
+                                        <input class="input_nomApl-formProf" value="{{$objuser->segundonombre}}" name="segundonombre"></input>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 section_inputRight-text-formProf">
                                     <label for="example-date-input"class="col-12 text_label-formProf"> Apellidos </label>
                                     <div class="col-12 nombres_usuario-formProf">
-                                        <input class="input_nomApl-formProf" value="{{$objuser->primerapellido}}" readonly></input>
+                                        <input class="input_nomApl-formProf" value="{{$objuser->primerapellido}}" name="primerapellido"></input>
 
-                                        <input class="input_nomApl-formProf" value="{{$objuser->segundoapellido}}" readonly></input>
+                                        <input class="input_nomApl-formProf" value="{{$objuser->segundoapellido}}" name="segundoapellido"></input>
                                     </div>
                                 </div>
                             @endforeach
