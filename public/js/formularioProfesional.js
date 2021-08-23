@@ -2,7 +2,7 @@
 $('#formulario_basico').validate({
     rules: {
         logo: {
-            required: true,
+            required: false,
         },
         fechanacimiento:{
             required: true,

@@ -44,12 +44,30 @@ class formularioProfesionalController extends Controller
 
         if (Auth::check()){
             $id_user=auth()->user()->id;/*id usuario logueado*/
+            $objFormulario=$this->cargaFormulario($id_user);
+            
             $pais = pais::all();
             $area = areas::all();
+
+            //Llamar la lista de profecion segun la seleccion del area
+            if  (!is_null($objFormulario[0]->idarea)) {
+                $profesiones = profesiones::where('idArea', '=', $objFormulario[0]->idarea)->get();
+                //dd($profesiones);
+            }
+            
+            //Llamar la lista de profecion segun la seleccion de la profecion
+            if  (!is_null($objFormulario[0]->idprofesion)) {
+                $especialidades = especialidades::where('idProfesion', '=', $objFormulario[0]->idprofesion)->get();
+            }
+
+            //resetera si no existe lista
+            if (!isset($profesiones)) $profesiones = null;
+            if (!isset($especialidades)) $especialidades = null;
+            
             $universidades = universidades::all();
             $idiomas = idiomas::all();
+            
             $objuser = $this->cargaDatosUser($id_user);
-            $objFormulario=$this->cargaFormulario($id_user);
             $objContadorConsultas=$this->contadorConsultas($id_user);
             $objConsultas=$this->cargaConsultas($id_user);
             $objContadorEducacion=$this->contadorEducacion($id_user);
@@ -71,9 +89,12 @@ class formularioProfesionalController extends Controller
             $objVideo=$this->cargaVideo($id_user);
             $objContadorVideo=$this->contadorVideo($id_user);
 
+
             return view('profesionales.FormularioProfesional',compact(
             'objuser',
             'area',
+            'profesiones',
+            'especialidades',
             'pais',
             'idiomas',
             'universidades',

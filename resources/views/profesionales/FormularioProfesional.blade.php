@@ -101,22 +101,26 @@
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Selecione área </label> 
                                 <select id="idarea" name="idarea" class="col-lg-12 form-control">
-                                    <option value="" selected disabled>{{$objFormulario->nombreArea}}</option>
                                     @foreach($area as $area)
-                                        <option value="{{$area->idArea}}"> {{$area->nombreArea}}</option>
+                                        <option value="{{$area->idArea}}" {{ ($area->idArea == $objFormulario->idarea) ? 'selected' : '' }}> {{$area->nombreArea}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Selecione profesión </label>
                                 <select name="idprofesion" id="idprofesion" class="col-lg-12 form-control">
-                                      <option value="" selected disabled>{{$objFormulario->nombreProfesion}}</option>
+                                    
+                                    @foreach($profesiones as $profesion)
+                                        <option value="{{$profesion->idProfesion}}" {{ ($profesion->idProfesion == $objFormulario->idprofesion) ? 'selected' : '' }}> {{$profesion->nombreProfesion}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione especialidad </label>
                                 <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control">
-                                      <option value="" selected disabled>{{$objFormulario->nombreEspecialidad}}</option>
+                                      @foreach($especialidades as $especialidad)
+                                        <option value="{{$especialidad->idEspecialidad}}" {{ ($especialidad->idEspecialidad == $objFormulario->idEspecialidad) ? 'selected' : '' }}> {{$especialidad->nombreEspecialidad}}</option>
+                                    @endforeach
                                 </select>
                             </div>               
                             <div class="col-md-6 section_inputRight-text-formProf">
