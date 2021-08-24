@@ -13,7 +13,7 @@
        || queryRuta.includes("error101") || queryRuta.includes("error403")
        || queryRuta.includes("error404") || queryRuta.includes("error505")
        || queryRuta.includes("FormularioProfesional") || queryRuta.includes("FormularioInstitucion")
-       || queryRuta.includes("citas") || queryRuta.includes("pagos")
+       || queryRuta.includes("citas") || queryRuta.includes("pagos") || queryRuta.includes("calendario")
        || queryRuta.includes("favoritos") || queryRuta.includes("panelPrincipal")
        || queryRuta.includes("ordenesMedicas") || queryRuta.includes("prescripciones")
        || queryRuta.includes("calendarioProfesional") || queryRuta.includes("historiaClinicaProfesional")

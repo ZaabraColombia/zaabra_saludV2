@@ -20,5 +20,118 @@
                 <div id="calendar"></div>
             </div>
         </div>
-    </section>
+
+        <button class="btn_cierre_citasProf" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>   
+    </section>                             
+
+    <!-- Pop-up  editar cita -->
+    <div class="modal fade modalC" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal_citas_popUp" role="document">
+            <div class="modal-content content_modalCitas">
+                <!-- Sección boton derecho de cierre "X" -->
+                <div class="modal-header modal_headerCitas">
+                    <h1 class="title_popup_miCita" id="exampleModalLabel">Cita Odontología</h1>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body modal_headerCitas">
+
+                    <h5 class="text_labelCita_popUp">Laura León</h5>
+                
+                    <div class="col-md-10 contain_infoCita_popUp">
+                        <h5 class="text_labelCita_popUp">Jueves, 12 de mayo</h5>
+                        <span class="icono_reloj_popUp text_infoCita_popUp">10:47 - 11:47 a.m</span>
+                    </div>
+
+                    <div class="col-md-10 contain_infoCita_popUp">
+                        <h5 class="text_labelCita_popUp">Tipo de cita</h5>
+                        <span class="icono_tipoCita_popUp text_infoCita_popUp">Presencial</span>
+                    </div>
+                </div>
+
+                <!-- Sección botón Pagar -->
+                <div class="modal-footer section_btn_citas">
+                    <button type="submit" class="btnAgendar-popup" id="" data-toggle="modal" data-target="#exampleModal2" onclick="elementClose(this)" data-position="edito">Editar cita</button>
+
+                    <button type="submit" class="btnCancelar-popup" id="" data-toggle="modal" data-target="#exampleModal3" onclick="elementClose(this)" data-position="cancelar">Cancelar cita </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up agendar cita -->
+    <div class="modal fade modalD" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal_citas_popUp" role="document">
+            <div class="modal-content content_modalCitas">
+                <!-- Sección boton derecho de cierre "X" -->
+                <div class="modal-header modal_headerCitas">
+                    <h1 class="title_popup_miCita" id="exampleModalLabel">Editar cita</h1>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body modal_headerCitas">
+                    <form method="POST" action="">
+                        <div class="col-md-6 p-0">
+                            <label for="example-date-input" class="col-12 text_label-formProf">Especialidad</label>
+
+                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
+                                <option value="" selected> Seleccionar </option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 p-0">
+                            <label for="example-date-input" class="col-12 text_label-formProf">Estado</label>
+
+                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
+                                <option value="" selected> Seleccionar </option>
+                                <option value="Presencial"> Presencial </option>
+                                <option value="Virtual"> Virtual </option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 p-0">
+                            <label for="example-date-input" class="col-12 text_label-formProf">Fecha</label>
+                        
+                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
+                        </div>
+
+                        <div class="col-md-6 p-0">
+                            <label for="example-date-input" class="col-12 text_label-formProf">Hora</label>
+                        
+                            <input class="form-control" type="time" value="" id="example-date-input" name="fechaestudio[]">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Sección botón Pagar -->
+                <div class="modal-footer section_btn_citas">
+                    <button type="submit" class="btnAgendar-popup" id="">Hacer pago</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up cancelar cita -->
+    <div class="modal fade modalE" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+        <div class="modal-dialog modal-lg container_modal_cancelo" role="document">
+            <div class="modal-content content_canceloCita">
+                <!-- Sección boton derecho de cierre "X" -->
+                <div class="modal-header modal_cancelarCitasProf">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body modal_contentCitasProf">
+                    <h1 class="title_cancelar_miCita" id="exampleModalLabel3">Cita cancelada.</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

@@ -5,7 +5,7 @@
             
             <ul class="menu">
                 <li class="sidebar-item  has-sub ">
-                    <a id="menu_panel" class="actived" href="{{ url('/panelPrincipalProfesional') }}" style="text-decoration: none;"> Menu </a>
+                    <a id="menu_panel" class="actived" href="{{ url('/panelPrincipalProfesional') }}"> Menu </a>
                 </li>
                 @if(!empty($objListaUsuario1->isNotEmpty()))
                     <li class="sidebar-item  has-sub">
@@ -113,7 +113,7 @@
                         </ul>
                     </li>
                 @endif
-                
+
                 @if(!empty($objListaUsuario7->isNotEmpty()))
                     <li class="sidebar-item  has-sub">
                         <a href="#" class="sidebar-link">
