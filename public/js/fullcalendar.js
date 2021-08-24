@@ -35,5 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // info.el.style.borderColor = 'red';
         }
       });
-    calendar.render();
+
+    if (calendarEl > 0) {
+        calendar.render();
+    }
 });

@@ -14,32 +14,40 @@ class perfilesprofesionales extends Model
      * @var array
      */
     protected $fillable = [
-        'idUser', 
-        'idarea', 
-        'idprofesion', 
-        'idespecialidad', 
+        'idUser',
+        'idarea',
+        'idprofesion',
+        'idespecialidad',
         'idpais',
-        'id_departamento', 
-        'id_provincia', 
-        'id_municipio', 
+        'id_departamento',
+        'id_provincia',
+        'id_municipio',
         'id_universidad',
-        'direccion',  
+        'direccion',
         'genero',
         'celular',
         'telefono',
-        'EmpresaActual', 
-        'fotoperfil', 
-        'fechanacimiento', 
-        'numeroTarjeta', 
-        'entidadCertificoTarjeta',  
+        'EmpresaActual',
+        'fotoperfil',
+        'fechanacimiento',
+        'numeroTarjeta',
+        'entidadCertificoTarjeta',
         'descripcionPerfil ',
-        'imglogoempresa', 
-        'caracteristicas',  
-        'FechaAprobacion', 
-        'aprobado', 
-        'aceptoTerminos', 
-        'fechaCreacionFormulario',  
-        'created_at', 
+        'imglogoempresa',
+        'caracteristicas',
+        'FechaAprobacion',
+        'aprobado',
+        'aceptoTerminos',
+        'fechaCreacionFormulario',
+        'created_at',
         'updated_at',
     ];
+
+    /**
+     * The roles that belong to the user.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'idUser', 'id');
+    }
 }

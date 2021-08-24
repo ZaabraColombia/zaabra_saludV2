@@ -420,6 +420,22 @@
     padding: 0;
     margin-bottom: 0;
 }
+//Seccion destacado en
+.icon_destacado-formProf {
+    background-image: url('/img/formulario-profesional/icono-agregar-especialidad-favoritos-verde.svg') ;
+    background-repeat: no-repeat ;
+    background-position-y: center;
+    background-size: 2.5%;
+    padding-left: 4%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #019F86;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Regular';
+    color: #019F86;
+    text-transform: inherit;
+}
 ///// *****   SECCIÓN TARJETA PERFIL PROFESIONAL   ***** /////
 
 // Sección titulo de la tarjeta perfil profesional
@@ -578,14 +594,14 @@
     margin: 0;
     padding: 0 1%;
 }
-.agregar_archivo-formProf {          
+.agregar_archivo-formProf {
     position: relative;
     display: flex;
     justify-content: center;
     margin: auto;
     padding: 0;
     width: 77%;
-} 
+}
 .agregar_archivo-formProf::before {
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
     background-repeat: no-repeat ;
@@ -595,7 +611,7 @@
     font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
-    display: flex;            
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 3px;
@@ -604,13 +620,13 @@
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;              
-}  
+    bottom: 0;
+}
 .agregar_archivo-formProf input[type="file"] {
     opacity: 0;
     width: 100%;
     height: 32px;
-    display: flex;            
+    display: flex;
 }
 .text_infoImg-formProf {
     font-family: 'Roboto', 'Regular';
@@ -721,7 +737,7 @@
     color: #019F86;
     text-transform: inherit;
 }
-.content_antes-formProf .agregar_archivo-formProf {          
+.content_antes-formProf .agregar_archivo-formProf {
     position: relative;
     display: flex;
     justify-content: center;
@@ -729,7 +745,7 @@
     padding: 0;
     width: 60%;
 }
-.content_despues-formProf .agregar_archivo-formProf {          
+.content_despues-formProf .agregar_archivo-formProf {
     position: relative;
     display: flex;
     justify-content: center;
@@ -746,7 +762,7 @@
     font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
-    display: flex;            
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 3px;
@@ -755,8 +771,8 @@
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;              
-}  
+    bottom: 0;
+}
 .despues .agregar_archivo-formProf::before {
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
     background-repeat: no-repeat ;
@@ -766,7 +782,7 @@
     font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
-    display: flex;            
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 3px;
@@ -775,8 +791,8 @@
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;              
-}  
+    bottom: 0;
+}
 .content_tratam-proced .img_selccionada-formProf {
     display: flex;
     justify-content: center;
@@ -886,7 +902,7 @@
     width: 100%;
     height: 30vh;
 }
-.content_premio-recono .agregar_archivo-formProf {          
+.content_premio-recono .agregar_archivo-formProf {
     position: relative;
     display: flex;
     justify-content: center;
@@ -903,7 +919,7 @@
     font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
-    display: flex;            
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 3px;
@@ -912,7 +928,7 @@
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;              
+    bottom: 0;
 }
 .photo2 .agregar_archivo-formProf::before {
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
@@ -923,7 +939,7 @@
     font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
-    display: flex;            
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 3px;
@@ -932,7 +948,7 @@
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;              
+    bottom: 0;
 }
 .photo3 .agregar_archivo-formProf::before {
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
@@ -943,7 +959,7 @@
     font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
-    display: flex;            
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 3px;
@@ -952,7 +968,7 @@
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;              
+    bottom: 0;
 }
 .photo4 .agregar_archivo-formProf::before {
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
@@ -963,7 +979,7 @@
     font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
-    display: flex;            
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 3px;
@@ -972,7 +988,7 @@
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;              
+    bottom: 0;
 }
 .text_fechaPremio-formProf {
     font-family: "Roboto";
@@ -1020,7 +1036,7 @@
     color: #019F86;
     text-transform: inherit;
 }
-.content_publicacion .agregar_archivo-formProf {          
+.content_publicacion .agregar_archivo-formProf {
     position: relative;
     display: flex;
     justify-content: center;
@@ -1063,7 +1079,7 @@
     color: #019F86;
     text-transform: inherit;
 }
-.content_galeria-video .agregar_archivo-formProf {          
+.content_galeria-video .agregar_archivo-formProf {
     position: relative;
     display: flex;
     justify-content: center;
@@ -1089,7 +1105,7 @@
     font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
-    display: flex;            
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 3px;
@@ -1098,7 +1114,7 @@
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;              
+    bottom: 0;
 }
 .photo6 .agregar_archivo-formProf::before {
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
@@ -1109,16 +1125,16 @@
     font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
-    display: flex;            
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 3px;
-    content: 'Subir foto 6'; // texto botón subir foto asociación 
+    content: 'Subir foto 6'; // texto botón subir foto asociación
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;              
+    bottom: 0;
 }
 .photo7 .agregar_archivo-formProf::before {
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
@@ -1129,16 +1145,16 @@
     font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
-    display: flex;            
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 3px;
-    content: 'Subir foto 7'; // texto botón subir foto asociación 
+    content: 'Subir foto 7'; // texto botón subir foto asociación
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;              
+    bottom: 0;
 }
 .photo8 .agregar_archivo-formProf::before {
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
@@ -1149,7 +1165,7 @@
     font-size: 1em;
     font-family: 'Quicksand', 'Regular';
     color: #434343;
-    display: flex;            
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 3px;
@@ -1158,7 +1174,7 @@
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;              
+    bottom: 0;
 }
 ///// *****   SECCIÓN TARJETA VIDEOS   ***** /////
 
@@ -1260,7 +1276,7 @@ label.error{
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
-    // Sección cabecera del formulario opciones del usuario 
+    // Sección cabecera del formulario opciones del usuario
     .lista_opciones-usuario-formProf {
         justify-content: center;
         flex-wrap: wrap;
@@ -1459,8 +1475,8 @@ label.error{
         background-position-x: 5%;
         background-size: 6%;
         font-size: .9em;
-        padding-left: 8%;         
-    } 
+        padding-left: 8%;
+    }
     .img_selccionada-formProf {
         width: 75%;
         height: 10vh;
@@ -1516,22 +1532,22 @@ label.error{
     .photo1 .agregar_archivo-formProf::before {
         background-position-x: 10%;
         background-size: 10%;
-        font-size: 1em;           
+        font-size: 1em;
     }
     .photo2 .agregar_archivo-formProf::before {
         background-position-x: 10%;
         background-size: 10%;
-        font-size: 1em;          
+        font-size: 1em;
     }
     .photo3 .agregar_archivo-formProf::before {
         background-position-x: 10%;
         background-size: 10%;
-        font-size: 1em;           
+        font-size: 1em;
     }
     .photo4 .agregar_archivo-formProf::before {
         background-position-x: 10%;
         background-size: 10%;
-        font-size: 1em;            
+        font-size: 1em;
     }
     .content_agregarImg-formProf {
         margin: auto;
@@ -1568,7 +1584,7 @@ label.error{
         padding-left: 10%;
         height: 6vh;
     }
-    .content_premio-recono .agregar_archivo-formProf {          
+    .content_premio-recono .agregar_archivo-formProf {
         width: 45%;
     }
     .title_infoGuardada-formProf {
@@ -1609,22 +1625,22 @@ label.error{
     .photo5 .agregar_archivo-formProf::before {
         background-position-x: 10%;
         background-size: 10%;
-        font-size: 1em;             
+        font-size: 1em;
     }
     .photo6 .agregar_archivo-formProf::before {
         background-position-x: 10%;
         background-size: 10%;
-        font-size: 1em;             
+        font-size: 1em;
     }
     .photo7 .agregar_archivo-formProf::before {
         background-position-x: 10%;
         background-size: 10%;
-        font-size: 1em;             
+        font-size: 1em;
     }
     .photo8 .agregar_archivo-formProf::before {
         background-position-x: 10%;
         background-size: 10%;
-        font-size: 1em;             
+        font-size: 1em;
     }
     //      ***** SECCIÓN TARJETA DE --- VIDEO --- *****         //
     .icon_infoVideo-formProf {
@@ -2154,7 +2170,7 @@ label.error{
     .photo8 .agregar_archivo-formProf {
         width: 50%;
     }
-} 
+}
 @media (min-width: 1920px) {
     .alert-message {
         width: 66%;
@@ -2170,14 +2186,14 @@ label.error{
     .img_usuario-formProf {
         height: 20vh;
         width: 65%;
-    } 
+    }
     .icon_subirFoto-formProf {
         background-position-x: 18%;
         background-size: 5%;
     }
     .text_usuario-formProf {
         padding: 3% 0 3% 3%;
-    } 
+    }
     .flecha_guardar-formProf {
         width: 8%;
     }

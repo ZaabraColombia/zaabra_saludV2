@@ -504,6 +504,35 @@
         </div>
         <!--------------------------------------------      Fin 3 tercera parte del formulario *** INFORMACIÓN CONSULTA ***      ---------------------------------------------->
 
+        <!--------------------------------------------      Inicio 14 Cartoceava parte del formulario *** INFORMACIÓN BÁSICA ***      --------------------------------------------->
+
+        <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
+            <h5 class="col-12 icon_destacado-formProf"> Destacado en </h5>
+            <form id="formulario_destacado" method="POST" action="/FormularioProfesionalAddDestacable" enctype="multipart/form-data" accept-charset="UTF-8" class="pb-2" >
+                @csrf
+            <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio--------------------->
+                <div class="row fila_infoBasica-formProf">
+                    <div class="col-12" id="destacado-lista">
+                        @foreach($destacables as $destacable)
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                <strong>{{ $destacable->nombreExpertoEn }}</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="col-12">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Ingrese el tema" name="destacado_nombre">
+                            <button class="btn btn-primary" type="submit" id="destacado_nombre_btn" {{ ($destacables_count >= 9 ) ? 'disabled' : ''}} ><img src="{{ asset('img/iconos/icono-agregar-especialidad-favoritos-blanco.svg') }}" alt="mas"> Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--------------------------------------------      Fin 14 Cartoceava parte del formulario *** INFORMACIÓN BÁSICA ***      ------------------------------------------------>
+
         <!-- Secciones de los botones anterior y siguiente -->
         <div class="col-lg-10 col-xl-8 content_botonInferior-next-formProf">
             <div class="col-md-3 content_btn-siguient">
