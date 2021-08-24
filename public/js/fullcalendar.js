@@ -4,19 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendar = new FullCalendar.Calendar(calendarEl, {
         selectable: true,
         headerToolbar: {
-            left: 'prev,next today agendarCita',
+            left: 'prev,next today',
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
         locale: 'es',
-        customButtons: {
-            agendarCita: {
-              text: 'Agendar Cita',
-              click: function() {
-                alert('clicked custom button 1!');
-              }
-            }
-          },
         events: [
             {
               id: 'a',
