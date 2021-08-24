@@ -1,16 +1,17 @@
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active ps ps--active-y">
         <div class="sidebar-menu">
+            <h1 class="title_agenda mb-0 px-3">AGENDA PROFESIONAL</h1>
+            
             <ul class="menu">
-            <li class="title_agenda">AGENDA PROFESIONAL</li>
-                <a href="{{ url('/panelPrincipalProfesional') }}" class="">
-                    <li class="sidebar-title">Menu</li>
-                </a>
+                <li class="sidebar-item  has-sub ">
+                    <a id="menu_panel" class="actived" href="{{ url('/panelPrincipalProfesional') }}" style="text-decoration: none;"> Menu </a>
+                </li>
                 @if(!empty($objListaUsuario1->isNotEmpty()))
                     <li class="sidebar-item  has-sub">
-                        <!-- <a href="#" class="sidebar-link"> -->
-                            <i class="bi bi-stack"></i>
-                            <span>Mis citas</span>
+                        <!-- <a href="#" class="sidebar-link"> 
+                            <i class="bi bi-stack"></i>-->
+                        <span id="cita_padre" class="titulo_menu">Mis citas</span>
                         <!-- </a> -->
                         <ul class="submenu active p-0">
                             <!-- @foreach($objListaUsuario1 as $objListaUsuario1)
@@ -18,23 +19,23 @@
                                     <a href='{{url("$objListaUsuario1->urlPermiso")}}'>{{$objListaUsuario1->nombrePermiso}}</a>
                                 </li>
                             @endforeach -->
-                            <li class="submenu-item ">
-                                <a href='{{url("citasProfesional")}}'>Citas</a>
+                            <li class="submenu-item">
+                                <a id="cita" class="actived" href='{{url("citasProfesional")}}'>Citas</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href='{{url("calendarioProfesional")}}'>Calendario</a>
+                                <a id="calendario" class="actived" href='{{url("calendarioProfesional")}}'>Calendario</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href='{{url("pagosProfesional")}}'>Mis pagos</a>
+                                <a id="pago" class="actived" href='{{url("pagosProfesional")}}'>Mis pagos</a>
                             </li>
                         </ul>
                     </li>
                 @endif
                 @if(!empty($objListaUsuario2->isNotEmpty()))
                     <li class="sidebar-item  has-sub">
-                        <!-- <a href="#" class="sidebar-link"> -->
-                            <i class="bi bi-collection-fill"></i>
-                            <span>Mi Historia Clínica</span>
+                        <!-- <a href="#" class="sidebar-link"> 
+                            <i class="bi bi-collection-fill"></i>-->
+                        <span id="historia_padre" class="titulo_menu">Mi Historia Clínica</span>
                         <!-- </a> -->
                         <ul class="submenu active p-0">
                             <!-- @foreach($objListaUsuario2 as $objListaUsuario2)
@@ -43,19 +44,19 @@
                                 </li>
                             @endforeach -->
                             <li class="submenu-item ">
-                                <a href='{{url("historiaClinicaProfesional")}}'>Historia clínica</a>
+                                <a id="hist" class="actived" href='{{url("historiaClinicaProfesional")}}'>Historia clínica</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href='{{url("prescripcionesProfesional")}}'>Prescripciones/ fórmulas médicas</a>
+                                <a id="formula" class="actived" href='{{url("prescripcionesProfesional")}}'>Prescripciones/ fórmulas médicas</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href='{{url("diagnosticosProfesional")}}'>Diagnósticos (CIE - 10)</a>
+                                <a id="diag" class="actived" href='{{url("diagnosticosProfesional")}}'>Diagnósticos (CIE - 10)</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href='{{url("procedimientosProfesional")}}'>Procedimientos (CUPS)</a>
+                                <a id="proced" class="actived" href='{{url("procedimientosProfesional")}}'>Procedimientos (CUPS)</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href='{{url("vademecumProfesional")}}'>Vademecum actualizado COLOMBIA INVIMA (CUMS)</a>
+                                <a id="vademe" class="actived" href='{{url("vademecumProfesional")}}'>Vademecum actualizado COLOMBIA INVIMA (CUMS)</a>
                             </li>
                         </ul>
                     </li>
@@ -64,9 +65,9 @@
                                 
                 @if(!empty($objListaUsuario3->isNotEmpty()))
                     <li class="sidebar-item  has-sub">
-                        <!-- <a href="#" class="sidebar-link"> -->
-                            <i class="bi bi-grid-1x2-fill"></i>
-                            <span>Mis favoritos</span>
+                        <!-- <a href="#" class="sidebar-link"> 
+                            <i class="bi bi-grid-1x2-fill"></i>-->
+                        <span id="favorito_padre" class="titulo_menu">Mis favoritos</span>
                         <!-- </a> -->
                         <ul class="submenu active p-0">
                             <!-- @foreach($objListaUsuario3 as $objListaUsuario3)
@@ -75,12 +76,11 @@
                                 </li>
                             @endforeach -->
                             <li class="submenu-item ">
-                                <a href='{{url("favoritosProfesional")}}'>Favoritos</a>
+                                <a id="fav" class="actived" href='{{url("favoritosProfesional")}}'>Favoritos</a>
                             </li>
                         </ul>
                     </li>
                 @endif
-
 
                 @if(!empty($objListaUsuario5->isNotEmpty()))
                     <li class="sidebar-item  has-sub">
@@ -97,6 +97,7 @@
                         </ul>
                     </li>
                 @endif
+
                 @if(!empty($objListaUsuario6->isNotEmpty()))
                     <li class="sidebar-item  has-sub">
                         <a href="#" class="sidebar-link">
@@ -112,6 +113,7 @@
                         </ul>
                     </li>
                 @endif
+                
                 @if(!empty($objListaUsuario7->isNotEmpty()))
                     <li class="sidebar-item  has-sub">
                         <a href="#" class="sidebar-link">

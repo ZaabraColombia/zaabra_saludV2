@@ -44,7 +44,7 @@ $(document).ready(function(){
   
  
 
-$('#comentarioFormProf').on('submit',function(e){
+  $('#comentarioFormProf').on('submit',function(e){
     e.preventDefault();
     $('#send_form_coment_prof').html('enviando...');
     $.ajax({
@@ -66,6 +66,6 @@ $('#comentarioFormProf').on('submit',function(e){
             $('#res_message').hide();
             $('#msg_comentario').hide();
             },3000);
-         },
-     });
-    });
+    },
+  });
+});

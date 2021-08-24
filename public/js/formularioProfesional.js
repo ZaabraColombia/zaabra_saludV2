@@ -2,7 +2,7 @@
 $('#formulario_basico').validate({
     rules: {
         logo: {
-            required: true,
+            required: false,
         },
         fechanacimiento:{
             required: true,
@@ -55,7 +55,7 @@ $('#formulario_basico').validate({
          });
          var formData = new FormData(form);
          /*Se cambia el texto al boton por enviando*/
-         $('#envia_basico').html('Enviando..');
+         //$('#envia_basico').html('Enviando..');
          $.ajax({
            url:  "/FormularioProfesionalSave",
            type: "POST",
@@ -65,12 +65,14 @@ $('#formulario_basico').validate({
            cache: false,
            processData: false,
            success: function( response ) {
-               $('#envia_basico').hide();
+
+            console.log(response);
+               //$('#envia_basico').hide();
                $('#res_message_basico').show();
                $('#res_message_basico').html(response.msg);
                $('#msg_basico').removeClass('d-none');
-   
-               document.getElementById("#formulario_basico").reset(); 
+
+               document.getElementById("#formulario_basico").reset();
                setTimeout(function(){
                $('#res_message_basico').hide();
                $('#msg_basico').hide();
@@ -78,7 +80,7 @@ $('#formulario_basico').validate({
            }
          });
        }
-})
+});
 /*--------------------------- Fin Primera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 
 /*-------------------------- Inicio Segunda Parte del Formulario Descripcion Perfil Profesional------------------------------*/
@@ -147,8 +149,8 @@ $('#formulario_contacto').validate({
                $('#res_message_contacto').show();
                $('#res_message_contacto').html(response.msg);
                $('#msg_contacto').removeClass('d-none');
-   
-               document.getElementById("#formulario_contacto").reset(); 
+
+               document.getElementById("#formulario_contacto").reset();
                setTimeout(function(){
                $('#res_message_contacto').hide();
                $('#msg_contacto').hide();
@@ -206,8 +208,8 @@ $('#formulario_consulta').validate({
                $('#res_message_consulta').show();
                $('#res_message_consulta').html(response.msg);
                $('#msg_consulta').removeClass('d-none');
-   
-               document.getElementById("#formulario_consulta").reset(); 
+
+               document.getElementById("#formulario_consulta").reset();
                setTimeout(function(){
                $('#res_message_consulta').hide();
                $('#msg_consulta').hide();
@@ -250,8 +252,8 @@ $('#formulario_descripcion').validate({
                $('#res_message_descripcion').show();
                $('#res_message_descripcion').html(response.msg);
                $('#msg_descripcion').removeClass('d-none');
-   
-               document.getElementById("#formulario_descripcion").reset(); 
+
+               document.getElementById("#formulario_descripcion").reset();
                setTimeout(function(){
                $('#res_message_descripcion').hide();
                $('#msg_descripcion').hide();
@@ -307,8 +309,8 @@ $('#formulario_educacion').validate({
                $('#res_message_consulta').show();
                $('#res_message_consulta').html(response.msg);
                $('#msg_consulta').removeClass('d-none');
-   
-               document.getElementById("#formulario_educacion").reset(); 
+
+               document.getElementById("#formulario_educacion").reset();
                setTimeout(function(){
                $('#res_message_consulta').hide();
                $('#msg_consulta').hide();

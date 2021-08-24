@@ -4,17 +4,17 @@ document.addEventListener('DOMContentLoaded', function () {
     loop: true,
     loopFillGroupWithBlank: true,
   
-    /*autoplay: {
+    autoplay: {
       delay: 4500,
       disableOnInteraction: false,
-    },*/
+    },
   
     // If we need pagination
     pagination: {
         el: '.swiper-pagination',
     },
   
-    /*breakpoints: {
+    breakpoints: {
        // when window width is >= 320px
       320: {
         slidesPerView: 1,
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesPerGroup: 1,
         spaceBetween: 5,
       },
-    }*/
+    }
   });
 });
 
