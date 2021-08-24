@@ -81,6 +81,48 @@ $('#formulario_basico').validate({
          });
        }
 });
+
+$('#formulario_destacado').validate({
+    rules: {
+        destacado_nombre: {
+            required: true
+        }
+    },
+    messages: {
+        destacado_nombre: {
+            required: "Por favor debe llenar el campo",
+        }
+    },
+    submitHandler: function ()
+    {
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url:  "FormularioProfesionalAddDestacable",
+            type: "POST",
+            dataType: 'json',
+            data: $('#formulario_destacado').serialize(),
+            success: function( response ) {
+                if (response.mensajes)
+                {
+                    $('#destacado-lista').append('<div class="alert alert-info alert-dismissible fade show" role="alert">\n' +
+                        '<strong>' + response.nombre + '</strong>\n' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                        '<span aria-hidden="true">&times;</span>\n' +
+                        '</button>\n' +
+                        '</div>');
+                }else {
+
+                }
+            }
+        });
+    }
+});
 /*--------------------------- Fin Primera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 
 /*-------------------------- Inicio Segunda Parte del Formulario Descripcion Perfil Profesional------------------------------*/
@@ -160,8 +202,6 @@ $('#formulario_contacto').validate({
        }
 })
 /*--------------------------- Fin Segunda Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
-
-
 
 /*-------------------------- Inicio Tercera Parte del Formulario Descripcion Perfil Profesional------------------------------*/
 $.validator.addMethod("selecttext", function(value, element) {

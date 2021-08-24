@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\profesionales;
 use App\Http\Controllers\Controller;
+use App\Models\destacados;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
@@ -45,7 +46,7 @@ class formularioProfesionalController extends Controller
         if (Auth::check()){
             $id_user=auth()->user()->id;/*id usuario logueado*/
             $objFormulario=$this->cargaFormulario($id_user);
-            
+
             $pais = pais::all();
             $area = areas::all();
 
@@ -54,7 +55,7 @@ class formularioProfesionalController extends Controller
                 $profesiones = profesiones::where('idArea', '=', $objFormulario[0]->idarea)->get();
                 //dd($profesiones);
             }
-            
+
             //Llamar la lista de profecion segun la seleccion de la profecion
             if  (!is_null($objFormulario[0]->idprofesion)) {
                 $especialidades = especialidades::where('idProfesion', '=', $objFormulario[0]->idprofesion)->get();
@@ -63,10 +64,15 @@ class formularioProfesionalController extends Controller
             //resetera si no existe lista
             if (!isset($profesiones)) $profesiones = null;
             if (!isset($especialidades)) $especialidades = null;
-            
+
+            //Contar los destacables
+            $id_profesional = auth()->user()->profecional->idPerfilProfesional;
+            $destacables_count = destacados::where('idPerfilProfesional', '=', $id_profesional)->count();
+            $destacables = destacados::where('idPerfilProfesional', '=', $id_profesional)->get();
+
             $universidades = universidades::all();
             $idiomas = idiomas::all();
-            
+
             $objuser = $this->cargaDatosUser($id_user);
             $objContadorConsultas=$this->contadorConsultas($id_user);
             $objConsultas=$this->cargaConsultas($id_user);
@@ -118,7 +124,9 @@ class formularioProfesionalController extends Controller
             'objGaleria',
             'objContadorGaleria',
             'objVideo',
-            'objContadorVideo'
+            'objContadorVideo',
+            'destacables_count',
+            'destacables'
             ));
 
         }else{
@@ -168,12 +176,12 @@ class formularioProfesionalController extends Controller
         FROM users us
         WHERE id=$id_user");
     }
- 
-    
+
+
     public function cargaFormulario($id_user){
     return DB::select("SELECT pf.direccion,  pf.genero, pf.EmpresaActual, pf.celular, pf.telefono,
     pf.fotoperfil, pf.fechanacimiento, pf.numeroTarjeta, pf.entidadCertificoTarjeta,
-    pf.descripcionPerfil,ar.idarea, ar.nombreArea ,pr.idprofesion, pr.nombreProfesion, 
+    pf.descripcionPerfil,ar.idarea, ar.nombreArea ,pr.idprofesion, pr.nombreProfesion,
     ep.idEspecialidad,  ep.nombreEspecialidad, p.id_pais, p.nombre nombrePais, de.id_departamento, de.nombre nombreDepartamento,
     prv.id_provincia, prv.nombre nombreProvincia, mu.id_municipio, mu.nombre nombreMunicipio, u.id_universidad ,u.nombreuniversidad
     FROM perfilesprofesionales pf
@@ -201,7 +209,7 @@ class formularioProfesionalController extends Controller
     ->first();
     return $contadorConsultas;
     }
-    
+
     public function cargaConsultas($id_user){
     return DB::select("	SELECT tc.id, tc.nombreconsulta, tc.valorconsulta
     FROM perfilesprofesionales pf
@@ -210,7 +218,7 @@ class formularioProfesionalController extends Controller
     WHERE pf.idUser=$id_user");
     }
 
-    
+
     public function contadorEducacion($id_user){
     /*cuenta los los valores ingresados*/
     $contadorConsultas = DB::table('perfilesprofesionales')
@@ -221,7 +229,7 @@ class formularioProfesionalController extends Controller
     ->first();
     return $contadorConsultas;
     }
-        
+
     public function cargaEducacion($id_user){
     return DB::select("SELECT pu.id_universidadperfil, u.nombreuniversidad, pu.fechaestudio,pu.nombreestudio
     FROM perfilesprofesionales pf
@@ -289,7 +297,7 @@ class formularioProfesionalController extends Controller
     ->where('users.id', '=',$id_user)
     ->first();
     return $contadoridiomas;
-    }  
+    }
 
     public function  cargaTratamiento($id_user){
     return DB::select("SELECT tr.id_tratamiento, tr.imgTratamientoAntes, tr.tituloTrataminetoAntes, tr.descripcionTratamientoAntes, tr.imgTratamientodespues, tr.tituloTrataminetoDespues, tr.descripcionTratamientoDespues
@@ -308,7 +316,7 @@ class formularioProfesionalController extends Controller
     ->where('users.id', '=',$id_user)
     ->first();
     return $contadortratamiento;
-    }  
+    }
 
     public function  cargaPremios($id_user){
     return DB::select("SELECT pr.id, pr.imgpremio, pr.nombrepremio, pr.descripcionpremio, pr.fechapremio
@@ -327,7 +335,7 @@ class formularioProfesionalController extends Controller
     ->where('users.id', '=',$id_user)
     ->first();
     return $contadorpremios;
-    } 
+    }
     public function  cargaPublicaciones($id_user){
     return DB::select("SELECT pb.id, pb.nombrepublicacion, pb.descripcion, pb.imgpublicacion
     FROM perfilesprofesionales pf
@@ -335,7 +343,7 @@ class formularioProfesionalController extends Controller
     LEFT JOIN  publicaciones pb ON pf.idPerfilProfesional= pb.idPerfilProfesional
     WHERE pf.idUser=$id_user");
     }
-    
+
     public function contadorPublicaciones($id_user){
     /*cuenta los los valores ingresados*/
     $contadorpublicaciones = DB::table('perfilesprofesionales')
@@ -345,7 +353,7 @@ class formularioProfesionalController extends Controller
     ->where('users.id', '=',$id_user)
     ->first();
     return $contadorpublicaciones;
-    } 
+    }
 
     public function  cargaGaleria($id_user){
     return DB::select("SELECT g.id_galeria, g.imggaleria, g.nombrefoto, g.descripcion
@@ -354,7 +362,7 @@ class formularioProfesionalController extends Controller
     LEFT JOIN  galerias g ON pf.idPerfilProfesional= g.idPerfilProfesional
     WHERE pf.idUser=$id_user");
     }
-        
+
     public function contadorGaleria($id_user){
     /*cuenta los los valores ingresados*/
     $contadorpublicaciones = DB::table('perfilesprofesionales')
@@ -364,7 +372,7 @@ class formularioProfesionalController extends Controller
     ->where('users.id', '=',$id_user)
     ->first();
     return $contadorpublicaciones;
-    } 
+    }
     public function cargaVideo($id_user){
     return DB::select("SELECT v.id, v.nombrevideo, v.descripcionvideo,
      REPLACE(v.urlvideo, '/watch?v=', '/embed/') AS urlvideo, v.fechavideo
@@ -373,7 +381,7 @@ class formularioProfesionalController extends Controller
     LEFT JOIN  videos v ON pf.idPerfilProfesional= v.idPerfilProfesional
     WHERE pf.idUser=$id_user");
     }
-            
+
     public function contadorVideo($id_user){
     /*cuenta los los valores ingresados*/
     $contadorpublicaciones = DB::table('perfilesprofesionales')
@@ -383,8 +391,8 @@ class formularioProfesionalController extends Controller
     ->where('users.id', '=',$id_user)
     ->first();
     return $contadorpublicaciones;
-    } 
-        
+    }
+
     /*------------ Fin inicio busquedad datos basicos usuario logueado y data resgistrada del proesional-----------------*/
 
 
@@ -405,7 +413,7 @@ class formularioProfesionalController extends Controller
                 }else{
                     return redirect()->guest('/login');
                 }
-                  
+
         }
    /*------------Fin  Funcion solo para verificar que perfil existe y esta se utiiliza en los demas metodos-----------------*/
 
@@ -419,7 +427,7 @@ class formularioProfesionalController extends Controller
 
     /*-------------------------------------Creacion y/o modificacion formulario parte 1----------------------*/
         protected function create1(Request $request){
-      
+
             /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
             $verificaPerfil = $this->verificaPerfil();
 
@@ -437,7 +445,7 @@ class formularioProfesionalController extends Controller
 
            /*valido que el profesional no exista para que cree uno nuevo en caso contrario lo modifique */
            if(is_null($verificaPerfil)){
-              
+
                     /*captura el nombre del logo*/
                     $nombrelogo=$request->logo->getClientOriginalName();
 
@@ -450,22 +458,22 @@ class formularioProfesionalController extends Controller
                     /*guarda la imagen en carpeta con el id del usuario*/
                     $image = $request->file('logo');
                     $image->move("img/user/$id_user", $image->getClientOriginalName());
-                
+
                     /*anexo iduser y img logoempresa  al request*/
                     $request->merge([
-                        'idUser' => "$id_user", 
+                        'idUser' => "$id_user",
                         'fotoperfil' => "img/user/$id_user/$nombrelogo"
                     ]);
                     //dump($request->all());
                     $dataPerfilesprofesionales = request()->all();
-                    
+
                     unset($dataPerfilesprofesionales['primernombre']);
                     unset($dataPerfilesprofesionales['segundonombre']);
                     unset($dataPerfilesprofesionales['primerapellido']);
                     unset($dataPerfilesprofesionales['segundoapellido']);
                     perfilesprofesionales::create($request->all());
 
-                    return redirect('FormularioProfesional'); 
+                    return redirect('FormularioProfesional');
 
             }else{
 
@@ -479,11 +487,11 @@ class formularioProfesionalController extends Controller
 
                     /*anexo iduser y img logoempresa  al request*/
                     $request->merge([
-                    'idUser' => "$id_user", 
+                    'idUser' => "$id_user",
                     'fotoperfil' => "img/user/$id_user/$nombrelogo"
                     ]);
                  }
-                 
+
                     $dataPerfilesprofesionales = request()->all();
                     unset($dataPerfilesprofesionales['_token']);
                     unset($dataPerfilesprofesionales['logo']);
@@ -491,16 +499,16 @@ class formularioProfesionalController extends Controller
                     unset($dataPerfilesprofesionales['segundonombre']);
                     unset($dataPerfilesprofesionales['primerapellido']);
                     unset($dataPerfilesprofesionales['segundoapellido']);
-                   
+
                     //die(request);
-           
+
                     perfilesprofesionales::where('idUser', $id_user)->update($dataPerfilesprofesionales);
 
-                    
-                    return redirect('FormularioProfesional'); 
-                 
+
+                    return redirect('FormularioProfesional');
+
             }
-            return redirect('FormularioProfesional'); 
+            return redirect('FormularioProfesional');
         }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 1----------------------*/
 
@@ -522,14 +530,14 @@ protected function create2(Request $request){
 
         perfilesprofesionales::where('idUser', $id_user)->update($request->all());
 
-        return redirect('FormularioProfesional'); 
+        return redirect('FormularioProfesional');
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 2----------------------*/
 
 
 /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 3----------------------*/
 public function create3(Request $request){
-   
+
     /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
     $verificaPerfil = $this->verificaPerfil();
 
@@ -553,7 +561,7 @@ public function create3(Request $request){
     }
 
 
-return redirect('FormularioProfesional'); 
+return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 3----------------------*/
@@ -570,7 +578,7 @@ public function delete3($id){
     $tipoconsultas = tipoconsultas::where('id', $id)->where('idperfil', $idProProfesi);
     $tipoconsultas->delete();
 
-    return redirect('FormularioProfesional'); 
+    return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 3----------------------*/
@@ -588,7 +596,7 @@ public function create4(Request $request){
     unset($request['created_at']);
     perfilesprofesionales::where('idUser', $id_user)->update($request->all());
 
-    return redirect('FormularioProfesional'); 
+    return redirect('FormularioProfesional');
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 4----------------------*/
 
@@ -616,7 +624,7 @@ public function create5(Request $request){
         }
     }
 
-    return redirect('FormularioProfesional'); 
+    return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 5----------------------*/
@@ -633,7 +641,7 @@ public function delete5($id_universidadperfil){
     $perfilesprofesionalesuniversidades = perfilesprofesionalesuniversidades::where('id_universidadperfil', $id_universidadperfil)->where('idPerfilProfesional', $idProProfesi);
     $perfilesprofesionalesuniversidades->delete();
 
-    return redirect('FormularioProfesional'); 
+    return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 5----------------------*/
@@ -666,7 +674,7 @@ public function create6(Request $request){
         ]);
     }
 
-    return redirect('FormularioProfesional'); 
+    return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 6----------------------*/
@@ -682,7 +690,7 @@ public function delete6($idexperiencias){
     $experiencias = experiencias::where('idexperiencias', $idexperiencias)->where('idPerfilProfesional', $idProProfesi);
     $experiencias->delete();
 
-    return redirect('FormularioProfesional'); 
+    return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 6----------------------*/
@@ -708,10 +716,10 @@ public function create7(Request $request){
         if ($request->hasFile('imgasociacion')) {
             $carpetaDestino = "img/user/$id_user";
             $imagenes = $request->file('imgasociacion');
-        
+
             foreach ($imagenes as $imagen) {
                 $nombreFoto = $imagen->getClientOriginalName();
-                $imagen->move($carpetaDestino , $nombreFoto); 
+                $imagen->move($carpetaDestino , $nombreFoto);
                 $nombreFotoCompleta="img/user/$id_user/$nombreFoto";
                 asociaciones::create([
                     'idPerfilProfesional' => $idProProfesi,
@@ -719,8 +727,8 @@ public function create7(Request $request){
                    ]);
             }
         }
-  
-    return redirect('FormularioProfesional'); 
+
+    return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 7----------------------*/
@@ -737,7 +745,7 @@ public function delete7($idAsociaciones){
     $asociaciones = asociaciones::where('idAsociaciones', $idAsociaciones)->where('idPerfilProfesional', $idProProfesi);
     $asociaciones->delete();
 
-    return redirect('FormularioProfesional'); 
+    return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 7----------------------*/
@@ -767,7 +775,7 @@ public function create8(Request $request){
     }
 
 
-return redirect('FormularioProfesional'); 
+return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 8----------------------*/
@@ -785,7 +793,7 @@ public function delete8($id_idioma){
     $usuario_idiomas = usuario_idiomas::where('id_idioma', $id_idioma)->where('idPerfilProfesional', $idProProfesi);
     $usuario_idiomas->delete();
 
-    return redirect('FormularioProfesional'); 
+    return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 8----------------------*/
@@ -822,12 +830,12 @@ public function create9(Request $request){
            ]);
            $imgTratamientoAntes[$i]->move($carpetaDestino , $imgTratamientoAntes[$i]->getClientOriginalName());
            $imgTratamientodespues[$i]->move($carpetaDestino , $imgTratamientodespues[$i]->getClientOriginalName());
-        }  
+        }
     }
 
 
 
-return redirect('FormularioProfesional'); 
+return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 9----------------------*/
@@ -845,7 +853,7 @@ public function delete9($id_tratamiento){
     $tratamientos = tratamientos::where('id_tratamiento', $id_tratamiento)->where('idPerfilProfesional', $idProProfesi);
     $tratamientos->delete();
 
-    return redirect('FormularioProfesional'); 
+    return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 9----------------------*/
@@ -853,7 +861,7 @@ public function delete9($id_tratamiento){
 
 /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 10----------------------*/
     public function create10(Request $request){
-  
+
 
     /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
     $verificaPerfil = $this->verificaPerfil();
@@ -881,7 +889,7 @@ public function delete9($id_tratamiento){
             }
         }
 
-        return redirect('FormularioProfesional'); 
+        return redirect('FormularioProfesional');
 
     }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 10----------------------*/
@@ -899,7 +907,7 @@ public function delete10($id){
     $premios = premios::where('id', $id)->where('idPerfilProfesional', $idProProfesi);
     $premios->delete();
 
-    return redirect('FormularioProfesional'); 
+    return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 10----------------------*/
@@ -907,7 +915,7 @@ public function delete10($id){
 
 /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 11----------------------*/
 public function create11(Request $request){
-   
+
 
     /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
     $verificaPerfil = $this->verificaPerfil();
@@ -933,7 +941,7 @@ public function create11(Request $request){
             }
         }
 
-        return redirect('FormularioProfesional'); 
+        return redirect('FormularioProfesional');
 
     }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 11----------------------*/
@@ -951,7 +959,7 @@ public function delete11($id){
     $premios = publicaciones::where('id', $id)->where('idPerfilProfesional', $idProProfesi);
     $premios->delete();
 
-    return redirect('FormularioProfesional'); 
+    return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 11----------------------*/
@@ -960,7 +968,7 @@ public function delete11($id){
 
 /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 12----------------------*/
 public function create12(Request $request){
-   
+
 
     /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
     $verificaPerfil = $this->verificaPerfil();
@@ -986,7 +994,7 @@ public function create12(Request $request){
             }
         }
 
-        return redirect('FormularioProfesional'); 
+        return redirect('FormularioProfesional');
 
     }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 12----------------------*/
@@ -1004,7 +1012,7 @@ public function delete12($id_galeria){
     $galeria = galerias::where('id_galeria', $id_galeria)->where('idPerfilProfesional', $idProProfesi);
     $galeria->delete();
 
-    return redirect('FormularioProfesional'); 
+    return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 12----------------------*/
@@ -1013,7 +1021,7 @@ public function delete12($id_galeria){
 
 /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 13----------------------*/
 public function create13(Request $request){
-  
+
 
     /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
     $verificaPerfil = $this->verificaPerfil();
@@ -1038,7 +1046,7 @@ public function create13(Request $request){
             }
         }
 
-        return redirect('FormularioProfesional'); 
+        return redirect('FormularioProfesional');
 
     }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 13----------------------*/
@@ -1056,8 +1064,29 @@ public function delete13($id){
     $videos = videos::where('id', $id)->where('idPerfilProfesional', $idProProfesi);
     $videos->delete();
 
-    return redirect('FormularioProfesional'); 
+    return redirect('FormularioProfesional');
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 13----------------------*/
+
+    /*-------------------------------------Inicio Add Destacale formulario parte 14----------------------*/
+    public function addDestacable(Request $request)
+    {
+        $id_profesional = auth()->user()->profecional->idPerfilProfesional;
+        $destacables_count = destacados::where('idPerfilProfesional', '=', $id_profesional)->count();
+
+        if ($destacables_count >= 9) {
+            return response(['mensajes' => 'No puede agregar mas temas', 'status' => false]);
+        }
+        $destacable = new destacados();
+        $destacable->nombreExpertoEn = $request->destacado_nombre;
+        $destacable->idPerfilProfesional = $id_profesional;
+
+        $destacable->save();
+
+        return response(['mensajes' => 'El Tema ha cido creado', 'status' => true, 'nombre' => $request->destacado_nombre]);
+
+
+    }
+    /*-------------------------------------Fin Add Destacale formulario parte 14----------------------*/
 }
