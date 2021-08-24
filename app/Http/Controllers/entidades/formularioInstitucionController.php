@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\entidades;
 use App\Http\Controllers\Controller;
+use App\Models\destacados;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
@@ -53,7 +54,7 @@ class formularioInstitucionController extends Controller{
             $objContadorGaleria=$this->contadorGaleria($id_user);
             $objVideo=$this->cargaVideo($id_user);
             $objContadorVideo=$this->contadorVideo($id_user);
-         
+
 
             return view('instituciones.FormularioInstitucion',compact(
             'tipoinstitucion',
@@ -97,7 +98,7 @@ class formularioInstitucionController extends Controller{
         }
     /*------------------------------------- fin json busqueda departamento, provincia, ciudad----------------------*/
 
-    
+
   /*------------ Funcion solo para verificar que institucion existe y esta se utiiliza en las demas-----------------*/
   protected function verificaPerfil(){
     /*id usuario logueado*/
@@ -110,7 +111,7 @@ class formularioInstitucionController extends Controller{
     ->where('instituciones.idUser', $id_user)
     ->first();
     return $idexisteinstitu;
-    
+
 }
 /*------------Fin  Funcion solo para verificar que institucion existe y esta se utiiliza en los demas metodos-----------------*/
 
@@ -136,7 +137,7 @@ public function cargaFormulario($id_user){
     LEFT JOIN  tipoinstituciones ti ON ins.idtipoInstitucion= ti.id
     WHERE ins.idUser=$id_user");
     }
-  
+
 
     public function  cargaServicios($id_user){
     return DB::select("SELECT st.id_servicio, st.tituloServicios, st.DescripcioServicios, st.sucursalservicio
@@ -145,7 +146,7 @@ public function cargaFormulario($id_user){
     LEFT JOIN  serviciosinstituciones st ON ins.id= st.id
     WHERE ins.idUser=$id_user");
     }
-    
+
     public function contadorServicios($id_user){
     /*cuenta los los valores ingresados*/
     $contadorservicio = DB::table('instituciones')
@@ -155,8 +156,8 @@ public function cargaFormulario($id_user){
     ->where('users.id', '=',$id_user)
     ->first();
     return $contadorservicio;
-    } 
-    
+    }
+
     public function  cargaEps($id_user){
     return DB::select("SELECT e.id, e.urlimagen
     FROM instituciones ins
@@ -174,7 +175,7 @@ public function cargaFormulario($id_user){
     ->where('users.id', '=',$id_user)
     ->first();
     return $contadoreps;
-    } 
+    }
 
 
     public function  cargaIps($id_user){
@@ -194,7 +195,7 @@ public function cargaFormulario($id_user){
     ->where('users.id', '=',$id_user)
     ->first();
     return $contadorips;
-    } 
+    }
 
     public function  cargaPrepa($id_user){
     return DB::select("SELECT p.id_prepagada ,p.urlimagen
@@ -213,7 +214,7 @@ public function cargaFormulario($id_user){
     ->where('users.id', '=',$id_user)
     ->first();
     return $contadorprepa;
-    } 
+    }
     public function  cargaProfeInsti($id_user){
     return DB::select("SELECT pin.id_profesional_inst, pin.primer_nombre,pin.segundo_nombre,pin.primer_apellido,
     pin.segundo_apellido,pin.especialidad_uno,pin.especialidad_dos, pin.foto_perfil_institucion
@@ -222,7 +223,7 @@ public function cargaFormulario($id_user){
     LEFT JOIN  profesionales_instituciones pin ON ins.id= pin.id_institucion
     WHERE ins.idUser=$id_user");
     }
-            
+
     public function contadorProfeInsti($id_user){
     /*cuenta los los valores ingresados*/
     $contadorProfeInsti = DB::table('instituciones')
@@ -232,8 +233,8 @@ public function cargaFormulario($id_user){
     ->where('users.id', '=',$id_user)
     ->first();
     return $contadorProfeInsti;
-    } 
-    
+    }
+
     public function  cargaCertificaciones($id_user){
     return DB::select("SELECT cr.id_certificacion, cr.imgcertificado, cr.fechacertificado, cr.titulocertificado, cr.descrpcioncertificado
     FROM instituciones ins
@@ -241,7 +242,7 @@ public function cargaFormulario($id_user){
     LEFT JOIN  certificaciones cr ON ins.id= cr.id_institucion
     WHERE ins.idUser=$id_user");
     }
-                
+
     public function contadorCertificaciones($id_user){
     /*cuenta los los valores ingresados*/
     $contadorCerificaciones = DB::table('instituciones')
@@ -251,8 +252,8 @@ public function cargaFormulario($id_user){
     ->where('users.id', '=',$id_user)
     ->first();
     return $contadorCerificaciones;
-    } 
-            
+    }
+
     public function  cargaSedes($id_user){
     return DB::select("SELECT si.id,si.imgsede,si.nombre,si.direccion,si.horario_sede,si.telefono
     FROM instituciones ins
@@ -260,7 +261,7 @@ public function cargaFormulario($id_user){
     LEFT JOIN  sedesinstituciones si ON ins.id= si.idInstitucion
     WHERE ins.idUser=$id_user");
     }
-                    
+
     public function contadorSedes($id_user){
     /*cuenta los los valores ingresados*/
     $contadorSedes = DB::table('instituciones')
@@ -270,7 +271,7 @@ public function cargaFormulario($id_user){
     ->where('users.id', '=',$id_user)
     ->first();
     return $contadorSedes;
-    }   
+    }
 
     public function  cargaGaleria($id_user){
     return DB::select("SELECT g.id_galeria, g.imggaleria, g.nombrefoto, g.descripcion
@@ -279,7 +280,7 @@ public function cargaFormulario($id_user){
     LEFT JOIN  galerias g ON ins.id = g.idinstitucion
     WHERE ins.idUser=$id_user");
     }
-            
+
     public function contadorGaleria($id_user){
     /*cuenta los los valores ingresados*/
     $contadorGaleria = DB::table('instituciones')
@@ -289,7 +290,7 @@ public function cargaFormulario($id_user){
     ->where('users.id', '=',$id_user)
     ->first();
     return $contadorGaleria;
-    } 
+    }
 
     public function  cargaVideo($id_user){
         return DB::select("SELECT v.id, v.nombrevideo, v.descripcionvideo,
@@ -299,7 +300,7 @@ public function cargaFormulario($id_user){
        LEFT JOIN  videos v ON ins.id= v.idPerfilProfesional
        WHERE ins.idUser=$id_user");
     }
-                
+
         public function contadorVideo($id_user){
         /*cuenta los los valores ingresados*/
         $contadorvideos = DB::table('instituciones')
@@ -311,7 +312,7 @@ public function cargaFormulario($id_user){
         return $contadorvideos;
     }
 /*------------Fin busquedad datos basicos usuario logueado y data resgistrada de la institucion-----------------*/
-    
+
 
 /*-------------------------------------Creacion y/o modificacion formulario parte 1----------------------*/
     protected function create1(Request $request){
@@ -324,7 +325,7 @@ public function cargaFormulario($id_user){
 
          /*valido que el profesional no exista para que cree uno nuevo en caso contrario lo modifique */
          if(is_null($verificaPerfil)){
-              
+
             /*captura el nombre de la imagen*/
             $nombreimagen=$request->imagenInstitucion->getClientOriginalName();
             /*captura el nombre del logo*/
@@ -342,22 +343,22 @@ public function cargaFormulario($id_user){
             $logo = $request->file('logoInstitucion');
             $logo->move("img/instituciones/$id_user", $logo->getClientOriginalName());
 
-        
-       
+
+
             /*anexo iduser y img logoempresa  al request*/
             $request->merge([
-            'idUser' => "$id_user", 
+            'idUser' => "$id_user",
             'imagen' => "img/instituciones/$id_user/$nombreimagen",
             'logo' => "img/instituciones/$id_user/$nombrelogo"
                 ]);
 
             instituciones::create($request->all());
-           
-            return redirect('FormularioInstitucion'); 
+
+            return redirect('FormularioInstitucion');
 
          }else{
-             
-        
+
+
             /*captura el nombre de la imagen*/
             $nombreimagen=$request->imagenInstitucion->getClientOriginalName();
             /*captura el nombre del logo*/
@@ -373,7 +374,7 @@ public function cargaFormulario($id_user){
 
             /*anexo iduser y img logoempresa  al request*/
             $request->merge([
-            'idUser' => "$id_user", 
+            'idUser' => "$id_user",
             'imagen' => "img/instituciones/$id_user/$nombreimagen",
             'logo' => "img/instituciones/$id_user/$nombrelogo"
                 ]);
@@ -382,13 +383,13 @@ public function cargaFormulario($id_user){
                 unset($dataInstitucion['_token']);
                 unset($dataInstitucion['logoInstitucion']);
                 unset($dataInstitucion['imagenInstitucion']);
-              
+
 
                 instituciones::where('idUser', $id_user)->update($dataInstitucion);
 
-            return redirect('FormularioInstitucion'); 
+            return redirect('FormularioInstitucion');
          }
-        return redirect('FormularioInstitucion'); 
+        return redirect('FormularioInstitucion');
     }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 1----------------------*/
 
@@ -406,7 +407,7 @@ protected function create2(Request $request){
 
     instituciones::where('idUser', $id_user)->update($request->all());
 
-    return redirect('FormularioInstitucion'); 
+    return redirect('FormularioInstitucion');
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 2----------------------*/
 
@@ -425,7 +426,7 @@ public function create3(Request $request){
     unset($request['created_at']);
     instituciones::where('idUser', $id_user)->update($request->all());
 
-    return redirect('FormularioInstitucion'); 
+    return redirect('FormularioInstitucion');
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 3----------------------*/
 
@@ -442,7 +443,7 @@ public function create4(Request $request){
 
 
     foreach ($request->input('tituloServicios', []) as $i => $tituloServicios) {
-        
+
         if(!empty($request->input('tituloServicios')[$i])){
             serviciosinstituciones::create([
                 'id' => $idInstitucion,
@@ -453,7 +454,7 @@ public function create4(Request $request){
         }
     }
 
-    return redirect('FormularioInstitucion'); 
+    return redirect('FormularioInstitucion');
 
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 4----------------------*/
@@ -470,7 +471,7 @@ public function delete4($id_servicio){
     $serviciosinstituciones = serviciosinstituciones::where('id_servicio', $id_servicio)->where('id', $idInstitucion);
     $serviciosinstituciones->delete();
 
-    return redirect('FormularioInstitucion'); 
+    return redirect('FormularioInstitucion');
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 4----------------------*/
@@ -488,7 +489,7 @@ public function create5(Request $request){
     unset($request['created_at']);
     instituciones::where('idUser', $id_user)->update($request->all());
 
-    return redirect('FormularioInstitucion'); 
+    return redirect('FormularioInstitucion');
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 5----------------------*/
 
@@ -504,7 +505,7 @@ public function create6(Request $request){
     unset($request['created_at']);
     instituciones::where('idUser', $id_user)->update($request->all());
 
-    return redirect('FormularioInstitucion'); 
+    return redirect('FormularioInstitucion');
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 6----------------------*/
 
@@ -530,7 +531,7 @@ public function create7(Request $request){
         $imagenes = $request->file('urlimagenEps');
         foreach ($imagenes as $imageneps) {
             $nombreFoto = $imageneps->getClientOriginalName();
-            $imageneps->move($carpetaDestino , $nombreFoto); 
+            $imageneps->move($carpetaDestino , $nombreFoto);
             $nombreFotoCompletaeps="img/instituciones/$id_user/$nombreFoto";
             eps::create([
                 'id_institucion' => $idInstitucion,
@@ -543,7 +544,7 @@ public function create7(Request $request){
         $imagenes = $request->file('urlimagenIps');
         foreach ($imagenes as $imagenips) {
             $nombreFoto = $imagenips->getClientOriginalName();
-            $imagenips->move($carpetaDestino , $nombreFoto); 
+            $imagenips->move($carpetaDestino , $nombreFoto);
             $nombreFotoCompletaips="img/instituciones/$id_user/$nombreFoto";
             ips::create([
                 'id_institucion' => $idInstitucion,
@@ -556,7 +557,7 @@ public function create7(Request $request){
         $imagenes = $request->file('urlimagenPre');
         foreach ($imagenes as $imagenpre) {
             $nombreFoto = $imagenpre->getClientOriginalName();
-            $imagenpre->move($carpetaDestino , $nombreFoto); 
+            $imagenpre->move($carpetaDestino , $nombreFoto);
             $nombreFotoCompletaprepa="img/instituciones/$id_user/$nombreFoto";
             prepagadas::create([
                 'id_institucion' => $idInstitucion,
@@ -565,7 +566,7 @@ public function create7(Request $request){
         }
     }
 
-    return redirect('FormularioInstitucion'); 
+    return redirect('FormularioInstitucion');
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 7----------------------*/
 /*-------------------------------------Inicio Eliminacion  formulario parte 7 donde se unifica eps ips y prepagada----------------------*/
@@ -579,7 +580,7 @@ public function delete5($id){
     $eps = eps::where('id', $id)->where('id_institucion', $idInstitucion);
     $eps->delete();
 
-    return redirect('FormularioInstitucion'); 
+    return redirect('FormularioInstitucion');
 }
 
 public function delete6($id){
@@ -592,7 +593,7 @@ public function delete6($id){
     $ips = ips::where('id', $id)->where('id_institucion', $idInstitucion);
     $ips->delete();
 
-    return redirect('FormularioInstitucion'); 
+    return redirect('FormularioInstitucion');
 }
 
 public function delete7($id_prepagada){
@@ -605,7 +606,7 @@ public function delete7($id_prepagada){
     $prepagadas = prepagadas::where('id_prepagada', $id_prepagada)->where('id_institucion', $idInstitucion);
     $prepagadas->delete();
 
-    return redirect('FormularioInstitucion'); 
+    return redirect('FormularioInstitucion');
 }
 /*-------------------------------------Fin Eliminacion formulario parte 7 donde se unifica eps ips y prepagada----------------------*/
 
@@ -630,7 +631,7 @@ public function create8(Request $request){
      $carpetaDestino = "img/instituciones/$id_user";
      $foto_perfil_institucion = $request->file('foto_perfil_institucion');
 
-     
+
      for ($i=0; $i < count(request('foto_perfil_institucion')); ++$i){
        if(!empty($request->input('primer_nombre')[$i])){
            profesionales_instituciones::create([
@@ -648,7 +649,7 @@ public function create8(Request $request){
    }
 
 
-    return redirect('FormularioInstitucion'); 
+    return redirect('FormularioInstitucion');
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 8----------------------*/
 /*-------------------------------------Inicio Eliminacion  formulario 8 ----------------------*/
@@ -665,7 +666,7 @@ public function delete8($id_profesional_inst){
    $profesionales_instituciones = profesionales_instituciones::where('id_profesional_inst', $id_profesional_inst)->where('id_institucion', $idInstitucion);
    $profesionales_instituciones->delete();
 
-   return redirect('FormularioInstitucion');  
+   return redirect('FormularioInstitucion');
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 8----------------------*/
@@ -673,23 +674,23 @@ public function delete8($id_profesional_inst){
 
 /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 9----------------------*/
 public function create9(Request $request){
-  
+
 
     /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
     $verificaPerfil = $this->verificaPerfil();
- 
+
     foreach($verificaPerfil as $verificaPerfil){
         $idInstitucion=$verificaPerfil;
     }
     unset($request['_token']);
- 
+
     /*id usuario logueado*/
     $id_user=auth()->user()->id;
- 
+
         $carpetaDestino = "img/instituciones/$id_user";
         $imgcertificado = $request->file('imgcertificado');
         for ($i=0; $i < count(request('titulocertificado')); ++$i){
- 
+
             if(!empty($request->input('titulocertificado')[$i])){
                 certificaciones::create([
                 'id_institucion' => $idInstitucion,
@@ -701,27 +702,27 @@ public function create9(Request $request){
                 $imgcertificado[$i]->move($carpetaDestino , $imgcertificado[$i]->getClientOriginalName());
             }
         }
- 
-        return redirect('FormularioInstitucion'); 
- 
+
+        return redirect('FormularioInstitucion');
+
     }
  /*-------------------------------------Fin Creacion y/o modificacion formulario parte 9----------------------*/
  /*-------------------------------------Inicio Eliminacion  formulario 9 ----------------------*/
  public function delete9($id_certificacion){
- 
- 
+
+
     $verificaPerfil = $this->verificaPerfil();
- 
+
     foreach($verificaPerfil as $verificaPerfil){
         $idInstitucion=$verificaPerfil;
     }
- 
- 
+
+
     $certificaciones = certificaciones::where('id_certificacion', $id_certificacion)->where('id_institucion', $idInstitucion);
     $certificaciones->delete();
- 
-    return redirect('FormularioInstitucion');  
- 
+
+    return redirect('FormularioInstitucion');
+
  }
  /*-------------------------------------Fin Eliminacion formulario parte 9----------------------*/
 
@@ -730,20 +731,20 @@ public function create10(Request $request){
 
     /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
     $verificaPerfil = $this->verificaPerfil();
- 
+
     foreach($verificaPerfil as $verificaPerfil){
         $idInstitucion=$verificaPerfil;
     }
- 
+
         unset($request['_token']);
         /*id usuario logueado*/
         $id_user=auth()->user()->id;
- 
+
         $carpetaDestino = "img/instituciones/$id_user";
         $imgsede = $request->file('imgsede');
-        
+
         for ($i=0; $i < count(request('nombre')); ++$i){
- 
+
             if(!empty($request->input('nombre')[$i])){
                 sedesinstituciones::create([
                 'idInstitucion' => $idInstitucion,
@@ -756,27 +757,27 @@ public function create10(Request $request){
                 $imgsede[$i]->move($carpetaDestino , $imgsede[$i]->getClientOriginalName());
             }
         }
- 
-        return redirect('FormularioInstitucion'); 
- 
+
+        return redirect('FormularioInstitucion');
+
     }
  /*-------------------------------------Fin Creacion y/o modificacion formulario parte 10----------------------*/
  /*-------------------------------------Inicio Eliminacion  formulario 10 ----------------------*/
  public function delete10($id){
- 
- 
+
+
     $verificaPerfil = $this->verificaPerfil();
- 
+
     foreach($verificaPerfil as $verificaPerfil){
         $idInstitucion=$verificaPerfil;
     }
- 
- 
+
+
     $sedesinstituciones = sedesinstituciones::where('id', $id)->where('idInstitucion', $idInstitucion);
     $sedesinstituciones->delete();
- 
-    return redirect('FormularioInstitucion');  
- 
+
+    return redirect('FormularioInstitucion');
+
  }
  /*-------------------------------------Fin Eliminacion formulario parte 10----------------------*/
 
@@ -792,13 +793,13 @@ public function create11(Request $request){
     unset($request['created_at']);
     instituciones::where('idUser', $id_user)->update($request->all());
 
-    return redirect('FormularioInstitucion'); 
+    return redirect('FormularioInstitucion');
 }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 11----------------------*/
 
 /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 12----------------------*/
 public function create12(Request $request){
-   
+
 
     /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
     $verificaPerfil = $this->verificaPerfil();
@@ -824,7 +825,7 @@ public function create12(Request $request){
             }
         }
 
-        return redirect('FormularioInstitucion'); 
+        return redirect('FormularioInstitucion');
 
     }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 12----------------------*/
@@ -842,7 +843,7 @@ public function delete12($id_galeria){
     $galeria = galerias::where('id_galeria', $id_galeria)->where('idinstitucion', $idInstitucion);
     $galeria->delete();
 
-    return redirect('FormularioInstitucion'); 
+    return redirect('FormularioInstitucion');
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 12----------------------*/
@@ -850,7 +851,7 @@ public function delete12($id_galeria){
 
 /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 13----------------------*/
 public function create13(Request $request){
-  
+
 
     $verificaPerfil = $this->verificaPerfil();
 
@@ -872,7 +873,7 @@ public function create13(Request $request){
             }
         }
 
-        return redirect('FormularioInstitucion'); 
+        return redirect('FormularioInstitucion');
 
     }
 /*-------------------------------------Fin Creacion y/o modificacion formulario parte 13----------------------*/
@@ -890,8 +891,24 @@ public function delete13($id){
     $videos = videos::where('id', $id)->where('idinstitucion', $idInstitucion);
     $videos->delete();
 
-    return redirect('FormularioInstitucion.'); 
+    return redirect('FormularioInstitucion.');
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 13----------------------*/
+/*-------------------------------------Inicio Add Destacale formulario parte 14----------------------*/
+    public function addDestacable(Request $request)
+    {
+        $destacable = new destacados();
+        $destacable->nombreExpertoEn = $request->destacado_nombre;
+        $destacable->idPerfilProfesional = auth()->user()->profecional->idPerfilProfesional;
+
+        $destacable->save();
+
+        return response(['mensajes' => 'El Tema ha cido creado']);
+
+
+    }
+/*-------------------------------------Fin Add Destacale formulario parte 14----------------------*/
+
+
 }

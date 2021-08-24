@@ -24441,6 +24441,22 @@ a:link, a:visited, a:active, a:hover {
   margin-bottom: 0;
 }
 
+.icon_destacado-formProf {
+  background-image: url("/img/formulario-profesional/icono-agregar-especialidad-favoritos-verde.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: 2.5%;
+  padding-left: 4%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #019F86;
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  color: #019F86;
+  text-transform: inherit;
+}
+
 .icon_infoSubPerfil-formProf {
   background-image: url("/img/formulario-profesional/icono-subperfil-profesional.svg");
   background-repeat: no-repeat;
