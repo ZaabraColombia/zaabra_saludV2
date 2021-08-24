@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="col-md-7 col-sm-12 p-0">
-                <div id='calendar' style='width=100%;height=400px'></div>
+                <div id="calendar"></div>
             </div>
         </div>
     </section>

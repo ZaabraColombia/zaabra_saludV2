@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
+
     var calendar = new FullCalendar.Calendar(calendarEl, {
         selectable: true,
         headerToolbar: {
@@ -21,6 +22,17 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         select: function(info) {
             //alert('selected ' + info.startStr + ' to ' + info.endStr);
+        },
+        eventClick: function(info) {
+            console.log(info);
+
+
+            // alert('Event: ' + info.event.title);
+            // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+            // alert('View: ' + info.view.type);
+            //
+            // // change the border color just for fun
+            // info.el.style.borderColor = 'red';
         }
       });
     calendar.render();
