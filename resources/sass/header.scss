@@ -372,9 +372,6 @@ a:link, a:visited, a:active, a:hover {
 .contains_boxsearch {
     display: flex;
 }
-.contain_lupa-mobile {
-    display: none;
-}
 .barra_busqueda > #ui-id-1{
     left: 0% !important;
 }
@@ -560,15 +557,13 @@ a:link, a:visited, a:active, a:hover {
     .button-membresia {
         display: none;
     }
-    .button-membresia-mobile {
-        display: flex;
-        height: 100%;
-        max-width: 30px;
-        align-items: center;
-        text-align: center;
-    }
-    .img-button-membresia-mobile {
-        max-width: 30px;
+    .btnMembresia_header_mobile {
+        background-image: url('/img/header/boton-de-memebresia-mob.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        height: 5vh;
+        width: 9%;
     }
     //Sección menú hamburguesa
     .menu-hamburger {
@@ -674,6 +669,7 @@ a:link, a:visited, a:active, a:hover {
         top: 180px !important;
         height: 29vh;
     }
+
     // Seccion boton usuario 
     .menu_paciente {
         padding: 0;
@@ -726,16 +722,15 @@ a:link, a:visited, a:active, a:hover {
         margin: auto;
     }
     //Seccion boton membresia
-    .button-membresia-mobile {
-        display: flex;
-        height: 100%;
-        max-width: 8%;
-        align-items: center;
-        text-align: center;
+    .btnMembresia_header_mobile {
+        background-image: url('/img/header/boton-de-memebresia-mob.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        height: 4vh;
+        width: 7%;
     }
-    .img-button-membresia-mobile {
-        max-width: 100%;
-    }
+
     // Seccion menu hamburguesa
     .menu_hamburguesa {
         height: auto;
@@ -778,6 +773,12 @@ a:link, a:visited, a:active, a:hover {
     }
 }
 @media (min-width: 1024px) {
+    .contain_lupa-mobile {
+        display: none;
+    }
+    .btnMembresia_header_mobile {
+    display: none;
+    }
     .contains_barra{
         display: none;
     }
@@ -846,9 +847,6 @@ a:link, a:visited, a:active, a:hover {
     .button-membresia {
         display: flex;
     }
-    .button-membresia-mobile {
-        display: none;
-    } 
     .img-button-membresia {
         width: 100%;
     }
@@ -958,9 +956,6 @@ a:link, a:visited, a:active, a:hover {
     .button-membresia {
         display: flex;
         max-width: 145px;
-    }
-    .button-membresia-mobile {
-        display: none;
     } 
     .img-button-membresia {
         width: 100%;

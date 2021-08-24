@@ -10417,10 +10417,6 @@ a:link, a:visited, a:active, a:hover {
   display: flex;
 }
 
-.contain_lupa-mobile {
-  display: none;
-}
-
 .barra_busqueda > #ui-id-1 {
   left: 0% !important;
 }
@@ -10624,16 +10620,13 @@ a:link, a:visited, a:active, a:hover {
     display: none;
   }
 
-  .button-membresia-mobile {
-    display: flex;
-    height: 100%;
-    max-width: 30px;
-    align-items: center;
-    text-align: center;
-  }
-
-  .img-button-membresia-mobile {
-    max-width: 30px;
+  .btnMembresia_header_mobile {
+    background-image: url("/img/header/boton-de-memebresia-mob.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 5vh;
+    width: 9%;
   }
 
   .menu-hamburger {
@@ -10802,16 +10795,13 @@ a:link, a:visited, a:active, a:hover {
     margin: auto;
   }
 
-  .button-membresia-mobile {
-    display: flex;
-    height: 100%;
-    max-width: 8%;
-    align-items: center;
-    text-align: center;
-  }
-
-  .img-button-membresia-mobile {
-    max-width: 100%;
+  .btnMembresia_header_mobile {
+    background-image: url("/img/header/boton-de-memebresia-mob.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 4vh;
+    width: 7%;
   }
 
   .menu_hamburguesa {
@@ -10864,6 +10854,14 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1024px) {
+  .contain_lupa-mobile {
+    display: none;
+  }
+
+  .btnMembresia_header_mobile {
+    display: none;
+  }
+
   .contains_barra {
     display: none;
   }
@@ -10937,10 +10935,6 @@ a:link, a:visited, a:active, a:hover {
 
   .button-membresia {
     display: flex;
-  }
-
-  .button-membresia-mobile {
-    display: none;
   }
 
   .img-button-membresia {
@@ -11058,10 +11052,6 @@ a:link, a:visited, a:active, a:hover {
   .button-membresia {
     display: flex;
     max-width: 145px;
-  }
-
-  .button-membresia-mobile {
-    display: none;
   }
 
   .img-button-membresia {
@@ -30716,7 +30706,7 @@ label.error {
 }
 
 .sidebar-wrapper {
-  width: 300px;
+  width: 100%;
   top: 0;
   overflow-y: auto;
   background-color: #fff;
@@ -30753,7 +30743,6 @@ label.error {
   font-size: 1rem;
   list-style: none;
   font-weight: 600;
-  color: #232323;
 }
 
 .sidebar-wrapper .menu .sidebar-link {
@@ -30836,17 +30825,41 @@ label.error {
 }
 
 .sidebar-wrapper .menu .submenu .submenu-item a {
-  padding: 0.7rem 2rem;
+  padding: 0.7rem 1rem;
   display: block;
-  color: #232323;
-  font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   transition: all 0.3s;
+  font-size: 0.85rem;
+  text-decoration: none;
 }
 
-.sidebar-wrapper .menu .submenu .submenu-item a:hover {
-  margin-left: 0.3rem;
+.sidebar-wrapper .menu .submenu .submenu-item .actived:hover {
+  margin-left: 0.1rem;
+  color: #ffffff !important;
+  background-color: #0083D6;
+  text-decoration: none;
+}
+
+.actived {
+  color: #232323 !important;
+}
+
+.unactived {
+  color: #0083D6 !important;
+  text-decoration: none !important;
+}
+
+.titulo_menu {
+  color: #232323 !important;
+  display: flex;
+  width: 75%;
+}
+
+.citaPadre {
+  color: #ffffff !important;
+  background-color: #0083D6;
+  padding-left: 5%;
 }
 
 .text-muted {
@@ -32477,7 +32490,7 @@ label.error {
 
 .panel-Administrativo_prof {
   background: #F9F9F9;
-  padding: 1% 1% 5% 1%;
+  padding: 1% 1% 3% 1%;
 }
 
 .containt_agendaProf {
@@ -32522,6 +32535,7 @@ label.error {
   font-weight: bolder;
   font-size: 1.4em;
   list-style: none;
+  text-align: center;
 }
 
 .content_histClinica {
@@ -33248,7 +33262,7 @@ label.error {
   }
 
   .btn_enviar_pacRegistrado {
-    width: 17%;
+    width: 20%;
   }
 
   .content_btns_regPaciente {
@@ -33263,7 +33277,7 @@ label.error {
   }
 
   .addFile_consulta {
-    bottom: 174px;
+    bottom: 170px;
     width: 9%;
     left: 113px;
     height: 3.5vh;
