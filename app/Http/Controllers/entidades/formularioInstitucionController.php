@@ -895,20 +895,4 @@ public function delete13($id){
 
 }
 /*-------------------------------------Fin Eliminacion formulario parte 13----------------------*/
-/*-------------------------------------Inicio Add Destacale formulario parte 14----------------------*/
-    public function addDestacable(Request $request)
-    {
-        $destacable = new destacados();
-        $destacable->nombreExpertoEn = $request->destacado_nombre;
-        $destacable->idPerfilProfesional = auth()->user()->profecional->idPerfilProfesional;
-
-        $destacable->save();
-
-        return response(['mensajes' => 'El Tema ha cido creado']);
-
-
-    }
-/*-------------------------------------Fin Add Destacale formulario parte 14----------------------*/
-
-
 }

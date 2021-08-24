@@ -101,6 +101,9 @@ Route::post('/FormularioProfesionalSave13',[App\Http\Controllers\profesionales\f
 /*-----borrar formulario parte 13----*/
 Route::get('/FormularioProfesionaldelete13/{id}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete13'])->name('FormularioProfesional')->middleware('auth');
 
+/*-----agregar formulario parte 14----*/
+Route::post('/FormularioProfesionalAddDestacable',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'addDestacable'])->name('FormularioDestacale')->middleware('auth');
+
 
 //Selects dinamicos area, profesion, especialidad
 Route::get('profesion/{idArea}', [App\Http\Controllers\profesionales\profesionController::class,'mostrarProfesion']);
@@ -190,10 +193,6 @@ Route::get('/FormularioInstituciondelete12/{id}',[App\Http\Controllers\entidades
 Route::post('/FormularioInstitucionSave13',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create13'])->name('FormularioInstitucion')->middleware('auth');
 /*-----borrar formulario parte 13----*/
 Route::get('/FormularioInstituciondelete13/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete13'])->name('FormularioInstitucion')->middleware('auth');
-
-/*-----agregar formulario parte 14----*/
-Route::post('/FormularioProfesionalAddDestacable',[App\Http\Controllers\entidades\formularioInstitucionController::class,'addDestacable'])->name('FormularioDestacale')->middleware('auth');
-
 
 
 /*------------------------------------------------Pertenece al admin-------------------------------------------------------------------------------*/

@@ -513,12 +513,19 @@
             <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio--------------------->
                 <div class="row fila_infoBasica-formProf">
                     <div class="col-12" id="destacado-lista">
-
+                        @foreach($destacables as $destacable)
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                <strong>{{ $destacable->nombreExpertoEn }}</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endforeach
                     </div>
                     <div class="col-12">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Ingrese el tema" name="destacado_nombre">
-                            <button class="btn btn-primary" type="submit" id="destacado_nombre_btn"><img src="{{ asset('img/iconos/icono-agregar-especialidad-favoritos-blanco.svg') }}" alt="mas"> Agregar</button>
+                            <button class="btn btn-primary" type="submit" id="destacado_nombre_btn" {{ ($destacables_count >= 9 ) ? 'disabled' : ''}} ><img src="{{ asset('img/iconos/icono-agregar-especialidad-favoritos-blanco.svg') }}" alt="mas"> Agregar</button>
                         </div>
                     </div>
                 </div>

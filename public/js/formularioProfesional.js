@@ -81,6 +81,7 @@ $('#formulario_basico').validate({
          });
        }
 });
+
 $('#formulario_destacado').validate({
     rules: {
         destacado_nombre: {
@@ -104,13 +105,22 @@ $('#formulario_destacado').validate({
         $.ajax({
             url:  "FormularioProfesionalAddDestacable",
             type: "POST",
+            dataType: 'json',
             data: $('#formulario_destacado').serialize(),
             success: function( response ) {
-                console.log(response);
+                if (response.mensajes)
+                {
+                    $('#destacado-lista').append('<div class="alert alert-info alert-dismissible fade show" role="alert">\n' +
+                        '<strong>' + response.nombre + '</strong>\n' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                        '<span aria-hidden="true">&times;</span>\n' +
+                        '</button>\n' +
+                        '</div>');
+                }else {
+
+                }
             }
         });
-
-
     }
 });
 /*--------------------------- Fin Primera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
