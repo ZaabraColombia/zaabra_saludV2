@@ -772,7 +772,7 @@
 
         <!--------------------------------------------      Inicio 6 sexta parte del formulario *** EXPERIENCIA ***      ------------------------------------------------------>
         <div class="col-lg-10 col-xl-8 content_perfil-prof infoBasica_formProf">
-            <h5 class="col-12 icon_infoExper-formProf"> Experiencia </h5>
+            <h5 class="col-12 icon_infoExper-formProf"> Experiencia Laboral</h5>
 
             <!--------------muestra una lista de la experinecia ingresada--------------->
             <div class="experiencia_guardada-formProf">
