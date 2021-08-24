@@ -124,7 +124,7 @@ public function cargaDatosUser($id_user){
 }
 
 public function cargaFormulario($id_user){
-    return DB::select("SELECT ins.imagen, ins.logo, ins.quienessomos,  ins.DescripcionGeneralServicios,
+    return DB::select("SELECT ins.imagen, ins.logo, ins.quienessomos,  ins.DescripcionGeneralServicios, ins.idtipoInstitucion,
     ins.url, ins.fechainicio, ins.telefonouno,  ins.telefono2, ins.direccion, ins.propuestavalor,
     p.id_pais,p.nombre, de.id_departamento, de.nombre,ins.url_maps,
     prv.id_provincia,prv.nombre, mu.id_municipio, mu.nombre
@@ -293,23 +293,24 @@ public function cargaFormulario($id_user){
     }
 
     public function  cargaVideo($id_user){
-        return DB::select("SELECT v.id, v.nombrevideo, v.descripcionvideo,
-        REPLACE(v.urlvideo, '/watch?v=', '/embed/') AS urlvideo, v.fechavideo
-       FROM instituciones ins
-       INNER JOIN users us   ON ins.idUser=us.id
-       LEFT JOIN  videos v ON ins.id= v.idPerfilProfesional
-       WHERE ins.idUser=$id_user");
+    return DB::select("SELECT v.id, v.nombrevideo, v.descripcionvideo,
+    REPLACE(v.urlvideo, '/watch?v=', '/embed/') AS urlvideo, v.fechavideo
+    FROM instituciones ins
+    INNER JOIN users us   ON ins.idUser=us.id
+    LEFT JOIN  videos v ON ins.id= v.idPerfilProfesional
+    WHERE ins.idUser=$id_user");
     }
 
-        public function contadorVideo($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorvideos = DB::table('instituciones')
-        ->select(DB::raw('COUNT(videos.idinstitucion) as cantidad'))
-        ->join('users', 'instituciones.idUser', '=', 'users.id')
-        ->leftjoin('videos', 'instituciones.id', '=', 'videos.idinstitucion')
-        ->where('users.id', '=',$id_user)
-        ->first();
-        return $contadorvideos;
+                
+    public function contadorVideo($id_user){
+    /*cuenta los los valores ingresados*/
+    $contadorvideos = DB::table('instituciones')
+    ->select(DB::raw('COUNT(videos.idinstitucion) as cantidad'))
+    ->join('users', 'instituciones.idUser', '=', 'users.id')
+    ->leftjoin('videos', 'instituciones.id', '=', 'videos.idinstitucion')
+    ->where('users.id', '=',$id_user)
+    ->first();
+    return $contadorvideos;
     }
 /*------------Fin busquedad datos basicos usuario logueado y data resgistrada de la institucion-----------------*/
 
@@ -357,26 +358,25 @@ public function cargaFormulario($id_user){
             return redirect('FormularioInstitucion');
 
          }else{
-
-
             /*captura el nombre de la imagen*/
-            $nombreimagen=$request->imagenInstitucion->getClientOriginalName();
+            /*$nombreimagen=$request->imagenInstitucion->getClientOriginalName();*/
             /*captura el nombre del logo*/
-            $nombrelogo=$request->logoInstitucion->getClientOriginalName();
+            /*$nombrelogo=$request->logoInstitucion->getClientOriginalName();*/
 
 
             /*guarda la imagen en carpeta con el id del usuario*/
-            $imagen = $request->file('imagenInstitucion');
+            /*$imagen = $request->file('imagenInstitucion');
             $imagen->move("img/instituciones/$id_user", $imagen->getClientOriginalName());
             $logo = $request->file('logoInstitucion');
-            $logo->move("img/instituciones/$id_user", $logo->getClientOriginalName());
+            $logo->move("img/instituciones/$id_user", $logo->getClientOriginalName());*/
 
 
             /*anexo iduser y img logoempresa  al request*/
             $request->merge([
-            'idUser' => "$id_user",
-            'imagen' => "img/instituciones/$id_user/$nombreimagen",
-            'logo' => "img/instituciones/$id_user/$nombrelogo"
+
+            'idUser' => "$id_user", 
+           /* 'imagen' => "img/instituciones/$id_user/$nombreimagen",*/
+            /*'logo' => "img/instituciones/$id_user/$nombrelogo"*/
                 ]);
 
                 $dataInstitucion = request()->all();

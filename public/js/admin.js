@@ -40,7 +40,77 @@ function elementClose (z){
         selector(".modalA").style.display = "none";
         jQuery(".modal-backdrop.show").css("display","none"); 
     }
+    else if (myvar == "edito") {
+        selector(".modalD").style.display = "block";
+        selector(".modalC").style.display = "none";
+        jQuery(".modal-backdrop.show").css("display","none"); 
+    }
+    else if (myvar == "cancelar") {
+        selector(".modalE").style.display = "block";
+        selector(".modalC").style.display = "none";
+        jQuery(".modal-backdrop.show").css("display","none"); 
+    }
 }
+
+!function() {
+    let queryRuta = window.location.pathname;
+    // Condicionales de la validación de cada una de las rutas para remover y adicionar las clases descritas.
+    if (queryRuta.includes("panelPrincipal")) {
+
+        $('#menu_panel').removeClass('actived');
+        $('#menu_panel').addClass('unactived');
+    }
+
+    else if (queryRuta.includes("citas")) {
+
+        $('#cita_padre').removeClass('actived');
+        $('#cita_padre').addClass('citaPadre');
+
+        $('#cita1').removeClass('actived');
+        $('#cita1').addClass('unactived');
+    }
+    else if (queryRuta.includes("calendario")) {
+
+        $('#cita_padre').removeClass('actived');
+        $('#cita_padre').addClass('citaPadre');
+
+        $('#cita0').removeClass('actived');
+        $('#cita0').addClass('unactived');
+    }
+    else if (queryRuta.includes("ordenesMedicas")) {
+
+        $('#cita_padre').removeClass('actived');
+        $('#cita_padre').addClass('citaPadre');
+
+        $('#cita2').removeClass('actived');
+        $('#cita2').addClass('unactived');
+    }
+    else if (queryRuta.includes("prescripciones")) {
+
+        $('#cita_padre').removeClass('actived');
+        $('#cita_padre').addClass('citaPadre');
+
+        $('#cita3').removeClass('actived');
+        $('#cita3').addClass('unactived');
+    }
+    else if (queryRuta.includes("pagos")) {
+
+        $('#cita_padre').removeClass('actived');
+        $('#cita_padre').addClass('citaPadre');
+
+        $('#cita4').removeClass('actived');
+        $('#cita4').addClass('unactived');
+    }
+
+    else if (queryRuta.includes("favoritos")) {
+
+        $('#favorito_padre').removeClass('actived');
+        $('#favorito_padre').addClass('citaPadre');
+
+        $('#fav').removeClass('actived');
+        $('#fav').addClass('unactived');
+    }
+}();
 
 // Función para cambiar de color el texto del menu lateral, submenu e items del menu administrativo de la agenda profesional y poaciente
 !function() {
@@ -88,7 +158,7 @@ function elementClose (z){
         $('#hist').addClass('unactived');
     }
 
-    else if (queryRuta.includes("prescripciones")) {
+    else if (queryRuta.includes("prescripciones") || queryRuta.includes("crearFormulaProfesional")) {
 
         $('#historia_padre').removeClass('actived');
         $('#historia_padre').addClass('citaPadre');

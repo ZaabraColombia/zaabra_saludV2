@@ -97,11 +97,15 @@
 
                                 <input class="col-12 form-control" id="url" placeholder="Url" type="text" name="url" value="{{$objFormulario->url}}">
                             </div>
-
+  
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Selecione entidad </label> 
-
-                                <select class="col-lg-12 form-control" name="idprofesion" id="idprofesion"></select>
+                                <select class="col-lg-12 form-control" name="idtipoInstitucion" id="idtipoInstitucion">
+                                 
+                                    @foreach($tipoinstitucion as $tipoinstitucion)
+                                        <option value="{{$tipoinstitucion->id}}" {{ ($tipoinstitucion->id == $objFormulario->idtipoInstitucion) ? 'selected' : '' }}> {{$tipoinstitucion->nombretipo}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 

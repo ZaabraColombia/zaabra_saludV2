@@ -49,6 +49,42 @@
     list-style: none;
     text-align: center;
 }
+.contain_infoCita_popUp {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.icono_reloj_popUp {
+    background-image: url('/img/iconos/icono-reloj.svg');
+    background-repeat: no-repeat;
+
+}
+.icono_tipoCita_popUp {
+    background: url('/img/iconos/icono-tipo-de-cita.svg');
+    background-repeat: no-repeat;
+
+}
+.text_labelCita_popUp {
+    font-family: 'Quicksand';
+    font-size: 1.15em;
+    color: #232323;
+    font-weight: bold;
+    padding: 0;
+    margin: 2% 0;
+    text-transform: inherit;
+}
+.text_infoCita_popUp {
+    font-family: 'Roboto';
+    font-size: 1.15em;
+    color: #232323;
+    padding-left: 6%;
+    margin: 0;
+}
+.data_consulta p, span {
+    font-size: 1.1em;
+    padding-left: 7%;
+    margin: 2% 0;
+}
 //****************************************************      Estilos de Historia Clínica       ****************************************************//
 .content_histClinica {
     width: 100%;
@@ -310,6 +346,15 @@
         padding-bottom: 5%;
         padding-top: 2%;
     }
+    //****************************************************      Estilos de Mis Citas       ****************************************************//
+    .text_labelCita_popUp {
+        font-size: 1em;
+        margin: 3% 0;
+    }
+    .text_infoCita_popUp {
+        font-size: 1em;
+        margin: 3% 0;
+    }
     //****************************************************      Estilos de Historia Clínica       ****************************************************//
 
     .btn_crear_histClinica {
@@ -422,6 +467,13 @@
     }
 }
 @media (min-width: 768px) and (orientation: portrait) {
+    //****************************************************      Estilos de Mis Citas       ****************************************************//
+    .text_labelCita_popUp {
+        font-size: 1em;
+    }
+    .text_infoCita_popUp {
+        font-size: 1em;
+    }
     //****************************************************      Estilos de Historia Clínica       ****************************************************//
     .section_cabecera_histClinica {
         display: flex;

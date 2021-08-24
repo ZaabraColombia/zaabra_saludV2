@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="row m-0 p-0">
-        <div class="col-2 d-none d-lg-block bg-light sidebar">
+        <div class="col-2 d-none d-lg-block p-0 bg-light sidebar" style="height: fit-content;">
             @include('menuAdmin')
         </div>
 
