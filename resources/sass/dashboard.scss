@@ -12,7 +12,7 @@
     margin-left: 0;
 }
 .sidebar-wrapper {
-    width: 300px;
+    width: 100%;
     top: 0;
     overflow-y: auto;
     background-color: #fff;
@@ -44,8 +44,8 @@
     font-size: 1rem;
     list-style: none;
     font-weight: 600;
-    color: #232323;
 }
+
 .sidebar-wrapper .menu .sidebar-link {
     display: block;
     padding: .7rem 1rem;
@@ -112,14 +112,34 @@
     font-weight: 700;
 }
 .sidebar-wrapper .menu .submenu .submenu-item a {
-    padding: .7rem 2rem;
+    padding: .7rem 1rem;
     display: block;
-    color: #232323;;
-    font-size: .85rem;
     font-weight: 600;
     letter-spacing: .5px;
     transition: all .3s;
+    font-size: .85rem;
+    text-decoration: none;
 }
-.sidebar-wrapper .menu .submenu .submenu-item a:hover {
-    margin-left: .3rem;
+.sidebar-wrapper .menu .submenu .submenu-item .actived:hover {
+    margin-left: .1rem;
+    color: #ffffff !important;
+    background-color: #0083D6;
+    text-decoration: none;
+}
+.actived {
+    color: #232323 !important;
+}
+.unactived {
+    color: #0083D6 !important;
+    text-decoration: none !important;
+}
+.titulo_menu {
+    color: #232323 !important;
+    display: flex;
+    width: 75%;
+}
+.citaPadre {
+    color: #ffffff !important;
+    background-color: #0083D6;
+    padding-left: 5%;
 }

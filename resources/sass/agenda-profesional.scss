@@ -6,8 +6,9 @@
 //****************************************************      Estilos de Panel Administrativo       ****************************************************//
 .panel-Administrativo_prof{
     background: #F9F9F9;
-    padding: 1% 1% 5% 1%;
+    padding: 1% 1% 3% 1%;
 }
+
 //****************************************************      Estilos de Mis Citas       ****************************************************//
 .containt_agendaProf {
     margin: 0;
@@ -46,6 +47,7 @@
     font-weight: bolder;
     font-size: 1.4em;
     list-style: none;
+    text-align: center;
 }
 //****************************************************      Estilos de Historia Clínica       ****************************************************//
 .content_histClinica {
@@ -702,7 +704,7 @@
     }
     //**********************     Estilos de Registro pacientes       **********************
     .btn_enviar_pacRegistrado {
-        width: 17%;
+        width: 20%;
     }
     //**********************     Estilos de Registro pacientes       **********************
     .content_btns_regPaciente {
@@ -716,7 +718,7 @@
         left: 113px;
     }
     .addFile_consulta {
-        bottom: 174px;
+        bottom: 170px;
         width: 9%;
         left: 113px;
         height: 3.5vh;
