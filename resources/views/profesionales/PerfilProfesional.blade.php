@@ -55,7 +55,7 @@
                         </li>
                     @endforeach
                 </ul>
-           
+
                 <div class="contains_buttons">
                     <a href="{{url('admindPaciente/'.$objprofesionallanding->idPerfilProfesional)}}">Agende su cita
                         <i class="fas fa-arrow-right arrow_mas"></i>
@@ -119,7 +119,7 @@
                         <li>
                             <h5>{{$objprofesionallandingestudios->nombreestudio}}</h5>
                             <p>{{$objprofesionallandingestudios->nombreuniversidad}}</p>
-                            <p>{{$objprofesionallandingestudios->fechaestudio}}</p>                            
+                            <p>{{$objprofesionallandingestudios->fechaestudio}}</p>
                         </li>
                     @endforeach
                 </ul>
@@ -137,8 +137,8 @@
                                 <p><strong>hasta </strong>{{$objprofesionallandingexperi->fechaFinExperiencia}}</p>
                             </div>
                             <div class="contains_logo">
-                                <img src="{{URL::asset($objprofesionallandingexperi->imgexperiencia)}}"> 
-                            </div>           
+                                <img src="{{URL::asset($objprofesionallandingexperi->imgexperiencia)}}">
+                            </div>
                         </li>
                     @endforeach
                 </ul>
@@ -200,7 +200,7 @@
             <h2><i></i>Premios y Reconocimientos</h2>
             <div class="swiper-container swiper_premios">
                 <div class="swiper-wrapper">
-                    
+
                     @foreach ($objprofesionallandingpremio as $objprofesionallandingpremio)
                         <div class="swiper-slide">
                             <img src="{{URL::asset($objprofesionallandingpremio->imgpremio)}}">
@@ -249,9 +249,9 @@
                 </div>
                 <div class="btn-prev"></div>
                 <div class="btn-next"></div>
-                <a class="btn-procedimientos" href="">Ver agenda</a>    
+                <a class="btn-procedimientos" href="">Ver agenda</a>
             </div>
-            
+
             <div class="videos_profesional">
                 <h2><i></i>Videos</h2>
                 <div class="container_cards">
@@ -265,7 +265,7 @@
                         </div>
                     @endforeach
                 </div>
-            </div>     
+            </div>
         </section>
 
         <section class="container-fluid content_options-prof">
@@ -313,14 +313,14 @@
 
                                 <div class="section_btnStart-form">
                                     <button id="send_form_coment_prof" type="submit" class="button_send-form"> Agregar
-                                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icon_arrow-form" alt=""> 
+                                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icon_arrow-form" alt="">
                                     </button>
                                 </div>
                             </div>
                         </form>
                     @endif
                 @endif
-                       
+
                 <div class="visible_container">
                     @if(!empty($objprofesionalComentario))
                         @foreach ($objprofesionalComentario as $data)
@@ -331,13 +331,13 @@
                                 </div>
                                 <div class="contains_text">
                                     <p class="name_usuario-prof">{{$data->primernombre}} {{$data->primerapellido}}</p>
-                                    <p class="icono_verify verify_usuario-prof"> Paciente verificado </p>       
+                                    <p class="icono_verify verify_usuario-prof"> Paciente verificado </p>
                                 </div>
 
                                 <div class="section_stars-prof">
                                     @for ($i=1; $i <= $data->calificacion; $i++)
                                     <i class='fa fa-star fa-fw' style="color: #E6C804;"></i>
-                                    @endfor 
+                                    @endfor
                                     @for ($i=$data->calificacion; $i <= 4; $i++)
                                     <i class="far fa-star" style="color: #E6C804;"></i>
                                     @endfor

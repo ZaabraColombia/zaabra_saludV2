@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
-    if (calendarEl > 0) {
+    if (calendarEl !=  null) {
         calendar.render();
     }
 });
