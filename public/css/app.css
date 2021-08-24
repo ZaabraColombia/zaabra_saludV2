@@ -33318,3 +33318,37 @@ label.error {
     background-position-x: 32%;
   }
 }
+.fc-agendarCita-button {
+  background-color: #3490dc !important;
+  border-color: #3490dc !important;
+}
+
+.fc-timeGridWeek-button {
+  background-color: #3490dc !important;
+  border-color: #3490dc !important;
+}
+
+.fc-prev-button {
+  background-color: #38c172 !important;
+  border-color: #38c172 !important;
+}
+
+.fc-next-button {
+  background-color: #38c172 !important;
+  border-color: #38c172 !important;
+}
+
+.fc-today-button {
+  background-color: #38c172 !important;
+  border-color: #38c172 !important;
+}
+
+.fc-dayGridMonth-button {
+  background-color: #38c172 !important;
+  border-color: #38c172 !important;
+}
+
+.fc-timeGridDay-button {
+  background-color: #38c172 !important;
+  border-color: #38c172 !important;
+}
