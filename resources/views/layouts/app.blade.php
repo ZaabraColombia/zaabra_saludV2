@@ -71,6 +71,7 @@
         <script src="{{ asset('js/formularioProfesional.js') }}"></script>
         <script src="{{ asset('js/favoritoEspecialidad.js') }}"></script>
         <script src="{{ asset('js/calendar-profesional.js') }}"></script>
+        <script src="{{ asset('js/fullcalendar.js') }}"></script>
      <!--js admin template-->
      <script src="{{ asset('js/admin.js') }}"></script>
 
