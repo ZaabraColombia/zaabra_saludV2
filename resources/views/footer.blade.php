@@ -14,7 +14,7 @@
             <div class="col-lg-7 suscribirme_contenido d-none d-lg-block">
                 <form id="newsletter" method="post" action="javascript:void(0)" class="row form_suscribirme">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-                    <input class="col-lg-8 col-xl-7 input_suscribirme" type="email" id="correo_newsletter" name="correo_newsletter" placeholder="servicioalcliente@zaabrasalud.co">
+                    <input class="form-control col-lg-8 col-xl-7 input_suscribirme" type="email" id="correo_newsletter" name="correo_newsletter" placeholder="servicioalcliente@zaabrasalud.co">
 
                     <button class="col-lg-3 col-xl-2 boton_suscribirme" id="send_form" type="submit">
                         <span class="text_sucrib-foot"> Suscribirme </span>
@@ -38,7 +38,7 @@
             <!--******************************     Column form suscribirme version MOBILE      *********************************--> 
             <form id="newsletter2" method="post" action="javascript:void(0)" class="row col-10 col-md-9 p-0 m-auto d-block d-lg-none">
                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-                <input class="input_suscribirme-cel" type="email" id="correo_newsletter2" name="correo_newsletter" placeholder="servicioalcliente@zaabrasalud.co">
+                <input class="form-control input_suscribirme-cel" type="email" id="correo_newsletter2" name="correo_newsletter" placeholder="servicioalcliente@zaabrasalud.co">
                 <div class="col-12 check_terminos-cel">
                     <input type="checkbox" class="boton_check-terminos-cel" id=""> 
                     <span class="texto_terminos-cel">Acepto 
