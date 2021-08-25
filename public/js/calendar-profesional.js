@@ -12,24 +12,27 @@ document.addEventListener('DOMContentLoaded', function() {
         locale: 'es',
         events: [
             {
-                id: 'a',
-                title: 'my event',
+                title: 'paciente 1',
                 start: '2021-08-22',
                 especialidad: 'especialidad',
-                paciente: 'paciente 1',
+                //paciente: 'paciente 1',
                 tipo_cita: 'Presencial'
             }
         ],
         dateClick: function(info) {
-            //alert('clicked ' + info.dateStr);
+            console.log(info.dateStr);
+            //limpiar el formulario
+            //$('#form-agendar-cita-profesional')[0].reset();
+            $('#fecha_input-profesional').val(info.dateStr);
+            $('#agregar-cita-profesional').modal('show');
         },
         select: function(info) {
             //alert('selected ' + info.startStr + ' to ' + info.endStr);
         },
         eventClick: function(info) {
-            //console.log(info.event.extendedProps.especialidad);
+            console.log(info.event);
 
-            $('#nombre_paciente-profesional').html(info.event.extendedProps.paciente);
+            $('#nombre_paciente-profesional').html(info.event.title);
             $('#especialidad-profesional').html(info.event.extendedProps.especialidad);
             $('#fecha-profesional').html(moment(info.event.start).format('dddd, D MMMM'));
             $('#hora-profesional').html(moment(info.event.start).format('hh:mm A '));
@@ -42,4 +45,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (calendarEl !=  null) {
         calendar.render();
     }
+
+    $('#agendar-cita-profesional').click(function (e){
+        var fecha = moment($('#fecha_input-profesional').val() + " " + $('#hora_input-profesional').val() , "YYYY-MM-DD H:mm").format();
+        console.log(fecha);
+        calendar.addEvent({
+            title: $('#paciente_input-profesional').val(),
+            start: fecha,
+            especialidad: $('#especialidad_input-profesional').val(),
+            //paciente: 'paciente 1',
+            tipo_cita: $('#tipo_cita_select-profesional').val()
+        });
+        $('#agregar-cita-profesional').modal('hide');
+    });
 });

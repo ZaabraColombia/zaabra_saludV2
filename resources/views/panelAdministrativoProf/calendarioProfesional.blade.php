@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <button class="btn_cierre_citasProf" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
+        <button class="btn_cierre_citasProf" type="submit" data-toggle="modal" data-target="#agregar-cita-profesional"></button>
     </section>
 
     <!-- Pop-up  ver cita -->
@@ -58,12 +58,12 @@
     </div>
 
     <!-- Pop-up agendar cita -->
-    <div class="modal fade modalD" id="agrgar-cita-profecional" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade modalD" id="agregar-cita-profesional" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal_citas_popUp" role="document">
             <div class="modal-content content_modalCitas">
                 <!-- Sección boton derecho de cierre "X" -->
                 <div class="modal-header modal_headerCitas">
-                    <h1 class="title_popup_miCita" id="exampleModalLabel">Editar cita</h1>
+                    <h1 class="title_popup_miCita" id="exampleModalLabel">Agendar cita</h1>
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -71,42 +71,41 @@
                 </div>
 
                 <div class="modal-body modal_headerCitas">
-                    <form method="POST" action="">
+                    <form method="POST" action="" id="form-agendar-cita-profecional">
                         <div class="col-md-6 p-0">
-                            <label for="example-date-input" class="col-12 text_label-formProf">Especialidad</label>
-
-                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
-                                <option value="" selected> Seleccionar </option>
-                            </select>
+                            <label for="especialidad_input-profesional" class="col-12 text_label-formProf">Especialidad</label>
+                            <input class="form-control" type="text" value="{{ auth()->user()->profecional->profecion->nombreProfesion }}" id="especialidad_input-profesional" name="especialidad_input-profesional" readonly>
                         </div>
 
                         <div class="col-md-6 p-0">
-                            <label for="example-date-input" class="col-12 text_label-formProf">Estado</label>
-
-                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
-                                <option value="" selected> Seleccionar </option>
+                            <label for="tipo_cita_select-profesional" class="col-12 text_label-formProf">Tipo de cita</label>
+                            <select id="tipo_cita_select-profesional" class="form-control" name="tipo_cita_select-profesional">
                                 <option value="Presencial"> Presencial </option>
                                 <option value="Virtual"> Virtual </option>
                             </select>
                         </div>
 
                         <div class="col-md-6 p-0">
-                            <label for="example-date-input" class="col-12 text_label-formProf">Fecha</label>
-
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
+                            <label for="paciente_input-profesional" class="col-12 text_label-formProf">Nombre Paciente</label>
+                            <input class="form-control" type="text" id="paciente_input-profesional" name="paciente_input-profesional">
                         </div>
 
                         <div class="col-md-6 p-0">
-                            <label for="example-date-input" class="col-12 text_label-formProf">Hora</label>
-
-                            <input class="form-control" type="time" value="" id="example-date-input" name="fechaestudio[]">
+                            <label for="fecha_input-profesional" class="col-12 text_label-formProf">Fecha</label>
+                            <input class="form-control" type="text" id="fecha_input-profesional" name="fecha_input-profesional" disabled>
                         </div>
+
+                        <div class="col-md-6 p-0">
+                            <label for="hora_input-profesional" class="col-12 text_label-formProf">Hora</label>
+                            <input class="form-control" type="time" id="hora_input-profesional" name="hora_input-profesional">
+                        </div>
+
                     </form>
                 </div>
 
                 <!-- Sección botón Pagar -->
                 <div class="modal-footer section_btn_citas">
-                    <button type="submit" class="btnAgendar-popup" id="">Hacer pago</button>
+                    <button type="submit" class="btnAgendar-popup" id="agendar-cita-profesional">Agendar</button>
                 </div>
             </div>
         </div>
