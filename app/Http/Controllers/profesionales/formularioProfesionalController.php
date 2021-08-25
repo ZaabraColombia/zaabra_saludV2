@@ -1076,7 +1076,7 @@ public function delete13($id){
         $destacables_count = destacados::where('idPerfilProfesional', '=', $id_profesional)->count();
 
         if ($destacables_count >= 9) {
-            return response(['mensajes' => 'No puede agregar mas temas', 'status' => false]);
+            return response(['mensaje' => 'No puede agregar mas temas', 'status' => false]);
         }
         $destacable = new destacados();
         $destacable->nombreExpertoEn = $request->destacado_nombre;
@@ -1084,9 +1084,26 @@ public function delete13($id){
 
         $destacable->save();
 
-        return response(['mensajes' => 'El Tema ha cido creado', 'status' => true, 'nombre' => $request->destacado_nombre]);
+        return response(['mensaje' => 'El Tema "' . $request->destacado_nombre . '" ha sido creado', 'status' => true, 'nombre' => $request->destacado_nombre, 'count' => $destacables_count + 1]);
 
 
     }
     /*-------------------------------------Fin Add Destacale formulario parte 14----------------------*/
+    /*-------------------------------------Inicio delete Destacale formulario parte 14----------------------*/
+    public function deleteDestacable(Request $request)
+    {
+        $id_profesional = auth()->user()->profecional->idPerfilProfesional;
+        $destacable = destacados::where('idPerfilProfesional', '=', $id_profesional)->where('id_experto_en', '=', $request->id)->first();
+
+        if (!empty($destacable))
+        {
+            //dd($destacable);
+            $nombre = $destacable->nombreExpertoEn;
+            $destacable->delete();
+            return response(['mensaje' => 'El Tema "' . $nombre . '" ha sido eliminado', 'status' => true]);
+        }
+
+        return response(['mensaje' => 'El Tema no se pudo eliminar', 'status' => false]);
+    }
+    /*-------------------------------------Fin delete Destacale formulario parte 14----------------------*/
 }
