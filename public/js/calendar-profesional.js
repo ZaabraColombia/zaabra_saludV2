@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // ID del evento
             $('#editar-cita-btn-profesional').data('id', info.event.id);
+            $('#cancelar-cita-btn-profesional').data('id', info.event.id);
 
             //Activar modal
             $('#ver-cita-profecional').modal();
@@ -118,7 +119,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var event = calendar.getEventById(id);
 
-        //event.remove();
+        //console.log(event);
+        event.remove();
+        //calendar.fullCalendar('removeEvents',id);
 
         $('#ver-cita-profecional').modal('hide');
         $('#cancelada-cita-modal-profecional').modal('show');
