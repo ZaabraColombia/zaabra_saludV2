@@ -5,6 +5,7 @@ namespace App\Http\Controllers\entidades;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\tipoinstituciones;
 
 class institucionesController extends Controller
 {
@@ -13,6 +14,7 @@ class institucionesController extends Controller
         $objcarruselinstitucionespremiun= $this->cargarCarruselinstitucionesPremiun($id);
         $objinstitucionespagonormal  = $this->cargarinstitucionesPagoNormal($id);
         $objinstitucionessinpago  = $this->cargarinstitucionesSinPago($id);
+        $objtipoinstitucion  = tipoinstituciones::find($id);
         $objcarruselPublicidadinstituciones = $this->cargarCarruselInstituciones();
 
         return view('instituciones.Instituciones', compact(
@@ -20,6 +22,7 @@ class institucionesController extends Controller
             'objinstitucionespagonormal',
             'objinstitucionessinpago',
             'objcarruselPublicidadinstituciones',
+            'objtipoinstitucion'
         ));
 
     }

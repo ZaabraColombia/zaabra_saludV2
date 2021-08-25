@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loopFillGroupWithBlank: true,
   
     autoplay: {
-      delay: 4500,
+      delay: 5500,
       disableOnInteraction: false,
     },
   
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         el: '.swiper-pagination',
     },
   
-    breakpoints: {
+    /*breakpoints: {
        // when window width is >= 320px
       320: {
         slidesPerView: 1,
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesPerGroup: 1,
         spaceBetween: 5,
       },
-    }
+    }*/
   });
 });
 

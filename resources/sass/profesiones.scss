@@ -81,7 +81,7 @@
         color: #3e3e3e;
         text-align: center;
         margin: 5% 0;
-        height: 6vh;
+        height: calc(2em + .75rem + 2px);
     }
     // Sección boton ver especialidades
     .section_btn_ramSalud { 
@@ -97,7 +97,7 @@
         font-size: 0.625em;
         color: #ffffff;
         padding: 0;
-        height: 4vh;
+        height: calc(1em + 0.75rem + 2px);
         width: 100%;
         border-radius: 3px;
         border: none;
@@ -116,12 +116,7 @@
     // Carrusel logos inferior 
     .contains_slider-logos-galeriaProf {
         height: 20vh; }
-}
-@media(min-width: 360px) and (orientation: portrait) {
-    .text_ramSalud {
-        height: 5vh;
-    }
-}  
+} 
 @media (min-width: 768px) and (orientation: portrait) {
     .title_ramSalud {
         font-size: 2.5em;
@@ -138,7 +133,6 @@
     }
     .text_ramSalud {
         font-size: 1em;
-        height: 4vh;
         margin: 5% 0 0 0;
     }
     .content_btn_ramSalud {
@@ -151,7 +145,6 @@
         font-size: 1.25em;
         color: #ffffff;
         padding: 0;
-        height: 3vh;
         width: 100%;
         border-radius: 3px;
         border: none;
@@ -204,7 +197,7 @@
         color: #3e3e3e;
         text-align: center;
         margin-bottom: 5%;
-        height: 5vh;
+        height: calc(2em + .75rem + 2px);
     }
     // Sección boton ver especialidades
     .content_btn_ramSalud {
@@ -216,7 +209,7 @@
         font-size: calc(.2em + .8vw);
         color: #ffffff;
         padding: 0;
-        height: 3.5vh;
+        height: calc(1.5em + 0.75rem + 2px);
         width: 100%;
         border-radius: 3px;
         border: none;
@@ -236,11 +229,9 @@
 @media (min-width: 1200px) {
     .text_ramSalud {
         font-size: calc(.1em + .8vw);
-        height: 6vh;
     }
     .btnVer_ramSalud {
         font-size: calc(.2em + .8vw);
-        height: 4vh;
     }
 }
 @media (min-width: 1440px) {
@@ -249,18 +240,11 @@
     }
     .text_ramSalud {
         font-size: calc(.035em + .7vw);
-        height: 3vh;
     }
     .content_btn_ramSalud {
         width: 75%;
     }
     .btnVer_ramSalud {
         font-size: calc(.15em + .8vw);
-        height: 3.5vh;
-    }
-}
-@media (min-width: 1920px) {
-    .text_ramSalud {
-        height: 4vh;
     }
 }
