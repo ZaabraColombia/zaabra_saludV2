@@ -46,6 +46,7 @@
         <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.js" integrity="sha512-Cpto2uFAGrtCArBkIckJacfNjZ6yFJ1F61YIOH3Nj4dpccnCK1AGkudN9g+HM+OQMIHxeFvcRmkIUKbJ/7Qxyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
         <!-- Styles  input tipo tag-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
         <!-- Full calendar JS -->
@@ -69,7 +70,7 @@
         <script src="{{ asset('js/filtroBusquedad.js') }}"></script>
         <script src="{{ asset('js/formularioProfesional.js') }}"></script>
         <script src="{{ asset('js/favoritoEspecialidad.js') }}"></script>
-        <script src="{{ asset('js/fullcalendar.js') }}"></script>
+        <script src="{{ asset('js/calendar-profesional.js') }}"></script>
      <!--js admin template-->
      <script src="{{ asset('js/admin.js') }}"></script>
 

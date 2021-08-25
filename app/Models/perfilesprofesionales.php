@@ -43,11 +43,15 @@ class perfilesprofesionales extends Model
         'updated_at',
     ];
 
-    /**
-     * The roles that belong to the user.
-     */
+
     public function user()
     {
         return $this->belongsTo(User::class, 'idUser', 'id');
     }
+
+    public function profecion()
+    {
+        return $this->belongsTo(profesiones::class, 'idprofesion', 'idProfesion');
+    }
+
 }
