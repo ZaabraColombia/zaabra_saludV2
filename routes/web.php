@@ -103,6 +103,7 @@ Route::get('/FormularioProfesionaldelete13/{id}',[App\Http\Controllers\profesion
 
 /*-----agregar formulario parte 14----*/
 Route::post('/FormularioProfesionalAddDestacable',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'addDestacable'])->name('FormularioDestacale')->middleware('auth');
+Route::post('/FormularioProfesionalDeleteDestacable',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'deleteDestacable'])->name('FormularioDestacaleDelete')->middleware('auth');
 
 
 //Selects dinamicos area, profesion, especialidad

@@ -108,20 +108,85 @@ $('#formulario_destacado').validate({
             dataType: 'json',
             data: $('#formulario_destacado').serialize(),
             success: function( response ) {
-                if (response.mensajes)
+                var mensaje;
+                if (response.status)
                 {
+                    mensaje = $('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                        '<strong>' + response.mensaje + '</strong>\n' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                        '<span aria-hidden="true">&times;</span>\n' +
+                        '</button>\n' +
+                        '</div>');
                     $('#destacado-lista').append('<div class="alert alert-info alert-dismissible fade show" role="alert">\n' +
                         '<strong>' + response.nombre + '</strong>\n' +
                         '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                         '<span aria-hidden="true">&times;</span>\n' +
                         '</button>\n' +
                         '</div>');
+
+                    console.log(response.count);
+                    if (response.count >= 9){
+                        $('#destacado_nombre').attr('disabled', 'disabled');
+                        $('#destacado_nombre_btn').attr('disabled', 'disabled');
+                    }
                 }else {
+                    mensaje = $('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                        '<strong>' + response.mensaje + '</strong>\n' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                        '<span aria-hidden="true">&times;</span>\n' +
+                        '</button>\n' +
+                        '</div>');
 
                 }
+
+                $('#destacado-mensaje').append(mensaje);
+
             }
         });
     }
+});
+
+$('#destacado-lista').on('click', '.close' , function (e) {
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  "FormularioProfesionalDeleteDestacable",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            console.log(response);
+            var message;
+            if (response.status)
+            {
+                message = $('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    '<strong>' + response.mensaje + '</strong>\n' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+
+                $('#destacado_nombre').removeAttr('disabled');
+                $('#destacado_nombre_btn').removeAttr('disabled');
+            }else {
+                message = $('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    '<strong>' + response.mensaje + '</strong>\n' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+            }
+            $('#destacado-mensaje').append(message);
+        }
+    });
+
 });
 /*--------------------------- Fin Primera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 
