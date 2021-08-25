@@ -11231,7 +11231,6 @@ a:link, a:visited, a:active, a:hover {
 .input_suscribirme {
   font-family: "Roboto", sans-serif;
   font-size: 0.8em;
-  height: 3.5vh;
   width: 75%;
   border-radius: 3px;
   border: solid 0.1px #707070;
@@ -11241,8 +11240,8 @@ a:link, a:visited, a:active, a:hover {
   background: #0083D6;
   margin-left: 2%;
   padding: 0;
-  height: 3.5vh;
   width: 23%;
+  height: calc(1.5em + 0.55rem + 2px);
   border: solid 0.1px #0083D6;
   border-radius: 3px;
   display: flex;
@@ -11271,8 +11270,8 @@ a:link, a:visited, a:active, a:hover {
 
 .checkBox_terminos {
   margin-right: 1%;
-  width: 2%;
-  height: 2vh;
+  width: 2.5%;
+  height: calc(1em + 0.75rem + 2px);
 }
 
 .texto_terminos {
@@ -11425,7 +11424,6 @@ a:link, a:visited, a:active, a:hover {
     font-size: 0.75em;
     margin-top: 3%;
     padding: 0 5%;
-    height: 5vh;
     width: 100%;
     border: solid 0.1px #707070;
     border-radius: 4px;
@@ -11439,7 +11437,7 @@ a:link, a:visited, a:active, a:hover {
 
   .boton_check-terminos-cel {
     width: 9%;
-    height: 3vh;
+    height: calc(.5em + 0.5rem + 1px);
   }
 
   .texto_terminos-cel {
@@ -11459,7 +11457,6 @@ a:link, a:visited, a:active, a:hover {
   .boton_suscribirme-cel {
     background: #0083D6;
     margin: auto;
-    height: 5vh;
     font-family: "Quicksand", sans-serif;
     color: #ffffff;
     display: flex;
@@ -11467,6 +11464,7 @@ a:link, a:visited, a:active, a:hover {
     align-items: center;
     border: solid 0.1px #0083D6;
     border-radius: 4px;
+    height: calc(1em + 0.75rem + 2px);
   }
 
   .text_sucrib-foot {
@@ -11691,21 +11689,16 @@ a:link, a:visited, a:active, a:hover {
   .input_suscribirme-cel {
     font-size: 1em;
     padding: 0 2%;
-    height: 3vh;
   }
 
   .boton_check-terminos-cel {
     width: 4%;
-    height: 1.5vh;
+    height: calc(.5em + 0.5rem + 1px);
   }
 
   .texto_terminos-cel {
     font-size: 1em;
     padding-left: 2%;
-  }
-
-  .boton_suscribirme-cel {
-    height: 3vh;
   }
 
   .text_sucrib-foot {
@@ -11819,13 +11812,12 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1em;
   }
 
-  .input_suscribirme {
-    font-size: 1em;
-    height: 4vh;
+  .boton_suscribirme {
+    height: calc(1.5em + 0.85rem + 2px);
   }
 
-  .boton_suscribirme {
-    height: 4vh;
+  .input_suscribirme {
+    font-size: 1em;
   }
 
   .texto_terminos {
@@ -11875,6 +11867,10 @@ a:link, a:visited, a:active, a:hover {
 
   .boton_icon-flecha {
     width: 7%;
+  }
+
+  .checkBox_terminos {
+    width: 2%;
   }
 }
 .imagen_bannerPrin-acerca {
@@ -13246,7 +13242,7 @@ a:link, a:visited, a:active, a:hover {
   .contains_slider_logoshome {
     display: flex;
     flex-direction: column;
-    height: 30vh;
+    height: calc(10em + 1rem + 2px);
     background-image: url("/img/home/fondo-gris-logos-tablet.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -13475,7 +13471,7 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_slider_logoshome {
     max-width: 100%;
-    height: 33vh;
+    height: calc(25em + 1rem + 2px);
     flex-wrap: nowrap;
     align-content: center;
     justify-content: center;
@@ -13717,7 +13713,7 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_slider_logoshome {
     width: 100%;
-    height: 27vh;
+    height: calc(15em + 1rem + 2px);
     padding-top: 5%;
     flex-wrap: nowrap;
     align-content: center;
@@ -13746,7 +13742,7 @@ a:link, a:visited, a:active, a:hover {
     height: 12px;
     border: 0;
     left: 2%;
-    margin-top: 6%;
+    margin-top: 5%;
   }
 
   .contains_slider_logoshome .btn-next {
@@ -13754,7 +13750,7 @@ a:link, a:visited, a:active, a:hover {
     height: 12px;
     border: 0;
     right: 1.5%;
-    margin-top: 6%;
+    margin-top: 5%;
   }
 }
 @media (min-width: 1200px) {
@@ -13814,7 +13810,6 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slider_logoshome {
-    height: 30vh;
     padding-top: 5%;
   }
 
@@ -13995,7 +13990,7 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_slider_logoshome {
     width: 100%;
-    height: 31vh;
+    height: calc(25em + 1rem + 2px);
     padding-top: 3%;
     flex-wrap: nowrap;
     align-content: center;
@@ -14151,10 +14146,6 @@ a:link, a:visited, a:active, a:hover {
        object-fit: contain;
   }
 
-  .contains_slider_logoshome {
-    height: 40vh;
-  }
-
   .titulo_logos {
     margin-top: 0;
     margin-bottom: 1%;
@@ -14162,6 +14153,14 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_slider_triple {
     height: 25vh;
+  }
+
+  .contains_slider_logoshome .btn-prev {
+    margin-top: 3%;
+  }
+
+  .contains_slider_logoshome .btn-next {
+    margin-top: 3%;
   }
 }
 .imagen_bannerPrin-prof {
@@ -14256,7 +14255,7 @@ a:link, a:visited, a:active, a:hover {
     color: #3e3e3e;
     text-align: center;
     margin: 5% 0;
-    height: 6vh;
+    height: calc(2em + .75rem + 2px);
   }
 
   .section_btn_ramSalud {
@@ -14274,7 +14273,7 @@ a:link, a:visited, a:active, a:hover {
     font-size: 0.625em;
     color: #ffffff;
     padding: 0;
-    height: 4vh;
+    height: calc(1em + 0.75rem + 2px);
     width: 100%;
     border-radius: 3px;
     border: none;
@@ -14297,11 +14296,6 @@ a:link, a:visited, a:active, a:hover {
     height: 20vh;
   }
 }
-@media (min-width: 360px) and (orientation: portrait) {
-  .text_ramSalud {
-    height: 5vh;
-  }
-}
 @media (min-width: 768px) and (orientation: portrait) {
   .title_ramSalud {
     font-size: 2.5em;
@@ -14322,7 +14316,6 @@ a:link, a:visited, a:active, a:hover {
 
   .text_ramSalud {
     font-size: 1em;
-    height: 4vh;
     margin: 5% 0 0 0;
   }
 
@@ -14337,7 +14330,6 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.25em;
     color: #ffffff;
     padding: 0;
-    height: 3vh;
     width: 100%;
     border-radius: 3px;
     border: none;
@@ -14394,7 +14386,7 @@ a:link, a:visited, a:active, a:hover {
     color: #3e3e3e;
     text-align: center;
     margin-bottom: 5%;
-    height: 5vh;
+    height: calc(2em + .75rem + 2px);
   }
 
   .content_btn_ramSalud {
@@ -14407,7 +14399,7 @@ a:link, a:visited, a:active, a:hover {
     font-size: calc(.2em + .8vw);
     color: #ffffff;
     padding: 0;
-    height: 3.5vh;
+    height: calc(1.5em + 0.75rem + 2px);
     width: 100%;
     border-radius: 3px;
     border: none;
@@ -14429,12 +14421,10 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 1200px) {
   .text_ramSalud {
     font-size: calc(.1em + .8vw);
-    height: 6vh;
   }
 
   .btnVer_ramSalud {
     font-size: calc(.2em + .8vw);
-    height: 4vh;
   }
 }
 @media (min-width: 1440px) {
@@ -14444,7 +14434,6 @@ a:link, a:visited, a:active, a:hover {
 
   .text_ramSalud {
     font-size: calc(.035em + .7vw);
-    height: 3vh;
   }
 
   .content_btn_ramSalud {
@@ -14453,12 +14442,6 @@ a:link, a:visited, a:active, a:hover {
 
   .btnVer_ramSalud {
     font-size: calc(.15em + .8vw);
-    height: 3.5vh;
-  }
-}
-@media (min-width: 1920px) {
-  .text_ramSalud {
-    height: 4vh;
   }
 }
 .imagen_bannerPrin-espc {
@@ -14545,8 +14528,8 @@ a:link, a:visited, a:active, a:hover {
     font-size: 0.625em;
     color: #ffffff;
     padding: 0;
-    height: 4vh;
     width: 100%;
+    height: calc(1em + 0.8rem + 2px);
     border-radius: 3px;
     border: none;
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
@@ -14588,7 +14571,6 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.25em;
     color: #ffffff;
     padding: 0;
-    height: 3vh;
     width: 100%;
     border-radius: 3px;
     border: none;
@@ -14646,8 +14628,8 @@ a:link, a:visited, a:active, a:hover {
     font-size: calc(.2em + .8vw);
     color: #ffffff;
     padding: 0;
-    height: 3.5vh;
     width: 100%;
+    height: calc(1.5em + 0.8rem + 2px);
     border-radius: 3px;
     border: none;
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
@@ -14664,7 +14646,6 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 1200px) {
   .btnVer_espMed {
     font-size: calc(.2em + .8vw);
-    height: 4vh;
   }
 }
 @media (min-width: 1440px) {
@@ -14678,14 +14659,9 @@ a:link, a:visited, a:active, a:hover {
 
   .btnVer_espMed {
     font-size: calc(.15em + .8vw);
-    height: 3.5vh;
   }
 }
 @media (min-width: 1920px) {
-  .btnVer_espMed {
-    height: 4vh;
-  }
-
   .icon_arrow_espMed {
     width: 7%;
   }
@@ -33401,36 +33377,63 @@ label.error {
   }
 }
 .fc-agendarCita-button {
-  background-color: #3490dc !important;
-  border-color: #3490dc !important;
+  background-color: #0083D6 !important;
+  border-color: #0083D6 !important;
 }
 
 .fc-timeGridWeek-button {
-  background-color: #3490dc !important;
-  border-color: #3490dc !important;
+  background-color: #0083D6 !important;
+  border-color: #0083D6 !important;
 }
 
 .fc-prev-button {
-  background-color: #38c172 !important;
-  border-color: #38c172 !important;
+  background-color: #019F86 !important;
+  border-color: #019F86 !important;
 }
 
 .fc-next-button {
-  background-color: #38c172 !important;
-  border-color: #38c172 !important;
+  background-color: #019F86 !important;
+  border-color: #019F86 !important;
 }
 
 .fc-today-button {
-  background-color: #38c172 !important;
-  border-color: #38c172 !important;
+  background-color: #019F86 !important;
+  border-color: #019F86 !important;
 }
 
 .fc-dayGridMonth-button {
-  background-color: #38c172 !important;
-  border-color: #38c172 !important;
+  background-color: #019F86 !important;
+  border-color: #019F86 !important;
 }
 
 .fc-timeGridDay-button {
-  background-color: #38c172 !important;
-  border-color: #38c172 !important;
+  background-color: #019F86 !important;
+  border-color: #019F86 !important;
+}
+
+.fc-myCustomButton-button {
+  background-color: #019F86 !important;
+  border-color: #019F86 !important;
+}
+
+.fc-event-title-container {
+  background-color: #0083D6 !important;
+  border-color: #0083D6 !important;
+}
+
+@media (min-width: 320px) and (orientation: portrait) {
+  .fc .fc-toolbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+  }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+  .fc .fc-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

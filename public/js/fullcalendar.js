@@ -1,11 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
 
+    var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
         selectable: true,
+
+        //Parametro para la creación del botón agendar cita
+        customButtons: {
+            myCustomButton: {
+            text: 'Agendar cita',
+                click: function() {
+                    alert('clicked the custom button!');
+                }
+            }
+        },
+
         headerToolbar: {
-            left: 'prev,next today',
+            left: 'prev,next today,myCustomButton',
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
@@ -14,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {
               id: 'a',
               title: 'my event',
-              start: '2021-08-22'
+              start: '2021-08-22',
             }
         ],
         dateClick: function(info) {

@@ -16,4 +16,9 @@ class profesiones extends Model
         'descripcion',
         'orden'
     ];
+
+    public function perfiles_profesionales()
+    {
+        return $this->hasMany(perfilesprofesionales::class, 'idprofesion', 'idProfesion');
+    }
 }

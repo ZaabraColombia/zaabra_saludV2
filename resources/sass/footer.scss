@@ -38,7 +38,6 @@
 .input_suscribirme {
     font-family: 'Roboto', sans-serif;
     font-size: .8em;
-    height: 3.5vh;
     width: 75%;
     border-radius: 3px;
     border: solid .1px #707070;
@@ -47,8 +46,8 @@
     background: #0083D6;
     margin-left: 2%;
     padding: 0;
-    height: 3.5vh;
     width: 23%;
+    height: calc(1.5em + 0.55rem + 2px);
     border: solid .1px #0083D6;
     border-radius: 3px;
     display: flex;
@@ -74,8 +73,8 @@
 }
 .checkBox_terminos {
     margin-right: 1%;
-    width: 2%;
-    height: 2vh;
+    width: 2.5%;
+    height: calc(1em + 0.75rem + 2px);
 }
 .texto_terminos {
     margin: 0;
@@ -218,7 +217,6 @@
         font-size: .75em;
         margin-top: 3%;
         padding: 0 5%;
-        height: 5vh;
         width: 100%;
         border: solid .1px #707070;
         border-radius: 4px;
@@ -231,7 +229,7 @@
     }
     .boton_check-terminos-cel {
         width: 9%;
-        height: 3vh;
+        height: calc(.5em + 0.5rem + 1px);
     }
     .texto_terminos-cel {
         font-size: .7em;
@@ -248,7 +246,6 @@
     .boton_suscribirme-cel {
         background: #0083D6;
         margin: auto;
-        height: 5vh;
         font-family: 'Quicksand', sans-serif; 
         color:#ffffff;
         display: flex;
@@ -256,6 +253,7 @@
         align-items: center;
         border: solid .1px #0083D6;
         border-radius: 4px;
+        height: calc(1em + 0.75rem + 2px);
     }
     .text_sucrib-foot {
         font-size: .85em;
@@ -452,19 +450,15 @@
     .input_suscribirme-cel {
         font-size: 1em;
         padding: 0 2%;
-        height: 3vh;
     }
     // Newsletter check terminos y condiciones
     .boton_check-terminos-cel {
         width: 4%;
-        height: 1.5vh;
+        height: calc(.5em + 0.5rem + 1px);
     }
     .texto_terminos-cel {
         font-size: 1em;
         padding-left: 2%;
-    }
-    .boton_suscribirme-cel {
-        height: 3vh;
     }
     .text_sucrib-foot {
         font-size: 1.25em;
@@ -561,12 +555,11 @@
         font-size: 1em;
     }
     // Newsletter input y botón suscribirme
+    .boton_suscribirme {
+        height: calc(1.5em + 0.85rem + 2px);
+    }
     .input_suscribirme {
         font-size: 1em;
-        height: 4vh;
-    }
-    .boton_suscribirme {
-        height: 4vh;
     }
     // Newaletter check terminos y condiciones
     .texto_terminos {
@@ -612,5 +605,8 @@
     }
     .boton_icon-flecha {
         width: 7%;
+    }
+    .checkBox_terminos {
+        width: 2%;
     }
 }
