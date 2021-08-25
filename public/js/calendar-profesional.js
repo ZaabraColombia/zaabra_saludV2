@@ -92,23 +92,24 @@ document.addEventListener('DOMContentLoaded', function() {
     $('#editar-cita-profesional').click(function (e){
         var fecha = moment($('#fecha_input-editar-profesional').val() + " " + $('#hora_input-profesional').val() , "YYYY-MM-DD H:mm").format();
 
-        var id = $(this).data('id');
+        var id = $('#editar-cita-btn-profesional').data('id');
 
         var event = calendar.getEventById(id);
 
+        event.remove();
         // event.title = $('#paciente_input-editar-profesional').val();
         // event.start = fecha;
         // event.extendedProps.especialidad =  $('#especialidad_input-profesional').val();
         // event.extendedProps.tipo_cita = fecha;
 
-        /*calendar.event({
+        calendar.addEvent({
             id: id,
             title: $('#paciente_input-editar-profesional').val(),
             start: fecha,
             especialidad: $('#especialidad_input-profesional').val(),
             //paciente: 'paciente 1',
             tipo_cita: $('#tipo_cita_select-editar-profesional').val()
-        });*/
+        });
 
 
         $('#editar-cita-model-profesional').modal('hide');
@@ -119,9 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var event = calendar.getEventById(id);
 
-        //console.log(event);
         event.remove();
-        //calendar.fullCalendar('removeEvents',id);
 
         $('#ver-cita-profecional').modal('hide');
         $('#cancelada-cita-modal-profecional').modal('show');
