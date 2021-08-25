@@ -508,15 +508,16 @@
 
         <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
             <h5 class="col-12 icon_destacado-formProf"> Destacado en </h5>
-            <form id="formulario_destacado" method="POST" action="/FormularioProfesionalAddDestacable" enctype="multipart/form-data" accept-charset="UTF-8" class="pb-2" >
+            <form id="formulario_destacado" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" class="pb-2" >
                 @csrf
             <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio--------------------->
                 <div class="row fila_infoBasica-formProf">
-                    <div class="col-12" id="destacado-lista">
+                    <div class="col-12" id="destacado-mensaje"></div>
+                    <div class="col-md-8 col-sm-12" id="destacado-lista">
                         @foreach($destacables as $destacable)
-                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            <div class="alert alert-info alert-dismissible fade show delete-destacable" role="alert" >
                                 <strong>{{ $destacable->nombreExpertoEn }}</strong>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close" data-id="{{ $destacable->id_experto_en }}">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -524,7 +525,7 @@
                     </div>
                     <div class="col-12">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Ingrese el tema" name="destacado_nombre">
+                            <input type="text" class="form-control" placeholder="Ingrese el tema" name="destacado_nombre" id="destacado_nombre" {{ ($destacables_count >= 9 ) ? 'disabled' : ''}}>
                             <button class="btn btn-primary" type="submit" id="destacado_nombre_btn" {{ ($destacables_count >= 9 ) ? 'disabled' : ''}} ><img src="{{ asset('img/iconos/icono-agregar-especialidad-favoritos-blanco.svg') }}" alt="mas"> Agregar</button>
                         </div>
                     </div>
@@ -565,7 +566,7 @@
                         <p for="example-date-input" class="text_superior-proced-formProf"> Escriba una breve descripción de su biografía </p>
                         <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil"></textarea>
                         <span class="text-danger">{{ $errors->first('name') }}</span>
-                        <labe class="col-12 text_infoImg-formProf"> 270 Caracteres </label>
+                        <label class="col-12 text_infoImg-formProf"> 270 Caracteres </label>
                     </div>
                 @endif
                 <div class="col-12 content_btnEnviar-formProf">
@@ -1153,7 +1154,7 @@
                             </div>
 
                             <div class="txt_informativo-formProf">
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <label class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                             </div>
                         </div>
 
@@ -1168,7 +1169,7 @@
                             </div>
 
                             <div class="txt_informativo-formProf">
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <label class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                             </div>
                         </div>
 
@@ -1183,7 +1184,7 @@
                             </div>
 
                             <div class="txt_informativo-formProf">
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <label class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                             </div>
                         </div>
                     </div>
@@ -1201,7 +1202,7 @@
                             </div>
 
                             <div class="txt_informativo-formProf">
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <label class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                             </div>
                         </div>
 
@@ -1216,7 +1217,7 @@
                             </div>
 
                             <div class="txt_informativo-formProf">
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <label class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                             </div>
                         </div>
                     </div>
@@ -1234,7 +1235,7 @@
                             </div>
 
                             <div class="txt_informativo-formProf">
-                                <labe class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
+                                <label class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                             </div>
                         </div>
                     </div>
@@ -1459,7 +1460,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
                                 </div>
                             </div>
 
@@ -1475,7 +1476,7 @@
 
                                     <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoAntes[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -1494,7 +1495,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
                                 </div>
                             </div>
 
@@ -1510,7 +1511,7 @@
 
                                     <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoDespues[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -1532,7 +1533,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
                                 </div>
                             </div>
 
@@ -1548,7 +1549,7 @@
 
                                     <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoAntes[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -1567,7 +1568,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
                                 </div>
                             </div>
 
@@ -1583,7 +1584,7 @@
 
                                     <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoDespues[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -1605,7 +1606,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
                                 </div>
                             </div>
 
@@ -1621,7 +1622,7 @@
 
                                     <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoAntes[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -1640,7 +1641,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
                                 </div>
                             </div>
 
@@ -1656,7 +1657,7 @@
 
                                     <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoDespues[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -1753,7 +1754,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -1775,7 +1776,7 @@
 
                                     <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -1792,7 +1793,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -1814,7 +1815,7 @@
 
                                     <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -1834,7 +1835,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -1856,7 +1857,7 @@
 
                                     <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionpremio[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -1873,7 +1874,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -1895,7 +1896,7 @@
 
                                     <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -1916,7 +1917,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -1938,7 +1939,7 @@
 
                                     <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -1958,7 +1959,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -1980,7 +1981,7 @@
 
                                     <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionpremio[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -1997,7 +1998,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2019,7 +2020,7 @@
 
                                     <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2040,7 +2041,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2062,7 +2063,7 @@
 
                                     <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionpremio[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2079,7 +2080,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2101,7 +2102,7 @@
 
                                     <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2122,7 +2123,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2144,7 +2145,7 @@
 
                                     <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2237,7 +2238,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2253,7 +2254,7 @@
 
                                     <input class="form-control" id="nombrepremio" maxlength="160" placeholder="Escribir descripción..." type="text" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2270,7 +2271,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2286,7 +2287,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2306,7 +2307,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2322,7 +2323,7 @@
 
                                     <input class="form-control" id="nombrepremio" maxlength="160" placeholder="Escribir descripción..." type="text" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2339,7 +2340,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2355,7 +2356,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2375,7 +2376,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2391,7 +2392,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2411,7 +2412,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2427,7 +2428,7 @@
 
                                     <input class="form-control" id="nombrepremio" maxlength="160" placeholder="Escribir descripción..." type="text" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2444,7 +2445,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2460,7 +2461,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2480,7 +2481,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2496,7 +2497,7 @@
 
                                     <input class="form-control" id="nombrepremio" maxlength="160" placeholder="Escribir descripción..." type="text" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2513,7 +2514,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2529,7 +2530,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2549,7 +2550,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2565,7 +2566,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2628,11 +2629,11 @@
                                 </div>
 
                                 <div class="col-12 mt-2 text_label-formProf">
-                                    <labe class="col-12 title_infoGuardada-formProf"> {{$objGaleria->nombrefoto}} </label>
+                                    <label class="col-12 title_infoGuardada-formProf"> {{$objGaleria->nombrefoto}} </label>
                                 </div>
 
                                 <div class="col-12 descripcion_Premio-formProf">
-                                    <labe class="col-12 text_descPremio-formProf"> {{$objGaleria->descripcion}} </label>
+                                    <label class="col-12 text_descPremio-formProf"> {{$objGaleria->descripcion}} </label>
                                 </div>
                             </div>
                         </div>
@@ -2658,7 +2659,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2680,7 +2681,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2697,7 +2698,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2719,7 +2720,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2739,7 +2740,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2761,7 +2762,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2778,7 +2779,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2800,7 +2801,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2820,7 +2821,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2842,7 +2843,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2859,7 +2860,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2881,7 +2882,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2901,7 +2902,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2923,7 +2924,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2940,7 +2941,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -2962,7 +2963,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -2983,7 +2984,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3005,7 +3006,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3025,7 +3026,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3047,7 +3048,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3064,7 +3065,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3086,7 +3087,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3106,7 +3107,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3128,7 +3129,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3145,7 +3146,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3167,7 +3168,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3187,7 +3188,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3209,7 +3210,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3226,7 +3227,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3248,7 +3249,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3268,7 +3269,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3290,7 +3291,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3307,7 +3308,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3329,7 +3330,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3349,7 +3350,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3371,7 +3372,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3388,7 +3389,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3410,7 +3411,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3430,7 +3431,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3452,7 +3453,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3469,7 +3470,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3491,7 +3492,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3511,7 +3512,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3533,7 +3534,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3553,7 +3554,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3575,7 +3576,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3592,7 +3593,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3614,7 +3615,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3634,7 +3635,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3656,7 +3657,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3673,7 +3674,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3695,7 +3696,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3715,7 +3716,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3737,7 +3738,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3754,7 +3755,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3776,7 +3777,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3796,7 +3797,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3818,7 +3819,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3835,7 +3836,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3857,7 +3858,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3877,7 +3878,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3899,7 +3900,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3919,7 +3920,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3941,7 +3942,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -3958,7 +3959,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -3980,7 +3981,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4000,7 +4001,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -4022,7 +4023,7 @@
 
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" maxlength="200" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4039,7 +4040,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -4061,7 +4062,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4081,7 +4082,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formProf">
-                                    <labe class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                                    <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
                                 </div>
                             </div>
 
@@ -4103,7 +4104,7 @@
 
                                     <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4196,7 +4197,7 @@
 
                                     <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4227,7 +4228,7 @@
 
                                     <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4261,7 +4262,7 @@
 
                                     <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4292,7 +4293,7 @@
 
                                     <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4327,7 +4328,7 @@
 
                                     <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4361,7 +4362,7 @@
 
                                     <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4392,7 +4393,7 @@
 
                                     <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4427,7 +4428,7 @@
 
                                     <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4458,7 +4459,7 @@
 
                                     <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4492,7 +4493,7 @@
 
                                     <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
