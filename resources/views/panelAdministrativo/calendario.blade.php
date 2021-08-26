@@ -59,7 +59,7 @@
             </div>
 
             <!-- Pop-up agendar cita -->
-            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="agendar-cita-modal-paciente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal_citas_popUp" role="document">
                     <div class="modal-content content_modalCitas">
                         <!-- Sección boton derecho de cierre "X" -->
@@ -94,23 +94,6 @@
                                     <input class="form-control" type="time" value="" id="example-date-input" name="fechaestudio[]">
                                 </div>
 
-                                <div class="col-md-6 p-0">
-                                    <label for="example-date-input" class="col-12 text_label-formProf">Ciudad</label>
-
-                                    <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
-                                        <option value="" selected> Seleccionar </option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6 p-0">
-                                    <label for="example-date-input" class="col-12 text_label-formProf">Sede</label>
-
-                                    <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
-                                        <option value="" selected> Seleccionar </option>
-                                        <option value="Presencial"> Hospital el Tunal </option>
-                                        <option value="Virtual"> Hospital San Rafael </option>
-                                    </select>
-                                </div>
                             </form>
                         </div>
 

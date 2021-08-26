@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
         locale: 'es',
-        events: [
+        /*events: [
             {
                 allDay: true,
                 id: 'a',
@@ -30,9 +30,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 //start: '2021-08-27',
                 //startStr: '2021-08-27T07:00:00Z'
             }
-        ],
+        ],*/
         dateClick: function(info) {
             //alert('clicked ' + info.dateStr);
+            var modal = $('#agendar-cita-modal-paciente');
+            if (modal.length > 0) {
+                modal.modal();
+            }
         },
         select: function(info) {
             //alert('selected ' + info.startStr + ' to ' + info.endStr);
