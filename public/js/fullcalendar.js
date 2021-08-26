@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var calendarEl = document.getElementById('calendar');
 
+    var count = 0;
+
     var calendar = new FullCalendar.Calendar(calendarEl, {
 
         selectable: true,
@@ -36,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var modal = $('#agendar-cita-modal-paciente');
             if (modal.length > 0) {
                 modal.modal();
+                $('#fecha_input-paciente').val(info.dateStr);
             }
         },
         select: function(info) {
@@ -56,8 +59,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (calendarEl !=  null) {
         calendar.render();
-        setTimeout(function (){
-            console.log(calendar.getEvents());
-        }, 3000);
     }
+
+    //Permite simular pagar la cita
+    $("#pagar-cita-paciente").click(function (){
+        var fecha = moment($('#fecha_input-paciente').val() + " " + $('#hora_input-paciente').val() , "YYYY-MM-DD H:mm").format();
+        console.log(fecha);
+        count++;
+        calendar.addEvent({
+            id: count,
+            title: $('#especialidad_profesional-paciente').html(),
+            profesional: $('#paciente_input-profesional').val(),
+            start: fecha,
+            //paciente: 'paciente 1',
+            tipo_cita: $('#tipo_cita-select-paciente').val(),
+            //color: 'blue',
+            //textColor: 'white'
+            allDay: true,
+        });
+        $('#agendar-cita-modal-paciente').modal('hide');
+    });
 });
