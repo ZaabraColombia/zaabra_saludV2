@@ -203,6 +203,7 @@ Route:: get('/panelPrincipal',[App\Http\Controllers\admin\adminController::class
 Route:: get('/panelAdministrativo/{idPerfilProfesional}',[App\Http\Controllers\admin\adminController::class,'cita'])->name('panelAdministrativo');
 Route:: get('/citas',[App\Http\Controllers\admin\adminCitasController::class,'index'])->name('citas');
 Route:: get('/calendario',[App\Http\Controllers\admin\adminCalendarioController::class,'index'])->name('calendario');
+Route:: get('/calendario/{id}',[App\Http\Controllers\admin\adminCalendarioController::class,'index'])->name('calendario-id-profesional');
 Route:: get('/pagos',[App\Http\Controllers\admin\adminPagosController::class,'index'])->name('pagos');
 Route:: get('/ordenesMedicas',[App\Http\Controllers\admin\adminExamenesController::class,'index'])->name('ordenesMedicas');
 Route:: get('/prescripciones',[App\Http\Controllers\admin\adminPrescripcionesController::class,'index'])->name('prescripciones');

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
-        
+
         selectable: true,
 
         //Parametro para la creación del botón agendar cita

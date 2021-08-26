@@ -54,4 +54,11 @@ class perfilesprofesionales extends Model
         return $this->belongsTo(profesiones::class, 'idprofesion', 'idProfesion');
     }
 
+    public function especialidad()
+    {
+        return $this->belongsTo(especialidades::class, 'idespecialidad', 'idEspecialidad');
+    }
+
+
+
 }
