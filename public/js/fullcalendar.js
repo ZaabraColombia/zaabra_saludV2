@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
+        
         selectable: true,
 
         //Parametro para la creación del botón agendar cita
@@ -23,9 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
         locale: 'es',
         events: [
             {
-              id: 'a',
-              title: 'my event',
-              start: '2021-08-22',
+                allDay: true,
+                id: 'a',
+                title: 'my event',
+                //start: '2021-08-27',
+                //startStr: '2021-08-27T07:00:00Z'
             }
         ],
         dateClick: function(info) {
@@ -49,5 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (calendarEl !=  null) {
         calendar.render();
+        setTimeout(function (){
+            console.log(calendar.getEvents());
+        }, 3000);
     }
 });
