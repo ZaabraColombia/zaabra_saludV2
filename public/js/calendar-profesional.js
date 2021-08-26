@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var count = 0;
 
+    moment.locale('es');
+
     var calendar = new FullCalendar.Calendar(calendarEl, {
         selectable: true,
         headerToolbar: {

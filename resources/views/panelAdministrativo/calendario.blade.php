@@ -30,23 +30,19 @@
                         <div class="modal-content content_modalCitas">
                             <!-- Sección boton derecho de cierre "X" -->
                             <div class="modal-header modal_headerCitas">
-                                <h1 class="title_popup_miCita" id="exampleModalLabel">Cita <label id="especialidad-profesional"></label></h1>
+                                <h1 class="title_popup_miCita" id="exampleModalLabel">Cita <label id="especialidad-paciente"></label></h1>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body modal_headerCitas">
-                                <h5 class="text_labelCita_popUp" id="nombre_profesional-paciente">Laura León</h5>
+                                <h5 class="text_labelCita_popUp" id="profesional-paciente"></h5>
                                 <div class="col-md-10 contain_infoCita_popUp">
                                     <h5 class="text_labelCita_popUp" id="fecha-paciente" >Jueves, 12 de mayo</h5>
                                     <span class="icono_reloj_popUp text_infoCita_popUp" id="hora-paciente">10:47 - 11:47 a.m</span>
                                 </div>
                                 <div class="col-md-10 contain_infoCita_popUp">
                                     <h5 class="text_labelCita_popUp">Tipo de cita</h5>
-                                    <span class="icono_tipoCita_popUp text_infoCita_popUp" id="tipo_cita-paceinte">Presencial</span>
-                                </div>
-                                <div class="col-md-10 contain_infoCita_popUp">
-                                    <h5 class="text_labelCita_popUp">Sede</h5>
                                     <span class="icono_tipoCita_popUp text_infoCita_popUp" id="tipo_cita-paceinte">Presencial</span>
                                 </div>
                             </div>
