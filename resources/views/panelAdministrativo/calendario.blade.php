@@ -12,9 +12,38 @@
             </div>
         </div>
         <div class="col-md-9">
+            <div id="data-eventos-profesional" data-events='[{"id":0,"title":"Medicina","profesional":"Jorge Machado","start":"2021-08-21","tipo_cita":"Virtual","allDay":true},{"id":1,"title":"Medicina","profesional":"Jorge Machado","start":"2021-08-22","tipo_cita":"Virtual","allDay":true},{"id":2,"title":"Odontologia","profesional":"Jhoana Gutierres","start":"2021-08-23","tipo_cita":"Prensencial","allDay":true},{"id":3,"title":"Odontologia","profesional":"Jhoana Gutierres","start":"2021-08-24","tipo_cita":"Prensencial","allDay":true}]'></div>
+            <div class="modal fade modalC" id="ver-cita-paciente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal_citas_popUp" role="document">
+                    <div class="modal-content content_modalCitas">
+                        <!-- Sección boton derecho de cierre "X" -->
+                        <div class="modal-header modal_headerCitas">
+                            <h1 class="title_popup_miCita" id="exampleModalLabel">Cita <label id="especialidad-paciente"></label></h1>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body modal_headerCitas">
+                            <h5 class="text_labelCita_popUp" id="profesional-paciente"></h5>
+                            <div class="col-md-10 contain_infoCita_popUp">
+                                <h5 class="text_labelCita_popUp" id="fecha-paciente" >Jueves, 12 de mayo</h5>
+                                <span class="icono_reloj_popUp text_infoCita_popUp" id="hora-paciente">10:47 - 11:47 a.m</span>
+                            </div>
+                            <div class="col-md-10 contain_infoCita_popUp">
+                                <h5 class="text_labelCita_popUp">Tipo de cita</h5>
+                                <span class="icono_tipoCita_popUp text_infoCita_popUp" id="tipo_cita-paceinte">Presencial</span>
+                            </div>
+                        </div>
+
+                        <!-- Sección botón Pagar -->
+                        <div class="modal-footer section_btn_citas">
+                            <!-- <button type="button" class="btnCancelar-popup" id="cancelar-cita-btn-profesional">Cancelar cita </button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
             @if(isset($profesional))
                 <div class="row">
-                    <div id="data-eventos-profesional" data-events=""></div>
                     <div class="col-3 contain_imgUsuario-formProf">
                         <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{ asset($profesional->fotoperfil) }}">
                     </div>
@@ -23,35 +52,6 @@
                         <h2 id="especialidad_profesional-paciente">{{$profesional->especialidad->nombreEspecialidad}}</h2>
                         <h5>{{$profesional->nombreuniversidad}}</h5>
                         <h5>N° Tarjeta profesional: {{$profesional->numeroTarjeta}}</h5>
-                    </div>
-                </div>
-                <div class="modal fade modalC" id="ver-cita-paciente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal_citas_popUp" role="document">
-                        <div class="modal-content content_modalCitas">
-                            <!-- Sección boton derecho de cierre "X" -->
-                            <div class="modal-header modal_headerCitas">
-                                <h1 class="title_popup_miCita" id="exampleModalLabel">Cita <label id="especialidad-paciente"></label></h1>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body modal_headerCitas">
-                                <h5 class="text_labelCita_popUp" id="profesional-paciente"></h5>
-                                <div class="col-md-10 contain_infoCita_popUp">
-                                    <h5 class="text_labelCita_popUp" id="fecha-paciente" >Jueves, 12 de mayo</h5>
-                                    <span class="icono_reloj_popUp text_infoCita_popUp" id="hora-paciente">10:47 - 11:47 a.m</span>
-                                </div>
-                                <div class="col-md-10 contain_infoCita_popUp">
-                                    <h5 class="text_labelCita_popUp">Tipo de cita</h5>
-                                    <span class="icono_tipoCita_popUp text_infoCita_popUp" id="tipo_cita-paceinte">Presencial</span>
-                                </div>
-                            </div>
-
-                            <!-- Sección botón Pagar -->
-                            <div class="modal-footer section_btn_citas">
-                                <!-- <button type="button" class="btnCancelar-popup" id="cancelar-cita-btn-profesional">Cancelar cita </button> -->
-                            </div>
-                        </div>
                     </div>
                 </div>
 

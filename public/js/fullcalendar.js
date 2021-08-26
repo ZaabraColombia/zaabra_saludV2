@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var count = 0;
 
+    //var events = $.parseJSON($('#data-eventos-profesional').data('events'));
+
     var calendar = new FullCalendar.Calendar(calendarEl, {
 
         selectable: true,
@@ -26,15 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
         locale: 'es',
-        /*events: [
-            {
-                allDay: true,
-                id: 'a',
-                title: 'my event',
-                //start: '2021-08-27',
-                //startStr: '2021-08-27T07:00:00Z'
-            }
-        ],*/
+        events: $('#data-eventos-profesional').data('events'),
         dateClick: function(info) {
             //alert('clicked ' + info.dateStr);
             var modal = $('#agendar-cita-modal-paciente');
