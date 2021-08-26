@@ -15,4 +15,9 @@ class especialidades extends Model
         'urlimagen',
         'orden'
     ];
+
+    public function perfiles_profesionales()
+    {
+        return $this->hasMany(perfilesprofesionales::class, 'idespecialidad', 'idEspecialidad');
+    }
 }
