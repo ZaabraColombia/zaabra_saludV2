@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 start: '2021-08-22',
                 especialidad: 'especialidad',
                 //paciente: 'paciente 1',
-                tipo_cita: 'Presencial'
+                tipo_cita: 'Presencial',
+                allDay: true,
             }
         ],
         dateClick: function(info) {
@@ -66,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
             tipo_cita: $('#tipo_cita_select-profesional').val(),
             //color: 'blue',
             //textColor: 'white'
+            allDay: true,
         });
         $('#agregar-cita-profesional').modal('hide');
         count++;
@@ -108,7 +110,8 @@ document.addEventListener('DOMContentLoaded', function() {
             start: fecha,
             especialidad: $('#especialidad_input-profesional').val(),
             //paciente: 'paciente 1',
-            tipo_cita: $('#tipo_cita_select-editar-profesional').val()
+            tipo_cita: $('#tipo_cita_select-editar-profesional').val(),
+            allDay: true,
         });
 
 
