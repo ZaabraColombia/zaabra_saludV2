@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var count = 0;
 
+    moment.locale('es');
+
     var calendar = new FullCalendar.Calendar(calendarEl, {
         selectable: true,
         headerToolbar: {
@@ -58,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
     $('#agendar-cita-profesional').click(function (e){
         var fecha = moment($('#fecha_input-profesional').val() + " " + $('#hora_input-profesional').val() , "YYYY-MM-DD H:mm").format();
         console.log(fecha);
+        count++;
         calendar.addEvent({
             id: count,
             title: $('#paciente_input-profesional').val(),
@@ -70,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
             allDay: true,
         });
         $('#agregar-cita-profesional').modal('hide');
-        count++;
     });
 
     $('#editar-cita-btn-profesional').click(function (e) {
