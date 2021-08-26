@@ -9,7 +9,10 @@
         <h2 class="dias"><i></i> Días disponibles</h2>
     </div>
 
-    <div class="col-md-7 col-sm-12 p-0">
+
+    <div class="col-12 col-lg-9 p-0">
+        <div id="calendar"></div>
+
 
         @if(isset($profesional))
             <div class="row">
