@@ -30682,7 +30682,7 @@ label.error {
 }
 .panel-Administrativo {
   background: #F9F9F9;
-  padding: 5% 3%;
+  padding: 3% 3% 5% 3%;
 }
 
 #sidebar.active .sidebar-wrapper {
