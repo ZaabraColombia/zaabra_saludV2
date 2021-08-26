@@ -44,7 +44,7 @@
                       <p>{{$objcarruselprofesionalespremiun->descripcionPerfil}}</p>
                     </div>
                      <div class="contains_buttons">
-                        <a href="">Agende su cita
+                        <a href="{{route('calendario-id-profesional', ['id' => $objcarruselprofesionalespremiun->idPerfilProfesional])}}">Agende su cita
                             <i class="fas fa-arrow-right arrow_mas"></i>
                         </a>
                         <a href="{{url('PerfilProfesional/'.$objcarruselprofesionalespremiun->idPerfilProfesional)}}">Ver perfil
@@ -93,7 +93,7 @@
                       </ul>
                     </div>
                       <div class="contains_buttons">
-                        <a href="">Agendar
+                        <a href="{{route('calendario-id-profesional', ['id' => $objmedicospagonormal->idPerfilProfesional])}}">Agendar
                             <i class="fas fa-arrow-right arrow_mas"></i>
                         </a>
                         <a href="{{url('PerfilProfesional/'.$objmedicospagonormal->idPerfilProfesional)}}">Ver más
@@ -139,20 +139,20 @@
 
         <!--carrusel publicidad -->
         <!-- Carrusel de logos inferior, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
-        <!--carousel universidades--> 
+        <!--carousel universidades-->
         <section class="contains_slider_logoshome">
           <h2 class="titulo_logos">Ellos confían en nosotros</h2>
           <div class="swiper-container swiper_logoshome">
               <div class="swiper-wrapper">
                 @foreach ($objcarruselPublicidadprofesionales as $objcarruselPublicidadprofesionales)
                   <img class="swiper-slide" src="{{URL::asset($objcarruselPublicidadprofesionales->rutaImagenVenta)}}">
-                @endforeach 
+                @endforeach
               </div>
           </div>
 
           <!-- If we need navigation buttons -->
           <div class="btn-prev"></div>
           <div class="btn-next"></div>
-        </section> 
-        
+        </section>
+
 @endsection
