@@ -910,21 +910,59 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
-        unset($request['_token']);
-        // Recorre todos los "nombres" enviados, si no hay ninguno se
-        //  crea un array vacío para que no devuelva un error el foreach
-        foreach ($request->input('id_idioma', []) as $i => $id_idioma) {
-            if(!empty($request->input('id_idioma.'.$i))){
-                usuario_idiomas::create([
-                    'idPerfilProfesional' => $idProProfesi,
-                    'id_idioma' => $request->input('id_idioma.'.$i),
-                ]);
-            }
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'idioma' => ['required', 'exists:idiomas,id_idioma']
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'seleccione correctamente la información del idioma'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        //validar el valor maximo de items
+        $count = usuario_idiomas::where('idPerfilProfesional', '=', $idProProfesi)->count();
+        //$count = auth()->user()->profecional->idiomas;
+
+        if ( $count >= 3 ) {
+            return response()->json([
+                'error' => ['idioma' => ''],
+                'mensaje' => 'Ingreso el maximo de idiomas',
+                'items_max' => true
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //Se valida si el idioma ya esta registrada
+        $val = usuario_idiomas::where('idPerfilProfesional', '=', $idProProfesi)
+            ->where('id_idioma', '=', $request->idioma)
+            ->count();
+        if ($val >= 1) {
+            return response()->json([
+                'error' => ['idioma' => ''],
+                'mensaje' => 'El idioma ya esta ingresado'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
 
-        return redirect('FormularioProfesional');
+        //Crear el objeto
+        $idioma = new usuario_idiomas();
 
+        //asignar los datos
+        $idioma->id_idioma = $request->idioma;
+        $idioma->idPerfilProfesional = $idProProfesi;
+        $idioma->save();
+        //agrgar 1 suma uno
+        $count++;
+
+        return response()->json([
+            'mensaje' => 'Se adicionoel idioma "' . $idioma->idioma->nombreidioma . '"',
+            'items_max' => $count >= 4,
+            'idioma' => $idioma->idioma->nombreidioma,
+            'image' => asset($idioma->idioma->imgidioma),
+            'id' => $idioma->id_idioma,
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 8----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 8----------------------*/

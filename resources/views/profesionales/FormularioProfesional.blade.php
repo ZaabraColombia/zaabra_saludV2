@@ -730,23 +730,19 @@
         <!--------------------------------------------      Inicio 8 octava parte del formulario *** IDIOMAS ***      --------------------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_perfil-prof infoBasica_formProf">
             <h5 class="col-12 icon_infoIdioma-formProf"> Idiomas </h5>
-
-            <div class="idioma_guardada-formProf">
-                @foreach($objIdiomas as $objIdiomas)
-                    @if(!empty($objIdiomas->imgidioma))
+            <div id="mensaje-idioma"></div>
+            <div class="idioma_guardada-formProf" id="lista-idioma">
+                <?php $count_idiomas = 0; ?>
+                @foreach($objIdiomas as $idioma)
+                    @if(!empty($idioma->imgidioma))
+                            <?php $count_idiomas++; ?>
                         <div class="section_infoAsocia-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
-                                <a href="{{url('/FormularioProfesionaldelete8/'.$objIdiomas->id_idioma)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <button type="submit" class="close" aria-label="Close" id="{{ $idioma->id_idioma }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-
                             <div class="">
-                                <img id="imagenPrevisualizacion" class="img_bandera-forProf" src="{{URL::asset($objIdiomas->imgidioma)}}">
-
-                                <label for="example-date-input" class="text_idioma-formProf"> {{$objIdiomas->nombreidioma}}</label>
+                                <img id="imagenPrevisualizacion" class="img_bandera-forProf" src="{{URL::asset($idioma->imgidioma)}}">
+                                <label for="example-date-input" class="text_idioma-formProf"> {{$idioma->nombreidioma}}</label>
                             </div>
                         </div>
                     @endif
@@ -754,87 +750,20 @@
             </div>
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_idioma">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                @if($objContadorIdiomas->cantidad == 0)
-                    <div class="row p-0 m-0">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
-
-                            <select  class="form-control" name="id_idioma[]">
-                                <option value=" "> Seleccione </option>
-                                @foreach($idiomas as $idiomas1)
-                                    <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf ">
-                            <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
-
-                            <select  class="form-control" name="id_idioma[]">
-                                <option value=" "> Seleccione </option>
-                                @foreach($idiomas as $idiomas2)
-                                    <option value="{{$idiomas2->id_idioma}}"> {{$idiomas2->nombreidioma}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf ">
-                            <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
-
-                            <select  class="form-control" name="id_idioma[]">
-                                <option value=" "> Seleccione </option>
-                                @foreach($idiomas as $idiomas3)
-                                    <option value="{{$idiomas3->id_idioma}}"> {{$idiomas3->nombreidioma}}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                @csrf
+                <div class="row p-0 m-0">
+                    <div class="col-md-6 section_inputLeft-text-formProf">
+                        <label for="idioma" class="mr-2 text_label-formProf"> Seleccione idioma </label>
+                        <select  class="form-control" name="idioma" id="idioma" {{ ($count_idiomas >= 3) ? 'disabled' : '' }}>
+                            <option value=" "> Seleccione </option>
+                            @foreach($idiomas as $idioma)
+                                <option value="{{$idioma->id_idioma}}"> {{$idioma->nombreidioma}}</option>
+                            @endforeach
+                        </select>
                     </div>
-
-                @elseif($objContadorIdiomas->cantidad == 1)
-                    <div class="row p-0 m-0">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
-
-                            <select  class="form-control" name="id_idioma[]">
-                                <option value=" "> Seleccione </option>
-                                @foreach($idiomas as $idiomas1)
-                                    <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf ">
-                            <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
-
-                            <select  class="form-control" name="id_idioma[]">
-                                <option value=" "> Seleccione </option>
-                                @foreach($idiomas as $idiomas2)
-                                    <option value="{{$idiomas2->id_idioma}}"> {{$idiomas2->nombreidioma}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                @elseif($objContadorIdiomas->cantidad == 2)
-                    <div class="row p-0 m-0">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
-
-                            <select  class="form-control" name="id_idioma[]">
-                                <option value=" "> Seleccione </option>
-                                @foreach($idiomas as $idiomas1)
-                                    <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                @elseif($objContadorIdiomas->cantidad == 3)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formProf"> No se pueden agregar más idiomas. </label>
-                @endif
-
+                </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-idioma"  {{ ($count_idiomas >= 3) ? 'disabled' : '' }}> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>

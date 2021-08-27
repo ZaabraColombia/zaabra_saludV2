@@ -740,6 +740,121 @@ $('#experiencia-lista').on('click', '.close' , function (e) {
 
 });
 
+$('#formulario_idioma').validate({
+    rules: {
+        'idioma': {
+            required: true,
+        }
+    },
+    messages: {
+        'idioma':{
+            required: "Seleccione el idioma",
+        }
+    },
+    submitHandler: function(form) {
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url:  "FormularioProfesionalSave8",
+            type: "POST",
+            data: $('#formulario_idioma').serialize(),
+            success: function( response ) {
+                $('#mensaje-idioma').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+
+                if (response.items_max)
+                {
+                    $('#idioma').attr('disabled', 'disabled');
+                    $('#boton-guardar-idioma').attr('disabled', 'disabled');
+                }
+
+                $('#lista-idioma').append('<div class="section_infoAsocia-formProf">\n' +
+                    '<div class="col-12 content_btnX-cierre-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="">\n' +
+                    '<img id="imagenPrevisualizacion" class="img_bandera-forProf" src="' + response.image + '">\n' +
+                    '<label for="example-date-input" class="text_idioma-formProf">' + response.idioma + '</label>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                document.getElementById("formulario_idioma").reset();
+            },
+            error: function (event) {
+                var response = event.responseJSON;
+                $('#mensaje-idioma').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
+                if (response.items_max)
+                {
+                    $('#idioma').attr('disabled', 'disabled');
+                    $('#boton-guardar-idioma').attr('disabled', 'disabled');
+                }
+            }
+        });
+    }
+});
+
+$('#idioma-lista').on('click', '.close' , function (e) {
+    var button = $(this);
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  "FormularioProfesionaldelete8",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            $('#mensaje-idioma').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+
+            //quitar el disabled
+            $('#idioma').removeAttr('disabled');
+            $('#boton-guardar-idioma').removeAttr('disabled');
+
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            var response = event.responseJSON;
+            $('#mensaje-idioma').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+        }
+    });
+
+});
+
 
 /*--------------------------- Fin Segunda Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 
