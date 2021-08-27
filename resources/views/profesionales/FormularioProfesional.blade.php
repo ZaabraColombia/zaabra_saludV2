@@ -463,24 +463,24 @@
             <div id="mensaje-estudios"></div>
             <div class="educacion_guardada-formProf" id="estudios-lista">
                 <?php $count_estudios = 0; ?>
-                @foreach($objEducacion as $objEducacion)
-                    @if(!empty($objEducacion->nombreuniversidad))
+                @foreach($objEducacion as $educacion)
+                    @if(!empty($educacion->nombreuniversidad))
                         <?php $count_estudios++; ?>
                         <div class="section_infoEducacion-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
-                                <button type="submit" class="close" aria-label="Close" data-id="{{ $objEducacion->id_universidadperfil }}"><span aria-hidden="true">&times;</span></button>
+                                <button type="submit" class="close" aria-label="Close" data-id="{{ $educacion->id_universidadperfil }}"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Fecha de finalización </label>
-                                <label class="col-12 text_infoGuardada-formProf"> {{$objEducacion->fechaestudio}} </label>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$educacion->fechaestudio}} </label>
                             </div>
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Universidad </label>
-                                <label class="col-12 text_infoGuardada-formProf"> {{$objEducacion->nombreuniversidad}} </label>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$educacion->nombreuniversidad}} </label>
                             </div>
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Disciplina académica </label>
-                                <label class="col-12 text_infoGuardada-formProf"> {{$objEducacion->nombreestudio}} </label>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$educacion->nombreestudio}} </label>
                             </div>
                         </div>
                     @endif
@@ -528,11 +528,11 @@
 
             <!--------------muestra una lista de la experinecia ingresada--------------->
             <div class="experiencia_guardada-formProf">
-                @foreach($objExperiencia as $objExperiencia)
-                    @if(!empty($objExperiencia->nombreEmpresaExperiencia))
+                @foreach($objExperiencia as $experiencia)
+                    @if(!empty($experiencia->nombreEmpresaExperiencia))
                         <div class="section_infoExper-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
-                                <a href="{{url('/FormularioProfesionaldelete6/'.$objExperiencia->idexperiencias)}}">
+                                <a href="{{url('/FormularioProfesionaldelete6/'.$experiencia->idexperiencias)}}">
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -542,25 +542,25 @@
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Nombre de la empresa </label>
 
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objExperiencia->nombreEmpresaExperiencia}} </li>
+                                <li class="col-12 text_infoGuardada-formProf"> {{$experiencia->nombreEmpresaExperiencia}} </li>
                             </div>
 
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Descripción de la experiencia </label>
 
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objExperiencia->descripcionExperiencia}} </li>
+                                <li class="col-12 text_infoGuardada-formProf"> {{$experiencia->descripcionExperiencia}} </li>
                             </div>
 
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Fecha de inicio experiencia </label>
 
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objExperiencia->fechaInicioExperiencia}} </li>
+                                <li class="col-12 text_infoGuardada-formProf"> {{$experiencia->fechaInicioExperiencia}} </li>
                             </div>
 
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Fecha de finalización experiencia </label>
 
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objExperiencia->fechaFinExperiencia}} </li>
+                                <li class="col-12 text_infoGuardada-formProf"> {{$experiencia->fechaFinExperiencia}} </li>
                             </div>
                         </div>
                     @endif
