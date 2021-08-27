@@ -49,37 +49,37 @@ $('#formulario_basico').validate({
     submitHandler: function(form) {
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
-             headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-             }
-         });
-         var formData = new FormData(form);
-         /*Se cambia el texto al boton por enviando*/
-         //$('#envia_basico').html('Enviando..');
-         $.ajax({
-           url:  "/FormularioProfesionalSave",
-           type: "POST",
-           data: formData,
-           mimeType: "multipart/form-data",
-           contentType: false,
-           cache: false,
-           processData: false,
-           success: function( response ) {
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var formData = new FormData(form);
+        /*Se cambia el texto al boton por enviando*/
+        //$('#envia_basico').html('Enviando..');
+        $.ajax({
+            url:  "/FormularioProfesionalSave",
+            type: "POST",
+            data: formData,
+            mimeType: "multipart/form-data",
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function( response ) {
 
-            console.log(response);
-               //$('#envia_basico').hide();
-               $('#res_message_basico').show();
-               $('#res_message_basico').html(response.msg);
-               $('#msg_basico').removeClass('d-none');
+                console.log(response);
+                //$('#envia_basico').hide();
+                $('#res_message_basico').show();
+                $('#res_message_basico').html(response.msg);
+                $('#msg_basico').removeClass('d-none');
 
-               document.getElementById("#formulario_basico").reset();
-               setTimeout(function(){
-               $('#res_message_basico').hide();
-               $('#msg_basico').hide();
-               },10000);
-           }
-         });
-       }
+                document.getElementById("#formulario_basico").reset();
+                setTimeout(function(){
+                    $('#res_message_basico').hide();
+                    $('#msg_basico').hide();
+                },10000);
+            }
+        });
+    }
 });
 
 $('#formulario_destacado').validate({
@@ -241,31 +241,31 @@ $('#formulario_contacto').validate({
     submitHandler: function(form) {
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
-             headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-             }
-         });
-         /*Se cambia el texto al boton por enviando*/
-         $('#envia_contacto').html('Enviando..');
-         $.ajax({
-           url:  "FormularioProfesionalSave2",
-           type: "POST",
-           data: $('#formulario_contacto').serialize(),
-           success: function( response ) {
-               $('#envia_contacto').hide();
-               $('#res_message_contacto').show();
-               $('#res_message_contacto').html(response.msg);
-               $('#msg_contacto').removeClass('d-none');
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        /*Se cambia el texto al boton por enviando*/
+        $('#envia_contacto').html('Enviando..');
+        $.ajax({
+            url:  "FormularioProfesionalSave2",
+            type: "POST",
+            data: $('#formulario_contacto').serialize(),
+            success: function( response ) {
+                $('#envia_contacto').hide();
+                $('#res_message_contacto').show();
+                $('#res_message_contacto').html(response.msg);
+                $('#msg_contacto').removeClass('d-none');
 
-               document.getElementById("#formulario_contacto").reset();
-               setTimeout(function(){
-               $('#res_message_contacto').hide();
-               $('#msg_contacto').hide();
-               },10000);
-           }
-         });
-       }
-})
+                document.getElementById("#formulario_contacto").reset();
+                setTimeout(function(){
+                    $('#res_message_contacto').hide();
+                    $('#msg_contacto').hide();
+                },10000);
+            }
+        });
+    }
+});
 /*--------------------------- Fin Segunda Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 
 /*-------------------------- Inicio Tercera Parte del Formulario Descripcion Perfil Profesional------------------------------*/
@@ -275,52 +275,76 @@ $.validator.addMethod("selecttext", function(value, element) {
     } else {
         return true;
     };
-  }, "Por favor seleccione el tipo de consulta");
+}, "Por favor seleccione el tipo de consulta");
 
 $('#formulario_consulta').validate({
     rules: {
-        'nombreconsulta[]': {
+        'tipo_consulta': {
             required: true,
             selecttext: false,
         },
-        'valorconsulta[]': {
+        'valor_consulta': {
             required: true,
         },
     },
     messages: {
-        'nombreconsulta[]':{
+        'tipo_consulta':{
             required: "Por favor seleccione el tipo de consulta",
         },
-        'valorconsulta[]':{
+        'valor_consulta':{
             required: "Por favor ingrese el valor de la consulta",
         },
     },
     submitHandler: function(form) {
+
+
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
-             headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-             }
-         });
-         /*Se cambia el texto al boton por enviando*/
-         $('#envia_consultas').html('Enviando..');
-         $.ajax({
-           url:  "FormularioProfesionalSave3",
-           type: "POST",
-           data: $('#formulario_consulta').serialize(),
-           success: function( response ) {
-               $('#envia_consultas').hide();
-               $('#res_message_consulta').show();
-               $('#res_message_consulta').html(response.msg);
-               $('#msg_consulta').removeClass('d-none');
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
-               document.getElementById("#formulario_consulta").reset();
-               setTimeout(function(){
-               $('#res_message_consulta').hide();
-               $('#msg_consulta').hide();
-               },10000);
-           }
-         });
+        $.ajax({
+            url:  "FormularioProfesionalSave3",
+            type: "POST",
+            data: $('#formulario_consulta').serialize(),
+            success: function( response ) {
+                $('#mensaje-consulta').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (response.items_max)
+                {
+                    $('#tipo_consulta').attr('disabled', 'disabled');
+                    $('#valor_consulta').attr('disabled', 'disabled');
+                    $('#envia_consultas').attr('disabled', 'disabled');
+                }
+                document.getElementById("formulario_consulta").reset();
+            },
+            error: function (event) {
+                var response = event.responseJSON;
+                $('#mensaje-consulta').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
+                if (response.items_max)
+                {
+                    $('#tipo_consulta').attr('disabled', 'disabled');
+                    $('#valor_consulta').attr('disabled', 'disabled');
+                    $('#envia_consultas').attr('disabled', 'disabled');
+                }
+            }
+        });
     }
 })
 /*--------------------------- Fin Tercera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
@@ -342,30 +366,30 @@ $('#formulario_descripcion').validate({
     submitHandler: function(form) {
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
-             headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-             }
-         });
-         /*Se cambia el texto al boton por enviando*/
-         $('#envia_perfil').html('Enviando..');
-         $.ajax({
-           url:  "FormularioProfesionalSave4",
-           type: "POST",
-           data: $('#formulario_descripcion').serialize(),
-           success: function( response ) {
-               $('#envia_perfil').hide();
-               $('#res_message_descripcion').show();
-               $('#res_message_descripcion').html(response.msg);
-               $('#msg_descripcion').removeClass('d-none');
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        /*Se cambia el texto al boton por enviando*/
+        $('#envia_perfil').html('Enviando..');
+        $.ajax({
+            url:  "FormularioProfesionalSave4",
+            type: "POST",
+            data: $('#formulario_descripcion').serialize(),
+            success: function( response ) {
+                $('#envia_perfil').hide();
+                $('#res_message_descripcion').show();
+                $('#res_message_descripcion').html(response.msg);
+                $('#msg_descripcion').removeClass('d-none');
 
-               document.getElementById("#formulario_descripcion").reset();
-               setTimeout(function(){
-               $('#res_message_descripcion').hide();
-               $('#msg_descripcion').hide();
-               },10000);
-           }
-         });
-       }
+                document.getElementById("#formulario_descripcion").reset();
+                setTimeout(function(){
+                    $('#res_message_descripcion').hide();
+                    $('#msg_descripcion').hide();
+                },10000);
+            }
+        });
+    }
 })
 /*------------------------------ Fin Cuarta Parte del Formulario Descripcion Perfil Profesional------------------------------*/
 
@@ -399,29 +423,29 @@ $('#formulario_educacion').validate({
     submitHandler: function(form) {
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
-             headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-             }
-         });
-         /*Se cambia el texto al boton por enviando*/
-         $('#envia_estudios').html('Enviando..');
-         $.ajax({
-           url:  "FormularioProfesionalSave5",
-           type: "POST",
-           data: $('#formulario_educacion').serialize(),
-           success: function( response ) {
-               $('#envia_estudios').hide();
-               $('#res_message_consulta').show();
-               $('#res_message_consulta').html(response.msg);
-               $('#msg_consulta').removeClass('d-none');
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        /*Se cambia el texto al boton por enviando*/
+        $('#envia_estudios').html('Enviando..');
+        $.ajax({
+            url:  "FormularioProfesionalSave5",
+            type: "POST",
+            data: $('#formulario_educacion').serialize(),
+            success: function( response ) {
+                $('#envia_estudios').hide();
+                $('#res_message_consulta').show();
+                $('#res_message_consulta').html(response.msg);
+                $('#msg_consulta').removeClass('d-none');
 
-               document.getElementById("#formulario_educacion").reset();
-               setTimeout(function(){
-               $('#res_message_consulta').hide();
-               $('#msg_consulta').hide();
-               },10000);
-           }
-         });
+                document.getElementById("#formulario_educacion").reset();
+                setTimeout(function(){
+                    $('#res_message_consulta').hide();
+                    $('#msg_consulta').hide();
+                },10000);
+            }
+        });
     }
 })
 /*------------------------------ Fin Quinta Parte del Formulario Educacion Perfil Profesional------------------------------*/
