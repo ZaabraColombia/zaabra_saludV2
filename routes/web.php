@@ -64,7 +64,7 @@ Route::post('/FormularioProfesionaldelete5',[App\Http\Controllers\profesionales\
 /*-----guardar formulario parte 6----*/
 Route::post('/FormularioProfesionalSave6',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create6'])->name('FormularioProfesional')->middleware('auth');
 /*-----borrar formulario parte 6----*/
-Route::get('/FormularioProfesionaldelete6/{idexperiencias}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete6'])->name('FormularioProfesional')->middleware('auth');
+Route::post('/FormularioProfesionaldelete6',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete6'])->name('FormularioProfesional')->middleware('auth');
 
 /*-----guardar formulario parte 7----*/
 Route::post('/FormularioProfesionalSave7',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create7'])->name('FormularioProfesional')->middleware('auth');

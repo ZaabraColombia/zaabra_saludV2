@@ -525,42 +525,32 @@
         <!--------------------------------------------      Inicio 6 sexta parte del formulario *** EXPERIENCIA ***      ------------------------------------------------------>
         <div class="col-lg-10 col-xl-8 content_perfil-prof infoBasica_formProf">
             <h5 class="col-12 icon_infoExper-formProf"> Experiencia Laboral</h5>
-
+            <div id="mensaje-experiencia"></div>
             <!--------------muestra una lista de la experinecia ingresada--------------->
-            <div class="experiencia_guardada-formProf">
+            <div class="experiencia_guardada-formProf" id="experiencia-lista">
+                <?php $count_experiencia = 0;?>
                 @foreach($objExperiencia as $experiencia)
                     @if(!empty($experiencia->nombreEmpresaExperiencia))
+                            <?php $count_experiencia++;?>
                         <div class="section_infoExper-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
-                                <a href="{{url('/FormularioProfesionaldelete6/'.$experiencia->idexperiencias)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <button type="submit" class="close" aria-label="Close" data-id="{{ $experiencia->idexperiencias }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Nombre de la empresa </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$experiencia->nombreEmpresaExperiencia}} </li>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$experiencia->nombreEmpresaExperiencia}} </label>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Descripción de la experiencia </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$experiencia->descripcionExperiencia}} </li>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$experiencia->descripcionExperiencia}} </label>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Fecha de inicio experiencia </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$experiencia->fechaInicioExperiencia}} </li>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$experiencia->fechaInicioExperiencia}} </label>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Fecha de finalización experiencia </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$experiencia->fechaFinExperiencia}} </li>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$experiencia->fechaFinExperiencia}} </label>
                             </div>
                         </div>
                     @endif
@@ -568,267 +558,30 @@
             </div>
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_experiencia">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                @if($objContadorExperiencia->cantidad == 0)
-                    <div class="row fila_infoBasica-formProf bottom_boder" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
-
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
+                @csrf
+                <div class="row fila_infoBasica-formProf bottom_boder" id="listas">
+                    <div class="col-md-6 section_inputLeft-text-formProf">
+                        <label for="nombre_empresa" class="col-12 text_label-formProf"> Empresa </label>
+                        <input class="col-lg-12 form-control" id="nombre_empresa"  type="text" name="nombre_empresa" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                     </div>
-                    <div class="row fila_infoBasica-formProf bottom_boder" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
+                    <div class="col-md-6 section_inputRight-text-formProf">
+                        <label for="descripcion_experiencia" class="col-12 text_label-formProf"> Cargo </label>
+                        <input class="col-lg-12 form-control" id="descripcion_experiencia"  type="text" name="descripcion_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                     </div>
-                    <div class="row fila_infoBasica-formProf bottom_boder" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
+                    <div class="col-md-6 section_inputLeft-text-formProf">
+                        <label for="inicio_experiencia" class="col-12 text_label-formProf"> Fecha de inicio </label>
+                        <input class="form-control" type="date"  id="inicio_experiencia" name="inicio_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                     </div>
-                    <div class="row fila_infoBasica-formProf" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
+                    <div class="col-md-6 section_inputRight-text-formProf">
+                        <label for="fin_experiencia" class="col-12 text_label-formProf"> Fecha de terminación </label>
+                        <input class="form-control" type="date"  id="fin_experiencia" name="fin_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                     </div>
-                @elseif($objContadorExperiencia->cantidad == 1)
-                    <div class="row fila_infoBasica-formProf bottom_boder" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
-
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
-                    </div>
-                    <div class="row fila_infoBasica-formProf bottom_boder" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
-
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
-                    </div>
-                    <div class="row fila_infoBasica-formProf" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
-
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
-                    </div>
-                @elseif($objContadorExperiencia->cantidad == 2)
-                    <div class="row fila_infoBasica-formProf bottom_boder" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
-
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
-                    </div>
-                    <div class="row fila_infoBasica-formProf" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
-
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
-                    </div>
-                @elseif($objContadorExperiencia->cantidad == 3)
-                    <div class="row fila_infoBasica-formProf" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
-
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
-                    </div>
-                @elseif($objContadorExperiencia->cantidad == 4)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formProf"> No se pueden agregar más experiencias. </label>
-                @endif
-
+                </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4" id="boton-guardar-experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>

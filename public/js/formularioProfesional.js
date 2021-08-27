@@ -497,7 +497,7 @@ $('#formulario_estudios').validate({
 
                 $('#estudios-lista').append('<div class="section_infoEducacion-formProf">\n' +
                     '<div class="col-12 content_btnX-cierre-formProf">\n' +
-                    '<button type="submit" class="close" aria-label="Close" data-id="{{ $objEducacion->id_universidadperfil }}"><span aria-hidden="true">&times;</span></button>\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
                     '</div>\n' +
                     '<div class="option_consulta-formProf">\n' +
                     '<label class="col-12 title_infoGuardada-formProf"> Fecha de finalización </label>\n' +
@@ -557,7 +557,7 @@ $('#estudios-lista').on('click', '.close' , function (e) {
         dataType: 'json',
         data: {id:id},
         success: function( response ) {
-            $('#mensaje-consulta').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+            $('#mensaje-estudios').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                 '<span aria-hidden="true">&times;</span>\n' +
@@ -575,7 +575,7 @@ $('#estudios-lista').on('click', '.close' , function (e) {
         },
         error: function (event) {
             var response = event.responseJSON;
-            $('#mensaje-consulta').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+            $('#mensaje-estudios').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                 '<span aria-hidden="true">&times;</span>\n' +
@@ -586,28 +586,33 @@ $('#estudios-lista').on('click', '.close' , function (e) {
 
 });
 
-
 $('#formulario_experiencia').validate({
     rules: {
-        'universidad_estudio': {
+        'nombre_empresa': {
             required: true,
         },
-        'fecha_estudio': {
+        'descripcion_experiencia': {
             required: true,
         },
-        'disciplina_estudio': {
+        'inicio_experiencia': {
+            required: true,
+        },
+        'fin_experiencia': {
             required: true,
         },
     },
     messages: {
-        'universidad_estudio':{
-            required: "Por favor seleccione la universidad",
+        'nombre_empresa':{
+            required: "Por favor ingrese el nombre de la empresa",
         },
-        'fecha_estudio':{
-            required: "Por favor ingrese la fecha de finalización de la carrera",
+        'descripcion_experiencia':{
+            required: "Por favor ingrese la descripción de la experiencia",
         },
-        'disciplina_estudio':{
-            required: "Por favor ingrese la disciplina académica",
+        'inicio_experiencia':{
+            required: "Por favor ingrese la fecha de inicio de la experiencia",
+        },
+        'fin_experiencia':{
+            required: "Por favor ingrese la fecha de finalización de la experiencia",
         },
     },
     submitHandler: function(form) {
@@ -618,11 +623,11 @@ $('#formulario_experiencia').validate({
             }
         });
         $.ajax({
-            url:  "FormularioProfesionalSave5",
+            url:  "FormularioProfesionalSave6",
             type: "POST",
-            data: $('#formulario_estudios').serialize(),
+            data: $('#formulario_experiencia').serialize(),
             success: function( response ) {
-                $('#mensaje-estudios').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                $('#mensaje-experiencia').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -631,35 +636,40 @@ $('#formulario_experiencia').validate({
 
                 if (response.items_max)
                 {
-                    $('#universidad_estudio').attr('disabled', 'disabled');
-                    $('#fecha_estudio').attr('disabled', 'disabled');
-                    $('#disciplina_estudio').attr('disabled', 'disabled');
-                    $('#boton-enviar-estudios').attr('disabled', 'disabled');
+                    $('#nombre_empresa').attr('disabled', 'disabled');
+                    $('#descripcion_experiencia').attr('disabled', 'disabled');
+                    $('#inicio_experiencia').attr('disabled', 'disabled');
+                    $('#fin_experiencia').attr('disabled', 'disabled');
+                    $('#boton-guardar-experiencia').attr('disabled', 'disabled');
                 }
 
-                $('#estudios-lista').append('<div class="section_infoEducacion-formProf">\n' +
+                $('#experiencia-lista').append('<div class="section_infoExper-formProf">\n' +
                     '<div class="col-12 content_btnX-cierre-formProf">\n' +
-                    '<button type="submit" class="close" aria-label="Close" data-id="{{ $objEducacion->id_universidadperfil }}"><span aria-hidden="true">&times;</span></button>\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
                     '</div>\n' +
                     '<div class="option_consulta-formProf">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf"> Fecha de finalización </label>\n' +
-                    '<label class="col-12 text_infoGuardada-formProf"> ' + $('#fecha_estudio').val() + ' </label>\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> Nombre de la empresa </label>\n' +
+                    '<label class="col-12 text_infoGuardada-formProf">' + $('#nombre_empresa').val() + '</label>\n' +
                     '</div>\n' +
                     '<div class="option_consulta-formProf">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf"> Universidad </label>\n' +
-                    '<label class="col-12 text_infoGuardada-formProf"> ' +  response.universidad + ' </label>\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> Descripción de la experiencia </label>\n' +
+                    '<label class="col-12 text_infoGuardada-formProf">' + $('#descripcion_experiencia').val() + '</label>\n' +
                     '</div>\n' +
                     '<div class="option_consulta-formProf">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf"> Disciplina académica </label>\n' +
-                    '<label class="col-12 text_infoGuardada-formProf"> ' + $('#disciplina_estudio').val() + ' </label>\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> Fecha de inicio experiencia </label>\n' +
+                    '<label class="col-12 text_infoGuardada-formProf">' + $('#inicio_experiencia').val() + '</label>\n' +
+                    '</div>\n' +
+                    '<div class="option_consulta-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> Fecha de finalización experiencia </label>\n' +
+                    '<label class="col-12 text_infoGuardada-formProf">' + $('#fin_experiencia').val() + '</label>\n' +
                     '</div>\n' +
                     '</div>');
 
-                document.getElementById("formulario_estudios").reset();
+                document.getElementById("formulario_experiencia").reset();
             },
             error: function (event) {
                 var response = event.responseJSON;
-                $('#mensaje-estudios').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                $('#mensaje-experiencia').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -672,10 +682,11 @@ $('#formulario_experiencia').validate({
                 }
                 if (response.items_max)
                 {
-                    $('#universidad_estudio').attr('disabled', 'disabled');
-                    $('#fecha_estudio').attr('disabled', 'disabled');
-                    $('#disciplina_estudio').attr('disabled', 'disabled');
-                    $('#boton-enviar-estudios').attr('disabled', 'disabled');
+                    $('#nombre_empresa').attr('disabled', 'disabled');
+                    $('#descripcion_experiencia').attr('disabled', 'disabled');
+                    $('#inicio_experiencia').attr('disabled', 'disabled');
+                    $('#fin_experiencia').attr('disabled', 'disabled');
+                    $('#boton-guardar-experiencia').attr('disabled', 'disabled');
                 }
             }
         });
@@ -694,12 +705,12 @@ $('#experiencia-lista').on('click', '.close' , function (e) {
     });
 
     $.ajax({
-        url:  "FormularioProfesionaldelete5",
+        url:  "FormularioProfesionaldelete6",
         type: "POST",
         dataType: 'json',
         data: {id:id},
         success: function( response ) {
-            $('#mensaje-consulta').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+            $('#mensaje-experiencia').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                 '<span aria-hidden="true">&times;</span>\n' +
@@ -707,17 +718,18 @@ $('#experiencia-lista').on('click', '.close' , function (e) {
                 '</div>');
 
             //quitar el disabled
-            $('#universidad_estudio').removeAttr('disabled');
-            $('#fecha_estudio').removeAttr('disabled');
-            $('#disciplina_estudio').removeAttr('disabled');
-            $('#boton-enviar-estudios').removeAttr('disabled');
+            $('#nombre_empresa').removeAttr('disabled');
+            $('#descripcion_experiencia').removeAttr('disabled');
+            $('#inicio_experiencia').removeAttr('disabled');
+            $('#fin_experiencia').removeAttr('disabled');
+            $('#boton-guardar-experiencia').removeAttr('disabled');
 
             //Quitar la caja
             button.parent().parent().remove();
         },
         error: function (event) {
             var response = event.responseJSON;
-            $('#mensaje-consulta').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+            $('#mensaje-experiencia').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                 '<span aria-hidden="true">&times;</span>\n' +

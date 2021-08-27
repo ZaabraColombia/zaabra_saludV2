@@ -770,27 +770,53 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'nombre_empresa' => ['required'],
+            'descripcion_experiencia' => ['required'],
+            'inicio_experiencia' => ['required', 'date_format:Y-m-d'],
+            'fin_experiencia' => ['required', 'date_format:Y-m-d'],
+        ]);
 
-
-        unset($request['_token']);
-        // Recorre todos los "nombres" enviados, si no hay ninguno se
-        //  crea un array vacío para que no devuelva un error el foreach
-        foreach ($request->input('nombreEmpresaExperiencia', []) as $i => $nombreEmpresaExperiencia) {
-            experiencias::create([
-                'idPerfilProfesional' => $idProProfesi,
-                'nombreEmpresaExperiencia'=> $nombreEmpresaExperiencia,
-                'descripcionExperiencia' => $request->input('descripcionExperiencia.'.$i),
-                'fechaInicioExperiencia' => $request->input('fechaInicioExperiencia.'.$i),
-                'fechaFinExperiencia' => $request->input('fechaFinExperiencia.'.$i),
-            ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'Ingrese correctamente la información de la empresa'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        return redirect('FormularioProfesional');
+        //validar el valor maximo de items
+        $count = experiencias::where('idPerfilProfesional', '=', $idProProfesi)->count();
 
+        if ( $count >= 4 ) {
+            return response()->json([
+                'mensaje' => 'Ingreso el maximo de items',
+                'items_max' => true
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //Crear el objeto
+        $experiencia = new experiencias();
+
+        //asignar los datos
+        $experiencia->nombreEmpresaExperiencia = $request->nombre_empresa;
+        $experiencia->descripcionExperiencia = $request->descripcion_experiencia;
+        $experiencia->fechaInicioExperiencia = $request->inicio_experiencia;
+        $experiencia->fechaFinExperiencia = $request->fin_experiencia;
+        $experiencia->idPerfilProfesional = $idProProfesi;
+        $experiencia->save();
+        //agrgar 1 suma uno
+        $count++;
+
+        return response()->json([
+            'mensaje' => 'Se adiciono la experiencia de "' . $request->nombre_empresa . '"',
+            'items_max' => $count >= 4,
+            'id' => $experiencia->idexperiencias,
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 6----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 6----------------------*/
-    public function delete6($idexperiencias){
+    public function delete6(Request $request){
 
 
         $verificaPerfil = $this->verificaPerfil();
@@ -798,11 +824,22 @@ class formularioProfesionalController extends Controller
         foreach($verificaPerfil as $verificaPerfil){
             $idProProfesi=$verificaPerfil;
         }
-        $experiencias = experiencias::where('idexperiencias', $idexperiencias)->where('idPerfilProfesional', $idProProfesi);
-        $experiencias->delete();
 
-        return redirect('FormularioProfesional');
+        $experiencia = experiencias::where('idexperiencias', $request->id)
+            ->where('idPerfilProfesional', $idProProfesi)
+            ->first();
 
+        //validar si se tiene permiso para el registro
+        if (empty($experiencia))
+        {
+            return response()->json(['mensaje' => 'No se encontro el item'], Response::HTTP_NOT_FOUND);
+        }
+
+        //Eliminar experiencia
+        $nombre = $experiencia->nombreEmpresaExperiencia;
+        $experiencia->delete();
+
+        return response()->json(['mensaje' => 'El item "' . $nombre . '" se elimino correctamente'], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Eliminacion formulario parte 6----------------------*/
 

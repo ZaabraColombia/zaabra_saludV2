@@ -15,8 +15,10 @@ class experiencias extends Model
         'fechaInicioExperiencia',
         'fechaFinExperiencia',
         'imgexperiencia',
-        'contador', 
-        'created_at', 
+        'contador',
+        'created_at',
         'updated_at'
     ];
+
+    protected $primaryKey = 'idexperiencias';
 }
