@@ -316,12 +316,28 @@ $('#formulario_consulta').validate({
                     '<span aria-hidden="true">&times;</span>\n' +
                     '</button>\n' +
                     '</div>');
+
                 if (response.items_max)
                 {
                     $('#tipo_consulta').attr('disabled', 'disabled');
                     $('#valor_consulta').attr('disabled', 'disabled');
                     $('#envia_consultas').attr('disabled', 'disabled');
                 }
+
+                $('#consultas-lista').append('<div class="section_infoConsulta-formProf">\n' +
+                    '<div class="col-12 content_btnX-cierre-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="option_consulta-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> Tipo de consulta </label>\n' +
+                    '<span class="col-12 text_infoGuardada-formProf">' + $('#tipo_consulta').val() + '</span>\n' +
+                    '</div>\n' +
+                    '<div class="option_consulta-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> Valor consulta </label>\n' +
+                    '<span class="col-12 text_infoGuardada-formProf">' + $('#valor_consulta').val() + '</span>\n' +
+                    '</div>\n' +
+                    '</div>');
+
                 document.getElementById("formulario_consulta").reset();
             },
             error: function (event) {
@@ -346,7 +362,52 @@ $('#formulario_consulta').validate({
             }
         });
     }
-})
+});
+$('#consultas-lista').on('click', '.close' , function (e) {
+    var button = $(this);
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  "FormularioProfesionaldelete3",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            $('#mensaje-consulta').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+
+            //quitar el disabled
+            $('#tipo_consulta').removeAttr('disabled');
+            $('#valor_consulta').removeAttr('disabled');
+            $('#envia_consultas').removeAttr('disabled');
+
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            var response = event.responseJSON;
+            $('#mensaje-consulta').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+        }
+    });
+
+});
+
 /*--------------------------- Fin Tercera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 
 

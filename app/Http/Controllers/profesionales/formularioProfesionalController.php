@@ -570,33 +570,21 @@ class formularioProfesionalController extends Controller
 
         //asignar los datos
         $tipo_consulta->nombreconsulta = $request->tipo_consulta;
-        $tipo_consulta->valorconsulta = $request->valor;
+        $tipo_consulta->valorconsulta = $request->valor_consulta;
         $tipo_consulta->idperfil = $idProProfesi;
         $tipo_consulta->save();
+        //agrgar 1 suma uno
+        $count++;
 
-        return response(['mensaje' => 'Se adiciono el tipo de consulta ' . $request->tipo_consulta, 'items_max' => $count >= 3]);
-
-        /*unset($request['_token']);
-        // Recorre todos los "nombres" enviados, si no hay ninguno se
-        //  crea un array vacío para que no devuelva un error el foreach
-        foreach ($request->input('nombreconsulta', []) as $i => $nombreconsulta) {
-
-            if(!empty($request->input('nombreconsulta.'.$i))){
-                tipoconsultas::create([
-                    'idperfil' => $idProProfesi,
-                    'nombreconsulta' => $request->input('nombreconsulta.'.$i),
-                    'valorconsulta' => $request->input('valorconsulta.'.$i),
-                ]);
-            }
-
-        }*/
-
-        //return redirect('FormularioProfesional');
-
+        return response()->json([
+            'mensaje' => 'Se adiciono el tipo de consulta ' . $request->tipo_consulta,
+            'items_max' => $count >= 3,
+            'id' => $tipo_consulta->id
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 3----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 3----------------------*/
-    public function delete3($id){
+    public function delete3(Request $request){
 
 
         $verificaPerfil = $this->verificaPerfil();
@@ -605,10 +593,19 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
-        $tipoconsultas = tipoconsultas::where('id', $id)->where('idperfil', $idProProfesi);
-        $tipoconsultas->delete();
 
-        return redirect('FormularioProfesional');
+        $tipo_consulta = tipoconsultas::where('id', $request->id)->where('idperfil', $idProProfesi)->first();
+
+        //validar si se tiene permiso para el registro
+        if (empty($tipo_consulta))
+        {
+            return response()->json(['mensaje' => 'No se encontro el item'], Response::HTTP_NOT_FOUND);
+        }
+
+        $nombre = $tipo_consulta->nombreconsulta;
+        $tipo_consulta->delete();
+
+        return response()->json(['mensaje' => 'El item ' . $nombre . ' se elimino correctamente'], Response::HTTP_OK);
 
     }
     /*-------------------------------------Fin Eliminacion formulario parte 3----------------------*/

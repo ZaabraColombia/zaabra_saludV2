@@ -344,30 +344,22 @@
         <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
             <h5 class="col-12 icon_infoConsult-formProf"> Información consulta </h5>
             <div id="mensaje-consulta"></div>
-            <div class="consulta_guardada-formProf">
+            <div class="consulta_guardada-formProf" id="consultas-lista">
                 <?php $count_consultas = 0; ?>
                 @foreach($objConsultas as $objConsultas)
                     @if(!empty($objConsultas->nombreconsulta))
                             <?php $count_consultas++; ?>
                         <div class="section_infoConsulta-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
-                                <a href="{{url('/FormularioProfesionaldelete3/'.$objConsultas->id)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <button type="submit" class="close" aria-label="Close" data-id="{{ $objConsultas->id }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Tipo de consulta </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objConsultas->nombreconsulta}} </li>
+                                <span class="col-12 text_infoGuardada-formProf"> {{$objConsultas->nombreconsulta}} </span>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Valor consulta </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objConsultas->valorconsulta}} </li>
+                                <span class="col-12 text_infoGuardada-formProf"> {{$objConsultas->valorconsulta}} </span>
                             </div>
                         </div>
                     @endif
