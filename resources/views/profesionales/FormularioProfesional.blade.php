@@ -62,38 +62,37 @@
             <form id="formulario_basico" method="POST" action="javascript:void(0)" enctype="multipart/form-data" accept-charset="UTF-8" class="pb-2">
             @csrf
             <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio--------------------->
-                @if(!empty($objFormulario))
+
+
+                @if(!empty($objFormulario->idarea))
                     <div class="row fila_infoBasica-formProf">
                         <!-- Sección imagen de usuario -->
                         <div class="col-md-3 contain_imgUsuario-formProf">
-                            @foreach($objFormulario as $objFormulario)
-                                <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objFormulario->fotoperfil)}}">
-                            @endforeach
+                            <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objFormulario->fotoperfil)}}">
                             <input type="file" class="input_imgUsuario-formProf" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg" value="{{$objFormulario->fotoperfil}}">
                             <p class="icon_subirFoto-formProf text_usuario-formProf"> Subir foto de perfil </p>
                         </div>
 
                         <!-- Sección datos personales -->
                         <div class="row col-md-9 datos_principales-formProf">
-                            @foreach ($objuser as $objuser)
+                            @foreach ($objuser as $user)
                                 <div class="col-lg-6 section_inputRight-text-formProf">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Nombres </label>
                                     <div class="col-12 nombres_usuario-formProf">
-                                        <input class="input_nomApl-formProf" value="{{$objuser->primernombre}}" name="primernombre"></input>
+                                        <input class="input_nomApl-formProf" value="{{$user->primernombre}}" name="primernombre"></input>
 
-                                        <input class="input_nomApl-formProf" value="{{$objuser->segundonombre}}" name="segundonombre"></input>
+                                        <input class="input_nomApl-formProf" value="{{$user->segundonombre}}" name="segundonombre"></input>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 section_inputRight-text-formProf">
                                     <label for="example-date-input"class="col-12 text_label-formProf"> Apellidos </label>
                                     <div class="col-12 nombres_usuario-formProf">
-                                        <input class="input_nomApl-formProf" value="{{$objuser->primerapellido}}" name="primerapellido"></input>
+                                        <input class="input_nomApl-formProf" value="{{$user->primerapellido}}" name="primerapellido"></input>
 
-                                        <input class="input_nomApl-formProf" value="{{$objuser->segundoapellido}}" name="segundoapellido"></input>
+                                        <input class="input_nomApl-formProf" value="{{$user->segundoapellido}}" name="segundoapellido"></input>
                                     </div>
                                 </div>
                             @endforeach
-
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de nacimiento </label>
                                 <input class="col-lg-12 form-control" type="date" value="{{$objFormulario->fechanacimiento}}" id="fechanacimiento" name="fechanacimiento">
@@ -141,10 +140,10 @@
                             </div>
                         </div>
                     </div>
-                    <!------------------ Fin campos llenos --------------------->
 
-                    <!--------------- Inicio campos vacios--------------------->
+                    <!------------------ Fin campos llenos --------------------->
                 @else
+                <!--------------- Inicio campos vacios--------------------->
                     <div class="row fila_infoBasica-formProf">
                         <!-- Sección imagen de usuario -->
                         <div class="col-md-3 contain_imgUsuario-formProf">
@@ -217,14 +216,15 @@
                                 </div>
                             </div>
                         </div>
-
-                        @endif
-                        <div class="col-12 content_btnEnviar-formProf mb-2">
-                            <button type="submit" class="btn2_enviar-formProf" id="envia_basico"> Guardar
-                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
-                            </button>
-                        </div>
                     </div>
+
+                @endif
+
+                <div class="col-12 content_btnEnviar-formProf mb-2">
+                    <button type="submit" class="btn2_enviar-formProf" id="envia_basico"> Guardar
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                    </button>
+                </div>
             </form>
         </div>
         <!--------------------------------------------      Fin 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      ------------------------------------------------>
@@ -238,6 +238,7 @@
                     <span id="res_message_contacto">Su información se guardó correctamente</span>
                 </div>
                 <div class="row fila_infoBasica-formProf">
+
                     @if(!empty($objFormulario))
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
@@ -348,7 +349,7 @@
                 <?php $count_consultas = 0; ?>
                 @foreach($objConsultas as $objConsultas)
                     @if(!empty($objConsultas->nombreconsulta))
-                            <?php $count_consultas++; ?>
+                        <?php $count_consultas++; ?>
                         <div class="section_infoConsulta-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
                                 <button type="submit" class="close" aria-label="Close" data-id="{{ $objConsultas->id }}"><span aria-hidden="true">&times;</span></button>
@@ -399,7 +400,7 @@
         <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
             <h5 class="col-12 icon_destacado-formProf"> Destacado en </h5>
             <form id="formulario_destacado" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" class="pb-2" >
-                @csrf
+            @csrf
             <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio--------------------->
                 <div class="row fila_infoBasica-formProf">
                     <div class="col-12" id="destacado-mensaje"></div>
@@ -439,28 +440,16 @@
         <!--------------------------------------------      Inicio 4 cuarta parte del formulario *** PERFIL PROFESIONAL ***      ---------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_perfil-prof  infoBasica_formProf">
             <h5 class="col-12 icon_infoSubPerfil-formProf"> Perfil profesional </h5>
-
+            <div id="mensaje-perfil-profesional"></div>
             <form id="formulario_descripcion" method="post" action="javascript:void(0)" enctype="multipart/form-data" accept-charset="UTF-8">
-                <div class="alert alert-success d-none" id="msg_descripcion">
-                    <span id="res_message_descripcion">Su información se guardó correctamente</span>
-                </div>
                 @csrf
-                @if(!empty($objFormulario))
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formProf"> Escriba una breve descripción de su biografía </p>
-                        <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil">{{$objFormulario->descripcionPerfil}}</textarea>
-                        <span class="text-danger">{{ $errors->first('name') }}</span>
-                    </div>
-                @else
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formProf"> Escriba una breve descripción de su biografía </p>
-                        <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil"></textarea>
-                        <span class="text-danger">{{ $errors->first('name') }}</span>
-                        <label class="col-12 text_infoImg-formProf"> 270 Caracteres </label>
-                    </div>
-                @endif
+                <div class="col-12 px-0">
+                    <label for="descripcion_perfil" class="text_superior-proced-formProf"> Escriba una breve descripción de su biografía </label>
+                    <textarea class="form-control" id="descripcion_perfil"  type="text" maxlength="270" name="descripcion_perfil">{{ (!empty($objFormulario->descripcionPerfil)) ? $objFormulario->descripcionPerfil : '' }}</textarea>
+                    <label class="col-12 text_infoImg-formProf"> 270 Caracteres </label>
+                </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" id="envia_perfil" class="btn2_enviar-formProf mt-md-3 mb-md-3"> Guardar
+                    <button type="submit" id="enviar_perfil" class="btn2_enviar-formProf mt-md-3 mb-md-3"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>

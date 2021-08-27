@@ -188,9 +188,7 @@ $('#destacado-lista').on('click', '.close' , function (e) {
     });
 
 });
-/*--------------------------- Fin Primera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 
-/*-------------------------- Inicio Segunda Parte del Formulario Descripcion Perfil Profesional------------------------------*/
 $('#formulario_contacto').validate({
     rules: {
         celular: {
@@ -266,16 +264,6 @@ $('#formulario_contacto').validate({
         });
     }
 });
-/*--------------------------- Fin Segunda Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
-
-/*-------------------------- Inicio Tercera Parte del Formulario Descripcion Perfil Profesional------------------------------*/
-$.validator.addMethod("selecttext", function(value, element) {
-    if (select == "") {
-        return false;
-    } else {
-        return true;
-    };
-}, "Por favor seleccione el tipo de consulta");
 
 $('#formulario_consulta').validate({
     rules: {
@@ -310,7 +298,7 @@ $('#formulario_consulta').validate({
             type: "POST",
             data: $('#formulario_consulta').serialize(),
             success: function( response ) {
-                $('#mensaje-consulta').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                $('#mensaje-consulta').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -342,7 +330,7 @@ $('#formulario_consulta').validate({
             },
             error: function (event) {
                 var response = event.responseJSON;
-                $('#mensaje-consulta').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                $('#mensaje-consulta').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -363,6 +351,7 @@ $('#formulario_consulta').validate({
         });
     }
 });
+
 $('#consultas-lista').on('click', '.close' , function (e) {
     var button = $(this);
     var id = $(this).data('id');
@@ -407,11 +396,9 @@ $('#consultas-lista').on('click', '.close' , function (e) {
     });
 
 });
+/*--------------------------- Fin Primera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 
-/*--------------------------- Fin Tercera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
-
-
-/*-------------------- Inicio Cuarta Parte del Formulario Descripcion Perfil Profesional----------------------------------*/
+/*-------------------------- Inicio Segunda Parte del Formulario Descripcion Perfil Profesional------------------------------*/
 $('#formulario_descripcion').validate({
     rules: {
         descripcionPerfil: {
@@ -432,26 +419,50 @@ $('#formulario_descripcion').validate({
             }
         });
         /*Se cambia el texto al boton por enviando*/
-        $('#envia_perfil').html('Enviando..');
+
         $.ajax({
             url:  "FormularioProfesionalSave4",
             type: "POST",
             data: $('#formulario_descripcion').serialize(),
             success: function( response ) {
-                $('#envia_perfil').hide();
-                $('#res_message_descripcion').show();
-                $('#res_message_descripcion').html(response.msg);
-                $('#msg_descripcion').removeClass('d-none');
-
-                document.getElementById("#formulario_descripcion").reset();
-                setTimeout(function(){
-                    $('#res_message_descripcion').hide();
-                    $('#msg_descripcion').hide();
-                },10000);
+                $('#mensaje-perfil-profesional').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+            },
+            error: function (event) {
+                var response = event.responseJSON;
+                $('#mensaje-perfil-profesional').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
             }
         });
     }
-})
+});
+
+/*--------------------------- Fin Segunda Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
+
+/*-------------------------- Inicio Tercera Parte del Formulario Descripcion Perfil Profesional------------------------------*/
+$.validator.addMethod("selecttext", function(value, element) {
+    if (select == "") {
+        return false;
+    } else {
+        return true;
+    };
+}, "Por favor seleccione el tipo de consulta");
+
+
+
+/*--------------------------- Fin Tercera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
+
+
+/*-------------------- Inicio Cuarta Parte del Formulario Descripcion Perfil Profesional----------------------------------*/
+
 /*------------------------------ Fin Cuarta Parte del Formulario Descripcion Perfil Profesional------------------------------*/
 
 /*-------------------- Inicio Quinta Parte del Formulario Educacion Perfil Profesional----------------------------------*/

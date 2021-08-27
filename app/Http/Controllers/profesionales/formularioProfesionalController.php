@@ -48,20 +48,31 @@ class formularioProfesionalController extends Controller
 
         if (Auth::check()){
             $id_user=auth()->user()->id;/*id usuario logueado*/
-            $objFormulario=$this->cargaFormulario($id_user);
+
+            //Crear el registro de perfil profesional si no existe
+            $pro = perfilesprofesionales::where('idUser', '=', $id_user)->select('idPerfilProfesional')->first();
+            if (empty($pro))
+            {
+                $pro = new perfilesprofesionales(['idUser' => $id_user]);
+                $pro->save();
+            }
+
+            $objFormulario = $this->cargaFormulario($id_user);
+            $objFormulario = $objFormulario[0];
+
 
             $pais = pais::all();
             $area = areas::all();
 
             //Llamar la lista de profecion segun la seleccion del area
-            if  (!is_null($objFormulario[0]->idarea)) {
-                $profesiones = profesiones::where('idArea', '=', $objFormulario[0]->idarea)->get();
+            if  (!is_null($objFormulario->idarea)) {
+                $profesiones = profesiones::where('idArea', '=', $objFormulario->idarea)->get();
                 //dd($profesiones);
             }
 
             //Llamar la lista de profecion segun la seleccion de la profecion
-            if  (!is_null($objFormulario[0]->idprofesion)) {
-                $especialidades = especialidades::where('idProfesion', '=', $objFormulario[0]->idprofesion)->get();
+            if  (!is_null($objFormulario->idprofesion)) {
+                $especialidades = especialidades::where('idProfesion', '=', $objFormulario->idprofesion)->get();
             }
 
             //resetera si no existe lista
@@ -197,7 +208,7 @@ class formularioProfesionalController extends Controller
     LEFT JOIN  provincias prv ON pf.id_provincia= prv.id_provincia
     LEFT JOIN  municipios mu ON pf.id_municipio= mu.id_municipio
     LEFT JOIN  universidades u ON pf.id_universidad= u.id_universidad
-    WHERE pf.idUser=$id_user");
+    WHERE us.id=$id_user");
     }
 
 
@@ -615,15 +626,23 @@ class formularioProfesionalController extends Controller
         /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
         $verificaPerfil = $this->verificaPerfil();
 
-        /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        foreach($verificaPerfil as $verificaPerfil){
+            $idProProfesi = $verificaPerfil;
+        }
 
-        unset($request['_token']);
-        unset($request['updated_at']);
-        unset($request['created_at']);
-        perfilesprofesionales::where('idUser', $id_user)->update($request->all());
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'descripcion_perfil' => ['required', 'max:270'],
+        ]);
 
-        return redirect('FormularioProfesional');
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors(), 'mensaje' => 'Ingrese correctamente la información'], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        //actualizar perfil
+        perfilesprofesionales::where('idPerfilProfesional', $idProProfesi)->update(['descripcionPerfil' => $request->descripcion_perfil]);
+
+        return response()->json(['mensaje' => 'Se actualizo el perfil profesional'], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 4----------------------*/
 
