@@ -17,6 +17,8 @@ class perfilesprofesionalesuniversidades extends Model
         'updated_at'
     ];
 
+    protected $primaryKey = 'id_universidadperfil';
+
 
     public function universidad()
     {

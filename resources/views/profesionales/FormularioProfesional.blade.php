@@ -514,8 +514,8 @@
                 </div>
 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4" id="boton-enviar-estudios"> Guardar
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
                     </button>
                 </div>
             </form>

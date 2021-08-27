@@ -59,7 +59,7 @@ Route::post('/FormularioProfesionalSave4',[App\Http\Controllers\profesionales\fo
 /*-----guardar formulario parte 5----*/
 Route::post('/FormularioProfesionalSave5',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create5'])->name('FormularioProfesional')->middleware('auth');
 /*-----borrar formulario parte 5----*/
-Route::get('/FormularioProfesionaldelete5/{id_universidadperfil}',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete5'])->name('FormularioProfesional')->middleware('auth');
+Route::post('/FormularioProfesionaldelete5',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete5'])->name('FormularioProfesional')->middleware('auth');
 
 /*-----guardar formulario parte 6----*/
 Route::post('/FormularioProfesionalSave6',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create6'])->name('FormularioProfesional')->middleware('auth');

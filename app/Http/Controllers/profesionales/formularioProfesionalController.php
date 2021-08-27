@@ -684,7 +684,7 @@ class formularioProfesionalController extends Controller
         }
 
         //Se valida si la universidad ya esta registrada
-        $val = perfilesprofesionalesuniversidades::where('idPerfilProfesional', '=', $idProProfesi)
+        /*$val = perfilesprofesionalesuniversidades::where('idPerfilProfesional', '=', $idProProfesi)
             ->where('id_universidadperfil', '=', $request->universidad_estudio)
             ->select()
             ->count();
@@ -693,7 +693,7 @@ class formularioProfesionalController extends Controller
                 'error' => $validator->errors(),
                 'mensaje' => 'La universidad ya esta ingresada'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
-        }
+        }*/
 
         //Crear el objeto
         $universidad = new perfilesprofesionalesuniversidades();
@@ -710,29 +710,14 @@ class formularioProfesionalController extends Controller
         return response()->json([
             'mensaje' => 'Se adiciono la universidad "' . $universidad->universidad->nombreuniversidad . '"',
             'items_max' => $count >= 3,
-            'id' => $universidad->id
+            'id' => $universidad->id_universidadperfil,
+            'universidad' => $universidad->universidad->nombreuniversidad
         ], Response::HTTP_OK);
-
-
-
-        foreach ($request->input('id_universidad', []) as $i => $id_universidad) {
-
-            if(!empty($request->input('id_universidad.'.$i))){
-                perfilesprofesionalesuniversidades::create([
-                    'idPerfilProfesional' => $idProProfesi,
-                    'id_universidad' => $request->input('id_universidad.'.$i),
-                    'nombreestudio' => $request->input('nombreestudio.'.$i),
-                    'fechaestudio' => $request->input('fechaestudio.'.$i),
-                ]);
-            }
-        }
-
-        return redirect('FormularioProfesional');
 
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 5----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 5----------------------*/
-    public function delete5($id_universidadperfil){
+    public function delete5(Request $request){
 
 
         $verificaPerfil = $this->verificaPerfil();
@@ -741,10 +726,33 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
-        $perfilesprofesionalesuniversidades = perfilesprofesionalesuniversidades::where('id_universidadperfil', $id_universidadperfil)->where('idPerfilProfesional', $idProProfesi);
-        $perfilesprofesionalesuniversidades->delete();
+        //validar el id
+        $validator = Validator::make($request->all(),[
+            'id' => ['required', 'exists:perfilesprofesionalesuniversidades,id_universidadperfil']
+        ]);
 
-        return redirect('FormularioProfesional');
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'No se pudo eliminar correctamente'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $universidad = perfilesprofesionalesuniversidades::where('id_universidadperfil', $request->id)
+            ->where('idPerfilProfesional', $idProProfesi)
+            ->first();
+
+        //validar si se tiene permiso para el registro
+        if (empty($universidad))
+        {
+            return response()->json(['mensaje' => 'No se encontro el item'], Response::HTTP_NOT_FOUND);
+        }
+
+        $nombre = $universidad->universidad->nombreuniversidad;
+
+        $universidad->delete();
+
+        return response()->json(['mensaje' => 'El item ' . $nombre . ' se elimino correctamente'], Response::HTTP_OK);
 
     }
     /*-------------------------------------Fin Eliminacion formulario parte 5----------------------*/

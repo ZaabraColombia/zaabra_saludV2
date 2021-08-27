@@ -492,6 +492,7 @@ $('#formulario_estudios').validate({
                     $('#universidad_estudio').attr('disabled', 'disabled');
                     $('#fecha_estudio').attr('disabled', 'disabled');
                     $('#disciplina_estudio').attr('disabled', 'disabled');
+                    $('#boton-enviar-estudios').attr('disabled', 'disabled');
                 }
 
                 $('#estudios-lista').append('<div class="section_infoEducacion-formProf">\n' +
@@ -500,11 +501,11 @@ $('#formulario_estudios').validate({
                     '</div>\n' +
                     '<div class="option_consulta-formProf">\n' +
                     '<label class="col-12 title_infoGuardada-formProf"> Fecha de finalización </label>\n' +
-                    '<label class="col-12 text_infoGuardada-formProf"> ' + $('#universidad_estudio option[selected]').html() + ' </label>\n' +
+                    '<label class="col-12 text_infoGuardada-formProf"> ' + $('#fecha_estudio').val() + ' </label>\n' +
                     '</div>\n' +
                     '<div class="option_consulta-formProf">\n' +
                     '<label class="col-12 title_infoGuardada-formProf"> Universidad </label>\n' +
-                    '<label class="col-12 text_infoGuardada-formProf"> ' + $('#fecha_estudio').val() + ' </label>\n' +
+                    '<label class="col-12 text_infoGuardada-formProf"> ' +  response.universidad + ' </label>\n' +
                     '</div>\n' +
                     '<div class="option_consulta-formProf">\n' +
                     '<label class="col-12 title_infoGuardada-formProf"> Disciplina académica </label>\n' +
@@ -532,6 +533,7 @@ $('#formulario_estudios').validate({
                     $('#universidad_estudio').attr('disabled', 'disabled');
                     $('#fecha_estudio').attr('disabled', 'disabled');
                     $('#disciplina_estudio').attr('disabled', 'disabled');
+                    $('#boton-enviar-estudios').attr('disabled', 'disabled');
                 }
             }
         });
@@ -550,7 +552,7 @@ $('#estudios-lista').on('click', '.close' , function (e) {
     });
 
     $.ajax({
-        url:  "FormularioProfesionaldelete3",
+        url:  "FormularioProfesionaldelete5",
         type: "POST",
         dataType: 'json',
         data: {id:id},
@@ -563,9 +565,10 @@ $('#estudios-lista').on('click', '.close' , function (e) {
                 '</div>');
 
             //quitar el disabled
-            $('#tipo_consulta').removeAttr('disabled');
-            $('#valor_consulta').removeAttr('disabled');
-            $('#envia_consultas').removeAttr('disabled');
+            $('#universidad_estudio').removeAttr('disabled');
+            $('#fecha_estudio').removeAttr('disabled');
+            $('#disciplina_estudio').removeAttr('disabled');
+            $('#boton-enviar-estudios').removeAttr('disabled');
 
             //Quitar la caja
             button.parent().parent().remove();
