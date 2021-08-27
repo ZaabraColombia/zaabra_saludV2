@@ -460,215 +460,58 @@
         <!--------------------------------------------      Inicio 5 quinta parte del formulario *** EDUCACIÓN ***      ------------------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_perfil-prof infoBasica_formProf">
             <h5 class="col-12 icon_infoEduc-formProf"> Educación </h5>
-
-            <div class="educacion_guardada-formProf">
+            <div id="mensaje-estudios"></div>
+            <div class="educacion_guardada-formProf" id="estudios-lista">
+                <?php $count_estudios = 0; ?>
                 @foreach($objEducacion as $objEducacion)
                     @if(!empty($objEducacion->nombreuniversidad))
+                        <?php $count_estudios++; ?>
                         <div class="section_infoEducacion-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
-                                <a href="{{url('/FormularioProfesionaldelete5/'.$objEducacion->id_universidadperfil)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <button type="submit" class="close" aria-label="Close" data-id="{{ $objEducacion->id_universidadperfil }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Fecha de finalización </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objEducacion->fechaestudio}} </li>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$objEducacion->fechaestudio}} </label>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Universidad </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objEducacion->nombreuniversidad}} </li>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$objEducacion->nombreuniversidad}} </label>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Disciplina académica </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objEducacion->nombreestudio}} </li>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$objEducacion->nombreestudio}} </label>
                             </div>
                         </div>
                     @endif
                 @endforeach
             </div>
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_educacion">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                @if($objContadorEducacion->cantidad == 0)
-                    <div class="row p-0 m-0">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-
-                            <select  class="form-control" name="id_universidad[]">
-                                <option value=""> Seleccione universidad </option>
-
-                                @foreach($universidades as $universidad)
-                                    <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
-
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
-
-                                <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
-                            </div>
-                        </div>
+            <form action="{{ url ('/FormularioProfesionalSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_estudios">
+                @csrf
+                <div class="row p-0 m-0">
+                    <div class="col-md-6 section_inputLeft-text-formProf">
+                        <label for="universidad_estudio" class="col-12 text_label-formProf"> Selecione universidad </label>
+                        <select  class="form-control" name="universidad_estudio" id="universidad_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
+                            <option></option>
+                            @foreach($universidades as $universidad)
+                                <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
-                    <div class="row p-0 m-0 ">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-
-                            <select  class="form-control" name="id_universidad[]">
-                                <option value="">Seleccione universidad</option>
-
-                                @foreach($universidades as $universidad)
-                                    <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
-
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
-
-                                <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
-                            </div>
-                        </div>
+                    <div class="col-md-6 section_inputRight-text-formProf">
+                        <label for="fecha_estudio" class="col-12 text_label-formProf"> Fecha de finalización </label>
+                        <input class="form-control" type="date" value="2011-08-19" id="fecha_estudio" name="fecha_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
                     </div>
 
-                    <div class="row p-0 m-0 ">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-
-                            <select  class="form-control" name="id_universidad[]">
-                                <option value="">Seleccione universidad</option>
-
-                                @foreach($universidades as $universidad)
-                                    <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
-
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
-
-                                <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
-                            </div>
+                    <div class="col-md-6 section_inputLeft-text-formProf">
+                        <div class="form-group">
+                            <label for="disciplina_estudio" class="col-12 text_label-formProf"> Disciplina académica </label>
+                            <input class="form-control" id="disciplina_estudio" type="text" name="disciplina_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
                         </div>
                     </div>
-                @elseif($objContadorEducacion->cantidad == 1)
-                    <div class="row p-0 m-0">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-
-                            <select  class="form-control" name="id_universidad[]">
-                                <option value=""> Seleccione universidad </option>
-
-                                @foreach($universidades as $universidad)
-                                    <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
-
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
-
-                                <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row p-0 m-0 ">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-
-                            <select  class="form-control" name="id_universidad[]">
-                                <option value="">Seleccione universidad</option>
-
-                                @foreach($universidades as $universidad)
-                                    <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
-
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
-
-                                <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorEducacion->cantidad == 2)
-                    <div class="row p-0 m-0 ">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-
-                            <select  class="form-control" name="id_universidad[]">
-                                <option value="">Seleccione universidad</option>
-
-                                @foreach($universidades as $universidad)
-                                    <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
-
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
-
-                                <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorEducacion->cantidad == 3)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formProf"> No se pueden agregar más estudios. </label>
-                @endif
+                </div>
 
                 <div class="col-12 content_btnEnviar-formProf">
                     <button type="submit" class="btn2_enviar-formProf mb-md-4"> Guardar

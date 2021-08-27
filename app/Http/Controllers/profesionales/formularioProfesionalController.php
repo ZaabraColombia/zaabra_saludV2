@@ -658,6 +658,63 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
+
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'universidad_estudio' => ['required', 'exists:universidades,id_universidad'],
+            'fecha_estudio' => ['required', 'date_format:Y-m-d'],
+            'disciplina_estudio' => ['required'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'Ingrese correctamente la información de la universidad'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        //validar el valor maximo de items
+        $count = perfilesprofesionalesuniversidades::where('idPerfilProfesional', '=', $idProProfesi)->count();
+
+        if ( $count >= 3 ) {
+            return response()->json([
+                'mensaje' => 'Ingreso el maximo de items',
+                'items_max' => true
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //Se valida si la universidad ya esta registrada
+        $val = perfilesprofesionalesuniversidades::where('idPerfilProfesional', '=', $idProProfesi)
+            ->where('id_universidadperfil', '=', $request->universidad_estudio)
+            ->select()
+            ->count();
+        if ($val >= 1) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'La universidad ya esta ingresada'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        //Crear el objeto
+        $universidad = new perfilesprofesionalesuniversidades();
+
+        //asignar los datos
+        $universidad->id_universidad = $request->universidad_estudio;
+        $universidad->nombreestudio = $request->disciplina_estudio;
+        $universidad->fechaestudio = $request->fecha_estudio;
+        $universidad->idPerfilProfesional = $idProProfesi;
+        $universidad->save();
+        //agrgar 1 suma uno
+        $count++;
+
+        return response()->json([
+            'mensaje' => 'Se adiciono la universidad "' . $universidad->universidad->nombreuniversidad . '"',
+            'items_max' => $count >= 3,
+            'id' => $universidad->id
+        ], Response::HTTP_OK);
+
+
+
         foreach ($request->input('id_universidad', []) as $i => $id_universidad) {
 
             if(!empty($request->input('id_universidad.'.$i))){

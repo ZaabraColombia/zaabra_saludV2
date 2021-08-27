@@ -445,6 +445,143 @@ $('#formulario_descripcion').validate({
     }
 });
 
+$('#formulario_estudios').validate({
+    rules: {
+        'universidad_estudio': {
+            required: true,
+        },
+        'fecha_estudio': {
+            required: true,
+        },
+        'disciplina_estudio': {
+            required: true,
+        },
+    },
+    messages: {
+        'universidad_estudio':{
+            required: "Por favor seleccione la universidad",
+        },
+        'fecha_estudio':{
+            required: "Por favor ingrese la fecha de finalización de la carrera",
+        },
+        'disciplina_estudio':{
+            required: "Por favor ingrese la disciplina académica",
+        },
+    },
+    submitHandler: function(form) {
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url:  "FormularioProfesionalSave5",
+            type: "POST",
+            data: $('#formulario_estudios').serialize(),
+            success: function( response ) {
+                $('#mensaje-estudios').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+
+                if (response.items_max)
+                {
+                    $('#universidad_estudio').attr('disabled', 'disabled');
+                    $('#fecha_estudio').attr('disabled', 'disabled');
+                    $('#disciplina_estudio').attr('disabled', 'disabled');
+                }
+
+                $('#estudios-lista').append('<div class="section_infoEducacion-formProf">\n' +
+                    '<div class="col-12 content_btnX-cierre-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="{{ $objEducacion->id_universidadperfil }}"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="option_consulta-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> Fecha de finalización </label>\n' +
+                    '<label class="col-12 text_infoGuardada-formProf"> ' + $('#universidad_estudio option[selected]').html() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="option_consulta-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> Universidad </label>\n' +
+                    '<label class="col-12 text_infoGuardada-formProf"> ' + $('#fecha_estudio').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="option_consulta-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> Disciplina académica </label>\n' +
+                    '<label class="col-12 text_infoGuardada-formProf"> ' + $('#disciplina_estudio').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                document.getElementById("formulario_estudios").reset();
+            },
+            error: function (event) {
+                var response = event.responseJSON;
+                $('#mensaje-estudios').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
+                if (response.items_max)
+                {
+                    $('#universidad_estudio').attr('disabled', 'disabled');
+                    $('#fecha_estudio').attr('disabled', 'disabled');
+                    $('#disciplina_estudio').attr('disabled', 'disabled');
+                }
+            }
+        });
+    }
+});
+
+$('#estudios-lista').on('click', '.close' , function (e) {
+    var button = $(this);
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  "FormularioProfesionaldelete3",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            $('#mensaje-consulta').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+
+            //quitar el disabled
+            $('#tipo_consulta').removeAttr('disabled');
+            $('#valor_consulta').removeAttr('disabled');
+            $('#envia_consultas').removeAttr('disabled');
+
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            var response = event.responseJSON;
+            $('#mensaje-consulta').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+        }
+    });
+
+});
 /*--------------------------- Fin Segunda Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 
 /*-------------------------- Inicio Tercera Parte del Formulario Descripcion Perfil Profesional------------------------------*/
