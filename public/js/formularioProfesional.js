@@ -129,6 +129,7 @@ $('#formulario_destacado').validate({
                         $('#destacado_nombre').attr('disabled', 'disabled');
                         $('#destacado_nombre_btn').attr('disabled', 'disabled');
                     }
+                    document.getElementById("formulario_destacado").reset();
                 }else {
                     mensaje = $('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                         '<strong>' + response.mensaje + '</strong>\n' +
