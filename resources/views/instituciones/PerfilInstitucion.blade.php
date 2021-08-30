@@ -8,12 +8,15 @@
         <section class="section_data_instituciones">
             <div class="data_instituciones">
                 @foreach ($objinstitucionlandin as $objinstitucionlandin)
-                <img src="{{URL::asset($objinstitucionlandin->logo)}}">
+                <div class="content_logo_inst">
+                    <img class="logo_sede_inst" src="{{URL::asset($objinstitucionlandin->logo)}}">
+                </div>
+
                 <div class="contains_info">
                     <h2>{{$objinstitucionlandin->nombreinstitucion}}</h2>
                     <h1>{{$objinstitucionlandin->nombretipo}}</h1>
-                    <h5 class="title-url"><i></i>{{$objinstitucionlandin->url}}</h5>
-                    <h5 class="title-tel"><i></i>{{$objinstitucionlandin->telefonouno}}</h5>
+                    <h5 class="title-url mb-2"><i></i>{{$objinstitucionlandin->url}}</h5>
+                    <h5 class="title-tel mb-2"><i></i>{{$objinstitucionlandin->telefonouno}}</h5>
                     <h5 class="title-adress"><i></i>{{$objinstitucionlandin->direccion}}<br>{{$objinstitucionlandin->ciudad}} {{$objinstitucionlandin->pais}}</h5>
                     <!-- Rating Stars Box -->
                     <div class='rating-stars text-center'>
@@ -36,7 +39,13 @@
                         </ul>
                     </div>
                 </div>
+                
+                <div class="content_sede_inst">
+                    <img class="img_sede_inst" src="{{URL::asset($objinstitucionlandinimgsede->imagen)}}">
+                </div>
                 @endforeach
+
+                </div>
                 <div class="contains_buttons">
                     <a href="">Agende su cita
                         <i class="fas fa-arrow-right arrow_mas"></i>
@@ -45,7 +54,7 @@
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>
                 </div>
-            </div>
+            
         </section>
 
         <!-- seccion datos consulta perfil profesional-->
@@ -77,6 +86,7 @@
 
             <div class="servicios_instituciones">
                 <h2><i></i>Servicios profesionales</h2>
+                
                 <p>{{$objinstitucionlandin->DescripcionGeneralServicios}}</p>
             </div>
 

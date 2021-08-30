@@ -17,25 +17,25 @@
                     <div class="section_input_formula">
                         <label for="example-date-input" class="col-12 text_label-formInst">Sintomas</label>
 
-                        <input class="col-12 input_nomApl-formInst" placeholder="Ninguno" value="" readonly></input>
+                        <input type="text" class="col-12 input_nomApl-formInst" placeholder="Ninguno" value="" readonly></input>
                     </div>
 
                     <div class="section_input_formula">
                         <label for="example-date-input" class="col-12 text_label-formInst">Prescripción médica</label>
 
-                        <input class="col-12 input_nomApl-formInst" placeholder="Ninguno" value="" readonly></input>
+                        <input type="text" class="col-12 input_nomApl-formInst" placeholder="Ninguno" value="" readonly></input>
                     </div>
 
                     <div class="section_input_formula">
                         <label for="example-date-input" class="col-12 text_label-formInst">Receta médica</label>
 
-                        <input class="col-12 input_nomApl-formInst" placeholder="Ninguno" value="" readonly></input>
+                        <input type="text" class="col-12 input_nomApl-formInst" placeholder="Ninguno" value="" readonly></input>
                     </div>
 
                     <div class="section_input_formula">
                         <label for="example-date-input" class="col-12 text_label-formInst">Resultados médicos</label>
 
-                        <input class="col-12 input_nomApl-formInst" placeholder="Ninguno" value="" readonly></input>
+                        <input type="text" class="col-12 input_nomApl-formInst" placeholder="Ninguno" value="" readonly></input>
                     </div>
                 </div>
 
@@ -45,8 +45,8 @@
 
 
                 <div class="section_addFile_consulta">
-                    <input type="" class="cajaTxt_consulta" name=""  id="">
-                    <input class="addFile_consulta" type="file" class="selecFile_ordMed" id="">
+                    <input class="form-control cajaTxt_consulta" type="text" name=""  id="" readonly>
+                    <input class="form-control addFile_consulta" type="file" class="selecFile_ordMed" id="">
                     <label class="text_input_consulta">Seleccionar archivo</label>
                     <input class="btnSend_ordMed" type="submit" value="subir">
                 </div>
@@ -54,7 +54,7 @@
                 <div class="col-12 content_btns_histClinica mt-md-0">
                     <div class="col-12 content_btns_regPaciente mt-md-0 mt-lg-5">
                         <a type="submit" href="{{route('pacienteRegistrado')}}" class="btn_enviar_histClinica" data-toggle="modal" data-target="#exampleModal3"> Guardar
-                            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
+                            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar_histClinic" alt=""> 
                         </a>
                     </div>
                 </div>

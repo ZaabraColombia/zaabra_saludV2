@@ -4,7 +4,7 @@
     <section class="section">
         <div class="row containt_agendaProf" id="basic-table">
             <div class="content_crearHistoria">
-                <div class="section_cabecera_citas">
+                <div class="section_cabecera_histClinica">
                     <div>
                         <h1 class="title_miCita">Historia clínica</h1>
                         <span class="subtitle_miCita">Diligencie los datos básicos del paciente.</span>
@@ -31,9 +31,9 @@
                     </div>
                 </div>
 
-                <div class="col-12 content_btns_regPaciente">
+                <div class="col-12 mb-5 content_btns_regPaciente">
                     <a type="submit" href="{{route('pacienteRegistrado')}}" class="btn_enviar_histClinica" > Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar_histClinic" alt=""> 
                     </a>
                 </div>
             </div>
