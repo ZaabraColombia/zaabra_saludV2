@@ -3,7 +3,7 @@
         <div class="sidebar-menu">
             <h1 class="title_agenda mb-0 px-3">AGENDA PROFESIONAL</h1>
             
-            <ul class="menu">
+            <ul class="menu pr-0">
                 <li class="sidebar-item  has-sub ">
                     <a id="menu_panel" class="actived" href="{{ url('/panelPrincipalProfesional') }}"> Menu </a>
                 </li>
