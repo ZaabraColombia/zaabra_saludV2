@@ -12,4 +12,6 @@ class universidades extends Model
         'nombreuniversidad',
         'logouniversidad'
     ];
+
+
 }

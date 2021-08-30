@@ -62,38 +62,37 @@
             <form id="formulario_basico" method="POST" action="javascript:void(0)" enctype="multipart/form-data" accept-charset="UTF-8" class="pb-2">
             @csrf
             <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio--------------------->
-                @if(!empty($objFormulario))
+
+
+                @if(!empty($objFormulario->idarea))
                     <div class="row fila_infoBasica-formProf">
                         <!-- Sección imagen de usuario -->
                         <div class="col-md-3 contain_imgUsuario-formProf">
-                            @foreach($objFormulario as $objFormulario)
-                                <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objFormulario->fotoperfil)}}">
-                            @endforeach
+                            <img id="imagenPrevisualizacion" class="img_usuario-formProf" src="{{URL::asset($objFormulario->fotoperfil)}}">
                             <input type="file" class="input_imgUsuario-formProf" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg" value="{{$objFormulario->fotoperfil}}">
                             <p class="icon_subirFoto-formProf text_usuario-formProf"> Subir foto de perfil </p>
                         </div>
 
                         <!-- Sección datos personales -->
                         <div class="row col-md-9 datos_principales-formProf">
-                            @foreach ($objuser as $objuser)
+                            @foreach ($objuser as $user)
                                 <div class="col-lg-6 section_inputRight-text-formProf">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Nombres </label>
                                     <div class="col-12 nombres_usuario-formProf">
-                                        <input class="input_nomApl-formProf" value="{{$objuser->primernombre}}" name="primernombre"></input>
+                                        <input class="input_nomApl-formProf" value="{{$user->primernombre}}" name="primernombre"></input>
 
-                                        <input class="input_nomApl-formProf" value="{{$objuser->segundonombre}}" name="segundonombre"></input>
+                                        <input class="input_nomApl-formProf" value="{{$user->segundonombre}}" name="segundonombre"></input>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 section_inputRight-text-formProf">
                                     <label for="example-date-input"class="col-12 text_label-formProf"> Apellidos </label>
                                     <div class="col-12 nombres_usuario-formProf">
-                                        <input class="input_nomApl-formProf" value="{{$objuser->primerapellido}}" name="primerapellido"></input>
+                                        <input class="input_nomApl-formProf" value="{{$user->primerapellido}}" name="primerapellido"></input>
 
-                                        <input class="input_nomApl-formProf" value="{{$objuser->segundoapellido}}" name="segundoapellido"></input>
+                                        <input class="input_nomApl-formProf" value="{{$user->segundoapellido}}" name="segundoapellido"></input>
                                     </div>
                                 </div>
                             @endforeach
-
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de nacimiento </label>
                                 <input class="col-lg-12 form-control" type="date" value="{{$objFormulario->fechanacimiento}}" id="fechanacimiento" name="fechanacimiento">
@@ -141,10 +140,10 @@
                             </div>
                         </div>
                     </div>
-                    <!------------------ Fin campos llenos --------------------->
 
-                    <!--------------- Inicio campos vacios--------------------->
+                    <!------------------ Fin campos llenos --------------------->
                 @else
+                <!--------------- Inicio campos vacios--------------------->
                     <div class="row fila_infoBasica-formProf">
                         <!-- Sección imagen de usuario -->
                         <div class="col-md-3 contain_imgUsuario-formProf">
@@ -217,14 +216,15 @@
                                 </div>
                             </div>
                         </div>
-
-                        @endif
-                        <div class="col-12 content_btnEnviar-formProf mb-2">
-                            <button type="submit" class="btn2_enviar-formProf" id="envia_basico"> Guardar
-                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
-                            </button>
-                        </div>
                     </div>
+
+                @endif
+
+                <div class="col-12 content_btnEnviar-formProf mb-2">
+                    <button type="submit" class="btn2_enviar-formProf" id="envia_basico"> Guardar
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                    </button>
+                </div>
             </form>
         </div>
         <!--------------------------------------------      Fin 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      ------------------------------------------------>
@@ -238,6 +238,7 @@
                     <span id="res_message_contacto">Su información se guardó correctamente</span>
                 </div>
                 <div class="row fila_infoBasica-formProf">
+
                     @if(!empty($objFormulario))
                         <div class="col-md-6 section_inputLeft-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Celular </label>
@@ -343,31 +344,23 @@
         <!--------------------------------------------      Inicio 3 tercera parte del formulario *** INFORMACIÓN CONSULTA ***      ------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
             <h5 class="col-12 icon_infoConsult-formProf"> Información consulta </h5>
-            <div class="alert alert-success d-none" id="msg_consulta">
-                <span id="res_message_consulta">Su información se guardó correctamente</span>
-            </div>
-            <div class="consulta_guardada-formProf">
+            <div id="mensaje-consulta"></div>
+            <div class="consulta_guardada-formProf" id="consultas-lista">
+                <?php $count_consultas = 0; ?>
                 @foreach($objConsultas as $objConsultas)
                     @if(!empty($objConsultas->nombreconsulta))
+                        <?php $count_consultas++; ?>
                         <div class="section_infoConsulta-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
-                                <a href="{{url('/FormularioProfesionaldelete3/'.$objConsultas->id)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <button type="submit" class="close" aria-label="Close" data-id="{{ $objConsultas->id }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Tipo de consulta </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objConsultas->nombreconsulta}} </li>
+                                <span class="col-12 text_infoGuardada-formProf"> {{$objConsultas->nombreconsulta}} </span>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Valor consulta </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objConsultas->valorconsulta}} </li>
+                                <span class="col-12 text_infoGuardada-formProf"> {{$objConsultas->valorconsulta}} </span>
                             </div>
                         </div>
                     @endif
@@ -376,127 +369,25 @@
 
             <form id="formulario_consulta" method="POST" action="javascript:void(0)"  enctype="multipart/form-data" accept-charset="UTF-8">
                 @csrf
-                @if($objContadorConsultas->cantidad == 0)
-                    <div class="col-12 seccion_consulta-formProf">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label>
-
-                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
-                                <option value="" selected> Seleccionar </option>
-                                <option value="Presencial"> Presencial </option>
-                                <option value="Virtual"> Virtual </option>
-                                <option value="Control médico"> Control Médico </option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
-
-                            <input type="number" min="0.00" max="150000" class="form-control" id="valorconsulta[]" name="valorconsulta[]">
-                        </div>
+                <div class="col-12 seccion_consulta-formProf">
+                    <div class="col-md-6 section_inputLeft-text-formProf">
+                        <label for="tipo_consulta" class="col-12 text_label-formProf"> Tipo consulta </label>
+                        <select id="tipo_consulta" class="form-control" name="tipo_consulta" {{ ($count_consultas >= 3 ) ? 'disabled' : '' }}>
+                            <option></option>
+                            <option value="Presencial"> Presencial </option>
+                            <option value="Virtual"> Virtual </option>
+                            <option value="Control médico"> Control Médico </option>
+                        </select>
                     </div>
 
-                    <div class="col-12 seccion_consulta-formProf ">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label>
-
-                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
-                                <option value="" selected> Seleccionar </option>
-                                <option value="Presencial"> Presencial </option>
-                                <option value="Virtual"> Virtual </option>
-                                <option value="Control médico"> Control Médico </option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
-
-                            <input type="number" min="0.00" max="150000"  class="form-control" id="valorconsulta[]" name="valorconsulta[]">
-                        </div>
+                    <div class="col-md-6 section_inputRight-text-formProf">
+                        <label for="valor_consulta" class="col-12 text_label-formProf"> Valor </label>
+                        <input type="number" min="0" max="150000" class="form-control" id="valor_consulta" name="valor_consulta" {{ ($count_consultas >= 3 ) ? 'disabled' : '' }}>
                     </div>
-
-                    <div class="col-12 seccion_consulta-formProf ">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label>
-
-                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
-                                <option value="" selected> Seleccionar </option>
-                                <option value="Presencial"> Presencial </option>
-                                <option value="Virtual"> Virtual</option>
-                                <option value="Control médico"> Control Médico </option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
-
-                            <input type="number" min="0.00" max="150000"  class="form-control" id="valorconsulta[]" name="valorconsulta[]">
-                        </div>
-                    </div>
-                @elseif($objContadorConsultas->cantidad == 1)
-                    <div class="col-12 seccion_consulta-formProf">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label>
-
-                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
-                                <option value="" selected> Seleccionar </option>
-                                <option value="Presencial"> Presencial </option>
-                                <option value="Virtual"> Virtual </option>
-                                <option value="Control médico"> Control Médico </option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
-
-                            <input type="number" min="0.00" max="150000"  class="form-control" id="valorconsulta[]" name="valorconsulta[]">
-                        </div>
-                    </div>
-
-                    <div class="col-12 seccion_consulta-formProf ">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label>
-
-                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
-                                <option value="" selected> Seleccionar </option>
-                                <option value="Presencial"> Presencial </option>
-                                <option value="Virtual"> Virtual </option>
-                                <option value="Control médico"> Control Médico </option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
-
-                            <input type="number" min="0.00" max="150000"  class="form-control" id="valorconsulta[]" name="valorconsulta[]">
-                        </div>
-                    </div>
-
-                @elseif($objContadorConsultas->cantidad == 2)
-                    <div class="col-12 seccion_consulta-formProf">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Tipo consulta </label>
-
-                            <select id="nombreconsulta[]" class="form-control" name="nombreconsulta[]">
-                                <option value="" selected> Seleccionar </option>
-                                <option value="Presencial"> Presencial </option>
-                                <option value="Virtual"> Virtual </option>
-                                <option value="Control médico"> Control Médico </option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Valor </label>
-
-                            <input type="number" min="0.00" max="150000"  class="form-control" id="valorconsulta[]" name="valorconsulta[]">
-                        </div>
-                    </div>
-                @elseif($objContadorConsultas->cantidad == 3)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formProf"> No se pueden agregar más tipos de consulta. </label>
-                @endif
-
+                </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button id="envia_consultas" type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
+                    <button id="envia_consultas" type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" {{ ($count_consultas >= 3 ) ? 'disabled' : '' }}>
+                        Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>
@@ -509,7 +400,7 @@
         <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
             <h5 class="col-12 icon_destacado-formProf"> Destacado en </h5>
             <form id="formulario_destacado" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" class="pb-2" >
-                @csrf
+            @csrf
             <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio--------------------->
                 <div class="row fila_infoBasica-formProf">
                     <div class="col-12" id="destacado-mensaje"></div>
@@ -549,28 +440,16 @@
         <!--------------------------------------------      Inicio 4 cuarta parte del formulario *** PERFIL PROFESIONAL ***      ---------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_perfil-prof  infoBasica_formProf">
             <h5 class="col-12 icon_infoSubPerfil-formProf"> Perfil profesional </h5>
-
+            <div id="mensaje-perfil-profesional"></div>
             <form id="formulario_descripcion" method="post" action="javascript:void(0)" enctype="multipart/form-data" accept-charset="UTF-8">
-                <div class="alert alert-success d-none" id="msg_descripcion">
-                    <span id="res_message_descripcion">Su información se guardó correctamente</span>
-                </div>
                 @csrf
-                @if(!empty($objFormulario))
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formProf"> Escriba una breve descripción de su biografía </p>
-                        <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil">{{$objFormulario->descripcionPerfil}}</textarea>
-                        <span class="text-danger">{{ $errors->first('name') }}</span>
-                    </div>
-                @else
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formProf"> Escriba una breve descripción de su biografía </p>
-                        <textarea class="form-control" id="descripcionPerfil"  type="text" maxlength="270" name="descripcionPerfil"></textarea>
-                        <span class="text-danger">{{ $errors->first('name') }}</span>
-                        <label class="col-12 text_infoImg-formProf"> 270 Caracteres </label>
-                    </div>
-                @endif
+                <div class="col-12 px-0">
+                    <label for="descripcion_perfil" class="text_superior-proced-formProf"> Escriba una breve descripción de su biografía </label>
+                    <textarea class="form-control" id="descripcion_perfil"  type="text" maxlength="270" name="descripcion_perfil">{{ (!empty($objFormulario->descripcionPerfil)) ? $objFormulario->descripcionPerfil : '' }}</textarea>
+                    <label class="col-12 text_infoImg-formProf"> 270 Caracteres </label>
+                </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" id="envia_perfil" class="btn2_enviar-formProf mt-md-3 mb-md-3"> Guardar
+                    <button type="submit" id="enviar_perfil" class="btn2_enviar-formProf mt-md-3 mb-md-3"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>
@@ -581,219 +460,62 @@
         <!--------------------------------------------      Inicio 5 quinta parte del formulario *** EDUCACIÓN ***      ------------------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_perfil-prof infoBasica_formProf">
             <h5 class="col-12 icon_infoEduc-formProf"> Educación </h5>
-
-            <div class="educacion_guardada-formProf">
-                @foreach($objEducacion as $objEducacion)
-                    @if(!empty($objEducacion->nombreuniversidad))
+            <div id="mensaje-estudios"></div>
+            <div class="educacion_guardada-formProf" id="estudios-lista">
+                <?php $count_estudios = 0; ?>
+                @foreach($objEducacion as $educacion)
+                    @if(!empty($educacion->nombreuniversidad))
+                        <?php $count_estudios++; ?>
                         <div class="section_infoEducacion-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
-                                <a href="{{url('/FormularioProfesionaldelete5/'.$objEducacion->id_universidadperfil)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <button type="submit" class="close" aria-label="Close" data-id="{{ $educacion->id_universidadperfil }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Fecha de finalización </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objEducacion->fechaestudio}} </li>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$educacion->fechaestudio}} </label>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Universidad </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objEducacion->nombreuniversidad}} </li>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$educacion->nombreuniversidad}} </label>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Disciplina académica </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objEducacion->nombreestudio}} </li>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$educacion->nombreestudio}} </label>
                             </div>
                         </div>
                     @endif
                 @endforeach
             </div>
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_educacion">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                @if($objContadorEducacion->cantidad == 0)
-                    <div class="row p-0 m-0">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-
-                            <select  class="form-control" name="id_universidad[]">
-                                <option value=""> Seleccione universidad </option>
-
-                                @foreach($universidades as $universidad)
-                                    <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
-
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
-
-                                <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
-                            </div>
-                        </div>
+            <form action="{{ url ('/FormularioProfesionalSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_estudios">
+                @csrf
+                <div class="row p-0 m-0">
+                    <div class="col-md-6 section_inputLeft-text-formProf">
+                        <label for="universidad_estudio" class="col-12 text_label-formProf"> Selecione universidad </label>
+                        <select  class="form-control" name="universidad_estudio" id="universidad_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
+                            <option></option>
+                            @foreach($universidades as $universidad)
+                                <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
-                    <div class="row p-0 m-0 ">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-
-                            <select  class="form-control" name="id_universidad[]">
-                                <option value="">Seleccione universidad</option>
-
-                                @foreach($universidades as $universidad)
-                                    <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
-
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
-
-                                <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
-                            </div>
-                        </div>
+                    <div class="col-md-6 section_inputRight-text-formProf">
+                        <label for="fecha_estudio" class="col-12 text_label-formProf"> Fecha de finalización </label>
+                        <input class="form-control" type="date" value="2011-08-19" id="fecha_estudio" name="fecha_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
                     </div>
 
-                    <div class="row p-0 m-0 ">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-
-                            <select  class="form-control" name="id_universidad[]">
-                                <option value="">Seleccione universidad</option>
-
-                                @foreach($universidades as $universidad)
-                                    <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
-
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
-
-                                <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
-                            </div>
+                    <div class="col-md-6 section_inputLeft-text-formProf">
+                        <div class="form-group">
+                            <label for="disciplina_estudio" class="col-12 text_label-formProf"> Disciplina académica </label>
+                            <input class="form-control" id="disciplina_estudio" type="text" name="disciplina_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
                         </div>
                     </div>
-                @elseif($objContadorEducacion->cantidad == 1)
-                    <div class="row p-0 m-0">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-
-                            <select  class="form-control" name="id_universidad[]">
-                                <option value=""> Seleccione universidad </option>
-
-                                @foreach($universidades as $universidad)
-                                    <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
-
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
-
-                                <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row p-0 m-0 ">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-
-                            <select  class="form-control" name="id_universidad[]">
-                                <option value="">Seleccione universidad</option>
-
-                                @foreach($universidades as $universidad)
-                                    <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
-
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
-
-                                <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorEducacion->cantidad == 2)
-                    <div class="row p-0 m-0 ">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-
-                            <select  class="form-control" name="id_universidad[]">
-                                <option value="">Seleccione universidad</option>
-
-                                @foreach($universidades as $universidad)
-                                    <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de finalización </label>
-
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <div class="form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Disciplina académica </label>
-
-                                <input class="form-control" id="direccion" type="text" name="nombreestudio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorEducacion->cantidad == 3)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formProf"> No se pueden agregar más estudios. </label>
-                @endif
+                </div>
 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4" id="boton-enviar-estudios"> Guardar
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
                     </button>
                 </div>
             </form>
@@ -803,42 +525,32 @@
         <!--------------------------------------------      Inicio 6 sexta parte del formulario *** EXPERIENCIA ***      ------------------------------------------------------>
         <div class="col-lg-10 col-xl-8 content_perfil-prof infoBasica_formProf">
             <h5 class="col-12 icon_infoExper-formProf"> Experiencia Laboral</h5>
-
+            <div id="mensaje-experiencia"></div>
             <!--------------muestra una lista de la experinecia ingresada--------------->
-            <div class="experiencia_guardada-formProf">
-                @foreach($objExperiencia as $objExperiencia)
-                    @if(!empty($objExperiencia->nombreEmpresaExperiencia))
+            <div class="experiencia_guardada-formProf" id="experiencia-lista">
+                <?php $count_experiencia = 0;?>
+                @foreach($objExperiencia as $experiencia)
+                    @if(!empty($experiencia->nombreEmpresaExperiencia))
+                            <?php $count_experiencia++;?>
                         <div class="section_infoExper-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
-                                <a href="{{url('/FormularioProfesionaldelete6/'.$objExperiencia->idexperiencias)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <button type="submit" class="close" aria-label="Close" data-id="{{ $experiencia->idexperiencias }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Nombre de la empresa </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objExperiencia->nombreEmpresaExperiencia}} </li>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$experiencia->nombreEmpresaExperiencia}} </label>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Descripción de la experiencia </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objExperiencia->descripcionExperiencia}} </li>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$experiencia->descripcionExperiencia}} </label>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Fecha de inicio experiencia </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objExperiencia->fechaInicioExperiencia}} </li>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$experiencia->fechaInicioExperiencia}} </label>
                             </div>
-
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Fecha de finalización experiencia </label>
-
-                                <li class="col-12 text_infoGuardada-formProf"> {{$objExperiencia->fechaFinExperiencia}} </li>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$experiencia->fechaFinExperiencia}} </label>
                             </div>
                         </div>
                     @endif
@@ -846,267 +558,30 @@
             </div>
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_experiencia">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                @if($objContadorExperiencia->cantidad == 0)
-                    <div class="row fila_infoBasica-formProf bottom_boder" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
-
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
+                @csrf
+                <div class="row fila_infoBasica-formProf bottom_boder" id="listas">
+                    <div class="col-md-6 section_inputLeft-text-formProf">
+                        <label for="nombre_empresa" class="col-12 text_label-formProf"> Empresa </label>
+                        <input class="col-lg-12 form-control" id="nombre_empresa"  type="text" name="nombre_empresa" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                     </div>
-                    <div class="row fila_infoBasica-formProf bottom_boder" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
+                    <div class="col-md-6 section_inputRight-text-formProf">
+                        <label for="descripcion_experiencia" class="col-12 text_label-formProf"> Cargo </label>
+                        <input class="col-lg-12 form-control" id="descripcion_experiencia"  type="text" name="descripcion_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                     </div>
-                    <div class="row fila_infoBasica-formProf bottom_boder" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
+                    <div class="col-md-6 section_inputLeft-text-formProf">
+                        <label for="inicio_experiencia" class="col-12 text_label-formProf"> Fecha de inicio </label>
+                        <input class="form-control" type="date"  id="inicio_experiencia" name="inicio_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                     </div>
-                    <div class="row fila_infoBasica-formProf" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
 
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
+                    <div class="col-md-6 section_inputRight-text-formProf">
+                        <label for="fin_experiencia" class="col-12 text_label-formProf"> Fecha de terminación </label>
+                        <input class="form-control" type="date"  id="fin_experiencia" name="fin_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                     </div>
-                @elseif($objContadorExperiencia->cantidad == 1)
-                    <div class="row fila_infoBasica-formProf bottom_boder" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
-
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
-                    </div>
-                    <div class="row fila_infoBasica-formProf bottom_boder" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
-
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
-                    </div>
-                    <div class="row fila_infoBasica-formProf" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
-
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
-                    </div>
-                @elseif($objContadorExperiencia->cantidad == 2)
-                    <div class="row fila_infoBasica-formProf bottom_boder" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
-
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
-                    </div>
-                    <div class="row fila_infoBasica-formProf" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
-
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
-                    </div>
-                @elseif($objContadorExperiencia->cantidad == 3)
-                    <div class="row fila_infoBasica-formProf" id="listas">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Empresa </label>
-
-                            <input class="col-lg-12 form-control" id="nombreEmpresaExperiencia"  type="text" name="nombreEmpresaExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Cargo </label>
-
-                            <input class="col-lg-12 form-control" id="descripcionExperiencia"  type="text" name="descripcionExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                            <input class="form-control" type="date"  id="fechaInicioExperiencia" name="fechaInicioExperiencia[]" value="">
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de terminación </label>
-
-                            <input class="form-control" type="date"  id="fechaFinExperienci" name="fechaFinExperiencia[]" value="">
-                        </div>
-                    </div>
-                @elseif($objContadorExperiencia->cantidad == 4)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formProf"> No se pueden agregar más experiencias. </label>
-                @endif
-
+                </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4" id="boton-guardar-experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>
@@ -1255,23 +730,20 @@
         <!--------------------------------------------      Inicio 8 octava parte del formulario *** IDIOMAS ***      --------------------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_perfil-prof infoBasica_formProf">
             <h5 class="col-12 icon_infoIdioma-formProf"> Idiomas </h5>
+            <div id="mensaje-idioma"></div>
+            <div class="idioma_guardada-formProf" id="lista-idioma">
+                <?php $count_idiomas = 0; ?>
 
-            <div class="idioma_guardada-formProf">
-                @foreach($objIdiomas as $objIdiomas)
-                    @if(!empty($objIdiomas->imgidioma))
+                @foreach($objIdiomas as $idioma)
+                    @if(!empty($idioma->imgidioma))
+                            <?php $count_idiomas++; ?>
                         <div class="section_infoAsocia-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
-                                <a href="{{url('/FormularioProfesionaldelete8/'.$objIdiomas->id_idioma)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <button type="submit" class="close" aria-label="Close" data-id="{{ $idioma->idUsuarioIdiomas }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-
                             <div class="">
-                                <img id="imagenPrevisualizacion" class="img_bandera-forProf" src="{{URL::asset($objIdiomas->imgidioma)}}">
-
-                                <label for="example-date-input" class="text_idioma-formProf"> {{$objIdiomas->nombreidioma}}</label>
+                                <img id="imagenPrevisualizacion" class="img_bandera-forProf" src="{{URL::asset($idioma->imgidioma)}}">
+                                <label for="example-date-input" class="text_idioma-formProf"> {{$idioma->nombreidioma}}</label>
                             </div>
                         </div>
                     @endif
@@ -1279,87 +751,20 @@
             </div>
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_idioma">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                @if($objContadorIdiomas->cantidad == 0)
-                    <div class="row p-0 m-0">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
-
-                            <select  class="form-control" name="id_idioma[]">
-                                <option value=" "> Seleccione </option>
-                                @foreach($idiomas as $idiomas1)
-                                    <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf ">
-                            <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
-
-                            <select  class="form-control" name="id_idioma[]">
-                                <option value=" "> Seleccione </option>
-                                @foreach($idiomas as $idiomas2)
-                                    <option value="{{$idiomas2->id_idioma}}"> {{$idiomas2->nombreidioma}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputLeft-text-formProf ">
-                            <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
-
-                            <select  class="form-control" name="id_idioma[]">
-                                <option value=" "> Seleccione </option>
-                                @foreach($idiomas as $idiomas3)
-                                    <option value="{{$idiomas3->id_idioma}}"> {{$idiomas3->nombreidioma}}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                @csrf
+                <div class="row p-0 m-0">
+                    <div class="col-md-6 section_inputLeft-text-formProf">
+                        <label for="idioma" class="mr-2 text_label-formProf"> Seleccione idioma </label>
+                        <select  class="form-control" name="idioma" id="idioma" {{ ($count_idiomas >= 3) ? 'disabled' : '' }}>
+                            <option value=" "> Seleccione </option>
+                            @foreach($idiomas as $idioma)
+                                <option value="{{$idioma->id_idioma}}"> {{$idioma->nombreidioma}}</option>
+                            @endforeach
+                        </select>
                     </div>
-
-                @elseif($objContadorIdiomas->cantidad == 1)
-                    <div class="row p-0 m-0">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
-
-                            <select  class="form-control" name="id_idioma[]">
-                                <option value=" "> Seleccione </option>
-                                @foreach($idiomas as $idiomas1)
-                                    <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 section_inputRight-text-formProf ">
-                            <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
-
-                            <select  class="form-control" name="id_idioma[]">
-                                <option value=" "> Seleccione </option>
-                                @foreach($idiomas as $idiomas2)
-                                    <option value="{{$idiomas2->id_idioma}}"> {{$idiomas2->nombreidioma}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                @elseif($objContadorIdiomas->cantidad == 2)
-                    <div class="row p-0 m-0">
-                        <div class="col-md-6 section_inputLeft-text-formProf">
-                            <label for="example-date-input" class="mr-2 text_label-formProf"> Seleccione idioma </label>
-
-                            <select  class="form-control" name="id_idioma[]">
-                                <option value=" "> Seleccione </option>
-                                @foreach($idiomas as $idiomas1)
-                                    <option value="{{$idiomas1->id_idioma}}"> {{$idiomas1->nombreidioma}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                @elseif($objContadorIdiomas->cantidad == 3)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formProf"> No se pueden agregar más idiomas. </label>
-                @endif
-
+                </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-idioma"  {{ ($count_idiomas >= 3) ? 'disabled' : '' }}> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>
