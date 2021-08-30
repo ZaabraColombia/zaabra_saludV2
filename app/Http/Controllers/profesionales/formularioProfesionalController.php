@@ -1486,28 +1486,53 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
-        /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'urlVideo' => ['required', 'url'],
+            'fechaVideo' => ['required', 'date_format:Y-m-d'],
+            'nombreVideo' => ['required'],
+            'descripcionVideo' => ['required', 'max:160'],
+        ]);
 
-
-        for ($i=0; $i < count(request('nombrevideo')); ++$i){
-            if(!empty($request->input('nombrevideo.'.$i))){
-                videos::create([
-                    'idPerfilProfesional' => $idProProfesi,
-                    'nombrevideo' => $request->input('nombrevideo')[$i],
-                    'descripcionvideo' => $request->input('descripcionvideo')[$i],
-                    'urlvideo' => $request->input('urlvideo')[$i],
-                    'fechavideo' => $request->input('fechavideo')[$i],
-                ]);
-            }
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'Ingrese correctamente la información del video'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        return redirect('FormularioProfesional');
+        //validar el valor maximo de items
+        $count = videos::where('idPerfilProfesional', '=', $idProProfesi)->count();
 
+        if ( $count >= 4 ) {
+            return response()->json([
+                'mensaje' => 'Ingreso el maximo de items',
+                'items_max' => true
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //Crear el objeto
+        $video = new videos();
+
+        //asignar los datos
+        $video->urlvideo = $request->urlVideo;
+        $video->fechavideo = $request->fechaVideo;
+        $video->nombrevideo = $request->nombreVideo;
+        $video->descripcionvideo = $request->descripcionVideo;
+        $video->idPerfilProfesional = $idProProfesi;
+        $video->save();
+        //agrgar 1 suma uno
+        $count++;
+
+        return response()->json([
+            'mensaje' => 'Se adiciono el video de "' . $request->nombreVideo . '"',
+            'items_max' => $count >= 4,
+            'id' => $video->id,
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 13----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 13----------------------*/
-    public function delete13($id){
+    public function delete13(Request $request){
 
 
         $verificaPerfil = $this->verificaPerfil();
@@ -1516,12 +1541,21 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
+        $video = videos::where('id', $request->id)
+            ->where('idPerfilProfesional', $idProProfesi)
+            ->first();
 
-        $videos = videos::where('id', $id)->where('idPerfilProfesional', $idProProfesi);
-        $videos->delete();
+        //validar si se tiene permiso para el registro
+        if (empty($video))
+        {
+            return response()->json(['mensaje' => 'No se encontro el video'], Response::HTTP_NOT_FOUND);
+        }
 
-        return redirect('FormularioProfesional');
+        //Eliminar experiencia
+        $nombre = $video->nombrevideo;
+        $video->delete();
 
+        return response()->json(['mensaje' => 'El video "' . $nombre . '" se elimino correctamente'], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Eliminacion formulario parte 13----------------------*/
 
