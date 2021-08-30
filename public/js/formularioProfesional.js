@@ -859,15 +859,211 @@ $('#lista-idioma').on('click', '.close' , function (e) {
 /*--------------------------- Fin Segunda Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 
 /*-------------------------- Inicio Tercera Parte del Formulario Descripcion Perfil Profesional------------------------------*/
-$.validator.addMethod("selecttext", function(value, element) {
-    if (select == "") {
-        return false;
-    } else {
-        return true;
-    };
-}, "Por favor seleccione el tipo de consulta");
+$('#formulario_tratamiento').validate({
+    rules: {
+        'imgTratamientoAntes': {
+            required: true,
+            //extension: "jpg|png"
+        },
+        'tituloTrataminetoAntes': {
+            required: true,
+        },
+        'descripcionTratamientoAntes': {
+            required: true,
+            minlength: 0,
+            maxlength: 160,
+        },
+        'imgTratamientodespues': {
+            required: true,
+            //extension: "jpg|png"
+        },
+        'tituloTrataminetoDespues': {
+            required: true,
+        },
+        'descripcionTratamientoDespues': {
+            required: true,
+            minlength: 0,
+            maxlength: 160,
+        },
+    },
+    messages: {
+        'imgTratamientoAntes':{
+            required: "Ingrese la imagen del tratamiento de antes",
+            //extension: "Solo se acepta imagenes jpg y png"
+        },
+        'tituloTrataminetoAntes':{
+            required: "Ingrese el titulo de antes del tratamiento",
+        },
+        'descripcionTratamientoAntes':{
+            required: "Ingrese la descripción de antes del tratamiento",
+            minlength: "Ingrese La cantidad minima de caracteres",
+            maxlength: "la cantidad maxima de caracteres es de 160."
+        },
+        'imgTratamientodespues':{
+            required: "Ingrese la imagen del tratamiento de después",
+            //extension: "Solo se acepta imagenes jpg y png"
+        },
+        'tituloTrataminetoDespues':{
+            required: "Ingrese el titulo de después del tratamiento",
+        },
+        'descripcionTratamientoDespues':{
+            required: "Ingrese la descripción de después del tratamiento",
+            minlength: "Ingrese La cantidad minima de caracteres",
+            maxlength: "la cantidad maxima de caracteres es de 160."
+        },
+    },
+    submitHandler: function(form) {
 
 
+        var formulario = $('#formulario_tratamiento')[0];
+
+        var data = new FormData(formulario);
+
+
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            enctype: 'multipart/form-data',
+            url:  "FormularioProfesionalSave9",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            success: function( response ) {
+                $('#mensajes-tratamientos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+
+                if (response.items_max)
+                {
+                    $('#imgTratamientoAntes').attr('disabled', 'disabled');
+                    $('#tituloTrataminetoAntes').attr('disabled', 'disabled');
+                    $('#descripcionTratamientoAntes').attr('disabled', 'disabled');
+                    $('#imgTratamientodespues').attr('disabled', 'disabled');
+                    $('#tituloTrataminetoDespues').attr('disabled', 'disabled');
+                    $('#descripcionTratamientoDespues').attr('disabled', 'disabled');
+                    $('#boton-guardar-tratamiento').attr('disabled', 'disabled');
+                }
+
+                $('#lista-tratamientos').append('<div class="traProce_guardada-formProf">\n' +
+                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 col-md-6">\n' +
+                    '<label class="col-12 title_trata-formProf"> Antes </label>\n' +
+                    '<div class="col-12 img_selccionada-formProf">\n' +
+                    '<img class="img_traProced-formProf" src="' + response.imagen_antes + '">\n' +
+                    '</div>\n' +
+                    '<div class="col-12 mt-2 text_label-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#tituloTrataminetoAntes').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 descripcion_Premio-formProf">\n' +
+                    ' <label class="col-12 text_infoGuardada-formProf"> ' + $('#descripcionTratamientoAntes').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 col-md-6 after_formProf">\n' +
+                    '<label class="col-12 title_trata-formProf"> Después </label>\n' +
+                    '<div class="col-12 img_selccionada-formProf">\n' +
+                    '<img class="img_traProced-formProf" src="' + response.imagen_despues + '">\n' +
+                    '</div>\n' +
+                    '<div class="col-12 mt-2 text_label-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#tituloTrataminetoDespues').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 descripcion_Premio-formProf">\n' +
+                    '<label class="col-12 text_infoGuardada-formProf"> ' + $('#descripcionTratamientoDespues').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                document.getElementById("formulario_tratamiento").reset();
+                $('#imagen-tratamiento-antes').removeAttr('src');
+                $('#imagen-tratamiento-despues').removeAttr('src');
+            },
+            error: function (event) {
+                var response = event.responseJSON;
+                $('#mensajes-tratamientos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
+                if (response.items_max)
+                {
+                    $('#imgTratamientoAntes').attr('disabled', 'disabled');
+                    $('#tituloTrataminetoAntes').attr('disabled', 'disabled');
+                    $('#descripcionTratamientoAntes').attr('disabled', 'disabled');
+                    $('#imgTratamientodespues').attr('disabled', 'disabled');
+                    $('#tituloTrataminetoDespues').attr('disabled', 'disabled');
+                    $('#descripcionTratamientoDespues').attr('disabled', 'disabled');
+                    $('#boton-guardar-tratamiento').attr('disabled', 'disabled');
+                }
+            }
+        });
+    }
+});
+
+$('#lista-tratamientos').on('click', '.close' , function (e) {
+    var button = $(this);
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  "FormularioProfesionaldelete9",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            $('#mensajes-tratamientos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+
+            //quitar el disabled
+            $('#imgTratamientoAntes').removeAttr('disabled');
+            $('#tituloTrataminetoAntes').removeAttr('disabled');
+            $('#descripcionTratamientoAntes').removeAttr('disabled');
+            $('#imgTratamientodespues').removeAttr('disabled');
+            $('#tituloTrataminetoDespues').removeAttr('disabled');
+            $('#descripcionTratamientoDespues').removeAttr('disabled');
+            $('#boton-guardar-tratamiento').removeAttr('disabled');
+
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            var response = event.responseJSON;
+            $('#mensajes-tratamientos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+        }
+    });
+
+});
 
 /*--------------------------- Fin Tercera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 

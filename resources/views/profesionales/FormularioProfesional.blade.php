@@ -531,7 +531,7 @@
                 <?php $count_experiencia = 0;?>
                 @foreach($objExperiencia as $experiencia)
                     @if(!empty($experiencia->nombreEmpresaExperiencia))
-                            <?php $count_experiencia++;?>
+                        <?php $count_experiencia++;?>
                         <div class="section_infoExper-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
                                 <button type="submit" class="close" aria-label="Close" data-id="{{ $experiencia->idexperiencias }}"><span aria-hidden="true">&times;</span></button>
@@ -736,7 +736,7 @@
 
                 @foreach($objIdiomas as $idioma)
                     @if(!empty($idioma->imgidioma))
-                            <?php $count_idiomas++; ?>
+                        <?php $count_idiomas++; ?>
                         <div class="section_infoAsocia-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
                                 <button type="submit" class="close" aria-label="Close" data-id="{{ $idioma->idUsuarioIdiomas }}"><span aria-hidden="true">&times;</span></button>
@@ -794,307 +794,144 @@
         <!--------------------------------------------      Inicio 9 novena parte del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      ----------------------------------->
         <div class="col-lg-10 col-xl-8 content_tratam-proced infoBasica_formProf">
             <h5 class="col-12 icon_infoTratam-formProf"> Tratamientos y procedimientos </h5>
-
+            <div id="mensajes-tratamientos"></div>
             <p class="text_superior-proced-formProf"> A continuación suba imágenes con respecto a los procedimientos y tratamientos, con su título y descripción. </p>
-
-            @foreach($objTratamiento as $objTratamiento)
-                @if(!empty($objTratamiento->imgTratamientoAntes))
-                    <div class="traProce_guardada-formProf">
-                        <div class="col-12 content_btnDelet-trata-formProf">
-                            <a href="{{url('/FormularioProfesionaldelete9/'.$objTratamiento->id_tratamiento)}}">
-                                <button type="submit" class="close" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </a>
-                        </div>
-
-                        <!-- Contenido ANTES -->
-                        <div class="col-12 col-md-6">
-                            <label class="col-12 title_trata-formProf"> Antes </label>
-
-                            <div class="col-12 img_selccionada-formProf">
-                                <img class="img_traProced-formProf" src="{{URL::asset($objTratamiento->imgTratamientoAntes)}}">
+            <div id="lista-tratamientos">
+                <?php $count_tratamientos = 0; ?>
+                @foreach($objTratamiento as $objTratamiento)
+                    @if(!empty($objTratamiento->imgTratamientoAntes))
+                        <?php $count_tratamientos++; ?>
+                        <div class="traProce_guardada-formProf">
+                            <div class="col-12 content_btnDelet-trata-formProf">
+                                <button type="submit" class="close" aria-label="Close" data-id="{{$objTratamiento->id_tratamiento}}"><span aria-hidden="true">&times;</span></button>
                             </div>
 
-                            <div class="col-12 mt-2 text_label-formProf">
-                                <label class="col-12 title_infoGuardada-formProf"> {{$objTratamiento->tituloTrataminetoAntes}} </label>
-                            </div>
+                            <!-- Contenido ANTES -->
+                            <div class="col-12 col-md-6">
+                                <label class="col-12 title_trata-formProf"> Antes </label>
 
-                            <div class="col-12 descripcion_Premio-formProf">
-                                <label class="col-12 text_infoGuardada-formProf"> {{$objTratamiento->descripcionTratamientoAntes}} </label>
-                            </div>
-                        </div>
-
-                        <!-- Contenido DESPUÉS -->
-                        <div class="col-12 col-md-6 after_formProf">
-                            <label class="col-12 title_trata-formProf"> Después </label>
-
-                            <div class="col-12 img_selccionada-formProf">
-                                <img class="img_traProced-formProf" src="{{URL::asset($objTratamiento->imgTratamientodespues)}}">
-                            </div>
-
-                            <div class="col-12 mt-2 text_label-formProf">
-                                <label class="col-12 title_infoGuardada-formProf"> {{$objTratamiento->tituloTrataminetoDespues}} </label>
-                            </div>
-
-                            <div class="col-12 descripcion_Premio-formProf">
-                                <label class="col-12 text_infoGuardada-formProf"> {{$objTratamiento->descripcionTratamientoDespues}} </label>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-            @endforeach
-
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave9') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_tratamientos">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-            @if($objContadorTratamiento->cantidad == 0)
-                <!-- Modulos de los contenidos ANTES y DESPUÉS -->
-                    <div class="row content_antDesp-formProf">
-                        <!-- Contenido ANTES -->
-                        <div class="col-md-6 antes content_antes-formProf section_inputLeft-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Antes </label>
-
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_traProced-formProf" id="uploadPreview5"/>
+                                <div class="col-12 img_selccionada-formProf">
+                                    <img class="img_traProced-formProf" src="{{URL::asset($objTratamiento->imgTratamientoAntes)}}">
                                 </div>
 
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage5" name="imgTratamientoAntes[]" onchange="previewImage(5);"/>
+                                <div class="col-12 mt-2 text_label-formProf">
+                                    <label class="col-12 title_infoGuardada-formProf"> {{$objTratamiento->tituloTrataminetoAntes}} </label>
                                 </div>
 
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
+                                <div class="col-12 descripcion_Premio-formProf">
+                                    <label class="col-12 text_infoGuardada-formProf"> {{$objTratamiento->descripcionTratamientoAntes}} </label>
                                 </div>
                             </div>
 
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen antes </label>
+                            <!-- Contenido DESPUÉS -->
+                            <div class="col-12 col-md-6 after_formProf">
+                                <label class="col-12 title_trata-formProf"> Después </label>
 
-                                <input class="form-control" id="descripcionExperiencia" placeholder="Título de la imagen" type="text" name="tituloTrataminetoAntes[]" value="">
-                            </div>
+                                <div class="col-12 img_selccionada-formProf">
+                                    <img class="img_traProced-formProf" src="{{URL::asset($objTratamiento->imgTratamientodespues)}}">
+                                </div>
 
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción antes </label>
+                                <div class="col-12 mt-2 text_label-formProf">
+                                    <label class="col-12 title_infoGuardada-formProf"> {{$objTratamiento->tituloTrataminetoDespues}} </label>
+                                </div>
 
-                                    <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoAntes[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                <div class="col-12 descripcion_Premio-formProf">
+                                    <label class="col-12 text_infoGuardada-formProf"> {{$objTratamiento->descripcionTratamientoDespues}} </label>
                                 </div>
                             </div>
                         </div>
+                    @endif
+                @endforeach
+            </div>
 
-                        <!-- Contenido DESPUÉS -->
-                        <div class="col-md-6 despues content_despues-formProf section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Después </label>
+            <form method="POST" action="{{ url ('/FormularioProfesionalSave9') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_tratamiento">
+                @csrf
+                <div class="row content_antDesp-formProf">
+                    <!-- Contenido ANTES -->
+                    <div class="col-md-6 antes content_antes-formProf section_inputLeft-text-formProf">
+                        <div class="col-12 content_agregarImg-formProf form-group">
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Antes </label>
 
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_traProced-formProf" id="uploadPreview6"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage6" name="imgTratamientodespues[]" onchange="previewImage(6);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
-                                </div>
+                            <div class="img_selccionada-formProf">
+                                <img class="img_traProced-formProf" id="imagen-tratamiento-antes"/>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen después </label>
-
-                                <input class="form-control" id="descripcionExperiencia" placeholder="Título de la imagen" type="text" name="tituloTrataminetoDespues[]" value="">
+                            <div class="agregar_archivo-formProf">
+                                <input type='file' id="imgTratamientoAntes" name="imgTratamientoAntes" onchange="ver_imagen('imgTratamientoAntes', 'imagen-tratamiento-antes');" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}/>
                             </div>
 
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción después </label>
+                            <div class="txt_informativo-formProf">
+                                <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
+                            </div>
+                        </div>
 
-                                    <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoDespues[]" value="">
+                        <div class="col-12 section_inputLeft-text-formProf">
+                            <label for="tituloTrataminetoAntes" class="col-12 text_label-formProf"> Título de la imagen antes </label>
+                            <input class="form-control" id="tituloTrataminetoAntes" placeholder="Título de la imagen" type="text" name="tituloTrataminetoAntes" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}>
+                        </div>
 
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
+                        <div class="col-12 section_inputLeft-text-formProf">
+                            <div class="form-group">
+                                <label for="descripcionTratamientoAntes" class="col-12 text_label-formProf"> Descripción antes </label>
+                                <input class="form-control" id="descripcionTratamientoAntes" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoAntes" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}>
+                                <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Modulos de los contenidos ANTES y DESPUÉS -->
-                    <div class="row content_antDesp-formProf">
-                        <!-- Contenido ANTES -->
-                        <div class="col-md-6 antes content_antes-formProf section_inputLeft-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Antes </label>
-
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_traProced-formProf" id="uploadPreview7"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage7" name="imgTratamientoAntes[]" onchange="previewImage(7);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
-                                </div>
+                    <!-- Contenido DESPUÉS -->
+                    <div class="col-md-6 despues content_despues-formProf section_inputRight-text-formProf">
+                        <div class="col-12 content_agregarImg-formProf form-group">
+                            <label for="imgTratamientodespues" class="col-12 text_label-formProf"> Después </label>
+                            <div class="img_selccionada-formProf">
+                                <img class="img_traProced-formProf" id="imagen-tratamiento-despues"/>
                             </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen antes </label>
-
-                                <input class="form-control" id="descripcionExperiencia" placeholder="Título de la imagen" type="text" name="tituloTrataminetoAntes[]" value="">
+                            <div class="agregar_archivo-formProf">
+                                <input type='file' id="imgTratamientodespues" name="imgTratamientodespues" onchange="ver_imagen('imgTratamientodespues', 'imagen-tratamiento-despues');" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}/>
                             </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción antes </label>
-
-                                    <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoAntes[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
+                            <div class="txt_informativo-formProf">
+                                <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
                             </div>
                         </div>
+                        <div class="col-12 section_inputRight-text-formProf">
+                            <label for="tituloTrataminetoDespues" class="col-12 text_label-formProf"> Título de la imagen después </label>
+                            <input class="form-control" id="tituloTrataminetoDespues" placeholder="Título de la imagen" type="text" name="tituloTrataminetoDespues" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}>
+                        </div>
 
-                        <!-- Contenido DESPUÉS -->
-                        <div class="col-md-6 despues content_despues-formProf section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Después </label>
-
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_traProced-formProf" id="uploadPreview8"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage8" name="imgTratamientodespues[]" onchange="previewImage(8);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen después </label>
-
-                                <input class="form-control" id="descripcionExperiencia" placeholder="Título de la imagen" type="text" name="tituloTrataminetoDespues[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción después </label>
-
-                                    <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoDespues[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
+                        <div class="col-12 section_inputRight-text-formProf">
+                            <div class="form-group">
+                                <label for="descripcionTratamientoDespues" class="col-12 text_label-formProf"> Descripción después </label>
+                                <input class="form-control" id="descripcionTratamientoDespues" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoDespues" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}>
                             </div>
                         </div>
                     </div>
-            @elseif($objContadorTratamiento->cantidad == 1)
-                <!-- Modulos de los contenidos ANTES y DESPUÉS -->
-                    <div class="row content_antDesp-formProf">
-                        <!-- Contenido ANTES -->
-                        <div class="col-md-6 antes content_antes-formProf section_inputLeft-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Antes </label>
-
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_traProced-formProf" id="uploadPreview7"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage7" name="imgTratamientoAntes[]" onchange="previewImage(7);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen antes </label>
-
-                                <input class="form-control" id="descripcionExperiencia" placeholder="Título de la imagen" type="text" name="tituloTrataminetoAntes[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción antes </label>
-
-                                    <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoAntes[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido DESPUÉS -->
-                        <div class="col-md-6 despues content_despues-formProf section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Después </label>
-
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_traProced-formProf" id="uploadPreview8"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage8" name="imgTratamientodespues[]" onchange="previewImage(8);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen después </label>
-
-                                <input class="form-control" id="descripcionExperiencia" placeholder="Título de la imagen" type="text" name="tituloTrataminetoDespues[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción después </label>
-
-                                    <input class="form-control" id="descripcionExperiencia" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoDespues[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorTratamiento->cantidad == 2)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formProf"> No se pueden agregar más tratamientos y procedimientos. </label>
-                @endif
-
-                <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
-                    </button>
                 </div>
-            </form>
         </div>
-        <!--------------------------------------------      Fin 9 novena parte del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      -------------------------------------->
 
-        <!-- Secciones de los botones anterior y siguiente -->
-        <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
-            <div class="col-md-3 content_btn-anter">
-                <button type="submit" class="boton_inferior-anterior-formProf" onclick="btnHidePrevious(this)" code-position="treatmentsProcedures">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
-                    Anterior
-                </button>
-            </div>
-
-            <div class="col-md-3 content_btn-siguient">
-                <button type="submit" class="boton_inferior-siguiente-formProf" onclick="btnHideNext(this)" code-position="treatmentsProcedures"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
-                </button>
-            </div>
+        <div class="col-12 content_btnEnviar-formProf">
+            <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+            </button>
         </div>
+        </form>
+    </div>
+    <!--------------------------------------------      Fin 9 novena parte del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      -------------------------------------->
+
+    <!-- Secciones de los botones anterior y siguiente -->
+    <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
+        <div class="col-md-3 content_btn-anter">
+            <button type="submit" class="boton_inferior-anterior-formProf" onclick="btnHidePrevious(this)" code-position="treatmentsProcedures">
+                <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                Anterior
+            </button>
+        </div>
+
+        <div class="col-md-3 content_btn-siguient">
+            <button type="submit" class="boton_inferior-siguiente-formProf" onclick="btnHideNext(this)" code-position="treatmentsProcedures"> Siguiente
+                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+            </button>
+        </div>
+    </div>
     </div>
 
     <!-- 4* Contenedor principal de la tarjeta PREMIOS Y RECONOCIMIENTOS -->

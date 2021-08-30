@@ -1011,44 +1011,81 @@ class formularioProfesionalController extends Controller
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 9----------------------*/
     public function create9(Request $request){
 
+        /*id usuario logueado*/
+        $id_user=auth()->user()->id;
+
         /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
         $verificaPerfil = $this->verificaPerfil();
 
         foreach($verificaPerfil as $verificaPerfil){
             $idProProfesi=$verificaPerfil;
         }
-        /*id usuario logueado*/
-        $id_user=auth()->user()->id;
 
-        unset($request['_token']);
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'imgTratamientoAntes' => ['required', 'image'],
+            'tituloTrataminetoAntes' => ['required'],
+            'descripcionTratamientoAntes' => ['required', 'max:160'],
+            'imgTratamientodespues' => ['required', 'image'],
+            'tituloTrataminetoDespues' => ['required'],
+            'descripcionTratamientoDespues' => ['required', 'max:160'],
+        ]);
 
-        $carpetaDestino = "img/user/$id_user";
-        $imgTratamientoAntes = $request->file('imgTratamientoAntes');
-        $imgTratamientodespues = $request->file('imgTratamientodespues');
-        for ($i=0; $i < count(request('tituloTrataminetoAntes')); ++$i){
-            if(!empty($request->input('tituloTrataminetoAntes.'.$i))){
-                tratamientos::create([
-                    'idPerfilProfesional' => $idProProfesi,
-                    'imgTratamientoAntes' =>"img/user/$id_user/".$imgTratamientoAntes[$i]->getClientOriginalName(),
-                    'tituloTrataminetoAntes' => $request->input('tituloTrataminetoAntes')[$i],
-                    'descripcionTratamientoAntes' => $request->input('descripcionTratamientoAntes')[$i],
-                    'imgTratamientodespues' =>"img/user/$id_user/".$imgTratamientodespues[$i]->getClientOriginalName(),
-                    'tituloTrataminetoDespues' => $request->input('tituloTrataminetoDespues')[$i],
-                    'descripcionTratamientoDespues' => $request->input('descripcionTratamientoDespues')[$i],
-                ]);
-                $imgTratamientoAntes[$i]->move($carpetaDestino , $imgTratamientoAntes[$i]->getClientOriginalName());
-                $imgTratamientodespues[$i]->move($carpetaDestino , $imgTratamientodespues[$i]->getClientOriginalName());
-            }
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'Ingrese correctamente la información del tratamiento'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        //validar el valor maximo de items
+        $count = tratamientos::where('idPerfilProfesional', '=', $idProProfesi)->count();
+        //$count = auth()->user()->profecional->idiomas;
+
+        if ( $count >= 2 ) {
+            return response()->json([
+                'mensaje' => 'Ingreso el maximo de tratamientos',
+                'items_max' => true
+            ], Response::HTTP_NOT_FOUND);
         }
 
 
+        //Crear el objeto
+        $tratamineto = new tratamientos();
 
-        return redirect('FormularioProfesional');
+        //asignar los datos
+        $tratamineto->idPerfilProfesional = $idProProfesi;
+        $tratamineto->tituloTrataminetoAntes = $request->tituloTrataminetoAntes;
+        $tratamineto->descripcionTratamientoAntes = $request->descripcionTratamientoAntes;
+        $tratamineto->tituloTrataminetoDespues = $request->tituloTrataminetoDespues;
+        $tratamineto->descripcionTratamientoDespues = $request->descripcionTratamientoDespues;
 
+        //manejo de imagen
+        $carpetaDestino = "img/user/$id_user";
+        $imgTratamientoAntes = $request->file('imgTratamientoAntes');
+        $imgTratamientodespues = $request->file('imgTratamientodespues');
+
+        $tratamineto->imgTratamientoAntes = $carpetaDestino . "/" . "antes-" . time() . "." . $imgTratamientoAntes->guessExtension();
+        $tratamineto->imgTratamientodespues = $carpetaDestino . "/" . "despues-" . time() . "." . $imgTratamientodespues->guessExtension();
+
+        $imgTratamientoAntes->move($carpetaDestino , $tratamineto->imgTratamientoAntes);
+        $imgTratamientodespues->move($carpetaDestino , $tratamineto->imgTratamientodespues);
+
+        $tratamineto->save();
+        //agrgar 1 suma uno
+        $count++;
+
+        return response()->json([
+            'mensaje' => 'Se adiciono el tratamiento',
+            'items_max' => $count >= 2,
+            'imagen_antes' => asset($tratamineto->imgTratamientoAntes),
+            'imagen_despues' => asset($tratamineto->imgTratamientodespues),
+            'id' => $tratamineto->id_tratamiento,
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 9----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 9----------------------*/
-    public function delete9($id_tratamiento){
+    public function delete9(Request $request){
 
 
         $verificaPerfil = $this->verificaPerfil();
@@ -1057,11 +1094,39 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'id' => ['required', 'exists:tratamientos,id_tratamiento']
+        ]);
 
-        $tratamientos = tratamientos::where('id_tratamiento', $id_tratamiento)->where('idPerfilProfesional', $idProProfesi);
-        $tratamientos->delete();
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'seleccione correctamente la información del idioma'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
-        return redirect('FormularioProfesional');
+        $tratamineto = tratamientos::where('id_tratamiento', $request->id)
+            ->where('idPerfilProfesional', $idProProfesi)
+            ->first();
+
+
+        //validar si se tiene permiso para el registro
+        if (empty($tratamineto))
+        {
+            return response()->json(['mensaje' => 'No se encontro el idioma'], Response::HTTP_NOT_FOUND);
+        }
+        //imagenes
+        $imgTratamientoAntes = $tratamineto->imgTratamientoAntes;
+        $imgTratamientodespues = $tratamineto->imgTratamientodespues;
+
+        $tratamineto->delete();
+
+        //eliminar imagenes
+        if (@getimagesize(public_path() . "/" . $imgTratamientoAntes)) unlink(public_path() . "/" . $imgTratamientoAntes);
+        if (@getimagesize(public_path() . "/" . $imgTratamientodespues)) unlink(public_path() . "/" . $imgTratamientodespues);
+
+        return response()->json(['mensaje' => 'El tratamiento se elimino correctamente'], Response::HTTP_OK);
 
     }
     /*-------------------------------------Fin Eliminacion formulario parte 9----------------------*/
