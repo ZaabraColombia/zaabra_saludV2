@@ -608,13 +608,11 @@ a:link, a:visited, a:active, a:hover {
         background-size: 16%;
     }
 }
-
 @media (min-width: 360px) and (orientation: portrait) {
     .ui-menu {
         height: 35vh;
     }
 }
-
 @media (min-width: 768px) and (orientation: portrait) {
     //Contenedor general
     .navbar_zaabrasalud {

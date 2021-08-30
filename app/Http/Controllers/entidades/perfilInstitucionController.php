@@ -6,6 +6,7 @@ namespace App\Http\Controllers\entidades;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\instituciones;
 
 class perfilInstitucionController extends Controller
 {
@@ -15,6 +16,7 @@ class perfilInstitucionController extends Controller
     public function index($id)
     {
         $objinstitucionlandin= $this->cargarInfoInstitucLandin($id);
+        $objinstitucionlandinimgsede= instituciones::find($id);
         $objinstitucionlandinservicios= $this->cargarInfoInstitucLandinServicios($id);
         $objinstitucionlandinprepagada= $this->cargarPrepagada($id);
         $objinstitucionlandinips= $this->cargarIps($id);
@@ -37,7 +39,8 @@ class perfilInstitucionController extends Controller
             'objinstitucionlandingaleria',
             'objinstitucionlandinvideo',
             'objinstitucionlandinSedes',
-            'objinstitucionlandInstitucion'
+            'objinstitucionlandInstitucion',
+            'objinstitucionlandinimgsede'
         ));
     }
 
