@@ -47,7 +47,7 @@
                         <a href="{{route('calendario-id-profesional', ['id' => $objcarruselprofesionalespremiun->idPerfilProfesional])}}">Agende su cita
                             <i class="fas fa-arrow-right arrow_mas"></i>
                         </a>
-                        <a href="{{url('PerfilProfesional/'.$objcarruselprofesionalespremiun->idPerfilProfesional)}}">Ver perfil
+                        <a href="{{route('calendario')}}">Ver perfil
                             <i class="fas fa-arrow-right arrow_mas"></i>
                         </a>
                      </div>
@@ -96,7 +96,7 @@
                         <a href="{{route('calendario-id-profesional', ['id' => $objmedicospagonormal->idPerfilProfesional])}}">Agendar
                             <i class="fas fa-arrow-right arrow_mas"></i>
                         </a>
-                        <a href="{{url('PerfilProfesional/'.$objmedicospagonormal->idPerfilProfesional)}}">Ver más
+                        <a href="{{route('calendario')}}">Ver más
                             <i class="fas fa-arrow-right arrow_mas"></i>
                         </a>
                       </div>
