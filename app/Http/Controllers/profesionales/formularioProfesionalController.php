@@ -1136,6 +1136,9 @@ class formularioProfesionalController extends Controller
     public function create10(Request $request){
 
 
+        /*id usuario logueado*/
+        $id_user=auth()->user()->id;
+
         /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
         $verificaPerfil = $this->verificaPerfil();
 
@@ -1143,32 +1146,64 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
-        /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'imgPremio' => ['required', 'image'],
+            'fechaPremio' => ['required', 'date_format:Y-m-d'],
+            'nombrePremio' => ['required'],
+            'descripcionPremio' => ['required', 'max:160']
+        ]);
 
-        $carpetaDestino = "img/user/$id_user";
-        $imgpremio = $request->file('imgpremio');
-        for ($i=0; $i < count(request('nombrepremio')); ++$i){
-            if(!empty($request->input('nombrepremio.'.$i))){
-                premios::create([
-                    'idPerfilProfesional' => $idProProfesi,
-                    'nombrepremio' => $request->input('nombrepremio')[$i],
-                    'imgpremio' =>"img/user/$id_user/".$imgpremio[$i]->getClientOriginalName(),
-                    'fechapremio' => $request->input('fechapremio')[$i],
-                    'descripcionpremio' => $request->input('descripcionpremio')[$i],
-                    'nombrepremio' => $request->input('nombrepremio')[$i],
-                ]);
-                $imgpremio[$i]->move($carpetaDestino , $imgpremio[$i]->getClientOriginalName());
-            }
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'Ingrese correctamente la información del premio'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        return redirect('FormularioProfesional');
+        //validar el valor maximo de items
+        $count = premios::where('idPerfilProfesional', '=', $idProProfesi)->count();
+        //$count = auth()->user()->profecional->idiomas;
 
+        if ( $count >= 4 ) {
+            return response()->json([
+                'mensaje' => 'Ingreso el maximo de tratamientos',
+                'items_max' => true
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+
+        //Crear el objeto
+        $premio = new premios();
+
+        //asignar los datos
+        $premio->idPerfilProfesional = $idProProfesi;
+        $premio->fechapremio = $request->fechaPremio;
+        $premio->nombrepremio = $request->nombrePremio;
+        $premio->descripcionpremio = $request->descripcionPremio;
+
+        //manejo de imagen
+        $carpetaDestino = "img/user/$id_user";
+        $imgPremio = $request->file('imgPremio');
+
+        $premio->imgpremio = $carpetaDestino . "/" . "premio-" . time() . "." . $imgPremio->guessExtension();
+
+        $imgPremio->move($carpetaDestino , $premio->imgpremio);
+
+        $premio->save();
+        //agrgar 1 suma uno
+        $count++;
+
+        return response()->json([
+            'mensaje' => 'Se adiciono el tratamiento',
+            'items_max' => $count >= 4,
+            'imagen' => asset($premio->imgpremio),
+            'id' => $premio->id,
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 10----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 10----------------------*/
-    public function delete10($id){
-
+    public function delete10(Request $request){
 
         $verificaPerfil = $this->verificaPerfil();
 
@@ -1176,12 +1211,37 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'id' => ['required', 'exists:premios,id']
+        ]);
 
-        $premios = premios::where('id', $id)->where('idPerfilProfesional', $idProProfesi);
-        $premios->delete();
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'seleccione correctamente el premio'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
-        return redirect('FormularioProfesional');
+        $premio = premios::where('id', $request->id)
+            ->where('idPerfilProfesional', $idProProfesi)
+            ->first();
 
+
+        //validar si se tiene permiso para el registro
+        if (empty($premio))
+        {
+            return response()->json(['mensaje' => 'No se encontro el idioma'], Response::HTTP_NOT_FOUND);
+        }
+        //imagenes
+        $imgPremio = $premio->imgTratamientoAntes;
+        $nombre = $premio->nombrepremio;
+        $premio->delete();
+
+        //eliminar imagenes
+        if (@getimagesize(public_path() . "/" . $imgPremio)) unlink(public_path() . "/" . $imgPremio);
+
+        return response()->json(['mensaje' => 'El premio "' . $nombre . '" se elimino correctamente'], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Eliminacion formulario parte 10----------------------*/
 

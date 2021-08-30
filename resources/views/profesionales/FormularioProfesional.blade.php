@@ -122,9 +122,9 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-6 section_inputRight-text-formProf">
+                            <div class="col-md-6">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-                                <select  class="col-lg-12 form-control" name="id_universidad">
+                                <select  class="col-lg-12 form-control universidades" name="id_universidad">
                                     <option value="{{$objFormulario->id_universidad}}">{{$objFormulario->nombreuniversidad}}</option>
                                     @foreach($universidades as $universidadesLista)
                                         <option value="{{$universidadesLista->id_universidad}}"> {{$universidadesLista->nombreuniversidad}}</option>
@@ -897,7 +897,6 @@
                             <label for="tituloTrataminetoDespues" class="col-12 text_label-formProf"> Título de la imagen después </label>
                             <input class="form-control" id="tituloTrataminetoDespues" placeholder="Título de la imagen" type="text" name="tituloTrataminetoDespues" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}>
                         </div>
-
                         <div class="col-12 section_inputRight-text-formProf">
                             <div class="form-group">
                                 <label for="descripcionTratamientoDespues" class="col-12 text_label-formProf"> Descripción después </label>
@@ -906,32 +905,31 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-12 content_btnEnviar-formProf">
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                    </button>
+                </div>
+            </form>
         </div>
 
-        <div class="col-12 content_btnEnviar-formProf">
-            <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
-                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
-            </button>
-        </div>
-        </form>
-    </div>
-    <!--------------------------------------------      Fin 9 novena parte del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      -------------------------------------->
+        <!--------------------------------------------      Fin 9 novena parte del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      -------------------------------------->
 
-    <!-- Secciones de los botones anterior y siguiente -->
-    <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
-        <div class="col-md-3 content_btn-anter">
-            <button type="submit" class="boton_inferior-anterior-formProf" onclick="btnHidePrevious(this)" code-position="treatmentsProcedures">
-                <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
-                Anterior
-            </button>
-        </div>
+        <!-- Secciones de los botones anterior y siguiente -->
+        <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
+            <div class="col-md-3 content_btn-anter">
+                <button type="submit" class="boton_inferior-anterior-formProf" onclick="btnHidePrevious(this)" code-position="treatmentsProcedures">
+                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    Anterior
+                </button>
+            </div>
 
-        <div class="col-md-3 content_btn-siguient">
-            <button type="submit" class="boton_inferior-siguiente-formProf" onclick="btnHideNext(this)" code-position="treatmentsProcedures"> Siguiente
-                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
-            </button>
+            <div class="col-md-3 content_btn-siguient">
+                <button type="submit" class="boton_inferior-siguiente-formProf" onclick="btnHideNext(this)" code-position="treatmentsProcedures"> Siguiente
+                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                </button>
+            </div>
         </div>
-    </div>
     </div>
 
     <!-- 4* Contenedor principal de la tarjeta PREMIOS Y RECONOCIMIENTOS -->
@@ -941,36 +939,30 @@
             <h5 class="col-12 icon_infoPremReco-formProf"> Premios y reconocimientos </h5>
 
             <p class="text_superior-proced-formProf"> A continuación suba imágenes relacionadas con sus premios y reconocimientos, con nombre y descripción. </p>
-
+            <div id="mensajes-premios"></div>
             <!-- Modulo de los PREMIOS con información -->
-            <div class="premios_guardada-formProf">
-            @foreach($objPremios as $objPremios)
-                @if(!empty($objPremios->nombrepremio))
+            <div class="premios_guardada-formProf" id="lista-premios">
+                <?php $counto_premios = 0; ?>
+            @foreach($objPremios as $premios)
+                @if(!empty($premios->nombrepremio))
+                    <?php $counto_premios++; ?>
                     <!-- Contenido PREMIO -->
                         <div class="section_infoExper-formProf">
                             <div class="col-12 content_btnDelet-trata-formProf">
-                                <a href="{{url('/FormularioProfesionaldelete10/'.$objPremios->id)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <button type="submit" class="close" aria-label="Close" data-id="{{ $premios->id }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-
                             <div class="col-12 mt-2 p-0">
                                 <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" src="{{URL::asset($objPremios->imgpremio)}}">
+                                    <img class="img_anexada-formProf" src="{{URL::asset($premios->imgpremio)}}">
                                 </div>
-
                                 <div class="col-12 p-0 mt-2">
-                                    <label class="col-12 text_fechaPremio-formProf"> {{$objPremios->fechapremio}} </label>
+                                    <label class="col-12 text_fechaPremio-formProf"> {{$premios->fechapremio}} </label>
                                 </div>
-
                                 <div class="col-12 text_label-formProf">
-                                    <label class="col-12 title_infoGuardada-formProf"> {{$objPremios->nombrepremio}}  </label>
+                                    <label class="col-12 title_infoGuardada-formProf"> {{$premios->nombrepremio}}  </label>
                                 </div>
-
                                 <div class="col-12 descripcion_Premio-formProf">
-                                    <label class="col-12 text_descPremio-formProf"> {{$objPremios->descripcionpremio}} </label>
+                                    <label class="col-12 text_descPremio-formProf"> {{$premios->descripcionpremio}} </label>
                                 </div>
                             </div>
                         </div>
@@ -979,426 +971,46 @@
             </div>
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave10') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_premio">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                @csrf
 
-            @if($objContadorPremios->cantidad == 0)
-                <!-- Modulo de los PREMIOS sin información-->
-                    <div class="row content_antDesp-formProf">
-                        <!-- Contenido PREMIO izquierdo -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formProf content_antes-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview9"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage9" name="imgpremio[]" onchange="previewImage(9);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
+                <div class="row content_antDesp-formProf justify-content-center">
+                    <!-- Contenido PREMIO izquierdo -->
+                    <div class="col-md-6">
+                        <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
+                            <div class="img_selccionada-formProf">
+                                <img class="img_anexada-formProf" id="img-premio"/>
                             </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
+                            <div class="agregar_archivo-formProf">
+                                <input type='file' id="imgPremio" name="imgPremio" onchange="ver_imagen('imgPremio', 'img-premio');" {{ ($counto_premios >= 4) ? 'disabled' : '' }}/>
                             </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 1 </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
-
-                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
+                            <div class="txt_informativo-formProf">
+                                <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                             </div>
                         </div>
 
-                        <!-- Contenido PREMIO derecho -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
-                            <div class="col-12 section_inputRight-text-formProf content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview10"/>
-                                </div>
+                        <div class="col-12 section_inputLeft-text-formProf">
+                            <label for="fechaPremio" class="col-12 text_label-formProf"> Fecha de inicio </label>
+                            <input class="form-control" type="date"  id="fechaPremio" name="fechaPremio" {{ ($counto_premios >= 4) ? 'disabled' : '' }}>
+                        </div>
 
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage10" name="imgpremio[]" onchange="previewImage(10);"/>
-                                </div>
+                        <div class="col-12 section_inputLeft-text-formProf">
+                            <label for="nombrePremio" class="col-12 text_label-formProf"> Título de la imagen 1 </label>
+                            <input class="form-control" id="nombrePremio" placeholder="Título de la imagen" type="text" name="nombrePremio" {{ ($counto_premios >= 4) ? 'disabled' : '' }}>
+                        </div>
 
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 2 </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
-
-                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
+                        <div class="col-12 section_inputLeft-text-formProf">
+                            <div class="form-group">
+                                <label for="descripcionPremio" class="col-12 text_label-formProf"> Descripción del premio </label>
+                                <input class="form-control" id="descripcionPremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionPremio" {{ ($counto_premios >= 4) ? 'disabled' : '' }}>
+                                <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Modulo de los PREMIOS sin información-->
-                    <div class="row content_antDesp-formProf">
-                        <!-- Contenido PREMIO izquierdo -->
-                        <div class="col-md-6 photo3  section_inputLeft-text-formProf content_antes-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview11"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage11" name="imgpremio[]" onchange="previewImage(11);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 3 </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
-
-                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionpremio[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido PREMIO derecho -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formProf">
-                            <div class="col-12 section_inputRight-text-formProf content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage12" name="imgpremio[]" onchange="previewImage(12);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
-
-                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-            @elseif($objContadorPremios->cantidad == 1)
-                <!-- Modulo de los PREMIOS sin información-->
-                    <div class="row content_antDesp-formProf">
-                        <!-- Contenido PREMIO derecho -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
-                            <div class="col-12 section_inputRight-text-formProf content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview10"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage10" name="imgpremio[]" onchange="previewImage(10);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 2 </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
-
-                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulo de los PREMIOS sin información-->
-                    <div class="row content_antDesp-formProf">
-                        <!-- Contenido PREMIO izquierdo -->
-                        <div class="col-md-6 photo3  section_inputLeft-text-formProf content_antes-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview11"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage11" name="imgpremio[]" onchange="previewImage(11);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 3 </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
-
-                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionpremio[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido PREMIO derecho -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formProf">
-                            <div class="col-12 section_inputRight-text-formProf content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage12" name="imgpremio[]" onchange="previewImage(12);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
-
-                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-            @elseif($objContadorPremios->cantidad == 2)
-                <!-- Modulo de los PREMIOS sin información-->
-                    <div class="row content_antDesp-formProf">
-                        <!-- Contenido PREMIO izquierdo -->
-                        <div class="col-md-6 photo3  section_inputLeft-text-formProf content_antes-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview11"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage11" name="imgpremio[]" onchange="previewImage(11);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 3 </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
-
-                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionpremio[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido PREMIO derecho -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formProf">
-                            <div class="col-12 section_inputRight-text-formProf content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage12" name="imgpremio[]" onchange="previewImage(12);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
-
-                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-            @elseif($objContadorPremios->cantidad == 3)
-                <!-- Modulo de los PREMIOS sin información-->
-                    <div class="row content_antDesp-formProf">
-                        <!-- Contenido PREMIO derecho -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formProf">
-                            <div class="col-12 section_inputRight-text-formProf content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage12" name="imgpremio[]" onchange="previewImage(12);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de inicio </label>
-
-                                <input class="form-control" type="date"  id="fechapremio" name="fechapremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la imagen 4 </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrepremio[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción del premio </label>
-
-                                    <input class="form-control" id="descripcionpremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionpremio[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorPremios->cantidad == 4)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formProf"> No se pueden agregar más premios y reconocimientos. </label>
-                @endif
+                </div>
 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-premio"> Guardar
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf">
                     </button>
                 </div>
             </form>

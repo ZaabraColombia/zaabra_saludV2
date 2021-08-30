@@ -1069,7 +1069,174 @@ $('#lista-tratamientos').on('click', '.close' , function (e) {
 
 
 /*-------------------- Inicio Cuarta Parte del Formulario Descripcion Perfil Profesional----------------------------------*/
+$('#formulario_premio').validate({
+    rules: {
+        'imgPremio': {
+            required: true,
+            //extension: "jpg|png"
+        },
+        'fechaPremio': {
+            required: true,
+        },
+        'nombrePremio': {
+            required: true,
+        },
+        'descripcionPremio': {
+            required: true,
+            minlength: 0,
+            maxlength: 160,
+        }
+    },
+    messages: {
+        'imgPremio':{
+            required: "Ingrese la imagen del premio",
+            //extension: "Solo se acepta imagenes jpg y png"
+        },
+        'fechaPremio':{
+            required: "Ingrese la fecha del premio",
+        },
+        'nombrePremio':{
+            required: "Ingrese el titulo del premio",
+        },
+        'descripcionPremio':{
+            required: "Ingrese la descripción del premio",
+            minlength: "Ingrese La cantidad minima de caracteres",
+            maxlength: "la cantidad maxima de caracteres es de 160."
+        }
+    },
+    submitHandler: function(form) {
 
+        var formulario = $('#formulario_premio')[0];
+
+        var data = new FormData(formulario);
+
+
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            enctype: 'multipart/form-data',
+            url:  "FormularioProfesionalSave10",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            success: function( response ) {
+                $('#mensajes-premios').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+
+                if (response.items_max)
+                {
+                    $('#imgPremio').attr('disabled', 'disabled');
+                    $('#fechaPremio').attr('disabled', 'disabled');
+                    $('#nombrePremio').attr('disabled', 'disabled');
+                    $('#descripcionPremio').attr('disabled', 'disabled');
+                    $('#boton-guardar-premio').attr('disabled', 'disabled');
+                }
+
+                $('#lista-premios').append('<div class="section_infoExper-formProf">\n' +
+                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 mt-2 p-0">\n' +
+                    '<div class="img_selccionada-formProf">\n' +
+                    '<img class="img_anexada-formProf" src="' + response.imagen + '">\n' +
+                    '</div>\n' +
+                    '<div class="col-12 p-0 mt-2">\n' +
+                    '<label class="col-12 text_fechaPremio-formProf"> ' + $('#fechaPremio').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 text_label-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombrePremio').val() + '  </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 descripcion_Premio-formProf">\n' +
+                    '<label class="col-12 text_descPremio-formProf"> ' + $('#descripcionPremio').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                document.getElementById("formulario_premio").reset();
+                $('#img-premio').removeAttr('src');
+            },
+            error: function (event) {
+                var response = event.responseJSON;
+                $('#mensajes-premios').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
+                if (response.items_max)
+                {
+                    $('#imgPremio').attr('disabled', 'disabled');
+                    $('#fechaPremio').attr('disabled', 'disabled');
+                    $('#nombrePremio').attr('disabled', 'disabled');
+                    $('#descripcionPremio').attr('disabled', 'disabled');
+                    $('#boton-guardar-premio').attr('disabled', 'disabled');
+                }
+            }
+        });
+    }
+});
+
+$('#lista-premios').on('click', '.close' , function (e) {
+    var button = $(this);
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  "FormularioProfesionaldelete10",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            $('#mensajes-premios').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+
+            //quitar el disabled
+            $('#imgPremio').removeAttr('disabled');
+            $('#fechaPremio').removeAttr('disabled');
+            $('#nombrePremio').removeAttr('disabled');
+            $('#descripcionPremio').removeAttr('disabled');
+            $('#boton-guardar-premio').removeAttr('disabled');
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            var response = event.responseJSON;
+            $('#mensajes-premios').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+        }
+    });
+
+});
 /*------------------------------ Fin Cuarta Parte del Formulario Descripcion Perfil Profesional------------------------------*/
 
 /*-------------------- Inicio Quinta Parte del Formulario Educacion Perfil Profesional----------------------------------*/
