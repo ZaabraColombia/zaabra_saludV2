@@ -398,7 +398,7 @@ $('#consultas-lista').on('click', '.close' , function (e) {
 });
 /*--------------------------- Fin Primera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 
-/*-------------------------- Inicio Segunda Parte del Formulario Descripcion Perfil Profesional------------------------------*/
+/*-------------------------- Inicio Segunda Parte del Formulario Perfil Profesional------------------------------*/
 $('#formulario_descripcion').validate({
     rules: {
         descripcionPerfil: {
@@ -856,9 +856,9 @@ $('#lista-idioma').on('click', '.close' , function (e) {
 });
 
 
-/*--------------------------- Fin Segunda Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
+/*--------------------------- Fin Segunda Parte del Formulario Perfil Profesional-------------------------------*/
 
-/*-------------------------- Inicio Tercera Parte del Formulario Descripcion Perfil Profesional------------------------------*/
+/*-------------------------- Inicio Tercera Parte del Formulario Perfil Profesional------------------------------*/
 $('#formulario_tratamiento').validate({
     rules: {
         'imgTratamientoAntes': {
@@ -1065,10 +1065,10 @@ $('#lista-tratamientos').on('click', '.close' , function (e) {
 
 });
 
-/*--------------------------- Fin Tercera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
+/*--------------------------- Fin Tercera Parte del Formulario Perfil Profesional-------------------------------*/
 
 
-/*-------------------- Inicio Cuarta Parte del Formulario Descripcion Perfil Profesional----------------------------------*/
+/*-------------------- Inicio Cuarta Parte del Formulario Perfil Profesional----------------------------------*/
 $('#formulario_premio').validate({
     rules: {
         'imgPremio': {
@@ -1237,9 +1237,9 @@ $('#lista-premios').on('click', '.close' , function (e) {
     });
 
 });
-/*------------------------------ Fin Cuarta Parte del Formulario Descripcion Perfil Profesional------------------------------*/
+/*------------------------------ Fin Cuarta Parte del Formulario Perfil Profesional------------------------------*/
 
-/*-------------------- Inicio Quinta Parte del Formulario Educacion Perfil Profesional----------------------------------*/
+/*-------------------- Inicio Quinta Parte del Formulario Perfil Profesional----------------------------------*/
 
 $('#formulario_publicaciones').validate({
     rules: {
@@ -1398,4 +1398,173 @@ $('#lista-publicacion').on('click', '.close' , function (e) {
 
 });
 
-/*------------------------------ Fin Quinta Parte del Formulario Educacion Perfil Profesional------------------------------*/
+/*------------------------------ Fin Quinta Parte del Formulario Perfil Profesional------------------------------*/
+/*-------------------- Inicio Sexta Parte del Formulario Perfil Profesional----------------------------------*/
+$('#formulario_fotos').validate({
+    rules: {
+        'imgFoto': {
+            required: true,
+            //extension: "jpg|png"
+        },
+        'fechaFoto': {
+            required: true,
+        },
+        'nombreFoto': {
+            required: true,
+        },
+        'descripcionFoto': {
+            required: true,
+            minlength: 0,
+            maxlength: 160,
+        }
+    },
+    messages: {
+        'imgFoto':{
+            required: "Ingrese la imagen del premio",
+            //extension: "Solo se acepta imagenes jpg y png"
+        },
+        'fechaFoto':{
+            required: "Ingrese la fecha del premio",
+        },
+        'nombreFoto':{
+            required: "Ingrese el titulo del premio",
+        },
+        'descripcionFoto':{
+            required: "Ingrese la descripción del premio",
+            minlength: "Ingrese La cantidad minima de caracteres",
+            maxlength: "la cantidad maxima de caracteres es de 160."
+        }
+    },
+    submitHandler: function(form) {
+
+        var formulario = $('#formulario_fotos')[0];
+
+        var data = new FormData(formulario);
+
+
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            enctype: 'multipart/form-data',
+            url:  "FormularioProfesionalSave12",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            success: function( response ) {
+                $('#mensajes-fotos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+
+                if (response.items_max)
+                {
+                    $('#imgFoto').attr('disabled', 'disabled');
+                    $('#fechaFoto').attr('disabled', 'disabled');
+                    $('#nombreFoto').attr('disabled', 'disabled');
+                    $('#descripcionFoto').attr('disabled', 'disabled');
+                    $('#boton-guardar-foto').attr('disabled', 'disabled');
+                }
+
+                $('#lista-fotos').append('<div class="section_infoExper-formProf">\n' +
+                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 my-2 p-0">\n' +
+                    '<div class="img_selccionada-formProf">\n' +
+                    '<img  class="img_anexada-formProf" src="' + response.imagen + '">\n' +
+                    '</div>\n' +
+                    '<div class="col-12 mt-2 text_label-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombreFoto').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 descripcion_Premio-formProf">\n' +
+                    '<label class="col-12 text_descPremio-formProf"> ' + $('#descripcionFoto').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                document.getElementById("formulario_fotos").reset();
+                $('#img-foto').removeAttr('src');
+            },
+            error: function (event) {
+                var response = event.responseJSON;
+                $('#mensajes-fotos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
+                if (response.items_max)
+                {
+                    $('#imgFoto').attr('disabled', 'disabled');
+                    $('#fechaFoto').attr('disabled', 'disabled');
+                    $('#nombreFoto').attr('disabled', 'disabled');
+                    $('#descripcionFoto').attr('disabled', 'disabled');
+                    $('#boton-guardar-foto').attr('disabled', 'disabled');
+                }
+            }
+        });
+    }
+});
+
+$('#lista-fotos').on('click', '.close' , function (e) {
+    var button = $(this);
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  "FormularioProfesionaldelete12",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            $('#mensajes-fotos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+
+            //quitar el disabled
+            $('#imgFoto').removeAttr('disabled');
+            $('#fechaFoto').removeAttr('disabled');
+            $('#nombreFoto').removeAttr('disabled');
+            $('#descripcionFoto').removeAttr('disabled');
+            $('#boton-guardar-foto').removeAttr('disabled');
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            var response = event.responseJSON;
+            $('#mensajes-fotos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+        }
+    });
+
+});
+
+
+/*------------------------------ Fin Sexta Parte del Formulario Perfil Profesional------------------------------*/
