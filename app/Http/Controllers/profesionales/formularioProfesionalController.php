@@ -294,7 +294,7 @@ class formularioProfesionalController extends Controller
     }
 
     public function  cargaIdiomas($id_user){
-        return DB::select("SELECT usi.id_idioma, i.nombreidioma, i.imgidioma
+        return DB::select("SELECT usi.idUsuarioIdiomas, usi.id_idioma, i.nombreidioma, i.imgidioma
     FROM perfilesprofesionales pf
     INNER JOIN users us   ON pf.idUser=us.id
     LEFT JOIN  usuario_idiomas usi ON pf.idPerfilProfesional= usi.idPerfilProfesional
@@ -957,17 +957,16 @@ class formularioProfesionalController extends Controller
         $count++;
 
         return response()->json([
-            'mensaje' => 'Se adicionoel idioma "' . $idioma->idioma->nombreidioma . '"',
-            'items_max' => $count >= 4,
+            'mensaje' => 'Se adiciono el idioma "' . $idioma->idioma->nombreidioma . '"',
+            'items_max' => $count >= 3,
             'idioma' => $idioma->idioma->nombreidioma,
             'image' => asset($idioma->idioma->imgidioma),
-            'id' => $idioma->id_idioma,
+            'id' => $idioma->idUsuarioIdiomas,
         ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 8----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 8----------------------*/
-    public function delete8($id_idioma){
-
+    public function delete8(Request $request){
 
         $verificaPerfil = $this->verificaPerfil();
 
@@ -975,12 +974,35 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'id' => ['required', 'exists:usuario_idiomas,idUsuarioIdiomas']
+        ]);
 
-        $usuario_idiomas = usuario_idiomas::where('id_idioma', $id_idioma)->where('idPerfilProfesional', $idProProfesi);
-        $usuario_idiomas->delete();
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'seleccione correctamente la información del idioma'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
-        return redirect('FormularioProfesional');
+        $usuario_idioma = usuario_idiomas::where('idUsuarioIdiomas', $request->id)
+            ->where('idPerfilProfesional', $idProProfesi)
+            ->first();
 
+
+        //validar si se tiene permiso para el registro
+        if (empty($usuario_idioma))
+        {
+            return response()->json(['mensaje' => 'No se encontro el idioma'], Response::HTTP_NOT_FOUND);
+        }
+
+        //Eliminar experiencia
+        $nombre = $usuario_idioma->idioma->nombreidioma;
+        //dd($usuario_idioma);
+        $usuario_idioma->delete();
+
+        return response()->json(['mensaje' => 'El idioma "' . $nombre . '" se elimino correctamente'], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Eliminacion formulario parte 8----------------------*/
 

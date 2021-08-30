@@ -15,6 +15,8 @@ class usuario_idiomas extends Model
         'created_at'
     ];
 
+    protected $primaryKey = 'idUsuarioIdiomas';
+
     public function idioma()
     {
         return $this->belongsTo(idiomas::class, 'id_idioma', 'id_idioma');

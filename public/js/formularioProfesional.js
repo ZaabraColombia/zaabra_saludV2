@@ -778,7 +778,7 @@ $('#formulario_idioma').validate({
 
                 $('#lista-idioma').append('<div class="section_infoAsocia-formProf">\n' +
                     '<div class="col-12 content_btnX-cierre-formProf">\n' +
-                    '<button type="submit" class="close" aria-label="Close" id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
                     '</div>\n' +
                     '<div class="">\n' +
                     '<img id="imagenPrevisualizacion" class="img_bandera-forProf" src="' + response.image + '">\n' +
@@ -811,7 +811,7 @@ $('#formulario_idioma').validate({
     }
 });
 
-$('#idioma-lista').on('click', '.close' , function (e) {
+$('#lista-idioma').on('click', '.close' , function (e) {
     var button = $(this);
     var id = $(this).data('id');
 

@@ -733,12 +733,13 @@
             <div id="mensaje-idioma"></div>
             <div class="idioma_guardada-formProf" id="lista-idioma">
                 <?php $count_idiomas = 0; ?>
+
                 @foreach($objIdiomas as $idioma)
                     @if(!empty($idioma->imgidioma))
                             <?php $count_idiomas++; ?>
                         <div class="section_infoAsocia-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
-                                <button type="submit" class="close" aria-label="Close" id="{{ $idioma->id_idioma }}"><span aria-hidden="true">&times;</span></button>
+                                <button type="submit" class="close" aria-label="Close" data-id="{{ $idioma->idUsuarioIdiomas }}"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="">
                                 <img id="imagenPrevisualizacion" class="img_bandera-forProf" src="{{URL::asset($idioma->imgidioma)}}">
