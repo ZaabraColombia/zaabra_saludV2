@@ -1241,57 +1241,161 @@ $('#lista-premios').on('click', '.close' , function (e) {
 
 /*-------------------- Inicio Quinta Parte del Formulario Educacion Perfil Profesional----------------------------------*/
 
-$('#formulario_educacion').validate({
+$('#formulario_publicaciones').validate({
     rules: {
-        'id_universidad[]': {
+        'imagePublicacion': {
             required: true,
-            selecttext: false,
+            //extension: "jpg|png"
         },
-        'fechaestudio[]': {
-            required: true,
-            date: true,
-        },
-        'nombreestudio[]': {
+        'nombrePublicacion': {
             required: true,
         },
+        'descripcionPremio': {
+            required: true,
+            minlength: 0,
+            maxlength: 160,
+        }
     },
     messages: {
-        'id_universidad[]':{
-            required: "Por favor seleccione una universidad",
+        'imagePublicacion':{
+            required: "Ingrese la imagen de la publicación",
+            //extension: "Solo se acepta imagenes jpg y png"
         },
-        'fechaestudio[]':{
-            required: "Por favor Seleccione la fecha en que  finalizó su estudio",
+        'nombrePublicacion':{
+            required: "Ingrese el titulo de la publicación",
         },
-        'nombreestudio[]':{
-            required: "Por favor Ingrese el titulo obtenido ",
-        },
+        'descripcionPublicacion':{
+            required: "Ingrese la descripción de la publicación",
+            minlength: "Ingrese La cantidad minima de caracteres",
+            maxlength: "la cantidad maxima de caracteres es de 160."
+        }
     },
     submitHandler: function(form) {
+
+        var formulario = $('#formulario_publicaciones')[0];
+
+        var data = new FormData(formulario);
+
+
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        /*Se cambia el texto al boton por enviando*/
-        $('#envia_estudios').html('Enviando..');
-        $.ajax({
-            url:  "FormularioProfesionalSave5",
-            type: "POST",
-            data: $('#formulario_educacion').serialize(),
-            success: function( response ) {
-                $('#envia_estudios').hide();
-                $('#res_message_consulta').show();
-                $('#res_message_consulta').html(response.msg);
-                $('#msg_consulta').removeClass('d-none');
 
-                document.getElementById("#formulario_educacion").reset();
-                setTimeout(function(){
-                    $('#res_message_consulta').hide();
-                    $('#msg_consulta').hide();
-                },10000);
+        $.ajax({
+            enctype: 'multipart/form-data',
+            url:  "FormularioProfesionalSave11",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            success: function( response ) {
+                $('#mensajes-publicacion').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+
+                if (response.items_max)
+                {
+                    $('#imagePublicacion').attr('disabled', 'disabled');
+                    $('#nombrePublicacion').attr('disabled', 'disabled');
+                    $('#descripcionPublicacion').attr('disabled', 'disabled');
+                    $('#boton-guardar-publicacion').attr('disabled', 'disabled');
+                }
+
+                $('#lista-publicacion').append('<div class="section_infoExper-formProf">\n' +
+                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 my-2">\n' +
+                    '<div class="img_selccionada-formProf">\n' +
+                    '<img class="img_anexada-formProf" src="' + response.imagen + '">\n' +
+                    '</div>\n' +
+                    '<div class="col-12 mt-2 text_label-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombrePublicacion').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 descripcion_Premio-formProf">\n' +
+                    '<label class="col-12 text_descPremio-formProf"> ' + $('#descripcionPublicacion').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                document.getElementById("formulario_publicaciones").reset();
+                $('#img-publicacion').removeAttr('src');
+            },
+            error: function (event) {
+                var response = event.responseJSON;
+                $('#mensajes-publicacion').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
+                if (response.items_max)
+                {
+                    $('#imagePublicacion').attr('disabled', 'disabled');
+                    $('#nombrePublicacion').attr('disabled', 'disabled');
+                    $('#descripcionPublicacion').attr('disabled', 'disabled');
+                    $('#boton-guardar-publicacion').attr('disabled', 'disabled');
+                }
             }
         });
     }
-})
+});
+
+$('#lista-publicacion').on('click', '.close' , function (e) {
+    var button = $(this);
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  "FormularioProfesionaldelete11",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            $('#mensajes-publicacion').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+
+            //quitar el disabled
+            $('#imagePublicacion').removeAttr('disabled');
+            $('#nombrePublicacion').removeAttr('disabled');
+            $('#descripcionPublicacion').removeAttr('disabled');
+            $('#boton-guardar-publicacion').removeAttr('disabled');
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            var response = event.responseJSON;
+            $('#mensajes-publicacion').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+        }
+    });
+
+});
+
 /*------------------------------ Fin Quinta Parte del Formulario Educacion Perfil Profesional------------------------------*/

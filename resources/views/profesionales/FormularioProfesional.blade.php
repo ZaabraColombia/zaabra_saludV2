@@ -1041,32 +1041,25 @@
             <h5 class="col-12 icon_infoPublic-formProf"> Publicaciones </h5>
 
             <p class="text_superior-proced-formProf"> A continuación suba imágenes de las publicaciones que ha realizado a lo largo de su experiencia. </p>
-
+            <div id="mensajes-publicacion"></div>
             <!-- Modulo de las PUBLICAIONES con información -->
-            <div class="premios_guardada-formProf">
-            @foreach($Publicaciones as $Publicaciones)
-                @if(!empty($Publicaciones->nombrepublicacion))
+            <div class="premios_guardada-formProf" id="lista-publicacion">
+            @foreach($Publicaciones as $publicacion)
+                @if(!empty($publicacion->nombrepublicacion))
                     <!-- Contenido PUBLICACIÓN -->
                         <div class="section_infoExper-formProf">
                             <div class="col-12 content_btnDelet-trata-formProf">
-                                <a href="{{url('/FormularioProfesionaldelete11/'.$Publicaciones->id)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <button type="submit" class="close" aria-label="Close" data-id="{{ $publicacion->id }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-
                             <div class="col-12 my-2">
                                 <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" src="{{URL::asset($Publicaciones->imgpublicacion)}}">
+                                    <img class="img_anexada-formProf" src="{{URL::asset($publicacion->imgpublicacion)}}">
                                 </div>
-
                                 <div class="col-12 mt-2 text_label-formProf">
-                                    <label class="col-12 title_infoGuardada-formProf"> {{$Publicaciones->nombrepublicacion}} </label>
+                                    <label class="col-12 title_infoGuardada-formProf"> {{$publicacion->nombrepublicacion}} </label>
                                 </div>
-
                                 <div class="col-12 descripcion_Premio-formProf">
-                                    <label class="col-12 text_descPremio-formProf"> {{$Publicaciones->descripcion}} </label>
+                                    <label class="col-12 text_descPremio-formProf"> {{$publicacion->descripcion}} </label>
                                 </div>
                             </div>
                         </div>
@@ -1075,362 +1068,38 @@
             </div>
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave11') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_publicaciones">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-            @if($objContadorPublicaciones->cantidad == 0)
-                <!-- Modulos del contenido PUBLICACIONES -->
-                    <div class="row content_antDesp-formProf">
-                        <!-- Contenido publicación left -->
-                        <div class="col-md-6 photo1 section_inputLeft-text-formProf content_antes-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview13"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage13" name="imgpublicacion[]" onchange="previewImage(13);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
-                                </div>
+                @csrf
+                <div class="row content_antDesp-formProf justify-content-center">
+                    <!-- Contenido publicación left -->
+                    <div class="col-md-6 photo1 section_inputLeft-text-formProf content_antes-formProf">
+                        <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
+                            <div class="img_selccionada-formProf">
+                                <img class="img_anexada-formProf" id="img-publicacion"/>
                             </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
+                            <div class="agregar_archivo-formProf">
+                                <input type='file' id="imagePublicacion" name="imagePublicacion" onchange="ver_imagen('imagePublicacion', 'img-publicacion');" />
                             </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio" maxlength="160" placeholder="Escribir descripción..." type="text" name="descripcion[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
+                            <div class="txt_informativo-formProf">
+                                <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
                             </div>
                         </div>
 
-                        <!-- Contenido publicación right -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview14"/>
-                                </div>
+                        <div class="col-12 section_inputLeft-text-formProf">
+                            <label for="nombrePublicacion" class="col-12 text_label-formProf"> Título de la publicación </label>
+                            <input class="form-control" id="nombrePublicacion" placeholder="Título de la publicación" type="text" name="nombrePublicacion" value="">
+                        </div>
 
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage14" name="imgpublicacion[]" onchange="previewImage(14);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
-
-                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
+                        <div class="col-12 section_inputLeft-text-formProf">
+                            <div class="form-group">
+                                <label for="descripcionPublicacion" class="col-12 text_label-formProf"> Descripción </label>
+                                <input class="form-control" id="descripcionPublicacion" maxlength="160" placeholder="Escribir descripción..." type="text" name="descripcionPublicacion" value="">
+                                <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Modulos del contenido PUBLICACIONES -->
-                    <div class="row content_antDesp-formProf">
-                        <!-- Contenido publicación left -->
-                        <div class="col-md-6 photo3 section_inputLeft-text-formProf content_antes-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview15"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage15" name="imgpublicacion[]" onchange="previewImage(15);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio" maxlength="160" placeholder="Escribir descripción..." type="text" name="descripcion[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido publicación right -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview16"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage16" name="imgpublicacion[]" onchange="previewImage(16);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
-
-                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            @elseif($objContadorPublicaciones->cantidad == 1)
-                <!-- Modulos del contenido PUBLICACIONES -->
-                    <div class="row content_antDesp-formProf">
-                        <!-- Contenido publicación right -->
-                        <div class="col-md-6 photo2 section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview14"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage14" name="imgpublicacion[]" onchange="previewImage(14);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
-
-                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulos del contenido PUBLICACIONES -->
-                    <div class="row content_antDesp-formProf">
-                        <!-- Contenido publicación left -->
-                        <div class="col-md-6 photo3 section_inputLeft-text-formProf content_antes-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview15"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage15" name="imgpublicacion[]" onchange="previewImage(15);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio" maxlength="160" placeholder="Escribir descripción..." type="text" name="descripcion[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido publicación right -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview16"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage16" name="imgpublicacion[]" onchange="previewImage(16);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
-
-                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            @elseif($objContadorPublicaciones->cantidad == 2)
-                <!-- Modulos del contenido PUBLICACIONES -->
-                    <div class="row content_antDesp-formProf">
-                        <!-- Contenido publicación left -->
-                        <div class="col-md-6 photo3 section_inputLeft-text-formProf content_antes-formProf">
-                            <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview15"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage15" name="imgpublicacion[]" onchange="previewImage(15);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputLeft-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción </label>
-
-                                    <input class="form-control" id="nombrepremio" maxlength="160" placeholder="Escribir descripción..." type="text" name="descripcion[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido publicación right -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview16"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage16" name="imgpublicacion[]" onchange="previewImage(16);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
-
-                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            @elseif($objContadorPublicaciones->cantidad == 3)
-                <!-- Modulos del contenido PUBLICACIONES -->
-                    <div class="row content_antDesp-formProf">
-                        <!-- Contenido publicación right -->
-                        <div class="col-md-6 photo4 section_inputRight-text-formProf">
-                            <div class="col-12 content_agregarImg-formProf form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview16"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage16" name="imgpublicacion[]" onchange="previewImage(16);"/>
-                                </div>
-
-                                <div class="txt_informativo-formProf">
-                                    <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Título de la publicación </label>
-
-                                <input class="form-control" id="nombrepremio" placeholder="Título de la publicación" type="text" name="nombrepublicacion[]" value="">
-                            </div>
-
-                            <div class="col-12 section_inputRight-text-formProf">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formProf"> Descripción publicación </label>
-
-                                    <input class="form-control" id="nombrepremio" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
-
-                                    <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorPublicaciones->cantidad == 4)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formProf"> No se pueden agregar más publicaciones. </label>
-                @endif
-
+                </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-publicacion" > Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>

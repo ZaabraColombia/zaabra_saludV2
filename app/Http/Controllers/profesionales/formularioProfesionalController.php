@@ -1250,6 +1250,9 @@ class formularioProfesionalController extends Controller
     public function create11(Request $request){
 
 
+        /*id usuario logueado*/
+        $id_user=auth()->user()->id;
+
         /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
         $verificaPerfil = $this->verificaPerfil();
 
@@ -1257,30 +1260,62 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
-        /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'imagePublicacion' => ['required', 'image'],
+            'nombrePublicacion' => ['required'],
+            'descripcionPublicacion' => ['required', 'max:160']
+        ]);
 
-        $carpetaDestino = "img/user/$id_user";
-        $imgpublicacion = $request->file('imgpublicacion');
-        for ($i=0; $i < count(request('nombrepublicacion')); ++$i){
-            if(!empty($request->input('descripcion.'.$i))){
-                publicaciones::create([
-                    'idPerfilProfesional' => $idProProfesi,
-                    'nombrepublicacion' => $request->input('nombrepublicacion')[$i],
-                    'imgpublicacion' =>"img/user/$id_user/".$imgpublicacion[$i]->getClientOriginalName(),
-                    'descripcion' => $request->input('descripcion')[$i],
-                ]);
-                $imgpublicacion[$i]->move($carpetaDestino , $imgpublicacion[$i]->getClientOriginalName());
-            }
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'Ingrese correctamente la información de la publicación'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        return redirect('FormularioProfesional');
+        //validar el valor maximo de items
+        $count = publicaciones::where('idPerfilProfesional', '=', $idProProfesi)->count();
+        //$count = auth()->user()->profecional->idiomas;
 
+        if ( $count >= 4 ) {
+            return response()->json([
+                'mensaje' => 'Ingreso el maximo de publicaciones',
+                'items_max' => true
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+
+        //Crear el objeto
+        $publicacion = new publicaciones();
+
+        //asignar los datos
+        $publicacion->idPerfilProfesional = $idProProfesi;
+        $publicacion->nombrepublicacion = $request->fechaPremio;
+        $publicacion->descripcion = $request->descripcionPremio;
+
+        //manejo de imagen
+        $carpetaDestino = "img/user/$id_user";
+        $imgPublicacion = $request->file('imagePublicacion');
+
+        $publicacion->imgpublicacion = $carpetaDestino . "/" . "publicacion-" . time() . "." . $imgPublicacion->guessExtension();
+
+        $imgPublicacion->move($carpetaDestino , $publicacion->imgpublicacion);
+
+        $publicacion->save();
+        //agrgar 1 suma uno
+        $count++;
+
+        return response()->json([
+            'mensaje' => 'Se adiciono el tratamiento',
+            'items_max' => $count >= 4,
+            'imagen' => asset($publicacion->imgpublicacion),
+            'id' => $publicacion->id,
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 11----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 11----------------------*/
-    public function delete11($id){
-
+    public function delete11(Request $request){
 
         $verificaPerfil = $this->verificaPerfil();
 
@@ -1288,11 +1323,37 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'id' => ['required', 'exists:publicaciones,id']
+        ]);
 
-        $premios = publicaciones::where('id', $id)->where('idPerfilProfesional', $idProProfesi);
-        $premios->delete();
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'seleccione correctamente la publicación'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
-        return redirect('FormularioProfesional');
+        $publicacion = publicaciones::where('id', $request->id)
+            ->where('idPerfilProfesional', $idProProfesi)
+            ->first();
+
+
+        //validar si se tiene permiso para el registro
+        if (empty($publicacion))
+        {
+            return response()->json(['mensaje' => 'No se encontro el idioma'], Response::HTTP_NOT_FOUND);
+        }
+        //imagenes
+        $imgPublicacion = $publicacion->imgpublicacion;
+        $nombre = $publicacion->nombrepublicacion;
+        $publicacion->delete();
+
+        //eliminar imagenes
+        if (@getimagesize(public_path() . "/" . $imgPublicacion)) unlink(public_path() . "/" . $imgPublicacion);
+
+        return response()->json(['mensaje' => 'La publicación "' . $nombre . '" se elimino correctamente'], Response::HTTP_OK);
 
     }
     /*-------------------------------------Fin Eliminacion formulario parte 11----------------------*/
