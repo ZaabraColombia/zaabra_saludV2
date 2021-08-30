@@ -592,134 +592,42 @@
         <!--------------------------------------------      Inicio 7 septima parte del formulario *** ASOCIACIONES ***      --------------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_perfil-prof infoBasica_formProf">
             <h5 class="col-12 icon_infoAsocia-formProf"> Asociaciones </h5>
-
-            <div class="asociacion_guardada-formProf">
-                @foreach($objAsociaciones as $objAsociaciones)
-                    @if(!empty($objAsociaciones->imgasociacion))
+            <div id="mensajes-asociacion"></div>
+            <div class="asociacion_guardada-formProf" id="lista-asociacion">
+                <?php $count_asociaciones = 0;?>
+                @foreach($objAsociaciones as $asociacion)
+                    @if(!empty($asociacion->imgasociacion))
+                            <?php $count_asociaciones++;?>
                         <div class="section_infoAsocia-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
-                                <a href="{{url('/FormularioProfesionaldelete7/'.$objAsociaciones->idAsociaciones)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <button type="submit" class="close" aria-label="Close" data-id="{{ $asociacion->idAsociaciones }}"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="option_asociacion-formProf">
-                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objAsociaciones->imgasociacion)}}">
+                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($asociacion->imgasociacion)}}">
                             </div>
                         </div>
                     @endif
                 @endforeach
             </div>
 
-            <form method="POST" action="{{ url ('/FormularioProfesionalSave7') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_asociacion">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-            @if($objContadorAsociaciones->cantidad == 0)
-                <!-- Modulo ASOCIACIONES -->
-                    <div class="row col-12 row_asocia-prof">
-                        <!-- campo 1 -->
-                        <div class="col-md-4 content_agregarImg-formProf form-group">
-                            <div class="img_selccionada-formProf">
-                                <img class="img_anexada-formProf" id="uploadPreview1"/>
-                            </div>
-
-                            <div class="agregar_archivo-formProf">
-                                <input type='file' id="uploadImage1" name="imgasociacion[]" onchange="previewImage(1);"/>
-                            </div>
-
-                            <div class="txt_informativo-formProf">
-                                <label class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                            </div>
+            <form method="POST" action="{{ url ('/FormularioProfesionalSave7') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_asociacion">
+                @csrf
+                <div class="row col-12 row_asocia-prof justify-content-center">
+                    <!-- campo 1 -->
+                    <div class="col-md-4 content_agregarImg-formProf form-group">
+                        <div class="img_selccionada-formProf">
+                            <img class="img_anexada-formProf" id="img-asociacion"/>
                         </div>
-
-                        <!-- campo 2 -->
-                        <div class="col-md-4 content_agregarImg-formProf form-group">
-                            <div class="img_selccionada-formProf">
-                                <img class="img_anexada-formProf" id="uploadPreview2"/>
-                            </div>
-
-                            <div class="agregar_archivo-formProf">
-                                <input type='file' id="uploadImage2" name="imgasociacion[]" onchange="previewImage(2);"/>
-                            </div>
-
-                            <div class="txt_informativo-formProf">
-                                <label class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                            </div>
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imagenAsociacion" name="imagenAsociacion" onchange="ver_imagen('imagenAsociacion', 'img-asociacion');" {{ ($count_asociaciones >= 3 ) ? 'disabled' : '' }}/>
                         </div>
-
-                        <!-- campo 3 -->
-                        <div class="col-md-4 content_agregarImg-formProf form-group">
-                            <div class="img_selccionada-formProf">
-                                <img class="img_anexada-formProf" id="uploadPreview3"/>
-                            </div>
-
-                            <div class="agregar_archivo-formProf">
-                                <input type='file' id="uploadImage3" name="imgasociacion[]" onchange="previewImage(3);"/>
-                            </div>
-
-                            <div class="txt_informativo-formProf">
-                                <label class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                            </div>
+                        <div class="txt_informativo-formProf">
+                            <label class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                         </div>
                     </div>
-            @elseif($objContadorAsociaciones->cantidad == 1)
-                <!-- Modulo ASOCIACIONES -->
-                    <div class="row col-12 row_asocia-prof">
-                        <!-- campo 2 -->
-                        <div class="col-md-4 content_agregarImg-formProf form-group">
-                            <div class="img_selccionada-formProf">
-                                <img class="img_anexada-formProf" id="uploadPreview2"/>
-                            </div>
-
-                            <div class="agregar_archivo-formProf">
-                                <input type='file' id="uploadImage2" name="imgasociacion[]" onchange="previewImage(2);"/>
-                            </div>
-
-                            <div class="txt_informativo-formProf">
-                                <label class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                            </div>
-                        </div>
-
-                        <!-- campo 3 -->
-                        <div class="col-md-4 content_agregarImg-formProf form-group">
-                            <div class="img_selccionada-formProf">
-                                <img class="img_anexada-formProf" id="uploadPreview3"/>
-                            </div>
-
-                            <div class="agregar_archivo-formProf">
-                                <input type='file' id="uploadImage3" name="imgasociacion[]" onchange="previewImage(3);"/>
-                            </div>
-
-                            <div class="txt_informativo-formProf">
-                                <label class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                            </div>
-                        </div>
-                    </div>
-            @elseif($objContadorAsociaciones->cantidad == 2)
-                <!-- Modulo ASOCIACIONES -->
-                    <div class="row col-12 row_asocia-prof">
-                        <!-- campo 3 -->
-                        <div class="col-md-4 content_agregarImg-formProf form-group">
-                            <div class="img_selccionada-formProf">
-                                <img class="img_anexada-formProf" id="uploadPreview3"/>
-                            </div>
-
-                            <div class="agregar_archivo-formProf">
-                                <input type='file' id="uploadImage3" name="imgasociacion[]" onchange="previewImage(3);"/>
-                            </div>
-
-                            <div class="txt_informativo-formProf">
-                                <label class="col-12 text_infoImg-formProf"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorAsociaciones->cantidad == 3)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formProf"> No se pueden agregar más asociaciones. </label>
-                @endif
-
+                </div>
                 <div class="col-12 mt-2 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4"> Guardar
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4" id="boton-guardar-asociacion" {{ ($count_asociaciones >= 3 ) ? 'disabled' : '' }}> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>

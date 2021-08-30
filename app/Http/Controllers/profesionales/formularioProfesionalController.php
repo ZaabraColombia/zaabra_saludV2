@@ -849,6 +849,9 @@ class formularioProfesionalController extends Controller
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 7----------------------*/
     public function create7(Request $request){
 
+        /*id usuario logueado*/
+        $id_user=auth()->user()->id;
+
         /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
         $verificaPerfil = $this->verificaPerfil();
 
@@ -856,45 +859,93 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
-        /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'imagenAsociacion' => ['required', 'image']
+        ]);
 
-        unset($request['_token']);
-
-        if ($request->hasFile('imgasociacion')) {
-            $carpetaDestino = "img/user/$id_user";
-            $imagenes = $request->file('imgasociacion');
-
-            foreach ($imagenes as $imagen) {
-                $nombreFoto = $imagen->getClientOriginalName();
-                $imagen->move($carpetaDestino , $nombreFoto);
-                $nombreFotoCompleta="img/user/$id_user/$nombreFoto";
-                asociaciones::create([
-                    'idPerfilProfesional' => $idProProfesi,
-                    'imgasociacion'  => $nombreFotoCompleta
-                ]);
-            }
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'Ingrese correctamente la imagen de la asociación'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        return redirect('FormularioProfesional');
+        //validar el valor maximo de items
+        $count = asociaciones::where('idPerfilProfesional', '=', $idProProfesi)->count();
+        //$count = auth()->user()->profecional->idiomas;
 
+        if ( $count >= 3 ) {
+            return response()->json([
+                'mensaje' => 'Ingreso el maximo de asociaciones',
+                'items_max' => true
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+
+        //Crear el objeto
+        $asociacion = new asociaciones();
+
+        //manejo de imagen
+        $carpetaDestino = "img/user/$id_user";
+        $imgAsociacion = $request->file('imagenAsociacion');
+
+        $asociacion->idPerfilProfesional = $idProProfesi;
+        $asociacion->imgasociacion = $carpetaDestino . "/" . "asociacion-" . time() . "." . $imgAsociacion->guessExtension();
+
+        $imgAsociacion->move($carpetaDestino , $asociacion->imgasociacion);
+
+        $asociacion->save();
+        //agrgar 1 suma uno
+        $count++;
+
+        return response()->json([
+            'mensaje' => 'Se adiciono el tratamiento',
+            'items_max' => $count >= 3,
+            'imagen' => asset($asociacion->imgasociacion),
+            'id' => $asociacion->idAsociaciones,
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 7----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 7----------------------*/
-    public function delete7($idAsociaciones){
-
-
+    public function delete7(Request $request){
         $verificaPerfil = $this->verificaPerfil();
 
         foreach($verificaPerfil as $verificaPerfil){
             $idProProfesi=$verificaPerfil;
         }
 
-        $asociaciones = asociaciones::where('idAsociaciones', $idAsociaciones)->where('idPerfilProfesional', $idProProfesi);
-        $asociaciones->delete();
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'id' => ['required', 'exists:asociaciones,idAsociaciones']
+        ]);
 
-        return redirect('FormularioProfesional');
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'seleccione correctamente la asociación'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
+        $asociacion = asociaciones::where('idAsociaciones', $request->id)
+            ->where('idPerfilProfesional', $idProProfesi)
+            ->first();
+
+
+        //validar si se tiene permiso para el registro
+        if (empty($asociacion))
+        {
+            return response()->json(['mensaje' => 'No se encontro la asociación'], Response::HTTP_NOT_FOUND);
+        }
+
+        //imagenes
+        $imgAsociacion = $asociacion->imgasociacion;
+        $asociacion->delete();
+
+        //eliminar imagenes
+        if (@getimagesize(public_path() . "/" . $imgAsociacion)) unlink(public_path() . "/" . $imgAsociacion);
+
+        return response()->json(['mensaje' => 'La Asociacion se elimino correctamente'], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Eliminacion formulario parte 7----------------------*/
 
@@ -1102,7 +1153,7 @@ class formularioProfesionalController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'error' => $validator->errors(),
-                'mensaje' => 'seleccione correctamente la información del idioma'
+                'mensaje' => 'seleccione correctamente la información del tratamiento'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 

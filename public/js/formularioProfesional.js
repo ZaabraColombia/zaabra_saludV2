@@ -740,6 +740,133 @@ $('#experiencia-lista').on('click', '.close' , function (e) {
 
 });
 
+$('#formulario_asociacion').validate({
+    rules: {
+        'imagenAsociacion': {
+            required: true,
+            //extension: "jpg|png"
+        }
+    },
+    messages: {
+        'imagenAsociacion':{
+            required: "Ingrese la imagen de la asociación",
+            //extension: "Solo se acepta imagenes jpg y png"
+        }
+    },
+    submitHandler: function(form) {
+
+        var formulario = $('#formulario_asociacion')[0];
+
+        var data = new FormData(formulario);
+
+
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            enctype: 'multipart/form-data',
+            url:  "FormularioProfesionalSave7",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            success: function( response ) {
+                $('#mensajes-asociacion').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+
+                if (response.items_max)
+                {
+                    $('#imagenAsociacion').attr('disabled', 'disabled');
+                    $('#boton-guardar-asociacion').attr('disabled', 'disabled');
+                }
+
+                $('#lista-asociacion').append('<div class="section_infoAsocia-formProf">\n' +
+                    '<div class="col-12 content_btnX-cierre-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="option_asociacion-formProf">\n' +
+                    '<img class="img_guardada-formProf" id="imagenPrevisualizacion" src="' + response.imagen + '">\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                document.getElementById("formulario_asociacion").reset();
+                $('#img-asociacion').removeAttr('src');
+            },
+            error: function (event) {
+                var response = event.responseJSON;
+                $('#mensajes-asociacion').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
+                if (response.items_max)
+                {
+                    $('#imagenAsociacion').attr('disabled', 'disabled');
+                    $('#boton-guardar-asociacion').attr('disabled', 'disabled');
+                }
+            }
+        });
+    }
+});
+
+$('#lista-asociacion').on('click', '.close' , function (e) {
+    var button = $(this);
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  "FormularioProfesionaldelete7",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            $('#mensajes-asociacion').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+
+            //quitar el disabled
+            $('#imagenAsociacion').removeAttr('disabled');
+            $('#boton-guardar-asociacion').removeAttr('disabled');
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            var response = event.responseJSON;
+            $('#mensajes-asociacion').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+        }
+    });
+
+});
+
 $('#formulario_idioma').validate({
     rules: {
         'idioma': {
