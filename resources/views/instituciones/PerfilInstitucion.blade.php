@@ -46,7 +46,7 @@
                 @endforeach
 
                 </div>
-                <div class="contains_buttons">
+                <div class="contains_buttons_landInst">
                     <a href="">Agende su cita
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>

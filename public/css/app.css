@@ -18288,7 +18288,7 @@ a:link, a:visited, a:active, a:hover {
 
 .contains_swiper_premium .contains_info h5 {
   font-family: "Roboto";
-  font-weight: bolder;
+  font-weight: 500;
   color: #3E3E3E;
 }
 
@@ -18302,7 +18302,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .swiper_premium .swiper-pagination {
-  height: 6px;
+  height: 20px;
 }
 
 .contains_slide .contains_buttons a:nth-last-child(2) {
@@ -18472,6 +18472,10 @@ a:link, a:visited, a:active, a:hover {
   text-transform: initial !important;
 }
 
+#slider_principal {
+  height: auto;
+}
+
 @media (min-width: 320px) {
   .titulo_profesionales {
     margin-top: 5%;
@@ -18481,7 +18485,6 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_swiper_premium {
     max-width: 100%;
-    height: 75vh;
     margin-bottom: 10%;
   }
 
@@ -18502,33 +18505,29 @@ a:link, a:visited, a:active, a:hover {
        object-position: top;
   }
 
-  .contains_slide .contains_body {
-    height: 55%;
-  }
-
   .contains_slide .contains_info {
-    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: space-around;
     flex-wrap: wrap;
+    margin-top: 5%;
   }
 
   .contains_slide .contains_buttons {
     max-width: 100%;
     display: flex;
-    height: 25%;
     align-content: center;
     justify-content: center;
     align-items: center;
+    margin: 2% 0 5% 0;
   }
 
   .contains_slide .contains_buttons a {
     display: flex;
-    width: 45%;
-    height: 65%;
+    width: 47%;
+    height: calc(1rem + 1rem + 2px);
   }
 
   .contains_swiper_premium .contains_info h2 {
@@ -18540,7 +18539,8 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_swiper_premium .contains_info p {
-    font-size: 0.7em;
+    font-size: 0.85em;
+    height: 14vh;
   }
 
   .contains_swiper_premium .contains_info h2, h5, p {
@@ -18549,7 +18549,6 @@ a:link, a:visited, a:active, a:hover {
 
   .card_normal {
     max-width: 75%;
-    height: 50vh;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 15%;
@@ -18610,7 +18609,7 @@ a:link, a:visited, a:active, a:hover {
   .card_normal .contains_buttons a {
     display: flex;
     width: 45%;
-    height: 100%;
+    height: calc(1rem + 1rem + 2px);
   }
 
   .contanier_cards_generic {
@@ -18644,16 +18643,12 @@ a:link, a:visited, a:active, a:hover {
     -o-object-fit: contain;
        object-fit: contain;
   }
+
+  .swiper_premium .swiper-pagination {
+    height: 6px;
+  }
 }
 @media (min-width: 375px) {
-  .contains_swiper_premium {
-    height: 65vh;
-  }
-
-  .card_normal {
-    height: 45vh;
-  }
-
   .card_normal .card-body {
     padding-top: 40%;
   }
@@ -18662,24 +18657,50 @@ a:link, a:visited, a:active, a:hover {
     width: 140px;
     height: 140px;
   }
+
+  .contains_swiper_premium .contains_info p {
+    height: 10vh;
+  }
 }
 @media (min-width: 768px) {
+  .titulo_profesionales {
+    font-size: 2.5em;
+  }
+
+  .contains_slide .contains_buttons {
+    max-width: 70%;
+    margin: auto;
+  }
+
+  .contains_swiper_premium .contains_info h2 {
+    font-size: 1.8em;
+  }
+
+  .contains_swiper_premium .contains_info h5 {
+    font-size: 1.3em;
+  }
+
+  .contains_swiper_premium .contains_info p {
+    font-size: 1em;
+    height: 6vh;
+  }
+
+  .contains_slide .contains_buttons a {
+    font-size: 1em;
+    height: calc(1rem + 1.5rem + 2px);
+  }
+
+  .swiper_premium .swiper-pagination {
+    height: 23px;
+  }
+
   .contains_swiper_premium {
     max-width: 100%;
-    height: 45vh;
     margin-bottom: 5%;
   }
 
   .swiper_premium {
-    max-width: 65%;
-  }
-
-  .contains_swiper_premium .contains_info h2 {
-    font-size: 1.5em;
-  }
-
-  .contains_swiper_premium .contains_info h5 {
-    font-size: 0.9em;
+    max-width: 75%;
   }
 
   .contains_slide .contains_image_profesional {
@@ -18687,9 +18708,8 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slide .contains_body {
-    width: 85%;
+    width: 100%;
     margin: auto;
-    height: 50%;
   }
 
   .container_cards_normal {
@@ -18706,8 +18726,7 @@ a:link, a:visited, a:active, a:hover {
 
   .card_normal {
     width: 30%;
-    height: 30vh;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
   }
 
   .card_normal .card-img-top {
@@ -18717,6 +18736,7 @@ a:link, a:visited, a:active, a:hover {
 
   .card_normal .card-body {
     justify-content: flex-end;
+    padding-top: 50%;
   }
 
   .card_normal .contains_buttons {
@@ -18741,7 +18761,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slide .contains_info {
-    padding: 3%;
+    margin-top: 3%;
     flex-wrap: nowrap;
   }
 
@@ -18751,10 +18771,6 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1024px) {
-  .card_normal {
-    height: 25vh;
-  }
-
   .card_normal .card-img-top {
     width: 165px;
     height: 165px;
@@ -18763,7 +18779,6 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 1024px) and (max-height: 800px) {
   .contains_swiper_premium {
     max-width: 100%;
-    height: 35vh;
     margin-bottom: 5%;
   }
 
@@ -18785,13 +18800,11 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_slide .contains_body {
     max-width: 50%;
-    height: 80%;
     padding-left: 4%;
     float: right;
   }
 
   .contains_slide .contains_info {
-    height: 75%;
     padding: 0;
     align-items: flex-start;
     justify-content: space-evenly;
@@ -18799,11 +18812,12 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_slide .contains_info p {
     text-align: left;
+    height: 8vh;
   }
 
   .contains_slide .contains_buttons {
-    max-width: 70%;
-    height: 25%;
+    max-width: 100%;
+    margin: 0;
   }
 
   .contains_slide .contains_buttons a:nth-last-child(1) {
@@ -18814,6 +18828,10 @@ a:link, a:visited, a:active, a:hover {
   .contains_slide .contains_buttons a:nth-last-child(2) {
     margin-left: 0;
     margin-right: auto;
+  }
+
+  .swiper_premium .swiper-pagination {
+    height: 15px;
   }
 
   .contains_swiper_premium .contains_info h2 {
@@ -18828,6 +18846,11 @@ a:link, a:visited, a:active, a:hover {
     font-size: 0.8em;
   }
 
+  .card_normal .card-body {
+    justify-content: flex-end;
+    padding-top: 45%;
+  }
+
   .container_cards_normal {
     padding-top: 5%;
     padding-left: 5%;
@@ -18836,8 +18859,7 @@ a:link, a:visited, a:active, a:hover {
 
   .card_normal {
     width: 23%;
-    height: 34vh;
-    margin-bottom: 6%;
+    margin-bottom: 3%;
   }
 
   .card_normal .card-img-top {
@@ -18866,19 +18888,34 @@ a:link, a:visited, a:active, a:hover {
     padding-right: 8%;
   }
 
-  .card_normal {
-    height: 42vh;
-  }
-
   .card_normal .card-img-top {
     width: 140px;
     height: 140px;
+  }
+
+  .contains_slide .contains_info p {
+    height: 12vh;
+  }
+
+  .card_normal .card-body {
+    justify-content: flex-end;
+    padding-top: 50%;
+  }
+}
+@media (min-width: 1360px) {
+  .swiper_premium {
+    max-width: 70%;
+    flex-direction: row;
+  }
+
+  .container_cards_normal {
+    padding-left: 10%;
+    padding-right: 10%;
   }
 }
 @media (min-width: 1440px) {
   .contains_swiper_premium {
     max-width: 100%;
-    height: 35vh;
     margin-bottom: 5%;
   }
 
@@ -18900,13 +18937,11 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_slide .contains_body {
     max-width: 50%;
-    height: 80%;
     padding-left: 4%;
     float: right;
   }
 
   .contains_slide .contains_info {
-    height: 75%;
     padding: 0;
     align-items: flex-start;
     justify-content: space-evenly;
@@ -18917,8 +18952,8 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slide .contains_buttons {
-    max-width: 70%;
-    height: 25%;
+    max-width: 80%;
+    margin: 0;
   }
 
   .contains_slide .contains_buttons a:nth-last-child(1) {
@@ -18940,7 +18975,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_swiper_premium .contains_info p {
-    font-size: 0.8em;
+    font-size: 1em;
   }
 
   .container_cards_normal {
@@ -18951,7 +18986,6 @@ a:link, a:visited, a:active, a:hover {
 
   .card_normal {
     width: 23%;
-    height: 34vh;
     margin-bottom: 6%;
   }
 
@@ -18992,23 +19026,40 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1920px) {
-  .container_cards_normal {
-    padding-top: 5%;
-    padding-left: 18%;
-    padding-right: 18%;
+  .contains_slide .contains_image_profesional {
+    height: 75%;
   }
 
-  .card_normal {
-    height: 38vh;
+  .contains_swiper_premium .contains_info h5 {
+    font-size: 1.2em;
+  }
+
+  .rating-stars ul > li.star > i.fa {
+    font-size: 1.563em;
+  }
+
+  .contains_slide .contains_info p {
+    height: 14.5vh;
+  }
+
+  .contains_swiper_premium .contains_info p {
+    font-size: 1.2em;
+  }
+
+  .contains_slide .contains_buttons a {
+    font-size: 1.2em;
+  }
+
+  .container_cards_normal {
+    padding-top: 4%;
+    padding-bottom: 0;
+    padding-left: 18%;
+    padding-right: 18%;
   }
 
   .card_normal .card-img-top {
     width: 170px;
     height: 170px;
-  }
-
-  .card_normal .card-body {
-    padding-top: 0;
   }
 
   .card_normal .contains_buttons {
@@ -19022,6 +19073,11 @@ a:link, a:visited, a:active, a:hover {
   .contanier_cards_generic {
     padding-left: 15%;
     padding-right: 15%;
+  }
+
+  .card_generic {
+    width: 22%;
+    height: 10vh;
   }
 }
 .contains_slide_insti .contains_image_institucion img {
@@ -19048,8 +19104,8 @@ a:link, a:visited, a:active, a:hover {
 
 .contains_swiper_premium_insti .contains_info h5 {
   font-family: "Roboto";
-  font-weight: bolder;
   color: #3E3E3E;
+  font-weight: 200;
 }
 
 .contains_swiper_premium_insti .contains_info p {
@@ -19233,7 +19289,6 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_swiper_premium_insti {
     max-width: 100%;
-    height: 75vh;
     margin-bottom: 10%;
   }
 
@@ -19252,24 +19307,19 @@ a:link, a:visited, a:active, a:hover {
        object-fit: cover;
   }
 
-  .contains_slide_insti .contains_body_insti {
-    height: 55%;
-  }
-
   .contains_slide_insti .contains_info {
-    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: space-around;
     flex-wrap: wrap;
+    margin-top: 5%;
   }
 
   .contains_slide_insti .contains_buttons {
     max-width: 100%;
     display: flex;
-    height: 20%;
     align-content: center;
     justify-content: center;
     align-items: center;
@@ -19278,7 +19328,7 @@ a:link, a:visited, a:active, a:hover {
   .contains_slide_insti .contains_buttons a {
     display: flex;
     width: 45%;
-    height: 65%;
+    height: calc(1rem + 1rem + 2px);
   }
 
   .contains_swiper_premium_insti .contains_info h2 {
@@ -19291,15 +19341,19 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_swiper_premium_insti .contains_info p {
     font-size: 0.7em;
+    margin-bottom: 5%;
   }
 
   .contains_swiper_premium_insti .contains_info h2, h5, p {
     line-height: 1.3em;
   }
 
+  .rating-stars ul {
+    margin-top: 3%;
+  }
+
   .card_normal_insti {
     max-width: 75%;
-    height: 50vh;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 15%;
@@ -19360,7 +19414,7 @@ a:link, a:visited, a:active, a:hover {
   .card_normal_insti .contains_buttons a {
     display: flex;
     width: 45%;
-    height: 100%;
+    height: calc(1rem + 1rem + 2px);
   }
 
   .container_cards_generic_insti {
@@ -19396,14 +19450,6 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 375px) {
-  .contains_swiper_premium_insti {
-    height: 65vh;
-  }
-
-  .card_normal_insti {
-    height: 45vh;
-  }
-
   .card_normal_insti .card-body {
     padding-top: 40%;
   }
@@ -19414,22 +19460,39 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 768px) {
+  .titulo_instituciones {
+    font-size: 2.5em;
+  }
+
+  .contains_swiper_premium_insti .contains_info h2 {
+    font-size: 1.8em;
+  }
+
+  .contains_swiper_premium_insti .contains_info h5 {
+    font-size: 1em;
+  }
+
+  .contains_swiper_premium_insti .contains_info p {
+    font-size: 1em;
+    margin-bottom: 3%;
+  }
+
+  .card_normal_insti .card-body {
+    padding-top: 35%;
+  }
+
+  .contains_slide_insti .contains_buttons a {
+    font-size: 1.2em;
+    height: calc(1rem + 1.5rem + 2px);
+  }
+
   .contains_swiper_premium_insti {
     max-width: 100%;
-    height: 45vh;
     margin-bottom: 5%;
   }
 
   .swiper_premium_insti {
-    max-width: 65%;
-  }
-
-  .contains_swiper_premium_insti .contains_info h2 {
-    font-size: 1.5em;
-  }
-
-  .contains_swiper_premium_insti .contains_info h5 {
-    font-size: 0.9em;
+    max-width: 75%;
   }
 
   .contains_slide_insti .contains_image_institucion {
@@ -19437,13 +19500,8 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slide_insti .contains_body_insti {
-    width: 85%;
+    width: 100%;
     margin: auto;
-    height: 50%;
-  }
-
-  .contains_slide_insti .contains_buttons {
-    height: 25%;
   }
 
   .container_cards_normal_insti {
@@ -19460,17 +19518,18 @@ a:link, a:visited, a:active, a:hover {
 
   .card_normal_insti {
     width: 30%;
-    height: 30vh;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
   }
 
   .card_normal_insti .card-img-top {
     width: 140px;
     height: 140px;
+    top: -30px;
   }
 
   .card_normal_insti .card-body {
     justify-content: flex-end;
+    padding-top: 50%;
   }
 
   .card_normal_insti .contains_buttons {
@@ -19495,20 +19554,16 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_slide_insti .contains_info {
-    padding: 3%;
+    margin-top: 3%;
     flex-wrap: nowrap;
   }
 
-  .contains_swiper_premium_insti .contains_info .rating-stars ul {
+  .rating-stars ul {
     margin-top: 5%;
     margin-bottom: 5%;
   }
 }
 @media (min-width: 1024px) {
-  .card_normal_insti {
-    height: 25vh;
-  }
-
   .card_normal_insti .card-img-top {
     width: 165px;
     height: 165px;
@@ -19517,7 +19572,6 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 1024px) and (max-height: 800px) {
   .contains_swiper_premium_insti {
     max-width: 100%;
-    height: 35vh;
     margin-bottom: 5%;
   }
 
@@ -19539,7 +19593,6 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_slide_insti .contains_body_insti {
     max-width: 50%;
-    height: 80%;
     padding-left: 4%;
     float: right;
   }
@@ -19557,7 +19610,6 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_slide_insti .contains_buttons {
     max-width: 70%;
-    height: 25%;
   }
 
   .contains_slide_insti .contains_buttons a:nth-last-child(1) {
@@ -19590,7 +19642,6 @@ a:link, a:visited, a:active, a:hover {
 
   .card_normal_insti {
     width: 23%;
-    height: 34vh;
     margin-bottom: 6%;
   }
 
@@ -19620,10 +19671,6 @@ a:link, a:visited, a:active, a:hover {
     padding-right: 8%;
   }
 
-  .card_normal_insti {
-    height: 37vh;
-  }
-
   .card_normal_insti .card-img-top {
     width: 140px;
     height: 140px;
@@ -19632,7 +19679,6 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 1440px) {
   .contains_swiper_premium_insti {
     max-width: 100%;
-    height: 35vh;
     margin-bottom: 5%;
   }
 
@@ -19654,7 +19700,6 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_slide_insti .contains_body_insti {
     max-width: 50%;
-    height: 80%;
     padding-left: 4%;
     float: right;
   }
@@ -19672,7 +19717,6 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_slide_insti .contains_buttons {
     max-width: 70%;
-    height: 25%;
   }
 
   .contains_slide_insti .contains_buttons a:nth-last-child(1) {
@@ -19705,7 +19749,6 @@ a:link, a:visited, a:active, a:hover {
 
   .card_normal_insti {
     width: 23%;
-    height: 34vh;
     margin-bottom: 6%;
   }
 
@@ -19750,10 +19793,6 @@ a:link, a:visited, a:active, a:hover {
     padding-top: 5%;
     padding-left: 18%;
     padding-right: 18%;
-  }
-
-  .card_normal_insti {
-    height: 35vh;
   }
 
   .card_normal_insti .card-img-top {
@@ -19886,7 +19925,7 @@ a:link, a:visited, a:active, a:hover {
   height: fit-content !important;
 }
 
-.contains_buttons a:nth-child(2) {
+.contains_buttons_landInst a:nth-child(2) {
   font-family: "Quicksand";
   font-weight: lighter;
   align-items: center;
@@ -19897,7 +19936,7 @@ a:link, a:visited, a:active, a:hover {
   border: 0.5px solid #434343;
 }
 
-.contains_buttons a:nth-child(1) {
+.contains_buttons_landInst a:nth-child(1) {
   font-family: "Quicksand";
   font-weight: lighter;
   align-items: center;
@@ -20457,13 +20496,13 @@ a:link, a:visited, a:active, a:hover {
     margin-bottom: 5%;
   }
 
-  .contains_buttons {
+  .contains_buttons_landInst {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
   }
 
-  .contains_buttons a {
+  .contains_buttons_landInst a {
     display: flex;
     width: 45%;
     padding: 1% 0;
@@ -20943,7 +20982,7 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 768px) {
-  .contains_buttons {
+  .contains_buttons_landInst {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -20951,13 +20990,18 @@ a:link, a:visited, a:active, a:hover {
     margin: auto;
   }
 
-  .contains_buttons a {
+  .contains_buttons_landInst a {
     font-size: 1.4em;
     width: 36%;
   }
 
   .content_logo_inst {
     width: 30%;
+  }
+
+  .title-adress i, .title-url i, .title-tel i {
+    width: 5%;
+    height: 20px;
   }
 
   /*.logo_sede_inst {
@@ -21507,7 +21551,7 @@ a:link, a:visited, a:active, a:hover {
     width: 9%;
   }
 
-  .contains_buttons {
+  .contains_buttons_landInst {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21516,7 +21560,7 @@ a:link, a:visited, a:active, a:hover {
     margin-top: -3%;
   }
 
-  .contains_buttons a {
+  .contains_buttons_landInst a {
     font-size: 1em;
     width: 48%;
     padding: 1% 0;
@@ -21741,7 +21785,7 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.2em;
   }
 
-  .contains_buttons a {
+  .contains_buttons_landInst a {
     width: 45%;
     padding: 1% 0;
   }
@@ -21989,7 +22033,7 @@ a:link, a:visited, a:active, a:hover {
     padding-left: 3%;
   }
 
-  .contains_buttons {
+  .contains_buttons_landInst {
     width: 25%;
     margin-left: 30%;
     margin-top: -2.5%;
