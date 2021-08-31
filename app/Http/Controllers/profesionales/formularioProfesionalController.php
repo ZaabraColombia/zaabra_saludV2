@@ -87,27 +87,18 @@ class formularioProfesionalController extends Controller
             $universidades = universidades::all();
             $idiomas = idiomas::all();
 
-            $objuser = $this->cargaDatosUser($id_user);
-            $objContadorConsultas=$this->contadorConsultas($id_user);
-            $objConsultas=$this->cargaConsultas($id_user);
-            $objContadorEducacion=$this->contadorEducacion($id_user);
-            $objEducacion=$this->cargaEducacion($id_user);
-            $objExperiencia=$this->cargaExperiencia($id_user);
-            $objContadorExperiencia=$this->contadorExperiencia($id_user);
-            $objAsociaciones=$this->cargaAsociaciones($id_user);
-            $objContadorAsociaciones=$this->contadorAsociaciones($id_user);
-            $objIdiomas=$this->cargaIdiomas($id_user);
-            $objContadorIdiomas=$this->contadorIdiomas($id_user);
-            $objTratamiento=$this->cargaTratamiento($id_user);
-            $objContadorTratamiento=$this->contadorTratamiento($id_user);
-            $objPremios=$this->cargaPremios($id_user);
-            $objContadorPremios=$this->contadorPremios($id_user);
-            $Publicaciones=$this->cargaPublicaciones($id_user);
-            $objContadorPublicaciones=$this->contadorPublicaciones($id_user);
-            $objGaleria=$this->cargaGaleria($id_user);
-            $objContadorGaleria=$this->contadorGaleria($id_user);
-            $objVideo=$this->cargaVideo($id_user);
-            $objContadorVideo=$this->contadorVideo($id_user);
+            //Ojetos para la vista
+            $objuser            = $this->cargaDatosUser($id_user);
+            $objConsultas       = $this->cargaConsultas($id_user);
+            $objEducacion       = $this->cargaEducacion($id_user);
+            $objExperiencia     = $this->cargaExperiencia($id_user);
+            $objAsociaciones    = $this->cargaAsociaciones($id_user);
+            $objIdiomas         = $this->cargaIdiomas($id_user);
+            $objTratamiento     = $this->cargaTratamiento($id_user);
+            $objPremios         = $this->cargaPremios($id_user);
+            $Publicaciones      = $this->cargaPublicaciones($id_user);
+            $objGaleria         = $this->cargaGaleria($id_user);
+            $objVideo           = $this->cargaVideo($id_user);
 
 
             return view('profesionales.FormularioProfesional',compact(
@@ -119,26 +110,16 @@ class formularioProfesionalController extends Controller
                 'idiomas',
                 'universidades',
                 'objFormulario',
-                'objContadorConsultas',
                 'objConsultas',
-                'objContadorEducacion',
                 'objEducacion',
                 'objExperiencia',
-                'objContadorExperiencia',
                 'objAsociaciones',
-                'objContadorAsociaciones',
                 'objIdiomas',
-                'objContadorIdiomas',
                 'objTratamiento',
-                'objContadorTratamiento',
                 'objPremios',
-                'objContadorPremios',
                 'Publicaciones',
-                'objContadorPublicaciones',
                 'objGaleria',
-                'objContadorGaleria',
                 'objVideo',
-                'objContadorVideo',
                 'destacables_count',
                 'destacables'
             ));
@@ -211,37 +192,12 @@ class formularioProfesionalController extends Controller
     WHERE us.id=$id_user");
     }
 
-
-
-    public function contadorConsultas($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorConsultas = DB::table('perfilesprofesionales')
-            ->select(DB::raw('COUNT(tipoconsultas.idperfil) as cantidad'))
-            ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
-            ->leftjoin('tipoconsultas', 'perfilesprofesionales.idPerfilProfesional', '=', 'tipoconsultas.idperfil')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadorConsultas;
-    }
-
     public function cargaConsultas($id_user){
         return DB::select("	SELECT tc.id, tc.nombreconsulta, tc.valorconsulta
     FROM perfilesprofesionales pf
     INNER JOIN users us   ON pf.idUser=us.id
     LEFT JOIN  tipoconsultas tc ON pf.idPerfilProfesional= tc.idperfil
     WHERE pf.idUser=$id_user");
-    }
-
-
-    public function contadorEducacion($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorConsultas = DB::table('perfilesprofesionales')
-            ->select(DB::raw('COUNT(perfilesprofesionalesuniversidades.idPerfilProfesional) as cantidad'))
-            ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
-            ->leftjoin('perfilesprofesionalesuniversidades', 'perfilesprofesionales.idPerfilProfesional', '=', 'perfilesprofesionalesuniversidades.idPerfilProfesional')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadorConsultas;
     }
 
     public function cargaEducacion($id_user){
@@ -251,17 +207,6 @@ class formularioProfesionalController extends Controller
     LEFT JOIN  perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional= pu.idPerfilProfesional
     LEFT JOIN  universidades u ON pu.id_universidad= u.id_universidad
     WHERE pf.idUser=$id_user");
-    }
-
-    public function contadorExperiencia($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorexperinecia = DB::table('perfilesprofesionales')
-            ->select(DB::raw('COUNT(experiencias.nombreEmpresaExperiencia) as cantidad'))
-            ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
-            ->leftjoin('experiencias', 'perfilesprofesionales.idPerfilProfesional', '=', 'experiencias.idPerfilProfesional')
-            ->where('id', '=',$id_user)
-            ->first();
-        return $contadorexperinecia;
     }
 
     public function cargaExperiencia($id_user){
@@ -282,17 +227,6 @@ class formularioProfesionalController extends Controller
     WHERE pf.idUser=$id_user");
     }
 
-    public function contadorAsociaciones($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorasociacion = DB::table('perfilesprofesionales')
-            ->select(DB::raw('COUNT(asociaciones.imgasociacion) as cantidad'))
-            ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
-            ->leftjoin('asociaciones', 'perfilesprofesionales.idPerfilProfesional', '=', 'asociaciones.idPerfilProfesional')
-            ->where('id', '=',$id_user)
-            ->first();
-        return $contadorasociacion;
-    }
-
     public function  cargaIdiomas($id_user){
         return DB::select("SELECT usi.idUsuarioIdiomas, usi.id_idioma, i.nombreidioma, i.imgidioma
     FROM perfilesprofesionales pf
@@ -300,17 +234,6 @@ class formularioProfesionalController extends Controller
     LEFT JOIN  usuario_idiomas usi ON pf.idPerfilProfesional= usi.idPerfilProfesional
     LEFT JOIN  idiomas i ON usi.id_idioma= i.id_idioma
     WHERE pf.idUser=$id_user");
-    }
-
-    public function contadorIdiomas($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadoridiomas = DB::table('perfilesprofesionales')
-            ->select(DB::raw('COUNT(usuario_idiomas.idPerfilProfesional) as cantidad'))
-            ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
-            ->leftjoin('usuario_idiomas', 'perfilesprofesionales.idPerfilProfesional', '=', 'usuario_idiomas.idPerfilProfesional')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadoridiomas;
     }
 
     public function  cargaTratamiento($id_user){
@@ -321,17 +244,6 @@ class formularioProfesionalController extends Controller
     WHERE pf.idUser=$id_user");
     }
 
-    public function contadorTratamiento($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadortratamiento = DB::table('perfilesprofesionales')
-            ->select(DB::raw('COUNT(tratamientos.idPerfilProfesional) as cantidad'))
-            ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
-            ->leftjoin('tratamientos', 'perfilesprofesionales.idPerfilProfesional', '=', 'tratamientos.idPerfilProfesional')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadortratamiento;
-    }
-
     public function  cargaPremios($id_user){
         return DB::select("SELECT pr.id, pr.imgpremio, pr.nombrepremio, pr.descripcionpremio, pr.fechapremio
     FROM perfilesprofesionales pf
@@ -340,33 +252,12 @@ class formularioProfesionalController extends Controller
     WHERE pf.idUser=$id_user");
     }
 
-    public function contadorPremios($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorpremios = DB::table('perfilesprofesionales')
-            ->select(DB::raw('COUNT(premios.idPerfilProfesional) as cantidad'))
-            ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
-            ->leftjoin('premios', 'perfilesprofesionales.idPerfilProfesional', '=', 'premios.idPerfilProfesional')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadorpremios;
-    }
     public function  cargaPublicaciones($id_user){
         return DB::select("SELECT pb.id, pb.nombrepublicacion, pb.descripcion, pb.imgpublicacion
     FROM perfilesprofesionales pf
     INNER JOIN users us   ON pf.idUser=us.id
     LEFT JOIN  publicaciones pb ON pf.idPerfilProfesional= pb.idPerfilProfesional
     WHERE pf.idUser=$id_user");
-    }
-
-    public function contadorPublicaciones($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorpublicaciones = DB::table('perfilesprofesionales')
-            ->select(DB::raw('COUNT(publicaciones.idPerfilProfesional) as cantidad'))
-            ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
-            ->leftjoin('publicaciones', 'perfilesprofesionales.idPerfilProfesional', '=', 'publicaciones.idPerfilProfesional')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadorpublicaciones;
     }
 
     public function  cargaGaleria($id_user){
@@ -377,16 +268,6 @@ class formularioProfesionalController extends Controller
     WHERE pf.idUser=$id_user");
     }
 
-    public function contadorGaleria($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorpublicaciones = DB::table('perfilesprofesionales')
-            ->select(DB::raw('COUNT(galerias.idPerfilProfesional) as cantidad'))
-            ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
-            ->leftjoin('galerias', 'perfilesprofesionales.idPerfilProfesional', '=', 'galerias.idPerfilProfesional')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadorpublicaciones;
-    }
     public function cargaVideo($id_user){
         return DB::select("SELECT v.id, v.nombrevideo, v.descripcionvideo,
      REPLACE(v.urlvideo, '/watch?v=', '/embed/') AS urlvideo, v.fechavideo
