@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class premios extends Model
 {
     protected $fillable = [
+        'id',
         'idPerfilProfesional',
         'idinstitucion',
         'nombrepremio',
@@ -15,4 +16,8 @@ class premios extends Model
         'fechapremio',
         'descripcionpremio'
     ];
+
+    protected $primaryKey = 'id';
+
+
 }

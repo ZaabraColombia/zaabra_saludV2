@@ -15701,7 +15701,7 @@ a:link, a:visited, a:active, a:hover {
     justify-content: space-evenly;
   }
 
-  .data_consulta p, span {
+  .data_consulta p span {
     font-size: 0.8em;
   }
 
@@ -16308,7 +16308,7 @@ a:link, a:visited, a:active, a:hover {
     height: 180px;
   }
 
-  .data_consulta p, span {
+  .data_consulta p span {
     font-size: 0.8em;
   }
 
@@ -16514,7 +16514,7 @@ a:link, a:visited, a:active, a:hover {
     height: 30px !important;
   }
 
-  .data_consulta p, span {
+  .data_consulta p span {
     font-size: 1.2em;
   }
 
@@ -17094,7 +17094,7 @@ a:link, a:visited, a:active, a:hover {
     height: 35px !important;
   }
 
-  .data_consulta p, span {
+  .data_consulta p span {
     font-size: 1.4em;
   }
 
@@ -17302,7 +17302,7 @@ a:link, a:visited, a:active, a:hover {
     height: 24px !important;
   }
 
-  .data_consulta p, span {
+  .data_consulta p span {
     font-size: 1.1em;
   }
 
@@ -17612,7 +17612,7 @@ a:link, a:visited, a:active, a:hover {
     height: 24px !important;
   }
 
-  .data_consulta p, span {
+  .data_consulta p span {
     font-size: 1.1em;
   }
 

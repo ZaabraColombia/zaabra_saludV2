@@ -129,6 +129,7 @@ $('#formulario_destacado').validate({
                         $('#destacado_nombre').attr('disabled', 'disabled');
                         $('#destacado_nombre_btn').attr('disabled', 'disabled');
                     }
+                    document.getElementById("formulario_destacado").reset();
                 }else {
                     mensaje = $('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                         '<strong>' + response.mensaje + '</strong>\n' +
@@ -398,7 +399,7 @@ $('#consultas-lista').on('click', '.close' , function (e) {
 });
 /*--------------------------- Fin Primera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
 
-/*-------------------------- Inicio Segunda Parte del Formulario Descripcion Perfil Profesional------------------------------*/
+/*-------------------------- Inicio Segunda Parte del Formulario Perfil Profesional------------------------------*/
 $('#formulario_descripcion').validate({
     rules: {
         descripcionPerfil: {
@@ -740,6 +741,133 @@ $('#experiencia-lista').on('click', '.close' , function (e) {
 
 });
 
+$('#formulario_asociacion').validate({
+    rules: {
+        'imagenAsociacion': {
+            required: true,
+            //extension: "jpg|png"
+        }
+    },
+    messages: {
+        'imagenAsociacion':{
+            required: "Ingrese la imagen de la asociación",
+            //extension: "Solo se acepta imagenes jpg y png"
+        }
+    },
+    submitHandler: function(form) {
+
+        var formulario = $('#formulario_asociacion')[0];
+
+        var data = new FormData(formulario);
+
+
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            enctype: 'multipart/form-data',
+            url:  "FormularioProfesionalSave7",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            success: function( response ) {
+                $('#mensajes-asociacion').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+
+                if (response.items_max)
+                {
+                    $('#imagenAsociacion').attr('disabled', 'disabled');
+                    $('#boton-guardar-asociacion').attr('disabled', 'disabled');
+                }
+
+                $('#lista-asociacion').append('<div class="section_infoAsocia-formProf">\n' +
+                    '<div class="col-12 content_btnX-cierre-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="option_asociacion-formProf">\n' +
+                    '<img class="img_guardada-formProf" id="imagenPrevisualizacion" src="' + response.imagen + '">\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                document.getElementById("formulario_asociacion").reset();
+                $('#img-asociacion').removeAttr('src');
+            },
+            error: function (event) {
+                var response = event.responseJSON;
+                $('#mensajes-asociacion').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
+                if (response.items_max)
+                {
+                    $('#imagenAsociacion').attr('disabled', 'disabled');
+                    $('#boton-guardar-asociacion').attr('disabled', 'disabled');
+                }
+            }
+        });
+    }
+});
+
+$('#lista-asociacion').on('click', '.close' , function (e) {
+    var button = $(this);
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  "FormularioProfesionaldelete7",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            $('#mensajes-asociacion').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+
+            //quitar el disabled
+            $('#imagenAsociacion').removeAttr('disabled');
+            $('#boton-guardar-asociacion').removeAttr('disabled');
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            var response = event.responseJSON;
+            $('#mensajes-asociacion').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+        }
+    });
+
+});
+
 $('#formulario_idioma').validate({
     rules: {
         'idioma': {
@@ -856,51 +984,743 @@ $('#lista-idioma').on('click', '.close' , function (e) {
 });
 
 
-/*--------------------------- Fin Segunda Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
+/*--------------------------- Fin Segunda Parte del Formulario Perfil Profesional-------------------------------*/
 
-/*-------------------------- Inicio Tercera Parte del Formulario Descripcion Perfil Profesional------------------------------*/
-$.validator.addMethod("selecttext", function(value, element) {
-    if (select == "") {
-        return false;
-    } else {
-        return true;
-    };
-}, "Por favor seleccione el tipo de consulta");
-
-
-
-/*--------------------------- Fin Tercera Parte del Formulario Descripcion Perfil Profesional-------------------------------*/
-
-
-/*-------------------- Inicio Cuarta Parte del Formulario Descripcion Perfil Profesional----------------------------------*/
-
-/*------------------------------ Fin Cuarta Parte del Formulario Descripcion Perfil Profesional------------------------------*/
-
-/*-------------------- Inicio Quinta Parte del Formulario Educacion Perfil Profesional----------------------------------*/
-
-$('#formulario_educacion').validate({
+/*-------------------------- Inicio Tercera Parte del Formulario Perfil Profesional------------------------------*/
+$('#formulario_tratamiento').validate({
     rules: {
-        'id_universidad[]': {
+        'imgTratamientoAntes': {
             required: true,
-            selecttext: false,
+            //extension: "jpg|png"
         },
-        'fechaestudio[]': {
+        'tituloTrataminetoAntes': {
             required: true,
-            date: true,
         },
-        'nombreestudio[]': {
+        'descripcionTratamientoAntes': {
+            required: true,
+            minlength: 0,
+            maxlength: 160,
+        },
+        'imgTratamientodespues': {
+            required: true,
+            //extension: "jpg|png"
+        },
+        'tituloTrataminetoDespues': {
+            required: true,
+        },
+        'descripcionTratamientoDespues': {
+            required: true,
+            minlength: 0,
+            maxlength: 160,
+        },
+    },
+    messages: {
+        'imgTratamientoAntes':{
+            required: "Ingrese la imagen del tratamiento de antes",
+            //extension: "Solo se acepta imagenes jpg y png"
+        },
+        'tituloTrataminetoAntes':{
+            required: "Ingrese el titulo de antes del tratamiento",
+        },
+        'descripcionTratamientoAntes':{
+            required: "Ingrese la descripción de antes del tratamiento",
+            minlength: "Ingrese La cantidad minima de caracteres",
+            maxlength: "la cantidad maxima de caracteres es de 160."
+        },
+        'imgTratamientodespues':{
+            required: "Ingrese la imagen del tratamiento de después",
+            //extension: "Solo se acepta imagenes jpg y png"
+        },
+        'tituloTrataminetoDespues':{
+            required: "Ingrese el titulo de después del tratamiento",
+        },
+        'descripcionTratamientoDespues':{
+            required: "Ingrese la descripción de después del tratamiento",
+            minlength: "Ingrese La cantidad minima de caracteres",
+            maxlength: "la cantidad maxima de caracteres es de 160."
+        },
+    },
+    submitHandler: function(form) {
+
+
+        var formulario = $('#formulario_tratamiento')[0];
+
+        var data = new FormData(formulario);
+
+
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            enctype: 'multipart/form-data',
+            url:  "FormularioProfesionalSave9",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            success: function( response ) {
+                $('#mensajes-tratamientos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+
+                if (response.items_max)
+                {
+                    $('#imgTratamientoAntes').attr('disabled', 'disabled');
+                    $('#tituloTrataminetoAntes').attr('disabled', 'disabled');
+                    $('#descripcionTratamientoAntes').attr('disabled', 'disabled');
+                    $('#imgTratamientodespues').attr('disabled', 'disabled');
+                    $('#tituloTrataminetoDespues').attr('disabled', 'disabled');
+                    $('#descripcionTratamientoDespues').attr('disabled', 'disabled');
+                    $('#boton-guardar-tratamiento').attr('disabled', 'disabled');
+                }
+
+                $('#lista-tratamientos').append('<div class="traProce_guardada-formProf">\n' +
+                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 col-md-6">\n' +
+                    '<label class="col-12 title_trata-formProf"> Antes </label>\n' +
+                    '<div class="col-12 img_selccionada-formProf">\n' +
+                    '<img class="img_traProced-formProf" src="' + response.imagen_antes + '">\n' +
+                    '</div>\n' +
+                    '<div class="col-12 mt-2 text_label-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#tituloTrataminetoAntes').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 descripcion_Premio-formProf">\n' +
+                    ' <label class="col-12 text_infoGuardada-formProf"> ' + $('#descripcionTratamientoAntes').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 col-md-6 after_formProf">\n' +
+                    '<label class="col-12 title_trata-formProf"> Después </label>\n' +
+                    '<div class="col-12 img_selccionada-formProf">\n' +
+                    '<img class="img_traProced-formProf" src="' + response.imagen_despues + '">\n' +
+                    '</div>\n' +
+                    '<div class="col-12 mt-2 text_label-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#tituloTrataminetoDespues').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 descripcion_Premio-formProf">\n' +
+                    '<label class="col-12 text_infoGuardada-formProf"> ' + $('#descripcionTratamientoDespues').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                document.getElementById("formulario_tratamiento").reset();
+                $('#imagen-tratamiento-antes').removeAttr('src');
+                $('#imagen-tratamiento-despues').removeAttr('src');
+            },
+            error: function (event) {
+                var response = event.responseJSON;
+                $('#mensajes-tratamientos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
+                if (response.items_max)
+                {
+                    $('#imgTratamientoAntes').attr('disabled', 'disabled');
+                    $('#tituloTrataminetoAntes').attr('disabled', 'disabled');
+                    $('#descripcionTratamientoAntes').attr('disabled', 'disabled');
+                    $('#imgTratamientodespues').attr('disabled', 'disabled');
+                    $('#tituloTrataminetoDespues').attr('disabled', 'disabled');
+                    $('#descripcionTratamientoDespues').attr('disabled', 'disabled');
+                    $('#boton-guardar-tratamiento').attr('disabled', 'disabled');
+                }
+            }
+        });
+    }
+});
+
+$('#lista-tratamientos').on('click', '.close' , function (e) {
+    var button = $(this);
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  "FormularioProfesionaldelete9",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            $('#mensajes-tratamientos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+
+            //quitar el disabled
+            $('#imgTratamientoAntes').removeAttr('disabled');
+            $('#tituloTrataminetoAntes').removeAttr('disabled');
+            $('#descripcionTratamientoAntes').removeAttr('disabled');
+            $('#imgTratamientodespues').removeAttr('disabled');
+            $('#tituloTrataminetoDespues').removeAttr('disabled');
+            $('#descripcionTratamientoDespues').removeAttr('disabled');
+            $('#boton-guardar-tratamiento').removeAttr('disabled');
+
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            var response = event.responseJSON;
+            $('#mensajes-tratamientos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+        }
+    });
+
+});
+
+/*--------------------------- Fin Tercera Parte del Formulario Perfil Profesional-------------------------------*/
+
+
+/*-------------------- Inicio Cuarta Parte del Formulario Perfil Profesional----------------------------------*/
+$('#formulario_premio').validate({
+    rules: {
+        'imgPremio': {
+            required: true,
+            //extension: "jpg|png"
+        },
+        'fechaPremio': {
+            required: true,
+        },
+        'nombrePremio': {
+            required: true,
+        },
+        'descripcionPremio': {
+            required: true,
+            minlength: 0,
+            maxlength: 160,
+        }
+    },
+    messages: {
+        'imgPremio':{
+            required: "Ingrese la imagen del premio",
+            //extension: "Solo se acepta imagenes jpg y png"
+        },
+        'fechaPremio':{
+            required: "Ingrese la fecha del premio",
+        },
+        'nombrePremio':{
+            required: "Ingrese el titulo del premio",
+        },
+        'descripcionPremio':{
+            required: "Ingrese la descripción del premio",
+            minlength: "Ingrese La cantidad minima de caracteres",
+            maxlength: "la cantidad maxima de caracteres es de 160."
+        }
+    },
+    submitHandler: function(form) {
+
+        var formulario = $('#formulario_premio')[0];
+
+        var data = new FormData(formulario);
+
+
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            enctype: 'multipart/form-data',
+            url:  "FormularioProfesionalSave10",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            success: function( response ) {
+                $('#mensajes-premios').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+
+                if (response.items_max)
+                {
+                    $('#imgPremio').attr('disabled', 'disabled');
+                    $('#fechaPremio').attr('disabled', 'disabled');
+                    $('#nombrePremio').attr('disabled', 'disabled');
+                    $('#descripcionPremio').attr('disabled', 'disabled');
+                    $('#boton-guardar-premio').attr('disabled', 'disabled');
+                }
+
+                $('#lista-premios').append('<div class="section_infoExper-formProf">\n' +
+                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 mt-2 p-0">\n' +
+                    '<div class="img_selccionada-formProf">\n' +
+                    '<img class="img_anexada-formProf" src="' + response.imagen + '">\n' +
+                    '</div>\n' +
+                    '<div class="col-12 p-0 mt-2">\n' +
+                    '<label class="col-12 text_fechaPremio-formProf"> ' + $('#fechaPremio').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 text_label-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombrePremio').val() + '  </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 descripcion_Premio-formProf">\n' +
+                    '<label class="col-12 text_descPremio-formProf"> ' + $('#descripcionPremio').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                document.getElementById("formulario_premio").reset();
+                $('#img-premio').removeAttr('src');
+            },
+            error: function (event) {
+                var response = event.responseJSON;
+                $('#mensajes-premios').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
+                if (response.items_max)
+                {
+                    $('#imgPremio').attr('disabled', 'disabled');
+                    $('#fechaPremio').attr('disabled', 'disabled');
+                    $('#nombrePremio').attr('disabled', 'disabled');
+                    $('#descripcionPremio').attr('disabled', 'disabled');
+                    $('#boton-guardar-premio').attr('disabled', 'disabled');
+                }
+            }
+        });
+    }
+});
+
+$('#lista-premios').on('click', '.close' , function (e) {
+    var button = $(this);
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  "FormularioProfesionaldelete10",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            $('#mensajes-premios').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+
+            //quitar el disabled
+            $('#imgPremio').removeAttr('disabled');
+            $('#fechaPremio').removeAttr('disabled');
+            $('#nombrePremio').removeAttr('disabled');
+            $('#descripcionPremio').removeAttr('disabled');
+            $('#boton-guardar-premio').removeAttr('disabled');
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            var response = event.responseJSON;
+            $('#mensajes-premios').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+        }
+    });
+
+});
+/*------------------------------ Fin Cuarta Parte del Formulario Perfil Profesional------------------------------*/
+
+/*-------------------- Inicio Quinta Parte del Formulario Perfil Profesional----------------------------------*/
+
+$('#formulario_publicaciones').validate({
+    rules: {
+        'imagePublicacion': {
+            required: true,
+            //extension: "jpg|png"
+        },
+        'nombrePublicacion': {
+            required: true,
+        },
+        'descripcionPremio': {
+            required: true,
+            minlength: 0,
+            maxlength: 160,
+        }
+    },
+    messages: {
+        'imagePublicacion':{
+            required: "Ingrese la imagen de la publicación",
+            //extension: "Solo se acepta imagenes jpg y png"
+        },
+        'nombrePublicacion':{
+            required: "Ingrese el titulo de la publicación",
+        },
+        'descripcionPublicacion':{
+            required: "Ingrese la descripción de la publicación",
+            minlength: "Ingrese La cantidad minima de caracteres",
+            maxlength: "la cantidad maxima de caracteres es de 160."
+        }
+    },
+    submitHandler: function(form) {
+
+        var formulario = $('#formulario_publicaciones')[0];
+
+        var data = new FormData(formulario);
+
+
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            enctype: 'multipart/form-data',
+            url:  "FormularioProfesionalSave11",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            success: function( response ) {
+                $('#mensajes-publicacion').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+
+                if (response.items_max)
+                {
+                    $('#imagePublicacion').attr('disabled', 'disabled');
+                    $('#nombrePublicacion').attr('disabled', 'disabled');
+                    $('#descripcionPublicacion').attr('disabled', 'disabled');
+                    $('#boton-guardar-publicacion').attr('disabled', 'disabled');
+                }
+
+                $('#lista-publicacion').append('<div class="section_infoExper-formProf">\n' +
+                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 my-2">\n' +
+                    '<div class="img_selccionada-formProf">\n' +
+                    '<img class="img_anexada-formProf" src="' + response.imagen + '">\n' +
+                    '</div>\n' +
+                    '<div class="col-12 mt-2 text_label-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombrePublicacion').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 descripcion_Premio-formProf">\n' +
+                    '<label class="col-12 text_descPremio-formProf"> ' + $('#descripcionPublicacion').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                document.getElementById("formulario_publicaciones").reset();
+                $('#img-publicacion').removeAttr('src');
+            },
+            error: function (event) {
+                var response = event.responseJSON;
+                $('#mensajes-publicacion').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
+                if (response.items_max)
+                {
+                    $('#imagePublicacion').attr('disabled', 'disabled');
+                    $('#nombrePublicacion').attr('disabled', 'disabled');
+                    $('#descripcionPublicacion').attr('disabled', 'disabled');
+                    $('#boton-guardar-publicacion').attr('disabled', 'disabled');
+                }
+            }
+        });
+    }
+});
+
+$('#lista-publicacion').on('click', '.close' , function (e) {
+    var button = $(this);
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  "FormularioProfesionaldelete11",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            $('#mensajes-publicacion').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+
+            //quitar el disabled
+            $('#imagePublicacion').removeAttr('disabled');
+            $('#nombrePublicacion').removeAttr('disabled');
+            $('#descripcionPublicacion').removeAttr('disabled');
+            $('#boton-guardar-publicacion').removeAttr('disabled');
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            var response = event.responseJSON;
+            $('#mensajes-publicacion').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+        }
+    });
+
+});
+
+/*------------------------------ Fin Quinta Parte del Formulario Perfil Profesional------------------------------*/
+/*-------------------- Inicio Sexta Parte del Formulario Perfil Profesional----------------------------------*/
+$('#formulario_fotos').validate({
+    rules: {
+        'imgFoto': {
+            required: true,
+            //extension: "jpg|png"
+        },
+        'fechaFoto': {
+            required: true,
+        },
+        'nombreFoto': {
+            required: true,
+        },
+        'descripcionFoto': {
+            required: true,
+            minlength: 0,
+            maxlength: 160,
+        }
+    },
+    messages: {
+        'imgFoto':{
+            required: "Ingrese la imagen del premio",
+            //extension: "Solo se acepta imagenes jpg y png"
+        },
+        'fechaFoto':{
+            required: "Ingrese la fecha del premio",
+        },
+        'nombreFoto':{
+            required: "Ingrese el titulo del premio",
+        },
+        'descripcionFoto':{
+            required: "Ingrese la descripción del premio",
+            minlength: "Ingrese La cantidad minima de caracteres",
+            maxlength: "la cantidad maxima de caracteres es de 160."
+        }
+    },
+    submitHandler: function(form) {
+
+        var formulario = $('#formulario_fotos')[0];
+
+        var data = new FormData(formulario);
+
+
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            enctype: 'multipart/form-data',
+            url:  "FormularioProfesionalSave12",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            success: function( response ) {
+                $('#mensajes-fotos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+
+                if (response.items_max)
+                {
+                    $('#imgFoto').attr('disabled', 'disabled');
+                    $('#fechaFoto').attr('disabled', 'disabled');
+                    $('#nombreFoto').attr('disabled', 'disabled');
+                    $('#descripcionFoto').attr('disabled', 'disabled');
+                    $('#boton-guardar-foto').attr('disabled', 'disabled');
+                }
+
+                $('#lista-fotos').append('<div class="section_infoExper-formProf">\n' +
+                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 my-2 p-0">\n' +
+                    '<div class="img_selccionada-formProf">\n' +
+                    '<img  class="img_anexada-formProf" src="' + response.imagen + '">\n' +
+                    '</div>\n' +
+                    '<div class="col-12 mt-2 text_label-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombreFoto').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 descripcion_Premio-formProf">\n' +
+                    '<label class="col-12 text_descPremio-formProf"> ' + $('#descripcionFoto').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                document.getElementById("formulario_fotos").reset();
+                $('#img-foto').removeAttr('src');
+            },
+            error: function (event) {
+                var response = event.responseJSON;
+                $('#mensajes-fotos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
+                if (response.items_max)
+                {
+                    $('#imgFoto').attr('disabled', 'disabled');
+                    $('#fechaFoto').attr('disabled', 'disabled');
+                    $('#nombreFoto').attr('disabled', 'disabled');
+                    $('#descripcionFoto').attr('disabled', 'disabled');
+                    $('#boton-guardar-foto').attr('disabled', 'disabled');
+                }
+            }
+        });
+    }
+});
+
+$('#lista-fotos').on('click', '.close' , function (e) {
+    var button = $(this);
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  "FormularioProfesionaldelete12",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            $('#mensajes-fotos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+
+            //quitar el disabled
+            $('#imgFoto').removeAttr('disabled');
+            $('#fechaFoto').removeAttr('disabled');
+            $('#nombreFoto').removeAttr('disabled');
+            $('#descripcionFoto').removeAttr('disabled');
+            $('#boton-guardar-foto').removeAttr('disabled');
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            var response = event.responseJSON;
+            $('#mensajes-fotos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+        }
+    });
+
+});
+
+$('#formulario-videos').validate({
+    rules: {
+        'urlVideo': {
+            required: true,
+        },
+        'fechaVideo': {
+            required: true,
+        },
+        'nombreVideo': {
+            required: true,
+        },
+        'descripcionVideo': {
             required: true,
         },
     },
     messages: {
-        'id_universidad[]':{
-            required: "Por favor seleccione una universidad",
+        'urlVideo':{
+            required: "Por favor ingrese la url del video",
         },
-        'fechaestudio[]':{
-            required: "Por favor Seleccione la fecha en que  finalizó su estudio",
+        'fechaVideo':{
+            required: "Por favor ingrese la fecha  del video",
         },
-        'nombreestudio[]':{
-            required: "Por favor Ingrese el titulo obtenido ",
+        'nombreVideo':{
+            required: "Por favor ingrese el nombre del video",
+        },
+        'descripcionVideo':{
+            required: "Por favor ingrese la descripción del video",
         },
     },
     submitHandler: function(form) {
@@ -910,25 +1730,120 @@ $('#formulario_educacion').validate({
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        /*Se cambia el texto al boton por enviando*/
-        $('#envia_estudios').html('Enviando..');
         $.ajax({
-            url:  "FormularioProfesionalSave5",
+            url:  "FormularioProfesionalSave13",
             type: "POST",
-            data: $('#formulario_educacion').serialize(),
+            data: $('#formulario-videos').serialize(),
             success: function( response ) {
-                $('#envia_estudios').hide();
-                $('#res_message_consulta').show();
-                $('#res_message_consulta').html(response.msg);
-                $('#msg_consulta').removeClass('d-none');
+                $('#mensajes-videos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
 
-                document.getElementById("#formulario_educacion").reset();
-                setTimeout(function(){
-                    $('#res_message_consulta').hide();
-                    $('#msg_consulta').hide();
-                },10000);
+                if (response.items_max)
+                {
+                    $('#urlVideo').attr('disabled', 'disabled');
+                    $('#fechaVideo').attr('disabled', 'disabled');
+                    $('#nombreVideo').attr('disabled', 'disabled');
+                    $('#descripcionVideo').attr('disabled', 'disabled');
+                    $('#boton-guardar-video').attr('disabled', 'disabled');
+                }
+
+                $('#lista-videos').append('<div class="section_infoExper-formProf">\n' +
+                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 my-2">\n' +
+                    '<div class="img_selccionada-formProf">\n' +
+                    '<iframe class="img_anexada-formProf" src="' + $('#urlVideo').val() + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 p-0 mt-2">\n' +
+                    '<label class="col-12 text_fechaPremio-formProf"> ' + $('#fechaVideo').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 text_label-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombreVideo').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 descripcion_Premio-formProf">\n' +
+                    '<p class="col-12 text_descPremio-formProf"> ' + $('#descripcionVideo').val() + ' </p>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                document.getElementById("formulario-videos").reset();
+            },
+            error: function (event) {
+                var response = event.responseJSON;
+                $('#mensajes-videos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
+                if (response.items_max)
+                {
+                    $('#urlVideo').attr('disabled', 'disabled');
+                    $('#fechaVideo').attr('disabled', 'disabled');
+                    $('#nombreVideo').attr('disabled', 'disabled');
+                    $('#descripcionVideo').attr('disabled', 'disabled');
+                    $('#boton-guardar-video').attr('disabled', 'disabled');
+                }
             }
         });
     }
-})
-/*------------------------------ Fin Quinta Parte del Formulario Educacion Perfil Profesional------------------------------*/
+});
+
+$('#lista-videos').on('click', '.close' , function (e) {
+    var button = $(this);
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  "FormularioProfesionaldelete13",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            $('#mensajes-videos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+
+            //quitar el disabled
+            $('#urlVideo').removeAttr('disabled');
+            $('#fechaVideo').removeAttr('disabled');
+            $('#nombreVideo').removeAttr('disabled');
+            $('#descripcionVideo').removeAttr('disabled');
+            $('#boton-guardar-video').removeAttr('disabled');
+
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            var response = event.responseJSON;
+            $('#mensajes-videos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                response.mensaje +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+        }
+    });
+
+});
+
+/*------------------------------ Fin Sexta Parte del Formulario Perfil Profesional------------------------------*/
