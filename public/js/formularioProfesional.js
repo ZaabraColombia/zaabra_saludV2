@@ -71,6 +71,9 @@ $('#formulario_basico').validate({
         },
     },
     submitHandler: function(form) {
+        Pace.start();
+        console.log('si');
+
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
@@ -89,14 +92,14 @@ $('#formulario_basico').validate({
             cache: false,
             processData: false,
             success: function( response ) {
+                Pace.stop();
 
-                console.log(response);
                 //$('#envia_basico').hide();
                 $('#res_message_basico').show();
                 $('#res_message_basico').html(response.msg);
                 $('#msg_basico').removeClass('d-none');
 
-                document.getElementById("#formulario_basico").reset();
+                //document.getElementById("#formulario_basico").reset();
                 setTimeout(function(){
                     $('#res_message_basico').hide();
                     $('#msg_basico').hide();
@@ -104,114 +107,6 @@ $('#formulario_basico').validate({
             }
         });
     }
-});
-
-$('#formulario_destacado').validate({
-    rules: {
-        destacado_nombre: {
-            required: true
-        }
-    },
-    messages: {
-        destacado_nombre: {
-            required: "Por favor debe llenar el campo",
-        }
-    },
-    submitHandler: function ()
-    {
-        $.ajaxSetup({
-            /*Se anade el token al ajax para seguridad*/
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        $.ajax({
-            url:  "FormularioProfesionalAddDestacable",
-            type: "POST",
-            dataType: 'json',
-            data: $('#formulario_destacado').serialize(),
-            success: function( response ) {
-                var mensaje;
-                if (response.status)
-                {
-                    mensaje = $('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                        '<strong>' + response.mensaje + '</strong>\n' +
-                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                        '<span aria-hidden="true">&times;</span>\n' +
-                        '</button>\n' +
-                        '</div>');
-                    $('#destacado-lista').append('<div class="alert alert-info alert-dismissible fade show" role="alert">\n' +
-                        '<strong>' + response.nombre + '</strong>\n' +
-                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                        '<span aria-hidden="true">&times;</span>\n' +
-                        '</button>\n' +
-                        '</div>');
-
-                    console.log(response.count);
-                    if (response.count >= 9){
-                        $('#destacado_nombre').attr('disabled', 'disabled');
-                        $('#destacado_nombre_btn').attr('disabled', 'disabled');
-                    }
-                    document.getElementById("formulario_destacado").reset();
-                }else {
-                    mensaje = $('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                        '<strong>' + response.mensaje + '</strong>\n' +
-                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                        '<span aria-hidden="true">&times;</span>\n' +
-                        '</button>\n' +
-                        '</div>');
-
-                }
-
-                $('#destacado-mensaje').append(mensaje);
-
-            }
-        });
-    }
-});
-
-$('#destacado-lista').on('click', '.close' , function (e) {
-    var id = $(this).data('id');
-
-    $.ajaxSetup({
-        /*Se anade el token al ajax para seguridad*/
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    $.ajax({
-        url:  "FormularioProfesionalDeleteDestacable",
-        type: "POST",
-        dataType: 'json',
-        data: {id:id},
-        success: function( response ) {
-            console.log(response);
-            var message;
-            if (response.status)
-            {
-                message = $('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    '<strong>' + response.mensaje + '</strong>\n' +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-
-                $('#destacado_nombre').removeAttr('disabled');
-                $('#destacado_nombre_btn').removeAttr('disabled');
-            }else {
-                message = $('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    '<strong>' + response.mensaje + '</strong>\n' +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-            }
-            $('#destacado-mensaje').append(message);
-        }
-    });
-
 });
 
 $('#formulario_contacto').validate({
@@ -262,6 +157,8 @@ $('#formulario_contacto').validate({
         },
     },
     submitHandler: function(form) {
+
+        Pace.start();
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
@@ -275,6 +172,7 @@ $('#formulario_contacto').validate({
             type: "POST",
             data: $('#formulario_contacto').serialize(),
             success: function( response ) {
+                Pace.stop();
                 $('#envia_contacto').hide();
                 $('#res_message_contacto').show();
                 $('#res_message_contacto').html(response.msg);
@@ -310,19 +208,21 @@ $('#formulario_consulta').validate({
     },
     submitHandler: function(form) {
 
-
+        Pace.start();
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
+        $('#envia_consultas').attr('disabled', 'disabled');
         $.ajax({
             url:  "FormularioProfesionalSave3",
             type: "POST",
             data: $('#formulario_consulta').serialize(),
             success: function( response ) {
+                Pace.stop();
+                $('#envia_consultas').remove('disabled');
                 $('#mensaje-consulta').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -354,6 +254,8 @@ $('#formulario_consulta').validate({
                 document.getElementById("formulario_consulta").reset();
             },
             error: function (event) {
+                Pace.stop();
+                $('#envia_consultas').remove('disabled');
                 var response = event.responseJSON;
                 $('#mensaje-consulta').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -381,6 +283,7 @@ $('#consultas-lista').on('click', '.close' , function (e) {
     var button = $(this);
     var id = $(this).data('id');
 
+    Pace.start();
     $.ajaxSetup({
         /*Se anade el token al ajax para seguridad*/
         headers: {
@@ -394,6 +297,7 @@ $('#consultas-lista').on('click', '.close' , function (e) {
         dataType: 'json',
         data: {id:id},
         success: function( response ) {
+            Pace.stop();
             $('#mensaje-consulta').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -410,6 +314,7 @@ $('#consultas-lista').on('click', '.close' , function (e) {
             button.parent().parent().remove();
         },
         error: function (event) {
+            Pace.stop();
             var response = event.responseJSON;
             $('#mensaje-consulta').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -417,6 +322,120 @@ $('#consultas-lista').on('click', '.close' , function (e) {
                 '<span aria-hidden="true">&times;</span>\n' +
                 '</button>\n' +
                 '</div>');
+        }
+    });
+
+});
+
+$('#formulario_destacado').validate({
+    rules: {
+        destacado_nombre: {
+            required: true
+        }
+    },
+    messages: {
+        destacado_nombre: {
+            required: "Por favor debe llenar el campo",
+        }
+    },
+    submitHandler: function ()
+    {
+
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        Pace.start();
+        $('#destacado_nombre_btn').attr('disabled', 'disabled');
+        $.ajax({
+            url:  "FormularioProfesionalAddDestacable",
+            type: "POST",
+            dataType: 'json',
+            data: $('#formulario_destacado').serialize(),
+            success: function( response ) {
+                Pace.stop();
+                $('#destacado_nombre_btn').removeAttr('disabled');
+                var mensaje;
+                if (response.status)
+                {
+                    mensaje = $('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                        '<strong>' + response.mensaje + '</strong>\n' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                        '<span aria-hidden="true">&times;</span>\n' +
+                        '</button>\n' +
+                        '</div>');
+                    $('#destacado-lista').append('<div class="alert alert-info alert-dismissible fade show" role="alert">\n' +
+                        '<strong>' + response.nombre + '</strong>\n' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                        '<span aria-hidden="true">&times;</span>\n' +
+                        '</button>\n' +
+                        '</div>');
+
+                    console.log(response.count);
+                    if (response.count >= 9){
+                        $('#destacado_nombre').attr('disabled', 'disabled');
+                        $('#destacado_nombre_btn').attr('disabled', 'disabled');
+                    }
+                    document.getElementById("formulario_destacado").reset();
+                }else {
+                    mensaje = $('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                        '<strong>' + response.mensaje + '</strong>\n' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                        '<span aria-hidden="true">&times;</span>\n' +
+                        '</button>\n' +
+                        '</div>');
+
+                }
+
+                $('#destacado-mensaje').append(mensaje);
+
+            }
+        });
+    }
+});
+
+$('#destacado-lista').on('click', '.close' , function (e) {
+    var id = $(this).data('id');
+
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    Pace.start();
+    $.ajax({
+        url:  "FormularioProfesionalDeleteDestacable",
+        type: "POST",
+        dataType: 'json',
+        data: {id:id},
+        success: function( response ) {
+            Pace.stop();
+            console.log(response);
+            var message;
+            if (response.status)
+            {
+                message = $('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    '<strong>' + response.mensaje + '</strong>\n' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+
+                $('#destacado_nombre').removeAttr('disabled');
+                $('#destacado_nombre_btn').removeAttr('disabled');
+            }else {
+                message = $('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    '<strong>' + response.mensaje + '</strong>\n' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+            }
+            $('#destacado-mensaje').append(message);
         }
     });
 
@@ -437,6 +456,8 @@ $('#formulario_descripcion').validate({
         },
     },
     submitHandler: function(form) {
+        Pace.start();
+        //$('#').attr('disabled', 'disabled');
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
@@ -450,6 +471,8 @@ $('#formulario_descripcion').validate({
             type: "POST",
             data: $('#formulario_descripcion').serialize(),
             success: function( response ) {
+                Pace.stop();
+                //$('#').removeAttr('disabled');
                 $('#mensaje-perfil-profesional').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -458,6 +481,8 @@ $('#formulario_descripcion').validate({
                     '</div>');
             },
             error: function (event) {
+                Pace.stop();
+                //$('#').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensaje-perfil-profesional').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -500,6 +525,8 @@ $('#formulario_estudios').validate({
         },
     },
     submitHandler: function(form) {
+        Pace.start();
+        $('#boton-enviar-estudios').attr('disabled', 'disabled');
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
@@ -518,6 +545,8 @@ $('#formulario_estudios').validate({
             cache: false,
             data: data,
             success: function( response ) {
+                Pace.stop();
+                $('#boton-enviar-estudios').removeAttr('disabled');
                 $('#mensaje-estudios').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -556,6 +585,8 @@ $('#formulario_estudios').validate({
                 $('#imagen-universidad').removeAttr('src');
             },
             error: function (event) {
+                Pace.stop();
+                $('#boton-enviar-estudios').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensaje-estudios').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -592,12 +623,14 @@ $('#estudios-lista').on('click', '.close' , function (e) {
         }
     });
 
+    Pace.start();
     $.ajax({
         url:  "FormularioProfesionaldelete5",
         type: "POST",
         dataType: 'json',
         data: {id:id},
         success: function( response ) {
+            Pace.stop();
             $('#mensaje-estudios').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -616,6 +649,7 @@ $('#estudios-lista').on('click', '.close' , function (e) {
             button.parent().parent().remove();
         },
         error: function (event) {
+            Pace.stop();
             var response = event.responseJSON;
             $('#mensaje-estudios').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -664,6 +698,8 @@ $('#formulario_experiencia').validate({
         },
     },
     submitHandler: function(form) {
+        Pace.start();
+        $('#boton-guardar-experiencia').attr('disabled', 'disabled');
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
@@ -682,6 +718,8 @@ $('#formulario_experiencia').validate({
             cache: false,
             data: data,
             success: function( response ) {
+                Pace.stop();
+                $('#boton-guardar-experiencia').removeAttr('disabled');
                 $('#mensaje-experiencia').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -725,6 +763,8 @@ $('#formulario_experiencia').validate({
                 $('#imagen-experiencia').removeAttr('src');
             },
             error: function (event) {
+                Pace.stop();
+                $('#boton-guardar-experiencia').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensaje-experiencia').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -755,6 +795,7 @@ $('#experiencia-lista').on('click', '.close' , function (e) {
     var button = $(this);
     var id = $(this).data('id');
 
+    Pace.start();
     $.ajaxSetup({
         /*Se anade el token al ajax para seguridad*/
         headers: {
@@ -768,6 +809,7 @@ $('#experiencia-lista').on('click', '.close' , function (e) {
         dataType: 'json',
         data: {id:id},
         success: function( response ) {
+            Pace.stop();
             $('#mensaje-experiencia').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -787,6 +829,7 @@ $('#experiencia-lista').on('click', '.close' , function (e) {
             button.parent().parent().remove();
         },
         error: function (event) {
+            Pace.stop();
             var response = event.responseJSON;
             $('#mensaje-experiencia').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -814,6 +857,8 @@ $('#formulario_asociacion').validate({
     },
     submitHandler: function(form) {
 
+        Pace.start();
+        $('#boton-guardar-asociacion').attr('disabled', 'disabled');
         var formulario = $('#formulario_asociacion')[0];
 
         var data = new FormData(formulario);
@@ -835,6 +880,8 @@ $('#formulario_asociacion').validate({
             cache: false,
             data: data,
             success: function( response ) {
+                Pace.stop();
+                $('#boton-guardar-asociacion').removeAttr('disabled');
                 $('#mensajes-asociacion').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -861,6 +908,8 @@ $('#formulario_asociacion').validate({
                 $('#img-asociacion').removeAttr('src');
             },
             error: function (event) {
+                Pace.stop();
+                $('#boton-guardar-asociacion').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensajes-asociacion').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -887,6 +936,7 @@ $('#lista-asociacion').on('click', '.close' , function (e) {
     var button = $(this);
     var id = $(this).data('id');
 
+    Pace.start();
     $.ajaxSetup({
         /*Se anade el token al ajax para seguridad*/
         headers: {
@@ -900,6 +950,7 @@ $('#lista-asociacion').on('click', '.close' , function (e) {
         dataType: 'json',
         data: {id:id},
         success: function( response ) {
+            Pace.stop();
             $('#mensajes-asociacion').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -914,6 +965,7 @@ $('#lista-asociacion').on('click', '.close' , function (e) {
             button.parent().parent().remove();
         },
         error: function (event) {
+            Pace.stop();
             var response = event.responseJSON;
             $('#mensajes-asociacion').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -938,6 +990,8 @@ $('#formulario_idioma').validate({
         }
     },
     submitHandler: function(form) {
+        Pace.start();
+        $('#boton-guardar-idioma').attr('disabled', 'disabled');
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
@@ -949,6 +1003,8 @@ $('#formulario_idioma').validate({
             type: "POST",
             data: $('#formulario_idioma').serialize(),
             success: function( response ) {
+                Pace.stop();
+                $('#boton-guardar-idioma').removeAttr('disabled');
                 $('#mensaje-idioma').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -975,6 +1031,8 @@ $('#formulario_idioma').validate({
                 document.getElementById("formulario_idioma").reset();
             },
             error: function (event) {
+                Pace.stop();
+                $('#boton-guardar-idioma').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensaje-idioma').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1001,6 +1059,8 @@ $('#lista-idioma').on('click', '.close' , function (e) {
     var button = $(this);
     var id = $(this).data('id');
 
+    Pace.start();
+
     $.ajaxSetup({
         /*Se anade el token al ajax para seguridad*/
         headers: {
@@ -1014,6 +1074,8 @@ $('#lista-idioma').on('click', '.close' , function (e) {
         dataType: 'json',
         data: {id:id},
         success: function( response ) {
+            Pace.stop();
+
             $('#mensaje-idioma').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1029,6 +1091,8 @@ $('#lista-idioma').on('click', '.close' , function (e) {
             button.parent().parent().remove();
         },
         error: function (event) {
+            Pace.stop();
+
             var response = event.responseJSON;
             $('#mensaje-idioma').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -1100,6 +1164,8 @@ $('#formulario_tratamiento').validate({
     },
     submitHandler: function(form) {
 
+        Pace.start();
+        $('#boton-guardar-tratamiento').attr('disabled', 'disabled');
 
         var formulario = $('#formulario_tratamiento')[0];
 
@@ -1122,6 +1188,8 @@ $('#formulario_tratamiento').validate({
             cache: false,
             data: data,
             success: function( response ) {
+                Pace.stop();
+                $('#boton-guardar-tratamiento').removeAttr('disabled');
                 $('#mensajes-tratamientos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1175,6 +1243,8 @@ $('#formulario_tratamiento').validate({
                 $('#imagen-tratamiento-despues').removeAttr('src');
             },
             error: function (event) {
+                Pace.stop();
+                $('#boton-guardar-tratamiento').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensajes-tratamientos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1206,6 +1276,8 @@ $('#lista-tratamientos').on('click', '.close' , function (e) {
     var button = $(this);
     var id = $(this).data('id');
 
+    Pace.start();
+
     $.ajaxSetup({
         /*Se anade el token al ajax para seguridad*/
         headers: {
@@ -1219,6 +1291,8 @@ $('#lista-tratamientos').on('click', '.close' , function (e) {
         dataType: 'json',
         data: {id:id},
         success: function( response ) {
+            Pace.stop();
+
             $('#mensajes-tratamientos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1239,6 +1313,8 @@ $('#lista-tratamientos').on('click', '.close' , function (e) {
             button.parent().parent().remove();
         },
         error: function (event) {
+            Pace.stop();
+
             var response = event.responseJSON;
             $('#mensajes-tratamientos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -1292,6 +1368,8 @@ $('#formulario_premio').validate({
     },
     submitHandler: function(form) {
 
+        Pace.start();
+        $('#boton-guardar-premio').attr('disabled', 'disabled');
         var formulario = $('#formulario_premio')[0];
 
         var data = new FormData(formulario);
@@ -1313,6 +1391,8 @@ $('#formulario_premio').validate({
             cache: false,
             data: data,
             success: function( response ) {
+                Pace.stop();
+                $('#boton-guardar-premio').removeAttr('disabled');
                 $('#mensajes-premios').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1353,6 +1433,8 @@ $('#formulario_premio').validate({
                 $('#img-premio').removeAttr('src');
             },
             error: function (event) {
+                Pace.stop();
+                $('#boton-guardar-premio').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensajes-premios').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1382,6 +1464,7 @@ $('#lista-premios').on('click', '.close' , function (e) {
     var button = $(this);
     var id = $(this).data('id');
 
+    Pace.start();
     $.ajaxSetup({
         /*Se anade el token al ajax para seguridad*/
         headers: {
@@ -1395,6 +1478,7 @@ $('#lista-premios').on('click', '.close' , function (e) {
         dataType: 'json',
         data: {id:id},
         success: function( response ) {
+            Pace.stop();
             $('#mensajes-premios').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1412,6 +1496,7 @@ $('#lista-premios').on('click', '.close' , function (e) {
             button.parent().parent().remove();
         },
         error: function (event) {
+            Pace.stop();
             var response = event.responseJSON;
             $('#mensajes-premios').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -1458,6 +1543,8 @@ $('#formulario_publicaciones').validate({
     },
     submitHandler: function(form) {
 
+        Pace.start();
+        $('#boton-guardar-publicacion').attr('disabled', 'disabled');
         var formulario = $('#formulario_publicaciones')[0];
 
         var data = new FormData(formulario);
@@ -1479,6 +1566,8 @@ $('#formulario_publicaciones').validate({
             cache: false,
             data: data,
             success: function( response ) {
+                Pace.stop();
+                $('#boton-guardar-publicacion').removeAttr('disabled');
                 $('#mensajes-publicacion').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1515,6 +1604,8 @@ $('#formulario_publicaciones').validate({
                 $('#img-publicacion').removeAttr('src');
             },
             error: function (event) {
+                Pace.stop();
+                $('#boton-guardar-publicacion').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensajes-publicacion').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1543,6 +1634,7 @@ $('#lista-publicacion').on('click', '.close' , function (e) {
     var button = $(this);
     var id = $(this).data('id');
 
+    Pace.start();
     $.ajaxSetup({
         /*Se anade el token al ajax para seguridad*/
         headers: {
@@ -1556,6 +1648,7 @@ $('#lista-publicacion').on('click', '.close' , function (e) {
         dataType: 'json',
         data: {id:id},
         success: function( response ) {
+            Pace.stop();
             $('#mensajes-publicacion').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1572,6 +1665,7 @@ $('#lista-publicacion').on('click', '.close' , function (e) {
             button.parent().parent().remove();
         },
         error: function (event) {
+            Pace.stop();
             var response = event.responseJSON;
             $('#mensajes-publicacion').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -1622,6 +1716,8 @@ $('#formulario_fotos').validate({
         }
     },
     submitHandler: function(form) {
+        Pace.start();
+        $('#boton-guardar-foto').attr('disabled', 'disabled');
 
         var formulario = $('#formulario_fotos')[0];
 
@@ -1644,6 +1740,8 @@ $('#formulario_fotos').validate({
             cache: false,
             data: data,
             success: function( response ) {
+                Pace.stop();
+                $('#boton-guardar-foto').removeAttr('disabled');
                 $('#mensajes-fotos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1681,6 +1779,8 @@ $('#formulario_fotos').validate({
                 $('#img-foto').removeAttr('src');
             },
             error: function (event) {
+                Pace.stop();
+                $('#boton-guardar-foto').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensajes-fotos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1710,6 +1810,7 @@ $('#lista-fotos').on('click', '.close' , function (e) {
     var button = $(this);
     var id = $(this).data('id');
 
+    Pace.start();
     $.ajaxSetup({
         /*Se anade el token al ajax para seguridad*/
         headers: {
@@ -1723,6 +1824,7 @@ $('#lista-fotos').on('click', '.close' , function (e) {
         dataType: 'json',
         data: {id:id},
         success: function( response ) {
+            Pace.stop();
             $('#mensajes-fotos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1740,6 +1842,7 @@ $('#lista-fotos').on('click', '.close' , function (e) {
             button.parent().parent().remove();
         },
         error: function (event) {
+            Pace.stop();
             var response = event.responseJSON;
             $('#mensajes-fotos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -1782,6 +1885,8 @@ $('#formulario-videos').validate({
         },
     },
     submitHandler: function(form) {
+        Pace.start();
+        $('#boton-guardar-video').attr('disabled', 'disabled');
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
@@ -1793,6 +1898,8 @@ $('#formulario-videos').validate({
             type: "POST",
             data: $('#formulario-videos').serialize(),
             success: function( response ) {
+                Pace.stop();
+                $('#boton-guardar-video').removeAttr('disabled');
                 $('#mensajes-videos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1832,6 +1939,8 @@ $('#formulario-videos').validate({
                 document.getElementById("formulario-videos").reset();
             },
             error: function (event) {
+                Pace.stop();
+                $('#boton-guardar-video').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensajes-videos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1861,6 +1970,7 @@ $('#lista-videos').on('click', '.close' , function (e) {
     var button = $(this);
     var id = $(this).data('id');
 
+    Pace.start();
     $.ajaxSetup({
         /*Se anade el token al ajax para seguridad*/
         headers: {
@@ -1874,6 +1984,7 @@ $('#lista-videos').on('click', '.close' , function (e) {
         dataType: 'json',
         data: {id:id},
         success: function( response ) {
+            Pace.stop();
             $('#mensajes-videos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1892,6 +2003,7 @@ $('#lista-videos').on('click', '.close' , function (e) {
             button.parent().parent().remove();
         },
         error: function (event) {
+            Pace.stop();
             var response = event.responseJSON;
             $('#mensajes-videos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +

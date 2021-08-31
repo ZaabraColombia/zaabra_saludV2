@@ -11,6 +11,42 @@
 
         {!! SEO::generate() !!}
         <title>{{ config('app.name', 'Laravel') }}</title>
+
+        <script src="{{ asset('plugins/pace/pace.min.js') }}"></script>
+        <link rel="stylesheet" href="{{ asset('plugins/pace/themes/blue/pace-theme-loading-bar.css') }}">
+        <script>
+            window.paceOptions = {
+                ajax: true, // disabled
+                document: true, // disabled
+                eventLag: true, // disabled
+                elements: {
+                    selectors: ['body']
+                }
+            }
+            Pace.on("done", function() {
+                $('#page_overlay').delay(300).fadeOut(600);
+            });
+
+        </script>
+
+        <style>
+            .pace-running > *:not(.pace) {
+                opacity:0.1;
+            }
+            #page_overlay {
+                position: fixed;
+                z-index: 2000;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+            }
+        </style>
+
+
         <link rel="shortcat icon" href="{{URL::asset('/img/logos/zaabrasalud-favicon.png')}}">
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -34,9 +70,9 @@
 
 
 
-
     </head>
     <body>
+    <div id="page_overlay"></div>
          @include('header')
         <div id="app">
                 <!-------------------------------------------Contenido-------------------------------------------->
