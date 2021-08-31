@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loopFillGroupWithBlank: true,
   
     autoplay: {
-      delay: 5500,
+      delay: 4500,
       disableOnInteraction: false,
     },
   
