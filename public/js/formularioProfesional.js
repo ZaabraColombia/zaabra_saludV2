@@ -72,8 +72,7 @@ $('#formulario_basico').validate({
     },
     submitHandler: function(form) {
         Pace.start();
-        console.log('si');
-
+        $('#envia_basico').attr('disabled', 'disabled');
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
@@ -93,17 +92,25 @@ $('#formulario_basico').validate({
             processData: false,
             success: function( response ) {
                 Pace.stop();
+                $('#envia_basico').removeAttr('disabled');
 
-                //$('#envia_basico').hide();
-                $('#res_message_basico').show();
-                $('#res_message_basico').html(response.msg);
-                $('#msg_basico').removeClass('d-none');
-
-                //document.getElementById("#formulario_basico").reset();
-                setTimeout(function(){
-                    $('#res_message_basico').hide();
-                    $('#msg_basico').hide();
-                },10000);
+                $('#msg_basico').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+            },
+            error: function (event) {
+                Pace.stop();
+                //$('#').removeAttr('disabled');
+                var response = event.responseJSON;
+                $('#msg_basico').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
             }
         });
     }
