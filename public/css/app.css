@@ -20191,6 +20191,27 @@ a:link, a:visited, a:active, a:hover {
   color: #0083D6;
 }
 
+.mapa i {
+  background-image: url("/img/landing-institucion/icono-ubique-su-sede.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.mapa h2 {
+  display: flex;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bolder;
+  color: #434343;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.mapa p {
+  font-family: "Roboto";
+  color: #3E3E3E;
+}
+
 .contains_swiper_certificados h2 {
   display: flex;
   font-family: "Quicksand", sans-serif;
@@ -20235,7 +20256,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .galeria_institucion i {
-  background-image: url("/img/landing-institucion/icono-galeria.svg");
+  background-image: url("/img/landing-institucion/icono-galeria-institucion.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -20489,7 +20510,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .servicios_instituciones p,
-.quienes_somos p {
+.quienes_somos p, .mapa p {
     font-size: 0.75em;
     padding-bottom: 3%;
     padding-left: 14%;
@@ -20624,6 +20645,16 @@ a:link, a:visited, a:active, a:hover {
     margin: auto;
   }
 
+  .mapa {
+    width: 90%;
+    margin: auto;
+  }
+
+  .mapa i {
+    width: 14%;
+    height: 30px;
+  }
+
   .sedes_institucion h2 {
     font-size: 1.1em;
   }
@@ -20669,11 +20700,14 @@ a:link, a:visited, a:active, a:hover {
     height: 90px;
   }
 
-  .mapa {
-    width: 85%;
-    margin: auto;
+  .mapa h2 {
+    font-size: 1.1em;
   }
 
+  /*.mapa{
+      width: 85%;
+      margin : auto;
+  }*/
   .mapa iframe {
     width: 100%;
   }
@@ -20812,7 +20846,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .servicios_instituciones p,
-.quienes_somos p {
+.quienes_somos p, .mapa p {
     font-size: 0.8em;
   }
 
@@ -20858,6 +20892,14 @@ a:link, a:visited, a:active, a:hover {
 
   .sedes_institucion .card-body h5 {
     font-size: 1em;
+  }
+
+  .mapa i {
+    width: 12%;
+  }
+
+  .mapa h2 {
+    font-size: 1.3em;
   }
 
   .videos_institucion .card h4, h6 {
@@ -20982,7 +21024,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .servicios_instituciones p,
-.quienes_somos p {
+.quienes_somos p, .mapa p {
     font-size: 1.1em;
     padding-left: 10%;
   }
@@ -21007,7 +21049,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .propuesta h2 {
-    font-size: 1.8em;
+    font-size: 1.5em;
   }
 
   .propuesta i {
@@ -21035,7 +21077,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .convenios h2 {
-    font-size: 1.8em;
+    font-size: 1.5em;
   }
 
   .convenios i {
@@ -21126,12 +21168,20 @@ a:link, a:visited, a:active, a:hover {
     height: 150px;
   }
 
-  .mapa {
-    width: 75%;
-    margin: auto;
-    margin-top: 5%;
+  .mapa i {
+    width: 10%;
+    height: 45px;
   }
 
+  .mapa h2 {
+    font-size: 1.5em;
+  }
+
+  /*.mapa {
+      width: 75%;
+      margin: auto;
+      margin-top: 5%;
+  }*/
   .contains_swiper_certificados h2 {
     font-size: 1.8em;
     margin-bottom: 7%;
@@ -21162,7 +21212,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .galeria_institucion h2 {
-    font-size: 1.8em;
+    font-size: 1.5em;
   }
 
   .galeria_institucion i {
@@ -21188,7 +21238,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .videos_institucion h2 {
-    font-size: 1.8em;
+    font-size: 1.5em;
   }
 
   .videos_institucion i {
@@ -21276,6 +21326,7 @@ a:link, a:visited, a:active, a:hover {
 .convenios,
 .idiomas,
 .sedes_institucion,
+.mapa,
 .videos_institucion {
     width: 80%;
     margin: auto;
@@ -21287,6 +21338,7 @@ a:link, a:visited, a:active, a:hover {
 .convenios i,
 .idiomas i,
 .sedes_institucion i,
+.mapa i,
 .contains_swiper_certificados i,
 .galeria_institucion i,
 .videos_institucion i {
@@ -21295,6 +21347,10 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .servicios_instituciones p {
+    padding-left: 8%;
+  }
+
+  .mapa p {
     padding-left: 8%;
   }
 
@@ -21486,7 +21542,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .servicios_instituciones p,
-.quienes_somos p {
+.quienes_somos p, .mapa p {
     font-size: 1em;
     padding-left: 7%;
   }
@@ -21498,7 +21554,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .propuesta p {
-    font-size: 1.3em;
+    font-size: 1em;
     color: #3E3E3E;
   }
 
@@ -21526,6 +21582,10 @@ a:link, a:visited, a:active, a:hover {
     margin-bottom: 0;
     padding-bottom: 2%;
     padding-top: 2%;
+  }
+
+  .sedes_institucion h2 {
+    font-size: 1.5em;
   }
 
   .sedes_institucion .card h4, h6 {
@@ -21557,6 +21617,7 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_swiper_certificados h2 {
     margin-bottom: 4%;
+    font-size: 1.5em;
   }
 
   .swiper_certificados h6 {
@@ -21618,6 +21679,7 @@ a:link, a:visited, a:active, a:hover {
 .convenios i,
 .idiomas i,
 .sedes_institucion i,
+.mapa i,
 .contains_swiper_certificados i,
 .galeria_institucion i,
 .videos_institucion i {
@@ -21626,6 +21688,10 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .servicios_instituciones p {
+    padding-left: 6%;
+  }
+
+  .mapa p {
     padding-left: 6%;
   }
 
@@ -21707,7 +21773,6 @@ a:link, a:visited, a:active, a:hover {
 
   .swiper_institucion .item_landing_insti span {
     margin-top: 100px;
-    font-size: 1em;
     width: 80%;
   }
 
@@ -21716,12 +21781,11 @@ a:link, a:visited, a:active, a:hover {
     margin-bottom: 4%;
   }
 
-  .servicios_instituciones h2, .quienes_somos h2 {
-    font-size: 1.6em;
-  }
-
-  .servicios_instituciones p, .quienes_somos p {
-    font-size: 1.1em;
+  /*.servicios_instituciones h2, .quienes_somos h2 {
+      font-size: 1.6em;
+  }*/
+  .servicios_instituciones p, .quienes_somos p, .mapa p {
+    font-size: 1em;
     padding-left: 6%;
   }
 
@@ -21739,14 +21803,13 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .propuesta p {
-    font-size: 1.1em;
+    font-size: 1em;
     color: #3E3E3E;
   }
 
-  .propuesta h2 {
-    font-size: 1.6em;
-  }
-
+  /*.propuesta h2 {
+      font-size: 1.6em;
+  }*/
   .sedes_institucion .container_cards,
 .container_cards,
 .videos_institucion .container_cards {
@@ -21778,16 +21841,11 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .sedes_institucion h2 {
-    font-size: 1.6em;
+    font-size: 1.5em;
   }
 
   .swiper_certificados {
     max-width: 70%;
-  }
-
-  .contains_swiper_certificados h2 {
-    font-size: 1.6em;
-    margin-bottom: 4%;
   }
 
   .swiper_certificados h6 {
@@ -21802,10 +21860,9 @@ a:link, a:visited, a:active, a:hover {
     font-size: 0.9em;
   }
 
-  .galeria_institucion h2 {
-    font-size: 1.6em;
-  }
-
+  /*.galeria_institucion h2{
+      font-size: 1.6em;
+  }*/
   .videos_institucion .card {
     width: 30%;
   }
@@ -21826,10 +21883,9 @@ a:link, a:visited, a:active, a:hover {
     text-align: left;
   }
 
-  .videos_institucion h2 {
-    font-size: 1.6em;
-  }
-
+  /*.videos_institucion h2 {
+      font-size: 1.6em;
+  }*/
   .videos_institucion .card .card-img-top {
     height: 25vh;
   }
@@ -21910,6 +21966,7 @@ a:link, a:visited, a:active, a:hover {
 .convenios,
 .idiomas,
 .sedes_institucion,
+.mapa,
 .videos_institucion {
     width: 75%;
     margin: auto;
@@ -21976,6 +22033,7 @@ a:link, a:visited, a:active, a:hover {
 .convenios i,
 .idiomas i,
 .sedes_institucion i,
+.mapa i,
 .contains_swiper_certificados i,
 .galeria_institucion i,
 .videos_institucion i {
@@ -21987,11 +22045,15 @@ a:link, a:visited, a:active, a:hover {
     padding-left: 5%;
   }
 
+  .mapa p {
+    padding-left: 5%;
+  }
+
   .servicios_instituciones h2, .quienes_somos h2 {
     font-size: 1.8em;
   }
 
-  .propuesta h2, .convenios h2 {
+  .propuesta h2, .convenios h2, .mapa h2 {
     font-size: 1.8em;
   }
 
@@ -22001,7 +22063,7 @@ a:link, a:visited, a:active, a:hover {
     padding-left: 5%;
   }
 
-  .servicios_instituciones p, .quienes_somos p {
+  .servicios_instituciones p, .quienes_somos p, .mapa p {
     font-size: 1.3em;
     padding-left: 6%;
   }
@@ -22227,7 +22289,7 @@ a:link, a:visited, a:active, a:hover {
     color: #3E3E3E;
     text-align: center;
     margin: 5% 0;
-    height: 6vh;
+    height: 7.5vh;
   }
 
   .section_btn_entidades {
@@ -22270,7 +22332,7 @@ a:link, a:visited, a:active, a:hover {
 }
 @media (min-width: 360px) and (orientation: portrait) {
   .texto_entidades {
-    height: 5vh;
+    height: 6.5vh;
   }
 }
 @media (min-width: 375px) and (orientation: portrait) {
@@ -22314,7 +22376,7 @@ a:link, a:visited, a:active, a:hover {
 
   .texto_entidades {
     font-size: 1em;
-    height: 4vh;
+    height: 5vh;
     margin: 5% 0 0 0;
   }
 
@@ -22386,7 +22448,7 @@ a:link, a:visited, a:active, a:hover {
     color: #3E3E3E;
     text-align: center;
     margin-bottom: 5%;
-    height: 5vh;
+    height: 6.5vh;
   }
 
   .content_btn_entidades {
@@ -22437,12 +22499,16 @@ a:link, a:visited, a:active, a:hover {
 
   .texto_entidades {
     font-size: calc(.1em + .8vw);
-    height: 6vh;
   }
 
   .btnVer_entidades {
     font-size: calc(.2em + .8vw);
     height: 4vh;
+  }
+}
+@media (min-width: 1360px) {
+  .texto_entidades {
+    height: 7.5vh;
   }
 }
 @media (min-width: 1440px) {
@@ -22464,7 +22530,7 @@ a:link, a:visited, a:active, a:hover {
 
   .texto_entidades {
     font-size: calc(.035em + .7vw);
-    height: 3vh;
+    height: 4vh;
   }
 
   .content_btn_entidades {
@@ -22485,7 +22551,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .texto_entidades {
-    height: 4vh;
+    height: 5vh;
   }
 
   .btnVer_entidades {

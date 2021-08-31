@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\users_roles;
 use App\Models\perfilesprofesionales;
+use App\Models\universidades;
 use SEO;
 
 class perfilprofesionalController extends Controller
@@ -63,7 +64,7 @@ class perfilprofesionalController extends Controller
         INNER JOIN users us ON pf.idUser=us.id
         INNER JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
         INNER JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
-        INNER JOIN universidades un ON pu.id_universidad=un.id_universidad
+        INNER JOIN universidades un ON pf.id_universidad=un.id_universidad
         INNER JOIN municipios mn ON mn.id_municipio=pf.id_municipio
         WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional LIMIT 1");
         }
