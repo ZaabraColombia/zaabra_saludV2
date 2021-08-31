@@ -22,19 +22,28 @@ $seleccionArchivos.addEventListener("change", () => {
 //----------------------------------Fin Seleccion archivo primer formulario----------------------------------------------------
 
 // Función para cargar y previsualizar las imagenes en el FORMULARIO PROFESIONALES e INSTITUCIONES
-function previewImage(nb) {        
-  var reader = new FileReader();         
-  reader.readAsDataURL(document.getElementById('uploadImage'+nb).files[0]);         
-  reader.onload = function (e) {             
-    document.getElementById('uploadPreview'+nb).src = e.target.result;         
-  };     
+function previewImage(nb) {
+  var reader = new FileReader();
+  reader.readAsDataURL(document.getElementById('uploadImage'+nb).files[0]);
+  reader.onload = function (e) {
+    document.getElementById('uploadPreview'+nb).src = e.target.result;
+  };
+}
+
+// Función para cargar y previsualizar las imagenes en el FORMULARIO PROFESIONALES e INSTITUCIONES
+function ver_imagen(id_upload, id_preview) {
+    var reader = new FileReader();
+    reader.readAsDataURL(document.getElementById(id_upload).files[0]);
+    reader.onload = function (e) {
+        document.getElementById(id_preview).src = e.target.result;
+    };
 }
 
 // Función para cargar y previsualizar las imagenes de la tarjeta profesionales del FORMULARIO INSTITUCIONES
-function previewImageProf(np) {        
-  var reader = new FileReader();         
-  reader.readAsDataURL(document.getElementById('selecArchivos'+np).files[0]);         
-  reader.onload = function (e) {             
-    document.getElementById('imagenPrevi'+np).src = e.target.result;         
-  };     
+function previewImageProf(np) {
+  var reader = new FileReader();
+  reader.readAsDataURL(document.getElementById('selecArchivos'+np).files[0]);
+  reader.onload = function (e) {
+    document.getElementById('imagenPrevi'+np).src = e.target.result;
+  };
 }

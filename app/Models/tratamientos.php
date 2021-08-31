@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class tratamientos extends Model
 {
     protected $fillable = [
+        'id_tratamiento',
         'idPerfilProfesional',
         'imgTratamientoAntes',
         'tituloTrataminetoAntes',
@@ -16,4 +17,6 @@ class tratamientos extends Model
         'tituloTrataminetoDespues',
         'descripcionTratamientoDespues',
     ];
+
+    protected $primaryKey = "id_tratamiento";
 }

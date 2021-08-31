@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class videos extends Model
 {
     protected $fillable = [
+        'id',
         'idPerfilProfesional',
         'idinstitucion',
         'nombrevideo',
