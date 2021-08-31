@@ -77,7 +77,7 @@
     0% {
       opacity: 0;
     }
-  
+
     100% {
       opacity: 1;
     }
@@ -885,7 +885,8 @@
         align-content: center;
         justify-content: space-evenly;
     }
-    .data_consulta p, span{
+    
+    .data_consulta p span{
         font-size: 0.8em;
     }
     .data_consulta span{
@@ -1287,7 +1288,7 @@
         font-size: .85em;
         width: 80%;
     }
-    .visible_container {    
+    .visible_container {
         height: calc(1vw + 25vh);
         overflow: auto;
     }
@@ -1376,7 +1377,7 @@
         width: 180px;
         height: 180px;
     }
-    .data_consulta p, span {
+    .data_consulta p span {
         font-size: 0.8em;
     }
     .data_profesionales .title-adress {
@@ -1523,7 +1524,7 @@
     .section_data_consulta {
         width: 100%;
         height: 20vh;
-    }    
+    }
     .section_data_consulta h2{
         font-size: 1.8em;
     }
@@ -1535,7 +1536,7 @@
         width: 35px !important;
         height: 30px !important;
     }
-    .data_consulta p, span {
+    .data_consulta p span {
         font-size: 1.2em;
     }
     .data_consulta span {
@@ -2001,7 +2002,7 @@
         width: 45px !important;
         height: 35px !important;
     }
-    .data_consulta p, span {
+    .data_consulta p span {
         font-size: 1.4em;
     }
     .data_consulta span {
@@ -2176,7 +2177,7 @@
         width: 30px !important;
         height: 24px !important;
     }
-    .data_consulta p, span {
+    .data_consulta p span {
         font-size: 1.1em;
     }
     .data_consulta span {
@@ -2343,15 +2344,15 @@
         height: auto;
         padding-top: 2%;
     }
-    .perfil_profesional i, 
-    .educacion i, 
-    .experiencia i, 
-    .asociaciones i, 
-    .idomas i, 
-    .tratamientos_profesional i, 
-    .contains_swiper_premios i, 
-    .publicaciones_profesional i, 
-    .galeria_profesional i, 
+    .perfil_profesional i,
+    .educacion i,
+    .experiencia i,
+    .asociaciones i,
+    .idomas i,
+    .tratamientos_profesional i,
+    .contains_swiper_premios i,
+    .publicaciones_profesional i,
+    .galeria_profesional i,
     .videos_profesional i {
         width: 6%;
         height: 45px;
@@ -2359,9 +2360,9 @@
     .perfil_profesional p {
         padding-left: 6%;
     }
-    .educacion ul, 
-    .experiencia ul, 
-    .asociaciones ul, 
+    .educacion ul,
+    .experiencia ul,
+    .asociaciones ul,
     .idomas ul {
         padding-left: 30%;
     }
@@ -2434,7 +2435,7 @@
         width: 30px !important;
         height: 24px !important;
     }
-    .data_consulta p, span {
+    .data_consulta p span {
         font-size: 1.1em;
     }
     .data_consulta span {
@@ -2627,11 +2628,11 @@
         width: 30%;
         margin-bottom: 0;
     }
-    .tratamientos_profesional 
-    .container_cards, 
-    .publicaciones_profesional 
-    .container_cards, 
-    .videos_profesional 
+    .tratamientos_profesional
+    .container_cards,
+    .publicaciones_profesional
+    .container_cards,
+    .videos_profesional
     .container_cards {
         display: flex;
         flex-direction: row;
@@ -2733,13 +2734,13 @@
         margin: auto;
     }
 
-    .perfil_profesional, 
-    .educacion, 
-    .experiencia, 
-    .asociaciones, 
-    .idomas, 
-    .tratamientos_profesional, 
-    .publicaciones_profesional, 
+    .perfil_profesional,
+    .educacion,
+    .experiencia,
+    .asociaciones,
+    .idomas,
+    .tratamientos_profesional,
+    .publicaciones_profesional,
     .videos_profesional {
         width: 75%;
         margin: auto;
@@ -2788,15 +2789,15 @@
     .swiper_profesional {
         width: 60%;
     }
-    .perfil_profesional i, 
-    .educacion i, 
-    .experiencia i, 
-    .asociaciones i, 
-    .idomas i, 
-    .tratamientos_profesional i, 
-    .contains_swiper_premios i, 
-    .publicaciones_profesional i, 
-    .galeria_profesional i, 
+    .perfil_profesional i,
+    .educacion i,
+    .experiencia i,
+    .asociaciones i,
+    .idomas i,
+    .tratamientos_profesional i,
+    .contains_swiper_premios i,
+    .publicaciones_profesional i,
+    .galeria_profesional i,
     .videos_profesional i {
         width: 5%;
         height: 45px;
@@ -2804,9 +2805,9 @@
     .perfil_profesional p {
         padding-left: 5%;
     }
-    .educacion ul, 
-    .experiencia ul, 
-    .asociaciones ul, 
+    .educacion ul,
+    .experiencia ul,
+    .asociaciones ul,
     .idomas ul {
         padding-left: 30%;
     }

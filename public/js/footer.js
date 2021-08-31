@@ -9,7 +9,7 @@
     if (queryRuta.includes("register") || queryRuta.includes("login") || queryRuta.includes("reset") 
        || queryRuta.includes("acerca") || queryRuta.includes("politicas") || queryRuta.includes("preguntas")
        || queryRuta.includes("membresiaProfesional") || queryRuta.includes("membresiaInstitucion")
-       || queryRuta.includes("/contacto")
+       || queryRuta.includes("/contacto") || queryRuta.includes("PerfilInstitucion")
        || queryRuta.includes("error101") || queryRuta.includes("error403")
        || queryRuta.includes("error404") || queryRuta.includes("error505")
        || queryRuta.includes("FormularioProfesional") || queryRuta.includes("FormularioInstitucion")

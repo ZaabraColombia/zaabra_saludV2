@@ -159,7 +159,7 @@
     background: #0083D6;
     border: none;
     border-radius: 3px;
-    height: calc(1em + 0.75rem + 2px);
+    height: calc(1rem + 1rem + 2px);
     width: 19%;
     display: flex;
     justify-content: space-evenly;
@@ -176,6 +176,9 @@
 .modHistoria {
     line-height: 2;
 }
+.flecha_guardar_histClinic {
+    width: 11%;
+}
 //**********************     Estilos de Registro pacientes       **********************
 .content_btns_regPaciente {
     margin-top: 5%;
@@ -190,7 +193,7 @@
     background: #0083D6;
     border: none;
     border-radius: 3px;
-    height: calc(1em + 0.75rem + 2px);
+    height: calc(1.5em + 1rem + 2px);
     width: 25%;
     display: flex;
     justify-content: space-evenly;
@@ -211,7 +214,7 @@
 }
 .section_addFile_consulta {
     display: flex;
-    padding: 5%;
+    padding: 5% 0;
     flex-wrap: wrap;
     justify-content: space-between;
 }
@@ -221,15 +224,14 @@
     z-index: 5;
     position: absolute;
     bottom: 16px;
-    height: 5vh;
 }
 .text_input_consulta {
     font-family: 'Roboto', 'Regular';
     color: #3E3E3E;
     margin: 0;
     background: #DBE2E9;
-    height: 5vh;
-    padding: 2%;
+    height: calc(1.6em + 0.75rem + 2px);
+    padding: 1%;
     border-radius: 3px;
     text-align: center;
 }
@@ -239,6 +241,7 @@
     border: 1px solid #DBDADA;
     border-radius: 3px;
     padding-left: 2%;
+    background: #ffffff !important;
 }
 //****************************************************      Estilos de Prescripciones       ****************************************************//
 .container_formula {
@@ -260,7 +263,7 @@
     background: #0083D6;
     border: none;
     border-radius: 4px;
-    height: calc(1em + 1em + 2px);
+    height: calc(1.5rem + 1rem + 2px);
     width: 23%;
     display: flex;
     justify-content: center;
@@ -292,7 +295,7 @@
     background: #0083D6;
     border: none;
     border-radius: 4px;
-    height: calc(1em + 1em + 2px);
+    height: calc(1.5rem + 1rem + 2px);
     width: 13vw;
     display: flex;
     justify-content: center;
@@ -368,6 +371,9 @@
     .title_cancelar_histClinica {
         font-size: 1em;
     }
+    .flecha_guardar_histClinic {
+        width: 13%;
+    }
     //**********************     Estilos de Registro pacientes       **********************
     .btn_enviar_pacRegistrado {
         font-size: 1em;
@@ -375,9 +381,6 @@
         margin: 0;
     }
     //**********************     Estilos Editar Consultas       **********************
-    .section_addFile_consulta {
-        padding: 5% 0 0 0;
-    }
     .addFile_consulta {
         width: 43%;
         bottom: 85px;
@@ -462,6 +465,10 @@
     }
 }
 @media (min-width: 768px) and (orientation: portrait) {
+    .panel-Administrativo_prof {
+        background: #F9F9F9;
+        padding: 3% 2% 30% 3%;
+    }
     //****************************************************      Estilos de Mis Citas       ****************************************************//
     .text_labelCita_popUp {
         font-size: 1em;
@@ -474,13 +481,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-bottom: 5%;
-        padding-top: 2%;
+        padding-bottom: 10%;
+        padding-top: 10%;
     }
     .btn_crear_histClinica {
         font-size: 1em;
-        height: calc(1em + 1em + 2px);
-        width: 27%;
+        height: calc(1.5em + 1em + 2px);
+        width: 28%;
         margin-top: 0;
     }
     .btnBusqueda_histClinica {
@@ -491,68 +498,69 @@
     }
     .btn_enviar_histClinica {
         font-size: 1em;
-        width: 16%;
+        width: 20%;
         margin: 0;
     }
     .modal_contentCitasProf {
         padding: 5% 2% 10% 2%;
     }
+    .flecha_guardar_histClinic {
+        width: 11%;
+    }
     //**********************     Estilos de Registro pacientes       **********************
     .btn_enviar_pacRegistrado {
         font-size: 1em;
-        width: 23%;
+        width: 26%;
         margin: 0;
     }
     //**********************     Estilos Editar Consultas       **********************
     .section_addFile_consulta {
         display: flex;
-        padding: 2% 0 5% 2%;
         flex-wrap: wrap;
         justify-content: flex-end;
-        height: 6vh;
     }
     .addFile_consulta {
-        width: 25.5%;
+        width: 20%;
         border-radius: 3px;
         color: transparent;
         position: absolute;
-        left: 56px;
-        bottom: 170px;
-        height: 2.5vh;
+        left: 70px;
+        bottom: 313px;
     }
     .text_input_consulta {
         font-family: "Roboto", "Regular";
         color: #3E3E3E;
         margin: 0;
         background: #DBE2E9;
-        height: 2.3vh;
-        padding: .5% 0;
+        height: calc(1.6em + 0.75rem + 2px);
+        padding: 1% 0;
         border-radius: 3px;
         position: absolute;
-        left: 57px;
-        width: 25%;
+        width: 20%;
+        left: 70px;
         text-align: center;
     }
     .cajaTxt_consulta {
-        width: 66%;
+        width: 70%;
         margin-bottom: 0;
     }
     //****************************************************      Estilos de Prescripciones       ****************************************************//
     .btn_crear_formula {
         font-size: 1em;
-        height: calc(1em + 1em + 2px);
-        width: 20%;
+        height: calc(1.5rem + 1rem + 2px);
+        width: 25%;
         margin-top: 0;
     }
     .section_input_formula {
         padding: 0;
-        width: 48%;
+        width: 24%;
     }
     //****************************************************      Estilos de Vadecum       ****************************************************//
     .btn_descargar_agenProf{
-        font-size: .75em;
-        width: 13vw;
-        margin-bottom: 2%;
+        font-size: 1em;
+        width: 25%;
+        margin-top: 3%;
+        margin-bottom: 5%;
     }
     //****************************************************      Estilos de Mis Favoritos       ****************************************************//
     .icon_especialidad_favProf {
@@ -577,10 +585,9 @@
     //**********************     Estilos Editar Consultas       **********************
     .section_addFile_consulta {
         display: flex;
-        padding: 2% 17% 0 0;
+        padding: 5% 0 0 0;
         flex-wrap: wrap;
         justify-content: flex-end;
-        height: 5vh;
     }
     .addFile_consulta {
         width: 20%;
@@ -588,16 +595,14 @@
         color: transparent;
         position: absolute;
         left: 60px;
-        bottom: 229px;
-        height: 3.5vh;
+        bottom: 200px;
     }
     .text_input_consulta {
         font-family: "Roboto", "Regular";
         color: #3E3E3E;
         margin: 0;
         background: #DBE2E9;
-        height: 3.5vh;
-        padding: .5% 0;
+        padding: 1% 0;
         border-radius: 3px;
         position: absolute;
         left: 60px;
@@ -605,7 +610,7 @@
         text-align: center;
     }
     .cajaTxt_consulta {
-        width: 66%;
+        width: 70%;
         margin-bottom: 0;
     }
 }
@@ -627,13 +632,11 @@
         left: 70px;
     }
     .text_input_consulta {
-        padding: .3% 0;
-        height: 3.4vh;
         left: 70px;
         width: 15%;
     }
     .cajaTxt_consulta {
-        width: 69%;
+        width: 74%;
     }
     //****************************************************      Estilos de Prescripciones       ****************************************************//
     .btn_crear_formula {
@@ -679,19 +682,18 @@
     }
     //**********************     Estilos Editar Consultas       **********************
     .section_addFile_consulta {
-        padding-right: 41%;
+        padding-right: 25%;
     }
     .addFile_consulta {
-        bottom: 209px;
+        bottom: 183px;
         width: 12%;
     }
     .text_input_consulta {
-        padding: .4% 0;
         width: 12%;
+        padding: .6% 0;
     }
     .cajaTxt_consulta {
-        width: 65%;
-        height: 3.4vh;
+        width: 72.5%;
     }
     //****************************************************      Estilos de Prescripciones       ****************************************************//
     .container_formula {
@@ -736,6 +738,7 @@
     }
     .btn_crear_histClinica {
         width: 23%;
+        height: calc(1.5rem + 1rem + 2px);
     }
     .icon_lupa_busqueda {
         background-size: 50%;
@@ -749,6 +752,9 @@
     .btn_enviar_histClinica {
         width: 15%;
     }
+    .flecha_guardar_histClinic {
+        width: 11%;
+    }
     //**********************     Estilos de Registro pacientes       **********************
     .btn_enviar_pacRegistrado {
         width: 20%;
@@ -759,20 +765,16 @@
     }
     //**********************     Estilos Editar Consultas       **********************
     .text_input_consulta {
-        padding: .4% 0;
         width: 9%;
-        height: 3.5vh;
         left: 113px;
     }
     .addFile_consulta {
-        bottom: 170px;
+        bottom: 139px;
         width: 9%;
         left: 113px;
-        height: 3.5vh;
     }
     .cajaTxt_consulta {
-        width: 70%;
-        height: 3.5vh;
+        width: 76%;
     }
     //****************************************************      Estilos de Prescripciones       ****************************************************//
     .pad_rigth_formula {

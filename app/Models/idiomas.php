@@ -12,4 +12,12 @@ class idiomas extends Model
         'nombreidioma',
         'imgidioma'
     ];
+
+    protected $primaryKey = 'id_idioma';
+
+    public function profesionales()
+    {
+        return $this->belongsToMany(perfilesprofesionales::class, 'usuario_idiomas', 'id_idioma', 'idPerfilProfesional')
+            ->withTimestamps();
+    }
 }

@@ -59,6 +59,11 @@ class perfilesprofesionales extends Model
         return $this->belongsTo(especialidades::class, 'idespecialidad', 'idEspecialidad');
     }
 
+    public function idiomas()
+    {
+        return $this->belongsToMany(idiomas::class, 'usuario_idiomas', 'idPerfilProfesional', 'id_idioma')
+            ->withTimestamps();
+    }
 
 
 }

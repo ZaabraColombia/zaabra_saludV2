@@ -21,12 +21,14 @@
         <!--Framewor Agenda-->
         <link rel="stylesheet" href="{{ asset('fullCalendar/main.css') }}">
         <!-- Styles -->
-        
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="stylesheet" href="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.css" integrity="sha512-zwoDXU7OjppdwrN9brNSW0E2G5+BxJsDXrwoUCEYJ3mE4ZmApOp0DJc36amSk3h8iWi8+qjcii7WFb+9m8Ro4g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
 
 
 
@@ -50,7 +52,9 @@
         <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
         <!-- Styles  input tipo tag-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
-        <!-- Full calendar JS -->
+         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+         <!-- Full calendar JS -->
         <script src="{{ asset('fullCalendar/main.js') }}"></script>
         <script src="{{ asset('fullCalendar/locales/es.js') }}"></script>
         <!-- Scripts  areas-->
@@ -73,6 +77,7 @@
         <script src="{{ asset('js/favoritoEspecialidad.js') }}"></script>
         <script src="{{ asset('js/calendar-profesional.js') }}"></script>
         <script src="{{ asset('js/fullcalendar.js') }}"></script>
+        <script src="{{ asset('js/select2.js') }}"></script>
      <!--js admin template-->
      <script src="{{ asset('js/admin.js') }}"></script>
 
