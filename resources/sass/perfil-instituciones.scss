@@ -79,7 +79,7 @@
 .landingInsti {
     height: fit-content !important;
 }
-.contains_buttons a:nth-child(2) {
+.contains_buttons_landInst a:nth-child(2) {
     font-family: "Quicksand";
     font-weight: lighter;
     align-items: center;
@@ -89,7 +89,7 @@
     color: #232323;
     border: 0.5px solid #434343;
 }
-.contains_buttons a:nth-child(1) {
+.contains_buttons_landInst a:nth-child(1) {
     font-family: "Quicksand";
     font-weight: lighter;
     align-items: center;
@@ -572,12 +572,12 @@
         margin-top: 5%;
         margin-bottom: 5%;
     }
-    .contains_buttons {
+    .contains_buttons_landInst {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
     }
-    .contains_buttons a {
+    .contains_buttons_landInst a {
         display: flex;
         width: 45%;
         padding: 1% 0;
@@ -965,19 +965,23 @@
     }
 }
 @media (min-width: 768px){
-    .contains_buttons {
+    .contains_buttons_landInst {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
         width: 80%;
         margin: auto;
     }
-    .contains_buttons a{
+    .contains_buttons_landInst a{
         font-size: 1.4em;
         width: 36%;
     }
     .content_logo_inst {
         width: 30%;
+    }
+    .title-adress i, .title-url i, .title-tel i {
+        width: 5%;
+        height: 20px;
     }
     /*.logo_sede_inst {
         width: 250px;
@@ -1429,7 +1433,7 @@
     .title-adress i, .title-url i, .title-tel i {
         width: 9%;
     }
-    .contains_buttons {
+    .contains_buttons_landInst {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -1437,7 +1441,7 @@
         margin-left: 23%;
         margin-top: -3%;
     }
-    .contains_buttons a {
+    .contains_buttons_landInst a {
         font-size: 1em;
         width: 48%;
         padding: 1% 0;
@@ -1627,7 +1631,7 @@
     .data_instituciones h5 {
         font-size: 1.2em;
     }
-    .contains_buttons a{
+    .contains_buttons_landInst a{
         width:45%;
         padding: 1% 0;
     }
@@ -1837,7 +1841,7 @@
     .data_instituciones h5:nth-child(7){
         padding-left: 3%;
     }
-    .contains_buttons {
+    .contains_buttons_landInst {
         width: 25%;
         margin-left: 30%;
         margin-top: -2.5%;
