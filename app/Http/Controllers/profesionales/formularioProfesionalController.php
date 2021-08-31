@@ -162,6 +162,32 @@ class formularioProfesionalController extends Controller
     /*------------------------------------- fin json busqueda departamento, provincia, ciudad----------------------*/
 
 
+    /*------------------------------------- Inicio búsqueda auto completado universidad----------------------*/
+
+    public function buscar_universidad(Request $request)
+    {
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'searchTerm' => ['required']
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'Ingrese correctamente la búsqueda'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $universidades = universidades::where('nombreuniversidad','like','%' . $request->searchTerm . '%')
+            ->select('id_universidad as id', 'nombreuniversidad as text')
+            ->orderBy('nombreuniversidad','ASC')
+            ->get();
+
+        return response()->json($universidades);
+    }
+    /*------------------------------------- Fin búsqueda auto completado universidad----------------------*/
+
+
 
 
     /*------------inicio busquedad datos basicos usuario logueado y data resgistrada del proesional-----------------*/

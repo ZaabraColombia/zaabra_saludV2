@@ -1,3 +1,27 @@
+/*-----------------------------------------------------------------------------------------------------------------*/
+$('.universidades').select2({
+    theme: "bootstrap",
+    placeholder: 'Seleccione una universidad',
+    ajax: {
+        url: '/buscar-universidad',
+        dataType: 'json',
+        type: 'post',
+        delay: 250,
+        data: function (data) {
+            return {
+                searchTerm: data.term // search term
+            };
+        },
+        processResults: function (response) {
+            return {
+                results:response
+            };
+        },
+        cache: true,
+    },
+    minimumInputLength: 5
+});
+
 /*-------------------------- Inicio Primera Parte del Formulario Descripcion Perfil Profesional------------------------------*/
 $('#formulario_basico').validate({
     rules: {

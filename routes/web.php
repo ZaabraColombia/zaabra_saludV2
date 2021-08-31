@@ -41,6 +41,10 @@ Route::get('get-Ciudad',[App\Http\Controllers\profesionales\formularioProfesiona
 Route::get('get-profesion',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getprofesion']);
 Route::get('get-especialidad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getespecialidad']);
 
+/* Autocompletado universidades */
+Route::post('/buscar-universidad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'buscar_universidad'])->name('FormularioProfesional')->middleware('auth');
+
+
 /*-----guardar formulario parte 1----*/
 Route::post('/FormularioProfesionalSave',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create1'])->name('FormularioProfesional')->middleware('auth');
 
