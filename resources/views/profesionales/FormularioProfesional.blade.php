@@ -560,28 +560,31 @@
             <form method="POST" action="{{ url ('/FormularioProfesionalSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_experiencia">
                 @csrf
                 <div class="row fila_infoBasica-formProf bottom_boder justify-content-center" id="listas">
-                    <div class="col-md-3">
-                        <img id="img-experiencia" class="img_usuario-formProf" src="{{URL::asset($objFormulario->fotoperfil)}}">
-                        <input type="file" class="input_imgUsuario-formProf" name="logo_experiencia"  id="logo_experiencia" accept="image/png, image/jpeg" >
-                        <p class="icon_subirFoto-formProf text_usuario-formProf"> Subir logo empresa </p>
+                    <div class="col-md-6 pt-5">
+                        <div class="img_selccionada-formExperiencia">
+                            <img class="img-thumbnail" id="imagen-experiencia">
+                        </div>
+                        <div class="agregar_archivo-formProf">
+                            <input type="file" id="logo_experiencia" name="logo_experiencia" onchange="ver_imagen('logo_experiencia', 'imagen-experiencia');">
+                        </div>
+                        <div class="txt_informativo-formProf">
+                            <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
+                        </div>
                     </div>
-                    <div class="col-md-9">
-                        <div class="col-md-6">
+                    <div class="col-md-6">
+                        <div class="col-12">
                             <label for="nombre_empresa" class="col-12 text_label-formProf"> Empresa </label>
                             <input class="col-lg-12 form-control" id="nombre_empresa"  type="text" name="nombre_empresa" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                         </div>
-
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <label for="descripcion_experiencia" class="col-12 text_label-formProf"> Cargo </label>
                             <input class="col-lg-12 form-control" id="descripcion_experiencia"  type="text" name="descripcion_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                         </div>
-
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <label for="inicio_experiencia" class="col-12 text_label-formProf"> Fecha de inicio </label>
                             <input class="form-control" type="date"  id="inicio_experiencia" name="inicio_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                         </div>
-
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <label for="fin_experiencia" class="col-12 text_label-formProf"> Fecha de terminación </label>
                             <input class="form-control" type="date"  id="fin_experiencia" name="fin_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                         </div>

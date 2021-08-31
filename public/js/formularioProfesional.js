@@ -589,6 +589,9 @@ $('#estudios-lista').on('click', '.close' , function (e) {
 
 $('#formulario_experiencia').validate({
     rules: {
+        'logo_experiencia': {
+            required: true,
+        },
         'nombre_empresa': {
             required: true,
         },
@@ -603,6 +606,9 @@ $('#formulario_experiencia').validate({
         },
     },
     messages: {
+        'logo_experiencia':{
+            required: "Por favor ingrese el logo de la empresa",
+        },
         'nombre_empresa':{
             required: "Por favor ingrese el nombre de la empresa",
         },
@@ -623,10 +629,17 @@ $('#formulario_experiencia').validate({
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        var formulario = $('#formulario_experiencia')[0];
+
+        var data = new FormData(formulario);
         $.ajax({
+            enctype: 'multipart/form-data',
             url:  "FormularioProfesionalSave6",
             type: "POST",
-            data: $('#formulario_experiencia').serialize(),
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
             success: function( response ) {
                 $('#mensaje-experiencia').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -637,6 +650,7 @@ $('#formulario_experiencia').validate({
 
                 if (response.items_max)
                 {
+                    $('#logo_experiencia').attr('disabled', 'disabled');
                     $('#nombre_empresa').attr('disabled', 'disabled');
                     $('#descripcion_experiencia').attr('disabled', 'disabled');
                     $('#inicio_experiencia').attr('disabled', 'disabled');
@@ -683,6 +697,7 @@ $('#formulario_experiencia').validate({
                 }
                 if (response.items_max)
                 {
+                    $('#logo_experiencia').attr('disabled', 'disabled');
                     $('#nombre_empresa').attr('disabled', 'disabled');
                     $('#descripcion_experiencia').attr('disabled', 'disabled');
                     $('#inicio_experiencia').attr('disabled', 'disabled');
@@ -719,6 +734,7 @@ $('#experiencia-lista').on('click', '.close' , function (e) {
                 '</div>');
 
             //quitar el disabled
+            $('#logo_experiencia').removeAttr('disabled');
             $('#nombre_empresa').removeAttr('disabled');
             $('#descripcion_experiencia').removeAttr('disabled');
             $('#inicio_experiencia').removeAttr('disabled');

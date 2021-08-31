@@ -24747,6 +24747,17 @@ a:link, a:visited, a:active, a:hover {
   border: 1px solid #dbdada;
 }
 
+.img_selccionada-formExperiencia {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
+  align-items: center;
+  width: 70%;
+  height: 70%;
+  border: 1px solid #dbdada;
+}
+
 .img_anexada-formProf {
   width: 100%;
   height: 100%;
@@ -26481,6 +26492,11 @@ label.error {
     height: 6vh;
   }
 
+  .img_selccionada-formExperiencia {
+    width: 70%;
+    height: 70%;
+  }
+
   .content_publicacion .img_selccionada-formProf {
     width: 75%;
     height: 60vh;
@@ -26593,6 +26609,11 @@ label.error {
   .img_selccionada-formProf {
     width: 70%;
     height: 8vh;
+  }
+
+  .img_selccionada-formExperiencia {
+    width: 70%;
+    height: 70%;
   }
 
   .content_antDesp-formProf {

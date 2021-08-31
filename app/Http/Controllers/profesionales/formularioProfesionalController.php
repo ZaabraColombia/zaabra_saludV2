@@ -651,8 +651,12 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
+        /*id usuario logueado*/
+        $id_user=auth()->user()->id;
+
         //validar el formulario
         $validator = Validator::make($request->all(),[
+            'logo_experiencia' => ['required', 'image'],
             'nombre_empresa' => ['required'],
             'descripcion_experiencia' => ['required'],
             'inicio_experiencia' => ['required', 'date_format:Y-m-d'],
@@ -685,6 +689,15 @@ class formularioProfesionalController extends Controller
         $experiencia->fechaInicioExperiencia = $request->inicio_experiencia;
         $experiencia->fechaFinExperiencia = $request->fin_experiencia;
         $experiencia->idPerfilProfesional = $idProProfesi;
+
+        //manejo de imagen
+        $carpetaDestino = "img/user/$id_user";
+        $imgExperiencia = $request->file('logo_experiencia');
+
+        $experiencia->imgexperiencia = $carpetaDestino . "/" . "experiencia-" . time() . "." . $imgExperiencia->guessExtension();
+
+        $imgExperiencia->move($carpetaDestino , $experiencia->imgexperiencia);
+
         $experiencia->save();
         //agrgar 1 suma uno
         $count++;
@@ -718,7 +731,11 @@ class formularioProfesionalController extends Controller
 
         //Eliminar experiencia
         $nombre = $experiencia->nombreEmpresaExperiencia;
+        $imgExperiencia = $experiencia->imgexperiencia;
         $experiencia->delete();
+
+        //eliminar imagenes
+        if (@getimagesize(public_path() . "/" . $imgExperiencia)) unlink(public_path() . "/" . $imgExperiencia);
 
         return response()->json(['mensaje' => 'El item "' . $nombre . '" se elimino correctamente'], Response::HTTP_OK);
     }
