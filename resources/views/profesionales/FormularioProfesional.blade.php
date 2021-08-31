@@ -56,9 +56,7 @@
         <!--------------------------------------------      Inicio 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      --------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
             <h5 class="col-12 icon_infoBasica-formProf"> Información básica </h5>
-            <div class="alert alert-success d-none" id="msg_basico">
-                <span id="res_message_basico">Su información se guardó correctamente</span>
-            </div>
+            <div id="msg_basico"></div>
             <form id="formulario_basico" method="POST" action="javascript:void(0)" enctype="multipart/form-data" accept-charset="UTF-8" class="pb-2">
             @csrf
             <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio--------------------->
@@ -79,17 +77,17 @@
                                 <div class="col-lg-6 section_inputRight-text-formProf">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Nombres </label>
                                     <div class="col-12 nombres_usuario-formProf">
-                                        <input class="input_nomApl-formProf" value="{{$user->primernombre}}" name="primernombre"></input>
+                                        <input class="input_nomApl-formProf" value="{{$user->primernombre}}" name="primernombre"/>
 
-                                        <input class="input_nomApl-formProf" value="{{$user->segundonombre}}" name="segundonombre"></input>
+                                        <input class="input_nomApl-formProf" value="{{$user->segundonombre}}" name="segundonombre"/>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 section_inputRight-text-formProf">
                                     <label for="example-date-input"class="col-12 text_label-formProf"> Apellidos </label>
                                     <div class="col-12 nombres_usuario-formProf">
-                                        <input class="input_nomApl-formProf" value="{{$user->primerapellido}}" name="primerapellido"></input>
+                                        <input class="input_nomApl-formProf" value="{{$user->primerapellido}}" name="primerapellido"/>
 
-                                        <input class="input_nomApl-formProf" value="{{$user->segundoapellido}}" name="segundoapellido"></input>
+                                        <input class="input_nomApl-formProf" value="{{$user->segundoapellido}}" name="segundoapellido"/>
                                     </div>
                                 </div>
                             @endforeach
@@ -98,7 +96,7 @@
                                 <input class="col-lg-12 form-control" type="date" value="{{$objFormulario->fechanacimiento}}" id="fechanacimiento" name="fechanacimiento">
                             </div>
                             <div class="col-md-6 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Selecione área </label>
+                                <label for="idarea" class="col-12 text_label-formProf"> Selecione área </label>
                                 <select id="idarea" name="idarea" class="col-lg-12 form-control">
                                     @foreach($area as $area)
                                         <option value="{{$area->idArea}}" {{ ($area->idArea == $objFormulario->idarea) ? 'selected' : '' }}> {{$area->nombreArea}}</option>
@@ -106,7 +104,7 @@
                                 </select>
                             </div>
                             <div class="col-md-6 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Selecione profesión </label>
+                                <label for="idprofesion" class="col-12 text_label-formProf"> Selecione profesión </label>
                                 <select name="idprofesion" id="idprofesion" class="col-lg-12 form-control">
 
                                     @foreach($profesiones as $profesion)
@@ -115,7 +113,7 @@
                                 </select>
                             </div>
                             <div class="col-md-6 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Seleccione especialidad </label>
+                                <label for="idespecialidad" class="col-12 text_label-formProf"> Seleccione especialidad </label>
                                 <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control">
                                     @foreach($especialidades as $especialidad)
                                         <option value="{{$especialidad->idEspecialidad}}" {{ ($especialidad->idEspecialidad == $objFormulario->idEspecialidad) ? 'selected' : '' }}> {{$especialidad->nombreEspecialidad}}</option>
@@ -124,11 +122,8 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-                                <select  class="col-lg-12 form-control universidades" name="id_universidad">
-                                    <option value="{{$objFormulario->id_universidad}}">{{$objFormulario->nombreuniversidad}}</option>
-                                    @foreach($universidades as $universidadesLista)
-                                        <option value="{{$universidadesLista->id_universidad}}"> {{$universidadesLista->nombreuniversidad}}</option>
-                                    @endforeach
+                                <select  class="col-lg-12 form-control universidades" name="id_universidad" id="id_universidad">
+                                    <option value="{{$objFormulario->id_universidad}}" selected>{{$objFormulario->nombreuniversidad}}</option>
                                 </select>
                             </div>
                             <div class="col-md-6 section_inputRight-text-formProf">
@@ -200,11 +195,7 @@
                             <div class="col-md-6 section_inputRight-text-formProf">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formProf"> Selecione universidad </label>
-                                    <select  class="col-lg-12 form-control" name="id_universidad" id="id_universidad" required>
-                                        <option value="">Seleccione Universidad</option>
-                                        @foreach($universidades as  $universidadesLista)
-                                            <option value="{{$universidadesLista->id_universidad}}"> {{$universidadesLista->nombreuniversidad}}</option>
-                                        @endforeach
+                                    <select  class="col-lg-12 form-control universidades" name="id_universidad" id="id_universidad" required>
                                     </select>
                                 </div>
                             </div>
@@ -490,25 +481,36 @@
             <form action="{{ url ('/FormularioProfesionalSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_estudios">
                 @csrf
                 <div class="row p-0 m-0">
-                    <div class="col-md-6 section_inputLeft-text-formProf">
-                        <label for="universidad_estudio" class="col-12 text_label-formProf"> Selecione universidad </label>
-                        <select  class="form-control" name="universidad_estudio" id="universidad_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
-                            <option></option>
-                            @foreach($universidades as $universidad)
-                                <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
-                            @endforeach
-                        </select>
+                    <div class="col-md-6 pt-5">
+                        <div class="img_selccionada-formExperiencia">
+                            <img class="img-thumbnail" id="imagen-universidad">
+                        </div>
+                        <div class="agregar_archivo-formProf">
+                            <input type="file" id="logo_universidad" name="logo_universidad" onchange="ver_imagen('logo_universidad', 'imagen-universidad');">
+                        </div>
+                        <div class="txt_informativo-formProf">
+                            <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
+                        </div>
                     </div>
-
-                    <div class="col-md-6 section_inputRight-text-formProf">
-                        <label for="fecha_estudio" class="col-12 text_label-formProf"> Fecha de finalización </label>
-                        <input class="form-control" type="date" value="2011-08-19" id="fecha_estudio" name="fecha_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
-                    </div>
-
-                    <div class="col-md-6 section_inputLeft-text-formProf">
-                        <div class="form-group">
-                            <label for="disciplina_estudio" class="col-12 text_label-formProf"> Disciplina académica </label>
-                            <input class="form-control" id="disciplina_estudio" type="text" name="disciplina_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
+                    <div class="col-md-6">
+                        <div class="col-12">
+                            <label for="universidad_estudio" class="col-12 text_label-formProf"> Selecione universidad </label>
+                            <select  class="form-control" name="universidad_estudio" id="universidad_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
+                                <option></option>
+                                @foreach($universidades as $universidad)
+                                    <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="fecha_estudio" class="col-12 text_label-formProf"> Fecha de finalización </label>
+                            <input class="form-control" type="date" value="2011-08-19" id="fecha_estudio" name="fecha_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="disciplina_estudio" class="col-12 text_label-formProf"> Disciplina académica </label>
+                                <input class="form-control" id="disciplina_estudio" type="text" name="disciplina_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -559,25 +561,35 @@
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_experiencia">
                 @csrf
-                <div class="row fila_infoBasica-formProf bottom_boder" id="listas">
-                    <div class="col-md-6 section_inputLeft-text-formProf">
-                        <label for="nombre_empresa" class="col-12 text_label-formProf"> Empresa </label>
-                        <input class="col-lg-12 form-control" id="nombre_empresa"  type="text" name="nombre_empresa" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
+                <div class="row fila_infoBasica-formProf bottom_boder justify-content-center" id="listas">
+                    <div class="col-md-6 pt-5">
+                        <div class="img_selccionada-formExperiencia">
+                            <img class="img-thumbnail" id="imagen-experiencia">
+                        </div>
+                        <div class="agregar_archivo-formProf">
+                            <input type="file" id="logo_experiencia" name="logo_experiencia" onchange="ver_imagen('logo_experiencia', 'imagen-experiencia');">
+                        </div>
+                        <div class="txt_informativo-formProf">
+                            <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
+                        </div>
                     </div>
-
-                    <div class="col-md-6 section_inputRight-text-formProf">
-                        <label for="descripcion_experiencia" class="col-12 text_label-formProf"> Cargo </label>
-                        <input class="col-lg-12 form-control" id="descripcion_experiencia"  type="text" name="descripcion_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
-                    </div>
-
-                    <div class="col-md-6 section_inputLeft-text-formProf">
-                        <label for="inicio_experiencia" class="col-12 text_label-formProf"> Fecha de inicio </label>
-                        <input class="form-control" type="date"  id="inicio_experiencia" name="inicio_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
-                    </div>
-
-                    <div class="col-md-6 section_inputRight-text-formProf">
-                        <label for="fin_experiencia" class="col-12 text_label-formProf"> Fecha de terminación </label>
-                        <input class="form-control" type="date"  id="fin_experiencia" name="fin_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
+                    <div class="col-md-6">
+                        <div class="col-12">
+                            <label for="nombre_empresa" class="col-12 text_label-formProf"> Empresa </label>
+                            <input class="col-lg-12 form-control" id="nombre_empresa"  type="text" name="nombre_empresa" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
+                        </div>
+                        <div class="col-12">
+                            <label for="descripcion_experiencia" class="col-12 text_label-formProf"> Cargo </label>
+                            <input class="col-lg-12 form-control" id="descripcion_experiencia"  type="text" name="descripcion_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
+                        </div>
+                        <div class="col-12">
+                            <label for="inicio_experiencia" class="col-12 text_label-formProf"> Fecha de inicio </label>
+                            <input class="form-control" type="date"  id="inicio_experiencia" name="inicio_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
+                        </div>
+                        <div class="col-12">
+                            <label for="fin_experiencia" class="col-12 text_label-formProf"> Fecha de terminación </label>
+                            <input class="form-control" type="date"  id="fin_experiencia" name="fin_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
