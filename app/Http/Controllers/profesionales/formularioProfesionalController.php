@@ -57,6 +57,12 @@ class formularioProfesionalController extends Controller
                 $pro->save();
             }
 
+            /*crea una nueva carpeta con el id del perfil nuevo*/
+            $path = public_path().'img/user/' . $id_user;
+            if (!File::exists($path)) {
+                File::makeDirectory($path,  0777, true);
+            }
+
             $objFormulario = $this->cargaFormulario($id_user);
             $objFormulario = $objFormulario[0];
 
@@ -160,6 +166,32 @@ class formularioProfesionalController extends Controller
         return response()->json($municipio);
     }
     /*------------------------------------- fin json busqueda departamento, provincia, ciudad----------------------*/
+
+
+    /*------------------------------------- Inicio búsqueda auto completado universidad----------------------*/
+
+    public function buscar_universidad(Request $request)
+    {
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'searchTerm' => ['required']
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'Ingrese correctamente la búsqueda'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $universidades = universidades::where('nombreuniversidad','like','%' . $request->searchTerm . '%')
+            ->select('id_universidad as id', 'nombreuniversidad as text')
+            ->orderBy('nombreuniversidad','ASC')
+            ->get();
+
+        return response()->json($universidades);
+    }
+    /*------------------------------------- Fin búsqueda auto completado universidad----------------------*/
 
 
 
@@ -316,17 +348,51 @@ class formularioProfesionalController extends Controller
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @return \Illuminate\Http\JsonResponse
      */
 
 
     /*-------------------------------------Creacion y/o modificacion formulario parte 1----------------------*/
     protected function create1(Request $request){
 
+
         /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
         $verificaPerfil = $this->verificaPerfil();
 
-        /*id usuario logueado*/
+        foreach($verificaPerfil as $verificaPerfil){
+            $idProProfesi=$verificaPerfil;
+        }
+
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'primernombre'      => ['required'],
+            'segundonombre'     => ['required'],
+            'primerapellido'    => ['required'],
+            'segundoapellido'   => ['required'],
+            'fechanacimiento'   => ['required', 'date_format:Y-m-d'],
+            'idarea'            => ['required', 'exists:areas,idArea'],
+            'idprofesion'       => ['required', 'exists:profesiones,idProfesion'],
+            'idespecialidad'    => ['required', 'exists:especialidades,idEspecialidad'],
+            'id_universidad'    => ['required', 'exists:universidades,id_universidad'],
+            'numeroTarjeta'     => ['required']
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'Ingrese correctamente la información'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        /*valido que el profesional no exista para que cree uno nuevo en caso contrario lo modifique */
+        if( is_null($verificaPerfil)){
+            return response()->json([
+                'mensaje' => 'El perfil presenta problemas, comuníquese con soporte técnico '
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //Modificar la información del usuario
+        /*id usuario conectado*/
         $id_user=auth()->user()->id;
         //Modificar nombres del usuario\
         $user = User::find($id_user);
@@ -338,72 +404,38 @@ class formularioProfesionalController extends Controller
 
         $user->save();
 
-        /*valido que el profesional no exista para que cree uno nuevo en caso contrario lo modifique */
-        if(is_null($verificaPerfil)){
+        //Información del perfil profesional
+        $perfil = perfilesprofesionales::where('idPerfilProfesional', '=', $idProProfesi)->get();
+
+        dd($perfil);
+
+        $perfil->fechanacimiento    = $request->fechanacimiento;
+        $perfil->idarea             = $request->idarea;
+        $perfil->idprofesion        = $request->idprofesion;
+        $perfil->idespecialidad     = $request->idespecialidad;
+        $perfil->id_universidad     = $request->id_universidad;
+        $perfil->numeroTarjeta      = $request->tarjeta;
+
+        //Validar si llega la imagen
+        if(!empty($request->file('logo')))
+        {
+            $foto_perfil = $request->file('logo');
 
             /*captura el nombre del logo*/
-            $nombrelogo=$request->logo->getClientOriginalName();
-
-            /*crea una nueva carpeta con el id del perfil nuevo*/
-            $path = public_path().'img/user/' . $id_user;
-            if (!File::exists($path)) {
-                File::makeDirectory($path,  0777, true);
-            }
+            $nombre_foto = $id_user . '-' .  time() . '.' . $foto_perfil->guessExtension();
 
             /*guarda la imagen en carpeta con el id del usuario*/
-            $image = $request->file('logo');
-            $image->move("img/user/$id_user", $image->getClientOriginalName());
+            $foto_perfil->move("img/user/$id_user", $nombre_foto);
 
-            /*anexo iduser y img logoempresa  al request*/
-            $request->merge([
-                'idUser' => "$id_user",
-                'fotoperfil' => "img/user/$id_user/$nombrelogo"
-            ]);
-            //dump($request->all());
-            $dataPerfilesprofesionales = request()->all();
-
-            unset($dataPerfilesprofesionales['primernombre']);
-            unset($dataPerfilesprofesionales['segundonombre']);
-            unset($dataPerfilesprofesionales['primerapellido']);
-            unset($dataPerfilesprofesionales['segundoapellido']);
-            perfilesprofesionales::create($request->all());
-
-            return redirect('FormularioProfesional');
-
-        }else{
-
-            if(!empty($request->file())){
-                /*captura el nombre del logo*/
-                $nombrelogo=$request->logo->getClientOriginalName();
-
-                /*guarda la imagen en carpeta con el id del usuario*/
-                $image = $request->file('logo');
-                $image->move("img/user/$id_user", $image->getClientOriginalName());
-
-                /*anexo iduser y img logoempresa  al request*/
-                $request->merge([
-                    'idUser' => "$id_user",
-                    'fotoperfil' => "img/user/$id_user/$nombrelogo"
-                ]);
-            }
-
-            $dataPerfilesprofesionales = request()->all();
-            unset($dataPerfilesprofesionales['_token']);
-            unset($dataPerfilesprofesionales['logo']);
-            unset($dataPerfilesprofesionales['primernombre']);
-            unset($dataPerfilesprofesionales['segundonombre']);
-            unset($dataPerfilesprofesionales['primerapellido']);
-            unset($dataPerfilesprofesionales['segundoapellido']);
-
-            //die(request);
-
-            perfilesprofesionales::where('idUser', $id_user)->update($dataPerfilesprofesionales);
-
-
-            return redirect('FormularioProfesional');
-
+            //capturar la fotp
+            $perfil->fotoperfil = "img/user/$id_user/" . $nombre_foto;
         }
-        return redirect('FormularioProfesional');
+
+        $perfil->save();
+
+        return response()->json([
+            'mensaje' => 'Se modifico el perfil correctamente.'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 1----------------------*/
 
@@ -539,9 +571,12 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
+        /*id usuario logueado*/
+        $id_user=auth()->user()->id;
 
         //validar el formulario
         $validator = Validator::make($request->all(),[
+            'logo_universidad' => ['required', 'image'],
             'universidad_estudio' => ['required', 'exists:universidades,id_universidad'],
             'fecha_estudio' => ['required', 'date_format:Y-m-d'],
             'disciplina_estudio' => ['required'],
@@ -584,6 +619,15 @@ class formularioProfesionalController extends Controller
         $universidad->nombreestudio = $request->disciplina_estudio;
         $universidad->fechaestudio = $request->fecha_estudio;
         $universidad->idPerfilProfesional = $idProProfesi;
+
+        //manejo de imagen
+        $carpetaDestino = "img/user/$id_user";
+        $imgUniversidad = $request->file('logo_universidad');
+
+        $universidad->logo_universidad = $carpetaDestino . "/" . "universidad-" . time() . "." . $imgUniversidad->guessExtension();
+
+        $imgUniversidad->move($carpetaDestino , $universidad->logo_universidad);
+
         $universidad->save();
         //agrgar 1 suma uno
         $count++;
@@ -592,6 +636,7 @@ class formularioProfesionalController extends Controller
             'mensaje' => 'Se adiciono la universidad "' . $universidad->universidad->nombreuniversidad . '"',
             'items_max' => $count >= 3,
             'id' => $universidad->id_universidadperfil,
+            'logo' => asset($universidad->logo_universidad),
             'universidad' => $universidad->universidad->nombreuniversidad
         ], Response::HTTP_OK);
 
@@ -630,8 +675,11 @@ class formularioProfesionalController extends Controller
         }
 
         $nombre = $universidad->universidad->nombreuniversidad;
-
+        $imgUniversidad = $universidad->logo_universidad;
         $universidad->delete();
+
+        //eliminar imagenes
+        if (@getimagesize(public_path() . "/" . $imgUniversidad)) unlink(public_path() . "/" . $imgUniversidad);
 
         return response()->json(['mensaje' => 'El item ' . $nombre . ' se elimino correctamente'], Response::HTTP_OK);
 
@@ -651,8 +699,12 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
+        /*id usuario logueado*/
+        $id_user=auth()->user()->id;
+
         //validar el formulario
         $validator = Validator::make($request->all(),[
+            'logo_experiencia' => ['required', 'image'],
             'nombre_empresa' => ['required'],
             'descripcion_experiencia' => ['required'],
             'inicio_experiencia' => ['required', 'date_format:Y-m-d'],
@@ -685,6 +737,15 @@ class formularioProfesionalController extends Controller
         $experiencia->fechaInicioExperiencia = $request->inicio_experiencia;
         $experiencia->fechaFinExperiencia = $request->fin_experiencia;
         $experiencia->idPerfilProfesional = $idProProfesi;
+
+        //manejo de imagen
+        $carpetaDestino = "img/user/$id_user";
+        $imgExperiencia = $request->file('logo_experiencia');
+
+        $experiencia->imgexperiencia = $carpetaDestino . "/" . "experiencia-" . time() . "." . $imgExperiencia->guessExtension();
+
+        $imgExperiencia->move($carpetaDestino , $experiencia->imgexperiencia);
+
         $experiencia->save();
         //agrgar 1 suma uno
         $count++;
@@ -693,6 +754,7 @@ class formularioProfesionalController extends Controller
             'mensaje' => 'Se adiciono la experiencia de "' . $request->nombre_empresa . '"',
             'items_max' => $count >= 4,
             'id' => $experiencia->idexperiencias,
+            'logo' => asset($experiencia->imgexperiencia),
         ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 6----------------------*/
@@ -718,7 +780,11 @@ class formularioProfesionalController extends Controller
 
         //Eliminar experiencia
         $nombre = $experiencia->nombreEmpresaExperiencia;
+        $imgExperiencia = $experiencia->imgexperiencia;
         $experiencia->delete();
+
+        //eliminar imagenes
+        if (@getimagesize(public_path() . "/" . $imgExperiencia)) unlink(public_path() . "/" . $imgExperiencia);
 
         return response()->json(['mensaje' => 'El item "' . $nombre . '" se elimino correctamente'], Response::HTTP_OK);
     }
