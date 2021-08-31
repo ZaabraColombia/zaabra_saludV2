@@ -539,9 +539,12 @@ class formularioProfesionalController extends Controller
             $idProProfesi=$verificaPerfil;
         }
 
+        /*id usuario logueado*/
+        $id_user=auth()->user()->id;
 
         //validar el formulario
         $validator = Validator::make($request->all(),[
+            'logo_universidad' => ['required', 'image'],
             'universidad_estudio' => ['required', 'exists:universidades,id_universidad'],
             'fecha_estudio' => ['required', 'date_format:Y-m-d'],
             'disciplina_estudio' => ['required'],
@@ -584,6 +587,15 @@ class formularioProfesionalController extends Controller
         $universidad->nombreestudio = $request->disciplina_estudio;
         $universidad->fechaestudio = $request->fecha_estudio;
         $universidad->idPerfilProfesional = $idProProfesi;
+
+        //manejo de imagen
+        $carpetaDestino = "img/user/$id_user";
+        $imgUniversidad = $request->file('logo_universidad');
+
+        $universidad->logo_universidad = $carpetaDestino . "/" . "universidad-" . time() . "." . $imgUniversidad->guessExtension();
+
+        $imgUniversidad->move($carpetaDestino , $universidad->logo_universidad);
+
         $universidad->save();
         //agrgar 1 suma uno
         $count++;
@@ -592,6 +604,7 @@ class formularioProfesionalController extends Controller
             'mensaje' => 'Se adiciono la universidad "' . $universidad->universidad->nombreuniversidad . '"',
             'items_max' => $count >= 3,
             'id' => $universidad->id_universidadperfil,
+            'logo' => asset($universidad->logo_universidad),
             'universidad' => $universidad->universidad->nombreuniversidad
         ], Response::HTTP_OK);
 
@@ -630,8 +643,11 @@ class formularioProfesionalController extends Controller
         }
 
         $nombre = $universidad->universidad->nombreuniversidad;
-
+        $imgUniversidad = $universidad->logo_universidad;
         $universidad->delete();
+
+        //eliminar imagenes
+        if (@getimagesize(public_path() . "/" . $imgUniversidad)) unlink(public_path() . "/" . $imgUniversidad);
 
         return response()->json(['mensaje' => 'El item ' . $nombre . ' se elimino correctamente'], Response::HTTP_OK);
 
@@ -706,6 +722,7 @@ class formularioProfesionalController extends Controller
             'mensaje' => 'Se adiciono la experiencia de "' . $request->nombre_empresa . '"',
             'items_max' => $count >= 4,
             'id' => $experiencia->idexperiencias,
+            'logo' => asset($experiencia->imgexperiencia),
         ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 6----------------------*/

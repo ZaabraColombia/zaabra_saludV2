@@ -448,6 +448,9 @@ $('#formulario_descripcion').validate({
 
 $('#formulario_estudios').validate({
     rules: {
+        'logo_universidad': {
+            required: true,
+        },
         'universidad_estudio': {
             required: true,
         },
@@ -459,6 +462,9 @@ $('#formulario_estudios').validate({
         },
     },
     messages: {
+        'logo_universidad':{
+            required: "Por favor ingrese el logo de la empresa",
+        },
         'universidad_estudio':{
             required: "Por favor seleccione la universidad",
         },
@@ -476,10 +482,17 @@ $('#formulario_estudios').validate({
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        var formulario = $('#formulario_estudios')[0];
+
+        var data = new FormData(formulario);
         $.ajax({
+            enctype: 'multipart/form-data',
             url:  "FormularioProfesionalSave5",
             type: "POST",
-            data: $('#formulario_estudios').serialize(),
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
             success: function( response ) {
                 $('#mensaje-estudios').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -490,6 +503,7 @@ $('#formulario_estudios').validate({
 
                 if (response.items_max)
                 {
+                    $('#logo_universidad').attr('disabled', 'disabled');
                     $('#universidad_estudio').attr('disabled', 'disabled');
                     $('#fecha_estudio').attr('disabled', 'disabled');
                     $('#disciplina_estudio').attr('disabled', 'disabled');
@@ -515,6 +529,7 @@ $('#formulario_estudios').validate({
                     '</div>');
 
                 document.getElementById("formulario_estudios").reset();
+                $('#imagen-universidad').removeAttr('src');
             },
             error: function (event) {
                 var response = event.responseJSON;
@@ -531,6 +546,7 @@ $('#formulario_estudios').validate({
                 }
                 if (response.items_max)
                 {
+                    $('#logo_universidad').attr('disabled', 'disabled');
                     $('#universidad_estudio').attr('disabled', 'disabled');
                     $('#fecha_estudio').attr('disabled', 'disabled');
                     $('#disciplina_estudio').attr('disabled', 'disabled');
@@ -566,6 +582,7 @@ $('#estudios-lista').on('click', '.close' , function (e) {
                 '</div>');
 
             //quitar el disabled
+            $('#logo_universidad').removeAttr('disabled');
             $('#universidad_estudio').removeAttr('disabled');
             $('#fecha_estudio').removeAttr('disabled');
             $('#disciplina_estudio').removeAttr('disabled');
@@ -681,6 +698,7 @@ $('#formulario_experiencia').validate({
                     '</div>');
 
                 document.getElementById("formulario_experiencia").reset();
+                $('#imagen-experiencia').removeAttr('src');
             },
             error: function (event) {
                 var response = event.responseJSON;

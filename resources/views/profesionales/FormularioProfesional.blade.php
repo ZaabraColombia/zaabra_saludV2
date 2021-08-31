@@ -490,25 +490,36 @@
             <form action="{{ url ('/FormularioProfesionalSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_estudios">
                 @csrf
                 <div class="row p-0 m-0">
-                    <div class="col-md-6 section_inputLeft-text-formProf">
-                        <label for="universidad_estudio" class="col-12 text_label-formProf"> Selecione universidad </label>
-                        <select  class="form-control" name="universidad_estudio" id="universidad_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
-                            <option></option>
-                            @foreach($universidades as $universidad)
-                                <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
-                            @endforeach
-                        </select>
+                    <div class="col-md-6 pt-5">
+                        <div class="img_selccionada-formExperiencia">
+                            <img class="img-thumbnail" id="imagen-universidad">
+                        </div>
+                        <div class="agregar_archivo-formProf">
+                            <input type="file" id="logo_universidad" name="logo_universidad" onchange="ver_imagen('logo_universidad', 'imagen-universidad');">
+                        </div>
+                        <div class="txt_informativo-formProf">
+                            <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
+                        </div>
                     </div>
-
-                    <div class="col-md-6 section_inputRight-text-formProf">
-                        <label for="fecha_estudio" class="col-12 text_label-formProf"> Fecha de finalización </label>
-                        <input class="form-control" type="date" value="2011-08-19" id="fecha_estudio" name="fecha_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
-                    </div>
-
-                    <div class="col-md-6 section_inputLeft-text-formProf">
-                        <div class="form-group">
-                            <label for="disciplina_estudio" class="col-12 text_label-formProf"> Disciplina académica </label>
-                            <input class="form-control" id="disciplina_estudio" type="text" name="disciplina_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
+                    <div class="col-md-6">
+                        <div class="col-12">
+                            <label for="universidad_estudio" class="col-12 text_label-formProf"> Selecione universidad </label>
+                            <select  class="form-control" name="universidad_estudio" id="universidad_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
+                                <option></option>
+                                @foreach($universidades as $universidad)
+                                    <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="fecha_estudio" class="col-12 text_label-formProf"> Fecha de finalización </label>
+                            <input class="form-control" type="date" value="2011-08-19" id="fecha_estudio" name="fecha_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="disciplina_estudio" class="col-12 text_label-formProf"> Disciplina académica </label>
+                                <input class="form-control" id="disciplina_estudio" type="text" name="disciplina_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
+                            </div>
                         </div>
                     </div>
                 </div>
