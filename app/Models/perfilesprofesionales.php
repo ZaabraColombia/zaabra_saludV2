@@ -43,6 +43,8 @@ class perfilesprofesionales extends Model
         'updated_at',
     ];
 
+    protected $primaryKey = 'idPerfilProfesional';
+
 
     public function user()
     {

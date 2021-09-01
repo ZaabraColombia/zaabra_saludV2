@@ -12,41 +12,6 @@
         {!! SEO::generate() !!}
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <script src="{{ asset('plugins/pace/pace.min.js') }}"></script>
-        <link rel="stylesheet" href="{{ asset('plugins/pace/themes/blue/pace-theme-loading-bar.css') }}">
-        <script>
-            window.paceOptions = {
-                ajax: true, // disabled
-                document: true, // disabled
-                eventLag: true, // disabled
-                elements: {
-                    selectors: ['body']
-                }
-            }
-            Pace.on("done", function() {
-                $('#page_overlay').delay(300).fadeOut(600);
-            });
-
-        </script>
-
-        <style>
-            .pace-running > *:not(.pace) {
-                opacity:0.1;
-            }
-            #page_overlay {
-                position: fixed;
-                z-index: 2000;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: #fff;
-            }
-        </style>
-
-
         <link rel="shortcat icon" href="{{URL::asset('/img/logos/zaabrasalud-favicon.png')}}">
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -63,13 +28,8 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="stylesheet" href="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.css" integrity="sha512-zwoDXU7OjppdwrN9brNSW0E2G5+BxJsDXrwoUCEYJ3mE4ZmApOp0DJc36amSk3h8iWi8+qjcii7WFb+9m8Ro4g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-        <link href="{{ asset('css/select2-bootstrap.min.css') }}" rel="stylesheet">
 
-
-
-
-
+        @yield('styles')
     </head>
     <body>
     <div id="page_overlay"></div>
@@ -89,7 +49,8 @@
         <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
         <!-- Styles  input tipo tag-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
-         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+        @yield('scripts')
 
          <!-- Full calendar JS -->
         <script src="{{ asset('fullCalendar/main.js') }}"></script>
@@ -110,7 +71,6 @@
         <script src="{{ asset('js/adicionarcamposformulario.js') }}"></script>
         <script src="{{ asset('js/comentarios.js') }}"></script>
         <script src="{{ asset('js/filtroBusquedad.js') }}"></script>
-        <script src="{{ asset('js/formularioProfesional.js') }}"></script>
         <script src="{{ asset('js/favoritoEspecialidad.js') }}"></script>
         <script src="{{ asset('js/calendar-profesional.js') }}"></script>
         <script src="{{ asset('js/fullcalendar.js') }}"></script>

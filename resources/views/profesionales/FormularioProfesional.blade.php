@@ -1,5 +1,28 @@
 @extends('layouts.app')
 
+@section('styles')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="{{ asset('css/select2-bootstrap.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('plugins/pace/themes/blue/pace-theme-loading-bar.css') }}"/>
+
+    <style>
+        .pace-running > *:not(.pace) {
+            opacity:0.1;
+        }
+        #page_overlay {
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+        }
+    </style>
+@endsection
+
 @section('content')
 
     <!--     Sección lista de opciones     -->
@@ -1221,4 +1244,18 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script data-pace-options='{ "ajax": true, "document": false, "eventLag": false, "elements": false}' src="{{ asset('plugins/pace/pace.min.js') }}"></script>
+
+    <script src="{{ asset('js/formularioProfesional.js') }}"></script>
+
+    <script>
+        Pace.on("done", function() {
+            $('#page_overlay').delay(300).fadeOut(600);
+        });
+
+    </script>
 @endsection

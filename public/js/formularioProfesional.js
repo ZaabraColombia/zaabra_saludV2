@@ -87,6 +87,7 @@ $('#formulario_basico').validate({
             type: "POST",
             data: formData,
             mimeType: "multipart/form-data",
+            dataType: 'json',
             contentType: false,
             cache: false,
             processData: false,

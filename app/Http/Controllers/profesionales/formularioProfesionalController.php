@@ -405,16 +405,14 @@ class formularioProfesionalController extends Controller
         $user->save();
 
         //Información del perfil profesional
-        $perfil = perfilesprofesionales::where('idPerfilProfesional', '=', $idProProfesi)->get();
-
-        dd($perfil);
+        $perfil = perfilesprofesionales::where('idPerfilProfesional', '=', $idProProfesi)->first();
 
         $perfil->fechanacimiento    = $request->fechanacimiento;
         $perfil->idarea             = $request->idarea;
         $perfil->idprofesion        = $request->idprofesion;
         $perfil->idespecialidad     = $request->idespecialidad;
         $perfil->id_universidad     = $request->id_universidad;
-        $perfil->numeroTarjeta      = $request->tarjeta;
+        $perfil->numeroTarjeta      = $request->numeroTarjeta;
 
         //Validar si llega la imagen
         if(!empty($request->file('logo')))
