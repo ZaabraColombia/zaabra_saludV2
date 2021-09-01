@@ -66,11 +66,32 @@ class formularioProfesionalController extends Controller
             $objFormulario = $this->cargaFormulario($id_user);
             $objFormulario = $objFormulario[0];
 
+            //Lista de paises
+            $listaPaises = pais::all();
 
-            $pais = pais::all();
+            //llamar la lista de departamentos según el pais
+            if (!is_null($objFormulario->id_pais)) {
+                $listaDepartamentos = departamento::where("id_pais", $objFormulario->id_pais)->get();
+            }else{
+                $listaDepartamentos = array();
+            }
+            //llamar la lista de provincias según el departamento
+            if (!is_null($objFormulario->id_departamento)) {
+                $listaProvincias = provincia::where("id_departamento", $objFormulario->id_departamento)->get();
+            }else{
+                $listaProvincias = array();
+            }
+            //llamar la lista de municipios según la provincia
+            if (!is_null($objFormulario->id_provincia)) {
+                $listaMunicipios = municipio::where("id_provincia", $objFormulario->id_provincia)->get();
+            }else{
+                $listaMunicipios = array();
+            }
+
+            //Lista de areas
             $area = areas::all();
 
-            //Llamar la lista de profecion segun la seleccion del area
+            //Llamar la lista de profesion según la seleccion del area
             if  (!is_null($objFormulario->idarea)) {
                 $profesiones = profesiones::where('idArea', '=', $objFormulario->idarea)->get();
                 //dd($profesiones);
@@ -95,6 +116,7 @@ class formularioProfesionalController extends Controller
 
             //Ojetos para la vista
             $objuser            = $this->cargaDatosUser($id_user);
+            $objuser            = $objuser[0];
             $objConsultas       = $this->cargaConsultas($id_user);
             $objEducacion       = $this->cargaEducacion($id_user);
             $objExperiencia     = $this->cargaExperiencia($id_user);
@@ -112,7 +134,10 @@ class formularioProfesionalController extends Controller
                 'area',
                 'profesiones',
                 'especialidades',
-                'pais',
+                'listaPaises',
+                'listaDepartamentos',
+                'listaProvincias',
+                'listaMunicipios',
                 'idiomas',
                 'universidades',
                 'objFormulario',
@@ -448,14 +473,44 @@ class formularioProfesionalController extends Controller
         /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
         $verificaPerfil = $this->verificaPerfil();
 
-        /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        foreach($verificaPerfil as $verificaPerfil){
+            $idProProfesi=$verificaPerfil;
+        }
 
-        unset($request['_token']);
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'celular'           => ['required', 'size:10'],
+            'telefono'          => ['required', 'size:7'],
+            'direccion'         => ['required'],
+            'idpais'            => ['required', 'exists:pais,id_pais'],
+            'id_departamento'   => ['required', 'exists:departamentos,id_departamento'],
+            'id_provincia'      => ['required', 'exists:provincias,id_provincia'],
+            'id_municipio'      => ['required', 'exists:municipios,id_municipio'],
+        ]);
 
-        perfilesprofesionales::where('idUser', $id_user)->update($request->all());
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'Ingrese correctamente la información'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
-        return redirect('FormularioProfesional');
+        //Información del perfil profesional
+        $perfil = perfilesprofesionales::where('idPerfilProfesional', '=', $idProProfesi)->first();
+
+        $perfil->celular            = $request->celular;
+        $perfil->telefono           = $request->telefono;
+        $perfil->direccion          = $request->direccion;
+        $perfil->idpais             = $request->idpais;
+        $perfil->id_departamento    = $request->id_departamento;
+        $perfil->id_provincia       = $request->id_provincia;
+        $perfil->id_municipio       = $request->id_municipio;
+
+        $perfil->save();
+
+        return response()->json([
+            'mensaje' => 'Se modifico el perfil correctamente.'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 2----------------------*/
 
