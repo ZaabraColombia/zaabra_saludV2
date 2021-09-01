@@ -92,8 +92,9 @@ $('#formulario_basico').validate({
             cache: false,
             processData: false,
             success: function( response ) {
-                Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#envia_basico').removeAttr('disabled');
+
 
                 $('#msg_basico').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -104,6 +105,8 @@ $('#formulario_basico').validate({
             },
             error: function (event) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                $('#envia_basico').removeAttr('disabled');
                 //$('#').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#msg_basico').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
@@ -112,6 +115,12 @@ $('#formulario_basico').validate({
                     '<span aria-hidden="true">&times;</span>\n' +
                     '</button>\n' +
                     '</div>');
+
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
             }
         });
     }
@@ -167,30 +176,45 @@ $('#formulario_contacto').validate({
     submitHandler: function(form) {
 
         Pace.start();
+        $('#envia_contacto').attr('disabled', 'disabled');
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        /*Se cambia el texto al boton por enviando*/
-        $('#envia_contacto').html('Enviando..');
         $.ajax({
             url:  "FormularioProfesionalSave2",
             type: "POST",
             data: $('#formulario_contacto').serialize(),
             success: function( response ) {
                 Pace.stop();
-                $('#envia_contacto').hide();
-                $('#res_message_contacto').show();
-                $('#res_message_contacto').html(response.msg);
-                $('#msg_contacto').removeClass('d-none');
+                $('.form-control').removeClass('is-invalid');
+                $('#envia_contacto').removeAttr('disabled');
+                $('#msg_contacto').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+            },
+            error:function (event) {
+                Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                $('#envia_contacto').removeAttr('disabled');
+                var response = event.responseJSON;
+                $('#msg_contacto').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    response.mensaje +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
 
-                document.getElementById("#formulario_contacto").reset();
-                setTimeout(function(){
-                    $('#res_message_contacto').hide();
-                    $('#msg_contacto').hide();
-                },10000);
             }
         });
     }
@@ -230,6 +254,7 @@ $('#formulario_consulta').validate({
             data: $('#formulario_consulta').serialize(),
             success: function( response ) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#envia_consultas').remove('disabled');
                 $('#mensaje-consulta').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -263,6 +288,7 @@ $('#formulario_consulta').validate({
             },
             error: function (event) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#envia_consultas').remove('disabled');
                 var response = event.responseJSON;
                 $('#mensaje-consulta').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
@@ -306,6 +332,7 @@ $('#consultas-lista').on('click', '.close' , function (e) {
         data: {id:id},
         success: function( response ) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             $('#mensaje-consulta').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -323,6 +350,7 @@ $('#consultas-lista').on('click', '.close' , function (e) {
         },
         error: function (event) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
             $('#mensaje-consulta').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -364,6 +392,7 @@ $('#formulario_destacado').validate({
             data: $('#formulario_destacado').serialize(),
             success: function( response ) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#destacado_nombre_btn').removeAttr('disabled');
                 var mensaje;
                 if (response.status)
@@ -422,6 +451,7 @@ $('#destacado-lista').on('click', '.close' , function (e) {
         data: {id:id},
         success: function( response ) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             console.log(response);
             var message;
             if (response.status)
@@ -480,6 +510,7 @@ $('#formulario_descripcion').validate({
             data: $('#formulario_descripcion').serialize(),
             success: function( response ) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 //$('#').removeAttr('disabled');
                 $('#mensaje-perfil-profesional').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -490,6 +521,7 @@ $('#formulario_descripcion').validate({
             },
             error: function (event) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 //$('#').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensaje-perfil-profesional').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
@@ -498,6 +530,11 @@ $('#formulario_descripcion').validate({
                     '<span aria-hidden="true">&times;</span>\n' +
                     '</button>\n' +
                     '</div>');
+                if (event.status === 422) {
+                    $.each(response.error, function (index, element) {
+                        $('#' + index).addClass('is-invalid');
+                    });
+                }
             }
         });
     }
@@ -554,6 +591,7 @@ $('#formulario_estudios').validate({
             data: data,
             success: function( response ) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-enviar-estudios').removeAttr('disabled');
                 $('#mensaje-estudios').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -594,6 +632,7 @@ $('#formulario_estudios').validate({
             },
             error: function (event) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-enviar-estudios').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensaje-estudios').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
@@ -639,6 +678,7 @@ $('#estudios-lista').on('click', '.close' , function (e) {
         data: {id:id},
         success: function( response ) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             $('#mensaje-estudios').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -658,6 +698,7 @@ $('#estudios-lista').on('click', '.close' , function (e) {
         },
         error: function (event) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
             $('#mensaje-estudios').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -727,6 +768,7 @@ $('#formulario_experiencia').validate({
             data: data,
             success: function( response ) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-experiencia').removeAttr('disabled');
                 $('#mensaje-experiencia').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -772,6 +814,7 @@ $('#formulario_experiencia').validate({
             },
             error: function (event) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-experiencia').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensaje-experiencia').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
@@ -818,6 +861,7 @@ $('#experiencia-lista').on('click', '.close' , function (e) {
         data: {id:id},
         success: function( response ) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             $('#mensaje-experiencia').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -838,6 +882,7 @@ $('#experiencia-lista').on('click', '.close' , function (e) {
         },
         error: function (event) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
             $('#mensaje-experiencia').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -889,6 +934,7 @@ $('#formulario_asociacion').validate({
             data: data,
             success: function( response ) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-asociacion').removeAttr('disabled');
                 $('#mensajes-asociacion').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -917,6 +963,7 @@ $('#formulario_asociacion').validate({
             },
             error: function (event) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-asociacion').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensajes-asociacion').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
@@ -959,6 +1006,7 @@ $('#lista-asociacion').on('click', '.close' , function (e) {
         data: {id:id},
         success: function( response ) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             $('#mensajes-asociacion').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -974,6 +1022,7 @@ $('#lista-asociacion').on('click', '.close' , function (e) {
         },
         error: function (event) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
             $('#mensajes-asociacion').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -1012,6 +1061,7 @@ $('#formulario_idioma').validate({
             data: $('#formulario_idioma').serialize(),
             success: function( response ) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-idioma').removeAttr('disabled');
                 $('#mensaje-idioma').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1040,6 +1090,7 @@ $('#formulario_idioma').validate({
             },
             error: function (event) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-idioma').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensaje-idioma').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
@@ -1083,6 +1134,7 @@ $('#lista-idioma').on('click', '.close' , function (e) {
         data: {id:id},
         success: function( response ) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
 
             $('#mensaje-idioma').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -1100,6 +1152,7 @@ $('#lista-idioma').on('click', '.close' , function (e) {
         },
         error: function (event) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
 
             var response = event.responseJSON;
             $('#mensaje-idioma').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
@@ -1197,6 +1250,7 @@ $('#formulario_tratamiento').validate({
             data: data,
             success: function( response ) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-tratamiento').removeAttr('disabled');
                 $('#mensajes-tratamientos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1252,6 +1306,7 @@ $('#formulario_tratamiento').validate({
             },
             error: function (event) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-tratamiento').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensajes-tratamientos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
@@ -1300,6 +1355,7 @@ $('#lista-tratamientos').on('click', '.close' , function (e) {
         data: {id:id},
         success: function( response ) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
 
             $('#mensajes-tratamientos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -1322,6 +1378,7 @@ $('#lista-tratamientos').on('click', '.close' , function (e) {
         },
         error: function (event) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
 
             var response = event.responseJSON;
             $('#mensajes-tratamientos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
@@ -1400,6 +1457,7 @@ $('#formulario_premio').validate({
             data: data,
             success: function( response ) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-premio').removeAttr('disabled');
                 $('#mensajes-premios').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1442,6 +1500,7 @@ $('#formulario_premio').validate({
             },
             error: function (event) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-premio').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensajes-premios').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
@@ -1487,6 +1546,7 @@ $('#lista-premios').on('click', '.close' , function (e) {
         data: {id:id},
         success: function( response ) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             $('#mensajes-premios').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1505,6 +1565,7 @@ $('#lista-premios').on('click', '.close' , function (e) {
         },
         error: function (event) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
             $('#mensajes-premios').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -1575,6 +1636,7 @@ $('#formulario_publicaciones').validate({
             data: data,
             success: function( response ) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-publicacion').removeAttr('disabled');
                 $('#mensajes-publicacion').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1613,6 +1675,7 @@ $('#formulario_publicaciones').validate({
             },
             error: function (event) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-publicacion').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensajes-publicacion').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
@@ -1657,6 +1720,7 @@ $('#lista-publicacion').on('click', '.close' , function (e) {
         data: {id:id},
         success: function( response ) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             $('#mensajes-publicacion').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1674,6 +1738,7 @@ $('#lista-publicacion').on('click', '.close' , function (e) {
         },
         error: function (event) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
             $('#mensajes-publicacion').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -1749,6 +1814,7 @@ $('#formulario_fotos').validate({
             data: data,
             success: function( response ) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-foto').removeAttr('disabled');
                 $('#mensajes-fotos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1788,6 +1854,7 @@ $('#formulario_fotos').validate({
             },
             error: function (event) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-foto').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensajes-fotos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
@@ -1833,6 +1900,7 @@ $('#lista-fotos').on('click', '.close' , function (e) {
         data: {id:id},
         success: function( response ) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             $('#mensajes-fotos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1851,6 +1919,7 @@ $('#lista-fotos').on('click', '.close' , function (e) {
         },
         error: function (event) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
             $('#mensajes-fotos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
@@ -1907,6 +1976,7 @@ $('#formulario-videos').validate({
             data: $('#formulario-videos').serialize(),
             success: function( response ) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-video').removeAttr('disabled');
                 $('#mensajes-videos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1948,6 +2018,7 @@ $('#formulario-videos').validate({
             },
             error: function (event) {
                 Pace.stop();
+                $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-video').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensajes-videos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
@@ -1993,6 +2064,7 @@ $('#lista-videos').on('click', '.close' , function (e) {
         data: {id:id},
         success: function( response ) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             $('#mensajes-videos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -2012,6 +2084,7 @@ $('#lista-videos').on('click', '.close' , function (e) {
         },
         error: function (event) {
             Pace.stop();
+            $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
             $('#mensajes-videos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +

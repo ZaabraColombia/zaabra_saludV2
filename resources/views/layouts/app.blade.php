@@ -64,8 +64,6 @@
         <script src="{{ asset('js/profesionales.js') }}"></script>
         <script src="{{ asset('js/galeriaProfesiones.js') }}"></script>
         <script src="{{ asset('js/instituciones.js') }}"></script>
-        <script src="{{ asset('js/selectareas.js') }}"></script>
-        <script src="{{ asset('js/selectpais.js') }}"></script>
         <script src="{{ asset('js/cargaFoto.js') }}"></script>
         <script src="{{ asset('js/contacto.js') }}"></script>
         <script src="{{ asset('js/adicionarcamposformulario.js') }}"></script>
