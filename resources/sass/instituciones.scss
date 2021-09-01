@@ -19,7 +19,7 @@
 .contains_swiper_premium_insti .contains_info h5{
     font-family: "Roboto";
     color: #3E3E3E;
-    font-weight: 200;
+    font-weight: 500;
 }
 .contains_swiper_premium_insti .contains_info p{
     font-family: "Roboto";
@@ -152,24 +152,29 @@
   .rating-stars ul > li.star {
     display:inline-block;
     
-  }
+}
   
-  /* Idle State of the stars */
-  .rating-stars ul > li.star > i.fa {
-    font-size:2.5em; /* Change the size of the stars */
-    color:#ccc; /* Color on idle state */
-  }
-  
-  /* Hover state of the stars */
-  .rating-stars ul > li.star.hover > i.fa {
-    color:#FF912C;
-  }
-  
-  /* Selected state of the stars */
-  .rating-stars ul > li.star.selected > i.fa {
-    color:#FFCC36;
-  }
+/* Idle State of the stars */
+.rating-stars ul > li.star > i.fa {
+font-size:2.5em; /* Change the size of the stars */
+color:#ccc; /* Color on idle state */
+}
 
+/* Hover state of the stars */
+.rating-stars ul > li.star.hover > i.fa {
+color:#FF912C;
+}
+
+/* Selected state of the stars */
+.rating-stars ul > li.star.selected > i.fa {
+color:#FFCC36;
+}
+
+#slider_principal_inst {
+    height: auto;
+}
+
+  
 @media (min-width: 320px){
 
     .titulo_instituciones{
@@ -210,17 +215,17 @@
     }
     .contains_slide_insti .contains_buttons a{
         display: flex;
-        width: 45%;
+        width: 47%;
         height: calc(1rem + 1rem + 2px);
     }
     .contains_swiper_premium_insti .contains_info h2{
         font-size: 1.3em;
     }
     .contains_swiper_premium_insti .contains_info h5{
-        font-size: 0.8em;
+        font-size: 0.85em;
     }
     .contains_swiper_premium_insti .contains_info p{
-        font-size: 0.7em;
+        font-size: .85em;
         margin-bottom: 5%;
     }
     .contains_swiper_premium_insti .contains_info h2, h5, p{
