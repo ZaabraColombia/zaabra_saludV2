@@ -116,6 +116,7 @@ class formularioProfesionalController extends Controller
 
             //Ojetos para la vista
             $objuser            = $this->cargaDatosUser($id_user);
+            $objuser            = $objuser[0];
             $objConsultas       = $this->cargaConsultas($id_user);
             $objEducacion       = $this->cargaEducacion($id_user);
             $objExperiencia     = $this->cargaExperiencia($id_user);
