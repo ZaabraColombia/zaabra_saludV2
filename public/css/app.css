@@ -19105,7 +19105,7 @@ a:link, a:visited, a:active, a:hover {
 .contains_swiper_premium_insti .contains_info h5 {
   font-family: "Roboto";
   color: #3E3E3E;
-  font-weight: 200;
+  font-weight: 500;
 }
 
 .contains_swiper_premium_insti .contains_info p {
@@ -19280,6 +19280,10 @@ a:link, a:visited, a:active, a:hover {
   color: #FFCC36;
 }
 
+#slider_principal_inst {
+  height: auto;
+}
+
 @media (min-width: 320px) {
   .titulo_instituciones {
     margin-top: 5%;
@@ -19327,7 +19331,7 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_slide_insti .contains_buttons a {
     display: flex;
-    width: 45%;
+    width: 47%;
     height: calc(1rem + 1rem + 2px);
   }
 
@@ -19336,11 +19340,11 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_swiper_premium_insti .contains_info h5 {
-    font-size: 0.8em;
+    font-size: 0.85em;
   }
 
   .contains_swiper_premium_insti .contains_info p {
-    font-size: 0.7em;
+    font-size: 0.85em;
     margin-bottom: 5%;
   }
 
