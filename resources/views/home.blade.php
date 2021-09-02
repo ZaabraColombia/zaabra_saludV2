@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <!--carrusel banner principal home--> 
+    <!--carrusel banner principal home-->
 <section class="swiper-container swiper_principal banner_principalHom">
     <!-- <div class="section_txtBanner">
         <h1 class="txt_banner"> LE DAMOS LA <br> BIENVENIDA A <br> ZAABRA SALUD <br></h1>
@@ -9,12 +9,12 @@
         <h2 class="txt3_banner"> - Especialistas de todas las ramas <br> - instituciones, clínicas y mucho más </h2>
 
         <div class="content_btn-agendarHome">
-        <button type="submit" class="btn_agendarHome"> {{ __('Agende su cita') }} 
-          <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+        <button type="submit" class="btn_agendarHome"> {{ __('Agende su cita') }}
+          <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt="">
         </button>
       </div>
     </div> -->
-    
+
     <div class="swiper-wrapper">
         @foreach ($objbannersprincipalHome as $objbannersprincipalHome)
                 <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
@@ -63,17 +63,17 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
 </section>
 
-   <!--parallax home--> 
+   <!--parallax home-->
 <section class="contains_parallax">
       @foreach ($objbannersparallaxHome as $objbannersparallaxHome)
             <div class="zaabrasalud_parallax" style="background-image: url( {{URL::asset($objbannersparallaxHome->rutaImagenVenta)}} );"></div>
       @endforeach
 </section>
 
- <!--carousel especialistas--> 
+ <!--carousel especialistas-->
 <h1 class="titulo_portafolio">Nuestros Especialistas</h1>
 <section class="contains_slider_especialistas">
     <div class="swiper-container swiper_especialistas">
@@ -109,7 +109,7 @@
     </div>
 </div>
 
-<!--carousel universidades--> 
+<!--carousel universidades-->
 <section class="contains_slider_logoshome">
     <h2 class="titulo_logos">Ellos confían en nosotros</h2>
     <div class="swiper-container swiper_logoshome">
@@ -128,3 +128,7 @@
 
 
 @endsection
+
+    @section('scripts')
+        <script src="{{ asset('js/galeriaProfesiones.js') }}"></script>
+    @endsection

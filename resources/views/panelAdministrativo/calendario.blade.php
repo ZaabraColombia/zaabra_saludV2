@@ -1,4 +1,10 @@
 @extends('panelAdministrativo.panelAdministrativo')
+
+@section('styles')
+    <!--Framewor Agenda-->
+    <link rel="stylesheet" href="{{ asset('fullCalendar/main.css') }}">
+@endsection
+
 @section('Panel')
 
     <div class="row">
@@ -107,4 +113,13 @@
 
         <button class="btn_cierre_citasProf" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <!-- Full calendar JS -->
+    <script src="{{ asset('fullCalendar/main.js') }}"></script>
+    <script src="{{ asset('fullCalendar/locales/es.js') }}"></script>
+
+    <script src="{{ asset('js/fullcalendar.js') }}"></script>
 @endsection

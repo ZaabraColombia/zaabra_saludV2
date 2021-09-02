@@ -34,7 +34,7 @@
         <div class="section_btn_entidades">
           <a class="content_btn_entidades" href="{{url('Instituciones/'.$objinstituciones->id)}}">
             <button type="submit" value="" class="btnVer_entidades"> Ver especialidades
-              <img class="icon_arrow_entidades" src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" alt=""> 
+              <img class="icon_arrow_entidades" src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" alt="">
             </button>
           </a>
         </div>
@@ -43,7 +43,7 @@
   </div>
 
   <!-- Carrusel de logos inferior, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
-  <!--carousel universidades--> 
+  <!--carousel universidades-->
   <section class="contains_slider_logoshome">
     <h2 class="titulo_logos">Ellos confían en nosotros</h2>
     <div class="swiper-container swiper_logoshome">
@@ -59,4 +59,8 @@
     <div class="btn-next"></div>
   </section>
 
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/galeriaProfesiones.js') }}"></script>
 @endsection

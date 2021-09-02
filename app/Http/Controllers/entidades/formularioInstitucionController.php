@@ -31,9 +31,25 @@ use File;
 class formularioInstitucionController extends Controller{
 
     public function index(){
-        $tipoinstitucion = tipoinstituciones::all();
-        $pais = pais::all();
+
         $id_user=auth()->user()->id;/*id usuario logueado*/
+
+        //Crear el registro de perfil profesional si no existe
+        $ins = instituciones::where('idUser', '=', $id_user)->select('id')->first();
+        if (empty($ins))
+        {
+            $ins = new instituciones(['idUser' => $id_user]);
+            $ins->save();
+        }
+
+        /*crea una nueva carpeta con el id del perfil nuevo*/
+        $path = public_path().'img/instituciones/' . $id_user;
+        if (!File::exists($path)) {
+            File::makeDirectory($path,  0777, true);
+        }
+
+        $tipoinstitucion = tipoinstituciones::all();
+
         $objuser = $this->cargaDatosUser($id_user);
         $objFormulario=$this->cargaFormulario($id_user);
         $objServicio=$this->cargaServicios($id_user);
