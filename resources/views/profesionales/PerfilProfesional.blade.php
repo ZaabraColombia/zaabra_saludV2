@@ -126,7 +126,7 @@
             </div>
 
             <div class="experiencia">
-                <h2><i></i>Experiencia</h2>
+                <h2><i></i>Experiencia Laboral</h2>
                 <ul>
                     @foreach ($objprofesionallandingexperi as $objprofesionallandingexperi)
                         <li>
