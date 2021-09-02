@@ -17,7 +17,7 @@
 
   <!-- Contenedor de las tarjetas de las profesiones -->
   <section class="row col-11 col-xl-8 container_espeMed">
-    
+
     @foreach ($objEspecialidades as $objEspecialidades)
       <div class="col-6 col-lg-3 section_espeMed">
         <div class="content_img_espeMed">
@@ -29,7 +29,7 @@
         <div class="section_btn_espeMed">
           <a class="content_btn_espMed" href="{{url('Especialistas/'.$objEspecialidades->nombreEspecialidad)}}">
             <button type="submit" value="" class="btnVer_espMed" > Ver especialidades
-              <img class="icon_arrow_espMed" src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" alt=""> 
+              <img class="icon_arrow_espMed" src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" alt="">
             </button>
           </a>
         </div>
@@ -38,7 +38,7 @@
   </section>
 
   <!-- Carrusel de logos inferior, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
-  <!--carousel universidades--> 
+  <!--carousel universidades-->
   <section class="contains_slider_logoshome">
       <h2 class="titulo_logos">Ellos confían en nosotros</h2>
       <div class="swiper-container swiper_logoshome">
@@ -53,4 +53,8 @@
       <div class="btn-prev"></div>
       <div class="btn-next"></div>
   </section>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/galeriaProfesiones.js') }}"></script>
 @endsection

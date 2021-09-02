@@ -224,7 +224,7 @@ class formularioProfesionalController extends Controller
     /*------------inicio busquedad datos basicos usuario logueado y data resgistrada del proesional-----------------*/
 
     public function cargaDatosUser($id_user){
-        return DB::select("SELECT us.primernombre, us.segundonombre, us.primerapellido, us.segundoapellido
+        return DB::select("SELECT us.id, us.primernombre, us.segundonombre, us.primerapellido, us.segundoapellido
         FROM users us
         WHERE id=$id_user");
     }

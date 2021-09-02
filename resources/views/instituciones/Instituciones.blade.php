@@ -60,7 +60,7 @@
 
   <!--galeria instituciones pago normal-->
   <section class="container_cards_normal_insti">
-    
+
       @foreach ($objinstitucionespagonormal as $objinstitucionespagonormal)
         <div class="card card_normal_insti">
           <img class="card-img-top" src="{{URL::asset($objinstitucionespagonormal->imagen)}}">
@@ -135,14 +135,14 @@
   </section>
 
   <!-- Carrusel de logos inferior, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
-  <!--carousel universidades--> 
+  <!--carousel universidades-->
   <section class="contains_slider_logoshome">
     <h2 class="titulo_logos">Ellos confían en nosotros</h2>
     <div class="swiper-container swiper_logoshome">
         <div class="swiper-wrapper">
         @foreach ($objcarruselPublicidadinstituciones as $objcarruselPublicidadinstituciones)
           <img class="swiper-slide" src="{{URL::asset($objcarruselPublicidadinstituciones->rutaImagenVenta)}}">
-        @endforeach 
+        @endforeach
         </div>
     </div>
 
@@ -150,5 +150,10 @@
     <div class="btn-prev"></div>
     <div class="btn-next"></div>
   </section>
-     
+
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/instituciones.js') }}"></script>
+    <script src="{{ asset('js/profesionales.js') }}"></script>
 @endsection

@@ -19,7 +19,7 @@
 
     <!-- Contenedor de las tarjetas de las profesiones -->
     <section class="row col-12 col-lg-10 col-xl-8 container_ramSalud">
-     
+
       @foreach ($objprofesiones as $objprofesiones)
         <div class="col-5 col-lg-3 section_ramSalud">
           <div class="content_img_ramSalud">
@@ -27,13 +27,13 @@
           </div>
 
           <h2 class="subTitle_ramSalud">{{$objprofesiones->nombreProfesion}}</h2>
- 
+
           <p class="text_ramSalud">{{$objprofesiones->descripcion}}</p>
 
           <div class="section_btn_ramSalud">
             <a class="content_btn_ramSalud" href="{{url('Especialidades-Medicas/'.$objprofesiones->nombreProfesion)}}">
-              <button type="submit" value="" class="btnVer_ramSalud" > Ver especialidades 
-                <img class="icon_arrow_ramSalud" src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" alt=""> 
+              <button type="submit" value="" class="btnVer_ramSalud" > Ver especialidades
+                <img class="icon_arrow_ramSalud" src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" alt="">
               </button>
             </a>
           </div>
@@ -42,7 +42,7 @@
     </section>
 
     <!-- Carrusel de logos inferior, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
-    <!--carousel universidades--> 
+    <!--carousel universidades-->
     <section class="contains_slider_logoshome">
         <h2 class="titulo_logos">Ellos confían en nosotros</h2>
         <div class="swiper-container swiper_logoshome">
@@ -58,4 +58,8 @@
         <div class="btn-next"></div>
     </section>
   </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/galeriaProfesiones.js') }}"></script>
 @endsection
