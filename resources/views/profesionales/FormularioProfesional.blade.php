@@ -3,10 +3,10 @@
 @section('styles')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="{{ asset('css/select2-bootstrap.min.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('plugins/pace/themes/blue/pace-theme-loading-bar.css') }}"/>
+    <!--<link rel="stylesheet" href="{{ asset('plugins/pace/themes/blue/pace-theme-loading-bar.css') }}"/>-->
 
     <style>
-        .pace-running > *:not(.pace) {
+        /*.pace-running > *:not(.pace) {
             opacity:0.1;
         }
         #page_overlay {
@@ -19,7 +19,7 @@
             width: 100%;
             height: 100%;
             background-color: #fff;
-        }
+        }*/
     </style>
 @endsection
 
@@ -1115,7 +1115,7 @@
             </div>
 
             <div class="col-md-3 content_btn-siguient">
-                <a type="submit" class="boton_inferior-finalizar-formProf" href="{{ route('contacto') }}"> Finalizar
+                <a type="submit" class="boton_inferior-finalizar-formProf" href="{{ url('/PerfilProfesional/' . $objuser->id) }}"> Finalizar
                     <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_finalizar-formProf" alt="">
                 </a>
             </div>
@@ -1125,15 +1125,15 @@
 
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script data-pace-options='{ "ajax": false, "document": true, "eventLag": false, "elements": false}' src="{{ asset('plugins/pace/pace.min.js') }}"></script>
+    <!--<script data-pace-options='{ "ajax": false, "document": true, "eventLag": false, "elements": false}' src="{{ asset('plugins/pace/pace.min.js') }}"></script>-->
 
     <script src="{{ asset('js/formularioProfesional.js') }}"></script>
     <script src="{{ asset('js/selectareas.js') }}"></script>
     <script src="{{ asset('js/selectpais.js') }}"></script>
 
     <script>
-        Pace.on("done", function() {
-            $('#page_overlay').delay(300).fadeOut(600);
-        });
+        // Pace.on("done", function() {
+        //     $('#page_overlay').delay(300).fadeOut(600);
+        // });
     </script>
 @endsection
