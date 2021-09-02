@@ -123,10 +123,6 @@
     font-family: "Roboto";
     color: #3E3E3E;
 }
-.contains_swiper_premium_insti .contains_info .rating-stars ul{
-    margin-top: 2%;
-    margin-bottom: 2%;
-}
 .contains_slide_instir_publiProfesionales{
     max-width: 100%;
     flex-wrap: nowrap;
@@ -173,6 +169,7 @@ color:#FFCC36;
 #slider_principal_inst {
     height: auto;
 }
+
 
   
 @media (min-width: 320px){
@@ -333,7 +330,7 @@ color:#FFCC36;
         font-size: 1.8em;
     }
     .contains_swiper_premium_insti .contains_info h5 {
-        font-size: 1em;
+        font-size: 1.3em;
     }    
     .contains_swiper_premium_insti .contains_info p {
         font-size: 1em;
@@ -343,8 +340,16 @@ color:#FFCC36;
         padding-top: 35%;
     }
     .contains_slide_insti .contains_buttons a {
-        font-size: 1.2em;
+        font-size: 1em;
         height: calc(1rem + 1.5rem + 2px);
+    }
+    .contains_slide_insti .contains_buttons {
+        max-width: 70%;
+        margin: auto;
+    }
+    .contains_swiper_premium_insti .contains_info .rating-stars ul{
+        margin-top: 5%;
+        margin-bottom: 5%;
     }
     
     
@@ -445,7 +450,7 @@ color:#FFCC36;
     }
     .contains_slide_insti .contains_image_institucion{
         width: 50%;
-        height: 80%;
+        height: 85%;
         float: left;
     }
     .contains_slide_insti .contains_body_insti{
@@ -462,9 +467,11 @@ color:#FFCC36;
     }
     .contains_slide_insti .contains_info p{
         text-align: left;
+        height: 8vh;
     }
     .contains_slide_insti .contains_buttons{
-        max-width: 70%;
+        max-width: 100%;
+        margin: 0;
     }
     .contains_slide_insti .contains_buttons a:nth-last-child(1){
         margin-left: 0;
@@ -483,6 +490,10 @@ color:#FFCC36;
     .contains_swiper_premium_insti .contains_info p {
         font-size: 0.8em;
     }
+    .card_normal_insti .card-body {
+        justify-content: flex-end;
+        padding-top: 45%;
+    }
     .container_cards_normal_insti{
         padding-top: 5%;
         padding-left: 5%;
@@ -490,7 +501,7 @@ color:#FFCC36;
     }
     .card_normal_insti{
         width: 23%;
-        margin-bottom: 6%;
+        margin-bottom: 3%;
     }
     .card_normal_insti .card-img-top{
         width: 120px;
@@ -502,7 +513,7 @@ color:#FFCC36;
     }
     .card_generic_insti{
         width: 24%;
-        height: 10vh;
+        height: 12vh;
         margin-bottom: 2%;
     }
     .card_generic_insti .card-body h5{
@@ -518,6 +529,17 @@ color:#FFCC36;
     .card_normal_insti .card-img-top {
         width: 140px;
         height: 140px;
+    }
+    .contains_slide_insti .contains_info p {
+        text-align: left;
+        height: 11vh;
+    }
+}
+
+@media (min-width: 1360px) {
+    .swiper_premium_insti {
+        max-width: 70%;
+        flex-direction: row;
     }
 }
 
@@ -556,7 +578,12 @@ color:#FFCC36;
         text-align: left;
     }
     .contains_slide_insti .contains_buttons{
-        max-width: 70%;
+        max-width: 80%;
+        margin: 0;
+    }
+    .contains_slide_insti .contains_info p {
+        text-align: left;
+        height: 9vh;
     }
     .contains_slide_insti .contains_buttons a:nth-last-child(1){
         margin-left: 0;
@@ -573,7 +600,7 @@ color:#FFCC36;
         font-size: 1em;
     }
     .contains_swiper_premium_insti .contains_info p {
-        font-size: 0.8em;
+        font-size: 1em;
     }
     .container_cards_normal_insti{
         padding-top: 5%;
@@ -619,6 +646,20 @@ color:#FFCC36;
 }
 
 @media (min-width: 1920px){
+    .contains_swiper_premium_insti .contains_info h5 {
+        font-size: 1.2em;
+    }
+    .contains_swiper_premium_insti .contains_info p {
+        font-size: 1.2em;
+    }
+    .contains_slide_insti .contains_buttons a {
+        font-size: 1.2em;
+    }
+    .contains_slide_insti .contains_info p {
+        height: 13vh;
+    }
+
+
 
     .container_cards_normal_insti {
         padding-top: 5%;
@@ -626,20 +667,8 @@ color:#FFCC36;
         padding-right: 18%;
     }
     .card_normal_insti .card-img-top {
-        border-radius: 50%;
         width: 170px;
         height: 170px;
-        left: 0;
-        right: 0;
-        top: -65px;
-        margin: auto;
-        position: absolute;
-        border: 15px solid #ffff;
-        -o-object-fit: cover;
-        object-fit: cover;
-    }
-    .card_normal_insti .card-body {
-        padding-top: 0;
     }
     .card_normal_insti .contains_buttons{
         height: 12%;
