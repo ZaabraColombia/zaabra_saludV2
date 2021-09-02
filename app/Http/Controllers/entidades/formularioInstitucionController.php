@@ -486,6 +486,16 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 4----------------------*/
     public function create4(Request $request){
 
+        foreach ($request->input('tituloServicios', []) as $i => $tituloServicios) {
+            if(!empty($request->input('tituloServicios')[$i])){
+                $request->validate([
+                    'tituloServicios.' . $i => ['required'],
+                    'DescripcioServicios.' . $i => ['required'],
+                    'sucursalservicio.' . $i => ['required'],
+                ]);
+            }
+        }
+
         /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
         $verificaPerfil = $this->verificaPerfil();
 
@@ -667,6 +677,20 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 8----------------------*/
     public function create8(Request $request){
 
+        foreach ($request->input('primer_nombre', []) as $i => $tituloServicios) {
+            if(!empty($request->input('primer_nombre')[$i])){
+                $request->validate([
+                    'foto_perfil_institucion.' . $i => ['required', 'image'],
+                    'primer_nombre.' . $i => ['required'],
+                    'segundo_nombre.' . $i => ['required'],
+                    'primer_apellido.' . $i => ['required'],
+                    'segundo_apellido.' . $i => ['required'],
+                    'especialidad_uno.' . $i => ['required'],
+                    'especialidad_dos.' . $i => ['required'],
+                ]);
+            }
+        }
+
 
         /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
         $verificaPerfil = $this->verificaPerfil();
@@ -727,6 +751,17 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 9----------------------*/
     public function create9(Request $request){
 
+        foreach ($request->input('titulocertificado', []) as $i => $tituloServicios) {
+            if(!empty($request->input('titulocertificado')[$i])){
+                $request->validate([
+                    'imgcertificado.' . $i => ['required', 'image'],
+                    'titulocertificado.' . $i => ['required'],
+                    'fechacertificado.' . $i => ['required'],
+                    'descrpcioncertificado.' . $i => ['required']
+                ]);
+            }
+        }
+
 
         /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
         $verificaPerfil = $this->verificaPerfil();
@@ -780,6 +815,18 @@ class formularioInstitucionController extends Controller{
 
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 10----------------------*/
     public function create10(Request $request){
+
+        foreach ($request->input('nombre', []) as $i => $tituloServicios) {
+            if(!empty($request->input('nombre')[$i])){
+                $request->validate([
+                    'imgsede.' . $i => ['required', 'image'],
+                    'nombre.' . $i => ['required'],
+                    'direccion.' . $i => ['required'],
+                    'horario_sede.' . $i => ['required'],
+                    'telefono.' . $i => ['required']
+                ]);
+            }
+        }
 
         /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
         $verificaPerfil = $this->verificaPerfil();
@@ -852,6 +899,16 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 12----------------------*/
     public function create12(Request $request){
 
+        foreach ($request->input('nombrefoto', []) as $i => $tituloServicios) {
+            if(!empty($request->input('nombrefoto')[$i])){
+                $request->validate([
+                    'imggaleria.' . $i => ['required', 'image'],
+                    'nombrefoto.' . $i => ['required'],
+                    'descripcion.' . $i => ['required'],
+                    'fechagaleria.' . $i => ['required'],
+                ]);
+            }
+        }
 
         /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
         $verificaPerfil = $this->verificaPerfil();
@@ -870,6 +927,7 @@ class formularioInstitucionController extends Controller{
                 galerias::create([
                     'idinstitucion' => $idInstitucion,
                     'nombrefoto' => $request->input('nombrefoto')[$i],
+                    'fechagaleria' => $request->input('fechagaleria')[$i],
                     'imggaleria' =>"img/instituciones/$id_user/".$imggaleria[$i]->getClientOriginalName(),
                     'descripcion' => $request->input('descripcion')[$i],
                 ]);
@@ -903,6 +961,17 @@ class formularioInstitucionController extends Controller{
 
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 13----------------------*/
     public function create13(Request $request){
+
+        foreach ($request->input('nombrevideo', []) as $i => $v) {
+            if(!empty($request->input('nombrevideo')[$i])){
+                $request->validate([
+                    'nombrevideo.' . $i => ['required', 'image'],
+                    'descripcionvideo.' . $i => ['required'],
+                    'urlvideo.' . $i => ['required'],
+                    'fechavideo.' . $i => ['required'],
+                ]);
+            }
+        }
 
 
         $verificaPerfil = $this->verificaPerfil();

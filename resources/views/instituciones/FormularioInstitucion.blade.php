@@ -406,6 +406,20 @@
                 @endforeach
             </div>
 
+            @if (
+                    $errors->has('tituloServicios.*') or
+                    $errors->has('DescripcioServicios.*') or
+                    $errors->has('sucursalservicio.*')
+                )
+            <div class="col-12">
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Error!</h4>
+                    <p>Llene todos los formualrios que necesita.</p>
+                </div>
+            </div>
+            @endif
+
+
             <form method="POST" action="{{ url ('/FormularioInstitucionSave4') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -1480,6 +1494,22 @@
                     @endif
                 @endforeach
             </div>
+            @if (
+                    $errors->has('foto_perfil_institucion.*') or
+                    $errors->has('primer_nombre.*') or
+                    $errors->has('segundo_nombre.*') or
+                    $errors->has('primer_apellido.*') or
+                    $errors->has('segundo_apellido.*') or
+                    $errors->has('especialidad_uno.*') or
+                    $errors->has('especialidad_dos.*')
+                )
+                <div class="col-12">
+                    <div class="alert alert-danger" role="alert">
+                        <h4 class="alert-heading">Error!</h4>
+                        <p>Llene todos los formualrios que necesita.</p>
+                    </div>
+                </div>
+            @endif
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -1832,7 +1862,19 @@
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave9') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+                @if (
+                                    $errors->has('imgcertificado.*') or
+                                    $errors->has('titulocertificado.*') or
+                                    $errors->has('fechacertificado.*') or
+                                    $errors->has('descrpcioncertificado.*')
+                                )
+                    <div class="col-12">
+                        <div class="alert alert-danger" role="alert">
+                            <h4 class="alert-heading">Error!</h4>
+                            <p>Llene todos los formualrios que necesita.</p>
+                        </div>
+                    </div>
+                @endif
                 @if($objContadorCertificaciones->cantidad == 0)
                     <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
@@ -2321,7 +2363,20 @@
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave10') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+                @if (
+                                                    $errors->has('imgsede.*') or
+                                                    $errors->has('nombre.*') or
+                                                    $errors->has('direccion.*') or
+                                                    $errors->has('horario_sede.*') or
+                                                    $errors->has('telefono.*')
+                                                )
+                    <div class="col-12">
+                        <div class="alert alert-danger" role="alert">
+                            <h4 class="alert-heading">Error!</h4>
+                            <p>Llene todos los formualrios que necesita.</p>
+                        </div>
+                    </div>
+                @endif
                 @if($objContadorSedes->cantidad == 0)
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
@@ -3365,7 +3420,19 @@
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave12') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+                @if (
+                        $errors->has('imggaleria.*') or
+                        $errors->has('nombrefoto.*') or
+                        $errors->has('descripcion.*') or
+                        $errors->has('fechagaleria.*')
+                     )
+                    <div class="col-12">
+                        <div class="alert alert-danger" role="alert">
+                            <h4 class="alert-heading">Error!</h4>
+                            <p>Llene todos los formualrios que necesita.</p>
+                        </div>
+                    </div>
+                @endif
                 @if($objContadorGaleria->cantidad == 0)
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
@@ -4864,7 +4931,19 @@
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave13') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+                @if (
+                                        $errors->has('nombrevideo.*') or
+                                        $errors->has('descripcionvideo.*') or
+                                        $errors->has('urlvideo.*') or
+                                        $errors->has('fechavideo.*')
+                                     )
+                    <div class="col-12">
+                        <div class="alert alert-danger" role="alert">
+                            <h4 class="alert-heading">Error!</h4>
+                            <p>Llene todos los formualrios que necesita.</p>
+                        </div>
+                    </div>
+                @endif
                 @if($objContadorVideo->cantidad == 0)
                     <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formInst mt-0">
