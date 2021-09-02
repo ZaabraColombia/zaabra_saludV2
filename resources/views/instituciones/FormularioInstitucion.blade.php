@@ -44,7 +44,7 @@
                 <p class="text_opcion-formInst" > Galería </p>
             </li>
         </div>
-    </ol> 
+    </ol>
 
     <!-- 1* Contenedor principal de la opción DATOS INSTITUCIONALES -->
     <div class="container-fluid date_institution content_principal-formInst"> <!-- Clase "date_institution" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
@@ -57,35 +57,35 @@
 
         <!--------------------------------------------      Inicio 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      --------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
-            <h5 class="col-12 icon_infoBasica-formInst"> Información básica </h5> 
+            <h5 class="col-12 icon_infoBasica-formInst"> Información básica </h5>
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 @if(!empty($objFormulario))
-                    <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio---------------------> 
+                    <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio--------------------->
                     <div class="row fila_infoUser-formInst">
-                        <!-- Sección logo datos institución --> 
+                        <!-- Sección logo datos institución -->
                         <div class="col-md-3 contain_imgUsuario-formImg">
                             @foreach($objFormulario as $objFormulario)
-                                <img id="imagenPrevisualizacion" class="img_usuario-formInst" src="{{URL::asset($objFormulario->logo)}}">
-                            @endforeach 
+                                <img id="img-logoInstitucion" class="img_usuario-formInst" src="{{ (isset($objFormulario->logo)) ? asset($objFormulario->logo) : ''}}">
+                            @endforeach
 
-                            <input type="file" class="input_imgUsuario-formInst" name="logoInstitucion"  id="seleccionArchivos" accept="image/png, image/jpeg">
+                            <input type="file" class="input_imgUsuario-formInst" name="logoInstitucion"  id="logoInstitucion" onchange="ver_imagen('logoInstitucion', 'img-logoInstitucion')" accept="image/png, image/jpeg">
 
                             <p class="icon_subirFoto-formInst"> Subir foto de logo </p>
                         </div>
 
                         <!-- Sección datos institución -->
-                        <div class="col-md-4 col-xl-5 datos_principales-formInst"> 
+                        <div class="col-md-4 col-xl-5 datos_principales-formInst">
                             @foreach ($objuser as $objuser)
                                 <div class="col-12 rightSection_formInst">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Nombres Institución</label>
 
                                     <input class="col-12 input_nomApl-formInst" value="{{$objuser->nombreinstitucion}}" readonly></input>
                                 </div>
-                            @endforeach  
-        
+                            @endforeach
+
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst">  Fecha  </label>
 
@@ -97,11 +97,11 @@
 
                                 <input class="col-12 form-control" id="url" placeholder="Url" type="text" name="url" value="{{$objFormulario->url}}">
                             </div>
-  
+
                             <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Selecione entidad </label> 
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Selecione entidad </label>
                                 <select class="col-lg-12 form-control" name="idtipoInstitucion" id="idtipoInstitucion">
-                                 
+
                                     @foreach($tipoinstitucion as $tipoinstitucion)
                                         <option value="{{$tipoinstitucion->id}}" {{ ($tipoinstitucion->id == $objFormulario->idtipoInstitucion) ? 'selected' : '' }}> {{$tipoinstitucion->nombretipo}}</option>
                                     @endforeach
@@ -110,30 +110,28 @@
                         </div>
 
                         <!-- Sección imagen datos institución -->
-                        <div class="col-md-5 col-xl-4 datos_principales2-formInst">  
-                            <div class="col-12 contain_imgInst-formInst">       
-                                <img class="img_institucion-formInst" id="imagenPrevi4" src="{{URL::asset($objFormulario->imagen)}}">
-                    
-                                <input type="file" class="input_imgUsuario-formInst" name="imagenInstitucion"  id="selecArchivos4" onchange="previewImageProf(4)" accept="image/png, image/jpeg">
-
+                        <div class="col-md-5 col-xl-4 datos_principales2-formInst">
+                            <div class="col-12 contain_imgInst-formInst">
+                                <img class="img_institucion-formInst" id="img-imagenInstitucion" src="{{ (isset($objFormulario->imagen)) ? asset($objFormulario->imagen) : '' }}" />
+                                <input type="file" class="input_imgUsuario-formInst" name="imagenInstitucion"  id="imagenInstitucion" onchange="ver_imagen('imagenInstitucion', 'img-imagenInstitucion')" accept="image/png, image/jpeg">
                                 <p class="icon_subirFoto-formInst"> Subir foto de la sede </p>
                             </div>
                         </div>
                     </div>
-                    <!------------------ Fin campos llenos ---------------------> 
+                    <!------------------ Fin campos llenos --------------------->
 
                 @else
-                    <!--------------- Inicio campos vacios--------------------->  
+                    <!--------------- Inicio campos vacios--------------------->
                     <div class="row fila_infoUser-formInst">
-                        <!-- Sección logo datos institución --> 
-                        <div class="col-md-3 contain_imgUsuario-formImg"> 
+                        <!-- Sección logo datos institución -->
+                        <div class="col-md-3 contain_imgUsuario-formImg">
                             <img id="imagenPrevisualizacion" class="img_usuario-formInst">
 
                             <input type="file" class="input_imgUsuario-formInst" name="logoInstitucion"  id="seleccionArchivos" accept="image/png, image/jpeg">
 
                             <p class="icon_subirFoto-formInst"> Subir foto de logo </p>
                         </div>
-                
+
                         <!-- Sección datos institución -->
                         <div class="col-md-4 col-xl-5 datos_principales-formInst">
                             @foreach ($objuser as $objuser)
@@ -143,10 +141,10 @@
                                 <input class="col-12 input_nomApl-formInst" value="{{$objuser->nombreinstitucion}}" readonly></input>
                             </div>
                             @endforeach
-            
+
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="col-lg-12 form-control" type="date" value="2011-08-19" id="example-date-input" name="fechainicio">
                             </div>
 
@@ -155,17 +153,17 @@
 
                                 <input class="col-lg-12 form-control" id="url" placeholder="Url" type="text" name="url">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Selecione entidad </label> 
+                                <label for="example-date-input" class="col-12 text_label-formInst"> Selecione entidad </label>
 
                                 <select class="col-lg-12 form-control" name="idprofesion" id="idprofesion"></select>
                             </div>
                         </div>
 
                         <!-- Sección imagen datos institución -->
-                        <div class="col-md-5 col-xl-4 datos_principales2-formInst">  
-                            <div class="col-12 contain_imgInst-formInst">   
+                        <div class="col-md-5 col-xl-4 datos_principales2-formInst">
+                            <div class="col-12 contain_imgInst-formInst">
                                 <img class="img_institucion-formInst" id="imagenPrevi4">
 
                                 <input class="input_imgUsuario-formInst" type="file" name="imagenInstitucion"  id="selecArchivos4" onchange="previewImageProf(4)" accept="image/png, image/jpeg">
@@ -178,10 +176,10 @@
 
                 <div class="col-lg-3 content_btnEnviar-formInst">
                     <button type="submit" class="btn_guardar-formInst"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
-                <!--------------- Fin campos vacios--------------------->  
+                <!--------------- Fin campos vacios--------------------->
             </form>
         </div>
         <!--------------------------------------------      Fin 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      ------------------------------------------------>
@@ -189,7 +187,7 @@
         <!--------------------------------------------      Inicio 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <form method="POST" action="{{ url ('/FormularioInstitucionSave2') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <h5 class="col-12 icon_infoContac-formInst"> Información de contacto </h5>
 
@@ -206,10 +204,10 @@
 
                             <input class="col-12 form-control" id="telefono" placeholder="Número Teléfono" type="number" name="telefono2" value="{{$objFormulario->telefono2}}">
                         </div>
-                        
+
                         <div class="col-md-6 leftSection_formInst">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Dirección </label>
-                                
+
                             <input class="col-12 form-control" id="direccion" placeholder="Dirección" type="text" name="direccion" value="{{$objFormulario->direccion}}">
                         </div>
 
@@ -218,43 +216,51 @@
                             <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione país </label>
 
                             <select id="idpais" name="idpais" class="col-12 form-control">
-                                <option value="" selected disabled> Seleccione país </option>
-
-                                @foreach($pais as $pais)
-                                    <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
+                                <option></option>
+                                @foreach($listaPaises as $pais)
+                                    <option value="{{ $pais->id_pais }}"  {{ (isset($objFormulario->id_pais) && $objFormulario->id_pais == $pais->id_pais) ? 'selected' : ''}}> {{ $pais->nombre }}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione departamento </label>
-
-                            <select name="id_departamento" id="id_departamento" class="col-12 form-control"></select>
+                            <label for="id_departamento" class="col-12 text_label-formInst"> Seleccione departamento </label>
+                            <select name="id_departamento" id="id_departamento" class="col-12 form-control">
+                                @foreach($listaDepartamentos as $departamento)
+                                    <option value="{{ $departamento->id_departamento }}"  {{ (isset($objFormulario->id_departamento) && $objFormulario->id_departamento == $departamento->id_departamento) ? 'selected' : ''}}> {{ $departamento->nombre }}</option>
+                                @endforeach
+                            </select>
                         </div>
-                    
-                        <div class="col-md-6 rightSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione provincia </label>
 
-                            <select name="id_provincia" id="id_provincia" class="col-12 form-control"></select>
+                        <div class="col-md-6 rightSection_formInst">
+                            <label for="id_provincia" class="col-12 text_label-formInst"> Seleccione provincia </label>
+                            <select name="id_provincia" id="id_provincia" class="col-12 form-control">
+                                @foreach($listaProvincias as $provincia)
+                                    <option value="{{ $provincia->id_provincia }}"  {{ (isset($objFormulario->id_provincia) && $objFormulario->id_provincia == $provincia->id_provincia) ? 'selected' : ''}}> {{ $provincia->nombre }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione ciudad </label>
-
-                            <select name="id_municipio" id="id_municipio" class="col-12 form-control"></select>
+                            <label for="id_municipio" class="col-12 text_label-formInst"> Seleccione ciudad </label>
+                            <select name="id_municipio" id="id_municipio" class="col-12 form-control">
+                                @foreach($listaMunicipios as $municipio)
+                                    <option value="{{ $municipio->id_municipio }}"  {{ (isset($objFormulario->id_municipio) && $objFormulario->id_municipio == $municipio->id_municipio) ? 'selected' : ''}}> {{ $municipio->nombre }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <!-- Botón guardar información -->
                         <div class="col-12 content_btnEnviar-formInst">
                             <button type="submit" class="btn2_enviar-formInst"> Guardar
-                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                             </button>
                         </div>
-                        
+
                     @else
                         <div class="col-md-6 leftSection_formInst">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Celular </label>
-                                
+
                             <input class="col-12 form-control" id="tarjeta" placeholder="Número de celular" type="number" name="telefonouno" >
                         </div>
 
@@ -288,7 +294,7 @@
 
                             <select name="id_departamento" id="id_departamento" class="form-control"></select>
                         </div>
-                
+
                         <div class="col-md-6 rightSection_formInst">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione provincia </label>
 
@@ -304,7 +310,7 @@
                         <!-- Botón guardar información -->
                         <div class="col-12 content_btnEnviar-formInst">
                             <button type="submit" class="btn2_enviar-formInst"> Guardar
-                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                             </button>
                         </div>
                     @endif
@@ -317,7 +323,7 @@
         <div class="col-lg-10 col-xl-8 content_botonInferior-next-formInst">
             <div class="col-md-3 content_btn-siguient-formInst">
                 <button type="submit" class="boton_inferior-siguiente-formInst btn-next-320-formInst" onclick="hideBtnNext(this)" code-position="dateInstitution"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -330,7 +336,7 @@
             <h5 class="col-12 icon_servProf-formInst"> Servicios profesionales </h5>
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave3') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 @if(!empty($objFormulario->DescripcionGeneralServicios))
                     <div class="col-12 px-0">
@@ -351,7 +357,7 @@
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
@@ -382,26 +388,40 @@
 
                             <div class="option_consulta-formProf">
                                 <label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Descrpción </label>
-                            
+
                                 <label class="col-12 text_infoGuardada-formProf"> {{$objServicio->DescripcioServicios}} </label>
                             </div>
-                            
+
                             <div class="option_consulta-formProf">
                                 <label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Sedes en la que está el servicio </label>
-                                @if($objServicio->sucursalservicio) 
+                                @if($objServicio->sucursalservicio)
                                     @php  $new_array = explode(',',$objServicio->sucursalservicio); @endphp
                                 @endif
                                 @foreach($new_array as $info)
                                     <li class="col-12 text_infoGuardada-formProf"> {{$info}} </li>
                                 @endforeach
                             </div>
-                        </div>   
+                        </div>
                     @endif
                 @endforeach
             </div>
 
+            @if (
+                    $errors->has('tituloServicios.*') or
+                    $errors->has('DescripcioServicios.*') or
+                    $errors->has('sucursalservicio.*')
+                )
+            <div class="col-12">
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Error!</h4>
+                    <p>Llene todos los formualrios que necesita.</p>
+                </div>
+            </div>
+            @endif
+
+
             <form method="POST" action="{{ url ('/FormularioInstitucionSave4') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 @if($objContadorServicio->cantidad == 0)
                     <!-- Modulo contenido SERVICIOS -->
@@ -421,9 +441,9 @@
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
-                            
+
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                         
+
                             <div class="col-12 leftSection_formInst form-group">
                                 <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
@@ -437,7 +457,7 @@
                                 <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 rightSection_formInst">        
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
                                 <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
@@ -445,9 +465,9 @@
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 rightSection_formInst">    
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                                
+
                                 <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
@@ -470,7 +490,7 @@
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
-                            
+
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
                                 <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
@@ -485,7 +505,7 @@
                                 <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 rightSection_formInst">        
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
                                 <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
@@ -493,9 +513,9 @@
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 rightSection_formInst">    
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                                
+
                                 <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
@@ -518,7 +538,7 @@
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
-                            
+
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
                                 <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
@@ -533,7 +553,7 @@
                                 <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 rightSection_formInst">        
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
                                 <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
@@ -541,9 +561,9 @@
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 rightSection_formInst">    
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                                
+
                                 <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
@@ -559,7 +579,7 @@
                                 <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 leftSection_formInst">        
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
                                 <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
@@ -567,9 +587,9 @@
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 leftSection_formInst">    
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                                
+
                                 <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
@@ -592,7 +612,7 @@
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
-                            
+
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
                                 <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
@@ -607,7 +627,7 @@
                                 <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 rightSection_formInst">        
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
                                 <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
@@ -615,9 +635,9 @@
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 rightSection_formInst">    
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                                
+
                                 <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
@@ -640,7 +660,7 @@
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
-                            
+
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
                                 <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
@@ -655,7 +675,7 @@
                                 <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 rightSection_formInst">        
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
                                 <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
@@ -663,9 +683,9 @@
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 rightSection_formInst">    
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                                
+
                                 <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
@@ -688,7 +708,7 @@
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
-                            
+
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
                                 <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
@@ -703,7 +723,7 @@
                                 <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 rightSection_formInst">        
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
                                 <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
@@ -711,9 +731,9 @@
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 rightSection_formInst">    
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                                
+
                                 <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
@@ -736,7 +756,7 @@
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
-                            
+
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
                                 <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
@@ -751,7 +771,7 @@
                                 <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 rightSection_formInst">        
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
                                 <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
@@ -759,9 +779,9 @@
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 rightSection_formInst">    
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                                
+
                                 <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
@@ -777,7 +797,7 @@
                                 <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 leftSection_formInst">        
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
                                 <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
@@ -785,9 +805,9 @@
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 leftSection_formInst">    
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                                
+
                                 <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
@@ -810,7 +830,7 @@
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
-                            
+
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
                                 <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
@@ -825,7 +845,7 @@
                                 <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 rightSection_formInst">        
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
                                 <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
@@ -833,9 +853,9 @@
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 rightSection_formInst">    
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                                
+
                                 <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
@@ -858,7 +878,7 @@
 
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
-                            
+
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
                                 <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
@@ -873,7 +893,7 @@
                                 <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 rightSection_formInst">        
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
                                 <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
@@ -881,9 +901,9 @@
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 rightSection_formInst">    
+                            <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                                
+
                                 <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
@@ -899,7 +919,7 @@
                                 <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
                             </div>
 
-                            <div class="col-12 leftSection_formInst">        
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
 
                                 <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
@@ -907,9 +927,9 @@
                                 <labe class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                             </div>
 
-                            <div class="col-12 leftSection_formInst">    
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                                
+
                                 <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
@@ -921,7 +941,7 @@
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
@@ -932,14 +952,14 @@
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formInst">
             <div class="col-md-3 content_btn-anter-formInst">
                 <button type="submit" class="boton_inferior-anterior-formInst" onclick="hideBtnPrevious(this)" code-position="professionalServices">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient-formInst">
                 <button type="submit" class="boton_inferior-siguiente-formInst" onclick="hideBtnNext(this)" code-position="professionalServices"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -952,7 +972,7 @@
             <h5 class="col-lg-12 icon_quienes-formInst"> ¿Quiénes somos? </h5>
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 @if(!empty($objFormulario->quienessomos))
                     <div class="col-12 px-0">
@@ -973,7 +993,7 @@
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
@@ -985,7 +1005,7 @@
             <h5 class="col-lg-12 icon_propuestaValor-formInst"> Propuesta de valor </h5>
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 @if(!empty($objFormulario->propuestavalor))
                     <div class="col-12 px-0">
@@ -1006,7 +1026,7 @@
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
@@ -1028,18 +1048,18 @@
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
-                                </a> 
-                            </div> 
+                                </a>
+                            </div>
 
-                          
+
 
                             <div class="option_asociacion-formProf">
-                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objEps->urlimagen)}}"> 
+                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objEps->urlimagen)}}">
                             </div>
-                        </div> 
+                        </div>
                     @endif
                 @endforeach
-            </div> 
+            </div>
 
             <div class="asociacion_guardada-formProf">
                 @foreach($objIps as $objIps)
@@ -1052,12 +1072,12 @@
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
-                                </a> 
-                            </div>  
-                            
+                                </a>
+                            </div>
+
                             <div class="option_asociacion-formProf">
-                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objIps->urlimagen)}}"> 
-                            </div>  
+                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objIps->urlimagen)}}">
+                            </div>
                         </div>
                     @endif
                 @endforeach
@@ -1074,26 +1094,26 @@
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
-                                </a> 
-                            </div>  
-                            
+                                </a>
+                            </div>
+
                             <div class="option_asociacion-formProf">
                                 <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objPrepa->urlimagen)}}">
-                            </div>  
-                        </div> 
+                            </div>
+                        </div>
                     @endif
                 @endforeach
             </div>
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave7') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <div class="row col-12 row_convenio-form">
                     <!-- **************************************************************** FORMULARIO EPS ************************************************************** -->
                     @if($objContadorEps->cantidad == 0)
                         <div class="row col-12 p-0 m-0">
                             <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS. </p>
-                    
+
                             <div class="col-md-4 content_agregarImg-formInst form-group">
                                 <div class="img_selccionada-formProf">
                                     <img class="img_anexada-formProf" id="uploadPreview2"/>
@@ -1103,7 +1123,7 @@
                                     <input type='file' id="uploadImage2" name="urlimagenEps[]" onchange="previewImage(2);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1117,7 +1137,7 @@
                                     <input type='file' id="uploadImage3" name="urlimagenEps[]" onchange="previewImage(3);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1131,11 +1151,11 @@
                                     <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
-                        </div>   
+                        </div>
 
                     @elseif($objContadorEps->cantidad == 1)
                     <div class="row col-12 p-0 m-0">
@@ -1150,7 +1170,7 @@
                                     <input type='file' id="uploadImage3" name="urlimagenEps[]" onchange="previewImage(3);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1164,11 +1184,11 @@
                                     <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
-                        </div>    
+                        </div>
                     @elseif($objContadorEps->cantidad == 2)
                     <div class="row col-12 p-0 m-0">
                             <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS. </p>
@@ -1182,11 +1202,11 @@
                                     <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
 
                     @elseif($objContadorEps->cantidad == 3)
                         <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más convenios de EPS </label>
@@ -1206,7 +1226,7 @@
                                     <input type='file' id="uploadImage6" name="urlimagenIps[]" onchange="previewImage(6);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1220,7 +1240,7 @@
                                     <input type='file' id="uploadImage7" name="urlimagenIps[]" onchange="previewImage(7);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1234,7 +1254,7 @@
                                     <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1253,7 +1273,7 @@
                                     <input type='file' id="uploadImage7" name="urlimagenIps[]" onchange="previewImage(7);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1267,7 +1287,7 @@
                                     <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1286,7 +1306,7 @@
                                     <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1295,7 +1315,7 @@
                     @elseif($objContadorIps->cantidad == 3)
                         <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más convenios de IPS </label>
                     @endif
- 
+
                     <!-- **************************************************************** FORMULARIO PREPAGADA ************************************************************** -->
                     @if($objContadorPrepa->cantidad == 0)
                         <div class="row col-12 p-0 m-0">
@@ -1310,7 +1330,7 @@
                                     <input type='file' id="uploadImage10" name="urlimagenPre[]" onchange="previewImage(10);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1324,7 +1344,7 @@
                                     <input type='file' id="uploadImage11" name="urlimagenPre[]" onchange="previewImage(11);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1338,7 +1358,7 @@
                                     <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1357,7 +1377,7 @@
                                     <input type='file' id="uploadImage11" name="urlimagenPre[]" onchange="previewImage(11);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1371,7 +1391,7 @@
                                     <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1390,7 +1410,7 @@
                                     <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
                                 </div>
 
-                                <div class="txt_informativo-formInst"> 
+                                <div class="txt_informativo-formInst">
                                     <labe class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                                 </div>
                             </div>
@@ -1399,13 +1419,13 @@
                     @elseif($objContadorPrepa->cantidad == 3)
                         <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más convenios de medicina prepagada </label>
                     @endif
-                  
+
                 </div>
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst mt-0 mt-md-3"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
@@ -1416,14 +1436,14 @@
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formInst">
             <div class="col-md-3 content_btn-anter-formInst">
                 <button type="submit" class="boton_inferior-anterior-formInst" onclick="hideBtnPrevious(this)" code-position="aboutInstitution">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient-formInst">
                 <button type="submit" class="boton_inferior-siguiente-formInst" onclick="hideBtnNext(this)" code-position="aboutInstitution"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -1445,14 +1465,14 @@
                                         <button type="submit" class="close" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
-                                    </a> 
+                                    </a>
                                 </div>
 
                                 <div class="col-12 col-md-10 img_save-formProf">
                                     <img class="img_usuario-formInst" src="{{URL::asset($objProfeInsti->foto_perfil_institucion)}}">
                                 </div>
                             </div>
-                            
+
                             <div class="col-12 mt-3 containt_loadProfes-formInst">
                                 <div class="col-md-12 rightSection_formInst">
                                     <span>{{$objProfeInsti->primer_nombre}} {{$objProfeInsti->segundo_nombre}}</span>
@@ -1464,20 +1484,36 @@
 
                                 <div class="col-md-12 rightSection_formInst">
                                     <span>{{$objProfeInsti->especialidad_uno}}</span>
-                                </div>  
+                                </div>
 
                                 <div class="col-md-12 rightSection_formInst">
                                     <span> {{$objProfeInsti->especialidad_dos}}</span>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     @endif
                 @endforeach
             </div>
+            @if (
+                    $errors->has('foto_perfil_institucion.*') or
+                    $errors->has('primer_nombre.*') or
+                    $errors->has('segundo_nombre.*') or
+                    $errors->has('primer_apellido.*') or
+                    $errors->has('segundo_apellido.*') or
+                    $errors->has('especialidad_uno.*') or
+                    $errors->has('especialidad_dos.*')
+                )
+                <div class="col-12">
+                    <div class="alert alert-danger" role="alert">
+                        <h4 class="alert-heading">Error!</h4>
+                        <p>Llene todos los formualrios que necesita.</p>
+                    </div>
+                </div>
+            @endif
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div data-info="{{$objContadorProfeInsti->cantidad}}" class="div-count"></div> 
+                <div data-info="{{$objContadorProfeInsti->cantidad}}" class="div-count"></div>
 
                 @if($objContadorProfeInsti->cantidad == 0)
                     <!-- Profesional numero 1 -->
@@ -1498,7 +1534,7 @@
                                     <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
 
                                     <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>        
+                                </div>
                             </div>
 
                             <div class="col-md-6 rightSection_formInst">
@@ -1506,9 +1542,9 @@
 
                                 <div class="col-12 nombres_usuario-formInst">
                                     <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-                    
+
                                     <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>  
+                                </div>
                             </div>
 
                             <div class="col-md-12 rightSection_formInst">
@@ -1523,7 +1559,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
 
                     <!-- Profesional numero 2 -->
                     <div class="row fila_infoBasica-formInst mb-4">
@@ -1543,7 +1579,7 @@
                                     <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
 
                                     <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>        
+                                </div>
                             </div>
 
                             <div class="col-md-6 rightSection_formInst">
@@ -1551,9 +1587,9 @@
 
                                 <div class="col-12 nombres_usuario-formInst">
                                     <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-                    
+
                                     <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>  
+                                </div>
                             </div>
 
                             <div class="col-md-12 rightSection_formInst">
@@ -1568,7 +1604,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
 
                     <!-- Profesional numero 3 -->
                     <div class="row fila_infoBasica-formInst">
@@ -1588,7 +1624,7 @@
                                     <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
 
                                     <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>        
+                                </div>
                             </div>
 
                             <div class="col-md-6 rightSection_formInst">
@@ -1596,9 +1632,9 @@
 
                                 <div class="col-12 nombres_usuario-formInst">
                                     <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-                    
+
                                     <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>  
+                                </div>
                             </div>
 
                             <div class="col-md-12 rightSection_formInst">
@@ -1633,7 +1669,7 @@
                                     <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
 
                                     <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>        
+                                </div>
                             </div>
 
                             <div class="col-md-6 rightSection_formInst">
@@ -1641,9 +1677,9 @@
 
                                 <div class="col-12 nombres_usuario-formInst">
                                     <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-                    
+
                                     <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>  
+                                </div>
                             </div>
 
                             <div class="col-md-12 rightSection_formInst">
@@ -1658,7 +1694,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
 
                     <!-- Profesional numero 3 -->
                     <div class="row fila_infoBasica-formInst">
@@ -1678,7 +1714,7 @@
                                     <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
 
                                     <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>        
+                                </div>
                             </div>
 
                             <div class="col-md-6 rightSection_formInst">
@@ -1686,9 +1722,9 @@
 
                                 <div class="col-12 nombres_usuario-formInst">
                                     <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-                    
+
                                     <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>  
+                                </div>
                             </div>
 
                             <div class="col-md-12 rightSection_formInst">
@@ -1723,7 +1759,7 @@
                                     <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
 
                                     <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>        
+                                </div>
                             </div>
 
                             <div class="col-md-6 rightSection_formInst">
@@ -1731,9 +1767,9 @@
 
                                 <div class="col-12 nombres_usuario-formInst">
                                     <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-                    
+
                                     <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>  
+                                </div>
                             </div>
 
                             <div class="col-md-12 rightSection_formInst">
@@ -1756,7 +1792,7 @@
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
@@ -1767,17 +1803,17 @@
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formInst">
             <div class="col-md-3 content_btn-anter-formInst">
                 <button type="submit" class="boton_inferior-anterior-formInst" onclick="hideBtnPrevious(this)" code-position="professionalInst">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient-formInst">
                 <button type="submit" class="boton_inferior-siguiente-formInst" onclick="hideBtnNext(this)" code-position="professionalInst"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
-        </div>   
+        </div>
     </div>
 
     <!-- 5* Contenedor principal de la opción CERTIFICACIONES -->
@@ -1792,7 +1828,7 @@
             <div class="premios_guardada-formProf">
                 @foreach($objCertificaciones as $objCertificaciones)
                     @if(!empty($objCertificaciones->imgcertificado))
-                        <!-- Contenido Certificaciones -->    
+                        <!-- Contenido Certificaciones -->
                         <div class="savedData_formInst">
                             <div class="col-12 content_btnDelet-trata-formProf">
                                 <a href="{{url('/FormularioInstituciondelete9/'.$objCertificaciones->id_certificacion)}}">
@@ -1801,7 +1837,7 @@
                                     </button>
                                 </a>
                             </div>
-                            
+
                             <div class="col-12 mt-2 p-0">
                                 <div class="img_saveCertifi-formInst">
                                     <img class="img_anexada-formInst"  src="{{URL::asset($objCertificaciones->imgcertificado)}}">
@@ -1821,12 +1857,24 @@
                             </div>
                         </div>
                     @endif
-                @endforeach 
+                @endforeach
             </div>
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave9') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                @if (
+                                    $errors->has('imgcertificado.*') or
+                                    $errors->has('titulocertificado.*') or
+                                    $errors->has('fechacertificado.*') or
+                                    $errors->has('descrpcioncertificado.*')
+                                )
+                    <div class="col-12">
+                        <div class="alert alert-danger" role="alert">
+                            <h4 class="alert-heading">Error!</h4>
+                            <p>Llene todos los formualrios que necesita.</p>
+                        </div>
+                    </div>
+                @endif
                 @if($objContadorCertificaciones->cantidad == 0)
                     <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
@@ -1842,13 +1890,13 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                                </div>        
+                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-12 leftSection_formInst">    
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
@@ -1858,10 +1906,10 @@
                                 <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 leftSection_formInst"> 
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-                                
+
                                     <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -1881,13 +1929,13 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                    
+
                                 <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
@@ -1923,13 +1971,13 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                                </div>        
+                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-12 leftSection_formInst">    
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
@@ -1939,10 +1987,10 @@
                                 <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 leftSection_formInst"> 
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-                                
+
                                     <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -1962,13 +2010,13 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                    
+
                                 <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
@@ -2004,13 +2052,13 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                                </div>        
+                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-12 leftSection_formInst">    
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
@@ -2020,10 +2068,10 @@
                                 <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 leftSection_formInst"> 
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-                                
+
                                     <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -2046,13 +2094,13 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                                </div>        
+                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-12 leftSection_formInst">    
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
@@ -2062,10 +2110,10 @@
                                 <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 leftSection_formInst"> 
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-                                
+
                                     <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -2085,13 +2133,13 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                    
+
                                 <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
@@ -2127,13 +2175,13 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                                </div>        
+                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-12 leftSection_formInst">    
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
@@ -2143,10 +2191,10 @@
                                 <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 leftSection_formInst"> 
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-                                
+
                                     <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -2166,13 +2214,13 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                    
+
                                 <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
@@ -2207,13 +2255,13 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
-                                </div>        
+                                    <labe class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                </div>
                             </div>
 
-                            <div class="col-12 leftSection_formInst">    
+                            <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
                             </div>
 
@@ -2223,10 +2271,10 @@
                                 <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
                             </div>
 
-                            <div class="col-12 leftSection_formInst"> 
+                            <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-                                
+
                                     <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -2236,12 +2284,12 @@
                     </div>
                 @elseif($objContadorCertificaciones->cantidad == 4)
                     <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más certificados </label>
-                @endif 
+                @endif
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
@@ -2252,14 +2300,14 @@
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formInst">
             <div class="col-md-3 content_btn-anter-formInst">
                 <button type="submit" class="boton_inferior-anterior-formInst" onclick="hideBtnPrevious(this)" code-position="certificationsInst">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient-formInst">
                 <button type="submit" class="boton_inferior-siguiente-formInst" onclick="hideBtnNext(this)" code-position="certificationsInst"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -2277,7 +2325,7 @@
             <div class="premios_guardada-formProf">
                 @foreach($objSedes as $objSedes)
                     @if(!empty($objSedes->imgsede))
-                        <!-- Contenido Certificaciones -->    
+                        <!-- Contenido Certificaciones -->
                         <div class="savedData_formInst">
                             <div class="col-12 content_btnDelet-trata-formProf">
                                 <a href="{{url('/FormularioInstituciondelete10/'.$objSedes->id)}}">
@@ -2286,7 +2334,7 @@
                                     </button>
                                 </a>
                             </div>
-                            
+
                             <div class="col-12 mt-2 p-0">
                                 <div class="img_saveSede-formInst">
                                     <img class="img_anexada-formInst" src="{{URL::asset($objSedes->imgsede)}}">
@@ -2310,12 +2358,25 @@
                             </div>
                         </div>
                     @endif
-                @endforeach 
+                @endforeach
             </div>
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave10') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                @if (
+                                                    $errors->has('imgsede.*') or
+                                                    $errors->has('nombre.*') or
+                                                    $errors->has('direccion.*') or
+                                                    $errors->has('horario_sede.*') or
+                                                    $errors->has('telefono.*')
+                                                )
+                    <div class="col-12">
+                        <div class="alert alert-danger" role="alert">
+                            <h4 class="alert-heading">Error!</h4>
+                            <p>Llene todos los formualrios que necesita.</p>
+                        </div>
+                    </div>
+                @endif
                 @if($objContadorSedes->cantidad == 0)
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
@@ -2331,7 +2392,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2343,20 +2404,20 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -2374,7 +2435,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2386,20 +2447,20 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -2420,7 +2481,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2432,20 +2493,20 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -2463,7 +2524,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2475,20 +2536,20 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -2509,7 +2570,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2521,20 +2582,20 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -2552,7 +2613,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2564,26 +2625,26 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                 @elseif($objContadorSedes->cantidad == 1)
                     <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
@@ -2599,7 +2660,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2611,20 +2672,20 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -2645,7 +2706,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2657,20 +2718,20 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -2688,7 +2749,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2700,20 +2761,20 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -2734,7 +2795,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2746,20 +2807,20 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -2777,7 +2838,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2789,20 +2850,20 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -2823,7 +2884,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2835,20 +2896,20 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -2866,7 +2927,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2878,20 +2939,20 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -2912,7 +2973,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2924,20 +2985,20 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -2955,7 +3016,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -2967,20 +3028,20 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -3001,7 +3062,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -3013,20 +3074,20 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -3047,7 +3108,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -3059,20 +3120,20 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -3090,7 +3151,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -3102,20 +3163,20 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -3136,7 +3197,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -3148,20 +3209,20 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -3179,7 +3240,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -3191,20 +3252,20 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -3225,7 +3286,7 @@
                                 </div>
 
                                 <div class="txt_informativo-formInst">
-                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                                 </div>
                             </div>
 
@@ -3237,20 +3298,20 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Dirrección </label>
-                                    
+
                                 <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Horario </label>
-                                    
+
                                 <input class="form-control" id="horario_sede" placeholder="Horario" type="text" name="horario_sede[]" value="">
                             </div>
 
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono </label>
-                                    
+
                                     <input class="form-control" id="telefono" placeholder="Número de teléfono" type="text" name="telefono[]" value="">
                                 </div>
                             </div>
@@ -3258,12 +3319,12 @@
                     </div>
                 @elseif($objContadorSedes->cantidad == 6)
                     <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más sedes </label>
-                @endif 
+                @endif
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
@@ -3275,7 +3336,7 @@
             <h5 class="col-lg-12 icon_ubiqueSede-formInst"> Ubique la sede </h5>
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave11') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 @if(!empty($objFormulario->url_maps))
                     <div class="col-12 px-0">
@@ -3293,25 +3354,25 @@
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
         </div>
         <!--------------------------------------------      Fin 11 onceava parte del formulario *** UBIQUE LA SEDE ***      --------------------------------------------------->
-        
+
         <!-- Secciones de los botones anterior y siguiente -->
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formInst">
             <div class="col-md-3 content_btn-anter-formInst">
                 <button type="submit" class="boton_inferior-anterior-formInst" onclick="hideBtnPrevious(this)" code-position="venuesInst">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient-formInst">
                 <button type="submit" class="boton_inferior-siguiente-formInst" onclick="hideBtnNext(this)" code-position="venuesInst"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -3329,7 +3390,7 @@
             <div class="premios_guardada-formProf">
                 @foreach($objGaleria as $objGaleria)
                     @if(!empty($objGaleria->nombrefoto))
-                        <!-- Contenido GALERIA -->    
+                        <!-- Contenido GALERIA -->
                         <div class="savedData_formInst">
                             <div class="col-12 content_btnDelet-trata-formProf">
                                 <a href="{{url('/FormularioInstituciondelete12/'.$objGaleria->id_galeria)}}">
@@ -3354,12 +3415,24 @@
                             </div>
                         </div>
                     @endif
-                @endforeach 
+                @endforeach
             </div>
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave12') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                @if (
+                        $errors->has('imggaleria.*') or
+                        $errors->has('nombrefoto.*') or
+                        $errors->has('descripcion.*') or
+                        $errors->has('fechagaleria.*')
+                     )
+                    <div class="col-12">
+                        <div class="alert alert-danger" role="alert">
+                            <h4 class="alert-heading">Error!</h4>
+                            <p>Llene todos los formualrios que necesita.</p>
+                        </div>
+                    </div>
+                @endif
                 @if($objContadorGaleria->cantidad == 0)
                     <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
@@ -3381,7 +3454,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3394,7 +3467,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -3420,7 +3493,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3429,7 +3502,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -3460,7 +3533,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3473,7 +3546,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -3499,7 +3572,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3508,7 +3581,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -3539,7 +3612,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3552,7 +3625,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -3578,7 +3651,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3587,7 +3660,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -3618,7 +3691,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3631,7 +3704,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -3657,7 +3730,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3666,7 +3739,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -3698,7 +3771,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3711,13 +3784,13 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
-                        </div>    
+                        </div>
                     </div>
 
                     <!-- Modulos del contenido GALERIA -->
@@ -3740,7 +3813,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3753,7 +3826,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -3779,7 +3852,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3788,7 +3861,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -3819,7 +3892,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3832,7 +3905,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -3858,7 +3931,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3867,7 +3940,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -3898,7 +3971,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3911,7 +3984,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -3937,7 +4010,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3946,7 +4019,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -3978,7 +4051,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -3991,7 +4064,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -4017,7 +4090,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4026,7 +4099,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -4057,7 +4130,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4070,7 +4143,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -4096,7 +4169,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4105,7 +4178,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -4136,7 +4209,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4149,7 +4222,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -4175,7 +4248,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4184,7 +4257,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -4216,7 +4289,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4229,13 +4302,13 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                     </div>
 
                     <!-- Modulos del contenido GALERIA -->
@@ -4258,7 +4331,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4271,7 +4344,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -4297,7 +4370,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4306,7 +4379,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -4337,7 +4410,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4350,7 +4423,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -4376,7 +4449,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4385,7 +4458,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -4416,7 +4489,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4429,7 +4502,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -4455,7 +4528,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4464,7 +4537,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -4495,7 +4568,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4508,7 +4581,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -4534,7 +4607,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4543,7 +4616,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -4575,7 +4648,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4588,13 +4661,13 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                     </div>
 
                     <!-- Modulos del contenido GALERIA -->
@@ -4617,7 +4690,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4630,7 +4703,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -4656,7 +4729,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4665,7 +4738,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -4697,7 +4770,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4710,7 +4783,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -4736,7 +4809,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4745,7 +4818,7 @@
 
                                 <input class="form-control" id="nombrepremio" placeholder="Título de la imagen" type="text" name="nombrefoto[]" value="">
                             </div>
-                            
+
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
@@ -4777,7 +4850,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechagaleria" name="fechagaleria[]" value="">
                             </div>
 
@@ -4790,27 +4863,27 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-                                    
+
                                     <input class="form-control" id="descripcion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion[]" value="">
 
                                     <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
 
                 @elseif($objContadorGaleria->cantidad == 8)
                     <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más imágenes en la galería </label>
-                @endif 
+                @endif
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
-                </div>  
+                </div>
             </form>
-        </div>  
+        </div>
         <!--------------------------------------------      Fin 12 doceava parte del formulario *** GALERIA ***      ---------------------------------------------------------->
 
         <!--------------------------------------------      Inicio 13 treceava parte del formulario *** VIDEOS ***      ------------------------------------------------------->
@@ -4820,45 +4893,57 @@
             <p class="text_superior-proced-formInst mb-0"> A continuación suba el link del video, con su respectivo nombre y descripción. </p>
 
             <!-- Modulos de los VIDEOS -->
-            <div class="row col-12 p-0 m-0">
-                @foreach($objVideo as $objVideo)
-                    @if(!empty($objVideo->nombrevideo))
-                        <!-- Contenido VIDEOS -->    
+            <div class="col-12 p-0 m-0">
+                @foreach($objVideo as $video)
+                    @if(!empty($video->nombrevideo))
+                        <!-- Contenido VIDEOS -->
                         <div class="section_infoExper-formInst">
                             <div class="col-12 content_cierreX-formInst">
-                                <a href="{{url('/FormularioInstituciondelete13/'.$objVideo->id)}}">
+                                <a href="{{url('/FormularioInstituciondelete13/'.$video->id)}}">
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </a>
                             </div>
-                        
+
 
                             <div class="col-12 my-2">
                                 <div class="col-10 img_selccionada-formProf">
-                                    <iframe class="img_anexada-formProf" src="{{$objVideo->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe class="img_anexada-formProf" src="{{$video->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
 
                                 <div class="col-12 p-0 mt-2">
-                                    <label class="col-12 text_fechaPremio-formProf"> {{$objVideo->fechavideo}} </label>
+                                    <label class="col-12 text_fechaPremio-formProf"> {{$video->fechavideo}} </label>
                                 </div>
 
                                 <div class="col-12 text_label-formInst">
-                                    <label class="col-12 title_infoGuardada-formProf"> {{$objVideo->nombrevideo}} </label>
+                                    <label class="col-12 title_infoGuardada-formProf"> {{$video->nombrevideo}} </label>
                                 </div>
 
                                 <div class="col-12 descripcion_Premio-formProf">
-                                    <p class="col-12 text_descPremio-formProf"> {{$objVideo->descripcionvideo}} </p>
+                                    <p class="col-12 text_descPremio-formProf"> {{$video->descripcionvideo}} </p>
                                 </div>
                             </div>
                         </div>
                     @endif
-                @endforeach 
+                @endforeach
             </div>
 
             <form method="POST" action="{{ url ('/FormularioInstitucionSave13') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+                @if (
+                                        $errors->has('nombrevideo.*') or
+                                        $errors->has('descripcionvideo.*') or
+                                        $errors->has('urlvideo.*') or
+                                        $errors->has('fechavideo.*')
+                                     )
+                    <div class="col-12">
+                        <div class="alert alert-danger" role="alert">
+                            <h4 class="alert-heading">Error!</h4>
+                            <p>Llene todos los formualrios que necesita.</p>
+                        </div>
+                    </div>
+                @endif
                 @if($objContadorVideo->cantidad == 0)
                     <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formInst mt-0">
@@ -4872,7 +4957,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
@@ -4885,10 +4970,10 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción video </label>
-                                    
+
                                     <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4903,7 +4988,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
@@ -4916,10 +5001,10 @@
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción video </label>
-                                    
+
                                     <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4937,7 +5022,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
@@ -4950,10 +5035,10 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción video </label>
-                                    
+
                                     <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -4968,7 +5053,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
@@ -4981,10 +5066,10 @@
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción video </label>
-                                    
+
                                     <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -5002,7 +5087,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
@@ -5017,10 +5102,10 @@
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
-                                    
+
                                     <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -5038,7 +5123,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
@@ -5053,10 +5138,10 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
-                                    
+
                                     <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -5071,7 +5156,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
@@ -5086,10 +5171,10 @@
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
-                                    
+
                                     <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -5107,7 +5192,7 @@
 
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
@@ -5122,10 +5207,10 @@
                             <div class="col-12 leftSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
-                                    
+
                                     <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -5140,7 +5225,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
@@ -5155,10 +5240,10 @@
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
-                                    
+
                                     <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
@@ -5176,7 +5261,7 @@
 
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-                                
+
                                 <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
                             </div>
 
@@ -5191,41 +5276,55 @@
                             <div class="col-12 rightSection_formInst">
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
-                                    
+
                                     <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
 
-                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label> 
+                                    <labe class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @elseif($objContadorVideo->cantidad == 4)
                     <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más videos </label>
-                @endif 
+                @endif
 
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
-                </div>  
+                </div>
             </form>
         </div>
         <!--------------------------------------------      Fin 13 treceava parte del formulario *** VIDEOS ***      ---------------------------------------------------------->
-        
+
         <!-- Secciones de los botones anterior y finalizar -->
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formInst">
             <div class="col-md-3 content_btn-anter-formInst">
                 <button type="submit" class="boton_inferior-anterior-formInst" onclick="hideBtnPrevious(this)" code-position="galleryInst">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt=""> 
+                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient-formInst">
                 <a type="submit" class="boton_inferior-finalizar-formInst" href="{{ route('contacto') }}"> Finalizar
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_finalizar-formInst" alt=""> 
+                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_finalizar-formInst" alt="">
                 </a>
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <!--<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+    <!--<script data-pace-options='{ "ajax": false, "document": true, "eventLag": false, "elements": false}' src="{{ asset('plugins/pace/pace.min.js') }}"></script> -->
+
+    <script src="{{ asset('js/selectareas.js') }}"></script>
+    <script src="{{ asset('js/selectpais.js') }}"></script>
+
+    <script>
+        // Pace.on("done", function() {
+        //     $('#page_overlay').delay(300).fadeOut(600);
+        // });
+    </script>
 @endsection
