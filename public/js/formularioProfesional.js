@@ -289,7 +289,7 @@ $('#formulario_consulta').validate({
             error: function (event) {
                 Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#envia_consultas').remove('disabled');
+                $('#envia_consultas').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#mensaje-consulta').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
