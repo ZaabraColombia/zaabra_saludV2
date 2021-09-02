@@ -322,7 +322,7 @@ class formularioInstitucionController extends Controller{
     REPLACE(v.urlvideo, '/watch?v=', '/embed/') AS urlvideo, v.fechavideo
     FROM instituciones ins
     INNER JOIN users us   ON ins.idUser=us.id
-    LEFT JOIN  videos v ON ins.id= v.idPerfilProfesional
+    INNER JOIN  videos v ON ins.id= v.idinstitucion
     WHERE ins.idUser=$id_user");
     }
 
@@ -965,7 +965,7 @@ class formularioInstitucionController extends Controller{
         foreach ($request->input('nombrevideo', []) as $i => $v) {
             if(!empty($request->input('nombrevideo')[$i])){
                 $request->validate([
-                    'nombrevideo.' . $i => ['required', 'image'],
+                    'nombrevideo.' . $i => ['required'],
                     'descripcionvideo.' . $i => ['required'],
                     'urlvideo.' . $i => ['required'],
                     'fechavideo.' . $i => ['required'],
@@ -1012,7 +1012,7 @@ class formularioInstitucionController extends Controller{
         $videos = videos::where('id', $id)->where('idinstitucion', $idInstitucion);
         $videos->delete();
 
-        return redirect('FormularioInstitucion.');
+        return redirect('FormularioInstitucion');
 
     }
     /*-------------------------------------Fin Eliminacion formulario parte 13----------------------*/

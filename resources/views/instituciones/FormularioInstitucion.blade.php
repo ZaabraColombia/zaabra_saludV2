@@ -4893,13 +4893,13 @@
             <p class="text_superior-proced-formInst mb-0"> A continuación suba el link del video, con su respectivo nombre y descripción. </p>
 
             <!-- Modulos de los VIDEOS -->
-            <div class="row col-12 p-0 m-0">
-                @foreach($objVideo as $objVideo)
-                    @if(!empty($objVideo->nombrevideo))
+            <div class="col-12 p-0 m-0">
+                @foreach($objVideo as $video)
+                    @if(!empty($video->nombrevideo))
                         <!-- Contenido VIDEOS -->
                         <div class="section_infoExper-formInst">
                             <div class="col-12 content_cierreX-formInst">
-                                <a href="{{url('/FormularioInstituciondelete13/'.$objVideo->id)}}">
+                                <a href="{{url('/FormularioInstituciondelete13/'.$video->id)}}">
                                     <button type="submit" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -4909,19 +4909,19 @@
 
                             <div class="col-12 my-2">
                                 <div class="col-10 img_selccionada-formProf">
-                                    <iframe class="img_anexada-formProf" src="{{$objVideo->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe class="img_anexada-formProf" src="{{$video->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
 
                                 <div class="col-12 p-0 mt-2">
-                                    <label class="col-12 text_fechaPremio-formProf"> {{$objVideo->fechavideo}} </label>
+                                    <label class="col-12 text_fechaPremio-formProf"> {{$video->fechavideo}} </label>
                                 </div>
 
                                 <div class="col-12 text_label-formInst">
-                                    <label class="col-12 title_infoGuardada-formProf"> {{$objVideo->nombrevideo}} </label>
+                                    <label class="col-12 title_infoGuardada-formProf"> {{$video->nombrevideo}} </label>
                                 </div>
 
                                 <div class="col-12 descripcion_Premio-formProf">
-                                    <p class="col-12 text_descPremio-formProf"> {{$objVideo->descripcionvideo}} </p>
+                                    <p class="col-12 text_descPremio-formProf"> {{$video->descripcionvideo}} </p>
                                 </div>
                             </div>
                         </div>
