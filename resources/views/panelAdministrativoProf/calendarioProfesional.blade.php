@@ -1,5 +1,10 @@
 @extends('panelAdministrativoProf.panelAdministrativoProfesional')
 
+@section('styles')
+    <!--Framewor Agenda-->
+    <link rel="stylesheet" href="{{ asset('fullCalendar/main.css') }}">
+@endsection
+
 @section('PanelProf')
     <section class="section">
         <div class="row containt_agendaProf" id="basic-table">
@@ -184,4 +189,13 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <!-- Full calendar JS -->
+    <script src="{{ asset('fullCalendar/main.js') }}"></script>
+    <script src="{{ asset('fullCalendar/locales/es.js') }}"></script>
+
+    <script src="{{ asset('js/calendar-profesional.js') }}"></script>
 @endsection

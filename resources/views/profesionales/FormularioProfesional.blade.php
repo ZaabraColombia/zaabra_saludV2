@@ -1130,6 +1130,7 @@
     <script src="{{ asset('js/formularioProfesional.js') }}"></script>
     <script src="{{ asset('js/selectareas.js') }}"></script>
     <script src="{{ asset('js/selectpais.js') }}"></script>
+    <script src="{{ asset('js/cargaFoto.js') }}"></script>
 
     <script>
         // Pace.on("done", function() {
