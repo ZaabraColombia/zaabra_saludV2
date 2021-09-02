@@ -96,7 +96,7 @@ $('#formulario_basico').validate({
                 $('#envia_basico').removeAttr('disabled');
 
 
-                $('#msg_basico').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                $('#msg_basico').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -109,7 +109,7 @@ $('#formulario_basico').validate({
                 $('#envia_basico').removeAttr('disabled');
                 //$('#').removeAttr('disabled');
                 var response = event.responseJSON;
-                $('#msg_basico').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                $('#msg_basico').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -191,7 +191,7 @@ $('#formulario_contacto').validate({
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 $('#envia_contacto').removeAttr('disabled');
-                $('#msg_contacto').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                $('#msg_contacto').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -203,7 +203,7 @@ $('#formulario_contacto').validate({
                 $('.form-control').removeClass('is-invalid');
                 $('#envia_contacto').removeAttr('disabled');
                 var response = event.responseJSON;
-                $('#msg_contacto').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                $('#msg_contacto').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -256,7 +256,7 @@ $('#formulario_consulta').validate({
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 $('#envia_consultas').removeAttr('disabled');
-                $('#mensaje-consulta').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                $('#mensaje-consulta').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -291,7 +291,7 @@ $('#formulario_consulta').validate({
                 $('.form-control').removeClass('is-invalid');
                 $('#envia_consultas').removeAttr('disabled');
                 var response = event.responseJSON;
-                $('#mensaje-consulta').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                $('#mensaje-consulta').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -512,7 +512,7 @@ $('#formulario_descripcion').validate({
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 //$('#').removeAttr('disabled');
-                $('#mensaje-perfil-profesional').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                $('#mensaje-perfil-profesional').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -524,7 +524,7 @@ $('#formulario_descripcion').validate({
                 $('.form-control').removeClass('is-invalid');
                 //$('#').removeAttr('disabled');
                 var response = event.responseJSON;
-                $('#mensaje-perfil-profesional').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                $('#mensaje-perfil-profesional').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -593,7 +593,7 @@ $('#formulario_estudios').validate({
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-enviar-estudios').removeAttr('disabled');
-                $('#mensaje-estudios').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                $('#mensaje-estudios').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -635,7 +635,7 @@ $('#formulario_estudios').validate({
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-enviar-estudios').removeAttr('disabled');
                 var response = event.responseJSON;
-                $('#mensaje-estudios').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                $('#mensaje-estudios').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -770,7 +770,7 @@ $('#formulario_experiencia').validate({
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-experiencia').removeAttr('disabled');
-                $('#mensaje-experiencia').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                $('#mensaje-experiencia').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -817,7 +817,7 @@ $('#formulario_experiencia').validate({
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-experiencia').removeAttr('disabled');
                 var response = event.responseJSON;
-                $('#mensaje-experiencia').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                $('#mensaje-experiencia').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -936,7 +936,7 @@ $('#formulario_asociacion').validate({
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-asociacion').removeAttr('disabled');
-                $('#mensajes-asociacion').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                $('#mensajes-asociacion').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -966,7 +966,7 @@ $('#formulario_asociacion').validate({
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-asociacion').removeAttr('disabled');
                 var response = event.responseJSON;
-                $('#mensajes-asociacion').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                $('#mensajes-asociacion').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -1007,7 +1007,7 @@ $('#lista-asociacion').on('click', '.close' , function (e) {
         success: function( response ) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
-            $('#mensajes-asociacion').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+            $('#mensajes-asociacion').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                 '<span aria-hidden="true">&times;</span>\n' +
@@ -1024,7 +1024,7 @@ $('#lista-asociacion').on('click', '.close' , function (e) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
-            $('#mensajes-asociacion').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+            $('#mensajes-asociacion').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                 '<span aria-hidden="true">&times;</span>\n' +
@@ -1063,7 +1063,7 @@ $('#formulario_idioma').validate({
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-idioma').removeAttr('disabled');
-                $('#mensaje-idioma').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                $('#mensaje-idioma').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -1093,7 +1093,7 @@ $('#formulario_idioma').validate({
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-idioma').removeAttr('disabled');
                 var response = event.responseJSON;
-                $('#mensaje-idioma').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                $('#mensaje-idioma').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -1252,7 +1252,7 @@ $('#formulario_tratamiento').validate({
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-tratamiento').removeAttr('disabled');
-                $('#mensajes-tratamientos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                $('#mensajes-tratamientos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -1309,7 +1309,7 @@ $('#formulario_tratamiento').validate({
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-tratamiento').removeAttr('disabled');
                 var response = event.responseJSON;
-                $('#mensajes-tratamientos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                $('#mensajes-tratamientos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -1459,7 +1459,7 @@ $('#formulario_premio').validate({
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-premio').removeAttr('disabled');
-                $('#mensajes-premios').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                $('#mensajes-premios').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -1503,7 +1503,7 @@ $('#formulario_premio').validate({
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-premio').removeAttr('disabled');
                 var response = event.responseJSON;
-                $('#mensajes-premios').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                $('#mensajes-premios').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -1638,7 +1638,7 @@ $('#formulario_publicaciones').validate({
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-publicacion').removeAttr('disabled');
-                $('#mensajes-publicacion').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                $('#mensajes-publicacion').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -1678,7 +1678,7 @@ $('#formulario_publicaciones').validate({
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-publicacion').removeAttr('disabled');
                 var response = event.responseJSON;
-                $('#mensajes-publicacion').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                $('#mensajes-publicacion').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -1816,7 +1816,7 @@ $('#formulario_fotos').validate({
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-foto').removeAttr('disabled');
-                $('#mensajes-fotos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                $('#mensajes-fotos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -1857,7 +1857,7 @@ $('#formulario_fotos').validate({
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-foto').removeAttr('disabled');
                 var response = event.responseJSON;
-                $('#mensajes-fotos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                $('#mensajes-fotos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -1978,7 +1978,7 @@ $('#formulario-videos').validate({
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-video').removeAttr('disabled');
-                $('#mensajes-videos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                $('#mensajes-videos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -2021,7 +2021,7 @@ $('#formulario-videos').validate({
                 $('.form-control').removeClass('is-invalid');
                 $('#boton-guardar-video').removeAttr('disabled');
                 var response = event.responseJSON;
-                $('#mensajes-videos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                $('#mensajes-videos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
@@ -2065,7 +2065,7 @@ $('#lista-videos').on('click', '.close' , function (e) {
         success: function( response ) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
-            $('#mensajes-videos').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+            $('#mensajes-videos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                 '<span aria-hidden="true">&times;</span>\n' +
@@ -2086,7 +2086,7 @@ $('#lista-videos').on('click', '.close' , function (e) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
-            $('#mensajes-videos').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+            $('#mensajes-videos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                 response.mensaje +
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                 '<span aria-hidden="true">&times;</span>\n' +
