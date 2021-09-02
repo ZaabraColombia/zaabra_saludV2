@@ -216,30 +216,38 @@
                             <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione país </label>
 
                             <select id="idpais" name="idpais" class="col-12 form-control">
-                                <option value="" selected disabled> Seleccione país </option>
-
-                                @foreach($pais as $pais)
-                                    <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
+                                <option></option>
+                                @foreach($listaPaises as $pais)
+                                    <option value="{{ $pais->id_pais }}"  {{ (isset($objFormulario->id_pais) && $objFormulario->id_pais == $pais->id_pais) ? 'selected' : ''}}> {{ $pais->nombre }}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione departamento </label>
-
-                            <select name="id_departamento" id="id_departamento" class="col-12 form-control"></select>
+                            <label for="id_departamento" class="col-12 text_label-formInst"> Seleccione departamento </label>
+                            <select name="id_departamento" id="id_departamento" class="col-12 form-control">
+                                @foreach($listaDepartamentos as $departamento)
+                                    <option value="{{ $departamento->id_departamento }}"  {{ (isset($objFormulario->id_departamento) && $objFormulario->id_departamento == $departamento->id_departamento) ? 'selected' : ''}}> {{ $departamento->nombre }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="col-md-6 rightSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione provincia </label>
-
-                            <select name="id_provincia" id="id_provincia" class="col-12 form-control"></select>
+                            <label for="id_provincia" class="col-12 text_label-formInst"> Seleccione provincia </label>
+                            <select name="id_provincia" id="id_provincia" class="col-12 form-control">
+                                @foreach($listaProvincias as $provincia)
+                                    <option value="{{ $provincia->id_provincia }}"  {{ (isset($objFormulario->id_provincia) && $objFormulario->id_provincia == $provincia->id_provincia) ? 'selected' : ''}}> {{ $provincia->nombre }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione ciudad </label>
-
-                            <select name="id_municipio" id="id_municipio" class="col-12 form-control"></select>
+                            <label for="id_municipio" class="col-12 text_label-formInst"> Seleccione ciudad </label>
+                            <select name="id_municipio" id="id_municipio" class="col-12 form-control">
+                                @foreach($listaMunicipios as $municipio)
+                                    <option value="{{ $municipio->id_municipio }}"  {{ (isset($objFormulario->id_municipio) && $objFormulario->id_municipio == $municipio->id_municipio) ? 'selected' : ''}}> {{ $municipio->nombre }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <!-- Botón guardar información -->

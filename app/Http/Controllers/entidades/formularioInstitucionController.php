@@ -55,11 +55,36 @@ class formularioInstitucionController extends Controller{
         $objVideo=$this->cargaVideo($id_user);
         $objContadorVideo=$this->contadorVideo($id_user);
 
+        //Lista de paises
+        $listaPaises = pais::all();
+
+        //llamar la lista de departamentos según el pais
+        if (!is_null($objFormulario[0]->id_pais)) {
+            $listaDepartamentos = departamento::where("id_pais", $objFormulario[0]->id_pais)->get();
+        }else{
+            $listaDepartamentos = array();
+        }
+        //llamar la lista de provincias según el departamento
+        if (!is_null($objFormulario[0]->id_departamento)) {
+            $listaProvincias = provincia::where("id_departamento", $objFormulario[0]->id_departamento)->get();
+        }else{
+            $listaProvincias = array();
+        }
+        //llamar la lista de municipios según la provincia
+        if (!is_null($objFormulario[0]->id_provincia)) {
+            $listaMunicipios = municipio::where("id_provincia", $objFormulario[0]->id_provincia)->get();
+        }else{
+            $listaMunicipios = array();
+        }
+
 
         return view('instituciones.FormularioInstitucion',compact(
             'tipoinstitucion',
             'objuser',
-            'pais',
+            'listaPaises',
+            'listaDepartamentos',
+            'listaProvincias',
+            'listaMunicipios',
             'objFormulario',
             'objServicio',
             'objContadorServicio',
