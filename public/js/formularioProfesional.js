@@ -255,7 +255,7 @@ $('#formulario_consulta').validate({
             success: function( response ) {
                 Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#envia_consultas').remove('disabled');
+                $('#envia_consultas').removeAttr('disabled');
                 $('#mensaje-consulta').append('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
