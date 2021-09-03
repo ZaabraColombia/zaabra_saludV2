@@ -1,78 +1,83 @@
 ruta='https://zaabrasalud.co/';
 $(function(){
-    $("#filtro").autocomplete({
+    var filtro = $("#filtro");
+    filtro.autocomplete({
         autoFocus: true,
-    source: function(request, response) {
-        $.ajax({
-        url: ruta+"search/filtro",
-        dataType: "json",
-        data: {
-            term: request.term
+        source: function(request, response) {
+            $.ajax({
+                url: filtro.data('url'),
+                dataType: "json",
+                contentType: 'application/json',
+                type: 'get',
+                data: {
+                    term: request.term
+                },
+                success: function( data ) {
+                    response( data );
+                }
+            });
         },
-        success: function( data ) {
-            response( data );
-        }
-        });  
-    },
-    
-    select: function (event, ui) {
-        $('#barra_busqueda').val(ui.item.id); // save selected id to input
-        // Set selection
-        $('#barra_busqueda').keypress(function(e){
-            var keycode = (e.keyCode ? e.keyCode : e.which);
-            if (keycode == '13') {
-                e.preventDefault();
-                window.location = ui.item.id;
-              }
-        });
+        select: function (event, ui) {
+            var barra = $('#barra_busqueda');
+            barra.val(ui.item.id); // save selected id to input
+            // Set selection
+            barra.keypress(function(e){
+                var keycode = (e.keyCode ? e.keyCode : e.which);
+                if (keycode === '13') {
+                    e.preventDefault();
+                    window.location = ui.item.url;
+                }
+            });
 
-     }
-    })
-    .data( "ui-autocomplete" )._renderItem = function( ul, item ) { 
-        return $( "<li></li>" )  
-            .data( "item.autocomplete", item )  
-            .append( "<a href='"  + item.id + "'>" +item.label +"</a>" )   
-            .appendTo( ul ); 
-             
+        }
+    }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+        return $( "<li></li>" )
+            .data( "item.autocomplete", item )
+            .append( "<a href='"  + item.url + "'>" +item.label +"</a>" )
+            .appendTo( ul );
+
     }
 });
 
 
 $(function(){
-    $("#filtro2").autocomplete({
-        autoFocus: true,
-    source: function(request, response) {
-        $.ajax({
-        url: ruta+"search/filtro",
-        dataType: "json",
-        data: {
-            term: request.term
-        },
-        success: function( data ) {
-            response( data );
-        }
-        });  
-    },
-    
-    select: function (event, ui) {
-        $('#barra_busqueda2').val(ui.item.id); // save selected id to input
-        // Set selection
-        $('#barra_busqueda2').keypress(function(e){
-            var keycode = (e.keyCode ? e.keyCode : e.which);
-            if (keycode == '13') {
-                e.preventDefault();
-                window.location = ui.item.id;
-              }
-        });
+    var filtro = $("#filtro2");
 
-     }
-    })
-    .data( "ui-autocomplete" )._renderItem = function( ul, item ) { 
-        return $( "<li></li>" )  
-            .data( "item.autocomplete", item )  
-            .append( "<a href='"  + item.id + "'>" +item.label +"</a>" )   
-            .appendTo( ul ); 
-             
+    filtro.autocomplete({
+        autoFocus: true,
+        source: function(request, response) {
+            $.ajax({
+                url: filtro.data('url'),
+                dataType: "json",
+                contentType: 'application/json',
+                type: 'get',
+                data: {
+                    term: request.term
+                },
+                success: function( data ) {
+                    response( data );
+                }
+            });
+        },
+
+        select: function (event, ui) {
+            $('#barra_busqueda2').val(ui.item.id); // save selected id to input
+            // Set selection
+            $('#barra_busqueda2').keypress(function(e){
+                var keycode = (e.keyCode ? e.keyCode : e.which);
+                if (keycode == '13') {
+                    e.preventDefault();
+                    window.location = ui.item.id;
+                }
+            });
+
+        }
+    }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+        return $( "<li></li>" )
+            .data( "item.autocomplete", item )
+            .append( "<a href='"  + item.id + "'>" +item.label +"</a>" )
+            .appendTo( ul );
+
     }
 });
 

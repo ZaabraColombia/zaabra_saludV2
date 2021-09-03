@@ -58,7 +58,7 @@ a:link, a:visited, a:active, a:hover {
 .button_SearchBarH::after {
     border: none !important;
 }
-.contenedorLupa {  
+.contenedorLupa {
     padding: 0;
     border: none;
     height: auto;
@@ -94,7 +94,7 @@ a:link, a:visited, a:active, a:hover {
 .soy_paciente{
     height: 100%;
 }
-// Seccion icono boton usuario 
+// Seccion icono boton usuario
 .soy_paciente .dropdown-toggle {
     background-image: url('/img/header/icono-soy-paciente-blanco.svg');
     background-size: 70%;
@@ -388,6 +388,7 @@ a:link, a:visited, a:active, a:hover {
     padding-top: 1%;
     left: 26.5% !important;
     top: 51px !important;
+
 }
 .ui-menu::-webkit-scrollbar {
     display: none !important;
@@ -401,7 +402,7 @@ a:link, a:visited, a:active, a:hover {
    overflow: scroll;
    border-radius: 3px;
    padding-top: 1%;
-   top: 95px !important; 
+   top: 95px !important;
    left: 5% !important;
    position: fixed !important;
 }
@@ -504,7 +505,7 @@ a:link, a:visited, a:active, a:hover {
         height: 100%;
         width: 20%;
     }
-    // Seccion icono boton usuario 
+    // Seccion icono boton usuario
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
         background-size: 75%;
@@ -517,7 +518,7 @@ a:link, a:visited, a:active, a:hover {
         flex-wrap: nowrap;
         margin: auto;
     }
-    // Seccion icono boton usuario 
+    // Seccion icono boton usuario
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
         background-size: 70%;
@@ -646,8 +647,8 @@ a:link, a:visited, a:active, a:hover {
         width: 130%;
         background: #0083D6;
     }
-    
-    .inputBarraBusquedad {  
+
+    .inputBarraBusquedad {
         font-size: 1.5em;
         padding: 0 2%;
     }
@@ -668,7 +669,7 @@ a:link, a:visited, a:active, a:hover {
         height: 29vh;
     }
 
-    // Seccion boton usuario 
+    // Seccion boton usuario
     .menu_paciente {
         padding: 0;
         height: auto;
@@ -696,8 +697,8 @@ a:link, a:visited, a:active, a:hover {
         margin-left: 0;
         font-size: 1em;
     }
- 
-    // Seccion icono boton usuario 
+
+    // Seccion icono boton usuario
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
         background-size: 60%;
@@ -855,7 +856,7 @@ a:link, a:visited, a:active, a:hover {
         display: flex;
         justify-content: center;
         align-items: center;
-    }     
+    }
 }
 @media (min-width: 1200px) {
     //Seccion barra de busqueda
@@ -930,7 +931,7 @@ a:link, a:visited, a:active, a:hover {
     .soy_paciente{
         width: 8%;
     }
-  
+
     .icon_paciente {
         background-size: contain;
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
@@ -954,7 +955,7 @@ a:link, a:visited, a:active, a:hover {
     .button-membresia {
         display: flex;
         max-width: 145px;
-    } 
+    }
     .img-button-membresia {
         width: 100%;
     }
@@ -965,7 +966,7 @@ a:link, a:visited, a:active, a:hover {
         display: flex;
         justify-content: center;
         align-items: center;
-    }   
+    }
     .menu_hamburguesa {
         height: auto;
         width: 260px;
@@ -1009,7 +1010,7 @@ a:link, a:visited, a:active, a:hover {
         height: 31vh;
         top: 63px !important;
     }
-    // Seccion icono boton usuario 
+    // Seccion icono boton usuario
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
         background-size: 70%;

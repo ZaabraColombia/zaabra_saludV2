@@ -10,8 +10,8 @@ use SEO;
 class profesionesController extends Controller
 {
 
-    
-    
+
+
     public function index()
     {
         SEO::setTitle('Ramas de la Salud');
@@ -19,12 +19,12 @@ class profesionesController extends Controller
         SEO::setCanonical('https://zaabrasalud.co/');
 
         //esta varible se llena con los datos recolectados en cada una de las consultas y entregan los datos
-        //en la vista galeria  
+        //en la vista galeria
         $objbannersprincipalProfesiones = $this->cargarBannerPrincipalProfesiones();
         $objprofesiones = $this->cargarProfesiones();
         $objcarruselprofesiones = $this->cargarCarruselProfesiones();
-       
-   
+
+
         return view('profesionales.ramas-de-la-salud', compact(
             'objbannersprincipalProfesiones',
             'objprofesiones',
@@ -33,7 +33,7 @@ class profesionesController extends Controller
     }
 
 
-    // consulta para cargar banner principal 
+    // consulta para cargar banner principal
     public function cargarBannerPrincipalProfesiones(){
         $consultaBannerProfesiones = DB::table('ventabanners')
         ->select('rutaImagenVenta')
@@ -47,10 +47,10 @@ class profesionesController extends Controller
     public function cargarProfesiones(){
         return DB::select('SELECT pr.nombreProfesion, pr.descripcion, pr.urlimagen, pr.idProfesion
         FROM profesiones  pr
-        where pr.estado <>0 ORDER BY orden ASC');
+        where pr.estado <>0 ORDER BY pr.nombreProfesion ASC');
     }
 
-    // consulta para cargar carrusel profesiones 
+    // consulta para cargar carrusel profesiones
     public function cargarCarruselProfesiones(){
         $consultaCarruselProfesiones = DB::table('ventabanners')
         ->select('rutaImagenVenta')
