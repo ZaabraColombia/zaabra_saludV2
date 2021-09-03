@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
 class perfilesprofesionales extends Model
 {
+    use Sluggable;
         /**
      * The attributes that are mass assignable.
      *
@@ -41,6 +43,7 @@ class perfilesprofesionales extends Model
         'fechaCreacionFormulario',
         'created_at',
         'updated_at',
+        'slug'
     ];
 
     protected $primaryKey = 'idPerfilProfesional';
@@ -68,4 +71,12 @@ class perfilesprofesionales extends Model
     }
 
 
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => ['user.primernombre', 'user.segundonombre', 'user.primerapellido', 'user.segundoapellido']
+            ]
+        ];
+    }
 }

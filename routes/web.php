@@ -292,3 +292,6 @@ Route::get('/error404', function () { return view('errores/error404');})->name('
 
 /* Esta ruta direcciona a la vista del error 505 */
 Route::get('/error505', function () { return view('errores/error505');})->name('error505');
+
+
+Route::get('/test', [\App\Http\Controllers\TestController::class, 'test']);
