@@ -17,7 +17,7 @@ class medicosEspecialidadController extends Controller{
         SEO::setCanonical('https://zaabrasalud.co/ramas-de-la-salud');
 
     /*Realiza una consulta sql con el valor entrante de la seleccion de la
-     profesion y retorna el id el cual se pasa a los demas funciones*/    
+     profesion y retorna el id el cual se pasa a los demas funciones*/
     $objIdEspeciialidad = $this->especialidadId($nombreEspecialidad);
     $idEspecialidad= $objIdEspeciialidad->idEspecialidad;
 
@@ -45,7 +45,7 @@ class medicosEspecialidadController extends Controller{
 
     // consulta para cargar todas los profesionales segun su especialidad y que pagan premiun
     public function cargarCarruselProfesionalesPremiun($idEspecialidad){
-    return DB::select("SELECT pf.idPerfilProfesional, CONCAT('Dr.(a) ',  us.primernombre) AS primernombre, us.primerapellido, CONCAT('Especialista en ',  ep.nombreEspecialidad) AS nombreEspecialidad, mn.nombre, pf.descripcionPerfil, un.nombreuniversidad, pf.fotoperfil
+    return DB::select("SELECT pf.idPerfilProfesional, CONCAT('Dr.(a) ',  us.primernombre) AS primernombre, us.primerapellido, CONCAT('Especialista en ',  ep.nombreEspecialidad) AS nombreEspecialidad, mn.nombre, pf.descripcionPerfil, un.nombreuniversidad, pf.fotoperfil, pf.slug
     FROM  users us
     INNER JOIN pagos pg ON us.id=pg.idUsuario
     INNER JOIN perfilesprofesionales pf ON us.id=pf.idUser
@@ -57,7 +57,7 @@ class medicosEspecialidadController extends Controller{
 
     // consulta para cargar todas los profesionales segun su especialidad y el pago normal
     public function cargarMedicosPagoNormal($idEspecialidad){
-    return DB::select("SELECT pf.idPerfilProfesional, CONCAT('Dr.(a) ',  us.primernombre) AS primernombre, us.primerapellido, ep.nombreEspecialidad, CONCAT('Especialista en ',  ep.nombreEspecialidad) AS concatNombreEspecialidad, mn.nombre ciudad, pf.descripcionPerfil, un.nombreuniversidad, pf.fotoperfil
+    return DB::select("SELECT pf.idPerfilProfesional, CONCAT('Dr.(a) ',  us.primernombre) AS primernombre, us.primerapellido, ep.nombreEspecialidad, CONCAT('Especialista en ',  ep.nombreEspecialidad) AS concatNombreEspecialidad, mn.nombre ciudad, pf.descripcionPerfil, un.nombreuniversidad, pf.fotoperfil, pf.slug
     FROM  users us
     INNER JOIN pagos pg ON us.id=pg.idUsuario
     INNER JOIN perfilesprofesionales pf ON us.id=pf.idUser
@@ -69,7 +69,7 @@ class medicosEspecialidadController extends Controller{
 
     // consulta para cargar todas los profesionales segun su especialidad y el pago normal
     public function cargarMedicosSinPago($idEspecialidad){
-    return DB::select("SELECT CONCAT('Dr.(a)  ',  us.primernombre) AS primernombre, us.primerapellido, CONCAT('Especialista en ',  ep.nombreEspecialidad) AS nombreEspecialidad
+    return DB::select("SELECT CONCAT('Dr.(a)  ',  us.primernombre) AS primernombre, us.primerapellido, CONCAT('Especialista en ',  ep.nombreEspecialidad) AS nombreEspecialidad, pf.slug
         FROM  users us
     INNER JOIN pagos pg ON us.id=pg.idUsuario
     INNER JOIN perfilesprofesionales pf ON us.id=pf.idUser
@@ -79,7 +79,7 @@ class medicosEspecialidadController extends Controller{
     WHERE pg.idtipopago=14 AND pf.idespecialidad=$idEspecialidad AND pf.aprobado<>0");
     }
 
-    // consulta para cargar carrusel profesionales 
+    // consulta para cargar carrusel profesionales
     public function cargarCarruselProfesionales(){
     $consultaCarruselProfesiones = DB::table('ventabanners')
     ->select('rutaImagenVenta')
