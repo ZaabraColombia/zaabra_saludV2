@@ -89,11 +89,18 @@ class perfilInstitucionController extends Controller
 
         // consulta para cargar informacion de la landing premios
         public function cargarInfoInstitucLandinPremios($id){
-        return DB::select("SELECT pr.imgpremio,pr.fechapremio,pr.nombrepremio,pr.descripcionpremio
-        FROM instituciones ints
-        INNER JOIN premios pr ON ints.id=pr.idinstitucion
+        return DB::select("SELECT cer.imgcertificado,cer.fechacertificado,cer.titulocertificado,cer.descrpcioncertificado
+        FROM  instituciones ints
+        INNER JOIN certificaciones cer ON ints.id = cer.id_institucion
         WHERE ints.aprobado<>0 AND ints.id=$id");
         }
+
+
+
+
+
+
+
 
         // consulta para cargar informacion de la landing publicaciones
         public function cargarInfoInstitucLandinPublicaciones($id){
