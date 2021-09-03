@@ -127,10 +127,10 @@ Route::get('/membresiaProfesional', function () { return view('profesionales/mem
 Route:: get('/Instituciones-Medicas',[App\Http\Controllers\entidades\entidadesController::class,'index'])->name('Instituciones-Medicas');
 
 /*Esta ruta es de galeria instituciones segun la entidad seleccionada*/
-Route:: get('/Instituciones/{id}',[App\Http\Controllers\entidades\institucionesController::class,'index'])->name('Instituciones');
+Route:: get('/Instituciones/{slug}',[App\Http\Controllers\entidades\institucionesController::class,'index'])->name('Instituciones');
 
 /*Esta ruta es de landing institucion y dirige al controlador encargado de traer la informacion a la vista*/
-Route:: get('/PerfilInstitucion/{id}',[App\Http\Controllers\entidades\perfilInstitucionController::class,'index'])->name('PerfilInstitucion');
+Route:: get('/PerfilInstitucion/{slug}',[App\Http\Controllers\entidades\perfilInstitucionController::class,'index'])->name('PerfilInstitucion');
 
 // Esta ruta pertenece a la vista de membresía In stituciones
 Route::get('/membresiaInstitucion', function () { return view('instituciones/membresiaInstitucion');})->name('membresiaInstitucion');

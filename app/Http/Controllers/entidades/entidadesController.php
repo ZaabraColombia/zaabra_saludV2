@@ -9,14 +9,14 @@ use SEO;
 
 class entidadesController extends Controller
 {
-    
+
     public function index(){
         SEO::setTitle('Instituciones Médicas');
         SEO::setDescription(' Todas las instituciones médicas en Zaabra Salud, a su alcance. Clínicas, consultorios, exámenes, laboratorio y mucho más!');
         SEO::setCanonical('https://zaabrasalud.co/');
 
         //esta varible se llena con los datos recolectados en cada una de las consultas y entregan los datos
-        //en la vista galeria  de los tipos instituciones  
+        //en la vista galeria  de los tipos instituciones
         $objbannersprincipalInstituciones = $this->cargarBannerPrincipalInstituciones();
         $objinstituciones = $this->cargarInstituciones();
         $objcarruselInstituciones = $this->cargarCarruselInstituciones();
@@ -29,7 +29,7 @@ class entidadesController extends Controller
     }
 
 
-    // consulta para cargar banner principal 
+    // consulta para cargar banner principal
     public function cargarBannerPrincipalInstituciones(){
         $consultaBannerPrincipalInstituciones = DB::table('ventabanners')
         ->select('rutaImagenVenta')
@@ -41,12 +41,12 @@ class entidadesController extends Controller
 
     // consulta para cargar todas las profesiones disponibles, activas y en el orden secuencial según diseño
     public function cargarInstituciones(){
-        return DB::select('SELECT tp.nombretipo, tp.descripcioninstitucion, tp.urlimagen,tp.id
+        return DB::select('SELECT tp.nombretipo, tp.descripcioninstitucion, tp.urlimagen,tp.id, tp.slug
         FROM tipoinstituciones  tp
         WHERE tp.estado<>0');
     }
 
-    // consulta para cargar carrusel profesiones 
+    // consulta para cargar carrusel profesiones
     public function cargarCarruselInstituciones(){
         $consultaCarruselTipoInstituciones = DB::table('ventabanners')
         ->select('rutaImagenVenta')
