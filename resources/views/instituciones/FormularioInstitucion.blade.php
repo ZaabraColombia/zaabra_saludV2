@@ -94,7 +94,7 @@
                     <!-- Sección datos institución -->
                     <div class="col-md-4 col-xl-5 datos_principales-formInst">
                         <div class="col-12 rightSection_formInst">
-                            <label for="nombre_institucion" class="col-12 text_label-formInst"> Nombres Institución</label>
+                            <label for="nombre_institucion" class="col-12 text_label-formInst"> Nombres Institución </label>
                             <input class="col-12 input_nomApl-formInst" value="{{ old('nombre_institucion', $objuser->nombreinstitucion) }}" id="nombre_institucion" name="nombre_institucion">
                         </div>
                         <div class="col-12 rightSection_formInst">
@@ -135,134 +135,69 @@
 
         <!--------------------------------------------      Inicio 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave2') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+            <form method="POST" action="{{ route('entidad.create2') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-contacto-institucional">
+                @csrf
                 <h5 class="col-12 icon_infoContac-formInst"> Información de contacto </h5>
-
+                <div id="mensajes-contacto"></div>
                 <div class="row fila_infoUser-formInst">
-                    @if(!empty($objFormulario->telefonouno))
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Celular </label>
+                    <div class="col-md-6 leftSection_formInst">
+                        <label for="celular" class="col-12 text_label-formInst"> Celular </label>
+                        <input class="col-12 form-control" id="celular" placeholder="Número de celular" type="number" name="celular" value="{{ old('celular', $objFormulario->telefonouno) }}">
+                    </div>
+                    <div class="col-md-6 rightSection_formInst">
+                        <label for="telefono" class="col-12 text_label-formInst"> Teléfono fijo </label>
+                        <input class="col-12 form-control" id="telefono" placeholder="Número Teléfono" type="number" name="telefono" value="{{ old('telefono', $objFormulario->telefono2) }}">
+                    </div>
 
-                            <input class="col-12 form-control" id="tarjeta" placeholder="Número de celular" type="number" name="telefonouno" value="{{$objFormulario->telefonouno}}">
-                        </div>
+                    <div class="col-md-6 leftSection_formInst">
+                        <label for="direccion" class="col-12 text_label-formInst"> Dirección </label>
+                        <input class="col-12 form-control" id="direccion" placeholder="Dirección" type="text" name="direccion" value="{{ old('direccion', $objFormulario->direccion) }}">
+                    </div>
 
-                        <div class="col-md-6 rightSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono fijo </label>
+                    <!--menu dinamico ciudades -->
+                    <div class="col-md-6 rightSection_formInst">
+                        <label for="pais" class="col-12 text_label-formInst"> Seleccione país </label>
+                        <select id="pais" name="pais" class="col-12 form-control">
+                            <option></option>
+                            @foreach($listaPaises as $pais)
+                                <option value="{{ $pais->id_pais }}"  {{ (old('pais', $objFormulario->id_pais) == $pais->id_pais) ? 'selected' : ''}}> {{ $pais->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-                            <input class="col-12 form-control" id="telefono" placeholder="Número Teléfono" type="number" name="telefono2" value="{{$objFormulario->telefono2}}">
-                        </div>
+                    <div class="col-md-6 leftSection_formInst">
+                        <label for="departamento" class="col-12 text_label-formInst"> Seleccione departamento </label>
+                        <select name="departamento" id="departamento" class="col-12 form-control">
+                            @foreach($listaDepartamentos as $departamento)
+                                <option value="{{ $departamento->id_departamento }}"  {{ (old('departamento', $objFormulario->id_departamento) == $departamento->id_departamento) ? 'selected' : ''}}> {{ $departamento->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Dirección </label>
+                    <div class="col-md-6 rightSection_formInst">
+                        <label for="provincia" class="col-12 text_label-formInst"> Seleccione provincia </label>
+                        <select name="provincia" id="provincia" class="col-12 form-control">
+                            @foreach($listaProvincias as $provincia)
+                                <option value="{{ $provincia->id_provincia }}"  {{ (old('provincia', $objFormulario->id_provincia) == $provincia->id_provincia) ? 'selected' : ''}}> {{ $provincia->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-                            <input class="col-12 form-control" id="direccion" placeholder="Dirección" type="text" name="direccion" value="{{$objFormulario->direccion}}">
-                        </div>
+                    <div class="col-md-6 leftSection_formInst">
+                        <label for="municipio" class="col-12 text_label-formInst"> Seleccione ciudad </label>
+                        <select name="municipio" id="municipio" class="col-12 form-control">
+                            @foreach($listaMunicipios as $municipio)
+                                <option value="{{ $municipio->id_municipio }}"  {{ (old('municipio', $objFormulario->id_municipio) == $municipio->id_municipio) ? 'selected' : ''}}> {{ $municipio->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-                        <!--menu dinamico ciudades -->
-                        <div class="col-md-6 rightSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione país </label>
-
-                            <select id="idpais" name="idpais" class="col-12 form-control">
-                                <option></option>
-                                @foreach($listaPaises as $pais)
-                                    <option value="{{ $pais->id_pais }}"  {{ (isset($objFormulario->id_pais) && $objFormulario->id_pais == $pais->id_pais) ? 'selected' : ''}}> {{ $pais->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="id_departamento" class="col-12 text_label-formInst"> Seleccione departamento </label>
-                            <select name="id_departamento" id="id_departamento" class="col-12 form-control">
-                                @foreach($listaDepartamentos as $departamento)
-                                    <option value="{{ $departamento->id_departamento }}"  {{ (isset($objFormulario->id_departamento) && $objFormulario->id_departamento == $departamento->id_departamento) ? 'selected' : ''}}> {{ $departamento->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 rightSection_formInst">
-                            <label for="id_provincia" class="col-12 text_label-formInst"> Seleccione provincia </label>
-                            <select name="id_provincia" id="id_provincia" class="col-12 form-control">
-                                @foreach($listaProvincias as $provincia)
-                                    <option value="{{ $provincia->id_provincia }}"  {{ (isset($objFormulario->id_provincia) && $objFormulario->id_provincia == $provincia->id_provincia) ? 'selected' : ''}}> {{ $provincia->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="id_municipio" class="col-12 text_label-formInst"> Seleccione ciudad </label>
-                            <select name="id_municipio" id="id_municipio" class="col-12 form-control">
-                                @foreach($listaMunicipios as $municipio)
-                                    <option value="{{ $municipio->id_municipio }}"  {{ (isset($objFormulario->id_municipio) && $objFormulario->id_municipio == $municipio->id_municipio) ? 'selected' : ''}}> {{ $municipio->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <!-- Botón guardar información -->
-                        <div class="col-12 content_btnEnviar-formInst">
-                            <button type="submit" class="btn2_enviar-formInst"> Guardar
-                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
-                            </button>
-                        </div>
-
-                    @else
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Celular </label>
-
-                            <input class="col-12 form-control" id="tarjeta" placeholder="Número de celular" type="number" name="telefonouno" >
-                        </div>
-
-                        <div class="col-md-6 rightSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono fijo </label>
-
-                            <input class="col-12 form-control" id="telefono" placeholder="Número de teléfono" type="number" name="telefono2" >
-                        </div>
-
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Dirección </label>
-
-                            <input class="col-12 form-control" id="direccion" placeholder="Dirección" type="text" name="direccion" >
-                        </div>
-
-                        <!--menu dinamico ciudades -->
-                        <div class="col-md-6 rightSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione país </label>
-
-                            <select id="idpais" name="idpais" class="form-control">
-                                <option value="" selected disabled> Seleccione país </option>
-
-                                @foreach($pais as $pais)
-                                    <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione departamento </label>
-
-                            <select name="id_departamento" id="id_departamento" class="form-control"></select>
-                        </div>
-
-                        <div class="col-md-6 rightSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione provincia </label>
-
-                            <select name="id_provincia" id="id_provincia" class="form-control"></select>
-                        </div>
-
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione ciudad </label>
-
-                            <select name="id_municipio" id="id_municipio" class="form-control"> </select>
-                        </div>
-
-                        <!-- Botón guardar información -->
-                        <div class="col-12 content_btnEnviar-formInst">
-                            <button type="submit" class="btn2_enviar-formInst"> Guardar
-                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
-                            </button>
-                        </div>
-                    @endif
+                    <!-- Botón guardar información -->
+                    <div class="col-12 content_btnEnviar-formInst">
+                        <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-contacto-institucion"> Guardar
+                            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -5271,7 +5206,6 @@
     <script src="{{ asset('js/formulario-intitucional.js') }}"></script>
 
     <script src="{{ asset('js/selectareas.js') }}"></script>
-    <script src="{{ asset('js/selectpais.js') }}"></script>
     <script src="{{ asset('js/cargaFoto.js') }}"></script>
 
     <script>

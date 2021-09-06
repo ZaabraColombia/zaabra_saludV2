@@ -404,14 +404,14 @@ class formularioInstitucionController extends Controller{
                 'mensaje' => 'No existe la institución'
             ], Response::HTTP_NOT_FOUND);
         }
-        
+
         //guardar el nombre
-        $user->nombreinstitucion = $request->nombre_institucions;
+        $user->nombreinstitucion = $request->nombre_institucion;
         $user->save();
 
         //guardar la inforacion basica
-        $basico->fechainicio = $request->fecha_inicio_institucions;
-        $basico->url = $request->url_institucions;
+        $basico->fechainicio = $request->fecha_inicio_institucion;
+        $basico->url = $request->url_institucion;
         $basico->idtipoInstitucion = $request->tipo_institucion;
 
         if(!empty($request->file('logo_institucion')))
@@ -454,18 +454,62 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 2----------------------*/
     protected function create2(Request $request){
 
+        $validation = Validator::make($request->all(), [
+            'celular'       => ['required', 'size:10'],
+            'telefono'      => ['required', 'size:7'],
+            'direccion'     => ['required'],
+            'pais'          => ['required', 'exists:pais,id_pais'],
+            'departamento'  => ['required', 'exists:departamentos,id_departamento'],
+            'provincia'     => ['required', 'exists:provincias,id_provincia'],
+            'municipio'     => ['required', 'exists:municipios,id_municipio'],
+        ], [], [
+            'celular'       => 'Celular',
+            'telefono'      => 'Teléfono',
+            'direccion'     => 'Dirección',
+            'pais'          => 'Pais',
+            'departamento'  => 'Departamento',
+            'provincia'     => 'Provincia',
+            'municipio'     => 'Municipio',
+        ]);
 
-        /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
-        $verificaPerfil = $this->verificaPerfil();
+        if ($validation->fails()) {
+            $men = $validation->errors()->all();
+            $error = array_keys($validation->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
         /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        $id_user = auth()->user()->id;
 
-        unset($request['_token']);
+        //Agregar campos
+        $conacto = instituciones::where('idUser', '=', $id_user)->first();
 
-        instituciones::where('idUser', $id_user)->update($request->all());
+        if (empty($conacto))
+        {
+            return response([
+                'mensaje' => 'No existe la institución'
+            ], Response::HTTP_NOT_FOUND);
+        }
 
-        return redirect('FormularioInstitucion');
+        //guardar la información contacto
+        $conacto->telefonouno       = $request->celular;
+        $conacto->telefono2         = $request->telefono;
+        $conacto->direccion         = $request->direccion;
+        $conacto->idPais            = $request->pais;
+        $conacto->id_departamento   = $request->departamento;
+        $conacto->id_provincia      = $request->provincia;
+        $conacto->id_municipio      = $request->municipio;
+
+        //guardar contacto
+        $conacto->save();
+
+        return response([
+            'mensaje' => 'Se guardo correctamente la información'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 2----------------------*/
 
