@@ -36,12 +36,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
 
-      const swiper_certificados = new Swiper(".swiper_certificados", {
+      /*const swiper_certificados = new Swiper(".swiper_certificados", {
 
         loop: true,
+        loopFillGroupWithBlank: true,
        
         autoplay: {
-          delay: 3500,
+          delay: 500,
           disableOnInteraction: false,
         },
       
@@ -51,25 +52,31 @@ document.addEventListener('DOMContentLoaded', function () {
         },
       
         breakpoints: {
-           // when window width is >= 320px
+          // when window width is >= 320px
           320: {
             slidesPerView: 1,
             slidesPerGroup: 1,
           },
-           // when window width is >= 1024px
+          // when window width is >= 768px
+          768: {
+            slidesPerView: 2,
+            slidesPerGroup: 1,
+            spaceBetween: 20,
+          },
+          // when window width is >= 1024px
           1024: {
             slidesPerView: 3,
             slidesPerGroup: 1,
             spaceBetween: 20,
           },
-            // when window width is >= 1600px
-          1600: {
+          // when window width is >= 1440px
+          1440: {
             slidesPerView: 3,
             slidesPerGroup: 1,
             spaceBetween: 20,
           },
         }
-      });
+      });*/
       
 
       
