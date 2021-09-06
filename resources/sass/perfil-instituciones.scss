@@ -235,9 +235,11 @@
     align-content: center;
     justify-content: flex-start;
     align-items: center;
+    margin: 2% 0;
 }
 .convenios ul li:nth-child(odd){
     background: #F5F5F5;
+
 }
 .convenios h2 {
     display: flex;
@@ -340,6 +342,7 @@
 .sedes_institucion span{
     font-family: "Roboto";
     color: #0083D6;
+    font-size: 1.2em;
 }
 .mapa i {
     background-image: url('/img/landing-institucion/icono-ubique-su-sede.svg');
@@ -440,7 +443,7 @@
 .videos_institucion p {
     font-family: "Roboto";
     color: #3E3E3E;
-    text-align: center;
+    text-align: initial;
 }
 .section_insti_active{
     display: block !important;
@@ -532,7 +535,7 @@
         width: 55%;
     }
     .swiper_institucion .item_landing_insti {
-        margin-bottom: 16%;
+        margin-bottom: 45%;
     }
     .swiper_institucion .item_landing_insti span{
        // margin-top: 110px;
@@ -842,35 +845,60 @@
         font-size: 0.7em;
         margin-top: 1%;
     }
-    .galeria_institucion{
-        height: auto;
+    .btnPrev_inst {
+        width: 10px;
+        height: 16px;
+        left: 3%;
+        margin-top: -40%;
     }
+    .btnNext_inst {
+        width: 10px;
+        height: 16px;
+        right: 3%;
+        margin-top: -40%;
+    }
+
     .galeria_institucion h2 {
         font-size: 1.1em;
         text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 90%;
+        max-width: 100%;
+        padding-left: 5%;
+    }
+    .swiper_galeria_inst{
+        max-width: 80%;
+        height: fit-content;
+        margin-top: 3%;
+        margin-bottom: 7%;
+    }
+    .img_galeria_inst {
+        width: 100%;
+        height: 25vh;
+        object-fit: cover;
+    }
+    .galeria_institucion h5 {
+        font-size: 1.1em;
+        margin: 2% 0;
     }
     .galeria_institucion i {
         width: 14%;
         height: 30px;
     }
-    .galeria_institucion ul{
-        max-width: 85%;
+    .galeria_institucion p {
+        font-size: .75em;
     }
+
     .gallery_institucion > li {
         border: 1px solid transparent;
         float: left;
-        height: calc(100% / 2);
+        //height: calc(100% / 2);
         margin: 0 -1px -1px 0;
         overflow: hidden;
-        width: calc(100% / 2);
+        //width: calc(100% / 2);
     }
     .gallery_institucion > li > img{
         cursor: zoom-in;
         width: 100%;
-        height: 80px;
+        //height: 80px;
         object-fit: cover;
     }
     .videos_institucion{
@@ -901,7 +929,7 @@
     }
     .videos_institucion .card-body h5{
         font-size: 1em;
-        text-align: center;
+        text-align: initial;
     }
     .videos_institucion h2{
         font-size: 1.1em;
@@ -992,9 +1020,9 @@
     .galeria_institucion i{
         width: 12%;
     }
-    .gallery_institucion > li > img{
+    /*.gallery_institucion > li > img{
         height: 100px;
-    }
+    }*/
     .videos_institucion h2{
         font-size: 1.3em;
     }
@@ -1025,7 +1053,11 @@
     }
     .title-adress i, .title-url i, .title-tel i {
         width: 5%;
-        height: 20px;
+        height: 25px;
+    }
+    .swiper_certificados img{
+        height: 14vh;
+        max-width: 100%;
     }
 
     /*.logo_sede_inst {
@@ -1054,6 +1086,7 @@
     }
     .swiper_institucion .item_landing_insti{
         height: 100px;
+        margin-bottom: 30%;
     }
     .swiper_institucion .item_landing_insti span{
         margin-top: 110px;
@@ -1180,15 +1213,16 @@
         width: 85%;
     }
     .sedes_institucion .card-body h5 {
-        font-size: 1.4em;
+        font-size: 1.5em;
     }
     .sedes_institucion p {
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
     .sedes_institucion .card-img-top {
         border-radius: 50%;
         width: 150px;
         height: 150px;
+        object-fit: cover;
     }
     .mapa i {
         width: 10%;
@@ -1203,7 +1237,7 @@
         margin-top: 5%;
     }*/
     .section_insti {
-        margin-bottom: 0%;
+        margin-bottom: 7%;
     }
     .contains_swiper_certificados h2 {
         font-size: 1.8em;
@@ -1214,12 +1248,12 @@
         height: 45px;
     }
     .swiper_certificados {
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         max-width: 80%;
         margin-top: 0;
     }
     .slaider_cert_landInst {
-        width: fit-content;
+        width: 50%;
         margin: 3% 0 5% 0;
         padding: 0 2%;
     }
@@ -1235,6 +1269,25 @@
     .swiper_certificados p {
         font-size: 1.1em;
     }
+    .swiper_galeria_inst {
+        max-width: 70%;
+    }
+    .galeria_institucion h5 {
+        font-size: 1.5em;
+        margin: 2% 0;
+    }
+    .btnPrev_inst {
+        width: 16px;
+        height: 20px;
+        left: 9%;
+        margin-top: -35%;
+    }
+    .btnNext_inst {
+        width: 16px;
+        height: 20px;
+        right: 9%;
+        margin-top: -35%;
+    }
     .galeria_institucion h2 {
         font-size: 1.5em;
     }
@@ -1245,13 +1298,16 @@
     .galeria_institucion ul {
         max-width: 75%;
     }
-    .gallery_institucion > li{
+    .galeria_institucion p {
+        font-size: 1.1em;
+    }
+    /*.gallery_institucion > li{
         width: calc(100% / 3);
         height: calc(100% / 3);
-    }
-    .gallery_institucion > li > img {
+    }*/
+    /*.gallery_institucion > li > img {
         height: 145px;
-    }
+    }*/
     .videos_institucion h2 {
         font-size: 1.5em;
     }
@@ -1260,14 +1316,14 @@
         height: 45px;
     }
     .videos_institucion .card{
-        width: 45%;
+        width: 75%;
     }
     .videos_institucion .card .card-img-top{
         height: 35vh;
     }
     .videos_institucion .card-body h5 {
-        font-size: 1.7em;
-        text-align: center;
+        font-size: 1.5em;
+        text-align: initial;
     }
     .videos_institucion p {
         font-size: 1.1em;
@@ -1380,9 +1436,9 @@
     .swiper_certificados {
         max-width: 35%;
     }
-    .gallery_institucion > li > img {
+    /*.gallery_institucion > li > img {
         height: 165px;
-    }
+    }*/
     .galeria_institucion h2{
         width: 80%;
     }
@@ -1892,13 +1948,13 @@
     .videos_institucion .card {
         width: 27%;
     }
-    .gallery_institucion > li {
+    /*.gallery_institucion > li {
         width: calc(100% / 4);
         height: calc(100% / 4);
-    }
-    .gallery_institucion > li > img {
+    }*/
+    /*.gallery_institucion > li > img {
         height: 180px;
-    }
+    }*/
     .data_instituciones .rating-stars ul {
         margin-top: 8%;
         margin-bottom: 0%;

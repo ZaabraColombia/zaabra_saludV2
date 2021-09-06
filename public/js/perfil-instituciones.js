@@ -35,7 +35,52 @@ document.addEventListener('DOMContentLoaded', function () {
           },
         }
       });
+      const swiper_galeria_prof = new Swiper(".swiper_galeria_inst", {
 
+        loop: true,
+        resizeObserver: true,
+       
+        autoplay: {
+          delay: 355555500,
+          disableOnInteraction: true,
+        },
+      
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+         // Navigation arrows
+         navigation: {
+          nextEl: '.btn-next',
+          prevEl: '.btn-prev',
+        },
+      
+        breakpoints: {
+           // when window width is >= 320px
+          320: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+          },
+           // when window width is >= 768px
+           768: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: 20,
+          },
+           // when window width is >= 1024px
+          1024: {
+            slidesPerView: 3,
+            slidesPerGroup: 1,
+            spaceBetween: 20,
+          },
+            // when window width is >= 1600px
+          1600: {
+            slidesPerView: 3,
+            slidesPerGroup: 1,
+            spaceBetween: 20,
+          },
+        }
+      });
       /*const swiper_certificados = new Swiper(".swiper_certificados", {
 
         loop: true,
