@@ -116,7 +116,7 @@ class buscadorController extends Controller
             ->select(
                 'nombreProfesion as label',
                 DB::raw('CONCAT("' . url('/Especialidades-Medicas/') . '/", slug) as url'),
-                DB::raw('CONCAT("icon-1") as icon')
+                DB::raw('CONCAT("fas fa-stethoscope") as icon')
             )
             ->get();
 
@@ -133,7 +133,7 @@ class buscadorController extends Controller
             ->select(
                 DB::raw('CONCAT(especialidades.nombreEspecialidad, " / ", "Dr-Dra. ", users.primernombre, " ", users.primerapellido) as label'),
                 DB::raw('CONCAT("' . url('/PerfilProfesional') . '/", perfilesprofesionales.slug) as url'),
-                DB::raw('CONCAT("icon-2") as icon')
+                DB::raw('CONCAT("fas fa-user-md") as icon')
             )->get();
 
         $instituciones = instituciones::join('users', 'instituciones.idUser', '=', 'users.id')
@@ -143,7 +143,7 @@ class buscadorController extends Controller
             ->select(
                 DB::raw('CONCAT(users.nombreinstitucion, " / " ,tipoinstituciones.nombretipo) as label'),
                 DB::raw('CONCAT("' . url('/instituciones') . '/", instituciones.slug) as url'),
-                DB::raw('CONCAT("icon-3") as icon')
+                DB::raw('CONCAT("fas fa-hospital-alt") as icon')
             )
             ->get();
 
