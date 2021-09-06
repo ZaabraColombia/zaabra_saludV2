@@ -200,13 +200,19 @@
         <section class="section_insti galeriayvideo">
             <div class="galeria_institucion">
                 <h2><i></i>Galería</h2>
-                <ul class="gallery_institucion">
-                    @foreach ($objinstitucionlandingaleria as $objinstitucionlandingaleria)
-                        <li>
-                            <img src="{{URL::asset($objinstitucionlandingaleria->imggaleria)}}" alt="{{$objinstitucionlandingaleria->descripcion}}"> 
-                        </li>       
-                    @endforeach
-                </ul>    
+                <div class="swiper-container swiper_galeria_inst">
+                    <div class="swiper-wrapper gallery_institucion">
+                        @foreach ($objinstitucionlandingaleria as $objinstitucionlandingaleria)
+                            <div class="swiper-slide">
+                                <img class="img_galeria_inst" src="{{URL::asset($objinstitucionlandingaleria->imggaleria)}}" alt="{{$objinstitucionlandingaleria->descripcion}}"> 
+                                <h5>{{$objinstitucionlandingaleria->nombrefoto}}</h5>
+                                <p>{{$objinstitucionlandingaleria->descripcion}}</p>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="btn-prev btnPrev_inst"></div>
+                <div class="btn-next btnNext_inst"></div>
             </div>
             
             <div class="videos_institucion">
