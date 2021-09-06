@@ -50,7 +50,7 @@
                 <a href="{{route('calendario-id-profesional', ['id' => $objcarruselprofesionalespremiun->idPerfilProfesional])}}">Agende su cita
                     <i class="fas fa-arrow-right arrow_mas"></i>
                 </a>
-                <a href="{{route('calendario')}}">Ver perfil
+                <a href="{{ url('/PerfilProfesional/' .  $objcarruselprofesionalespremiun->slug) }}">Ver perfil
                     <i class="fas fa-arrow-right arrow_mas"></i>
                 </a>
               </div>
@@ -98,7 +98,7 @@
                   <a href="{{route('calendario-id-profesional', ['id' => $objmedicospagonormal->idPerfilProfesional])}}">Agendar
                       <i class="fas fa-arrow-right arrow_mas"></i>
                   </a>
-                  <a href="{{route('calendario')}}">Ver más
+                  <a href="{{ url('/PerfilProfesional/' .  $objmedicospagonormal->slug) }}">Ver más
                       <i class="fas fa-arrow-right arrow_mas"></i>
                   </a>
                 </div>
@@ -109,11 +109,13 @@
 
   <!--galeria profesionales sin pago -->
   <section class="contanier_cards_generic">
-    @foreach ($objmedicossinpago as $objmedicossinpago)
+    @foreach ($objmedicossinpago as $medicos_sin_pago)
       <div class="card card_generic">
         <div class="card-body">
-          <h5 class="niega_uppercase">{{$objmedicossinpago->primernombre}} {{$objmedicossinpago->primerapellido}}</h5>
-          <p>{{$objmedicossinpago->nombreEspecialidad}}</p>
+            <a href="{{ url('/PerfilProfesional/' . $medicos_sin_pago->slug) }}">
+                <h5 class="niega_uppercase">{{$medicos_sin_pago->primernombre}} {{$medicos_sin_pago->primerapellido}}</h5>
+                <p>{{$medicos_sin_pago->nombreEspecialidad}}</p>
+            </a>
           <!-- Rating Stars Box -->
               <div class='rating-stars text-center'>
                 <ul id='stars'>

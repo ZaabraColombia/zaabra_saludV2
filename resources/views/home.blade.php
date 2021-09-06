@@ -78,14 +78,14 @@
 <section class="contains_slider_especialistas">
     <div class="swiper-container swiper_especialistas">
         <div class="swiper-wrapper">
-            @foreach ($objprofesionaleshome as $objprofesionaleshome)
+            @foreach ($objprofesionaleshome as $profesionales_home)
             <div class="card swiper-slide">
-                <img class="card-img-top" src="{{URL::asset($objprofesionaleshome->fotoperfil)}}">
+                <img class="card-img-top" src="{{URL::asset($profesionales_home->fotoperfil)}}">
                 <div class="card-body">
-                    <h5>{{$objprofesionaleshome->nombreEspecialidad}}</h5>
-                    <p>{{$objprofesionaleshome->nombreuniversidad}}</p>
-                    <p>{{$objprofesionaleshome->primernombre}} {{$objprofesionaleshome->primerapellido}}</p>
-                    <a href="{{url('PerfilProfesional/'.$objprofesionaleshome->idPerfilProfesional)}}" class="btn-profesional hvr-sweep-to-right">Ver detalles
+                    <h5>{{$profesionales_home->nombreEspecialidad}}</h5>
+                    <p>{{$profesionales_home->nombreuniversidad}}</p>
+                    <p>{{$profesionales_home->primernombre}} {{$profesionales_home->primerapellido}}</p>
+                    <a href="{{url('PerfilProfesional/'.$profesionales_home->slug)}}" class="btn-profesional hvr-sweep-to-right">Ver detalles
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>
                 </div>

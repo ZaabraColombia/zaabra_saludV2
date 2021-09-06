@@ -14,9 +14,10 @@ use SEO;
 class perfilprofesionalController extends Controller
 {
 
-    public function index($idPerfilProfesional){
-        
-        $objprofesionallanding= $this->cargarInfoPrfesionalLanding($idPerfilProfesional);
+    public function index($slug){
+
+        $objprofesionallanding= $this->cargarInfoPrfesionalLanding($slug);
+        $idPerfilProfesional = $objprofesionallanding[0]->idPerfilProfesional;
 
         foreach ($objprofesionallanding as $items){
         SEO::setTitle($items->primernombre.' '. $items->primerapellido. ' | Especialista en cardiología');
@@ -58,7 +59,7 @@ class perfilprofesionalController extends Controller
     }
 
          // consulta para cargar todas los profesionales segun su area profesion y especialidad
-        public function cargarInfoPrfesionalLanding($idPerfilProfesional){
+        public function cargarInfoPrfesionalLanding($slug){
         return DB::select("SELECT pf.idPerfilProfesional, pf.fotoperfil, CONCAT('Dr.(a) ',  us.primernombre) AS primernombre, us.primerapellido, ep.nombreEspecialidad, pf.numeroTarjeta, pf.direccion, un.nombreuniversidad, pf.descripcionPerfil, mn.nombre
         FROM perfilesprofesionales pf
         INNER JOIN users us ON pf.idUser=us.id
@@ -66,7 +67,7 @@ class perfilprofesionalController extends Controller
         INNER JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
         INNER JOIN universidades un ON pf.id_universidad=un.id_universidad
         INNER JOIN municipios mn ON mn.id_municipio=pf.id_municipio
-        WHERE pf.aprobado<>0 AND pf.idPerfilProfesional=$idPerfilProfesional LIMIT 1");
+        WHERE pf.aprobado<>0 AND pf.slug like '$slug' LIMIT 1");
         }
 
         // consulta para cargar todas las tipos de consulta medicas
@@ -153,7 +154,7 @@ class perfilprofesionalController extends Controller
 
         // consulta para cargar lista publicaciones
         public function cargarInfoPrfesionalLandingvideo($idPerfilProfesional){
-        return DB::select("SELECT  vd.nombrevideo, vd.descripcionvideo, 
+        return DB::select("SELECT  vd.nombrevideo, vd.descripcionvideo,
         REPLACE(vd.urlvideo, 'watch?v=', 'embed/') AS urlvideo
         FROM perfilesprofesionales pf
         INNER JOIN videos vd ON pf.idPerfilProfesional=vd.idPerfilProfesional
@@ -175,17 +176,17 @@ class perfilprofesionalController extends Controller
         WHERE c.comentario<>'' AND c.idperfil=$idPerfilProfesional");
         }
 
-    
+
        public function cargarTipoUser(){
            if(Auth::user()){
             $id_user=auth()->user()->id;
-            return DB::select("SELECT ur.idrol 
+            return DB::select("SELECT ur.idrol
             FROM users us
             INNER JOIN users_roles ur on us.id=ur.iduser
             WHERE us.id =$id_user");
            }
 
        }
-    
-        
+
+
 }

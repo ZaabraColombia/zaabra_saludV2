@@ -7,9 +7,9 @@
         <!-- Sección barra de busqueda -->
         <div class="contains_boxsearch">
             <div class="barra_busqueda" id="barra_busqueda">
-                <input  class="inputBarraBusquedad " id="filtro">
+                <input  class="inputBarraBusquedad " id="filtro" data-url='{{ url('search') }}'>
                 <button class="button_SearchBarH icon_searchH"></button>
-            </div> 
+            </div>
         </div>
 
         <!--******************************     Sección BARRA DE BUSQUEDA version MOBILE      *************************************-->
@@ -17,11 +17,11 @@
         <div class="contain_lupa-mobile">
             <!--///      Función para desplegar y ocultar barra de busqueda en la vista "header" versión Mobile ubicada en el archivo header.js      ///-->
             <button type="button" onclick="ocultaInput()" class="boton_lupa_mobile">
-                <img class="icon_lupa-mobile" src="{{URL::asset('/img/header/icono-lupa-blanco.svg')}}">
+                <img class="icon_lupa-mobile" src="{{ asset('/img/header/icono-lupa-blanco.svg') }}" />
             </button>
         </div>
         <!--******************************     End sección BARRA DE BUSQUEDA version MOBILE      *********************************-->
-        
+
         <!-- Sección Soy paciente -->
         @guest
             <div class="soy_paciente dropdown">
@@ -31,22 +31,22 @@
                     <div class="dropdown-divider m-0"></div>
                     <a class="dropdown-item menu_item-paciente icon-medico" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy doctor</span></a>
                     <div class="dropdown-divider m-0"></div>
-                    <a class="dropdown-item menu_item-paciente icon-instituciones" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy institución</span></a>    
+                    <a class="dropdown-item menu_item-paciente icon-instituciones" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy institución</span></a>
                 </div>
             </div>
             <!-- Sección Botón membresía Desktop -->
             <div class="button-membresia">
                 <a class="" href="{{ route('membresiaProfesional') }}">
                     <img class="img-button-membresia" src="{{URL::asset('/img/header/boton-membresia.png')}}">
-                </a>  
+                </a>
             </div>
 
             <!--******************************     Sección Botón Membresía version MOBILE      *************************************-->
             <!-- SECCION BOTÓN MEMBRESÍA HEADER -->
-            <a class="btnMembresia_header_mobile " href="{{ route('membresiaProfesional') }}"></a>  
+            <a class="btnMembresia_header_mobile " href="{{ route('membresiaProfesional') }}"></a>
             <!--******************************     End sección Botón Membresía version MOBILE      *********************************-->
 
-            
+
             <!-- Sección Menú hamburguesa -->
             <div class="menu-hamburger dropdown">
                 <a class="icon-menu dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -68,12 +68,12 @@
             <div class="button-membresia">
                 <a class="" href="{{ route('membresiaProfesional') }}">
                     <img class="img-button-membresia" src="{{URL::asset('/img/header/boton-membresia.png')}}">
-                </a>  
+                </a>
             </div>
 
             <!--******************************     Sección Botón Membresía version MOBILE      *************************************-->
             <!-- SECCION BOTÓN MEMBRESÍA HEADER -->
-            <a class="btnMembresia_header_mobile" href="{{ route('membresiaProfesional') }}"></a>  
+            <a class="btnMembresia_header_mobile" href="{{ route('membresiaProfesional') }}"></a>
             <!--******************************     End sección Botón Membresía version MOBILE      *********************************-->
 
             <!-- Sección Menú hamburguesa -->
@@ -84,7 +84,7 @@
 
                 <div class="dropdown-menu dropdown-menu-right menu_hamburguesa" aria-labelledby="dropdownMenuLink" style="">
                     @if(!empty($objtipoUsuarioLogueado))
-                        @if($objtipoUsuarioLogueado->idrol==1) 
+                        @if($objtipoUsuarioLogueado->idrol==1)
                         <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
                         @elseif($objtipoUsuarioLogueado->idrol==2)
                         <a class="dropdown-item menu_item-paciente icon-perfil" href="{{ url('/FormularioProfesional') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
@@ -97,7 +97,7 @@
                         @elseif($objtipoUsuarioLogueado->idrol==4)
                         <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}"><span class="texto_item-menu-paciente">Admin</span></a>
                         @endif
-                        @endif 
+                        @endif
                         <div class="dropdown-divider m-0"></div>
                     <a class="dropdown-item menu_item item-cel icon-especialidades" href="{{route('ramas-de-la-salud')}}"><span class="texto_item-menu">Especialidades medicas</span></a>
                     <div class="dropdown-divider m-0"></div>
@@ -123,14 +123,14 @@
 
     <!--******************************     Sección BARRA DE BUSQUEDA OCULTA version MOBILE      *************************************-->
     <!-- Clase "contains_barra"utilizada para mostrar y ocultar la barra de busqueda en el HEADER tamaño Mobile, función ubicada en el archivo header.js -->
-    <div class="contains_barra"> 
+    <div class="contains_barra">
         <div class="barra_oculta" id="buscador">
             <div class="barra_busqueda-mobile" id="barra_busqueda2">
                 <input type="hidden" name="_token" value="tzFtz8TstiTocmap8vuJp4Py7sMc0zcQiC63SuyF">
-                <input  class="inputBarraBusquedad" id="filtro2">
+                <input  class="inputBarraBusquedad" id="filtro2" data-url='{{ url('search') }}'>
                 <!-- <input class="inputBarraBusquedad" type="buttton" name="buscar" id="barra_buscar" autocomplete="off"> -->
-                <input type="image" class="contenedorLupa" src="{{URL::asset('/img/header/icono-buscador-azul.svg')}}">
-            </div> 
+                <input type="image" class="contenedorLupa" src="{{asset('/img/header/icono-buscador-azul.svg')}}">
+            </div>
         </div>
     </div>
     <!--******************************     End sección BARRA DE BUSQUEDA OCULTA version MOBILE      *********************************-->
