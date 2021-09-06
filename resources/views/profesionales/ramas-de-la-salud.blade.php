@@ -20,18 +20,18 @@
     <!-- Contenedor de las tarjetas de las profesiones -->
     <section class="row col-12 col-lg-10 col-xl-8 container_ramSalud">
 
-      @foreach ($objprofesiones as $objprofesiones)
+      @foreach ($objprofesiones as $profesion)
         <div class="col-5 col-lg-3 section_ramSalud">
           <div class="content_img_ramSalud">
-            <img class="imagen_ramSalud" src="{{URL::asset($objprofesiones->urlimagen)}}">
+            <img class="imagen_ramSalud" src="{{URL::asset($profesion->urlimagen)}}">
           </div>
 
-          <h2 class="subTitle_ramSalud">{{$objprofesiones->nombreProfesion}}</h2>
+          <h2 class="subTitle_ramSalud">{{$profesion->nombreProfesion}}</h2>
 
-          <p class="text_ramSalud">{{$objprofesiones->descripcion}}</p>
+          <p class="text_ramSalud">{{$profesion->descripcion}}</p>
 
           <div class="section_btn_ramSalud">
-            <a class="content_btn_ramSalud" href="{{url('Especialidades-Medicas/'.$objprofesiones->nombreProfesion)}}">
+            <a class="content_btn_ramSalud" href="{{url('Especialidades-Medicas/'.$profesion->slug)}}">
               <button type="submit" value="" class="btnVer_ramSalud" > Ver especialidades
                 <img class="icon_arrow_ramSalud" src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" alt="">
               </button>
