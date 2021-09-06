@@ -9,12 +9,13 @@ use App\Models\tipoinstituciones;
 
 class institucionesController extends Controller
 {
-    public function index($id)
+    public function index($slug)
     {
-        $objcarruselinstitucionespremiun= $this->cargarCarruselinstitucionesPremiun($id);
-        $objinstitucionespagonormal  = $this->cargarinstitucionesPagoNormal($id);
-        $objinstitucionessinpago  = $this->cargarinstitucionesSinPago($id);
-        $objtipoinstitucion  = tipoinstituciones::find($id);
+        $objtipoinstitucion  = tipoinstituciones::where('slug', 'like', $slug)->first();
+        //dd(ob);
+        $objcarruselinstitucionespremiun= $this->cargarCarruselinstitucionesPremiun($objtipoinstitucion->id);
+        $objinstitucionespagonormal  = $this->cargarinstitucionesPagoNormal($objtipoinstitucion->id);
+        $objinstitucionessinpago  = $this->cargarinstitucionesSinPago($objtipoinstitucion->id);
         $objcarruselPublicidadinstituciones = $this->cargarCarruselInstituciones();
 
         return view('instituciones.Instituciones', compact(
@@ -29,7 +30,7 @@ class institucionesController extends Controller
 
          // consulta para cargar todas los profesionales segun su especialidad y que pagan premiun
          public function cargarCarruselinstitucionesPremiun($id){
-            return DB::select("SELECT ins.id, us.nombreinstitucion, ins.url, mn.nombre, ins.imagen, ins.quienessomos, tns.nombretipo
+            return DB::select("SELECT ins.id, us.nombreinstitucion, ins.url, mn.nombre, ins.imagen, ins.quienessomos, tns.nombretipo, ins.slug
             FROM  users us
             INNER JOIN instituciones ins ON us.id=ins.idUser
             INNER JOIN tipoinstituciones tns ON ins.idtipoInstitucion=tns.id
@@ -40,7 +41,7 @@ class institucionesController extends Controller
 
             // consulta para cargar todas los profesionales segun su especialidad y el pago normal
             public function cargarinstitucionesPagoNormal($id){
-            return DB::select("SELECT ins.id, us.nombreinstitucion, ins.url, mn.nombre, ins.imagen, ins.quienessomos, tns.nombretipo
+            return DB::select("SELECT ins.id, us.nombreinstitucion, ins.url, mn.nombre, ins.imagen, ins.quienessomos, tns.nombretipo, ins.slug
             FROM  users us
             INNER JOIN instituciones ins ON us.id=ins.idUser
             INNER JOIN tipoinstituciones tns ON ins.idtipoInstitucion=tns.id
@@ -51,7 +52,7 @@ class institucionesController extends Controller
 
             // consulta para cargar todas los profesionales segun su especialidad y el pago normal
             public function cargarinstitucionesSinPago($id){
-            return DB::select("SELECT  us.nombreinstitucion, tns.nombretipo
+            return DB::select("SELECT  us.nombreinstitucion, tns.nombretipo, ins.slug
             FROM  users us
             INNER JOIN instituciones ins ON us.id=ins.idUser
             INNER JOIN tipoinstituciones tns ON ins.idtipoInstitucion=tns.id
@@ -60,7 +61,7 @@ class institucionesController extends Controller
         }
 
 
-            // consulta para cargar carrusel profesionales 
+            // consulta para cargar carrusel profesionales
             public function cargarCarruselInstituciones(){
             $consultaCarruselProfesiones = DB::table('ventabanners')
             ->select('rutaImagenVenta')

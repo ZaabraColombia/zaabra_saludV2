@@ -25,7 +25,7 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-     
+
     public function index()
     {
 
@@ -34,7 +34,7 @@ class HomeController extends Controller
         SEO::setCanonical('https://zaabrasalud.co/');
 
 
-        //esta varible se llena con los datos recolectados en cada una de las consultas y entregan los datos en la vista del home 
+        //esta varible se llena con los datos recolectados en cada una de las consultas y entregan los datos en la vista del home
         $objbannersprincipalHome = $this->cargarBannerPrincipalHome();
         $objbannersparallaxHome = $this->cargarParallax();
         $objprofesionaleshome = $this->cargarProfesionaleshome();
@@ -73,7 +73,7 @@ class HomeController extends Controller
 
 // consulta para cargar profesionales que realizen el pago por aparecer en el home
     public function cargarProfesionaleshome(){
-        return DB::select('SELECT pf.idPerfilProfesional, CONCAT("Dr.(a) ",  us.primernombre) AS primernombre, us.primerapellido, pf.descripcionPerfil, sp.nombreEspecialidad, un.nombreuniversidad,pf.fotoperfil
+        return DB::select('SELECT pf.idPerfilProfesional, CONCAT("Dr.(a) ",  us.primernombre) AS primernombre, us.primerapellido, pf.descripcionPerfil, sp.nombreEspecialidad, un.nombreuniversidad,pf.fotoperfil, pf.slug
         FROM pagos  pg
         INNER JOIN users us ON pg.idUsuario=us.id
         INNER JOIN  perfilesprofesionales pf ON us.id=pf.idUser

@@ -16,6 +16,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 /*----------------------------------------------Buscador del home----------------------------------------------------------------------------*/
 Route::get('/search/filtro', [App\Http\Controllers\buscador\buscadorController::class, 'filtroBusquedad'])->name('search.filtro');
+Route::get('/search', [App\Http\Controllers\buscador\buscadorController::class, 'search'])->name('search');
 
 /*----------------------------------------------Pertenece a profesionales-------------------------------------------------------------------------------*/
 
@@ -29,7 +30,7 @@ Route:: get('/Especialidades-Medicas/{nombreProfesion}',[App\Http\Controllers\pr
 Route:: get('/Especialistas/{nombreEspecialidad}',[App\Http\Controllers\profesionales\medicosEspecialidadController::class,'index'])->name('Especialistas-En');
 
 /*Esta ruta es de landing profesionales y dirige al controlador encargado de traer la informacion a la vista*/
-Route:: get('/PerfilProfesional/{idPerfilProfesional}',[App\Http\Controllers\profesionales\perfilprofesionalController::class,'index'])->name('PerfilProfesional');
+Route:: get('/PerfilProfesional/{slug}',[App\Http\Controllers\profesionales\perfilprofesionalController::class,'index'])->name('PerfilProfesional');
 
 /*Esta ruta es del formulario del profesional */
 Route::get('/FormularioProfesional',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'index'])->name('FormularioProfesional')->middleware('auth');
@@ -127,10 +128,10 @@ Route::get('/membresiaProfesional', function () { return view('profesionales/mem
 Route:: get('/Instituciones-Medicas',[App\Http\Controllers\entidades\entidadesController::class,'index'])->name('Instituciones-Medicas');
 
 /*Esta ruta es de galeria instituciones segun la entidad seleccionada*/
-Route:: get('/Instituciones/{id}',[App\Http\Controllers\entidades\institucionesController::class,'index'])->name('Instituciones');
+Route:: get('/Instituciones/{slug}',[App\Http\Controllers\entidades\institucionesController::class,'index'])->name('Instituciones');
 
 /*Esta ruta es de landing institucion y dirige al controlador encargado de traer la informacion a la vista*/
-Route:: get('/PerfilInstitucion/{id}',[App\Http\Controllers\entidades\perfilInstitucionController::class,'index'])->name('PerfilInstitucion');
+Route:: get('/PerfilInstitucion/{slug}',[App\Http\Controllers\entidades\perfilInstitucionController::class,'index'])->name('PerfilInstitucion');
 
 // Esta ruta pertenece a la vista de membresía In stituciones
 Route::get('/membresiaInstitucion', function () { return view('instituciones/membresiaInstitucion');})->name('membresiaInstitucion');
@@ -292,3 +293,6 @@ Route::get('/error404', function () { return view('errores/error404');})->name('
 
 /* Esta ruta direcciona a la vista del error 505 */
 Route::get('/error505', function () { return view('errores/error505');})->name('error505');
+
+
+Route::get('/test', [\App\Http\Controllers\TestController::class, 'test']);

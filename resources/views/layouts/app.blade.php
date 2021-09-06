@@ -8,11 +8,10 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
         {!! SEO::generate() !!}
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <link rel="shortcat icon" href="{{URL::asset('/img/logos/zaabrasalud-favicon.png')}}">
+        <link rel="shortcat icon" href="{{asset('/img/logos/zaabrasalud-favicon.png')}}">
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -46,7 +45,7 @@
         <!--///      Ubicación de los SCRIPT de cada uno de los archivos .js utilizados en el proyecto zaabrasalud      ///-->
         <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.js" integrity="sha512-Cpto2uFAGrtCArBkIckJacfNjZ6yFJ1F61YIOH3Nj4dpccnCK1AGkudN9g+HM+OQMIHxeFvcRmkIUKbJ/7Qxyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
-        <!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>-->
 
 

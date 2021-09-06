@@ -32,7 +32,7 @@
         <p class="texto_entidades">{{$objinstituciones->descripcioninstitucion}}</p>
 
         <div class="section_btn_entidades">
-          <a class="content_btn_entidades" href="{{url('Instituciones/'.$objinstituciones->id)}}">
+          <a class="content_btn_entidades" href="{{url('Instituciones/'.$objinstituciones->slug)}}">
             <button type="submit" value="" class="btnVer_entidades"> Ver especialidades
               <img class="icon_arrow_entidades" src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" alt="">
             </button>
