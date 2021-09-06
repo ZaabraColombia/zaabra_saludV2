@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\entidades;
 use App\Http\Controllers\Controller;
 use App\Models\destacados;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Arr;
@@ -26,7 +28,8 @@ use App\Models\provincia;
 use App\Models\galerias;
 use App\Models\videos;
 use File;
-
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class formularioInstitucionController extends Controller{
 
@@ -50,8 +53,11 @@ class formularioInstitucionController extends Controller{
 
         $tipoinstitucion = tipoinstituciones::all();
 
-        $objuser = $this->cargaDatosUser($id_user);
-        $objFormulario=$this->cargaFormulario($id_user);
+        $objFormulario      = $this->cargaFormulario($id_user);
+        $objFormulario      = $objFormulario[0];
+        $objuser            = $this->cargaDatosUser($id_user);
+        $objuser            = $objuser[0];
+
         $objServicio=$this->cargaServicios($id_user);
         $objContadorServicio=$this->contadorServicios($id_user);
         $objIps=$this->cargaIps($id_user);
@@ -75,20 +81,20 @@ class formularioInstitucionController extends Controller{
         $listaPaises = pais::all();
 
         //llamar la lista de departamentos según el pais
-        if (!is_null($objFormulario[0]->id_pais)) {
-            $listaDepartamentos = departamento::where("id_pais", $objFormulario[0]->id_pais)->get();
+        if (!is_null($objFormulario->id_pais)) {
+            $listaDepartamentos = departamento::where("id_pais", $objFormulario->id_pais)->get();
         }else{
             $listaDepartamentos = array();
         }
         //llamar la lista de provincias según el departamento
-        if (!is_null($objFormulario[0]->id_departamento)) {
-            $listaProvincias = provincia::where("id_departamento", $objFormulario[0]->id_departamento)->get();
+        if (!is_null($objFormulario->id_departamento)) {
+            $listaProvincias = provincia::where("id_departamento", $objFormulario->id_departamento)->get();
         }else{
             $listaProvincias = array();
         }
         //llamar la lista de municipios según la provincia
-        if (!is_null($objFormulario[0]->id_provincia)) {
-            $listaMunicipios = municipio::where("id_provincia", $objFormulario[0]->id_provincia)->get();
+        if (!is_null($objFormulario->id_provincia)) {
+            $listaMunicipios = municipio::where("id_provincia", $objFormulario->id_provincia)->get();
         }else{
             $listaMunicipios = array();
         }
@@ -359,105 +365,89 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Creacion y/o modificacion formulario parte 1----------------------*/
     protected function create1(Request $request){
 
-        /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
-        $verificaPerfil = $this->verificaPerfil();
+        $validation = Validator::make($request->all(), [
+            'nombre_institucion' => ['required'],
+            'fecha_inicio_institucion' => ['required', 'date_format:Y-m-d'],
+            'url_institucion' => ['required', 'url'],
+            'tipo_institucion' => ['required', 'exists:tipoinstituciones,id'],
+            'logo_institucion' => ['image'],
+            'imagen_institucion' => ['image'],
+        ], [], [
+            'nombre_institucion' => 'Nombre',
+            'fecha_inicio_institucion' => 'Fecha de inicio',
+            'url_institucion' => 'Pagina web',
+            'tipo_institucion' => 'Tipo de institución',
+            'logo_institucion' => 'Logo de la institución',
+            'imagen_institucion' => 'Imagen de la institución',
+        ]);
+
+        if ($validation->fails()) {
+            $men = $validation->errors()->all();
+            $error = array_keys($validation->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
         /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        $id_user = auth()->user()->id;
 
-        /*valido que el profesional no exista para que cree uno nuevo en caso contrario lo modifique */
-        if(is_null($verificaPerfil)){
+        //Agregar campos
+        $user = User::where('id', '=', $id_user)->first();
+        $basico = instituciones::where('idUser', '=', $id_user)->first();
 
-            /*captura el nombre de la imagen*/
-            $nombreimagen=$request->imagenInstitucion->getClientOriginalName();
-            /*captura el nombre del logo*/
-            $nombrelogo=$request->logoInstitucion->getClientOriginalName();
-
-            /*crea una nueva carpeta con el id del perfil nuevo*/
-            $path = public_path().'img/instituciones/' . $id_user;
-            if (!File::exists($path)) {
-                File::makeDirectory($path,  0777, true);
-            }
-
-            /*guarda la imagen en carpeta con el id del usuario*/
-            $imagen = $request->file('imagenInstitucion');
-            $imagen->move("img/instituciones/$id_user", $imagen->getClientOriginalName());
-            $logo = $request->file('logoInstitucion');
-            $logo->move("img/instituciones/$id_user", $logo->getClientOriginalName());
-
-
-
-            /*anexo iduser y img logoempresa  al request*/
-            $request->merge([
-                'idUser' => "$id_user",
-                'imagen' => "img/instituciones/$id_user/$nombreimagen",
-                'logo' => "img/instituciones/$id_user/$nombrelogo"
-            ]);
-
-            instituciones::create($request->all());
-
-            return redirect('FormularioInstitucion');
-
-        }else{
-            /*captura el nombre de la imagen*/
-            /*$nombreimagen=$request->imagenInstitucion->getClientOriginalName();*/
-            /*captura el nombre del logo*/
-            /*$nombrelogo=$request->logoInstitucion->getClientOriginalName();*/
-
-
-            /*guarda la imagen en carpeta con el id del usuario*/
-            /*$imagen = $request->file('imagenInstitucion');
-            $imagen->move("img/instituciones/$id_user", $imagen->getClientOriginalName());
-            $logo = $request->file('logoInstitucion');
-            $logo->move("img/instituciones/$id_user", $logo->getClientOriginalName());*/
-
-
-            /*anexo iduser y img logoempresa  al request*/
-            $request->merge([
-
-                'idUser' => "$id_user",
-                /* 'imagen' => "img/instituciones/$id_user/$nombreimagen",*/
-                /*'logo' => "img/instituciones/$id_user/$nombrelogo"*/
-            ]);
-
-            $dataInstitucion = request()->all();
-            unset($dataInstitucion['_token']);
-            unset($dataInstitucion['logoInstitucion']);
-            unset($dataInstitucion['imagenInstitucion']);
-
-            if(!empty($request->file('logoInstitucion')))
-            {
-                $logo = $request->file('logoInstitucion');
-                //dd($logo);
-                /*captura el nombre del logo*/
-                $nombre_logo = $logo->getClientOriginalName();
-
-                /*guarda la imagen en carpeta con el id del usuario*/
-                $logo->move("img/instituciones/$id_user", $nombre_logo);
-
-                //capturar la fotp
-                $dataInstitucion['logo'] = "img/instituciones/$id_user/" . $nombre_logo;
-            }
-
-            if(!empty($request->file('imagenInstitucion')))
-            {
-                $imagen = $request->file('imagenInstitucion');
-
-                /*captura el nombre del logo*/
-                $nombre_imagen = $imagen->getClientOriginalName();
-
-                /*guarda la imagen en carpeta con el id del usuario*/
-                $imagen->move("img/instituciones/$id_user", $nombre_imagen);
-
-                //capturar la fotp
-                $dataInstitucion['imagen'] = "img/instituciones/$id_user/" . $nombre_imagen;
-            }
-
-            instituciones::where('idUser', $id_user)->update($dataInstitucion);
-
-            return redirect('FormularioInstitucion');
+        if (empty($basico))
+        {
+            return response([
+                'mensaje' => 'No existe la institución'
+            ], Response::HTTP_NOT_FOUND);
         }
-        return redirect('FormularioInstitucion');
+        
+        //guardar el nombre
+        $user->nombreinstitucion = $request->nombre_institucions;
+        $user->save();
+
+        //guardar la inforacion basica
+        $basico->fechainicio = $request->fecha_inicio_institucions;
+        $basico->url = $request->url_institucions;
+        $basico->idtipoInstitucion = $request->tipo_institucion;
+
+        if(!empty($request->file('logo_institucion')))
+        {
+            $logo = $request->file('logo_institucion');
+            //dd($logo);
+            /*captura el nombre del logo*/
+            $nombre_logo = $logo->getClientOriginalName();
+
+            /*guarda la imagen en carpeta con el id del usuario*/
+            $logo->move("img/instituciones/$id_user", $nombre_logo);
+
+            //capturar la fotp
+            $basico->logo = "img/instituciones/$id_user/" . $nombre_logo;
+        }
+
+        if(!empty($request->file('imagen_institucion')))
+        {
+            $imagen = $request->file('imagen_institucion');
+
+            /*captura el nombre del logo*/
+            $nombre_imagen = $imagen->getClientOriginalName();
+
+            /*guarda la imagen en carpeta con el id del usuario*/
+            $imagen->move("img/instituciones/$id_user", $nombre_imagen);
+
+            //capturar la fotp
+            $basico->imagen = "img/instituciones/$id_user/" . $nombre_imagen;
+        }
+
+        //guardar basico
+        $basico->save();
+
+        return response([
+            'mensaje' => 'Se guardo correctamente la información'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 1----------------------*/
 

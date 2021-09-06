@@ -81,125 +81,51 @@
         <!--------------------------------------------      Inicio 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      --------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-12 icon_infoBasica-formInst"> Información básica </h5>
-
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                @if(!empty($objFormulario))
-                    <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio--------------------->
-                    <div class="row fila_infoUser-formInst">
-                        <!-- Sección logo datos institución -->
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            @foreach($objFormulario as $objFormulario)
-                                <img id="img-logoInstitucion" class="img_usuario-formInst" src="{{ (isset($objFormulario->logo)) ? asset($objFormulario->logo) : ''}}">
-                            @endforeach
-
-                            <input type="file" class="input_imgUsuario-formInst" name="logoInstitucion"  id="logoInstitucion" onchange="ver_imagen('logoInstitucion', 'img-logoInstitucion')" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de logo </p>
+            <div id="mensajes-basico"></div>
+            <form method="POST" action="{{ route('entidad.create1') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-basico-institucional">
+                @csrf
+                <div class="row fila_infoUser-formInst">
+                    <!-- Sección logo datos institución -->
+                    <div class="col-md-3 contain_imgUsuario-formImg">
+                        <img id="img-logoInstitucion" class="img_usuario-formInst" src="{{ (isset($objFormulario->logo)) ? asset($objFormulario->logo) : ''}}">
+                        <input type="file" class="input_imgUsuario-formInst" name="logo_institucion"  id="logo_institucion" onchange="ver_imagen('logo_institucion', 'img-logoInstitucion')" accept="image/png, image/jpeg">
+                        <p class="icon_subirFoto-formInst"> Subir foto de logo </p>
+                    </div>
+                    <!-- Sección datos institución -->
+                    <div class="col-md-4 col-xl-5 datos_principales-formInst">
+                        <div class="col-12 rightSection_formInst">
+                            <label for="nombre_institucion" class="col-12 text_label-formInst"> Nombres Institución</label>
+                            <input class="col-12 input_nomApl-formInst" value="{{ old('nombre_institucion', $objuser->nombreinstitucion) }}" id="nombre_institucion" name="nombre_institucion">
                         </div>
-
-                        <!-- Sección datos institución -->
-                        <div class="col-md-4 col-xl-5 datos_principales-formInst">
-                            @foreach ($objuser as $objuser)
-                                <div class="col-12 rightSection_formInst">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombres Institución</label>
-
-                                    <input class="col-12 input_nomApl-formInst" value="{{$objuser->nombreinstitucion}}" readonly></input>
-                                </div>
-                            @endforeach
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst">  Fecha  </label>
-
-                                <input class="col-12 form-control" type="date" value="{{$objFormulario->fechainicio}}" id="example-date-input" name="fechainicio">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Página web </label>
-
-                                <input class="col-12 form-control" id="url" placeholder="Url" type="text" name="url" value="{{$objFormulario->url}}">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Selecione entidad </label>
-                                <select class="col-lg-12 form-control" name="idtipoInstitucion" id="idtipoInstitucion">
-
-                                    @foreach($tipoinstitucion as $tipoinstitucion)
-                                        <option value="{{$tipoinstitucion->id}}" {{ ($tipoinstitucion->id == $objFormulario->idtipoInstitucion) ? 'selected' : '' }}> {{$tipoinstitucion->nombretipo}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                        <div class="col-12 rightSection_formInst">
+                            <label for="fecha_inicio_institucion" class="col-12 text_label-formInst">  Fecha  </label>
+                            <input class="col-12 form-control" type="date" value="{{ old('fecha_inicio_institucion', $objFormulario->fechainicio) }}" id="fecha_inicio_institucion" name="fecha_inicio_institucion">
                         </div>
-
-                        <!-- Sección imagen datos institución -->
-                        <div class="col-md-5 col-xl-4 datos_principales2-formInst">
-                            <div class="col-12 contain_imgInst-formInst">
-                                <img class="img_institucion-formInst" id="img-imagenInstitucion" src="{{ (isset($objFormulario->imagen)) ? asset($objFormulario->imagen) : '' }}" />
-                                <input type="file" class="input_imgUsuario-formInst" name="imagenInstitucion"  id="imagenInstitucion" onchange="ver_imagen('imagenInstitucion', 'img-imagenInstitucion')" accept="image/png, image/jpeg">
-                                <p class="icon_subirFoto-formInst"> Subir foto de la sede </p>
-                            </div>
+                        <div class="col-12 rightSection_formInst">
+                            <label for="url_institucion" class="col-12 text_label-formInst"> Página web </label>
+                            <input class="col-12 form-control" placeholder="Url" type="text" name="url_institucion" id="url_institucion" value="{{ old('url_institucion', $objFormulario->url) }}">
+                        </div>
+                        <div class="col-12 rightSection_formInst">
+                            <label for="tipo_institucion" class="col-12 text_label-formInst"> Selecione entidad </label>
+                            <select class="col-lg-12 form-control" name="tipo_institucion" id="tipo_institucion">
+                                @foreach($tipoinstitucion as $tipoinstitucion)
+                                    <option value="{{$tipoinstitucion->id}}" {{ ($tipoinstitucion->id == $objFormulario->idtipoInstitucion) ? 'selected' : '' }}> {{$tipoinstitucion->nombretipo}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
-                    <!------------------ Fin campos llenos --------------------->
-
-                @else
-                    <!--------------- Inicio campos vacios--------------------->
-                    <div class="row fila_infoUser-formInst">
-                        <!-- Sección logo datos institución -->
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            <img id="imagenPrevisualizacion" class="img_usuario-formInst">
-
-                            <input type="file" class="input_imgUsuario-formInst" name="logoInstitucion"  id="seleccionArchivos" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de logo </p>
-                        </div>
-
-                        <!-- Sección datos institución -->
-                        <div class="col-md-4 col-xl-5 datos_principales-formInst">
-                            @foreach ($objuser as $objuser)
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres Institución</label>
-
-                                <input class="col-12 input_nomApl-formInst" value="{{$objuser->nombreinstitucion}}" readonly></input>
-                            </div>
-                            @endforeach
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="col-lg-12 form-control" type="date" value="2011-08-19" id="example-date-input" name="fechainicio">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Página web </label>
-
-                                <input class="col-lg-12 form-control" id="url" placeholder="Url" type="text" name="url">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Selecione entidad </label>
-
-                                <select class="col-lg-12 form-control" name="idprofesion" id="idprofesion"></select>
-                            </div>
-                        </div>
-
-                        <!-- Sección imagen datos institución -->
-                        <div class="col-md-5 col-xl-4 datos_principales2-formInst">
-                            <div class="col-12 contain_imgInst-formInst">
-                                <img class="img_institucion-formInst" id="imagenPrevi4">
-
-                                <input class="input_imgUsuario-formInst" type="file" name="imagenInstitucion"  id="selecArchivos4" onchange="previewImageProf(4)" accept="image/png, image/jpeg">
-
-                                <p class="icon_subirFoto-formInst"> Subir foto de la sede </p>
-                            </div>
+                    <!-- Sección imagen datos institución -->
+                    <div class="col-md-5 col-xl-4 datos_principales2-formInst">
+                        <div class="col-12 contain_imgInst-formInst">
+                            <img class="img_institucion-formInst" id="img-imagenInstitucion" src="{{ (isset($objFormulario->imagen)) ? asset($objFormulario->imagen) : '' }}" />
+                            <input type="file" class="input_imgUsuario-formInst" name="imagen_institucion"  id="imagen_institucion" onchange="ver_imagen('imagen_institucion', 'img-imagenInstitucion')" accept="image/png, image/jpeg">
+                            <p class="icon_subirFoto-formInst"> Subir foto de la sede </p>
                         </div>
                     </div>
-                @endif
-
+                </div>
                 <div class="col-lg-3 content_btnEnviar-formInst">
-                    <button type="submit" class="btn_guardar-formInst"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <button type="submit" class="btn_guardar-formInst" id="btn-guardar-basico-institucional"> Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
                 <!--------------- Fin campos vacios--------------------->
@@ -5342,6 +5268,7 @@
     <!--<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
     <!--<script data-pace-options='{ "ajax": false, "document": true, "eventLag": false, "elements": false}' src="{{ asset('plugins/pace/pace.min.js') }}"></script> -->
 
+    <script src="{{ asset('js/formulario-intitucional.js') }}"></script>
 
     <script src="{{ asset('js/selectareas.js') }}"></script>
     <script src="{{ asset('js/selectpais.js') }}"></script>
