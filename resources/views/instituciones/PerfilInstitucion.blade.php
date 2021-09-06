@@ -139,11 +139,13 @@
                             <img src="{{URL::asset($objinstitucionlandineps->urlimagen)}}">
                         @endforeach
                     </li>
+       
                     <li>
                         @foreach ($objinstitucionlandinips as $objinstitucionlandinips)
                             <img src="{{URL::asset($objinstitucionlandinips->urlimagen)}}">
                         @endforeach
                     </li>
+              
                     <li>
                         @foreach ($objinstitucionlandinprepagada as $objinstitucionlandinprepagada)
                             <img src="{{URL::asset($objinstitucionlandinprepagada->urlimagen)}}">
@@ -155,19 +157,19 @@
 
         <section class="section_insti contains_swiper_certificados">
             <h2><i></i>Certificados</h2>
-            <div class="swiper-container swiper_certificados">
-                <div class="swiper-wrapper">
-                    @foreach ($objinstitucionlandinpremios as $objinstitucionlandinpremios)
-                        <div class="swiper-slide">
-                            <img src="{{URL::asset($objinstitucionlandinpremios->imgpremio)}}">
-                            <h6>{{$objinstitucionlandinpremios->fechapremio}}</h6>
-                            <h5>{{$objinstitucionlandinpremios->nombrepremio}}</h5>
-                            <p>{{$objinstitucionlandinpremios->descripcionpremio}}</p>
-                        </div>
-                    @endforeach
-                </div>
+            
+            <div class="swiper_certificados">
+                @foreach ($objinstitucionlandinpremios as $objinstitucionlandinpremios)
+                    <div class="slaider_cert_landInst">
+                        <img src="{{URL::asset($objinstitucionlandinpremios->imgcertificado)}}">
+                        <h6>{{$objinstitucionlandinpremios->fechacertificado}}</h6>
+                        <h5>{{$objinstitucionlandinpremios->titulocertificado}}</h5>
+                        <p>{{$objinstitucionlandinpremios->descrpcioncertificado}}</p>
+                    </div>
+                @endforeach
             </div>
         </section>
+
 
         <section class="section_insti section_sedes_institucion">
             <div class="sedes_institucion">
@@ -224,9 +226,9 @@
         </section>
 
         <section class="container-fluid content_options-prof">
-            <h2 class="icono_opiniones-prof title_opiniones"> Opiniones de pacientes </h2>
+            <h2 class="icono_opiniones_inst title_opinionesInst"> Opiniones de pacientes </h2>
 
-            <p class="text_cabecera-prof"> Describa su opinión y seleccione las estrellas según el puntaje que le quiera asignar al médico. </p>
+            <p class="text_cabeceraInst"> Describa su opinión y seleccione las estrellas según el puntaje que le quiera asignar al médico. </p>
 
             <div id="resultados">
                 <div class="alert alert-success d-none mt-5" id="msg_comentario">
