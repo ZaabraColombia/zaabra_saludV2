@@ -81,125 +81,51 @@
         <!--------------------------------------------      Inicio 1 primera parte del formulario *** INFORMACIÓN BÁSICA ***      --------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-12 icon_infoBasica-formInst"> Información básica </h5>
-
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                @if(!empty($objFormulario))
-                    <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio--------------------->
-                    <div class="row fila_infoUser-formInst">
-                        <!-- Sección logo datos institución -->
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            @foreach($objFormulario as $objFormulario)
-                                <img id="img-logoInstitucion" class="img_usuario-formInst" src="{{ (isset($objFormulario->logo)) ? asset($objFormulario->logo) : ''}}">
-                            @endforeach
-
-                            <input type="file" class="input_imgUsuario-formInst" name="logoInstitucion"  id="logoInstitucion" onchange="ver_imagen('logoInstitucion', 'img-logoInstitucion')" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de logo </p>
+            <div id="mensajes-basico"></div>
+            <form method="POST" action="{{ route('entidad.create1') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-basico-institucional">
+                @csrf
+                <div class="row fila_infoUser-formInst">
+                    <!-- Sección logo datos institución -->
+                    <div class="col-md-3 contain_imgUsuario-formImg">
+                        <img id="img-logoInstitucion" class="img_usuario-formInst" src="{{ (isset($objFormulario->logo)) ? asset($objFormulario->logo) : ''}}">
+                        <input type="file" class="input_imgUsuario-formInst" name="logo_institucion"  id="logo_institucion" onchange="ver_imagen('logo_institucion', 'img-logoInstitucion')" accept="image/png, image/jpeg">
+                        <p class="icon_subirFoto-formInst"> Subir foto de logo </p>
+                    </div>
+                    <!-- Sección datos institución -->
+                    <div class="col-md-4 col-xl-5 datos_principales-formInst">
+                        <div class="col-12 rightSection_formInst">
+                            <label for="nombre_institucion" class="col-12 text_label-formInst"> Nombres Institución </label>
+                            <input class="form-control" value="{{ old('nombre_institucion', $objuser->nombreinstitucion) }}" id="nombre_institucion" name="nombre_institucion">
                         </div>
-
-                        <!-- Sección datos institución -->
-                        <div class="col-md-4 col-xl-5 datos_principales-formInst">
-                            @foreach ($objuser as $objuser)
-                                <div class="col-12 rightSection_formInst">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Nombres Institución</label>
-
-                                    <input class="col-12 input_nomApl-formInst" value="{{$objuser->nombreinstitucion}}" readonly></input>
-                                </div>
-                            @endforeach
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst">  Fecha  </label>
-
-                                <input class="col-12 form-control" type="date" value="{{$objFormulario->fechainicio}}" id="example-date-input" name="fechainicio">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Página web </label>
-
-                                <input class="col-12 form-control" id="url" placeholder="Url" type="text" name="url" value="{{$objFormulario->url}}">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Selecione entidad </label>
-                                <select class="col-lg-12 form-control" name="idtipoInstitucion" id="idtipoInstitucion">
-
-                                    @foreach($tipoinstitucion as $tipoinstitucion)
-                                        <option value="{{$tipoinstitucion->id}}" {{ ($tipoinstitucion->id == $objFormulario->idtipoInstitucion) ? 'selected' : '' }}> {{$tipoinstitucion->nombretipo}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                        <div class="col-12 rightSection_formInst">
+                            <label for="fecha_inicio_institucion" class="col-12 text_label-formInst">  Fecha  </label>
+                            <input class="form-control" type="date" value="{{ old('fecha_inicio_institucion', $objFormulario->fechainicio) }}" id="fecha_inicio_institucion" name="fecha_inicio_institucion">
                         </div>
-
-                        <!-- Sección imagen datos institución -->
-                        <div class="col-md-5 col-xl-4 datos_principales2-formInst">
-                            <div class="col-12 contain_imgInst-formInst">
-                                <img class="img_institucion-formInst" id="img-imagenInstitucion" src="{{ (isset($objFormulario->imagen)) ? asset($objFormulario->imagen) : '' }}" />
-                                <input type="file" class="input_imgUsuario-formInst" name="imagenInstitucion"  id="imagenInstitucion" onchange="ver_imagen('imagenInstitucion', 'img-imagenInstitucion')" accept="image/png, image/jpeg">
-                                <p class="icon_subirFoto-formInst"> Subir foto de la sede </p>
-                            </div>
+                        <div class="col-12 rightSection_formInst">
+                            <label for="url_institucion" class="col-12 text_label-formInst"> Página web </label>
+                            <input class="form-control" placeholder="Url" type="text" name="url_institucion" id="url_institucion" value="{{ old('url_institucion', $objFormulario->url) }}">
+                        </div>
+                        <div class="col-12 rightSection_formInst">
+                            <label for="tipo_institucion" class="col-12 text_label-formInst"> Selecione entidad </label>
+                            <select class="form-control" name="tipo_institucion" id="tipo_institucion">
+                                @foreach($tipoinstitucion as $tipoinstitucion)
+                                    <option value="{{$tipoinstitucion->id}}" {{ ($tipoinstitucion->id == $objFormulario->idtipoInstitucion) ? 'selected' : '' }}> {{$tipoinstitucion->nombretipo}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
-                    <!------------------ Fin campos llenos --------------------->
-
-                @else
-                    <!--------------- Inicio campos vacios--------------------->
-                    <div class="row fila_infoUser-formInst">
-                        <!-- Sección logo datos institución -->
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            <img id="imagenPrevisualizacion" class="img_usuario-formInst">
-
-                            <input type="file" class="input_imgUsuario-formInst" name="logoInstitucion"  id="seleccionArchivos" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de logo </p>
-                        </div>
-
-                        <!-- Sección datos institución -->
-                        <div class="col-md-4 col-xl-5 datos_principales-formInst">
-                            @foreach ($objuser as $objuser)
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres Institución</label>
-
-                                <input class="col-12 input_nomApl-formInst" value="{{$objuser->nombreinstitucion}}" readonly></input>
-                            </div>
-                            @endforeach
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="col-lg-12 form-control" type="date" value="2011-08-19" id="example-date-input" name="fechainicio">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Página web </label>
-
-                                <input class="col-lg-12 form-control" id="url" placeholder="Url" type="text" name="url">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Selecione entidad </label>
-
-                                <select class="col-lg-12 form-control" name="idprofesion" id="idprofesion"></select>
-                            </div>
-                        </div>
-
-                        <!-- Sección imagen datos institución -->
-                        <div class="col-md-5 col-xl-4 datos_principales2-formInst">
-                            <div class="col-12 contain_imgInst-formInst">
-                                <img class="img_institucion-formInst" id="imagenPrevi4">
-
-                                <input class="input_imgUsuario-formInst" type="file" name="imagenInstitucion"  id="selecArchivos4" onchange="previewImageProf(4)" accept="image/png, image/jpeg">
-
-                                <p class="icon_subirFoto-formInst"> Subir foto de la sede </p>
-                            </div>
+                    <!-- Sección imagen datos institución -->
+                    <div class="col-md-5 col-xl-4 datos_principales2-formInst">
+                        <div class="col-12 contain_imgInst-formInst">
+                            <img class="img_institucion-formInst" id="img-imagenInstitucion" src="{{ (isset($objFormulario->imagen)) ? asset($objFormulario->imagen) : '' }}" />
+                            <input type="file" class="input_imgUsuario-formInst" name="imagen_institucion"  id="imagen_institucion" onchange="ver_imagen('imagen_institucion', 'img-imagenInstitucion')" accept="image/png, image/jpeg">
+                            <p class="icon_subirFoto-formInst"> Subir foto de la sede </p>
                         </div>
                     </div>
-                @endif
-
+                </div>
                 <div class="col-lg-3 content_btnEnviar-formInst">
-                    <button type="submit" class="btn_guardar-formInst"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <button type="submit" class="btn_guardar-formInst" id="btn-guardar-basico-institucional"> Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
                 <!--------------- Fin campos vacios--------------------->
@@ -209,134 +135,69 @@
 
         <!--------------------------------------------      Inicio 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave2') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+            <form method="POST" action="{{ route('entidad.create2') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-contacto-institucional">
+                @csrf
                 <h5 class="col-12 icon_infoContac-formInst"> Información de contacto </h5>
-
+                <div id="mensajes-contacto"></div>
                 <div class="row fila_infoUser-formInst">
-                    @if(!empty($objFormulario->telefonouno))
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Celular </label>
+                    <div class="col-md-6 leftSection_formInst">
+                        <label for="celular" class="col-12 text_label-formInst"> Celular </label>
+                        <input class="form-control" id="celular" placeholder="Número de celular" type="number" name="celular" value="{{ old('celular', $objFormulario->telefonouno) }}">
+                    </div>
+                    <div class="col-md-6 rightSection_formInst">
+                        <label for="telefono" class="col-12 text_label-formInst"> Teléfono fijo </label>
+                        <input class="form-control" id="telefono" placeholder="Número Teléfono" type="number" name="telefono" value="{{ old('telefono', $objFormulario->telefono2) }}">
+                    </div>
 
-                            <input class="col-12 form-control" id="tarjeta" placeholder="Número de celular" type="number" name="telefonouno" value="{{$objFormulario->telefonouno}}">
-                        </div>
+                    <div class="col-md-6 leftSection_formInst">
+                        <label for="direccion" class="col-12 text_label-formInst"> Dirección </label>
+                        <input class="form-control" id="direccion" placeholder="Dirección" type="text" name="direccion" value="{{ old('direccion', $objFormulario->direccion) }}">
+                    </div>
 
-                        <div class="col-md-6 rightSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono fijo </label>
+                    <!--menu dinamico ciudades -->
+                    <div class="col-md-6 rightSection_formInst">
+                        <label for="pais" class="col-12 text_label-formInst"> Seleccione país </label>
+                        <select id="pais" name="pais" class="form-control">
+                            <option></option>
+                            @foreach($listaPaises as $pais)
+                                <option value="{{ $pais->id_pais }}"  {{ (old('pais', $objFormulario->id_pais) == $pais->id_pais) ? 'selected' : ''}}> {{ $pais->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-                            <input class="col-12 form-control" id="telefono" placeholder="Número Teléfono" type="number" name="telefono2" value="{{$objFormulario->telefono2}}">
-                        </div>
+                    <div class="col-md-6 leftSection_formInst">
+                        <label for="departamento" class="col-12 text_label-formInst"> Seleccione departamento </label>
+                        <select name="departamento" id="departamento" class="form-control">
+                            @foreach($listaDepartamentos as $departamento)
+                                <option value="{{ $departamento->id_departamento }}"  {{ (old('departamento', $objFormulario->id_departamento) == $departamento->id_departamento) ? 'selected' : ''}}> {{ $departamento->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Dirección </label>
+                    <div class="col-md-6 rightSection_formInst">
+                        <label for="provincia" class="col-12 text_label-formInst"> Seleccione provincia </label>
+                        <select name="provincia" id="provincia" class="form-control">
+                            @foreach($listaProvincias as $provincia)
+                                <option value="{{ $provincia->id_provincia }}"  {{ (old('provincia', $objFormulario->id_provincia) == $provincia->id_provincia) ? 'selected' : ''}}> {{ $provincia->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-                            <input class="col-12 form-control" id="direccion" placeholder="Dirección" type="text" name="direccion" value="{{$objFormulario->direccion}}">
-                        </div>
+                    <div class="col-md-6 leftSection_formInst">
+                        <label for="municipio" class="col-12 text_label-formInst"> Seleccione ciudad </label>
+                        <select name="municipio" id="municipio" class="form-control">
+                            @foreach($listaMunicipios as $municipio)
+                                <option value="{{ $municipio->id_municipio }}"  {{ (old('municipio', $objFormulario->id_municipio) == $municipio->id_municipio) ? 'selected' : ''}}> {{ $municipio->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-                        <!--menu dinamico ciudades -->
-                        <div class="col-md-6 rightSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione país </label>
-
-                            <select id="idpais" name="idpais" class="col-12 form-control">
-                                <option></option>
-                                @foreach($listaPaises as $pais)
-                                    <option value="{{ $pais->id_pais }}"  {{ (isset($objFormulario->id_pais) && $objFormulario->id_pais == $pais->id_pais) ? 'selected' : ''}}> {{ $pais->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="id_departamento" class="col-12 text_label-formInst"> Seleccione departamento </label>
-                            <select name="id_departamento" id="id_departamento" class="col-12 form-control">
-                                @foreach($listaDepartamentos as $departamento)
-                                    <option value="{{ $departamento->id_departamento }}"  {{ (isset($objFormulario->id_departamento) && $objFormulario->id_departamento == $departamento->id_departamento) ? 'selected' : ''}}> {{ $departamento->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 rightSection_formInst">
-                            <label for="id_provincia" class="col-12 text_label-formInst"> Seleccione provincia </label>
-                            <select name="id_provincia" id="id_provincia" class="col-12 form-control">
-                                @foreach($listaProvincias as $provincia)
-                                    <option value="{{ $provincia->id_provincia }}"  {{ (isset($objFormulario->id_provincia) && $objFormulario->id_provincia == $provincia->id_provincia) ? 'selected' : ''}}> {{ $provincia->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="id_municipio" class="col-12 text_label-formInst"> Seleccione ciudad </label>
-                            <select name="id_municipio" id="id_municipio" class="col-12 form-control">
-                                @foreach($listaMunicipios as $municipio)
-                                    <option value="{{ $municipio->id_municipio }}"  {{ (isset($objFormulario->id_municipio) && $objFormulario->id_municipio == $municipio->id_municipio) ? 'selected' : ''}}> {{ $municipio->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <!-- Botón guardar información -->
-                        <div class="col-12 content_btnEnviar-formInst">
-                            <button type="submit" class="btn2_enviar-formInst"> Guardar
-                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
-                            </button>
-                        </div>
-
-                    @else
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Celular </label>
-
-                            <input class="col-12 form-control" id="tarjeta" placeholder="Número de celular" type="number" name="telefonouno" >
-                        </div>
-
-                        <div class="col-md-6 rightSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Teléfono fijo </label>
-
-                            <input class="col-12 form-control" id="telefono" placeholder="Número de teléfono" type="number" name="telefono2" >
-                        </div>
-
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Dirección </label>
-
-                            <input class="col-12 form-control" id="direccion" placeholder="Dirección" type="text" name="direccion" >
-                        </div>
-
-                        <!--menu dinamico ciudades -->
-                        <div class="col-md-6 rightSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione país </label>
-
-                            <select id="idpais" name="idpais" class="form-control">
-                                <option value="" selected disabled> Seleccione país </option>
-
-                                @foreach($pais as $pais)
-                                    <option value="{{$pais->id_pais}}"> {{$pais->nombre}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione departamento </label>
-
-                            <select name="id_departamento" id="id_departamento" class="form-control"></select>
-                        </div>
-
-                        <div class="col-md-6 rightSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione provincia </label>
-
-                            <select name="id_provincia" id="id_provincia" class="form-control"></select>
-                        </div>
-
-                        <div class="col-md-6 leftSection_formInst">
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Seleccione ciudad </label>
-
-                            <select name="id_municipio" id="id_municipio" class="form-control"> </select>
-                        </div>
-
-                        <!-- Botón guardar información -->
-                        <div class="col-12 content_btnEnviar-formInst">
-                            <button type="submit" class="btn2_enviar-formInst"> Guardar
-                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
-                            </button>
-                        </div>
-                    @endif
+                    <!-- Botón guardar información -->
+                    <div class="col-12 content_btnEnviar-formInst">
+                        <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-contacto-institucion"> Guardar
+                            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -357,30 +218,18 @@
         <!--------------------------------------------      Inicio 3 tercera parte del formulario *** SERVICIO PROFESIONAL ***      ------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-12 icon_servProf-formInst"> Servicios profesionales </h5>
-
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave3') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                @if(!empty($objFormulario->DescripcionGeneralServicios))
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formInst"> Escriba una breve descripción de su servicio. </p>
-
-                        <textarea class="form-control" id="descripcionPerfil"  type="text" name="DescripcionGeneralServicios" >{{$objFormulario->DescripcionGeneralServicios}}</textarea>
-                    </div>
-                @else
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formInst"> Escriba una breve descripción de su servicio. </p>
-
-                        <textarea class="form-control" id="descripcionPerfil" placeholder="Escribir descripción..." type="text" maxlength="270" name="DescripcionGeneralServicios" ></textarea>
-
-                        <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                    </div>
-                @endif
-
+            <div id="mensajes-descripcion"></div>
+            <form method="POST" action="{{ route('entidad.create3') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-descripcion-institucion">
+                @csrf
+                <div class="col-12 px-0">
+                    <label for="descripcion_perfil" class="text_superior-proced-formInst"> Escriba una breve descripción de su servicio. </label>
+                    <textarea class="form-control" id="descripcion_perfil"  type="text" name="descripcion_perfil" >{{ old('descripcion_perfil', $objFormulario->DescripcionGeneralServicios) }}</textarea>
+                    <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
+                </div>
                 <!-- Botón guardar información -->
-                <div class="col-12 content_btnEnviar-formInst">
+                <div class="col-12 content_btnEnviar-formInst" id="btn-guardar-descripcion-institucional">
                     <button type="submit" class="btn2_enviar-formInst"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst">
                     </button>
                 </div>
             </form>
@@ -468,7 +317,7 @@
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
 
                             <div class="col-12 leftSection_formInst form-group">
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
@@ -491,7 +340,7 @@
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -516,7 +365,7 @@
 
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
@@ -539,7 +388,7 @@
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -564,7 +413,7 @@
 
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
@@ -587,7 +436,7 @@
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -613,7 +462,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -638,7 +487,7 @@
 
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
@@ -661,7 +510,7 @@
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -686,7 +535,7 @@
 
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
@@ -709,7 +558,7 @@
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -734,7 +583,7 @@
 
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
@@ -757,7 +606,7 @@
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -782,7 +631,7 @@
 
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
@@ -805,7 +654,7 @@
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -831,7 +680,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -856,7 +705,7 @@
 
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
@@ -879,7 +728,7 @@
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -904,7 +753,7 @@
 
                             <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="col-12 leftSection_formInst">
-                                <input class="col-12 form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
 
@@ -927,7 +776,7 @@
                             <div class="col-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -953,7 +802,7 @@
                             <div class="col-12 leftSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
 
-                                <input class="col-12 form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
+                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
                             </div>
                         </div>
                     </div>
@@ -1573,12 +1422,12 @@
                             <div class="col-md-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
 
-                                <input class="col-12 form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
+                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
 
-                                    <input class="col-12 form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
+                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -1618,12 +1467,12 @@
                             <div class="col-md-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
 
-                                <input class="col-12 form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
+                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
 
-                                    <input class="col-12 form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
+                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -1663,12 +1512,12 @@
                             <div class="col-md-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
 
-                                <input class="col-12 form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
+                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
 
-                                    <input class="col-12 form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
+                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -1708,12 +1557,12 @@
                             <div class="col-md-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
 
-                                <input class="col-12 form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
+                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
 
-                                    <input class="col-12 form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
+                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -1753,12 +1602,12 @@
                             <div class="col-md-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
 
-                                <input class="col-12 form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
+                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
 
-                                    <input class="col-12 form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
+                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -1798,12 +1647,12 @@
                             <div class="col-md-12 rightSection_formInst">
                                 <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
 
-                                <input class="col-12 form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
+                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
 
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
 
-                                    <input class="col-12 form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
+                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
                                 </div>
                             </div>
                         </div>
@@ -5342,9 +5191,9 @@
     <!--<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
     <!--<script data-pace-options='{ "ajax": false, "document": true, "eventLag": false, "elements": false}' src="{{ asset('plugins/pace/pace.min.js') }}"></script> -->
 
+    <script src="{{ asset('js/formulario-intitucional.js') }}"></script>
 
     <script src="{{ asset('js/selectareas.js') }}"></script>
-    <script src="{{ asset('js/selectpais.js') }}"></script>
     <script src="{{ asset('js/cargaFoto.js') }}"></script>
 
     <script>

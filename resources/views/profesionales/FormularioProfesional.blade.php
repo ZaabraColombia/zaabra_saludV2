@@ -395,11 +395,8 @@
                     <div class="col-md-6">
                         <div class="col-12">
                             <label for="universidad_estudio" class="col-12 text_label-formProf"> Selecione universidad </label>
-                            <select  class="form-control" name="universidad_estudio" id="universidad_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
+                            <select  class="form-control universidades" name="universidad_estudio" id="universidad_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
                                 <option></option>
-                                @foreach($universidades as $universidad)
-                                    <option value="{{$universidad->id_universidad}}"> {{$universidad->nombreuniversidad}}</option>
-                                @endforeach
                             </select>
                         </div>
                         <div class="col-12">

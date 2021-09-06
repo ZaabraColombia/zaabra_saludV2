@@ -36,14 +36,14 @@
             </div>
             <!-- Sección Botón membresía Desktop -->
             <div class="button-membresia">
-                <a class="" href="{{ route('membresiaProfesional') }}">
+                <a class="" href="{{ route('profesional.membresiaProfesional') }}">
                     <img class="img-button-membresia" src="{{URL::asset('/img/header/boton-membresia.png')}}">
                 </a>
             </div>
 
             <!--******************************     Sección Botón Membresía version MOBILE      *************************************-->
             <!-- SECCION BOTÓN MEMBRESÍA HEADER -->
-            <a class="btnMembresia_header_mobile " href="{{ route('membresiaProfesional') }}"></a>
+            <a class="btnMembresia_header_mobile " href="{{ route('profesional.membresiaProfesional') }}"></a>
             <!--******************************     End sección Botón Membresía version MOBILE      *********************************-->
 
 
@@ -66,14 +66,14 @@
         @else
             <!-- Sección Botón membresía Desktop -->
             <div class="button-membresia">
-                <a class="" href="{{ route('membresiaProfesional') }}">
+                <a class="" href="{{ route('profesional.membresiaProfesional') }}">
                     <img class="img-button-membresia" src="{{URL::asset('/img/header/boton-membresia.png')}}">
                 </a>
             </div>
 
             <!--******************************     Sección Botón Membresía version MOBILE      *************************************-->
             <!-- SECCION BOTÓN MEMBRESÍA HEADER -->
-            <a class="btnMembresia_header_mobile" href="{{ route('membresiaProfesional') }}"></a>
+            <a class="btnMembresia_header_mobile" href="{{ route('profesional.membresiaProfesional') }}"></a>
             <!--******************************     End sección Botón Membresía version MOBILE      *********************************-->
 
             <!-- Sección Menú hamburguesa -->
