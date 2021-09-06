@@ -7,7 +7,6 @@ function mensaje_error(id, mensaje, error = false) {
             lista += '<li>' + item + '</li>';
         });
         lista += '</ul>';
-        console.log(lista)
     }
     $(id).html('<div class="alert alert-danger" role="alert">\n' +
         '<h4 class="alert-heading">Cuidado!</h4>\n' +
@@ -25,7 +24,7 @@ function mensaje_success(id, mensaje) {
 function id_invalid(ids, status){
     if (status === 422) {
         $.each(ids, function (index, element) {
-            $('#' + index).addClass('is-invalid');
+            $('#' + element).addClass('is-invalid');
         });
     }
 }
@@ -179,6 +178,8 @@ $('#form-basico-institucional').validate({
 
                 //Respuesta
                 var response = event.responseJSON;
+
+                console.log(response);
                 if (event.status === 422){
                     mensaje_error('#mensajes-basico', response.mensaje, response.error.mensajes)
                 }else {
@@ -284,6 +285,71 @@ $('#form-contacto-institucional').validate({
                     mensaje_error('#mensajes-contacto', response.mensaje, response.error.mensajes)
                 }else {
                     mensaje_error('#mensajes-contacto', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
+});
+//Formulario 3
+$('#form-descripcion-institucion').validate({
+    ules: {
+        'descripcion_perfil': {
+            required: true,
+        }
+    },
+    messages: {
+        'descripcion_perfil':{
+            required: "Por favor ingrese la descripción de la institución",
+        }
+    },
+    submitHandler: function(form) {
+        //Elementos
+        $('#btn-guardar-descripcion-institucional').attr('disabled', 'disabled');
+        var formulario = $(form);
+        //console.log(formulario.attr('action'));
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                $('#btn-guardar-descripcion-institucional').removeAttr('disabled');
+
+                //Respuesta
+                mensaje_success('#mensajes-descripcion', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                $('#btn-guardar-contacto-institucion').removeAttr('disabled');
+
+                //Respuesta
+                var response = event.responseJSON;
+                if (event.status === 422){
+                    mensaje_error('#mensajes-descripcion', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-descripcion', response.mensaje)
                 }
 
                 //Si es validación por formulario
