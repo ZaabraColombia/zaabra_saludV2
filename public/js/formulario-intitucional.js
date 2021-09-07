@@ -428,7 +428,7 @@ $('#form-servicios-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-servicio-institucion').removeAttr('disabled');
+                $('#btn-guardar-servicio-institucion').prop('disabled', false);
 
                 /* agregar ficha */
                 //Traer la lista
@@ -460,6 +460,7 @@ $('#form-servicios-institucion').validate({
                     $('#descripcion_servicio').prop('disabled', true);
                     $('#sucursal_servicio-0').prop('disabled', true);
                     $('#btn-agregar-servicio-institucion').prop('disabled', true);
+                    $('#btn-guardar-servicio-institucion').prop('disabled', true);
                 }
 
                 //limpiar formulario
@@ -476,7 +477,7 @@ $('#form-servicios-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-servicio-institucion').removeAttr('disabled');
+                $('#btn-guardar-servicio-institucion').prop('disabled', false);
 
                 //Respuesta
                 var response = event.responseJSON;
@@ -492,6 +493,7 @@ $('#form-servicios-institucion').validate({
                     $('#descripcion_servicio').prop('disabled', true);
                     $('#sucursal_servicio-0').prop('disabled', true);
                     $('#btn-agregar-servicio-institucion').prop('disabled', true);
+                    $('#btn-guardar-servicio-institucion').prop('disabled', true);
                     //limpiar formulario
                     $('#sedes-servicios-institucion').children().each(function (index, elemte) {
                         if (index >= 2) $(this).remove();
@@ -504,4 +506,47 @@ $('#form-servicios-institucion').validate({
             }
         });
     }
+});
+//Eliminar servicio
+$('#lista-servicios-institucion').on('click', '.close' , function (e) {
+    var button = $(this);
+    var url = $(this).data('url');
+
+    // Pace.start();
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  url,
+        type: "get",
+        dataType: 'json',
+        success: function( response ) {
+            //Finaliza la carga
+            // Pace.stop();
+            $('.form-control').removeClass('is-invalid');
+
+            mensaje_success('#mensajes-servicios', response.mensaje);
+
+            //quitar el disabled
+            $('#titulo_servicio').prop('disabled', false);
+            $('#descripcion_servicio').prop('disabled', false);
+            $('#sucursal_servicio-0').prop('disabled', false);
+            $('#btn-agregar-servicio-institucion').prop('disabled', false);
+            $('#btn-guardar-servicio-institucion').prop('disabled', false);
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            // Pace.stop();
+            $('.form-control').removeClass('is-invalid');
+            var response = event.responseJSON;
+
+            mensaje_error('#mensajes-servicios', response.mensaje);
+        }
+    });
+
 });

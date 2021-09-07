@@ -283,21 +283,21 @@
                         <div class="col-12" id="mensajes-servicios"></div>
                         <div class="col-12">
                             <label for="titulo_servicio" class="col-12 text_label-formInst"> Título del servicio </label>
-                            <input class="form-control" id="titulo_servicio" placeholder="Título del servicio" type="text" name="titulo_servicio">
+                            <input class="form-control" id="titulo_servicio" placeholder="Título del servicio" type="text" name="titulo_servicio" {{ ($count_servicios >= 6) ? 'disabled' : '' }}>
                         </div>
 
                         <div class="col-12">
                             <label for="descripcion_servicio" class="col-12 text_label-formInst"> Descripción </label>
-                            <textarea class="form-control" id="descripcion_servicio" placeholder="Escribir descripción..." maxlength="270" name="descripcion_servicio"></textarea>
+                            <textarea class="form-control" id="descripcion_servicio" placeholder="Escribir descripción..." maxlength="270" name="descripcion_servicio" {{ ($count_servicios >= 6) ? 'disabled' : '' }}></textarea>
                             <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                         </div>
 
                         <div class="col-12" id="sedes-servicios-institucion">
                             <label for="sucursal_servicio-0" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control input_servicios_institucion" placeholder="Nombre de la sede" id="sucursal_servicio-0" name="sucursal_servicio[0]">
+                                <input type="text" class="form-control input_servicios_institucion" placeholder="Nombre de la sede" id="sucursal_servicio-0" name="sucursal_servicio[0]" {{ ($count_servicios >= 6) ? 'disabled' : '' }}>
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-primary" type="button" id="btn-agregar-servicio-institucion"><i class="fas fa-plus"></i></button>
+                                    <button class="btn btn-outline-primary" type="button" id="btn-agregar-servicio-institucion" {{ ($count_servicios >= 6) ? 'disabled' : '' }}><i class="fas fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -306,7 +306,7 @@
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-servicio-institucion"> Guardar
+                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-servicio-institucion" {{ ($count_servicios >= 6) ? 'disabled' : '' }}> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>

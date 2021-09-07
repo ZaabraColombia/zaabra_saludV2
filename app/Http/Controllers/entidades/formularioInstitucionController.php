@@ -594,7 +594,7 @@ class formularioInstitucionController extends Controller{
         if ($servicios >= 6){
             return response()->json([
                 'max_items' => true,
-                'mensaje' => 'Verifique los siguientes errores'
+                'mensaje' => 'No puede agregar mas servicios'
             ], Response::HTTP_NOT_FOUND);
         }
 
@@ -618,20 +618,30 @@ class formularioInstitucionController extends Controller{
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 4----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 4----------------------*/
-    public function delete4($id_servicio){
+    public function delete4(Request $request){
+        /*id usuario logueado*/
+        $id_user = auth()->user()->id;
+        /*id de la institucion*/
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
+        //Validar si se llego al maximo de items
+        $servicio = serviciosinstituciones::where('id', '=', $institucion->id)
+            ->where('id_servicio', '=', $request->id_servicio)
+            ->select('id_servicio', 'tituloServicios')
+            ->first();
 
-        $verificaPerfil = $this->verificaPerfil();
-
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
+        if (empty($servicio)){
+            return response()->json([
+                'mensaje' => 'No se encontro el servicio'
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        $serviciosinstituciones = serviciosinstituciones::where('id_servicio', $id_servicio)->where('id', $idInstitucion);
-        $serviciosinstituciones->delete();
+        $nombre = $servicio->tituloServicios;
+        $servicio->delete();
 
-        return redirect('FormularioInstitucion');
-
+        return response([
+            'mensaje' => 'El servicio ' . $nombre . ' se elimino correctamente'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Eliminacion formulario parte 4----------------------*/
 
