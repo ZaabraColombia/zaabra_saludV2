@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('styles')
-    <!--<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />-->
-    <!--<link href="{{ asset('css/select2-bootstrap.min.css') }}" rel="stylesheet" />-->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="{{ asset('css/select2-bootstrap.min.css') }}" rel="stylesheet" />
     <!--<link rel="stylesheet" href="{{ asset('plugins/pace/themes/blue/pace-theme-loading-bar.css') }}"/>-->
 
     <style>
@@ -240,579 +240,73 @@
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_servicios-formInst"> Servicios </h5>
             <!-- Modulo contenido SERVICIOS -->
-            <div class="experiencia_guardada-formProf">
-                @foreach($objServicio as $objServicio)
-                    @if(!empty($objServicio->tituloServicios))
+            <div class="experiencia_guardada-formProf" id="lista-servicios-institucion">
+                <?php $count_servicios = 0; ?>
+                @foreach($objServicio as $servicio)
+                    @if(!empty($servicio->tituloServicios))
+                        <?php $count_servicios++; ?>
                         <div class="savedData_formInst">
                             <div class="col-12 content_cierreX-formInst">
-                                <a href="{{url('/FormularioInstituciondelete4/'.$objServicio->id_servicio)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <button type="submit" class="close" aria-label="Close" data-url="{{ route('entidad.delete4', ['id_servicio' => $servicio->id_servicio]) }}"><span aria-hidden="true">&times;</span></button>
                             </div>
 
                             <div class="option_consulta-formProf">
                                 <label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Título del servicio </label>
-
-                                <label class="col-12 text_infoGuardada-formProf"> {{$objServicio->tituloServicios}} </label>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$servicio->tituloServicios}} </label>
                             </div>
 
                             <div class="option_consulta-formProf">
                                 <label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Descrpción </label>
-
-                                <label class="col-12 text_infoGuardada-formProf"> {{$objServicio->DescripcioServicios}} </label>
+                                <label class="col-12 text_infoGuardada-formProf"> {{$servicio->DescripcioServicios}} </label>
                             </div>
 
                             <div class="option_consulta-formProf">
                                 <label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Sedes en la que está el servicio </label>
-                                @if($objServicio->sucursalservicio)
-                                    @php  $new_array = explode(',',$objServicio->sucursalservicio); @endphp
+                                @if( is_string($servicio->sucursalservicio) )
+                                    @php  $new_array = explode(',', $servicio->sucursalservicio); @endphp
                                 @endif
-                                @foreach($new_array as $info)
-                                    <li class="col-12 text_infoGuardada-formProf"> {{$info}} </li>
-                                @endforeach
+                                <ul>
+                                    @foreach($new_array as $info)
+                                        <li class="col-12 text_infoGuardada-formProf"> {{$info}} </li>
+                                    @endforeach
+                                </ul>
                             </div>
                         </div>
                     @endif
                 @endforeach
             </div>
+            <form method="POST" action="{{ route('entidad.create4') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-servicios-institucion">
+                @csrf
+                <div class="row justify-content-center">
+                    <!-- Contenido IZQUIERDO -->
+                    <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
+                        <div class="col-12" id="mensajes-servicios"></div>
+                        <div class="col-12">
+                            <label for="titulo_servicio" class="col-12 text_label-formInst"> Título del servicio </label>
+                            <input class="form-control" id="titulo_servicio" placeholder="Título del servicio" type="text" name="titulo_servicio" {{ ($count_servicios >= 6) ? 'disabled' : '' }}>
+                        </div>
 
-            @if (
-                    $errors->has('tituloServicios.*') or
-                    $errors->has('DescripcioServicios.*') or
-                    $errors->has('sucursalservicio.*')
-                )
-            <div class="col-12">
-                <div class="alert alert-danger" role="alert">
-                    <h4 class="alert-heading">Error!</h4>
-                    <p>Llene todos los formualrios que necesita.</p>
+                        <div class="col-12">
+                            <label for="descripcion_servicio" class="col-12 text_label-formInst"> Descripción </label>
+                            <textarea class="form-control" id="descripcion_servicio" placeholder="Escribir descripción..." maxlength="270" name="descripcion_servicio" {{ ($count_servicios >= 6) ? 'disabled' : '' }}></textarea>
+                            <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
+                        </div>
+
+                        <div class="col-12" id="sedes-servicios-institucion">
+                            <label for="sucursal_servicio-0" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control input_servicios_institucion" placeholder="Nombre de la sede" id="sucursal_servicio-0" name="sucursal_servicio[0]" {{ ($count_servicios >= 6) ? 'disabled' : '' }}>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-primary" type="button" id="btn-agregar-servicio-institucion" {{ ($count_servicios >= 6) ? 'disabled' : '' }}><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            @endif
-
-
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave4') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                @if($objContadorServicio->cantidad == 0)
-                    <!-- Modulo contenido SERVICIOS -->
-                    <div class="row fila_infoBasica-formInst">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-
-                            <div class="col-12 leftSection_formInst form-group">
-                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 rightSection_formInst downLine_formInst">
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-
-                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulo contenido SERVICIOS -->
-                    <div class="row fila_infoBasica-formInst">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                            <div class="col-12 leftSection_formInst">
-                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 rightSection_formInst downLine_formInst">
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-
-                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulo contenido SERVICIOS -->
-                    <div class="row fila_infoBasica-formInst">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                            <div class="col-12 leftSection_formInst">
-                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 rightSection_formInst downLine_formInst">
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-
-                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorServicio->cantidad == 1)
-                    <!-- Modulo contenido SERVICIOS -->
-                    <div class="row fila_infoBasica-formInst">
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-
-                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulo contenido SERVICIOS -->
-                    <div class="row fila_infoBasica-formInst">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                            <div class="col-12 leftSection_formInst">
-                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 rightSection_formInst downLine_formInst">
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-
-                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulo contenido SERVICIOS -->
-                    <div class="row fila_infoBasica-formInst">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                            <div class="col-12 leftSection_formInst">
-                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 rightSection_formInst downLine_formInst">
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-
-                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorServicio->cantidad == 2)
-                    <!-- Modulo contenido SERVICIOS -->
-                    <div class="row fila_infoBasica-formInst">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                            <div class="col-12 leftSection_formInst">
-                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 rightSection_formInst downLine_formInst">
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-
-                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulo contenido SERVICIOS -->
-                    <div class="row fila_infoBasica-formInst">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                            <div class="col-12 leftSection_formInst">
-                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 rightSection_formInst downLine_formInst">
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-
-                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorServicio->cantidad == 3)
-                    <!-- Modulo contenido SERVICIOS -->
-                    <div class="row fila_infoBasica-formInst">
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-
-                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulo contenido SERVICIOS -->
-                    <div class="row fila_infoBasica-formInst">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                            <div class="col-12 leftSection_formInst">
-                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 rightSection_formInst downLine_formInst">
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-
-                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorServicio->cantidad == 4)
-                    <!-- Modulo contenido SERVICIOS -->
-                    <div class="row fila_infoBasica-formInst">
-                        <!-- Contenido IZQUIERDO -->
-                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-                            <div class="col-12 leftSection_formInst">
-                                <input class="form-control" data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 rightSection_formInst downLine_formInst">
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-
-                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorServicio->cantidad == 5)
-                    <!-- Modulo contenido SERVICIOS -->
-                    <div class="row fila_infoBasica-formInst">
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título del servicio </label>
-
-                                <input class="form-control" id="tituloServicios" placeholder="Título del servicio" type="text" name="tituloServicios[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Descripción </label>
-
-                                <textarea class="form-control" id="DescripcioServicios" placeholder="Escribir descripción..." maxlength="270" name="DescripcioServicios[]" value=""></textarea>
-
-                                <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Sedes en la que está el servicio </label>
-
-                                <input class="form-control"  data-role="tagsinput" placeholder="Nombre de la sede" type="text" name="sucursalservicio[]" value="">
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorServicio->cantidad == 6)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más servicios </label>
-                @endif
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst"> Guardar
+                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-servicio-institucion" {{ ($count_servicios >= 6) ? 'disabled' : '' }}> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
@@ -842,29 +336,19 @@
         <!--------------------------------------------      Inicio 5 quinta parte del formulario *** QUIENES SOMOS ***      ------------------------------------------------------>
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_quienes-formInst"> ¿Quiénes somos? </h5>
+            <div id="mensajes-quienes-somos"></div>
 
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                @if(!empty($objFormulario->quienessomos))
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formInst"> Escriba una breve descripción de ¿Quiénes son?. </p>
-
-                        <textarea class="form-control" id="descripcionPerfil"  type="text" name="quienessomos" >{{$objFormulario->quienessomos}}</textarea>
-                    </div>
-                @else
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formInst"> Escriba una breve descripción de ¿Quiénes son?. </p>
-
-                        <textarea class="form-control" id="descripcionPerfil" placeholder="Escribir descripción..." type="text"  maxlength="500" name="quienessomos" ></textarea>
-
-                        <label class="col-12 text_infoImg-formInst"> 500 Caracteres </label>
-                    </div>
-                @endif
+            <form method="POST" action="{{ route('entidad.create5') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-quienes-somos-institucion">
+                @csrf
+                <div class="col-12 px-0">
+                    <label for="descripcion_quienes_somos" class="text_superior-proced-formInst"> Escriba una breve descripción de ¿Quiénes son?. </label>
+                    <textarea class="form-control" id="descripcion_quienes_somos"  type="text" name="descripcion_quienes_somos" >{{ old('descripcion_quienes_somos', $objFormulario->quienessomos) }}</textarea>
+                    <label class="col-12 text_infoImg-formInst"> 500 Caracteres </label>
+                </div>
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst"> Guardar
+                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-quienes-somo-institucion"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
@@ -875,29 +359,18 @@
         <!--------------------------------------------      Inicio 6 sexta parte del formulario *** PROPUESTA DE VALOR ***      ----------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_propuestaValor-formInst"> Propuesta de valor </h5>
-
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                @if(!empty($objFormulario->propuestavalor))
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formInst"> Escriba una breve descripción de la propuesta de valor. </p>
-
-                        <textarea class="form-control" id="descripcionPerfil"  type="text" name="propuestavalor" >{{$objFormulario->propuestavalor}}</textarea>
-                    </div>
-                @else
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formInst">  Escriba una breve descripción de la propuesta de valor. </p>
-
-                        <textarea class="form-control" id="descripcionPerfil" placeholder="Escribir descripción..." type="text" maxlength="300" name="propuestavalor" ></textarea>
-
-                        <label class="col-12 text_infoImg-formInst"> 300 Caracteres </label>
-                    </div>
-                @endif
+            <div id="mensajes-propuesta-valor"></div>
+            <form method="POST" action="{{ route('entidad.create6') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-propuesta-valor-institucion">
+                @csrf
+                <div class="col-12 px-0">
+                    <label for="propuesta_valor" class="text_superior-proced-formInst"> Escriba una breve descripción de la propuesta de valor. </label>
+                    <textarea class="form-control" id="propuesta_valor"  type="text" name="propuesta_valor" >{{ old('propuesta_valor', $objFormulario->propuestavalor) }}</textarea>
+                    <label class="col-12 text_infoImg-formInst"> 300 Caracteres </label>
+                </div>
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst"> Guardar
+                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-propuesta-valor-institucion"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
@@ -909,395 +382,56 @@
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_convenios-formInst"> Convenios </h5>
 
-            <div class="asociacion_guardada-formProf">
-                @foreach($objEps as $objEps)
-                    @if(!empty($objEps->urlimagen))
-                        <div class="section_infoAsocia-formInst">
+            <div class="row p-5" id="lista-convenios-institucion">
+                <?php $count_convenios = 0;?>
+
+                @foreach($objConvenios as $convenio)
+                    @if(!empty($convenio->url_image))
+                        <?php $count_convenios++;?>
+                        <div class="col-md-3 col-sm-6">
                             <div class="col-12 content_btnX-cierre-formProf my-2">
-                                <label for="example-date-input" class="text_saved-formInst pb-0"> Convenio EPS </label>
-
-                                <a href="{{url('/FormularioInstituciondelete5/'.$objEps->id)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <label for="example-date-input" class="text_saved-formInst pb-0"> Convenio {{ $convenio->nombre_tipo_convenio }} </label>
+                                <button type="button" class="close" aria-label="Close" data-url="{{ route('entidad.delete7', ['id_convenio' => $convenio->id]) }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-
-
-
                             <div class="option_asociacion-formProf">
-                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objEps->urlimagen)}}">
+                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{ asset($convenio->url_image) }}">
                             </div>
                         </div>
                     @endif
                 @endforeach
             </div>
 
-            <div class="asociacion_guardada-formProf">
-                @foreach($objIps as $objIps)
-                    @if(!empty($objIps->urlimagen))
-                        <div class="section_infoAsocia-formInst">
-                            <div class="col-12 content_btnX-cierre-formProf my-2">
-                                <label for="example-date-input" class="text_saved-formInst pb-0"> Convenio IPS </label>
-
-                                <a href="{{url('/FormularioInstituciondelete6/'.$objIps->id)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
-                            </div>
-
-                            <div class="option_asociacion-formProf">
-                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objIps->urlimagen)}}">
-                            </div>
+            <form method="POST" action="{{ route('entidad.create7') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-convenios-institucion">
+                @csrf
+                <div class="row justify-content-center">
+                    <div class="col-md-6 content_agregarImg-formInst form-group">
+                        <div id="mensajes-convenios"></div>
+                        <div class="form-group">
+                            <label for="tipo_convenio">Tipo convenio</label>
+                            <select name="tipo_convenio" id="tipo_convenio" class="form-control" {{ ($count_convenios >= 9) ? 'disabled' : '' }}>
+                                <option></option>
+                                @foreach($objTipoConvenios as $item)
+                                    <option value="{{ $item->id }}">{{ $item->nombretipo }}</option>
+                                @endforeach
+                            </select>
                         </div>
-                    @endif
-                @endforeach
-            </div>
-
-            <div class="asociacion_guardada-formProf">
-                @foreach($objPrepa as $objPrepa)
-                    @if(!empty($objPrepa->urlimagen))
-                        <div class="section_infoAsocia-formInst">
-                            <div class="col-12 content_btnX-cierre-formProf my-2">
-                                <label for="example-date-input" class="text_saved-formInst pb-0"> Convenio medicina prepagada </label>
-
-                                <a href="{{url('/FormularioInstituciondelete7/'.$objPrepa->id_prepagada)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
-                            </div>
-
-                            <div class="option_asociacion-formProf">
-                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objPrepa->urlimagen)}}">
-                            </div>
+                        <div class="img_selccionada-formProf">
+                            <img class="img_anexada-formProf" id="img-logo_convenio"/>
                         </div>
-                    @endif
-                @endforeach
-            </div>
-
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave7') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                <div class="row col-12 row_convenio-form">
-                    <!-- **************************************************************** FORMULARIO EPS ************************************************************** -->
-                    @if($objContadorEps->cantidad == 0)
-                        <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview2"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage2" name="urlimagenEps[]" onchange="previewImage(2);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview3"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage3" name="urlimagenEps[]" onchange="previewImage(3);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview4"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="logo_convenio" name="logo_convenio" onchange="ver_imagen('logo_convenio', 'img-logo_convenio');" {{ ($count_convenios >= 9) ? 'disabled' : '' }}/>
                         </div>
 
-                    @elseif($objContadorEps->cantidad == 1)
-                    <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview3"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage3" name="urlimagenEps[]" onchange="previewImage(3);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview4"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
+                        <div class="txt_informativo-formInst">
+                            <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                         </div>
-                    @elseif($objContadorEps->cantidad == 2)
-                    <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview4"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    @elseif($objContadorEps->cantidad == 3)
-                        <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más convenios de EPS </label>
-                    @endif
-
-                    <!-- **************************************************************** FORMULARIO IPS ************************************************************** -->
-                    @if($objContadorIps->cantidad == 0)
-                        <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview6"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage6" name="urlimagenIps[]" onchange="previewImage(6);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview7"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage7" name="urlimagenIps[]" onchange="previewImage(7);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview8"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    @elseif($objContadorIps->cantidad == 1)
-                    <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview7"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage7" name="urlimagenIps[]" onchange="previewImage(7);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview8"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    @elseif($objContadorIps->cantidad == 2)
-                    <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview8"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    @elseif($objContadorIps->cantidad == 3)
-                        <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más convenios de IPS </label>
-                    @endif
-
-                    <!-- **************************************************************** FORMULARIO PREPAGADA ************************************************************** -->
-                    @if($objContadorPrepa->cantidad == 0)
-                        <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview10"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage10" name="urlimagenPre[]" onchange="previewImage(10);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview11"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage11" name="urlimagenPre[]" onchange="previewImage(11);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    @elseif($objContadorPrepa->cantidad == 1)
-                    <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview11"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage11" name="urlimagenPre[]" onchange="previewImage(11);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    @elseif($objContadorPrepa->cantidad == 2)
-                    <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    @elseif($objContadorPrepa->cantidad == 3)
-                        <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más convenios de medicina prepagada </label>
-                    @endif
-
+                    </div>
                 </div>
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst mt-0 mt-md-3"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <button type="submit" class="btn2_enviar-formInst mt-0 mt-md-3" id="btn-guardar-convenios-institucion" {{ ($count_convenios >= 9) ? 'disabled' : '' }}> Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
@@ -1326,345 +460,85 @@
         <!--------------------------------------------      Inicio 8 octava parte del formulario *** PROFESIONALES ***      --------------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_profesionales-formInst"> Profesionales </h5>
-
-            <div class="col-11 col-md-12 row containt_profGuardado-formInst">
-                @foreach($objProfeInsti as $objProfeInsti)
-                    @if(!empty($objProfeInsti->foto_perfil_institucion))
+            <div class="col-11 col-md-12 row containt_profGuardado-formInst" id="lista-profesionales-institucion">
+                <?php $count_profecionales = 0; ?>
+                @foreach($objProfeInsti as $profecional)
+                    @if(!empty($profecional->foto_perfil_institucion))
+                        <?php $count_profecionales++; ?>
                         <div class="col-md-3 content_loadImg-profes">
                             <div class="col-12 p-0 contain_imgUsuario-formImg">
                                 <div class="col-12 pr-2 content_cierreX-formInst">
-                                    <a href="{{url('/FormularioInstituciondelete8/'.$objProfeInsti->id_profesional_inst)}}">
-                                        <button type="submit" class="close" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </a>
+                                    <button type="submit" class="close" aria-label="Close" data-url="{{ route('entidad.delete8', ['id_profesional' => $profecional->id_profesional_inst]) }}">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
-
                                 <div class="col-12 col-md-10 img_save-formProf">
-                                    <img class="img_usuario-formInst" src="{{URL::asset($objProfeInsti->foto_perfil_institucion)}}">
+                                    <img class="img_usuario-formInst" src="{{ asset($profecional->foto_perfil_institucion) }}">
                                 </div>
                             </div>
-
                             <div class="col-12 mt-3 containt_loadProfes-formInst">
                                 <div class="col-md-12 rightSection_formInst">
-                                    <span>{{$objProfeInsti->primer_nombre}} {{$objProfeInsti->segundo_nombre}}</span>
+                                    <span>{{ $profecional->primer_nombre }} {{ $profecional->segundo_nombre }}</span>
                                 </div>
-
                                 <div class="col-md-12 rightSection_formInst">
-                                    <span>{{$objProfeInsti->primer_apellido}} {{$objProfeInsti->segundo_apellido}}</span>
+                                    <span>{{ $profecional->primer_apellido }} {{ $profecional->segundo_apellido }}</span>
                                 </div>
-
                                 <div class="col-md-12 rightSection_formInst">
-                                    <span>{{$objProfeInsti->especialidad_uno}}</span>
+                                    <span>{{ $profecional->especialidad_uno }}</span>
                                 </div>
-
                                 <div class="col-md-12 rightSection_formInst">
-                                    <span> {{$objProfeInsti->especialidad_dos}}</span>
+                                    <span>{{ $profecional->especialidad_dos }}</span>
                                 </div>
                             </div>
                         </div>
                     @endif
                 @endforeach
             </div>
-            @if (
-                    $errors->has('foto_perfil_institucion.*') or
-                    $errors->has('primer_nombre.*') or
-                    $errors->has('segundo_nombre.*') or
-                    $errors->has('primer_apellido.*') or
-                    $errors->has('segundo_apellido.*') or
-                    $errors->has('especialidad_uno.*') or
-                    $errors->has('especialidad_dos.*')
-                )
-                <div class="col-12">
-                    <div class="alert alert-danger" role="alert">
-                        <h4 class="alert-heading">Error!</h4>
-                        <p>Llene todos los formualrios que necesita.</p>
+
+            <form action="{{ route('entidad.create8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="form-profesionales-institucion">
+                @csrf
+                <div class="row" id="mensajes-profesionales"></div>
+                <!-- Profesional numero 1 -->
+                <div class="row fila_infoBasica-formInst mb-4">
+                    <div class="col-md-3 contain_imgUsuario-formImg">
+                        <img class="img_usuario-formInst" id="img-foto_profecional">
+                        <input class="input_imgUsuario-formInst" type="file" id="foto_profecional" name="foto_profecional" onchange="ver_imagen('foto_profecional', 'img-foto_profecional');" accept="image/png, image/jpeg">
+                        <p class="icon_subirFoto-formInst"> Subir foto de perfil </p>
+                    </div>
+
+                    <div class="row col-md-9 datos_principales-formInst">
+                        <div class="col-md-6 rightSection_formInst">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
+                            <div class="col-12 nombres_usuario-formInst">
+                                <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre_profecional" id="primer_nombre_profecional">
+                                <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre_profecional" id="segundo_nombre_profecional">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 rightSection_formInst">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
+                            <div class="col-12 nombres_usuario-formInst">
+                                <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido_profecional" id="primer_apellido_profecional">
+                                <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido_profecional" id="segundo_apellido_profecional">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="universidad" class="col-12 text_label-formInst"> Universidad </label>
+                            <select name="universidad" id="universidad" class="form-control universidades">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="col-12 form-group">
+                            <label for="especialidad" class="col-12 text_label-formInst"> Especialidad </label>
+                            <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad" id="especialidad">
+                        </div>
                     </div>
                 </div>
-            @endif
-
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div data-info="{{$objContadorProfeInsti->cantidad}}" class="div-count"></div>
-
-                @if($objContadorProfeInsti->cantidad == 0)
-                    <!-- Profesional numero 1 -->
-                    <div class="row fila_infoBasica-formInst mb-4">
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            <img class="img_usuario-formInst" id="imagenPrevi1">
-
-                            <input class="input_imgUsuario-formInst" type="file" id="selecArchivos1" name="foto_perfil_institucion[]" onchange="previewImageProf(1);" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de perfil </p>
-                        </div>
-
-                        <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
-
-                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
-
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
-
-                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Profesional numero 2 -->
-                    <div class="row fila_infoBasica-formInst mb-4">
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            <img class="img_usuario-formInst" id="imagenPrevi2">
-
-                            <input class="input_imgUsuario-formInst" type="file" id="selecArchivos2" name="foto_perfil_institucion[]" onchange="previewImageProf(2);" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de perfil </p>
-                        </div>
-
-                        <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
-
-                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
-
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
-
-                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Profesional numero 3 -->
-                    <div class="row fila_infoBasica-formInst">
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            <img class="img_usuario-formInst" id="imagenPrevi3">
-
-                            <input class="input_imgUsuario-formInst" type="file" id="selecArchivos3" name="foto_perfil_institucion[]" onchange="previewImageProf(3);" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de perfil </p>
-                        </div>
-
-                        <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
-
-                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
-
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
-
-                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorProfeInsti->cantidad == 1)
-                    <!-- Profesional numero 2 -->
-                    <div class="row fila_infoBasica-formInst mb-4">
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            <img class="img_usuario-formInst" id="imagenPrevi2">
-
-                            <input class="input_imgUsuario-formInst" type="file" id="selecArchivos2" name="foto_perfil_institucion[]" onchange="previewImageProf(2);" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de perfil </p>
-                        </div>
-
-                        <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
-
-                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
-
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
-
-                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Profesional numero 3 -->
-                    <div class="row fila_infoBasica-formInst">
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            <img class="img_usuario-formInst" id="imagenPrevi3">
-
-                            <input class="input_imgUsuario-formInst" type="file" id="selecArchivos3" name="foto_perfil_institucion[]" onchange="previewImageProf(3);" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de perfil </p>
-                        </div>
-
-                        <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
-
-                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
-
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
-
-                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorProfeInsti->cantidad == 2)
-                    <!-- Profesional numero 3 -->
-                    <div class="row fila_infoBasica-formInst">
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            <img class="img_usuario-formInst" id="imagenPrevi3">
-
-                            <input class="input_imgUsuario-formInst" type="file" id="selecArchivos3" name="foto_perfil_institucion[]" onchange="previewImageProf(3);" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de perfil </p>
-                        </div>
-
-                        <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
-
-                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
-
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
-
-                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorProfeInsti->cantidad == 3)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se peden agregar más profesionales </label>
-                @endif
-
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-profecionales-institucion"> Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" />
                     </button>
                 </div>
             </form>
@@ -1698,9 +572,9 @@
 
             <!-- Modulo de los Certificaciones con información -->
             <div class="premios_guardada-formProf">
-                @foreach($objCertificaciones as $objCertificaciones)
-                    @if(!empty($objCertificaciones->imgcertificado))
-                        <!-- Contenido Certificaciones -->
+            @foreach($objCertificaciones as $objCertificaciones)
+                @if(!empty($objCertificaciones->imgcertificado))
+                    <!-- Contenido Certificaciones -->
                         <div class="savedData_formInst">
                             <div class="col-12 content_btnDelet-trata-formProf">
                                 <a href="{{url('/FormularioInstituciondelete9/'.$objCertificaciones->id_certificacion)}}">
@@ -1748,7 +622,7 @@
                     </div>
                 @endif
                 @if($objContadorCertificaciones->cantidad == 0)
-                    <!-- Modulo CERTIFICACIONES-->
+                <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
                         <!-- CERTIFICACIÓN izquierda -->
                         <div class="col-md-6 photo1 leftSection_formInst content_antes-formInst">
@@ -1910,7 +784,7 @@
                         </div>
                     </div>
                 @elseif($objContadorCertificaciones->cantidad == 1)
-                    <!-- Modulo CERTIFICACIONES-->
+                <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
                         <!-- CERTIFICACIÓN izquierda -->
                         <div class="col-md-6 photo2 leftSection_formInst content_antes-formInst">
@@ -2033,7 +907,7 @@
                         </div>
                     </div>
                 @elseif($objContadorCertificaciones->cantidad == 2)
-                    <!-- Modulo CERTIFICACIONES-->
+                <!-- Modulo CERTIFICACIONES-->
                     <div class="row content_antDesp-formInst">
                         <!-- CERTIFICACIÓN izquierda -->
                         <div class="col-md-6 photo3 leftSection_formInst content_antes-formInst">
@@ -2156,9 +1030,9 @@
                     </div>
                 @elseif($objContadorCertificaciones->cantidad == 4)
                     <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más certificados </label>
-                @endif
+            @endif
 
-                <!-- Botón guardar información -->
+            <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
@@ -2195,9 +1069,9 @@
 
             <!-- Modulo de los Sedes con información -->
             <div class="premios_guardada-formProf">
-                @foreach($objSedes as $objSedes)
-                    @if(!empty($objSedes->imgsede))
-                        <!-- Contenido Certificaciones -->
+            @foreach($objSedes as $objSedes)
+                @if(!empty($objSedes->imgsede))
+                    <!-- Contenido Certificaciones -->
                         <div class="savedData_formInst">
                             <div class="col-12 content_btnDelet-trata-formProf">
                                 <a href="{{url('/FormularioInstituciondelete10/'.$objSedes->id)}}">
@@ -2250,7 +1124,7 @@
                     </div>
                 @endif
                 @if($objContadorSedes->cantidad == 0)
-                    <!-- Modulo SEDES-->
+                <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo1 leftSection_formInst content_antes-formInst">
@@ -2518,7 +1392,7 @@
                     </div>
 
                 @elseif($objContadorSedes->cantidad == 1)
-                    <!-- Modulo SEDES-->
+                <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo2 leftSection_formInst content_antes-formInst">
@@ -2742,7 +1616,7 @@
                         </div>
                     </div>
                 @elseif($objContadorSedes->cantidad == 2)
-                    <!-- Modulo SEDES-->
+                <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo3 leftSection_formInst content_antes-formInst">
@@ -2920,7 +1794,7 @@
                         </div>
                     </div>
                 @elseif($objContadorSedes->cantidad == 3)
-                    <!-- Modulo SEDES-->
+                <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo4 leftSection_formInst content_antes-formInst">
@@ -3055,7 +1929,7 @@
                         </div>
                     </div>
                 @elseif($objContadorSedes->cantidad == 4)
-                    <!-- Modulo SEDES-->
+                <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo5 leftSection_formInst content_antes-formInst">
@@ -3144,7 +2018,7 @@
                         </div>
                     </div>
                 @elseif($objContadorSedes->cantidad == 5)
-                    <!-- Modulo SEDES-->
+                <!-- Modulo SEDES-->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido SEDES izquierdo -->
                         <div class="col-md-6 photo6 leftSection_formInst content_antes-formInst">
@@ -3191,9 +2065,9 @@
                     </div>
                 @elseif($objContadorSedes->cantidad == 6)
                     <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más sedes </label>
-                @endif
+            @endif
 
-                <!-- Botón guardar información -->
+            <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
@@ -3222,8 +2096,8 @@
 
                         <input class="form-control" id="descripcionPerfil" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" type="text" name="url_maps" >
                     </div>
-                @endif
-                <!-- Botón guardar información -->
+            @endif
+            <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
@@ -3260,9 +2134,9 @@
 
             <!-- Modulo de la GALERIA con información -->
             <div class="premios_guardada-formProf">
-                @foreach($objGaleria as $objGaleria)
-                    @if(!empty($objGaleria->nombrefoto))
-                        <!-- Contenido GALERIA -->
+            @foreach($objGaleria as $objGaleria)
+                @if(!empty($objGaleria->nombrefoto))
+                    <!-- Contenido GALERIA -->
                         <div class="savedData_formInst">
                             <div class="col-12 content_btnDelet-trata-formProf">
                                 <a href="{{url('/FormularioInstituciondelete12/'.$objGaleria->id_galeria)}}">
@@ -3306,7 +2180,7 @@
                     </div>
                 @endif
                 @if($objContadorGaleria->cantidad == 0)
-                    <!-- Modulos del contenido GALERIA -->
+                <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo1 leftSection_formInst content_antes-formInst">
@@ -3623,7 +2497,7 @@
                     </div>
 
                 @elseif($objContadorGaleria->cantidad == 1)
-                    <!-- Modulos del contenido GALERIA -->
+                <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo2 leftSection_formInst content_antes-formInst">
@@ -3903,7 +2777,7 @@
                     </div>
 
                 @elseif($objContadorGaleria->cantidad == 2)
-                    <!-- Modulos del contenido GALERIA -->
+                <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo3 leftSection_formInst content_antes-formInst">
@@ -4141,7 +3015,7 @@
                     </div>
 
                 @elseif($objContadorGaleria->cantidad == 3)
-                    <!-- Modulos del contenido GALERIA -->
+                <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo4 leftSection_formInst content_antes-formInst">
@@ -4341,7 +3215,7 @@
                         </div>
                     </div>
                 @elseif($objContadorGaleria->cantidad == 4)
-                    <!-- Modulos del contenido GALERIA -->
+                <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo5 leftSection_formInst content_antes-formInst">
@@ -4500,7 +3374,7 @@
                     </div>
 
                 @elseif($objContadorGaleria->cantidad == 5)
-                    <!-- Modulos del contenido GALERIA -->
+                <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo6 leftSection_formInst content_antes-formInst">
@@ -4622,7 +3496,7 @@
                     </div>
 
                 @elseif($objContadorGaleria->cantidad == 6)
-                    <!-- Modulos del contenido GALERIA -->
+                <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo7 leftSection_formInst content_antes-formInst">
@@ -4702,7 +3576,7 @@
                     </div>
 
                 @elseif($objContadorGaleria->cantidad == 7)
-                    <!-- Modulos del contenido GALERIA -->
+                <!-- Modulos del contenido GALERIA -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido GALERIA izquierda -->
                         <div class="col-md-6 photo8 leftSection_formInst content_antes-formInst">
@@ -4746,9 +3620,9 @@
 
                 @elseif($objContadorGaleria->cantidad == 8)
                     <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más imágenes en la galería </label>
-                @endif
+            @endif
 
-                <!-- Botón guardar información -->
+            <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
@@ -4766,9 +3640,9 @@
 
             <!-- Modulos de los VIDEOS -->
             <div class="col-12 p-0 m-0">
-                @foreach($objVideo as $video)
-                    @if(!empty($video->nombrevideo))
-                        <!-- Contenido VIDEOS -->
+            @foreach($objVideo as $video)
+                @if(!empty($video->nombrevideo))
+                    <!-- Contenido VIDEOS -->
                         <div class="section_infoExper-formInst">
                             <div class="col-12 content_cierreX-formInst">
                                 <a href="{{url('/FormularioInstituciondelete13/'.$video->id)}}">
@@ -4817,7 +3691,7 @@
                     </div>
                 @endif
                 @if($objContadorVideo->cantidad == 0)
-                    <!-- Modulos de los VIDEOS -->
+                <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formInst mt-0">
                         <!-- Contenido VIDEOS izquierda -->
                         <div class="col-md-6 leftSection_formInst content_antes-formInst">
@@ -4947,7 +3821,7 @@
                         </div>
                     </div>
                 @elseif($objContadorVideo->cantidad == 1)
-                    <!-- Modulos de los VIDEOS -->
+                <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido DERECHO -->
                         <div class="col-md-6 video2 rightSection_formInst">
@@ -5052,7 +3926,7 @@
                         </div>
                     </div>
                 @elseif($objContadorVideo->cantidad == 2)
-                    <!-- Modulos de los VIDEOS -->
+                <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido VIDEOS izquierda -->
                         <div class="col-md-6 leftSection_formInst content_antes-formInst">
@@ -5121,7 +3995,7 @@
                         </div>
                     </div>
                 @elseif($objContadorVideo->cantidad == 3)
-                    <!-- Modulos de los VIDEOS -->
+                <!-- Modulos de los VIDEOS -->
                     <div class="row content_antDesp-formInst">
                         <!-- Contenido DERECHO -->
                         <div class="col-md-6 video2 rightSection_formInst">
@@ -5188,7 +4062,7 @@
 @endsection
 
 @section('scripts')
-    <!--<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!--<script data-pace-options='{ "ajax": false, "document": true, "eventLag": false, "elements": false}' src="{{ asset('plugins/pace/pace.min.js') }}"></script> -->
 
     <script src="{{ asset('js/formulario-intitucional.js') }}"></script>
