@@ -615,3 +615,68 @@ $('#form-quienes-somos-institucion').validate({
         });
     }
 });
+//Formulario 6
+$('#form-propuesta-valor-institucion').validate({
+    rules: {
+        'propuesta_valor': {
+            required: true,
+        }
+    },
+    messages: {
+        'propuesta_valor':{
+            required: "Por favor ingrese la descripción de quienes somos",
+        }
+    },
+    submitHandler: function(form) {
+        //Elementos
+        $('#btn-guardar-propuesta-valor-institucion').prop('disabled', true);
+        var formulario = $(form);
+        //console.log(formulario.attr('action'));
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                $('#btn-guardar-propuesta-valor-institucion').prop('disabled', false);
+
+                //Respuesta
+                mensaje_success('#mensajes-propuesta-valor', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                $('#btn-guardar-propuesta-valor-institucion').prop('disabled', false);
+
+                //Respuesta
+                var response = event.responseJSON;
+                if (event.status === 422){
+                    mensaje_error('#mensajes-propuesta-valor', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-propuesta-valor', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
+});

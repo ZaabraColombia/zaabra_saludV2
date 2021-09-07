@@ -359,29 +359,18 @@
         <!--------------------------------------------      Inicio 6 sexta parte del formulario *** PROPUESTA DE VALOR ***      ----------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_propuestaValor-formInst"> Propuesta de valor </h5>
+            <div id="mensajes-propuesta-valor"></div>
+            <form method="POST" action="{{ route('entidad.create6') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-propuesta-valor-institucion">
+                @csrf
+                <div class="col-12 px-0">
+                    <label for="propuesta_valor" class="text_superior-proced-formInst"> Escriba una breve descripción de la propuesta de valor. </label>
+                    <textarea class="form-control" id="propuesta_valor"  type="text" name="propuesta_valor" >{{ old('propuesta_valor', $objFormulario->propuestavalor) }}</textarea>
+                    <label class="col-12 text_infoImg-formInst"> 300 Caracteres </label>
+                </div>
 
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                @if(!empty($objFormulario->propuestavalor))
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formInst"> Escriba una breve descripción de la propuesta de valor. </p>
-
-                        <textarea class="form-control" id="descripcionPerfil"  type="text" name="propuestavalor" >{{$objFormulario->propuestavalor}}</textarea>
-                    </div>
-                @else
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formInst">  Escriba una breve descripción de la propuesta de valor. </p>
-
-                        <textarea class="form-control" id="descripcionPerfil" placeholder="Escribir descripción..." type="text" maxlength="300" name="propuestavalor" ></textarea>
-
-                        <label class="col-12 text_infoImg-formInst"> 300 Caracteres </label>
-                    </div>
-            @endif
-
-            <!-- Botón guardar información -->
+                <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst"> Guardar
+                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-propuesta-valor-institucion"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>

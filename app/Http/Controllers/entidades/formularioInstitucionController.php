@@ -692,16 +692,44 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 6----------------------*/
     public function create6(Request $request){
 
+        $validation = Validator::make($request->all(), [
+            'propuesta_valor'       => ['required', 'max:300']
+        ], [], [
+            'propuesta_valor'       => 'Quienes somos'
+        ]);
+
+        if ($validation->fails()) {
+            $men = $validation->errors()->all();
+            $error = array_keys($validation->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
         /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        $id_user = auth()->user()->id;
 
-        unset($request['_token']);
-        unset($request['updated_at']);
-        unset($request['created_at']);
-        instituciones::where('idUser', $id_user)->update($request->all());
+        //Agregar campos
+        $descripcion = instituciones::where('idUser', '=', $id_user)->first();
 
-        return redirect('FormularioInstitucion');
+        if (empty($descripcion))
+        {
+            return response([
+                'mensaje' => 'No existe la institución'
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //guardar la información quienes somos
+        $descripcion->propuestavalor   = $request->propuesta_valor;
+
+        //guardar contacto
+        $descripcion->save();
+
+        return response([
+            'mensaje' => 'Se guardo correctamente la información'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 6----------------------*/
 
