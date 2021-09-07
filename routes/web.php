@@ -183,7 +183,6 @@ Route::middleware(['auth', 'roles'])->group(function () {
     Route::get('/FormularioInstituciondelete4/{id_servicio}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete4'])->name('entidad.delete4');
     /*-----formulario parte 5----*/
     Route::post('/FormularioInstitucionSave5',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create5'])->name('entidad.create5');
-    Route::get('/FormularioInstituciondelete5/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete5'])->name('entidad.delete5');
     /*-----formulario parte 6----*/
     Route::post('/FormularioInstitucionSave6',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create6'])->name('entidad.create6');
     Route::get('/FormularioInstituciondelete6/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete6'])->name('entidad.delete6');

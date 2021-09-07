@@ -336,29 +336,19 @@
         <!--------------------------------------------      Inicio 5 quinta parte del formulario *** QUIENES SOMOS ***      ------------------------------------------------------>
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_quienes-formInst"> ¿Quiénes somos? </h5>
+            <div id="mensajes-quienes-somos"></div>
 
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <form method="POST" action="{{ route('entidad.create5') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-quienes-somos-institucion">
+                @csrf
+                <div class="col-12 px-0">
+                    <label for="descripcion_quienes_somos" class="text_superior-proced-formInst"> Escriba una breve descripción de ¿Quiénes son?. </label>
+                    <textarea class="form-control" id="descripcion_quienes_somos"  type="text" name="descripcion_quienes_somos" >{{ old('descripcion_quienes_somos', $objFormulario->quienessomos) }}</textarea>
+                    <label class="col-12 text_infoImg-formInst"> 500 Caracteres </label>
+                </div>
 
-                @if(!empty($objFormulario->quienessomos))
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formInst"> Escriba una breve descripción de ¿Quiénes son?. </p>
-
-                        <textarea class="form-control" id="descripcionPerfil"  type="text" name="quienessomos" >{{$objFormulario->quienessomos}}</textarea>
-                    </div>
-                @else
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formInst"> Escriba una breve descripción de ¿Quiénes son?. </p>
-
-                        <textarea class="form-control" id="descripcionPerfil" placeholder="Escribir descripción..." type="text"  maxlength="500" name="quienessomos" ></textarea>
-
-                        <label class="col-12 text_infoImg-formInst"> 500 Caracteres </label>
-                    </div>
-            @endif
-
-            <!-- Botón guardar información -->
+                <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst"> Guardar
+                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-quienes-somo-institucion"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>

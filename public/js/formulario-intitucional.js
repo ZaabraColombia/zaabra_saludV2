@@ -110,7 +110,7 @@ $('#provincia').on('change',function(){
 /*-------------------------- Formularios ----------------------*/
 //Formulario 1
 $('#form-basico-institucional').validate({
-    ules: {
+    rules: {
         'nombre_institucion': {
             required: true,
         },
@@ -195,7 +195,7 @@ $('#form-basico-institucional').validate({
 });
 //Formulario 2
 $('#form-contacto-institucional').validate({
-    ules: {
+    rules: {
         'celular': {
             required: true,
         },
@@ -296,7 +296,7 @@ $('#form-contacto-institucional').validate({
 });
 //Formulario 3
 $('#form-descripcion-institucion').validate({
-    ules: {
+    rules: {
         'descripcion_perfil': {
             required: true,
         }
@@ -378,7 +378,7 @@ $('#sedes-servicios-institucion').on('click', '.btn-eliminar-servicio-institucio
 });
 //Guardar servicio
 $('#form-servicios-institucion').validate({
-    ules: {
+    rules: {
         'titulo_servicio': {
             required: true,
         },
@@ -549,4 +549,69 @@ $('#lista-servicios-institucion').on('click', '.close' , function (e) {
         }
     });
 
+});
+//Formulario 5
+$('#form-quienes-somos-institucion').validate({
+    rules: {
+        'descripcion_quienes_somos': {
+            required: true,
+        }
+    },
+    messages: {
+        'descripcion_quienes_somos':{
+            required: "Por favor ingrese la descripción de quienes somos",
+        }
+    },
+    submitHandler: function(form) {
+        //Elementos
+        $('#btn-guardar-quienes-somo-institucion').prop('disabled', true);
+        var formulario = $(form);
+        //console.log(formulario.attr('action'));
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                $('#btn-guardar-quienes-somo-institucion').prop('disabled', false);
+
+                //Respuesta
+                mensaje_success('#mensajes-quienes-somos', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                $('#btn-guardar-quienes-somo-institucion').prop('disabled', false);
+
+                //Respuesta
+                var response = event.responseJSON;
+                if (event.status === 422){
+                    mensaje_error('#mensajes-quienes-somos', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-quienes-somos', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
 });
