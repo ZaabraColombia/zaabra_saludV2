@@ -382,7 +382,7 @@
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_convenios-formInst"> Convenios </h5>
 
-            <div class="row p-5" id="lista-convenios">
+            <div class="row p-5" id="lista-convenios-institucion">
                 <?php $count_convenios = 0;?>
 
                 @foreach($objConvenios as $convenio)

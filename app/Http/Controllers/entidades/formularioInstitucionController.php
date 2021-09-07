@@ -792,44 +792,31 @@ class formularioInstitucionController extends Controller{
         ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 7----------------------*/
-    /*-------------------------------------Inicio Eliminacion  formulario parte 7 donde se unifica eps ips y prepagada----------------------*/
-    public function delete5($id){
-        $verificaPerfil = $this->verificaPerfil();
+    /*-------------------------------------Inicio Eliminacion  formulario parte 7----------------------*/
 
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
+    public function delete7(Request $request){
+        /*id usuario logueado*/
+        $id_user = auth()->user()->id;
+        /*id de la institucion*/
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
+
+        //Validar si eta vacio
+        $convenio = Convenios::where('id_institucion', '=', $institucion->id)
+            ->where('id', '=', $request->id_convenio)
+            ->select('id')
+            ->first();
+
+        if (empty($convenio)){
+            return response()->json([
+                'mensaje' => 'No se encontro el servicio'
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        $eps = eps::where('id', $id)->where('id_institucion', $idInstitucion);
-        $eps->delete();
+        $convenio->delete();
 
-        return redirect('FormularioInstitucion');
-    }
-
-    public function delete6($id){
-        $verificaPerfil = $this->verificaPerfil();
-
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
-        }
-
-        $ips = ips::where('id', $id)->where('id_institucion', $idInstitucion);
-        $ips->delete();
-
-        return redirect('FormularioInstitucion');
-    }
-
-    public function delete7($id_prepagada){
-        $verificaPerfil = $this->verificaPerfil();
-
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
-        }
-
-        $prepagadas = prepagadas::where('id_prepagada', $id_prepagada)->where('id_institucion', $idInstitucion);
-        $prepagadas->delete();
-
-        return redirect('FormularioInstitucion');
+        return response([
+            'mensaje' => 'El convenio se elimino correctamente'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Eliminacion formulario parte 7 donde se unifica eps ips y prepagada----------------------*/
 

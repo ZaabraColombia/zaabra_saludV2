@@ -681,6 +681,7 @@ $('#form-propuesta-valor-institucion').validate({
     }
 });
 //Formulario 7
+//Agregar convenio
 $('#form-convenios-institucion').validate({
     rules: {
         'tipo_convenio': {
@@ -730,7 +731,7 @@ $('#form-convenios-institucion').validate({
                 button_save.prop('disabled', false);
 
                 //Agrgar tarjeta del convenio
-                $('#lista-convenios').append('<div class="col-md-6 col-sm-6">\n' +
+                $('#lista-convenios-institucion').append('<div class="col-md-3 col-sm-6">\n' +
                     '<div class="col-12 content_btnX-cierre-formProf my-2">\n' +
                     '<label for="example-date-input" class="text_saved-formInst pb-0"> Convenio ' + $('#tipo_convenio option:selected').text() + '</label>\n' +
                     '<button type="button" class="close" aria-label="Close" data-url="' + response.url + '"><span aria-hidden="true">&times;</span></button>\n' +
@@ -782,4 +783,45 @@ $('#form-convenios-institucion').validate({
             }
         });
     }
+});
+//Eliminar convenio
+$('#lista-convenios-institucion').on('click', '.close' , function (e) {
+    var button = $(this);
+    var url = $(this).data('url');
+
+    // Pace.start();
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  url,
+        type: "get",
+        dataType: 'json',
+        success: function( response ) {
+            //Finaliza la carga
+            // Pace.stop();
+            $('.form-control').removeClass('is-invalid');
+
+            mensaje_success('#mensajes-convenios', response.mensaje);
+
+            //quitar el disabled
+            $('#tipo_convenio').prop('disabled', false);
+            $('#logo_convenio').prop('disabled', false);
+            $('#btn-guardar-convenios-institucion').prop('disabled', false);
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            // Pace.stop();
+            $('.form-control').removeClass('is-invalid');
+            var response = event.responseJSON;
+
+            mensaje_error('#mensajes-convenios', response.mensaje);
+        }
+    });
+
 });
