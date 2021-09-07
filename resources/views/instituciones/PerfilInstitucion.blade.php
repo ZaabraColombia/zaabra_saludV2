@@ -19,7 +19,7 @@
                     <h5 class="title-tel mb-2"><i></i>{{$objinstitucionlandin->telefonouno}}</h5>
                     <h5 class="title-adress"><i></i>{{$objinstitucionlandin->direccion}}<br>{{$objinstitucionlandin->ciudad}} {{$objinstitucionlandin->pais}}</h5>
                     <!-- Rating Stars Box -->
-                    <div class='rating-stars text-center'>
+                    <div class='rating-stars start_calification'>
                         <ul id='stars'>
                             <li class='star' title='Poor' data-value='1'>
                               <i class='fa fa-star fa-fw'></i>
@@ -155,20 +155,24 @@
             </div>
         </section>
 
-        <section class="section_insti contains_swiper_certificados">
-            <h2><i></i>Certificados</h2>
-            
-            <div class="swiper_certificados">
-                @foreach ($objinstitucionlandinpremios as $objinstitucionlandinpremios)
-                    <div class="slaider_cert_landInst">
+
+        <div class="section_insti contains_swiper_certificados">
+            <h2><i></i>Certificados</h2> 
+            <div class="swiper-container swiper_gale_inst">
+                <div class="swiper-wrapper">
+                    @foreach ($objinstitucionlandinpremios as $objinstitucionlandinpremios)
+                        <div class="swiper-slide slaider_cert_landInst">
                         <img src="{{URL::asset($objinstitucionlandinpremios->imgcertificado)}}">
-                        <h6>{{$objinstitucionlandinpremios->fechacertificado}}</h6>
-                        <h5>{{$objinstitucionlandinpremios->titulocertificado}}</h5>
-                        <p>{{$objinstitucionlandinpremios->descrpcioncertificado}}</p>
-                    </div>
-                @endforeach
+                            <h6>{{$objinstitucionlandinpremios->fechacertificado}}</h6>
+                            <h5>{{$objinstitucionlandinpremios->titulocertificado}}</h5>
+                            <p>{{$objinstitucionlandinpremios->descrpcioncertificado}}</p>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-        </section>
+            <div class="btn-prev btnPrev_certInst"></div>
+            <div class="btn-next btnNext_certInst"></div>
+        </div>
 
 
         <section class="section_insti section_sedes_institucion">
