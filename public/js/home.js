@@ -78,15 +78,15 @@ const swiper_logoshome = new Swiper(".swiper_logoshome", {
     },
       // when window width is >= 1024px
     1024: {
-      slidesPerView: 10,
+      slidesPerView: 8,
       slidesPerGroup: 1,
       spaceBetween: 15,
     },
-      // when window width is >= 1600px
-    1600: {
-      slidesPerView: 10,
+      // when window width is >= 1440px
+    1440: {
+      slidesPerView: 8,
       slidesPerGroup: 1,
-      spaceBetween: 5,
+      spaceBetween: 15,
     },
   }
 });
