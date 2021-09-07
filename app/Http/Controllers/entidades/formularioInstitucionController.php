@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\entidades;
 use App\Http\Controllers\Controller;
+use App\Models\Convenios;
 use App\Models\destacados;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -57,15 +58,16 @@ class formularioInstitucionController extends Controller{
         $objFormulario      = $objFormulario[0];
         $objuser            = $this->cargaDatosUser($id_user);
         $objuser            = $objuser[0];
+        $objConvenios       = Convenios::where('id_institucion', '=', $ins->id)
+            ->select('convenios.id', 'convenios.url_image', 'nombretipo as nombre_tipo_convenio')
+            ->join('tipoinstituciones', 'tipoinstituciones.id', '=', 'convenios.id_tipo_convenio')
+            ->get();
+        $objTipoConvenios   = tipoinstituciones::all();
 
         $objServicio=$this->cargaServicios($id_user);
         $objContadorServicio=$this->contadorServicios($id_user);
-        $objIps=$this->cargaIps($id_user);
-        $objContadorIps=$this->contadorIps($id_user);
-        $objEps=$this->cargaEps($id_user);
-        $objContadorEps=$this->contadorEps($id_user);
-        $objPrepa=$this->cargaPrepa($id_user);
-        $objContadorPrepa=$this->contadorPrepa($id_user);
+
+
         $objProfeInsti=$this->cargaProfeInsti($id_user);
         $objContadorProfeInsti=$this->contadorProfeInsti($id_user);
         $objCertificaciones=$this->cargaCertificaciones($id_user);
@@ -110,12 +112,8 @@ class formularioInstitucionController extends Controller{
             'objFormulario',
             'objServicio',
             'objContadorServicio',
-            'objPrepa',
-            'objContadorPrepa',
-            'objIps',
-            'objContadorIps',
-            'objEps',
-            'objContadorEps',
+            'objConvenios',
+            'objTipoConvenios',
             'objProfeInsti',
             'objContadorProfeInsti',
             'objCertificaciones',
@@ -562,88 +560,174 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 4----------------------*/
     public function create4(Request $request){
 
-        foreach ($request->input('tituloServicios', []) as $i => $tituloServicios) {
-            if(!empty($request->input('tituloServicios')[$i])){
-                $request->validate([
-                    'tituloServicios.' . $i => ['required'],
-                    'DescripcioServicios.' . $i => ['required'],
-                    'sucursalservicio.' . $i => ['required'],
-                ]);
-            }
+        $validation = Validator::make($request->all(), [
+            'titulo_servicio'       => ['required'],
+            'descripcion_servicio'  => ['required', 'max:270'],
+            'sucursal_servicio.*'     => ['required'],
+        ], [], [
+            'titulo_servicio'       => 'Titulo del servicio',
+            'descripcion_servicio'  => 'Descripción del servicio',
+            'sucursal_servicio.*'     => 'Sedes en la que está el servicio',
+        ]);
+
+        if ($validation->fails()) {
+            $men = $validation->errors()->all();
+            $error = array_keys($validation->errors()->messages());
+
+            foreach ($error as $k => $e) $error[$k] = str_replace('.', '-', $e);
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
-        $verificaPerfil = $this->verificaPerfil();
+        /*id usuario logueado*/
+        $id_user = auth()->user()->id;
+        /*id de la institucion*/
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
+        //Validar si se llego al maximo de items
+        $servicios = serviciosinstituciones::where('id', '=', $institucion->id)->count();
+        if ($servicios >= 6){
+            return response()->json([
+                'max_items' => true,
+                'mensaje' => 'No puede agregar mas servicios'
+            ], Response::HTTP_NOT_FOUND);
         }
 
+        //Agregar campos
+        $servicio = new serviciosinstituciones();
 
-        foreach ($request->input('tituloServicios', []) as $i => $tituloServicios) {
+        //guardar la información del servicio
+        $servicio->tituloServicios      = $request->titulo_servicio;
+        $servicio->DescripcioServicios  = $request->descripcion_servicio;
+        $servicio->sucursalservicio     = implode(', ', $request->sucursal_servicio);
+        $servicio->id                   = $institucion->id;
 
-            if(!empty($request->input('tituloServicios')[$i])){
-                serviciosinstituciones::create([
-                    'id' => $idInstitucion,
-                    'tituloServicios' => $request->input('tituloServicios.'.$i),
-                    'DescripcioServicios' => $request->input('DescripcioServicios.'.$i),
-                    'sucursalservicio' => $request->input('sucursalservicio.'.$i),
-                ]);
-            }
-        }
+        //guardar contacto
+        $servicio->save();
 
-        return redirect('FormularioInstitucion');
-
+        return response([
+            'mensaje'   => 'Se guardo correctamente la información',
+            'url'       => route('entidad.delete4', ['id_servicio' => $servicio->id_servicio]),
+            'max_items' => $servicios >= 5 // se resta 1 por el nuevo creado
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 4----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 4----------------------*/
-    public function delete4($id_servicio){
+    public function delete4(Request $request){
+        /*id usuario logueado*/
+        $id_user = auth()->user()->id;
+        /*id de la institucion*/
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
+        //Validar si se llego al maximo de items
+        $servicio = serviciosinstituciones::where('id', '=', $institucion->id)
+            ->where('id_servicio', '=', $request->id_servicio)
+            ->select('id_servicio', 'tituloServicios')
+            ->first();
 
-        $verificaPerfil = $this->verificaPerfil();
-
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
+        if (empty($servicio)){
+            return response()->json([
+                'mensaje' => 'No se encontro el servicio'
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        $serviciosinstituciones = serviciosinstituciones::where('id_servicio', $id_servicio)->where('id', $idInstitucion);
-        $serviciosinstituciones->delete();
+        $nombre = $servicio->tituloServicios;
+        $servicio->delete();
 
-        return redirect('FormularioInstitucion');
-
+        return response([
+            'mensaje' => 'El servicio ' . $nombre . ' se elimino correctamente'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Eliminacion formulario parte 4----------------------*/
 
 
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 5----------------------*/
     public function create5(Request $request){
+        $validation = Validator::make($request->all(), [
+            'descripcion_quienes_somos'       => ['required', 'max:500']
+        ], [], [
+            'descripcion_quienes_somos'       => 'Quienes somos'
+        ]);
 
+        if ($validation->fails()) {
+            $men = $validation->errors()->all();
+            $error = array_keys($validation->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
         /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        $id_user = auth()->user()->id;
 
-        unset($request['_token']);
-        unset($request['updated_at']);
-        unset($request['created_at']);
-        instituciones::where('idUser', $id_user)->update($request->all());
+        //Agregar campos
+        $descripcion = instituciones::where('idUser', '=', $id_user)->first();
 
-        return redirect('FormularioInstitucion');
+        if (empty($descripcion))
+        {
+            return response([
+                'mensaje' => 'No existe la institución'
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //guardar la información quienes somos
+        $descripcion->quienessomos   = $request->descripcion_quienes_somos;
+
+        //guardar contacto
+        $descripcion->save();
+
+        return response([
+            'mensaje' => 'Se guardo correctamente la información'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 5----------------------*/
 
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 6----------------------*/
     public function create6(Request $request){
 
+        $validation = Validator::make($request->all(), [
+            'propuesta_valor'       => ['required', 'max:300']
+        ], [], [
+            'propuesta_valor'       => 'Quienes somos'
+        ]);
+
+        if ($validation->fails()) {
+            $men = $validation->errors()->all();
+            $error = array_keys($validation->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
         /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        $id_user = auth()->user()->id;
 
-        unset($request['_token']);
-        unset($request['updated_at']);
-        unset($request['created_at']);
-        instituciones::where('idUser', $id_user)->update($request->all());
+        //Agregar campos
+        $descripcion = instituciones::where('idUser', '=', $id_user)->first();
 
-        return redirect('FormularioInstitucion');
+        if (empty($descripcion))
+        {
+            return response([
+                'mensaje' => 'No existe la institución'
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //guardar la información quienes somos
+        $descripcion->propuestavalor   = $request->propuesta_valor;
+
+        //guardar contacto
+        $descripcion->save();
+
+        return response([
+            'mensaje' => 'Se guardo correctamente la información'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 6----------------------*/
 
@@ -652,99 +736,87 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 7----------------------*/
     public function create7(Request $request){
 
-        /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
-        $verificaPerfil = $this->verificaPerfil();
+        $validation = Validator::make($request->all(), [
+            'tipo_convenio' => ['required', 'exists:tipoinstituciones,id'],
+            'logo_convenio' => ['required', 'image']
+        ], [], [
+            'tipo_convenio' => 'Tipo de convenio',
+            'logo_convenio' => 'Logo del convenio'
+        ]);
 
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
+        if ($validation->fails()) {
+            $men = $validation->errors()->all();
+            $error = array_keys($validation->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
         /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        $id_user = auth()->user()->id;
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
-        unset($request['_token']);
-        $carpetaDestino = "img/instituciones/$id_user";
-
-        if ($request->hasFile('urlimagenEps')) {
-            $imagenes = $request->file('urlimagenEps');
-            foreach ($imagenes as $imageneps) {
-                $nombreFoto = $imageneps->getClientOriginalName();
-                $imageneps->move($carpetaDestino , $nombreFoto);
-                $nombreFotoCompletaeps="img/instituciones/$id_user/$nombreFoto";
-                eps::create([
-                    'id_institucion' => $idInstitucion,
-                    'urlimagen'  => $nombreFotoCompletaeps
-                ]);
-            }
+        //Validar si se llego al maximo de items
+        $convenios = Convenios::where('id_institucion', '=', $institucion->id)->count();
+        if ($convenios >= 9){
+            return response()->json([
+                'max_items' => true,
+                'mensaje' => 'No puede agregar mas convenios'
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        if ($request->hasFile('urlimagenIps')) {
-            $imagenes = $request->file('urlimagenIps');
-            foreach ($imagenes as $imagenips) {
-                $nombreFoto = $imagenips->getClientOriginalName();
-                $imagenips->move($carpetaDestino , $nombreFoto);
-                $nombreFotoCompletaips="img/instituciones/$id_user/$nombreFoto";
-                ips::create([
-                    'id_institucion' => $idInstitucion,
-                    'urlimagen'  => $nombreFotoCompletaips
-                ]);
-            }
-        }
+        //Crear el convenio
+        $convenio = new Convenios();
+        $convenio->id_tipo_convenio = $request->tipo_convenio;
+        $convenio->id_institucion   = $institucion->id;
 
-        if ($request->hasFile('urlimagenPre')) {
-            $imagenes = $request->file('urlimagenPre');
-            foreach ($imagenes as $imagenpre) {
-                $nombreFoto = $imagenpre->getClientOriginalName();
-                $imagenpre->move($carpetaDestino , $nombreFoto);
-                $nombreFotoCompletaprepa="img/instituciones/$id_user/$nombreFoto";
-                prepagadas::create([
-                    'id_institucion' => $idInstitucion,
-                    'urlimagen'  => $nombreFotoCompletaprepa
-                ]);
-            }
-        }
+        $logo = $request->file('logo_convenio');
+        $nombre_logo = 'convenio-' . time() . '.' . $logo->guessExtension();
 
-        return redirect('FormularioInstitucion');
+        /*guarda la imagen en carpeta con el id del usuario*/
+        $logo->move("img/instituciones/$id_user", $nombre_logo);
+
+        //capturar la fotp
+        $convenio->url_image = "img/instituciones/$id_user/" . $nombre_logo;
+
+        //guardar basico
+        $convenio->save();
+
+        return response([
+            'mensaje'   => 'Se guardo correctamente la información',
+            'url'       => route('entidad.delete7', ['id_convenio' => $convenio->id]),
+            'image'     => asset($convenio->url_image),
+            'max_items' => $convenios >= 8 // Se le resta 1 porque se agregó 1
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 7----------------------*/
-    /*-------------------------------------Inicio Eliminacion  formulario parte 7 donde se unifica eps ips y prepagada----------------------*/
-    public function delete5($id){
-        $verificaPerfil = $this->verificaPerfil();
+    /*-------------------------------------Inicio Eliminacion  formulario parte 7----------------------*/
 
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
+    public function delete7(Request $request){
+        /*id usuario logueado*/
+        $id_user = auth()->user()->id;
+        /*id de la institucion*/
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
+
+        //Validar si eta vacio
+        $convenio = Convenios::where('id_institucion', '=', $institucion->id)
+            ->where('id', '=', $request->id_convenio)
+            ->select('id')
+            ->first();
+
+        if (empty($convenio)){
+            return response()->json([
+                'mensaje' => 'No se encontro el servicio'
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        $eps = eps::where('id', $id)->where('id_institucion', $idInstitucion);
-        $eps->delete();
+        $convenio->delete();
 
-        return redirect('FormularioInstitucion');
-    }
-
-    public function delete6($id){
-        $verificaPerfil = $this->verificaPerfil();
-
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
-        }
-
-        $ips = ips::where('id', $id)->where('id_institucion', $idInstitucion);
-        $ips->delete();
-
-        return redirect('FormularioInstitucion');
-    }
-
-    public function delete7($id_prepagada){
-        $verificaPerfil = $this->verificaPerfil();
-
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
-        }
-
-        $prepagadas = prepagadas::where('id_prepagada', $id_prepagada)->where('id_institucion', $idInstitucion);
-        $prepagadas->delete();
-
-        return redirect('FormularioInstitucion');
+        return response([
+            'mensaje' => 'El convenio se elimino correctamente'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Eliminacion formulario parte 7 donde se unifica eps ips y prepagada----------------------*/
 
