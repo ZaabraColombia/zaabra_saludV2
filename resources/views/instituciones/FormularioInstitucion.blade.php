@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('styles')
-    <!--<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />-->
-    <!--<link href="{{ asset('css/select2-bootstrap.min.css') }}" rel="stylesheet" />-->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="{{ asset('css/select2-bootstrap.min.css') }}" rel="stylesheet" />
     <!--<link rel="stylesheet" href="{{ asset('plugins/pace/themes/blue/pace-theme-loading-bar.css') }}"/>-->
 
     <style>
@@ -387,7 +387,7 @@
 
                 @foreach($objConvenios as $convenio)
                     @if(!empty($convenio->url_image))
-                            <?php $count_convenios++;?>
+                        <?php $count_convenios++;?>
                         <div class="col-md-3 col-sm-6">
                             <div class="col-12 content_btnX-cierre-formProf my-2">
                                 <label for="example-date-input" class="text_saved-formInst pb-0"> Convenio {{ $convenio->nombre_tipo_convenio }} </label>
@@ -460,345 +460,85 @@
         <!--------------------------------------------      Inicio 8 octava parte del formulario *** PROFESIONALES ***      --------------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_profesionales-formInst"> Profesionales </h5>
-
-            <div class="col-11 col-md-12 row containt_profGuardado-formInst">
-                @foreach($objProfeInsti as $objProfeInsti)
-                    @if(!empty($objProfeInsti->foto_perfil_institucion))
+            <div class="col-11 col-md-12 row containt_profGuardado-formInst" id="lista-profesionales-institucion">
+                <?php $count_profecionales = 0; ?>
+                @foreach($objProfeInsti as $profecional)
+                    @if(!empty($profecional->foto_perfil_institucion))
+                        <?php $count_profecionales++; ?>
                         <div class="col-md-3 content_loadImg-profes">
                             <div class="col-12 p-0 contain_imgUsuario-formImg">
                                 <div class="col-12 pr-2 content_cierreX-formInst">
-                                    <a href="{{url('/FormularioInstituciondelete8/'.$objProfeInsti->id_profesional_inst)}}">
-                                        <button type="submit" class="close" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </a>
+                                    <button type="submit" class="close" aria-label="Close" data-url="{{ route('entidad.delete8', ['id_profesional' => $profecional->id_profesional_inst]) }}">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
-
                                 <div class="col-12 col-md-10 img_save-formProf">
-                                    <img class="img_usuario-formInst" src="{{URL::asset($objProfeInsti->foto_perfil_institucion)}}">
+                                    <img class="img_usuario-formInst" src="{{ asset($profecional->foto_perfil_institucion) }}">
                                 </div>
                             </div>
-
                             <div class="col-12 mt-3 containt_loadProfes-formInst">
                                 <div class="col-md-12 rightSection_formInst">
-                                    <span>{{$objProfeInsti->primer_nombre}} {{$objProfeInsti->segundo_nombre}}</span>
+                                    <span>{{ $profecional->primer_nombre }} {{ $profecional->segundo_nombre }}</span>
                                 </div>
-
                                 <div class="col-md-12 rightSection_formInst">
-                                    <span>{{$objProfeInsti->primer_apellido}} {{$objProfeInsti->segundo_apellido}}</span>
+                                    <span>{{ $profecional->primer_apellido }} {{ $profecional->segundo_apellido }}</span>
                                 </div>
-
                                 <div class="col-md-12 rightSection_formInst">
-                                    <span>{{$objProfeInsti->especialidad_uno}}</span>
+                                    <span>{{ $profecional->especialidad_uno }}</span>
                                 </div>
-
                                 <div class="col-md-12 rightSection_formInst">
-                                    <span> {{$objProfeInsti->especialidad_dos}}</span>
+                                    <span>{{ $profecional->especialidad_dos }}</span>
                                 </div>
                             </div>
                         </div>
                     @endif
                 @endforeach
             </div>
-            @if (
-                    $errors->has('foto_perfil_institucion.*') or
-                    $errors->has('primer_nombre.*') or
-                    $errors->has('segundo_nombre.*') or
-                    $errors->has('primer_apellido.*') or
-                    $errors->has('segundo_apellido.*') or
-                    $errors->has('especialidad_uno.*') or
-                    $errors->has('especialidad_dos.*')
-                )
-                <div class="col-12">
-                    <div class="alert alert-danger" role="alert">
-                        <h4 class="alert-heading">Error!</h4>
-                        <p>Llene todos los formualrios que necesita.</p>
+
+            <form action="{{ route('entidad.create8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="form-profesionales-institucion">
+                @csrf
+                <div class="row" id="mensajes-profesionales"></div>
+                <!-- Profesional numero 1 -->
+                <div class="row fila_infoBasica-formInst mb-4">
+                    <div class="col-md-3 contain_imgUsuario-formImg">
+                        <img class="img_usuario-formInst" id="img-foto_profecional">
+                        <input class="input_imgUsuario-formInst" type="file" id="foto_profecional" name="foto_profecional" onchange="ver_imagen('foto_profecional', 'img-foto_profecional');" accept="image/png, image/jpeg">
+                        <p class="icon_subirFoto-formInst"> Subir foto de perfil </p>
+                    </div>
+
+                    <div class="row col-md-9 datos_principales-formInst">
+                        <div class="col-md-6 rightSection_formInst">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
+                            <div class="col-12 nombres_usuario-formInst">
+                                <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre_profecional" id="primer_nombre_profecional">
+                                <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre_profecional" id="segundo_nombre_profecional">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 rightSection_formInst">
+                            <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
+                            <div class="col-12 nombres_usuario-formInst">
+                                <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido_profecional" id="primer_apellido_profecional">
+                                <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido_profecional" id="segundo_apellido_profecional">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="universidad" class="col-12 text_label-formInst"> Universidad </label>
+                            <select name="universidad" id="universidad" class="form-control universidades">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="col-12 form-group">
+                            <label for="especialidad" class="col-12 text_label-formInst"> Especialidad </label>
+                            <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad" id="especialidad">
+                        </div>
                     </div>
                 </div>
-            @endif
-
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div data-info="{{$objContadorProfeInsti->cantidad}}" class="div-count"></div>
-
-            @if($objContadorProfeInsti->cantidad == 0)
-                <!-- Profesional numero 1 -->
-                    <div class="row fila_infoBasica-formInst mb-4">
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            <img class="img_usuario-formInst" id="imagenPrevi1">
-
-                            <input class="input_imgUsuario-formInst" type="file" id="selecArchivos1" name="foto_perfil_institucion[]" onchange="previewImageProf(1);" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de perfil </p>
-                        </div>
-
-                        <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
-
-                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
-
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
-
-                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Profesional numero 2 -->
-                    <div class="row fila_infoBasica-formInst mb-4">
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            <img class="img_usuario-formInst" id="imagenPrevi2">
-
-                            <input class="input_imgUsuario-formInst" type="file" id="selecArchivos2" name="foto_perfil_institucion[]" onchange="previewImageProf(2);" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de perfil </p>
-                        </div>
-
-                        <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
-
-                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
-
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
-
-                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Profesional numero 3 -->
-                    <div class="row fila_infoBasica-formInst">
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            <img class="img_usuario-formInst" id="imagenPrevi3">
-
-                            <input class="input_imgUsuario-formInst" type="file" id="selecArchivos3" name="foto_perfil_institucion[]" onchange="previewImageProf(3);" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de perfil </p>
-                        </div>
-
-                        <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
-
-                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
-
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
-
-                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            @elseif($objContadorProfeInsti->cantidad == 1)
-                <!-- Profesional numero 2 -->
-                    <div class="row fila_infoBasica-formInst mb-4">
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            <img class="img_usuario-formInst" id="imagenPrevi2">
-
-                            <input class="input_imgUsuario-formInst" type="file" id="selecArchivos2" name="foto_perfil_institucion[]" onchange="previewImageProf(2);" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de perfil </p>
-                        </div>
-
-                        <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
-
-                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
-
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
-
-                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Profesional numero 3 -->
-                    <div class="row fila_infoBasica-formInst">
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            <img class="img_usuario-formInst" id="imagenPrevi3">
-
-                            <input class="input_imgUsuario-formInst" type="file" id="selecArchivos3" name="foto_perfil_institucion[]" onchange="previewImageProf(3);" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de perfil </p>
-                        </div>
-
-                        <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
-
-                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
-
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
-
-                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            @elseif($objContadorProfeInsti->cantidad == 2)
-                <!-- Profesional numero 3 -->
-                    <div class="row fila_infoBasica-formInst">
-                        <div class="col-md-3 contain_imgUsuario-formImg">
-                            <img class="img_usuario-formInst" id="imagenPrevi3">
-
-                            <input class="input_imgUsuario-formInst" type="file" id="selecArchivos3" name="foto_perfil_institucion[]" onchange="previewImageProf(3);" accept="image/png, image/jpeg">
-
-                            <p class="icon_subirFoto-formInst"> Subir foto de perfil </p>
-                        </div>
-
-                        <div class="row col-md-9 datos_principales-formInst">
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
-
-                                <div class="col-12 nombres_usuario-formInst">
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido[]" value="">
-
-                                    <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Universidad </label>
-
-                                <input class="form-control" placeholder="Nombre de la universidad"  type="text" name="especialidad_uno[]" value="">
-
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Especialidades </label>
-
-                                    <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad_dos[]" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorProfeInsti->cantidad == 3)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se peden agregar más profesionales </label>
-            @endif
-
-            <!-- Botón guardar información -->
+                <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-profecionales-institucion"> Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" />
                     </button>
                 </div>
             </form>
@@ -4322,7 +4062,7 @@
 @endsection
 
 @section('scripts')
-    <!--<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!--<script data-pace-options='{ "ajax": false, "document": true, "eventLag": false, "elements": false}' src="{{ asset('plugins/pace/pace.min.js') }}"></script> -->
 
     <script src="{{ asset('js/formulario-intitucional.js') }}"></script>

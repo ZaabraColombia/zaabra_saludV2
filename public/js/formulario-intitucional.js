@@ -31,6 +31,30 @@ function id_invalid(ids, status){
     }
 }
 
+$('.universidades').select2({
+    theme: "bootstrap",
+    placeholder: 'Seleccione una universidad',
+    ajax: {
+        url: '/buscar-universidad',
+        dataType: 'json',
+        type: 'post',
+        delay: 250,
+        data: function (data) {
+            return {
+                searchTerm: data.term // search term
+            };
+        },
+        processResults: function (response) {
+            return {
+                results:response
+            };
+        },
+        cache: true,
+    },
+    minimumInputLength: 5
+});
+
+
 /*-------------------------- Selección ubicación*/
 $('#pais').change(function(){
     var id_pais = $(this).val();
@@ -824,4 +848,128 @@ $('#lista-convenios-institucion').on('click', '.close' , function (e) {
         }
     });
 
+});
+//Formulario 8
+//Agregar profesional
+$('#form-profesionales-institucion').validate({
+    rules: {
+        'foto_profecional': {
+            required: true,
+        },
+        'primer_nombre_profecional': {
+            required: true,
+        },
+        'primer_apellido_profecional': {
+            required: true,
+        },
+        'universidad': {
+            required: true,
+        },
+        'especialidad': {
+            required: true,
+        }
+    },
+    messages: {
+        'foto_profecional':{
+            required: "Por favor ingrese la foto del profesional",
+        },
+        'primer_nombre_profecional':{
+            required: "Por favor ingrese el primer nombre del profesional",
+        },
+        'primer_apellido_profecional':{
+            required: "Por favor ingrese el primer apellido del profesional",
+        },
+        'universidad':{
+            required: "Por favor ingrese la universidad del profesional",
+        },
+        'especialidad':{
+            required: "Por favor ingrese la especialidad del profesional",
+        }
+    },
+    submitHandler: function(form) {
+        //Elementos
+        var button_save = $('#btn-guardar-profecionales-institucion');
+        button_save.prop('disabled', true);
+        var formulario = $(form);
+        //console.log(formulario.attr('action'));
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                button_save.prop('disabled', false);
+
+                //Agrgar tarjeta del convenio
+                $('#lista-profesionales-institucion').append('');
+
+                /* Deshabilitar formulario cuando llegue al maximo de items */
+                if (response.max_items > 0) {
+                    $('#foto_profecional').prop('disabled', true);
+                    $('#primer_nombre_profecional').prop('disabled', true);
+                    $('#segundo_nombre_profecional').prop('disabled', true);
+                    $('#primer_apellido_profecional').prop('disabled', true);
+                    $('#segundo_apellido_profecional').prop('disabled', true);
+                    $('#universidad').prop('disabled', true);
+                    $('#especialidad').prop('disabled', true);
+                    button_save.prop('disabled', true);
+                }
+
+                $('#img-foto_profecional').attr('src', '#');
+                formulario[0].reset();
+
+                //Respuesta
+                mensaje_success('#mensajes-profesionales', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                button_save.prop('disabled', false);
+
+                //Respuesta
+                var response = event.responseJSON;
+
+                /* Deshabilitar formulario cuando llegue al maximo de items */
+                if (response.max_items > 0) {
+                    $('#foto_profecional').prop('disabled', true);
+                    $('#primer_nombre_profecional').prop('disabled', true);
+                    $('#segundo_nombre_profecional').prop('disabled', true);
+                    $('#primer_apellido_profecional').prop('disabled', true);
+                    $('#segundo_apellido_profecional').prop('disabled', true);
+                    $('#universidad').prop('disabled', true);
+                    $('#especialidad').prop('disabled', true);
+                    button_save.prop('disabled', true);
+                    $('#img-foto_profecional').attr('scr', '#');
+                    formulario[0].reset();
+                }
+
+                if (event.status === 422){
+                    mensaje_error('#mensajes-profesionales', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-profesionales', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
 });

@@ -190,7 +190,7 @@ Route::middleware(['auth', 'roles'])->group(function () {
     Route::get('/FormularioInstituciondelete7/{id_convenio}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete7'])->name('entidad.delete7');
     /*-----formulario parte 8----*/
     Route::post('/FormularioInstitucionSave8',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create8'])->name('entidad.create8');
-    Route::get('/FormularioInstituciondelete8/{id_profesional_inst}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete8'])->name('entidad.delete8');
+    Route::get('/FormularioInstituciondelete8/{id_profesional}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete8'])->name('entidad.delete8');
     /*-----formulario parte 9----*/
     Route::post('/FormularioInstitucionSave9',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create9'])->name('entidad.create9');
     Route::get('/FormularioInstituciondelete9/{id_certificacion}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete9'])->name('entidad.delete9');
