@@ -14,4 +14,6 @@ class serviciosinstituciones extends Model
         'DescripcioServicios',
         'sucursalservicio'
     ];
+
+    protected $primaryKey = 'id_servicio';
 }

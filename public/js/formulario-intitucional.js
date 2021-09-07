@@ -22,6 +22,8 @@ function mensaje_success(id, mensaje) {
 }
 
 function id_invalid(ids, status){
+    console.log(ids);
+    console.log(status);
     if (status === 422) {
         $.each(ids, function (index, element) {
             $('#' + element).addClass('is-invalid');
@@ -53,7 +55,6 @@ $('#pais').change(function(){
         $("#departamento").empty();
     }
 });
-
 
 $('#departamento').on('change',function(){
     var id_departamento = $(this).val();
@@ -187,7 +188,7 @@ $('#form-basico-institucional').validate({
                 }
 
                 //Si es validación por formulario
-                id_invalid(response.error.ids, event.status);
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
             }
         });
     }
@@ -288,7 +289,7 @@ $('#form-contacto-institucional').validate({
                 }
 
                 //Si es validación por formulario
-                id_invalid(response.error.ids, event.status);
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
             }
         });
     }
@@ -353,7 +354,153 @@ $('#form-descripcion-institucion').validate({
                 }
 
                 //Si es validación por formulario
-                id_invalid(response.error.ids, event.status);
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
+});
+//Formulario 4
+//Agregar nueva sede
+var count_sedes = 0;
+$('#btn-agregar-servicio-institucion').click(function () {
+    count_sedes++;
+    $('#sedes-servicios-institucion').append('<div class="input-group mb-3">\n' +
+        '<input type="text" class="form-control input_servicios_institucion" placeholder="Nombre de la sede" id="sucursal_servicio-' + count_sedes + '" name="sucursal_servicio[' + count_sedes + ']">\n' +
+        '<div class="input-group-append">\n' +
+        '<button class="btn btn-outline-primary btn-eliminar-servicio-institucion" type="button"><i class="fas fa-trash"></i></button>\n' +
+        '</div>\n' +
+        '</div>');
+});
+//Eliminar sede nueva
+$('#sedes-servicios-institucion').on('click', '.btn-eliminar-servicio-institucion', function () {
+    var button = $(this);
+    button.parent().parent().remove();
+});
+//Guardar servicio
+$('#form-servicios-institucion').validate({
+    ules: {
+        'titulo_servicio': {
+            required: true,
+        },
+        'descripcion_servicio': {
+            required: true,
+        },
+        'sucursal_servicio[]': {
+            required: true,
+        }
+    },
+    messages: {
+        'titulo_servicio':{
+            required: "Por favor ingrese el celular de la institución",
+        },
+        'descripcion_servicio':{
+            required: "Por favor ingrese el teléfono de la institución",
+        },
+        'sucursal_servicio[]':{
+            required: "Por favor ingrese las sedes donde prestan el servicio",
+        }
+    },
+    submitHandler: function(form) {
+        //Elementos
+        $('#btn-guardar-servicio-institucion').attr('disabled', 'disabled');
+        var formulario = $(form);
+        //console.log(formulario.attr('action'));
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                $('#btn-guardar-servicio-institucion').removeAttr('disabled');
+
+                /* agregar ficha */
+                //Traer la lista
+                var lista = '';
+                $('.input_servicios_institucion').each(function () {
+                    lista += '<li>' + $(this).val() + '</li>';
+                });
+                $('#lista-servicios-institucion').append('<div class="savedData_formInst">\n' +
+                    '<div class="col-12 content_cierreX-formInst">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="option_consulta-formProf">\n' +
+                    '<label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Título del servicio </label>\n' +
+                    '<label class="col-12 text_infoGuardada-formProf">' + $('#titulo_servicio').val() + '</label>\n' +
+                    '</div>\n' +
+                    '<div class="option_consulta-formProf">\n' +
+                    '<label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Descrpción </label>\n' +
+                    '<label class="col-12 text_infoGuardada-formProf">' + $('#descripcion_servicio').val() + '</label>\n' +
+                    '</div>\n' +
+                    '<div class="option_consulta-formProf">\n' +
+                    '<label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Sedes en la que está el servicio </label>\n' +
+                    '<ul>' + lista + '</ul>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                /* Deshabilitar formulario cuando llegue al maximo de items */
+                if (response.max_items > 0) {
+                    $('#titulo_servicio').prop('disabled', true);
+                    $('#descripcion_servicio').prop('disabled', true);
+                    $('#sucursal_servicio-0').prop('disabled', true);
+                    $('#btn-agregar-servicio-institucion').prop('disabled', true);
+                }
+
+                //limpiar formulario
+                $('#sedes-servicios-institucion').children().each(function (index, elemte) {
+                    if (index >= 2) $(this).remove();
+                });
+                formulario[0].reset();
+
+
+                //Respuesta
+                mensaje_success('#mensajes-servicios', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                $('#btn-guardar-servicio-institucion').removeAttr('disabled');
+
+                //Respuesta
+                var response = event.responseJSON;
+                if (event.status === 422){
+                    mensaje_error('#mensajes-servicios', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-servicios', response.mensaje)
+                }
+
+                /* Deshabilitar formulario cuando llegue al maximo de items */
+                if (response.max_items > 0) {
+                    $('#titulo_servicio').prop('disabled', true);
+                    $('#descripcion_servicio').prop('disabled', true);
+                    $('#sucursal_servicio-0').prop('disabled', true);
+                    $('#btn-agregar-servicio-institucion').prop('disabled', true);
+                    //limpiar formulario
+                    $('#sedes-servicios-institucion').children().each(function (index, elemte) {
+                        if (index >= 2) $(this).remove();
+                    });
+                    formulario[0].reset();
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
             }
         });
     }

@@ -562,38 +562,59 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 4----------------------*/
     public function create4(Request $request){
 
-        foreach ($request->input('tituloServicios', []) as $i => $tituloServicios) {
-            if(!empty($request->input('tituloServicios')[$i])){
-                $request->validate([
-                    'tituloServicios.' . $i => ['required'],
-                    'DescripcioServicios.' . $i => ['required'],
-                    'sucursalservicio.' . $i => ['required'],
-                ]);
-            }
+        $validation = Validator::make($request->all(), [
+            'titulo_servicio'       => ['required'],
+            'descripcion_servicio'  => ['required', 'max:270'],
+            'sucursal_servicio.*'     => ['required'],
+        ], [], [
+            'titulo_servicio'       => 'Titulo del servicio',
+            'descripcion_servicio'  => 'Descripción del servicio',
+            'sucursal_servicio.*'     => 'Sedes en la que está el servicio',
+        ]);
+
+        if ($validation->fails()) {
+            $men = $validation->errors()->all();
+            $error = array_keys($validation->errors()->messages());
+
+            foreach ($error as $k => $e) $error[$k] = str_replace('.', '-', $e);
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
-        $verificaPerfil = $this->verificaPerfil();
+        /*id usuario logueado*/
+        $id_user = auth()->user()->id;
+        /*id de la institucion*/
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
+        //Validar si se llego al maximo de items
+        $servicios = serviciosinstituciones::where('id', '=', $institucion->id)->count();
+        if ($servicios >= 6){
+            return response()->json([
+                'max_items' => true,
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_NOT_FOUND);
         }
 
+        //Agregar campos
+        $servicio = new serviciosinstituciones();
 
-        foreach ($request->input('tituloServicios', []) as $i => $tituloServicios) {
+        //guardar la información del servicio
+        $servicio->tituloServicios      = $request->titulo_servicio;
+        $servicio->DescripcioServicios  = $request->descripcion_servicio;
+        $servicio->sucursalservicio     = implode(', ', $request->sucursal_servicio);
+        $servicio->id                   = $institucion->id;
 
-            if(!empty($request->input('tituloServicios')[$i])){
-                serviciosinstituciones::create([
-                    'id' => $idInstitucion,
-                    'tituloServicios' => $request->input('tituloServicios.'.$i),
-                    'DescripcioServicios' => $request->input('DescripcioServicios.'.$i),
-                    'sucursalservicio' => $request->input('sucursalservicio.'.$i),
-                ]);
-            }
-        }
+        //guardar contacto
+        $servicio->save();
 
-        return redirect('FormularioInstitucion');
-
+        return response([
+            'mensaje'   => 'Se guardo correctamente la información',
+            'url'       => route('entidad.delete4', ['id_servicio' => $servicio->id_servicio]),
+            'max_items' => $servicios >= 5 // se resta 1 por el nuevo creado
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 4----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 4----------------------*/
