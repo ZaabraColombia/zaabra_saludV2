@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\entidades;
 use App\Http\Controllers\Controller;
+use App\Models\Convenios;
 use App\Models\destacados;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -57,15 +58,16 @@ class formularioInstitucionController extends Controller{
         $objFormulario      = $objFormulario[0];
         $objuser            = $this->cargaDatosUser($id_user);
         $objuser            = $objuser[0];
+        $objConvenios       = Convenios::where('id_institucion', '=', $ins->id)
+            ->select('convenios.id', 'convenios.url_image', 'nombretipo as nombre_tipo_convenio')
+            ->join('tipoinstituciones', 'tipoinstituciones.id', '=', 'convenios.id_tipo_convenio')
+            ->get();
+        $objTipoConvenios   = tipoinstituciones::all();
 
         $objServicio=$this->cargaServicios($id_user);
         $objContadorServicio=$this->contadorServicios($id_user);
-        $objIps=$this->cargaIps($id_user);
-        $objContadorIps=$this->contadorIps($id_user);
-        $objEps=$this->cargaEps($id_user);
-        $objContadorEps=$this->contadorEps($id_user);
-        $objPrepa=$this->cargaPrepa($id_user);
-        $objContadorPrepa=$this->contadorPrepa($id_user);
+
+
         $objProfeInsti=$this->cargaProfeInsti($id_user);
         $objContadorProfeInsti=$this->contadorProfeInsti($id_user);
         $objCertificaciones=$this->cargaCertificaciones($id_user);
@@ -110,12 +112,8 @@ class formularioInstitucionController extends Controller{
             'objFormulario',
             'objServicio',
             'objContadorServicio',
-            'objPrepa',
-            'objContadorPrepa',
-            'objIps',
-            'objContadorIps',
-            'objEps',
-            'objContadorEps',
+            'objConvenios',
+            'objTipoConvenios',
             'objProfeInsti',
             'objContadorProfeInsti',
             'objCertificaciones',
@@ -738,59 +736,60 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 7----------------------*/
     public function create7(Request $request){
 
-        /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
-        $verificaPerfil = $this->verificaPerfil();
+        $validation = Validator::make($request->all(), [
+            'tipo_convenio' => ['required', 'exists:tipoinstituciones,id'],
+            'logo_convenio' => ['required', 'image']
+        ], [], [
+            'tipo_convenio' => 'Tipo de convenio',
+            'logo_convenio' => 'Logo del convenio'
+        ]);
 
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
+        if ($validation->fails()) {
+            $men = $validation->errors()->all();
+            $error = array_keys($validation->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
         /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        $id_user = auth()->user()->id;
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
-        unset($request['_token']);
-        $carpetaDestino = "img/instituciones/$id_user";
-
-        if ($request->hasFile('urlimagenEps')) {
-            $imagenes = $request->file('urlimagenEps');
-            foreach ($imagenes as $imageneps) {
-                $nombreFoto = $imageneps->getClientOriginalName();
-                $imageneps->move($carpetaDestino , $nombreFoto);
-                $nombreFotoCompletaeps="img/instituciones/$id_user/$nombreFoto";
-                eps::create([
-                    'id_institucion' => $idInstitucion,
-                    'urlimagen'  => $nombreFotoCompletaeps
-                ]);
-            }
+        //Validar si se llego al maximo de items
+        $convenios = Convenios::where('id_institucion', '=', $institucion->id)->count();
+        if ($convenios >= 9){
+            return response()->json([
+                'max_items' => true,
+                'mensaje' => 'No puede agregar mas convenios'
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        if ($request->hasFile('urlimagenIps')) {
-            $imagenes = $request->file('urlimagenIps');
-            foreach ($imagenes as $imagenips) {
-                $nombreFoto = $imagenips->getClientOriginalName();
-                $imagenips->move($carpetaDestino , $nombreFoto);
-                $nombreFotoCompletaips="img/instituciones/$id_user/$nombreFoto";
-                ips::create([
-                    'id_institucion' => $idInstitucion,
-                    'urlimagen'  => $nombreFotoCompletaips
-                ]);
-            }
-        }
+        //Crear el convenio
+        $convenio = new Convenios();
+        $convenio->id_tipo_convenio = $request->tipo_convenio;
+        $convenio->id_institucion   = $institucion->id;
 
-        if ($request->hasFile('urlimagenPre')) {
-            $imagenes = $request->file('urlimagenPre');
-            foreach ($imagenes as $imagenpre) {
-                $nombreFoto = $imagenpre->getClientOriginalName();
-                $imagenpre->move($carpetaDestino , $nombreFoto);
-                $nombreFotoCompletaprepa="img/instituciones/$id_user/$nombreFoto";
-                prepagadas::create([
-                    'id_institucion' => $idInstitucion,
-                    'urlimagen'  => $nombreFotoCompletaprepa
-                ]);
-            }
-        }
+        $logo = $request->file('logo_convenio');
+        $nombre_logo = 'convenio-' . time() . '.' . $logo->guessExtension();
 
-        return redirect('FormularioInstitucion');
+        /*guarda la imagen en carpeta con el id del usuario*/
+        $logo->move("img/instituciones/$id_user", $nombre_logo);
+
+        //capturar la fotp
+        $convenio->url_image = "img/instituciones/$id_user/" . $nombre_logo;
+
+        //guardar basico
+        $convenio->save();
+
+        return response([
+            'mensaje'   => 'Se guardo correctamente la información',
+            'url'       => route('entidad.delete7', ['id_convenio' => $convenio->id]),
+            'image'     => asset($convenio->url_image),
+            'max_items' => $convenios >= 8 // Se le resta 1 porque se agregó 1
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 7----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 7 donde se unifica eps ips y prepagada----------------------*/

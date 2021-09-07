@@ -680,3 +680,106 @@ $('#form-propuesta-valor-institucion').validate({
         });
     }
 });
+//Formulario 7
+$('#form-convenios-institucion').validate({
+    rules: {
+        'tipo_convenio': {
+            required: true,
+        },
+        'logo_convenio': {
+            required: true,
+        }
+    },
+    messages: {
+        'tipo_convenio':{
+            required: "Por favor ingrese el tipo de convenio",
+        },
+        'logo_convenio':{
+            required: "Por favor ingrese el logo del convenio",
+        }
+    },
+    submitHandler: function(form) {
+        //Elementos
+        var button_save = $('#btn-guardar-convenios-institucion');
+        button_save.prop('disabled', true);
+        var formulario = $(form);
+        //console.log(formulario.attr('action'));
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                button_save.prop('disabled', false);
+
+                //Agrgar tarjeta del convenio
+                $('#lista-convenios').append('<div class="col-md-6 col-sm-6">\n' +
+                    '<div class="col-12 content_btnX-cierre-formProf my-2">\n' +
+                    '<label for="example-date-input" class="text_saved-formInst pb-0"> Convenio ' + $('#tipo_convenio option:selected').text() + '</label>\n' +
+                    '<button type="button" class="close" aria-label="Close" data-url="' + response.url + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '</div>\n' +
+                    '<div class="option_asociacion-formProf">\n' +
+                    '<img class="img_guardada-formProf" id="imagenPrevisualizacion" src="' + response.image + '">\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                /* Deshabilitar formulario cuando llegue al maximo de items */
+                if (response.max_items > 0) {
+                    $('#tipo_convenio').prop('disabled', true);
+                    $('#logo_convenio').prop('disabled', true);
+                    button_save.prop('disabled', true);
+                }
+
+                $('#img-logo_convenio').attr('src', '#');
+                formulario[0].reset();
+
+                //Respuesta
+                mensaje_success('#mensajes-convenios', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                button_save.prop('disabled', false);
+
+                //Respuesta
+                var response = event.responseJSON;
+
+                /* Deshabilitar formulario cuando llegue al maximo de items */
+                if (response.max_items > 0) {
+                    $('#tipo_convenio').prop('disabled', true);
+                    $('#logo_convenio').prop('disabled', true);
+                    button_save.prop('disabled', true);
+                    $('#img-logo_convenio').attr('scr', '#');
+                    formulario[0].reset();
+                }
+
+                if (event.status === 422){
+                    mensaje_error('#mensajes-convenios', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-convenios', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
+});

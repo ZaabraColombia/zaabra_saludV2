@@ -382,395 +382,56 @@
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_convenios-formInst"> Convenios </h5>
 
-            <div class="asociacion_guardada-formProf">
-                @foreach($objEps as $objEps)
-                    @if(!empty($objEps->urlimagen))
-                        <div class="section_infoAsocia-formInst">
+            <div class="row p-5" id="lista-convenios">
+                <?php $count_convenios = 0;?>
+
+                @foreach($objConvenios as $convenio)
+                    @if(!empty($convenio->url_image))
+                            <?php $count_convenios++;?>
+                        <div class="col-md-3 col-sm-6">
                             <div class="col-12 content_btnX-cierre-formProf my-2">
-                                <label for="example-date-input" class="text_saved-formInst pb-0"> Convenio EPS </label>
-
-                                <a href="{{url('/FormularioInstituciondelete5/'.$objEps->id)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <label for="example-date-input" class="text_saved-formInst pb-0"> Convenio {{ $convenio->nombre_tipo_convenio }} </label>
+                                <button type="button" class="close" aria-label="Close" data-url="{{ route('entidad.delete7', ['id_convenio' => $convenio->id]) }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-
-
-
                             <div class="option_asociacion-formProf">
-                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objEps->urlimagen)}}">
+                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{ asset($convenio->url_image) }}">
                             </div>
                         </div>
                     @endif
                 @endforeach
             </div>
 
-            <div class="asociacion_guardada-formProf">
-                @foreach($objIps as $objIps)
-                    @if(!empty($objIps->urlimagen))
-                        <div class="section_infoAsocia-formInst">
-                            <div class="col-12 content_btnX-cierre-formProf my-2">
-                                <label for="example-date-input" class="text_saved-formInst pb-0"> Convenio IPS </label>
-
-                                <a href="{{url('/FormularioInstituciondelete6/'.$objIps->id)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
-                            </div>
-
-                            <div class="option_asociacion-formProf">
-                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objIps->urlimagen)}}">
-                            </div>
+            <form method="POST" action="{{ route('entidad.create7') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-convenios-institucion">
+                @csrf
+                <div class="row justify-content-center">
+                    <div class="col-md-6 content_agregarImg-formInst form-group">
+                        <div id="mensajes-convenios"></div>
+                        <div class="form-group">
+                            <label for="tipo_convenio">Tipo convenio</label>
+                            <select name="tipo_convenio" id="tipo_convenio" class="form-control" {{ ($count_convenios >= 9) ? 'disabled' : '' }}>
+                                <option></option>
+                                @foreach($objTipoConvenios as $item)
+                                    <option value="{{ $item->id }}">{{ $item->nombretipo }}</option>
+                                @endforeach
+                            </select>
                         </div>
-                    @endif
-                @endforeach
-            </div>
-
-            <div class="asociacion_guardada-formProf">
-                @foreach($objPrepa as $objPrepa)
-                    @if(!empty($objPrepa->urlimagen))
-                        <div class="section_infoAsocia-formInst">
-                            <div class="col-12 content_btnX-cierre-formProf my-2">
-                                <label for="example-date-input" class="text_saved-formInst pb-0"> Convenio medicina prepagada </label>
-
-                                <a href="{{url('/FormularioInstituciondelete7/'.$objPrepa->id_prepagada)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
-                            </div>
-
-                            <div class="option_asociacion-formProf">
-                                <img class="img_guardada-formProf" id="imagenPrevisualizacion" src="{{URL::asset($objPrepa->urlimagen)}}">
-                            </div>
+                        <div class="img_selccionada-formProf">
+                            <img class="img_anexada-formProf" id="img-logo_convenio"/>
                         </div>
-                    @endif
-                @endforeach
-            </div>
-
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave7') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                <div class="row col-12 row_convenio-form">
-                    <!-- **************************************************************** FORMULARIO EPS ************************************************************** -->
-                    @if($objContadorEps->cantidad == 0)
-                        <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview2"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage2" name="urlimagenEps[]" onchange="previewImage(2);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview3"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage3" name="urlimagenEps[]" onchange="previewImage(3);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview4"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="logo_convenio" name="logo_convenio" onchange="ver_imagen('logo_convenio', 'img-logo_convenio');" {{ ($count_convenios >= 9) ? 'disabled' : '' }}/>
                         </div>
 
-                    @elseif($objContadorEps->cantidad == 1)
-                        <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview3"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage3" name="urlimagenEps[]" onchange="previewImage(3);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview4"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
+                        <div class="txt_informativo-formInst">
+                            <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
                         </div>
-                    @elseif($objContadorEps->cantidad == 2)
-                        <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las EPS. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview4"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage4" name="urlimagenEps[]" onchange="previewImage(4);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    @elseif($objContadorEps->cantidad == 3)
-                        <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más convenios de EPS </label>
-                    @endif
-
-                <!-- **************************************************************** FORMULARIO IPS ************************************************************** -->
-                    @if($objContadorIps->cantidad == 0)
-                        <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview6"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage6" name="urlimagenIps[]" onchange="previewImage(6);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview7"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage7" name="urlimagenIps[]" onchange="previewImage(7);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview8"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    @elseif($objContadorIps->cantidad == 1)
-                        <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview7"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage7" name="urlimagenIps[]" onchange="previewImage(7);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview8"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    @elseif($objContadorIps->cantidad == 2)
-                        <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con las IPS. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview8"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage8" name="urlimagenIps[]" onchange="previewImage(8);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    @elseif($objContadorIps->cantidad == 3)
-                        <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más convenios de IPS </label>
-                    @endif
-
-                <!-- **************************************************************** FORMULARIO PREPAGADA ************************************************************** -->
-                    @if($objContadorPrepa->cantidad == 0)
-                        <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview10"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage10" name="urlimagenPre[]" onchange="previewImage(10);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview11"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage11" name="urlimagenPre[]" onchange="previewImage(11);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    @elseif($objContadorPrepa->cantidad == 1)
-                        <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview11"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage11" name="urlimagenPre[]" onchange="previewImage(11);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    @elseif($objContadorPrepa->cantidad == 2)
-                        <div class="row col-12 p-0 m-0">
-                            <p for="example-date-input" class="text_superior-proced-formInst"> Suba imágenes con respecto a los convenios que tengan con medicina prepagada. </p>
-
-                            <div class="col-md-4 content_agregarImg-formInst form-group">
-                                <div class="img_selccionada-formProf">
-                                    <img class="img_anexada-formProf" id="uploadPreview12"/>
-                                </div>
-
-                                <div class="agregar_archivo-formProf">
-                                    <input type='file' id="uploadImage12" name="urlimagenPre[]" onchange="previewImage(12);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="text_infoConvenio-formInst"> Tamaño 120px x 60px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    @elseif($objContadorPrepa->cantidad == 3)
-                        <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más convenios de medicina prepagada </label>
-                    @endif
-
+                    </div>
                 </div>
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst mt-0 mt-md-3"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <button type="submit" class="btn2_enviar-formInst mt-0 mt-md-3" id="btn-guardar-convenios-institucion" {{ ($count_convenios >= 9) ? 'disabled' : '' }}> Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
