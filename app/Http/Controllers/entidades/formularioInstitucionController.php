@@ -862,81 +862,32 @@ class formularioInstitucionController extends Controller{
             ], Response::HTTP_NOT_FOUND);
         }
 
-        //Crear el convenio
+        //Crear el profesional
         $profesional = new profesionales_instituciones();
-        $profesional->id_tipo_convenio = $request->tipo_convenio;
-        $profesional->id_institucion   = $institucion->id;
-        $profesional->id_institucion   = $institucion->id;
-        $profesional->id_institucion   = $institucion->id;
+        $profesional->primer_nombre     = $request->primer_nombre_profecional;
+        $profesional->segundo_nombre    = $request->segundo_nombre_profecional;
+        $profesional->primer_apellido   = $request->primer_apellido_profecional;
+        $profesional->segundo_apellido  = $request->segundo_apellido_profecional;
+        $profesional->id_institucion    = $institucion->id;
 
-        $logo = $request->file('logo_convenio');
-        $nombre_logo = 'convenio-' . time() . '.' . $logo->guessExtension();
+        $foto = $request->file('foto_profecional');
+        $nombre_foto = 'profesional-' . time() . '.' . $foto->guessExtension();
 
         /*guarda la imagen en carpeta con el id del usuario*/
-        $logo->move("img/instituciones/$id_user", $nombre_logo);
+        $foto->move("img/instituciones/$id_user", $nombre_foto);
 
         //capturar la fotp
-        $convenio->url_image = "img/instituciones/$id_user/" . $nombre_logo;
+        $profesional->foto_perfil_institucion = "img/instituciones/$id_user/" . $nombre_foto;
 
-        //guardar basico
-        $convenio->save();
+        //guardar profesional
+        $profesional->save();
 
         return response([
             'mensaje'   => 'Se guardo correctamente la información',
-            'url'       => route('entidad.delete7', ['id_convenio' => $convenio->id]),
-            'image'     => asset($convenio->url_image),
+            'url'       => route('entidad.delete8', ['id_profesional' => $profesional->id_profesional_inst]),
+            'image'     => asset($profesional->foto_perfil_institucion),
             'max_items' => $profesionales >= 2 // Se le resta 1 porque se agregó 1
         ], Response::HTTP_OK);
-
-        foreach ($request->input('primer_nombre', []) as $i => $tituloServicios) {
-            if(!empty($request->input('primer_nombre')[$i])){
-                $request->validate([
-                    'foto_perfil_institucion.' . $i => ['required', 'image'],
-                    'primer_nombre.' . $i => ['required'],
-                    'segundo_nombre.' . $i => ['required'],
-                    'primer_apellido.' . $i => ['required'],
-                    'segundo_apellido.' . $i => ['required'],
-                    'especialidad_uno.' . $i => ['required'],
-                    'especialidad_dos.' . $i => ['required'],
-                ]);
-            }
-        }
-
-
-        /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
-        $verificaPerfil = $this->verificaPerfil();
-
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
-        }
-
-        /*id usuario logueado*/
-        $id_user=auth()->user()->id;
-
-        unset($request['_token']);
-
-        $carpetaDestino = "img/instituciones/$id_user";
-        $foto_perfil_institucion = $request->file('foto_perfil_institucion');
-
-
-        for ($i=0; $i < count(request('foto_perfil_institucion')); ++$i){
-            if(!empty($request->input('primer_nombre')[$i])){
-                profesionales_instituciones::create([
-                    'id_institucion' => $idInstitucion,
-                    'primer_nombre' =>  $request->input('primer_nombre')[$i],
-                    'segundo_nombre' => $request->input('segundo_nombre')[$i],
-                    'primer_apellido' => $request->input('primer_apellido')[$i],
-                    'segundo_apellido' =>$request->input('segundo_apellido')[$i],
-                    'especialidad_uno' => $request->input('especialidad_uno')[$i],
-                    'especialidad_dos' => $request->input('especialidad_dos')[$i],
-                    'foto_perfil_institucion' =>"img/instituciones/$id_user/".$foto_perfil_institucion[$i]->getClientOriginalName(),
-                ]);
-                $foto_perfil_institucion[$i]->move($carpetaDestino , $foto_perfil_institucion[$i]->getClientOriginalName());
-            }
-        }
-
-
-        return redirect('FormularioInstitucion');
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 8----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario 8 ----------------------*/
