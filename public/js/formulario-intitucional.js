@@ -1240,5 +1240,202 @@ $('#lista-certificaciones-institucion').on('click', '.close' , function (e) {
             mensaje_error('#mensajes-certificaciones', response.mensaje);
         }
     });
+});
+//Formulario 10
+//Agregar sede
+$('#form-sedes-institucion').validate({
+    rules: {
+        'img_sede': {
+            required: true,
+        },
+        'nombre_sede': {
+            required: true,
+        },
+        'direccion_sede': {
+            required: true,
+        },
+        'horario_sede': {
+            required: true,
+        },
+        'telefono_sede': {
+            required: true,
+        },
+        'url_mapa_sede': {
+            required: true,
+        }
+    },
+    messages: {
+        'img_sede':{
+            required: "Por favor ingrese la imagen de la sede",
+        },
+        'nombre_sede':{
+            required: "Por favor ingrese el nombre de la sede",
+        },
+        'direccion_sede':{
+            required: "Por favor ingrese la dirección de la sede",
+        },
+        'horario_sede':{
+            required: "Por favor ingrese el horario de la sede",
+        },
+        'telefono_sede':{
+            required: "Por favor ingrese el teléfono de la sede",
+        },
+        'url_mapa_sede':{
+            required: "Por favor ingrese la url de la ubicación de la sede",
+        }
+    },
+    submitHandler: function(form) {
+        //Elementos
+        var button_save = $('#btn-guardar-sede-institucion');
+        button_save.prop('disabled', true);
+        var formulario = $(form);
 
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                button_save.prop('disabled', false);
+
+                //Agrgar tarjeta del convenio
+                $('#lista-sedes-institucion').append('<div class="savedData_formInst">\n' +
+                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 mt-2 p-0">\n' +
+                    '<div class="img_saveSede-formInst">\n' +
+                    '<img class="img_anexada-formInst" src="' + response.image + '">\n' +
+                    '</div>\n' +
+                    '<div class="col-12 text_label-formInst">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf">' + $('#nombre_sede').val() + '</label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 texto_saved-formInst">\n' +
+                    '<label class="col-12 text_descPremio-formProf">' + $('#direccion_sede').val() + '</label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 texto_saved-formInst">\n' +
+                    '<label class="col-12 text_descPremio-formProf">' + $('#horario_sede').val() + '</label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 texto_saved-formInst">\n' +
+                    '<label class="col-12 text_descPremio-formProf">' + $('#telefono_sede').val() + '</label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 texto_saved-formInst">\n' +
+                    '<label class="col-12 text_descPremio-formProf">' + $('#url_mapa_sede').val() + '</label>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                /* Deshabilitar formulario cuando llegue al maximo de items */
+                if (response.max_items > 0) {
+                    $('#img_sede').prop('disabled', true);
+                    $('#nombre_sede').prop('disabled', true);
+                    $('#direccion_sede').prop('disabled', true);
+                    $('#horario_sede').prop('disabled', true);
+                    $('#telefono_sede').prop('disabled', true);
+                    $('#url_mapa_sede').prop('disabled', true);
+                    button_save.prop('disabled', true);
+                }
+
+                $('#img-img_sede').attr('src', '#');
+                formulario[0].reset();
+
+                //Respuesta
+                mensaje_success('#mensajes-sedes', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                button_save.prop('disabled', false);
+
+                //Respuesta
+                var response = event.responseJSON;
+
+                /* Deshabilitar formulario cuando llegue al maximo de items */
+                if (response.max_items > 0) {
+                    $('#img_sede').prop('disabled', true);
+                    $('#nombre_sede').prop('disabled', true);
+                    $('#direccion_sede').prop('disabled', true);
+                    $('#horario_sede').prop('disabled', true);
+                    $('#telefono_sede').prop('disabled', true);
+                    $('#url_mapa_sede').prop('disabled', true);
+                    button_save.prop('disabled', true);
+                    $('#img-img_sede').attr('scr', '#');
+                    formulario[0].reset();
+                }
+
+                if (event.status === 422){
+                    mensaje_error('#mensajes-sedes', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-sedes', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
+});
+//Eliminar sede
+$('#lista-sedes-institucion').on('click', '.close' , function (e) {
+    var button = $(this);
+    var url = $(this).data('url');
+
+    // Pace.start();
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  url,
+        type: "get",
+        dataType: 'json',
+        success: function( response ) {
+            //Finaliza la carga
+            // Pace.stop();
+            $('.form-control').removeClass('is-invalid');
+
+            mensaje_success('#mensajes-sedes', response.mensaje);
+
+            //quitar el disabled
+            $('#img_sede').prop('disabled', false);
+            $('#nombre_sede').prop('disabled', false);
+            $('#direccion_sede').prop('disabled', false);
+            $('#horario_sede').prop('disabled', false);
+            $('#telefono_sede').prop('disabled', false);
+            $('#url_mapa_sede').prop('disabled', false);
+            $('#btn-guardar-sede-institucion').prop('disabled', false);
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            // Pace.stop();
+            $('.form-control').removeClass('is-invalid');
+            var response = event.responseJSON;
+
+            mensaje_error('#mensajes-sedes', response.mensaje);
+        }
+    });
 });

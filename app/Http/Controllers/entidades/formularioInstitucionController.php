@@ -78,14 +78,15 @@ class formularioInstitucionController extends Controller{
             ->leftjoin('universidades', 'universidades.id_universidad', '=', 'profesionales_instituciones.id_universidad')
             ->get();
 
-        $objServicio=$this->cargaServicios($id_user);
+        $objServicio        = $this->cargaServicios($id_user);
+        $objCertificaciones = $this->cargaCertificaciones($id_user);
+        $objSedes           = $this->cargaSedes($id_user);
+
+
+
+
         $objContadorServicio=$this->contadorServicios($id_user);
-
-
-
-        $objCertificaciones=$this->cargaCertificaciones($id_user);
         $objContadorCertificaciones=$this->contadorCertificaciones($id_user);
-        $objSedes=$this->cargaSedes($id_user);
         $objContadorSedes=$this->contadorSedes($id_user);
         $objGaleria=$this->cargaGaleria($id_user);
         $objContadorGaleria=$this->contadorGaleria($id_user);
@@ -312,7 +313,7 @@ class formularioInstitucionController extends Controller{
     }
 
     public function  cargaSedes($id_user){
-        return DB::select("SELECT si.id,si.imgsede,si.nombre,si.direccion,si.horario_sede,si.telefono
+        return DB::select("SELECT si.id,si.imgsede,si.nombre,si.direccion,si.horario_sede,si.telefono, si.url_map
     FROM instituciones ins
     INNER JOIN users us   ON ins.idUser=us.id
     LEFT JOIN  sedesinstituciones si ON ins.id= si.idInstitucion
@@ -1041,66 +1042,105 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 10----------------------*/
     public function create10(Request $request){
 
-        foreach ($request->input('nombre', []) as $i => $tituloServicios) {
-            if(!empty($request->input('nombre')[$i])){
-                $request->validate([
-                    'imgsede.' . $i => ['required', 'image'],
-                    'nombre.' . $i => ['required'],
-                    'direccion.' . $i => ['required'],
-                    'horario_sede.' . $i => ['required'],
-                    'telefono.' . $i => ['required']
-                ]);
-            }
+        $validation = Validator::make($request->all(), [
+            'img_sede'     => ['required', 'image'],
+            'nombre_sede'   => ['required'],
+            'direccion_sede'=> ['required'],
+            'horario_sede'  => ['required'],
+            'telefono_sede' => ['required', 'integer', 'min:7'],
+            'url_mapa_sede' => ['required', 'url']
+        ], [], [
+            'img_sede'     => 'Foto de la sede',
+            'nombre_sede'   => 'Nombre de la sede',
+            'direccion_sede'=> 'Dirección de la sede',
+            'horario_sede'  => 'Horario de la sede',
+            'telefono_sede' => 'Teléfono de la sede',
+            'url_mapa_sede' => 'Url de la ubicación de la sede'
+        ]);
+
+        if ($validation->fails()) {
+            $men = $validation->errors()->all();
+            $error = array_keys($validation->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
-        $verificaPerfil = $this->verificaPerfil();
 
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
-        }
 
-        unset($request['_token']);
         /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        $id_user = auth()->user()->id;
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
-        $carpetaDestino = "img/instituciones/$id_user";
-        $imgsede = $request->file('imgsede');
-
-        for ($i=0; $i < count(request('nombre')); ++$i){
-
-            if(!empty($request->input('nombre')[$i])){
-                sedesinstituciones::create([
-                    'idInstitucion' => $idInstitucion,
-                    'imgsede' =>"img/instituciones/$id_user/".$imgsede[$i]->getClientOriginalName(),
-                    'nombre' => $request->input('nombre')[$i],
-                    'direccion' => $request->input('direccion')[$i],
-                    'horario_sede' => $request->input('horario_sede')[$i],
-                    'telefono' => $request->input('telefono')[$i],
-                ]);
-                $imgsede[$i]->move($carpetaDestino , $imgsede[$i]->getClientOriginalName());
-            }
+        //Validar si se llego al maximo de items
+        $sedes = sedesinstituciones::where('idInstitucion', '=', $institucion->id)->count();
+        if ($sedes >= 6){
+            return response()->json([
+                'max_items' => true,
+                'mensaje' => 'No puede agregar mas convenios'
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        return redirect('FormularioInstitucion');
+        //Crear el profesional
+        $sede   = new sedesinstituciones();
+        $sede->nombre       = $request->nombre_sede;
+        $sede->direccion    = $request->direccion_sede;
+        $sede->horario_sede = $request->horario_sede;
+        $sede->telefono     = $request->telefono_sede;
+        $sede->nombre       = $request->url_mapa_sede;
+        $sede->idInstitucion = $institucion->id;
 
+        $foto = $request->file('img_sede');
+        $nombre_foto = 'sede-' . time() . '.' . $foto->guessExtension();
+        /*guarda la imagen en carpeta con el id del usuario*/
+        $foto->move("img/instituciones/$id_user", $nombre_foto);
+
+        //capturar la fotp
+        $sede->imgsede = "img/instituciones/$id_user/" . $nombre_foto;
+
+        //guardar certificacion
+        $sede->save();
+
+        return response([
+            'mensaje'   => 'Se guardo correctamente la información',
+            'url'       => route('entidad.delete10', ['id' => $sede->id]),
+            'image'     => asset($sede->imgsede),
+            'max_items' => $sedes >= 5 // Se le resta 1 porque se agregó 1
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 10----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario 10 ----------------------*/
-    public function delete10($id){
+    public function delete10(Request $request){
 
+        /*id usuario logueado*/
+        $id_user = auth()->user()->id;
+        /*id de la institucion*/
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
-        $verificaPerfil = $this->verificaPerfil();
+        //Validar si se llego al maximo de items
+        $sede = sedesinstituciones::where('idInstitucion', '=', $institucion->id)
+            ->where('id', '=', $request->id)
+            ->select('id', 'imgsede', 'nombre')
+            ->first();
 
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
+        if (empty($sede)){
+            return response()->json([
+                'mensaje' => 'No se encontro la sede'
+            ], Response::HTTP_NOT_FOUND);
         }
 
+        $nombre = $sede->$sede;
+        $foto   = $sede->imgsede;
+        $sede->delete();
 
-        $sedesinstituciones = sedesinstituciones::where('id', $id)->where('idInstitucion', $idInstitucion);
-        $sedesinstituciones->delete();
+        //eliminar la foto
+        if (@getimagesize(public_path() . "/" . $foto)) unlink(public_path() . "/" . $foto);
 
-        return redirect('FormularioInstitucion');
+        return response([
+            'mensaje' => 'La certificación ' . $nombre . ' se elimino correctamente'
+        ], Response::HTTP_OK);
 
     }
     /*-------------------------------------Fin Eliminacion formulario parte 10----------------------*/
