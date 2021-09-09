@@ -941,49 +941,68 @@ class formularioInstitucionController extends Controller{
 
 
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 9----------------------*/
-    public function create9(Request $request){
+    public function create9(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'image_certificado' => ['required', 'image'],
+            'fecha_certificado' => ['required', 'date_format:Y-m-d'],
+            'titulo_certificado' => ['required'],
+            'descripcion_certificacion' => ['required', 'max:160']
+        ], [], [
+            'image_certificado' => 'Imagen del certificado',
+            'fecha_certificado' => 'Fecha del certificado',
+            'titulo_certificado' => 'Titulo del certificado',
+            'descripcion_certificacion' => 'Descripción del certificado'
+        ]);
 
-        foreach ($request->input('titulocertificado', []) as $i => $tituloServicios) {
-            if(!empty($request->input('titulocertificado')[$i])){
-                $request->validate([
-                    'imgcertificado.' . $i => ['required', 'image'],
-                    'titulocertificado.' . $i => ['required'],
-                    'fechacertificado.' . $i => ['required'],
-                    'descrpcioncertificado.' . $i => ['required']
-                ]);
-            }
+        if ($validation->fails()) {
+            $men = $validation->errors()->all();
+            $error = array_keys($validation->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
-
-
-        /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
-        $verificaPerfil = $this->verificaPerfil();
-
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
-        }
-        unset($request['_token']);
 
         /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        $id_user = auth()->user()->id;
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
-        $carpetaDestino = "img/instituciones/$id_user";
-        $imgcertificado = $request->file('imgcertificado');
-        for ($i=0; $i < count(request('titulocertificado')); ++$i){
-
-            if(!empty($request->input('titulocertificado')[$i])){
-                certificaciones::create([
-                    'id_institucion' => $idInstitucion,
-                    'titulocertificado' => $request->input('titulocertificado')[$i],
-                    'imgcertificado' =>"img/instituciones/$id_user/".$imgcertificado[$i]->getClientOriginalName(),
-                    'fechacertificado' => $request->input('fechacertificado')[$i],
-                    'descrpcioncertificado' => $request->input('descrpcioncertificado')[$i],
-                ]);
-                $imgcertificado[$i]->move($carpetaDestino , $imgcertificado[$i]->getClientOriginalName());
-            }
+        //Validar si se llego al maximo de items
+        $certificaciones = certificaciones::where('id_institucion', '=', $institucion->id)->count();
+        if ($certificaciones >= 4){
+            return response()->json([
+                'max_items' => true,
+                'mensaje' => 'No puede agregar mas convenios'
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        return redirect('FormularioInstitucion');
+        //Crear el profesional
+        $certificaion = new certificaciones();
+        $certificaion->fechacertificado         = $request->fecha_certificado;
+        $certificaion->titulocertificado        = $request->titulo_certificado;
+        $certificaion->descrpcioncertificado    = $request->descripcion_certificacion;
+        $certificaion->id_institucion           = $institucion->id;
 
+        $image = $request->file('image_certificado');
+        $nombre_image = 'certificado-' . time() . '.' . $image->guessExtension();
+
+        /*guarda la imagen en carpeta con el id del usuario*/
+        $image->move("img/instituciones/$id_user", $nombre_image);
+
+        //capturar la fotp
+        $certificaion->imgcertificado = "img/instituciones/$id_user/" . $nombre_image;
+
+        //guardar certificacion
+        $certificaion->save();
+
+        return response([
+            'mensaje'   => 'Se guardo correctamente la información',
+            'url'       => route('entidad.delete9', ['id_certificacion' => $certificaion->id_certificacion]),
+            'image'     => asset($certificaion->imgcertificado),
+            'max_items' => $certificaciones >= 3 // Se le resta 1 porque se agregó 1
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 9----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario 9 ----------------------*/

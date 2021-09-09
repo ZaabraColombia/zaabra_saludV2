@@ -1067,3 +1067,135 @@ $('#lista-profesionales-institucion').on('click', '.close' , function (e) {
     });
 
 });
+//Formulario 9
+//Agregar certificaciones
+$('#form-certificados-institucion').validate({
+    rules: {
+        'image_certificado': {
+            required: true,
+        },
+        'fecha_certificado': {
+            required: true,
+        },
+        'titulo_certificado': {
+            required: true,
+        },
+        'descripcion_certificacion': {
+            required: true,
+        }
+    },
+    messages: {
+        'image_certificado':{
+            required: "Por favor ingrese la imagen del certificado",
+        },
+        'fecha_certificado':{
+            required: "Por favor ingrese la fecha del certificado",
+        },
+        'titulo_certificado':{
+            required: "Por favor ingrese el titulo del certificado",
+        },
+        'descripcion_certificacion':{
+            required: "Por favor ingrese la descripción del certificado",
+        }
+    },
+    submitHandler: function(form) {
+        //Elementos
+        var button_save = $('#btn-guardar-certificado-institucion');
+        button_save.prop('disabled', true);
+        var formulario = $(form);
+        //console.log(formulario.attr('action'));
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                button_save.prop('disabled', false);
+
+                //Agrgar tarjeta del convenio
+                $('#lista-certificaciones-institucion').append('<div class="col-md-6">\n' +
+                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 mt-2 p-0">\n' +
+                    '<div class="img_saveCertifi-formInst">\n' +
+                    '<img class="img_anexada-formInst"  src="' + response.image + '">\n' +
+                    '</div>\n' +
+                    '<div class="col-12 p-0 mt-2">\n' +
+                    '<label class="col-12 text_fechaPremio-formProf"> ' + $('#fecha_certificado').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 text_label-formProf">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#titulo_certificado').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 descripcion_Premio-formProf">\n' +
+                    '<label class="col-12 text_descPremio-formProf"> ' + $('#descripcion_certificacion').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                /* Deshabilitar formulario cuando llegue al maximo de items */
+                if (response.max_items > 0) {
+                    $('#image_certificado').prop('disabled', true);
+                    $('#fecha_certificado').prop('disabled', true);
+                    $('#titulo_certificado').prop('disabled', true);
+                    $('#descripcion_certificacion').prop('disabled', true);
+                    button_save.prop('disabled', true);
+                }
+
+                $('#img-image_certificado').attr('src', '#');
+                formulario[0].reset();
+
+                //Respuesta
+                mensaje_success('#mensajes-certificaciones', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                button_save.prop('disabled', false);
+
+                //Respuesta
+                var response = event.responseJSON;
+
+                /* Deshabilitar formulario cuando llegue al maximo de items */
+                if (response.max_items > 0) {
+                    $('#image_certificado').prop('disabled', true);
+                    $('#fecha_certificado').prop('disabled', true);
+                    $('#titulo_certificado').prop('disabled', true);
+                    $('#descripcion_certificacion').prop('disabled', true);;
+                    button_save.prop('disabled', true);
+                    $('#img-image_certificado').attr('scr', '#');
+                    formulario[0].reset();
+                }
+
+                if (event.status === 422){
+                    mensaje_error('#mensajes-certificaciones', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-certificaciones', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
+});

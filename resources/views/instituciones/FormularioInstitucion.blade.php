@@ -510,28 +510,28 @@
                         <div class="col-md-6 rightSection_formInst">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
                             <div class="col-12 nombres_usuario-formInst">
-                                <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre_profecional" id="primer_nombre_profecional">
-                                <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre_profecional" id="segundo_nombre_profecional">
+                                <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre_profecional" id="primer_nombre_profecional" {{ ($count_profecionales >= 3) ? 'disabled' : '' }}>
+                                <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre_profecional" id="segundo_nombre_profecional" {{ ($count_profecionales >= 3) ? 'disabled' : '' }}>
                             </div>
                         </div>
 
                         <div class="col-md-6 rightSection_formInst">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
                             <div class="col-12 nombres_usuario-formInst">
-                                <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido_profecional" id="primer_apellido_profecional">
-                                <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido_profecional" id="segundo_apellido_profecional">
+                                <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido_profecional" id="primer_apellido_profecional" {{ ($count_profecionales >= 3) ? 'disabled' : '' }}>
+                                <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido_profecional" id="segundo_apellido_profecional" {{ ($count_profecionales >= 3) ? 'disabled' : '' }}>
                             </div>
                         </div>
 
                         <div class="col-12">
                             <label for="universidad" class="col-12 text_label-formInst"> Universidad </label>
-                            <select name="universidad" id="universidad" class="form-control universidades">
+                            <select name="universidad" id="universidad" class="form-control universidades" {{ ($count_profecionales >= 3) ? 'disabled' : '' }}>
                                 <option></option>
                             </select>
                         </div>
                         <div class="col-12">
                             <label for="especialidad" class="col-12 text_label-formInst"> Especialidad </label>
-                            <select name="especialidad" id="especialidad" class="form-control especialidades-search">
+                            <select name="especialidad" id="especialidad" class="form-control especialidades-search" {{ ($count_profecionales >= 3) ? 'disabled' : '' }}>
                                 <option></option>
                             </select>
                         </div>
@@ -539,7 +539,7 @@
                 </div>
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-profecionales-institucion"> Guardar
+                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-profecionales-institucion" {{ ($count_profecionales >= 3) ? 'disabled' : '' }}> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" />
                     </button>
                 </div>
@@ -573,34 +573,34 @@
             <p class="text_superior-proced-formInst"> A continuación suba imágenes relacionadas con sus certificaciones, con fecha, nombre y descripción. </p>
 
             <!-- Modulo de los Certificaciones con información -->
-            <div class="premios_guardada-formProf">
-            @foreach($objCertificaciones as $objCertificaciones)
-                @if(!empty($objCertificaciones->imgcertificado))
+            <div class="premios_guardada-formProf" id="lista-certificaciones-institucion">
+                <?php $count_certificaiones = 0; ?>
+            @foreach($objCertificaciones as $certificacion)
+                @if(!empty($certificacion->imgcertificado))
+                    <?php $count_certificaiones++; ?>
                     <!-- Contenido Certificaciones -->
-                        <div class="savedData_formInst">
+                        <div class="col-md-6">
                             <div class="col-12 content_btnDelet-trata-formProf">
-                                <a href="{{url('/FormularioInstituciondelete9/'.$objCertificaciones->id_certificacion)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <button type="submit" class="close" aria-label="Close" data-url="{{ route('entidad.delete9', ['id_certificacion' => $certificacion->id_certificacion]) }}">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
 
                             <div class="col-12 mt-2 p-0">
                                 <div class="img_saveCertifi-formInst">
-                                    <img class="img_anexada-formInst"  src="{{URL::asset($objCertificaciones->imgcertificado)}}">
+                                    <img class="img_anexada-formInst"  src="{{ asset($certificacion->imgcertificado) }}">
                                 </div>
 
                                 <div class="col-12 p-0 mt-2">
-                                    <label class="col-12 text_fechaPremio-formProf"> {{$objCertificaciones->fechacertificado}} </label>
+                                    <label class="col-12 text_fechaPremio-formProf"> {{ $certificacion->fechacertificado }} </label>
                                 </div>
 
                                 <div class="col-12 text_label-formProf">
-                                    <label class="col-12 title_infoGuardada-formProf"> {{$objCertificaciones->titulocertificado}} </label>
+                                    <label class="col-12 title_infoGuardada-formProf"> {{ $certificacion->titulocertificado }} </label>
                                 </div>
 
                                 <div class="col-12 descripcion_Premio-formProf">
-                                    <label class="col-12 text_descPremio-formProf"> {{$objCertificaciones->descrpcioncertificado}} </label>
+                                    <label class="col-12 text_descPremio-formProf"> {{ $certificacion->descrpcioncertificado }} </label>
                                 </div>
                             </div>
                         </div>
@@ -608,436 +608,46 @@
                 @endforeach
             </div>
 
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave9') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                @if (
-                                    $errors->has('imgcertificado.*') or
-                                    $errors->has('titulocertificado.*') or
-                                    $errors->has('fechacertificado.*') or
-                                    $errors->has('descrpcioncertificado.*')
-                                )
-                    <div class="col-12">
-                        <div class="alert alert-danger" role="alert">
-                            <h4 class="alert-heading">Error!</h4>
-                            <p>Llene todos los formualrios que necesita.</p>
-                        </div>
-                    </div>
-                @endif
-                @if($objContadorCertificaciones->cantidad == 0)
-                <!-- Modulo CERTIFICACIONES-->
-                    <div class="row content_antDesp-formInst">
-                        <!-- CERTIFICACIÓN izquierda -->
-                        <div class="col-md-6 photo1 leftSection_formInst content_antes-formInst">
-                            <div class="col-12 leftSection_formInst">
-                                <div class="img_saveCertifi-formInst">
-                                    <img class="img_anexada-formInst" id="uploadPreview13">
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage13" name="imgcertificado[]" onchange="previewImage(13);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
+            <form method="POST" action="{{ route('entidad.create9') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-certificados-institucion">
+                @csrf
+                <div class="col-12" id="mensajes-certificaciones"></div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 photo1 leftSection_formInst content_antes-formInst">
+                        <div class="col-12 leftSection_formInst">
+                            <div class="img_saveCertifi-formInst">
+                                <img class="img_anexada-formInst" id="img-image_certificado">
                             </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
+                            <div class="agregar_archivo-formInst">
+                                <input type='file' id="image_certificado" name="image_certificado" onchange="ver_imagen('image_certificado', 'img-image_certificado');" {{ ($count_certificaiones >= 4) ? 'disabled' : '' }}/>
                             </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 1 </label>
-
-                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-
-                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
+                            <div class="txt_informativo-formInst">
+                                <label class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                             </div>
                         </div>
 
-                        <!-- CERTIFICACIÓN derecha -->
-                        <div class="col-md-6 photo2 rightSection_formInst">
-                            <div class="col-12 rightSection_formInst  form-group">
-                                <div class="img_saveCertifi-formInst">
-                                    <img class="img_anexada-formInst" id="uploadPreview14">
-                                </div>
+                        <div class="col-12 leftSection_formInst">
+                            <label for="fecha_certificado" class="col-12 text_label-formInst"> Fecha </label>
+                            <input class="form-control" type="date"  id="fecha_certificado" name="fecha_certificado" {{ ($count_certificaiones >= 4) ? 'disabled' : '' }}>
+                        </div>
 
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage14" name="imgcertificado[]" onchange="previewImage(14);"/>
-                                </div>
+                        <div class="col-12 leftSection_formInst">
+                            <label for="titulo_certificado" class="col-12 text_label-formInst"> Título del certificado </label>
+                            <input class="form-control" id="titulo_certificado" placeholder="Título de la imagen" type="text" name="titulo_certificado" {{ ($count_certificaiones >= 4) ? 'disabled' : '' }}>
+                        </div>
 
-                                <div class="txt_informativo-formInst">
-                                    <label class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
-
-                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-
-                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
+                        <div class="col-12 leftSection_formInst">
+                            <div class="form-group">
+                                <label for="descripcion_certificacion" class="col-12 text_label-formInst"> Descripción de la certificación </label>
+                                <textarea name="descripcion_certificacion" id="descripcion_certificacion" class="form-control" {{ ($count_certificaiones >= 4) ? 'disabled' : '' }}></textarea>
+                                <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Modulo CERTIFICACIONES-->
-                    <div class="row content_antDesp-formInst">
-                        <!-- CERTIFICACIÓN izquierda -->
-                        <div class="col-md-6 photo3 leftSection_formInst content_antes-formInst">
-                            <div class="col-12 leftSection_formInst">
-                                <div class="img_saveCertifi-formInst">
-                                    <img class="img_anexada-formInst" id="uploadPreview15">
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage15" name="imgcertificado[]" onchange="previewImage(15);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
-
-                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-
-                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- CERTIFICACIÓN derecha -->
-                        <div class="col-md-6 photo4 rightSection_formInst">
-                            <div class="col-12 rightSection_formInst  form-group">
-                                <div class="img_saveCertifi-formInst">
-                                    <img class="img_anexada-formInst" id="uploadPreview16">
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage16" name="imgcertificado[]" onchange="previewImage(16);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
-
-                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-
-                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorCertificaciones->cantidad == 1)
-                <!-- Modulo CERTIFICACIONES-->
-                    <div class="row content_antDesp-formInst">
-                        <!-- CERTIFICACIÓN izquierda -->
-                        <div class="col-md-6 photo2 leftSection_formInst content_antes-formInst">
-                            <div class="col-12 leftSection_formInst">
-                                <div class="img_saveCertifi-formInst">
-                                    <img class="img_anexada-formInst" id="uploadPreview14">
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage14" name="imgcertificado[]" onchange="previewImage(14);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 2 </label>
-
-                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-
-                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulo CERTIFICACIONES-->
-                    <div class="row content_antDesp-formInst">
-                        <!-- CERTIFICACIÓN izquierda -->
-                        <div class="col-md-6 photo3 leftSection_formInst content_antes-formInst">
-                            <div class="col-12 leftSection_formInst">
-                                <div class="img_saveCertifi-formInst">
-                                    <img class="img_anexada-formInst" id="uploadPreview15">
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage15" name="imgcertificado[]" onchange="previewImage(15);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
-
-                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-
-                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- CERTIFICACIÓN derecha -->
-                        <div class="col-md-6 photo4 rightSection_formInst">
-                            <div class="col-12 rightSection_formInst  form-group">
-                                <div class="img_saveCertifi-formInst">
-                                    <img class="img_anexada-formInst" id="uploadPreview16">
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage16" name="imgcertificado[]" onchange="previewImage(16);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
-
-                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-
-                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorCertificaciones->cantidad == 2)
-                <!-- Modulo CERTIFICACIONES-->
-                    <div class="row content_antDesp-formInst">
-                        <!-- CERTIFICACIÓN izquierda -->
-                        <div class="col-md-6 photo3 leftSection_formInst content_antes-formInst">
-                            <div class="col-12 leftSection_formInst">
-                                <div class="img_saveCertifi-formInst">
-                                    <img class="img_anexada-formInst" id="uploadPreview15">
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage15" name="imgcertificado[]" onchange="previewImage(15);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 3 </label>
-
-                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-
-                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- CERTIFICACIÓN derecha -->
-                        <div class="col-md-6 photo4 rightSection_formInst">
-                            <div class="col-12 rightSection_formInst  form-group">
-                                <div class="img_saveCertifi-formInst">
-                                    <img class="img_anexada-formInst" id="uploadPreview16">
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage16" name="imgcertificado[]" onchange="previewImage(16);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="col-12 text_infoImg-formInst"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
-
-                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-
-                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorCertificaciones->cantidad == 3)
-                    <div class="row content_antDesp-formInst">
-                        <!-- CERTIFICACIÓN izquierda -->
-                        <div class="col-md-6 photo4 leftSection_formInst content_antes-formInst">
-                            <div class="col-12 leftSection_formInst">
-                                <div class="img_saveCertifi-formInst">
-                                    <img class="img_anexada-formInst" id="uploadPreview16">
-                                </div>
-
-                                <div class="agregar_archivo-formInst">
-                                    <input type='file' id="uploadImage16" name="imgcertificado[]" onchange="previewImage(16);"/>
-                                </div>
-
-                                <div class="txt_informativo-formInst">
-                                    <label class="col-12 text_infoImg-formInst mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechacertificado" name="fechacertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título de la imagen 4 </label>
-
-                                <input class="form-control" id="titulocertificado" placeholder="Título de la imagen" type="text" name="titulocertificado[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción de la certificación </label>
-
-                                    <input class="form-control" id="descrpcioncertificado" placeholder="Escribir descripción..." type="text" maxlength="160" name="descrpcioncertificado[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorCertificaciones->cantidad == 4)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más certificados </label>
-            @endif
-
-            <!-- Botón guardar información -->
+                </div>
+                <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-certificado-institucion" {{ ($count_certificaiones >= 4) ? 'disabled' : '' }}> Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
