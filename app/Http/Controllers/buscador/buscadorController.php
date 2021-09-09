@@ -131,7 +131,7 @@ class buscadorController extends Controller
             })
             ->orWhere('especialidades.nombreEspecialidad','like','%' . $term . '%')
             ->select(
-                DB::raw('CONCAT(especialidades.nombreEspecialidad, " / ", "Dr-Dra. ", users.primernombre, " ", users.primerapellido) as label'),
+                DB::raw('CONCAT(especialidades.nombreEspecialidad, " / ", "Dr(a). ", users.primernombre, " ", users.primerapellido) as label'),
                 DB::raw('CONCAT("' . url('/PerfilProfesional') . '/", perfilesprofesionales.slug) as url'),
                 DB::raw('CONCAT("fas fa-user-md") as icon')
             )->get();

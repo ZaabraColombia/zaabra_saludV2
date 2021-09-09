@@ -33,7 +33,7 @@ $(function(){
     }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
         return $( "<li></li>" )
             .data( "item.autocomplete", item )
-            .append( "<a href='"  + item.url + "'> <i class='" + item.icon + "'></i>" +item.label +"</a>" )
+            .append( "<a href='"  + item.url + "'><i class='" + item.icon + "'></i>" +item.label +"</a>" )
             .appendTo( ul );
 
     }
@@ -67,7 +67,7 @@ $(function(){
                 var keycode = (e.keyCode ? e.keyCode : e.which);
                 if (keycode == '13') {
                     e.preventDefault();
-                    window.location = ui.item.id;
+                    window.location = ui.item.url;
                 }
             });
 
