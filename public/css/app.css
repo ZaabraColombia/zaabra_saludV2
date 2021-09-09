@@ -10422,15 +10422,24 @@ a:link, a:visited, a:active, a:hover {
   background: white;
   width: 29.7% !important;
   height: 25vh;
-  overflow: scroll;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  overflow-x: hidden;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   padding: 1rem !important;
-  border: solid 1px #0083D6;
+  border: solid 1px #e8e8e8;
 }
 
 /* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+#ui-id-1::-webkit-scrollbar-thumb {
+  background: #e8e8e8 !important;
+  border-radius: 5px !important;
+}
+
 /* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+#ui-id-1::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
 /* Cambiamos el fondo cuando esté en active */
 .ui-menu {
   z-index: 500 !important;
