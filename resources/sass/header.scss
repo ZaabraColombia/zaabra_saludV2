@@ -438,9 +438,12 @@ a:link, a:visited, a:active, a:hover {
     width: 100%;
     padding: .5rem 0;
     margin-left: 5px;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
+    border-radius: 5px;
     //border-bottom: black solid 1px;
+}
+
+.ui-menu-item > .ui-menu-item-wrapper > i{
+    margin-left: 10px;
 }
 
 .ui-menu-item > .ui-menu-item-wrapper:hover,
