@@ -462,7 +462,7 @@
             <h5 class="col-lg-12 icon_profesionales-formInst"> Profesionales </h5>
             <div class="col-11 col-md-12 row containt_profGuardado-formInst" id="lista-profesionales-institucion">
                 <?php $count_profecionales = 0; ?>
-                @foreach($objProfeInsti as $profecional)
+                @foreach($objProfesionalesIns as $profecional)
                     @if(!empty($profecional->foto_perfil_institucion))
                         <?php $count_profecionales++; ?>
                         <div class="col-md-3 content_loadImg-profes">
@@ -484,10 +484,10 @@
                                     <span>{{ $profecional->primer_apellido }} {{ $profecional->segundo_apellido }}</span>
                                 </div>
                                 <div class="col-md-12 rightSection_formInst">
-                                    <span>{{ $profecional->especialidad_uno }}</span>
+                                    <span>{{ $profecional->nombre_universidad }}</span>
                                 </div>
                                 <div class="col-md-12 rightSection_formInst">
-                                    <span>{{ $profecional->especialidad_dos }}</span>
+                                    <span>{{ $profecional->nombre_especialidad }}</span>
                                 </div>
                             </div>
                         </div>
@@ -497,7 +497,7 @@
 
             <form action="{{ route('entidad.create8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="form-profesionales-institucion">
                 @csrf
-                <div class="row" id="mensajes-profesionales"></div>
+                <div class="col-12" id="mensajes-profesionales"></div>
                 <!-- Profesional numero 1 -->
                 <div class="row fila_infoBasica-formInst mb-4">
                     <div class="col-md-3 contain_imgUsuario-formImg">

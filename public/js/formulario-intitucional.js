@@ -941,7 +941,32 @@ $('#form-profesionales-institucion').validate({
                 button_save.prop('disabled', false);
 
                 //Agrgar tarjeta del convenio
-                $('#lista-profesionales-institucion').append('');
+                $('#lista-profesionales-institucion').append('<div class="col-md-3 content_loadImg-profes">\n' +
+                    '<div class="col-12 p-0 contain_imgUsuario-formImg">\n' +
+                    '<div class="col-12 pr-2 content_cierreX-formInst">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 col-md-10 img_save-formProf">\n' +
+                    '<img class="img_usuario-formInst" src="' + response.image + '">\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 mt-3 containt_loadProfes-formInst">\n' +
+                    '<div class="col-md-12 rightSection_formInst">\n' +
+                    '<span>' + $('#primer_nombre_profecional').val() + ' ' + $('#segundo_nombre_profecional').val() + '</span>\n' +
+                    '</div>\n' +
+                    '<div class="col-md-12 rightSection_formInst">\n' +
+                    '<span>' + $('#primer_apellido_profecional').val() + ' ' + $('#segundo_apellido_profecional').val() + '</span>\n' +
+                    '</div>\n' +
+                    '<div class="col-md-12 rightSection_formInst">\n' +
+                    '<span>' + $('#universidad option:selected').text() + '</span>\n' +
+                    '</div>\n' +
+                    '<div class="col-md-12 rightSection_formInst">\n' +
+                    '<span>' + $('#especialidad option:selected').text() + '</span>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '</div>');
 
                 /* Deshabilitar formulario cuando llegue al maximo de items */
                 if (response.max_items > 0) {

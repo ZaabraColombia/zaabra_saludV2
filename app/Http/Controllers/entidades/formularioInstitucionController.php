@@ -58,18 +58,31 @@ class formularioInstitucionController extends Controller{
         $objFormulario      = $objFormulario[0];
         $objuser            = $this->cargaDatosUser($id_user);
         $objuser            = $objuser[0];
+
         $objConvenios       = Convenios::where('id_institucion', '=', $ins->id)
             ->select('convenios.id', 'convenios.url_image', 'nombretipo as nombre_tipo_convenio')
             ->join('tipoinstituciones', 'tipoinstituciones.id', '=', 'convenios.id_tipo_convenio')
             ->get();
         $objTipoConvenios   = tipoinstituciones::all();
 
+        $objProfesionalesIns    = profesionales_instituciones::where('id_institucion', '=', $ins->id)
+            ->select('profesionales_instituciones.id_profesional_inst',
+                'profesionales_instituciones.foto_perfil_institucion',
+                'profesionales_instituciones.primer_nombre',
+                'profesionales_instituciones.segundo_nombre',
+                'profesionales_instituciones.segundo_nombre',
+                'profesionales_instituciones.segundo_apellido',
+                'especialidades.nombreEspecialidad as nombre_especialidad',
+                'universidades.nombreuniversidad as nombre_universidad')
+            ->leftjoin('especialidades', 'especialidades.idEspecialidad', '=', 'profesionales_instituciones.id_especialidad')
+            ->leftjoin('universidades', 'universidades.id_universidad', '=', 'profesionales_instituciones.id_universidad')
+            ->get();
+
         $objServicio=$this->cargaServicios($id_user);
         $objContadorServicio=$this->contadorServicios($id_user);
 
 
-        $objProfeInsti=$this->cargaProfeInsti($id_user);
-        $objContadorProfeInsti=$this->contadorProfeInsti($id_user);
+
         $objCertificaciones=$this->cargaCertificaciones($id_user);
         $objContadorCertificaciones=$this->contadorCertificaciones($id_user);
         $objSedes=$this->cargaSedes($id_user);
@@ -114,8 +127,7 @@ class formularioInstitucionController extends Controller{
             'objContadorServicio',
             'objConvenios',
             'objTipoConvenios',
-            'objProfeInsti',
-            'objContadorProfeInsti',
+            'objProfesionalesIns',
             'objCertificaciones',
             'objContadorCertificaciones',
             'objSedes',
