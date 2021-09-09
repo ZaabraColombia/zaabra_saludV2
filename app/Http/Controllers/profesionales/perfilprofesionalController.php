@@ -17,6 +17,7 @@ class perfilprofesionalController extends Controller
     public function index($slug){
 
         $objprofesionallanding= $this->cargarInfoPrfesionalLanding($slug);
+        if (empty($objprofesionallanding)) return redirect('/');
         $idPerfilProfesional = $objprofesionallanding[0]->idPerfilProfesional;
 
         foreach ($objprofesionallanding as $items){
