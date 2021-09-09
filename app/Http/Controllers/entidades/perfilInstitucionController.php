@@ -25,28 +25,28 @@ class perfilInstitucionController extends Controller
         $objinstitucionlandinimgsede = $objinstitucionlandin[0];
 
         $objinstitucionlandinservicios= $this->cargarInfoInstitucLandinServicios($id);
-        $objinstitucionlandinprepagada= $this->cargarPrepagada($id);
-        $objinstitucionlandinips= $this->cargarIps($id);
-        $objinstitucionlandineps= $this->cargarEps($id);
+        //$objinstitucionlandinprepagada= $this->cargarPrepagada($id);
+        //$objinstitucionlandinips= $this->cargarIps($id);
+        //$objinstitucionlandineps= $this->cargarEps($id);
         $objinstitucionlandinpremios= $this->cargarInfoInstitucLandinPremios($id);
         $objinstitucionlandinpublicaci= $this->cargarInfoInstitucLandinPublicaciones($id);
         $objinstitucionlandingaleria= $this->cargarInfoInstitucLandinGaleria($id);
         $objinstitucionlandinvideo= $this->cargarInfoInstitucLandinVideo($id);
         $objinstitucionlandinSedes= $this->cargarInfoInstitucLandinSedes($id);
-        $objinstitucionlandInstitucion= $this->cargarInfoProfesionalInstitucion($id);
+        //$objinstitucionlandInstitucion= $this->cargarInfoProfesionalInstitucion($id);
 
         return view('instituciones.PerfilInstitucion', compact(
             'objinstitucionlandin',
             'objinstitucionlandinservicios',
-            'objinstitucionlandinprepagada',
-            'objinstitucionlandinips',
-            'objinstitucionlandineps',
+            //'objinstitucionlandinprepagada',
+            //'objinstitucionlandinips',
+            //'objinstitucionlandineps',
             'objinstitucionlandinpremios',
             'objinstitucionlandinpublicaci',
             'objinstitucionlandingaleria',
             'objinstitucionlandinvideo',
             'objinstitucionlandinSedes',
-            'objinstitucionlandInstitucion',
+            //'objinstitucionlandInstitucion',
             'objinstitucionlandinimgsede'
         ));
     }

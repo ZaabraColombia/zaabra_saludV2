@@ -39,7 +39,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="content_sede_inst">
                     <img class="img_sede_inst" src="{{URL::asset($objinstitucionlandinimgsede->imagen)}}">
                 </div>
@@ -54,7 +54,7 @@
                         <i class="fas fa-arrow-right arrow_mas"></i>
                     </a>
                 </div>
-            
+
         </section>
 
         <!-- seccion datos consulta perfil profesional-->
@@ -77,7 +77,7 @@
                     <li class="swiper-slide">
                         <a class="item_landing_insti galeria"><span>Galería</span></a>
                     </li>
-                    
+
                 </div>
             </div>
         </section>
@@ -86,7 +86,7 @@
 
             <div class="servicios_instituciones">
                 <h2><i></i>Servicios profesionales</h2>
-                
+
                 <p>{{$objinstitucionlandin->DescripcionGeneralServicios}}</p>
             </div>
 
@@ -102,7 +102,7 @@
                                 <p>{{$objinstitucionlandinservicios->DescripcioServicios}}</p>
                             </div>
                             <div class="lista_sede">
-                                @if($objinstitucionlandinservicios->sucursalservicio) 
+                                @if($objinstitucionlandinservicios->sucursalservicio)
                                     @php  $new_array = explode(',',$objinstitucionlandinservicios->sucursalservicio); @endphp
                                 @endif
                                 @foreach($new_array as $info)
@@ -126,7 +126,7 @@
                 <h2><i></i>Propuesta de valor</h2>
                 <ul>
                     <li>
-                        <p>{{$objinstitucionlandin->propuestavalor}}</p>                            
+                        <p>{{$objinstitucionlandin->propuestavalor}}</p>
                     </li>
                 </ul>
             </div>
@@ -135,21 +135,23 @@
                 <h2><i></i>Convenios</h2>
                 <ul>
                     <li>
-                        @foreach ($objinstitucionlandineps as $objinstitucionlandineps)
-                            <img src="{{URL::asset($objinstitucionlandineps->urlimagen)}}">
-                        @endforeach
+{{--                        @if(!empty($objinstitucionlandineps))--}}
+{{--                            @foreach ($objinstitucionlandineps as $objinstitucionlandineps)--}}
+{{--                                <img src="{{URL::asset($objinstitucionlandineps->urlimagen)}}">--}}
+{{--                            @endforeach--}}
+{{--                        @endif--}}
                     </li>
-       
+
                     <li>
-                        @foreach ($objinstitucionlandinips as $objinstitucionlandinips)
-                            <img src="{{URL::asset($objinstitucionlandinips->urlimagen)}}">
-                        @endforeach
+{{--                        @foreach ($objinstitucionlandinips as $objinstitucionlandinips)--}}
+{{--                            <img src="{{URL::asset($objinstitucionlandinips->urlimagen)}}">--}}
+{{--                        @endforeach--}}
                     </li>
-              
+
                     <li>
-                        @foreach ($objinstitucionlandinprepagada as $objinstitucionlandinprepagada)
-                            <img src="{{URL::asset($objinstitucionlandinprepagada->urlimagen)}}">
-                        @endforeach
+{{--                        @foreach ($objinstitucionlandinprepagada as $objinstitucionlandinprepagada)--}}
+{{--                            <img src="{{URL::asset($objinstitucionlandinprepagada->urlimagen)}}">--}}
+{{--                        @endforeach--}}
                     </li>
                 </ul>
             </div>
@@ -157,7 +159,7 @@
 
 
         <div class="section_insti contains_swiper_certificados">
-            <h2><i></i>Certificados</h2> 
+            <h2><i></i>Certificados</h2>
             <div class="swiper-container swiper_gale_inst">
                 <div class="swiper-wrapper">
                     @foreach ($objinstitucionlandinpremios as $objinstitucionlandinpremios)
@@ -208,7 +210,7 @@
                     <div class="swiper-wrapper gallery_institucion">
                         @foreach ($objinstitucionlandingaleria as $objinstitucionlandingaleria)
                             <div class="swiper-slide">
-                                <img class="img_galeria_inst" src="{{URL::asset($objinstitucionlandingaleria->imggaleria)}}" alt="{{$objinstitucionlandingaleria->descripcion}}"> 
+                                <img class="img_galeria_inst" src="{{URL::asset($objinstitucionlandingaleria->imggaleria)}}" alt="{{$objinstitucionlandingaleria->descripcion}}">
                                 <h5>{{$objinstitucionlandingaleria->nombrefoto}}</h5>
                                 <p>{{$objinstitucionlandingaleria->descripcion}}</p>
                             </div>
@@ -218,7 +220,7 @@
                 <div class="btn-prev btnPrev_inst"></div>
                 <div class="btn-next btnNext_inst"></div>
             </div>
-            
+
             <div class="videos_institucion">
                 <h2><i></i>Videos</h2>
                 <div class="container_cards">
@@ -232,7 +234,7 @@
                         </div>
                     @endforeach
                 </div>
-            </div>     
+            </div>
         </section>
 
         <section class="container-fluid content_options-prof">
