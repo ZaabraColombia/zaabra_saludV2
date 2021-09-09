@@ -1006,21 +1006,35 @@ class formularioInstitucionController extends Controller{
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 9----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario 9 ----------------------*/
-    public function delete9($id_certificacion){
+    public function delete9(Request $request){
 
+        /*id usuario logueado*/
+        $id_user = auth()->user()->id;
+        /*id de la institucion*/
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
-        $verificaPerfil = $this->verificaPerfil();
+        //Validar si se llego al maximo de items
+        $certificacion = certificaciones::where('id_institucion', '=', $institucion->id)
+            ->where('id_certificacion', '=', $request->id_certificacion)
+            ->select('id_certificacion', 'titulocertificado', 'imgcertificado')
+            ->first();
 
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
+        if (empty($certificacion)){
+            return response()->json([
+                'mensaje' => 'No se encontro el servicio'
+            ], Response::HTTP_NOT_FOUND);
         }
 
+        $nombre = $certificacion->titulocertificado;
+        $foto   = $certificacion->imgcertificado;
+        $certificacion->delete();
 
-        $certificaciones = certificaciones::where('id_certificacion', $id_certificacion)->where('id_institucion', $idInstitucion);
-        $certificaciones->delete();
+        //eliminar la foto
+        if (@getimagesize(public_path() . "/" . $foto)) unlink(public_path() . "/" . $foto);
 
-        return redirect('FormularioInstitucion');
-
+        return response([
+            'mensaje' => 'La certificación ' . $nombre . ' se elimino correctamente'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Eliminacion formulario parte 9----------------------*/
 

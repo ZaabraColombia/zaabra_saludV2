@@ -1062,7 +1062,7 @@ $('#lista-profesionales-institucion').on('click', '.close' , function (e) {
             $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
 
-            mensaje_error('#mensajes-convenios', response.mensaje);
+            mensaje_error('#mensajes-profesionales', response.mensaje);
         }
     });
 
@@ -1198,4 +1198,47 @@ $('#form-certificados-institucion').validate({
             }
         });
     }
+});
+//Eliminar certificado
+$('#lista-certificaciones-institucion').on('click', '.close' , function (e) {
+    var button = $(this);
+    var url = $(this).data('url');
+
+    // Pace.start();
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  url,
+        type: "get",
+        dataType: 'json',
+        success: function( response ) {
+            //Finaliza la carga
+            // Pace.stop();
+            $('.form-control').removeClass('is-invalid');
+
+            mensaje_success('#mensajes-certificaciones', response.mensaje);
+
+            //quitar el disabled
+            $('#image_certificado').prop('disabled', false);
+            $('#fecha_certificado').prop('disabled', false);
+            $('#titulo_certificado').prop('disabled', false);
+            $('#descripcion_certificacion').prop('disabled', false);
+            $('#btn-guardar-certificado-institucion').prop('disabled', false);
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            // Pace.stop();
+            $('.form-control').removeClass('is-invalid');
+            var response = event.responseJSON;
+
+            mensaje_error('#mensajes-certificaciones', response.mensaje);
+        }
+    });
+
 });
