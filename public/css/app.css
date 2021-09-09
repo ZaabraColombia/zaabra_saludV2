@@ -10417,41 +10417,29 @@ a:link, a:visited, a:active, a:hover {
   display: flex;
 }
 
-.barra_busqueda > #ui-id-1 {
-  left: 0% !important;
-}
-
-.barra_busqueda2 > #ui-id-1 {
-  left: 0% !important;
-}
-
 #ui-id-1 {
   z-index: 500 !important;
   background: white;
   width: 29.7% !important;
   height: 25vh;
   overflow: scroll;
-  border-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   padding: 1rem !important;
-  left: 26.5% !important;
-  top: 51px !important;
   border: solid 1px #0083D6;
 }
 
-.ui-menu::-webkit-scrollbar {
-  display: none !important;
-}
-
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+/* Cambiamos el fondo cuando esté en active */
 .ui-menu {
   z-index: 500 !important;
   background: white;
   width: 89.5% !important;
   height: 28vh;
-  overflow: scroll;
+  overflow-x: hidden;
   border-radius: 3px;
   padding-top: 1%;
-  top: 95px !important;
-  left: 5% !important;
   position: fixed !important;
 }
 
@@ -10469,15 +10457,15 @@ a:link, a:visited, a:active, a:hover {
   width: 100%;
   padding: 0.5rem 0;
   margin-left: 5px;
-  border-bottom-right-radius: 50px;
-  border-top-right-radius: 50px;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .ui-menu-item > .ui-menu-item-wrapper:hover,
-.ui-menu-item > .ui-menu-item-wrapper:hover > i {
-  background: #0083D6 !important;
-  color: white !important;
-  border-color: white;
+.ui-menu-item > .ui-menu-item-wrapper:hover > i,
+.ui-menu-item > .ui-state-active,
+.ui-menu-item > .ui-state-active > i {
+  background: #e8e8e8 !important;
 }
 
 .ui-menu-item > .ui-menu-item-wrapper > i {
@@ -10987,14 +10975,13 @@ a:link, a:visited, a:active, a:hover {
   }
 
   #ui-id-1 {
-    left: 25.6% !important;
+    /*left: 25.6% !important;*/
     width: 29.7% !important;
     height: 27vh;
   }
 }
 @media (min-width: 1360px) {
   #ui-id-1 {
-    left: 25.2% !important;
     height: 30vh;
   }
 }
@@ -11039,10 +11026,6 @@ a:link, a:visited, a:active, a:hover {
 
   .icon_searchH {
     background-size: 60%;
-  }
-
-  #ui-id-1 {
-    left: 25.65% !important;
   }
 
   .dropdown-paciente {
@@ -11133,10 +11116,8 @@ a:link, a:visited, a:active, a:hover {
   }
 
   #ui-id-1 {
-    left: 24.7% !important;
     width: 29.7% !important;
     height: 31vh;
-    top: 63px !important;
   }
 
   .soy_paciente .dropdown-toggle {

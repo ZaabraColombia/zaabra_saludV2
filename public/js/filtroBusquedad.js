@@ -67,7 +67,7 @@ $(function(){
                 var keycode = (e.keyCode ? e.keyCode : e.which);
                 if (keycode == '13') {
                     e.preventDefault();
-                    window.location = ui.item.id;
+                    window.location = ui.item.url;
                 }
             });
 
