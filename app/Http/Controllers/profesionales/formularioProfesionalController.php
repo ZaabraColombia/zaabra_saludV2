@@ -217,6 +217,30 @@ class formularioProfesionalController extends Controller
         return response()->json($universidades);
     }
     /*------------------------------------- Fin búsqueda auto completado universidad----------------------*/
+    /*------------------------------------- Inicio búsqueda auto completado especialidades----------------------*/
+
+    public function buscar_especialidades(Request $request)
+    {
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'searchTerm' => ['required']
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'Ingrese correctamente la búsqueda'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $especialidades = especialidades::where('nombreEspecialidad','like','%' . $request->searchTerm . '%')
+            ->select('idEspecialidad as id', 'nombreEspecialidad as text')
+            ->orderBy('nombreEspecialidad','ASC')
+            ->get();
+
+        return response()->json($especialidades);
+    }
+    /*------------------------------------- Fin búsqueda auto completado universidad----------------------*/
 
 
 

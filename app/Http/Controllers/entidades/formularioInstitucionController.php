@@ -825,6 +825,69 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 8----------------------*/
     public function create8(Request $request){
 
+        $validation = Validator::make($request->all(), [
+            'foto_profecional' => ['required', 'image'],
+            'primer_nombre_profecional' => ['required'],
+            'primer_apellido_profecional' => ['required'],
+            'universidad' => ['required', 'exists:universidades,id_universidad'],
+            'especialidad' => ['required', 'exists:especialidades,idEspecialidad'],
+        ], [], [
+            'foto_profecional' => 'Foto del profesional',
+            'primer_nombre_profecional' => 'Primer nombre del profesional',
+            'primer_apellido_profecional' => 'Primer apellido del profesional',
+            'universidad' => 'Universidad',
+            'especialidad' => 'Especialidad'
+        ]);
+
+        if ($validation->fails()) {
+            $men = $validation->errors()->all();
+            $error = array_keys($validation->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        /*id usuario logueado*/
+        $id_user = auth()->user()->id;
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
+
+        //Validar si se llego al maximo de items
+        $profesionales = profesionales_instituciones::where('id_institucion', '=', $institucion->id)->count();
+        if ($profesionales >= 3){
+            return response()->json([
+                'max_items' => true,
+                'mensaje' => 'No puede agregar mas convenios'
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //Crear el convenio
+        $profesional = new profesionales_instituciones();
+        $profesional->id_tipo_convenio = $request->tipo_convenio;
+        $profesional->id_institucion   = $institucion->id;
+        $profesional->id_institucion   = $institucion->id;
+        $profesional->id_institucion   = $institucion->id;
+
+        $logo = $request->file('logo_convenio');
+        $nombre_logo = 'convenio-' . time() . '.' . $logo->guessExtension();
+
+        /*guarda la imagen en carpeta con el id del usuario*/
+        $logo->move("img/instituciones/$id_user", $nombre_logo);
+
+        //capturar la fotp
+        $convenio->url_image = "img/instituciones/$id_user/" . $nombre_logo;
+
+        //guardar basico
+        $convenio->save();
+
+        return response([
+            'mensaje'   => 'Se guardo correctamente la información',
+            'url'       => route('entidad.delete7', ['id_convenio' => $convenio->id]),
+            'image'     => asset($convenio->url_image),
+            'max_items' => $profesionales >= 2 // Se le resta 1 porque se agregó 1
+        ], Response::HTTP_OK);
+
         foreach ($request->input('primer_nombre', []) as $i => $tituloServicios) {
             if(!empty($request->input('primer_nombre')[$i])){
                 $request->validate([

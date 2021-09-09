@@ -54,6 +54,29 @@ $('.universidades').select2({
     minimumInputLength: 5
 });
 
+$('.especialidades-search').select2({
+    theme: "bootstrap",
+    placeholder: 'Seleccione una especialidad',
+    ajax: {
+        url: '/buscar-especialidades',
+        dataType: 'json',
+        type: 'post',
+        delay: 250,
+        data: function (data) {
+            return {
+                searchTerm: data.term // search term
+            };
+        },
+        processResults: function (response) {
+            return {
+                results:response
+            };
+        },
+        cache: true,
+    },
+    minimumInputLength: 5
+});
+
 
 /*-------------------------- Selección ubicación*/
 $('#pais').change(function(){

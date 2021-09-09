@@ -26,7 +26,9 @@ Route::get('get-profesion',[App\Http\Controllers\profesionales\formularioProfesi
 Route::get('get-especialidad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getespecialidad']);
 
 /* Autocompletado universidades */
-Route::post('/buscar-universidad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'buscar_universidad'])->name('FormularioProfesional')->middleware('auth');
+Route::post('/buscar-universidad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'buscar_universidad'])->name('buscador-universidad')->middleware('auth');
+/* Autocompletado especialidades */
+Route::post('/buscar-especialidades',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'buscar_especialidades'])->name('buscador-especialidades')->middleware('auth');
 
 /*----------------------------------------------Pertenece a Publico-------------------------------------------------------------------------------*/
 

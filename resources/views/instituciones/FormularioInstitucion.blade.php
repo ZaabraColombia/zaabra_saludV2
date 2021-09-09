@@ -529,9 +529,11 @@
                                 <option></option>
                             </select>
                         </div>
-                        <div class="col-12 form-group">
+                        <div class="col-12">
                             <label for="especialidad" class="col-12 text_label-formInst"> Especialidad </label>
-                            <input class="form-control" placeholder="Nombre de la especialidad"  type="text" name="especialidad" id="especialidad">
+                            <select name="especialidad" id="especialidad" class="form-control especialidades-search">
+                                <option></option>
+                            </select>
                         </div>
                     </div>
                 </div>
