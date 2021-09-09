@@ -1021,3 +1021,49 @@ $('#form-profesionales-institucion').validate({
         });
     }
 });
+//Eliminar profesional
+$('#lista-profesionales-institucion').on('click', '.close' , function (e) {
+    var button = $(this);
+    var url = $(this).data('url');
+
+    // Pace.start();
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  url,
+        type: "get",
+        dataType: 'json',
+        success: function( response ) {
+            //Finaliza la carga
+            // Pace.stop();
+            $('.form-control').removeClass('is-invalid');
+
+            mensaje_success('#mensajes-profesionales', response.mensaje);
+
+            //quitar el disabled
+            $('#foto_profecional').prop('disabled', false);
+            $('#primer_nombre_profecional').prop('disabled', false);
+            $('#segundo_nombre_profecional').prop('disabled', false);
+            $('#primer_apellido_profecional').prop('disabled', false);
+            $('#segundo_apellido_profecional').prop('disabled', false);
+            $('#universidad').prop('disabled', false);
+            $('#especialidad').prop('disabled', false);
+            $('#btn-guardar-profecionales-institucion').prop('disabled', false);
+            //Quitar la caja
+            button.parent().parent().parent().remove();
+        },
+        error: function (event) {
+            // Pace.stop();
+            $('.form-control').removeClass('is-invalid');
+            var response = event.responseJSON;
+
+            mensaje_error('#mensajes-convenios', response.mensaje);
+        }
+    });
+
+});

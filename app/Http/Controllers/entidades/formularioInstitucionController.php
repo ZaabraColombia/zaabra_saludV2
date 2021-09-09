@@ -815,7 +815,7 @@ class formularioInstitucionController extends Controller{
         //Validar si eta vacio
         $convenio = Convenios::where('id_institucion', '=', $institucion->id)
             ->where('id', '=', $request->id_convenio)
-            ->select('id')
+            ->select('id', 'url_image')
             ->first();
 
         if (empty($convenio)){
@@ -824,7 +824,11 @@ class formularioInstitucionController extends Controller{
             ], Response::HTTP_NOT_FOUND);
         }
 
+        $logo = $convenio->url_image;
         $convenio->delete();
+
+        //eliminar la foto
+        if (@getimagesize(public_path() . "/" . $logo)) unlink(public_path() . "/" . $logo);
 
         return response([
             'mensaje' => 'El convenio se elimino correctamente'
@@ -903,21 +907,35 @@ class formularioInstitucionController extends Controller{
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 8----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario 8 ----------------------*/
-    public function delete8($id_profesional_inst){
+    public function delete8(Request $request){
 
+        /*id usuario logueado*/
+        $id_user = auth()->user()->id;
+        /*id de la institucion*/
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
-        $verificaPerfil = $this->verificaPerfil();
+        //Validar si se llego al maximo de items
+        $profesional = profesionales_instituciones::where('id_institucion', '=', $institucion->id)
+            ->where('id_profesional_inst', '=', $request->id_profesional)
+            ->select('id_profesional_inst', 'primer_nombre', 'primer_apellido', 'foto_perfil_institucion')
+            ->first();
 
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
+        if (empty($profesional)){
+            return response()->json([
+                'mensaje' => 'No se encontro el servicio'
+            ], Response::HTTP_NOT_FOUND);
         }
 
+        $nombre = $profesional->primer_nombre . ' ' . $profesional->primer_apellido;
+        $foto   = $profesional->foto_perfil_institucion;
+        $profesional->delete();
 
-        $profesionales_instituciones = profesionales_instituciones::where('id_profesional_inst', $id_profesional_inst)->where('id_institucion', $idInstitucion);
-        $profesionales_instituciones->delete();
+        //eliminar la foto
+        if (@getimagesize(public_path() . "/" . $foto)) unlink(public_path() . "/" . $foto);
 
-        return redirect('FormularioInstitucion');
-
+        return response([
+            'mensaje' => 'El profesional ' . $nombre . ' se elimino correctamente'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Eliminacion formulario parte 8----------------------*/
 
