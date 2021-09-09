@@ -142,7 +142,7 @@ class buscadorController extends Controller
             ->orWhere('tipoinstituciones.nombretipo','like','%' . $term . '%')
             ->select(
                 DB::raw('CONCAT(users.nombreinstitucion, " / " ,tipoinstituciones.nombretipo) as label'),
-                DB::raw('CONCAT("' . url('/instituciones') . '/", instituciones.slug) as url'),
+                DB::raw('CONCAT("' . url('/PerfilInstitucion') . '/", instituciones.slug) as url'),
                 DB::raw('CONCAT("fas fa-hospital-alt") as icon')
             )
             ->get();
