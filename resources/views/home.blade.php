@@ -17,7 +17,18 @@
 
     <div class="swiper-wrapper">
         @foreach ($objbannersprincipalHome as $objbannersprincipalHome)
-                <img class="swiper-slide logoHeaderSProfesionales" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
+        <div class="swiper-slide ">
+            <img class="swiper-slide" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
+            <div class="contain_slide_prinHome">
+                <h1 class="titulo-slide_prinHome">{{($objbannersprincipalHome->titulo_banner)}}</h1>
+                <h1 class="subtitulo-slide_prinHome" style="color:{{($objbannersprincipalHome->color_subtitulo)}};">{{($objbannersprincipalHome->subtitulo_banner)}}</h1>
+                <p class="text_slide_prinHome" style="color:{{($objbannersprincipalHome->color_texto)}};">{{($objbannersprincipalHome->texto_banner)}}</p>
+                <a type="submit" href="{{($objbannersprincipalHome->urlBoton_banner)}}" target="blank" class="btn_agendarHome"> {{ __('Ver más') }}
+                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt="">
+                </a>
+            </div>
+        </div>  
+            
         @endforeach
     </div>
 
@@ -28,6 +39,39 @@
     <div class="swiper-button-next"></div> -->
 
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--MENU PORTAFOLIO-->
 <h1 class="titulo_portafolio">Nuestro Portafolio</h1>
 
