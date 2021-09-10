@@ -1203,7 +1203,7 @@ class formularioInstitucionController extends Controller{
         $foto->fechagaleria = $request->fecha_galeria_institucion;
         $foto->nombrefoto   = $request->nombre_galeria_institucion;
         $foto->descripcion  = $request->descripcion_galeria_institucion;
-        $foto->idInstitucion = $institucion->id;
+        $foto->idinstitucion = $institucion->id;
 
         $img = $request->file('img_galeria_institucion');
         $nombre_img = 'sede-' . time() . '.' . $img->guessExtension();
@@ -1218,7 +1218,7 @@ class formularioInstitucionController extends Controller{
 
         return response([
             'mensaje'   => 'Se guardo correctamente la información',
-            'url'       => route('entidad.delete10', ['id' => $foto->id_galeria]),
+            'url'       => route('entidad.delete12', ['id' => $foto->id_galeria]),
             'image'     => asset($foto->imggaleria),
             'max_items' => $galeria >= 7 // Se le resta 1 porque se agregó 1
         ], Response::HTTP_OK);
@@ -1232,10 +1232,12 @@ class formularioInstitucionController extends Controller{
         $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
         //Validar si se llego al maximo de items
-        $foto = galerias::where('idInstitucion', '=', $institucion->id)
+        $foto = galerias::where('idinstitucion', '=', $institucion->id)
             ->where('id_galeria', '=', $request->id)
-            ->select('nombrefoto', 'nombrefoto', 'imggaleria')
+            ->select('id_galeria', 'nombrefoto', 'imggaleria')
             ->first();
+
+        //dd($request->id);
 
         if (empty($foto)){
             return response()->json([
@@ -1245,7 +1247,9 @@ class formularioInstitucionController extends Controller{
 
         $nombre = $foto->nombrefoto;
         $img   = $foto->imggaleria;
+
         $foto->delete();
+        //dd($foto->delete());
 
         //eliminar la foto
         if (@getimagesize(public_path() . "/" . $img)) unlink(public_path() . "/" . $img);
@@ -1260,58 +1264,83 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 13----------------------*/
     public function create13(Request $request){
 
-        foreach ($request->input('nombrevideo', []) as $i => $v) {
-            if(!empty($request->input('nombrevideo')[$i])){
-                $request->validate([
-                    'nombrevideo.' . $i => ['required'],
-                    'descripcionvideo.' . $i => ['required'],
-                    'urlvideo.' . $i => ['required'],
-                    'fechavideo.' . $i => ['required'],
-                ]);
-            }
+        $validation = Validator::make($request->all(), [
+            'url_video_institucion'           => ['required', 'url'],
+            'fecha_video_institucion'         => ['required', 'date_format:Y-m-d'],
+            'nombre_video_institucion'        => ['required'],
+            'descripcion_video_institucion'   => ['required', 'max:160']
+        ], [], [
+            'url_video_institucion'           => 'Url del video',
+            'fecha_video_institucion'         => 'Fecha del video',
+            'nombre_video_institucion'        => 'Nombre del video',
+            'descripcion_video_institucion'   => 'Descripción del video'
+        ]);
+
+        if ($validation->fails()) {
+            $men = $validation->errors()->all();
+            $error = array_keys($validation->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+        /*id usuario logueado*/
+        $id_user = auth()->user()->id;
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
+
+        //Validar si se llego al maximo de items
+        $videos = videos::where('idinstitucion', '=', $institucion->id)->count();
+        if ($videos >= 4){
+            return response()->json([
+                'max_items' => true,
+                'mensaje' => 'No puede agregar mas fotos'
+            ], Response::HTTP_NOT_FOUND);
         }
 
+        //Crear el profesional
+        $video   = new videos();
+        $video->urlvideo           = $request->url_video_institucion;
+        $video->fechavideo         = $request->fecha_video_institucion;
+        $video->nombrevideo        = $request->nombre_video_institucion;
+        $video->descripcionvideo   = $request->descripcion_video_institucion;
+        $video->idinstitucion      = $institucion->id;
 
-        $verificaPerfil = $this->verificaPerfil();
+        //guardar video
+        $video->save();
 
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
-        }
-
-
-
-        for ($i=0; $i < count(request('nombrevideo')); ++$i){
-            if(!empty($request->input('nombrevideo.'.$i))){
-                videos::create([
-                    'idinstitucion' => $idInstitucion,
-                    'nombrevideo' => $request->input('nombrevideo')[$i],
-                    'descripcionvideo' => $request->input('descripcionvideo')[$i],
-                    'urlvideo' => $request->input('urlvideo')[$i],
-                    'fechavideo' => $request->input('fechavideo')[$i],
-                ]);
-            }
-        }
-
-        return redirect('FormularioInstitucion');
-
+        return response([
+            'mensaje'   => 'Se guardo correctamente la información',
+            'url'       => route('entidad.delete13', ['id' => $video->id]),
+            'max_items' => $videos >= 3 // Se le resta 1 porque se agregó 1
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 13----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 13----------------------*/
-    public function delete13($id){
+    public function delete13(Request $request){
+        /*id usuario logueado*/
+        $id_user = auth()->user()->id;
+        /*id de la institucion*/
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
+        //Validar si se llego al maximo de items
+        $video = videos::where('idinstitucion', '=', $institucion->id)
+            ->where('id', '=', $request->id)
+            ->select('id', 'nombrevideo')
+            ->first();
 
-        $verificaPerfil = $this->verificaPerfil();
-
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
+        if (empty($video)){
+            return response()->json([
+                'mensaje' => 'No se encontro el video'
+            ], Response::HTTP_NOT_FOUND);
         }
 
+        $nombre = $video->nombrevideo;
+        $video->delete();
 
-        $videos = videos::where('id', $id)->where('idinstitucion', $idInstitucion);
-        $videos->delete();
-
-        return redirect('FormularioInstitucion');
-
+        return response([
+            'mensaje' => 'El video ' . $nombre . ' se elimino correctamente'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Eliminacion formulario parte 13----------------------*/
 }

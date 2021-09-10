@@ -907,35 +907,33 @@
             <p class="text_superior-proced-formInst mb-0"> A continuación suba el link del video, con su respectivo nombre y descripción. </p>
 
             <!-- Modulos de los VIDEOS -->
-            <div class="col-12 p-0 m-0">
+            <div class="col-12 p-0 m-0" id="lista-videos-institucion">
+                <?php $count_videos = 0 ;?>
             @foreach($objVideo as $video)
                 @if(!empty($video->nombrevideo))
                     <!-- Contenido VIDEOS -->
+                        <?php $count_videos = 0 ;?>
                         <div class="section_infoExper-formInst">
                             <div class="col-12 content_cierreX-formInst">
-                                <a href="{{url('/FormularioInstituciondelete13/'.$video->id)}}">
-                                    <button type="submit" class="close" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </a>
+                                <button type="submit" class="close" aria-label="Close" data-url="{{ route('entidad.delete13', ['id' => $video->id]) }}">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-
-
                             <div class="col-12 my-2">
                                 <div class="col-10 img_selccionada-formProf">
-                                    <iframe class="img_anexada-formProf" src="{{$video->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe class="img_anexada-formProf" src="{{ $video->urlvideo }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
 
                                 <div class="col-12 p-0 mt-2">
-                                    <label class="col-12 text_fechaPremio-formProf"> {{$video->fechavideo}} </label>
+                                    <label class="col-12 text_fechaPremio-formProf"> {{ $video->fechavideo }} </label>
                                 </div>
 
                                 <div class="col-12 text_label-formInst">
-                                    <label class="col-12 title_infoGuardada-formProf"> {{$video->nombrevideo}} </label>
+                                    <label class="col-12 title_infoGuardada-formProf"> {{ $video->nombrevideo }} </label>
                                 </div>
 
                                 <div class="col-12 descripcion_Premio-formProf">
-                                    <p class="col-12 text_descPremio-formProf"> {{$video->descripcionvideo}} </p>
+                                    <p class="col-12 text_descPremio-formProf"> {{ $video->descripcionvideo }} </p>
                                 </div>
                             </div>
                         </div>
@@ -943,368 +941,35 @@
                 @endforeach
             </div>
 
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave13') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                @if (
-                                        $errors->has('nombrevideo.*') or
-                                        $errors->has('descripcionvideo.*') or
-                                        $errors->has('urlvideo.*') or
-                                        $errors->has('fechavideo.*')
-                                     )
-                    <div class="col-12">
-                        <div class="alert alert-danger" role="alert">
-                            <h4 class="alert-heading">Error!</h4>
-                            <p>Llene todos los formualrios que necesita.</p>
+            <form method="POST" action="{{ route('entidad.create13') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-videos-institucion">
+                @csrf
+                <div id="mensajes-videos"></div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 leftSection_formInst content_antes-formInst">
+                        <div class="col-12 leftSection_formInst">
+                            <label for="url_video_institucion" class="col-12 text_label-formInst"> Url video</label>
+                            <input class="form-control" id="url_video_institucion"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="url_video_institucion" {{ ($count_videos >= 4) ? 'disabled' : '' }} />
                         </div>
-                    </div>
-                @endif
-                @if($objContadorVideo->cantidad == 0)
-                <!-- Modulos de los VIDEOS -->
-                    <div class="row content_antDesp-formInst mt-0">
-                        <!-- Contenido VIDEOS izquierda -->
-                        <div class="col-md-6 leftSection_formInst content_antes-formInst">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 1 </label>
-
-                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título video </label>
-
-                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción video </label>
-
-                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
+                        <div class="col-12 leftSection_formInst">
+                            <label for="fecha_video_institucion" class="col-12 text_label-formInst"> Fecha </label>
+                            <input class="form-control" type="date"  id="fecha_video_institucion" name="fecha_video_institucion" {{ ($count_videos >= 4) ? 'disabled' : '' }} />
                         </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 rightSection_formInst">
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 2 </label>
-
-                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título video </label>
-
-                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción video </label>
-
-                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
+                        <div class="col-12 leftSection_formInst">
+                            <label for="nombre_video_institucion" class="col-12 text_label-formInst"> Título video </label>
+                            <input class="form-control" id="nombre_video_institucion" placeholder="Título video" type="text" name="nombre_video_institucion" {{ ($count_videos >= 4) ? 'disabled' : '' }} />
+                        </div>
+                        <div class="col-12 leftSection_formInst">
+                            <div class="form-group">
+                                <label for="descripcion_video_institucion" class="col-12 text_label-formInst"> Descripción video </label>
+                                <input class="form-control" id="descripcion_video_institucion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion_video_institucion" {{ ($count_videos >= 4) ? 'disabled' : '' }} />
+                                <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Modulos de los VIDEOS -->
-                    <div class="row content_antDesp-formInst">
-                        <!-- Contenido VIDEOS izquierda -->
-                        <div class="col-md-6 leftSection_formInst content_antes-formInst">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 3 </label>
-
-                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título video </label>
-
-                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción video </label>
-
-                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 rightSection_formInst">
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 4 </label>
-
-                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Título video </label>
-
-                                <input class="form-control" id="nombrevideo" placeholder="Título video" type="text" name="nombrevideo[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción video </label>
-
-                                    <input class="form-control" id="descripcionvideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionvideo[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorVideo->cantidad == 1)
-                <!-- Modulos de los VIDEOS -->
-                    <div class="row content_antDesp-formInst">
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 rightSection_formInst">
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 2 </label>
-
-                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
-
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
-
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modulos de los VIDEOS -->
-                    <div class="row content_antDesp-formInst">
-                        <!-- Contenido VIDEOS izquierda -->
-                        <div class="col-md-6 leftSection_formInst content_antes-formInst">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 3 </label>
-
-                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
-
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
-
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 rightSection_formInst">
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 4 </label>
-
-                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
-
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
-
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorVideo->cantidad == 2)
-                <!-- Modulos de los VIDEOS -->
-                    <div class="row content_antDesp-formInst">
-                        <!-- Contenido VIDEOS izquierda -->
-                        <div class="col-md-6 leftSection_formInst content_antes-formInst">
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 3 </label>
-
-                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
-
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 leftSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
-
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 rightSection_formInst">
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 4 </label>
-
-                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
-
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
-
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorVideo->cantidad == 3)
-                <!-- Modulos de los VIDEOS -->
-                    <div class="row content_antDesp-formInst">
-                        <!-- Contenido DERECHO -->
-                        <div class="col-md-6 video2 rightSection_formInst">
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Url video 4 </label>
-
-                                <input class="form-control" id="urlvideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlvideo[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <label for="example-date-input" class="col-12 text_label-formInst"> Fecha </label>
-
-                                <input class="form-control" type="date"  id="fechavideo" name="fechavideo[]" value="">
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Título Video </label>
-
-                                    <input class="form-control" id="nombrevideo"  type="text" name="nombrevideo[]" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-12 rightSection_formInst">
-                                <div class="form-group">
-                                    <label for="example-date-input" class="col-12 text_label-formInst"> Descripción Video </label>
-
-                                    <input class="form-control" id="descripcionvideo"  type="text" maxlength="160" name="descripcionvideo[]" value="">
-
-                                    <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @elseif($objContadorVideo->cantidad == 4)
-                    <label for="example-date-input" class="col-12 txtInfo_limitante-formInst"> No se pueden agregar más videos </label>
-                @endif
-
+                </div>
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst mt-0"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-video-institucion" {{ ($count_videos >= 4) ? 'disabled' : '' }} > Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>

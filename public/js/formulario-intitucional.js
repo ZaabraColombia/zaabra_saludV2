@@ -1519,7 +1519,7 @@ $('#form-galeria-institucion').validate({
                     '<label class="col-12 title_infoGuardada-formProf">' + $('#fecha_galeria_institucion').val() + '</label>\n' +
                     '</div>\n' +
                     '<div class="col-12 text_label-formInst">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombre_galeria_institucion').val() + 'abel>\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombre_galeria_institucion').val() + '</label>\n' +
                     '</div>\n' +
                     '<div class="col-12 descripcion_Premio-formProf">\n' +
                     '<label class="col-12 text_descPremio-formProf">' + $('#descripcion_galeria_institucion').val() + '</label>\n' +
@@ -1613,6 +1613,177 @@ $('#lista-galeria-intitucion').on('click', '.close' , function (e) {
             var response = event.responseJSON;
 
             mensaje_error('#mensajes-galeria', response.mensaje);
+        }
+    });
+});
+//Formulario 13
+//Agregar video
+$('#form-videos-institucion').validate({
+    rules: {
+        'url_video_institucion': {
+            required: true,
+        },
+        'fecha_video_institucion': {
+            required: true,
+        },
+        'nombre_video_institucion': {
+            required: true,
+        },
+        'descripcion_video_institucion': {
+            required: true,
+        }
+    },
+    messages: {
+        'url_video_institucion':{
+            required: "Por favor ingrese la url del video",
+        },
+        'fecha_video_institucion':{
+            required: "Por favor ingrese la fecha del video",
+        },
+        'nombre_video_institucion':{
+            required: "Por favor ingrese el titulo del video",
+        },
+        'descripcion_video_institucion':{
+            required: "Por favor ingrese la descripción del video",
+        }
+    },
+    submitHandler: function(form) {
+        //Elementos
+        var button_save = $('#btn-guardar-video-institucion');
+        button_save.prop('disabled', true);
+        var formulario = $(form);
+
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                button_save.prop('disabled', false);
+
+                //Agrgar tarjeta del convenio
+                $('#lista-videos-institucion').append('<div class="section_infoExper-formInst">\n' +
+                    '<div class="col-12 content_cierreX-formInst">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 my-2">\n' +
+                    '<div class="col-10 img_selccionada-formProf">\n' +
+                    '<iframe class="img_anexada-formProf" src="' + $('#url_video_institucion').val() + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 p-0 mt-2">\n' +
+                    '<label class="col-12 text_fechaPremio-formProf"> ' + $('#fecha_video_institucion').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 text_label-formInst">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombre_video_institucion').val() + ' </label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 descripcion_Premio-formProf">\n' +
+                    '<p class="col-12 text_descPremio-formProf"> ' + $('#descripcion_video_institucion').val() + ' </p>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                /* Deshabilitar formulario cuando llegue al maximo de items */
+                if (response.max_items > 0) {
+                    $('#url_video_institucion').prop('disabled', true);
+                    $('#fecha_video_institucion').prop('disabled', true);
+                    $('#nombre_video_institucion').prop('disabled', true);
+                    $('#descripcion_video_institucion').prop('disabled', true);
+                    button_save.prop('disabled', true);
+                }
+                formulario[0].reset();
+
+                //Respuesta
+                mensaje_success('#mensajes-videos', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                button_save.prop('disabled', false);
+
+                //Respuesta
+                var response = event.responseJSON;
+
+                /* Deshabilitar formulario cuando llegue al maximo de items */
+                if (response.max_items > 0) {
+                    $('#url_video_institucion').prop('disabled', true);
+                    $('#fecha_video_institucion').prop('disabled', true);
+                    $('#nombre_video_institucion').prop('disabled', true);
+                    $('#descripcion_video_institucion').prop('disabled', true);
+                    button_save.prop('disabled', true);
+                    formulario[0].reset();
+                }
+
+                if (event.status === 422){
+                    mensaje_error('#mensajes-videos', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-videos', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
+});
+//Eliminar video
+$('#lista-videos-institucion').on('click', '.close' , function (e) {
+    var button = $(this);
+    var url = $(this).data('url');
+
+    // Pace.start();
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  url,
+        type: "get",
+        dataType: 'json',
+        success: function( response ) {
+            //Finaliza la carga
+            // Pace.stop();
+            $('.form-control').removeClass('is-invalid');
+
+            mensaje_success('#mensajes-videos', response.mensaje);
+
+            //quitar el disabled
+            $('#url_video_institucion').prop('disabled', false);
+            $('#fecha_video_institucion').prop('disabled', false);
+            $('#nombre_video_institucion').prop('disabled', false);
+            $('#descripcion_video_institucion').prop('disabled', false);
+            $('#btn-guardar-video-institucion').prop('disabled', false);
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            // Pace.stop();
+            $('.form-control').removeClass('is-invalid');
+            var response = event.responseJSON;
+
+            mensaje_error('#mensajes-videos', response.mensaje);
         }
     });
 });
