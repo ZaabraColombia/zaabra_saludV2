@@ -332,7 +332,7 @@ class formularioInstitucionController extends Controller{
     }
 
     public function  cargaGaleria($id_user){
-        return DB::select("SELECT g.id_galeria, g.imggaleria, g.nombrefoto, g.descripcion
+        return DB::select("SELECT g.id_galeria, g.imggaleria, g.nombrefoto, g.descripcion, g.fechagaleria
     FROM  instituciones ins
     INNER JOIN users us   ON ins.idUser=us.id
     LEFT JOIN  galerias g ON ins.id = g.idinstitucion
@@ -1089,7 +1089,7 @@ class formularioInstitucionController extends Controller{
         $sede->direccion    = $request->direccion_sede;
         $sede->horario_sede = $request->horario_sede;
         $sede->telefono     = $request->telefono_sede;
-        $sede->nombre       = $request->url_mapa_sede;
+        $sede->url_map       = $request->url_mapa_sede;
         $sede->idInstitucion = $institucion->id;
 
         $foto = $request->file('img_sede');
@@ -1131,7 +1131,7 @@ class formularioInstitucionController extends Controller{
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $nombre = $sede->$sede;
+        $nombre = $sede->nombre;
         $foto   = $sede->imgsede;
         $sede->delete();
 
@@ -1139,7 +1139,7 @@ class formularioInstitucionController extends Controller{
         if (@getimagesize(public_path() . "/" . $foto)) unlink(public_path() . "/" . $foto);
 
         return response([
-            'mensaje' => 'La certificación ' . $nombre . ' se elimino correctamente'
+            'mensaje' => 'La sede ' . $nombre . ' se elimino correctamente'
         ], Response::HTTP_OK);
 
     }
@@ -1164,62 +1164,95 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 12----------------------*/
     public function create12(Request $request){
 
-        foreach ($request->input('nombrefoto', []) as $i => $tituloServicios) {
-            if(!empty($request->input('nombrefoto')[$i])){
-                $request->validate([
-                    'imggaleria.' . $i => ['required', 'image'],
-                    'nombrefoto.' . $i => ['required'],
-                    'descripcion.' . $i => ['required'],
-                    'fechagaleria.' . $i => ['required'],
-                ]);
-            }
+        $validation = Validator::make($request->all(), [
+            'img_galeria_institucion'           => ['required', 'image'],
+            'fecha_galeria_institucion'         => ['required', 'date_format:Y-m-d'],
+            'nombre_galeria_institucion'        => ['required'],
+            'descripcion_galeria_institucion'   => ['required', 'max:160']
+        ], [], [
+            'img_galeria_institucion'           => 'Foto',
+            'fecha_galeria_institucion'         => 'Fecha de la foto',
+            'nombre_galeria_institucion'        => 'Nombre de la foto',
+            'descripcion_galeria_institucion'   => 'Descripción de la foto'
+        ]);
+
+        if ($validation->fails()) {
+            $men = $validation->errors()->all();
+            $error = array_keys($validation->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
-
-        /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
-        $verificaPerfil = $this->verificaPerfil();
-
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
-        }
-
         /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        $id_user = auth()->user()->id;
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
-        $carpetaDestino = "img/instituciones/$id_user";
-        $imggaleria = $request->file('imggaleria');
-        for ($i=0; $i < count(request('nombrefoto')); ++$i){
-            if(!empty($request->input('nombrefoto.'.$i))){
-                galerias::create([
-                    'idinstitucion' => $idInstitucion,
-                    'nombrefoto' => $request->input('nombrefoto')[$i],
-                    'fechagaleria' => $request->input('fechagaleria')[$i],
-                    'imggaleria' =>"img/instituciones/$id_user/".$imggaleria[$i]->getClientOriginalName(),
-                    'descripcion' => $request->input('descripcion')[$i],
-                ]);
-                $imggaleria[$i]->move($carpetaDestino , $imggaleria[$i]->getClientOriginalName());
-            }
+        //Validar si se llego al maximo de items
+        $galeria = galerias::where('idInstitucion', '=', $institucion->id)->count();
+        if ($galeria >= 8){
+            return response()->json([
+                'max_items' => true,
+                'mensaje' => 'No puede agregar mas fotos'
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        return redirect('FormularioInstitucion');
+        //Crear el profesional
+        $foto   = new galerias();
+        $foto->fechagaleria = $request->fecha_galeria_institucion;
+        $foto->nombrefoto   = $request->nombre_galeria_institucion;
+        $foto->descripcion  = $request->descripcion_galeria_institucion;
+        $foto->idInstitucion = $institucion->id;
 
+        $img = $request->file('img_galeria_institucion');
+        $nombre_img = 'sede-' . time() . '.' . $img->guessExtension();
+        /*guarda la imagen en carpeta con el id del usuario*/
+        $img->move("img/instituciones/$id_user", $nombre_img);
+
+        //capturar la fotp
+        $foto->imggaleria = "img/instituciones/$id_user/" . $nombre_img;
+
+        //guardar certificacion
+        $foto->save();
+
+        return response([
+            'mensaje'   => 'Se guardo correctamente la información',
+            'url'       => route('entidad.delete10', ['id' => $foto->id_galeria]),
+            'image'     => asset($foto->imggaleria),
+            'max_items' => $galeria >= 7 // Se le resta 1 porque se agregó 1
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 12----------------------*/
     /*-------------------------------------Inicio Eliminacion  formulario parte 12----------------------*/
-    public function delete12($id_galeria){
+    public function delete12(Request $request){
+        /*id usuario logueado*/
+        $id_user = auth()->user()->id;
+        /*id de la institucion*/
+        $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
+        //Validar si se llego al maximo de items
+        $foto = galerias::where('idInstitucion', '=', $institucion->id)
+            ->where('id_galeria', '=', $request->id)
+            ->select('nombrefoto', 'nombrefoto', 'imggaleria')
+            ->first();
 
-        $verificaPerfil = $this->verificaPerfil();
-
-        foreach($verificaPerfil as $verificaPerfil){
-            $idInstitucion=$verificaPerfil;
+        if (empty($foto)){
+            return response()->json([
+                'mensaje' => 'No se encontro la foto'
+            ], Response::HTTP_NOT_FOUND);
         }
 
+        $nombre = $foto->nombrefoto;
+        $img   = $foto->imggaleria;
+        $foto->delete();
 
-        $galeria = galerias::where('id_galeria', $id_galeria)->where('idinstitucion', $idInstitucion);
-        $galeria->delete();
+        //eliminar la foto
+        if (@getimagesize(public_path() . "/" . $img)) unlink(public_path() . "/" . $img);
 
-        return redirect('FormularioInstitucion');
-
+        return response([
+            'mensaje' => 'La foto ' . $nombre . ' se elimino correctamente'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Eliminacion formulario parte 12----------------------*/
 

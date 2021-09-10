@@ -1439,3 +1439,180 @@ $('#lista-sedes-institucion').on('click', '.close' , function (e) {
         }
     });
 });
+//Formulario 12
+//Agregar gaelria
+$('#form-galeria-institucion').validate({
+    rules: {
+        'img_galeria_institucion': {
+            required: true,
+        },
+        'fecha_galeria_institucion': {
+            required: true,
+        },
+        'nombre_galeria_institucion': {
+            required: true,
+        },
+        'descripcion_galeria_institucion': {
+            required: true,
+        },
+        '': {
+            required: true,
+        }
+    },
+    messages: {
+        'img_galeria_institucion':{
+            required: "Por favor ingrese la imagen",
+        },
+        'fecha_galeria_institucion':{
+            required: "Por favor ingrese la fecha de la imagen",
+        },
+        'nombre_galeria_institucion':{
+            required: "Por favor ingrese el titulo de la imagen",
+        },
+        'descripcion_galeria_institucion':{
+            required: "Por favor ingrese la descripción de la imagen",
+        }
+    },
+    submitHandler: function(form) {
+        //Elementos
+        var button_save = $('#btn-guardar-galeria-institucion');
+        button_save.prop('disabled', true);
+        var formulario = $(form);
+
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                button_save.prop('disabled', false);
+
+                //Agrgar tarjeta del convenio
+                $('#lista-galeria-intitucion').append('<div class="savedData_formInst">\n' +
+                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 mt-2 p-0">\n' +
+                    '<div class="img_saveSede-formInst">\n' +
+                    '<img  class="img_anexada-formInst" src="' + response.image + '">\n' +
+                    '</div>\n' +
+                    '<div class="col-12 text_label-formInst">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf">' + $('#fecha_galeria_institucion').val() + '</label>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 text_label-formInst">\n' +
+                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombre_galeria_institucion').val() + 'abel>\n' +
+                    '</div>\n' +
+                    '<div class="col-12 descripcion_Premio-formProf">\n' +
+                    '<label class="col-12 text_descPremio-formProf">' + $('#descripcion_galeria_institucion').val() + '</label>\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '</div>');
+
+                /* Deshabilitar formulario cuando llegue al maximo de items */
+                if (response.max_items > 0) {
+                    $('#img_galeria_institucion').prop('disabled', true);
+                    $('#fecha_galeria_institucion').prop('disabled', true);
+                    $('#nombre_galeria_institucion').prop('disabled', true);
+                    $('#descripcion_galeria_institucion').prop('disabled', true);
+                    button_save.prop('disabled', true);
+                }
+
+                $('#img-img_galeria_institucion').attr('src', '#');
+                formulario[0].reset();
+
+                //Respuesta
+                mensaje_success('#mensajes-galeria', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                button_save.prop('disabled', false);
+
+                //Respuesta
+                var response = event.responseJSON;
+
+                /* Deshabilitar formulario cuando llegue al maximo de items */
+                if (response.max_items > 0) {
+                    $('#img_galeria_institucion').prop('disabled', true);
+                    $('#fecha_galeria_institucion').prop('disabled', true);
+                    $('#nombre_galeria_institucion').prop('disabled', true);
+                    $('#descripcion_galeria_institucion').prop('disabled', true);
+                    button_save.prop('disabled', true);
+                    $('#img-img_galeria_institucion').attr('scr', '#');
+                    formulario[0].reset();
+                }
+
+                if (event.status === 422){
+                    mensaje_error('#mensajes-galeria', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-galeria', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
+});
+//Eliminar galeria
+$('#lista-galeria-intitucion').on('click', '.close' , function (e) {
+    var button = $(this);
+    var url = $(this).data('url');
+
+    // Pace.start();
+    $.ajaxSetup({
+        /*Se anade el token al ajax para seguridad*/
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:  url,
+        type: "get",
+        dataType: 'json',
+        success: function( response ) {
+            //Finaliza la carga
+            // Pace.stop();
+            $('.form-control').removeClass('is-invalid');
+
+            mensaje_success('#mensajes-galeria', response.mensaje);
+
+            //quitar el disabled
+            $('#img_galeria_institucion').prop('disabled', false);
+            $('#fecha_galeria_institucion').prop('disabled', false);
+            $('#nombre_galeria_institucion').prop('disabled', false);
+            $('#descripcion_galeria_institucion').prop('disabled', false);
+            $('#btn-guardar-galeria-institucion').prop('disabled', false);
+            //Quitar la caja
+            button.parent().parent().remove();
+        },
+        error: function (event) {
+            // Pace.stop();
+            $('.form-control').removeClass('is-invalid');
+            var response = event.responseJSON;
+
+            mensaje_error('#mensajes-galeria', response.mensaje);
+        }
+    });
+});
