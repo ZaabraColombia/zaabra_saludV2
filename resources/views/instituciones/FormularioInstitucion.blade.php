@@ -776,7 +776,7 @@
             <form method="POST" action="{{ route('entidad.create11') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-ubicaion-institucion">
                 @csrf
                 <div class="col-12 px-0">
-                    <p for="url_map_principal_institucion" class="text_superior-proced-formInst"> A continuación enlace las sedes en Google Maps. </p>
+                    <label for="url_map_principal_institucion" class="text_superior-proced-formInst"> A continuación enlace las sedes en Google Maps. </label>
                     <input class="form-control" id="url_map_principal_institucion" placeholder="https://www.google.com/maps/embed?pb=....." type="text" name="url_map_principal_institucion" />
                 </div>
                 <div class="col-12 px-0 {{ empty($objFormulario->url_maps) ? 'd-none' : '' }}">
