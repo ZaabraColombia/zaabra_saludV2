@@ -19,6 +19,7 @@ class perfilInstitucionController extends Controller
     {
         //$objinstitucionlandinimgsede = instituciones::where('slug', 'like', $slug)->first();
         $objinstitucionlandin = $this->cargarInfoInstitucLandin($slug);
+        if (empty($objinstitucionlandin)) return redirect('/');
         //$objinstitucionlandin = $objinstitucionlandin[0];
 
         $id = $objinstitucionlandin[0]->id;
