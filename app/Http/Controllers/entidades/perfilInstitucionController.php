@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 namespace App\Http\Controllers\entidades;
 use App\Http\Controllers\Controller;
+use App\Models\Convenios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\instituciones;
@@ -25,6 +26,12 @@ class perfilInstitucionController extends Controller
 
         $objinstitucionlandinimgsede = $objinstitucionlandin[0];
 
+        //Convenios
+        $objConvenios = Convenios::where('id_institucion', '=', $id)
+            ->orderBy('id_tipo_convenio')
+            ->leftjoin('tipoinstituciones', 'tipoinstituciones.id', '=','convenios.id_tipo_convenio')
+            ->get(['convenios.id', 'id_tipo_convenio', 'url_image', 'nombretipo as nombre_convenio']);
+
         $objinstitucionlandinservicios= $this->cargarInfoInstitucLandinServicios($id);
         //$objinstitucionlandinprepagada= $this->cargarPrepagada($id);
         //$objinstitucionlandinips= $this->cargarIps($id);
@@ -39,6 +46,7 @@ class perfilInstitucionController extends Controller
         return view('instituciones.PerfilInstitucion', compact(
             'objinstitucionlandin',
             'objinstitucionlandinservicios',
+            'objConvenios',
             //'objinstitucionlandinprepagada',
             //'objinstitucionlandinips',
             //'objinstitucionlandineps',
