@@ -133,6 +133,13 @@
 
             <div class="convenios">
                 <h2><i></i>Convenios</h2>
+                <div class="row">
+                    @foreach($objConvenios as $convenio)
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="{{ asset($convenio->url_image) }}" alt="{{ $convenio->nombre_convenio }}">
+                        </div>
+                    @endforeach
+                </div>
                 <ul>
                     <li>
 {{--                        @if(!empty($objinstitucionlandineps))--}}
