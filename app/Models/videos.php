@@ -16,4 +16,6 @@ class videos extends Model
         'urlvideo',
         'fechavideo'
     ];
+
+    protected $primaryKey = "id";
 }
