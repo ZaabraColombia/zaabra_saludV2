@@ -2,23 +2,22 @@
     background: #F9F9F9;
     padding-top: 3%;
 }
-.content_icons-formProf {
+/*.content_icons-formProf {
     width: 17%;
-}
+}*/
 .lista_opciones-usuario-formProf {
     display: flex;
+    justify-content: center;
     list-style: none;
     padding: 0;
     margin: 2% auto;
     width: 80%;
-    height: 12vh;
 }
 .text_opcion-formProfesional {
     font-family: 'Quicksand', 'Regular';
     margin: 0;
     text-align: center;
     width: 100%;
-    height: 30%;
 }
 // Iconos grises de las opciones del usuario
 .iconGris_perfProf {
@@ -171,16 +170,17 @@
     padding: 0;
 }
 .alert-message {
+    font-size: 1.25em;
+    font-family: 'Roboto';
+    font-weight: 500;
     color: #721c24;
+    text-align: center;
     background-color: #f8d7da;
     border-color: #f5c6cb;
-    width: 80%;
-    height: 7vh;
-    padding: 2% 1% 1% 1%;
-    text-align: center;
     border-radius: 3px;
-    margin-left: 10%;
-    margin-bottom: 2%;
+    width: 75%;
+    margin: auto;
+    padding: 3% 0;
 }
 // Sección titulo y texto superior
 .titulo_principal-formProf {
@@ -212,8 +212,7 @@
     background-repeat: no-repeat ;
     background-position-y: center;
     background-size: 2.5%;
-    padding-left: 4%;
-    height: 5vh;
+    padding: 3% 0 3% 10%;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #019F86;
@@ -235,13 +234,18 @@
 }
 /// Sección imagen Usuario
 .contain_imgUsuario-formProf {
+    display: flex;
     align-self: center;
     text-align: center;
+    flex-direction: column;
+    height: calc(8em + 8em + 2px);
+    width: calc(8em + 8em + 2px);
+    margin: auto;
 }
 .img_usuario-formProf {
-    height: 22vh;
+    height: 100%;
     width: 100%;
-    border-radius: 135px;
+    border-radius: 100px;
     background: #D1D1D1;
     border: 1px solid #707070;
     object-fit: cover;
@@ -287,7 +291,7 @@
     color: #232323;
     font-weight: bold;
     padding: 0;
-    margin: 2% 0;
+    //margin: 2% 0;
 }
 .input_nomApl-formProf {
     display: block;
@@ -333,7 +337,6 @@
     background-position-y: center;
     background-size: 2.5%;
     padding-left: 4%;
-    height: 5vh;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #019F86;
@@ -360,7 +363,6 @@
     background-position-y: center;
     background-size: 2.5%;
     padding-left: 4%;
-    height: 5vh;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #019F86;
@@ -427,7 +429,6 @@
     background-position-y: center;
     background-size: 2.5%;
     padding-left: 4%;
-    height: 5vh;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #019F86;
@@ -445,7 +446,6 @@
     background-position-y: center;
     background-size: 2.5%;
     padding-left: 4%;
-    height: 5vh;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #019F86;
@@ -463,7 +463,6 @@
     background-position-y: center;
     background-size: 2.5%;
     padding-left: 4%;
-    height: 5vh;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #019F86;
@@ -503,7 +502,6 @@
     background-position-y: center;
     background-size: 2.5%;
     padding-left: 4%;
-    height: 5vh;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #019F86;
@@ -552,7 +550,6 @@
     background-position-y: center;
     background-size: 2.5%;
     padding-left: 4%;
-    height: 5vh;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #019F86;
@@ -568,7 +565,6 @@
 .txt_informativo-formProf {
     text-align: center;
     padding: 0;
-    line-height: 1.4;
 }
 .img_selccionada-formProf {
     display: flex;
@@ -577,8 +573,8 @@
     padding: 0;
     align-items: center;
     width: 70%;
-    height: 6vh;
-    border: 1px solid #dbdada;
+    //height: 6vh;
+    //border: 1px solid #dbdada;
 }
 .img_selccionada-formExperiencia {
     display: flex;
@@ -586,9 +582,7 @@
     margin: auto;
     padding: 0;
     align-items: center;
-    width: 70%;
-    height: 70%;
-    border: 1px solid #dbdada;
+    width: 100%;
 }
 .img_anexada-formProf {
     width: 100%;
@@ -695,7 +689,6 @@
     background-position-y: center;
     background-size: 2.5%;
     padding-left: 4%;
-    height: 5vh;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #019F86;
@@ -738,7 +731,6 @@
     background-position-y: center;
     background-size: 2.5%;
     padding-left: 4%;
-    height: 5vh;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #019F86;
@@ -810,7 +802,7 @@
     padding: 0;
     align-items: center;
     width: 100%;
-    height: 40vh;
+ //   height: 40vh;
 }
 .img_traProced-formProf {
     height: 100%;
@@ -859,7 +851,6 @@
     box-shadow: 0px 2px 5px -2px rgb(0 0 0 / 25%);
 }
 .content_btnDelet-trata-formProf {
-    height: 3vh;
     padding: 0;
 }
 .after_formProf {
@@ -885,7 +876,6 @@
     background-position-y: center;
     background-size: 2.5%;
     padding-left: 4%;
-    height: 5vh;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #019F86;
@@ -901,16 +891,7 @@
     padding: 0;
     align-items: center;
     width: 100%;
-    height: 30vh;
-}
-.content_premio-recono .img_selccionada-formProf {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    padding: 0;
-    align-items: center;
-    width: 100%;
-    height: 30vh;
+    //height: 30vh;
 }
 .content_premio-recono .agregar_archivo-formProf {
     position: relative;
@@ -918,7 +899,7 @@
     justify-content: center;
     margin: auto;
     padding: 0;
-    width: 60%;
+    //width: 60%;
 }
 .photo1 .agregar_archivo-formProf::before {
     background-image: url('/img/formulario-profesional/icono-subir.svg') ;
@@ -1018,7 +999,7 @@
     font-family: "Roboto";
     color: #232323;
     padding: 0;
-    height: 12vh;
+    //height: 12vh;
 }
 .text_descPremio-formProf {
     font-family: "Roboto";
@@ -1239,7 +1220,10 @@
     border: 1px solid #434343;
     border-radius: 3px;
     height: calc(1.6em + 0.75rem + 2px);
-    width: 75%;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 .boton_inferior-siguiente-formProf {
     font-family: "Quicksand";
@@ -1249,7 +1233,10 @@
     border: none;
     border-radius: 3px;
     height: calc(1.6em + 0.75rem + 2px);
-    width: 75%;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 .boton_inferior-finalizar-formProf {
     font-family: "Quicksand";
@@ -1288,14 +1275,17 @@ label.error{
 @media (min-width: 320px) and (orientation: portrait) {
     // Sección cabecera del formulario opciones del usuario
     .lista_opciones-usuario-formProf {
-        justify-content: center;
         flex-wrap: wrap;
+        height: calc(3em + 3em + 100px);
         width: 100%;
-        height: 35vh;
+        margin: 5% auto;
+    }
+    .text_opcion-formProfesional {
+        height: calc(1em + 1em + 10px);
     }
     .content_icons-formProf {
         width: 30%;
-        height: 15vh;
+        height: calc(3em + 3em + 1px);
     }
     .iconAzul_datoPersonal {
         font-size: .75em !important;
@@ -1316,14 +1306,8 @@ label.error{
         font-size: .75em !important;
     }
     .alert-message {
-        color: #721c24;
-        background-color: #f8d7da;
-        border-color: #f5c6cb;
-        border-radius: 5px;
-        z-index: 199;
-        padding-left: 1%;
-        padding-right: 1%;
-        margin-top: 1%;
+        font-size: 1em;
+        padding: 3% 0;
     }
     // Sección del título principal del formulario
     .titulo_principal-formProf {
@@ -1331,35 +1315,34 @@ label.error{
         text-align: center;
     }
     .texto_superior-formProf {
-        font-size: .85em;
+        font-size: .9em;
     }
     //      ***** SECCIÓN TARJETA DE --- INFORMACIÓN BÁSICA --- *****
     .datos_principales-formProf {
         border-left: none;
     }
     .icon_infoBasica-formProf {
+        padding: 3% 0 3% 10%;
         background-size: 8%;
-        padding-left: 10%;
-        height: 6vh;
         display: flex;
     }
     // Imagen del usuario
-    .contain_imgUsuario-formProf {
+    /*.contain_imgUsuario-formProf {
         align-self: center;
         text-align: center;
         margin-top: 5%;
-    }
-    .img_usuario-formProf {
+    }*/
+    /*.img_usuario-formProf {
         height: 35vh;
         width: 75%;
-    }
+    }*/
     .text_usuario-formProf {
-        font-size: .85em;
-        padding: 5% 0 5% 10%;
+        font-size: .9em;
+        padding: 5% 0 5% 12%;
     }
     .icon_subirFoto-formProf {
-        background-position-x: 26%;
-        background-size: 4.5%;
+        background-position-x: 20%;
+        background-size: 6%;
     }
     // Sección cajas de texto datos personales
     .section_inputRight-text-formProf {
@@ -1370,12 +1353,11 @@ label.error{
     }
     .text_label-formProf {
         font-size: 1em;
-        margin: 3% 0;
+        margin-top: 3%;
     }
     .nombres_usuario-formProf {
         flex-direction: column;
         padding: 0;
-        height: 15vh;
     }
     .input_nomApl-formProf {
         width: 100%;
@@ -1400,20 +1382,20 @@ label.error{
     }
     //      ***** SECCIÓN TARJETA DE --- INFORMACIÓN DEL CONTACTO --- *****         //
     .icon_infoContac-formProf {
+        padding: 3% 0 3% 10%;
         background-size: 8%;
-        padding-left: 10%;
-        height: 6vh;
+        display: flex;
     }
     .btn2_enviar-formProf {
         font-size: 1em;
-        width: 45%;
+        width: 40%;
         margin: 3% 0 5% 0;
     }
     //      ***** SECCIÓN TARJETA DE --- INFORMACIÓN DE LA CONSULTA --- *****         //
     .icon_infoConsult-formProf {
+        padding: 3% 0 3% 10%;
         background-size: 8%;
-        padding-left: 10%;
-        height: 6vh;
+        display: flex;
     }
     .seccion_consulta-formProf {
         flex-direction: column;
@@ -1435,28 +1417,51 @@ label.error{
         height: 3vh;
         padding: 0;
     }
+
+
+
+    .icon_destacado-formProf {
+        padding: 3% 0 3% 10%;
+        background-size: 8%;
+        display: flex;
+    }
     //      ***** SECCIÓN TARJETA DE --- PERFIL PROFESIONAL --- *****         //
     .icon_infoSubPerfil-formProf {
+        padding: 3% 0 3% 10%;
         background-size: 8%;
-        padding-left: 10%;
-        height: 6vh;
+        display: flex;
     }
     //      ***** SECCIÓN TARJETA DE --- EDUCACIÓN --- *****         //
     .icon_infoEduc-formProf {
+        padding: 3% 0 3% 10%;
         background-size: 8%;
-        padding-left: 10%;
-        height: 6vh;
+        display: flex;
     }
     .section_infoEducacion-formProf {
         width: 100%;
         padding: 2%;
         margin: 2% 0;
     }
+    .logo_univ_LInst {
+        width: 100%;
+        padding-bottom: 3%;
+    }
+    .img_thumb_LInst {
+        padding: 15% 20%;
+        border-radius: 3px;
+    }
+
+
+
+
+
+
+
     //      ***** SECCIÓN TARJETA DE --- EXPERIENCIA --- *****         //
     .icon_infoExper-formProf {
+        padding: 3% 0 3% 10%;
         background-size: 8%;
-        padding-left: 10%;
-        height: 6vh;
+        display: flex;
     }
     .section_infoExper-formProf {
         width: 100%;
@@ -1469,17 +1474,16 @@ label.error{
         margin: 3% 0 0 0;
     }
     .icon_infoAsocia-formProf {
+        padding: 3% 0 3% 10%;
         background-size: 8%;
-        padding-left: 10%;
-        height: 6vh;
+        display: flex;
     }
-    .agregar_archivo-formProf {
+    /*.agregar_archivo-formProf {
         width: 70%;
-    }
+    }*/
     .txt_informativo-formProf {
         text-align: center;
         padding: 0;
-        line-height: .3;
     }
     .agregar_archivo-formProf::before {
         background-position-x: 5%;
@@ -1487,10 +1491,10 @@ label.error{
         font-size: .9em;
         padding-left: 8%;
     }
-    .img_selccionada-formProf {
+    /*.img_selccionada-formProf {
         width: 75%;
         height: 10vh;
-    }
+    }*/
     .asociacion_guardada-formProf {
         width: 100%;
         height: auto;
@@ -1507,9 +1511,9 @@ label.error{
     }
     //      ***** SECCIÓN TARJETA DE --- IDIOMAS --- *****         //
     .icon_infoIdioma-formProf {
+        padding: 3% 0 3% 10%;
         background-size: 8%;
-        padding-left: 10%;
-        height: 6vh;
+        display: flex;
     }
     .content_idmBandera-formProf {
         padding: 0 10px;
@@ -1525,20 +1529,20 @@ label.error{
         border-left: none;
     }
     .icon_infoTratam-formProf {
+        padding: 3% 0 3% 10%;
         background-size: 8%;
-        padding-left: 10%;
-        height: 6vh;
+        display: flex;
     }
     .text_superior-proced-formProf {
-        font-size: .75em;
+        font-size: .9em;
         margin: 5% 0;
     }
     .content_antes-formProf {
         border-right: none;
     }
-    .content_tratam-proced .img_selccionada-formProf {
+    /*.content_tratam-proced .img_selccionada-formProf {
         height: 45vh;
-    }
+    }*/
     .photo1 .agregar_archivo-formProf::before {
         background-position-x: 10%;
         background-size: 10%;
@@ -1562,7 +1566,6 @@ label.error{
     .content_agregarImg-formProf {
         margin: auto;
         padding: 0;
-        margin-bottom: 5%;
     }
     .antes .agregar_archivo-formProf::before {
         background-position-x: 5%;
@@ -1575,38 +1578,37 @@ label.error{
         font-size: 1em;
     }
     .text_infoImg-formProf {
-        font-size: .75em;
+        font-size: .9em;
         padding: 0;
     }
     .content_btnDelet-trata-formProf {
-        height: 4vh;
-        padding: 2%;
+        padding: 1% 5% 1% 0; 
     }
-    .descripcion_Premio-formProf {
+    /*.descripcion_Premio-formProf {
         height: 14vh;
-    }
+    }*/
     .text_infoGuardada-formProf {
         font-size: .85em;
     }
     //      ***** SECCIÓN TARJETA DE --- PREMIOS Y RECONOCIMIENTOS --- *****         //
     .icon_infoPremReco-formProf {
+        padding: 3% 0 3% 10%;
         background-size: 8%;
-        padding-left: 10%;
-        height: 6vh;
+        display: flex;
     }
-    .content_premio-recono .agregar_archivo-formProf {
+    /*.content_premio-recono .agregar_archivo-formProf {
         width: 45%;
-    }
+    }*/
     .title_infoGuardada-formProf {
         font-size: 1em;
     }
     .text_descPremio-formProf {
         font-size: .75em;
     }
-    .content_premio-recono .img_selccionada-formProf {
+    /*.content_premio-recono .img_selccionada-formProf {
         width: 100%;
         height: 35vh;
-    }
+    }*/
     //      ***** SECCIÓN TARJETA DE --- PUBLICACIONES --- *****         //
     .icon_infoPublic-formProf {
         background-size: 8%;
@@ -1660,7 +1662,6 @@ label.error{
     }
     // Sección botones inferiores anterior y siguiente
         .boton_inferior-siguiente-formProf {
-            width: 90%;
             font-size: 1em;
         }
         .content_botonesInferiores-formProf {
@@ -1677,10 +1678,12 @@ label.error{
             border: none;
             border-radius: 3px;
             height: calc(1.6em + 0.75rem + 2px);
-            width: 45%;
+            width: 40%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
         }
         .boton_inferior-anterior-formProf {
-            width: 90%;
             font-size: 1em;
         }
         .boton_inferior-finalizar-formProf {
@@ -1688,12 +1691,8 @@ label.error{
         }
 }
 @media (min-width: 768px) and (orientation: portrait) {
-    .alert-message {
-        height: 5vh;
-    }
     .content_icons-formProf {
         width: 16%;
-        height: 10vh;
     }
     .lista_opciones-usuario-formProf {
         display: flex;
@@ -1701,7 +1700,6 @@ label.error{
         padding: 0;
         margin: 2% auto;
         width: 100%;
-        height: 12vh;
     }
     .text_opcion-formProfesional {
         font-family: 'Quicksand', 'Regular';
@@ -1769,8 +1767,6 @@ label.error{
     }
     .icon_infoBasica-formProf {
         background-size: 3%;
-        padding-left: 5%;
-        height: 2.5vh;
         font-size: 1.2em;
     }
     // Imagen del usuario
@@ -1779,10 +1775,10 @@ label.error{
         text-align: center;
         margin-top: 5%;
     }
-    .img_usuario-formProf {
+    /*.img_usuario-formProf {
         height: 13vh;
         width: 100%;
-    }
+    }*/
     .icon_subirFoto-formProf {
         background-position-x: 2%;
         background-size: 8%;
@@ -1801,7 +1797,6 @@ label.error{
         flex-direction: row;
         justify-content: space-between;
         padding: 0;
-        height: 3vh;
     }
     .section_inputRight-text-formProf {
         padding: 0 0 0 15px;
@@ -1874,7 +1869,6 @@ label.error{
     .icon_infoSubPerfil-formProf {
         background-size: 3%;
         padding-left: 5%;
-        height: 2.5vh;
         font-size: 1.2em;
     }
     .text_infoImg-formProf {
@@ -1887,7 +1881,6 @@ label.error{
     .icon_infoEduc-formProf {
         background-size: 3%;
         padding-left: 5%;
-        height: 2.5vh;
         font-size: 1.2em;
     }
     .educacion_guardada-formProf {
@@ -1903,7 +1896,6 @@ label.error{
     .icon_infoExper-formProf {
         background-size: 3%;
         padding-left: 5%;
-        height: 2.5vh;
         font-size: 1.2em;
     }
     .section_infoExper-formProf {
@@ -1923,7 +1915,6 @@ label.error{
     .icon_infoAsocia-formProf {
         background-size: 3%;
         padding-left: 5%;
-        height: 2.5vh;
         font-size: 1.2em;
     }
     .agregar_archivo-formProf {
@@ -1934,9 +1925,6 @@ label.error{
         background-size: 6%;
         font-size: 1em;
         padding-left: 0;
-    }
-    .txt_informativo-formProf {
-        line-height: 1.4;
     }
     .img_selccionada-formProf {
         width: 75%;
@@ -1959,7 +1947,6 @@ label.error{
     .icon_infoIdioma-formProf {
         background-size: 3%;
         padding-left: 5%;
-        height: 2.5vh;
         font-size: 1.2em;
     }
     .idioma_guardada-formProf {
@@ -1969,7 +1956,6 @@ label.error{
     .icon_infoTratam-formProf {
         background-size: 3%;
         padding-left: 5%;
-        height: 2.5vh;
         font-size: 1.2em;
     }
     .text_superior-proced-formProf {
@@ -1986,10 +1972,9 @@ label.error{
         background-size: 5%;
         font-size: 1em;
     }
-    .content_btnDelet-trata-formProf {
-        height: 4vh;
+    /*.content_btnDelet-trata-formProf {
         padding: 2% 2% 0 0;
-    }
+    }*/
     .content_tratam-proced .img_selccionada-formProf {
         display: flex;
         justify-content: center;
@@ -1997,7 +1982,7 @@ label.error{
         padding: 0;
         align-items: center;
         width: 100%;
-        height: 30vh;
+        //height: 30vh;
     }
     .title_infoGuardada-formProf {
         font-size: 1.1em;
@@ -2009,7 +1994,6 @@ label.error{
     .icon_infoPremReco-formProf {
         background-size: 3%;
         padding-left: 5%;
-        height: 2.5vh;
         font-size: 1.2em;
     }
     .photo1 .agregar_archivo-formProf::before {
@@ -2037,11 +2021,11 @@ label.error{
     }
     .content_premio-recono .img_selccionada-formProf {
         width: 100%;
-        height: 20vh;
+        //height: 20vh;
     }
-    .descripcion_Premio-formProf {
+    /*.descripcion_Premio-formProf {
         height: 10vh;
-    }
+    }*/
     .text_descPremio-formProf {
         font-size: 1em;
     }
@@ -2097,12 +2081,12 @@ label.error{
         .btn-next-320-formProf {
             width: 68%;
         }
-        .boton_inferior-siguiente-formProf {
+        /*.boton_inferior-siguiente-formProf {
             width: 68%;
-        }
-        .boton_inferior-anterior-formProf {
+        }*/
+        /*.boton_inferior-anterior-formProf {
             width: 68%;
-        }
+        }*/
         .boton_inferior-finalizar-formProf {
             width: 68%;
             background: #019F86;
@@ -2111,23 +2095,15 @@ label.error{
 @media (min-width: 1200px) {
     .lista_opciones-usuario-formProf {
         width: 60%;
-        height: 12vh;
     }
-    .img_usuario-formProf {
+    /*.img_usuario-formProf {
         height: 20vh;
-    }
+    }*/
 }
 @media (min-width: 1440px) {
-    .alert-message {
-        width: 66%;
-        height: 6vh;
-        padding: 1%;
-        margin-left: 17%;
-        margin-bottom: 2%;
-    }
-    .img_usuario-formProf {
+    /*.img_usuario-formProf {
         height: 23vh;
-    }
+    }*/
     /*.text_usuario-formProf {
         margin: 5% 0;
     }*/
@@ -2139,10 +2115,10 @@ label.error{
         width: 70%;
         height: 6vh;
     }
-    .img_selccionada-formExperiencia {
+    /*.img_selccionada-formExperiencia {
         width: 70%;
         height: 70%;
-    }
+    }*/
     .content_publicacion .img_selccionada-formProf {
         width: 75%;
         height: 60vh;
@@ -2187,21 +2163,13 @@ label.error{
 }
 
 @media (min-width: 1920px) {
-    .alert-message {
-        width: 66%;
-        height: 6vh;
-        padding: 1%;
-        margin-left: 17%;
-        margin-bottom: 1%;
-    }
     .lista_opciones-usuario-formProf {
         width: 55%;
-        height: 13vh;
     }
-    .img_usuario-formProf {
+    /*.img_usuario-formProf {
         height: 20vh;
         width: 65%;
-    }
+    }*/
     .icon_subirFoto-formProf {
         background-position-x: 18%;
         background-size: 5%;
@@ -2234,17 +2202,17 @@ label.error{
         width: 70%;
         height: 8vh;
     }
-    .img_selccionada-formExperiencia {
+    /*.img_selccionada-formExperiencia {
         width: 70%;
         height: 70%;
-    }
+    }*/
     .content_antDesp-formProf {
         padding: 0;
         margin: 0;
     }
-    .content_tratam-proced .img_selccionada-formProf {
+    /*.content_tratam-proced .img_selccionada-formProf {
         height: 65vh;
-    }
+    }*/
     .antes .agregar_archivo-formProf {
         width: 40%;
     }

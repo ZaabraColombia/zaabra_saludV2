@@ -10653,8 +10653,8 @@ a:link, a:visited, a:active, a:hover {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    height: 5vh;
-    width: 9%;
+    height: calc(1em + 1em + 4px);
+    width: calc(1em + 1em + 2px);
   }
 
   .menu-hamburger {
@@ -10828,8 +10828,6 @@ a:link, a:visited, a:active, a:hover {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    height: 4vh;
-    width: 7%;
   }
 
   .menu_hamburguesa {
@@ -18544,9 +18542,13 @@ a:link, a:visited, a:active, a:hover {
     margin: auto;
   }
 }
+.contains_image_profesional {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .contains_slide .contains_image_profesional img {
-  height: 100%;
-  width: 100%;
+  height: 200px;
 }
 
 .titulo_profesionales {
@@ -18752,11 +18754,15 @@ a:link, a:visited, a:active, a:hover {
   text-transform: initial !important;
 }
 
-#slider_principal {
-  height: auto;
-}
-
+/*#slider_principal {
+    height: auto;
+}*/
 @media (min-width: 320px) {
+  .contains_image_profesional {
+    display: flex;
+    justify-content: center;
+  }
+
   .titulo_profesionales {
     margin-top: 5%;
     margin-bottom: 5%;
@@ -18764,7 +18770,6 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_swiper_premium {
-    max-width: 100%;
     margin-bottom: 10%;
   }
 
@@ -18774,10 +18779,9 @@ a:link, a:visited, a:active, a:hover {
     flex-direction: column;
   }
 
-  .contains_slide .contains_image_profesional {
-    height: 45%;
-  }
-
+  /*.contains_slide .contains_image_profesional{ ///////////// revisar esta clase para el alto de la imagen del profesional de ginecologia
+      height: 45%;
+  }*/
   .contains_slide .contains_image_profesional img {
     -o-object-fit: cover;
        object-fit: cover;
@@ -18820,7 +18824,6 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_swiper_premium .contains_info p {
     font-size: 0.85em;
-    height: 14vh;
   }
 
   .contains_swiper_premium .contains_info h2, h5, p {
@@ -18938,9 +18941,9 @@ a:link, a:visited, a:active, a:hover {
     height: 140px;
   }
 
-  .contains_swiper_premium .contains_info p {
-    height: 10vh;
-  }
+  /*.contains_swiper_premium .contains_info p {
+      height: 10vh;
+  }*/
 }
 @media (min-width: 768px) {
   .titulo_profesionales {
@@ -18962,7 +18965,6 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_swiper_premium .contains_info p {
     font-size: 1em;
-    height: 6vh;
   }
 
   .contains_slide .contains_buttons a {
@@ -18975,7 +18977,6 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_swiper_premium {
-    max-width: 100%;
     margin-bottom: 5%;
   }
 
@@ -18983,10 +18984,9 @@ a:link, a:visited, a:active, a:hover {
     max-width: 75%;
   }
 
-  .contains_slide .contains_image_profesional {
-    height: 50%;
-  }
-
+  /*.contains_slide .contains_image_profesional{
+      height: 50%;
+  }*/
   .contains_slide .contains_body {
     width: 100%;
     margin: auto;
@@ -19058,8 +19058,8 @@ a:link, a:visited, a:active, a:hover {
 }
 @media (min-width: 1024px) and (max-height: 800px) {
   .contains_swiper_premium {
-    max-width: 100%;
-    margin-bottom: 5%;
+    height: 30vh;
+    margin-bottom: 2%;
   }
 
   .titulo_profesionales {
@@ -19068,13 +19068,11 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .swiper_premium {
-    max-width: 80%;
     flex-direction: row;
   }
 
   .contains_slide .contains_image_profesional {
-    width: 50%;
-    height: 80%;
+    max-width: 50%;
     float: left;
   }
 
@@ -19092,7 +19090,6 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_slide .contains_info p {
     text-align: left;
-    height: 8vh;
   }
 
   .contains_slide .contains_buttons {
@@ -19161,6 +19158,11 @@ a:link, a:visited, a:active, a:hover {
   .card_generic .card-body h5 {
     font-size: 1.2em;
   }
+
+  .contains_slide .contains_buttons a {
+    width: 40%;
+    height: calc(1em + 1em + 2px);
+  }
 }
 @media (min-width: 1200px) {
   .container_cards_normal {
@@ -19173,10 +19175,6 @@ a:link, a:visited, a:active, a:hover {
     height: 140px;
   }
 
-  .contains_slide .contains_info p {
-    height: 12vh;
-  }
-
   .card_normal .card-body {
     justify-content: flex-end;
     padding-top: 50%;
@@ -19184,7 +19182,6 @@ a:link, a:visited, a:active, a:hover {
 }
 @media (min-width: 1360px) {
   .swiper_premium {
-    max-width: 70%;
     flex-direction: row;
   }
 
@@ -19195,7 +19192,6 @@ a:link, a:visited, a:active, a:hover {
 }
 @media (min-width: 1440px) {
   .contains_swiper_premium {
-    max-width: 100%;
     margin-bottom: 5%;
   }
 
@@ -19205,13 +19201,11 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .swiper_premium {
-    max-width: 70%;
     flex-direction: row;
   }
 
   .contains_slide .contains_image_profesional {
     width: 50%;
-    height: 80%;
     float: left;
   }
 
@@ -19291,7 +19285,6 @@ a:link, a:visited, a:active, a:hover {
 }
 @media (min-width: 1600px) {
   .swiper_premium {
-    max-width: 65%;
     flex-direction: row;
   }
 
@@ -19306,20 +19299,15 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1920px) {
-  .contains_slide .contains_image_profesional {
-    height: 75%;
-  }
-
+  /*.contains_slide .contains_image_profesional {
+      height: 75%;
+  }*/
   .contains_swiper_premium .contains_info h5 {
     font-size: 1.2em;
   }
 
   .rating-stars ul > li.star > i.fa {
     font-size: 1.563em;
-  }
-
-  .contains_slide .contains_info p {
-    height: 14.5vh;
   }
 
   .contains_swiper_premium .contains_info p {
@@ -25018,17 +25006,16 @@ a:link, a:visited, a:active, a:hover {
   padding-top: 3%;
 }
 
-.content_icons-formProf {
-  width: 17%;
-}
-
+/*.content_icons-formProf {
+    width: 17%;
+}*/
 .lista_opciones-usuario-formProf {
   display: flex;
+  justify-content: center;
   list-style: none;
   padding: 0;
   margin: 2% auto;
   width: 80%;
-  height: 12vh;
 }
 
 .text_opcion-formProfesional {
@@ -25036,7 +25023,6 @@ a:link, a:visited, a:active, a:hover {
   margin: 0;
   text-align: center;
   width: 100%;
-  height: 30%;
 }
 
 .iconGris_perfProf {
@@ -25200,16 +25186,17 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .alert-message {
+  font-size: 1.25em;
+  font-family: "Roboto";
+  font-weight: 500;
   color: #721c24;
+  text-align: center;
   background-color: #f8d7da;
   border-color: #f5c6cb;
-  width: 80%;
-  height: 7vh;
-  padding: 2% 1% 1% 1%;
-  text-align: center;
   border-radius: 3px;
-  margin-left: 10%;
-  margin-bottom: 2%;
+  width: 75%;
+  margin: auto;
+  padding: 3% 0;
 }
 
 .titulo_principal-formProf {
@@ -25242,8 +25229,7 @@ a:link, a:visited, a:active, a:hover {
   background-repeat: no-repeat;
   background-position-y: center;
   background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
+  padding: 3% 0 3% 10%;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #019F86;
@@ -25267,14 +25253,19 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .contain_imgUsuario-formProf {
+  display: flex;
   align-self: center;
   text-align: center;
+  flex-direction: column;
+  height: calc(8em + 8em + 2px);
+  width: calc(8em + 8em + 2px);
+  margin: auto;
 }
 
 .img_usuario-formProf {
-  height: 22vh;
+  height: 100%;
   width: 100%;
-  border-radius: 135px;
+  border-radius: 100px;
   background: #D1D1D1;
   border: 1px solid #707070;
   -o-object-fit: cover;
@@ -25326,7 +25317,6 @@ a:link, a:visited, a:active, a:hover {
   color: #232323;
   font-weight: bold;
   padding: 0;
-  margin: 2% 0;
 }
 
 .input_nomApl-formProf {
@@ -25374,7 +25364,6 @@ a:link, a:visited, a:active, a:hover {
   background-position-y: center;
   background-size: 2.5%;
   padding-left: 4%;
-  height: 5vh;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #019F86;
@@ -25401,7 +25390,6 @@ a:link, a:visited, a:active, a:hover {
   background-position-y: center;
   background-size: 2.5%;
   padding-left: 4%;
-  height: 5vh;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #019F86;
@@ -25475,7 +25463,6 @@ a:link, a:visited, a:active, a:hover {
   background-position-y: center;
   background-size: 2.5%;
   padding-left: 4%;
-  height: 5vh;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #019F86;
@@ -25491,7 +25478,6 @@ a:link, a:visited, a:active, a:hover {
   background-position-y: center;
   background-size: 2.5%;
   padding-left: 4%;
-  height: 5vh;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #019F86;
@@ -25507,7 +25493,6 @@ a:link, a:visited, a:active, a:hover {
   background-position-y: center;
   background-size: 2.5%;
   padding-left: 4%;
-  height: 5vh;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #019F86;
@@ -25547,7 +25532,6 @@ a:link, a:visited, a:active, a:hover {
   background-position-y: center;
   background-size: 2.5%;
   padding-left: 4%;
-  height: 5vh;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #019F86;
@@ -25598,7 +25582,6 @@ a:link, a:visited, a:active, a:hover {
   background-position-y: center;
   background-size: 2.5%;
   padding-left: 4%;
-  height: 5vh;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #019F86;
@@ -25616,7 +25599,6 @@ a:link, a:visited, a:active, a:hover {
 .txt_informativo-formProf {
   text-align: center;
   padding: 0;
-  line-height: 1.4;
 }
 
 .img_selccionada-formProf {
@@ -25626,8 +25608,6 @@ a:link, a:visited, a:active, a:hover {
   padding: 0;
   align-items: center;
   width: 70%;
-  height: 6vh;
-  border: 1px solid #dbdada;
 }
 
 .img_selccionada-formExperiencia {
@@ -25636,9 +25616,7 @@ a:link, a:visited, a:active, a:hover {
   margin: auto;
   padding: 0;
   align-items: center;
-  width: 70%;
-  height: 70%;
-  border: 1px solid #dbdada;
+  width: 100%;
 }
 
 .img_anexada-formProf {
@@ -25756,7 +25734,6 @@ a:link, a:visited, a:active, a:hover {
   background-position-y: center;
   background-size: 2.5%;
   padding-left: 4%;
-  height: 5vh;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #019F86;
@@ -25800,7 +25777,6 @@ a:link, a:visited, a:active, a:hover {
   background-position-y: center;
   background-size: 2.5%;
   padding-left: 4%;
-  height: 5vh;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #019F86;
@@ -25879,7 +25855,6 @@ a:link, a:visited, a:active, a:hover {
   padding: 0;
   align-items: center;
   width: 100%;
-  height: 40vh;
 }
 
 .img_traProced-formProf {
@@ -25937,7 +25912,6 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .content_btnDelet-trata-formProf {
-  height: 3vh;
   padding: 0;
 }
 
@@ -25963,7 +25937,6 @@ a:link, a:visited, a:active, a:hover {
   background-position-y: center;
   background-size: 2.5%;
   padding-left: 4%;
-  height: 5vh;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #019F86;
@@ -25980,17 +25953,6 @@ a:link, a:visited, a:active, a:hover {
   padding: 0;
   align-items: center;
   width: 100%;
-  height: 30vh;
-}
-
-.content_premio-recono .img_selccionada-formProf {
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  padding: 0;
-  align-items: center;
-  width: 100%;
-  height: 30vh;
 }
 
 .content_premio-recono .agregar_archivo-formProf {
@@ -25999,7 +25961,6 @@ a:link, a:visited, a:active, a:hover {
   justify-content: center;
   margin: auto;
   padding: 0;
-  width: 60%;
 }
 
 .photo1 .agregar_archivo-formProf::before {
@@ -26109,7 +26070,6 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Roboto";
   color: #232323;
   padding: 0;
-  height: 12vh;
 }
 
 .text_descPremio-formProf {
@@ -26336,7 +26296,10 @@ a:link, a:visited, a:active, a:hover {
   border: 1px solid #434343;
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
-  width: 75%;
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .boton_inferior-siguiente-formProf {
@@ -26347,7 +26310,10 @@ a:link, a:visited, a:active, a:hover {
   border: none;
   border-radius: 3px;
   height: calc(1.6em + 0.75rem + 2px);
-  width: 75%;
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .boton_inferior-finalizar-formProf {
@@ -26386,15 +26352,19 @@ label.error {
 
 @media (min-width: 320px) and (orientation: portrait) {
   .lista_opciones-usuario-formProf {
-    justify-content: center;
     flex-wrap: wrap;
+    height: calc(3em + 3em + 100px);
     width: 100%;
-    height: 35vh;
+    margin: 5% auto;
+  }
+
+  .text_opcion-formProfesional {
+    height: calc(1em + 1em + 10px);
   }
 
   .content_icons-formProf {
     width: 30%;
-    height: 15vh;
+    height: calc(3em + 3em + 1px);
   }
 
   .iconAzul_datoPersonal {
@@ -26422,14 +26392,8 @@ label.error {
   }
 
   .alert-message {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-    border-radius: 5px;
-    z-index: 199;
-    padding-left: 1%;
-    padding-right: 1%;
-    margin-top: 1%;
+    font-size: 1em;
+    padding: 3% 0;
   }
 
   .titulo_principal-formProf {
@@ -26438,7 +26402,7 @@ label.error {
   }
 
   .texto_superior-formProf {
-    font-size: 0.85em;
+    font-size: 0.9em;
   }
 
   .datos_principales-formProf {
@@ -26446,31 +26410,28 @@ label.error {
   }
 
   .icon_infoBasica-formProf {
+    padding: 3% 0 3% 10%;
     background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
     display: flex;
   }
 
-  .contain_imgUsuario-formProf {
-    align-self: center;
-    text-align: center;
-    margin-top: 5%;
-  }
-
-  .img_usuario-formProf {
-    height: 35vh;
-    width: 75%;
-  }
-
+  /*.contain_imgUsuario-formProf {
+      align-self: center;
+      text-align: center;
+      margin-top: 5%;
+  }*/
+  /*.img_usuario-formProf {
+      height: 35vh;
+      width: 75%;
+  }*/
   .text_usuario-formProf {
-    font-size: 0.85em;
-    padding: 5% 0 5% 10%;
+    font-size: 0.9em;
+    padding: 5% 0 5% 12%;
   }
 
   .icon_subirFoto-formProf {
-    background-position-x: 26%;
-    background-size: 4.5%;
+    background-position-x: 20%;
+    background-size: 6%;
   }
 
   .section_inputRight-text-formProf {
@@ -26483,13 +26444,12 @@ label.error {
 
   .text_label-formProf {
     font-size: 1em;
-    margin: 3% 0;
+    margin-top: 3%;
   }
 
   .nombres_usuario-formProf {
     flex-direction: column;
     padding: 0;
-    height: 15vh;
   }
 
   .input_nomApl-formProf {
@@ -26517,21 +26477,21 @@ label.error {
   }
 
   .icon_infoContac-formProf {
+    padding: 3% 0 3% 10%;
     background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
+    display: flex;
   }
 
   .btn2_enviar-formProf {
     font-size: 1em;
-    width: 45%;
+    width: 40%;
     margin: 3% 0 5% 0;
   }
 
   .icon_infoConsult-formProf {
+    padding: 3% 0 3% 10%;
     background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
+    display: flex;
   }
 
   .seccion_consulta-formProf {
@@ -26558,16 +26518,22 @@ label.error {
     padding: 0;
   }
 
-  .icon_infoSubPerfil-formProf {
+  .icon_destacado-formProf {
+    padding: 3% 0 3% 10%;
     background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
+    display: flex;
+  }
+
+  .icon_infoSubPerfil-formProf {
+    padding: 3% 0 3% 10%;
+    background-size: 8%;
+    display: flex;
   }
 
   .icon_infoEduc-formProf {
+    padding: 3% 0 3% 10%;
     background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
+    display: flex;
   }
 
   .section_infoEducacion-formProf {
@@ -26576,10 +26542,20 @@ label.error {
     margin: 2% 0;
   }
 
+  .logo_univ_LInst {
+    width: 100%;
+    padding-bottom: 3%;
+  }
+
+  .img_thumb_LInst {
+    padding: 15% 20%;
+    border-radius: 3px;
+  }
+
   .icon_infoExper-formProf {
+    padding: 3% 0 3% 10%;
     background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
+    display: flex;
   }
 
   .section_infoExper-formProf {
@@ -26594,19 +26570,17 @@ label.error {
   }
 
   .icon_infoAsocia-formProf {
+    padding: 3% 0 3% 10%;
     background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
+    display: flex;
   }
 
-  .agregar_archivo-formProf {
-    width: 70%;
-  }
-
+  /*.agregar_archivo-formProf {
+      width: 70%;
+  }*/
   .txt_informativo-formProf {
     text-align: center;
     padding: 0;
-    line-height: 0.3;
   }
 
   .agregar_archivo-formProf::before {
@@ -26616,11 +26590,10 @@ label.error {
     padding-left: 8%;
   }
 
-  .img_selccionada-formProf {
-    width: 75%;
-    height: 10vh;
-  }
-
+  /*.img_selccionada-formProf {
+      width: 75%;
+      height: 10vh;
+  }*/
   .asociacion_guardada-formProf {
     width: 100%;
     height: auto;
@@ -26639,9 +26612,9 @@ label.error {
   }
 
   .icon_infoIdioma-formProf {
+    padding: 3% 0 3% 10%;
     background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
+    display: flex;
   }
 
   .content_idmBandera-formProf {
@@ -26660,13 +26633,13 @@ label.error {
   }
 
   .icon_infoTratam-formProf {
+    padding: 3% 0 3% 10%;
     background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
+    display: flex;
   }
 
   .text_superior-proced-formProf {
-    font-size: 0.75em;
+    font-size: 0.9em;
     margin: 5% 0;
   }
 
@@ -26674,10 +26647,9 @@ label.error {
     border-right: none;
   }
 
-  .content_tratam-proced .img_selccionada-formProf {
-    height: 45vh;
-  }
-
+  /*.content_tratam-proced .img_selccionada-formProf {
+      height: 45vh;
+  }*/
   .photo1 .agregar_archivo-formProf::before {
     background-position-x: 10%;
     background-size: 10%;
@@ -26705,7 +26677,6 @@ label.error {
   .content_agregarImg-formProf {
     margin: auto;
     padding: 0;
-    margin-bottom: 5%;
   }
 
   .antes .agregar_archivo-formProf::before {
@@ -26721,33 +26692,30 @@ label.error {
   }
 
   .text_infoImg-formProf {
-    font-size: 0.75em;
+    font-size: 0.9em;
     padding: 0;
   }
 
   .content_btnDelet-trata-formProf {
-    height: 4vh;
-    padding: 2%;
+    padding: 1% 5% 1% 0;
   }
 
-  .descripcion_Premio-formProf {
-    height: 14vh;
-  }
-
+  /*.descripcion_Premio-formProf {
+      height: 14vh;
+  }*/
   .text_infoGuardada-formProf {
     font-size: 0.85em;
   }
 
   .icon_infoPremReco-formProf {
+    padding: 3% 0 3% 10%;
     background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
+    display: flex;
   }
 
-  .content_premio-recono .agregar_archivo-formProf {
-    width: 45%;
-  }
-
+  /*.content_premio-recono .agregar_archivo-formProf {
+      width: 45%;
+  }*/
   .title_infoGuardada-formProf {
     font-size: 1em;
   }
@@ -26756,11 +26724,10 @@ label.error {
     font-size: 0.75em;
   }
 
-  .content_premio-recono .img_selccionada-formProf {
-    width: 100%;
-    height: 35vh;
-  }
-
+  /*.content_premio-recono .img_selccionada-formProf {
+      width: 100%;
+      height: 35vh;
+  }*/
   .icon_infoPublic-formProf {
     background-size: 8%;
     padding-left: 10%;
@@ -26821,7 +26788,6 @@ label.error {
   }
 
   .boton_inferior-siguiente-formProf {
-    width: 90%;
     font-size: 1em;
   }
 
@@ -26840,11 +26806,13 @@ label.error {
     border: none;
     border-radius: 3px;
     height: calc(1.6em + 0.75rem + 2px);
-    width: 45%;
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
   }
 
   .boton_inferior-anterior-formProf {
-    width: 90%;
     font-size: 1em;
   }
 
@@ -26853,13 +26821,8 @@ label.error {
   }
 }
 @media (min-width: 768px) and (orientation: portrait) {
-  .alert-message {
-    height: 5vh;
-  }
-
   .content_icons-formProf {
     width: 16%;
-    height: 10vh;
   }
 
   .lista_opciones-usuario-formProf {
@@ -26868,7 +26831,6 @@ label.error {
     padding: 0;
     margin: 2% auto;
     width: 100%;
-    height: 12vh;
   }
 
   .text_opcion-formProfesional {
@@ -26948,8 +26910,6 @@ label.error {
 
   .icon_infoBasica-formProf {
     background-size: 3%;
-    padding-left: 5%;
-    height: 2.5vh;
     font-size: 1.2em;
   }
 
@@ -26959,11 +26919,10 @@ label.error {
     margin-top: 5%;
   }
 
-  .img_usuario-formProf {
-    height: 13vh;
-    width: 100%;
-  }
-
+  /*.img_usuario-formProf {
+      height: 13vh;
+      width: 100%;
+  }*/
   .icon_subirFoto-formProf {
     background-position-x: 2%;
     background-size: 8%;
@@ -26984,7 +26943,6 @@ label.error {
     flex-direction: row;
     justify-content: space-between;
     padding: 0;
-    height: 3vh;
   }
 
   .section_inputRight-text-formProf {
@@ -27066,7 +27024,6 @@ label.error {
   .icon_infoSubPerfil-formProf {
     background-size: 3%;
     padding-left: 5%;
-    height: 2.5vh;
     font-size: 1.2em;
   }
 
@@ -27080,7 +27037,6 @@ label.error {
   .icon_infoEduc-formProf {
     background-size: 3%;
     padding-left: 5%;
-    height: 2.5vh;
     font-size: 1.2em;
   }
 
@@ -27099,7 +27055,6 @@ label.error {
   .icon_infoExper-formProf {
     background-size: 3%;
     padding-left: 5%;
-    height: 2.5vh;
     font-size: 1.2em;
   }
 
@@ -27122,7 +27077,6 @@ label.error {
   .icon_infoAsocia-formProf {
     background-size: 3%;
     padding-left: 5%;
-    height: 2.5vh;
     font-size: 1.2em;
   }
 
@@ -27135,10 +27089,6 @@ label.error {
     background-size: 6%;
     font-size: 1em;
     padding-left: 0;
-  }
-
-  .txt_informativo-formProf {
-    line-height: 1.4;
   }
 
   .img_selccionada-formProf {
@@ -27165,7 +27115,6 @@ label.error {
   .icon_infoIdioma-formProf {
     background-size: 3%;
     padding-left: 5%;
-    height: 2.5vh;
     font-size: 1.2em;
   }
 
@@ -27176,7 +27125,6 @@ label.error {
   .icon_infoTratam-formProf {
     background-size: 3%;
     padding-left: 5%;
-    height: 2.5vh;
     font-size: 1.2em;
   }
 
@@ -27197,11 +27145,9 @@ label.error {
     font-size: 1em;
   }
 
-  .content_btnDelet-trata-formProf {
-    height: 4vh;
-    padding: 2% 2% 0 0;
-  }
-
+  /*.content_btnDelet-trata-formProf {
+      padding: 2% 2% 0 0;
+  }*/
   .content_tratam-proced .img_selccionada-formProf {
     display: flex;
     justify-content: center;
@@ -27209,7 +27155,6 @@ label.error {
     padding: 0;
     align-items: center;
     width: 100%;
-    height: 30vh;
   }
 
   .title_infoGuardada-formProf {
@@ -27223,7 +27168,6 @@ label.error {
   .icon_infoPremReco-formProf {
     background-size: 3%;
     padding-left: 5%;
-    height: 2.5vh;
     font-size: 1.2em;
   }
 
@@ -27257,13 +27201,11 @@ label.error {
 
   .content_premio-recono .img_selccionada-formProf {
     width: 100%;
-    height: 20vh;
   }
 
-  .descripcion_Premio-formProf {
-    height: 10vh;
-  }
-
+  /*.descripcion_Premio-formProf {
+      height: 10vh;
+  }*/
   .text_descPremio-formProf {
     font-size: 1em;
   }
@@ -27326,14 +27268,12 @@ label.error {
     width: 68%;
   }
 
-  .boton_inferior-siguiente-formProf {
-    width: 68%;
-  }
-
-  .boton_inferior-anterior-formProf {
-    width: 68%;
-  }
-
+  /*.boton_inferior-siguiente-formProf {
+      width: 68%;
+  }*/
+  /*.boton_inferior-anterior-formProf {
+      width: 68%;
+  }*/
   .boton_inferior-finalizar-formProf {
     width: 68%;
     background: #019F86;
@@ -27342,26 +27282,16 @@ label.error {
 @media (min-width: 1200px) {
   .lista_opciones-usuario-formProf {
     width: 60%;
-    height: 12vh;
   }
 
-  .img_usuario-formProf {
-    height: 20vh;
-  }
+  /*.img_usuario-formProf {
+      height: 20vh;
+  }*/
 }
 @media (min-width: 1440px) {
-  .alert-message {
-    width: 66%;
-    height: 6vh;
-    padding: 1%;
-    margin-left: 17%;
-    margin-bottom: 2%;
-  }
-
-  .img_usuario-formProf {
-    height: 23vh;
-  }
-
+  /*.img_usuario-formProf {
+      height: 23vh;
+  }*/
   /*.text_usuario-formProf {
       margin: 5% 0;
   }*/
@@ -27375,11 +27305,10 @@ label.error {
     height: 6vh;
   }
 
-  .img_selccionada-formExperiencia {
-    width: 70%;
-    height: 70%;
-  }
-
+  /*.img_selccionada-formExperiencia {
+      width: 70%;
+      height: 70%;
+  }*/
   .content_publicacion .img_selccionada-formProf {
     width: 75%;
     height: 60vh;
@@ -27435,24 +27364,14 @@ label.error {
   }
 }
 @media (min-width: 1920px) {
-  .alert-message {
-    width: 66%;
-    height: 6vh;
-    padding: 1%;
-    margin-left: 17%;
-    margin-bottom: 1%;
-  }
-
   .lista_opciones-usuario-formProf {
     width: 55%;
-    height: 13vh;
   }
 
-  .img_usuario-formProf {
-    height: 20vh;
-    width: 65%;
-  }
-
+  /*.img_usuario-formProf {
+      height: 20vh;
+      width: 65%;
+  }*/
   .icon_subirFoto-formProf {
     background-position-x: 18%;
     background-size: 5%;
@@ -27494,20 +27413,18 @@ label.error {
     height: 8vh;
   }
 
-  .img_selccionada-formExperiencia {
-    width: 70%;
-    height: 70%;
-  }
-
+  /*.img_selccionada-formExperiencia {
+      width: 70%;
+      height: 70%;
+  }*/
   .content_antDesp-formProf {
     padding: 0;
     margin: 0;
   }
 
-  .content_tratam-proced .img_selccionada-formProf {
-    height: 65vh;
-  }
-
+  /*.content_tratam-proced .img_selccionada-formProf {
+      height: 65vh;
+  }*/
   .antes .agregar_archivo-formProf {
     width: 40%;
   }

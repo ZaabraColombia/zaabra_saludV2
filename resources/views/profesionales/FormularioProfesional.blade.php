@@ -138,7 +138,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="id_universidad" class="col-12 text_label-formProf"> Selecione universidad </label>
                             <select  class="col-lg-12 form-control universidades" name="id_universidad" id="id_universidad">
                                 @if(isset($objFormulario->id_universidad))
@@ -147,15 +147,13 @@
                             </select>
                         </div>
                         <div class="col-md-6 section_inputRight-text-formProf">
-                            <div class="form-group">
-                                <label for="tarjeta" class="col-12 text_label-formProf"> Tarjeta profesional </label>
-                                <input class="col-lg-12 form-control" id="tarjeta" placeholder="Número de tarjeta" type="number" name="numeroTarjeta" value="{{$objFormulario->numeroTarjeta}}">
-                            </div>
+                            <label for="tarjeta" class="col-12 text_label-formProf"> Tarjeta profesional </label>
+                            <input class="col-lg-12 form-control" id="tarjeta" placeholder="Número de tarjeta" type="number" name="numeroTarjeta" value="{{$objFormulario->numeroTarjeta}}">
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 content_btnEnviar-formProf mb-2">
+                <div class="col-12 content_btnEnviar-formProf">
                     <button type="submit" class="btn2_enviar-formProf" id="envia_basico"> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
                     </button>
@@ -295,7 +293,7 @@
             <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio--------------------->
                 <div class="row fila_infoBasica-formProf">
                     <div class="col-12" id="destacado-mensaje"></div>
-                    <div class="col-md-8 col-sm-12" id="destacado-lista">
+                    <div class="col-md-8 col-sm-12 p-0" id="destacado-lista">
                         @foreach($destacables as $destacable)
                             <div class="alert alert-info alert-dismissible fade show delete-destacable" role="alert" >
                                 <strong>{{ $destacable->nombreExpertoEn }}</strong>
@@ -305,8 +303,8 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="col-12">
-                        <div class="input-group mb-3">
+                    <div class="col-12 p-0">
+                        <div class="input-group">
                             <input type="text" class="form-control" placeholder="Ingrese el tema" name="destacado_nombre" id="destacado_nombre" {{ ($destacables_count >= 9 ) ? 'disabled' : ''}}>
                             <button class="btn btn-primary" type="submit" id="destacado_nombre_btn" {{ ($destacables_count >= 9 ) ? 'disabled' : ''}} ><img src="{{ asset('img/iconos/icono-agregar-especialidad-favoritos-blanco.svg') }}" alt="mas"> Agregar</button>
                         </div>
@@ -352,6 +350,7 @@
         <div class="col-lg-10 col-xl-8 content_perfil-prof infoBasica_formProf">
             <h5 class="col-12 icon_infoEduc-formProf"> Educación </h5>
             <div id="mensaje-estudios"></div>
+
             <div class="educacion_guardada-formProf" id="estudios-lista">
                 <?php $count_estudios = 0; ?>
                 @foreach($objEducacion as $educacion)
@@ -360,6 +359,9 @@
                         <div class="section_infoEducacion-formProf">
                             <div class="col-12 content_btnX-cierre-formProf">
                                 <button type="submit" class="close" aria-label="Close" data-id="{{ $educacion->id_universidadperfil }}"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="option_consulta-formProf">
+                                <img id="imagenPrevisualizacion" class="logo_univ_LInst" src="{{URL::asset($educacion->logo_universidad)}}">
                             </div>
                             <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Fecha de finalización </label>
@@ -381,9 +383,9 @@
             <form action="{{ url ('/FormularioProfesionalSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_estudios">
                 @csrf
                 <div class="row p-0 m-0">
-                    <div class="col-md-6 pt-5">
+                    <div class="col-md-6 pt-3">
                         <div class="img_selccionada-formExperiencia">
-                            <img class="img-thumbnail" id="imagen-universidad">
+                            <img class="img-thumbnail img_thumb_LInst" id="imagen-universidad">
                         </div>
                         <div class="agregar_archivo-formProf">
                             <input type="file" id="logo_universidad" name="logo_universidad" onchange="ver_imagen('logo_universidad', 'imagen-universidad');">
@@ -392,18 +394,20 @@
                             <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="col-12">
+
+                    <div class="col-md-6 p-0">
+                        <div class="col-12 p-0">
                             <label for="universidad_estudio" class="col-12 text_label-formProf"> Selecione universidad </label>
-                            <select  class="form-control universidades" name="universidad_estudio" id="universidad_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
+                            <select  class="col-12 form-control universidades" name="universidad_estudio" id="universidad_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
                                 <option></option>
                             </select>
                         </div>
-                        <div class="col-12">
+
+                        <div class="col-12 p-0">
                             <label for="fecha_estudio" class="col-12 text_label-formProf"> Fecha de finalización </label>
                             <input class="form-control" type="date" value="2011-08-19" id="fecha_estudio" name="fecha_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 p-0">
                             <div class="form-group">
                                 <label for="disciplina_estudio" class="col-12 text_label-formProf"> Disciplina académica </label>
                                 <input class="form-control" id="disciplina_estudio" type="text" name="disciplina_estudio" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
@@ -436,6 +440,9 @@
                                 <button type="submit" class="close" aria-label="Close" data-id="{{ $experiencia->idexperiencias }}"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="option_consulta-formProf">
+                                <img id="imagenPrevisualizacion" class="logo_univ_LInst" src="{{URL::asset($experiencia->imgexperiencia)}}">
+                            </div>
+                            <div class="option_consulta-formProf">
                                 <label class="col-12 title_infoGuardada-formProf"> Nombre de la empresa </label>
                                 <label class="col-12 text_infoGuardada-formProf"> {{$experiencia->nombreEmpresaExperiencia}} </label>
                             </div>
@@ -459,10 +466,11 @@
             <form method="POST" action="{{ url ('/FormularioProfesionalSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_experiencia">
                 @csrf
                 <div class="row fila_infoBasica-formProf bottom_boder justify-content-center" id="listas">
-                    <div class="col-md-6 pt-5">
+                    <div class="col-md-6 pt-3">
                         <div class="img_selccionada-formExperiencia">
-                            <img class="img-thumbnail" id="imagen-experiencia">
+                            <img class="img-thumbnail img_thumb_LInst" id="imagen-experiencia">
                         </div>
+
                         <div class="agregar_archivo-formProf">
                             <input type="file" id="logo_experiencia" name="logo_experiencia" onchange="ver_imagen('logo_experiencia', 'imagen-experiencia');">
                         </div>
@@ -470,20 +478,20 @@
                             <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="col-12">
+                    <div class="col-md-6 p-0">
+                        <div class="col-12 p-0">
                             <label for="nombre_empresa" class="col-12 text_label-formProf"> Empresa </label>
                             <input class="col-lg-12 form-control" id="nombre_empresa"  type="text" name="nombre_empresa" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 p-0">
                             <label for="descripcion_experiencia" class="col-12 text_label-formProf"> Cargo </label>
                             <input class="col-lg-12 form-control" id="descripcion_experiencia"  type="text" name="descripcion_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 p-0">
                             <label for="inicio_experiencia" class="col-12 text_label-formProf"> Fecha de inicio </label>
                             <input class="form-control" type="date"  id="inicio_experiencia" name="inicio_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 p-0">
                             <label for="fin_experiencia" class="col-12 text_label-formProf"> Fecha de terminación </label>
                             <input class="form-control" type="date"  id="fin_experiencia" name="fin_experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}>
                         </div>
@@ -629,9 +637,9 @@
 
                                 <div class="col-12 img_selccionada-formProf">
                                     <img class="img_traProced-formProf" src="{{URL::asset($objTratamiento->imgTratamientoAntes)}}">
-                                </div>
+                                </div>                           
 
-                                <div class="col-12 mt-2 text_label-formProf">
+                                <div class="col-12 text_label-formProf">
                                     <label class="col-12 title_infoGuardada-formProf"> {{$objTratamiento->tituloTrataminetoAntes}} </label>
                                 </div>
 
@@ -648,7 +656,7 @@
                                     <img class="img_traProced-formProf" src="{{URL::asset($objTratamiento->imgTratamientodespues)}}">
                                 </div>
 
-                                <div class="col-12 mt-2 text_label-formProf">
+                                <div class="col-12 text_label-formProf">
                                     <label class="col-12 title_infoGuardada-formProf"> {{$objTratamiento->tituloTrataminetoDespues}} </label>
                                 </div>
 
@@ -670,7 +678,7 @@
                             <label for="example-date-input" class="col-12 text_label-formProf"> Antes </label>
 
                             <div class="img_selccionada-formProf">
-                                <img class="img_traProced-formProf" id="imagen-tratamiento-antes"/>
+                                <img class="img-thumbnail img_thumb_LInst" id="imagen-tratamiento-antes"/>
                             </div>
 
                             <div class="agregar_archivo-formProf">
@@ -678,7 +686,7 @@
                             </div>
 
                             <div class="txt_informativo-formProf">
-                                <label class="col-12 text_infoImg-formProf"> Tamaño 225px x 225px. Peso máximo 400kb </label>
+                                <label class="col-12 text_infoImg-formProf mb-0"> Tamaño 225px x 225px. Peso máximo 400kb </label>
                             </div>
                         </div>
 
@@ -691,7 +699,7 @@
                             <div class="form-group">
                                 <label for="descripcionTratamientoAntes" class="col-12 text_label-formProf"> Descripción antes </label>
                                 <input class="form-control" id="descripcionTratamientoAntes" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoAntes" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}>
-                                <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                <label class="col-12 text_infoImg-formProf mb-0"> 160 Caracteres </label>
                             </div>
                         </div>
                     </div>
@@ -701,7 +709,7 @@
                         <div class="col-12 content_agregarImg-formProf form-group">
                             <label for="imgTratamientodespues" class="col-12 text_label-formProf"> Después </label>
                             <div class="img_selccionada-formProf">
-                                <img class="img_traProced-formProf" id="imagen-tratamiento-despues"/>
+                                <img class="img-thumbnail img_thumb_LInst" id="imagen-tratamiento-despues"/>
                             </div>
                             <div class="agregar_archivo-formProf">
                                 <input type='file' id="imgTratamientodespues" name="imgTratamientodespues" onchange="ver_imagen('imgTratamientodespues', 'imagen-tratamiento-despues');" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}/>
@@ -792,16 +800,16 @@
 
                 <div class="row content_antDesp-formProf justify-content-center">
                     <!-- Contenido PREMIO izquierdo -->
-                    <div class="col-md-6">
-                        <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
+                    <div class="col-md-6 p-0">
+                        <div class="col-md-6 pt-3">
                             <div class="img_selccionada-formProf">
-                                <img class="img_anexada-formProf" id="img-premio"/>
+                                <img class="img-thumbnail img_thumb_LInst" id="img-premio"/>
                             </div>
                             <div class="agregar_archivo-formProf">
                                 <input type='file' id="imgPremio" name="imgPremio" onchange="ver_imagen('imgPremio', 'img-premio');" {{ ($counto_premios >= 4) ? 'disabled' : '' }}/>
                             </div>
                             <div class="txt_informativo-formProf">
-                                <label class="col-12 text_infoImg-formProf"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                                <label class="col-12 text_infoImg-formProf mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
                             </div>
                         </div>
 
@@ -816,11 +824,11 @@
                         </div>
 
                         <div class="col-12 section_inputLeft-text-formProf">
-                            <div class="form-group">
+                        
                                 <label for="descripcionPremio" class="col-12 text_label-formProf"> Descripción del premio </label>
                                 <input class="form-control" id="descripcionPremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionPremio" {{ ($counto_premios >= 4) ? 'disabled' : '' }}>
-                                <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
-                            </div>
+                                <label class="col-12 text_infoImg-formProf mb-0"> 160 Caracteres </label>
+                  
                         </div>
                     </div>
                 </div>
