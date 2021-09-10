@@ -15,4 +15,6 @@ class certificaciones extends Model
         'titulocertificado',
         'descrpcioncertificado'
     ];
+
+    protected $primaryKey = 'id_certificacion';
 }

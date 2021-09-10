@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 namespace App\Http\Controllers\entidades;
 use App\Http\Controllers\Controller;
+use App\Models\Convenios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\instituciones;
@@ -18,35 +19,43 @@ class perfilInstitucionController extends Controller
     {
         //$objinstitucionlandinimgsede = instituciones::where('slug', 'like', $slug)->first();
         $objinstitucionlandin = $this->cargarInfoInstitucLandin($slug);
+        if (empty($objinstitucionlandin)) return redirect('/');
         //$objinstitucionlandin = $objinstitucionlandin[0];
 
         $id = $objinstitucionlandin[0]->id;
 
         $objinstitucionlandinimgsede = $objinstitucionlandin[0];
 
+        //Convenios
+        $objConvenios = Convenios::where('id_institucion', '=', $id)
+            ->orderBy('id_tipo_convenio')
+            ->leftjoin('tipoinstituciones', 'tipoinstituciones.id', '=','convenios.id_tipo_convenio')
+            ->get(['convenios.id', 'id_tipo_convenio', 'url_image', 'nombretipo as nombre_convenio']);
+
         $objinstitucionlandinservicios= $this->cargarInfoInstitucLandinServicios($id);
-        $objinstitucionlandinprepagada= $this->cargarPrepagada($id);
-        $objinstitucionlandinips= $this->cargarIps($id);
-        $objinstitucionlandineps= $this->cargarEps($id);
+        //$objinstitucionlandinprepagada= $this->cargarPrepagada($id);
+        //$objinstitucionlandinips= $this->cargarIps($id);
+        //$objinstitucionlandineps= $this->cargarEps($id);
         $objinstitucionlandinpremios= $this->cargarInfoInstitucLandinPremios($id);
         $objinstitucionlandinpublicaci= $this->cargarInfoInstitucLandinPublicaciones($id);
         $objinstitucionlandingaleria= $this->cargarInfoInstitucLandinGaleria($id);
         $objinstitucionlandinvideo= $this->cargarInfoInstitucLandinVideo($id);
         $objinstitucionlandinSedes= $this->cargarInfoInstitucLandinSedes($id);
-        $objinstitucionlandInstitucion= $this->cargarInfoProfesionalInstitucion($id);
+        //$objinstitucionlandInstitucion= $this->cargarInfoProfesionalInstitucion($id);
 
         return view('instituciones.PerfilInstitucion', compact(
             'objinstitucionlandin',
             'objinstitucionlandinservicios',
-            'objinstitucionlandinprepagada',
-            'objinstitucionlandinips',
-            'objinstitucionlandineps',
+            'objConvenios',
+            //'objinstitucionlandinprepagada',
+            //'objinstitucionlandinips',
+            //'objinstitucionlandineps',
             'objinstitucionlandinpremios',
             'objinstitucionlandinpublicaci',
             'objinstitucionlandingaleria',
             'objinstitucionlandinvideo',
             'objinstitucionlandinSedes',
-            'objinstitucionlandInstitucion',
+            //'objinstitucionlandInstitucion',
             'objinstitucionlandinimgsede'
         ));
     }
