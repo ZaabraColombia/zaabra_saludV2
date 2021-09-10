@@ -195,7 +195,7 @@
                     <!-- Botón guardar información -->
                     <div class="col-12 content_btnEnviar-formInst">
                         <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-contacto-institucion"> Guardar
-                            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                            <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                         </button>
                     </div>
                 </div>
@@ -207,7 +207,7 @@
         <div class="col-lg-10 col-xl-8 content_botonInferior-next-formInst">
             <div class="col-md-3 content_btn-siguient-formInst">
                 <button type="submit" class="boton_inferior-siguiente-formInst btn-next-320-formInst" onclick="hideBtnNext(this)" code-position="dateInstitution"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -307,7 +307,7 @@
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-servicio-institucion" {{ ($count_servicios >= 6) ? 'disabled' : '' }}> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                        <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
@@ -318,14 +318,14 @@
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formInst">
             <div class="col-md-3 content_btn-anter-formInst">
                 <button type="submit" class="boton_inferior-anterior-formInst" onclick="hideBtnPrevious(this)" code-position="professionalServices">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient-formInst">
                 <button type="submit" class="boton_inferior-siguiente-formInst" onclick="hideBtnNext(this)" code-position="professionalServices"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -349,7 +349,7 @@
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-quienes-somo-institucion"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                        <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
@@ -371,7 +371,7 @@
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
                     <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-propuesta-valor-institucion"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                        <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
@@ -442,14 +442,14 @@
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formInst">
             <div class="col-md-3 content_btn-anter-formInst">
                 <button type="submit" class="boton_inferior-anterior-formInst" onclick="hideBtnPrevious(this)" code-position="aboutInstitution">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient-formInst">
                 <button type="submit" class="boton_inferior-siguiente-formInst" onclick="hideBtnNext(this)" code-position="aboutInstitution"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -551,14 +551,14 @@
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formInst">
             <div class="col-md-3 content_btn-anter-formInst">
                 <button type="submit" class="boton_inferior-anterior-formInst" onclick="hideBtnPrevious(this)" code-position="professionalInst">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient-formInst">
                 <button type="submit" class="boton_inferior-siguiente-formInst" onclick="hideBtnNext(this)" code-position="professionalInst"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -658,14 +658,14 @@
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formInst">
             <div class="col-md-3 content_btn-anter-formInst">
                 <button type="submit" class="boton_inferior-anterior-formInst" onclick="hideBtnPrevious(this)" code-position="certificationsInst">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient-formInst">
                 <button type="submit" class="boton_inferior-siguiente-formInst" onclick="hideBtnNext(this)" code-position="certificationsInst"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -771,28 +771,21 @@
 
         <!--------------------------------------------      Inicio 11 onceava parte del formulario *** UBIQUE LA SEDE ***      -------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
-            <h5 class="col-lg-12 icon_ubiqueSede-formInst"> Ubique la sede </h5>
-
-            <form method="POST" action="{{ url ('/FormularioInstitucionSave11') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                @if(!empty($objFormulario->url_maps))
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formInst"> A continuación enlace las sedes en Google Maps. </p>
-
-                        <iframe src="{{$objFormulario->url_maps}}" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                @else
-                    <div class="col-12 px-0">
-                        <p for="example-date-input" class="text_superior-proced-formInst"> A continuación enlace las sedes en Google Maps. </p>
-
-                        <input class="form-control" id="descripcionPerfil" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" type="text" name="url_maps" >
-                    </div>
-            @endif
-            <!-- Botón guardar información -->
+            <h5 class="col-lg-12 icon_ubiqueSede-formInst"> Ubique la sede principal</h5>
+            <div id="mensajes-ubicacion-institucion"></div>
+            <form method="POST" action="{{ route('entidad.create11') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-ubicaion-institucion">
+                @csrf
+                <div class="col-12 px-0">
+                    <p for="url_map_principal_institucion" class="text_superior-proced-formInst"> A continuación enlace las sedes en Google Maps. </p>
+                    <input class="form-control" id="url_map_principal_institucion" placeholder="https://www.google.com/maps/embed?pb=....." type="text" name="url_map_principal_institucion" />
+                </div>
+                <div class="col-12 px-0 {{ empty($objFormulario->url_maps) ? 'd-none' : '' }}">
+                    <iframe src="{{$objFormulario->url_maps}}" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" id="map_principal_institucion"></iframe>
+                </div>
+                <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-ubicacion-institucion"> Guardar
+                        <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
             </form>
@@ -803,14 +796,14 @@
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formInst">
             <div class="col-md-3 content_btn-anter-formInst">
                 <button type="submit" class="boton_inferior-anterior-formInst" onclick="hideBtnPrevious(this)" code-position="venuesInst">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient-formInst">
                 <button type="submit" class="boton_inferior-siguiente-formInst" onclick="hideBtnNext(this)" code-position="venuesInst"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -980,14 +973,14 @@
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formInst">
             <div class="col-md-3 content_btn-anter-formInst">
                 <button type="submit" class="boton_inferior-anterior-formInst" onclick="hideBtnPrevious(this)" code-position="galleryInst">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient-formInst">
                 <a type="submit" class="boton_inferior-finalizar-formInst" href="{{ route('contacto') }}"> Finalizar
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_finalizar-formInst" alt="">
+                    <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_finalizar-formInst" alt="">
                 </a>
             </div>
         </div>

@@ -1147,17 +1147,44 @@ class formularioInstitucionController extends Controller{
 
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 11----------------------*/
     public function create11(Request $request){
+        $validation = Validator::make($request->all(), [
+            'url_map_principal_institucion'       => ['required', 'url']
+        ], [], [
+            'url_map_principal_institucion'       => 'Url de la ubicación principal'
+        ]);
 
+        if ($validation->fails()) {
+            $men = $validation->errors()->all();
+            $error = array_keys($validation->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
         /*id usuario logueado*/
-        $id_user=auth()->user()->id;
+        $id_user = auth()->user()->id;
 
-        unset($request['_token']);
-        unset($request['updated_at']);
-        unset($request['created_at']);
-        instituciones::where('idUser', $id_user)->update($request->all());
+        //Agregar campos
+        $url_map = instituciones::where('idUser', '=', $id_user)->first(['id', 'url_maps']);
 
-        return redirect('FormularioInstitucion');
+        if (empty($url_map))
+        {
+            return response([
+                'mensaje' => 'No existe la institución'
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //guardar la información quienes somos
+        $url_map->url_maps   = $request->url_map_principal_institucion;
+
+        //guardar contacto
+        $url_map->save();
+
+        return response([
+            'mensaje' => 'Se guardo correctamente la información'
+        ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 11----------------------*/
 

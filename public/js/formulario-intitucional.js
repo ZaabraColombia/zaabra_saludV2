@@ -1616,6 +1616,78 @@ $('#lista-galeria-intitucion').on('click', '.close' , function (e) {
         }
     });
 });
+//Formulario 11
+$('#form-ubicaion-institucion').validate({
+    rules: {
+        'url_map_principal_institucion': {
+            required: true,
+        }
+    },
+    messages: {
+        'url_map_principal_institucion':{
+            required: "Por favor ingrese la url de la ubicación de su sede principal",
+        }
+    },
+    submitHandler: function(form) {
+        //Elementos
+        var btn_save = $('#btn-guardar-ubicacion-institucion');
+        btn_save.prop('disabled', true);
+        var formulario = $(form);
+        //console.log(formulario.attr('action'));
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                btn_save.prop('disabled', false);
+
+                //Agregar la url al iframe
+                var url = $('#url_map_principal_institucion').val();
+                var map = $('#map_principal_institucion');
+                map.attr('src', url);
+                map.parent().removeClass('d-none');
+
+                //Respuesta
+                mensaje_success('#mensajes-ubicacion-institucion', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                btn_save.prop('disabled', false);
+
+                //Respuesta
+                var response = event.responseJSON;
+                if (event.status === 422){
+                    mensaje_error('#mensajes-ubicacion-institucion', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-ubicacion-institucion', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
+});
 //Formulario 13
 //Agregar video
 $('#form-videos-institucion').validate({
