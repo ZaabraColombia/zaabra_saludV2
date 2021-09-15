@@ -22,11 +22,11 @@
                     <div class="card-body section_toggleFoot">
                         <p class="txt_interno_toggleFoot">
                             Zaabra Salud es una plataforma digital que facilita la búsqueda y el contacto entre usuarios y profesionales e instituciones de la salud.<br>
-                            Todas las especialidades y las mejores instituciones médicas al alcance de millones de usuarios. 
+                            Todas las especialidades y las mejores instituciones médicas al alcance de millones de usuarios.
                         </p>
 
                         <p class="txt_interno_toggleFoot mb-0">
-                            Todo esto con el fin de obtener un rápido y fácil acceso a citas y consultas médicas con todas las especialidades, citas y servicios odontológicos, 
+                            Todo esto con el fin de obtener un rápido y fácil acceso a citas y consultas médicas con todas las especialidades, citas y servicios odontológicos,
                             centros de toma de exámenes e imágenes diagnósticas y muchos servicios más.
                         </p>
                     </div>
@@ -40,7 +40,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div class="card-body section_toggleFoot">
                         <p class="txt_interno_toggleFoot">
-                            Pedir una consulta con un profesional o entidades es posible y muy fácil. Busque el profesional o entidad que necesita, elíjalo según su perfil y/o portafolio, 
+                            Pedir una consulta con un profesional o entidades es posible y muy fácil. Busque el profesional o entidad que necesita, elíjalo según su perfil y/o portafolio,
                             disponibilidad o modalidad de atención (Presencial o tele consulta).<br>
                             Puede agendar y realizar el pago en línea.
                         </p>
@@ -106,7 +106,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="card containt_options-collapse-acerca">
                 <div id="headingSix">
                     <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix"> ¿Debo pagar para registrarme? </button>
@@ -115,8 +115,8 @@
                     <div class="card-body section_toggleFoot">
                         <p class="txt_interno_toggleFoot mb-0">
                             Cuando el registro corresponde al de PACIENTE, NO existen las membresías, planes o similares. Solo se pagará en el momento de agendar una cita. <br><br>
-                            Cuando el registro corresponde al perfil de PROFESIONAL O ENTIDAD DE LA SALUD, si debe hacerse el pago de una Membresía. Conozca toda la información 
-                            <a class="ancla_toggleFoot" href="{{ route('membresiaProfesional') }}" target="blank">click aquí</a>.
+                            Cuando el registro corresponde al perfil de PROFESIONAL O ENTIDAD DE LA SALUD, si debe hacerse el pago de una Membresía. Conozca toda la información
+                            <a class="ancla_toggleFoot" href="{{ route('profesional.membresiaProfesional') }}" target="blank">click aquí</a>.
                         </p>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
 
                         <p class="txt_interno_toggleFoot mb-0">
                             Cada rama tiene sus especialidades y pueden ser tan variadas y extensas como se quiera. Aun así y respondiendo a necesidades y ofertas del mercado, las más comunes son: <br>
-                            Medicina general, Pediatría, Ginecología, Cirugía general, Geriatría, Medicina interna, Cirugía plástica, Cardiología, Oftalmología, Dermatología, Neurología, Ortopedia, 
+                            Medicina general, Pediatría, Ginecología, Cirugía general, Geriatría, Medicina interna, Cirugía plástica, Cardiología, Oftalmología, Dermatología, Neurología, Ortopedia,
                             Urología, Nefrología, Oncología, Medicina laboral ¡y muchas más!.
                         </p>
                     </div>
@@ -219,7 +219,7 @@
                 <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordion">
                     <div class="card-body section_toggleFoot">
                         <p class="txt_interno_toggleFoot mb-0">
-                            Sí. En Zaabra Salud un paciente puede cancelar una cita agendada. Para temas de devoluciones de pagos, consulte el módulo de 
+                            Sí. En Zaabra Salud un paciente puede cancelar una cita agendada. Para temas de devoluciones de pagos, consulte el módulo de
                             <a class="ancla_toggleFoot" href="{{url('politicas')}}" target="blank">Términos y Condiciones.</a>
                         </p>
                     </div>
@@ -233,7 +233,7 @@
                 <div id="collapseThirteen" class="collapse" aria-labelledby="headingThirteen" data-parent="#accordion">
                     <div class="card-body section_toggleFoot">
                         <p class="txt_interno_toggleFoot mb-0">
-                            Si, la información recogida a través de la plataforma tiene un tratamiento confidencial, de acuerdo a la ley 1581 de 2012 y el decreto 1377 de 2013. Por tal motivo Zaabra Salud se hace responsable de los 
+                            Si, la información recogida a través de la plataforma tiene un tratamiento confidencial, de acuerdo a la ley 1581 de 2012 y el decreto 1377 de 2013. Por tal motivo Zaabra Salud se hace responsable de los
                             datos proporcionados tanto de los pacientes como de los profesionales y las entidades de la salud.
                         </p>
                     </div>

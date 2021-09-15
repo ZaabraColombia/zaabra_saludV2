@@ -103,8 +103,8 @@ class formularioProfesionalController extends Controller
             }
 
             //resetera si no existe lista
-            if (!isset($profesiones)) $profesiones = null;
-            if (!isset($especialidades)) $especialidades = null;
+            if (!isset($profesiones)) $profesiones = array();
+            if (!isset($especialidades)) $especialidades = array();
 
             //Contar los destacables
             $id_profesional = auth()->user()->profecional->idPerfilProfesional;
