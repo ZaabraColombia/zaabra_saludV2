@@ -116,6 +116,7 @@
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="idarea" class="col-12 text_label-formProf"> Selecione área </label>
                             <select id="idarea" name="idarea" class="col-lg-12 form-control">
+                                <option></option>
                                 @foreach($area as $a)
                                     <option value="{{ $a->idArea}}" {{ (isset($objFormulario->idarea) && $a->idArea == $objFormulario->idarea) ? 'selected' : '' }}> {{$a->nombreArea}}</option>
                                 @endforeach
