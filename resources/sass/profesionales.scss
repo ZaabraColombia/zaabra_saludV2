@@ -249,7 +249,7 @@
     }
     .contains_swiper_premium .contains_info p{
         font-size: 0.85em;
-        height: calc(3.5em + 3.5em + 2px);
+        height: calc(4em + 4em + 2px);
         padding: 0 5%;
         text-align: initial;
     }
@@ -350,6 +350,9 @@
     }
     .contains_slide .contains_buttons a {
         width: 40%;
+    }
+    .contains_swiper_premium .contains_info p{
+        height: calc(3.5em + 3.5em + 2px);
     }
 }
 
