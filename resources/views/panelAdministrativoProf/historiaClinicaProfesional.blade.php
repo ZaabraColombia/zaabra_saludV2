@@ -10,8 +10,8 @@
                         <span class="subtitle_miCita">Administre las historias clínicas de sus pacientes.</span>
                     </div>
 
-                    <a type="submit" href="{{route('profesional.registroPaciente')}}" class="btn_crear_histClinica"> Crear historia clínica
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_btn_agendar" alt="">
+                    <a type="submit" href="{{ route('profesional.registroPaciente') }}" class="btn_crear_histClinica"> Crear historia clínica
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_btn_agendar" alt="">
                     </a>
                 </div>
 
@@ -44,7 +44,7 @@
                                             <td>Juan Hernández</td>
                                             <td>Juan@gmail.com</td>
                                             <td>
-                                                <a class="btn_descargar_formula" type="submit" href="{{route('pacienteRegistrado')}}"></a>
+                                                <a class="btn_descargar_formula" type="submit" href="{{route('profesional.registroPaciente')}}"></a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -52,7 +52,7 @@
                                             <td>Blanca Bernal</td>
                                             <td>blanca@gmail.com</td>
                                             <td>
-                                                <a class="btn_descargar_formula" type="submit" href="{{route('pacienteRegistrado')}}"></a>
+                                                <a class="btn_descargar_formula" type="submit" href="{{route('profesional.registroPaciente')}}"></a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -60,7 +60,7 @@
                                             <td>Laura León</td>
                                             <td>laura@gmail.com</td>
                                             <td>
-                                                <a class="btn_descargar_formula" type="submit" href="{{route('pacienteRegistrado')}}"></a>
+                                                <a class="btn_descargar_formula" type="submit" href="{{route('profesional.registroPaciente')}}"></a>
                                             </td>
                                         </tr>
                                     </tbody>
