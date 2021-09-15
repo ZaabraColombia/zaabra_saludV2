@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     loopFillGroupWithBlank: true,
   
     autoplay: {
-      delay: 45555500,
-      disableOnInteraction: true,
+      delay: 4500,
+      disableOnInteraction: false,
     },
   
     // If we need pagination

@@ -38,11 +38,30 @@ const swiper_especialistas = new Swiper(".swiper_especialistas", {
       slidesPerView: 1,
       slidesPerGroup: 1,
     },
-    // when window width is >= 320px
+      // when window width is >= 768px
+      768: {
+      slidesPerView: 2,
+      slidesPerGroup: 1,
+      spaceBetween: 15,
+    },
+    // when window width is >= 1024px
     1024: {
-    slidesPerView: 4,
-    slidesPerGroup: 4,
-  },
+    slidesPerView: 3,
+    slidesPerGroup: 1,
+    spaceBetween: 10,
+    },
+    // when window width is >= 1360px
+    1360: {
+      slidesPerView: 4,
+      slidesPerGroup: 1,
+      spaceBetween: 10,
+    },
+    // when window width is >= 1920px
+    1920: {
+      slidesPerView: 4,
+      slidesPerGroup: 1,
+      spaceBetween: 10,
+    },
   }
 });
 

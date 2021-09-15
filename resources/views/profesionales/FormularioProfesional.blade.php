@@ -293,9 +293,9 @@
             <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio--------------------->
                 <div class="row fila_infoBasica-formProf">
                     <div class="col-12" id="destacado-mensaje"></div>
-                    <div class="col-md-8 col-sm-12 p-0" id="destacado-lista">
+                    <div class="content_dest_list" id="destacado-lista">
                         @foreach($destacables as $destacable)
-                            <div class="alert alert-info alert-dismissible fade show delete-destacable" role="alert" >
+                            <div class="section_dest_list alert alert-info alert-dismissible fade show delete-destacable" role="alert" >
                                 <strong>{{ $destacable->nombreExpertoEn }}</strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" data-id="{{ $destacable->id_experto_en }}">
                                     <span aria-hidden="true">&times;</span>
@@ -360,7 +360,7 @@
                             <div class="col-12 content_btnX-cierre-formProf">
                                 <button type="submit" class="close" aria-label="Close" data-id="{{ $educacion->id_universidadperfil }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-                            <div class="option_consulta-formProf">
+                            <div class="option_consul_img_formProf">
                                 <img id="imagenPrevisualizacion" class="logo_univ_LInst" src="{{URL::asset($educacion->logo_universidad)}}">
                             </div>
                             <div class="option_consulta-formProf">
@@ -382,8 +382,8 @@
 
             <form action="{{ url ('/FormularioProfesionalSave5') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_estudios">
                 @csrf
-                <div class="row p-0 m-0">
-                    <div class="col-md-6 pt-3">
+                <div class="row p-0 m-0 educacion_formProf align-items-center">
+                    <div class="col-md-6 containt_img_educ_formProf">
                         <div class="img_selccionada-formExperiencia">
                             <img class="img-thumbnail img_thumb_LInst" id="imagen-universidad">
                         </div>
@@ -439,7 +439,7 @@
                             <div class="col-12 content_btnX-cierre-formProf">
                                 <button type="submit" class="close" aria-label="Close" data-id="{{ $experiencia->idexperiencias }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-                            <div class="option_consulta-formProf">
+                            <div class="option_consul_img_formProf">
                                 <img id="imagenPrevisualizacion" class="logo_univ_LInst" src="{{URL::asset($experiencia->imgexperiencia)}}">
                             </div>
                             <div class="option_consulta-formProf">
@@ -465,8 +465,8 @@
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave6') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_experiencia">
                 @csrf
-                <div class="row fila_infoBasica-formProf bottom_boder justify-content-center" id="listas">
-                    <div class="col-md-6 pt-3">
+                <div class="row fila_infoBasica-formProf exper_formProf align-items-center" id="listas">
+                    <div class="col-md-6 containt_img_educ_formProf">
                         <div class="img_selccionada-formExperiencia">
                             <img class="img-thumbnail img_thumb_LInst" id="imagen-experiencia">
                         </div>
@@ -529,12 +529,13 @@
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave7') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_asociacion">
                 @csrf
-                <div class="row col-12 row_asocia-prof justify-content-center">
+                <div class="row col-12 row_asocia-prof asocia_formProf align-items-center">
                     <!-- campo 1 -->
-                    <div class="col-md-4 content_agregarImg-formProf form-group">
-                        <div class="img_selccionada-formProf">
-                            <img class="img_anexada-formProf" id="img-asociacion"/>
+                    <div class="col-md-6 containt_img_educ_formProf">
+                        <div class="img_selccionada-formExperiencia">
+                            <img class="img-thumbnail img_thumb_LInst" id="img-asociacion"/>
                         </div>
+
                         <div class="agregar_archivo-formProf">
                             <input type='file' id="imagenAsociacion" name="imagenAsociacion" onchange="ver_imagen('imagenAsociacion', 'img-asociacion');" {{ ($count_asociaciones >= 3 ) ? 'disabled' : '' }}/>
                         </div>
@@ -543,7 +544,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 mt-2 content_btnEnviar-formProf">
+                <div class="col-12 content_btnEnviar-formProf">
                     <button type="submit" class="btn2_enviar-formProf mb-md-4" id="boton-guardar-asociacion" {{ ($count_asociaciones >= 3 ) ? 'disabled' : '' }}> Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
                     </button>
@@ -566,7 +567,7 @@
                             <div class="col-12 content_btnX-cierre-formProf">
                                 <button type="submit" class="close" aria-label="Close" data-id="{{ $idioma->idUsuarioIdiomas }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-                            <div class="">
+                            <div class="content_imgText_formProf">
                                 <img id="imagenPrevisualizacion" class="img_bandera-forProf" src="{{URL::asset($idioma->imgidioma)}}">
                                 <label for="example-date-input" class="text_idioma-formProf"> {{$idioma->nombreidioma}}</label>
                             </div>
@@ -639,7 +640,7 @@
                                     <img class="img_traProced-formProf" src="{{URL::asset($objTratamiento->imgTratamientoAntes)}}">
                                 </div>                           
 
-                                <div class="col-12 text_label-formProf">
+                                <div class="col-12 content_title_formProf">
                                     <label class="col-12 title_infoGuardada-formProf"> {{$objTratamiento->tituloTrataminetoAntes}} </label>
                                 </div>
 
@@ -656,7 +657,7 @@
                                     <img class="img_traProced-formProf" src="{{URL::asset($objTratamiento->imgTratamientodespues)}}">
                                 </div>
 
-                                <div class="col-12 text_label-formProf">
+                                <div class="col-12 content_title_formProf">
                                     <label class="col-12 title_infoGuardada-formProf"> {{$objTratamiento->tituloTrataminetoDespues}} </label>
                                 </div>
 
@@ -677,7 +678,7 @@
                         <div class="col-12 content_agregarImg-formProf form-group">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Antes </label>
 
-                            <div class="img_selccionada-formProf">
+                            <div class="conten_img_formPro">
                                 <img class="img-thumbnail img_thumb_LInst" id="imagen-tratamiento-antes"/>
                             </div>
 
@@ -696,7 +697,7 @@
                         </div>
 
                         <div class="col-12 section_inputLeft-text-formProf">
-                            <div class="form-group">
+                            <div class="form-group mb-0">
                                 <label for="descripcionTratamientoAntes" class="col-12 text_label-formProf"> Descripción antes </label>
                                 <input class="form-control" id="descripcionTratamientoAntes" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoAntes" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}>
                                 <label class="col-12 text_infoImg-formProf mb-0"> 160 Caracteres </label>
@@ -708,7 +709,7 @@
                     <div class="col-md-6 despues content_despues-formProf section_inputRight-text-formProf">
                         <div class="col-12 content_agregarImg-formProf form-group">
                             <label for="imgTratamientodespues" class="col-12 text_label-formProf"> Después </label>
-                            <div class="img_selccionada-formProf">
+                            <div class="conten_img_formPro">
                                 <img class="img-thumbnail img_thumb_LInst" id="imagen-tratamiento-despues"/>
                             </div>
                             <div class="agregar_archivo-formProf">
@@ -723,9 +724,10 @@
                             <input class="form-control" id="tituloTrataminetoDespues" placeholder="Título de la imagen" type="text" name="tituloTrataminetoDespues" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}>
                         </div>
                         <div class="col-12 section_inputRight-text-formProf">
-                            <div class="form-group">
+                            <div class="form-group mb-0">
                                 <label for="descripcionTratamientoDespues" class="col-12 text_label-formProf"> Descripción después </label>
                                 <input class="form-control" id="descripcionTratamientoDespues" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoDespues" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}>
+                                <label class="col-12 text_infoImg-formProf mb-0"> 160 Caracteres </label>
                             </div>
                         </div>
                     </div>
@@ -797,38 +799,35 @@
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave10') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_premio">
                 @csrf
-
-                <div class="row content_antDesp-formProf justify-content-center">
+                <div class="row content_antDesp-formProf premReco_formProf align-items-center">
                     <!-- Contenido PREMIO izquierdo -->
-                    <div class="col-md-6 p-0">
-                        <div class="col-md-6 pt-3">
-                            <div class="img_selccionada-formProf">
-                                <img class="img-thumbnail img_thumb_LInst" id="img-premio"/>
-                            </div>
-                            <div class="agregar_archivo-formProf">
-                                <input type='file' id="imgPremio" name="imgPremio" onchange="ver_imagen('imgPremio', 'img-premio');" {{ ($counto_premios >= 4) ? 'disabled' : '' }}/>
-                            </div>
-                            <div class="txt_informativo-formProf">
-                                <label class="col-12 text_infoImg-formProf mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
-                            </div>
+                    <div class="col-md-6 p-0 containt_img_educ_formProf ">
+                        <div class="img_selccionada-formProf">
+                            <img class="img-thumbnail img_thumb_LInst" id="img-premio"/>
                         </div>
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgPremio" name="imgPremio" onchange="ver_imagen('imgPremio', 'img-premio');" {{ ($counto_premios >= 4) ? 'disabled' : '' }}/>
+                        </div>
+                        <div class="txt_informativo-formProf">
+                            <label class="col-12 text_infoImg-formProf mb-0"> Tamaño 356 x 326px. Peso máximo 300kb </label>
+                        </div>
+                    </div>
 
-                        <div class="col-12 section_inputLeft-text-formProf">
+                    <div class="col-md-6 p-0">
+                        <div class="col-12 section_inputRight-text-formProf">
                             <label for="fechaPremio" class="col-12 text_label-formProf"> Fecha de inicio </label>
                             <input class="form-control" type="date"  id="fechaPremio" name="fechaPremio" {{ ($counto_premios >= 4) ? 'disabled' : '' }}>
                         </div>
 
-                        <div class="col-12 section_inputLeft-text-formProf">
+                        <div class="col-12 section_inputRight-text-formProf">
                             <label for="nombrePremio" class="col-12 text_label-formProf"> Título de la imagen 1 </label>
                             <input class="form-control" id="nombrePremio" placeholder="Título de la imagen" type="text" name="nombrePremio" {{ ($counto_premios >= 4) ? 'disabled' : '' }}>
                         </div>
 
-                        <div class="col-12 section_inputLeft-text-formProf">
-                        
-                                <label for="descripcionPremio" class="col-12 text_label-formProf"> Descripción del premio </label>
-                                <input class="form-control" id="descripcionPremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionPremio" {{ ($counto_premios >= 4) ? 'disabled' : '' }}>
-                                <label class="col-12 text_infoImg-formProf mb-0"> 160 Caracteres </label>
-                  
+                        <div class="col-12 section_inputRight-text-formProf">
+                            <label for="descripcionPremio" class="col-12 text_label-formProf"> Descripción del premio </label>
+                            <input class="form-control" id="descripcionPremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionPremio" {{ ($counto_premios >= 4) ? 'disabled' : '' }}>
+                            <label class="col-12 text_infoImg-formProf mb-0"> 160 Caracteres </label>
                         </div>
                     </div>
                 </div>
@@ -896,31 +895,32 @@
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave11') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_publicaciones">
                 @csrf
-                <div class="row content_antDesp-formProf justify-content-center">
+                <div class="row content_antDesp-formProf public_formProf align-items-center">
                     <!-- Contenido publicación left -->
-                    <div class="col-md-6 photo1 section_inputLeft-text-formProf content_antes-formProf">
-                        <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                            <div class="img_selccionada-formProf">
-                                <img class="img_anexada-formProf" id="img-publicacion"/>
-                            </div>
-                            <div class="agregar_archivo-formProf">
-                                <input type='file' id="imagePublicacion" name="imagePublicacion" onchange="ver_imagen('imagePublicacion', 'img-publicacion');" {{ ($count_publicaciones >= 4) ? 'disabled' : '' }}/>
-                            </div>
-                            <div class="txt_informativo-formProf">
-                                <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
-                            </div>
+                    <div class="col-md-6 p-0 containt_img_educ_formProf">
+                        <div class="img_selccionada-formProf">
+                            <img class="img-thumbnail img_thumb_LInst" id="img-publicacion"/>
                         </div>
 
-                        <div class="col-12 section_inputLeft-text-formProf">
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imagePublicacion" name="imagePublicacion" onchange="ver_imagen('imagePublicacion', 'img-publicacion');" {{ ($count_publicaciones >= 4) ? 'disabled' : '' }}/>
+                        </div>
+                        <div class="txt_informativo-formProf">
+                            <label class="col-12 text_infoImg-formProf"> Tamaño 800 x 800px. Peso máximo 500kb </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 p-0">
+                        <div class="col-12 section_inputRight-text-formProf">
                             <label for="nombrePublicacion" class="col-12 text_label-formProf"> Título de la publicación </label>
                             <input class="form-control" id="nombrePublicacion" placeholder="Título de la publicación" type="text" name="nombrePublicacion" {{ ($count_publicaciones >= 4) ? 'disabled' : '' }}>
                         </div>
 
-                        <div class="col-12 section_inputLeft-text-formProf">
-                            <div class="form-group">
+                        <div class="col-12 section_inputRight-text-formProf">
+                            <div class="form-group mb-0">
                                 <label for="descripcionPublicacion" class="col-12 text_label-formProf"> Descripción </label>
                                 <input class="form-control" id="descripcionPublicacion" maxlength="160" placeholder="Escribir descripción..." type="text" name="descripcionPublicacion" {{ ($count_publicaciones >= 4) ? 'disabled' : '' }}>
-                                <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                <label class="col-12 mb-0 text_infoImg-formProf"> 160 Caracteres </label>
                             </div>
                         </div>
                     </div>
@@ -990,37 +990,37 @@
             <form method="POST" action="{{ url ('/FormularioProfesionalSave12') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_fotos">
             @csrf
             <!-- Modulos del contenido GALERIA -->
-                <div class="row content_antDesp-formProf justify-content-center">
-                    <div class="col-md-6 photo1 section_inputLeft-text-formProf">
-                        <div class="col-12 section_inputLeft-text-formProf content_agregarImg-formProf form-group">
-                            <div class="img_selccionada-formProf">
-                                <img class="img_anexada-formProf" id="img-foto"/>
-                            </div>
-
-                            <div class="agregar_archivo-formProf">
-                                <input type='file' id="imgFoto" name="imgFoto" onchange="ver_imagen('imgFoto', 'img-foto');" {{ ($count_foto >= 8) ? 'disabled' : '' }}/>
-                            </div>
-
-                            <div class="txt_informativo-formProf">
-                                <label class="col-12 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
-                            </div>
+                <div class="row content_antDesp-formProf galeria_formProf align-items-center">
+                    <div class="col-md-6 p-0 containt_img_educ_formProf">
+                        <div class="img_selccionada-formProf">
+                            <img class="img-thumbnail img_thumb_LInst" id="img-foto"/>
                         </div>
 
-                        <div class="col-12 section_inputLeft-text-formProf">
+                        <div class="agregar_archivo-formProf">
+                            <input type='file' id="imgFoto" name="imgFoto" onchange="ver_imagen('imgFoto', 'img-foto');" {{ ($count_foto >= 8) ? 'disabled' : '' }}/>
+                        </div>
+
+                        <div class="txt_informativo-formProf">
+                            <label class="col-12 mb-0 text_infoImg-formProf"> Tamaño 400 x 400px. Peso máximo 500kb </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 p-0">
+                        <div class="col-12 section_inputRight-text-formProf">
                             <label for="fechaFoto" class="col-12 text_label-formProf"> Fecha </label>
                             <input class="form-control" type="date" id="fechaFoto" name="fechaFoto" {{ ($count_foto >= 8) ? 'disabled' : '' }}>
                         </div>
 
-                        <div class="col-12 section_inputLeft-text-formProf">
+                        <div class="col-12 section_inputRight-text-formProf">
                             <label for="nombreFoto" class="col-12 text_label-formProf"> Título de la imagen </label>
                             <input class="form-control" id="nombreFoto" placeholder="Título de la imagen" type="text" name="nombreFoto" {{ ($count_foto >= 8) ? 'disabled' : '' }}>
                         </div>
 
-                        <div class="col-12 section_inputLeft-text-formProf">
-                            <div class="form-group">
+                        <div class="col-12 section_inputRight-text-formProf">
+                            <div class="form-group mb-0">
                                 <label for="descripcionFoto" class="col-12 text_label-formProf"> Descripción </label>
                                 <input class="form-control" id="descripcionFoto" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionFoto" {{ ($count_foto >= 8) ? 'disabled' : '' }}>
-                                <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                <label class="col-12 mb-0 text_infoImg-formProf"> 160 Caracteres </label>
                             </div>
                         </div>
                     </div>
@@ -1051,7 +1051,7 @@
                             <div class="col-12 content_btnDelet-trata-formProf">
                                 <button type="submit" class="close" aria-label="Close" data-id="{{ $video->id }}"><span aria-hidden="true">&times;</span></button>
                             </div>
-                            <div class="col-12 my-2">
+                            <div class="col-12 p-2 my-2">
                                 <div class="img_selccionada-formProf">
                                     <iframe class="img_anexada-formProf" src="{{$video->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
@@ -1085,17 +1085,19 @@
                             <label for="fechaVideo" class="col-12 text_label-formProf"> Fecha </label>
                             <input class="form-control" type="date"  id="fechaVideo" name="fechaVideo" >
                         </div>
+                    </div>
 
-                        <div class="col-12 section_inputLeft-text-formProf">
+                    <div class="col-md-6 p-0">
+                        <div class="col-12 section_inputRight-text-formProf">
                             <label for="nombreVideo" class="col-12 text_label-formProf"> Título video </label>
                             <input class="form-control" id="nombreVideo" placeholder="Título video" type="text" name="nombreVideo" {{ ($count_videos >= 4) ? 'disabled' : '' }}>
                         </div>
 
-                        <div class="col-12 section_inputLeft-text-formProf">
-                            <div class="form-group">
+                        <div class="col-12 section_inputRight-text-formProf">
+                            <div class="form-group mb-0">
                                 <label for="descripcionVideo" class="col-12 text_label-formProf"> Descripción video </label>
                                 <input class="form-control" id="descripcionVideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionVideo" {{ ($count_videos >= 4) ? 'disabled' : '' }}>
-                                <label class="col-12 text_infoImg-formProf"> 160 Caracteres </label>
+                                <label class="col-12 mb-0 text_infoImg-formProf"> 160 Caracteres </label>
                             </div>
                         </div>
                     </div>
