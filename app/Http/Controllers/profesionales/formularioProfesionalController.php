@@ -282,7 +282,7 @@ class formularioProfesionalController extends Controller
     }
 
     public function cargaEducacion($id_user){
-        return DB::select("SELECT pu.id_universidadperfil, u.nombreuniversidad, pu.fechaestudio,pu.nombreestudio
+        return DB::select("SELECT pu.id_universidadperfil, u.nombreuniversidad, pu.fechaestudio,pu.nombreestudio, pu.logo_universidad
     FROM perfilesprofesionales pf
     INNER JOIN users us   ON pf.idUser=us.id
     LEFT JOIN  perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional= pu.idPerfilProfesional
@@ -292,7 +292,7 @@ class formularioProfesionalController extends Controller
 
     public function cargaExperiencia($id_user){
         return DB::select("SELECT ex.idexperiencias, ex.nombreEmpresaExperiencia, ex.descripcionExperiencia,
-     ex.fechaInicioExperiencia, ex.fechaFinExperiencia
+     ex.fechaInicioExperiencia, ex.fechaFinExperiencia, ex.imgexperiencia
     FROM perfilesprofesionales pf
     INNER JOIN users us   ON pf.idUser=us.id
     LEFT JOIN  experiencias ex ON pf.idPerfilProfesional= ex.idPerfilProfesional
