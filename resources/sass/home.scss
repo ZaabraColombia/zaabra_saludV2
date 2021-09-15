@@ -55,19 +55,19 @@
 .titulo-slide_prinHome {
     margin: 0;
     font-size: 2em;
-    font-weight: bold;
+    font-weight: bolder;
     color: #0083D6;
     line-height: 1;
 }
 .subtitulo-slide_prinHome {
     margin: 0;
     font-size: 2em;
-    font-weight: bold;
+    font-weight: bolder;
     line-height: 1;
 }
 .text_slide_prinHome {
     font-size: 1.1em;
-    font-weight: bold;
+    font-weight: bolder;
     line-height: 1.2;
     margin: 2% 0;
 }
@@ -315,7 +315,7 @@
     margin-left: 5%;
 }
 .contains_slider_especialistas{
-    max-width: 100%;
+    width: 100%;
     display: flex;
     flex-wrap: nowrap;
     align-content: center;
@@ -337,6 +337,7 @@
 .contains_slider_especialistas .card-img-top{
     border-top-left-radius: 25px;
     object-fit: cover;
+    object-position: top;
 }
 .contains_slider_especialistas .card-body{
     background-color: #F5F5F5;
@@ -358,7 +359,7 @@
     font-weight: bold;
 }
 .contains_slider_triple{
-    max-width: 100%;
+    width: 100%;
     display: flex;
     flex-wrap: nowrap;
     align-content: center;
@@ -547,7 +548,7 @@
         background-position: right;
     }
     .contains_slider_especialistas{
-        max-width: 75%;
+        width: 75%;
         margin-bottom: 13%;
     }
     .contains_slider_especialistas .card-img-top{
@@ -576,7 +577,7 @@
         color: #0083D6;
     }
     .contains_slider_triple{
-        max-width: 90%;
+        width: 90%;
         margin-bottom: 10%;
     }
     .contains_slider_logoshome{
@@ -786,8 +787,11 @@
         padding-bottom: 17%;
     }
     .contains_slider_especialistas {
-        max-width: 70%;
+        width: 90%;
         margin-bottom: 10%;
+    }
+    .contains_slider_especialistas .card-img-top {
+        height: 25vh;
     }
     .contains_slider_especialistas .card-body h5 {
         font-size: 1.8em;
@@ -805,20 +809,23 @@
         max-width: 45%;
     }
     .contains_slider_especialistas .btn-next{
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
         border: 0;
-        right: 7%;
-        margin-top: -25%;
+        right: .8%;
+        margin-top: -10%;
         color: #0083D6;
     }
     .contains_slider_especialistas .btn-prev{
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
         border: 0;
-        left: 7%;
-        margin-top: -25%;
+        left: 1.5%;
+        margin-top: -10%;
         color: #0083D6;
+    }
+    .contains_slider_especialistas .card-body {
+        padding: 5% 0 10% 0;
     }
     .contains_slider_triple {
         margin-bottom: 10%;
@@ -960,12 +967,7 @@
         width: 10px !important;
         height: 10px !important;
     }
-    .swiper_especialistas{
-        max-width: 85%;
-    }
-    .swiper_triple{
-        max-width: 83%;
-    }
+
     .swiper_logoshome{
         max-width: 90%;
     }  
@@ -1019,17 +1021,22 @@
 
     }
     .contains_slider_especialistas{
-        max-width: 100%;
-        height: 45vh;
+        width: 80%;
+        height: 50vh;
         margin-bottom: 0%;
+        padding: 2% 0;
+    }
+    .swiper_especialistas{
+        width: 100%;
+        height: 100%;
     }
     .contains_slider_especialistas .card{
-        max-width: 23%;
-        margin-left: 1%;
-        margin-right: 1%;
+        width: 24%;
+        //margin-left: 1%;
+        //margin-right: 1%;
     }
     .contains_slider_especialistas .card-img-top{
-        height: 23vh;
+        height: 25vh;
     }
     .contains_slider_especialistas .card-body{
         height: 15vh;
@@ -1060,18 +1067,18 @@
     }
     .contains_slider_especialistas .btn-prev {
         width: 20px;
-        height: 15px;
+        height: 20px;
         border: 0;
-        left: 4%;
-        margin-top: -11%;
+        left: 7%;
+        margin-top: -5%;
         color: #0083D6;
     }
     .contains_slider_especialistas .btn-next {
         width: 20px;
-        height: 15px;
+        height: 20px;
         border: 0;
-        right: 3%;
-        margin-top: -11%;
+        right: 7%;
+        margin-top: -5%;
         color: #0083D6;
     }
     .contains_slider_logoshome{
@@ -1095,7 +1102,11 @@
     }
     .contains_slider_triple {
         height: 25vh;
+        width: 80%;
         margin-bottom: 0;
+    }
+    .swiper_triple{
+        width: 100%;
     }
     .contains_slider_logoshome .btn-prev {
         width: 15px;
@@ -1185,28 +1196,44 @@
     .zaabrasalud_parallax {
         height: 40vh;
     }
-    .swiper_especialistas {
+    /*.swiper_especialistas {
         max-width: 80%;
-    }
+    }*/
     .contains_slider_logoshome {
         padding-top: 5%;
     }
-    .contains_slider_triple {
-        margin-top: 0;
-        height: 35vh;
-    }
-    .swiper_triple {
-        max-width: 81%;
-    }
+
+    /*.swiper_triple {
+        width: 81%;
+    }*/
     .swiper_logoshome {
         max-width: 85%;
     }
+
+
+
+
+    .contains_slider_especialistas {
+        width: 75%;
+    }
+    .contains_slider_especialistas {
+       height: 52vh;
+    }
+    .contains_slider_triple {
+        width: 75%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
+}
+
+@media (min-width: 1360px) {
+
 }
 
 @media (min-width: 1440px){
     .contain_slide_prinHome {
         position: absolute;
-        top: 50px;
+        top: 80px;
         left: 200px;
         width: 28%;
     }
@@ -1214,7 +1241,7 @@
         font-size: 3em;
     }
     .subtitulo-slide_prinHome {
-        font-size: 3em;
+        font-size: 2.6em;
     }
     .text_slide_prinHome {
         font-size: 1.8em;
@@ -1300,10 +1327,11 @@
         padding-bottom: 18%;
     }
     .swiper_especialistas {
-        max-width: 80%;
+        max-width: 100%;
     }
     .contains_slider_especialistas {
         height: 45vh;
+        width: 75%;
         margin-bottom: 0;
     }
     .contains_submenu .ver_mas {
@@ -1311,27 +1339,27 @@
         margin-top: 0;
     }
     .contains_slider_especialistas .card {
-        max-width: 23%;
-        margin-left: 1%;
-        margin-right: 1%;
+        width: 23%;
+        //margin-left: 1%;
+        //margin-right: 1%;
     }
     .contains_slider_especialistas .card-img-top {
         height: 25vh;
     }
     .contains_slider_especialistas .btn-prev {
-        width: 15px;
-        height: 20px;
+        width: 18px;
+        height: 25px;
         border: 0;
-        left: 16%;
-        margin-top: -9%;
+        left: 10%;
+        margin-top: -5%;
         color: #0083D6;
     }
     .contains_slider_especialistas .btn-next {
-        width: 15px;
-        height: 20px;
+        width: 18px;
+        height: 25px;
         border: 0;
-        right: 16%;
-        margin-top: -9%;
+        right: 10%;
+        margin-top: -5%;
         color: #0083D6;
     }
     .especialidades, .instituciones{
@@ -1341,8 +1369,14 @@
         max-width: 50%;
         font-size: 1.5em;
     }
+    .contains_slider_triple {
+        height: 25vh;
+        width: 75%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
     .swiper_triple {
-        max-width: 80%;
+        width: 100%;
     }
     .titulo_portafolio {
         margin-top: 3%;
@@ -1356,7 +1390,7 @@
         padding: 5% 0;
     }
     .contains_slider_especialistas .btn-profesional{
-        max-width: 75%;
+        max-width: 55%;
         height: 4vh;
         font-size: 1.2em;
         margin-top: 0;
@@ -1366,11 +1400,6 @@
     }
     .contains_slider_especialistas .card-body p {
         height: 3.5vh;
-    }
-    .contains_slider_triple {
-        height: 25vh;
-        margin-top: 5%;
-        margin-bottom: 5%;
     }
     .contains_slider_logoshome{
         width: 100%;
@@ -1412,7 +1441,7 @@
         position: absolute;
         top: 100px;
         left: 200px;
-        width: 31%;
+        width: 32%;
     }
     .titulo-slide_prinHome {
         font-size: 4em;
@@ -1476,26 +1505,26 @@
         margin-bottom: 0%;
     }
     .contains_slider_especialistas .btn-prev {
-        width: 15px;
-        height: 20px;
+        width: 20px;
+        height: 25px;
         border: 0;
-        left: 23%;
-        margin-top: -8%;
+        left: 15%;
+        margin-top: -5%;
         color: #0083D6;
     }
     .contains_slider_especialistas .btn-next {
-        width: 15px;
-        height: 20px;
+        width: 20px;
+        height: 25px;
         border: 0;
-        right: 23%;
-        margin-top: -8%;
+        right: 15%;
+        margin-top: -5%;
         color: #0083D6;
     }
     .contains_slider_especialistas .card-body {
         padding: 7% 0 10% 0;
     }
     .contains_slider_especialistas .card-body p{
-        height: 3.5vh;
+        height: 2.5vh;
     }
     .contains_menu {
         margin-bottom: 3%;
@@ -1503,9 +1532,17 @@
     .zaabrasalud_parallax {
         height: 45vh;
     }
-    .swiper_especialistas {
-        max-width: 65%;
+    .contains_slider_especialistas {
+        height: 50vh;
+        width: 66%;
     }
+    .contains_slider_triple {
+        height: 30vh;
+        width: 66%;
+    }
+    /*.swiper_especialistas {
+        max-width: 100%;
+    }*/
     .contains_slider_especialistas{
         margin-bottom: 0;
     }
@@ -1526,9 +1563,9 @@
     .btn-prev{
         left: 15%;
     }
-    .swiper_triple {
-        max-width: 65%;
-    }
+    /*.swiper_triple {
+        width: 65%;
+    }*/
     .swiper_logoshome .swiper-slide{
         height: 11vh;
         object-fit: contain;
@@ -1537,9 +1574,9 @@
         margin-top: 0;
         margin-bottom: 1%;
     }
-    .contains_slider_triple {
+    /*.contains_slider_triple {
         height: 25vh;
-    }
+    }*/
     .contains_slider_logoshome .btn-prev {
         margin-top: 3%;
     }
