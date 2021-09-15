@@ -73,6 +73,12 @@ Route:: post('/contacto',[App\Http\Controllers\contactecnosController::class,'sa
 /* Pertenece a newsletter */
 Route:: post('/newsletter',[App\Http\Controllers\newsletter\newsletterController::class,'save'])->name('newsletter');
 
+// Esta ruta pertenece a la vista de membresía In stituciones
+Route::get('/membresiaInstitucion', function () { return view('instituciones/membresiaInstitucion');})->name('entidad.membresiaInstitucion');
+
+// Esta ruta pertenece a la vista de membresía profesional
+Route::get('/membresiaProfesional', function () { return view('profesionales/membresiaProfesional');})->name('profesional.membresiaProfesional');
+
 
 /*------------------------------------------------- Pertenece a calificacion y comentarios-------------------------------------------------------------------------------*/
 
@@ -128,9 +134,6 @@ Route::middleware(['auth', 'roles'])->group(function (){
     //Selects dinamicos area, profesion, especialidad
     Route::get('profesion/{idArea}', [App\Http\Controllers\profesionales\profesionController::class,'mostrarProfesion'])->name('profesional.mostrarProfesion');
     Route::get('especialidad/{idProfesion}', [App\Http\Controllers\profesionales\especialidadController::class,'mostrarESpecialidad'])->name('profesional.mostrarESpecialidad');
-
-    // Esta ruta pertenece a la vista de membresía profesional
-    Route::get('/membresiaProfesional', function () { return view('profesionales/membresiaProfesional');})->name('profesional.membresiaProfesional');
 
     /*--------- Admin Profesional -----------*/
     Route:: get('/panelPrincipalProfesional',[App\Http\Controllers\admin\adminProfesionalController::class,'index'])->name('profesional.panelPrincipalProfesional');
@@ -208,8 +211,6 @@ Route::middleware(['auth', 'roles'])->group(function () {
     Route::post('/FormularioInstitucionSave13',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create13'])->name('entidad.create13');
     Route::get('/FormularioInstituciondelete13/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete13'])->name('entidad.delete13');
 
-    // Esta ruta pertenece a la vista de membresía In stituciones
-    Route::get('/membresiaInstitucion', function () { return view('instituciones/membresiaInstitucion');})->name('entidad.membresiaInstitucion');
 });
 
 

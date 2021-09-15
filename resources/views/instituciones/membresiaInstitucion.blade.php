@@ -11,13 +11,13 @@
     <div class="row section_inputs-option-institucion">
       <div class="col-4 col-lg-3 col-xl-2 form-check input_option-institucion">
           <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
-          <a class="ruta_membresiaProf" href="{{ route('membresiaProfesional') }}">
+          <a class="ruta_membresiaProf" href="{{ route('profesional.membresiaProfesional') }}">
             <input class="form-check-input input_img-option-institucion" onclick="hideForm(this)" type="image" src="/img/iconos/icono-doctor.svg" name="idrol" value="2" data-position="doctor">
             <label class="form-check-label texto_input-doctor-institucion" for="idrol"> Doctor/a </label>
           </a>
       </div>
 
-      <div class="col-4 col-lg-3 col-xl-2 form-check input_option-institucion"> 
+      <div class="col-4 col-lg-3 col-xl-2 form-check input_option-institucion">
           <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
           <input class="form-check-input input_img-option-institucion" onclick="hideForm(this)" type="image" src="/img/iconos/icono-institucion-verde.svg" name="idrol" value="3" data-position="institucion">
           <label class="form-check-label texto_input-instituto-institucion" for="idrol"> Consultorios médicos/ Odontológicos </label>
@@ -51,7 +51,7 @@
       <div class="col-10 content_btn-ingresar-institucion">
         <a href="{{route('register')}}">
           <button type="submit" class="btn_Ingreso-institucion"> {{ __('Registro') }}
-            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-institucion" alt=""> 
+            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-institucion" alt="">
           </button>
         </a>
       </div>
@@ -63,9 +63,9 @@
     <div class="evento_acordion contain_accordion-institucion" id="accordion">
       <h5 class="titulo_tarjeta-institucion"> Plan Premiun </h5>
 
-      <!-- Botón Registrar -->    
+      <!-- Botón Registrar -->
       <div class="col-12 content_btn-ingresar-institucion">
-        <button type="submit" class="btn_precio-tarjeta-institucion" data-toggle="modal" data-target="#exampleModal"> 
+        <button type="submit" class="btn_precio-tarjeta-institucion" data-toggle="modal" data-target="#exampleModal">
           <h5 class="precio_tarjeta-institucion"> $179.900 </h5>
           <h5 class="texto_precio-institucion"> Mensual* </h5>
         </button>
@@ -106,7 +106,7 @@
         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
           <div class="card-body text_interno-toggle-institucion">
             <P>
-              Zaabra Salud permite a todos sus usuarios realizar comentarios y calificaciones por medio de estrellas. Así entre mejores calificaciones obtenga, tendrá un mejor posicionamiento. 
+              Zaabra Salud permite a todos sus usuarios realizar comentarios y calificaciones por medio de estrellas. Así entre mejores calificaciones obtenga, tendrá un mejor posicionamiento.
               Tranquilo, todos los comentarios son verificados por Zaabra Salud.
             </P>
           </div>
@@ -251,16 +251,16 @@
       <!-- Botón Empezar -->
       <div class="col-10 content_btn-ingresar-institucion">
         <button type="submit" class="btn_Ingreso-institucion" data-toggle="modal" data-target="#exampleModal"> {{ __('Empezar') }}
-          <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-institucion" alt=""> 
+          <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-institucion" alt="">
         </button>
       </div>
     </div>
 
     <!-- Seccion texto de la linea de ateción -->
     <div class="contain_accordion-institucion" id="accordion1">
-      <p class="texto_lineaAtencion-institucion"> 
-        Instituciones como clínicas, centros médicos, hospitales, laboratorio clínico, laboratorio odontológico, IPS, EPS y clínicas veterinarias. 
-        Comunicarse con nuestros medical software managers o directamente con nuestra línea de atención 7123945 - 3212449869. 
+      <p class="texto_lineaAtencion-institucion">
+        Instituciones como clínicas, centros médicos, hospitales, laboratorio clínico, laboratorio odontológico, IPS, EPS y clínicas veterinarias.
+        Comunicarse con nuestros medical software managers o directamente con nuestra línea de atención 7123945 - 3212449869.
       </p>
     </div>
   </section>
