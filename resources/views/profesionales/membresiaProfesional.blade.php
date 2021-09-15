@@ -16,10 +16,10 @@
           <label class="form-check-label texto_input-doctor-membresia" for="idrol"> Doctor/a </label>
       </div>
 
-      <div class="col-4 col-lg-3 col-xl-2 form-check input_option-membresia"> 
+      <div class="col-4 col-lg-3 col-xl-2 form-check input_option-membresia">
           <!-- Evento onclick para desplegar los elementos de registro la funcion se encuentra en el archivo register.js -->
-          <a class="ruta_membresiaInst" href="{{ route('membresiaInstitucion') }}"> 
-            <input class="form-check-input input_img-option-membresia" onclick="hideForm(this)" type="image" src="/img/iconos/icono-institucion.svg" name="idrol" value="3" data-position="institucion"> 
+          <a class="ruta_membresiaInst" href="{{ route('entidad.membresiaInstitucion') }}">
+            <input class="form-check-input input_img-option-membresia" onclick="hideForm(this)" type="image" src="/img/iconos/icono-institucion.svg" name="idrol" value="3" data-position="institucion">
               <label class="form-check-label texto_input-instituto-membresia" for="idrol"> Consultorios médicos/ Odontológicos </label>
             </input>
           </a>
@@ -53,7 +53,7 @@
       <div class="col-10 content_btn-ingresar-membresia">
         <a href="{{route('register')}}">
           <button type="submit" class="btn_Ingreso-membresia"> {{ __('Registro') }}
-            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt="">
           </button>
         </a>
       </div>
@@ -66,9 +66,9 @@
       <!-- Titulo tarjeta membresia -->
       <h5 class="titulo_tarjeta-membresia"> Plan Premiun </h5>
 
-      <!-- Botón Registrar -->    
+      <!-- Botón Registrar -->
       <div class="col-12 content_btn-ingresar-membresia">
-        <button type="submit" class="btn_precio-tarjeta-membresia" data-toggle="modal" data-target="#exampleModal"> 
+        <button type="submit" class="btn_precio-tarjeta-membresia" data-toggle="modal" data-target="#exampleModal">
           <h5 class="precio_tarjeta-membresia"> $119.900 </h5>
           <h5 class="texto_precio-membresia"> Mensual* </h5>
         </button>
@@ -83,7 +83,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
             <p>
-              Zaabra Salud le permite construir su perfil profesional, muestre su información de contacto, profesión y especialidad, 
+              Zaabra Salud le permite construir su perfil profesional, muestre su información de contacto, profesión y especialidad,
               tipos de consulta, redes sociales, formación académica, certificados, procedimientos y más. Todo en un solo lugar.
             </p>
           </div>
@@ -97,7 +97,7 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
             <p>
-              Aquí podrá encontrar agendamiento online, disponibilidad del profesional, podrá gestionar sus citas, 
+              Aquí podrá encontrar agendamiento online, disponibilidad del profesional, podrá gestionar sus citas,
               encontrará las alertas y notificaciones y podrá administrarlas por medio de WhatsApp, correo electrónico o mensajes de texto.
             </p>
           </div>
@@ -259,7 +259,7 @@
         <div id="collapseFiveteen" class="collapse" aria-labelledby="headingFiveteen" data-parent="#accordion">
           <div class="card-body text_interno-toggle-membresia">
             <P>
-              Zaabra Salud tiene al servicio de los usuarios y de los profesionales comentarios, testimonios y calificación por medio de estrellas, 
+              Zaabra Salud tiene al servicio de los usuarios y de los profesionales comentarios, testimonios y calificación por medio de estrellas,
               estos comentarios son verificados por Zaabra Salud, si tiene una buena calificación, su perfil profesional será más visible.
             </P>
           </div>
@@ -283,8 +283,8 @@
 
       <!-- Botón Empezar -->
       <div class="col-10 content_btn-ingresar-membresia">
-        <button type="submit" class="btn_Ingreso-membresia" data-toggle="modal" data-target="#exampleModal"> {{ __('Empezar') }} 
-          <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt=""> 
+        <button type="submit" class="btn_Ingreso-membresia" data-toggle="modal" data-target="#exampleModal"> {{ __('Empezar') }}
+          <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt="">
         </button>
       </div>
     </div>

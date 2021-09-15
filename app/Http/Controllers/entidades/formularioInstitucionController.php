@@ -3,22 +3,13 @@
 namespace App\Http\Controllers\entidades;
 use App\Http\Controllers\Controller;
 use App\Models\Convenios;
-use App\Models\destacados;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Arr;
 use App\Models\instituciones;
 use App\Models\tipoinstituciones;
 use App\Models\serviciosinstituciones;
-use App\Models\eps;
-use App\Models\ips;
-use App\Models\prepagadas;
-use App\Models\intitucioneseps;
-use App\Models\intitucionesips;
-use App\Models\institucionprepagada;
 use App\Models\profesionales_instituciones;
 use App\Models\certificaciones;
 use App\Models\sedesinstituciones;
@@ -30,7 +21,6 @@ use App\Models\galerias;
 use App\Models\videos;
 use File;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class formularioInstitucionController extends Controller{
 
@@ -58,6 +48,12 @@ class formularioInstitucionController extends Controller{
         $objFormulario      = $objFormulario[0];
         $objuser            = $this->cargaDatosUser($id_user);
         $objuser            = $objuser[0];
+        $objServicio        = $this->cargaServicios($id_user);
+        $objCertificaciones = $this->cargaCertificaciones($id_user);
+        $objSedes           = $this->cargaSedes($id_user);
+        $objGaleria         = $this->cargaGaleria($id_user);
+        $objVideo           = $this->cargaVideo($id_user);
+
 
         $objConvenios       = Convenios::where('id_institucion', '=', $ins->id)
             ->select('convenios.id', 'convenios.url_image', 'nombretipo as nombre_tipo_convenio')
@@ -77,21 +73,6 @@ class formularioInstitucionController extends Controller{
             ->leftjoin('especialidades', 'especialidades.idEspecialidad', '=', 'profesionales_instituciones.id_especialidad')
             ->leftjoin('universidades', 'universidades.id_universidad', '=', 'profesionales_instituciones.id_universidad')
             ->get();
-
-        $objServicio        = $this->cargaServicios($id_user);
-        $objCertificaciones = $this->cargaCertificaciones($id_user);
-        $objSedes           = $this->cargaSedes($id_user);
-
-
-
-
-        $objContadorServicio=$this->contadorServicios($id_user);
-        $objContadorCertificaciones=$this->contadorCertificaciones($id_user);
-        $objContadorSedes=$this->contadorSedes($id_user);
-        $objGaleria=$this->cargaGaleria($id_user);
-        $objContadorGaleria=$this->contadorGaleria($id_user);
-        $objVideo=$this->cargaVideo($id_user);
-        $objContadorVideo=$this->contadorVideo($id_user);
 
         //Lista de paises
         $listaPaises = pais::all();
@@ -125,18 +106,13 @@ class formularioInstitucionController extends Controller{
             'listaMunicipios',
             'objFormulario',
             'objServicio',
-            'objContadorServicio',
             'objConvenios',
             'objTipoConvenios',
             'objProfesionalesIns',
             'objCertificaciones',
-            'objContadorCertificaciones',
             'objSedes',
-            'objContadorSedes',
             'objGaleria',
-            'objContadorGaleria',
             'objVideo',
-            'objContadorVideo'
         ));
     }
 
@@ -156,22 +132,6 @@ class formularioInstitucionController extends Controller{
     }
     /*------------------------------------- fin json busqueda departamento, provincia, ciudad----------------------*/
 
-
-    /*------------ Funcion solo para verificar que institucion existe y esta se utiiliza en las demas-----------------*/
-    protected function verificaPerfil(){
-        /*id usuario logueado*/
-        $id_user=auth()->user()->id;
-
-        /*consulta si existe el profesional*/
-        $idexisteinstitu = DB::table('instituciones')
-            ->select('instituciones.id')
-            ->join('users', 'instituciones.idUser', '=', 'users.id')
-            ->where('instituciones.idUser', $id_user)
-            ->first();
-        return $idexisteinstitu;
-
-    }
-    /*------------Fin  Funcion solo para verificar que institucion existe y esta se utiiliza en los demas metodos-----------------*/
 
     /*------------inicio busquedad datos basicos usuario logueado y data resgistrada de la institucion-----------------*/
 
@@ -205,74 +165,7 @@ class formularioInstitucionController extends Controller{
     WHERE ins.idUser=$id_user");
     }
 
-    public function contadorServicios($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorservicio = DB::table('instituciones')
-            ->select(DB::raw('COUNT(serviciosinstituciones.id) as cantidad'))
-            ->join('users', 'instituciones.idUser', '=', 'users.id')
-            ->leftjoin('serviciosinstituciones', 'instituciones.id', '=', 'serviciosinstituciones.id')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadorservicio;
-    }
 
-    public function  cargaEps($id_user){
-        return DB::select("SELECT e.id, e.urlimagen
-    FROM instituciones ins
-    INNER JOIN users us   ON ins.idUser=us.id
-    LEFT JOIN  eps e ON ins.id= e.id_institucion
-    WHERE ins.idUser=$id_user");
-    }
-
-    public function contadorEps($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadoreps = DB::table('instituciones')
-            ->select(DB::raw('COUNT(eps.id_institucion) as cantidad'))
-            ->join('users', 'instituciones.idUser', '=', 'users.id')
-            ->leftjoin('eps', 'instituciones.id', '=', 'eps.id_institucion')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadoreps;
-    }
-
-
-    public function  cargaIps($id_user){
-        return DB::select("SELECT i.id ,i.urlimagen
-    FROM instituciones ins
-    INNER JOIN users us   ON ins.idUser=us.id
-    LEFT JOIN  ips i ON ins.id= i.id_institucion
-    WHERE ins.idUser=$id_user");
-    }
-
-    public function contadorIps($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorips = DB::table('instituciones')
-            ->select(DB::raw('COUNT(ips.id_institucion) as cantidad'))
-            ->join('users', 'instituciones.idUser', '=', 'users.id')
-            ->leftjoin('ips', 'instituciones.id', '=', 'ips.id_institucion')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadorips;
-    }
-
-    public function  cargaPrepa($id_user){
-        return DB::select("SELECT p.id_prepagada ,p.urlimagen
-    FROM instituciones ins
-    INNER JOIN users us   ON ins.idUser=us.id
-    LEFT JOIN  prepagadas p ON ins.id= p.id_institucion
-    WHERE ins.idUser=$id_user");
-    }
-
-    public function contadorPrepa($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorprepa = DB::table('instituciones')
-            ->select(DB::raw('COUNT(prepagadas.id_institucion) as cantidad'))
-            ->join('users', 'instituciones.idUser', '=', 'users.id')
-            ->leftjoin('prepagadas', 'instituciones.id', '=', 'prepagadas.id_institucion')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadorprepa;
-    }
     public function  cargaProfeInsti($id_user){
         return DB::select("SELECT pin.id_profesional_inst, pin.primer_nombre,pin.segundo_nombre,pin.primer_apellido,
     pin.segundo_apellido,pin.especialidad_uno,pin.especialidad_dos, pin.foto_perfil_institucion
@@ -280,17 +173,6 @@ class formularioInstitucionController extends Controller{
     INNER JOIN users us   ON ins.idUser=us.id
     LEFT JOIN  profesionales_instituciones pin ON ins.id= pin.id_institucion
     WHERE ins.idUser=$id_user");
-    }
-
-    public function contadorProfeInsti($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorProfeInsti = DB::table('instituciones')
-            ->select(DB::raw('COUNT(profesionales_instituciones.id_institucion) as cantidad'))
-            ->join('users', 'instituciones.idUser', '=', 'users.id')
-            ->leftjoin('profesionales_instituciones', 'instituciones.id', '=', 'profesionales_instituciones.id_institucion')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadorProfeInsti;
     }
 
     public function  cargaCertificaciones($id_user){
@@ -301,34 +183,12 @@ class formularioInstitucionController extends Controller{
     WHERE ins.idUser=$id_user");
     }
 
-    public function contadorCertificaciones($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorCerificaciones = DB::table('instituciones')
-            ->select(DB::raw('COUNT(certificaciones.id_institucion) as cantidad'))
-            ->join('users', 'instituciones.idUser', '=', 'users.id')
-            ->leftjoin('certificaciones', 'instituciones.id', '=', 'certificaciones.id_institucion')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadorCerificaciones;
-    }
-
     public function  cargaSedes($id_user){
         return DB::select("SELECT si.id,si.imgsede,si.nombre,si.direccion,si.horario_sede,si.telefono, si.url_map
     FROM instituciones ins
     INNER JOIN users us   ON ins.idUser=us.id
     LEFT JOIN  sedesinstituciones si ON ins.id= si.idInstitucion
     WHERE ins.idUser=$id_user");
-    }
-
-    public function contadorSedes($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorSedes = DB::table('instituciones')
-            ->select(DB::raw('COUNT(sedesinstituciones.idInstitucion) as cantidad'))
-            ->join('users', 'instituciones.idUser', '=', 'users.id')
-            ->leftjoin('sedesinstituciones', 'instituciones.id', '=', 'sedesinstituciones.idInstitucion')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadorSedes;
     }
 
     public function  cargaGaleria($id_user){
@@ -339,17 +199,6 @@ class formularioInstitucionController extends Controller{
     WHERE ins.idUser=$id_user");
     }
 
-    public function contadorGaleria($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorGaleria = DB::table('instituciones')
-            ->select(DB::raw('COUNT(galerias.idinstitucion) as cantidad'))
-            ->join('users', 'instituciones.idUser', '=', 'users.id')
-            ->leftjoin('galerias', 'instituciones.id', '=', 'galerias.idInstitucion')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadorGaleria;
-    }
-
     public function  cargaVideo($id_user){
         return DB::select("SELECT v.id, v.nombrevideo, v.descripcionvideo,
     REPLACE(v.urlvideo, '/watch?v=', '/embed/') AS urlvideo, v.fechavideo
@@ -357,18 +206,6 @@ class formularioInstitucionController extends Controller{
     INNER JOIN users us   ON ins.idUser=us.id
     INNER JOIN  videos v ON ins.id= v.idinstitucion
     WHERE ins.idUser=$id_user");
-    }
-
-
-    public function contadorVideo($id_user){
-        /*cuenta los los valores ingresados*/
-        $contadorvideos = DB::table('instituciones')
-            ->select(DB::raw('COUNT(videos.idinstitucion) as cantidad'))
-            ->join('users', 'instituciones.idUser', '=', 'users.id')
-            ->leftjoin('videos', 'instituciones.id', '=', 'videos.idinstitucion')
-            ->where('users.id', '=',$id_user)
-            ->first();
-        return $contadorvideos;
     }
     /*------------Fin busquedad datos basicos usuario logueado y data resgistrada de la institucion-----------------*/
 
