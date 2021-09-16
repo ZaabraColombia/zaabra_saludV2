@@ -7,7 +7,16 @@
     <section class="swiper-container swiper_principalGaleriaProf">
       <div class="swiper-wrapper">
         @foreach ($objbannersprincipalProfesiones as $objbannersprincipalProfesiones)
-          <img class="swiper-slide imagen_bannerPrin-prof" src="{{URL::asset($objbannersprincipalProfesiones->rutaImagenVenta)}}">
+          <div class="swiper-slide ">
+              <img class="swiper-slide" src="{{URL::asset($objbannersprincipalProfesiones->rutaImagenVenta)}}">
+              <div class="contain_slide_prinHome">
+                  <h1 class="titulo-slide_prinHome" style="color:{{($objbannersprincipalProfesiones->color_titulo)}};">{{($objbannersprincipalProfesiones->titulo_banner)}}</h1>
+                  <p class="text_slide_prinHome" style="color:{{($objbannersprincipalProfesiones->color_texto)}};">{{($objbannersprincipalProfesiones->texto_banner)}}</p>
+                  <a type="submit" href="{{($objbannersprincipalProfesiones->urlBoton_banner)}}" target="blank" class="btn_agendarHome"> {{ __('Ver más') }}
+                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt="">
+                  </a>
+              </div>
+          </div>  
         @endforeach
       </div>
     </section>
@@ -19,7 +28,6 @@
 
     <!-- Contenedor de las tarjetas de las profesiones -->
     <section class="row col-12 col-lg-10 col-xl-8 container_ramSalud">
-
       @foreach ($objprofesiones as $profesion)
         <div class="col-5 col-lg-3 section_ramSalud">
           <div class="content_img_ramSalud">
