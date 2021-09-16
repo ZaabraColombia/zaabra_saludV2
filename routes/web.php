@@ -251,4 +251,6 @@ Route::get('/error404', function () { return view('errores/error404');})->name('
 Route::get('/error505', function () { return view('errores/error505');})->name('error505');
 
 
-Route::get('/test', [\App\Http\Controllers\TestController::class, 'test']);
+Route::get('/test', function (){
+    return view('emails.confirmation_code');
+});
