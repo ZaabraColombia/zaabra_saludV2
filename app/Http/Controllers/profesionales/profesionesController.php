@@ -36,7 +36,7 @@ class profesionesController extends Controller
     // consulta para cargar banner principal
     public function cargarBannerPrincipalProfesiones(){
         $consultaBannerProfesiones = DB::table('ventabanners')
-        ->select('rutaImagenVenta')
+        ->select()
         ->where('aprobado', '<>', 0)
         ->where('idtipobanner', '=', 5)
         ->get();
