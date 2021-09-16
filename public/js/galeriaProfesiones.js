@@ -2,7 +2,7 @@
 const swiper_principalGaleriaProf = new Swiper('.swiper_principalGaleriaProf',{
   // Optional parameters
   // If we need pagination
-  loop: true,
+  loop: false,
   effect: "fade",
   
   pagination: {

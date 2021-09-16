@@ -6,6 +6,13 @@
     <div class="swiper-wrapper">
       @foreach ($objbannersprincipalEspecialidades as $objbannersprincipalEspecialidades)
         <img class="swiper-slide imagen_bannerPrin-espc" src="{{URL::asset($objbannersprincipalEspecialidades->rutaImagenVenta)}}">
+        <div class="contain_slide_prinHome">
+            <h1 class="titulo-slide_prinHome" style="color:{{($objbannersprincipalEspecialidades->color_titulo)}};">{{($objbannersprincipalEspecialidades->titulo_banner)}}</h1>
+            <p class="text_slide_prinHome" style="color:{{($objbannersprincipalEspecialidades->color_texto)}};">{{($objbannersprincipalEspecialidades->texto_banner)}}</p>
+            <a type="submit" href="{{($objbannersprincipalEspecialidades->urlBoton_banner)}}" target="blank" class="btn_agendarHome"> {{ __('Ver más') }}
+              <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt="">
+            </a>
+        </div>
       @endforeach
     </div>
   </section>

@@ -18,7 +18,7 @@ class especialidadesController extends Controller
         //en la vista galeria
         $objnombreProfesion = $this->nombreEspecilalidad($nombreProfesion);
         $idprofesion=$objnombreProfesion->idProfesion;
-        $objbannersprincipalEspecialidades = $this->cargarBannerPrincipalEspecialidades();
+        $objbannersprincipalEspecialidades = $this->cargarBannerPrincipalEspecialidades($objnombreProfesion->idProfesion);
         $objEspecialidades = $this->cargarEspecialidades($idprofesion);
         $objbannerssecundarioEspecialidades = $this->cargarBannerSecundarioEspecialidades();
         $objcarruselespecialidades = $this->cargarCarruselEspecialidades();
@@ -40,10 +40,12 @@ class especialidadesController extends Controller
         return $nombreProfesion;
         }
     // consulta para cargar banner principal
-    public function cargarBannerPrincipalEspecialidades(){
+    public function cargarBannerPrincipalEspecialidades($id_profesion){
         $consultaBannerEspecialidades = DB::table('ventabanners')
-        ->select('rutaImagenVenta')
+        ->select('ventabanners.*') 
+        ->join ('profesion_banner', 'profesion_banner.id_ventabanner', '=', 'ventabanners.id' )
         ->where('aprobado', '<>', 0)
+        ->where('profesion_banner.id_profesion', '=', $id_profesion)
         ->where('idtipobanner', '=', 7)
         ->get();
         return $consultaBannerEspecialidades;
