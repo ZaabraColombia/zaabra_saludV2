@@ -10,7 +10,7 @@
     <section class="container">
         <div class="row">
             <div class="col-12">
-                <form action="{{ route('paciente.formulario-basico') }}" id="formulario_paciente" class="form">
+                <form action="{{ route('paciente.formulario-basico') }}" id="form-basico-paciente" class="form">
                     <div class="form-inline">
                         <label for="primer_nombre" class="col-12 col-form-label texto_label-register">{{ __('Nombres *') }}</label>
                         <div class="form-group col-md-6">
@@ -56,6 +56,12 @@
                         <input id="correo" type="email" class="form-control" name="correo" value="{{ old('correo') }}" />
                     </div>
 
+                    <!-- Correo electrónico -->
+                    <div class="form-group col-12">
+                        <label for="correo" class="col-12 col-form-label texto_label-register">{{ __('Correo electrónico *') }}</label>
+                        <input id="correo" type="email" class="form-control" name="correo" value="{{ old('correo') }}" />
+                    </div>
+
                     <!-- Contraseña -->
 {{--                    <div class="form-inline">--}}
 {{--                        <div class="col-md-6 form-group">--}}
@@ -76,5 +82,5 @@
 @endsection
 
 @section('scripts')
-
+    <script src="{{ asset('') }}"></script>
 @endsection
