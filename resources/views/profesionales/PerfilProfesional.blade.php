@@ -220,14 +220,29 @@
         <div class="publicaciones_profesional">
             <h2><i></i>Publicaciones</h2>
             <div class="container_cards">
-                @foreach ($objprofesionallandingpublic as $objprofesionallandingpublic)
-                    <div class="card">
-                        <img class="card-img-top" src="{{URL::asset($objprofesionallandingpublic->imgpublicacion)}}">
-                        <div class="card-body">
-                            <h5>{{$objprofesionallandingpublic->nombrepublicacion}}</h5>
-                            <p>{{$objprofesionallandingpublic->descripcion}}</p>
+                @foreach ($objprofesionallandingpublic as $key => $publicacion)
+                    @if($key == 1 or $key == 2)
+                        <div class="card">
+                            <img class="card-img-top" src="{{ asset($publicacion->imgpublicacion) }}">
+                            <div class="card-body">
+                                <h5>{{$publicacion->nombrepublicacion}}</h5>
+                                <p>{{$publicacion->descripcion}}</p>
+                            </div>
                         </div>
-                    </div>
+                    @endif
+                @endforeach
+            </div>
+            <div class="container_cards">
+                @foreach ($objprofesionallandingpublic as $key => $publicacion)
+                    @if($key == 3 or $key == 4)
+                        <div class="card">
+                            <img class="card-img-top" src="{{ asset($publicacion->imgpublicacion) }}">
+                            <div class="card-body">
+                                <h5>{{$publicacion->nombrepublicacion}}</h5>
+                                <p>{{$publicacion->descripcion}}</p>
+                            </div>
+                        </div>
+                    @endif
                 @endforeach
             </div>
         </div>
