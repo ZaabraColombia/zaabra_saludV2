@@ -1,8 +1,12 @@
 ruta='https://zaabrasalud.co/';
 $(function(){
     var filtro = $("#filtro");
-    filtro.autocomplete({
+    filtro.click(function (e){
+        var filtro = $(this);
+        filtro.autocomplete( "search", filtro.val() );
+    }).autocomplete({
         autoFocus: true,
+        minLength: 0,
         source: function(request, response) {
             $.ajax({
                 url: filtro.data('url'),
@@ -31,9 +35,15 @@ $(function(){
 
         }
     }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+        var btn = "<a href='"  + item.url + "'><i class='" + item.icon + " my-auto'></i>" +item.label +"</a>";
+
+        if (item.type)
+        {
+            btn = "<a href='"  + item.url + "'><i class='" + item.icon + " my-auto'></i>" +item.label +" <br> <span>" +item.type +"</span></a>";
+        }
         return $( "<li></li>" )
             .data( "item.autocomplete", item )
-            .append( "<a href='"  + item.url + "'><i class='" + item.icon + "'></i>" +item.label +"</a>" )
+            .append( btn )
             .appendTo( ul );
 
     }
@@ -43,7 +53,10 @@ $(function(){
 $(function(){
     var filtro = $("#filtro2");
 
-    filtro.autocomplete({
+    filtro.click(function (e){
+        var filtro = $(this);
+        filtro.autocomplete( "search", filtro.val() );
+    }).autocomplete({
         autoFocus: true,
         source: function(request, response) {
             $.ajax({
@@ -73,9 +86,15 @@ $(function(){
 
         }
     }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+        var btn = "<a href='"  + item.url + "'><i class='" + item.icon + "'></i>" +item.label +"</a>";
+
+        if (item.type)
+        {
+            btn = "<a href='"  + item.url + "'><i class='" + item.icon + "'></i>" +item.label +" <br> <span>" +item.type +"</span></a>";
+        }
         return $( "<li></li>" )
             .data( "item.autocomplete", item )
-            .append( "<a href='"  + item.url + "'>" +item.label +"</a>" )
+            .append( "<a href='"  + item.url + "'><i class='" + item.icon + "'></i>" +item.label +"</a>" )
             .appendTo( ul );
 
     }

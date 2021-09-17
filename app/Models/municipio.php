@@ -13,4 +13,13 @@ class municipio extends Model
         'codigo_dane',
         'nombre'
     ];
+
+    protected $primaryKey = "id_municipio";
+
+    protected $table = "municipios";
+
+    public function provincia()
+    {
+        return $this->belongsTo(provincia::class, 'id_provincia', 'id_provincia');
+    }
 }
