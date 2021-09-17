@@ -14,4 +14,8 @@ return [
     'seleccione-provincia'  => 'Seleccione la Provincia',
     'seleccione-municipio'  => 'Seleccione el Municipio',
     'eps-regimen-medico'    => 'Eps / Regimen Médico',
+    'contraseña-actual'     => 'Password',
+    'contraseña-nueva'      => 'New Password',
+    'contraseña-repetir'    => 'Repeat Password',
+    'guardar'               => 'Save',
 ];
