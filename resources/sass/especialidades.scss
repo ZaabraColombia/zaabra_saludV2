@@ -2,6 +2,11 @@
     width: 100%;
     padding: 0;
 }
+.texto_banner_ramaSalud {
+    font-family: "Quicksand";
+    font-size: .85em;
+    font-weight: bolder;
+}
 // Sección tarjetas profesionales de al salud
 .container_espeMed {
     margin: auto;
@@ -22,6 +27,9 @@
     .imagen_bannerPrin-espc {
         width: 100%;
         padding: 0;
+    }
+    .texto_banner_ramaSalud {
+        font-size: 0.5em;
     }
     // Sección del titulo especialidades medicina
     .title_espeMed {
@@ -91,6 +99,9 @@
     }
 }
 @media (min-width: 768px) and (orientation: portrait) {
+    .texto_banner_ramaSalud {
+        font-size: 1em;
+    }
     // Sección del titulo erspecialidades medicina
     .title_espeMed {
         font-size: 2.5em;
@@ -180,11 +191,17 @@
     }
 }
 @media (min-width: 1200px) {
+    .texto_banner_ramaSalud {
+        font-size: 1em;
+    }
     .btnVer_espMed {
         font-size: calc(.2em + .8vw);
     }
 }
 @media (min-width: 1440px) {
+    .texto_banner_ramaSalud {
+        font-size: 1.25em;
+    }
     .title_espeMed {
         margin: 2% 0;
     }
@@ -196,6 +213,9 @@
     }
 }
 @media (min-width: 1920px) {
+    .texto_banner_ramaSalud {
+        font-size: 1.7em;
+    }
     .icon_arrow_espMed {
         width: 7%;
     }
