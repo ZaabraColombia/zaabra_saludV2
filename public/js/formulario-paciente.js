@@ -110,36 +110,73 @@ $('#provincia').on('change',function(){
 
 $('#form-basico-paciente').validate({
     rules: {
-        'nombre_institucion': {
+        'primer_nombre': {
             required: true,
         },
-        'fecha_inicio_institucion': {
+        'primer_apellido': {
             required: true,
         },
-        'url_institucion': {
+        'tipo_documento': {
             required: true,
         },
-        'tipo_institucion': {
+        'numero_documento': {
             required: true,
         },
+        'celular': {
+            required: true,
+        },
+        'telefono': {
+            required: true,
+        },
+        'departamento': {
+            required: true,
+        },
+        'municipio': {
+            required: true,
+        },
+        'eps': {
+            required: true,
+        }
     },
     messages: {
-        'nombre_institucion':{
-            required: "Por favor ingrese el nombre de la institución",
+        'primer_nombre':{
+            required: "Por favor ingrese el primer nombre",
         },
-        'fecha_inicio_institucion':{
-            required: "Por favor ingrese la fecha de la institución",
+        'primer_apellido':{
+            required: "Por favor ingrese el primer apellido",
         },
-        'url_institucion':{
-            required: "Por favor ingrese la url de la institución",
+        'tipo_documento':{
+            required: "Por favor ingrese el tipo de identificación",
         },
-        'tipo_institucion':{
-            required: "Por favor ingrese el tipo de la institución",
+        'numero_documento':{
+            required: "Por favor ingrese el número de identificación",
+        },
+        'celular':{
+            required: "Por favor ingrese el número celular",
+        },
+        'telefono':{
+            required: "Por favor ingrese el número del teléfono fijo",
+        },
+        'pais':{
+            required: "Por favor ingrese el país",
+        },
+        'departamento':{
+            required: "Por favor ingrese el departamento",
+        },
+        'provincia':{
+            required: "Por favor ingrese la provincia",
+        },
+        'municipio':{
+            required: "Por favor ingrese el municipio",
+        },
+        'eps':{
+            required: "Por favor ingrese la eps o regimen médico",
         },
     },
     submitHandler: function(form) {
         //Elementos
-        $('#btn-guardar-basico-institucional').attr('disabled', 'disabled');
+        var btn = $('#btn-guardar-basico-institucional');
+        btn.prop('disabled', true);
         var formulario = $(form);
         //console.log(formulario.attr('action'));
         //Ajax
@@ -165,7 +202,7 @@ $('#form-basico-paciente').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-basico-institucional').removeAttr('disabled');
+                btn.prop('disabled', false);
 
                 //Respuesta
                 mensaje_success('#mensajes-basico', response.mensaje)
