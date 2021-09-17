@@ -86,7 +86,7 @@ Route:: post('/comentarios',[App\Http\Controllers\comentarios\comentariosControl
 
 /*----------------------------------------------Pertenece a profesional-------------------------------------------------------------------------------*/
 
-Route::middleware(['auth', 'roles'])->group(function (){
+Route::middleware(['auth', 'roles', 'verified'])->group(function (){
 
     /*Esta ruta es del formulario del profesional */
     Route::get('/FormularioProfesional',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'index'])->name('profesional.FormularioProfesional');
@@ -167,7 +167,7 @@ Route::middleware(['auth', 'roles'])->group(function (){
 });
 
 /*------------------------------------------------Pertenece a entidades-------------------------------------------------------------------------------*/
-Route::middleware(['auth', 'roles'])->group(function () {
+Route::middleware(['auth', 'roles', 'verified'])->group(function () {
 
     /*Esta ruta es del formulario del profesional */
     Route::get('/FormularioInstitucion',[App\Http\Controllers\entidades\formularioInstitucionController::class,'index'])->name('entidad.FormularioInstitucion');
@@ -217,7 +217,7 @@ Route::middleware(['auth', 'roles'])->group(function () {
 
 /*------------------------------------------------Pertenece el paciente-------------------------------------------------------------------------------*/
 /*Esta ruta es del paciente*/
-Route::middleware(['auth', 'roles'])->group(function () {
+Route::middleware(['auth', 'roles', 'verified'])->group(function () {
     Route:: get('/panelPrincipal',[App\Http\Controllers\admin\adminController::class,'index'])->name('paciente.panelPrincipal');
     Route:: get('/panelAdministrativo/{idPerfilProfesional}',[App\Http\Controllers\admin\adminController::class,'cita'])->name('paciente.panelAdministrativo');
     Route:: get('/citas',[App\Http\Controllers\admin\adminCitasController::class,'index'])->name('paciente.citas');
