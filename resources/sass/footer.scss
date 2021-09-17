@@ -246,6 +246,7 @@
     .boton_suscribirme-cel {
         background: #0083D6;
         margin: auto;
+        padding: 0 1%;
         font-family: 'Quicksand', sans-serif; 
         color:#ffffff;
         display: flex;
@@ -253,13 +254,17 @@
         align-items: center;
         border: solid .1px #0083D6;
         border-radius: 4px;
-        height: calc(1em + 0.75rem + 2px);
+        height: calc(1em + 1em + 1px);
+    }
+    .boton_suscribirme-cel span {
+        font-size: .8em;
+        font-family: "Quicksand";
     }
     .text_sucrib-foot {
         font-size: .85em;
     }
     .icono_flecha-suscribirme-cel {
-        width: 14%;
+        width: 12%;
     }
     // Contactanos logo, iconos y correo
     .contenido_contactanos-cel {
@@ -450,6 +455,13 @@
     .input_suscribirme-cel {
         font-size: 1em;
         padding: 0 2%;
+    }
+    .boton_suscribirme-cel {
+        padding: 0 2%;
+        height: calc(1.5em + 1.5em + 1px);
+    }
+    .boton_suscribirme-cel span {
+        font-size: 1.25em;
     }
     // Newsletter check terminos y condiciones
     .boton_check-terminos-cel {
