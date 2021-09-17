@@ -473,7 +473,7 @@ a:link, a:visited, a:active, a:hover {
     display: none !important;
 }
 
-@media (min-width: 320px) and (orientation: portrait) {
+@media (max-width: 575.98px) {
     .navbar_zaabrasalud{
         height: calc(2.6em + 1rem + 2px);
     }
@@ -660,12 +660,12 @@ a:link, a:visited, a:active, a:hover {
         background-size: 16%;
     }
 }
-@media (min-width: 360px) and (orientation: portrait) {
+/*@media (min-width: 360px) and (orientation: portrait) {
     .ui-menu {
         height: 35vh;
     }
-}
-@media (min-width: 768px) and (orientation: portrait) {
+}*/
+@media (min-width: 768px) {
     //Contenedor general
     .navbar_zaabrasalud {
         background-color: #0083D6;

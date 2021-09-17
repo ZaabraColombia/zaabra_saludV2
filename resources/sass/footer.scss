@@ -198,7 +198,7 @@
     background-color: #d7f3e3;
     border-color: #c7eed8;
 }
-@media (min-width: 320px) and (orientation: portrait) {
+@media (max-width: 575.98px) {
     // Newslwtter titulo y texto
     .newsletter_titulo {
         font-size: 1em;
@@ -443,7 +443,7 @@
         margin: auto;
     }
 }
-@media (min-width: 768px) and (orientation: portrait) {
+@media (min-width: 768px){
     // Newsletter titulo y texto
     .newsletter_titulo {
         font-size: 1.563em;
