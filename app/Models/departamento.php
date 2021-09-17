@@ -12,4 +12,14 @@ class departamento extends Model
         'id_pais',
         'nombre'
     ];
+
+    public function provincias()
+    {
+        return $this->hasMany(provincia::class, 'id_departamento', 'id_departamento');
+    }
+
+    public function pais()
+    {
+        return $this->belongsTo(pais::class, 'id_pais', 'id_pais');
+    }
 }

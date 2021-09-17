@@ -234,6 +234,10 @@ Route::middleware(['auth', 'roles'])->group(function () {
     Route:: post('/favoritosGeneralSave2',[App\Http\Controllers\admin\adminFavoritosController::class,'create2'])->name('paciente.favoritosGeneralSave2');
     Route:: post('/favoritosGeneralSave3',[App\Http\Controllers\admin\adminFavoritosController::class,'create3'])->name('paciente.favoritoSGeneralSave3');
     Route:: post('/favoritosGeneralSave4',[App\Http\Controllers\admin\adminFavoritosController::class,'create4'])->name('paciente.favoritosGeneralSave4');
+
+    Route:: get('/perfil',[App\Http\Controllers\Paciente\FormularioPaciente::class,'index'])->name('paciente.perfil');
+    Route::post('/paciente/formulario-basico',[App\Http\Controllers\Paciente\FormularioPaciente::class,'basico'])->name('paciente.formulario-basico');
+
 });
 
 /*------------------------------------------------- Pertenece a ERRORES -------------------------------------------------------------------------------*/
@@ -251,4 +255,6 @@ Route::get('/error404', function () { return view('errores/error404');})->name('
 Route::get('/error505', function () { return view('errores/error505');})->name('error505');
 
 
-Route::get('/test', [\App\Http\Controllers\TestController::class, 'test']);
+Route::get('/test', function (){
+    return view('emails.confirmation_code');
+});
