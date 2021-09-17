@@ -12,6 +12,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <link rel="shortcat icon" href="{{asset('/img/logos/zaabrasalud-favicon.png')}}">
+        <link rel="icon" href="{{asset('/img/logos/zaabrasalud-favicon.png')}}">
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">

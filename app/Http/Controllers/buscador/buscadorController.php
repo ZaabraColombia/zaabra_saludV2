@@ -111,6 +111,21 @@ class buscadorController extends Controller
         //Recuperamos lo que el usuario escribió en el buscador
         $term = $request->get('term');
 
+        //si esta vacío
+        if (empty($term))
+        {
+            //Busquedad profesiones paar envio a la vista de profesiones
+            $profesiones = profesiones::where('nombreProfesion','like','%' . $term . '%')
+                ->select(
+                    'nombreProfesion as label',
+                    DB::raw('CONCAT("' . url('/Especialidades-Medicas/') . '/", slug) as url'),
+                    DB::raw('CONCAT("fas fa-stethoscope") as icon')
+                )
+                ->get();
+
+            return response($profesiones->toArray(), 200);
+        }
+
         //Busquedad profesiones paar envio a la vista de profesiones
         $profesiones = profesiones::where('nombreProfesion','like','%' . $term . '%')
             ->select(
@@ -131,7 +146,8 @@ class buscadorController extends Controller
             })
             ->orWhere('especialidades.nombreEspecialidad','like','%' . $term . '%')
             ->select(
-                DB::raw('CONCAT(especialidades.nombreEspecialidad, " / ", "Dr(a). ", users.primernombre, " ", users.primerapellido) as label'),
+                DB::raw('CONCAT(users.primernombre, " ", users.segundonombre, " ", users.primerapellido) as label'),
+                DB::raw('especialidades.nombreEspecialidad as type'),
                 DB::raw('CONCAT("' . url('/PerfilProfesional') . '/", perfilesprofesionales.slug) as url'),
                 DB::raw('CONCAT("fas fa-user-md") as icon')
             )->get();
@@ -141,7 +157,8 @@ class buscadorController extends Controller
             ->where('users.nombreinstitucion','like','%' . $term . '%')
             ->orWhere('tipoinstituciones.nombretipo','like','%' . $term . '%')
             ->select(
-                DB::raw('CONCAT(users.nombreinstitucion, " / " ,tipoinstituciones.nombretipo) as label'),
+                DB::raw('tipoinstituciones.nombretipo as label'),
+                DB::raw('users.nombreinstitucion as type'),
                 DB::raw('CONCAT("' . url('/PerfilInstitucion') . '/", instituciones.slug) as url'),
                 DB::raw('CONCAT("fas fa-hospital-alt") as icon')
             )
