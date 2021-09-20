@@ -473,13 +473,13 @@ a:link, a:visited, a:active, a:hover {
     display: none !important;
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 600.98px) {
     .navbar_zaabrasalud{
         height: calc(2.6em + 1rem + 2px);
     }
     // Contenedor principal del header
     .contains_header{
-        max-width: 100%;
+        width: 100%;
         height: 100%;
         padding: 0;
         justify-content: space-between;
@@ -594,6 +594,7 @@ a:link, a:visited, a:active, a:hover {
     // Menú desplegable
     .dropdown-menu .dropdown-item {
         padding-left: 36%;
+        height: calc(1.5em + 1.5em + 1px);
         justify-content: flex-start;
     }
     .icon-paciente {
@@ -630,7 +631,7 @@ a:link, a:visited, a:active, a:hover {
     .dropdown-menu .item-cel {
         background-position-x: 7%;
         padding-left: 25%;
-        height: 8vh;
+        //height: 8vh;
     }
     .icon-especialidades{
         background-size: 16%;
@@ -665,8 +666,7 @@ a:link, a:visited, a:active, a:hover {
         height: 35vh;
     }
 }*/
-@media (min-width: 768px) {
-    //Contenedor general
+@media (min-width: 601px) and (max-width: 1023.98px) { 
     .navbar_zaabrasalud {
         background-color: #0083D6;
         padding: 0;
@@ -680,75 +680,110 @@ a:link, a:visited, a:active, a:hover {
         z-index: 500;
         top: .1px;
     }
-    .contains_header {
-        max-width: 85%;
+    .icon_lupa-mobile {
+        width: 50px;
+        background: #0083D6;
+    }
+    .btnMembresia_header_mobile {
+        background-image: url('/img/header/boton-de-memebresia-mob.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        height: calc(2em + 2em + 4px);
+        width: calc(2em + 2em + 2px);
+    }
+    /*.navbar_zaabrasalud{
+        height: calc(2.6em + 1rem + 2px);
+    }*/
+    // Contenedor principal del header
+    .contains_header{
+        //width: 100%;
         height: 100%;
         padding: 0;
         justify-content: space-between;
     }
-    //Seccion logo zaabra
+    // Sección logo zaabra
     .navbar-logo {
-        width: 13%;
+        text-decoration: none;
+        color: #ffff;
+        text-align: center;
+        width: 27%;
     }
-    .logo_header {
-        width: 100%;
+    //Sección lupa buscador mobile
+    .contains_boxsearch {
+        display: none;
     }
-    //Seccion lupa barra buscador
-    .icon_lupa-mobile {
-        width: 130%;
-        background: #0083D6;
+    .contain_lupa-mobile {
+        display: flex;
+    }
+    .boton_lupa_mobile {
+        padding: 0;
+        border: none;
     }
 
+    .contains_barra{
+        display: none;
+        background-color: #0083D6 !important;
+        width: 100%;
+        height: 79%;
+        z-index: 20;
+        padding: 8% 0;
+    }
+    .barra_oculta {
+        width: 90%;
+    }
+    .barra_busqueda-mobile {
+        background: #ffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        border-radius: 2px;
+        margin: auto;
+    }
     .inputBarraBusquedad {
-        font-size: 1.5em;
-        padding: 0 2%;
+        width: 90%;
+        height: 100% !important;
+        padding-left: 0;
+        border-radius: 0;
+        font-size: 17px;
+        border: none;
+        padding: 1% 2%;
+        background: #faebd700;
     }
     .contenedorLupa {
-        padding: 1% 0;
+        padding: 0;
         border: none;
-        width: 5%;
+        height: auto;
+        width: 6%;
         position: relative;
         margin-top: 0;
         margin-right: 3%;
         right: 0;
         align-items: flex-end;
+        height: 100%;
     }
     .ui-menu {
-        width: 90% !important;
-        left: 5% !important;
-        top: 180px !important;
         height: 29vh;
     }
-
-    // Seccion boton usuario
-    .menu_paciente {
-        padding: 0;
-        height: auto;
-        width: 215px;
+    // Sección botón usuario
+    .soy_paciente{
+        height: 100%;
+        width: 20%;
     }
-    .icon-paciente {
-        background-size: 22%;
-    }
-    .dropdown-menu .dropdown-item {
-        display: flex;
+    // Seccion icono boton usuario
+    .soy_paciente .dropdown-toggle {
+        background-image: url('/img/header/icono-soy-paciente-blanco.svg');
+        background-size: 60%;
+        background-position: center;
+        background-repeat: no-repeat;
         width: 100%;
-        height: 5vh;
-        clear: both;
-        font-weight: 400;
-        color: #212529;
-        text-align: inherit;
-        white-space: nowrap;
-        background-color: transparent;
-        border: 0;
-        align-items: center;
-        font-size: 1.2em;
+        height: 100%;
+        border: none;
+        display: flex;
+        flex-wrap: nowrap;
+        margin: auto;
     }
-    .texto_item-menu {
-        width: 60%;
-        margin-left: 0;
-        font-size: 1em;
-    }
-
     // Seccion icono boton usuario
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
@@ -771,55 +806,67 @@ a:link, a:visited, a:active, a:hover {
         flex-wrap: nowrap;
         margin: auto;
     }
-    //Seccion boton membresia
-    .btnMembresia_header_mobile {
-        background-image: url('/img/header/boton-de-memebresia-mob.png');
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        height: calc(2em + 2em + 2px);
-        width: calc(1.5em + 1.5em + 1px);
+    // Menú desplegable
+    .dropdown-menu .dropdown-item {
+        height: 4.5vh;
+        padding-left: 36%;
+        justify-content: flex-start;
+    }
+    .icon-paciente {
+        background-size: 20%;
+    }
+    .icon-medico {
+        background-size: 20%;
+    }
+    .icon-instituciones {
+        background-size: 20%;
+    }
+    // Sección botón membresía
+    .button-membresia {
+        display: none;
     }
 
-    // Seccion menu hamburguesa
+    //Sección menú hamburguesa
+    .menu-hamburger {
+        width: 15%;
+        height: 100%;
+    }
+    // Menú desplegable
     .menu_hamburguesa {
         height: auto;
-        width: 365px;
+        width: 225px;
     }
     .dropdown-menu .item-cel {
         background-position-x: 7%;
         padding-left: 25%;
-        height: 5.5vh;
+        height: 4.5vh;
     }
-    .texto_item-menu-paciente {
-        width: 60%;
-        margin-left: 0;
-        font-size: 1em;
+    .icon-especialidades{
+        background-size: 16%;
     }
-    // Seccion icono menu hamburguesa
-    .menu-hamburger .dropdown-toggle {
-        background-size: 40%;
+    .icon-instituciones-burger{
+        background-position-x: 7%;
+        background-size: 16%;
     }
-    .icon-especialidades {
-        background-size: 15%;
+    .icon-quienes{
+        background-position-x: 7%;
+        background-size: 16%;
     }
-    .icon-instituciones-burger {
-        background-size: 15%;
-    }
-    .icon-quienes {
-        background-size: 15%;
-    }
-    .icon-contactenos {
-        background-size: 15%;
+    .icon-contactenos{
+        background-position-x: 7%;
+        background-size: 16%;
     }
     .icon-agenda{
-        background-size: 15%;
+        background-position-x: 7%;
+        background-size: 16%;
     }
     .icon-perfil{
-        background-size: 15%;
+        background-position-x: 7%;
+        background-size: 16%;
     }
     .icon-cerrarSesion{
-        background-size: 15%;
+        background-position-x: 7%;
+        background-size: 16%;
     }
 }
 @media (min-width: 1024px) {
@@ -834,7 +881,7 @@ a:link, a:visited, a:active, a:hover {
     }
     // Contenedor principal
     .contains_header {
-        max-width: 66%;
+        width: 66%;
         height: 100%;
         padding: 0;
         justify-content: flex-start;
@@ -909,7 +956,7 @@ a:link, a:visited, a:active, a:hover {
         align-items: center;
     }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1200px) and (max-width: 1359.98) {
     //Seccion barra de busqueda
     .contenedorLupa {
         width: 5%;
@@ -925,19 +972,19 @@ a:link, a:visited, a:active, a:hover {
 
     }
 }
-@media (min-width: 1360px) {
+@media (min-width: 1360px)and (max-width: 1439.98) {
     #ui-id-1 {
         //left: 25.2% !important;
         height: 30vh;
     }
 }
-@media (min-width: 1440px) {
+@media (min-width: 1440px)and (max-width: 1919.98) {
     .contains_barra{
         display: none;
     }
     // Contenedor principal
     .contains_header {
-        max-width: 66%;
+        width: 66%;
         height: 100%;
         padding: 0;
         justify-content: flex-start;
@@ -950,7 +997,7 @@ a:link, a:visited, a:active, a:hover {
     .contains_boxsearch {
         padding: 0%;
         flex: 45%;
-        max-width: 45%;
+        width: 45%;
         height: 100%;
         margin-right: 0;
         align-items: center;
