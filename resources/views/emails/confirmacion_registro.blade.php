@@ -13,7 +13,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>*|MC:SUBJECT|*</title>
+        <title>{{ __('emails.Confirmar correo electrónico') }}</title>
 
     <style type="text/css">
 		p{
@@ -574,7 +574,7 @@
 
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; text-align: center;">
 
-                            <a href="*|ARCHIVE|*" target="_blank">View this email in your browser</a>
+                            <!--<a href="*|ARCHIVE|*" target="_blank">View this email in your browser</a>-->
                         </td>
                     </tr>
                 </tbody></table>
@@ -628,9 +628,9 @@
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; text-align: center;">
 
                             <div style="text-align: center;"><br>
-<span style="font-size:20px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong>Hola *|LIST:NAME|*,</strong></span></span><br>
+<span style="font-size:20px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong>{{ __('emails.Hola') }} {{ $user->primernombre . ' ' . $user->primerapellido }},</strong></span></span><br>
 <br>
-<span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">Gracias por registrarse en Zaabra Salud</span></span></div>
+<span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">{{ __('emails.Gracias por registrarse en') }} Zaabra Salud</span></span></div>
 
                         </td>
                     </tr>
@@ -651,16 +651,14 @@
             <tr>
                 <td valign="top" style="padding:9px" class="mcnImageBlockInner">
                     <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" class="mcnImageContentContainer" style="min-width:100%;">
-                        <tbody><tr>
+                        <tbody>
+                        <tr>
                             <td class="mcnImageContent" valign="top" style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0; text-align:center;">
-
-
-                                        <img align="center" alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/237525fb-0bbd-a001-dea2-b7aa87b602a3.png" width="93" style="max-width:93px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
-
-
+                                <img align="center" alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/237525fb-0bbd-a001-dea2-b7aa87b602a3.png" width="93" style="max-width:93px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
                             </td>
                         </tr>
-                    </tbody></table>
+                        </tbody>
+                    </table>
                 </td>
             </tr>
     </tbody>
@@ -681,9 +679,14 @@
 
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
 
-                            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">Haga clic en este enlace de verificación: <span style="color:#0000FF">link</span><br>
-&nbsp;para la confirmación de su registro.</span></span></div>
-
+                            <div style="text-align: center;">
+                                <span style="font-size:16px">
+                                    <span style="font-family:arial,helvetica neue,helvetica,sans-serif">{{ __('emails.Haga clic en este enlace de verificación') }}:
+                                        <a href="{{ $url }}" style="color:#0000FF">link</a><br>
+                                        &nbsp;{{ __('emails.para la confirmación de su registro') }}.
+                                    </span>
+                                </span>
+                            </div>
                         </td>
                     </tr>
                 </tbody></table>
@@ -868,9 +871,7 @@
 
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px;color: #414141;font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif;font-size: 10px;text-align: left;">
 
-                            <span style="font-size:10px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">Este correo electrónico contiene información sobre ZAABRA COLOMBIA S.A.S. Al abrir los mensajes provenientes de nuestras direcciones de correo electrónico o hacer clic en los enlaces, acepta nuestra Política de Privacidad y tratamiento de datos.<br>
-Usted ha recibido este correo electrónico porque se encuentra registrado en las bases de datos de ZAABRA COLOMBIA S.A.S. Por favor, haga Click aquí si desea cancelar su suscripción y/o no recibir mensajes de nuestra parte.<br>
-© 2021 Zaabra Colombia S.A.S.</span></span>
+                            <span style="font-size:10px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">{{ __('emails.footer-email') }}</span></span>
                         </td>
                     </tr>
                 </tbody></table>
@@ -905,16 +906,15 @@ Usted ha recibido este correo electrónico porque se encuentra registrado en las
 
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
 
-                            <em data-stringify-type="italic">Zaabra Copyright © 2021 , All rights reserved.</em><br>
-*|IFNOT:ARCHIVE_PAGE|* *|LIST:DESCRIPTION|*<br>
-<br>
-<strong>Our mailing address is:</strong><br>
-*|HTML:LIST_ADDRESS_HTML|* *|END:IF|*<br>
-<br>
-Want to change how you receive these emails?<br>
-You can <a href="*|UPDATE_PROFILE|*">update your preferences</a> or <a href="*|UNSUB|*">unsubscribe from this list</a>.<br>
-<br>
-*|IF:REWARDS|* *|HTML:REWARDS|* *|END:IF|*
+                            <em data-stringify-type="italic">Zaabra Copyright © 2021 , All rights reserved.</em>
+                            <!--<br>*|IFNOT:ARCHIVE_PAGE|* *|LIST:DESCRIPTION|*<br>-->
+                            <br>
+                            <strong>{{ __('emails.Nuestro correo electrónico es') }}</strong>
+                            <br>info@zaabrasalud.co<br>
+                            <br>{{ __('emails.Quiere cambiar la forma en que recibe estos correos electrónicos') }}?<br>
+                            {{ __('emails.Usted pueda') }} <a href="*|UPDATE_PROFILE|*">{{ __('emails.actualiza sus preferencias') }}</a>
+                            {{ __('emails.o') }} <a href="*|UNSUB|*">{{ __('emails.cancelar la subscripción') }}</a>.<br>
+                            <!--<br>*|IF:REWARDS|* *|HTML:REWARDS|* *|END:IF|*-->
                         </td>
                     </tr>
                 </tbody></table>
