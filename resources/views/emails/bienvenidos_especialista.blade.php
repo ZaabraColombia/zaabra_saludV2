@@ -543,8 +543,7 @@
 }</style></head>
     <body>
         <!--*|IF:MC_PREVIEW_TEXT|*-->
-        <!--[if !gte mso 9]><!----><span class="mcnPreviewText" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">*|MC_PREVIEW_TEXT|*</span><!--<![endif]-->
-        <!--*|END:IF|*-->
+        <!--[if !gte mso 9]>--><!--<span class="mcnPreviewText" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">*|MC_PREVIEW_TEXT|*</span>--><!--<![endif]-->        <!--*|END:IF|*-->
         <center>
             <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
                 <tr>
@@ -574,7 +573,7 @@
 
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; text-align: center;">
 
-                            <a href="*|ARCHIVE|*" target="_blank">View this email in your browser</a>
+                            <!--<a href="*|ARCHIVE|*" target="_blank">View this email in your browser</a>-->
                         </td>
                     </tr>
                 </tbody></table>
@@ -628,8 +627,8 @@
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; text-align: center;">
 
                             <div style="text-align: center;"><br>
-<span style="font-size:20px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong>Hola *|LIST:NAME|*,</strong></span></span><br>
-Ahora con Zaabra Salud, podrá administrar:</div>
+<span style="font-size:20px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong>{{ __('emails.Hola') }} {{ $user->primernombre . ' ' . $user->primerapellido }},</strong></span></span><br>
+                                {{ __('emails.Ahora con Zaabra Salud, usted podrá gestionar') }}:</div>
 
                         </td>
                     </tr>
@@ -664,7 +663,7 @@ Ahora con Zaabra Salud, podrá administrar:</div>
     </tr>
     <tr>
         <td class="mcnTextContent" valign="top" style="padding: 0px 9px; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; line-height: 125%; text-align: center;" width="282">
-            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perfil profesional</font></font></strong></span></span></div>
+            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ __('emails.Perfil profesional') }}</font></font></strong></span></span></div>
 
 
 
@@ -685,7 +684,7 @@ Ahora con Zaabra Salud, podrá administrar:</div>
     </tr>
     <tr>
         <td class="mcnTextContent" valign="top" style="padding: 0px 9px; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; line-height: 125%; text-align: center;" width="282">
-            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Calendario</font></font></strong></span></span></div>
+            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ __('emails.Calendario') }}</font></font></strong></span></span></div>
 
 
 
@@ -721,7 +720,7 @@ Ahora con Zaabra Salud, podrá administrar:</div>
     </tr>
     <tr>
         <td class="mcnTextContent" valign="top" style="padding: 0px 9px; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; line-height: 125%; text-align: center;" width="282">
-            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Historias clínicas</font></font></strong></span></span></div>
+            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ __('emails.Historias clínicas') }}</font></font></strong></span></span></div>
 
         </td>
     </tr>
@@ -740,7 +739,7 @@ Ahora con Zaabra Salud, podrá administrar:</div>
     </tr>
     <tr>
         <td class="mcnTextContent" valign="top" style="padding: 0px 9px; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; line-height: 125%; text-align: center;" width="282">
-            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Prescripciones/fórmulas médicas</font></font></strong></span></span></div>
+            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ __('emails.Prescripciones/fórmulas médicas') }}</font></font></strong></span></span></div>
 
         </td>
     </tr>
@@ -771,7 +770,7 @@ Ahora con Zaabra Salud, podrá administrar:</div>
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
 
                             <div style="text-align: center;"><br>
-<span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">Y mucho más. Para comenzar esta experiencia, haga click en el siguiente botón:</span></span></div>
+<span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">{{ __('emails.Y mucho más. Para comenzar esta experiencia, haga click en el siguiente botón') }}:</span></span></div>
 
                         </td>
                     </tr>
@@ -795,7 +794,7 @@ Ahora con Zaabra Salud, podrá administrar:</div>
                     <tbody>
                         <tr>
                             <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial; font-size: 20px; padding: 16px;">
-                                <a class="mcnButton " title="Ver más detalles" href="https://zaabrasalud.co/" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Ver más detalles</a>
+                                <a class="mcnButton " title="Ver más detalles" href="https://zaabrasalud.co/" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">{{ __('emails.Ver más detalles') }}</a>
                             </td>
                         </tr>
                     </tbody>
@@ -940,9 +939,7 @@ Ahora con Zaabra Salud, podrá administrar:</div>
 
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px;color: #414141;font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif;font-size: 10px;text-align: left;">
 
-                            <span style="font-size:10px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">Este correo electrónico contiene información sobre ZAABRA COLOMBIA S.A.S. Al abrir los mensajes provenientes de nuestras direcciones de correo electrónico o hacer clic en los enlaces, acepta nuestra Política de Privacidad y tratamiento de datos.<br>
-Usted ha recibido este correo electrónico porque se encuentra registrado en las bases de datos de ZAABRA COLOMBIA S.A.S. Por favor, haga Click aquí si desea cancelar su suscripción y/o no recibir mensajes de nuestra parte.<br>
-© 2021 Zaabra Colombia S.A.S.</span></span>
+                            <span style="font-size:10px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">{{ __('emails.footer-email') }}.</span></span>
                         </td>
                     </tr>
                 </tbody></table>
@@ -978,15 +975,14 @@ Usted ha recibido este correo electrónico porque se encuentra registrado en las
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
 
                             <em data-stringify-type="italic">Zaabra Copyright © 2021 , All rights reserved.</em><br>
-*|IFNOT:ARCHIVE_PAGE|* *|LIST:DESCRIPTION|*<br>
-<br>
-<strong>Our mailing address is:</strong><br>
-*|HTML:LIST_ADDRESS_HTML|* *|END:IF|*<br>
-<br>
-Want to change how you receive these emails?<br>
-You can <a href="*|UPDATE_PROFILE|*">update your preferences</a> or <a href="*|UNSUB|*">unsubscribe from this list</a>.<br>
-<br>
-*|IF:REWARDS|* *|HTML:REWARDS|* *|END:IF|*
+                            <!--<br>*|IFNOT:ARCHIVE_PAGE|* *|LIST:DESCRIPTION|*<br>-->
+                            <br>
+                            <strong>{{ __('emails.Nuestro correo electrónico es') }}</strong>
+                            <br>info@zaabrasalud.co<br>
+                            <br>{{ __('emails.Quiere cambiar la forma en que recibe estos correos electrónicos') }}?<br>
+                            {{ __('emails.Usted pueda') }} <a href="*|UPDATE_PROFILE|*">{{ __('emails.actualiza sus preferencias') }}</a>
+                            {{ __('emails.o') }} <a href="*|UNSUB|*">{{ __('emails.cancelar la subscripción') }}</a>.<br>
+                            <!--<br>*|IF:REWARDS|* *|HTML:REWARDS|* *|END:IF|*-->
                         </td>
                     </tr>
                 </tbody></table>
