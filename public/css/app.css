@@ -10499,13 +10499,13 @@ a:link, a:visited, a:active, a:hover {
   display: none !important;
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 600.98px) {
   .navbar_zaabrasalud {
     height: calc(2.6em + 1rem + 2px);
   }
 
   .contains_header {
-    max-width: 100%;
+    width: 100%;
     height: 100%;
     padding: 0;
     justify-content: space-between;
@@ -10629,6 +10629,7 @@ a:link, a:visited, a:active, a:hover {
 
   .dropdown-menu .dropdown-item {
     padding-left: 36%;
+    height: calc(1.5em + 1.5em + 1px);
     justify-content: flex-start;
   }
 
@@ -10670,7 +10671,6 @@ a:link, a:visited, a:active, a:hover {
   .dropdown-menu .item-cel {
     background-position-x: 7%;
     padding-left: 25%;
-    height: 8vh;
   }
 
   .icon-especialidades {
@@ -10712,7 +10712,7 @@ a:link, a:visited, a:active, a:hover {
         height: 35vh;
     }
 }*/
-@media (min-width: 768px) {
+@media (min-width: 601px) and (max-width: 1023.98px) {
   .navbar_zaabrasalud {
     background-color: #0083D6;
     padding: 0;
@@ -10727,78 +10727,116 @@ a:link, a:visited, a:active, a:hover {
     top: 0.1px;
   }
 
+  .icon_lupa-mobile {
+    width: 50px;
+    background: #0083D6;
+  }
+
+  .btnMembresia_header_mobile {
+    background-image: url("/img/header/boton-de-memebresia-mob.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: calc(2em + 2em + 4px);
+    width: calc(2em + 2em + 2px);
+  }
+
+  /*.navbar_zaabrasalud{
+      height: calc(2.6em + 1rem + 2px);
+  }*/
   .contains_header {
-    max-width: 85%;
     height: 100%;
     padding: 0;
     justify-content: space-between;
   }
 
   .navbar-logo {
-    width: 13%;
+    text-decoration: none;
+    color: #ffff;
+    text-align: center;
+    width: 27%;
   }
 
-  .logo_header {
+  .contains_boxsearch {
+    display: none;
+  }
+
+  .contain_lupa-mobile {
+    display: flex;
+  }
+
+  .boton_lupa_mobile {
+    padding: 0;
+    border: none;
+  }
+
+  .contains_barra {
+    display: none;
+    background-color: #0083D6 !important;
     width: 100%;
+    height: 79%;
+    z-index: 20;
+    padding: 8% 0;
   }
 
-  .icon_lupa-mobile {
-    width: 130%;
-    background: #0083D6;
+  .barra_oculta {
+    width: 90%;
+  }
+
+  .barra_busqueda-mobile {
+    background: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border-radius: 2px;
+    margin: auto;
   }
 
   .inputBarraBusquedad {
-    font-size: 1.5em;
-    padding: 0 2%;
+    width: 90%;
+    height: 100% !important;
+    padding-left: 0;
+    border-radius: 0;
+    font-size: 17px;
+    border: none;
+    padding: 1% 2%;
+    background: #faebd700;
   }
 
   .contenedorLupa {
-    padding: 1% 0;
+    padding: 0;
     border: none;
-    width: 5%;
+    height: auto;
+    width: 6%;
     position: relative;
     margin-top: 0;
     margin-right: 3%;
     right: 0;
     align-items: flex-end;
+    height: 100%;
   }
 
   .ui-menu {
-    width: 90% !important;
-    left: 5% !important;
-    top: 180px !important;
     height: 29vh;
   }
 
-  .menu_paciente {
-    padding: 0;
-    height: auto;
-    width: 215px;
+  .soy_paciente {
+    height: 100%;
+    width: 20%;
   }
 
-  .icon-paciente {
-    background-size: 22%;
-  }
-
-  .dropdown-menu .dropdown-item {
-    display: flex;
+  .soy_paciente .dropdown-toggle {
+    background-image: url("/img/header/icono-soy-paciente-blanco.svg");
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100%;
-    height: 5vh;
-    clear: both;
-    font-weight: 400;
-    color: #212529;
-    text-align: inherit;
-    white-space: nowrap;
-    background-color: transparent;
-    border: 0;
-    align-items: center;
-    font-size: 1.2em;
-  }
-
-  .texto_item-menu {
-    width: 60%;
-    margin-left: 0;
-    font-size: 1em;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
   }
 
   .soy_paciente .dropdown-toggle {
@@ -10823,62 +10861,76 @@ a:link, a:visited, a:active, a:hover {
     margin: auto;
   }
 
-  .btnMembresia_header_mobile {
-    background-image: url("/img/header/boton-de-memebresia-mob.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    height: calc(2em + 2em + 2px);
-    width: calc(1.5em + 1.5em + 1px);
+  .dropdown-menu .dropdown-item {
+    height: 4.5vh;
+    padding-left: 36%;
+    justify-content: flex-start;
+  }
+
+  .icon-paciente {
+    background-size: 20%;
+  }
+
+  .icon-medico {
+    background-size: 20%;
+  }
+
+  .icon-instituciones {
+    background-size: 20%;
+  }
+
+  .button-membresia {
+    display: none;
+  }
+
+  .menu-hamburger {
+    width: 15%;
+    height: 100%;
   }
 
   .menu_hamburguesa {
     height: auto;
-    width: 365px;
+    width: 225px;
   }
 
   .dropdown-menu .item-cel {
     background-position-x: 7%;
     padding-left: 25%;
-    height: 5.5vh;
-  }
-
-  .texto_item-menu-paciente {
-    width: 60%;
-    margin-left: 0;
-    font-size: 1em;
-  }
-
-  .menu-hamburger .dropdown-toggle {
-    background-size: 40%;
+    height: 4.5vh;
   }
 
   .icon-especialidades {
-    background-size: 15%;
+    background-size: 16%;
   }
 
   .icon-instituciones-burger {
-    background-size: 15%;
+    background-position-x: 7%;
+    background-size: 16%;
   }
 
   .icon-quienes {
-    background-size: 15%;
+    background-position-x: 7%;
+    background-size: 16%;
   }
 
   .icon-contactenos {
-    background-size: 15%;
+    background-position-x: 7%;
+    background-size: 16%;
   }
 
   .icon-agenda {
-    background-size: 15%;
+    background-position-x: 7%;
+    background-size: 16%;
   }
 
   .icon-perfil {
-    background-size: 15%;
+    background-position-x: 7%;
+    background-size: 16%;
   }
 
   .icon-cerrarSesion {
-    background-size: 15%;
+    background-position-x: 7%;
+    background-size: 16%;
   }
 }
 @media (min-width: 1024px) {
@@ -10895,7 +10947,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_header {
-    max-width: 66%;
+    width: 66%;
     height: 100%;
     padding: 0;
     justify-content: flex-start;
@@ -10977,7 +11029,7 @@ a:link, a:visited, a:active, a:hover {
     align-items: center;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1200px) and (max-width: 1359.98) {
   .contenedorLupa {
     width: 5%;
   }
@@ -10992,18 +11044,18 @@ a:link, a:visited, a:active, a:hover {
     height: 27vh;
   }
 }
-@media (min-width: 1360px) {
+@media (min-width: 1360px) and (max-width: 1439.98) {
   #ui-id-1 {
     height: 30vh;
   }
 }
-@media (min-width: 1440px) {
+@media (min-width: 1440px) and (max-width: 1919.98) {
   .contains_barra {
     display: none;
   }
 
   .contains_header {
-    max-width: 66%;
+    width: 66%;
     height: 100%;
     padding: 0;
     justify-content: flex-start;
@@ -11016,7 +11068,7 @@ a:link, a:visited, a:active, a:hover {
   .contains_boxsearch {
     padding: 0%;
     flex: 45%;
-    max-width: 45%;
+    width: 45%;
     height: 100%;
     margin-right: 0;
     align-items: center;
@@ -11403,7 +11455,6 @@ a:link, a:visited, a:active, a:hover {
 .footer_copy-right {
   background: #0083D6;
   padding: 0;
-  height: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11542,7 +11593,6 @@ a:link, a:visited, a:active, a:hover {
     background: #0083D6;
     margin: 2% auto;
     padding: 0;
-    height: 5vh;
     width: 75%;
     display: flex;
     flex-direction: row;
@@ -11562,7 +11612,6 @@ a:link, a:visited, a:active, a:hover {
   .contenido_desplegable-cel {
     margin: auto;
     padding: 0;
-    height: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11571,7 +11620,6 @@ a:link, a:visited, a:active, a:hover {
   .boton_infoZaabra-cel {
     background: #0083D6;
     padding: 0;
-    height: 100%;
     border: none;
   }
 
@@ -11645,7 +11693,6 @@ a:link, a:visited, a:active, a:hover {
     background: #F5F5F5;
     margin: 0;
     padding: 0 0 0 4%;
-    height: 4vh;
   }
 
   .icon_gob-colombia {
@@ -11704,7 +11751,281 @@ a:link, a:visited, a:active, a:hover {
     margin: auto;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 601px) and (max-width: 1023.98px) {
+  .newsletter_titulo {
+    font-size: 1em;
+  }
+
+  .newsletter_texto {
+    font-size: 0.7em;
+  }
+
+  .contenedor-inputyAcepto-footerCel {
+    margin: auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .input_suscribirme-cel {
+    font-size: 0.75em;
+    margin-top: 3%;
+    padding: 0 5%;
+    width: 100%;
+    border: solid 0.1px #707070;
+    border-radius: 4px;
+  }
+
+  .check_terminos-cel {
+    margin: 3% auto;
+    padding: 0;
+    display: flex;
+  }
+
+  .boton_check-terminos-cel {
+    width: 9%;
+    height: calc(.5em + 0.5rem + 1px);
+  }
+
+  .texto_terminos-cel {
+    font-size: 0.7em;
+    font-weight: bold;
+    text-align: initial;
+    line-height: 1.5;
+    padding-left: 5%;
+  }
+
+  .texto_terminos-cel a {
+    color: #232323 !important;
+    font-weight: bold !important;
+    text-decoration: underline !important;
+  }
+
+  .boton_suscribirme-cel {
+    background: #0083D6;
+    margin: auto;
+    padding: 0 1%;
+    font-family: "Quicksand", sans-serif;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: solid 0.1px #0083D6;
+    border-radius: 4px;
+    height: calc(1em + 1em + 1px);
+  }
+
+  .boton_suscribirme-cel span {
+    font-size: 0.8em;
+    font-family: "Quicksand";
+  }
+
+  .text_sucrib-foot {
+    font-size: 0.85em;
+  }
+
+  .icono_flecha-suscribirme-cel {
+    width: 12%;
+  }
+
+  .contenido_contactanos-cel {
+    margin-top: 5%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imagen_logo-footer {
+    padding: 0%;
+    height: 8vh;
+    width: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+
+  .containt_logo-footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .titulo_contactanos-cel {
+    font-size: 0.9em;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 3%;
+    padding: 0;
+  }
+
+  .correo_contactanos-cel {
+    font-size: 0.7em;
+    color: #ffffff;
+    text-align: center;
+    padding: 0;
+  }
+
+  .iconos_redes-sociales-cel {
+    background: #0083D6;
+    margin: 2% auto;
+    padding: 0;
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .icono_red-social-cel {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .infoZaabra_contenido-cel {
+    background: #0083D6;
+  }
+
+  .contenido_desplegable-cel {
+    margin: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .boton_infoZaabra-cel {
+    background: #0083D6;
+    padding: 0;
+    border: none;
+  }
+
+  .rotacion {
+    -moz-transition: all 0.25s ease-out;
+    -ms-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    -webkit-transition: all 0.25s ease-out;
+  }
+
+  .rotacionBtn:hover .rotacion {
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+  }
+
+  .icono_flecha-boton-cel {
+    color: #ffffff;
+    width: 100%;
+    display: flex !important;
+    align-content: flex-start;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
+
+  .titulo_infoZaabra-cel {
+    font-family: "Quicksand", sans-serif !important;
+    font-size: 0.7em;
+    color: #ffffff;
+    margin-bottom: 0%;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .infoZaabra_desplegable-cel {
+    margin: auto;
+    padding: 0;
+  }
+
+  .desplegable_infoZaabra-cel {
+    background: #0083D6 !important;
+    padding: 0 0 5% 0 !important;
+    line-height: 1.4;
+    border: none !important;
+  }
+
+  .texto_infoZaabra-cel {
+    font-size: 0.7em;
+    color: #ffffff;
+    padding: 0;
+  }
+
+  .contenido_linea-blanca-cel {
+    background: #0083D6;
+    margin: 0;
+    padding: 0;
+    height: 1vh;
+    display: flex;
+  }
+
+  .division_linea-blanca-cel {
+    background: #ffffff;
+    margin: auto;
+    width: 91%;
+  }
+
+  .footer_iconos-colombia {
+    background: #F5F5F5;
+    margin: 0;
+    padding: 0 0 0 4%;
+  }
+
+  .icon_gob-colombia {
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+  }
+
+  .icon_hecho-colombia {
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+  }
+
+  .icon_ssl-colombia {
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-self: center;
+  }
+
+  .imagen_icono-gobierno {
+    width: 92%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+
+  .imagen_icono-colombia {
+    width: 83%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+
+  .imagen_icono-ssl {
+    width: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+
+  .texto_copy-right {
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.63em;
+    color: #ffffff;
+  }
+
+  .alert_Newsletter2 {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    color: #1d643b;
+    background-color: #d7f3e3;
+    border-color: #c7eed8;
+    margin: auto;
+  }
+
   .newsletter_titulo {
     font-size: 1.563em;
   }
@@ -11763,20 +12084,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .iconos_redes-sociales-cel {
-    height: 3vh;
     width: 57%;
-  }
-
-  .icono_red-social-cel {
-    height: 2.5vh;
-  }
-
-  .imagen_red-social-cel {
-    height: 80%;
-  }
-
-  .contenido_desplegable-cel {
-    height: 4vh;
   }
 
   .titulo_infoZaabra-cel {
