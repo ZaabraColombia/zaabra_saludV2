@@ -8,9 +8,9 @@
 
     {{--Datos Basicos paciente--}}
     <section class="container">
-        <div class="row">
-            <div class="col-12">
-                <form action="{{ route('paciente.formulario-basico') }}" id="form-basico-paciente" class="form">
+        <form action="{{ route('paciente.formulario-basico') }}" id="form-basico-paciente" class="form">
+            <div class="row">
+                <div class="col-12">
                     <div id="mensajes-basico" class="col-12"></div>
                     <div class="col-md-3 contain_imgUsuario-formImg">
                         <img id="img-foto_paciente" class="img-foto_paciente" src="{{ (isset($paciente->foto)) ? asset($paciente->foto) : ''}}">
@@ -125,13 +125,46 @@
                         <input id="eps" type="text" class="form-control" name="eps" value="{{ old('eps', $paciente->eps) }}" />
                     </div>
 
-                    <!-- EPS -->
+                    <!-- Boton Guardar -->
                     <div class="form-group col-12">
-                        <button class="btn btn-primary" id="btn-guardar-basico-paciente">Guardar <i class="fa fa-arrow-right"></i></button>
+                        <button class="btn btn-primary" id="btn-guardar-basico-paciente">
+                            {{ __('paciente.guardar') }} <i class="fa fa-arrow-right"></i>
+                        </button>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
+        </form>
+    </section>
+
+    {{--Cambiar contraseña paciente--}}
+    <section class="container">
+        <form action="{{ route('paciente.formulario-basico') }}" id="form-password-paciente" class="form">
+            <div class="row">
+                <div class="col-12">
+                    <!-- contraseña actual -->
+                    <div class="form-group">
+                        <label for="password">{{ __('paciente.contraseña-actual') }}</label>
+                        <input type="password" class="form-control" id="password" name="password" />
+                    </div>
+                    <!-- contraseña nueva -->
+                    <div class="form-group">
+                        <label for="password-new">{{ __('paciente.contraseña-nueva') }}</label>
+                        <input type="password" class="form-control" id="password-new" name="password-new" />
+                    </div>
+                    <!-- repetir contraseña -->
+                    <div class="form-group">
+                        <label for="password-confirmed">{{ __('paciente.contraseña-repetir') }}</label>
+                        <input type="password" class="form-control" id="password-confirmed" name="password-confirmed" />
+                    </div>
+                    <!-- Boton guardar -->
+                    <div class="form-group">
+                        <button class="btn btn-primary" id="btn-guardar-password-paciente">
+                            {{ __('paciente.guardar') }} <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </section>
 
 @endsection
