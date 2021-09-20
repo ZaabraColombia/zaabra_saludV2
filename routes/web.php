@@ -256,5 +256,5 @@ Route::get('/error505', function () { return view('errores/error505');})->name('
 
 
 Route::get('/test', function (){
-    return view('test');
+    return view('emails.confirmacion_registro');
 });
