@@ -5,8 +5,7 @@
 <div class="container-fluid contenedorPrin_email">
     <!-- Fila principal -->
     <div class="row justify-content-center">
-        <!-- titulo principal -->
-        <p class="titulo_principal-email"> Ingrese su correo electrónico. Le enviaremos las instrucciones para recuperar su contraseña. </p>
+
         <!-- contenedor de elementos login -->
         <div class="card col-11 col-md-10 col-lg-8 section_principal-email">
             <!-- seccion body login -->
@@ -22,7 +21,8 @@
                     <div class="form-group row">
                         <!-- Titulo interno de la tarjeta email -->
                         <h3 class="titulo_superior-tarjeta-email"> Restaurar Contraseña </h3>
-
+                        <!-- titulo principal -->
+                        <p class="titulo_principal-email"> Ingrese su correo electrónico. Le enviaremos las instrucciones para recuperar su contraseña. </p>
                         <!-- Campo de Correo Electrónico -->
                         <div class="col-md-12">
                             <label for="email" class="col-md-12 pl-0 col-form-label texto_label-email">{{ __('Correo Electrónico') }}</label>
@@ -40,7 +40,7 @@
                     <div class="form-group row mb-2 mb-md-0">
                         <div class="col-12 content_btn-enviar-email">
                             <button type="submit" class="btn_Ingreso-email"> {{ __('Enviar') }}
-                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-email" alt=""> 
+                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-email" alt="">
                             </button>
                         </div>
                     </div>
