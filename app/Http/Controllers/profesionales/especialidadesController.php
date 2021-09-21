@@ -42,7 +42,7 @@ class especialidadesController extends Controller
     // consulta para cargar banner principal
     public function cargarBannerPrincipalEspecialidades($id_profesion){
         $consultaBannerEspecialidades = DB::table('ventabanners')
-        ->select('ventabanners.*') 
+        ->select('ventabanners.*')
         ->join ('profesion_banner', 'profesion_banner.id_ventabanner', '=', 'ventabanners.id' )
         ->where('aprobado', '<>', 0)
         ->where('profesion_banner.id_profesion', '=', $id_profesion)
@@ -55,7 +55,7 @@ class especialidadesController extends Controller
         return DB::select("SELECT es.urlimagen, es.nombreEspecialidad, es.idEspecialidad, es.slug
         FROM profesiones pr
         INNER JOIN  especialidades es ON pr.idProfesion = es.idProfesion
-        WHERE  es.estado <>0  AND es.idProfesion=$idprofesion ORDER BY es.orden  + 0 ASC ");
+        WHERE  es.estado <>0  AND es.idProfesion=$idprofesion ORDER BY es.orden, es.nombreEspecialidad ASC ");
     }
     // consulta para cargar banner secundario especialidades
     public function cargarBannerSecundarioEspecialidades(){
