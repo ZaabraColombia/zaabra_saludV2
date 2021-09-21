@@ -510,28 +510,27 @@
                         <div class="col-md-6 rightSection_formInst">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Nombres </label>
                             <div class="col-12 nombres_usuario-formInst">
-                                <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre_profecional" id="primer_nombre_profecional" {{ ($count_profecionales >= 3) ? 'disabled' : '' }}>
-                                <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre_profecional" id="segundo_nombre_profecional" {{ ($count_profecionales >= 3) ? 'disabled' : '' }}>
+                                <input class="input_nomApl-prefes-formProf" placeholder="Primer nombre" type="text" name="primer_nombre_profecional" id="primer_nombre_profecional" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
+                                <input class="input_nomApl-prefes-formProf" placeholder="Segundo nombre"  type="text" name="segundo_nombre_profecional" id="segundo_nombre_profecional" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
                             </div>
                         </div>
 
                         <div class="col-md-6 rightSection_formInst">
                             <label for="example-date-input" class="col-12 text_label-formInst"> Apellidos </label>
                             <div class="col-12 nombres_usuario-formInst">
-                                <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido_profecional" id="primer_apellido_profecional" {{ ($count_profecionales >= 3) ? 'disabled' : '' }}>
-                                <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido_profecional" id="segundo_apellido_profecional" {{ ($count_profecionales >= 3) ? 'disabled' : '' }}>
+                                <input class="input_nomApl-prefes-formProf" placeholder="Primer apellido"  type="text" name="primer_apellido_profecional" id="primer_apellido_profecional" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
+                                <input class="input_nomApl-prefes-formProf" placeholder="Segundo apellido"  type="text" name="segundo_apellido_profecional" id="segundo_apellido_profecional" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
                             </div>
                         </div>
-
                         <div class="col-12">
                             <label for="universidad" class="col-12 text_label-formInst"> Universidad </label>
-                            <select name="universidad" id="universidad" class="form-control universidades" {{ ($count_profecionales >= 3) ? 'disabled' : '' }}>
+                            <select name="universidad" id="universidad" class="form-control universidades" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
                                 <option></option>
                             </select>
                         </div>
                         <div class="col-12">
                             <label for="especialidad" class="col-12 text_label-formInst"> Especialidad </label>
-                            <select name="especialidad" id="especialidad" class="form-control especialidades-search" {{ ($count_profecionales >= 3) ? 'disabled' : '' }}>
+                            <select name="especialidad" id="especialidad" class="form-control especialidades-search" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
                                 <option></option>
                             </select>
                         </div>
@@ -539,7 +538,7 @@
                 </div>
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-profecionales-institucion" {{ ($count_profecionales >= 3) ? 'disabled' : '' }}> Guardar
+                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-profecionales-institucion" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" />
                     </button>
                 </div>

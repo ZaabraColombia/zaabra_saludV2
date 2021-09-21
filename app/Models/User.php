@@ -63,6 +63,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Paciente::class, 'id_usuario', 'id');
     }
 
+
     public function roles()
     {
         return $this->hasMany(users_roles::class, 'iduser', 'id');
@@ -72,5 +73,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         Mail::to($this)->send(new ResetPasswordEmail($token, $this));
         //return $this->notify(new ResetPasswordNotification($token));
+
+    public function institucion()
+    {
+        return $this->hasOne(instituciones::class, 'idUser', 'id');
+
     }
 }

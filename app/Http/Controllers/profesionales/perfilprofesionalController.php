@@ -89,7 +89,7 @@ class perfilprofesionalController extends Controller
 
         // consulta para cargar lista estudios
         public function cargarInfoPrfesionalLandingestudios($idPerfilProfesional){
-        return DB::select("SELECT  pu.nombreestudio, un.nombreuniversidad, pu.fechaestudio,un.logouniversidad
+        return DB::select("SELECT  pu.nombreestudio, un.nombreuniversidad, pu.fechaestudio,pu.logo_universidad
         FROM perfilesprofesionales pf
         INNER JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
         INNER JOIN universidades un ON pu.id_universidad=un.id_universidad

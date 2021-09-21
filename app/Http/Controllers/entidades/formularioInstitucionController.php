@@ -6,6 +6,7 @@ use App\Models\Convenios;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\instituciones;
 use App\Models\tipoinstituciones;
@@ -96,6 +97,8 @@ class formularioInstitucionController extends Controller{
             $listaMunicipios = array();
         }
 
+        $is_asociacion = $this->is_asociacion();
+
 
         return view('instituciones.FormularioInstitucion',compact(
             'tipoinstitucion',
@@ -113,7 +116,14 @@ class formularioInstitucionController extends Controller{
             'objSedes',
             'objGaleria',
             'objVideo',
+            'is_asociacion'
         ));
+    }
+
+
+    private function is_asociacion()
+    {
+        return 9 == auth()->user()->institucion->idtipoInstitucion;
     }
 
     /*------------------------------------- inicio json busqueda departamento, provincia, ciudad----------------------*/
@@ -709,7 +719,7 @@ class formularioInstitucionController extends Controller{
 
         //Validar si se llego al maximo de items
         $profesionales = profesionales_instituciones::where('id_institucion', '=', $institucion->id)->count();
-        if ($profesionales >= 3){
+        if ($profesionales >= 3 and !$this->is_asociacion()){
             return response()->json([
                 'max_items' => true,
                 'mensaje' => 'No puede agregar mas convenios'
@@ -740,7 +750,7 @@ class formularioInstitucionController extends Controller{
             'mensaje'   => 'Se guardo correctamente la información',
             'url'       => route('entidad.delete8', ['id_profesional' => $profesional->id_profesional_inst]),
             'image'     => asset($profesional->foto_perfil_institucion),
-            'max_items' => $profesionales >= 2 // Se le resta 1 porque se agregó 1
+            'max_items' => $profesionales >= 2 and !$this->is_asociacion()// Se le resta 1 porque se agregó 1
         ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 8----------------------*/
