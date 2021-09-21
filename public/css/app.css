@@ -10862,7 +10862,6 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .dropdown-menu .dropdown-item {
-    height: 4.5vh;
     padding-left: 36%;
     justify-content: flex-start;
   }
@@ -10947,7 +10946,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_header {
-    width: 66%;
+    width: 75%;
     height: 100%;
     padding: 0;
     justify-content: flex-start;
@@ -11049,13 +11048,13 @@ a:link, a:visited, a:active, a:hover {
     height: 30vh;
   }
 }
-@media (min-width: 1440px) and (max-width: 1919.98) {
+@media (min-width: 1440px) {
   .contains_barra {
     display: none;
   }
 
   .contains_header {
-    width: 66%;
+    width: 75%;
     height: 100%;
     padding: 0;
     justify-content: flex-start;
@@ -15337,7 +15336,6 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .data_profesionales {
-  height: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -15758,7 +15756,11 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .educacion ul li {
+  display: flex;
   list-style: none;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .educacion ul li:nth-child(odd) {
@@ -15929,7 +15931,7 @@ a:link, a:visited, a:active, a:hover {
 .tratamientos_profesional p {
   font-family: "Roboto";
   color: #3E3E3E;
-  font-weight: bolder;
+  font-weight: 500;
 }
 
 .contains_swiper_premios h2 {
@@ -16006,7 +16008,7 @@ a:link, a:visited, a:active, a:hover {
 .publicaciones_profesional p {
   font-family: "Roboto";
   color: #3E3E3E;
-  text-align: center;
+  text-align: initial;
 }
 
 .galeria_profesional h2 {
@@ -16035,7 +16037,7 @@ a:link, a:visited, a:active, a:hover {
   display: flex;
   font-family: "Quicksand", sans-serif;
   font-weight: bolder;
-  color: #0083D6;
+  color: #434343;
   align-content: center;
   justify-content: flex-start;
   align-items: center;
@@ -16072,7 +16074,7 @@ a:link, a:visited, a:active, a:hover {
 .videos_profesional p {
   font-family: "Roboto";
   color: #3E3E3E;
-  text-align: center;
+  text-align: initial;
 }
 
 .sections_active {
@@ -16121,7 +16123,7 @@ a:link, a:visited, a:active, a:hover {
   font-weight: bold;
   color: #0083D6;
   padding-left: 5%;
-  height: 5vh;
+  height: 30px;
   display: flex;
   align-items: center;
   width: 77%;
@@ -16267,9 +16269,13 @@ a:link, a:visited, a:active, a:hover {
 }
 
 @media (min-width: 320px) {
+  .data_profesionales {
+    padding: 5% 0;
+  }
+
   .section_backArrow {
     width: 85%;
-    height: 4vh;
+    height: 30px;
   }
 
   .section_backArrow .back_text {
@@ -16299,7 +16305,6 @@ a:link, a:visited, a:active, a:hover {
 
   .section_data_profesionales {
     width: 100%;
-    height: 55vh;
   }
 
   .data_profesionales .contains_info {
@@ -16349,13 +16354,36 @@ a:link, a:visited, a:active, a:hover {
 
   .section_data_consulta {
     width: 100%;
-    height: 25vh;
+    padding: 5% 0;
   }
 
   .section_data_consulta h2 {
     font-size: 1.3em;
-    padding-top: 3%;
     margin-bottom: 0;
+  }
+
+  .btnPrev_formProf {
+    left: 1px;
+    right: auto;
+    width: 10px;
+    height: 25px;
+  }
+
+  .btnPrev_formProf:after {
+    font-size: 1em;
+    font-weight: bolder;
+  }
+
+  .btnNext_formProf {
+    right: 1px;
+    left: auto;
+    width: 10px;
+    height: 25px;
+  }
+
+  .btnNext_formProf:after {
+    font-size: 1em;
+    font-weight: bolder;
   }
 
   .data_consulta {
@@ -16371,8 +16399,13 @@ a:link, a:visited, a:active, a:hover {
     font-size: 0.8em;
   }
 
+  .data_consulta p {
+    font-size: 0.8em;
+  }
+
   .data_consulta span {
     margin-left: 20px;
+    font-size: 0.8em;
   }
 
   .data_consulta ul {
@@ -16380,7 +16413,7 @@ a:link, a:visited, a:active, a:hover {
     align-content: center;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 0;
+    margin: 5% 0;
   }
 
   .data_consulta .menu_1 i {
@@ -16402,7 +16435,6 @@ a:link, a:visited, a:active, a:hover {
     font-size: 0.8em;
     max-width: 100%;
     display: flex;
-    height: 30%;
     align-content: center;
     justify-content: center;
     align-items: center;
@@ -16411,7 +16443,14 @@ a:link, a:visited, a:active, a:hover {
   .data_consulta .contains_buttons a {
     display: flex;
     width: 45%;
-    height: 100%;
+  }
+
+  .data_consulta .contains_buttons a:nth-child(2) {
+    height: calc(1em + 1em + 1px);
+  }
+
+  .data_consulta .contains_buttons a:nth-child(1) {
+    height: calc(1em + 1em + 1px);
   }
 
   .section_destacado {
@@ -16446,11 +16485,14 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .swiper_profesional {
-    width: 85%;
+    width: 95%;
   }
 
   .item_landing {
+    width: 70%;
     height: 75px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .item_landing i {
@@ -16460,6 +16502,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .item_landing span {
+    font-size: 0.8em;
     margin-top: 75px;
     line-height: 12px;
   }
@@ -16491,7 +16534,6 @@ a:link, a:visited, a:active, a:hover {
     font-size: 0.75em;
     padding-bottom: 3%;
     padding-left: 14%;
-    padding-right: 5%;
   }
 
   .perfil_profesional i {
@@ -16502,6 +16544,14 @@ a:link, a:visited, a:active, a:hover {
   .educacion {
     width: 90%;
     margin: auto;
+  }
+
+  .educacion ul li {
+    padding: 2% 0;
+  }
+
+  .educacion ul li:nth-child(odd) {
+    padding: 2% 0;
   }
 
   .educacion h2 {
@@ -16521,17 +16571,30 @@ a:link, a:visited, a:active, a:hover {
     height: 30px;
   }
 
+  .educacion ul li .contains_logo {
+    width: 30%;
+    height: auto;
+  }
+
+  .educacion .contains_logo img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+  }
+
   .experiencia {
     width: 90%;
     margin: auto;
   }
 
-  .experiencia ul li {
-    margin-bottom: 5%;
-  }
-
+  /*.experiencia ul li{
+      margin-bottom: 5%;
+  }*/
   .experiencia ul li .contains_info {
     max-width: 70%;
+    padding: 3% 0;
   }
 
   .experiencia ul li .contains_logo {
@@ -16540,9 +16603,8 @@ a:link, a:visited, a:active, a:hover {
 
   .experiencia .contains_logo img {
     max-width: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    height: 45px;
+    -o-object-fit: contain;
+       object-fit: contain;
     image-rendering: -webkit-optimize-contrast;
   }
 
@@ -16570,11 +16632,11 @@ a:link, a:visited, a:active, a:hover {
 
   .asociaciones ul li {
     margin-bottom: 5%;
-    height: 12vh;
+    padding: 5% 0;
   }
 
   .asociaciones img {
-    max-width: 30%;
+    width: 30%;
     -o-object-fit: cover;
     object-fit: contain;
     height: 40px;
@@ -16597,7 +16659,7 @@ a:link, a:visited, a:active, a:hover {
 
   .idomas ul li {
     margin-bottom: 5%;
-    height: 12vh;
+    padding: 5% 0;
   }
 
   .idomas img {
@@ -16614,6 +16676,7 @@ a:link, a:visited, a:active, a:hover {
 
   .idomas p {
     font-size: 0.8em;
+    margin-top: 10%;
   }
 
   .idomas i {
@@ -16631,7 +16694,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .tratamientos_profesional p {
-    font-size: 0.75em;
+    font-size: 0.8em;
   }
 
   .tratamientos_profesional i {
@@ -16640,10 +16703,10 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .tratamientos_profesional .card {
-    width: 80%;
+    width: 90%;
     margin: auto;
     margin-top: 5%;
-    margin-bottom: 10%;
+    margin-bottom: 7%;
   }
 
   .tratamientos_profesional .card h4, h6 {
@@ -16651,11 +16714,15 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .tratamientos_profesional .card-body {
-    padding-top: 4%;
+    padding-top: 2%;
   }
 
   .tratamientos_profesional .card-body h5 {
     font-size: 1.1em;
+    margin-bottom: 1%;
+    display: flex;
+    align-items: center;
+    line-height: 1.1;
   }
 
   .tratamientos_profesional h2 {
@@ -16663,15 +16730,23 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .swiper_premios {
-    max-width: 70%;
+    width: 90%;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
   }
 
+  .content_imgPrem_formProf {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5%;
+  }
+
   .swiper_premios img {
     max-width: 100%;
-    height: 150px;
+    height: calc(6.5em + 6.5em + 1px);
+    -o-object-fit: cover;
+       object-fit: cover;
     border-top-left-radius: 10%;
   }
 
@@ -16680,7 +16755,7 @@ a:link, a:visited, a:active, a:hover {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    max-width: 90%;
+    width: 90%;
   }
 
   .contains_swiper_premios i {
@@ -16690,16 +16765,56 @@ a:link, a:visited, a:active, a:hover {
 
   .swiper_premios h6 {
     font-size: 0.9em;
+    margin-top: 3%;
     margin-bottom: 0;
     text-align: left;
   }
 
   .swiper_premios h5 {
     font-size: 1.1em;
+    height: calc(1.1em + 1.1em + 1px);
+    line-height: 1.1;
+    display: flex;
+    align-items: center;
   }
 
   .swiper_premios p {
-    font-size: 0.7em;
+    font-size: 0.8em;
+    height: calc(3em + 3em + 1px);
+  }
+
+  .img_premios {
+    height: calc(6em + 6em + 1px);
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
+  .btnPrev_prem_formProf {
+    font-size: 1em;
+    top: 35%;
+    left: -1px;
+    right: auto;
+    width: 10px;
+    height: 25px;
+  }
+
+  .btnPrev_prem_formProf:after {
+    font-size: 1em;
+    font-weight: bolder;
+  }
+
+  .btnNext_prem_formProf {
+    font-size: 1em;
+    top: 35%;
+    right: -1px;
+    left: auto;
+    width: 10px;
+    height: 25px;
+  }
+
+  .btnNext_prem_formProf:after {
+    font-size: 1em;
+    font-weight: bolder;
   }
 
   .publicaciones_profesional {
@@ -16712,7 +16827,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .publicaciones_profesional p {
-    font-size: 0.75em;
+    font-size: 0.8em;
   }
 
   .publicaciones_profesional i {
@@ -16721,10 +16836,18 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .publicaciones_profesional .card {
-    width: 85%;
+    width: 90%;
     margin: auto;
     margin-top: 5%;
-    margin-bottom: 10%;
+    margin-bottom: 7%;
+  }
+
+  .img_public {
+    height: calc(7em + 7em + 1px);
+    -o-object-fit: contain;
+       object-fit: contain;
+    -o-object-position: top;
+       object-position: top;
   }
 
   .publicaciones_profesional .card h4, h6 {
@@ -16736,8 +16859,12 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .publicaciones_profesional .card-body h5 {
-    font-size: 1em;
-    text-align: center;
+    font-size: 1.1em;
+    text-align: initial;
+    line-height: 1.1;
+    height: 45px;
+    display: flex;
+    align-items: center;
   }
 
   .publicaciones_profesional h2 {
@@ -16747,12 +16874,32 @@ a:link, a:visited, a:active, a:hover {
   /*.galeria_profesional{
       height: 55vh;
   }*/
+  .content_imgGall_formProf {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5%;
+    margin: 3% 0 6% 0;
+  }
+
   .galeria_profesional h2 {
     font-size: 1.1em;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     max-width: 90%;
+  }
+
+  .galeria_profesional h5 {
+    font-size: 1.1em;
+    margin-top: 2%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    line-height: 1.1;
+  }
+
+  .galeria_profesional p {
+    font-size: 0.8em;
   }
 
   .galeria_profesional i {
@@ -16782,7 +16929,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .swiper_galeria_prof {
-    width: 75%;
+    width: 90%;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
@@ -16790,9 +16937,38 @@ a:link, a:visited, a:active, a:hover {
 
   .img_galleryLprof {
     width: 100%;
-    height: 25vh;
-    -o-object-fit: fill;
-       object-fit: fill;
+    height: calc(6em + 6em + 1px);
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 3px;
+  }
+
+  .btnPrev_gall_formProf {
+    font-size: 1em;
+    top: 35%;
+    left: -1px;
+    right: auto;
+    width: 10px;
+    height: 25px;
+  }
+
+  .btnPrev_gall_formProf:after {
+    font-size: 1em;
+    font-weight: bolder;
+  }
+
+  .btnNext_gall_formProf {
+    font-size: 1em;
+    top: 35%;
+    right: -1px;
+    left: auto;
+    width: 10px;
+    height: 25px;
+  }
+
+  .btnNext_gall_formProf:after {
+    font-size: 1em;
+    font-weight: bolder;
   }
 
   .videos_profesional {
@@ -16805,7 +16981,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .videos_profesional p {
-    font-size: 0.75em;
+    font-size: 0.8em;
   }
 
   .videos_profesional i {
@@ -16814,10 +16990,10 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .videos_profesional .card {
-    width: 85%;
+    width: 90%;
     margin: auto;
     margin-top: 5%;
-    margin-bottom: 10%;
+    margin-bottom: 7%;
   }
 
   .videos_profesional .card h4, h6 {
@@ -16829,8 +17005,12 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .videos_profesional .card-body h5 {
-    font-size: 1em;
-    text-align: center;
+    font-size: 1.1em;
+    text-align: initial;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    line-height: 1.1;
   }
 
   .videos_profesional h2 {
@@ -16838,17 +17018,19 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .opinion_form-prof {
-    width: 92%;
+    width: 90%;
     margin: auto;
   }
 
   .txtarea_form-prof {
     width: 100%;
-    padding: 1%;
+    padding: 1% 3%;
+    border-radius: 5px;
   }
 
   .content_btnStart-form {
     display: flex;
+    margin-top: 4%;
   }
 
   .section_Starts-form {
@@ -16857,7 +17039,6 @@ a:link, a:visited, a:active, a:hover {
 
   .section_btnStart-form {
     margin-left: auto;
-    margin-bottom: 3%;
     padding: 0;
     width: 50%;
     display: flex;
@@ -16884,14 +17065,14 @@ a:link, a:visited, a:active, a:hover {
 
   .title_opiniones {
     font-size: 1.1em;
-    padding-left: 10%;
-    width: 93%;
+    padding-left: 12%;
+    width: 90%;
   }
 
   .text_cabecera-prof {
     font-size: 0.85em;
-    width: 83%;
-    margin-left: 13%;
+    width: 80%;
+    margin-left: 17%;
   }
 
   .section_opciones {
@@ -16965,7 +17146,6 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 360px) {
   .section_backArrow {
     width: 75%;
-    height: 4vh;
   }
 }
 @media (min-width: 375px) {
@@ -17102,7 +17282,7 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 768px) {
   .section_backArrow {
     width: 60%;
-    height: 3vh;
+    height: 45px;
   }
 
   .section_backArrow .back_text {
@@ -17128,10 +17308,6 @@ a:link, a:visited, a:active, a:hover {
 
   .background-heart::after {
     font-size: 25px;
-  }
-
-  .section_data_profesionales {
-    height: 45vh;
   }
 
   .data_profesionales img {
@@ -17163,7 +17339,6 @@ a:link, a:visited, a:active, a:hover {
 
   .section_data_consulta {
     width: 100%;
-    height: 20vh;
   }
 
   .section_data_consulta h2 {
@@ -17184,7 +17359,12 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.2em;
   }
 
+  .data_consulta p {
+    font-size: 1.2em;
+  }
+
   .data_consulta span {
+    font-size: 1.2em;
     margin-left: 35px;
   }
 
@@ -17197,6 +17377,7 @@ a:link, a:visited, a:active, a:hover {
 
   .data_consulta .contains_buttons a {
     font-size: 1.4em;
+    width: 40%;
   }
 
   .data_consulta .contains_buttons i {
@@ -17239,7 +17420,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_swiper_profesional h1 {
-    font-size: 2.2em;
+    font-size: 1.8em;
     margin-top: 7%;
     margin-bottom: 6%;
   }
@@ -17259,6 +17440,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .item_landing span {
+    font-size: 1.2em;
     margin-top: 120px;
     line-height: 20px;
   }
@@ -17267,8 +17449,33 @@ a:link, a:visited, a:active, a:hover {
     margin-bottom: 5%;
   }
 
+  .btnPrev_formProf {
+    left: 20px;
+    right: auto;
+    width: 10px;
+    height: 25px;
+  }
+
+  .btnPrev_formProf:after {
+    font-size: 1.5em;
+    font-weight: bolder;
+  }
+
+  .btnNext_formProf {
+    right: 20px;
+    left: auto;
+    width: 10px;
+    height: 25px;
+  }
+
+  .btnNext_formProf:after {
+    font-size: 1.5em;
+    font-weight: bolder;
+  }
+
   .perfil_profesional h2 {
     font-size: 1.8em;
+    margin: 0;
   }
 
   .perfil_profesional i {
@@ -17277,7 +17484,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .perfil_profesional p {
-    font-size: 1.3em;
+    font-size: 1.1em;
     padding-left: 10%;
   }
 
@@ -17290,14 +17497,22 @@ a:link, a:visited, a:active, a:hover {
     height: 45px;
   }
 
+  .educacion ul li .contains_logo {
+    height: 100px;
+  }
+
   .educacion ul {
     padding-left: 10%;
   }
 
   .educacion ul li {
     list-style: none;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    height: calc(4em + 4em + 1px);
+    padding: 0;
+  }
+
+  .educacion ul li:nth-child(odd) {
+    padding: 0;
   }
 
   .educacion h5 {
@@ -17338,10 +17553,6 @@ a:link, a:visited, a:active, a:hover {
     color: #3E3E3E;
   }
 
-  .experiencia .contains_logo img {
-    height: 60px;
-  }
-
   .asociaciones h2 {
     font-size: 1.8em;
   }
@@ -17360,7 +17571,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .asociaciones img {
-    max-width: 50%;
+    width: 50%;
     height: 65px;
   }
 
@@ -17399,12 +17610,27 @@ a:link, a:visited, a:active, a:hover {
 
   .idomas p {
     width: 90px;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: 500;
+    margin-top: 0;
+    margin-left: 7%;
+  }
+
+  .section_proced {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .tratamientos_profesional h2 {
     font-size: 1.8em;
+    margin: 0;
+  }
+
+  .img_premios {
+    height: calc(7em + 7em + 1px);
+    -o-object-fit: cover;
+    object-fit: cover;
   }
 
   .tratamientos_profesional i {
@@ -17413,24 +17639,32 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .tratamientos_profesional .card h4, h6 {
-    font-size: 1.6em;
-  }
-
-  .tratamientos_profesional .card {
-    width: 65%;
-  }
-
-  .tratamientos_profesional .card-body h5 {
     font-size: 1.8em;
   }
 
+  .tratamientos_profesional .card {
+    width: 48%;
+    margin-bottom: 5%;
+  }
+
+  .tratamientos_profesional .card-body h5 {
+    font-size: 1.25em;
+    height: 45px;
+    margin: 0;
+  }
+
   .tratamientos_profesional p {
-    font-size: 1.3em;
+    font-size: 1.1em;
+    height: 90px;
+  }
+
+  .content_imgPrem_formProf {
+    padding: 0 3%;
   }
 
   .contains_swiper_premios h2 {
     font-size: 1.8em;
-    margin-bottom: 7%;
+    margin-bottom: 5%;
   }
 
   .contains_swiper_premios i {
@@ -17439,29 +17673,31 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .swiper_premios {
-    width: 45%;
-    height: 35%;
+    width: 95%;
+    margin-bottom: 5%;
   }
 
   .swiper_premios img {
     width: 100%;
-    height: 250px;
+    height: 225px;
     border-top-left-radius: 10%;
   }
 
   .swiper_premios h6 {
-    font-size: 1em;
+    font-size: 1.1em;
     margin-bottom: 0;
     text-align: left;
     margin-top: 4%;
   }
 
   .swiper_premios h5 {
-    font-size: 1.3em;
+    font-size: 1.25em;
+    height: 45px;
   }
 
   .swiper_premios p {
-    font-size: 1em;
+    font-size: 1.1em;
+    height: 90px;
   }
 
   .contains_swiper_premios .btn-prev {
@@ -17478,10 +17714,38 @@ a:link, a:visited, a:active, a:hover {
     margin-top: -40%;
   }
 
+  .btnPrev_prem_formProf {
+    left: 2px;
+    right: auto;
+    width: 10px;
+    height: 25px;
+  }
+
+  .btnPrev_prem_formProf:after {
+    font-size: 1.5em;
+    font-weight: bolder;
+  }
+
+  .btnNext_prem_formProf {
+    right: 2px;
+    left: auto;
+    width: 10px;
+    height: 25px;
+  }
+
+  .btnNext_prem_formProf:after {
+    font-size: 1.5em;
+    font-weight: bolder;
+  }
+
+  .content_imgGall_formProf {
+    padding: 0 3%;
+    margin: 0;
+  }
+
   .swiper_galeria_prof {
-    margin-top: 5%;
-    width: 45%;
-    height: 65%;
+    margin-bottom: 5%;
+    width: 95%;
   }
 
   .swiper_galeria_prof img {
@@ -17491,11 +17755,17 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .swiper_galeria_prof h5 {
-    font-size: 1.3em;
+    font-size: 1.25em;
+  }
+
+  .galeria_profesional p {
+    font-size: 1.1em;
+    height: 90px;
   }
 
   .publicaciones_profesional h2 {
     font-size: 1.8em;
+    margin-bottom: 5%;
   }
 
   .publicaciones_profesional i {
@@ -17507,28 +17777,37 @@ a:link, a:visited, a:active, a:hover {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 5%;
   }
 
   .publicaciones_profesional .card {
-    width: 51%;
+    width: 48%;
+    margin: 0;
   }
 
   .publicaciones_profesional .card-img-top {
-    height: 450px;
+    height: 250px;
   }
 
   .publicaciones_profesional .card-body h5 {
-    font-size: 1.7em;
-    text-align: center;
+    font-size: 1.25em;
+    text-align: initial;
   }
 
   .publicaciones_profesional p {
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: 500;
+    height: 90px;
+  }
+
+  .publicaciones_profesional .card-body {
+    padding: 4% 4% 0 4%;
   }
 
   .galeria_profesional h2 {
     font-size: 1.8em;
+    margin-bottom: 5%;
   }
 
   .galeria_profesional i {
@@ -17571,8 +17850,33 @@ a:link, a:visited, a:active, a:hover {
     margin-top: -20%;
   }
 
+  .btnPrev_gall_formProf {
+    left: 2px;
+    right: auto;
+    width: 10px;
+    height: 25px;
+  }
+
+  .btnPrev_gall_formProf:after {
+    font-size: 1.5em;
+    font-weight: bolder;
+  }
+
+  .btnNext_gall_formProf {
+    right: 2px;
+    left: auto;
+    width: 10px;
+    height: 25px;
+  }
+
+  .btnNext_gall_formProf:after {
+    font-size: 1.5em;
+    font-weight: bolder;
+  }
+
   .videos_profesional h2 {
     font-size: 1.8em;
+    margin-bottom: 5%;
   }
 
   .videos_profesional i {
@@ -17581,7 +17885,8 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .videos_profesional .card {
-    width: 51%;
+    width: 48%;
+    margin-top: 0;
     margin-bottom: 5%;
   }
 
@@ -17592,16 +17897,16 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .videos_profesional .card .card-img-top {
-    height: 25vh;
+    height: 250px;
   }
 
   .videos_profesional .card-body h5 {
-    font-size: 1.3em;
-    text-align: center;
+    font-size: 1.25em;
   }
 
   .videos_profesional p {
     font-size: 1em;
+    height: 90px;
   }
 
   .opinion_form-prof {
@@ -17629,7 +17934,7 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.8em;
     padding-left: 7%;
     width: 90%;
-    height: 3.5vh;
+    height: 45px;
   }
 
   .text_cabecera-prof {
@@ -17666,9 +17971,9 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .section_comentario-prof {
-    font-size: 0.85em;
+    font-size: 1em;
     width: 96%;
-    padding-left: 12%;
+    padding-left: 13%;
     line-height: 1.3;
   }
 
@@ -17677,7 +17982,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .txt_verify-bottom {
-    font-size: 1.2em;
+    font-size: 1.25em;
     padding-left: 3%;
   }
 
@@ -17705,12 +18010,139 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1024px) {
+  /*.data_profesionales img {
+      width: 360px;
+      height: 360px;
+  }
+  .data_profesionales h2 {
+      font-size: 2.5em;
+  }
+  .data_profesionales h1 {
+      font-size: 2em;
+  }
+  .data_profesionales h5 {
+      font-size: 1.3em;
+  }
+  .data_profesionales .title-adress {
+      width: 40%;
+      justify-content: flex-start;
+  }
+  .data_profesionales .title-adress i {
+      width: 10%;
+      height: 30px;
+  }
+  .section_data_consulta h2 {
+      font-size: 2em;
+  }
+  .data_consulta i {
+      width: 45px !important;
+      height: 35px !important;
+  }
+  .data_consulta p span {
+      font-size: 1.4em;
+  }
+  .data_consulta span {
+      margin-left: 45px;
+  }
+  .data_consulta .contains_buttons {
+      height: 20%;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+  }
+  .perfil_profesional,
+  .educacion,
+  .experiencia,
+  .asociaciones,
+  .idomas,
+  .tratamientos_profesional,
+  .publicaciones_profesional,
+  .videos_profesional {
+      width: 80%;
+      margin: auto;
+  }
+  .perfil_profesional i,
+  .educacion i,
+  .experiencia i,
+  .asociaciones i,
+  .idomas i,
+  .tratamientos_profesional i,
+  .contains_swiper_premios i,
+  .publicaciones_profesional i,
+  .galeria_profesional i,
+  .videos_profesional i {
+      width: 8%;
+      height: 45px;
+  }
+  .perfil_profesional p{
+      padding-left: 8%;
+  }
+  .educacion ul,
+  .experiencia ul,
+  .asociaciones ul,
+  .idomas ul {
+      padding-left: 8%;
+  }
+  .contains_swiper_premios h2{
+      width: 80%;
+  }
+  .publicaciones_profesional .card {
+      width: 55%;
+  }
+  .gallery_profesional > li > img {
+      height: 165px;
+  }
+  .galeria_profesional h2{
+      width: 80%;
+  }
+  .galeria_profesional ul {
+      max-width: 70%;
+  }
+  .videos_profesional .card .card-img-top {
+      height: 30vh;
+  }
+
+  .opinion_form-prof {
+      width: 77%;
+      margin: auto;
+  }
+  .title_opiniones {
+      font-size: 1.8em;
+      padding-left: 5%;
+      height: 5vh;
+      width: 77%;
+  }
+  .text_cabecera-prof {
+      font-size: 1em;
+      width: 67%;
+      margin: auto;
+      margin-bottom: 2%;
+  }
+  .section_opciones {
+      width: 77%;
+      padding: 1% 0;
+  }
+  .section_usuario-prof {
+      padding-left: 7%;
+  }
+  .contains_text {
+      width: 70%;
+  }
+  .section_stars-prof {
+      width: 17%;
+  }
+  .section_comentario-prof {
+      padding-left: 15%;
+      width: 93%;
+  }*/
+}
+@media (min-width: 1024px) {
   .section_backArrow {
     position: absolute;
     left: 0;
     width: 10%;
     top: 90;
-    margin-left: 6%;
+    margin-left: 5%;
   }
 
   .section_backArrow .back_text {
@@ -17724,160 +18156,6 @@ a:link, a:visited, a:active, a:hover {
     top: 10;
   }
 
-  .data_profesionales img {
-    width: 360px;
-    height: 360px;
-  }
-
-  .data_profesionales h2 {
-    font-size: 2.5em;
-  }
-
-  .data_profesionales h1 {
-    font-size: 2em;
-  }
-
-  .data_profesionales h5 {
-    font-size: 1.3em;
-  }
-
-  .data_profesionales .title-adress {
-    width: 40%;
-    justify-content: flex-start;
-  }
-
-  .data_profesionales .title-adress i {
-    width: 10%;
-    height: 30px;
-  }
-
-  .section_data_consulta h2 {
-    font-size: 2em;
-  }
-
-  .data_consulta i {
-    width: 45px !important;
-    height: 35px !important;
-  }
-
-  .data_consulta p span {
-    font-size: 1.4em;
-  }
-
-  .data_consulta span {
-    margin-left: 45px;
-  }
-
-  .data_consulta .contains_buttons {
-    height: 20%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-  }
-
-  .perfil_profesional,
-.educacion,
-.experiencia,
-.asociaciones,
-.idomas,
-.tratamientos_profesional,
-.publicaciones_profesional,
-.videos_profesional {
-    width: 80%;
-    margin: auto;
-  }
-
-  .perfil_profesional i,
-.educacion i,
-.experiencia i,
-.asociaciones i,
-.idomas i,
-.tratamientos_profesional i,
-.contains_swiper_premios i,
-.publicaciones_profesional i,
-.galeria_profesional i,
-.videos_profesional i {
-    width: 8%;
-    height: 45px;
-  }
-
-  .perfil_profesional p {
-    padding-left: 8%;
-  }
-
-  .educacion ul,
-.experiencia ul,
-.asociaciones ul,
-.idomas ul {
-    padding-left: 8%;
-  }
-
-  .contains_swiper_premios h2 {
-    width: 80%;
-  }
-
-  .publicaciones_profesional .card {
-    width: 55%;
-  }
-
-  .gallery_profesional > li > img {
-    height: 165px;
-  }
-
-  .galeria_profesional h2 {
-    width: 80%;
-  }
-
-  .galeria_profesional ul {
-    max-width: 70%;
-  }
-
-  .videos_profesional .card .card-img-top {
-    height: 30vh;
-  }
-
-  .opinion_form-prof {
-    width: 77%;
-    margin: auto;
-  }
-
-  .title_opiniones {
-    font-size: 1.8em;
-    padding-left: 5%;
-    height: 5vh;
-    width: 77%;
-  }
-
-  .text_cabecera-prof {
-    font-size: 1em;
-    width: 67%;
-    margin: auto;
-    margin-bottom: 2%;
-  }
-
-  .section_opciones {
-    width: 77%;
-    padding: 1% 0;
-  }
-
-  .section_usuario-prof {
-    padding-left: 7%;
-  }
-
-  .contains_text {
-    width: 70%;
-  }
-
-  .section_stars-prof {
-    width: 17%;
-  }
-
-  .section_comentario-prof {
-    padding-left: 15%;
-    width: 93%;
-  }
-}
-@media (min-width: 1024px) and (max-height: 800px) {
   .section_data_profesionales {
     height: auto;
     padding-top: 2%;
@@ -17910,6 +18188,44 @@ a:link, a:visited, a:active, a:hover {
   .data_profesionales .title-adress {
     width: 85%;
     font-weight: 500;
+    justify-content: flex-start;
+  }
+
+  .data_consulta {
+    width: 82%;
+    padding-top: 0;
+    flex-direction: row;
+  }
+
+  .section_data_consulta h2 {
+    padding-top: 0;
+    font-size: 1.5em;
+  }
+
+  .data_consulta ul {
+    width: 90%;
+    margin: 4% 0;
+    justify-content: space-between;
+  }
+
+  .data_consulta span {
+    font-size: 1.1em;
+    margin-left: 30px;
+  }
+
+  .data_consulta .contains_buttons a {
+    width: 80%;
+    padding: 0;
+    font-size: 1.1em;
+    margin-bottom: 4%;
+  }
+
+  .data_consulta .contains_buttons a:nth-child(1) {
+    height: calc(1.2em + 1.2em + 1px);
+  }
+
+  .data_consulta .contains_buttons a:nth-child(2) {
+    height: calc(1.2em + 1.2em + 1px);
   }
 
   .data_profesionales h2 {
@@ -17917,11 +18233,11 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .data_profesionales h1 {
-    font-size: 1.7em;
+    font-size: 1.5em;
   }
 
   .data_profesionales h5 {
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 
   .data_profesionales .title-adress i {
@@ -17941,26 +18257,15 @@ a:link, a:visited, a:active, a:hover {
   .section_data_consulta {
     width: 100%;
     height: auto;
-    padding-left: 37%;
+    padding: 0 0 0 37%;
     align-content: flex-start;
     justify-content: center;
     align-items: flex-start;
     border-top: 0;
   }
 
-  .section_data_consulta h2 {
-    padding-top: 1%;
-    font-size: 1.4em;
-  }
-
-  .data_consulta {
-    width: 87%;
-    padding-top: 0;
-    flex-direction: row;
-  }
-
-  .data_consulta ul {
-    width: 81%;
+  .data_consulta p {
+    font-size: 1.1em;
   }
 
   .data_consulta i {
@@ -17972,10 +18277,6 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.1em;
   }
 
-  .data_consulta span {
-    margin-left: 30px;
-  }
-
   .data_consulta li {
     line-height: 20px;
   }
@@ -17985,31 +18286,48 @@ a:link, a:visited, a:active, a:hover {
     flex-direction: column;
   }
 
-  .data_consulta .contains_buttons a {
-    width: 85%;
-    padding: 4%;
-    font-size: 0.95em;
-    margin-bottom: 4%;
+  .destacado p {
+    font-size: 1.1em;
   }
 
-  .educacion ul,
-.experiencia ul,
-.asociaciones ul,
-.idomas ul {
-    padding-left: 30%;
+  .destacado {
+    width: 75%;
+    margin: auto;
+  }
+
+  .destacado h2 {
+    font-size: 1.5em;
+    padding-left: 3%;
+  }
+
+  .destacado i {
+    width: 7%;
+    height: 40px;
+  }
+
+  .destacado ul {
+    margin: 0;
+    padding-bottom: 1%;
+    padding-left: 5%;
   }
 
   .destacado ul li {
     width: 38%;
   }
 
-  .destacado i {
-    width: 7%;
-    height: 45px;
+  .swiper_profesional {
+    width: 75%;
   }
 
-  .destacado h2 {
-    font-size: 1.5em;
+  .contains_swiper_profesional h1 {
+    margin-top: 4%;
+    margin-bottom: 4%;
+  }
+
+  .item_landing span {
+    font-size: 1.1em;
+    margin-top: 110px;
+    line-height: 20px;
   }
 
   .item_landing i {
@@ -18022,22 +18340,63 @@ a:link, a:visited, a:active, a:hover {
     max-width: 80%;
   }
 
-  .swiper_profesional {
-    width: 75%;
-  }
-
   .item_landing {
     height: 110px;
   }
 
-  .item_landing span {
-    margin-top: 110px;
-    line-height: 20px;
+  .btnPrev_formProf {
+    left: 0px;
   }
 
-  .contains_swiper_profesional h1 {
-    margin-top: 5%;
-    margin-bottom: 4%;
+  .btnNext_formProf {
+    right: 0px;
+  }
+
+  .perfil_profesional {
+    width: 75%;
+  }
+
+  .perfil_profesional i {
+    width: 8%;
+  }
+
+  .perfil_profesional p {
+    padding-left: 8%;
+  }
+
+  .educacion {
+    width: 75%;
+  }
+
+  .educacion i {
+    width: 8%;
+  }
+
+  .educacion ul,
+.experiencia ul,
+.asociaciones ul,
+.idomas ul {
+    padding-left: 20%;
+  }
+
+  .experiencia {
+    width: 75%;
+  }
+
+  .experiencia i {
+    width: 8%;
+  }
+
+  .asociaciones {
+    width: 75%;
+  }
+
+  .asociaciones img {
+    width: 30%;
+  }
+
+  .idomas {
+    width: 75%;
   }
 
   .idomas ul li {
@@ -18047,51 +18406,61 @@ a:link, a:visited, a:active, a:hover {
     padding-left: 5%;
   }
 
-  .tratamientos_profesional .container_cards,
-.publicaciones_profesional .container_cards,
-.videos_profesional .container_cards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  .tratamientos_profesional {
+    width: 75%;
+  }
+
+  .tratamientos_profesional i {
+    width: 8%;
+  }
+
+  .tratamientos_profesional .card-body h5 {
+    font-size: 1.3em;
+  }
+
+  .tratamientos_profesional p {
+    font-size: 1.1em;
+    font-weight: 200;
+    height: 80px;
   }
 
   .tratamientos_profesional .card {
-    width: 40%;
+    width: 43%;
     margin-bottom: 0;
+  }
+
+  .tratamientos_profesional .card-body {
+    padding-top: 1%;
   }
 
   .tratamientos_profesional .card h4, h6 {
     font-size: 1.5em;
   }
 
-  .tratamientos_profesional .card-body h5 {
-    font-size: 1.5em;
+  .contains_swiper_premios h2 {
+    margin-bottom: 5%;
+    width: 75%;
   }
 
-  .tratamientos_profesional p {
-    font-size: 1.1em;
-    font-weight: 500;
+  .contains_swiper_premios i {
+    width: 8%;
   }
 
   .swiper_premios {
     width: 75%;
-    height: 55%;
-  }
-
-  .contains_swiper_premios h2 {
-    margin-bottom: 4%;
   }
 
   .swiper_premios h6 {
-    font-size: 1em;
+    font-size: 1.1em;
   }
 
   .swiper_premios h5 {
-    font-size: 1.2em;
+    font-size: 1.3em;
   }
 
   .swiper_premios p {
-    font-size: 0.9em;
+    font-size: 1.1em;
+    height: 80px;
   }
 
   .contains_swiper_premios .btn-prev {
@@ -18108,9 +18477,21 @@ a:link, a:visited, a:active, a:hover {
     margin-top: -30%;
   }
 
+  .publicaciones_profesional {
+    width: 75%;
+  }
+
+  .publicaciones_profesional i {
+    width: 8%;
+  }
+
   .publicaciones_profesional .card {
     width: 40%;
-    margin-bottom: 5%;
+    margin-bottom: 0;
+  }
+
+  .publicaciones_profesional .card-body {
+    padding: 4% 2% 0 4%;
   }
 
   .publicaciones_profesional .card-body h5 {
@@ -18119,15 +18500,35 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .publicaciones_profesional p {
-    font-size: 1em;
-    font-weight: 500;
+    font-size: 1.1em;
+    font-weight: 200;
     text-align: left;
+    height: 80px;
+  }
+
+  .galeria_profesional h2 {
+    max-width: 75%;
+  }
+
+  .galeria_profesional i {
+    width: 8%;
   }
 
   .swiper_galeria_prof {
-    margin-top: 5%;
-    width: 80%;
-    height: 85%;
+    width: 75%;
+  }
+
+  .swiper_galeria_prof img {
+    height: 230px;
+  }
+
+  .swiper_galeria_prof h5 {
+    font-size: 1.3em;
+  }
+
+  .galeria_profesional p {
+    font-size: 1.1em;
+    height: 80px;
   }
 
   .galeria_profesional .btn-prev {
@@ -18146,218 +18547,26 @@ a:link, a:visited, a:active, a:hover {
     margin-top: -15%;
   }
 
+  .videos_profesional {
+    width: 75%;
+    margin: auto;
+  }
+
+  .videos_profesional i {
+    width: 8%;
+  }
+
   .videos_profesional .card {
-    width: 30%;
+    width: 45%;
   }
 
   .videos_profesional .card-body h5 {
-    font-size: 1.2em;
-    text-align: left;
+    font-size: 1.3em;
   }
 
   .videos_profesional p {
-    font-size: 0.8em;
-    text-align: left;
-  }
-
-  .txt_verify-bottom {
-    padding-left: 3%;
-  }
-}
-@media (min-width: 1200px) {
-  .section_data_profesionales {
-    height: auto;
-    padding-top: 2%;
-  }
-
-  .perfil_profesional i,
-.educacion i,
-.experiencia i,
-.asociaciones i,
-.idomas i,
-.tratamientos_profesional i,
-.contains_swiper_premios i,
-.publicaciones_profesional i,
-.galeria_profesional i,
-.videos_profesional i {
-    width: 6%;
-    height: 45px;
-  }
-
-  .perfil_profesional p {
-    padding-left: 6%;
-  }
-
-  .educacion ul,
-.experiencia ul,
-.asociaciones ul,
-.idomas ul {
-    padding-left: 30%;
-  }
-
-  .data_profesionales {
-    flex-direction: row;
-    width: 100%;
-    height: 30%;
-    margin: auto;
-    align-items: flex-end;
-    padding-left: 35%;
-  }
-
-  .data_profesionales img {
-    width: 250px;
-    height: 250px;
-    position: absolute;
-    left: 12%;
-    top: 16%;
-  }
-
-  .data_profesionales .contains_info {
-    display: flex;
-    flex-direction: column;
-    align-content: flex-start;
-    justify-content: space-evenly;
-    align-items: flex-start;
-  }
-
-  .data_profesionales .title-adress {
-    width: 80%;
-    font-weight: 500;
-  }
-
-  .data_profesionales h2 {
-    font-size: 2em;
-  }
-
-  .data_profesionales h1 {
-    font-size: 1.7em;
-  }
-
-  .data_profesionales h5 {
-    font-size: 1.2em;
-  }
-
-  .data_profesionales .title-adress i {
-    width: 5%;
-    height: 24px;
-  }
-
-  .data_profesionales h5:nth-child(7) {
-    padding-left: 4%;
-    font-weight: 500;
-  }
-
-  .section_data_consulta {
-    width: 100%;
-    height: auto;
-    padding-left: 35%;
-    align-content: flex-start;
-    justify-content: center;
-    align-items: flex-start;
-    border-top: 0;
-  }
-
-  .section_data_consulta h2 {
-    padding-top: 1%;
-    font-size: 1.4em;
-  }
-
-  .data_consulta {
-    width: 87%;
-    padding-top: 0;
-    flex-direction: row;
-  }
-
-  .data_consulta ul {
-    width: 53%;
-    justify-content: space-between;
-  }
-
-  .data_consulta i {
-    width: 30px !important;
-    height: 24px !important;
-  }
-
-  .data_consulta p span {
     font-size: 1.1em;
-  }
-
-  .data_consulta span {
-    margin-left: 30px;
-  }
-
-  .data_consulta li {
-    line-height: 20px;
-  }
-
-  .data_consulta .contains_buttons {
-    width: 35%;
-    flex-direction: column;
-  }
-
-  .data_consulta .contains_buttons a {
-    width: 85%;
-    padding: 3%;
-    font-size: 1.2em;
-    margin-bottom: 4%;
-  }
-
-  .data_profesionales .title-adress i, .title-url i, .title-tel i {
-    margin-bottom: 0;
-  }
-
-  .destacado ul {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: flex-start;
-    align-items: center;
-    padding-bottom: 2%;
-    padding-left: 8%;
-  }
-
-  .destacado ul li {
-    width: 30%;
-  }
-
-  .destacado i {
-    width: 5%;
-    height: 35px;
-  }
-
-  .destacado h2 {
-    font-size: 1.5em;
-    padding-left: 2%;
-  }
-
-  .item_landing i {
-    height: 75px;
-  }
-
-  .item_landing p {
-    margin-top: 5%;
-    font-size: 0.9em;
-    max-width: 80%;
-  }
-
-  .swiper_profesional {
-    width: 70%;
-  }
-
-  .contains_swiper_profesional {
-    margin-bottom: 0%;
-  }
-
-  .contains_swiper_profesional h1 {
-    margin-top: 5%;
-    margin-bottom: 4%;
-  }
-
-  .idomas ul li {
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    padding-left: 5%;
+    height: 80px;
   }
 
   .tratamientos_profesional .container_cards,
@@ -18366,124 +18575,81 @@ a:link, a:visited, a:active, a:hover {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-bottom: 0;
   }
 
-  .tratamientos_profesional .card {
+  .content_options-prof {
+    padding: 3% 8%;
+  }
+
+  .section_verificado-prof {
+    margin: 3% 0 0 0;
+  }
+
+  .visible_container {
+    height: calc(1vw + 35vh);
+  }
+
+  .txt_verify-bottom {
+    padding-left: 3%;
+  }
+}
+@media (min-width: 1200px) {
+  .section_data_profesionales {
+    padding-top: 0%;
+  }
+
+  .data_profesionales {
+    padding: 0 0 0 40%;
+  }
+
+  .data_profesionales img {
+    width: 200px;
+    height: 200px;
+    left: 18%;
+  }
+
+  .section_backArrow {
+    margin-left: 13%;
+  }
+
+  .section_data_consulta {
+    padding-left: 40%;
+  }
+
+  .data_consulta {
+    width: 83%;
+  }
+
+  .data_consulta ul {
+    width: 70%;
+  }
+
+  .data_consulta .contains_buttons {
     width: 35%;
-    margin-bottom: 0;
+    flex-direction: column;
   }
 
-  .tratamientos_profesional .card h4, h6 {
-    font-size: 1.3em;
-  }
-
-  .tratamientos_profesional .card-body h5 {
-    font-size: 1.5em;
-  }
-
-  .tratamientos_profesional p {
-    font-size: 1.1em;
-    font-weight: 500;
-  }
-
-  .swiper_premios {
-    width: 95%;
-  }
-
-  .contains_swiper_premios h2 {
-    margin-bottom: 4%;
-  }
-
-  .swiper_premios h6 {
-    font-size: 1em;
-  }
-
-  .swiper_premios h5 {
-    font-size: 1.5em;
-  }
-
-  .swiper_premios p {
-    font-size: 0.9em;
-  }
-
-  .swiper_galeria_prof {
-    margin-top: 5%;
+  .data_consulta .contains_buttons a {
     width: 75%;
-    height: 90%;
   }
 
-  .galeria_profesional .btn-next {
-    width: 15px;
-    height: 20px;
-    right: 8%;
-    color: #0083D6;
-    margin-top: -13%;
+  .landingProf {
+    justify-content: center;
   }
 
-  .galeria_profesional .btn-prev {
-    width: 15px;
-    height: 20px;
-    left: 8%;
-    color: #0083D6;
-    margin-top: -13%;
+  .img_premios {
+    height: calc(9em + 9em + 1px);
   }
 
-  .contains_swiper_premios .btn-prev {
-    width: 15px;
-    height: 20px;
-    left: 10%;
-    margin-top: -23%;
-  }
-
-  .contains_swiper_premios .btn-next {
-    width: 15px;
-    height: 20px;
-    right: 10%;
-    margin-top: -23%;
-  }
-
-  .publicaciones_profesional .card {
-    width: 30%;
-    margin-bottom: 0;
-  }
-
-  .publicaciones_profesional .card-body h5 {
-    font-size: 1.4em;
-    text-align: left;
-  }
-
-  .publicaciones_profesional p {
-    font-size: 1em;
-    font-weight: 500;
-    text-align: left;
-  }
-
-  .videos_profesional .card {
-    width: 30%;
-  }
-
-  .videos_profesional .card-body h5 {
-    font-size: 1.4em;
-    text-align: left;
-  }
-
-  .videos_profesional p {
-    font-size: 0.8em;
-    text-align: left;
-  }
-
-  .button_send-form {
-    width: 45%;
-  }
-
-  .section_comentario-prof {
-    padding-left: 14%;
+  .publicaciones_profesional .container_cards {
+    margin-bottom: 5%;
   }
 }
 @media (min-width: 1440px) {
   .section_backArrow {
     top: 95px;
-    margin-left: 7%;
+    margin-left: 13%;
   }
 
   .section_backArrow .back_text {
@@ -18495,13 +18661,39 @@ a:link, a:visited, a:active, a:hover {
     top: 20px;
   }
 
+  .data_profesionales .title-adress i {
+    width: 4%;
+  }
+
+  .data_profesionales h5:nth-child(7) {
+    padding-left: 3.5%;
+  }
+
+  .data_consulta ul {
+    margin: 2% 0;
+  }
+
+  .data_consulta .contains_buttons a {
+    width: 70%;
+    font-size: 1.3em;
+  }
+
+  .section_data_consulta {
+    padding-bottom: 1%;
+  }
+
   .destacado i {
     width: 5%;
     height: 39px;
   }
 
   .destacado ul {
-    padding-left: 9%;
+    justify-content: flex-start;
+    padding-left: 10%;
+  }
+
+  .destacado ul li {
+    width: 33%;
   }
 
   .section_destacado {
@@ -27100,7 +27292,6 @@ label.error {
   }
 
   .img_thumb_LInst {
-    padding: 15% 20%;
     border-radius: 3px;
   }
 
@@ -27997,8 +28188,9 @@ label.error {
   }
 
   .img_thumb_LInst {
-    padding: 15% 20%;
     border-radius: 3px;
+    width: 50%;
+    height: 200px;
   }
 
   .educacion_formProf .agregar_archivo-formProf {

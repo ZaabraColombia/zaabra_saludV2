@@ -613,6 +613,9 @@ $('#formulario_estudios').validate({
                     '<div class="col-12 content_btnX-cierre-formProf">\n' +
                     '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
                     '</div>\n' +
+                    '<div class="option_consul_img_formProf">'+
+                    '<img id="imagenPrevisualizacion" class="logo_univ_LInst" src="'+ response.logo +'">'+
+                    '</div>'+
                     '<div class="option_consulta-formProf">\n' +
                     '<label class="col-12 title_infoGuardada-formProf"> Fecha de finalización </label>\n' +
                     '<label class="col-12 text_infoGuardada-formProf"> ' + $('#fecha_estudio').val() + ' </label>\n' +
@@ -791,6 +794,9 @@ $('#formulario_experiencia').validate({
                     '<div class="col-12 content_btnX-cierre-formProf">\n' +
                     '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
                     '</div>\n' +
+                    '<div class="option_consul_img_formProf">'+
+                    '<img id="imagenPrevisualizacion" class="logo_univ_LInst" src="'+ response.logo +'">'+
+                    '</div>'+
                     '<div class="option_consulta-formProf">\n' +
                     '<label class="col-12 title_infoGuardada-formProf"> Nombre de la empresa </label>\n' +
                     '<label class="col-12 text_infoGuardada-formProf">' + $('#nombre_empresa').val() + '</label>\n' +

@@ -102,6 +102,10 @@
                     <a class="item_landing galerias"><span>Galería</span></a>
                 </li>
             </div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev btnPrev_formProf"></div>
+            <div class="swiper-button-next btnNext_formProf"></div> 
         </div>
     </section>
 
@@ -117,9 +121,14 @@
             <ul>
                 @foreach ($objprofesionallandingestudios as $objprofesionallandingestudios)
                     <li>
-                        <h5>{{$objprofesionallandingestudios->nombreestudio}}</h5>
-                        <p>{{$objprofesionallandingestudios->nombreuniversidad}}</p>
-                        <p>{{$objprofesionallandingestudios->fechaestudio}}</p>
+                        <div class="contains_info">
+                            <h5>{{$objprofesionallandingestudios->nombreestudio}}</h5>
+                            <p>{{$objprofesionallandingestudios->nombreuniversidad}}</p>
+                            <p>{{$objprofesionallandingestudios->fechaestudio}}</p>
+                        </div>    
+                        <div class="contains_logo">
+                            <img src="{{URL::asset($objprofesionallandingestudios->logo_universidad)}}">
+                        </div>
                     </li>
                 @endforeach
             </ul>
@@ -161,8 +170,8 @@
                 <li>
                     @foreach ($objprofesionallandingidioma as $objprofesionallandingidioma)
                     <div class="contains_idioma">
-                        <p>{{$objprofesionallandingidioma->nombreidioma}}</p>
                         <img src="{{URL::asset($objprofesionallandingidioma->imgidioma)}}">
+                        <p>{{$objprofesionallandingidioma->nombreidioma}}</p>
                     </div>
                     @endforeach
                 </li>
@@ -173,11 +182,11 @@
     <section class="sections section_tratamientos_profesional">
         <div class="tratamientos_profesional">
             <h2><i></i>Tratamientos y procedimientos</h2>
-            <div class="container_cards">
+            <div class="container_cards section_proced">
                 @foreach ($objprofesionallandingtratam as $objprofesionallandingtratam)
                     <div class="card">
                         <h4>Antes</h4>
-                        <img class="card-img-top" src="{{URL::asset($objprofesionallandingtratam->imgTratamientoAntes)}}">
+                        <img class="card-img-top img_premios" src="{{URL::asset($objprofesionallandingtratam->imgTratamientoAntes)}}">
                         <div class="card-body">
                             <h5>{{$objprofesionallandingtratam->tituloTrataminetoAntes}}</h5>
                             <p>{{$objprofesionallandingtratam->descripcionTratamientoAntes}}</p>
@@ -185,7 +194,7 @@
                     </div>
                     <div class="card">
                         <h6>Después</h6>
-                        <img class="card-img-top" src="{{URL::asset($objprofesionallandingtratam->imgTratamientodespues)}}">
+                        <img class="card-img-top img_premios" src="{{URL::asset($objprofesionallandingtratam->imgTratamientodespues)}}">
                         <div class="card-body">
                             <h5>{{$objprofesionallandingtratam->tituloTrataminetoDespues}}</h5>
                             <p>{{$objprofesionallandingtratam->descripcionTratamientoDespues}}</p>
@@ -202,7 +211,7 @@
             <div class="swiper-wrapper">
 
                 @foreach ($objprofesionallandingpremio as $objprofesionallandingpremio)
-                    <div class="swiper-slide">
+                    <div class="swiper-slide content_imgPrem_formProf">
                         <img src="{{URL::asset($objprofesionallandingpremio->imgpremio)}}">
                         <h6>{{$objprofesionallandingpremio->fechapremio}}</h6>
                         <h5>{{$objprofesionallandingpremio->nombrepremio}}</h5>
@@ -210,10 +219,12 @@
                     </div>
                 @endforeach
             </div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev btnPrev_prem_formProf"></div>
+            <div class="swiper-button-next btnNext_prem_formProf"></div> 
         </div>
-        <div class="btn-prev"></div>
-        <div class="btn-next"></div>
-        <a class="btn-procedimientos" href="">Ver agenda</a>
+        <!-- <a class="btn-procedimientos" href="">Ver agenda</a> -->
     </section>
 
     <section class="sections section_publicaciones_profesional">
@@ -223,7 +234,7 @@
                 @foreach ($objprofesionallandingpublic as $key => $publicacion)
                     @if($key == 1 or $key == 2)
                         <div class="card">
-                            <img class="card-img-top" src="{{ asset($publicacion->imgpublicacion) }}">
+                            <img class="card-img-top img_public" src="{{ asset($publicacion->imgpublicacion) }}">
                             <div class="card-body">
                                 <h5>{{$publicacion->nombrepublicacion}}</h5>
                                 <p>{{$publicacion->descripcion}}</p>
@@ -236,7 +247,7 @@
                 @foreach ($objprofesionallandingpublic as $key => $publicacion)
                     @if($key == 3 or $key == 4)
                         <div class="card">
-                            <img class="card-img-top" src="{{ asset($publicacion->imgpublicacion) }}">
+                            <img class="card-img-top img_public" src="{{ asset($publicacion->imgpublicacion) }}">
                             <div class="card-body">
                                 <h5>{{$publicacion->nombrepublicacion}}</h5>
                                 <p>{{$publicacion->descripcion}}</p>
@@ -254,17 +265,19 @@
             <div class="swiper-container swiper_galeria_prof">
                 <div class="swiper-wrapper">
                     @foreach ($objprofesionallandinggaler as $objprofesionallandinggaler)
-                        <div class="swiper-slide">
+                        <div class="swiper-slide content_imgGall_formProf">
                             <img class="img_galleryLprof" src="{{URL::asset($objprofesionallandinggaler->imggaleria)}}">
                             <h5>{{$objprofesionallandinggaler->nombrefoto}}</h5>
                             <p>{{$objprofesionallandinggaler->descripcion}}</p>
                         </div>
                     @endforeach
                 </div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev btnPrev_gall_formProf"></div>
+            <div class="swiper-button-next btnNext_gall_formProf"></div> 
             </div>
-            <div class="btn-prev"></div>
-            <div class="btn-next"></div>
-            <a class="btn-procedimientos" href="">Ver agenda</a>
+            <!-- <a class="btn-procedimientos" href="">Ver agenda</a> -->
         </div>
 
         <div class="videos_profesional">

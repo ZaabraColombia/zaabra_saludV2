@@ -1543,7 +1543,7 @@ label.error{
         object-fit: scale-down;
     }
     .img_thumb_LInst {
-        padding: 15% 20%;
+        //padding: 15% 20%;
         border-radius: 3px;
     }
 
@@ -2326,8 +2326,10 @@ label.error{
         height: calc(5em + 5em + 1px);
     }
     .img_thumb_LInst {
-        padding: 15% 20%;
+        //padding: 15% 20%;
         border-radius: 3px;
+        width: 50%;
+        height: 200px;
     }
     .educacion_formProf .agregar_archivo-formProf {
         margin-left: 14%;
