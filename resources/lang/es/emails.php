@@ -38,5 +38,6 @@ return [
     'Y mucho más. Para comenzar esta experiencia, haga click en el siguiente botón' => 'Y mucho más. Para comenzar esta experiencia, haga click en el siguiente botón',
     'Perfil profesional' => 'Perfil profesional',
     'Calendario' => 'Calendario',
-    ''
+
+    /*  */
 ];
