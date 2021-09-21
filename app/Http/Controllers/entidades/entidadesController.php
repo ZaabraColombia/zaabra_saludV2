@@ -43,7 +43,7 @@ class entidadesController extends Controller
     public function cargarInstituciones(){
         return DB::select('SELECT tp.nombretipo, tp.descripcioninstitucion, tp.urlimagen,tp.id, tp.slug
         FROM tipoinstituciones  tp
-        WHERE tp.estado<>0');
+        WHERE tp.estado<>0 ORDER BY orden ASC');
     }
 
     // consulta para cargar carrusel profesiones
