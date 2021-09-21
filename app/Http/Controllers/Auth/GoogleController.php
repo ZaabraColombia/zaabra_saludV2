@@ -17,21 +17,18 @@ class GoogleController extends Controller
      */
     public function redirectToGoogle(): \Symfony\Component\HttpFoundation\RedirectResponse
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver('google')
+            ->stateless()
+            ->redirect();
     }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function handleGoogleCallback()
     {
         try {
 
-            $user = Socialite::driver('google')->user();
+            $user = Socialite::driver('google')->stateless()->user();
 
-            $finduser = User::where('email', '=' ,$user->getEmail())->orWhere('google_id', '=' ,$user->id)->first();
+            $finduser = User::where('email', '=' ,$user->email)->first();
 
             if($finduser){
 
@@ -43,19 +40,9 @@ class GoogleController extends Controller
 
                 Auth::login($finduser);
 
-                return redirect()->intended('home');
-
+                return redirect()->intended('/');
             }else{
-//                $newUser = User::create([
-//                    'name' => $user->name,
-//                    'email' => $user->email,
-//                    'google_id'=> $user->id,
-//                    'password' => encrypt('123456dummy')
-//                ]);
-//
-//                Auth::login($newUser);
-//
-//                return redirect()->intended('dashboard');
+                return redirect()->route('login')->withErrors('email', __('auth.Es requerido registrarse primero'));
             }
 
         } catch (Exception $e) {
