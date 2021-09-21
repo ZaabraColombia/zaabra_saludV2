@@ -718,7 +718,7 @@
 
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
 
-                            <div style="text-align: center;"><strong><span style="font-size:20px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">¡Gracias!</span></span></strong></div>
+                            <div style="text-align: center;"><strong><span style="font-size:20px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">¡{{ __('emails.Gracias') }}!</span></span></strong></div>
 
                         </td>
                     </tr>
