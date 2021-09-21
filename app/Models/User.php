@@ -59,4 +59,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsTo(Paciente::class, 'id_usuario', 'id');
     }
+
+    public function institucion()
+    {
+        return $this->hasOne(instituciones::class, 'idUser', 'id');
+    }
 }
