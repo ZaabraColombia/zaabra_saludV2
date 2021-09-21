@@ -19,4 +19,11 @@ return [
     'token' => 'This password reset token is invalid.',
     'user' => "We can't find a user with that email address.",
 
+    /* Email reset password */
+    'Ha solicitado restaurar su contraseña de Zaabra Salud' => 'Ha solicitado restaurar su contraseña de Zaabra Salud',
+    'Si ha sido un error, ignore este correo electrónico' => 'Si ha sido un error, ignore este correo electrónico',
+    'Para restablecer su contraseña, haga click en el siguiente botón' => 'Para restablecer su contraseña, haga click en el siguiente botón',
+    'Haga click aquí' => 'Haga click aquí',
+    'Confirmar correo electrónico' => 'Confirmar correo electrónico'
+
 ];

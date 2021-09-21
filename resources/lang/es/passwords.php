@@ -18,5 +18,12 @@ return [
     'token' => 'Este token de restablecimiento de contraseña es inválido.',
     'user' => 'No se ha encontrado un usuario con esa dirección de correo.',
     'throttled' => 'Por favor espere antes de volver a intentarlo.',
-    'password' => 'Las contraseñas deben tener al menos seis caracteres y coincidir con la confirmación.'
+    'password' => 'Las contraseñas deben tener al menos seis caracteres y coincidir con la confirmación.',
+
+    /* Email reset password */
+    'Ha solicitado restaurar su contraseña de Zaabra Salud' => 'Ha solicitado restaurar su contraseña de Zaabra Salud',
+    'Si ha sido un error, ignore este correo electrónico' => 'Si ha sido un error, ignore este correo electrónico',
+    'Para restablecer su contraseña, haga click en el siguiente botón' => 'Para restablecer su contraseña, haga click en el siguiente botón',
+    'Haga click aquí' => 'Haga click aquí',
+    'Confirmar correo electrónico' => 'Confirmar correo electrónico'
 ];

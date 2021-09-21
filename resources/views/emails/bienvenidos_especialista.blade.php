@@ -14,7 +14,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>*|MC:SUBJECT|*</title>
-        
+
     <style type="text/css">
 		p{
 			margin:10px 0;
@@ -105,7 +105,7 @@
 		}
 	/*
 	@tab Page
-	@section Background Style
+	#section Background Style
 	@tip Set the background color and top border for your email. You may want to choose colors that match your company's branding.
 	*/
 		body,#bodyTable{
@@ -113,7 +113,7 @@
 		}
 	/*
 	@tab Page
-	@section Background Style
+	#section Background Style
 	@tip Set the background color and top border for your email. You may want to choose colors that match your company's branding.
 	*/
 		#bodyCell{
@@ -121,7 +121,7 @@
 		}
 	/*
 	@tab Page
-	@section Email Border
+	#section Email Border
 	@tip Set the border for your email.
 	*/
 		.templateContainer{
@@ -129,7 +129,7 @@
 		}
 	/*
 	@tab Page
-	@section Heading 1
+	#section Heading 1
 	@tip Set the styling for all first-level headings in your emails. These should be the largest of your headings.
 	@style heading 1
 	*/
@@ -145,7 +145,7 @@
 		}
 	/*
 	@tab Page
-	@section Heading 2
+	#section Heading 2
 	@tip Set the styling for all second-level headings in your emails.
 	@style heading 2
 	*/
@@ -161,7 +161,7 @@
 		}
 	/*
 	@tab Page
-	@section Heading 3
+	#section Heading 3
 	@tip Set the styling for all third-level headings in your emails.
 	@style heading 3
 	*/
@@ -177,7 +177,7 @@
 		}
 	/*
 	@tab Page
-	@section Heading 4
+	#section Heading 4
 	@tip Set the styling for all fourth-level headings in your emails. These should be the smallest of your headings.
 	@style heading 4
 	*/
@@ -193,7 +193,7 @@
 		}
 	/*
 	@tab Preheader
-	@section Preheader Style
+	#section Preheader Style
 	@tip Set the background color and borders for your email's preheader area.
 	*/
 		#templatePreheader{
@@ -209,7 +209,7 @@
 		}
 	/*
 	@tab Preheader
-	@section Preheader Text
+	#section Preheader Text
 	@tip Set the styling for your email's preheader text. Choose a size and color that is easy to read.
 	*/
 		#templatePreheader .mcnTextContent,#templatePreheader .mcnTextContent p{
@@ -221,7 +221,7 @@
 		}
 	/*
 	@tab Preheader
-	@section Preheader Link
+	#section Preheader Link
 	@tip Set the styling for your email's preheader links. Choose a color that helps them stand out from your text.
 	*/
 		#templatePreheader .mcnTextContent a,#templatePreheader .mcnTextContent p a{
@@ -231,7 +231,7 @@
 		}
 	/*
 	@tab Header
-	@section Header Style
+	#section Header Style
 	@tip Set the background color and borders for your email's header area.
 	*/
 		#templateHeader{
@@ -247,7 +247,7 @@
 		}
 	/*
 	@tab Header
-	@section Header Text
+	#section Header Text
 	@tip Set the styling for your email's header text. Choose a size and color that is easy to read.
 	*/
 		#templateHeader .mcnTextContent,#templateHeader .mcnTextContent p{
@@ -259,7 +259,7 @@
 		}
 	/*
 	@tab Header
-	@section Header Link
+	#section Header Link
 	@tip Set the styling for your email's header links. Choose a color that helps them stand out from your text.
 	*/
 		#templateHeader .mcnTextContent a,#templateHeader .mcnTextContent p a{
@@ -269,7 +269,7 @@
 		}
 	/*
 	@tab Body
-	@section Body Style
+	#section Body Style
 	@tip Set the background color and borders for your email's body area.
 	*/
 		#templateBody{
@@ -285,7 +285,7 @@
 		}
 	/*
 	@tab Body
-	@section Body Text
+	#section Body Text
 	@tip Set the styling for your email's body text. Choose a size and color that is easy to read.
 	*/
 		#templateBody .mcnTextContent,#templateBody .mcnTextContent p{
@@ -297,7 +297,7 @@
 		}
 	/*
 	@tab Body
-	@section Body Link
+	#section Body Link
 	@tip Set the styling for your email's body links. Choose a color that helps them stand out from your text.
 	*/
 		#templateBody .mcnTextContent a,#templateBody .mcnTextContent p a{
@@ -307,7 +307,7 @@
 		}
 	/*
 	@tab Footer
-	@section Footer Style
+	#section Footer Style
 	@tip Set the background color and borders for your email's footer area.
 	*/
 		#templateFooter{
@@ -323,7 +323,7 @@
 		}
 	/*
 	@tab Footer
-	@section Footer Text
+	#section Footer Text
 	@tip Set the styling for your email's footer text. Choose a size and color that is easy to read.
 	*/
 		#templateFooter .mcnTextContent,#templateFooter .mcnTextContent p{
@@ -335,7 +335,7 @@
 		}
 	/*
 	@tab Footer
-	@section Footer Link
+	#section Footer Link
 	@tip Set the styling for your email's footer links. Choose a color that helps them stand out from your text.
 	*/
 		#templateFooter .mcnTextContent a,#templateFooter .mcnTextContent p a{
@@ -434,7 +434,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Heading 1
+	#section Heading 1
 	@tip Make the first-level headings larger in size for better readability on small screens.
 	*/
 		h1{
@@ -445,7 +445,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Heading 2
+	#section Heading 2
 	@tip Make the second-level headings larger in size for better readability on small screens.
 	*/
 		h2{
@@ -456,7 +456,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Heading 3
+	#section Heading 3
 	@tip Make the third-level headings larger in size for better readability on small screens.
 	*/
 		h3{
@@ -467,7 +467,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Heading 4
+	#section Heading 4
 	@tip Make the fourth-level headings larger in size for better readability on small screens.
 	*/
 		h4{
@@ -478,7 +478,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Boxed Text
+	#section Boxed Text
 	@tip Make the boxed text larger in size for better readability on small screens. We recommend a font size of at least 16px.
 	*/
 		.mcnBoxedTextContentContainer .mcnTextContent,.mcnBoxedTextContentContainer .mcnTextContent p{
@@ -489,7 +489,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Preheader Visibility
+	#section Preheader Visibility
 	@tip Set the visibility of the email's preheader on small screens. You can hide it to save space.
 	*/
 		#templatePreheader{
@@ -499,7 +499,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Preheader Text
+	#section Preheader Text
 	@tip Make the preheader text larger in size for better readability on small screens.
 	*/
 		#templatePreheader .mcnTextContent,#templatePreheader .mcnTextContent p{
@@ -510,7 +510,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Header Text
+	#section Header Text
 	@tip Make the header text larger in size for better readability on small screens.
 	*/
 		#templateHeader .mcnTextContent,#templateHeader .mcnTextContent p{
@@ -521,7 +521,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Body Text
+	#section Body Text
 	@tip Make the body text larger in size for better readability on small screens. We recommend a font size of at least 16px.
 	*/
 		#templateBody .mcnTextContent,#templateBody .mcnTextContent p{
@@ -532,7 +532,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Footer Text
+	#section Footer Text
 	@tip Make the footer content text larger in size for better readability on small screens.
 	*/
 		#templateFooter .mcnTextContent,#templateFooter .mcnTextContent p{
@@ -543,8 +543,7 @@
 }</style></head>
     <body>
         <!--*|IF:MC_PREVIEW_TEXT|*-->
-        <!--[if !gte mso 9]><!----><span class="mcnPreviewText" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">*|MC_PREVIEW_TEXT|*</span><!--<![endif]-->
-        <!--*|END:IF|*-->
+        <!--[if !gte mso 9]>--><!--<span class="mcnPreviewText" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">*|MC_PREVIEW_TEXT|*</span>--><!--<![endif]-->        <!--*|END:IF|*-->
         <center>
             <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
                 <tr>
@@ -565,23 +564,23 @@
 				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
 				<tr>
 				<![endif]-->
-			    
+
 				<!--[if mso]>
 				<td valign="top" width="600" style="width:600px;">
 				<![endif]-->
                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
                     <tbody><tr>
-                        
+
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; text-align: center;">
-                        
-                            <a href="*|ARCHIVE|*" target="_blank">View this email in your browser</a>
+
+                            <!--<a href="*|ARCHIVE|*" target="_blank">View this email in your browser</a>-->
                         </td>
                     </tr>
                 </tbody></table>
 				<!--[if mso]>
 				</td>
 				<![endif]-->
-                
+
 				<!--[if mso]>
 				</tr>
 				</table>
@@ -599,11 +598,11 @@
                     <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" class="mcnImageContentContainer" style="min-width:100%;">
                         <tbody><tr>
                             <td class="mcnImageContent" valign="top" style="padding-right: 0px; padding-left: 0px; padding-top: 0; padding-bottom: 0; text-align:center;">
-                                
-                                    
+
+
                                         <img align="center" alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/613b781b-569f-680f-66b0-461d501336a7.png" width="600" style="max-width:600px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
-                                    
-                                
+
+
                             </td>
                         </tr>
                     </tbody></table>
@@ -618,18 +617,18 @@
 				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
 				<tr>
 				<![endif]-->
-			    
+
 				<!--[if mso]>
 				<td valign="top" width="600" style="width:600px;">
 				<![endif]-->
                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
                     <tbody><tr>
-                        
+
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; text-align: center;">
-                        
+
                             <div style="text-align: center;"><br>
-<span style="font-size:20px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong>Hola *|LIST:NAME|*,</strong></span></span><br>
-Ahora con Zaabra Salud, podrá administrar:</div>
+<span style="font-size:20px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong>{{ __('emails.Hola') }} {{ $user->primernombre . ' ' . $user->primerapellido }},</strong></span></span><br>
+                                {{ __('emails.Ahora con Zaabra Salud, usted podrá gestionar') }}:</div>
 
                         </td>
                     </tr>
@@ -637,7 +636,7 @@ Ahora con Zaabra Salud, podrá administrar:</div>
 				<!--[if mso]>
 				</td>
 				<![endif]-->
-                
+
 				<!--[if mso]>
 				</tr>
 				</table>
@@ -649,22 +648,22 @@ Ahora con Zaabra Salud, podrá administrar:</div>
     <tbody class="mcnCaptionBlockOuter">
         <tr>
             <td class="mcnCaptionBlockInner" valign="top" style="padding:9px;">
-                
+
 
 <table align="left" border="0" cellpadding="0" cellspacing="0" class="mcnCaptionBottomContent" width="282">
     <tbody><tr>
         <td class="mcnCaptionBottomImageContent" align="center" valign="top" style="padding:0 9px 9px 9px;">
-        
-            
+
+
 
             <img alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/fb9667c4-50ab-9bfe-3815-0cdb8f9455e8.png" width="70" style="max-width: 70px; border-radius: 0%;" class="mcnImage">
-            
-        
+
+
         </td>
     </tr>
     <tr>
         <td class="mcnTextContent" valign="top" style="padding: 0px 9px; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; line-height: 125%; text-align: center;" width="282">
-            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perfil profesional</font></font></strong></span></span></div>
+            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ __('emails.Perfil profesional') }}</font></font></strong></span></span></div>
 
 
 
@@ -675,17 +674,17 @@ Ahora con Zaabra Salud, podrá administrar:</div>
 <table align="right" border="0" cellpadding="0" cellspacing="0" class="mcnCaptionBottomContent" width="282">
     <tbody><tr>
         <td class="mcnCaptionBottomImageContent" align="center" valign="top" style="padding:0 9px 9px 9px;">
-        
-            
+
+
 
             <img alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/6aef4d71-097b-e5f4-16ee-3493363c5846.png" width="70" style="max-width: 70px; border-radius: 0%;" class="mcnImage">
-            
-        
+
+
         </td>
     </tr>
     <tr>
         <td class="mcnTextContent" valign="top" style="padding: 0px 9px; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; line-height: 125%; text-align: center;" width="282">
-            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Calendario</font></font></strong></span></span></div>
+            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ __('emails.Calendario') }}</font></font></strong></span></span></div>
 
 
 
@@ -706,22 +705,22 @@ Ahora con Zaabra Salud, podrá administrar:</div>
     <tbody class="mcnCaptionBlockOuter">
         <tr>
             <td class="mcnCaptionBlockInner" valign="top" style="padding:9px;">
-                
+
 
 <table align="left" border="0" cellpadding="0" cellspacing="0" class="mcnCaptionBottomContent" width="282">
     <tbody><tr>
         <td class="mcnCaptionBottomImageContent" align="center" valign="top" style="padding:0 9px 9px 9px;">
-        
-            
+
+
 
             <img alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/9ba9ce95-6428-7754-6ffb-de7eab41df54.png" width="70" style="max-width: 70px; border-radius: 0%;" class="mcnImage">
-            
-        
+
+
         </td>
     </tr>
     <tr>
         <td class="mcnTextContent" valign="top" style="padding: 0px 9px; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; line-height: 125%; text-align: center;" width="282">
-            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Historias clínicas</font></font></strong></span></span></div>
+            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ __('emails.Historias clínicas') }}</font></font></strong></span></span></div>
 
         </td>
     </tr>
@@ -730,17 +729,17 @@ Ahora con Zaabra Salud, podrá administrar:</div>
 <table align="right" border="0" cellpadding="0" cellspacing="0" class="mcnCaptionBottomContent" width="282">
     <tbody><tr>
         <td class="mcnCaptionBottomImageContent" align="center" valign="top" style="padding:0 9px 9px 9px;">
-        
-            
+
+
 
             <img alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/9044e84c-be3f-1c19-4c41-29bc3db5ea99.png" width="70" style="max-width: 70px; border-radius: 0%;" class="mcnImage">
-            
-        
+
+
         </td>
     </tr>
     <tr>
         <td class="mcnTextContent" valign="top" style="padding: 0px 9px; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; line-height: 125%; text-align: center;" width="282">
-            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Prescripciones/fórmulas médicas</font></font></strong></span></span></div>
+            <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ __('emails.Prescripciones/fórmulas médicas') }}</font></font></strong></span></span></div>
 
         </td>
     </tr>
@@ -761,17 +760,17 @@ Ahora con Zaabra Salud, podrá administrar:</div>
 				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
 				<tr>
 				<![endif]-->
-			    
+
 				<!--[if mso]>
 				<td valign="top" width="600" style="width:600px;">
 				<![endif]-->
                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
                     <tbody><tr>
-                        
+
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
-                        
+
                             <div style="text-align: center;"><br>
-<span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">Y mucho más. Para comenzar esta experiencia, haga click en el siguiente botón:</span></span></div>
+<span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">{{ __('emails.Y mucho más. Para comenzar esta experiencia, haga click en el siguiente botón') }}:</span></span></div>
 
                         </td>
                     </tr>
@@ -779,7 +778,7 @@ Ahora con Zaabra Salud, podrá administrar:</div>
 				<!--[if mso]>
 				</td>
 				<![endif]-->
-                
+
 				<!--[if mso]>
 				</tr>
 				</table>
@@ -795,7 +794,7 @@ Ahora con Zaabra Salud, podrá administrar:</div>
                     <tbody>
                         <tr>
                             <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial; font-size: 20px; padding: 16px;">
-                                <a class="mcnButton " title="Ver más detalles" href="https://zaabrasalud.co/" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Ver más detalles</a>
+                                <a class="mcnButton " title="Ver más detalles" href="https://zaabrasalud.co/" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">{{ __('emails.Ver más detalles') }}</a>
                             </td>
                         </tr>
                     </tbody>
@@ -823,12 +822,12 @@ Ahora con Zaabra Salud, podrá administrar:</div>
                                     <table align="center" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                     <![endif]-->
-                                    
+
                                         <!--[if mso]>
                                         <td align="center" valign="top">
                                         <![endif]-->
-                                        
-                                        
+
+
                                             <table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;">
                                                 <tbody><tr>
                                                     <td valign="top" style="padding-right:10px; padding-bottom:9px;" class="mcnFollowContentItemContainer">
@@ -837,12 +836,12 @@ Ahora con Zaabra Salud, podrá administrar:</div>
                                                                 <td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;">
                                                                     <table align="left" border="0" cellpadding="0" cellspacing="0" width="">
                                                                         <tbody><tr>
-                                                                            
+
                                                                                 <td align="center" valign="middle" width="24" class="mcnFollowIconContent">
                                                                                     <a href="https://www.facebook.com/zaabrasalud/" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/dark-facebook-48.png" alt="Facebook" style="display:block;" height="24" width="24" class=""></a>
                                                                                 </td>
-                                                                            
-                                                                            
+
+
                                                                         </tr>
                                                                     </tbody></table>
                                                                 </td>
@@ -851,16 +850,16 @@ Ahora con Zaabra Salud, podrá administrar:</div>
                                                     </td>
                                                 </tr>
                                             </tbody></table>
-                                        
+
                                         <!--[if mso]>
                                         </td>
                                         <![endif]-->
-                                    
+
                                         <!--[if mso]>
                                         <td align="center" valign="top">
                                         <![endif]-->
-                                        
-                                        
+
+
                                             <table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;">
                                                 <tbody><tr>
                                                     <td valign="top" style="padding-right:0; padding-bottom:9px;" class="mcnFollowContentItemContainer">
@@ -869,12 +868,12 @@ Ahora con Zaabra Salud, podrá administrar:</div>
                                                                 <td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;">
                                                                     <table align="left" border="0" cellpadding="0" cellspacing="0" width="">
                                                                         <tbody><tr>
-                                                                            
+
                                                                                 <td align="center" valign="middle" width="24" class="mcnFollowIconContent">
                                                                                     <a href="https://www.instagram.com/zaabrasalud/" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/dark-instagram-48.png" alt="Instagram" style="display:block;" height="24" width="24" class=""></a>
                                                                                 </td>
-                                                                            
-                                                                            
+
+
                                                                         </tr>
                                                                     </tbody></table>
                                                                 </td>
@@ -883,11 +882,11 @@ Ahora con Zaabra Salud, podrá administrar:</div>
                                                     </td>
                                                 </tr>
                                             </tbody></table>
-                                        
+
                                         <!--[if mso]>
                                         </td>
                                         <![endif]-->
-                                    
+
                                     <!--[if mso]>
                                     </tr>
                                     </table>
@@ -912,11 +911,11 @@ Ahora con Zaabra Salud, podrá administrar:</div>
                     <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" class="mcnImageContentContainer" style="min-width:100%;">
                         <tbody><tr>
                             <td class="mcnImageContent" valign="top" style="padding-right: 0px; padding-left: 0px; padding-top: 0; padding-bottom: 0; text-align:center;">
-                                
+
                                     <a href="https://zaabrasalud.co/" title="" class="" target="_blank">
                                         <img align="center" alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/a36530c6-2823-0a03-eaab-c7eec08f19d1.png" width="600" style="max-width:600px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
                                     </a>
-                                
+
                             </td>
                         </tr>
                     </tbody></table>
@@ -931,25 +930,23 @@ Ahora con Zaabra Salud, podrá administrar:</div>
 				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
 				<tr>
 				<![endif]-->
-			    
+
 				<!--[if mso]>
 				<td valign="top" width="600" style="width:600px;">
 				<![endif]-->
                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
                     <tbody><tr>
-                        
+
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px;color: #414141;font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif;font-size: 10px;text-align: left;">
-                        
-                            <span style="font-size:10px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">Este correo electrónico contiene información sobre ZAABRA COLOMBIA S.A.S. Al abrir los mensajes provenientes de nuestras direcciones de correo electrónico o hacer clic en los enlaces, acepta nuestra Política de Privacidad y tratamiento de datos.<br>
-Usted ha recibido este correo electrónico porque se encuentra registrado en las bases de datos de ZAABRA COLOMBIA S.A.S. Por favor, haga Click aquí si desea cancelar su suscripción y/o no recibir mensajes de nuestra parte.<br>
-© 2021 Zaabra Colombia S.A.S.</span></span>
+
+                            <span style="font-size:10px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">{{ __('emails.footer-email') }}.</span></span>
                         </td>
                     </tr>
                 </tbody></table>
 				<!--[if mso]>
 				</td>
 				<![endif]-->
-                
+
 				<!--[if mso]>
 				</tr>
 				</table>
@@ -968,32 +965,31 @@ Usted ha recibido este correo electrónico porque se encuentra registrado en las
 				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
 				<tr>
 				<![endif]-->
-			    
+
 				<!--[if mso]>
 				<td valign="top" width="600" style="width:600px;">
 				<![endif]-->
                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
                     <tbody><tr>
-                        
+
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
-                        
+
                             <em data-stringify-type="italic">Zaabra Copyright © 2021 , All rights reserved.</em><br>
-*|IFNOT:ARCHIVE_PAGE|* *|LIST:DESCRIPTION|*<br>
-<br>
-<strong>Our mailing address is:</strong><br>
-*|HTML:LIST_ADDRESS_HTML|* *|END:IF|*<br>
-<br>
-Want to change how you receive these emails?<br>
-You can <a href="*|UPDATE_PROFILE|*">update your preferences</a> or <a href="*|UNSUB|*">unsubscribe from this list</a>.<br>
-<br>
-*|IF:REWARDS|* *|HTML:REWARDS|* *|END:IF|*
+                            <!--<br>*|IFNOT:ARCHIVE_PAGE|* *|LIST:DESCRIPTION|*<br>-->
+                            <br>
+                            <strong>{{ __('emails.Nuestro correo electrónico es') }}</strong>
+                            <br>info@zaabrasalud.co<br>
+                            <br>{{ __('emails.Quiere cambiar la forma en que recibe estos correos electrónicos') }}?<br>
+                            {{ __('emails.Usted pueda') }} <a href="*|UPDATE_PROFILE|*">{{ __('emails.actualiza sus preferencias') }}</a>
+                            {{ __('emails.o') }} <a href="*|UNSUB|*">{{ __('emails.cancelar la subscripción') }}</a>.<br>
+                            <!--<br>*|IF:REWARDS|* *|HTML:REWARDS|* *|END:IF|*-->
                         </td>
                     </tr>
                 </tbody></table>
 				<!--[if mso]>
 				</td>
 				<![endif]-->
-                
+
 				<!--[if mso]>
 				</tr>
 				</table>

@@ -14,7 +14,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>*|MC:SUBJECT|*</title>
-        
+
     <style type="text/css">
 		p{
 			margin:10px 0;
@@ -105,7 +105,7 @@
 		}
 	/*
 	@tab Page
-	@section Background Style
+	#section Background Style
 	@tip Set the background color and top border for your email. You may want to choose colors that match your company's branding.
 	*/
 		body,#bodyTable{
@@ -113,7 +113,7 @@
 		}
 	/*
 	@tab Page
-	@section Background Style
+	#section Background Style
 	@tip Set the background color and top border for your email. You may want to choose colors that match your company's branding.
 	*/
 		#bodyCell{
@@ -121,7 +121,7 @@
 		}
 	/*
 	@tab Page
-	@section Email Border
+	#section Email Border
 	@tip Set the border for your email.
 	*/
 		.templateContainer{
@@ -129,7 +129,7 @@
 		}
 	/*
 	@tab Page
-	@section Heading 1
+	#section Heading 1
 	@tip Set the styling for all first-level headings in your emails. These should be the largest of your headings.
 	@style heading 1
 	*/
@@ -145,7 +145,7 @@
 		}
 	/*
 	@tab Page
-	@section Heading 2
+	#section Heading 2
 	@tip Set the styling for all second-level headings in your emails.
 	@style heading 2
 	*/
@@ -161,7 +161,7 @@
 		}
 	/*
 	@tab Page
-	@section Heading 3
+	#section Heading 3
 	@tip Set the styling for all third-level headings in your emails.
 	@style heading 3
 	*/
@@ -177,7 +177,7 @@
 		}
 	/*
 	@tab Page
-	@section Heading 4
+	#section Heading 4
 	@tip Set the styling for all fourth-level headings in your emails. These should be the smallest of your headings.
 	@style heading 4
 	*/
@@ -193,7 +193,7 @@
 		}
 	/*
 	@tab Preheader
-	@section Preheader Style
+	#section Preheader Style
 	@tip Set the background color and borders for your email's preheader area.
 	*/
 		#templatePreheader{
@@ -209,7 +209,7 @@
 		}
 	/*
 	@tab Preheader
-	@section Preheader Text
+	#section Preheader Text
 	@tip Set the styling for your email's preheader text. Choose a size and color that is easy to read.
 	*/
 		#templatePreheader .mcnTextContent,#templatePreheader .mcnTextContent p{
@@ -221,7 +221,7 @@
 		}
 	/*
 	@tab Preheader
-	@section Preheader Link
+	#section Preheader Link
 	@tip Set the styling for your email's preheader links. Choose a color that helps them stand out from your text.
 	*/
 		#templatePreheader .mcnTextContent a,#templatePreheader .mcnTextContent p a{
@@ -231,7 +231,7 @@
 		}
 	/*
 	@tab Header
-	@section Header Style
+	#section Header Style
 	@tip Set the background color and borders for your email's header area.
 	*/
 		#templateHeader{
@@ -247,7 +247,7 @@
 		}
 	/*
 	@tab Header
-	@section Header Text
+	#section Header Text
 	@tip Set the styling for your email's header text. Choose a size and color that is easy to read.
 	*/
 		#templateHeader .mcnTextContent,#templateHeader .mcnTextContent p{
@@ -259,7 +259,7 @@
 		}
 	/*
 	@tab Header
-	@section Header Link
+	#section Header Link
 	@tip Set the styling for your email's header links. Choose a color that helps them stand out from your text.
 	*/
 		#templateHeader .mcnTextContent a,#templateHeader .mcnTextContent p a{
@@ -269,7 +269,7 @@
 		}
 	/*
 	@tab Body
-	@section Body Style
+	#section Body Style
 	@tip Set the background color and borders for your email's body area.
 	*/
 		#templateBody{
@@ -285,7 +285,7 @@
 		}
 	/*
 	@tab Body
-	@section Body Text
+	#section Body Text
 	@tip Set the styling for your email's body text. Choose a size and color that is easy to read.
 	*/
 		#templateBody .mcnTextContent,#templateBody .mcnTextContent p{
@@ -297,7 +297,7 @@
 		}
 	/*
 	@tab Body
-	@section Body Link
+	#section Body Link
 	@tip Set the styling for your email's body links. Choose a color that helps them stand out from your text.
 	*/
 		#templateBody .mcnTextContent a,#templateBody .mcnTextContent p a{
@@ -307,7 +307,7 @@
 		}
 	/*
 	@tab Footer
-	@section Footer Style
+	#section Footer Style
 	@tip Set the background color and borders for your email's footer area.
 	*/
 		#templateFooter{
@@ -323,7 +323,7 @@
 		}
 	/*
 	@tab Footer
-	@section Footer Text
+	#section Footer Text
 	@tip Set the styling for your email's footer text. Choose a size and color that is easy to read.
 	*/
 		#templateFooter .mcnTextContent,#templateFooter .mcnTextContent p{
@@ -335,7 +335,7 @@
 		}
 	/*
 	@tab Footer
-	@section Footer Link
+	#section Footer Link
 	@tip Set the styling for your email's footer links. Choose a color that helps them stand out from your text.
 	*/
 		#templateFooter .mcnTextContent a,#templateFooter .mcnTextContent p a{
@@ -434,7 +434,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Heading 1
+	#section Heading 1
 	@tip Make the first-level headings larger in size for better readability on small screens.
 	*/
 		h1{
@@ -445,7 +445,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Heading 2
+	#section Heading 2
 	@tip Make the second-level headings larger in size for better readability on small screens.
 	*/
 		h2{
@@ -456,7 +456,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Heading 3
+	#section Heading 3
 	@tip Make the third-level headings larger in size for better readability on small screens.
 	*/
 		h3{
@@ -467,7 +467,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Heading 4
+	#section Heading 4
 	@tip Make the fourth-level headings larger in size for better readability on small screens.
 	*/
 		h4{
@@ -478,7 +478,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Boxed Text
+	#section Boxed Text
 	@tip Make the boxed text larger in size for better readability on small screens. We recommend a font size of at least 16px.
 	*/
 		.mcnBoxedTextContentContainer .mcnTextContent,.mcnBoxedTextContentContainer .mcnTextContent p{
@@ -489,7 +489,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Preheader Visibility
+	#section Preheader Visibility
 	@tip Set the visibility of the email's preheader on small screens. You can hide it to save space.
 	*/
 		#templatePreheader{
@@ -499,7 +499,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Preheader Text
+	#section Preheader Text
 	@tip Make the preheader text larger in size for better readability on small screens.
 	*/
 		#templatePreheader .mcnTextContent,#templatePreheader .mcnTextContent p{
@@ -510,7 +510,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Header Text
+	#section Header Text
 	@tip Make the header text larger in size for better readability on small screens.
 	*/
 		#templateHeader .mcnTextContent,#templateHeader .mcnTextContent p{
@@ -521,7 +521,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Body Text
+	#section Body Text
 	@tip Make the body text larger in size for better readability on small screens. We recommend a font size of at least 16px.
 	*/
 		#templateBody .mcnTextContent,#templateBody .mcnTextContent p{
@@ -532,7 +532,7 @@
 }	@media only screen and (max-width: 480px){
 	/*
 	@tab Mobile Styles
-	@section Footer Text
+	#section Footer Text
 	@tip Make the footer content text larger in size for better readability on small screens.
 	*/
 		#templateFooter .mcnTextContent,#templateFooter .mcnTextContent p{
@@ -565,15 +565,15 @@
 				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
 				<tr>
 				<![endif]-->
-			    
+
 				<!--[if mso]>
 				<td valign="top" width="600" style="width:600px;">
 				<![endif]-->
                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
                     <tbody><tr>
-                        
+
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; text-align: center;">
-                        
+
                             <a href="*|ARCHIVE|*" target="_blank">View this email in your browser</a>
                         </td>
                     </tr>
@@ -581,7 +581,7 @@
 				<!--[if mso]>
 				</td>
 				<![endif]-->
-                
+
 				<!--[if mso]>
 				</tr>
 				</table>
@@ -599,11 +599,11 @@
                     <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" class="mcnImageContentContainer" style="min-width:100%;">
                         <tbody><tr>
                             <td class="mcnImageContent" valign="top" style="padding-right: 0px; padding-left: 0px; padding-top: 0; padding-bottom: 0; text-align:center;">
-                                
-                                    
+
+
                                         <img align="center" alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/a64e6204-65b4-964f-e40b-ed15cade0611.png" width="600" style="max-width:600px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
-                                    
-                                
+
+
                             </td>
                         </tr>
                     </tbody></table>
@@ -618,15 +618,15 @@
 				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
 				<tr>
 				<![endif]-->
-			    
+
 				<!--[if mso]>
 				<td valign="top" width="600" style="width:600px;">
 				<![endif]-->
                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
                     <tbody><tr>
-                        
+
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; text-align: center;">
-                        
+
                             <div style="text-align: center;"><br>
 <span style="font-size:20px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong>Hola *|LIST:NAME|*,</strong></span></span><br>
 <br>
@@ -638,7 +638,7 @@
 				<!--[if mso]>
 				</td>
 				<![endif]-->
-                
+
 				<!--[if mso]>
 				</tr>
 				</table>
@@ -650,17 +650,17 @@
     <tbody class="mcnCaptionBlockOuter">
         <tr>
             <td class="mcnCaptionBlockInner" valign="top" style="padding:9px;">
-                
+
 
 <table align="left" border="0" cellpadding="0" cellspacing="0" class="mcnCaptionBottomContent" width="282">
     <tbody><tr>
         <td class="mcnCaptionBottomImageContent" align="center" valign="top" style="padding:0 9px 9px 9px;">
-        
-            
+
+
 
             <img alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/6ebaf9f4-5136-a97e-fb74-3b904e463f38.png" width="47" style="max-width: 47px; border-radius: 0%;" class="mcnImage">
-            
-        
+
+
         </td>
     </tr>
     <tr>
@@ -678,12 +678,12 @@
 <table align="right" border="0" cellpadding="0" cellspacing="0" class="mcnCaptionBottomContent" width="282">
     <tbody><tr>
         <td class="mcnCaptionBottomImageContent" align="center" valign="top" style="padding:0 9px 9px 9px;">
-        
-            
+
+
 
             <img alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/c692c8ec-cf82-8ebe-df48-886e55879f1e.png" width="47" style="max-width: 47px; border-radius: 0%;" class="mcnImage">
-            
-        
+
+
         </td>
     </tr>
     <tr>
@@ -709,17 +709,17 @@
     <tbody class="mcnCaptionBlockOuter">
         <tr>
             <td class="mcnCaptionBlockInner" valign="top" style="padding:9px;">
-                
+
 
 <table align="left" border="0" cellpadding="0" cellspacing="0" class="mcnCaptionBottomContent" width="282">
     <tbody><tr>
         <td class="mcnCaptionBottomImageContent" align="center" valign="top" style="padding:0 9px 9px 9px;">
-        
-            
+
+
 
             <img alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/1b2c0424-8051-4357-8a65-eb5a5a475b50.png" width="47" style="max-width: 47px; border-radius: 0%;" class="mcnImage">
-            
-        
+
+
         </td>
     </tr>
     <tr>
@@ -733,12 +733,12 @@
 <table align="right" border="0" cellpadding="0" cellspacing="0" class="mcnCaptionBottomContent" width="282">
     <tbody><tr>
         <td class="mcnCaptionBottomImageContent" align="center" valign="top" style="padding:0 9px 9px 9px;">
-        
-            
+
+
 
             <img alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/6bcf7b45-3881-8062-0240-1ffe7b0f32e1.png" width="47" style="max-width: 47px; border-radius: 0%;" class="mcnImage">
-            
-        
+
+
         </td>
     </tr>
     <tr>
@@ -760,17 +760,17 @@
     <tbody class="mcnCaptionBlockOuter">
         <tr>
             <td class="mcnCaptionBlockInner" valign="top" style="padding:9px;">
-                
+
 
 <table align="left" border="0" cellpadding="0" cellspacing="0" class="mcnCaptionBottomContent" width="282">
     <tbody><tr>
         <td class="mcnCaptionBottomImageContent" align="center" valign="top" style="padding:0 9px 9px 9px;">
-        
-            
+
+
 
             <img alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/2cb01d35-6d74-8758-bcfc-d39c54828feb.png" width="47" style="max-width: 47px; border-radius: 0%;" class="mcnImage">
-            
-        
+
+
         </td>
     </tr>
     <tr>
@@ -786,12 +786,12 @@
 <table align="right" border="0" cellpadding="0" cellspacing="0" class="mcnCaptionBottomContent" width="282">
     <tbody><tr>
         <td class="mcnCaptionBottomImageContent" align="center" valign="top" style="padding:0 9px 9px 9px;">
-        
-            
+
+
 
             <img alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/b6a93cd9-4f50-7139-884c-58e2365e2bcd.png" width="47" style="max-width: 47px; border-radius: 0%;" class="mcnImage">
-            
-        
+
+
         </td>
     </tr>
     <tr>
@@ -821,15 +821,15 @@
 				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
 				<tr>
 				<![endif]-->
-			    
+
 				<!--[if mso]>
 				<td valign="top" width="600" style="width:600px;">
 				<![endif]-->
                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
                     <tbody><tr>
-                        
+
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
-                        
+
                             <div style="text-align: center;"><span style="font-size:16px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">&nbsp;Puede hacer modificaciones a su cita, en caso de &nbsp;necesitarlo haciendo click aquí a continuación:</span></span><br>
 &nbsp;</div>
 
@@ -839,7 +839,7 @@
 				<!--[if mso]>
 				</td>
 				<![endif]-->
-                
+
 				<!--[if mso]>
 				</tr>
 				</table>
@@ -871,15 +871,15 @@
 				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
 				<tr>
 				<![endif]-->
-			    
+
 				<!--[if mso]>
 				<td valign="top" width="600" style="width:600px;">
 				<![endif]-->
                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
                     <tbody><tr>
-                        
+
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px;color: #686867;line-height: 100%;">
-                        
+
                             <div style="text-align: center;"><span style="font-size:12px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">Recuerde que, en caso de querer editar podrá hacerlo máximo con ocho (8) horas de antelación a la hora de la cita. Después no se podrá modificar.</span></span></div>
 
                         </td>
@@ -888,7 +888,7 @@
 				<!--[if mso]>
 				</td>
 				<![endif]-->
-                
+
 				<!--[if mso]>
 				</tr>
 				</table>
@@ -916,12 +916,12 @@
                                     <table align="center" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                     <![endif]-->
-                                    
+
                                         <!--[if mso]>
                                         <td align="center" valign="top">
                                         <![endif]-->
-                                        
-                                        
+
+
                                             <table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;">
                                                 <tbody><tr>
                                                     <td valign="top" style="padding-right:10px; padding-bottom:9px;" class="mcnFollowContentItemContainer">
@@ -930,12 +930,12 @@
                                                                 <td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;">
                                                                     <table align="left" border="0" cellpadding="0" cellspacing="0" width="">
                                                                         <tbody><tr>
-                                                                            
+
                                                                                 <td align="center" valign="middle" width="24" class="mcnFollowIconContent">
                                                                                     <a href="https://www.facebook.com/zaabrasalud/" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/dark-facebook-48.png" alt="Facebook" style="display:block;" height="24" width="24" class=""></a>
                                                                                 </td>
-                                                                            
-                                                                            
+
+
                                                                         </tr>
                                                                     </tbody></table>
                                                                 </td>
@@ -944,16 +944,16 @@
                                                     </td>
                                                 </tr>
                                             </tbody></table>
-                                        
+
                                         <!--[if mso]>
                                         </td>
                                         <![endif]-->
-                                    
+
                                         <!--[if mso]>
                                         <td align="center" valign="top">
                                         <![endif]-->
-                                        
-                                        
+
+
                                             <table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;">
                                                 <tbody><tr>
                                                     <td valign="top" style="padding-right:0; padding-bottom:9px;" class="mcnFollowContentItemContainer">
@@ -962,12 +962,12 @@
                                                                 <td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;">
                                                                     <table align="left" border="0" cellpadding="0" cellspacing="0" width="">
                                                                         <tbody><tr>
-                                                                            
+
                                                                                 <td align="center" valign="middle" width="24" class="mcnFollowIconContent">
                                                                                     <a href="https://www.instagram.com/zaabrasalud/" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/dark-instagram-48.png" alt="Instagram" style="display:block;" height="24" width="24" class=""></a>
                                                                                 </td>
-                                                                            
-                                                                            
+
+
                                                                         </tr>
                                                                     </tbody></table>
                                                                 </td>
@@ -976,11 +976,11 @@
                                                     </td>
                                                 </tr>
                                             </tbody></table>
-                                        
+
                                         <!--[if mso]>
                                         </td>
                                         <![endif]-->
-                                    
+
                                     <!--[if mso]>
                                     </tr>
                                     </table>
@@ -1005,11 +1005,11 @@
                     <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" class="mcnImageContentContainer" style="min-width:100%;">
                         <tbody><tr>
                             <td class="mcnImageContent" valign="top" style="padding-right: 0px; padding-left: 0px; padding-top: 0; padding-bottom: 0; text-align:center;">
-                                
+
                                     <a href="https://zaabrasalud.co/" title="" class="" target="_blank">
                                         <img align="center" alt="" src="https://mcusercontent.com/c69a78ddc71b8573e9de87420/images/a36530c6-2823-0a03-eaab-c7eec08f19d1.png" width="600" style="max-width:600px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
                                     </a>
-                                
+
                             </td>
                         </tr>
                     </tbody></table>
@@ -1024,15 +1024,15 @@
 				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
 				<tr>
 				<![endif]-->
-			    
+
 				<!--[if mso]>
 				<td valign="top" width="600" style="width:600px;">
 				<![endif]-->
                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
                     <tbody><tr>
-                        
+
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px;color: #414141;font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif;font-size: 10px;text-align: left;">
-                        
+
                             <span style="font-size:10px"><span style="font-family:arial,helvetica neue,helvetica,sans-serif">Este correo electrónico contiene información sobre ZAABRA COLOMBIA S.A.S. Al abrir los mensajes provenientes de nuestras direcciones de correo electrónico o hacer clic en los enlaces, acepta nuestra Política de Privacidad y tratamiento de datos.<br>
 Usted ha recibido este correo electrónico porque se encuentra registrado en las bases de datos de ZAABRA COLOMBIA S.A.S. Por favor, haga Click aquí si desea cancelar su suscripción y/o no recibir mensajes de nuestra parte.<br>
 © 2021 Zaabra Colombia S.A.S.</span></span>
@@ -1042,7 +1042,7 @@ Usted ha recibido este correo electrónico porque se encuentra registrado en las
 				<!--[if mso]>
 				</td>
 				<![endif]-->
-                
+
 				<!--[if mso]>
 				</tr>
 				</table>
@@ -1061,15 +1061,15 @@ Usted ha recibido este correo electrónico porque se encuentra registrado en las
 				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
 				<tr>
 				<![endif]-->
-			    
+
 				<!--[if mso]>
 				<td valign="top" width="600" style="width:600px;">
 				<![endif]-->
                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
                     <tbody><tr>
-                        
+
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
-                        
+
                             <em data-stringify-type="italic">Zaabra Copyright © 2021 , All rights reserved.</em><br>
 *|IFNOT:ARCHIVE_PAGE|* *|LIST:DESCRIPTION|*<br>
 <br>
@@ -1086,7 +1086,7 @@ You can <a href="*|UPDATE_PROFILE|*">update your preferences</a> or <a href="*|U
 				<!--[if mso]>
 				</td>
 				<![endif]-->
-                
+
 				<!--[if mso]>
 				</tr>
 				</table>
