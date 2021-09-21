@@ -808,7 +808,7 @@ a:link, a:visited, a:active, a:hover {
     }
     // Menú desplegable
     .dropdown-menu .dropdown-item {
-        height: 4.5vh;
+        //height: 4.5vh;
         padding-left: 36%;
         justify-content: flex-start;
     }
@@ -881,7 +881,7 @@ a:link, a:visited, a:active, a:hover {
     }
     // Contenedor principal
     .contains_header {
-        width: 66%;
+        width: 75%;
         height: 100%;
         padding: 0;
         justify-content: flex-start;
@@ -978,13 +978,13 @@ a:link, a:visited, a:active, a:hover {
         height: 30vh;
     }
 }
-@media (min-width: 1440px)and (max-width: 1919.98) {
+@media (min-width: 1440px) {
     .contains_barra{
         display: none;
     }
     // Contenedor principal
     .contains_header {
-        width: 66%;
+        width: 75%;
         height: 100%;
         padding: 0;
         justify-content: flex-start;
