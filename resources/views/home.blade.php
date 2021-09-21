@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
     <!--carrusel banner principal home-->
     <section class="swiper-container swiper_principal banner_principalHom">
@@ -14,7 +15,7 @@
                             <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt="">
                         </a>
                     </div>
-                </div>  
+                </div>
             @endforeach
         </div>
 

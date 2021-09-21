@@ -78,6 +78,9 @@ Route::get('/membresiaInstitucion', function () { return view('instituciones/mem
 // Esta ruta pertenece a la vista de membresía profesional
 Route::get('/membresiaProfesional', function () { return view('profesionales/membresiaProfesional');})->name('profesional.membresiaProfesional');
 
+Route::get('auth/google', [\App\Http\Controllers\Auth\GoogleController::class, 'redirectToGoogle'])->name('google-redirect');
+Route::get('auth/google/callback', [\App\Http\Controllers\Auth\GoogleController::class, 'handleGoogleCallback'])->name('google-callback');
+
 
 /*------------------------------------------------- Pertenece a calificacion y comentarios-------------------------------------------------------------------------------*/
 

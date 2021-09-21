@@ -56,9 +56,9 @@
                     <div class="form-group row mb-0">
                         <div class="col-12 content_btn-ingresar-login">
                             <button type="submit" class="btn_Ingreso-login"> Ingresar
-                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-login" alt=""> 
+                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-login" alt="">
                             </button>
-                                
+
                             @if (Route::has('password.request'))
                                 <a class="texto_olvide-login" href="{{ route('password.request') }}">
                                     Olvidé mi contraseña
@@ -86,11 +86,11 @@
                 <!-- seccion iconos redes sociales -->
                 <div class="col-4 col-md-3 content_imgRedes-login">
                     <a class="" href="">
-                        <img class="img_redes-login" src="{{URL::asset('/img/iconos/icono-facebook.svg')}}"> 
-                    </a> 
-                    <a class="" href="">
-                        <img class="img_redes-login" src="{{URL::asset('/img/iconos/icono-gmail.svg')}}"> 
-                    </a>   
+                        <img class="img_redes-login" src="{{ asset('/img/iconos/icono-facebook.svg') }}">
+                    </a>
+                    <a class="" href="{{ route('google-redirect') }}">
+                        <img class="img_redes-login" src="{{ asset('/img/iconos/icono-gmail.svg') }}">
+                    </a>
                 </div>
             </div>
         </div>
