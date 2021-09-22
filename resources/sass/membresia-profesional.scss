@@ -366,6 +366,11 @@
         width: 9%;
     }
 }
+@media(min-width: 1360px) {
+    .texto_input-instituto-membresia {
+        font-size: .95em;
+    }
+}
 @media (min-width: 1440px) {
     // Seccion titulo y texto principal
     .titulo_principal-membresia {
