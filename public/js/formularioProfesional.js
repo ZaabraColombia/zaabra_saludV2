@@ -376,6 +376,8 @@ $('#formulario_destacado').validate({
     },
     submitHandler: function ()
     {
+        var btn = $('#destacado_nombre_btn');
+        btn.prop('disabled', true);
 
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
@@ -384,50 +386,50 @@ $('#formulario_destacado').validate({
             }
         });
         // Pace.start();
-        $('#destacado_nombre_btn').attr('disabled', 'disabled');
+
         $.ajax({
-            url:  "FormularioProfesionalAddDestacable",
+            url:  "/FormularioProfesionalAddDestacable",
             type: "POST",
             dataType: 'json',
             data: $('#formulario_destacado').serialize(),
             success: function( response ) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#destacado_nombre_btn').removeAttr('disabled');
-                var mensaje;
-                if (response.status)
-                {
-                    mensaje = $('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                        '<strong>' + response.mensaje + '</strong>\n' +
-                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                        '<span aria-hidden="true">&times;</span>\n' +
-                        '</button>\n' +
-                        '</div>');
-                    $('#destacado-lista').append('<div class="alert alert-info alert-dismissible fade show" role="alert">\n' +
-                        '<strong>' + response.nombre + '</strong>\n' +
-                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                        '<span aria-hidden="true">&times;</span>\n' +
-                        '</button>\n' +
-                        '</div>');
+                btn.prop('disabled', false)
 
-                    console.log(response.count);
-                    if (response.count >= 9){
-                        $('#destacado_nombre').attr('disabled', 'disabled');
-                        $('#destacado_nombre_btn').attr('disabled', 'disabled');
-                    }
-                    document.getElementById("formulario_destacado").reset();
-                }else {
-                    mensaje = $('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                        '<strong>' + response.mensaje + '</strong>\n' +
-                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                        '<span aria-hidden="true">&times;</span>\n' +
-                        '</button>\n' +
-                        '</div>');
+                $('#destacado-lista').append('<div class="alert alert-info alert-dismissible fade show" role="alert">\n' +
+                    '<strong>' + response.nombre + '</strong>\n' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close" data-id=' + response.id + '>\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
 
+                console.log(response.count);
+                if (response.count >= 9){
+                    $('#destacado_nombre').prop('disabled', true);
+                    btn.prop('disabled', true);
                 }
 
-                $('#destacado-mensaje').append(mensaje);
+                $('#destacado-mensaje').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                    '<strong>' + 'response.mensaje' + '</strong>\n' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
+                document.getElementById("formulario_destacado").reset();
+            },
+            error: function (event){
 
+                btn.prop('disabled', false)
+
+                var response = event.responseJSON
+
+                $('#destacado-mensaje').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                    '<strong>' + response.mensaje + '</strong>\n' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                    '<span aria-hidden="true">&times;</span>\n' +
+                    '</button>\n' +
+                    '</div>');
             }
         });
     }
@@ -445,35 +447,34 @@ $('#destacado-lista').on('click', '.close' , function (e) {
 
     // Pace.start();
     $.ajax({
-        url:  "FormularioProfesionalDeleteDestacable",
+        url:  "/FormularioProfesionalDeleteDestacable",
         type: "POST",
         dataType: 'json',
         data: {id:id},
         success: function( response ) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
-            console.log(response);
-            var message;
-            if (response.status)
-            {
-                message = $('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    '<strong>' + response.mensaje + '</strong>\n' +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
 
-                $('#destacado_nombre').removeAttr('disabled');
-                $('#destacado_nombre_btn').removeAttr('disabled');
-            }else {
-                message = $('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    '<strong>' + response.mensaje + '</strong>\n' +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-            }
-            $('#destacado-mensaje').append(message);
+            $('#destacado_nombre').prop('disabled', false);
+            $('#destacado_nombre_btn').prop('disabled', false);
+
+            $('#destacado-mensaje').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
+                '<strong>' + response.mensaje + '</strong>\n' +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
+        },
+        error: function (event){
+
+            var response = event.responseJSON
+
+            $('#destacado-mensaje').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
+                '<strong>' + response.mensaje + '</strong>\n' +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                '<span aria-hidden="true">&times;</span>\n' +
+                '</button>\n' +
+                '</div>');
         }
     });
 

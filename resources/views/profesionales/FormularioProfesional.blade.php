@@ -295,7 +295,9 @@
                 <div class="row fila_infoBasica-formProf">
                     <div class="col-12" id="destacado-mensaje"></div>
                     <div class="content_dest_list" id="destacado-lista">
+                        <?php $destacables_count = 0;?>
                         @foreach($destacables as $destacable)
+                                <?php $destacables_count++;?>
                             <div class="section_dest_list alert alert-info alert-dismissible fade show delete-destacable" role="alert" >
                                 <strong>{{ $destacable->nombreExpertoEn }}</strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" data-id="{{ $destacable->id_experto_en }}">
@@ -639,7 +641,7 @@
 
                                 <div class="col-12 img_selccionada-formProf">
                                     <img class="img_traProced-formProf" src="{{URL::asset($objTratamiento->imgTratamientoAntes)}}">
-                                </div>                           
+                                </div>
 
                                 <div class="col-12 content_title_formProf">
                                     <label class="col-12 title_infoGuardada-formProf"> {{$objTratamiento->tituloTrataminetoAntes}} </label>
