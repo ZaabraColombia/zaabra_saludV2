@@ -2,20 +2,42 @@
     width: 100%;
     padding: 0;
 }
+.title_banner_entidad {
+    color: #019F86;
+    font-family: "Quicksand";
+    font-size: 2.2em;
+    font-weight: 700;
+    position: absolute;
+    top: 23%;
+    left: 16%;
+    z-index: 10;
+    margin: 0;
+}
+.subtitle_banner_entidad {
+    color: #232323;
+    font-family: "Quicksand";
+    font-size: .85em;
+    font-weight: 700;
+    position: absolute;
+    top: 29%;
+    left: 16%;
+    z-index: 10;
+    text-transform: inherit;
+}
 // Sección tarjetas profesionales de al salud
- .section_tarjetas-entidades {
+ .container_entidades {
     margin: auto;
     padding: 0;
     justify-content: flex-start;
     margin-left: 16%;
 }
-.imagen_entidad {
+.content_img_entidades {
     display: flex;
     justify-content: center;
     align-self: center;
 }
 // Sección boton ver especialidades
-.contenido_boton-verEntidad { 
+.section_btn_entidades { 
     display: flex;
     justify-content: center;
 }
@@ -37,70 +59,90 @@
         width: 100%;
         padding: 0;
     }
+    .title_banner_entidad {
+        font-size: .9em;
+        top: 15%;
+        left: 5%;
+    }
+    .subtitle_banner_entidad {
+        font-size: 0.5em;
+        top: 18%;
+        left: 5%;
+    }
     // Sección del titulo Entidades
-    .section_titulo-entidades {
-        font-size: 1.125em;
+    .title_entidades {
+        font-size: 1.3em;
         font-family: 'Quicksand', sans-serif; 
         font-weight: bolder;
-        color: #019f86;
-        margin: 10% 0;
+        color: #019F86;
+        margin: 5% 0;
         text-align: center;
     }
     // Sección tarjetas profesionales de al salud
-    .section_tarjetas-entidades {
-        margin: 0;
+    .container_entidades {
+        margin-left: 0;
+        margin-bottom: 10%;
         padding: 0;
         justify-content: space-evenly;
     }
-    .contenido_tarjetas-entidades {
+    .section_entidades {
         margin-bottom: 3%;
         padding: 3% 1%;
         border-radius: 5px;
         box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
     }
-    .imagen_entidad {
+    .content_img_entidades {
         display: flex;
         justify-content: center;
         align-self: center;
     }
-    .icono_img-entidad {
+    .imagen_entidades {
         width: 85px;
         height: 85px; 
     }
-    .nombre_entidad {
-        font-size: .688em;
-        font-family: 'Quicksnd', sans-serif;
+    .subtitle_entidades {
+        font-size: .8em;
+        font-family: 'Quicksand', sans-serif;
         font-weight: bolder;
         color: #232323;
+        margin: 5% 0;
         padding: 0;
         text-align: center;
     }
-    .texto_entidad {
-        font-size: .55em;
-        font-family: 'quicksand', sans-serif;
-        color: #3e3e3e;
+    .texto_entidades {
+        font-size: .625em;
+        font-family: 'Roboto', sans-serif;
+        color: #3E3E3E;
         text-align: center;
-        height: 6vh;
+        margin: 5% 0;
+        height: 7.5vh;
     }
     // Sección boton ver especialidades
-    .contenido_boton-verEntidad { 
+    .section_btn_entidades { 
         display: flex;
         justify-content: center;
     }
-    .boton_ver-entidades {
-        background: #019f86;
-        font-family: 'quicksand', sans-serif;
-        font-size: .563em;
-        color: #ffffff;
+    .content_btn_entidades {
+        width: 85%;
+    }
+    .btnVer_entidades {
+        background: #019F86;
+        font-family: "Quicksand", sans-serif;
+        font-size: 0.625em;
+        color: #FFFFFF;
         padding: 0;
-        height: 25px;
-        width: 102px;
+        height: 4vh;
+        width: 100%;
         border-radius: 3px;
         border: none;
-        box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 20%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .icono_flecha-ver {
+    .icon_arrow_entidades {
         width: 9%;
+        margin-left: 5%;
     }
     .logosUniversidades {
         width: 50%; 
@@ -109,114 +151,205 @@
     .contains_slider-logos-galeriaProf {
         height: 20vh; }
 }  
+@media(min-width: 360px) and (orientation: portrait) {
+    .texto_entidades {
+        height: 6.5vh;
+    }
+} 
+@media (min-width: 375px) and (orientation: portrait) {
+    .title_banner_entidad {
+        top: 14%;
+    }
+    .subtitle_banner_entidad {
+        top: 17%;
+    }
+}
 @media (min-width: 768px) and (orientation: portrait) {
-    .section_titulo-entidades {
+    .title_banner_entidad {
+        font-size: 2em;
+        top: 13%;
+        left: 5%;
+    }
+    .subtitle_banner_entidad {
+        font-size: 1em;
+        top: 16%;
+        left: 5%;
+    }
+    .title_entidades {
         font-size: 2.5em;
     }
-    .icono_img-entidad {
+    .container_entidades {
+        padding: 0 3%;
+    }
+    .imagen_entidades {
         width: 150px;
         height: 150px;
     }
-    .nombre_entidad {
+    .subtitle_entidades {
         font-size: 1.8em;
     }
-    .texto_entidad {
+    .texto_entidades {
         font-size: 1em;
-        height: 4vh;
+        height: 5vh;
+        margin: 5% 0 0 0;
     }
-    .boton_ver-entidades {
-        background: #019f86;
-        font-family: "quicksand", sans-serif;
+    .content_btn_entidades {
+        width: 75%;
+        margin: auto;
+    }
+    .btnVer_entidades {
+        background: #019F86;
+        font-family: "Quicksand", sans-serif;
         font-size: 1.25em;
-        color: #ffffff;
+        color: #FFFFFF;
         padding: 0;
-        height: 50px;
-        width: 246px;
+        height: 3vh;
+        width: 100%;
         border-radius: 3px;
         border: none;
         box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 20%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .icono_flecha-ver {
+    .icon_arrow_entidades {
         width: 7%;
+        margin-left: 3%;
     }
 }  
 @media (min-width: 1024px) {
     // Sección del titulo ramas de la salud
-    .section_titulo-entidades {
-        font-size: 2.5em;
+    .title_entidades {
+        font-size: calc(0.95em + 1vw);
         font-family: 'Quicksand', sans-serif; 
         font-weight: bolder;
-        color: #019f86;
-        margin: 5% 0;
+        color: #019F86;
+        margin: 3% 0;
         text-align: center;
     }
-      // Sección tarjetas profesionales de al salud
-      .contenido_tarjetas-entidades {
+    .container_entidades {
+        margin-bottom: 5%;
+    }
+    // Sección tarjetas profesionales de al salud
+      .section_entidades {
         margin: 1%;
         padding: 3% 1%;
         border-radius: 5px;
         box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
     }
-    .nombre_entidad {
-        font-size: 1.25em;
-        font-family: 'Quicksnd', sans-serif;
+    .imagen_entidades {
+        width: 125px;
+        height: 125px;
+    }
+    .subtitle_entidades {
+        font-size: calc(0.5em + .9vw);
+        font-family: 'Quicksand', sans-serif;
         font-weight: bolder;
         color: #232323;
         padding: 0;
         text-align: center;
+        margin-top: 3%;
     }
-    .texto_entidad {
-        font-size: .85em;
-        font-family: 'quicksand', sans-serif;
-        color: #3e3e3e;
+    .texto_entidades {
+        font-size: calc(.2em + .8vw);
+        font-family: 'Quicksand', sans-serif;
+        color: #3E3E3E;
         text-align: center;
-        height: 7vh;
+        margin-bottom: 5%;
+        height: 6.5vh;
+    }
+    .content_btn_entidades {
+        width: 80%;
     }
     // Sección boton ver especialidades
-    .boton_ver-entidades {
-        background: #019f86;
-        font-family: 'quicksand', sans-serif;
-        font-size: .9em;
-        color: #ffffff;
+    .btnVer_entidades {
+        background: #019F86;
+        font-family: 'Quicksand', sans-serif;
+        font-size: calc(.2em + .8vw);
+        color: #FFFFFF;
         padding: 0;
-        height: 37px;
-        width: 150px;
+        height: 3.5vh;
+        width: 100%;
         border-radius: 3px;
         border: none;
         box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .icono_flecha-ver {
-        width: 8%;
+    .icon_arrow_entidades {
+        width: 7%;
+        margin-left: 2%;
     }
     .contains_slider-logos-galeriaProf {
         height: 25vh;
     }
 }
 @media (min-width: 1200px) {
-    .texto_entidad {
-        font-size: .8em;
-        height: 5vh;
+    .title_banner_entidad {
+        font-size: 2.5em;
+        top: 24%;
+        left: 16%;
+    }
+    .subtitle_banner_entidad {
+        font-size: 1em;
+        top: 31%;
+        left: 16%;
+    }
+    .container_entidades {  
+        margin-left: 23%;
+    }
+    .texto_entidades {
+        font-size: calc(.1em + .8vw);
+    }
+    .btnVer_entidades {
+        font-size: calc(.2em + .8vw);
+        height: 4vh;
+    }
+}
+@media (min-width: 1360px) {
+    .texto_entidades {
+        height: 7.5vh;
     }
 }
 @media (min-width: 1440px) {
-    .texto_entidad {
-        font-size: .9em;
+    .title_banner_entidad {
+        font-size: 3.4em;
+        top: 27%;
+        left: 16%;
+    }
+    .subtitle_banner_entidad {
+        font-size: 1.25em;
+        top: 36%;
+        left: 16%;
+    }
+    .title_entidades {
+        margin: 2% 0;
+    }
+    .texto_entidades {
+        font-size: calc(.035em + .7vw);
+        height: 4vh;
+    }
+    .content_btn_entidades {
+        width: 75%;
     }
 }
-@media (min-width: 1600px) {
-    .texto_entidad {
-        font-size: 1.2em;
+@media (min-width: 1920px) {
+    .title_banner_entidad {
+        font-size: 4em;
+        top: 26%;
+        left: 16%;
     }
-    .boton_ver-entidades {
-        background: #019f86;
-        font-family: 'quicksand', sans-serif;
-        font-size: 1.25em;
-        color: #ffffff;
-        padding: 0;
-        height: 37px;
-        width: 246px;
-        border-radius: 3px;
-        border: none;
-        box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    .subtitle_banner_entidad {
+        font-size: 1.7em;
+        top: 35%;
+        left: 16%;
+    }
+    .texto_entidades {
+        height: 5vh;
+    }
+    .btnVer_entidades {
+        font-size: calc(.15em + .8vw);
+        height: 3.5vh;
     }
 }

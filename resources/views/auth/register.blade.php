@@ -6,7 +6,7 @@
     <!-- fila principal -->
     <div class="row justify-content-center">
         <!-- titulo principal -->
-        <p class="titulo_principal-register"> Acceda a nuestro portal de Zaabra Salud o regístrese. </p>
+        <h1 class="titulo_principal-register"> Acceda a nuestro portal de Zaabra Salud o regístrese. </h1>
         <!-- contenedor de elementos login -->
         <div class="card col-11 col-md-10 col-lg-8 section_principal-register">
             <!-- seccion body login -->
@@ -24,11 +24,11 @@
                         </div>
                         <p class="texto_superior-tarjeta-register"> Registrarme como </p>
                     </div>
-          
+
                     <div id="persona">
                         <!-- Seccion opciones paara Registrarse -->
                         <div class="row section_input-option-register">
-                            <div class="col-3 form-check input_option-register"> 
+                            <div class="col-3 form-check input_option-register">
                                 <!-- Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto. La función " hedeForm " se encuentra en el archivo register.js -->
                                 <!-- Opción paciente -->
                                 <input id="inpt1" class="form-check-input input_img-option icon_pac" onclick="hideForm(this)" type="image" src="/img/iconos/icono-paciente.svg" value="1"  data-position="paciente">
@@ -42,14 +42,15 @@
                                 <label id="txt2" class="form-check-label texto_option-input" for="idrol"> Doctor/a </label>
                             </div>
 
-                            <div class="col-3 form-check input_option-register"> 
+                            <div class="col-3 form-check input_option-register">
                                 <!-- Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto. La función " hedeForm " se encuentra en el archivo register.js -->
                                 <!-- Opción institución -->
                                 <input id="inpt3" class="form-check-input input_img-option" onclick="hideForm(this)" type="image" src="/img/iconos/icono-institucion.svg"  value="3"  data-position="institucion">
                                 <label id="txt3" class="form-check-label texto_option-input" for="idrol"> Institución </label>
                             </div>
                         </div>
-                         <input type="hidden" name="idrol"  id="valor_tipo">
+
+                        <input type="hidden" name="idrol"  id="valor_tipo">
                         <!-- Sección campos de validación Nombres y Apellidos -->
                         <div class="names_person">
                             <!-- Campos de Nombres -->
@@ -111,13 +112,13 @@
                             <!-- Campo Tipo de documento -->
                             <div class="form-group col-12 col-md-6 m-0">
                                 <label for="tipodocumento" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Tipo Documento *') }}</label>
-                                
+
                                 <select class="form-select col-12 form-control input_height-fullhd-register @error('tipodocumento') is-invalid @enderror" name="tipodocumento" required>
                                     <option value="" selected> Seleccione </option>
                                     <option value="1"> Cedula Ciudadania </option>
                                     <option value="2"> Cedula Extranjeria </option>
                                     <option value="3"> Nit </option>
-                                </select>      
+                                </select>
                             </div>
 
                             <!-- Número de documento -->
@@ -138,7 +139,7 @@
                             <label for="email" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Correo electrónico *') }}</label>
 
                             <div class="col-12 p-0">
-                                <input id="email" type="email" class="form-control input_height-fullhd-register" name="email" value="{{ old('email') }}" autocomplete="email" required placeholder="zaabra@gmail.com">
+                                <input id="email" type="email" class="form-control input_height-fullhd-register" name="email" value="{{ old('email') }}" autocomplete="email" required placeholder="servicioalcliente@zaabrasalud.co">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -155,7 +156,7 @@
                                 <label for="password" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Contraseña *') }}</label>
 
                                 <div class="col-md-12 px-0">
-                                    <input id="password" type="password" class="form-control input_height-fullhd-register @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Contraseña"> 
+                                    <input id="password" type="password" class="form-control input_height-fullhd-register @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Contraseña">
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -177,9 +178,12 @@
                         <!-- Check Políticas y terminos -->
                         <div class="form-group row mb-0">
                             <div class="col-12">
-                                <input type="checkbox" class="check_option-register" id="aceptoTerminos" name="aceptoTerminos" value="1"  required> 
+                                <input type="checkbox" class="check_option-register" id="aceptoTerminos" name="aceptoTerminos" value="1"  required>
                                 <div class="col-12 section_terminos-register">
-                                    <span class="texto_inferior-tarjeta-register"> Declaro que he leído y acepto la <a href="#" class="text_link-register">Política de Privacidad</a> y los <a href="#" class="text_link-register">Términos y condiciones</a> de Zaabra Salud. </span>
+                                    <h4 class="texto_inferior-tarjeta-register"> Declaro que he leído y acepto la
+                                        <a class="text_link-register" href="{{url('politicas')}}" target="blank"> política de privacidad</a>  y los
+                                        <a class="text_link-register" href="{{url('politicas')}}" target="blank"> términos y condiciones</a>  de Zaabra Salud.
+                                    </h4>
                                 </div>
                             </div>
                         </div>
@@ -187,23 +191,23 @@
                         <!-- Check de Promociones -->
                         <div class="form-group row mb-0">
                             <div class="col-12 section_option-promo-register">
-                                <input type="checkbox" class="check_option-register" id=""> 
+                                <input type="checkbox" class="check_option-register" id="">
                                 <div class="col-12 section_terminos-register">
                                     <span class="texto_inferior-tarjeta-register"> Me gustaría recibir comunicaciones promocionales. </span>
-                                </div>        
+                                </div>
                             </div>
                         </div>
 
                         <!-- Confirmación de e-mail -->
                         <div class="form-group col-12 section_terminos-register">
-                            <p class="texto_inferior-tarjeta-register"> Recibirá un e-mail de confirmación. </p>
+                            <p class="texto_inferior-tarjeta-register mt-1 mb-3 mb-md-4 mt-lg-3"> Recibirá un e-mail de confirmación. </p>
                         </div>
 
                         <!-- Botón Ingresar -->
                         <div class="form-group row mb-2 mb-md-0">
                             <div class="col-12 content_btn-ingresar-register">
                                 <button type="submit" class="btn_Ingreso-register"> {{ __('Ingresar') }}
-                                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-register" alt=""> 
+                                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-register" alt="">
                                 </button>
                             </div>
                         </div>
@@ -213,4 +217,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/register.js') }}"></script>
 @endsection

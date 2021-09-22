@@ -12,4 +12,6 @@ class asociaciones extends Model
         'idPerfilProfesional',
         'imgasociacion'
     ];
+
+    protected $primaryKey = 'idAsociaciones';
 }

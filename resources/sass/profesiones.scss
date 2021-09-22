@@ -1,0 +1,250 @@
+.imagen_bannerPrin-prof {
+    width: 100%;
+    padding: 0;
+}
+// Sección tarjetas profesionales de al salud
+ .container_ramSalud {
+    margin: auto;
+    padding: 0;
+    justify-content: center;
+}
+.content_img_ramSalud {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+// Sección boton ver especialidades
+.section_btn_ramSalud { 
+    display: flex;
+    justify-content: center;
+}
+.logosUniversidades {
+    width: 50%; 
+}
+.contains_slider-logos-galeriaProf {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-width: 320px) and (orientation: portrait) {
+    .imagen_bannerPrin-prof {
+        width: 100%;
+        padding: 0;
+    }
+    // Sección del titulo ramas de la salud
+    .title_ramSalud {
+        font-size: 1.3em;
+        font-family: 'Quicksand', sans-serif; 
+        font-weight: bolder;
+        color: #0083d6;
+        margin: 5% 0;
+        text-align: center;
+    }
+    // Sección tarjetas profesionales de al salud
+    .container_ramSalud {
+        margin-bottom: 10%;
+        padding: 0;
+        justify-content: space-evenly;
+    }
+    .section_ramSalud {
+        margin-bottom: 3%;
+        padding: 3% 1%;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    }
+    .content_img_ramSalud {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+    }
+    .imagen_ramSalud {
+        width: 85px;
+        height: 85px; 
+    }
+    .subTitle_ramSalud {
+        font-size: .8em;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: bolder;
+        color: #232323;
+        margin: 5% 0;
+        padding: 0;
+        text-align: center;
+    }
+    .text_ramSalud {
+        font-size: .625em;
+        font-family: 'Roboto', sans-serif;
+        color: #3e3e3e;
+        text-align: center;
+        margin: 5% 0;
+        height: calc(2em + .75rem + 2px);
+    }
+    // Sección boton ver especialidades
+    .section_btn_ramSalud { 
+        display: flex;
+        justify-content: center;
+    }
+    .content_btn_ramSalud {
+        width: 85%;
+    }
+    .btnVer_ramSalud {
+        background: #0083D6;
+        font-family: "Quicksand", sans-serif;
+        font-size: 0.625em;
+        color: #ffffff;
+        padding: 0;
+        height: calc(1em + 0.75rem + 2px);
+        width: 100%;
+        border-radius: 3px;
+        border: none;
+        box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 20%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon_arrow_ramSalud {
+        width: 9%;
+        margin-left: 5%;
+    }
+    .logosUniversidades {
+        width: 50%; 
+    }
+    // Carrusel logos inferior 
+    .contains_slider-logos-galeriaProf {
+        height: 20vh; }
+} 
+@media (min-width: 768px) and (orientation: portrait) {
+    .title_ramSalud {
+        font-size: 2.5em;
+    }
+    .container_ramSalud {
+        padding: 0 3%;
+    }
+    .imagen_ramSalud {
+        width: 150px;
+        height: 150px;
+    }
+    .subTitle_ramSalud {
+        font-size: 1.8em;
+    }
+    .text_ramSalud {
+        font-size: 1em;
+        margin: 5% 0 0 0;
+    }
+    .content_btn_ramSalud {
+        width: 75%;
+        margin: auto;
+    }
+    .btnVer_ramSalud {
+        background: #0083D6;
+        font-family: "Quicksand", sans-serif;
+        font-size: 1.25em;
+        color: #ffffff;
+        padding: 0;
+        width: 100%;
+        border-radius: 3px;
+        border: none;
+        box-shadow: 0px 2px 5px 2px rgb(0 0 0 / 20%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon_arrow_ramSalud {
+        width: 7%;
+        margin-left: 3%;
+    }
+}  
+@media (min-width: 1024px) {
+    // Sección del titulo ramas de la salud
+    .title_ramSalud {
+        font-size: calc(0.95em + 1vw);
+        font-family: 'Quicksand', sans-serif; 
+        font-weight: bolder;
+        color: #0083D6;
+        margin: 4% 0;
+        text-align: center;
+    }
+    .container_ramSalud {
+        margin-bottom: 5%;
+    }
+    // Sección tarjetas profesionales de al salud
+    .section_ramSalud {
+        margin: 1%;
+        padding: 3% 1%;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    }
+    .imagen_ramSalud {
+        width: 125px;
+        height: 125px;
+    }
+    .subTitle_ramSalud {
+        font-size: calc(0.5em + .9vw);
+        font-family: 'Quicksand', sans-serif;
+        font-weight: bolder;
+        color: #232323;
+        padding: 0;
+        text-align: center;
+        margin-top: 3%;
+    }
+    .text_ramSalud {
+        font-size: calc(.2em + .8vw);
+        font-family: 'Quicksand', sans-serif;
+        color: #3e3e3e;
+        text-align: center;
+        margin-bottom: 5%;
+        height: calc(2em + .75rem + 2px);
+    }
+    // Sección boton ver especialidades
+    .content_btn_ramSalud {
+        width: 80%;
+    }
+    .btnVer_ramSalud {
+        background: #0083D6;
+        font-family: 'Quicksand', sans-serif;
+        font-size: calc(.2em + .8vw);
+        color: #ffffff;
+        padding: 0;
+        height: calc(1.5em + 0.75rem + 2px);
+        width: 100%;
+        border-radius: 3px;
+        border: none;
+        box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon_arrow_ramSalud {
+        width: 7%;
+        margin-left: 2%;
+    }
+    .contains_slider-logos-galeriaProf {
+        height: 25vh;
+    }
+}
+@media (min-width: 1200px) {
+    .text_ramSalud {
+        font-size: calc(.1em + .8vw);
+    }
+    .btnVer_ramSalud {
+        font-size: calc(.2em + .8vw);
+    }
+}
+@media (min-width: 1440px) {
+    .title_ramSalud {
+        margin: 2% 0;
+    }
+    .text_ramSalud {
+        font-size: calc(.035em + .7vw);
+    }
+    .content_btn_ramSalud {
+        width: 75%;
+    }
+    .btnVer_ramSalud {
+        font-size: calc(.15em + .8vw);
+    }
+}

@@ -8,70 +8,68 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
-        <!-- Scripts -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="{{ asset('js/selectareas.js') }}" defer></script>
-
+        {!! SEO::generate() !!}
         <title>{{ config('app.name', 'Laravel') }}</title>
-        <link rel="shortcat icon" href="{{URL::asset('/img/logos/zaabrasalud-favicon.png')}}"> 
+
+        <link rel="shortcat icon" href="{{asset('/img/logos/zaabrasalud-favicon.png')}}">
+        <link rel="icon" href="{{asset('/img/logos/zaabrasalud-favicon.png')}}">
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
+
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.css" integrity="sha512-zwoDXU7OjppdwrN9brNSW0E2G5+BxJsDXrwoUCEYJ3mE4ZmApOp0DJc36amSk3h8iWi8+qjcii7WFb+9m8Ro4g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
-         <!-- Styles  input tipo tag-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.css" />
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-       <!--Framewor Agenda-->
-        <link rel="stylesheet" href="{{ asset('fullCalendar/main.css') }}">
-        <script src="{{ asset('fullCalendar/main.js') }}"></script>
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.css" integrity="sha512-zwoDXU7OjppdwrN9brNSW0E2G5+BxJsDXrwoUCEYJ3mE4ZmApOp0DJc36amSk3h8iWi8+qjcii7WFb+9m8Ro4g==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
 
+
+
+        @yield('styles')
     </head>
     <body>
-    @include('header')
-
+    <div id="page_overlay"></div>
+         @include('header')
         <div id="app">
-            <!-------------------------------------------Contenido-------------------------------------------->
-            <main>
-                @yield('content')
-            </main>
-            @include('footer')
+                <!-------------------------------------------Contenido-------------------------------------------->
+                <main>
+                    @yield('content')
+                </main>
+                @include('footer')
         </div>
-        <!--///      Ubicación de los SCRIPT de cada uno de los archivos .js utilizados en el proyecto zaabrasalud      ///-->
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.js" integrity="sha512-Cpto2uFAGrtCArBkIckJacfNjZ6yFJ1F61YIOH3Nj4dpccnCK1AGkudN9g+HM+OQMIHxeFvcRmkIUKbJ/7Qxyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="{{ asset('js/app.js') }}"></script>
+        <!--///      Ubicación de los SCRIPT de cada uno de los archivos .js utilizados en el proyecto zaabrasalud      ///-->
+        <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.js" integrity="sha512-Cpto2uFAGrtCArBkIckJacfNjZ6yFJ1F61YIOH3Nj4dpccnCK1AGkudN9g+HM+OQMIHxeFvcRmkIUKbJ/7Qxyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>-->
+
+
+        @yield('scripts')
+
+        <!-- Scripts  areas-->
         <script src="{{ asset('js/header.js') }}"></script>
-        <script src="{{ asset('js/register.js') }}"></script>
         <script src="{{ asset('js/home.js') }}"></script>
         <script src="{{ asset('js/footer.js') }}"></script>
         <script src="{{ asset('js/formularios.js') }}"></script>
-        <script src="{{ asset('js/profesionales.js') }}"></script>
-        <script src="{{ asset('js/galeriaProfesiones.js') }}"></script>
-        <script src="{{ asset('js/instituciones.js') }}"></script>
-        <script src="{{ asset('js/selectareas.js') }}"></script>
-        <script src="{{ asset('js/selectpais.js') }}"></script>
-        <script src="{{ asset('js/cargaFoto.js') }}"></script>
-        <script src="{{ asset('js/contacto.js') }}"></script>
-        <script src="{{ asset('js/adicionarcamposformulario.js') }}"></script>
         <script src="{{ asset('js/comentarios.js') }}"></script>
         <script src="{{ asset('js/filtroBusquedad.js') }}"></script>
 
-     <!--js admin template-->
+
+
+        <!--<script src="{{ asset('js/adicionarcamposformulario.js') }}"></script>-->
+
+
+
+        <!--js admin template-->
         <script src="{{ asset('js/admin.js') }}"></script>
-    
-    </body>
+
+
 
     <!--/////    MODAL POPUP DE PAGO de las tarjetas de membresia de las vistas "membresiaProfesional" y "membresiaInstitucion". Estilos ubicados en la vista "popup-pagos.scss"  /////-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -79,43 +77,43 @@
             <div class="modal-content modal_content-popup">
                 <!-- Sección boton derecho de cierre "X" -->
                 <div class="modal-header modal_header-popup">
-                    <button type="button" class="btn_close-popup" data-dismiss="modal" aria-label="Close">
-                        <span class="Xcierre_modal-popup" aria-hidden="true">&times;</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
                 <div class="modal-body p-0">
                     <!-- Titulo y texto de encabezado -->
-                    <h5 class="modal-title titulo_principal-popup" id="exampleModalLabel"> Seleccione el medio de pago</h5>
+                    <h1 class="modal-title titulo_principal-popup" id="exampleModalLabel"> Seleccione el medio de pago</h1>
 
                     <p class="texto_superior-popup"> Seleccione el medio de pago que mejor se adapte a su necesidad. </p>
-                    
+
                     <!-- Sección iconos medios de pago Tarjeta de credito y PSE -->
                     <!--//////      Funcionalidad de cambio de color de los botones e iconos de pago del poup se encuentran en el archivo instituciones.js     //////-->
                     <div class="section_icons-popup">
                         <!-- Tarjeta de credito -->
                         <div class="secction_tarjeta-popup">
-                            <img id="img_tarjCred" src="{{URL::asset('/img/popup-pago/tarjetas-de-credito-azul.svg')}}" class="icon_popup">  
+                            <img id="img_tarjCred" src="{{URL::asset('/img/popup-pago/tarjetas-de-credito-azul.svg')}}" class="icon_popup">
 
-                            <h3 class="textoCheck_popup"> Tarjetas de crédito </h3> 
+                            <h3 class="textoCheck_popup"> Tarjetas de crédito </h3>
 
                             <input class="inputCheck_popup" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        </div> 
+                        </div>
 
                         <!-- PSE -->
                         <div class="secction_tarjeta-popup">
-                            <img id="img_pagoPse" src="{{URL::asset('/img/popup-pago/medios-online-pse-azul.svg')}}" class="icon_popup"> 
+                            <img id="img_pagoPse" src="{{URL::asset('/img/popup-pago/medios-online-pse-azul.svg')}}" class="icon_popup">
 
-                            <h3 class="textoCheck_popup"> Medio online (PSE) </h3>   
+                            <h3 class="textoCheck_popup"> Pago en línea (PSE) </h3>
 
                             <input class="inputCheck_popup" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                        </div>  
+                        </div>
                     </div>
 
                     <!-- Sección botón Pagar -->
                     <div class="section_btnPagar-popup">
                         <button type="submit" class="btnPagar-popup" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera"> {{ __('Pagar') }}
-                            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_pagar-popup" alt=""> 
+                            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_pagar-popup" alt="">
                         </button>
                     </div>
 
@@ -131,6 +129,8 @@
         </div>
     </div>
 
+    </body>
 </html>
+
 
 

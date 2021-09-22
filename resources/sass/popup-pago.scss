@@ -17,9 +17,9 @@
     border-bottom: none;
     height: 4vh;
 }
-.btn_close-popup {
+/*.btn_close-popup {
     border-radius: 18px !important;
-    background-color: #0083d6;
+    background-color: #0083D6;
     padding: 0 !important;
     margin-top: 0 !important;
     margin-right: 0 !important;
@@ -37,12 +37,13 @@
     font-size: 1.5em;
     font-weight: 100;
     color: #ffffff;
-}
+}*/
 // Titulo y texto de encabezado
 .titulo_principal-popup {
     color: #232323;
     font-size: 1.3em;
     text-align: center;
+    text-transform: none;
 }
 .texto_superior-popup {
     font-size: 1.1em;
@@ -87,11 +88,15 @@
     font-family: "Quicksand";
     font-size: 1.3em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 3px;
     height: calc(1.6em + 0.75rem + 2px);
     width: 28%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 .btnPagar-popup-inst {
     font-family: "Quicksand";
@@ -102,9 +107,14 @@
     border-radius: 3px;
     height: calc(1.6em + 0.75rem + 2px);
     width: 28%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 .flecha_pagar-popup {
     width: 10%;
+    margin-left: 5%;
 }
 @media (min-width: 320px) and (orientation: portrait) {
     .modal_dialog-popup {
@@ -118,7 +128,7 @@
         padding: 0;
     }
     // Sección boton derecho de cierre "X"
-    .btn_close-popup {
+    /*.btn_close-popup {
         width: 9%;
         height: 96%;
     }
@@ -126,7 +136,7 @@
         font-size: 1.2em;
         font-weight: normal;
         color: #ffffff;
-    }
+    }*/
     // Titulo y texto de encabezado
     .titulo_principal-popup {
         font-size: 1em;
@@ -150,9 +160,14 @@
     .btnPagar-popup {
         font-size: .8em;
         width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
     }
     .flecha_pagar-popup {
         width: 11%;
+        margin-left: 5%;
     }
 }
 @media (min-width: 768px) and (orientation: portrait) {
@@ -164,13 +179,13 @@
         height: 3vh;
     }
     // Sección boton derecho de cierre "X"
-    .btn_close-popup {
+    /*.btn_close-popup {
         width: 8%;
         height: 3vh;
     }
     .Xcierre_modal-popup {
         font-size: 2em;
-    }
+    }*/
     // Titulo y texto de encabezado
     .titulo_principal-popup {
         font-size: 1.5em;
@@ -223,10 +238,10 @@
     .modal_header-popup {
         height: 3vh;
     }
-    .btn_close-popup {
+    /*.btn_close-popup {
         width: 3.8%;
         height: 3.2vh;
-    }
+    }*/
     // Titulo y texto de encabezado
     .titulo_principal-popup {
         font-size: 2em;

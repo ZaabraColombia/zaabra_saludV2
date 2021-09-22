@@ -15,4 +15,6 @@ class galerias extends Model
         'descripcion',
         'imggaleria'
     ];
+
+    protected $primaryKey = 'id_galeria';
 }

@@ -10,6 +10,17 @@ document.addEventListener('DOMContentLoaded', function () {
     },*/
     autoHeight: true,
     // If we need pagination
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.btnNext_formProf',
+      prevEl: '.btnPrev_formProf',
+    },
+
     breakpoints: {
        // when window width is >= 320px
       320: {
@@ -37,18 +48,19 @@ document.addEventListener('DOMContentLoaded', function () {
     resizeObserver: true,
    
     autoplay: {
-      delay: 3500,
+      delay: 4500,
       disableOnInteraction: false,
     },
   
     // If we need pagination
     pagination: {
-        el: '.swiper-pagination',
+      el: '.swiper-pagination',
     },
-     // Navigation arrows
-     navigation: {
-      nextEl: '.btn-next',
-      prevEl: '.btn-prev',
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.btnPrev_prem_formProf',
+      prevEl: '.btnNext_prem_formProf',
     },
   
     breakpoints: {
@@ -61,19 +73,19 @@ document.addEventListener('DOMContentLoaded', function () {
        768: {
         slidesPerView: 2,
         slidesPerGroup: 1,
-        spaceBetween: 20,
+        //spaceBetween: 5,
       },
        // when window width is >= 1024px
       1024: {
-        slidesPerView: 3,
+        slidesPerView: 2,
         slidesPerGroup: 1,
-        spaceBetween: 20,
+        //spaceBetween: 20,
       },
         // when window width is >= 1600px
-      1600: {
+      1360: {
         slidesPerView: 3,
         slidesPerGroup: 1,
-        spaceBetween: 20,
+        //spaceBetween: 20,
       },
     }
   });
@@ -84,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
     resizeObserver: true,
    
     autoplay: {
-      delay: 3500,
+      delay: 4500,
       disableOnInteraction: false,
     },
   
@@ -94,8 +106,8 @@ document.addEventListener('DOMContentLoaded', function () {
     },
      // Navigation arrows
      navigation: {
-      nextEl: '.btn-next',
-      prevEl: '.btn-prev',
+      nextEl: '.btnNext_gall_formProf',
+      prevEl: '.btnPrev_gall_formProf',
     },
   
     breakpoints: {
@@ -108,19 +120,19 @@ document.addEventListener('DOMContentLoaded', function () {
        768: {
         slidesPerView: 2,
         slidesPerGroup: 1,
-        spaceBetween: 20,
+        //spaceBetween: 20,
       },
        // when window width is >= 1024px
       1024: {
-        slidesPerView: 3,
+        slidesPerView: 2,
         slidesPerGroup: 1,
-        spaceBetween: 20,
+        //spaceBetween: 20,
       },
         // when window width is >= 1600px
-      1600: {
+      1360: {
         slidesPerView: 3,
         slidesPerGroup: 1,
-        spaceBetween: 20,
+        //spaceBetween: 20,
       },
     }
   });
@@ -152,6 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  
   let favorito = document.querySelector('.fa-heart');
   favorito.onclick = function(){
     favorito.classList.toggle('background-heart');

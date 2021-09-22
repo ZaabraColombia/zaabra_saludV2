@@ -19,6 +19,10 @@ a:link, a:visited, a:active, a:hover {
     align-items: center;
     justify-content: space-between;
     height: calc(2.6em + 1.75rem + 2px);
+    position: sticky;
+    width: 100%;
+    z-index: 500;
+    top: .1px;
 }
 .logo_header {
     width: 50%;
@@ -28,7 +32,7 @@ a:link, a:visited, a:active, a:hover {
     width: 100%;
 }
 .inputBarraBusquedad {
-    width: 90%;
+    width: 100%;
     height: 100% !important;
     padding-left: 0;
     border-radius: 0;
@@ -37,7 +41,24 @@ a:link, a:visited, a:active, a:hover {
     padding: 2%;
     background: #faebd700;
 }
-.contenedorLupa {  
+.button_SearchBarH {
+    background: #ffffff;
+    height: 100%;
+    width: 10%;
+    border: none;
+    padding: 0;
+    border-radius: 3px;
+}
+.icon_searchH {
+    background-image: url('/img/header/icono-buscador-azul.svg');
+    background-repeat: no-repeat;
+    background-size: 75%;
+    background-position-y: center;
+}
+.button_SearchBarH::after {
+    border: none !important;
+}
+.contenedorLupa {
     padding: 0;
     border: none;
     height: auto;
@@ -73,7 +94,7 @@ a:link, a:visited, a:active, a:hover {
 .soy_paciente{
     height: 100%;
 }
-// Seccion icono boton usuario 
+// Seccion icono boton usuario
 .soy_paciente .dropdown-toggle {
     background-image: url('/img/header/icono-soy-paciente-blanco.svg');
     background-size: 70%;
@@ -220,9 +241,9 @@ a:link, a:visited, a:active, a:hover {
 }
 //hover iconos menu usuario
 .menu_paciente > .icon-paciente:hover{
-    background: #0083d6;
+    background: #0083D6;
     color: #ffffff;
-    border: 1px solid #0083d6;
+    border: 1px solid #0083D6;
     background-image: url('/img/header/icono-paciente-blanco.svg');
     background-repeat: no-repeat;
     background-position-x: 10%;
@@ -230,9 +251,9 @@ a:link, a:visited, a:active, a:hover {
     background-size: 21%;
 }
 .menu_paciente > .icon-medico:hover{
-    background: #0083d6;
+    background: #0083D6;
     color: #ffffff;
-    border: 1px solid #0083d6;
+    border: 1px solid #0083D6;
     background-image: url('/img/header/icono-soy-medico-blanco.svg');
     background-repeat: no-repeat;
     background-position-x: 10%;
@@ -240,9 +261,9 @@ a:link, a:visited, a:active, a:hover {
     background-size: 21%;
 }
 .menu_paciente > .icon-instituciones:hover{
-    background: #0083d6;
+    background: #0083D6;
     color: #ffffff;
-    border: 1px solid #0083d6;
+    border: 1px solid #0083D6;
     background-image: url('/img/header/icono-instituciones-medicas-blanco.svg');
     background-repeat: no-repeat;
     background-position-x: 10%;
@@ -251,9 +272,9 @@ a:link, a:visited, a:active, a:hover {
 }
 // hover de los iconos del menu hamburguesa
 .menu_hamburguesa > .icon-especialidades:hover{
-    background: #0083d6;
+    background: #0083D6;
     color: #ffffff;
-    border: 1px solid #0083d6;
+    border: 1px solid #0083D6;
     background-image: url('/img/header/icono-especialidades-medicas-blanco.svg');
     background-repeat: no-repeat;
     background-position-x: 10%;
@@ -261,9 +282,9 @@ a:link, a:visited, a:active, a:hover {
     background-size: 16%;
 }
 .menu_hamburguesa > .icon-instituciones-burger:hover{
-    background: #0083d6;
+    background: #0083D6;
     color: #ffffff;
-    border: 1px solid #0083d6;
+    border: 1px solid #0083D6;
     background-image: url('/img/header/icono-instituciones-medicas-blanco.svg');
     background-repeat: no-repeat;
     background-position-x: 10%;
@@ -271,9 +292,9 @@ a:link, a:visited, a:active, a:hover {
     background-size: 16%;
 }
 .menu_hamburguesa > .icon-quienes:hover{
-    background: #0083d6;
+    background: #0083D6;
     color: #ffffff;
-    border: 1px solid #0083d6;
+    border: 1px solid #0083D6;
     background-image: url('/img/header/icono-quienes-somos-blanco.svg');
     background-repeat: no-repeat;
     background-position-x: 10%;
@@ -281,9 +302,9 @@ a:link, a:visited, a:active, a:hover {
     background-size: 16%;
 }
 .menu_hamburguesa > .icon-contactenos:hover{
-    background: #0083d6;
+    background: #0083D6;
     color: #ffffff;
-    border: 1px solid #0083d6;
+    border: 1px solid #0083D6;
     background-image: url('/img/header/icono-contactenos-blanco.svg');
     background-repeat: no-repeat;
     background-position-x: 10%;
@@ -291,9 +312,9 @@ a:link, a:visited, a:active, a:hover {
     background-size: 16%;
 }
 .menu_hamburguesa > .icon-agenda:hover{
-    background: #0083d6;
+    background: #0083D6;
     color: #ffffff;
-    border: 1px solid #0083d6;
+    border: 1px solid #0083D6;
     background-image: url('/img/header/icono-agenda-blanco.svg');
     background-repeat: no-repeat;
     background-position-x: 10%;
@@ -301,9 +322,9 @@ a:link, a:visited, a:active, a:hover {
     background-size: 16%;
 }
 .menu_hamburguesa > .icon-perfil:hover{
-    background: #0083d6;
+    background: #0083D6;
     color: #ffffff;
-    border: 1px solid #0083d6;
+    border: 1px solid #0083D6;
     background-image: url('/img/header/icono-mi-perfil-blanco.svg');
     background-repeat: no-repeat;
     background-position-x: 10%;
@@ -311,9 +332,9 @@ a:link, a:visited, a:active, a:hover {
     background-size: 16%;
 }
 .menu_hamburguesa > .icon-cerrarSesion:hover{
-    background: #0083d6;
+    background: #0083D6;
     color: #ffffff;
-    border: 1px solid #0083d6;
+    border: 1px solid #0083D6;
     background-image: url('/img/header/icono-cerrar-sesion-blanco.svg');
     background-repeat: no-repeat;
     background-position-x: 10%;
@@ -351,48 +372,99 @@ a:link, a:visited, a:active, a:hover {
 .contains_boxsearch {
     display: flex;
 }
-.contain_lupa-mobile {
-    display: none;
-}
 .barra_busqueda > #ui-id-1{
-    left: 0% !important;
+    //left: 0% !important;
 }
 .barra_busqueda2 > #ui-id-1{
-    left: 0% !important;
+    //left: 0% !important;
 }
 #ui-id-1{
-    z-index: 100 !important;
+    z-index: 500 !important;
     background: white;
-    width: 30% !important;
-
+    /*width: 29.7% !important;*/
     height: 25vh;
-    overflow: scroll;
-    border-radius: 3px;
-    padding-top: 1%;
-    left: 26.4% !important;
+    overflow-x: hidden;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 1rem !important;
+    //left: 26.5% !important;
+    //top: 51px !important;
+    border: solid 1px #e8e8e8;
+
 }
-.ui-menu::-webkit-scrollbar {
-    display: none !important;
+#ui-id-1::-webkit-scrollbar {
+    //display: none !important;
+}
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+#ui-id-1::-webkit-scrollbar-thumb {
+    background: #e8e8e8 !important;
+    border-radius: 5px !important;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+#ui-id-1::-webkit-scrollbar-thumb:hover {
+    //background: #0083D6 !important;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Cambiamos el fondo cuando esté en active */
+#ui-id-1::-webkit-scrollbar-thumb:active {
+    //background-color: #016eb0 !important;
 }
 .ui-menu {
    // display: block !important;
-    z-index: 100 !important;
-    background: white;
-    width: 90% !important;
-    height: 25vh;
-    overflow: scroll;
-    border-radius: 3px;
-    padding-top: 1%;
-    left: 5.4% !important;
+   z-index: 500 !important;
+   background: white;
+   /*width: 89.5% !important;*/
+   height: 28vh;
+   overflow-x: hidden;
+   border-radius: 3px;
+   padding: 0 1%;
+   //top: 95px !important;
+   //left: 5% !important;
+   position: fixed !important;
 }
 .ui-menu-item {
+    list-style: none;
     padding-top: 3%;
+    height: 3rem;
 }
 
 .ui-menu-item > .ui-menu-item-wrapper{
+    display: flex;
     color: black !important;
-    font-size: 1em !important;
+    font-size: 1rem !important;
+    height: 50px;
+    width: 100%;
+    padding: .5rem 0;
+    margin-left: 5px;
+    border-radius: 5px;
+    align-items: center;
 }
+
+.ui-menu-item > .ui-menu-item-wrapper > i{
+    margin-left: 10px;
+}
+
+.ui-menu-item > .ui-menu-item-wrapper:hover,
+.ui-menu-item > .ui-menu-item-wrapper:hover > i,
+.ui-menu-item > .ui-state-active,
+.ui-menu-item > .ui-state-active > i {
+    background: #e8e8e8 !important;
+    //color: white !important;
+    //border-color: white;
+}
+
+.ui-menu-item > .ui-menu-item-wrapper > i{
+    border: solid 1px black;
+    border-radius: 50px;
+    padding: 5px;
+    margin-right: 10px;
+}
+.ui-menu-item > .ui-menu-item-wrapper > i:hover{
+    border: solid 1px white;
+}
+
 .ui-menu li::marker {
     color: #0083D6 !important;
 }
@@ -401,13 +473,13 @@ a:link, a:visited, a:active, a:hover {
     display: none !important;
 }
 
-@media (min-width: 320px) and (orientation: portrait) {
+@media (max-width: 600.98px) {
     .navbar_zaabrasalud{
         height: calc(2.6em + 1rem + 2px);
     }
     // Contenedor principal del header
     .contains_header{
-        max-width: 100%;
+        width: 100%;
         height: 100%;
         padding: 0;
         justify-content: space-between;
@@ -432,11 +504,11 @@ a:link, a:visited, a:active, a:hover {
     }
     .icon_lupa-mobile {
         width: 28px;
-        background: #0083d6;
+        background: #0083D6;
     }
     .contains_barra{
         display: none;
-        background-color: #0083d6 !important;
+        background-color: #0083D6 !important;
         width: 100%;
         height: 79%;
         z-index: 20;
@@ -476,12 +548,15 @@ a:link, a:visited, a:active, a:hover {
         align-items: flex-end;
         height: 100%;
     }
+    .ui-menu {
+        height: 29vh;
+    }
     // Sección botón usuario
     .soy_paciente{
         height: 100%;
         width: 20%;
     }
-    // Seccion icono boton usuario 
+    // Seccion icono boton usuario
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
         background-size: 75%;
@@ -494,7 +569,7 @@ a:link, a:visited, a:active, a:hover {
         flex-wrap: nowrap;
         margin: auto;
     }
-    // Seccion icono boton usuario 
+    // Seccion icono boton usuario
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
         background-size: 70%;
@@ -519,6 +594,7 @@ a:link, a:visited, a:active, a:hover {
     // Menú desplegable
     .dropdown-menu .dropdown-item {
         padding-left: 36%;
+        height: calc(1.5em + 1.5em + 1px);
         justify-content: flex-start;
     }
     .icon-paciente {
@@ -534,15 +610,13 @@ a:link, a:visited, a:active, a:hover {
     .button-membresia {
         display: none;
     }
-    .button-membresia-mobile {
-        display: flex;
-        height: 100%;
-        max-width: 30px;
-        align-items: center;
-        text-align: center;
-    }
-    .img-button-membresia-mobile {
-        max-width: 30px;
+    .btnMembresia_header_mobile {
+        background-image: url('/img/header/boton-de-memebresia-mob.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        height: calc(1em + 1em + 4px);
+        width: calc(1em + 1em + 2px);
     }
     //Sección menú hamburguesa
     .menu-hamburger {
@@ -557,7 +631,7 @@ a:link, a:visited, a:active, a:hover {
     .dropdown-menu .item-cel {
         background-position-x: 7%;
         padding-left: 25%;
-        height: 8vh;
+        //height: 8vh;
     }
     .icon-especialidades{
         background-size: 16%;
@@ -587,8 +661,12 @@ a:link, a:visited, a:active, a:hover {
         background-size: 16%;
     }
 }
-@media (min-width: 768px) and (orientation: portrait) {
-    //Contenedor general
+/*@media (min-width: 360px) and (orientation: portrait) {
+    .ui-menu {
+        height: 35vh;
+    }
+}*/
+@media (min-width: 601px) and (max-width: 1023.98px) {
     .navbar_zaabrasalud {
         background-color: #0083D6;
         padding: 0;
@@ -597,80 +675,116 @@ a:link, a:visited, a:active, a:hover {
         align-items: center;
         justify-content: space-between;
         height: calc(5em + 1rem + 2px);
+        position: sticky;
+        width: 100%;
+        z-index: 500;
+        top: .1px;
     }
-    .contains_header {
-        max-width: 85%;
+    .icon_lupa-mobile {
+        width: 50px;
+        background: #0083D6;
+    }
+    .btnMembresia_header_mobile {
+        background-image: url('/img/header/boton-de-memebresia-mob.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        height: calc(2em + 2em + 4px);
+        width: calc(2em + 2em + 2px);
+    }
+    /*.navbar_zaabrasalud{
+        height: calc(2.6em + 1rem + 2px);
+    }*/
+    // Contenedor principal del header
+    .contains_header{
+        //width: 100%;
         height: 100%;
         padding: 0;
         justify-content: space-between;
     }
-    //Seccion logo zaabra
+    // Sección logo zaabra
     .navbar-logo {
-        width: 13%;
+        text-decoration: none;
+        color: #ffff;
+        text-align: center;
+        width: 27%;
     }
-    .logo_header {
+    //Sección lupa buscador mobile
+    .contains_boxsearch {
+        display: none;
+    }
+    .contain_lupa-mobile {
+        display: flex;
+    }
+    .boton_lupa_mobile {
+        padding: 0;
+        border: none;
+    }
+
+    .contains_barra{
+        display: none;
+        background-color: #0083D6 !important;
         width: 100%;
+        height: 79%;
+        z-index: 20;
+        padding: 8% 0;
     }
-    //Seccion lupa barra buscador
-    .icon_lupa-mobile {
-        width: 130%;
-        background: #0083d6;
+    .barra_oculta {
+        width: 90%;
     }
-    
+    .barra_busqueda-mobile {
+        background: #ffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        border-radius: 2px;
+        margin: auto;
+    }
     .inputBarraBusquedad {
         width: 90%;
-        height: 100%;
+        height: 100% !important;
         padding-left: 0;
         border-radius: 0;
-        font-size: 1.5em;
+        font-size: 17px;
         border: none;
-        padding: 0 2%;
+        padding: 1% 2%;
         background: #faebd700;
     }
     .contenedorLupa {
-        padding: 1% 0;
+        padding: 0;
         border: none;
-        width: 5%;
+        height: auto;
+        width: 6%;
         position: relative;
         margin-top: 0;
         margin-right: 3%;
         right: 0;
         align-items: flex-end;
+        height: 100%;
     }
     .ui-menu {
-        width: 90% !important;
-        left: 5% !important;
+        height: 29vh;
     }
-    // Seccion boton usuario 
-    .menu_paciente {
-        padding: 0;
-        height: auto;
-        width: 215px;
+    // Sección botón usuario
+    .soy_paciente{
+        height: 100%;
+        width: 20%;
     }
-    .icon-paciente {
-        background-size: 22%;
-    }
-    .dropdown-menu .dropdown-item {
-        display: flex;
+    // Seccion icono boton usuario
+    .soy_paciente .dropdown-toggle {
+        background-image: url('/img/header/icono-soy-paciente-blanco.svg');
+        background-size: 60%;
+        background-position: center;
+        background-repeat: no-repeat;
         width: 100%;
-        height: 5vh;
-        clear: both;
-        font-weight: 400;
-        color: #212529;
-        text-align: inherit;
-        white-space: nowrap;
-        background-color: transparent;
-        border: 0;
-        align-items: center;
-        font-size: 1.2em;
+        height: 100%;
+        border: none;
+        display: flex;
+        flex-wrap: nowrap;
+        margin: auto;
     }
-    .texto_item-menu {
-        width: 60%;
-        margin-left: 0;
-        font-size: 1em;
-    }
- 
-    // Seccion icono boton usuario 
+    // Seccion icono boton usuario
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
         background-size: 60%;
@@ -692,65 +806,82 @@ a:link, a:visited, a:active, a:hover {
         flex-wrap: nowrap;
         margin: auto;
     }
-    //Seccion boton membresia
-    .button-membresia-mobile {
-        display: flex;
+    // Menú desplegable
+    .dropdown-menu .dropdown-item {
+        //height: 4.5vh;
+        padding-left: 36%;
+        justify-content: flex-start;
+    }
+    .icon-paciente {
+        background-size: 20%;
+    }
+    .icon-medico {
+        background-size: 20%;
+    }
+    .icon-instituciones {
+        background-size: 20%;
+    }
+    // Sección botón membresía
+    .button-membresia {
+        display: none;
+    }
+
+    //Sección menú hamburguesa
+    .menu-hamburger {
+        width: 15%;
         height: 100%;
-        max-width: 8%;
-        align-items: center;
-        text-align: center;
     }
-    .img-button-membresia-mobile {
-        max-width: 100%;
-    }
-    // Seccion menu hamburguesa
+    // Menú desplegable
     .menu_hamburguesa {
         height: auto;
-        width: 365px;
+        width: 225px;
     }
     .dropdown-menu .item-cel {
         background-position-x: 7%;
         padding-left: 25%;
-        height: 5.5vh;
+        height: 4.5vh;
     }
-    .texto_item-menu-paciente {
-        width: 60%;
-        margin-left: 0;
-        font-size: 1em;
+    .icon-especialidades{
+        background-size: 16%;
     }
-    // Seccion icono menu hamburguesa
-    .menu-hamburger .dropdown-toggle {
-        background-size: 40%;
+    .icon-instituciones-burger{
+        background-position-x: 7%;
+        background-size: 16%;
     }
-    .icon-especialidades {
-        background-size: 15%;
+    .icon-quienes{
+        background-position-x: 7%;
+        background-size: 16%;
     }
-    .icon-instituciones-burger {
-        background-size: 15%;
-    }
-    .icon-quienes {
-        background-size: 15%;
-    }
-    .icon-contactenos {
-        background-size: 15%;
+    .icon-contactenos{
+        background-position-x: 7%;
+        background-size: 16%;
     }
     .icon-agenda{
-        background-size: 15%;
+        background-position-x: 7%;
+        background-size: 16%;
     }
     .icon-perfil{
-        background-size: 15%;
+        background-position-x: 7%;
+        background-size: 16%;
     }
     .icon-cerrarSesion{
-        background-size: 15%;
+        background-position-x: 7%;
+        background-size: 16%;
     }
 }
-@media (min-width: 1024px) and (max-height: 800px) {
+@media (min-width: 1024px) {
+    .contain_lupa-mobile {
+        display: none;
+    }
+    .btnMembresia_header_mobile {
+    display: none;
+    }
     .contains_barra{
         display: none;
     }
     // Contenedor principal
     .contains_header {
-        max-width: 66%;
+        width: 75%;
         height: 100%;
         padding: 0;
         justify-content: flex-start;
@@ -813,9 +944,6 @@ a:link, a:visited, a:active, a:hover {
     .button-membresia {
         display: flex;
     }
-    .button-membresia-mobile {
-        display: none;
-    } 
     .img-button-membresia {
         width: 100%;
     }
@@ -826,9 +954,9 @@ a:link, a:visited, a:active, a:hover {
         display: flex;
         justify-content: center;
         align-items: center;
-    }     
+    }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1200px) and (max-width: 1359.98px) {
     //Seccion barra de busqueda
     .contenedorLupa {
         width: 5%;
@@ -838,7 +966,25 @@ a:link, a:visited, a:active, a:hover {
         max-width: 135px;
     }
     #ui-id-1 {
-        left: 25.45% !important;
+        /*left: 25.6% !important;*/
+        /*width: 29.7% !important;*/
+        height: 27vh;
+
+    }
+}
+@media (min-width: 1360px) {
+    #ui-id-1 {
+        //left: 25.2% !important;
+        height: 30vh;
+    }
+    .icon_searchH {
+        background-size: 60%;
+    }
+    .dropdown-menu .dropdown-item {
+        height: 55px;
+    }
+    .dropdown-menu .menu_item {
+        height: 55px;
     }
 }
 @media (min-width: 1440px) {
@@ -847,7 +993,7 @@ a:link, a:visited, a:active, a:hover {
     }
     // Contenedor principal
     .contains_header {
-        max-width: 66%;
+        width: 75%;
         height: 100%;
         padding: 0;
         justify-content: flex-start;
@@ -860,7 +1006,7 @@ a:link, a:visited, a:active, a:hover {
     .contains_boxsearch {
         padding: 0%;
         flex: 45%;
-        max-width: 45%;
+        width: 45%;
         height: 100%;
         margin-right: 0;
         align-items: center;
@@ -878,6 +1024,12 @@ a:link, a:visited, a:active, a:hover {
         right: 0;
         align-items: flex-end;
     }
+    .icon_searchH {
+        background-size: 60%;
+    }
+    #ui-id-1 {
+        //left: 25.65% !important;
+    }
     //Seccion boton usuario
     .dropdown-paciente {
         width: 30%;
@@ -886,7 +1038,7 @@ a:link, a:visited, a:active, a:hover {
     .soy_paciente{
         width: 8%;
     }
-  
+
     .icon_paciente {
         background-size: contain;
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
@@ -911,9 +1063,6 @@ a:link, a:visited, a:active, a:hover {
         display: flex;
         max-width: 145px;
     }
-    .button-membresia-mobile {
-        display: none;
-    } 
     .img-button-membresia {
         width: 100%;
     }
@@ -924,7 +1073,7 @@ a:link, a:visited, a:active, a:hover {
         display: flex;
         justify-content: center;
         align-items: center;
-    }   
+    }
     .menu_hamburguesa {
         height: auto;
         width: 260px;
@@ -963,10 +1112,12 @@ a:link, a:visited, a:active, a:hover {
         align-items: flex-end;
     }
     #ui-id-1 {
-        left: 24.7% !important;
-        width: 29.7% !important;
+        //left: 24.7% !important;
+        /*width: 29.7% !important;*/
+        height: 31vh;
+        //top: 63px !important;
     }
-    // Seccion icono boton usuario 
+    // Seccion icono boton usuario
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
         background-size: 70%;

@@ -1,12 +1,20 @@
 @extends('layouts.app')
 @section('content')
-    <div class="row">
-        <div class="col-2 d-none d-md-block bg-light sidebar">
+    <div class="row m-0 p-0">
+        <div class="col-2 d-none d-lg-block p-0 bg-light sidebar" style="height: fit-content;">
             @include('menuAdmin')
         </div>
-        <div class="col-10 panel-Administrativo">
+
+        <div class="col-12 col-lg-10 panel-Administrativo">
+            <div class="dropdown d-lg-none">
+                <a class="icon_menu_agenda dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    @include('menuAdmin')
+                </div>
+            </div>
             <main>
-            @yield('Panel')
+                @yield('Panel')
             </main>
         </div>
     </div>

@@ -161,6 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -176,7 +177,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
         \Conner\Tagging\Providers\TaggingServiceProvider::class,
-
+        Laravel\Socialite\SocialiteServiceProvider::class
     ],
 
     /*
@@ -229,7 +230,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class
     ],
 
 ];

@@ -1,0 +1,63 @@
+.fc-agendarCita-button 
+{
+    background-color: #0083D6 !important;
+    border-color: #0083D6 !important;
+}
+.fc-timeGridWeek-button
+{
+    background-color: #0083D6 !important;
+    border-color: #0083D6 !important;
+}
+
+.fc-prev-button
+{
+    background-color: #019F86 !important;
+    border-color: #019F86 !important;
+}
+.fc-next-button
+{
+    background-color: #019F86 !important;
+    border-color: #019F86 !important;
+}
+.fc-today-button 
+{
+    background-color: #019F86 !important;
+    border-color: #019F86 !important;
+}
+.fc-dayGridMonth-button 
+{
+    background-color: #019F86 !important;
+    border-color: #019F86 !important;
+}
+.fc-timeGridDay-button
+{
+    background-color: #019F86 !important;
+    border-color: #019F86 !important;
+}
+.fc-myCustomButton-button {
+    background-color: #019F86 !important;
+    border-color: #019F86 !important;
+}
+.fc-event-title-container {
+    background-color: #0083D6 !important;
+    border-color: #0083D6 !important;
+}
+
+@media (min-width: 320px) and (orientation: portrait){
+    .fc .fc-toolbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: flex-start;
+    }
+}
+@media (min-width: 768px) and (orientation: portrait){
+    .fc .fc-toolbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+

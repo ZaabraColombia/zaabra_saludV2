@@ -6,14 +6,15 @@
 }
 .titulo_principal-membresia {
     font-family: 'Quicksand';
-    font-size: 2em;
+    font-size: calc(0.95em + 1vw);
+    font-weight: bold;
     color: #0083D6;
     text-align: center;
     margin-top: 5%;
 }
 .texto_superior-membresia {
     font-family: 'Roboto','Regular';
-    font-size: 1.25em;
+    font-size: 1.2em;
     color: #3E3E3E;
     text-align: center;
     padding: 0;
@@ -32,7 +33,7 @@
 .ruta_membresiaInst {
     display: flex;
     justify-content: center;
-    width: 90%;
+    width: 93%;
 }
 .input_img-option-membresia {
     margin: 0;
@@ -62,7 +63,7 @@
 }
 .titulo_tarjeta-membresia {
     font-family: 'Quicksand', 'Regular';
-    font-size: 1.8em;
+    font-size: calc(0.95em + 1vw);
     color: #232323;
     text-align: center;
     margin-top: 3%;
@@ -88,7 +89,7 @@
 }
 // Seccion acordion 2
 .btn_precio-tarjeta-membresia {
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 7px;
     height: calc(1.6em + 0.75rem + 2px);
@@ -169,14 +170,19 @@
     font-family: "Quicksand";
     font-size: 1.5em;
     color: #ffffff;
-    background: #0083d6;
+    background: #0083D6;
     border: none;
     border-radius: 3px;
     height: calc(1.6em + 0.75rem + 2px);
     width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 .flecha_ingreso-membresia {
     width: 11%;
+    margin-left: 5%;
 }
 @media(min-width: 320px) and (orientation: portrait) {
     .section_principal-membresia {
@@ -184,7 +190,7 @@
     }
     // Seccion titulo y texto principal
     .titulo_principal-membresia {
-        font-size: 1.25em;
+        font-size: 1.3em;
         margin-top: 5%;
     }
     .texto_superior-membresia {
@@ -208,7 +214,7 @@
     }
     // Sección acordion 1
     .titulo_tarjeta-membresia {
-        font-size: 1em;
+        font-size: 1.3em;
     }
     .texto_tiempo-membresia {
         font-size: .75em;
@@ -222,7 +228,7 @@
     }
     // Seccion acordion 2
     .btn_precio-tarjeta-membresia {
-        width: 40%;
+        width: 50%;
     }
     .precio_tarjeta-membresia {
         font-size: 1.25em;
@@ -253,6 +259,7 @@
     }
     .flecha_ingreso-membresia {
         width: 13%;
+        margin-left: 5%;
     }
 }
 @media (min-width: 375px) and (orientation: portrait) {
@@ -263,7 +270,7 @@
     }
     // Seccion titulo y texto principal
     .titulo_principal-membresia {
-        font-size: 2em;
+        font-size: 2.5em;
         margin-top: 5%;
     }
     .texto_superior-membresia {
@@ -287,7 +294,7 @@
     }
     // Seccion acordion 1
     .titulo_tarjeta-membresia {
-        font-size: 1.8em;
+        font-size: 2.5em;
     }
     .texto_tiempo-membresia {
         font-size: 1.5em;
@@ -359,17 +366,22 @@
         width: 9%;
     }
 }
+@media(min-width: 1360px) {
+    .texto_input-instituto-membresia {
+        font-size: .95em;
+    }
+}
 @media (min-width: 1440px) {
     // Seccion titulo y texto principal
     .titulo_principal-membresia {
-        font-size: 3.5em;
+        font-size: calc(1em + 1vw);
     }
     .texto_superior-membresia {
-        font-size: 1.3em;
+        font-size: 1.25em;
     }
     // Sección opciones principales
     .section_inputs-option-membresia {
-        height: 17vh;
+        height: 20vh;
     }
     .input_img-option-membresia {
         width: 50%;
@@ -385,10 +397,10 @@
     }
     // Seccion acordion 1
     .titulo_tarjeta-membresia {
-        font-size: 3em;
+        font-size: calc(0.95em + 1vw);
     }
     .texto_tiempo-membresia {
-        font-size: 1.8em;
+        font-size: 1.5em;
         margin-bottom: 2%;
     }
     // Seccion acordion 2
@@ -403,15 +415,15 @@
         font-size: 1.8em;
     }
     .boton_collapse-off-membresia {
-        font-size: 1.8em;
+        font-size: 1.5em;
         background-size: 3.5%;
     }
     .boton_collapse-on-membresia {
-        font-size: 1.8em;
-        background-size: 3.5%;
+        font-size: 1.5em;
+        background-size: 3.5% !important;
     }
     .text_interno-toggle-membresia {
-        font-size: 1em;
+        font-size: 1.1em;
     }
     // Texto inferior
     .texto_inferior-membresia {
@@ -420,7 +432,7 @@
     }
     // Seccion botones inferiores REGISTRAR y EMPEZAR
     .btn_Ingreso-membresia {
-        font-size: 2.1em;
+        font-size: 2em;
         width: 35%;
     }
 }
@@ -450,10 +462,12 @@
         margin: 4% 0;
     }
     .texto_tiempo-membresia {
-        font-size: 1.8em;
         margin: 1% 0;
     }
     // Seccion acordion 2
+    .btn_precio-tarjeta-membresia {
+        width: 35%;
+    }
     .boton_collapse-off-membresia {
         background-size: 2.5%;
     }
@@ -471,8 +485,6 @@
     }
     .btn_Ingreso-membresia {
         font-size: 2em;
-    }
-    .flecha_ingreso-membresia {
-        width: 8%;
+        width: 25%;
     }
 }

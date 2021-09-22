@@ -22,6 +22,7 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
-        "fullcalendar": "^5.8.0"
+        "fullcalendar": "^5.9.0",
+        "jquery-validation": "^1.19.3"
     }
 }

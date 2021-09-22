@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class videos extends Model
 {
     protected $fillable = [
+        'id',
         'idPerfilProfesional',
         'idinstitucion',
         'nombrevideo',
@@ -15,4 +16,6 @@ class videos extends Model
         'urlvideo',
         'fechavideo'
     ];
+
+    protected $primaryKey = "id";
 }

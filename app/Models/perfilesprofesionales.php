@@ -2,43 +2,81 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
 class perfilesprofesionales extends Model
 {
+    use Sluggable;
         /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'idUser', 
-        'idarea', 
-        'idprofesion', 
-        'idespecialidad', 
+        'idUser',
+        'idarea',
+        'idprofesion',
+        'idespecialidad',
         'idpais',
-        'id_departamento', 
-        'id_provincia', 
-        'id_municipio', 
-        'direccion',  
+        'id_departamento',
+        'id_provincia',
+        'id_municipio',
+        'id_universidad',
+        'direccion',
         'genero',
         'celular',
         'telefono',
-        'EmpresaActual', 
-        'fotoperfil', 
-        'fechanacimiento', 
-        'numeroTarjeta', 
-        'entidadCertificoTarjeta',  
+        'EmpresaActual',
+        'fotoperfil',
+        'fechanacimiento',
+        'numeroTarjeta',
+        'entidadCertificoTarjeta',
         'descripcionPerfil ',
-        'imglogoempresa', 
-        'caracteristicas',  
-        'FechaAprobacion', 
-        'aprobado', 
-        'aceptoTerminos', 
-        'fechaCreacionFormulario',  
-        'created_at', 
+        'imglogoempresa',
+        'caracteristicas',
+        'FechaAprobacion',
+        'aprobado',
+        'aceptoTerminos',
+        'fechaCreacionFormulario',
+        'created_at',
         'updated_at',
+        'slug'
     ];
+
+    protected $primaryKey = 'idPerfilProfesional';
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'idUser', 'id');
+    }
+
+    public function profecion()
+    {
+        return $this->belongsTo(profesiones::class, 'idprofesion', 'idProfesion');
+    }
+
+    public function especialidad()
+    {
+        return $this->belongsTo(especialidades::class, 'idespecialidad', 'idEspecialidad');
+    }
+
+    public function idiomas()
+    {
+        return $this->belongsToMany(idiomas::class, 'usuario_idiomas', 'idPerfilProfesional', 'id_idioma')
+            ->withTimestamps();
+    }
+
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => ['user.primernombre', 'user.segundonombre', 'user.primerapellido', 'user.segundoapellido']
+            ]
+        ];
+    }
 }

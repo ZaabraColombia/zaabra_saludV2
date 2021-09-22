@@ -5,23 +5,27 @@ namespace App\Http\Controllers\profesionales;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use SEO;
 
 class profesionesController extends Controller
 {
 
-    
-    
+
+
     public function index()
     {
+        SEO::setTitle('Ramas de la Salud');
+        SEO::setDescription('En Zaabra Salud, todas las ramas de la salud: Odontología, Medicina, Psicología, Fisioterapia, Enfermería y Veterinaria.');
+        SEO::setCanonical('https://zaabrasalud.co/');
+
         //esta varible se llena con los datos recolectados en cada una de las consultas y entregan los datos
-        //en la vista galeria  
+        //en la vista galeria
         $objbannersprincipalProfesiones = $this->cargarBannerPrincipalProfesiones();
         $objprofesiones = $this->cargarProfesiones();
         $objcarruselprofesiones = $this->cargarCarruselProfesiones();
-       
-   
-        return view('profesionales.Profesiones', compact(
+
+
+        return view('profesionales.ramas-de-la-salud', compact(
             'objbannersprincipalProfesiones',
             'objprofesiones',
             'objcarruselprofesiones'
@@ -29,10 +33,10 @@ class profesionesController extends Controller
     }
 
 
-    // consulta para cargar banner principal 
+    // consulta para cargar banner principal
     public function cargarBannerPrincipalProfesiones(){
         $consultaBannerProfesiones = DB::table('ventabanners')
-        ->select('rutaImagenVenta')
+        ->select()
         ->where('aprobado', '<>', 0)
         ->where('idtipobanner', '=', 5)
         ->get();
@@ -41,12 +45,12 @@ class profesionesController extends Controller
 
     // consulta para cargar todas las profesiones disponibles, activas y en el orden secuencial según diseño
     public function cargarProfesiones(){
-        return DB::select('SELECT pr.nombreProfesion, pr.descripcion, pr.urlimagen, pr.idProfesion
+        return DB::select('SELECT pr.nombreProfesion, pr.descripcion, pr.urlimagen, pr.idProfesion, pr.slug
         FROM profesiones  pr
-        where pr.estado <>0 ORDER BY orden ASC');
+        where pr.estado <>0 ORDER BY orden, pr.nombreProfesion ASC');
     }
 
-    // consulta para cargar carrusel profesiones 
+    // consulta para cargar carrusel profesiones
     public function cargarCarruselProfesiones(){
         $consultaCarruselProfesiones = DB::table('ventabanners')
         ->select('rutaImagenVenta')

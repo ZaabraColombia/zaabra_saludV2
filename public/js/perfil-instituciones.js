@@ -36,18 +36,24 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
 
-      const swiper_certificados = new Swiper(".swiper_certificados", {
 
+      const swiper_galeria_prof = new Swiper(".swiper_galeria_inst", {
         loop: true,
+        resizeObserver: true,
        
         autoplay: {
-          delay: 3500,
-          disableOnInteraction: false,
+          delay: 4500,
+          disableOnInteraction: true,
         },
       
         // If we need pagination
         pagination: {
             el: '.swiper-pagination',
+        },
+         // Navigation arrows
+         navigation: {
+          nextEl: '.btn-next',
+          prevEl: '.btn-prev',
         },
       
         breakpoints: {
@@ -56,21 +62,87 @@ document.addEventListener('DOMContentLoaded', function () {
             slidesPerView: 1,
             slidesPerGroup: 1,
           },
+           // when window width is >= 768px
+           768: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: 20,
+          },
            // when window width is >= 1024px
           1024: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             slidesPerGroup: 1,
             spaceBetween: 20,
           },
             // when window width is >= 1600px
-          1600: {
+          1440: {
             slidesPerView: 3,
             slidesPerGroup: 1,
             spaceBetween: 20,
           },
+
+          // when window width is >= 1920px
+          1920: {
+            slidesPerView: 3,
+            slidesPerGroup: 1,
+            spaceBetween: 15,
+          },
         }
       });
+
+ 
+      const swiper_gale_prof = new Swiper(".swiper_gale_inst", {
+        loop: true,
+        resizeObserver: true,
+       
+        autoplay: {
+          delay: 4500,
+          disableOnInteraction: true,
+        },
       
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+         // Navigation arrows
+         navigation: {
+          nextEl: '.btn-next',
+          prevEl: '.btn-prev',
+        },
+      
+        breakpoints: {
+           // when window width is >= 320px
+          320: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+          },
+           // when window width is >= 768px
+           768: {
+            slidesPerView: 2,
+            slidesPerGroup: 1,
+            spaceBetween: 15,
+          },
+           // when window width is >= 1024px
+          1024: {
+            slidesPerView: 2,
+            slidesPerGroup: 1,
+            spaceBetween: 15,
+          },
+            // when window width is >= 1440px
+          1440: {
+            slidesPerView: 3,
+            slidesPerGroup: 1,
+            spaceBetween: 15,
+          },
+
+          // when window width is >= 1920px
+          1920: {
+            slidesPerView: 3,
+            slidesPerGroup: 1,
+            spaceBetween: 15,
+          },
+        }
+      });
 
       
       const menu_insti = [].slice.apply(document.querySelectorAll('.item_landing_insti'))

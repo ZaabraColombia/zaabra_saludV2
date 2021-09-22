@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 class profesiones extends Model
 {
+
+    use Sluggable;
+
     protected $fillable = [
         'idProfesion',
         'nombreProfesion',
@@ -14,6 +17,27 @@ class profesiones extends Model
         'estado',
         'urlimagen',
         'descripcion',
-        'orden'
+        'orden',
+        'slug'
     ];
+
+    protected $table = 'profesiones';
+
+    public $timestamps = false;
+
+    protected $primaryKey = 'idProfesion';
+
+    public function perfiles_profesionales()
+    {
+        return $this->hasMany(perfilesprofesionales::class, 'idprofesion', 'idProfesion');
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'nombreProfesion'
+            ]
+        ];
+    }
 }

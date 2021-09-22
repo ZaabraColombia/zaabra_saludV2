@@ -1,5 +1,6 @@
 .panel-Administrativo{
     background: #F9F9F9;
+    padding: 3% 3% 5% 3%;
 }
 #sidebar.active .sidebar-wrapper {
     left: 0;
@@ -11,7 +12,7 @@
     margin-left: 0;
 }
 .sidebar-wrapper {
-    width: 300px;
+    width: 100%;
     top: 0;
     overflow-y: auto;
     background-color: #fff;
@@ -43,8 +44,8 @@
     font-size: 1rem;
     list-style: none;
     font-weight: 600;
-    color: #232323;
 }
+
 .sidebar-wrapper .menu .sidebar-link {
     display: block;
     padding: .7rem 1rem;
@@ -111,31 +112,34 @@
     font-weight: 700;
 }
 .sidebar-wrapper .menu .submenu .submenu-item a {
-    padding: .7rem 2rem;
+    padding: .7rem 1rem;
     display: block;
-    color: #232323;;
-    font-size: .85rem;
     font-weight: 600;
     letter-spacing: .5px;
     transition: all .3s;
+    font-size: .85rem;
+    text-decoration: none;
 }
-.sidebar-wrapper .menu .submenu .submenu-item a:hover {
-    margin-left: .3rem;
+.sidebar-wrapper .menu .submenu .submenu-item .actived:hover {
+    margin-left: .1rem;
+    color: #ffffff !important;
+    background-color: #0083D6;
+    text-decoration: none;
 }
-
-.cardtipo1{
-    border: 1px solid #019f86;
-    box-shadow: 0px 3px 7px #00000029;
-    border-radius: 5px;
+.actived {
+    color: #232323 !important;
 }
-.cardtipo2{
-    border: 1px solid #0083d6;
-    box-shadow: 0px 3px 7px #00000029;
-    border-radius: 5px;
+.unactived {
+    color: #0083D6 !important;
+    text-decoration: none !important;
 }
-.cardtipo3{
-    border: 1px solid #019f86;
-    box-shadow: 0px 3px 7px #00000029;
-    border-radius: 5px;
+.titulo_menu {
+    color: #232323 !important;
+    display: flex;
+    width: 75%;
 }
-
+.citaPadre {
+    color: #ffffff !important;
+    background-color: #0083D6;
+    padding-left: 5%;
+}

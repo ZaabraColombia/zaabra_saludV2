@@ -2,23 +2,31 @@
     background: #F5F5F5;
 }
 .data_instituciones{
-    height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: nowrap;
     align-content: center;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
-.data_instituciones img{
-    box-shadow: 0px 3px 6px #00000029
+.logo_sede_inst{
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 115px;
+    width: 100%;
+}
+.img_sede_inst {
+    box-shadow: 0px 3px 6px #00000029;
+    width: 100%;
+    border-radius: 40px 0 0 0;
 }
 .data_instituciones .contains_info{
+    width: 30%;
+    padding-left: 2%;
     display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 .data_instituciones h2{
     font-family: "Quicksand", sans-serif;
@@ -38,50 +46,58 @@
 .data_instituciones h5:nth-child(1){
     font-weight: 500;
 }
-.data_instituciones .title-adress{
+.data_instituciones .title-adress {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 }
 .data_instituciones .title-adress i{
     background-image: url('/img/landing-institucion/icono-direccion.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
+.data_instituciones .title-url {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
 .data_instituciones .title-url i{
     background-image: url('/img/landing-institucion/icono-pagina-web.svg');
     background-repeat: no-repeat;
     background-size: contain;
+}
+.data_instituciones .title-tel {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 .data_instituciones .title-tel i{
     background-image: url('/img/landing-institucion/icono-contacto.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
-
-.data_instituciones .contains_buttons a:nth-child(2) {
+.landingInsti {
+    height: fit-content !important;
+}
+.contains_buttons_landInst a:nth-child(2) {
     font-family: "Quicksand";
     font-weight: lighter;
-    text-align: center;
     align-items: center;
     justify-content: center;
     border-radius: 3px;
     background: #EFEFEF;
     color: #232323;
     border: 0.5px solid #434343;
-    margin-left: auto;
-    margin-right: auto;
 }
-.data_instituciones .contains_buttons a:nth-child(1) {
+.contains_buttons_landInst a:nth-child(1) {
     font-family: "Quicksand";
     font-weight: lighter;
-    text-align: center;
     align-items: center;
     justify-content: center;
     border-radius: 3px;
     background: #019F86;
     color: #ffff;
-    margin-left: auto;
-    margin-right: auto;
+    border: 0.5px solid #019F86;
 }
 .servicios {
     background-image: url('/img/landing-institucion/icono-principal-servicios-profesionales.svg');
@@ -135,7 +151,6 @@
     width: 100%;
     height: 70px;
     background-position: center;
-    margin-bottom: 50%;
 }
 .swiper_institucion .item_landing_insti span{
     text-align: center;
@@ -144,7 +159,6 @@
     color: #232323;
     line-height: 15px;
     margin-top: 70px;
-    height: 100%;
 }
 .contains_swiper_institucion h1 {
     font-family: "Quicksand", sans-serif;
@@ -219,11 +233,13 @@
     display: flex;
     list-style: none;
     align-content: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    margin: 2% 0;
 }
-.convenios ul li:nth-child(1){
+.convenios ul li:nth-child(odd){
     background: #F5F5F5;
+
 }
 .convenios h2 {
     display: flex;
@@ -326,6 +342,25 @@
 .sedes_institucion span{
     font-family: "Roboto";
     color: #0083D6;
+    font-size: 1.2em;
+}
+.mapa i {
+    background-image: url('/img/landing-institucion/icono-ubique-su-sede.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.mapa h2 {
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #434343;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.mapa p {
+    font-family: "Roboto";
+    color: #3E3E3E;
 }
 .contains_swiper_certificados h2 {
     display: flex;
@@ -341,17 +376,17 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
-.swiper_certificados h6{
+.swiper_gale_inst h6{
     font-family: "Roboto";
     color: #3E3E3E;
     font-weight: bolder;
 }
-.swiper_certificados h5{
+.swiper_gale_inst h5{
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
     text-transform: capitalize;
 }
-.swiper_certificados p{
+.swiper_gale_inst p{
     font-family: "Roboto";
     color: #232323;
 }
@@ -365,7 +400,7 @@
     align-items: center;
 }
 .galeria_institucion i {
-    background-image: url('/img/landing-institucion/icono-galeria.svg');
+    background-image: url('/img/landing-institucion/icono-galeria-institucion.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -408,14 +443,14 @@
 .videos_institucion p {
     font-family: "Roboto";
     color: #3E3E3E;
-    text-align: center;
+    text-align: initial;
 }
 .section_insti_active{
     display: block !important;
 }
 .section_insti{
     display: none;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
 .lista_sede{
     display: flex;
@@ -451,6 +486,40 @@
 .desplegable_institucion .card-header{
     border: 0;
 }
+
+.icono_opiniones_inst {
+    background-image: url('/img/landing-institucion/icono-opiniones-de-pacientesinst.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.title_opinionesInst {
+    font-family: "Quicksand";
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #019F86;
+    padding-left: 5%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    width: 77%;
+    margin: auto;
+}
+.text_cabeceraInst {
+    font-family: 'Roboto';
+    font-size: 1em;
+    color: #3E3E3E;
+    width: 66%;
+    margin: auto;
+    margin-bottom: 2%;
+}
+.convenios img{
+    max-width: 33.3%;
+    padding: 0 2%;
+    -o-object-fit: cover;
+    object-fit: contain;
+    height: auto;
+    image-rendering: -webkit-optimize-contrast;
+}
 @media (min-width: 320px){
     .section_data_instituciones{
         width: 100%;
@@ -462,14 +531,48 @@
     .data_instituciones .contains_info{
         width: 100%;
     }
-    .data_instituciones img{
+    .content_logo_inst {
+        width: 55%;
+    }
+    .swiper_institucion .item_landing_insti {
+        margin-bottom: 45%;
+    }
+    .swiper_institucion .item_landing_insti span{
+       // margin-top: 110px;
+        font-size: .75em; 
+    }
+    /*.logo_sede_inst{
         border-radius: 50%;
         width: 130px;
         height: 130px;
         object-fit: cover;
     }
+    .img_sede_inst {
+        border-radius: 50%;
+        width: 130px;
+        height: 130px;
+        object-fit: cover;
+    }*/
+    .data_instituciones .contains_info {
+        width: 100%;
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10% 0 5% 0;
+    }
+    .data_instituciones{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .content_sede_inst {
+        display: none;
+    }
     .data_instituciones h2{
-        margin-top: 5%;
         margin-bottom: 1%;
         font-size: 1.4em;
     }
@@ -477,39 +580,52 @@
         font-size: 1.3em;
         margin-bottom: 1%;
     }
-    .data_instituciones .title-url,
+    /*.data_instituciones .title-url,
     .title-tel{
         display: none;
-    }
+    }*/
     .title-adress i, .title-url i, .title-tel i{
-        width: 16%;
+        width: 10%;
         height: 20px;
     }
     .data_instituciones h5{
         font-size: 0.8em;
         text-transform: none;
     }
-    .data_instituciones .title-adress{
+    .data_instituciones .title-url {
         width: 85%;
         margin-left: 0;
+        justify-content: flex-start;
+        padding-left: 13%;
+    }
+    .data_instituciones .title-tel {
+        width: 85%;
+        margin-left: 0;
+        justify-content: flex-start;
+        padding-left: 13%;
+    }
+    .data_instituciones .title-adress {
+        width: 85%;
+        margin-left: 0;
+        justify-content: flex-start;
+        padding-left: 13%;
+    }
+    .start_calification {
+        width: 58%;
     }
     .data_instituciones .rating-stars ul{
         margin-top: 5%;
-        margin-bottom: 5%;
+        margin-bottom: 0;
     }
-    .data_instituciones .contains_buttons {
-        width: 90%;
+    .contains_buttons_landInst {
         display: flex;
-        height: 30%;
-        align-content: center;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
     }
-    .data_instituciones .contains_buttons a {
+    .contains_buttons_landInst a {
         display: flex;
         width: 45%;
-        padding-top: 2%;
-        padding-bottom: 2%;
+        padding: 1% 0;
     }
     .swiper_institucion{
         width: 85%;
@@ -523,7 +639,7 @@
         font-size: 0.6em;
     }
     .contains_swiper_institucion{
-        margin-bottom: 0;
+        margin-bottom: 10%;
     }
     .contains_swiper_institucion h1 {
         max-width: 90%;
@@ -545,7 +661,7 @@
         font-size: 1.1em;
     }
     .servicios_instituciones p,
-    .quienes_somos p {
+    .quienes_somos p, .mapa p{
         font-size: 0.75em;
         padding-bottom: 3%;
         padding-left: 14%;
@@ -606,18 +722,6 @@
         width: 90%;
         margin: auto;
     }
-    .convenios ul li{
-        margin-bottom: 5%;
-        height: 12vh;
-        padding-right: 5%;
-    }
-    .convenios img{
-        max-width: 30%;
-        -o-object-fit: cover;
-        object-fit: contain;
-        height: 40px;
-        image-rendering: -webkit-optimize-contrast;
-    }
     .convenios h2{
         font-size: 1.1em;
     }
@@ -655,6 +759,17 @@
         width: 90%;
         margin: auto;
     }
+    .mapa {
+        width: 90%;
+        margin: auto;
+    }
+        .mapa i {
+        width: 14%;
+        height: 30px;
+    }
+    .sedes_institucion span{
+        font-size: .75em;
+    }
     .sedes_institucion h2{
         font-size: 1.1em;
     }
@@ -691,17 +806,22 @@
         width: 90px;
         height: 90px;
     }
-    .mapa{
+    .mapa h2{
+        font-size: 1.1em;
+    }
+    /*.mapa{
         width: 85%;
         margin : auto;
-    }
+    }*/
     .mapa iframe{
         width: 100%;
     }
-    .swiper_certificados{
-        max-width: 70%;
+    .slaider_cert_landInst {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
     }
-    .swiper_certificados img{
+    .swiper_gale_inst img{
         max-width: 100%;
     }
     .contains_swiper_certificados h2{
@@ -715,46 +835,94 @@
         width: 14%;
         height: 30px;
     }
-    .swiper_certificados h6{
+    .swiper_gale_inst h6{
         font-size: 0.9em;
+        margin-top: 3%;
         margin-bottom: 0;
         text-align: left;
     }
-    .swiper_certificados h5{
+    .swiper_gale_inst h5{
         font-size: 1.1em;
     }
-    .swiper_certificados p{
+    .swiper_gale_inst p{
         font-size: 0.7em;
+        margin-top: 1%;
     }
-    .galeria_institucion{
-        height: 55vh;
+    .btnPrev_certInst {
+        width: 10px;
+        height: 16px;
+        left: 3%;
+        margin-top: -50%;
     }
+    .btnNext_certInst {
+        width: 10px;
+        height: 16px;
+        right: 3%;
+        margin-top: -50%;
+    }
+    .swiper_gale_inst{
+        max-width: 80%;
+        height: fit-content;
+        margin-top: 3%;
+        margin-bottom: 7%;
+    }
+
+
+
+    .btnPrev_inst {
+        width: 10px;
+        height: 16px;
+        left: 3%;
+        margin-top: -50%;
+    }
+    .btnNext_inst {
+        width: 10px;
+        height: 16px;
+        right: 3%;
+        margin-top: -50%;
+    }
+
     .galeria_institucion h2 {
         font-size: 1.1em;
         text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 90%;
+        max-width: 100%;
+        padding-left: 5%;
+    }
+    .swiper_galeria_inst{
+        max-width: 80%;
+        height: fit-content;
+        margin-top: 3%;
+        margin-bottom: 7%;
+    }
+    .img_galeria_inst {
+        width: 100%;
+        height: 25vh;
+        object-fit: cover;
+    }
+    .galeria_institucion h5 {
+        font-size: 1.1em;
+        margin: 2% 0;
     }
     .galeria_institucion i {
         width: 14%;
         height: 30px;
     }
-    .galeria_institucion ul{
-        max-width: 85%;
+    .galeria_institucion p {
+        font-size: .75em;
     }
+
     .gallery_institucion > li {
         border: 1px solid transparent;
         float: left;
-        height: calc(100% / 2);
+        //height: calc(100% / 2);
         margin: 0 -1px -1px 0;
         overflow: hidden;
-        width: calc(100% / 2);
+        //width: calc(100% / 2);
     }
     .gallery_institucion > li > img{
         cursor: zoom-in;
         width: 100%;
-        height: 80px;
+        //height: 80px;
         object-fit: cover;
     }
     .videos_institucion{
@@ -785,18 +953,32 @@
     }
     .videos_institucion .card-body h5{
         font-size: 1em;
-        text-align: center;
+        text-align: initial;
     }
     .videos_institucion h2{
         font-size: 1.1em;
     }
+    .title_opinionesInst {
+        font-size: 1.1em;
+        padding-left: 13%;
+        width: 90%;
+    }
+    .text_cabeceraInst {
+        font-size: .75em;
+        width: 75%;
+        margin-left: 18%;
+    }
 }
 @media (min-width: 375px){
-
-    .data_instituciones img{
+    
+   /*.logo_sede_inst{
         width: 180px;
         height: 180px;
     }
+    .img_sede_inst{
+        width: 180px;
+        height: 180px;
+    }*/
     .contains_swiper_institucion h1{
         font-size: 1.25em;
     }
@@ -805,7 +987,7 @@
         font-size: 1.3em;
     }
     .servicios_instituciones p,
-    .quienes_somos p{
+    .quienes_somos p, .mapa p{
         font-size: 0.8em;
     }
     .propuesta h2{
@@ -841,6 +1023,12 @@
     .sedes_institucion .card-body h5 {
         font-size: 1em;
     }
+    .mapa i{
+        width: 12%;
+    }
+    .mapa h2{
+        font-size: 1.3em;
+    }
     .videos_institucion .card h4, h6 {
         font-size: 1.1em;
     }
@@ -856,9 +1044,9 @@
     .galeria_institucion i{
         width: 12%;
     }
-    .gallery_institucion > li > img{
+    /*.gallery_institucion > li > img{
         height: 100px;
-    }
+    }*/
     .videos_institucion h2{
         font-size: 1.3em;
     }
@@ -873,15 +1061,55 @@
     }
 }
 @media (min-width: 768px){
-    .data_instituciones .contains_buttons{
-        margin-top: 5%;
+    .section_data_instituciones {
+        padding-bottom: 7%;
     }
-    .data_instituciones .contains_buttons a{
+    .contains_buttons_landInst {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 80%;
+        margin: auto;
+    }
+    .contains_buttons_landInst a{
         font-size: 1.4em;
+        width: 36%;
     }
-    .data_instituciones img {
+    .content_logo_inst {
+        width: 30%;
+    }
+    .title-adress i, .title-url i, .title-tel i {
+        width: 7%;
+        height: 25px;
+    }
+    .swiper_gale_inst img{
+        height: 14vh;
+        max-width: 100%;
+        object-fit: contain;
+    }
+    .data_instituciones .title-url {
+        padding-left: 26%;
+    }
+    .data_instituciones .title-tel {
+
+        padding-left: 26%;
+    }
+    .data_instituciones .title-adress {
+        padding-left: 26%;
+    }
+    .start_calification {
+        width: 33%;
+    }
+    /*.logo_sede_inst {
         width: 250px;
         height: 250px;
+    }
+    .img_sede_inst {
+        width: 250px;
+        height: 250px;
+    }*/
+    .data_instituciones .contains_info {
+        margin: 5% 0 3% 0;
     }
     .data_instituciones h2{
         font-size: 2em;
@@ -892,20 +1120,20 @@
     .data_instituciones h5 {
         font-size: 1.2em;
     }
-    .title-adress i, .title-url i, .title-tel i {
-        width: 19%;
-        height: 30px;
-    }
     .contains_swiper_institucion h1 {
         font-size: 2em;
         margin-top: 7%;
     }
     .swiper_institucion .item_landing_insti{
         height: 100px;
+        margin-bottom: 20%;
     }
     .swiper_institucion .item_landing_insti span{
         margin-top: 110px;
-        font-size: 1.1em; 
+        font-size: 1.2em; 
+    }
+    .servicios_instituciones, .quienes_somos {
+        margin-bottom: 0;
     }
     .item_landing_insti i{
         height: 90px;
@@ -928,7 +1156,7 @@
         height: 45px;
     }
     .servicios_instituciones p,
-    .quienes_somos p {
+    .quienes_somos p, .mapa p{
         font-size: 1.1em;
         padding-left: 10%;
     }
@@ -948,7 +1176,7 @@
         color: #3E3E3E;
     }
     .propuesta h2 {
-        font-size: 1.8em;
+        font-size: 1.5em;
     }
     .propuesta i {
         width: 10%;
@@ -970,7 +1198,7 @@
         color: #3E3E3E;
     }
     .convenios h2 {
-        font-size: 1.8em;
+        font-size: 1.5em;
     }
     .convenios i {
         width: 10%;
@@ -978,13 +1206,6 @@
     }
     .convenios ul{
         padding-left: 10%;
-    }
-    .convenios ul li{
-        justify-content: space-evenly;
-    }
-    .convenios img{
-        max-width: 50%;
-        height: 65px;
     }
     .idiomas h2 {
         font-size: 1.8em;
@@ -1018,6 +1239,9 @@
         font-size: 1.2em;
         font-weight: 500;
     }
+    .sedes_institucion span{
+        font-size: 1.2em;
+    }
     .sedes_institucion h2 {
         font-size: 1.8em;
     }
@@ -1032,80 +1256,127 @@
         width: 85%;
     }
     .sedes_institucion .card-body h5 {
-        font-size: 1.4em;
+        font-size: 1.5em;
     }
     .sedes_institucion p {
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
     .sedes_institucion .card-img-top {
         border-radius: 50%;
         width: 150px;
         height: 150px;
+        object-fit: cover;
     }
-    .mapa {
+    .mapa i {
+        width: 10%;
+        height: 45px;
+    }
+    .mapa h2 {
+        font-size: 1.5em;
+    }
+    /*.mapa {
         width: 75%;
         margin: auto;
         margin-top: 5%;
+    }*/
+    .section_insti {
+        margin-bottom: 7%;
     }
     .contains_swiper_certificados h2 {
         font-size: 1.8em;
-        margin-bottom: 7%;
+        margin-bottom: 0;
     }
     .contains_swiper_certificados i {
         width: 10%;
         height: 45px;
     }
-    .swiper_certificados {
-        max-width: 50%;
+    .slaider_cert_landInst {
+        width: 50%;
     }
-    .swiper_certificados h6 {
+    .swiper_gale_inst h6 {
         font-size: 1.2em;
         margin-bottom: 0;
         text-align: left;
         margin-top: 4%;
     }
-    .swiper_certificados h5 {
+    .swiper_gale_inst h5 {
         font-size: 1.5em;
     }
-    .swiper_certificados p {
+    .swiper_gale_inst p {
         font-size: 1.1em;
     }
+    .btnPrev_certInst {
+        width: 18px;
+        height: 25px;
+        left: 4%;
+        margin-top: -33%;
+    }
+    .btnNext_certInst {
+        width: 18px;
+        height: 25px;
+        right: 4%;
+        margin-top: -33%;
+    }
+    .swiper_gale_inst {
+        max-width: 80%;
+    }
+
+
+    .swiper_galeria_inst {
+        max-width: 70%;
+    }
+    .galeria_institucion h5 {
+        font-size: 1.5em;
+        margin: 2% 0;
+    }
+    .btnPrev_inst {
+        width: 18px;
+        height: 25px;
+        left: 9%;
+        margin-top: -35%;
+    }
+    .btnNext_inst {
+        width: 18px;
+        height: 25px;
+        right: 9%;
+        margin-top: -35%;
+    }
     .galeria_institucion h2 {
-        font-size: 1.8em;
+        font-size: 1.5em;
     }
     .galeria_institucion i {
         width: 10%;
         height: 45px;
     }
-    .galeria_institucion {
-        height: 40vh;
-    }
     .galeria_institucion ul {
         max-width: 75%;
     }
-    .gallery_institucion > li{
+    .galeria_institucion p {
+        font-size: 1.1em;
+    }
+    /*.gallery_institucion > li{
         width: calc(100% / 3);
         height: calc(100% / 3);
-    }
-    .gallery_institucion > li > img {
+    }*/
+    /*.gallery_institucion > li > img {
         height: 145px;
-    }
+    }*/
     .videos_institucion h2 {
-        font-size: 1.8em;
+        font-size: 1.5em;
     }
     .videos_institucion i {
         width: 10%;
         height: 45px;
     }
     .videos_institucion .card{
-        width: 45%;
+        width: 75%;
     }
     .videos_institucion .card .card-img-top{
         height: 35vh;
     }
     .videos_institucion .card-body h5 {
-        font-size: 1.7em;
-        text-align: center;
+        font-size: 1.5em;
+        text-align: initial;
     }
     .videos_institucion p {
         font-size: 1.1em;
@@ -1113,32 +1384,72 @@
     .rating-stars ul > li.star > i.fa{
         font-size: 1.8em;
     }
-    .data_instituciones .contains_buttons{
-        width: 70%;
+    .title_opinionesInst {
+        font-size: 1.8em;
+        padding-left: 9%;
+        width: 90%;
+        height: 3.5vh;
+    }
+    .text_cabeceraInst {
+        font-size: 1.1em;
+        width: 80%;
+        margin-left: 14%;
     }
 }
 @media (min-width: 1024px){
+    .content_logo_inst {
+        width: 12%;
+    }
 
-    .data_instituciones img {
+    .slaider_cert_landInst {
+        width: 50%;
+    }
+    
+    /*.logo_sede_inst {
         width: 230px;
         height: 230px;
     }
-    .data_instituciones h2 {
-        font-size: 2em;
+    .img_sede_inst {
+        width: 230px;
+        height: 230px;
+    }*/
+
+    .data_instituciones .contains_info {
+        width: 37%;
+        padding-left: 2%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0;
     }
-    .data_instituciones h1 {
-        font-size: 1.8em;
+    .data_instituciones{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: flex-start;
     }
-    .data_instituciones h5 {
-        font-size: 1.1em;
+    .data_instituciones .title-url {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0;
     }
-    .title-adress i, .title-url i, .title-tel i{
-        width: 19%;
-        height: 28px;
+    .data_instituciones .title-tel {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0;
     }
-    .data_instituciones .contains_buttons{
-        width: 50%;
-        margin-top: 2%;
+    .data_instituciones .title-adress {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0;
+    }
+    .content_sede_inst {
+        display: flex;
     }
     .servicios_instituciones,
     .quienes_somos,
@@ -1146,6 +1457,7 @@
     .convenios,
     .idiomas,
     .sedes_institucion,
+    .mapa,
     .videos_institucion {
         width: 80%;
         margin: auto;
@@ -1156,13 +1468,17 @@
     .convenios i,
     .idiomas i,
     .sedes_institucion i,
+    .mapa i,
     .contains_swiper_certificados i,
     .galeria_institucion i,
     .videos_institucion i {
-        width: 8%;
-        height: 45px;
+        width: 7%;
+        height: 40px;
     }
     .servicios_instituciones p{
+        padding-left: 8%;
+    }
+    .mapa p{
         padding-left: 8%;
     }
     .propuesta ul,
@@ -1173,23 +1489,24 @@
     .contains_swiper_certificados h2{
         width: 80%;
     }
-    .swiper_certificados {
-        max-width: 35%;
+    .swiper_gale_inst img{
+        height: 25vh;
+        max-width: 100%;
     }
-    .gallery_institucion > li > img {
+    /*.gallery_institucion > li > img {
         height: 165px;
-    }
-    .galeria_institucion h2{
+    }*/
+    /*.galeria_institucion h2{
         width: 80%;
-    }
+    }*/
     .galeria_institucion ul {
         max-width: 70%;
     }
-    .galeria_institucion {
+    /*.galeria_institucion {
         height: 35vh;
-    }
+    }*/
     .videos_institucion .card .card-img-top {
-        height: 20vh;
+        height: 25vh;
     }
     .boton_collapse-on-institucion{
         background-size: 3.5% !important;
@@ -1210,23 +1527,15 @@
         padding-bottom: 2%;
         margin-bottom: 1%;
     }
-    .sedes_institucion .card-body h5 {
+    /*.sedes_institucion .card-body h5 {
         font-size: 1em;
-    }
-    .sedes_institucion span{
+    }*/
+    /*.sedes_institucion span{
         font-size: 0.8em;
-    }
-    .sedes_institucion p {
+    }*/
+    /*.sedes_institucion p {
         font-size: 0.8em;
-    }
-    .data_instituciones .title-adress {
-        width: 75%;
-        margin-left: 0;
-    }
-    .section_data_instituciones{
-        padding-top: 5%;
-        padding-bottom: 5%;
-    }
+    }*/
     .desplegable_institucion .boton_collapse-off-institucion{
         height: 4vh;
         background-size: 3%;
@@ -1234,43 +1543,84 @@
     .boton_collapse-on-institucion{
         background-size: 3% !important;
     }
+    .title_opinionesInst {
+        font-size: 1.8em;
+        padding-left: 5%;
+        height: 5vh;
+        width: 77%;
+    }
+    .text_cabeceraInst {
+        font-size: 1em;
+        width: 67%;
+        margin: auto;
+        margin-bottom: 2%;
+    }
 
 }
 @media (min-width: 1024px) and (max-height: 800px){
 
     .rating-stars ul > li.star > i.fa{
-        font-size: 1.4em;
+        font-size: 1.3em;
     }
     .section_data_instituciones{
         height: auto;
-        padding-top: 2%;
+        padding: 5% 0 3% 0;
     }
-    .data_instituciones{
-        flex-direction: column;
+    .swiper_institucion .item_landing_insti {
+        margin-bottom: 45%;
+    }
+    .swiper_institucion .item_landing_insti span {
+        margin-top: 100px;
+    }
+    .servicios_instituciones h2, .quienes_somos h2 {
+        font-size: 1.5em;
+    }
+    .swiper_institucion .item_landing_insti span {
+        font-size: 1.1em;
+    }
+    .start_calification {
+        width: 50%;
+    }
+    .section_insti {
+        margin-bottom: 5%;
+    }
+    .desplegable_institucion .card {
+        max-width: 75%;
+    }
+    /*.data_instituciones{
+        flex-direction: row;
         width: 100%;
         height: 100%;
         margin: auto;
-        padding-left: 36%;
         align-content: flex-start;
         align-items: flex-start;
         justify-content: center;
-    }
-    .data_instituciones img {
+    }*/
+    /*.logo_sede_inst {
         width: 200px;
         height: 200px;
         position: absolute;
         left: 12%;
         top: 13%;
     }
-    .data_instituciones .contains_info {
-        display: flex;
-        flex-direction: column;
-        align-content: flex-start;
-        justify-content: space-evenly;
-        align-items: flex-start;
+    .img_sede_inst {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        left: 12%;
+        top: 13%;
+    }*/
+    .convenios img {
+        padding: 2%;
+        height: 15vh;
+    }
+    .swiper_gale_inst {
+        max-width: 75%;
+    }
+    .content_sede_inst {
+        width: 33%;
     }
     .data_instituciones .title-adress, .title-url, .title-tel {
-        width: 120%;
         font-weight: 500;
     }
     .data_instituciones .title-url, .title-tel {
@@ -1279,25 +1629,30 @@
         font-weight: 500;
     }
     .data_instituciones h2 {
-        font-size: 2em;
+        font-size: 1.5em;
     }
     .data_instituciones h1 {
-        font-size: 1.7em;
+        font-size: 1.3em;
     }
     .data_instituciones h5 {
-        font-size: 1.2em;
+        font-size: 1em;
     }
     .title-adress i, .title-url i, .title-tel i {
-        width: 11%;
-        height: 26px;
-        margin-bottom: 2%;
+        width: 9%;
+        height: 20px;
     }
-    .data_instituciones .contains_buttons{
-        width: 55%;
-        margin-top: 2%;
+    .contains_buttons_landInst {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 30%;
+        margin-left: 23%;
+        margin-top: -3%;
     }
-    .data_instituciones .contains_buttons a {
-        font-size: 1.2em;
+    .contains_buttons_landInst a {
+        font-size: 1em;
+        width: 48%;
+        padding: 1% 0;
     }
     .data_instituciones h5:nth-child(7){
         padding-left: 6.5%;
@@ -1315,20 +1670,18 @@
         max-width: 80%;
     }
     .servicios_instituciones p,
-    .quienes_somos p {
-        font-size: 1.3em;
-        padding-left: 9%;
+    .quienes_somos p, .mapa p {
+        font-size: 1em;
+        padding-left: 7%;
     }
     .contains_swiper_institucion h1{
         margin-top: 5%;
-        margin-bottom: 4%;
+        margin-bottom: 5%;
+        font-size: 1.5em;
     }
     .propuesta p {
-        font-size: 1.3em;
+        font-size: 1em;
         color: #3E3E3E;
-    }
-    .convenios ul li{
-        height: auto;
     }
     .idiomas ul li {
         flex-direction: row;
@@ -1342,18 +1695,24 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        margin-bottom: 6%;
     }
     .sedes_institucion .card {
         width: 48%;
+        margin-top: 3%;
         margin-bottom: 0;
         padding-bottom: 2%;
         padding-top: 2%;
+        padding-left: 1.7%;
+    }
+    .sedes_institucion h2{
+        font-size: 1.5em;
     }
     .sedes_institucion .card h4, h6 {
         font-size: 1.5em;
     }
     .sedes_institucion .card-body h5 {
-        font-size: 1em;
+        font-size: 1.1em;
     }
     .sedes_institucion .card-img-top {
         border-radius: 48%;
@@ -1361,46 +1720,89 @@
         height: 120px;
     }
     .sedes_institucion p {
-        font-size: 0.8em;
+        font-size: 0.9em;
         font-weight: 500;
     }
-    .sedes_institucion span{
-        font-size: 0.8em;
+    .sedes_institucion .card-body {
+        padding-left: 3%;
     }
-    .swiper_certificados {
-        max-width: 75%;
+    .sedes_institucion span{
+        font-size: 0.9em;
     }
     .contains_swiper_certificados h2{
         margin-bottom: 4%;
+        font-size: 1.5em;
     }
-    .swiper_certificados h6{
+    .swiper_gale_inst h6{
         font-size: 1em;
     }
-    .swiper_certificados h5 {
+    .swiper_gale_inst h5 {
         font-size: 1.2em;
     }
-    .swiper_certificados p {
-        font-size: 0.9em;
+    .swiper_gale_inst p {
+        font-size: 1em;
     }
+    .btnPrev_certInst {
+        width: 18px;
+        height: 25px;
+        left: 10%;
+        margin-top: -24%;
+    }
+    .btnNext_certInst {
+        width: 18px;
+        height: 25px;
+        right: 10%;
+        margin-top: -24%;
+    }
+
+
+
+
     .galeria_institucion {
         display: flow-root;
-        height: auto;
-        margin-bottom: 5%;
+        margin-bottom: 3%;
+    }
+    .galeria_institucion h5 {
+        font-size: 1.2em;
+        margin: 2% 0;
+    }
+    .galeria_institucion p {
+        font-size: 1em;
     }
     .videos_institucion .card {
-        width: 30%;
+        width: 45%;
+        margin-top: 3%;
+        margin-bottom: 4%;
     }
     .videos_institucion .card-body h5 {
         font-size: 1.2em;
         text-align: left;
     }
     .videos_institucion p {
-        font-size: 0.8em;
+        font-size: 1em;
         text-align: left;
     }
+    .btnPrev_inst {
+        width: 18px;
+        height: 25px;
+        left: 10%;
+        margin-top: -21%;
+    }
+    .btnNext_inst {
+        width: 18px;
+        height: 25px;
+        right: 10%;
+        margin-top: -21%;
+    }
     .galeria_institucion h2 {
-        width: 80%;
-        margin-bottom: 3%;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    .swiper_gale_inst {
+        margin-bottom: 4%;
+    }
+    .swiper_galeria_inst {
+        margin-bottom: 4%;
     }
     .desplegable_institucion .boton_collapse-off-institucion{
         height: 7vh;
@@ -1408,6 +1810,18 @@
     }
     .boton_collapse-on-institucion{
         background-size: 3% !important;
+    }
+    .title_opinionesInst {
+        font-size: 1.5em;
+        padding-left: 5.5%;
+        height: 5vh;
+        width: 80%;
+    }
+    .text_cabeceraInst {
+        font-size: 1em;
+        width: 69%;
+        margin: auto;
+        margin-bottom: 2%;
     }
 }
 
@@ -1425,6 +1839,7 @@
     .convenios i, 
     .idiomas i, 
     .sedes_institucion i, 
+    .mapa i,
     .contains_swiper_certificados i,  
     .galeria_institucion i, 
     .videos_institucion i {
@@ -1434,35 +1849,38 @@
     .servicios_instituciones p {
         padding-left: 6%;
     }
+    .mapa p {
+        padding-left: 6%;
+    }
     .propuesta ul, 
     .convenios ul, 
     .idiomas ul {
         padding-left: 6%;
+        margin: 0;
     }
-    .data_instituciones{
-        flex-direction: column;
+    /*.data_instituciones{
+        flex-direction: row;
         width: 100%;
         height: 100%;
         margin: auto;
-        padding-left: 36%;
         align-content: flex-start;
         align-items: flex-start;
         justify-content: center;
-    }
-    .data_instituciones img {
+    }*/
+    /*.logo_sede_inst {
         width: 220px;
         height: 220px;
         position: absolute;
         left: 12%;
         top: 15%;
     }
-    .data_instituciones .contains_info {
-        display: flex;
-        flex-direction: column;
-        align-content: flex-start;
-        justify-content: space-evenly;
-        align-items: flex-start;
-    }
+    .img_sede_inst {
+        width: 220px;
+        height: 220px;
+        position: absolute;
+        left: 12%;
+        top: 15%;
+    }*/
     .data_instituciones .title-adress, .title-url, .title-tel {
         width: 100%;
         font-weight: 500;
@@ -1476,13 +1894,9 @@
     .data_instituciones h5 {
         font-size: 1.2em;
     }
-    .data_instituciones .contains_buttons {
-        width: 55%;
-    }
-    .data_instituciones .contains_buttons a{
-        width: 45%;
-        padding-top: 1.5%;
-        padding-bottom: 1.5%;
+    .contains_buttons_landInst a{
+        width:45%;
+        padding: 1% 0;
     }
     .data_instituciones h5:nth-child(7){
         padding-left: 4%;
@@ -1492,11 +1906,6 @@
         display: flex;
         align-items: center;
         font-weight: 500;
-    }
-    .title-adress i, .title-url i, .title-tel i {
-        width: 15%;
-        height: 28px;
-        margin-bottom: 2%;
     }
     .item_landing_insti i {
         height: 75px;
@@ -1511,18 +1920,17 @@
     }
     .swiper_institucion .item_landing_insti span {
         margin-top: 100px;
-        font-size: 1em;
         width: 80%;
     }
     .contains_swiper_institucion h1{
         margin-top: 5%;
         margin-bottom: 4%;
     }
-    .servicios_instituciones h2, .quienes_somos h2 {
+    /*.servicios_instituciones h2, .quienes_somos h2 {
         font-size: 1.6em;
-    }
-    .servicios_instituciones p, .quienes_somos p{
-        font-size: 1.1em;
+    }*/
+    .servicios_instituciones p, .quienes_somos p, .mapa p{
+        font-size: 1em;
         padding-left: 6%;
     }
     .desplegable_institucion .card-header button {
@@ -1537,12 +1945,12 @@
         padding-left: 5%;
     }
     .propuesta p {
-        font-size: 1.1em;
+        font-size: 1em;
         color: #3E3E3E;
     }
-    .propuesta h2 {
+    /*.propuesta h2 {
         font-size: 1.6em;
-    }
+    }*/
     .sedes_institucion .container_cards,
     .container_cards,
     .videos_institucion .container_cards{
@@ -1568,70 +1976,179 @@
         font-size: 1em;
     }
     .sedes_institucion h2{
-        font-size: 1.6em;
+        font-size: 1.8em;
     }
-    .swiper_certificados {
-        max-width: 70%;
+    .galeria_institucion h2 {
+        font-size: 1.8em;
     }
-    .contains_swiper_certificados h2{
-        font-size: 1.6em;
-        margin-bottom: 4%;
-    }
-    .swiper_certificados h6{
+    .swiper_gale_inst h6{
         font-size: 1em;
     }
-    .swiper_certificados h5 {
+    .swiper_gale_inst h5 {
         font-size: 1.3em;
     }
-    .swiper_certificados p {
+    .btnPrev_certInst {
+        margin-top: -20%;
+    }
+    .btnNext_certInst {
+        margin-top: -20%;
+    }
+    /*.swiper_certificados p {
         font-size: 0.9em;
-    }
-    .galeria_institucion h2{
+    }*/
+    /*.galeria_institucion h2{
         font-size: 1.6em;
-    }
-    .videos_institucion .card {
+    }*/
+    /*.videos_institucion .card {
         width: 30%;
-    }
+    }*/
     .galeria_institucion {
-        display: flow-root;
-        height: auto;
-        margin-bottom: 5%;
+       width: 90%;
+       margin: auto;
+    }
+    .swiper_gale_inst {
+        max-width: 72%;
+    }
+    .swiper_galeria_inst {
+        max-width: 80%;
+    }
+    .img_galeria_inst {
+        height: 26vh;
+    }
+    .btnPrev_inst {
+        margin-top: -21%;
+    }
+    .btnNext_inst {
+        margin-top: -21%;
+    }
+    .galeria_institucion h5 {
+        font-size: 1.3em;
+        margin: 2% 0;
     }
     .videos_institucion .card-body h5 {
+        font-size: 1.3em;
+    }
+    /*.videos_institucion .card-body h5 {
         font-size: 1.4em;
         text-align: left;
-    }
-    .videos_institucion p {
+    }*/
+    /*.videos_institucion p {
         font-size: 0.8em;
         text-align: left;
-    }
-    .videos_institucion h2 {
+    }*/
+    /*.videos_institucion h2 {
         font-size: 1.6em;
-    }
+    }*/
     .videos_institucion .card .card-img-top {
-        height: 25vh;
+        height: 30vh;
+    }
+    .title_opinionesInst {
+        padding-left: 5%;
+        height: 5.5vh;
+    }
+    .text_cabeceraInst {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1360px) {
+    .title_opinionesInst {
+        padding-left: 4.8%;
+        height: 5.8vh;
     }
 }
 
 @media (min-width: 1440px){
+    .data_instituciones .contains_info {
+        width: 30%;
+    }
+    .content_logo_inst {
+        width: 10%;
+    }
+    .data_instituciones .contains_info {
+        width: 33%;
+    }
+    .title-adress i, .title-url i, .title-tel i {
+        width: 7%;
+        height: 22px;
+    }
+    .content_sede_inst {
+        width: 29%;
+    }
+    .contains_buttons_landInst {
+        width: 28%;
+        margin-left: 25.5%;
+        margin-top: -2.5%;
+    }
+    .contains_buttons_landInst a {
+        font-size: 1.2em;
+    }
 
-    .data_instituciones img{
+    .section_insti {
+       width: 95%; 
+       margin: auto;
+       margin-bottom: 3%;
+    }
+    .propuesta ul, .convenios ul, .idiomas ul {
+        padding-left: 7%;
+    }
+    .convenios img {
+        padding: 2%;
+        height: 15vh;
+    }
+    .btnPrev_certInst {
+        left: 13%;
+    }
+    .btnNext_certInst {
+        left: 86%;
+    }
+    .img_galeria_inst {
+        height: 20vh;
+    }
+    .btnPrev_inst {
+        left: 13%;
+        margin-top: -19%;
+    }
+    .btnNext_inst {
+        left: 86%;
+        margin-top: -19%;
+    }
+    .swiper_galeria_inst {
+        margin-bottom: 5%;
+    }
+
+
+
+
+
+
+
+
+
+
+    /*.logo_sede_inst{
         left: 15%;
         top: 15%;
     }
-    .data_instituciones .contains_buttons {
-        width: 50%;
-    }
+    .img_sede_inst {
+        left: 15%;
+        top: 15%;
+    }*/
     .videos_institucion .card {
-        width: 27%;
+        width: 23%;
+        margin-top: 2%;
+        margin-bottom: 2%;
     }
-    .gallery_institucion > li {
+    .videos_institucion .card .card-img-top {
+        height: 20vh;
+    }
+    /*.gallery_institucion > li {
         width: calc(100% / 4);
         height: calc(100% / 4);
-    }
-    .gallery_institucion > li > img {
+    }*/
+    /*.gallery_institucion > li > img {
         height: 180px;
-    }
+    }*/
     .data_instituciones .rating-stars ul {
         margin-top: 8%;
         margin-bottom: 0%;
@@ -1643,7 +2160,25 @@
         margin-bottom: 0;
     }
     .contains_swiper_institucion h1{
-        font-size: 2.5em;
+        font-size: 2em;
+    }
+    .contains_swiper_institucion h1 {
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
+    .swiper_institucion .item_landing_insti {
+        margin-bottom: 40%;
+    }
+    .servicios_instituciones i, .quienes_somos i, .propuesta i, .convenios i, .idiomas i, .sedes_institucion i, 
+    .mapa i, .contains_swiper_certificados i, .galeria_institucion i, .videos_institucion i {
+        width: 7%;
+        height: 50px;
+    }
+    .servicios_instituciones p, .quienes_somos p, .mapa p {
+        padding-left: 7%;
+    }
+    .desplegable_institucion .card {
+        max-width: 75%;
     }
     .desplegable_institucion .card-header button{
         font-size: 1.6em;
@@ -1651,16 +2186,33 @@
     .desplegable_institucion .boton_collapse-off-institucion{
         height: 6vh;
     }
+    .title_opinionesInst {
+        width: 68%;
+        padding-left: 4.8%;
+    }
+    .title_opinionesInst {
+        height: 5.5vh;
+    }
+    .text_cabeceraInst {
+        width: 58%;
+        font-size: 1.1em;
+    }
 }
 
 @media (min-width: 1600px){
 
-    .data_instituciones img{
+    /*.logo_sede_inst{
         width: 240px;
         height: 240px;
         left: 15%;
         top: 18%;
     }
+    .img_sede_inst {
+        width: 240px;
+        height: 240px;
+        left: 15%;
+        top: 18%;
+    }*/
     .section_data_instituciones {
         height: auto;
         padding-top: 5%;
@@ -1671,7 +2223,8 @@
     .propuesta, 
     .convenios, 
     .idiomas, 
-    .sedes_institucion,  
+    .sedes_institucion, 
+    .mapa, 
     .videos_institucion {
         width: 75%;
         margin: auto;
@@ -1679,29 +2232,12 @@
     .contains_swiper_certificados h2 {
         width: 75%;
     }
-    .swiper_certificados {
-        max-width: 60%;
-    }
-    .data_instituciones{
-        padding-left: 32%;
-    }
     .data_instituciones .title-adress {
         width: 100%;
         font-weight: 500;
     }
     .data_instituciones h5:nth-child(7){
         padding-left: 3%;
-    }
-    .data_instituciones .contains_buttons {
-        width: 45%;
-        flex-direction: row;
-        padding-bottom: 1%;
-        margin-left: 0;
-    }
-    .data_instituciones .contains_buttons a{
-        align-items: flex-start;
-        margin: 0;
-        margin-bottom: 4%;
     }
     .data_instituciones h2 {
         font-size: 2.2em;
@@ -1733,6 +2269,7 @@
     .convenios i, 
     .idiomas i, 
     .sedes_institucion i, 
+    .mapa i,
     .contains_swiper_certificados i,
     .galeria_institucion i, 
     .videos_institucion i {
@@ -1742,10 +2279,13 @@
     .servicios_instituciones p {
         padding-left: 5%;
     }
+    .mapa p {
+        padding-left: 5%;
+    }
     .servicios_instituciones h2, .quienes_somos h2 {
         font-size: 1.8em;
     }
-    .propuesta h2, .convenios h2{
+    .propuesta h2, .convenios h2, .mapa h2{ 
         font-size: 1.8em;
     }
     .propuesta ul,  
@@ -1753,10 +2293,7 @@
     .idiomas ul {
         padding-left: 5%;
     }
-    .servicios_instituciones p, .quienes_somos p{
-        font-size: 1.3em;
-        padding-left: 6%;
-    }
+
     .propuesta p{
         font-size: 1.3em;
     }
@@ -1785,42 +2322,134 @@
         font-size: 1.8em;
         margin-bottom: 4%;
     }
-    .mapa {
-        width: 70%;
-        margin: auto;
-        margin-top: 5%;
-    }
     .sedes_institucion h2, .galeria_institucion h2, .videos_institucion h2 {
         font-size: 1.8em;
     }
-    .galeria_institucion h2 {
+    /*.galeria_institucion h2 {
         font-size: 1.6em;
-    }
+    }*/
 }
 
 @media (min-width: 1920px){
-    .data_instituciones img{
+    /*.logo_sede_inst{
         width: 250px;
         height: 250px;
         left: 25%;
         top: 17%;
     }
-    .data_instituciones{
-        padding-left: 41%;
+    .img_sede_inst {
+        width: 250px;
+        height: 250px;
+        left: 823px;
+        top: 17%;
+    }*/
+    .contains_swiper_institucion h1 {
+        font-size: 2.2em;
+    }
+    .swiper_institucion .item_landing_insti{
+        height: 111px;
+    }
+    .swiper_institucion .item_landing_insti span{
+        margin-top: 120px;
+    }
+    .section_insti {
+        width: 90%;
+    }
+    .servicios_instituciones p, .quienes_somos p, .mapa p{
+        font-size: 1.2em;
+        padding-left: 5%;
+    }
+    .desplegable_institucion .card {
+        max-width: 73%;
+    }
+    .convenios img {
+        height: 16vh;
+    }
+    .swiper_gale_inst img {
+        height: 21vh;
+        max-width: 100%;
+    }
+    .btnPrev_certInst {
+        margin-top: -16%;
+        left: 15%;
+    }
+    .btnNext_certInst {
+        margin-top: -16%;
+        left: 84%;
+    }
+    .mapa {
+        width: 75%;
+        margin: auto;
+        margin-top: 5%;
     }
     .sedes_institucion .card {
         width: 40%;
         margin-bottom: 0;
         margin-top: 3%;
+        padding-right: 0;
+        padding-left: 2%;
     }
-    .swiper_institucion .item_landing_insti span{
-        margin-top: 115px;
+    .galeria_institucion {
+        width: 84%;
+        margin: auto;
     }
-    .swiper_institucion .item_landing_insti{
-        height: 115px;
+    .img_galeria_inst {
+        height: 23vh;
     }
+    .swiper_galeria_inst {
+        max-width: 86%;
+    }
+    .btnPrev_inst {
+        margin-top: -15%;
+        left: 15%;
+    }
+    .btnNext_inst {
+        margin-top: -15%;
+        left: 84%;
+    }
+    .videos_institucion .card {
+        width: 24%;
+    }
+    .videos_institucion .card .card-img-top {
+        height: 25vh;
+    }
+
+
+
+
+
+
+
+
+
+
+    .contains_buttons_landInst {
+        width: 23%;
+        margin-left: 27.5%;
+        margin-top: -2%;
+    }
+    .content_sede_inst {
+        width: 25%;
+    }
+    .title-adress i, .title-url i, .title-tel i {
+        width: 7%;
+        height: 23px;
+    }
+
+
+
     .desplegable_institucion .card-header button{
         height: 7vh;
         font-size: 1.8em;
+    }
+    .title_opinionesInst {
+        font-size: 1.8em;
+        padding-left: 3%;
+        width: 67%;
+        height: 4.5vh;
+    }
+    .text_cabeceraInst {
+        width: 60%;
+        font-size: 1.1em;
     }
 }
