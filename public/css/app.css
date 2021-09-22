@@ -10420,7 +10420,7 @@ a:link, a:visited, a:active, a:hover {
 #ui-id-1 {
   z-index: 500 !important;
   background: white;
-  width: 29.7% !important;
+  /*width: 29.7% !important;*/
   height: 25vh;
   overflow-x: hidden;
   border-bottom-left-radius: 5px;
@@ -10444,7 +10444,7 @@ a:link, a:visited, a:active, a:hover {
 .ui-menu {
   z-index: 500 !important;
   background: white;
-  width: 89.5% !important;
+  /*width: 89.5% !important;*/
   height: 28vh;
   overflow-x: hidden;
   border-radius: 3px;
@@ -11029,7 +11029,7 @@ a:link, a:visited, a:active, a:hover {
     align-items: center;
   }
 }
-@media (min-width: 1200px) and (max-width: 1359.98) {
+@media (min-width: 1200px) and (max-width: 1359.98px) {
   .contenedorLupa {
     width: 5%;
   }
@@ -11040,7 +11040,7 @@ a:link, a:visited, a:active, a:hover {
 
   #ui-id-1 {
     /*left: 25.6% !important;*/
-    width: 29.7% !important;
+    /*width: 29.7% !important;*/
     height: 27vh;
   }
 }
@@ -11192,7 +11192,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   #ui-id-1 {
-    width: 29.7% !important;
+    /*width: 29.7% !important;*/
     height: 31vh;
   }
 
