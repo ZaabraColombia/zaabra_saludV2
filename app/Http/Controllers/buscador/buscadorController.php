@@ -138,6 +138,7 @@ class buscadorController extends Controller
 
         $profesionales = perfilesprofesionales::join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
             ->join('especialidades', 'perfilesprofesionales.idespecialidad', '=', 'especialidades.idEspecialidad')
+            ->where('perfilesprofesionales.aprobado', '=', 1)
             ->where(function ($query) use ($term){
                 return $query->where('users.primernombre','like','%' . $term . '%')
                     ->orWhere('users.segundonombre','like','%' . $term . '%')
@@ -146,7 +147,7 @@ class buscadorController extends Controller
             })
             ->orWhere('especialidades.nombreEspecialidad','like','%' . $term . '%')
             ->select(
-                DB::raw('CONCAT(users.primernombre, " ", users.segundonombre, " ", users.primerapellido) as label'),
+                DB::raw('CONCAT(COALESCE(users.primernombre, ""), " ", COALESCE(users.segundonombre, ""), " ", COALESCE(users.primerapellido, "")) as label'),
                 DB::raw('especialidades.nombreEspecialidad as type'),
                 DB::raw('CONCAT("' . url('/PerfilProfesional') . '/", perfilesprofesionales.slug) as url'),
                 DB::raw('CONCAT("fas fa-user-md") as icon')
@@ -154,6 +155,7 @@ class buscadorController extends Controller
 
         $instituciones = instituciones::join('users', 'instituciones.idUser', '=', 'users.id')
             ->join('tipoinstituciones', 'instituciones.idtipoInstitucion', '=', 'tipoinstituciones.id')
+            ->where('instituciones.aprobado', '=', 1)
             ->where('users.nombreinstitucion','like','%' . $term . '%')
             ->orWhere('tipoinstituciones.nombretipo','like','%' . $term . '%')
             ->select(
