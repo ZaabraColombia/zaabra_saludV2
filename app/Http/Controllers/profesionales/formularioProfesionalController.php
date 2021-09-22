@@ -1641,7 +1641,11 @@ class formularioProfesionalController extends Controller
         $nombre = $request->destacado_nombre;
         //validar el formulario
         $validator = Validator::make($request->all(),[
-            'destacado_nombre' => ['required', Rule::unique('expertoen', 'nombreExpertoEn')]
+            'destacado_nombre' => [
+                'required',
+                Rule::unique('expertoen', 'nombreExpertoEn')
+                    ->where('idPerfilProfesional', $id_profesional )
+            ]
         ]);
 
         if ($validator->fails()) {
