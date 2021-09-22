@@ -18,7 +18,6 @@ class GoogleController extends Controller
     public function redirectToGoogle(): \Symfony\Component\HttpFoundation\RedirectResponse
     {
         return Socialite::driver('google')
-            ->stateless()
             ->redirect();
     }
 

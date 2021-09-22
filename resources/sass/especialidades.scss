@@ -198,6 +198,11 @@
         font-size: calc(.2em + .8vw);
     }
 }
+@media (min-width: 1360px) {
+    .subTitle_espeMed {
+        height: 25px;
+    }
+}
 @media (min-width: 1440px) {
     .texto_banner_ramaSalud {
         font-size: 1.25em;
@@ -210,6 +215,9 @@
     }
     .btnVer_espMed {
         font-size: calc(.15em + .8vw);
+    }
+    .subTitle_espeMed {
+        height: 50px;
     }
 }
 @media (min-width: 1920px) {
