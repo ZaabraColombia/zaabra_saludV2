@@ -10448,7 +10448,7 @@ a:link, a:visited, a:active, a:hover {
   height: 28vh;
   overflow-x: hidden;
   border-radius: 3px;
-  padding-top: 1%;
+  padding: 0 1%;
   position: fixed !important;
 }
 
@@ -10459,14 +10459,15 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .ui-menu-item > .ui-menu-item-wrapper {
-  display: inline-table;
+  display: flex;
   color: black !important;
   font-size: 1rem !important;
-  height: 100%;
+  height: 50px;
   width: 100%;
   padding: 0.5rem 0;
   margin-left: 5px;
   border-radius: 5px;
+  align-items: center;
 }
 
 .ui-menu-item > .ui-menu-item-wrapper > i {

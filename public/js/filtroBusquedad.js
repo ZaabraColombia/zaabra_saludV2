@@ -35,11 +35,11 @@ $(function(){
 
         }
     }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-        var btn = "<a href='"  + item.url + "'><i class='" + item.icon + " my-auto'></i>" +item.label +"</a>";
+        var btn = "<a href='"  + item.url + "'><i class='" + item.icon + "'></i><span>" +item.label +"</span></a>";
 
         if (item.type)
         {
-            btn = "<a href='"  + item.url + "'><i class='" + item.icon + " my-auto'></i>" +item.label +" <br> <span>" +item.type +"</span></a>";
+            btn = "<a href='"  + item.url + "'><i class='" + item.icon + " my-auto'></i><span>" +item.label +"<br><small>" +item.type +"</small></span></a>";
         }
         return $( "<li></li>" )
             .data( "item.autocomplete", item )
@@ -51,11 +51,11 @@ $(function(){
 
 
 $(function(){
-    var filtro = $("#filtro2");
+    var filtro2 = $("#filtro2");
 
-    filtro.click(function (e){
-        var filtro = $(this);
-        filtro.autocomplete( "search", filtro.val() );
+    filtro2.click(function (e){
+        var fil2 = $(this);
+        filtro2.autocomplete( "search", fil2.val() );
     }).autocomplete({
         autoFocus: true,
         source: function(request, response) {
@@ -86,15 +86,15 @@ $(function(){
 
         }
     }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-        var btn = "<a href='"  + item.url + "'><i class='" + item.icon + "'></i>" +item.label +"</a>";
+        var btn = "<a href='"  + item.url + "'><i class='" + item.icon + "'></i><span>" +item.label +"</span></a>";
 
-        if (item.type)
+        if (item.type !== undefined)
         {
-            btn = "<a href='"  + item.url + "'><i class='" + item.icon + "'></i>" +item.label +" <br> <span>" +item.type +"</span></a>";
+            btn = "<a href='"  + item.url + "'><i class='" + item.icon + " my-auto'></i><span>" +item.label +" <br> <small>" +item.type +"</small></span></a>";
         }
         return $( "<li></li>" )
             .data( "item.autocomplete", item )
-            .append( "<a href='"  + item.url + "'><i class='" + item.icon + "'></i>" +item.label +"</a>" )
+            .append( btn )
             .appendTo( ul );
 
     }

@@ -73,6 +73,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         Mail::to($this)->send(new ResetPasswordEmail($token, $this));
         //return $this->notify(new ResetPasswordNotification($token));
+    }
 
     public function institucion()
     {
