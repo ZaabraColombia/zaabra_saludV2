@@ -156,8 +156,10 @@ class buscadorController extends Controller
         $instituciones = instituciones::join('users', 'instituciones.idUser', '=', 'users.id')
             ->join('tipoinstituciones', 'instituciones.idtipoInstitucion', '=', 'tipoinstituciones.id')
             ->where('instituciones.aprobado', '=', 1)
-            ->where('users.nombreinstitucion','like','%' . $term . '%')
-            ->orWhere('tipoinstituciones.nombretipo','like','%' . $term . '%')
+            ->where(function ($query) use ($term){
+                return $query->where('users.nombreinstitucion','like','%' . $term . '%')
+                    ->orWhere('tipoinstituciones.nombretipo','like','%' . $term . '%');
+            })
             ->select(
                 DB::raw('tipoinstituciones.nombretipo as label'),
                 DB::raw('users.nombreinstitucion as type'),
