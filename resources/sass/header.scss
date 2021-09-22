@@ -972,10 +972,19 @@ a:link, a:visited, a:active, a:hover {
 
     }
 }
-@media (min-width: 1360px)and (max-width: 1439.98) {
+@media (min-width: 1360px) {
     #ui-id-1 {
         //left: 25.2% !important;
         height: 30vh;
+    }
+    .icon_searchH {
+        background-size: 60%;
+    }
+    .dropdown-menu .dropdown-item {
+        height: 55px;
+    }
+    .dropdown-menu .menu_item {
+        height: 55px;
     }
 }
 @media (min-width: 1440px) {
