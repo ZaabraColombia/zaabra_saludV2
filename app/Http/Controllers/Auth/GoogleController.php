@@ -29,6 +29,8 @@ class GoogleController extends Controller
 
             $finduser = User::where('email', '=' ,$user->email)->first();
 
+            //dd($user->email);
+
             if($finduser){
 
                 if (empty($finduser->google_id) or $user->id != $finduser->google_id)

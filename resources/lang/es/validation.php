@@ -146,6 +146,22 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        //Formulario paciente
+        'foto_paciente'     => 'Foto perfil',
+        'primer_nombre'     => 'Primer nombre',
+        'primer_apellido'   => 'Primer apellido',
+        'tipo_documento'    => 'Tipo de documento',
+        'numero_documento'  => 'Número de documento',
+        'pais'              => 'País',
+        'departamento'      => 'Departamento',
+        'provincia'         => 'Provincia',
+        'municipio'         => 'Ciudad',
+        'celular'           => 'Celular',
+        'telefono'          => 'Teléfono',
+        'eps'               => 'Regimen Médico',
+        'password'          => 'Contraseña',
+        'password_new'      => 'Contraseña Nueva',
+    ],
 
 ];

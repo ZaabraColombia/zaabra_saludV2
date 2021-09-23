@@ -136,16 +136,19 @@
     color: #0083D6;
     font-weight: bold;
     text-align: center;
+    margin: 0;
 }
 .data_profesionales h1{
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
     color: #232323;
+    margin: 0;
 }
 .data_profesionales h5{
     font-family: "Roboto";
     font-weight: bolder;
     color: #3E3E3E;
+    text-transform: inherit;
 }
 .data_profesionales h5:nth-child(1){
     font-weight: 500;
@@ -529,7 +532,7 @@
 .swiper_premios h5{
     font-family: "Quicksand", sans-serif;
     font-weight: bolder;
-    text-transform: capitalize;
+    //text-transform: capitalize;
 }
 .swiper_premios p{
     font-family: "Roboto";
@@ -848,15 +851,16 @@
         width: 130px;
         height: 130px;
         object-fit: cover;
+        object-position: top;
     }
     .data_profesionales h2{
         margin-top: 1%;
-        margin-bottom: 1%;
+        //margin-bottom: 1%;
         font-size: 1.3em;
     }
     .data_profesionales h1{
         font-size: 1.3em;
-        margin-bottom: 1%;
+        //margin-bottom: 1%;
     }
     .data_profesionales .title-adress {
         display: flex;
@@ -953,14 +957,14 @@
     }
     .data_consulta .contains_buttons a {
         display: flex;
-        width: 45%;
+        width: 40%;
         //height: 100%;
     }
     .data_consulta .contains_buttons a:nth-child(2) {
-        height: calc(1em + 1em + 1px);
+        height: 30px;
     }
     .data_consulta .contains_buttons a:nth-child(1) {
-        height: calc(1em + 1em + 1px);
+        height: 30px;
     }
     .section_destacado{
         max-width: 100%;
@@ -1047,7 +1051,9 @@
     .educacion h2{
         font-size: 1.1em;
     }
-    .educacion h5{
+    .educacion h5 {
+        font-family: "Quicksand", sans-serif;
+        font-weight: bolder;
         font-size: 1em;
     }
     .educacion p {
@@ -1092,6 +1098,8 @@
         font-size: 1.1em;
     }
     .experiencia h5{
+        font-family: "Quicksand", sans-serif;
+        font-weight: bolder;
         font-size: 0.9em;
     }
     .experiencia p {
@@ -1178,6 +1186,8 @@
     }
     .tratamientos_profesional .card-body h5{
         font-size: 1.1em;
+        font-family: "Quicksand", sans-serif;
+        font-weight: bolder;
         margin-bottom: 1%;
         display: flex;
         align-items: center;
@@ -1206,6 +1216,7 @@
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 5%;
         width: 90%;
     }
     .contains_swiper_premios i{
@@ -1290,8 +1301,10 @@
     .publicaciones_profesional .card-body{
         padding-top: 4%;
     }
-    .publicaciones_profesional .card-body h5{
+    .publicaciones_profesional .card-body h5 {
         font-size: 1.1em;
+        font-family: "Quicksand", sans-serif;
+        font-weight: bolder;
         text-align: initial;
         line-height: 1.1;
         height: 45px; 
@@ -1308,17 +1321,20 @@
         display: flex;
         flex-direction: column;
         padding: 0 5%;
-        margin: 3% 0 6% 0;
+        margin-bottom: 5%;
     }
     .galeria_profesional h2 {
         font-size: 1.1em;
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 5%;
         max-width: 90%;
     }
     .galeria_profesional h5 {
         font-size: 1.1em;
+        font-family: "Quicksand", sans-serif;
+        font-weight: bolder;
         margin-top: 2%;
         height: 45px;
         display: flex;
@@ -1390,6 +1406,7 @@
     }
     .videos_profesional h2{
         font-size: 1.1em;
+        margin-bottom: 5%; 
     }
     .videos_profesional p {
         font-size: .8em;
@@ -1399,7 +1416,7 @@
         height: 30px;
     }
     .videos_profesional .card{
-        width: 90%;
+        width: 100%;
         margin: auto;
         margin-top: 5%;
         margin-bottom: 7%;
@@ -1412,6 +1429,8 @@
     }
     .videos_profesional .card-body h5{
         font-size: 1.1em;
+        font-family: "Quicksand", sans-serif;
+        font-weight: bolder;
         text-align: initial;
         height: 45px;
         display: flex;
@@ -1460,7 +1479,7 @@
         display: none;
     }
     .section_usuario-prof {
-        padding-left: 4%;
+        padding-left: 5%;
     }
     .title_opiniones {
         font-size: 1.1em;
@@ -1489,17 +1508,18 @@
         font-size: .85em;
     }
     .contains_text {
-        width: 52%;
+        width: 54%;
+        padding-left: 4%;
     }
     .section_stars-prof {
-        width: 35%;
+        width: 33%;
         padding: 0;
         text-align: right;
     }
     .section_comentario-prof {
         font-size: 1em;
         width: 96%;
-        padding-left: 15%;
+        padding-left: 17%;
         line-height: 1.2;
     }
     .section_masComent-prof {
@@ -1534,8 +1554,11 @@
         width: 75%;
         //height: 4vh;
     }
+    .videos_profesional .card{
+        width: 90%;
+    }
 }
-@media (min-width: 375px){
+/*@media (min-width: 375px){
 
     .data_profesionales img{
         width: 180px;
@@ -1635,7 +1658,7 @@
         padding-left: 11%;
         font-size: 0.85em;
     }
-}
+}*/
 @media (min-width: 768px){
     .section_backArrow {
         width: 60%;
@@ -1672,7 +1695,7 @@
         font-size: 2em;
     }
     .data_profesionales h1{
-        font-size: 1.8em;
+        font-size: 2em;
     }
     .data_profesionales h5 {
         font-size: 1.2em;
@@ -1687,6 +1710,7 @@
     }
     .section_data_consulta {
         width: 100%;
+        padding: 4% 0;
         //height: 20vh;
     }
     .section_data_consulta h2{
@@ -1717,7 +1741,7 @@
         margin-right: auto;
     }
     .data_consulta .contains_buttons a{
-        font-size: 1.4em;
+        font-size: 1.25em;
         width: 40%; 
     }
     .data_consulta .contains_buttons i {
@@ -1725,6 +1749,12 @@
         height: 100% !important;
         display: flex;
         align-items: center;
+    }
+    .data_consulta .contains_buttons a:nth-child(2) {
+        height: 40px;
+    }
+    .data_consulta .contains_buttons a:nth-child(1) {
+        height: 40px;
     }
     .destacado h2{
         font-size: 1.8em;
@@ -1752,13 +1782,17 @@
         padding-top: 1%;
         padding-bottom: 1%;
     }
+    .swiper_profesional {
+        width: 85%;
+    }
     .contains_swiper_profesional h1 {
         font-size: 1.8em;
         margin-top: 7%;
         margin-bottom: 6%;
     }
     .item_landing {
-        height: 120px;
+        width: 60%;
+        height: 105px;
     }
     .item_landing i{
         height: 90px;
@@ -1830,7 +1864,7 @@
         padding: 0;
     }
     .educacion h5 {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
     .educacion p {
         font-size: 1.1em;
@@ -1853,7 +1887,7 @@
         margin-bottom: 0%;
     }
     .experiencia h5 {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
     .experiencia p {
         font-size: 1.1em;
@@ -1936,7 +1970,7 @@
         font-size: 1.8em;
     }
     .tratamientos_profesional .card{
-        width: 48%;
+        width: 47%;
         margin-bottom: 5%;
     }
     .tratamientos_profesional .card-body h5 {
@@ -2030,6 +2064,8 @@
         border-top-left-radius: 10%;
     }
     .swiper_galeria_prof h5 {
+        font-family: "Quicksand", sans-serif;
+        font-weight: bolder;
         font-size: 1.25em;
     }
     .galeria_profesional p {
@@ -2197,7 +2233,7 @@
         width: 70%;
     }
     .name_usuario-prof {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
     .section_stars-prof {
         width: 20%;
@@ -2238,10 +2274,10 @@
         overflow: auto;
     }
 }
-@media (min-width: 1024px){
+/*@media (min-width: 1024px){
 
 
-    /*.data_profesionales img {
+    .data_profesionales img {
         width: 360px;
         height: 360px;
     }
@@ -2288,13 +2324,13 @@
     .idomas,
     .tratamientos_profesional,
     .publicaciones_profesional,
-    .videos_profesional {
-        width: 80%;
-        margin: auto;
-    }
-    .perfil_profesional i,
-    .educacion i,
-    .experiencia i,
+    .videos_profesionaxl {
+        width: 80%;x
+        margin: auto;x
+    }x
+    .perfil_profesionaxl i,
+    .educacion i,x
+    .experiencia i,x
     .asociaciones i,
     .idomas i,
     .tratamientos_profesional i,
@@ -2365,19 +2401,24 @@
     .section_comentario-prof {
         padding-left: 15%;
         width: 93%;
-    }*/
+    }
 
-}
+}*/
 @media (min-width: 1024px) {
     .section_backArrow {
         position: absolute;
         left: 0;
         width: 10%;
         top: 90;
-        margin-left: 5%;
+        margin-left: 13%;
     }
     .section_backArrow .back_text {
+        font-size: 1.1em;
         padding-left: 25%;
+    }
+    .fa-heart {
+        top: 30%;
+        left: 20%;
     }
     .heart-wrapper {
         width: 25px;
@@ -2386,20 +2427,21 @@
         top: 10;
     }
     .section_data_profesionales{
-        height: auto;
+        //height: auto;
         padding-top: 2%;
+        padding-bottom: 1%;
     }
     .data_profesionales{
         flex-direction: row;
         width: 100%;
         margin: auto;
-        padding: 0 0 0 17%;
+        padding: 0 0 0 37%;
     }
     .data_profesionales img {
-        width: 200px;
-        height: 200px;
-        position: relative;
-        left: -4%;
+        width: 160px;
+        height: 160px;
+        position: absolute;
+        left: 19%;
     }
     .data_profesionales .contains_info {
         display: flex;
@@ -2419,8 +2461,10 @@
         flex-direction: row;
     }
     .section_data_consulta h2{
-        padding-top: 0;
+        padding-top: 1%;
         font-size: 1.5em;
+        width: 80%;
+        border-top: .5px solid #dcdcdc;
     }
     .data_consulta ul{
         width: 90%;
@@ -2435,20 +2479,24 @@
         width: 80%;
         padding: 0;
         font-size: 1.1em;
-        margin-bottom: 4%;
+        //margin-bottom: 4%;
     }
     .data_consulta .contains_buttons a:nth-child(1) {
+        position: relative;
+        bottom: 130px;
         height: calc(1.2em + 1.2em + 1px);
     }
     .data_consulta .contains_buttons a:nth-child(2) {
+        position: relative;
+        bottom: 25px;
         height: calc(1.2em + 1.2em + 1px);
     }
     .data_profesionales h2 {
-        font-size: 2em;
+        margin: 0;
     }
-    .data_profesionales h1 {
+    /*.data_profesionales h1 {
         font-size: 1.5em;
-    }
+    }*/
     .data_profesionales h5 {
         font-size: 1.1em;
     }
@@ -2600,7 +2648,7 @@
         width: 8%;
     }
     .tratamientos_profesional .card-body h5 {
-        font-size: 1.3em;
+        font-size: 1.25em;
     }
     .tratamientos_profesional p {
         font-size: 1.1em;
@@ -2713,22 +2761,21 @@
         width: 8%;
     }
     .videos_profesional .card {
-        width: 45%;
+        width: 43%;
     }
     .videos_profesional .card-body h5 {
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
     .videos_profesional p {
         font-size: 1.1em;
         height: 80px;
     }
     .tratamientos_profesional .container_cards,
-    .publicaciones_profesional .container_cards,
-    .videos_profesional .container_cards{
+    .publicaciones_profesional .container_cards {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        margin-bottom: 0;
+        margin-bottom: 5%;
     }
     .content_options-prof {
         padding: 3% 8%;
@@ -2746,16 +2793,17 @@
 
 
 @media (min-width: 1200px) {
+
     .section_data_profesionales {
         padding-top: 3%;
     }
     .data_profesionales {
-        padding: 0 0 0 23%;
+        padding: 0 0 0 40%;
     }
     .data_profesionales img {
         width: 200px;
         height: 200px;
-        left: -5%;
+        left: 18%;
     }
     .section_backArrow {
         margin-left: 13%;
@@ -2787,13 +2835,8 @@
     }
 }
 @media (min-width: 1360px) {
-    .data_profesionales {
-        padding: 0 0 0 25%;
-    }
-    .data_profesionales img {
-        width: 200px;
-        height: 200px;
-        left: -8%;
+    .data_consulta .contains_buttons a {
+        width: 70%;
     }
     .section_data_profesionales {
         padding-bottom: 1%;
@@ -2835,12 +2878,6 @@
 }
 
 @media (min-width: 1440px){
-    .data_profesionales {
-        padding: 0 0 0 26%;
-    }
-    .data_profesionales img {
-        left: -10%;
-    }
     .swiper_premios h5 {
         font-size: 1.3em;
     }
@@ -2869,7 +2906,7 @@
         margin: 2% 0;
     }
     .data_consulta .contains_buttons a {
-        width: 70%;
+        //width: 70%;
         font-size: 1.3em;
     }
     .section_data_consulta {
@@ -2947,17 +2984,15 @@
     .tratamientos_profesional
     .container_cards,
     .publicaciones_profesional
-    .container_cards,
-    .videos_profesional
     .container_cards {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         padding-bottom: 5%;
     }
-    .videos_profesional .card {
+    /*.videos_profesional .card {
         width: 27%;
-    }
+    }*/
     .galeria_profesional i {
         width: 7%;
     }
@@ -3017,7 +3052,7 @@
     }
 
     .swiper_premios img {
-        height: 185px;
+        height: 200px;
     }
     .swiper_premios p {
         height: 100px;
@@ -3184,29 +3219,199 @@
         left: 0;
         width: 5%;
         top: 100;
-        margin-left: 20.5%;
+        margin-left: 20%;
     }
     .section_backArrow .back_text {
+        font-size: 1.2em;
         padding-left: 25%;
     }
+    .section_backArrow .back_arrow {
+        background-size: 17px;
+    }
     .heart-wrapper {
-        left: 110;
+        left: 38;
         top: 0;
     }
     .fa-heart {
         top: 100%;
-        left: -220%;
+        left: 15;
     }
-
     .section_data_profesionales {
         padding-top: 2%;
+        padding-bottom: .5%;
     }
     .data_profesionales img {
-        left: -7%;
+        width: 220px;
+        height: 220px;
+        left: 25%;
     }
     .data_profesionales {
-        padding: 0 0 0 29%;
+        padding: 0 0 0 40%;
     }
+    .data_profesionales h1 {
+        font-size: 1.8em;
+        margin-bottom: .5%;
+    }
+    .data_profesionales h5 {
+        font-size: 1.2em;
+    }
+    .star_box {
+        font-size: 1.3em;
+        padding-top: .5%;
+        padding-bottom: .5%;
+    }
+    .data_profesionales .title-adress i {
+        height: 25px;
+    }
+    .data_profesionales .title-adress i {
+        width: 3.5%;
+    }
+    .data_profesionales h5:nth-child(7) {
+        padding-left: 3%;
+    }
+    .section_data_consulta h2 {
+        padding-top: .5%;
+        font-size: 1.8em;
+        width: 57%;
+    }
+    .data_consulta i {
+        width: 35px !important;
+        height: 25px !important;
+    }
+    .data_consulta p {
+        font-size: 1.2em;
+    }
+    .data_consulta span {
+        font-size: 1.2em;
+        margin-left: 35px;
+    }
+    .destacado {
+        width: 60%;
+    }
+    .destacado h2 {
+        font-size: 1.8em;
+    }
+    .destacado p {
+        font-size: 1.2em;
+    }
+    .contains_swiper_profesional h1 {
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
+    .swiper_profesional {
+        width: 60%;
+    }
+    .contains_swiper_profesional {
+        margin-bottom: 3%;
+    }
+    .perfil_profesional {
+        width: 60%;
+    }
+    .educacion {
+        width: 60%;
+    }
+    .experiencia {
+        width: 60%;
+    }
+    .asociaciones {
+        width: 60%;
+    }
+    .idomas {
+        width: 60%;
+    }
+    .tratamientos_profesional {
+        width: 60%;
+    }
+    .tratamientos_profesional .card{
+        width: 35%;
+        margin-top: 3%;
+        margin-bottom: 0;
+    }
+    .contains_swiper_premios h2 {
+        margin-bottom: 3%;
+        width: 60%;
+    }
+    .swiper_premios {
+        width: 60%;
+        margin-bottom: 3%;
+    }
+    .swiper_premios img {
+        height: 215px;
+    }
+    .publicaciones_profesional {
+        width: 60%;
+    }
+    .publicaciones_profesional h2 {
+        margin-bottom: 3%;
+    }
+    .publicaciones_profesional .card{
+        width: 40%;
+        margin-bottom: 0;
+    }
+    .swiper_galeria_prof {
+        margin-top: 0;
+        margin-bottom: 3%;
+        width: 60%;
+    }
+    .galeria_profesional h2 {
+        width: 60%;
+        margin-bottom: 3%;
+    }
+    .swiper_galeria_prof img {
+        height: 250px;
+    }
+    .videos_profesional {
+        width: 60%;
+    }
+    .videos_profesional h2 {
+        margin-bottom: 3%;
+    }
+    .videos_profesional .card {
+        width: 40%;
+    }
+    .videos_profesional i {
+        width: 7%;
+    }
+    .videos_profesional .container_cards {
+        padding-bottom: 0;
+    }
+    .videos_profesional .card {
+        margin-bottom: 3%;
+    }
+    .title_opiniones {
+        font-size: 1.8em;
+        padding-left: 4.5%;
+        width: 60%;
+    }
+    .text_cabecera-prof {
+        width: 50%;
+        font-size: 1.1em;
+        margin-left: 24.5%;
+    }
+    .section_opciones {
+        width: 60%;
+    }
+    .section_usuario-prof {
+        padding-left: 7.5%;
+    }
+    .section_comentario-prof {
+        width: 93%;
+        padding-left: 14.5%;
+        margin-top: .5%;
+    }
+    .section_stars-prof {
+        font-size: 1.2em;
+    }
+
+
+
+
+
+
+
+
+
+
     .data_consulta .contains_buttons a {
         width: 55%;
         font-size: 1.3em;
@@ -3236,18 +3441,9 @@
     }*/
 
 
-    .tratamientos_profesional .card {
-        width: 22%;
-        margin-bottom: 0;
-    }
-    .tratamientos_profesional .card{
-        width: 35%;
-        margin-bottom: 0;
-    }
-    .publicaciones_profesional .card{
-        width: 25%;
-        margin-bottom: 0;
-    }
+
+
+
     .opinion_form-prof {
         width: 75%;
         margin: auto;
@@ -3258,47 +3454,21 @@
     .content_options-prof {
         padding: 2% 0;
     }
-    .title_opiniones {
-        font-size: 1.8em;
-        padding-left: 3%;
-        width: 75%;
-    }
-    .text_cabecera-prof {
-        width: 69%;
-        font-size: 1.1em;
-    }
-    .section_opciones {
-        width: 75%;
-    }
+
+
+
     .circle_opinion-prof {
         font-size: 4em;
-    }
-    .section_usuario-prof {
-        font-size: 1.1em;
-        padding-left: 4%;
     }
     .verify_usuario-prof {
         padding-left: 3%;
     }
-    .section_comentario-prof {
-        width: 93%;
-        padding-left: 10.5%;
-        margin-top: .5%;
-    }
+
     .txt_verify-bottom {
         padding-left: 2%;
     }
-    .swiper_premios {
-        max-width: 55%;
-    }
-    .galeria_profesional h2 {
-        width: 75%;
-    }
-    .swiper_galeria_prof {
-        margin-top: 5%;
-        width: 60%;
-        height: 90%;
-    }
+
+
     .contains_swiper_premios .btn-prev {
         width: 15px;
         height: 20px;
@@ -3325,8 +3495,8 @@
         color: #0083D6;
         margin-top: -9%;
     }
-    .videos_profesional .container_cards{
+    /*.videos_profesional .container_cards{
         width: 85%;
         margin: auto;
-    }
+    }*/
 }
