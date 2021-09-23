@@ -32,7 +32,7 @@ class entidadesController extends Controller
     // consulta para cargar banner principal
     public function cargarBannerPrincipalInstituciones(){
         $consultaBannerPrincipalInstituciones = DB::table('ventabanners')
-        ->select('rutaImagenVenta')
+        ->select()
         ->where('aprobado', '<>', 0)
         ->where('idtipobanner', '=', 11)
         ->get();

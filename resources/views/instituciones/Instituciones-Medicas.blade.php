@@ -3,13 +3,24 @@
 @section('content')
 
   <!-- Carrusel Banner principal, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
-  <h1 class="title_banner_entidad"> INSTITUCIONES </h1>
-  <h5 class="subtitle_banner_entidad">Seleccione el tipo de institución para conocer <br> los diferentes servicios.</h5>
+  <!-- <h1 class="title_banner_entidad"> INSTITUCIONES </h1>
+  <h5 class="subtitle_banner_entidad">Seleccione el tipo de institución para conocer <br> los diferentes servicios. </h5> -->
 
-  <section class="swiper-container swiper_principalGaleriaProf">
+  <section class="swiper-container swiper_principalGaleriaProf"> <!-- Función del slider del banner se encuentra en el archivo galeriaProfesiones.js -->
     <div class="swiper-wrapper">
-    @foreach ($objbannersprincipalInstituciones as $objbannersprincipalInstituciones)
-        <img class="swiper-slide imagen_bannerPrin-entid" src="{{URL::asset($objbannersprincipalInstituciones->rutaImagenVenta)}}">
+      @foreach ($objbannersprincipalInstituciones as $objbannersprincipalInstituciones)
+        <div class="swiper-slide ">
+          <img class="swiper-slide imagen_bannerPrin-entid" src="{{URL::asset($objbannersprincipalInstituciones->rutaImagenVenta)}}">
+          <div class="containt_slide_prinInst">
+              <h1 class="titulo_banner_inst" style="color:{{($objbannersprincipalInstituciones->color_titulo)}};">{{($objbannersprincipalInstituciones->titulo_banner)}}</h1>
+              <p class="texto_banner_inst" style="color:{{($objbannersprincipalInstituciones->color_texto)}};">{{($objbannersprincipalInstituciones->texto_banner)}}</p>
+              @if(!empty($objbannersprincipalProfesiones->urlBoton_banner))
+                <a type="submit" href="{{($objbannersprincipalInstituciones->urlBoton_banner)}}" target="blank" class="btn_agendarHome"> {{ __('Ver más') }}
+                  <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt="">
+                </a>
+              @endif
+          </div>
+        </div>
       @endforeach
     </div>
   </section>
@@ -33,7 +44,7 @@
 
         <div class="section_btn_entidades">
           <a class="content_btn_entidades" href="{{url('Instituciones/'.$objinstituciones->slug)}}">
-            <button type="submit" value="" class="btnVer_entidades"> Ver especialidades
+            <button type="submit" value="" class="btnVer_entidades"> Ver insttituciones 
               <img class="icon_arrow_entidades" src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" alt="">
             </button>
           </a>

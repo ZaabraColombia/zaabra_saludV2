@@ -13,7 +13,7 @@
             @foreach ($objprofesionallanding as $objprofesionallanding)
                 <img src="{{URL::asset($objprofesionallanding->fotoperfil)}}">
                 <div class="contains_info">
-                    <h2>{{$objprofesionallanding->primernombre}} {{$objprofesionallanding->primerapellido}}</h2>
+                    <h2>{{$objprofesionallanding->primernombre}} {{$objprofesionallanding->segundonombre}} {{$objprofesionallanding->primerapellido}} {{$objprofesionallanding->segundoapellido}}</h2>
                     <h1>{{$objprofesionallanding->nombreEspecialidad}}</h1>
                     <h5>{{$objprofesionallanding->nombreuniversidad}}</h5>
                     <h5>N° Tarjeta profesional: {{$objprofesionallanding->numeroTarjeta}}</h5>
