@@ -22,6 +22,21 @@ $('.universidades').select2({
     minimumInputLength: 5
 });
 
+/*-------------------------- Botones para guardar ----------------------*/
+function boton_guardar(id){
+    var btn = $(id);
+
+    btn.prop('disabled', false);
+    btn.html(btn.data('text') + '&nbsp;<i class="fa fa-arrow-right"></i>');
+}
+
+function boton_guardar_cargando(id){
+    var btn = $(id);
+
+    btn.prop('disabled', true);
+    btn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&nbsp;' + btn.data('text-loading'));
+}
+
 /*-------------------------- Inicio Primera Parte del Formulario Descripcion Perfil Profesional------------------------------*/
 $('#formulario_basico').validate({
     rules: {
@@ -72,7 +87,8 @@ $('#formulario_basico').validate({
     },
     submitHandler: function(form) {
         // // Pace.start();
-        $('#envia_basico').attr('disabled', 'disabled');
+        var btn = '#envia_basico';
+        boton_guardar_cargando(btn);
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
@@ -93,7 +109,7 @@ $('#formulario_basico').validate({
             processData: false,
             success: function( response ) {
                 $('.form-control').removeClass('is-invalid');
-                $('#envia_basico').removeAttr('disabled');
+                boton_guardar(btn);
 
 
                 $('#msg_basico').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
@@ -106,7 +122,7 @@ $('#formulario_basico').validate({
             error: function (event) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#envia_basico').removeAttr('disabled');
+                boton_guardar(btn);
                 //$('#').removeAttr('disabled');
                 var response = event.responseJSON;
                 $('#msg_basico').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
@@ -176,7 +192,8 @@ $('#formulario_contacto').validate({
     submitHandler: function(form) {
 
         // Pace.start();
-        $('#envia_contacto').attr('disabled', 'disabled');
+        var btn = '#envia_contacto';
+        boton_guardar_cargando(btn);
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
@@ -190,7 +207,7 @@ $('#formulario_contacto').validate({
             success: function( response ) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#envia_contacto').removeAttr('disabled');
+                boton_guardar(btn);
                 $('#msg_contacto').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -201,7 +218,7 @@ $('#formulario_contacto').validate({
             error:function (event) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#envia_contacto').removeAttr('disabled');
+                boton_guardar(btn);
                 var response = event.responseJSON;
                 $('#msg_contacto').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -239,15 +256,16 @@ $('#formulario_consulta').validate({
         },
     },
     submitHandler: function(form) {
-
-        // Pace.start();
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        $('#envia_consultas').attr('disabled', 'disabled');
+
+        var btn = '#envia_consultas';
+        boton_guardar_cargando(btn);
+
         $.ajax({
             url:  "FormularioProfesionalSave3",
             type: "POST",
@@ -255,7 +273,7 @@ $('#formulario_consulta').validate({
             success: function( response ) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#envia_consultas').removeAttr('disabled');
+                boton_guardar(btn);
                 $('#mensaje-consulta').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -265,9 +283,9 @@ $('#formulario_consulta').validate({
 
                 if (response.items_max)
                 {
-                    $('#tipo_consulta').attr('disabled', 'disabled');
-                    $('#valor_consulta').attr('disabled', 'disabled');
-                    $('#envia_consultas').attr('disabled', 'disabled');
+                    $('#tipo_consulta').prop('disabled', true);
+                    $('#valor_consulta').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#consultas-lista').append('<div class="section_infoConsulta-formProf">\n' +
@@ -287,9 +305,9 @@ $('#formulario_consulta').validate({
                 document.getElementById("formulario_consulta").reset();
             },
             error: function (event) {
-                // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#envia_consultas').removeAttr('disabled');
+                boton_guardar(btn);
+
                 var response = event.responseJSON;
                 $('#mensaje-consulta').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -304,9 +322,9 @@ $('#formulario_consulta').validate({
                 }
                 if (response.items_max)
                 {
-                    $('#tipo_consulta').attr('disabled', 'disabled');
-                    $('#valor_consulta').attr('disabled', 'disabled');
-                    $('#envia_consultas').attr('disabled', 'disabled');
+                    $('#tipo_consulta').prop('disabled', true);
+                    $('#valor_consulta').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
             }
         });
@@ -376,8 +394,8 @@ $('#formulario_destacado').validate({
     },
     submitHandler: function ()
     {
-        var btn = $('#destacado_nombre_btn');
-        btn.prop('disabled', true);
+        var btn = '#destacado_nombre_btn';
+        boton_guardar_cargando(btn);
 
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
@@ -385,7 +403,6 @@ $('#formulario_destacado').validate({
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        // Pace.start();
 
         $.ajax({
             url:  "/FormularioProfesionalAddDestacable",
@@ -395,7 +412,7 @@ $('#formulario_destacado').validate({
             success: function( response ) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                btn.prop('disabled', false)
+                boton_guardar(btn);
 
                 $('#destacado-lista').append('<div class="alert alert-info alert-dismissible fade show" role="alert">\n' +
                     '<strong>' + response.nombre + '</strong>\n' +
@@ -407,11 +424,11 @@ $('#formulario_destacado').validate({
                 console.log(response.count);
                 if (response.count >= 9){
                     $('#destacado_nombre').prop('disabled', true);
-                    btn.prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#destacado-mensaje').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    '<strong>' + 'response.mensaje' + '</strong>\n' +
+                    '<strong>' + response.mensaje + '</strong>\n' +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                     '<span aria-hidden="true">&times;</span>\n' +
                     '</button>\n' +
@@ -420,7 +437,7 @@ $('#formulario_destacado').validate({
             },
             error: function (event){
 
-                btn.prop('disabled', false)
+                boton_guardar(btn);
 
                 var response = event.responseJSON
 
@@ -496,7 +513,8 @@ $('#formulario_descripcion').validate({
     },
     submitHandler: function(form) {
         // Pace.start();
-        //$('#').attr('disabled', 'disabled');
+        var btn = '#btn-guardar-perfil-profesional';
+        boton_guardar_cargando(btn);
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
@@ -510,9 +528,8 @@ $('#formulario_descripcion').validate({
             type: "POST",
             data: $('#formulario_descripcion').serialize(),
             success: function( response ) {
-                // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                //$('#').removeAttr('disabled');
+                boton_guardar(btn);
                 $('#mensaje-perfil-profesional').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -521,9 +538,8 @@ $('#formulario_descripcion').validate({
                     '</div>');
             },
             error: function (event) {
-                // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                //$('#').removeAttr('disabled');
+                boton_guardar(btn);
                 var response = event.responseJSON;
                 $('#mensaje-perfil-profesional').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -571,8 +587,10 @@ $('#formulario_estudios').validate({
         },
     },
     submitHandler: function(form) {
-        // Pace.start();
-        $('#boton-enviar-estudios').attr('disabled', 'disabled');
+
+        var btn = '#boton-enviar-estudios';
+        boton_guardar_cargando(btn);
+
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
@@ -593,7 +611,7 @@ $('#formulario_estudios').validate({
             success: function( response ) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-enviar-estudios').removeAttr('disabled');
+                boton_guardar(btn);
                 $('#mensaje-estudios').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -603,11 +621,11 @@ $('#formulario_estudios').validate({
 
                 if (response.items_max)
                 {
-                    $('#logo_universidad').attr('disabled', 'disabled');
-                    $('#universidad_estudio').attr('disabled', 'disabled');
-                    $('#fecha_estudio').attr('disabled', 'disabled');
-                    $('#disciplina_estudio').attr('disabled', 'disabled');
-                    $('#boton-enviar-estudios').attr('disabled', 'disabled');
+                    $('#logo_universidad').prop('disabled', true);
+                    $('#universidad_estudio').prop('disabled', true);
+                    $('#fecha_estudio').prop('disabled', true);
+                    $('#disciplina_estudio').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#estudios-lista').append('<div class="section_infoEducacion-formProf">\n' +
@@ -637,7 +655,7 @@ $('#formulario_estudios').validate({
             error: function (event) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-enviar-estudios').removeAttr('disabled');
+                boton_guardar(btn);
                 var response = event.responseJSON;
                 $('#mensaje-estudios').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -652,11 +670,11 @@ $('#formulario_estudios').validate({
                 }
                 if (response.items_max)
                 {
-                    $('#logo_universidad').attr('disabled', 'disabled');
-                    $('#universidad_estudio').attr('disabled', 'disabled');
-                    $('#fecha_estudio').attr('disabled', 'disabled');
-                    $('#disciplina_estudio').attr('disabled', 'disabled');
-                    $('#boton-enviar-estudios').attr('disabled', 'disabled');
+                    $('#logo_universidad').prop('disabled', true);
+                    $('#universidad_estudio').prop('disabled', true);
+                    $('#fecha_estudio').prop('disabled', true);
+                    $('#disciplina_estudio').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
             }
         });
@@ -752,7 +770,9 @@ $('#formulario_experiencia').validate({
     },
     submitHandler: function(form) {
         // Pace.start();
-        $('#boton-guardar-experiencia').attr('disabled', 'disabled');
+        var btn = '#boton-guardar-experiencia';
+        boton_guardar_cargando(btn);
+
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
@@ -773,7 +793,8 @@ $('#formulario_experiencia').validate({
             success: function( response ) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-experiencia').removeAttr('disabled');
+                boton_guardar(btn);
+
                 $('#mensaje-experiencia').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -783,12 +804,12 @@ $('#formulario_experiencia').validate({
 
                 if (response.items_max)
                 {
-                    $('#logo_experiencia').attr('disabled', 'disabled');
-                    $('#nombre_empresa').attr('disabled', 'disabled');
-                    $('#descripcion_experiencia').attr('disabled', 'disabled');
-                    $('#inicio_experiencia').attr('disabled', 'disabled');
-                    $('#fin_experiencia').attr('disabled', 'disabled');
-                    $('#boton-guardar-experiencia').attr('disabled', 'disabled');
+                    $('#logo_experiencia').prop('disabled', true);
+                    $('#nombre_empresa').prop('disabled', true);
+                    $('#descripcion_experiencia').prop('disabled', true);
+                    $('#inicio_experiencia').prop('disabled', true);
+                    $('#fin_experiencia').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#experiencia-lista').append('<div class="section_infoExper-formProf">\n' +
@@ -822,7 +843,8 @@ $('#formulario_experiencia').validate({
             error: function (event) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-experiencia').removeAttr('disabled');
+                boton_guardar(btn);
+
                 var response = event.responseJSON;
                 $('#mensaje-experiencia').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -837,12 +859,12 @@ $('#formulario_experiencia').validate({
                 }
                 if (response.items_max)
                 {
-                    $('#logo_experiencia').attr('disabled', 'disabled');
-                    $('#nombre_empresa').attr('disabled', 'disabled');
-                    $('#descripcion_experiencia').attr('disabled', 'disabled');
-                    $('#inicio_experiencia').attr('disabled', 'disabled');
-                    $('#fin_experiencia').attr('disabled', 'disabled');
-                    $('#boton-guardar-experiencia').attr('disabled', 'disabled');
+                    $('#logo_experiencia').prop('disabled', true);
+                    $('#nombre_empresa').prop('disabled', true);
+                    $('#descripcion_experiencia').prop('disabled', true);
+                    $('#inicio_experiencia').prop('disabled', true);
+                    $('#fin_experiencia').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
             }
         });
@@ -917,8 +939,9 @@ $('#formulario_asociacion').validate({
     },
     submitHandler: function(form) {
 
-        // Pace.start();
-        $('#boton-guardar-asociacion').attr('disabled', 'disabled');
+        var btn = '#boton-guardar-asociacion';
+        boton_guardar_cargando(btn);
+
         var formulario = $('#formulario_asociacion')[0];
 
         var data = new FormData(formulario);
@@ -942,7 +965,8 @@ $('#formulario_asociacion').validate({
             success: function( response ) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-asociacion').removeAttr('disabled');
+                boton_guardar(btn);
+
                 $('#mensajes-asociacion').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -952,8 +976,8 @@ $('#formulario_asociacion').validate({
 
                 if (response.items_max)
                 {
-                    $('#imagenAsociacion').attr('disabled', 'disabled');
-                    $('#boton-guardar-asociacion').attr('disabled', 'disabled');
+                    $('#imagenAsociacion').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#lista-asociacion').append('<div class="section_infoAsocia-formProf">\n' +
@@ -971,7 +995,8 @@ $('#formulario_asociacion').validate({
             error: function (event) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-asociacion').removeAttr('disabled');
+                boton_guardar(btn);
+
                 var response = event.responseJSON;
                 $('#mensajes-asociacion').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -986,8 +1011,8 @@ $('#formulario_asociacion').validate({
                 }
                 if (response.items_max)
                 {
-                    $('#imagenAsociacion').attr('disabled', 'disabled');
-                    $('#boton-guardar-asociacion').attr('disabled', 'disabled');
+                    $('#imagenAsociacion').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
             }
         });
@@ -1055,7 +1080,9 @@ $('#formulario_idioma').validate({
     },
     submitHandler: function(form) {
         // Pace.start();
-        $('#boton-guardar-idioma').attr('disabled', 'disabled');
+        var btn = '#boton-guardar-idioma';
+        boton_guardar_cargando(btn);
+
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
@@ -1069,7 +1096,8 @@ $('#formulario_idioma').validate({
             success: function( response ) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-idioma').removeAttr('disabled');
+                boton_guardar(btn);
+
                 $('#mensaje-idioma').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1079,8 +1107,8 @@ $('#formulario_idioma').validate({
 
                 if (response.items_max)
                 {
-                    $('#idioma').attr('disabled', 'disabled');
-                    $('#boton-guardar-idioma').attr('disabled', 'disabled');
+                    $('#idioma').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#lista-idioma').append('<div class="section_infoAsocia-formProf">\n' +
@@ -1098,7 +1126,8 @@ $('#formulario_idioma').validate({
             error: function (event) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-idioma').removeAttr('disabled');
+                boton_guardar(btn);
+
                 var response = event.responseJSON;
                 $('#mensaje-idioma').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1113,8 +1142,8 @@ $('#formulario_idioma').validate({
                 }
                 if (response.items_max)
                 {
-                    $('#idioma').attr('disabled', 'disabled');
-                    $('#boton-guardar-idioma').attr('disabled', 'disabled');
+                    $('#idioma').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
             }
         });
@@ -1233,7 +1262,8 @@ $('#formulario_tratamiento').validate({
     submitHandler: function(form) {
 
         // Pace.start();
-        $('#boton-guardar-tratamiento').attr('disabled', 'disabled');
+        var btn = '#boton-guardar-tratamiento';
+        boton_guardar_cargando(btn);
 
         var formulario = $('#formulario_tratamiento')[0];
 
@@ -1258,7 +1288,8 @@ $('#formulario_tratamiento').validate({
             success: function( response ) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-tratamiento').removeAttr('disabled');
+                boton_guardar(btn);
+
                 $('#mensajes-tratamientos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1268,13 +1299,13 @@ $('#formulario_tratamiento').validate({
 
                 if (response.items_max)
                 {
-                    $('#imgTratamientoAntes').attr('disabled', 'disabled');
-                    $('#tituloTrataminetoAntes').attr('disabled', 'disabled');
-                    $('#descripcionTratamientoAntes').attr('disabled', 'disabled');
-                    $('#imgTratamientodespues').attr('disabled', 'disabled');
-                    $('#tituloTrataminetoDespues').attr('disabled', 'disabled');
-                    $('#descripcionTratamientoDespues').attr('disabled', 'disabled');
-                    $('#boton-guardar-tratamiento').attr('disabled', 'disabled');
+                    $('#imgTratamientoAntes').prop('disabled', true);
+                    $('#tituloTrataminetoAntes').prop('disabled', true);
+                    $('#descripcionTratamientoAntes').prop('disabled', true);
+                    $('#imgTratamientodespues').prop('disabled', true);
+                    $('#tituloTrataminetoDespues').prop('disabled', true);
+                    $('#descripcionTratamientoDespues').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#lista-tratamientos').append('<div class="traProce_guardada-formProf">\n' +
@@ -1314,7 +1345,8 @@ $('#formulario_tratamiento').validate({
             error: function (event) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-tratamiento').removeAttr('disabled');
+                boton_guardar(btn);
+
                 var response = event.responseJSON;
                 $('#mensajes-tratamientos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1329,13 +1361,13 @@ $('#formulario_tratamiento').validate({
                 }
                 if (response.items_max)
                 {
-                    $('#imgTratamientoAntes').attr('disabled', 'disabled');
-                    $('#tituloTrataminetoAntes').attr('disabled', 'disabled');
-                    $('#descripcionTratamientoAntes').attr('disabled', 'disabled');
-                    $('#imgTratamientodespues').attr('disabled', 'disabled');
-                    $('#tituloTrataminetoDespues').attr('disabled', 'disabled');
-                    $('#descripcionTratamientoDespues').attr('disabled', 'disabled');
-                    $('#boton-guardar-tratamiento').attr('disabled', 'disabled');
+                    $('#imgTratamientoAntes').prop('disabled', true);
+                    $('#tituloTrataminetoAntes').prop('disabled', true);
+                    $('#descripcionTratamientoAntes').prop('disabled', true);
+                    $('#imgTratamientodespues').prop('disabled', true);
+                    $('#tituloTrataminetoDespues').prop('disabled', true);
+                    $('#descripcionTratamientoDespues').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
             }
         });
@@ -1440,8 +1472,9 @@ $('#formulario_premio').validate({
     },
     submitHandler: function(form) {
 
-        // Pace.start();
-        $('#boton-guardar-premio').attr('disabled', 'disabled');
+        var btn = '#boton-guardar-premio';
+        boton_guardar_cargando(btn);
+
         var formulario = $('#formulario_premio')[0];
 
         var data = new FormData(formulario);
@@ -1465,7 +1498,8 @@ $('#formulario_premio').validate({
             success: function( response ) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-premio').removeAttr('disabled');
+                boton_guardar(btn);
+
                 $('#mensajes-premios').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1475,11 +1509,11 @@ $('#formulario_premio').validate({
 
                 if (response.items_max)
                 {
-                    $('#imgPremio').attr('disabled', 'disabled');
-                    $('#fechaPremio').attr('disabled', 'disabled');
-                    $('#nombrePremio').attr('disabled', 'disabled');
-                    $('#descripcionPremio').attr('disabled', 'disabled');
-                    $('#boton-guardar-premio').attr('disabled', 'disabled');
+                    $('#imgPremio').prop('disabled', true);
+                    $('#fechaPremio').prop('disabled', true);
+                    $('#nombrePremio').prop('disabled', true);
+                    $('#descripcionPremio').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#lista-premios').append('<div class="section_infoExper-formProf">\n' +
@@ -1508,7 +1542,7 @@ $('#formulario_premio').validate({
             error: function (event) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-premio').removeAttr('disabled');
+                boton_guardar(btn);
                 var response = event.responseJSON;
                 $('#mensajes-premios').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1523,11 +1557,11 @@ $('#formulario_premio').validate({
                 }
                 if (response.items_max)
                 {
-                    $('#imgPremio').attr('disabled', 'disabled');
-                    $('#fechaPremio').attr('disabled', 'disabled');
-                    $('#nombrePremio').attr('disabled', 'disabled');
-                    $('#descripcionPremio').attr('disabled', 'disabled');
-                    $('#boton-guardar-premio').attr('disabled', 'disabled');
+                    $('#imgPremio').prop('disabled', true);
+                    $('#fechaPremio').prop('disabled', true);
+                    $('#nombrePremio').prop('disabled', true);
+                    $('#descripcionPremio').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
             }
         });
@@ -1620,7 +1654,9 @@ $('#formulario_publicaciones').validate({
     submitHandler: function(form) {
 
         // Pace.start();
-        $('#boton-guardar-publicacion').attr('disabled', 'disabled');
+        var btn = '#boton-guardar-publicacion';
+        boton_guardar_cargando(btn);
+
         var formulario = $('#formulario_publicaciones')[0];
 
         var data = new FormData(formulario);
@@ -1642,9 +1678,9 @@ $('#formulario_publicaciones').validate({
             cache: false,
             data: data,
             success: function( response ) {
-                // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-publicacion').removeAttr('disabled');
+                boton_guardar(btn);
+
                 $('#mensajes-publicacion').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1654,10 +1690,10 @@ $('#formulario_publicaciones').validate({
 
                 if (response.items_max)
                 {
-                    $('#imagePublicacion').attr('disabled', 'disabled');
-                    $('#nombrePublicacion').attr('disabled', 'disabled');
-                    $('#descripcionPublicacion').attr('disabled', 'disabled');
-                    $('#boton-guardar-publicacion').attr('disabled', 'disabled');
+                    $('#imagePublicacion').prop('disabled', true);
+                    $('#nombrePublicacion').prop('disabled', true);
+                    $('#descripcionPublicacion').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#lista-publicacion').append('<div class="section_infoExper-formProf">\n' +
@@ -1681,9 +1717,9 @@ $('#formulario_publicaciones').validate({
                 $('#img-publicacion').removeAttr('src');
             },
             error: function (event) {
-                // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-publicacion').removeAttr('disabled');
+                boton_guardar(btn);
+
                 var response = event.responseJSON;
                 $('#mensajes-publicacion').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1698,10 +1734,10 @@ $('#formulario_publicaciones').validate({
                 }
                 if (response.items_max)
                 {
-                    $('#imagePublicacion').attr('disabled', 'disabled');
-                    $('#nombrePublicacion').attr('disabled', 'disabled');
-                    $('#descripcionPublicacion').attr('disabled', 'disabled');
-                    $('#boton-guardar-publicacion').attr('disabled', 'disabled');
+                    $('#imagePublicacion').prop('disabled', true);
+                    $('#nombrePublicacion').prop('disabled', true);
+                    $('#descripcionPublicacion').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
             }
         });
@@ -1796,8 +1832,9 @@ $('#formulario_fotos').validate({
         }
     },
     submitHandler: function(form) {
-        // Pace.start();
-        $('#boton-guardar-foto').attr('disabled', 'disabled');
+
+        var btn = '#boton-guardar-foto';
+        boton_guardar_cargando(btn);
 
         var formulario = $('#formulario_fotos')[0];
 
@@ -1822,7 +1859,8 @@ $('#formulario_fotos').validate({
             success: function( response ) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-foto').removeAttr('disabled');
+                boton_guardar(btn);
+
                 $('#mensajes-fotos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1832,11 +1870,11 @@ $('#formulario_fotos').validate({
 
                 if (response.items_max)
                 {
-                    $('#imgFoto').attr('disabled', 'disabled');
-                    $('#fechaFoto').attr('disabled', 'disabled');
-                    $('#nombreFoto').attr('disabled', 'disabled');
-                    $('#descripcionFoto').attr('disabled', 'disabled');
-                    $('#boton-guardar-foto').attr('disabled', 'disabled');
+                    $('#imgFoto').prop('disabled', true);
+                    $('#fechaFoto').prop('disabled', true);
+                    $('#nombreFoto').prop('disabled', true);
+                    $('#descripcionFoto').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#lista-fotos').append('<div class="section_infoExper-formProf">\n' +
@@ -1862,7 +1900,8 @@ $('#formulario_fotos').validate({
             error: function (event) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-foto').removeAttr('disabled');
+                boton_guardar(btn);
+
                 var response = event.responseJSON;
                 $('#mensajes-fotos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -1877,11 +1916,11 @@ $('#formulario_fotos').validate({
                 }
                 if (response.items_max)
                 {
-                    $('#imgFoto').attr('disabled', 'disabled');
-                    $('#fechaFoto').attr('disabled', 'disabled');
-                    $('#nombreFoto').attr('disabled', 'disabled');
-                    $('#descripcionFoto').attr('disabled', 'disabled');
-                    $('#boton-guardar-foto').attr('disabled', 'disabled');
+                    $('#imgFoto').prop('disabled', true);
+                    $('#fechaFoto').prop('disabled', true);
+                    $('#nombreFoto').prop('disabled', true);
+                    $('#descripcionFoto').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
             }
         });
@@ -1970,7 +2009,9 @@ $('#formulario-videos').validate({
     },
     submitHandler: function(form) {
         // Pace.start();
-        $('#boton-guardar-video').attr('disabled', 'disabled');
+        var btn = '#boton-guardar-video';
+        boton_guardar_cargando(btn);
+
         $.ajaxSetup({
             /*Se anade el token al ajax para seguridad*/
             headers: {
@@ -1984,7 +2025,8 @@ $('#formulario-videos').validate({
             success: function( response ) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-video').removeAttr('disabled');
+                boton_guardar(btn);
+
                 $('#mensajes-videos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
@@ -1994,11 +2036,11 @@ $('#formulario-videos').validate({
 
                 if (response.items_max)
                 {
-                    $('#urlVideo').attr('disabled', 'disabled');
-                    $('#fechaVideo').attr('disabled', 'disabled');
-                    $('#nombreVideo').attr('disabled', 'disabled');
-                    $('#descripcionVideo').attr('disabled', 'disabled');
-                    $('#boton-guardar-video').attr('disabled', 'disabled');
+                    $('#urlVideo').prop('disabled', true);
+                    $('#fechaVideo').prop('disabled', true);
+                    $('#nombreVideo').prop('disabled', true);
+                    $('#descripcionVideo').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#lista-videos').append('<div class="section_infoExper-formProf">\n' +
@@ -2024,9 +2066,9 @@ $('#formulario-videos').validate({
                 document.getElementById("formulario-videos").reset();
             },
             error: function (event) {
-                // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#boton-guardar-video').removeAttr('disabled');
+                boton_guardar(btn);
+
                 var response = event.responseJSON;
                 $('#mensajes-videos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
                     response.mensaje +
@@ -2041,11 +2083,11 @@ $('#formulario-videos').validate({
                 }
                 if (response.items_max)
                 {
-                    $('#urlVideo').attr('disabled', 'disabled');
-                    $('#fechaVideo').attr('disabled', 'disabled');
-                    $('#nombreVideo').attr('disabled', 'disabled');
-                    $('#descripcionVideo').attr('disabled', 'disabled');
-                    $('#boton-guardar-video').attr('disabled', 'disabled');
+                    $('#urlVideo').prop('disabled', true);
+                    $('#fechaVideo').prop('disabled', true);
+                    $('#nombreVideo').prop('disabled', true);
+                    $('#descripcionVideo').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
             }
         });
