@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\users_roles;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +22,6 @@ class RolesMiddleware
         $ruta = $request->route()->getName();
 
         $rol = explode('.', $ruta);
-
         //No tiene nombre la ruta
         if (empty($rol[0]))
         {
@@ -48,11 +48,9 @@ class RolesMiddleware
         }
 
         //$permiso = DB::select('select users.id from users inner join users_roles on users_roles.id = users.id where users_roles.iduser = ' . $id_user . ' and users_roles.iduser = ' . $id_rol)->get();
-        $permiso = DB::table('users')
-            ->select('users.id')
-            ->join('users_roles', 'users_roles.iduser','=', 'users.id')
-            ->where('users_roles.iduser', '=', $id_user)
-            ->where('users_roles.idrol', '=', $id_rol)
+        $permiso = users_roles::select('id')
+            ->where('iduser', '=', $id_user)
+            ->where('idrol', '=', $id_rol)
             ->first();
 
         //Si no existe el rol

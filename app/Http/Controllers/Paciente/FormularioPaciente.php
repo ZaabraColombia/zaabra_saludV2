@@ -11,7 +11,9 @@ use App\Models\provincia;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class FormularioPaciente extends Controller
@@ -93,19 +95,18 @@ class FormularioPaciente extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
+                'error' => ['mensajes' => $men, 'ids' => $error],
                 'mensaje' => 'Ingrese correctamente la información'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
 
-        //Modificar la información del usuario
-        /*id usuario conectado*/
-        $id_user    = auth()->user()->id;
         //Modificar nombres del usuario\
-        $user       = User::find($id_user);
-
+        $user = User::find(auth()->user()->id);
         $user->primernombre     = $request->primer_nombre;
         $user->segundonombre    = $request->segundo_nombre;
         $user->primerapellido   = $request->primer_apellido;
@@ -113,6 +114,7 @@ class FormularioPaciente extends Controller
         $user->tipodocumento    = $request->tipo_documento;
         $user->numerodocumento  = $request->numero_documento;
 
+        //Modificar la información del usuario
         $user->save();
 
         //Información del perfil profesional
@@ -122,7 +124,6 @@ class FormularioPaciente extends Controller
         $perfil->celular    = $request->celular;
         $perfil->direccion  = $request->direccion;
         $perfil->eps        = $request->eps;
-        //$perfil->foto       = $request->foto;
         $perfil->id_municipio= $request->municipio;
 
         //Validar si llega la imagen
@@ -135,19 +136,58 @@ class FormularioPaciente extends Controller
             $foto_perfil = $request->file('foto_paciente');
 
             /*captura el nombre del logo*/
-            $nombre_foto = $id_user . '-' .  time() . '.' . $foto_perfil->guessExtension();
+            $nombre_foto = $user->id . '-' .  time() . '.' . $foto_perfil->guessExtension();
 
             /*guarda la imagen en carpeta con el id del usuario*/
-            $foto_perfil->move("img/pacientes/$id_user", $nombre_foto);
+            $foto_perfil->move("img/pacientes/$user->id", $nombre_foto);
 
             //capturar la fotp
-            $perfil->foto = "img/pacientes/$id_user/" . $nombre_foto;
+            $perfil->foto = "img/pacientes/$user->id/" . $nombre_foto;
         }
 
         $perfil->save();
 
         return response()->json([
             'mensaje' => 'Se modifico el perfil correctamente.'
+        ], Response::HTTP_OK);
+    }
+
+
+    //Guardar la información basica del paciente
+    public function password(Request $request)
+    {
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'password'          => ['required'],
+            'password_new'      => ['required', 'string', 'min:8', 'confirmed']
+        ]);
+
+        if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Ingrese correctamente la información'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        //Revisar si es la clave
+        if (!Auth::attempt(['email' => auth()->user()->email, 'password' => $request->password]))
+        {
+            return response([
+                'mensaje' => 'Ingrese correctamente la contraseña'
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+
+        //Modificar la contraseña del usuario
+        $user           = User::find(auth()->user()->id);
+        $user->password = Hash::make($request->password_new);
+        $user->save();
+
+        return response()->json([
+            'mensaje' => 'Se modifico la contraseña correctamente.'
         ], Response::HTTP_OK);
     }
 }

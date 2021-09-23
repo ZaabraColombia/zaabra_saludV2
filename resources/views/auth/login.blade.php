@@ -85,7 +85,7 @@
                 <p class="col-4 col-md-2 texto_inferior-login">  o ingrese con  </p>
                 <!-- seccion iconos redes sociales -->
                 <div class="col-4 col-md-3 content_imgRedes-login">
-                    <a class="" href="">
+                    <a class="" href="{{ route('facebook-redirect') }}">
                         <img class="img_redes-login" src="{{ asset('/img/iconos/icono-facebook.svg') }}">
                     </a>
                     <a class="" href="{{ route('google-redirect') }}">

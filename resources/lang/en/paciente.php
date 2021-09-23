@@ -18,4 +18,5 @@ return [
     'contraseña-nueva'      => 'New Password',
     'contraseña-repetir'    => 'Repeat Password',
     'guardar'               => 'Save',
+    'cargando'              => 'Loading'
 ];
