@@ -973,11 +973,7 @@ a:link, a:visited, a:active, a:hover {
         height: 100%;
     }
 }
-<<<<<<< HEAD
-/*@media (min-width: 1200px) {
-=======
-@media (min-width: 1200px) and (max-width: 1359.98px) {
->>>>>>> c546b3f1dbc0025a32d3b3bfb882242811157499
+/*@media (min-width: 1200px) and (max-width: 1359.98px) {
     //Seccion barra de busqueda
     .contenedorLupa {
         width: 5%;
@@ -987,15 +983,11 @@ a:link, a:visited, a:active, a:hover {
         max-width: 135px;
     }
     #ui-id-1 {
-<<<<<<< HEAD
         left: 25.6% !important;
         width: 29.7% !important;
-=======
-        /*left: 25.6% !important;*/
-        /*width: 29.7% !important;*/
->>>>>>> c546b3f1dbc0025a32d3b3bfb882242811157499
+        left: 25.6% !important;
+        width: 29.7% !important;
         height: 27vh;
-
     }
 }*/
 /*@media (min-width: 1360px) {
@@ -1105,7 +1097,8 @@ a:link, a:visited, a:active, a:hover {
         width: 260px;
     }
 }*/
-@media (min-width: 1920px) {
+
+@media(min-width: 1920px) {
     .navbar_zaabrasalud {
         height: 75px;
     }
@@ -1116,11 +1109,10 @@ a:link, a:visited, a:active, a:hover {
     .barra_busqueda {
         height: 35px;
     }
-<<<<<<< HEAD
     .soy_paciente {
         width: 100px;
-=======
     // Seccion barra de busqueda
+    }
     .contenedorLupa {
         padding: 0;
         border: none;
@@ -1137,7 +1129,6 @@ a:link, a:visited, a:active, a:hover {
         /*width: 29.7% !important;*/
         height: 31vh;
         //top: 63px !important;
->>>>>>> c546b3f1dbc0025a32d3b3bfb882242811157499
     }
     .soy_paciente .dropdown-toggle {
         background-size: 70px;

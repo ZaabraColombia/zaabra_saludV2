@@ -259,11 +259,11 @@
     <!-- Seccion texto de la linea de ateción -->
     <div class="contain_accordion-institucion" id="accordion1">
       <p class="texto_lineaAtencion-institucion">
-        Instituciones como clínicas, centros médicos, hospitales, laboratorio clínico, laboratorio odontológico, IPS, EPS y clínicas veterinarias.
-        Comunicarse con nuestros medical software managers o directamente con nuestra línea de atención 7123945 - 3212449869.
+        Instituciones como clínicas, centros médicos, hospitales, laboratorios clínicos, laboratorios odontológicos, IPS, EPS, clínicas veterinarias o 
+        si pertenece a alguna de las asociaciones que tienen convenios con nosotros,
+        comunicarse con nuestros medical software managers o directamente con nuestra línea de atención 7123945 - 3212449869.
       </p>
     </div>
   </section>
 </div>
-
 @endsection
