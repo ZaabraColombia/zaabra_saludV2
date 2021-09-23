@@ -29,7 +29,7 @@ class FacebookController extends Controller
 
             $user = Socialite::driver('facebook')->user();
 
-            $finduser = User::where('facebook_id', $user->id)->first();
+            $finduser = User::where('email', '=' ,$user->email)->first();
 
             if($finduser){
 
@@ -40,8 +40,6 @@ class FacebookController extends Controller
                 }
 
                 Auth::login($finduser);
-                dd($finduser);
-                dd(auth());
 
                 return redirect()->intended('/');
             }else{
