@@ -10040,12 +10040,12 @@ a:link, a:visited, a:active, a:hover {
 
 .inputBarraBusquedad {
   width: 100%;
-  height: 50px;
+  height: 30px;
   padding-left: 0;
   border-radius: 0;
-  font-size: 1.4em;
+  font-size: 1em;
   border: none;
-  padding: 2%;
+  padding: 0 2%;
   background: #faebd700;
 }
 
@@ -10574,7 +10574,6 @@ a:link, a:visited, a:active, a:hover {
     height: 25px;
     padding-left: 0;
     border-radius: 0;
-    font-size: 1.2em;
     border: none;
     padding: 1% 2%;
     background: #faebd700;
@@ -10806,7 +10805,7 @@ a:link, a:visited, a:active, a:hover {
     height: 45px;
     padding-left: 0;
     border-radius: 0;
-    font-size: 1.75em;
+    font-size: 1.5em;
     border: none;
     padding: 1% 2%;
     background: #faebd700;
@@ -11066,98 +11065,11 @@ a:link, a:visited, a:active, a:hover {
         height: 55px;
     }
 }*/
-/*@media (min-width: 1440px) {
-    .contains_barra{
-        display: none;
-    }
-    // Contenedor principal
-    .contains_header {
-        width: 75%;
-        height: 100%;
-        padding: 0;
-        justify-content: flex-start;
-    }
-    // Seccion logo zaabra
-    .logo_header {
-        width: 80%;
-    }
-    //Seccion barra de busqueda
-    .contains_boxsearch {
-        padding: 0%;
-        flex: 45%;
-        width: 45%;
-        height: 100%;
-        margin-right: 0;
-        align-items: center;
-        display: flex;
-        align-self: center;
-    }
-    .contenedorLupa {
-        padding: 0;
-        border: none;
-        height: auto;
-        width: 6%;
-        position: relative;
-        margin-top: 0;
-        margin-right: 3%;
-        right: 0;
-        align-items: flex-end;
-    }
-    .icon_searchH {
-        background-size: 60%;
-    }
-    #ui-id-1 {
-        //left: 25.65% !important;
-    }
-    //Seccion boton usuario
-    .dropdown-paciente {
-        width: 30%;
-        height: 100%;
-    }
-    .soy_paciente{
-        width: 8%;
-    }
-
-    .icon_paciente {
-        background-size: contain;
-        background-image: url('/img/header/icono-soy-paciente-blanco.svg');
-        background-repeat: no-repeat;
-        background-position-y: center;
-    }
-    .menu_paciente {
-        padding: 0;
-        height: auto;
-        width: 200px;
-    }
-    .texto_item-menu {
-        width: 60%;
-        margin-left: 20%;
-    }
-    .texto_item-menu-paciente {
-        width: 60%;
-        margin-left: 35%;
-    }
-    //Seccion membresia
-    .button-membresia {
-        display: flex;
-        max-width: 145px;
-    }
-    .img-button-membresia {
-        width: 100%;
-    }
-    //Seccion menu hamburguesa
-    .menu-hamburger {
-        width: 7%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .menu_hamburguesa {
-        height: auto;
-        width: 260px;
-    }
-}*/
+@media (min-width: 1440px) {
+  .inputBarraBusquedad {
+    height: 28px;
+  }
+}
 @media (min-width: 1920px) {
   .navbar_zaabrasalud {
     height: 75px;
@@ -11170,6 +11082,11 @@ a:link, a:visited, a:active, a:hover {
 
   .barra_busqueda {
     height: 35px;
+  }
+
+  .inputBarraBusquedad {
+    height: 35px;
+    font-size: 1.2em;
   }
 
   .soy_paciente {
