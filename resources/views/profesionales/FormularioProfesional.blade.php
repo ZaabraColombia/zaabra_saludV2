@@ -272,7 +272,7 @@
 
                     <div class="col-md-6 section_inputRight-text-formProf">
                         <label for="valor_consulta" class="col-12 text_label-formProf"> Valor </label>
-                        <input type="number" min="0" max="150000" class="form-control" id="valor_consulta" name="valor_consulta" {{ ($count_consultas >= 3 ) ? 'disabled' : '' }}>
+                        <input type="number" min="0" class="form-control" id="valor_consulta" name="valor_consulta" {{ ($count_consultas >= 3 ) ? 'disabled' : '' }}>
                     </div>
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
@@ -639,7 +639,7 @@
 
                                 <div class="col-12 img_selccionada-formProf">
                                     <img class="img_traProced-formProf" src="{{URL::asset($objTratamiento->imgTratamientoAntes)}}">
-                                </div>                           
+                                </div>
 
                                 <div class="col-12 content_title_formProf">
                                     <label class="col-12 title_infoGuardada-formProf"> {{$objTratamiento->tituloTrataminetoAntes}} </label>
