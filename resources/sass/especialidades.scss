@@ -1,12 +1,39 @@
+.containt_slide_prinProf {
+    width: 28%;
+    position: absolute;
+    top: 113px;
+    left: 164px;
+}
 .imagen_bannerPrin-espc {
     width: 100%;
     padding: 0;
 }
-.texto_banner_ramaSalud {
+.titulo_banner_prof{
+    color: #019F86;
+    font-family: "Quicksand";
+    font-size: 2.2em;
+    font-weight: bolder;
+    margin-bottom: 4%;
+    /*position: absolute;
+    top: 23%;
+    left: 16%;
+    margin: 0;*/
+}
+.texto_banner_prof {
+    color: #232323;
     font-family: "Quicksand";
     font-size: .85em;
     font-weight: bolder;
+    /*position: absolute;
+    top: 29%;
+    left: 16%;
+    text-transform: inherit;*/
 }
+/*.texto_banner_ramaSalud {
+    font-family: "Quicksand";
+    font-size: .85em;
+    font-weight: bolder;
+}*/
 // Sección tarjetas profesionales de al salud
 .container_espeMed {
     margin: auto;
@@ -24,13 +51,34 @@
     justify-content: center;
 }
 @media (min-width: 320px) and (orientation: portrait) {
+    .containt_slide_prinProf {
+        width: 50%;
+        top: 31px;
+        left: 16px;
+    }
     .imagen_bannerPrin-espc {
         width: 100%;
         padding: 0;
     }
-    .texto_banner_ramaSalud {
-        font-size: 0.5em;
+    .titulo_banner_prof{
+        font-size: .9em; 
+        margin-bottom: 1%;
     }
+    .texto_banner_prof {
+        font-size: .5em; 
+    }
+
+
+
+
+
+
+
+
+
+    /*.texto_banner_ramaSalud {
+        font-size: 0.5em;
+    }*/
     // Sección del titulo especialidades medicina
     .title_espeMed {
         font-size: 1.3em;
@@ -98,10 +146,45 @@
         margin-left: 5%;
     }
 }
-@media (min-width: 768px) and (orientation: portrait) {
-    .texto_banner_ramaSalud {
-        font-size: 1em;
+@media(min-width: 360px) and (orientation: portrait) {
+    .containt_slide_prinProf {
+        width: 46%;
+        top: 42px;
+        left: 18px;
     }
+} 
+@media (min-width: 375px) and (orientation: portrait) {
+    .containt_slide_prinProf {
+        width: 45%;
+        top: 39px;
+        left: 19px;
+    }
+    .titulo_banner_prof {
+        margin-bottom: 3%;
+    }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+    .containt_slide_prinProf {
+        width: 42%;
+        top: 74px;
+        left: 40px;
+    }
+    .titulo_banner_prof {
+        font-size: 2em;
+        margin-bottom: 2%;
+
+    }
+    .texto_banner_prof {
+        font-size: 1em;
+
+    }
+
+
+
+
+    /*.texto_banner_ramaSalud {
+        font-size: 1em;
+    }*/
     // Sección del titulo erspecialidades medicina
     .title_espeMed {
         font-size: 2.5em;
@@ -137,6 +220,9 @@
     }
 }
 @media (min-width: 1024px) {
+    .titulo_banner_prof {
+        width: 130%;
+    }
     // Sección del titulo especialidades medicina
     .title_espeMed {
         font-size: calc(0.95em + 1vw);
@@ -191,22 +277,65 @@
     }
 }
 @media (min-width: 1200px) {
-    .texto_banner_ramaSalud {
+    .containt_slide_prinProf {
+        top: 121px;
+        left: 192px;
+    }
+    .titulo_banner_prof {
+        font-size: 2.5em;
+    }
+    .texto_banner_prof {
         font-size: 1em;
     }
+
+
+
+
+    /*.texto_banner_ramaSalud {
+        font-size: 1em;
+    }*/
     .btnVer_espMed {
         font-size: calc(.2em + .8vw);
     }
 }
 @media (min-width: 1360px) {
+    .containt_slide_prinProf {
+        width: 24%;
+        top: 86px;
+        left: 218px;
+    }
+    .titulo_banner_prof {
+        margin-bottom: 1%;
+    }
+
+
+
+
     .subTitle_espeMed {
         height: 25px;
     }
 }
 @media (min-width: 1440px) {
-    .texto_banner_ramaSalud {
+    .containt_slide_prinProf {
+        width: 29%;
+        top: 173px;
+        left: 231px;
+    }
+    .titulo_banner_prof {
+        font-size: 3.4em;
+        margin-bottom: 6%;
+    }
+    .texto_banner_prof {
         font-size: 1.25em;
     }
+
+
+
+
+
+    /*.texto_banner_ramaSalud {
+        font-size: 1.25em;
+    }*/
     .title_espeMed {
         margin: 2% 0;
     }
@@ -221,9 +350,25 @@
     }
 }
 @media (min-width: 1920px) {
-    .texto_banner_ramaSalud {
+    .containt_slide_prinProf {
+        width: 28%;
+        top: 177px;
+        left: 307px;
+    }
+    .titulo_banner_prof {
+        font-size: 4em;
+        margin-bottom: 3%;
+    }
+    .texto_banner_prof {
         font-size: 1.7em;
     }
+
+
+
+
+    /*.texto_banner_ramaSalud {
+        font-size: 1.7em;
+    }*/
     .icon_arrow_espMed {
         width: 7%;
     }

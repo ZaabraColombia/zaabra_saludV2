@@ -1,4 +1,4 @@
-//Carrusel superior galeriaProfesiones, Ramas de la salud, Entidades
+//Carrusel superior galeriaProfesiones, Ramas de la salud, Instituciones-Medicas
 const swiper_principalGaleriaProf = new Swiper('.swiper_principalGaleriaProf',{
   // Optional parameters
   // If we need pagination
@@ -10,7 +10,7 @@ const swiper_principalGaleriaProf = new Swiper('.swiper_principalGaleriaProf',{
   },
 
   autoplay: {
-    delay: 2500,
+    delay: 3500,
     disableOnInteraction: false,
   },
 

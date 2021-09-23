@@ -10026,15 +10026,11 @@ a:link, a:visited, a:active, a:hover {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  height: calc(2.6em + 1.75rem + 2px);
+  height: 70px;
   position: sticky;
   width: 100%;
   z-index: 500;
   top: 0.1px;
-}
-
-.logo_header {
-  width: 50%;
 }
 
 .heigFormHeader {
@@ -10044,10 +10040,10 @@ a:link, a:visited, a:active, a:hover {
 
 .inputBarraBusquedad {
   width: 100%;
-  height: 100% !important;
+  height: 50px;
   padding-left: 0;
   border-radius: 0;
-  font-size: 17px;
+  font-size: 1.4em;
   border: none;
   padding: 2%;
   background: #faebd700;
@@ -10065,7 +10061,7 @@ a:link, a:visited, a:active, a:hover {
 .icon_searchH {
   background-image: url("/img/header/icono-buscador-azul.svg");
   background-repeat: no-repeat;
-  background-size: 75%;
+  background-size: 22px;
   background-position-y: center;
 }
 
@@ -10077,19 +10073,18 @@ a:link, a:visited, a:active, a:hover {
   padding: 0;
   border: none;
   height: auto;
-  width: 8%;
+  width: 20px;
   position: relative;
   margin-top: 0;
   margin-right: 0;
   margin-left: auto;
   right: 0;
   align-items: flex-end;
-  height: 100%;
 }
 
 .barra_busqueda {
   width: 100%;
-  height: 50%;
+  height: 30px;
   background: #ffff;
   display: flex;
   align-items: center;
@@ -10115,7 +10110,7 @@ a:link, a:visited, a:active, a:hover {
 
 .soy_paciente .dropdown-toggle {
   background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-  background-size: 70%;
+  background-size: 55px;
   background-position-x: center;
   width: 100%;
   height: 100%;
@@ -10129,6 +10124,7 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/header/icono-soy-paciente-azul.svg");
   background-color: #ffffff;
   height: 100%;
+  width: 100%;
   border: none;
   display: flex;
   flex-wrap: nowrap;
@@ -10138,10 +10134,10 @@ a:link, a:visited, a:active, a:hover {
 .menu-hamburger .dropdown-toggle {
   background-image: url("/img/header/icono-hamburguesa-blanco.svg");
   background-repeat: no-repeat;
-  background-size: 45%;
+  background-size: 30px;
   background-position: center;
-  width: 100%;
   height: 100%;
+  width: 100%;
   border: none;
   display: flex;
   flex-wrap: nowrap;
@@ -10150,11 +10146,10 @@ a:link, a:visited, a:active, a:hover {
 
 .icon-menu:focus {
   background-image: url("/img/header/icono-hamburguesa-azul.svg");
-  background-size: 45%;
+  background-size: 30px;
   background-color: #ffffff;
   background-repeat: no-repeat;
   background-position: center;
-  width: 100%;
   height: 100%;
   border: none;
   display: flex;
@@ -10175,7 +10170,7 @@ a:link, a:visited, a:active, a:hover {
 .dropdown-menu .dropdown-item {
   display: flex;
   width: 100%;
-  height: 6.5vh;
+  height: 45px;
   clear: both;
   font-weight: 400;
   color: #212529;
@@ -10391,6 +10386,7 @@ a:link, a:visited, a:active, a:hover {
 
 .img-button-membresia {
   max-width: 100%;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .menu_hamburguesa {
@@ -10507,21 +10503,31 @@ a:link, a:visited, a:active, a:hover {
 
 @media (max-width: 600.98px) {
   .navbar_zaabrasalud {
-    height: calc(2.6em + 1rem + 2px);
+    height: 55px;
+  }
+
+  .navbar .container {
+    justify-content: space-evenly;
   }
 
   .contains_header {
     width: 100%;
     height: 100%;
     padding: 0;
-    justify-content: space-between;
   }
 
   .navbar-logo {
     text-decoration: none;
     color: #ffff;
-    text-align: center;
-    width: 27%;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo_header {
+    height: 40px;
+    image-rendering: -webkit-optimize-contrast;
   }
 
   .contains_boxsearch {
@@ -10546,9 +10552,8 @@ a:link, a:visited, a:active, a:hover {
     display: none;
     background-color: #0083D6 !important;
     width: 100%;
-    height: 79%;
+    height: 50px;
     z-index: 20;
-    padding: 8% 0;
   }
 
   .barra_oculta {
@@ -10561,16 +10566,15 @@ a:link, a:visited, a:active, a:hover {
     align-items: center;
     justify-content: center;
     align-content: center;
-    border-radius: 2px;
     margin: auto;
   }
 
   .inputBarraBusquedad {
     width: 90%;
-    height: 100% !important;
+    height: 25px;
     padding-left: 0;
     border-radius: 0;
-    font-size: 17px;
+    font-size: 1.2em;
     border: none;
     padding: 1% 2%;
     background: #faebd700;
@@ -10580,13 +10584,12 @@ a:link, a:visited, a:active, a:hover {
     padding: 0;
     border: none;
     height: auto;
-    width: 6%;
+    width: 18px;
     position: relative;
     margin-top: 0;
     margin-right: 3%;
     right: 0;
     align-items: flex-end;
-    height: 100%;
   }
 
   .ui-menu {
@@ -10595,16 +10598,14 @@ a:link, a:visited, a:active, a:hover {
 
   .soy_paciente {
     height: 100%;
-    width: 20%;
+    width: 75px;
   }
 
   .soy_paciente .dropdown-toggle {
     background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-    background-size: 75%;
+    background-size: 50px;
     background-position: center;
     background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
     border: none;
     display: flex;
     flex-wrap: nowrap;
@@ -10613,10 +10614,8 @@ a:link, a:visited, a:active, a:hover {
 
   .soy_paciente .dropdown-toggle {
     background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-    background-size: 70%;
+    background-size: 50px;
     background-position-x: center;
-    width: 100%;
-    height: 100%;
     border: none;
     display: flex;
     flex-wrap: nowrap;
@@ -10635,7 +10634,6 @@ a:link, a:visited, a:active, a:hover {
 
   .dropdown-menu .dropdown-item {
     padding-left: 36%;
-    height: calc(1.5em + 1.5em + 1px);
     justify-content: flex-start;
   }
 
@@ -10660,12 +10658,12 @@ a:link, a:visited, a:active, a:hover {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    height: calc(1em + 1em + 4px);
-    width: calc(1em + 1em + 2px);
+    height: 30px;
+    width: 40px;
   }
 
   .menu-hamburger {
-    width: 15%;
+    width: 50px;
     height: 100%;
   }
 
@@ -10726,7 +10724,7 @@ a:link, a:visited, a:active, a:hover {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    height: calc(5em + 1rem + 2px);
+    height: 90px;
     position: sticky;
     width: 100%;
     z-index: 500;
@@ -10734,7 +10732,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .icon_lupa-mobile {
-    width: 50px;
+    width: 45px;
     background: #0083D6;
   }
 
@@ -10743,8 +10741,8 @@ a:link, a:visited, a:active, a:hover {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    height: calc(2em + 2em + 4px);
-    width: calc(2em + 2em + 2px);
+    height: 55px;
+    width: 70px;
   }
 
   /*.navbar_zaabrasalud{
@@ -10759,8 +10757,14 @@ a:link, a:visited, a:active, a:hover {
   .navbar-logo {
     text-decoration: none;
     color: #ffff;
-    text-align: center;
-    width: 27%;
+    width: 110px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .logo_header {
+    image-rendering: -webkit-optimize-contrast;
   }
 
   .contains_boxsearch {
@@ -10780,9 +10784,8 @@ a:link, a:visited, a:active, a:hover {
     display: none;
     background-color: #0083D6 !important;
     width: 100%;
-    height: 79%;
+    height: 80px;
     z-index: 20;
-    padding: 8% 0;
   }
 
   .barra_oculta {
@@ -10795,16 +10798,15 @@ a:link, a:visited, a:active, a:hover {
     align-items: center;
     justify-content: center;
     align-content: center;
-    border-radius: 2px;
     margin: auto;
   }
 
   .inputBarraBusquedad {
     width: 90%;
-    height: 100% !important;
+    height: 45px;
     padding-left: 0;
     border-radius: 0;
-    font-size: 17px;
+    font-size: 1.75em;
     border: none;
     padding: 1% 2%;
     background: #faebd700;
@@ -10814,13 +10816,12 @@ a:link, a:visited, a:active, a:hover {
     padding: 0;
     border: none;
     height: auto;
-    width: 6%;
+    width: 30px;
     position: relative;
     margin-top: 0;
     margin-right: 3%;
     right: 0;
     align-items: flex-end;
-    height: 100%;
   }
 
   .ui-menu {
@@ -10828,17 +10829,14 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .soy_paciente {
-    height: 100%;
-    width: 20%;
+    width: 135px;
   }
 
   .soy_paciente .dropdown-toggle {
     background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-    background-size: 60%;
+    background-size: 85px;
     background-position: center;
     background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
     border: none;
     display: flex;
     flex-wrap: nowrap;
@@ -10847,10 +10845,8 @@ a:link, a:visited, a:active, a:hover {
 
   .soy_paciente .dropdown-toggle {
     background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-    background-size: 60%;
+    background-size: 85px;
     background-position-x: center;
-    width: 100%;
-    height: 100%;
     border: none;
     display: flex;
     flex-wrap: nowrap;
@@ -10868,6 +10864,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .dropdown-menu .dropdown-item {
+    height: 50px;
     padding-left: 36%;
     justify-content: flex-start;
   }
@@ -10889,8 +10886,13 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .menu-hamburger {
-    width: 15%;
+    width: 100px;
     height: 100%;
+  }
+
+  .menu-hamburger .dropdown-toggle {
+    background-size: 50px;
+    /* width: 100%; */
   }
 
   .menu_hamburguesa {
@@ -10901,7 +10903,7 @@ a:link, a:visited, a:active, a:hover {
   .dropdown-menu .item-cel {
     background-position-x: 7%;
     padding-left: 25%;
-    height: 4.5vh;
+    height: 50px;
   }
 
   .icon-especialidades {
@@ -10959,7 +10961,8 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .logo_header {
-    width: 70%;
+    width: 65px;
+    image-rendering: -webkit-optimize-contrast;
   }
 
   .contains_boxsearch {
@@ -10991,7 +10994,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .soy_paciente {
-    width: 10%;
+    width: 65px;
   }
 
   .icon_paciente {
@@ -11027,8 +11030,10 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .menu-hamburger {
-    width: 9%;
+    width: 65px;
     height: 100%;
+<<<<<<< HEAD
+=======
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11047,127 +11052,177 @@ a:link, a:visited, a:active, a:hover {
     /*left: 25.6% !important;*/
     /*width: 29.7% !important;*/
     height: 27vh;
+>>>>>>> c546b3f1dbc0025a32d3b3bfb882242811157499
   }
 }
-@media (min-width: 1360px) {
-  #ui-id-1 {
-    height: 30vh;
-  }
+/*@media (min-width: 1200px) {
+    //Seccion barra de busqueda
+    .contenedorLupa {
+        width: 5%;
+    }
+    // Seccion boton membresia
+    .button-membresia {
+        max-width: 135px;
+    }
+    #ui-id-1 {
+        left: 25.6% !important;
+        width: 29.7% !important;
+        height: 27vh;
 
-  .icon_searchH {
-    background-size: 60%;
-  }
+    }
+}*/
+/*@media (min-width: 1360px) {
+    #ui-id-1 {
+        //left: 25.2% !important;
+        height: 30vh;
+    }
+    .icon_searchH {
+        background-size: 60%;
+    }
+    .dropdown-menu .dropdown-item {
+        height: 55px;
+    }
+    .dropdown-menu .menu_item {
+        height: 55px;
+    }
+}*/
+/*@media (min-width: 1440px) {
+    .contains_barra{
+        display: none;
+    }
+    // Contenedor principal
+    .contains_header {
+        width: 75%;
+        height: 100%;
+        padding: 0;
+        justify-content: flex-start;
+    }
+    // Seccion logo zaabra
+    .logo_header {
+        width: 80%;
+    }
+    //Seccion barra de busqueda
+    .contains_boxsearch {
+        padding: 0%;
+        flex: 45%;
+        width: 45%;
+        height: 100%;
+        margin-right: 0;
+        align-items: center;
+        display: flex;
+        align-self: center;
+    }
+    .contenedorLupa {
+        padding: 0;
+        border: none;
+        height: auto;
+        width: 6%;
+        position: relative;
+        margin-top: 0;
+        margin-right: 3%;
+        right: 0;
+        align-items: flex-end;
+    }
+    .icon_searchH {
+        background-size: 60%;
+    }
+    #ui-id-1 {
+        //left: 25.65% !important;
+    }
+    //Seccion boton usuario
+    .dropdown-paciente {
+        width: 30%;
+        height: 100%;
+    }
+    .soy_paciente{
+        width: 8%;
+    }
 
-  .dropdown-menu .dropdown-item {
-    height: 55px;
-  }
-
-  .dropdown-menu .menu_item {
-    height: 55px;
-  }
-}
-@media (min-width: 1440px) {
-  .contains_barra {
-    display: none;
-  }
-
-  .contains_header {
-    width: 75%;
-    height: 100%;
-    padding: 0;
-    justify-content: flex-start;
+    .icon_paciente {
+        background-size: contain;
+        background-image: url('/img/header/icono-soy-paciente-blanco.svg');
+        background-repeat: no-repeat;
+        background-position-y: center;
+    }
+    .menu_paciente {
+        padding: 0;
+        height: auto;
+        width: 200px;
+    }
+    .texto_item-menu {
+        width: 60%;
+        margin-left: 20%;
+    }
+    .texto_item-menu-paciente {
+        width: 60%;
+        margin-left: 35%;
+    }
+    //Seccion membresia
+    .button-membresia {
+        display: flex;
+        max-width: 145px;
+    }
+    .img-button-membresia {
+        width: 100%;
+    }
+    //Seccion menu hamburguesa
+    .menu-hamburger {
+        width: 7%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .menu_hamburguesa {
+        height: auto;
+        width: 260px;
+    }
+}*/
+@media (min-width: 1920px) {
+  .navbar_zaabrasalud {
+    height: 75px;
   }
 
   .logo_header {
-    width: 80%;
+    width: 75px;
+    image-rendering: -webkit-optimize-contrast;
   }
 
-  .contains_boxsearch {
-    padding: 0%;
-    flex: 45%;
-    width: 45%;
-    height: 100%;
-    margin-right: 0;
-    align-items: center;
-    display: flex;
-    align-self: center;
-  }
-
-  .contenedorLupa {
-    padding: 0;
-    border: none;
-    height: auto;
-    width: 6%;
-    position: relative;
-    margin-top: 0;
-    margin-right: 3%;
-    right: 0;
-    align-items: flex-end;
-  }
-
-  .icon_searchH {
-    background-size: 60%;
-  }
-
-  .dropdown-paciente {
-    width: 30%;
-    height: 100%;
+  .barra_busqueda {
+    height: 35px;
   }
 
   .soy_paciente {
-    width: 8%;
+    width: 100px;
   }
 
-  .icon_paciente {
-    background-size: contain;
-    background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-    background-repeat: no-repeat;
-    background-position-y: center;
-  }
-
-  .menu_paciente {
-    padding: 0;
-    height: auto;
-    width: 200px;
-  }
-
-  .texto_item-menu {
-    width: 60%;
-    margin-left: 20%;
-  }
-
-  .texto_item-menu-paciente {
-    width: 60%;
-    margin-left: 35%;
+  .soy_paciente .dropdown-toggle {
+    background-size: 70px;
   }
 
   .button-membresia {
-    display: flex;
-    max-width: 145px;
+    max-width: 150px;
   }
 
-  .img-button-membresia {
-    width: 100%;
-  }
-
-  .menu-hamburger {
-    width: 7%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .menu_hamburguesa {
-    height: auto;
-    width: 260px;
+  .menu-hamburger .dropdown-toggle {
+    background-size: 40px;
   }
 }
-@media (min-width: 1920px) {
-  .navbar_zaabrasalud {
-    height: calc(2.6em + 2.75rem + 2px);
-  }
+.footer_newsletter {
+  background: #e8e8e8;
+  margin: auto;
+  padding: 1% 0;
+  text-align: center;
+  display: flex;
+}
 
+.newsletter_contenido {
+  padding: 0;
+  margin: auto;
+}
+
+<<<<<<< HEAD
+=======
   .logo_header {
     width: 95%;
   }
@@ -11291,6 +11346,7 @@ a:link, a:visited, a:active, a:hover {
   margin: auto;
 }
 
+>>>>>>> c546b3f1dbc0025a32d3b3bfb882242811157499
 .newsletter_titulo {
   padding: 0;
   margin: 0;
@@ -15131,17 +15187,46 @@ a:link, a:visited, a:active, a:hover {
     font-size: calc(.15em + .8vw);
   }
 }
+.containt_slide_prinProf {
+  width: 28%;
+  position: absolute;
+  top: 113px;
+  left: 164px;
+}
+
 .imagen_bannerPrin-espc {
   width: 100%;
   padding: 0;
 }
 
-.texto_banner_ramaSalud {
+.titulo_banner_prof {
+  color: #019F86;
+  font-family: "Quicksand";
+  font-size: 2.2em;
+  font-weight: bolder;
+  margin-bottom: 4%;
+  /*position: absolute;
+  top: 23%;
+  left: 16%;
+  margin: 0;*/
+}
+
+.texto_banner_prof {
+  color: #232323;
   font-family: "Quicksand";
   font-size: 0.85em;
   font-weight: bolder;
+  /*position: absolute;
+  top: 29%;
+  left: 16%;
+  text-transform: inherit;*/
 }
 
+/*.texto_banner_ramaSalud {
+    font-family: "Quicksand";
+    font-size: .85em;
+    font-weight: bolder;
+}*/
 .container_espeMed {
   margin: auto;
   margin-bottom: 3%;
@@ -15161,15 +15246,29 @@ a:link, a:visited, a:active, a:hover {
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
+  .containt_slide_prinProf {
+    width: 50%;
+    top: 31px;
+    left: 16px;
+  }
+
   .imagen_bannerPrin-espc {
     width: 100%;
     padding: 0;
   }
 
-  .texto_banner_ramaSalud {
+  .titulo_banner_prof {
+    font-size: 0.9em;
+    margin-bottom: 1%;
+  }
+
+  .texto_banner_prof {
     font-size: 0.5em;
   }
 
+  /*.texto_banner_ramaSalud {
+      font-size: 0.5em;
+  }*/
   .title_espeMed {
     font-size: 1.3em;
     font-family: "Quicksand", sans-serif;
@@ -15244,11 +15343,43 @@ a:link, a:visited, a:active, a:hover {
     margin-left: 5%;
   }
 }
+@media (min-width: 360px) and (orientation: portrait) {
+  .containt_slide_prinProf {
+    width: 46%;
+    top: 42px;
+    left: 18px;
+  }
+}
+@media (min-width: 375px) and (orientation: portrait) {
+  .containt_slide_prinProf {
+    width: 45%;
+    top: 39px;
+    left: 19px;
+  }
+
+  .titulo_banner_prof {
+    margin-bottom: 3%;
+  }
+}
 @media (min-width: 768px) and (orientation: portrait) {
-  .texto_banner_ramaSalud {
+  .containt_slide_prinProf {
+    width: 42%;
+    top: 74px;
+    left: 40px;
+  }
+
+  .titulo_banner_prof {
+    font-size: 2em;
+    margin-bottom: 2%;
+  }
+
+  .texto_banner_prof {
     font-size: 1em;
   }
 
+  /*.texto_banner_ramaSalud {
+      font-size: 1em;
+  }*/
   .title_espeMed {
     font-size: 2.5em;
   }
@@ -15287,6 +15418,10 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1024px) {
+  .titulo_banner_prof {
+    width: 130%;
+  }
+
   .title_espeMed {
     font-size: calc(0.95em + 1vw);
     font-family: "Quicksand", sans-serif;
@@ -15345,24 +15480,60 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1200px) {
-  .texto_banner_ramaSalud {
+  .containt_slide_prinProf {
+    top: 121px;
+    left: 192px;
+  }
+
+  .titulo_banner_prof {
+    font-size: 2.5em;
+  }
+
+  .texto_banner_prof {
     font-size: 1em;
   }
 
+  /*.texto_banner_ramaSalud {
+      font-size: 1em;
+  }*/
   .btnVer_espMed {
     font-size: calc(.2em + .8vw);
   }
 }
 @media (min-width: 1360px) {
+  .containt_slide_prinProf {
+    width: 24%;
+    top: 86px;
+    left: 218px;
+  }
+
+  .titulo_banner_prof {
+    margin-bottom: 1%;
+  }
+
   .subTitle_espeMed {
     height: 25px;
   }
 }
 @media (min-width: 1440px) {
-  .texto_banner_ramaSalud {
+  .containt_slide_prinProf {
+    width: 29%;
+    top: 173px;
+    left: 231px;
+  }
+
+  .titulo_banner_prof {
+    font-size: 3.4em;
+    margin-bottom: 6%;
+  }
+
+  .texto_banner_prof {
     font-size: 1.25em;
   }
 
+  /*.texto_banner_ramaSalud {
+      font-size: 1.25em;
+  }*/
   .title_espeMed {
     margin: 2% 0;
   }
@@ -15380,10 +15551,24 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1920px) {
-  .texto_banner_ramaSalud {
+  .containt_slide_prinProf {
+    width: 28%;
+    top: 177px;
+    left: 307px;
+  }
+
+  .titulo_banner_prof {
+    font-size: 4em;
+    margin-bottom: 3%;
+  }
+
+  .texto_banner_prof {
     font-size: 1.7em;
   }
 
+  /*.texto_banner_ramaSalud {
+      font-size: 1.7em;
+  }*/
   .icon_arrow_espMed {
     width: 7%;
   }
@@ -15556,18 +15741,21 @@ a:link, a:visited, a:active, a:hover {
   color: #0083D6;
   font-weight: bold;
   text-align: center;
+  margin: 0;
 }
 
 .data_profesionales h1 {
   font-family: "Quicksand", sans-serif;
   font-weight: bolder;
   color: #232323;
+  margin: 0;
 }
 
 .data_profesionales h5 {
   font-family: "Roboto";
   font-weight: bolder;
   color: #3E3E3E;
+  text-transform: inherit;
 }
 
 .data_profesionales h5:nth-child(1) {
@@ -16016,7 +16204,6 @@ a:link, a:visited, a:active, a:hover {
 .swiper_premios h5 {
   font-family: "Quicksand", sans-serif;
   font-weight: bolder;
-  text-transform: capitalize;
 }
 
 .swiper_premios p {
@@ -16374,17 +16561,17 @@ a:link, a:visited, a:active, a:hover {
     height: 130px;
     -o-object-fit: cover;
        object-fit: cover;
+    -o-object-position: top;
+       object-position: top;
   }
 
   .data_profesionales h2 {
     margin-top: 1%;
-    margin-bottom: 1%;
     font-size: 1.3em;
   }
 
   .data_profesionales h1 {
     font-size: 1.3em;
-    margin-bottom: 1%;
   }
 
   .data_profesionales .title-adress {
@@ -16499,15 +16686,15 @@ a:link, a:visited, a:active, a:hover {
 
   .data_consulta .contains_buttons a {
     display: flex;
-    width: 45%;
+    width: 40%;
   }
 
   .data_consulta .contains_buttons a:nth-child(2) {
-    height: calc(1em + 1em + 1px);
+    height: 30px;
   }
 
   .data_consulta .contains_buttons a:nth-child(1) {
-    height: calc(1em + 1em + 1px);
+    height: 30px;
   }
 
   .section_destacado {
@@ -16616,6 +16803,8 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .educacion h5 {
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
     font-size: 1em;
   }
 
@@ -16670,6 +16859,8 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .experiencia h5 {
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
     font-size: 0.9em;
   }
 
@@ -16776,6 +16967,8 @@ a:link, a:visited, a:active, a:hover {
 
   .tratamientos_profesional .card-body h5 {
     font-size: 1.1em;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
     margin-bottom: 1%;
     display: flex;
     align-items: center;
@@ -16812,6 +17005,7 @@ a:link, a:visited, a:active, a:hover {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 5%;
     width: 90%;
   }
 
@@ -16918,6 +17112,8 @@ a:link, a:visited, a:active, a:hover {
 
   .publicaciones_profesional .card-body h5 {
     font-size: 1.1em;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
     text-align: initial;
     line-height: 1.1;
     height: 45px;
@@ -16936,7 +17132,7 @@ a:link, a:visited, a:active, a:hover {
     display: flex;
     flex-direction: column;
     padding: 0 5%;
-    margin: 3% 0 6% 0;
+    margin-bottom: 5%;
   }
 
   .galeria_profesional h2 {
@@ -16944,11 +17140,14 @@ a:link, a:visited, a:active, a:hover {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 5%;
     max-width: 90%;
   }
 
   .galeria_profesional h5 {
     font-size: 1.1em;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
     margin-top: 2%;
     height: 45px;
     display: flex;
@@ -17036,6 +17235,7 @@ a:link, a:visited, a:active, a:hover {
 
   .videos_profesional h2 {
     font-size: 1.1em;
+    margin-bottom: 5%;
   }
 
   .videos_profesional p {
@@ -17048,7 +17248,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .videos_profesional .card {
-    width: 90%;
+    width: 100%;
     margin: auto;
     margin-top: 5%;
     margin-bottom: 7%;
@@ -17064,6 +17264,8 @@ a:link, a:visited, a:active, a:hover {
 
   .videos_profesional .card-body h5 {
     font-size: 1.1em;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
     text-align: initial;
     height: 45px;
     display: flex;
@@ -17118,7 +17320,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .section_usuario-prof {
-    padding-left: 4%;
+    padding-left: 5%;
   }
 
   .title_opiniones {
@@ -17154,11 +17356,12 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_text {
-    width: 52%;
+    width: 54%;
+    padding-left: 4%;
   }
 
   .section_stars-prof {
-    width: 35%;
+    width: 33%;
     padding: 0;
     text-align: right;
   }
@@ -17166,7 +17369,7 @@ a:link, a:visited, a:active, a:hover {
   .section_comentario-prof {
     font-size: 1em;
     width: 96%;
-    padding-left: 15%;
+    padding-left: 17%;
     line-height: 1.2;
   }
 
@@ -17205,138 +17408,112 @@ a:link, a:visited, a:active, a:hover {
   .section_backArrow {
     width: 75%;
   }
-}
-@media (min-width: 375px) {
-  .data_profesionales img {
-    width: 180px;
-    height: 180px;
-  }
 
-  .data_consulta p span {
-    font-size: 0.8em;
-  }
-
-  .data_profesionales .title-adress {
-    width: 62%;
-  }
-
-  .contains_swiper_profesional h1 {
-    font-size: 1.25em;
-  }
-
-  .perfil_profesional h2 {
-    font-size: 1.3em;
-  }
-
-  .perfil_profesional p {
-    font-size: 0.8em;
-  }
-
-  .educacion h2 {
-    font-size: 1.3em;
-  }
-
-  .educacion i {
-    width: 12%;
-  }
-
-  .educacion h5 {
-    font-size: 1em;
-  }
-
-  .educacion p {
-    font-size: 0.8em;
-  }
-
-  .experiencia h2 {
-    font-size: 1.3em;
-  }
-
-  .experiencia i {
-    width: 12%;
-  }
-
-  .experiencia h5 {
-    font-size: 1.05em;
-  }
-
-  .experiencia p {
-    font-size: 0.8em;
-  }
-
-  .asociaciones h2 {
-    font-size: 1.3em;
-  }
-
-  .asociaciones i {
-    width: 12%;
-  }
-
-  .idomas h2 {
-    font-size: 1.3em;
-  }
-
-  .tratamientos_profesional h2 {
-    font-size: 1.3em;
-  }
-
-  .tratamientos_profesional i {
-    width: 12%;
-  }
-
-  .tratamientos_profesional .card h4, h6 {
-    font-size: 1.1em;
-  }
-
-  .tratamientos_profesional .card-body h5 {
-    font-size: 1.2em;
-  }
-
-  .videos_profesional .card h4, h6 {
-    font-size: 1.1em;
-  }
-
-  .contains_swiper_premios h2 {
-    font-size: 1.3em;
-  }
-
-  .contains_swiper_premios i {
-    width: 12%;
-  }
-
-  .publicaciones_profesional h2 {
-    font-size: 1.3em;
-  }
-
-  .publicaciones_profesional i {
-    width: 12%;
-  }
-
-  .galeria_profesional h2 {
-    font-size: 1.3em;
-  }
-
-  .galeria_profesional i {
-    width: 12%;
-  }
-
-  .gallery_profesional > li > img {
-    height: 100px;
-  }
-
-  .videos_profesional h2 {
-    font-size: 1.3em;
-  }
-
-  .videos_profesional i {
-    width: 12%;
-  }
-
-  .verify_usuario-prof {
-    padding-left: 11%;
-    font-size: 0.85em;
+  .videos_profesional .card {
+    width: 90%;
   }
 }
+/*@media (min-width: 375px){
+
+    .data_profesionales img{
+        width: 180px;
+        height: 180px;
+    }
+    .data_consulta p span {
+        font-size: 0.8em;
+    }
+    .data_profesionales .title-adress {
+        width: 62%;
+    }
+    .contains_swiper_profesional h1{
+        font-size: 1.25em;
+    }
+    .perfil_profesional h2 {
+        font-size: 1.3em;
+    }
+    .perfil_profesional p{
+        font-size: 0.8em;
+    }
+    .educacion h2{
+        font-size: 1.3em;
+    }
+    .educacion i{
+        width: 12%;
+    }
+    .educacion h5{
+        font-size: 1em;
+    }
+    .educacion p {
+        font-size: 0.8em;
+    }
+    .experiencia h2 {
+        font-size: 1.3em;
+    }
+    .experiencia i{
+        width: 12%;
+    }
+    .experiencia h5 {
+        font-size: 1.05em;
+    }
+    .experiencia p {
+        font-size: 0.8em;
+    }
+    .asociaciones h2 {
+        font-size: 1.3em;
+    }
+    .asociaciones i{
+        width: 12%;
+    }
+    .idomas h2 {
+        font-size: 1.3em;
+    }
+    .tratamientos_profesional h2 {
+        font-size: 1.3em;
+    }
+    .tratamientos_profesional i{
+        width: 12%;
+    }
+    .tratamientos_profesional .card h4, h6 {
+        font-size: 1.1em;
+    }
+    .tratamientos_profesional .card-body h5 {
+        font-size: 1.2em;
+    }
+    .videos_profesional .card h4, h6 {
+        font-size: 1.1em;
+    }
+    .contains_swiper_premios h2{
+        font-size: 1.3em;
+    }
+    .contains_swiper_premios i{
+        width: 12%;
+    }
+    .publicaciones_profesional h2 {
+        font-size: 1.3em;
+    }
+    .publicaciones_profesional i{
+        width: 12%;
+    }
+    .galeria_profesional h2{
+        font-size: 1.3em;
+    }
+    .galeria_profesional i{
+        width: 12%;
+    }
+    .gallery_profesional > li > img{
+        height: 100px;
+    }
+    .videos_profesional h2{
+        font-size: 1.3em;
+    }
+    .videos_profesional i{
+        width: 12%;
+    }
+    .verify_usuario-prof {
+        padding-left: 11%;
+        font-size: 0.85em;
+    }
+}*/
 @media (min-width: 768px) {
   .section_backArrow {
     width: 60%;
@@ -17378,7 +17555,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .data_profesionales h1 {
-    font-size: 1.8em;
+    font-size: 2em;
   }
 
   .data_profesionales h5 {
@@ -17397,6 +17574,7 @@ a:link, a:visited, a:active, a:hover {
 
   .section_data_consulta {
     width: 100%;
+    padding: 4% 0;
   }
 
   .section_data_consulta h2 {
@@ -17434,7 +17612,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .data_consulta .contains_buttons a {
-    font-size: 1.4em;
+    font-size: 1.25em;
     width: 40%;
   }
 
@@ -17443,6 +17621,14 @@ a:link, a:visited, a:active, a:hover {
     height: 100% !important;
     display: flex;
     align-items: center;
+  }
+
+  .data_consulta .contains_buttons a:nth-child(2) {
+    height: 40px;
+  }
+
+  .data_consulta .contains_buttons a:nth-child(1) {
+    height: 40px;
   }
 
   .destacado h2 {
@@ -17477,6 +17663,10 @@ a:link, a:visited, a:active, a:hover {
     padding-bottom: 1%;
   }
 
+  .swiper_profesional {
+    width: 85%;
+  }
+
   .contains_swiper_profesional h1 {
     font-size: 1.8em;
     margin-top: 7%;
@@ -17484,7 +17674,8 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .item_landing {
-    height: 120px;
+    width: 60%;
+    height: 105px;
   }
 
   .item_landing i {
@@ -17574,7 +17765,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .educacion h5 {
-    font-size: 1.5em;
+    font-size: 1.4em;
   }
 
   .educacion p {
@@ -17603,7 +17794,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .experiencia h5 {
-    font-size: 1.5em;
+    font-size: 1.4em;
   }
 
   .experiencia p {
@@ -17701,7 +17892,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .tratamientos_profesional .card {
-    width: 48%;
+    width: 47%;
     margin-bottom: 5%;
   }
 
@@ -17813,6 +18004,8 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .swiper_galeria_prof h5 {
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
     font-size: 1.25em;
   }
 
@@ -18016,7 +18209,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .name_usuario-prof {
-    font-size: 1.5em;
+    font-size: 1.4em;
   }
 
   .section_stars-prof {
@@ -18067,144 +18260,153 @@ a:link, a:visited, a:active, a:hover {
     overflow: auto;
   }
 }
-@media (min-width: 1024px) {
-  /*.data_profesionales img {
-      width: 360px;
-      height: 360px;
-  }
-  .data_profesionales h2 {
-      font-size: 2.5em;
-  }
-  .data_profesionales h1 {
-      font-size: 2em;
-  }
-  .data_profesionales h5 {
-      font-size: 1.3em;
-  }
-  .data_profesionales .title-adress {
-      width: 40%;
-      justify-content: flex-start;
-  }
-  .data_profesionales .title-adress i {
-      width: 10%;
-      height: 30px;
-  }
-  .section_data_consulta h2 {
-      font-size: 2em;
-  }
-  .data_consulta i {
-      width: 45px !important;
-      height: 35px !important;
-  }
-  .data_consulta p span {
-      font-size: 1.4em;
-  }
-  .data_consulta span {
-      margin-left: 45px;
-  }
-  .data_consulta .contains_buttons {
-      height: 20%;
-      margin-left: auto;
-      margin-right: auto;
-      width: 80%;
-  }
-  .perfil_profesional,
-  .educacion,
-  .experiencia,
-  .asociaciones,
-  .idomas,
-  .tratamientos_profesional,
-  .publicaciones_profesional,
-  .videos_profesional {
-      width: 80%;
-      margin: auto;
-  }
-  .perfil_profesional i,
-  .educacion i,
-  .experiencia i,
-  .asociaciones i,
-  .idomas i,
-  .tratamientos_profesional i,
-  .contains_swiper_premios i,
-  .publicaciones_profesional i,
-  .galeria_profesional i,
-  .videos_profesional i {
-      width: 8%;
-      height: 45px;
-  }
-  .perfil_profesional p{
-      padding-left: 8%;
-  }
-  .educacion ul,
-  .experiencia ul,
-  .asociaciones ul,
-  .idomas ul {
-      padding-left: 8%;
-  }
-  .contains_swiper_premios h2{
-      width: 80%;
-  }
-  .publicaciones_profesional .card {
-      width: 55%;
-  }
-  .gallery_profesional > li > img {
-      height: 165px;
-  }
-  .galeria_profesional h2{
-      width: 80%;
-  }
-  .galeria_profesional ul {
-      max-width: 70%;
-  }
-  .videos_profesional .card .card-img-top {
-      height: 30vh;
-  }
+/*@media (min-width: 1024px){
 
-  .opinion_form-prof {
-      width: 77%;
-      margin: auto;
-  }
-  .title_opiniones {
-      font-size: 1.8em;
-      padding-left: 5%;
-      height: 5vh;
-      width: 77%;
-  }
-  .text_cabecera-prof {
-      font-size: 1em;
-      width: 67%;
-      margin: auto;
-      margin-bottom: 2%;
-  }
-  .section_opciones {
-      width: 77%;
-      padding: 1% 0;
-  }
-  .section_usuario-prof {
-      padding-left: 7%;
-  }
-  .contains_text {
-      width: 70%;
-  }
-  .section_stars-prof {
-      width: 17%;
-  }
-  .section_comentario-prof {
-      padding-left: 15%;
-      width: 93%;
-  }*/
-}
+
+    .data_profesionales img {
+        width: 360px;
+        height: 360px;
+    }
+    .data_profesionales h2 {
+        font-size: 2.5em;
+    }
+    .data_profesionales h1 {
+        font-size: 2em;
+    }
+    .data_profesionales h5 {
+        font-size: 1.3em;
+    }
+    .data_profesionales .title-adress {
+        width: 40%;
+        justify-content: flex-start;
+    }
+    .data_profesionales .title-adress i {
+        width: 10%;
+        height: 30px;
+    }
+    .section_data_consulta h2 {
+        font-size: 2em;
+    }
+    .data_consulta i {
+        width: 45px !important;
+        height: 35px !important;
+    }
+    .data_consulta p span {
+        font-size: 1.4em;
+    }
+    .data_consulta span {
+        margin-left: 45px;
+    }
+    .data_consulta .contains_buttons {
+        height: 20%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+    }
+    .perfil_profesional,
+    .educacion,
+    .experiencia,
+    .asociaciones,
+    .idomas,
+    .tratamientos_profesional,
+    .publicaciones_profesional,
+    .videos_profesionaxl {
+        width: 80%;x
+        margin: auto;x
+    }x
+    .perfil_profesionaxl i,
+    .educacion i,x
+    .experiencia i,x
+    .asociaciones i,
+    .idomas i,
+    .tratamientos_profesional i,
+    .contains_swiper_premios i,
+    .publicaciones_profesional i,
+    .galeria_profesional i,
+    .videos_profesional i {
+        width: 8%;
+        height: 45px;
+    }
+    .perfil_profesional p{
+        padding-left: 8%;
+    }
+    .educacion ul,
+    .experiencia ul,
+    .asociaciones ul,
+    .idomas ul {
+        padding-left: 8%;
+    }
+    .contains_swiper_premios h2{
+        width: 80%;
+    }
+    .publicaciones_profesional .card {
+        width: 55%;
+    }
+    .gallery_profesional > li > img {
+        height: 165px;
+    }
+    .galeria_profesional h2{
+        width: 80%;
+    }
+    .galeria_profesional ul {
+        max-width: 70%;
+    }
+    .videos_profesional .card .card-img-top {
+        height: 30vh;
+    }
+
+    .opinion_form-prof {
+        width: 77%;
+        margin: auto;
+    }
+    .title_opiniones {
+        font-size: 1.8em;
+        padding-left: 5%;
+        height: 5vh;
+        width: 77%;
+    }
+    .text_cabecera-prof {
+        font-size: 1em;
+        width: 67%;
+        margin: auto;
+        margin-bottom: 2%;
+    }
+    .section_opciones {
+        width: 77%;
+        padding: 1% 0;
+    }
+    .section_usuario-prof {
+        padding-left: 7%;
+    }
+    .contains_text {
+        width: 70%;
+    }
+    .section_stars-prof {
+        width: 17%;
+    }
+    .section_comentario-prof {
+        padding-left: 15%;
+        width: 93%;
+    }
+
+}*/
 @media (min-width: 1024px) {
   .section_backArrow {
     position: absolute;
     left: 0;
     width: 10%;
     top: 90;
-    margin-left: 5%;
+    margin-left: 13%;
   }
 
   .section_backArrow .back_text {
+    font-size: 1.1em;
     padding-left: 25%;
+  }
+
+  .fa-heart {
+    top: 30%;
+    left: 20%;
   }
 
   .heart-wrapper {
@@ -18215,22 +18417,22 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .section_data_profesionales {
-    height: auto;
     padding-top: 2%;
+    padding-bottom: 1%;
   }
 
   .data_profesionales {
     flex-direction: row;
     width: 100%;
     margin: auto;
-    padding: 0 0 0 17%;
+    padding: 0 0 0 37%;
   }
 
   .data_profesionales img {
-    width: 200px;
-    height: 200px;
-    position: relative;
-    left: -4%;
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    left: 19%;
   }
 
   .data_profesionales .contains_info {
@@ -18254,8 +18456,10 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .section_data_consulta h2 {
-    padding-top: 0;
+    padding-top: 1%;
     font-size: 1.5em;
+    width: 80%;
+    border-top: 0.5px solid #dcdcdc;
   }
 
   .data_consulta ul {
@@ -18273,25 +18477,27 @@ a:link, a:visited, a:active, a:hover {
     width: 80%;
     padding: 0;
     font-size: 1.1em;
-    margin-bottom: 4%;
   }
 
   .data_consulta .contains_buttons a:nth-child(1) {
+    position: relative;
+    bottom: 130px;
     height: calc(1.2em + 1.2em + 1px);
   }
 
   .data_consulta .contains_buttons a:nth-child(2) {
+    position: relative;
+    bottom: 25px;
     height: calc(1.2em + 1.2em + 1px);
   }
 
   .data_profesionales h2 {
-    font-size: 2em;
+    margin: 0;
   }
 
-  .data_profesionales h1 {
-    font-size: 1.5em;
-  }
-
+  /*.data_profesionales h1 {
+      font-size: 1.5em;
+  }*/
   .data_profesionales h5 {
     font-size: 1.1em;
   }
@@ -18483,7 +18689,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .tratamientos_profesional .card-body h5 {
-    font-size: 1.3em;
+    font-size: 1.25em;
   }
 
   .tratamientos_profesional p {
@@ -18625,11 +18831,11 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .videos_profesional .card {
-    width: 45%;
+    width: 43%;
   }
 
   .videos_profesional .card-body h5 {
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
 
   .videos_profesional p {
@@ -18638,12 +18844,11 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .tratamientos_profesional .container_cards,
-.publicaciones_profesional .container_cards,
-.videos_profesional .container_cards {
+.publicaciones_profesional .container_cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-bottom: 0;
+    margin-bottom: 5%;
   }
 
   .content_options-prof {
@@ -18668,13 +18873,13 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .data_profesionales {
-    padding: 0 0 0 23%;
+    padding: 0 0 0 40%;
   }
 
   .data_profesionales img {
     width: 200px;
     height: 200px;
-    left: -5%;
+    left: 18%;
   }
 
   .section_backArrow {
@@ -18715,14 +18920,8 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1360px) {
-  .data_profesionales {
-    padding: 0 0 0 25%;
-  }
-
-  .data_profesionales img {
-    width: 200px;
-    height: 200px;
-    left: -8%;
+  .data_consulta .contains_buttons a {
+    width: 70%;
   }
 
   .section_data_profesionales {
@@ -18773,14 +18972,6 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1440px) {
-  .data_profesionales {
-    padding: 0 0 0 26%;
-  }
-
-  .data_profesionales img {
-    left: -10%;
-  }
-
   .swiper_premios h5 {
     font-size: 1.3em;
   }
@@ -18812,7 +19003,6 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .data_consulta .contains_buttons a {
-    width: 70%;
     font-size: 1.3em;
   }
 
@@ -18899,18 +19089,16 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .tratamientos_profesional .container_cards,
-.publicaciones_profesional .container_cards,
-.videos_profesional .container_cards {
+.publicaciones_profesional .container_cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 5%;
   }
 
-  .videos_profesional .card {
-    width: 27%;
-  }
-
+  /*.videos_profesional .card {
+      width: 27%;
+  }*/
   .galeria_profesional i {
     width: 7%;
   }
@@ -18985,7 +19173,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .swiper_premios img {
-    height: 185px;
+    height: 200px;
   }
 
   .swiper_premios p {
@@ -19159,33 +19347,239 @@ a:link, a:visited, a:active, a:hover {
     left: 0;
     width: 5%;
     top: 100;
-    margin-left: 20.5%;
+    margin-left: 20%;
   }
 
   .section_backArrow .back_text {
+    font-size: 1.2em;
     padding-left: 25%;
   }
 
+  .section_backArrow .back_arrow {
+    background-size: 17px;
+  }
+
   .heart-wrapper {
-    left: 110;
+    left: 38;
     top: 0;
   }
 
   .fa-heart {
     top: 100%;
-    left: -220%;
+    left: 15;
   }
 
   .section_data_profesionales {
     padding-top: 2%;
+    padding-bottom: 0.5%;
   }
 
   .data_profesionales img {
-    left: -7%;
+    width: 220px;
+    height: 220px;
+    left: 25%;
   }
 
   .data_profesionales {
-    padding: 0 0 0 29%;
+    padding: 0 0 0 40%;
+  }
+
+  .data_profesionales h1 {
+    font-size: 1.8em;
+    margin-bottom: 0.5%;
+  }
+
+  .data_profesionales h5 {
+    font-size: 1.2em;
+  }
+
+  .star_box {
+    font-size: 1.3em;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+  }
+
+  .data_profesionales .title-adress i {
+    height: 25px;
+  }
+
+  .data_profesionales .title-adress i {
+    width: 3.5%;
+  }
+
+  .data_profesionales h5:nth-child(7) {
+    padding-left: 3%;
+  }
+
+  .section_data_consulta h2 {
+    padding-top: 0.5%;
+    font-size: 1.8em;
+    width: 57%;
+  }
+
+  .data_consulta i {
+    width: 35px !important;
+    height: 25px !important;
+  }
+
+  .data_consulta p {
+    font-size: 1.2em;
+  }
+
+  .data_consulta span {
+    font-size: 1.2em;
+    margin-left: 35px;
+  }
+
+  .destacado {
+    width: 60%;
+  }
+
+  .destacado h2 {
+    font-size: 1.8em;
+  }
+
+  .destacado p {
+    font-size: 1.2em;
+  }
+
+  .contains_swiper_profesional h1 {
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
+
+  .swiper_profesional {
+    width: 60%;
+  }
+
+  .contains_swiper_profesional {
+    margin-bottom: 3%;
+  }
+
+  .perfil_profesional {
+    width: 60%;
+  }
+
+  .educacion {
+    width: 60%;
+  }
+
+  .experiencia {
+    width: 60%;
+  }
+
+  .asociaciones {
+    width: 60%;
+  }
+
+  .idomas {
+    width: 60%;
+  }
+
+  .tratamientos_profesional {
+    width: 60%;
+  }
+
+  .tratamientos_profesional .card {
+    width: 35%;
+    margin-top: 3%;
+    margin-bottom: 0;
+  }
+
+  .contains_swiper_premios h2 {
+    margin-bottom: 3%;
+    width: 60%;
+  }
+
+  .swiper_premios {
+    width: 60%;
+    margin-bottom: 3%;
+  }
+
+  .swiper_premios img {
+    height: 215px;
+  }
+
+  .publicaciones_profesional {
+    width: 60%;
+  }
+
+  .publicaciones_profesional h2 {
+    margin-bottom: 3%;
+  }
+
+  .publicaciones_profesional .card {
+    width: 40%;
+    margin-bottom: 0;
+  }
+
+  .swiper_galeria_prof {
+    margin-top: 0;
+    margin-bottom: 3%;
+    width: 60%;
+  }
+
+  .galeria_profesional h2 {
+    width: 60%;
+    margin-bottom: 3%;
+  }
+
+  .swiper_galeria_prof img {
+    height: 250px;
+  }
+
+  .videos_profesional {
+    width: 60%;
+  }
+
+  .videos_profesional h2 {
+    margin-bottom: 3%;
+  }
+
+  .videos_profesional .card {
+    width: 40%;
+  }
+
+  .videos_profesional i {
+    width: 7%;
+  }
+
+  .videos_profesional .container_cards {
+    padding-bottom: 0;
+  }
+
+  .videos_profesional .card {
+    margin-bottom: 3%;
+  }
+
+  .title_opiniones {
+    font-size: 1.8em;
+    padding-left: 4.5%;
+    width: 60%;
+  }
+
+  .text_cabecera-prof {
+    width: 50%;
+    font-size: 1.1em;
+    margin-left: 24.5%;
+  }
+
+  .section_opciones {
+    width: 60%;
+  }
+
+  .section_usuario-prof {
+    padding-left: 7.5%;
+  }
+
+  .section_comentario-prof {
+    width: 93%;
+    padding-left: 14.5%;
+    margin-top: 0.5%;
+  }
+
+  .section_stars-prof {
+    font-size: 1.2em;
   }
 
   .data_consulta .contains_buttons a {
@@ -19218,21 +19612,6 @@ a:link, a:visited, a:active, a:hover {
   /*.data_profesionales, .section_data_consulta {
       padding-left: 38%;
   }*/
-  .tratamientos_profesional .card {
-    width: 22%;
-    margin-bottom: 0;
-  }
-
-  .tratamientos_profesional .card {
-    width: 35%;
-    margin-bottom: 0;
-  }
-
-  .publicaciones_profesional .card {
-    width: 25%;
-    margin-bottom: 0;
-  }
-
   .opinion_form-prof {
     width: 75%;
     margin: auto;
@@ -19246,56 +19625,16 @@ a:link, a:visited, a:active, a:hover {
     padding: 2% 0;
   }
 
-  .title_opiniones {
-    font-size: 1.8em;
-    padding-left: 3%;
-    width: 75%;
-  }
-
-  .text_cabecera-prof {
-    width: 69%;
-    font-size: 1.1em;
-  }
-
-  .section_opciones {
-    width: 75%;
-  }
-
   .circle_opinion-prof {
     font-size: 4em;
-  }
-
-  .section_usuario-prof {
-    font-size: 1.1em;
-    padding-left: 4%;
   }
 
   .verify_usuario-prof {
     padding-left: 3%;
   }
 
-  .section_comentario-prof {
-    width: 93%;
-    padding-left: 10.5%;
-    margin-top: 0.5%;
-  }
-
   .txt_verify-bottom {
     padding-left: 2%;
-  }
-
-  .swiper_premios {
-    max-width: 55%;
-  }
-
-  .galeria_profesional h2 {
-    width: 75%;
-  }
-
-  .swiper_galeria_prof {
-    margin-top: 5%;
-    width: 60%;
-    height: 90%;
   }
 
   .contains_swiper_premios .btn-prev {
@@ -19328,10 +19667,10 @@ a:link, a:visited, a:active, a:hover {
     margin-top: -9%;
   }
 
-  .videos_profesional .container_cards {
-    width: 85%;
-    margin: auto;
-  }
+  /*.videos_profesional .container_cards{
+      width: 85%;
+      margin: auto;
+  }*/
 }
 .contains_image_profesional {
   display: flex;
@@ -19411,7 +19750,7 @@ a:link, a:visited, a:active, a:hover {
   justify-content: space-evenly;
 }
 
-.card_normal .card-body h2, h5 {
+.card_normal .card-body h2 h5 {
   font-family: "Quicksand", sans-serif;
   font-weight: bolder;
   text-transform: capitalize;
@@ -19987,7 +20326,6 @@ a:link, a:visited, a:active, a:hover {
     justify-content: flex-end;
     padding-top: 50%;
   }
-
   .contains_slide .contains_buttons {
     max-width: 70%;
   }
@@ -20286,7 +20624,7 @@ a:link, a:visited, a:active, a:hover {
   justify-content: space-evenly;
 }
 
-.card_normal_insti .card-body h2, h5 {
+.card_normal_insti .card-body h2 h5 {
   font-family: "Quicksand", sans-serif;
   font-weight: bolder;
   text-transform: capitalize;
@@ -23008,9 +23346,7 @@ a:link, a:visited, a:active, a:hover {
     padding-left: 5%;
   }
 
-  .sedes_institucion .container_cards,
-.container_cards,
-.videos_institucion .container_cards {
+  .sedes_institucion .container_cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -23890,35 +24226,63 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.1em;
   }
 }
+.containt_slide_prinInst {
+  width: 28%;
+  position: absolute;
+  top: 113px;
+  left: 164px;
+}
+
 .imagen_bannerPrin-entid {
   width: 100%;
   padding: 0;
 }
 
-.title_banner_entidad {
+.titulo_banner_inst {
   color: #019F86;
   font-family: "Quicksand";
   font-size: 2.2em;
-  font-weight: 700;
-  position: absolute;
+  font-weight: bolder;
+  margin-bottom: 4%;
+  /*position: absolute;
   top: 23%;
   left: 16%;
-  z-index: 10;
-  margin: 0;
+  margin: 0;*/
 }
 
-.subtitle_banner_entidad {
+.texto_banner_inst {
   color: #232323;
   font-family: "Quicksand";
   font-size: 0.85em;
-  font-weight: 700;
-  position: absolute;
+  font-weight: bolder;
+  /*position: absolute;
   top: 29%;
   left: 16%;
-  z-index: 10;
-  text-transform: inherit;
+  text-transform: inherit;*/
 }
 
+/*.title_banner_entidad {
+    color: #019F86;
+    font-family: "Quicksand";
+    font-size: 2.2em;
+    font-weight: 700;
+    position: absolute;
+    top: 23%;
+    left: 16%;
+    z-index: 10;
+    margin: 0;
+}
+.subtitle_banner_entidad {
+    color: #232323;
+    font-family: "Quicksand";
+    font-size: .85em;
+    font-weight: 700;
+    position: absolute;
+    top: 29%;
+    left: 16%;
+    z-index: 10;
+    text-transform: inherit;
+}*/
 .container_entidades {
   margin: auto;
   padding: 0;
@@ -23953,23 +24317,36 @@ a:link, a:visited, a:active, a:hover {
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
+  .containt_slide_prinInst {
+    width: 50%;
+    top: 31px;
+    left: 16px;
+  }
+
   .imagen_bannerPrin-entid {
     width: 100%;
     padding: 0;
   }
 
-  .title_banner_entidad {
+  .titulo_banner_inst {
     font-size: 0.9em;
-    top: 15%;
-    left: 5%;
+    margin-bottom: 1%;
   }
 
-  .subtitle_banner_entidad {
+  .texto_banner_inst {
     font-size: 0.5em;
-    top: 18%;
-    left: 5%;
   }
 
+  /*.title_banner_entidad {
+      font-size: .9em;
+      top: 15%;
+      left: 5%;
+  }
+  .subtitle_banner_entidad {
+      font-size: 0.5em;
+      top: 18%;
+      left: 5%;
+  }*/
   .title_entidades {
     font-size: 1.3em;
     font-family: "Quicksand", sans-serif;
@@ -24062,32 +24439,60 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 360px) and (orientation: portrait) {
+  .containt_slide_prinInst {
+    width: 46%;
+    top: 42px;
+    left: 18px;
+  }
+
   .texto_entidades {
     height: 6.5vh;
   }
 }
 @media (min-width: 375px) and (orientation: portrait) {
-  .title_banner_entidad {
-    top: 14%;
+  .containt_slide_prinInst {
+    width: 45%;
+    top: 39px;
+    left: 19px;
   }
 
-  .subtitle_banner_entidad {
-    top: 17%;
+  .titulo_banner_inst {
+    margin-bottom: 3%;
   }
+
+  /*.title_banner_entidad {
+      top: 14%;
+  }
+  .subtitle_banner_entidad {
+      top: 17%;
+  }*/
 }
 @media (min-width: 768px) and (orientation: portrait) {
-  .title_banner_entidad {
+  .containt_slide_prinInst {
+    width: 42%;
+    top: 74px;
+    left: 40px;
+  }
+
+  .titulo_banner_inst {
     font-size: 2em;
-    top: 13%;
-    left: 5%;
+    margin-bottom: 2%;
   }
 
-  .subtitle_banner_entidad {
+  .texto_banner_inst {
     font-size: 1em;
-    top: 16%;
-    left: 5%;
   }
 
+  /*.title_banner_entidad {
+      font-size: 2em;
+      top: 13%;
+      left: 5%;
+  }
+  .subtitle_banner_entidad {
+      font-size: 1em;
+      top: 16%;
+      left: 5%;
+  }*/
   .title_entidades {
     font-size: 2.5em;
   }
@@ -24212,18 +24617,29 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1200px) {
-  .title_banner_entidad {
+  .containt_slide_prinInst {
+    top: 121px;
+    left: 192px;
+  }
+
+  .titulo_banner_inst {
     font-size: 2.5em;
-    top: 24%;
-    left: 16%;
   }
 
-  .subtitle_banner_entidad {
+  .texto_banner_inst {
     font-size: 1em;
-    top: 31%;
-    left: 16%;
   }
 
+  /*.title_banner_entidad {
+      font-size: 2.5em;
+      top: 24%;
+      left: 16%;
+  }
+  .subtitle_banner_entidad {
+      font-size: 1em;
+      top: 31%;
+      left: 16%;
+  }*/
   .container_entidades {
     margin-left: 23%;
   }
@@ -24238,23 +24654,46 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1360px) {
+  .containt_slide_prinInst {
+    width: 24%;
+    top: 86px;
+    left: 218px;
+  }
+
+  .titulo_banner_inst {
+    margin-bottom: 1%;
+  }
+
   .texto_entidades {
     height: 7.5vh;
   }
 }
 @media (min-width: 1440px) {
-  .title_banner_entidad {
+  .containt_slide_prinInst {
+    width: 29%;
+    top: 173px;
+    left: 231px;
+  }
+
+  .titulo_banner_inst {
     font-size: 3.4em;
-    top: 27%;
-    left: 16%;
+    margin-bottom: 6%;
   }
 
-  .subtitle_banner_entidad {
+  .texto_banner_inst {
     font-size: 1.25em;
-    top: 36%;
-    left: 16%;
   }
 
+  /*.title_banner_entidad {
+      font-size: 3.4em;
+      top: 27%;
+      left: 16%;
+  }
+  .subtitle_banner_entidad {
+      font-size: 1.25em;
+      top: 36%;
+      left: 16%;
+  }*/
   .title_entidades {
     margin: 2% 0;
   }
@@ -24269,18 +24708,31 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1920px) {
-  .title_banner_entidad {
+  .containt_slide_prinInst {
+    width: 28%;
+    top: 177px;
+    left: 307px;
+  }
+
+  .titulo_banner_inst {
     font-size: 4em;
-    top: 26%;
-    left: 16%;
+    margin-bottom: 3%;
   }
 
-  .subtitle_banner_entidad {
+  .texto_banner_inst {
     font-size: 1.7em;
-    top: 35%;
-    left: 16%;
   }
 
+  /*.title_banner_entidad {
+      font-size: 4em;
+      top: 26%;
+      left: 16%;
+  }
+  .subtitle_banner_entidad {
+      font-size: 1.7em;
+      top: 35%;
+      left: 16%;
+  }*/
   .texto_entidades {
     height: 5vh;
   }
