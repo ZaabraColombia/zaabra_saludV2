@@ -11032,30 +11032,9 @@ a:link, a:visited, a:active, a:hover {
   .menu-hamburger {
     width: 65px;
     height: 100%;
-<<<<<<< HEAD
-=======
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }
-@media (min-width: 1200px) and (max-width: 1359.98px) {
-  .contenedorLupa {
-    width: 5%;
-  }
-
-  .button-membresia {
-    max-width: 135px;
-  }
-
-  #ui-id-1 {
-    /*left: 25.6% !important;*/
-    /*width: 29.7% !important;*/
-    height: 27vh;
->>>>>>> c546b3f1dbc0025a32d3b3bfb882242811157499
-  }
-}
-/*@media (min-width: 1200px) {
+/*@media (min-width: 1200px) and (max-width: 1359.98px) {
     //Seccion barra de busqueda
     .contenedorLupa {
         width: 5%;
@@ -11067,8 +11046,9 @@ a:link, a:visited, a:active, a:hover {
     #ui-id-1 {
         left: 25.6% !important;
         width: 29.7% !important;
+        left: 25.6% !important;
+        width: 29.7% !important;
         height: 27vh;
-
     }
 }*/
 /*@media (min-width: 1360px) {
@@ -11196,6 +11176,23 @@ a:link, a:visited, a:active, a:hover {
     width: 100px;
   }
 
+  .contenedorLupa {
+    padding: 0;
+    border: none;
+    height: auto;
+    width: 5%;
+    position: relative;
+    margin-top: 0;
+    margin-right: 3%;
+    right: 0;
+    align-items: flex-end;
+  }
+
+  #ui-id-1 {
+    /*width: 29.7% !important;*/
+    height: 31vh;
+  }
+
   .soy_paciente .dropdown-toggle {
     background-size: 70px;
   }
@@ -11221,132 +11218,6 @@ a:link, a:visited, a:active, a:hover {
   margin: auto;
 }
 
-<<<<<<< HEAD
-=======
-  .logo_header {
-    width: 95%;
-  }
-
-  .soy_paciente .dropdown-toggle {
-    background-image: url(/img/header/icono-soy-paciente-blanco.svg);
-    background-size: 75%;
-    background-position-x: center;
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .contenedorLupa {
-    padding: 0;
-    border: none;
-    height: auto;
-    width: 5%;
-    position: relative;
-    margin-top: 0;
-    margin-right: 3%;
-    right: 0;
-    align-items: flex-end;
-  }
-
-  #ui-id-1 {
-    /*width: 29.7% !important;*/
-    height: 31vh;
-  }
-
-  .soy_paciente .dropdown-toggle {
-    background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-    background-size: 70%;
-    background-position-x: center;
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .icon_paciente:focus {
-    background-image: url("/img/header/icono-soy-paciente-azul.svg");
-    background-color: #ffffff;
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .menu_paciente {
-    padding: 0;
-    height: auto;
-    width: 190%;
-  }
-
-  .button-membresia {
-    max-width: 180px;
-  }
-
-  .menu-hamburger .dropdown-toggle {
-    background-image: url(/img/header/icono-hamburguesa-blanco.svg);
-    background-repeat: no-repeat;
-    background-size: 40%;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .menu_hamburguesa {
-    height: auto;
-    width: 260px;
-  }
-
-  .menu-hamburger .dropdown-toggle {
-    background-image: url("/img/header/icono-hamburguesa-blanco.svg");
-    background-repeat: no-repeat;
-    background-size: 45%;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .icon-menu:focus {
-    background-image: url("/img/header/icono-hamburguesa-azul.svg");
-    background-size: 45%;
-    background-color: #ffffff;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-}
-.footer_newsletter {
-  background: #e8e8e8;
-  margin: auto;
-  padding: 1% 0;
-  text-align: center;
-  display: flex;
-}
-
-.newsletter_contenido {
-  padding: 0;
-  margin: auto;
-}
-
->>>>>>> c546b3f1dbc0025a32d3b3bfb882242811157499
 .newsletter_titulo {
   padding: 0;
   margin: 0;
@@ -20326,6 +20197,7 @@ a:link, a:visited, a:active, a:hover {
     justify-content: flex-end;
     padding-top: 50%;
   }
+
   .contains_slide .contains_buttons {
     max-width: 70%;
   }
