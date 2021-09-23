@@ -124,7 +124,9 @@
                     </div>
                 </div>
                 <div class="col-lg-3 content_btnEnviar-formInst">
-                    <button type="submit" class="btn_guardar-formInst" id="btn-guardar-basico-institucional"> Guardar
+                    <button type="submit" class="btn_guardar-formInst" id="btn-guardar-basico-institucional"
+                            data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}...">
+                        Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
@@ -194,7 +196,9 @@
 
                     <!-- Botón guardar información -->
                     <div class="col-12 content_btnEnviar-formInst">
-                        <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-contacto-institucion"> Guardar
+                        <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-contacto-institucion"
+                                data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}...">
+                            Guardar
                             <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                         </button>
                     </div>
@@ -227,8 +231,10 @@
                     <label class="col-12 text_infoImg-formInst"> 270 Caracteres </label>
                 </div>
                 <!-- Botón guardar información -->
-                <div class="col-12 content_btnEnviar-formInst" id="btn-guardar-descripcion-institucional">
-                    <button type="submit" class="btn2_enviar-formInst"> Guardar
+                <div class="col-12 content_btnEnviar-formInst" >
+                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-descripcion-institucional"
+                            data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}...">
+                        Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst">
                     </button>
                 </div>
@@ -306,7 +312,9 @@
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-servicio-institucion" {{ ($count_servicios >= 6) ? 'disabled' : '' }}> Guardar
+                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-servicio-institucion" {{ ($count_servicios >= 6) ? 'disabled' : '' }}
+                    data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}...">
+                        Guardar
                         <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
@@ -348,7 +356,9 @@
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-quienes-somo-institucion"> Guardar
+                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-quienes-somo-institucion"
+                            data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}...">
+                        Guardar
                         <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
@@ -370,7 +380,9 @@
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-propuesta-valor-institucion"> Guardar
+                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-propuesta-valor-institucion"
+                            data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}...">
+                        Guardar
                         <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
@@ -430,7 +442,9 @@
 
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst mt-0 mt-md-3" id="btn-guardar-convenios-institucion" {{ ($count_convenios >= 9) ? 'disabled' : '' }}> Guardar
+                    <button type="submit" class="btn2_enviar-formInst mt-0 mt-md-3" id="btn-guardar-convenios-institucion" {{ ($count_convenios >= 9) ? 'disabled' : '' }}
+                    data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}...">
+                        Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
@@ -538,7 +552,9 @@
                 </div>
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-profecionales-institucion" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}> Guardar
+                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-profecionales-institucion" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}
+                    data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}...">
+                        Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" />
                     </button>
                 </div>
@@ -645,7 +661,9 @@
                 </div>
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-certificado-institucion" {{ ($count_certificaiones >= 4) ? 'disabled' : '' }}> Guardar
+                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-certificado-institucion" {{ ($count_certificaiones >= 4) ? 'disabled' : '' }}
+                    data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}...">
+                        Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
@@ -760,7 +778,9 @@
                 </div>
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-sede-institucion" {{ ($count_sedes >= 6) ? 'disabled' : '' }} > Guardar
+                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-sede-institucion" {{ ($count_sedes >= 6) ? 'disabled' : '' }}
+                    data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}...">
+                        Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst">
                     </button>
                 </div>
@@ -783,7 +803,9 @@
                 </div>
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-ubicacion-institucion"> Guardar
+                    <button type="submit" class="btn2_enviar-formInst" id="btn-guardar-ubicacion-institucion"
+                            data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}...">
+                        Guardar
                         <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
@@ -884,7 +906,9 @@
                 </div>
                 <!-- Botón guardar información -->
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-galeria-institucion" {{ ($count_galeria >= 8) ? 'disabled' : '' }}> Guardar
+                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-galeria-institucion" {{ ($count_galeria >= 8) ? 'disabled' : '' }}
+                    data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}...">
+                        Guardar
                         <img src=" {{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
@@ -960,7 +984,9 @@
                     </div>
                 </div>
                 <div class="col-12 content_btnEnviar-formInst">
-                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-video-institucion" {{ ($count_videos >= 4) ? 'disabled' : '' }} > Guardar
+                    <button type="submit" class="btn2_enviar-formInst mt-0" id="btn-guardar-video-institucion" {{ ($count_videos >= 4) ? 'disabled' : '' }}
+                    data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}...">
+                        Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                     </button>
                 </div>
@@ -978,7 +1004,7 @@
             </div>
 
             <div class="col-md-3 content_btn-siguient-formInst">
-                <a type="submit" class="boton_inferior-finalizar-formInst" href="{{ route('contacto') }}"> Finalizar
+                <a type="submit" class="boton_inferior-finalizar-formInst" href="{{ route('PerfilInstitucion', ['slug' => $objFormulario->slug]) }}"> Finalizar
                     <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_finalizar-formInst" alt="">
                 </a>
             </div>

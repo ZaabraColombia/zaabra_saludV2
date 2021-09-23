@@ -154,7 +154,7 @@ class formularioInstitucionController extends Controller{
     public function cargaFormulario($id_user){
         return DB::select("SELECT ins.imagen, ins.logo, ins.quienessomos,  ins.DescripcionGeneralServicios, ins.idtipoInstitucion,
     ins.url, ins.fechainicio, ins.telefonouno,  ins.telefono2, ins.direccion, ins.propuestavalor,
-    p.id_pais,p.nombre, de.id_departamento, de.nombre,ins.url_maps,
+    p.id_pais,p.nombre, de.id_departamento, de.nombre,ins.url_maps, ins.slug,
     prv.id_provincia,prv.nombre, mu.id_municipio, mu.nombre
     FROM instituciones ins
     INNER JOIN users us   ON ins.idUser=us.id
