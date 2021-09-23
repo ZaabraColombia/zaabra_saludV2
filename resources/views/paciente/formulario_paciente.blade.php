@@ -127,8 +127,9 @@
 
                     <!-- Boton Guardar -->
                     <div class="form-group col-12">
-                        <button class="btn btn-primary" id="btn-guardar-basico-paciente">
-                            {{ __('paciente.guardar') }} <i class="fa fa-arrow-right"></i>
+                        <button class="btn btn-primary" id="btn-guardar-basico-paciente" data-text="{{ __('paciente.guardar') }}" data-text-loading="{{ __('paciente.cargando') }}...">
+                            {{ __('paciente.guardar') }}
+                            <i class="fa fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
@@ -141,7 +142,7 @@
         <form action="{{ route('paciente.formulario-password') }}" id="form-password-paciente" class="form" method="post">
             <div class="row">
                 <div class="col-12" id="mensajes-password"></div>
-                <div class="col-12">
+                <div class="col-12 ">
                     <!-- contraseña actual -->
                     <div class="form-group">
                         <label for="password">{{ __('paciente.contraseña-actual') }}</label>
@@ -159,8 +160,9 @@
                     </div>
                     <!-- Boton guardar -->
                     <div class="form-group">
-                        <button class="btn btn-primary" id="btn-guardar-password-paciente">
-                            {{ __('paciente.guardar') }} <i class="fa fa-arrow-right"></i>
+                        <button class="btn btn-primary" id="btn-guardar-password-paciente" data-text="{{ __('paciente.guardar') }}" data-text-loading="{{ __('paciente.cargando') }}...">
+                            {{ __('paciente.guardar') }}
+                            <i class="fa fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>

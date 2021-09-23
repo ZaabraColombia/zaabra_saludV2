@@ -106,6 +106,20 @@ $('#provincia').on('change',function(){
     }
 
 });
+/*-------------------------- Botones para guardar ----------------------*/
+function boton_guardar(id){
+    var btn = $(id);
+
+    btn.prop('disabled', false);
+    btn.html(btn.data('text') + '&nbsp;<i class="fa fa-arrow-right"></i>');
+}
+
+function boton_guardar_cargando(id){
+    var btn = $(id);
+
+    btn.prop('disabled', true);
+    btn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&nbsp;' + btn.data('text-loading'));
+}
 /*-------------------------- Formularios ----------------------*/
 
 $('#form-basico-paciente').validate({
@@ -175,8 +189,8 @@ $('#form-basico-paciente').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        var btn = $('#btn-guardar-basico-paciente');
-        btn.prop('disabled', true);
+        var btn = '#btn-guardar-basico-paciente';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
         //console.log(formulario.attr('action'));
         //Ajax
@@ -200,18 +214,16 @@ $('#form-basico-paciente').validate({
             dataType: 'json',
             success: function( response ) {
                 //Finaliza la carga
-                // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                btn.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Respuesta
                 mensaje_success('#mensajes-basico', response.mensaje)
             },
             error: function (event) {
                 //Finaliza la carga
-                // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                btn.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
@@ -253,8 +265,8 @@ $('#form-password-paciente').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        var btn = $('#btn-guardar-password-paciente');
-        btn.prop('disabled', true);
+        var btn = '#btn-guardar-password-paciente';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
         //console.log(formulario.attr('action'));
         //Ajax
@@ -277,19 +289,17 @@ $('#form-password-paciente').validate({
             data: data,
             dataType: 'json',
             success: function( response ) {
-                //Finaliza la carga
-                // Pace.stop();
+
                 $('.form-control').removeClass('is-invalid');
-                btn.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Respuesta
                 mensaje_success('#mensajes-password', response.mensaje)
             },
             error: function (event) {
                 //Finaliza la carga
-                // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                btn.removeAttr('disabled');
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
