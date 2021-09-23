@@ -238,7 +238,11 @@ Route::middleware(['auth', 'roles', 'verified'])->group(function () {
     Route:: post('/favoritosGeneralSave4',[App\Http\Controllers\admin\adminFavoritosController::class,'create4'])->name('paciente.favoritosGeneralSave4');
 
     Route:: get('/perfil',[App\Http\Controllers\Paciente\FormularioPaciente::class,'index'])->name('paciente.perfil');
+//    Route:: get('/perfil',function (){
+//        dd('ok');
+//    })->name('paciente.perfil');
     Route::post('/paciente/formulario-basico',[App\Http\Controllers\Paciente\FormularioPaciente::class,'basico'])->name('paciente.formulario-basico');
+    Route::post('/paciente/formulario-password',[App\Http\Controllers\Paciente\FormularioPaciente::class,'password'])->name('paciente.formulario-password');
 
 });
 

@@ -1,5 +1,5 @@
 /*-------------------------- Funciones ------------------------*/
-function mensaje_error(id, mensaje, error = false) {
+function mensaje_error(id, mensaje, error) {
     var lista = '';
     if (error) {
         lista = '<br><ul>';
@@ -175,7 +175,7 @@ $('#form-basico-paciente').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        var btn = $('#btn-guardar-basico-institucional');
+        var btn = $('#btn-guardar-basico-paciente');
         btn.prop('disabled', true);
         var formulario = $(form);
         //console.log(formulario.attr('action'));
@@ -211,16 +211,93 @@ $('#form-basico-paciente').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-basico-institucional').removeAttr('disabled');
+                btn.prop('disabled', false);
 
                 //Respuesta
                 var response = event.responseJSON;
 
-                console.log(response);
                 if (event.status === 422){
                     mensaje_error('#mensajes-basico', response.mensaje, response.error.mensajes)
                 }else {
                     mensaje_error('#mensajes-basico', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
+});
+$('#form-password-paciente').validate({
+    rules: {
+        'password': {
+            required: true,
+        },
+        'password_new': {
+            required: true,
+        },
+        'password_new_confirmation': {
+            required: true,
+        }
+    },
+    messages: {
+        'password':{
+            required: "Por favor ingrese el primer nombre",
+        },
+        'password_new':{
+            required: "Por favor ingrese el primer apellido",
+        },
+        'password_new_confirmation':{
+            required: "Por favor ingrese el tipo de identificación",
+        }
+    },
+    submitHandler: function(form) {
+        //Elementos
+        var btn = $('#btn-guardar-password-paciente');
+        btn.prop('disabled', true);
+        var formulario = $(form);
+        //console.log(formulario.attr('action'));
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                btn.prop('disabled', false);
+
+                //Respuesta
+                mensaje_success('#mensajes-password', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                // Pace.stop();
+                $('.form-control').removeClass('is-invalid');
+                btn.removeAttr('disabled');
+
+                //Respuesta
+                var response = event.responseJSON;
+
+                if (event.status === 422){
+                    mensaje_error('#mensajes-password', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-password', response.mensaje)
                 }
 
                 //Si es validación por formulario
