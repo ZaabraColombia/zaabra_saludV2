@@ -37,7 +37,7 @@
             <!-- Sección Botón membresía Desktop -->
             <div class="button-membresia">
                 <a class="" href="{{ route('profesional.membresiaProfesional') }}">
-                    <img class="img-button-membresia" src="{{URL::asset('/img/header/boton-membresia.png')}}">
+                    <img class="img-button-membresia" src="{{ asset('/img/header/boton-membresia.png') }}">
                 </a>
             </div>
 
@@ -54,20 +54,20 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right menu_hamburguesa" aria-labelledby="dropdownMenuLink" style="">
-                    <a class="dropdown-item menu_item item-cel icon-especialidades" href="{{route('ramas-de-la-salud')}}"><span class="texto_item-menu">Especialidades medicas</span></a>
+                    <a class="dropdown-item menu_item item-cel icon-especialidades" href="{{ route('ramas-de-la-salud') }}"><span class="texto_item-menu">Especialidades medicas</span></a>
                     <div class="dropdown-divider m-0"></div>
-                    <a class="dropdown-item menu_item item-cel icon-instituciones-burger" href="{{route('Instituciones-Medicas')}}"><span class="texto_item-menu">Instituciones medicas</span></a>
+                    <a class="dropdown-item menu_item item-cel icon-instituciones-burger" href="{{ route('Instituciones-Medicas') }}"><span class="texto_item-menu">Instituciones medicas</span></a>
                     <div class="dropdown-divider m-0"></div>
-                    <a class="dropdown-item menu_item item-cel icon-quienes" href="{{route('acerca')}}"><span class="texto_item-menu">Acerca de Zaabra</span></a>
+                    <a class="dropdown-item menu_item item-cel icon-quienes" href="{{ route('acerca') }}"><span class="texto_item-menu">Acerca de Zaabra</span></a>
                     <div class="dropdown-divider m-0"></div>
-                    <a class="dropdown-item menu_item item-cel icon-contactenos" href="{{route('contacto')}}"><span class="texto_item-menu">Contáctenos</span></a>
+                    <a class="dropdown-item menu_item item-cel icon-contactenos" href="{{ route('contacto') }}"><span class="texto_item-menu">Contáctenos</span></a>
                 </div>
             </div>
         @else
             <!-- Sección Botón membresía Desktop -->
             <div class="button-membresia">
                 <a class="" href="{{ route('profesional.membresiaProfesional') }}">
-                    <img class="img-button-membresia" src="{{URL::asset('/img/header/boton-membresia.png')}}">
+                    <img class="img-button-membresia" src="{{ asset('/img/header/boton-membresia.png') }}">
                 </a>
             </div>
 

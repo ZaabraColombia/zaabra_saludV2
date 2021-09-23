@@ -379,7 +379,7 @@ a:link, a:visited, a:active, a:hover {
 #ui-id-1{
     z-index: 500 !important;
     background: white;
-    width: 29.7% !important;
+    /*width: 29.7% !important;*/
     height: 25vh;
     overflow-x: hidden;
     border-bottom-left-radius: 5px;
@@ -413,7 +413,7 @@ a:link, a:visited, a:active, a:hover {
    // display: block !important;
    z-index: 500 !important;
    background: white;
-   width: 89.5% !important;
+   /*width: 89.5% !important;*/
    height: 28vh;
    overflow-x: hidden;
    border-radius: 3px;
@@ -969,7 +969,11 @@ a:link, a:visited, a:active, a:hover {
         height: 100%;
     }
 }
+<<<<<<< HEAD
 /*@media (min-width: 1200px) {
+=======
+@media (min-width: 1200px) and (max-width: 1359.98px) {
+>>>>>>> c546b3f1dbc0025a32d3b3bfb882242811157499
     //Seccion barra de busqueda
     .contenedorLupa {
         width: 5%;
@@ -979,8 +983,13 @@ a:link, a:visited, a:active, a:hover {
         max-width: 135px;
     }
     #ui-id-1 {
+<<<<<<< HEAD
         left: 25.6% !important;
         width: 29.7% !important;
+=======
+        /*left: 25.6% !important;*/
+        /*width: 29.7% !important;*/
+>>>>>>> c546b3f1dbc0025a32d3b3bfb882242811157499
         height: 27vh;
 
     }
@@ -1103,8 +1112,28 @@ a:link, a:visited, a:active, a:hover {
     .barra_busqueda {
         height: 35px;
     }
+<<<<<<< HEAD
     .soy_paciente {
         width: 100px;
+=======
+    // Seccion barra de busqueda
+    .contenedorLupa {
+        padding: 0;
+        border: none;
+        height: auto;
+        width: 5%;
+        position: relative;
+        margin-top: 0;
+        margin-right: 3%;
+        right: 0;
+        align-items: flex-end;
+    }
+    #ui-id-1 {
+        //left: 24.7% !important;
+        /*width: 29.7% !important;*/
+        height: 31vh;
+        //top: 63px !important;
+>>>>>>> c546b3f1dbc0025a32d3b3bfb882242811157499
     }
     .soy_paciente .dropdown-toggle {
         background-size: 70px;
