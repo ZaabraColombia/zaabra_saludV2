@@ -1638,18 +1638,40 @@ class formularioProfesionalController extends Controller
     public function addDestacable(Request $request)
     {
         $id_profesional = auth()->user()->profecional->idPerfilProfesional;
+        $nombre = $request->destacado_nombre;
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'destacado_nombre' => [
+                'required',
+                Rule::unique('expertoen', 'nombreExpertoEn')
+                    ->where('idPerfilProfesional', $id_profesional )
+            ]
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors(),
+                'mensaje' => 'Ingrese correctamente la información'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
         $destacables_count = destacados::where('idPerfilProfesional', '=', $id_profesional)->count();
 
         if ($destacables_count >= 9) {
-            return response(['mensaje' => 'No puede agregar mas temas', 'status' => false]);
+            return response(['mensaje' => 'No puede agregar mas temas'], Response::HTTP_NOT_FOUND);
         }
+
         $destacable = new destacados();
         $destacable->nombreExpertoEn = $request->destacado_nombre;
         $destacable->idPerfilProfesional = $id_profesional;
 
         $destacable->save();
 
-        return response(['mensaje' => 'El Tema "' . $request->destacado_nombre . '" ha sido creado', 'status' => true, 'nombre' => $request->destacado_nombre, 'count' => $destacables_count + 1]);
+        return response([
+            'mensaje'   => 'El Tema "' . $request->destacado_nombre . '" ha sido creado',
+            'nombre'    => $request->destacado_nombre,
+            'id'        => $destacable->id_experto_en,
+            'count'     => $destacables_count + 1]);
 
 
     }
@@ -1658,17 +1680,19 @@ class formularioProfesionalController extends Controller
     public function deleteDestacable(Request $request)
     {
         $id_profesional = auth()->user()->profecional->idPerfilProfesional;
-        $destacable = destacados::where('idPerfilProfesional', '=', $id_profesional)->where('id_experto_en', '=', $request->id)->first();
 
-        if (!empty($destacable))
+        $destacable = destacados::where('idPerfilProfesional', '=', $id_profesional)
+            ->where('id_experto_en', '=', $request->id)->first();
+
+        if (empty($destacable))
         {
-            //dd($destacable);
-            $nombre = $destacable->nombreExpertoEn;
-            $destacable->delete();
-            return response(['mensaje' => 'El Tema "' . $nombre . '" ha sido eliminado', 'status' => true]);
+            return response(['mensaje' => 'El Tema no se pudo eliminar'], Response::HTTP_NOT_FOUND);
         }
 
-        return response(['mensaje' => 'El Tema no se pudo eliminar', 'status' => false]);
+        $nombre = $destacable->nombreExpertoEn;
+        $destacable->delete();
+        return response(['mensaje' => 'El Tema "' . $nombre . '" ha sido eliminado'], Response::HTTP_OK);
+
     }
     /*-------------------------------------Fin delete Destacale formulario parte 14----------------------*/
 }

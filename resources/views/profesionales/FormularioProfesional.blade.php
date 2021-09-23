@@ -155,8 +155,10 @@
                 </div>
 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf" id="envia_basico"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                    <button type="submit" class="btn2_enviar-formProf" id="envia_basico"
+                            data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                        Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>
             </form>
@@ -222,8 +224,10 @@
                     </div>
                     <!-- Botón guardar información -->
                     <div class="col-12 content_btnEnviar-formProf">
-                        <button type="submit" class="btn2_enviar-formProf" id="envia_contacto"> Guardar
-                            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                        <button type="submit" class="btn2_enviar-formProf" id="envia_contacto"
+                                data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                            Guardar
+                            <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                         </button>
                     </div>
                 </div>
@@ -276,9 +280,10 @@
                     </div>
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button id="envia_consultas" type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" {{ ($count_consultas >= 3 ) ? 'disabled' : '' }}>
+                    <button id="envia_consultas" type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" {{ ($count_consultas >= 3 ) ? 'disabled' : '' }}
+                            data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
                         Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>
             </form>
@@ -295,7 +300,9 @@
                 <div class="row fila_infoBasica-formProf">
                     <div class="col-12" id="destacado-mensaje"></div>
                     <div class="content_dest_list" id="destacado-lista">
+                        <?php $destacables_count = 0;?>
                         @foreach($destacables as $destacable)
+                                <?php $destacables_count++;?>
                             <div class="section_dest_list alert alert-info alert-dismissible fade show delete-destacable" role="alert" >
                                 <strong>{{ $destacable->nombreExpertoEn }}</strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" data-id="{{ $destacable->id_experto_en }}">
@@ -307,7 +314,11 @@
                     <div class="col-12 p-0">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Ingrese el tema" name="destacado_nombre" id="destacado_nombre" {{ ($destacables_count >= 9 ) ? 'disabled' : ''}}>
-                            <button class="btn btn-primary" type="submit" id="destacado_nombre_btn" {{ ($destacables_count >= 9 ) ? 'disabled' : ''}} ><img src="{{ asset('img/iconos/icono-agregar-especialidad-favoritos-blanco.svg') }}" alt="mas"> Agregar</button>
+                            <button class="btn btn-primary" type="submit" id="destacado_nombre_btn" {{ ($destacables_count >= 9 ) ? 'disabled' : ''}}
+                                    data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                                Guardar
+                                <i class="fa fa-arrow-right"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -319,7 +330,7 @@
         <div class="col-lg-10 col-xl-8 content_botonInferior-next-formProf">
             <div class="col-md-3 content_btn-siguient">
                 <button type="submit" class="boton_inferior-siguiente-formProf btn-next-320-formProf" onclick="btnHideNext(this)" code-position="personalData"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -339,8 +350,10 @@
                     <label class="col-12 text_infoImg-formProf"> 270 Caracteres </label>
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" id="enviar_perfil" class="btn2_enviar-formProf mt-md-3 mb-md-3"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                    <button type="submit" id="btn-guardar-perfil-profesional" class="btn2_enviar-formProf mt-md-3 mb-md-3"
+                            data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                        Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>
             </form>
@@ -418,8 +431,10 @@
                 </div>
 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4" id="boton-enviar-estudios"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="" {{ ($count_estudios >= 3) ? 'disabled' : '' }}>
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4" id="boton-enviar-estudios" {{ ($count_estudios >= 3) ? 'disabled' : '' }}
+                            data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                        Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>
             </form>
@@ -499,8 +514,10 @@
                     </div>
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4" id="boton-guardar-experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4" id="boton-guardar-experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}
+                            data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                        Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>
             </form>
@@ -546,8 +563,10 @@
                     </div>
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4" id="boton-guardar-asociacion" {{ ($count_asociaciones >= 3 ) ? 'disabled' : '' }}> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4" id="boton-guardar-asociacion" {{ ($count_asociaciones >= 3 ) ? 'disabled' : '' }}
+                        data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                        Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>
             </form>
@@ -591,8 +610,10 @@
                     </div>
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-idioma"  {{ ($count_idiomas >= 3) ? 'disabled' : '' }}> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-idioma"  {{ ($count_idiomas >= 3) ? 'disabled' : '' }}
+                        data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                        Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>
             </form>
@@ -603,14 +624,14 @@
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
             <div class="col-md-3 content_btn-anter">
                 <button type="submit" class="boton_inferior-anterior-formProf" onclick="btnHidePrevious(this)" code-position="professionalProfile">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient">
                 <button type="submit" class="boton_inferior-siguiente-formProf" onclick="btnHideNext(this)" code-position="professionalProfile"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -638,7 +659,9 @@
                                 <label class="col-12 title_trata-formProf"> Antes </label>
 
                                 <div class="col-12 img_selccionada-formProf">
-                                    <img class="img_traProced-formProf" src="{{URL::asset($objTratamiento->imgTratamientoAntes)}}">
+
+                                    <img class="img_traProced-formProf" src="{{ asset($objTratamiento->imgTratamientoAntes)}}">
+
                                 </div>
 
                                 <div class="col-12 content_title_formProf">
@@ -655,7 +678,7 @@
                                 <label class="col-12 title_trata-formProf"> Después </label>
 
                                 <div class="col-12 img_selccionada-formProf">
-                                    <img class="img_traProced-formProf" src="{{URL::asset($objTratamiento->imgTratamientodespues)}}">
+                                    <img class="img_traProced-formProf" src="{{ asset($objTratamiento->imgTratamientodespues)}} ">
                                 </div>
 
                                 <div class="col-12 content_title_formProf">
@@ -734,8 +757,10 @@
                     </div>
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-tratamiento"
+                            data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                        Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>
             </form>
@@ -747,14 +772,14 @@
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
             <div class="col-md-3 content_btn-anter">
                 <button type="submit" class="boton_inferior-anterior-formProf" onclick="btnHidePrevious(this)" code-position="treatmentsProcedures">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient">
                 <button type="submit" class="boton_inferior-siguiente-formProf" onclick="btnHideNext(this)" code-position="treatmentsProcedures"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -834,8 +859,10 @@
                 </div>
 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-premio"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf">
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-premio"
+                            data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                        Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf">
                     </button>
                 </div>
             </form>
@@ -846,14 +873,14 @@
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
             <div class="col-md-3 content_btn-anter">
                 <button type="submit" class="boton_inferior-anterior-formProf" onclick="btnHidePrevious(this)" code-position="AwardsHonours">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient">
                 <button type="submit" class="boton_inferior-siguiente-formProf" onclick="btnHideNext(this)" code-position="AwardsHonours"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -927,8 +954,10 @@
                     </div>
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-publicacion" {{ ($count_publicaciones >= 4) ? 'disabled' : '' }}> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-publicacion" {{ ($count_publicaciones >= 4) ? 'disabled' : '' }}
+                        data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                        Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>
             </form>
@@ -939,14 +968,14 @@
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
             <div class="col-md-3 content_btn-anter">
                 <button type="submit" class="boton_inferior-anterior-formProf" onclick="btnHidePrevious(this)" code-position="publicationsFormProf">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient">
                 <button type="submit" class="boton_inferior-siguiente-formProf" onclick="btnHideNext(this)" code-position="publicationsFormInst"> Siguiente
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                 </button>
             </div>
         </div>
@@ -974,7 +1003,7 @@
                             </div>
                             <div class="col-12 my-2 p-0">
                                 <div class="img_selccionada-formProf">
-                                    <img  class="img_anexada-formProf" src="{{URL::asset($foto->imggaleria)}}">
+                                    <img  class="img_anexada-formProf" src="{{ asset($foto->imggaleria) }}">
                                 </div>
                                 <div class="col-12 mt-2 text_label-formProf">
                                     <label class="col-12 title_infoGuardada-formProf"> {{$foto->nombrefoto}} </label>
@@ -1027,8 +1056,10 @@
                     </div>
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-foto" {{ ($count_foto >= 8) ? 'disabled' : '' }}> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-foto" {{ ($count_foto >= 8) ? 'disabled' : '' }}
+                        data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                        Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
                 </div>
             </form>
@@ -1105,8 +1136,10 @@
                 </div>
 
                 <div class="col-12 content_btnEnviar-formProf">
-                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id=""> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="boton-guardar-video" {{ ($count_videos >= 4) ? 'disabled' : '' }}>
+                    <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-video"
+                            data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                        Guardar
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="boton-guardar-video" {{ ($count_videos >= 4) ? 'disabled' : '' }}>
                     </button>
                 </div>
             </form>
@@ -1117,14 +1150,14 @@
         <div class="col-lg-10 col-xl-8 content_botonesInferiores-formProf">
             <div class="col-md-3 content_btn-anter">
                 <button type="submit" class="boton_inferior-anterior-formProf" onclick="btnHidePrevious(this)" code-position="galleryFormProf">
-                    <img src="{{URL::asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="flechaBtn_guardar-formInst" alt="">
+                    <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="flechaBtn_guardar-formInst" alt="">
                     Anterior
                 </button>
             </div>
 
             <div class="col-md-3 content_btn-siguient">
                 <a type="submit" class="boton_inferior-finalizar-formProf" href="{{ url('/PerfilProfesional/' . $objuser->id) }}"> Finalizar
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flechaBtn_finalizar-formProf" alt="">
+                    <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flechaBtn_finalizar-formProf" alt="">
                 </a>
             </div>
         </div>

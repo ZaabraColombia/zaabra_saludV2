@@ -1,5 +1,5 @@
 /*-------------------------- Funciones ------------------------*/
-function mensaje_error(id, mensaje, error = false) {
+function mensaje_error(id, mensaje, error) {
     var lista = '';
     if (error) {
         lista = '<br><ul>';
@@ -106,6 +106,20 @@ $('#provincia').on('change',function(){
     }
 
 });
+/*-------------------------- Botones para guardar ----------------------*/
+function boton_guardar(id){
+    var btn = $(id);
+
+    btn.prop('disabled', false);
+    btn.html(btn.data('text') + '&nbsp;<i class="fa fa-arrow-right"></i>');
+}
+
+function boton_guardar_cargando(id){
+    var btn = $(id);
+
+    btn.prop('disabled', true);
+    btn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&nbsp;' + btn.data('text-loading'));
+}
 /*-------------------------- Formularios ----------------------*/
 
 $('#form-basico-paciente').validate({
@@ -175,8 +189,8 @@ $('#form-basico-paciente').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        var btn = $('#btn-guardar-basico-institucional');
-        btn.prop('disabled', true);
+        var btn = '#btn-guardar-basico-paciente';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
         //console.log(formulario.attr('action'));
         //Ajax
@@ -200,27 +214,100 @@ $('#form-basico-paciente').validate({
             dataType: 'json',
             success: function( response ) {
                 //Finaliza la carga
-                // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                btn.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Respuesta
                 mensaje_success('#mensajes-basico', response.mensaje)
             },
             error: function (event) {
                 //Finaliza la carga
-                // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-basico-institucional').removeAttr('disabled');
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
 
-                console.log(response);
                 if (event.status === 422){
                     mensaje_error('#mensajes-basico', response.mensaje, response.error.mensajes)
                 }else {
                     mensaje_error('#mensajes-basico', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
+});
+$('#form-password-paciente').validate({
+    rules: {
+        'password': {
+            required: true,
+        },
+        'password_new': {
+            required: true,
+        },
+        'password_new_confirmation': {
+            required: true,
+        }
+    },
+    messages: {
+        'password':{
+            required: "Por favor ingrese el primer nombre",
+        },
+        'password_new':{
+            required: "Por favor ingrese el primer apellido",
+        },
+        'password_new_confirmation':{
+            required: "Por favor ingrese el tipo de identificación",
+        }
+    },
+    submitHandler: function(form) {
+        //Elementos
+        var btn = '#btn-guardar-password-paciente';
+        boton_guardar_cargando(btn);
+        var formulario = $(form);
+        //console.log(formulario.attr('action'));
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+
+                $('.form-control').removeClass('is-invalid');
+                boton_guardar(btn);
+
+                //Respuesta
+                mensaje_success('#mensajes-password', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                $('.form-control').removeClass('is-invalid');
+                boton_guardar(btn);
+
+                //Respuesta
+                var response = event.responseJSON;
+
+                if (event.status === 422){
+                    mensaje_error('#mensajes-password', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-password', response.mensaje)
                 }
 
                 //Si es validación por formulario

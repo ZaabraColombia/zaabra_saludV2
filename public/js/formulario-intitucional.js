@@ -154,6 +154,20 @@ $('#provincia').on('change',function(){
     }
 
 });
+/*-------------------------- Botones para guardar ----------------------*/
+function boton_guardar(id){
+    var btn = $(id);
+
+    btn.prop('disabled', false);
+    btn.html(btn.data('text') + '&nbsp;<i class="fa fa-arrow-right"></i>');
+}
+
+function boton_guardar_cargando(id){
+    var btn = $(id);
+
+    btn.prop('disabled', true);
+    btn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&nbsp;' + btn.data('text-loading'));
+}
 /*-------------------------- Formularios ----------------------*/
 //Formulario 1
 $('#form-basico-institucional').validate({
@@ -187,7 +201,8 @@ $('#form-basico-institucional').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        $('#btn-guardar-basico-institucional').attr('disabled', 'disabled');
+        var btn = '#btn-guardar-basico-institucional';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
         //console.log(formulario.attr('action'));
         //Ajax
@@ -213,7 +228,7 @@ $('#form-basico-institucional').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-basico-institucional').removeAttr('disabled');
+                boton_guardar(btn);
 
                 //Respuesta
                 mensaje_success('#mensajes-basico', response.mensaje)
@@ -222,12 +237,11 @@ $('#form-basico-institucional').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-basico-institucional').removeAttr('disabled');
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
 
-                console.log(response);
                 if (event.status === 422){
                     mensaje_error('#mensajes-basico', response.mensaje, response.error.mensajes)
                 }else {
@@ -290,7 +304,8 @@ $('#form-contacto-institucional').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        $('#btn-guardar-contacto-institucion').attr('disabled', 'disabled');
+        var btn = '#btn-guardar-contacto-institucion';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
         //console.log(formulario.attr('action'));
         //Ajax
@@ -316,7 +331,7 @@ $('#form-contacto-institucional').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-contacto-institucion').removeAttr('disabled');
+                boton_guardar(btn);
 
                 //Respuesta
                 mensaje_success('#mensajes-contacto', response.mensaje)
@@ -325,7 +340,7 @@ $('#form-contacto-institucional').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-contacto-institucion').removeAttr('disabled');
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
@@ -355,7 +370,8 @@ $('#form-descripcion-institucion').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        $('#btn-guardar-descripcion-institucional').attr('disabled', 'disabled');
+        var btn = '#btn-guardar-descripcion-institucional';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
         //console.log(formulario.attr('action'));
         //Ajax
@@ -381,7 +397,7 @@ $('#form-descripcion-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-descripcion-institucional').removeAttr('disabled');
+                boton_guardar(btn);
 
                 //Respuesta
                 mensaje_success('#mensajes-descripcion', response.mensaje)
@@ -390,7 +406,7 @@ $('#form-descripcion-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-contacto-institucion').removeAttr('disabled');
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
@@ -449,7 +465,8 @@ $('#form-servicios-institucion').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        $('#btn-guardar-servicio-institucion').attr('disabled', 'disabled');
+        var btn = '#btn-guardar-servicio-institucion';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
         //console.log(formulario.attr('action'));
         //Ajax
@@ -475,7 +492,7 @@ $('#form-servicios-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-servicio-institucion').prop('disabled', false);
+                boton_guardar(btn);
 
                 /* agregar ficha */
                 //Traer la lista
@@ -507,7 +524,6 @@ $('#form-servicios-institucion').validate({
                     $('#descripcion_servicio').prop('disabled', true);
                     $('#sucursal_servicio-0').prop('disabled', true);
                     $('#btn-agregar-servicio-institucion').prop('disabled', true);
-                    $('#btn-guardar-servicio-institucion').prop('disabled', true);
                 }
 
                 //limpiar formulario
@@ -524,7 +540,7 @@ $('#form-servicios-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-servicio-institucion').prop('disabled', false);
+               boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
@@ -611,7 +627,8 @@ $('#form-quienes-somos-institucion').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        $('#btn-guardar-quienes-somo-institucion').prop('disabled', true);
+        var btn = '#btn-guardar-quienes-somo-institucion';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
         //console.log(formulario.attr('action'));
         //Ajax
@@ -635,18 +652,16 @@ $('#form-quienes-somos-institucion').validate({
             dataType: 'json',
             success: function( response ) {
                 //Finaliza la carga
-                // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-quienes-somo-institucion').prop('disabled', false);
+                boton_guardar(btn);
 
                 //Respuesta
                 mensaje_success('#mensajes-quienes-somos', response.mensaje)
             },
             error: function (event) {
                 //Finaliza la carga
-                // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-quienes-somo-institucion').prop('disabled', false);
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
@@ -676,7 +691,8 @@ $('#form-propuesta-valor-institucion').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        $('#btn-guardar-propuesta-valor-institucion').prop('disabled', true);
+        var btn = '#btn-guardar-propuesta-valor-institucion';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
         //console.log(formulario.attr('action'));
         //Ajax
@@ -702,7 +718,7 @@ $('#form-propuesta-valor-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-propuesta-valor-institucion').prop('disabled', false);
+                boton_guardar(btn);
 
                 //Respuesta
                 mensaje_success('#mensajes-propuesta-valor', response.mensaje)
@@ -711,7 +727,7 @@ $('#form-propuesta-valor-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                $('#btn-guardar-propuesta-valor-institucion').prop('disabled', false);
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
@@ -748,8 +764,8 @@ $('#form-convenios-institucion').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        var button_save = $('#btn-guardar-convenios-institucion');
-        button_save.prop('disabled', true);
+        var btn = '#btn-guardar-convenios-institucion';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
         //console.log(formulario.attr('action'));
         //Ajax
@@ -775,7 +791,7 @@ $('#form-convenios-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                button_save.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Agrgar tarjeta del convenio
                 $('#lista-convenios-institucion').append('<div class="col-md-3 col-sm-6">\n' +
@@ -792,7 +808,7 @@ $('#form-convenios-institucion').validate({
                 if (response.max_items > 0) {
                     $('#tipo_convenio').prop('disabled', true);
                     $('#logo_convenio').prop('disabled', true);
-                    button_save.prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#img-logo_convenio').attr('src', '#');
@@ -805,7 +821,7 @@ $('#form-convenios-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                button_save.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
@@ -814,7 +830,7 @@ $('#form-convenios-institucion').validate({
                 if (response.max_items > 0) {
                     $('#tipo_convenio').prop('disabled', true);
                     $('#logo_convenio').prop('disabled', true);
-                    button_save.prop('disabled', true);
+                    $(btn).prop('disabled', true);
                     $('#img-logo_convenio').attr('scr', '#');
                     formulario[0].reset();
                 }
@@ -911,8 +927,8 @@ $('#form-profesionales-institucion').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        var button_save = $('#btn-guardar-profecionales-institucion');
-        button_save.prop('disabled', true);
+        var btn = '#btn-guardar-profecionales-institucion';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
         //console.log(formulario.attr('action'));
         //Ajax
@@ -938,7 +954,7 @@ $('#form-profesionales-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                button_save.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Agrgar tarjeta del convenio
                 $('#lista-profesionales-institucion').append('<div class="col-md-3 content_loadImg-profes">\n' +
@@ -977,7 +993,7 @@ $('#form-profesionales-institucion').validate({
                     $('#segundo_apellido_profecional').prop('disabled', true);
                     $('#universidad').prop('disabled', true);
                     $('#especialidad').prop('disabled', true);
-                    button_save.prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#img-foto_profecional').attr('src', '#');
@@ -990,7 +1006,7 @@ $('#form-profesionales-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                button_save.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
@@ -1004,7 +1020,7 @@ $('#form-profesionales-institucion').validate({
                     $('#segundo_apellido_profecional').prop('disabled', true);
                     $('#universidad').prop('disabled', true);
                     $('#especialidad').prop('disabled', true);
-                    button_save.prop('disabled', true);
+                    $(btn).prop('disabled', true);
                     $('#img-foto_profecional').attr('scr', '#');
                     formulario[0].reset();
                 }
@@ -1100,8 +1116,8 @@ $('#form-certificados-institucion').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        var button_save = $('#btn-guardar-certificado-institucion');
-        button_save.prop('disabled', true);
+        var btn = '#btn-guardar-certificado-institucion';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
         //console.log(formulario.attr('action'));
         //Ajax
@@ -1127,7 +1143,7 @@ $('#form-certificados-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                button_save.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Agrgar tarjeta del convenio
                 $('#lista-certificaciones-institucion').append('<div class="col-md-6">\n' +
@@ -1158,7 +1174,7 @@ $('#form-certificados-institucion').validate({
                     $('#fecha_certificado').prop('disabled', true);
                     $('#titulo_certificado').prop('disabled', true);
                     $('#descripcion_certificacion').prop('disabled', true);
-                    button_save.prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#img-image_certificado').attr('src', '#');
@@ -1171,7 +1187,7 @@ $('#form-certificados-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                button_save.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
@@ -1181,8 +1197,8 @@ $('#form-certificados-institucion').validate({
                     $('#image_certificado').prop('disabled', true);
                     $('#fecha_certificado').prop('disabled', true);
                     $('#titulo_certificado').prop('disabled', true);
-                    $('#descripcion_certificacion').prop('disabled', true);;
-                    button_save.prop('disabled', true);
+                    $('#descripcion_certificacion').prop('disabled', true);
+                    $(btn).prop('disabled', true);
                     $('#img-image_certificado').attr('scr', '#');
                     formulario[0].reset();
                 }
@@ -1286,8 +1302,8 @@ $('#form-sedes-institucion').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        var button_save = $('#btn-guardar-sede-institucion');
-        button_save.prop('disabled', true);
+        var btn = '#btn-guardar-sede-institucion';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
 
         //Ajax
@@ -1313,7 +1329,7 @@ $('#form-sedes-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                button_save.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Agrgar tarjeta del convenio
                 $('#lista-sedes-institucion').append('<div class="savedData_formInst">\n' +
@@ -1352,7 +1368,7 @@ $('#form-sedes-institucion').validate({
                     $('#horario_sede').prop('disabled', true);
                     $('#telefono_sede').prop('disabled', true);
                     $('#url_mapa_sede').prop('disabled', true);
-                    button_save.prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#img-img_sede').attr('src', '#');
@@ -1365,7 +1381,7 @@ $('#form-sedes-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                button_save.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
@@ -1378,7 +1394,7 @@ $('#form-sedes-institucion').validate({
                     $('#horario_sede').prop('disabled', true);
                     $('#telefono_sede').prop('disabled', true);
                     $('#url_mapa_sede').prop('disabled', true);
-                    button_save.prop('disabled', true);
+                    $(btn).prop('disabled', true);
                     $('#img-img_sede').attr('scr', '#');
                     formulario[0].reset();
                 }
@@ -1475,8 +1491,8 @@ $('#form-galeria-institucion').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        var button_save = $('#btn-guardar-galeria-institucion');
-        button_save.prop('disabled', true);
+        var btn = '#btn-guardar-galeria-institucion';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
 
         //Ajax
@@ -1502,7 +1518,7 @@ $('#form-galeria-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                button_save.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Agrgar tarjeta del convenio
                 $('#lista-galeria-intitucion').append('<div class="savedData_formInst">\n' +
@@ -1533,7 +1549,7 @@ $('#form-galeria-institucion').validate({
                     $('#fecha_galeria_institucion').prop('disabled', true);
                     $('#nombre_galeria_institucion').prop('disabled', true);
                     $('#descripcion_galeria_institucion').prop('disabled', true);
-                    button_save.prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
 
                 $('#img-img_galeria_institucion').attr('src', '#');
@@ -1546,7 +1562,7 @@ $('#form-galeria-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                button_save.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
@@ -1557,7 +1573,7 @@ $('#form-galeria-institucion').validate({
                     $('#fecha_galeria_institucion').prop('disabled', true);
                     $('#nombre_galeria_institucion').prop('disabled', true);
                     $('#descripcion_galeria_institucion').prop('disabled', true);
-                    button_save.prop('disabled', true);
+                    $(btn).prop('disabled', true);
                     $('#img-img_galeria_institucion').attr('scr', '#');
                     formulario[0].reset();
                 }
@@ -1630,8 +1646,8 @@ $('#form-ubicaion-institucion').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        var btn_save = $('#btn-guardar-ubicacion-institucion');
-        btn_save.prop('disabled', true);
+        var btn = '#btn-guardar-ubicacion-institucion';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
         //console.log(formulario.attr('action'));
         //Ajax
@@ -1657,7 +1673,7 @@ $('#form-ubicaion-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                btn_save.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Agregar la url al iframe
                 var url = $('#url_map_principal_institucion').val();
@@ -1672,7 +1688,7 @@ $('#form-ubicaion-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                btn_save.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
@@ -1721,8 +1737,8 @@ $('#form-videos-institucion').validate({
     },
     submitHandler: function(form) {
         //Elementos
-        var button_save = $('#btn-guardar-video-institucion');
-        button_save.prop('disabled', true);
+        var btn = '#btn-guardar-video-institucion';
+        boton_guardar_cargando(btn);
         var formulario = $(form);
 
         //Ajax
@@ -1748,7 +1764,7 @@ $('#form-videos-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                button_save.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Agrgar tarjeta del convenio
                 $('#lista-videos-institucion').append('<div class="section_infoExper-formInst">\n' +
@@ -1779,7 +1795,7 @@ $('#form-videos-institucion').validate({
                     $('#fecha_video_institucion').prop('disabled', true);
                     $('#nombre_video_institucion').prop('disabled', true);
                     $('#descripcion_video_institucion').prop('disabled', true);
-                    button_save.prop('disabled', true);
+                    $(btn).prop('disabled', true);
                 }
                 formulario[0].reset();
 
@@ -1790,7 +1806,7 @@ $('#form-videos-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-                button_save.prop('disabled', false);
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
@@ -1801,7 +1817,7 @@ $('#form-videos-institucion').validate({
                     $('#fecha_video_institucion').prop('disabled', true);
                     $('#nombre_video_institucion').prop('disabled', true);
                     $('#descripcion_video_institucion').prop('disabled', true);
-                    button_save.prop('disabled', true);
+                    $(btn).prop('disabled', true);
                     formulario[0].reset();
                 }
 

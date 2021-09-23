@@ -3,39 +3,39 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Auth;
 use Exception;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 
-class GoogleController extends Controller
+class FacebookController extends Controller
 {
     /**
      * Create a new controller instance.
      *
      */
-    public function redirectToGoogle(): \Symfony\Component\HttpFoundation\RedirectResponse
+    public function redirectToFB()
     {
-        return Socialite::driver('google')
-            ->redirect();
+        return Socialite::driver('facebook')->redirect();
     }
 
-    public function handleGoogleCallback()
+    /**
+     * Create a new controller instance.
+     *
+     */
+    public function handleCallback()
     {
         try {
 
-            $user = Socialite::driver('google')->stateless()->user();
+            $user = Socialite::driver('facebook')->user();
 
             $finduser = User::where('email', '=' ,$user->email)->first();
 
-            //dd($user->email);
-
             if($finduser){
 
-                if (empty($finduser->google_id) or $user->id != $finduser->google_id)
+                if (empty($finduser->facebook_id) or $user->id != $finduser->facebook_id)
                 {
-                    $finduser->google_id = $user->id;
+                    $finduser->facebook_id = $user->id;
                     $finduser->save();
                 }
 
@@ -47,7 +47,8 @@ class GoogleController extends Controller
             }
 
         } catch (Exception $e) {
-            dd($e);
+            dd($e->getMessage());
         }
     }
+
 }
