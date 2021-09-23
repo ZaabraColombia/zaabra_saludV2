@@ -40,6 +40,8 @@ class FacebookController extends Controller
                 }
 
                 Auth::login($finduser);
+                dd($finduser);
+                dd(auth());
 
                 return redirect()->intended('/');
             }else{
