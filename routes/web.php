@@ -80,6 +80,9 @@ Route::get('/membresiaProfesional', function () { return view('profesionales/mem
 
 Route::get('auth/google', [\App\Http\Controllers\Auth\GoogleController::class, 'redirectToGoogle'])->name('google-redirect');
 Route::get('auth/google/callback', [\App\Http\Controllers\Auth\GoogleController::class, 'handleGoogleCallback'])->name('google-callback');
+Route::get('auth/facebook', [\App\Http\Controllers\Auth\FacebookController::class, 'redirectToFB'])->name('facebook-redirect');
+Route::get('callback/facebook', [\App\Http\Controllers\Auth\FacebookController::class, 'handleCallback'])->name('facebook-callback');
+
 
 
 /*------------------------------------------------- Pertenece a calificacion y comentarios-------------------------------------------------------------------------------*/
