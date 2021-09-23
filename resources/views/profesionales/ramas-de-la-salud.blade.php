@@ -9,9 +9,9 @@
         @foreach ($objbannersprincipalProfesiones as $objbannersprincipalProfesiones)
           <div class="swiper-slide ">
               <img class="swiper-slide" src="{{URL::asset($objbannersprincipalProfesiones->rutaImagenVenta)}}">
-              <div class="contain_slide_prinHome">
-                  <h1 class="titulo-slide_prinHome" style="color:{{($objbannersprincipalProfesiones->color_titulo)}};">{{($objbannersprincipalProfesiones->titulo_banner)}}</h1>
-                  <p class="texto_banner_ramaSalud" style="color:{{($objbannersprincipalProfesiones->color_texto)}};">{{($objbannersprincipalProfesiones->texto_banner)}}</p>
+              <div class="containt_slide_prinProf">
+                  <h1 class="titulo_banner_prof" style="color:{{($objbannersprincipalProfesiones->color_titulo)}};">{{($objbannersprincipalProfesiones->titulo_banner)}}</h1>
+                  <p class="texto_banner_prof" style="color:{{($objbannersprincipalProfesiones->color_texto)}};">{{($objbannersprincipalProfesiones->texto_banner)}}</p>
                   @if(!empty($objbannersprincipalProfesiones->urlBoton_banner))
                     <a type="submit" href="{{($objbannersprincipalProfesiones->urlBoton_banner)}}" target="blank" class="btn_agendarHome"> {{ __('Ver más') }}
                       <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt="">

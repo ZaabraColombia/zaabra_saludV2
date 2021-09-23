@@ -18,14 +18,11 @@ a:link, a:visited, a:active, a:hover {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    height: calc(2.6em + 1.75rem + 2px);
+    height: 70px;
     position: sticky;
     width: 100%;
     z-index: 500;
     top: .1px;
-}
-.logo_header {
-    width: 50%;
 }
 .heigFormHeader {
     height: 100%;
@@ -33,10 +30,10 @@ a:link, a:visited, a:active, a:hover {
 }
 .inputBarraBusquedad {
     width: 100%;
-    height: 100% !important;
+    height: 50px;
     padding-left: 0;
     border-radius: 0;
-    font-size: 17px;
+    font-size: 1.4em;
     border: none;
     padding: 2%;
     background: #faebd700;
@@ -52,7 +49,7 @@ a:link, a:visited, a:active, a:hover {
 .icon_searchH {
     background-image: url('/img/header/icono-buscador-azul.svg');
     background-repeat: no-repeat;
-    background-size: 75%;
+    background-size: 22px;
     background-position-y: center;
 }
 .button_SearchBarH::after {
@@ -62,18 +59,18 @@ a:link, a:visited, a:active, a:hover {
     padding: 0;
     border: none;
     height: auto;
-    width: 8%;
+    width: 20px;
     position: relative;
     margin-top: 0;
     margin-right: 0;
     margin-left: auto;
     right: 0;
     align-items: flex-end;
-    height: 100%;
+    //height: 100%;
 }
 .barra_busqueda {
     width: 100%;
-    height: 50%;
+    height: 30px;
     background: #ffff;
     display: flex;
     align-items: center;
@@ -97,7 +94,7 @@ a:link, a:visited, a:active, a:hover {
 // Seccion icono boton usuario
 .soy_paciente .dropdown-toggle {
     background-image: url('/img/header/icono-soy-paciente-blanco.svg');
-    background-size: 70%;
+    background-size: 55px;
     background-position-x: center;
     width: 100%;
     height: 100%;
@@ -111,6 +108,7 @@ a:link, a:visited, a:active, a:hover {
     background-image: url('/img/header/icono-soy-paciente-azul.svg');
     background-color: #ffffff;
     height: 100%;
+    width: 100%;
     border: none;
     display: flex;
     flex-wrap: nowrap;
@@ -120,10 +118,10 @@ a:link, a:visited, a:active, a:hover {
 .menu-hamburger .dropdown-toggle {
     background-image: url('/img/header/icono-hamburguesa-blanco.svg');
     background-repeat: no-repeat;
-    background-size: 45%;
+    background-size: 30px;
     background-position: center;
-    width: 100%;
     height: 100%;
+    width: 100%;
     border: none;
     display: flex;
     flex-wrap: nowrap;
@@ -132,11 +130,10 @@ a:link, a:visited, a:active, a:hover {
 // Efecto boton usuario seleccionado
 .icon-menu:focus {
     background-image: url('/img/header/icono-hamburguesa-azul.svg');
-    background-size: 45%;
+    background-size: 30px;
     background-color: #ffffff;
     background-repeat: no-repeat;
     background-position: center;
-    width: 100%;
     height: 100%;
     border: none;
     display: flex;
@@ -154,7 +151,7 @@ a:link, a:visited, a:active, a:hover {
 .dropdown-menu .dropdown-item {
     display: flex;
     width: 100%;
-    height: 6.5vh;
+    height: 45px;
     clear: both;
     font-weight: 400;
     color: #212529;
@@ -350,6 +347,7 @@ a:link, a:visited, a:active, a:hover {
 }
 .img-button-membresia{
     max-width: 100%;
+    image-rendering: -webkit-optimize-contrast;
 }
 .menu_hamburguesa {
     height: auto;
@@ -475,21 +473,30 @@ a:link, a:visited, a:active, a:hover {
 
 @media (max-width: 600.98px) {
     .navbar_zaabrasalud{
-        height: calc(2.6em + 1rem + 2px);
+        height: 55px;
     }
     // Contenedor principal del header
+    .navbar .container {
+        justify-content: space-evenly;
+    }
     .contains_header{
         width: 100%;
         height: 100%;
         padding: 0;
-        justify-content: space-between;
     }
     // Sección logo zaabra
     .navbar-logo {
         text-decoration: none;
         color: #ffff;
-        text-align: center;
-        width: 27%;
+        width: 70px;
+        //height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo_header {
+        height: 40px;
+        image-rendering: -webkit-optimize-contrast;
     }
     //Sección lupa buscador mobile
     .contains_boxsearch {
@@ -510,9 +517,9 @@ a:link, a:visited, a:active, a:hover {
         display: none;
         background-color: #0083D6 !important;
         width: 100%;
-        height: 79%;
+        height: 50px;
         z-index: 20;
-        padding: 8% 0;
+        //padding: 8% 0;
     }
     .barra_oculta {
         width: 90%;
@@ -523,15 +530,15 @@ a:link, a:visited, a:active, a:hover {
         align-items: center;
         justify-content: center;
         align-content: center;
-        border-radius: 2px;
+        //border-radius: 3px;
         margin: auto;
     }
     .inputBarraBusquedad {
         width: 90%;
-        height: 100% !important;
+        height: 25px;
         padding-left: 0;
         border-radius: 0;
-        font-size: 17px;
+        font-size: 1.2em;
         border: none;
         padding: 1% 2%;
         background: #faebd700;
@@ -540,13 +547,13 @@ a:link, a:visited, a:active, a:hover {
         padding: 0;
         border: none;
         height: auto;
-        width: 6%;
+        width: 18px;
         position: relative;
         margin-top: 0;
         margin-right: 3%;
         right: 0;
         align-items: flex-end;
-        height: 100%;
+        //height: 100%;
     }
     .ui-menu {
         height: 29vh;
@@ -554,16 +561,14 @@ a:link, a:visited, a:active, a:hover {
     // Sección botón usuario
     .soy_paciente{
         height: 100%;
-        width: 20%;
+        width: 75px;
     }
     // Seccion icono boton usuario
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
-        background-size: 75%;
+        background-size: 50px;
         background-position: center;
         background-repeat: no-repeat;
-        width: 100%;
-        height: 100%;
         border: none;
         display: flex;
         flex-wrap: nowrap;
@@ -572,10 +577,8 @@ a:link, a:visited, a:active, a:hover {
     // Seccion icono boton usuario
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
-        background-size: 70%;
+        background-size: 50px;
         background-position-x: center;
-        width: 100%;
-        height: 100%;
         border: none;
         display: flex;
         flex-wrap: nowrap;
@@ -594,7 +597,7 @@ a:link, a:visited, a:active, a:hover {
     // Menú desplegable
     .dropdown-menu .dropdown-item {
         padding-left: 36%;
-        height: calc(1.5em + 1.5em + 1px);
+        //height: 45px;
         justify-content: flex-start;
     }
     .icon-paciente {
@@ -615,12 +618,12 @@ a:link, a:visited, a:active, a:hover {
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
-        height: calc(1em + 1em + 4px);
-        width: calc(1em + 1em + 2px);
+        height: 30px;
+        width: 40px;
     }
     //Sección menú hamburguesa
     .menu-hamburger {
-        width: 15%;
+        width: 50px;
         height: 100%;
     }
     // Menú desplegable
@@ -674,14 +677,14 @@ a:link, a:visited, a:active, a:hover {
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        height: calc(5em + 1rem + 2px);
+        height: 90px;
         position: sticky;
         width: 100%;
         z-index: 500;
         top: .1px;
     }
     .icon_lupa-mobile {
-        width: 50px;
+        width: 45px;
         background: #0083D6;
     }
     .btnMembresia_header_mobile {
@@ -689,8 +692,8 @@ a:link, a:visited, a:active, a:hover {
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
-        height: calc(2em + 2em + 4px);
-        width: calc(2em + 2em + 2px);
+        height: 55px;
+        width: 70px;
     }
     /*.navbar_zaabrasalud{
         height: calc(2.6em + 1rem + 2px);
@@ -706,8 +709,16 @@ a:link, a:visited, a:active, a:hover {
     .navbar-logo {
         text-decoration: none;
         color: #ffff;
-        text-align: center;
-        width: 27%;
+        width: 110px;
+        //height: 70px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .logo_header {
+        //width: 75%;
+        //height: 100%;
+        image-rendering: -webkit-optimize-contrast;
     }
     //Sección lupa buscador mobile
     .contains_boxsearch {
@@ -725,9 +736,9 @@ a:link, a:visited, a:active, a:hover {
         display: none;
         background-color: #0083D6 !important;
         width: 100%;
-        height: 79%;
+        height: 80px;
         z-index: 20;
-        padding: 8% 0;
+        //padding: 8% 0;
     }
     .barra_oculta {
         width: 90%;
@@ -738,15 +749,15 @@ a:link, a:visited, a:active, a:hover {
         align-items: center;
         justify-content: center;
         align-content: center;
-        border-radius: 2px;
+        //border-radius: 2px;
         margin: auto;
     }
     .inputBarraBusquedad {
         width: 90%;
-        height: 100% !important;
+        height: 45px;
         padding-left: 0;
         border-radius: 0;
-        font-size: 17px;
+        font-size: 1.75em;
         border: none;
         padding: 1% 2%;
         background: #faebd700;
@@ -755,30 +766,30 @@ a:link, a:visited, a:active, a:hover {
         padding: 0;
         border: none;
         height: auto;
-        width: 6%;
+        width: 30px;
         position: relative;
         margin-top: 0;
         margin-right: 3%;
         right: 0;
         align-items: flex-end;
-        height: 100%;
+        //height: 100%;
     }
     .ui-menu {
         height: 29vh;
     }
     // Sección botón usuario
     .soy_paciente{
-        height: 100%;
-        width: 20%;
+        //height: 100%;
+        width: 135px;
     }
     // Seccion icono boton usuario
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
-        background-size: 60%;
+        background-size: 85px;
         background-position: center;
         background-repeat: no-repeat;
-        width: 100%;
-        height: 100%;
+       //width: 100%;
+        //height: 100%;
         border: none;
         display: flex;
         flex-wrap: nowrap;
@@ -787,10 +798,10 @@ a:link, a:visited, a:active, a:hover {
     // Seccion icono boton usuario
     .soy_paciente .dropdown-toggle {
         background-image: url('/img/header/icono-soy-paciente-blanco.svg');
-        background-size: 60%;
+        background-size: 85px;
         background-position-x: center;
-        width: 100%;
-        height: 100%;
+        //width: 100%;
+        //height: 100%;
         border: none;
         display: flex;
         flex-wrap: nowrap;
@@ -808,7 +819,7 @@ a:link, a:visited, a:active, a:hover {
     }
     // Menú desplegable
     .dropdown-menu .dropdown-item {
-        //height: 4.5vh;
+        height: 50px;
         padding-left: 36%;
         justify-content: flex-start;
     }
@@ -828,8 +839,12 @@ a:link, a:visited, a:active, a:hover {
 
     //Sección menú hamburguesa
     .menu-hamburger {
-        width: 15%;
+        width: 100px;
         height: 100%;
+    }
+    .menu-hamburger .dropdown-toggle {
+        background-size: 50px;
+        /* width: 100%; */
     }
     // Menú desplegable
     .menu_hamburguesa {
@@ -839,7 +854,7 @@ a:link, a:visited, a:active, a:hover {
     .dropdown-menu .item-cel {
         background-position-x: 7%;
         padding-left: 25%;
-        height: 4.5vh;
+        height: 50px;
     }
     .icon-especialidades{
         background-size: 16%;
@@ -888,7 +903,8 @@ a:link, a:visited, a:active, a:hover {
     }
     // Seccion logo zaabra
     .logo_header {
-        width: 70%;
+        width: 65px;
+        image-rendering: -webkit-optimize-contrast;
     }
     //Seccion barra de busqueda
     .contains_boxsearch {
@@ -918,7 +934,7 @@ a:link, a:visited, a:active, a:hover {
         height: 100%;
     }
     .soy_paciente{
-        width: 10%;
+        width: 65px;
     }
     .icon_paciente {
         background-size: contain;
@@ -949,14 +965,15 @@ a:link, a:visited, a:active, a:hover {
     }
     //Seccion menu hamburguesa
     .menu-hamburger {
-        width: 9%;
+        width: 65px;
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 }
+<<<<<<< HEAD
+/*@media (min-width: 1200px) {
+=======
 @media (min-width: 1200px) and (max-width: 1359.98px) {
+>>>>>>> c546b3f1dbc0025a32d3b3bfb882242811157499
     //Seccion barra de busqueda
     .contenedorLupa {
         width: 5%;
@@ -966,13 +983,18 @@ a:link, a:visited, a:active, a:hover {
         max-width: 135px;
     }
     #ui-id-1 {
+<<<<<<< HEAD
+        left: 25.6% !important;
+        width: 29.7% !important;
+=======
         /*left: 25.6% !important;*/
         /*width: 29.7% !important;*/
+>>>>>>> c546b3f1dbc0025a32d3b3bfb882242811157499
         height: 27vh;
 
     }
-}
-@media (min-width: 1360px) {
+}*/
+/*@media (min-width: 1360px) {
     #ui-id-1 {
         //left: 25.2% !important;
         height: 30vh;
@@ -986,8 +1008,8 @@ a:link, a:visited, a:active, a:hover {
     .dropdown-menu .menu_item {
         height: 55px;
     }
-}
-@media (min-width: 1440px) {
+}*/
+/*@media (min-width: 1440px) {
     .contains_barra{
         display: none;
     }
@@ -1078,27 +1100,22 @@ a:link, a:visited, a:active, a:hover {
         height: auto;
         width: 260px;
     }
-}
+}*/
 @media (min-width: 1920px) {
-    .navbar_zaabrasalud{
-        height: calc(2.6em + 2.75rem + 2px);
+    .navbar_zaabrasalud {
+        height: 75px;
     }
-   //Seccion logo Zaabra
-   .logo_header {
-        width: 95%;
+    .logo_header {
+        width: 75px;
+        image-rendering: -webkit-optimize-contrast;
     }
-    // Seccion boton usuario
-    .soy_paciente .dropdown-toggle {
-        background-image: url(/img/header/icono-soy-paciente-blanco.svg);
-        background-size: 75%;
-        background-position-x: center;
-        width: 100%;
-        height: 100%;
-        border: none;
-        display: flex;
-        flex-wrap: nowrap;
-        margin: auto;
+    .barra_busqueda {
+        height: 35px;
     }
+<<<<<<< HEAD
+    .soy_paciente {
+        width: 100px;
+=======
     // Seccion barra de busqueda
     .contenedorLupa {
         padding: 0;
@@ -1116,80 +1133,15 @@ a:link, a:visited, a:active, a:hover {
         /*width: 29.7% !important;*/
         height: 31vh;
         //top: 63px !important;
+>>>>>>> c546b3f1dbc0025a32d3b3bfb882242811157499
     }
-    // Seccion icono boton usuario
     .soy_paciente .dropdown-toggle {
-        background-image: url('/img/header/icono-soy-paciente-blanco.svg');
-        background-size: 70%;
-        background-position-x: center;
-        width: 100%;
-        height: 100%;
-        border: none;
-        display: flex;
-        flex-wrap: nowrap;
-        margin: auto;
+        background-size: 70px;
     }
-    // Efecto boton usuario seleccionado
-    .icon_paciente:focus {
-        background-image: url('/img/header/icono-soy-paciente-azul.svg');
-        background-color: #ffffff;
-        height: 100%;
-        border: none;
-        display: flex;
-        flex-wrap: nowrap;
-        margin: auto;
-    }
-    .menu_paciente {
-        padding: 0;
-        height: auto;
-        width: 190%;
-    }
-    // Seccion boton membresia
     .button-membresia {
-        max-width: 180px;
+        max-width: 150px;
     }
-    // Seccion menu hamburguesa
     .menu-hamburger .dropdown-toggle {
-        background-image: url(/img/header/icono-hamburguesa-blanco.svg);
-        background-repeat: no-repeat;
-        background-size: 40%;
-        background-position: center;
-        width: 100%;
-        height: 100%;
-        border: none;
-        display: flex;
-        flex-wrap: nowrap;
-        margin: auto;
-    }
-    .menu_hamburguesa {
-        height: auto;
-        width: 260px;
-    }
-    // Seccion icono menu hamburguesa
-    .menu-hamburger .dropdown-toggle {
-        background-image: url('/img/header/icono-hamburguesa-blanco.svg');
-        background-repeat: no-repeat;
-        background-size: 45%;
-        background-position: center;
-        width: 100%;
-        height: 100%;
-        border: none;
-        display: flex;
-        flex-wrap: nowrap;
-        margin: auto;
-    }
-    // Efecto boton usuario seleccionado
-    .icon-menu:focus {
-        background-image: url('/img/header/icono-hamburguesa-azul.svg');
-        background-size: 45%;
-        background-color: #ffffff;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 100%;
-        height: 100%;
-        border: none;
-        display: flex;
-        flex-wrap: nowrap;
-        margin: auto;
+        background-size: 40px;
     }
 }
