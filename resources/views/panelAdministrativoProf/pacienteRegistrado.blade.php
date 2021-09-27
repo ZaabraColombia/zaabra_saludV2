@@ -54,8 +54,8 @@
                             </div>
 
                             <div class="col-12 content_btns_regPaciente">
-                                <a type="submit" href="{{route('editarConsulta')}}" class="btn_enviar_pacRegistrado"> Editar consulta
-                                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
+                                <a type="submit" href="{{route('paciente.editarConsulta')}}" class="btn_enviar_pacRegistrado"> Editar consulta
+                                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
                                 </a>
                             </div>
                         </div>
@@ -109,8 +109,8 @@
                             </div>
 
                             <div class="col-12 content_btns_regPaciente">
-                                <a type="submit" href="{{route('editarPatologia')}}" class="btn_enviar_pacRegistrado"> Editar patología
-                                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
+                                <a type="submit" href="{{route('paciente.editarPatologia')}}" class="btn_enviar_pacRegistrado"> Editar patología
+                                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
                                 </a>
                             </div>
                         </div>
@@ -164,8 +164,8 @@
                             </div>
 
                             <div class="col-12 content_btns_regPaciente">
-                                <a type="submit" href="{{route('editarExpediente')}}" class="btn_enviar_pacRegistrado"> Editar Expediente
-                                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
+                                <a type="submit" href="{{route('paciente.editarExpediente')}}" class="btn_enviar_pacRegistrado"> Editar Expediente
+                                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
                                 </a>
                             </div>
                         </div>
