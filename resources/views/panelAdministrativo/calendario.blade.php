@@ -110,8 +110,6 @@
 
     <div class="col-12 col-lg-9 p-0">
         <div id="calendar"></div>
-
-        <button class="btn_cierre_citasProf" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
     </div>
 @endsection
 

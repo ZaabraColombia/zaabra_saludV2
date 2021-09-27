@@ -26,7 +26,6 @@
             </div>
         </div>
 
-        <button class="btn_cierre_citasProf" type="submit" data-toggle="modal" data-target="#agregar-cita-profesional"></button>
     </section>
 
     <!-- Pop-up  ver cita -->
