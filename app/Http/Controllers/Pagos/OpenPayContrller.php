@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Pagos;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Request;
+use App\Models\HistorialPagos;
+use App\Models\TipoPago;
+use Illuminate\Http\Request;
 use Openpay;
 use Exception;
 use OpenpayApiError;
@@ -11,51 +13,68 @@ use OpenpayApiAuthError;
 use OpenpayApiRequestError;
 use OpenpayApiConnectionError;
 use OpenpayApiTransactionError;
-use Illuminate\Http\JsonResponse;
 
-require_once '../vendor/autoload.php';
+//require_once '../vendor/autoload.php';
 
 class OpenPayContrller extends Controller
 {
     /**
      * Create charge in OpenPay
-     * https://www.openpay.mx/docs/api/?php#con-id-de-tarjeta-o-token
+     * https://www.openpay.mx/docs/api/?php#redireccion
      *
      */
     public function store(Request $request)
     {
         try {
-            // create instance OpenPay
-            $openpay = Openpay::getInstance(env('OPENPAY_ID'), env('OPENPAY_SK'), 'CO');
+            $tipo_pago = TipoPago::where('id', '=', $request->id_tipo_pago)->first();
 
-            Openpay::setProductionMode(env('OPENPAY_PRODUCTION_MODE'));
+            if (isset($tipo_pago) and $tipo_pago->valor != null)
+            {
+                // create instance OpenPay
+                $openpay = Openpay::getInstance(env('OPENPAY_ID'), env('OPENPAY_SK'), 'CO');
 
-            // create object customer
-            $customer = array(
-                'name' => $request->name,
-                'last_name' => $request->last_name,
-                'email' => $request->email
-            );
+                Openpay::setProductionMode(env('OPENPAY_PRODUCTION_MODE'));
 
-            // create object charge
-            $chargeRequest =  array(
-                'method' => 'card',
-                'source_id' => '167' . time(),
-                'amount' => '10',
-                'currency' => 'CO',
-                'description' => 'Prueba',
-                //'device_session_id' => $request->deviceSessionId,
-                'customer' => $customer
-            );
+                // create object customer
+                $customer = array(
+                    'name'          => $request->user()->primernombre,
+                    'last_name'     => $request->user()->primerapellido,
+                    'email'         => $request->user()->email,
+                    'id_type_pay'   => $request->id_tipo_pago
+                );
 
-            dd($chargeRequest);
+                // create object charge
+                $chargeRequest =  array(
+                    'method'        => ($request->metodo_pago != null) ? $request->metodo_pago : 'card',
+                    //'source_id'     => '167' . time(),
+                    'amount'        => $tipo_pago->valor * 12,//12 meses o 1 año
+                    'currency'      => 'COP',
+                    //"order_id"      => "oid-00051",
+                    'description'   => __('pagos.membresía') . " " . $tipo_pago->Nombre,
+                    "send_email"    => true,
+                    "confirm"       => false,
+                    //'device_session_id' => $request->deviceSessionId,
+                    'customer'      => $customer,
+                    'redirect_url'  => route('pay-openPay-response')
+                );
 
-            $charge = $openpay->charges->create($chargeRequest);
 
-            return response()->json([
-                'data' => $charge->id
-            ]);
+                $charge = $openpay->charges->create($chargeRequest);
 
+                //guardar historial pago
+                $historial = new HistorialPagos();
+                $historial->token               = $charge->id;
+                $historial->valor               = $charge->id;
+                $historial->respuesta           = json_encode($charge);
+                $historial->fecha_generar_pago  = date('Y-m-d h:s:i');
+                $historial->id_usuario          = $request->user()->id;
+                $historial->id_tipo_pago        = $request->id_tipo_pago;
+                $historial->save();
+
+                return redirect()->to($charge->payment_method->url);
+            }else {
+                return redirect()->back()->withErrors(['error' => __('pagos.valor')]);
+            }
         } catch (OpenpayApiTransactionError $e) {
             return response()->json([
                 'error' => [
@@ -107,6 +126,7 @@ class OpenPayContrller extends Controller
                 ]
             ]);
         } catch (Exception $e) {
+            dd($e);
             return response()->json([
                 'error' => [
                     'category' => $e->getCategory(),
@@ -117,5 +137,11 @@ class OpenPayContrller extends Controller
                 ]
             ]);
         }
+    }
+
+
+    public function response_page(Request $request)
+    {
+        dd($request);
     }
 }

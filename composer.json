@@ -17,7 +17,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
         "openpay/sdk": "dev-master",
-        "rtconner/laravel-tagging": "^4.1"
+        "rtconner/laravel-tagging": "^4.1",
+        "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

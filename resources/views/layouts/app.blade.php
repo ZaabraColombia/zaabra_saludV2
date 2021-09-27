@@ -70,65 +70,6 @@
         <script src="{{ asset('js/admin.js') }}"></script>
 
 
-
-    <!--/////    MODAL POPUP DE PAGO de las tarjetas de membresia de las vistas "membresiaProfesional" y "membresiaInstitucion". Estilos ubicados en la vista "popup-pagos.scss"  /////-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal_dialog-popup" role="document">
-            <div class="modal-content modal_content-popup">
-                <!-- Sección boton derecho de cierre "X" -->
-                <div class="modal-header modal_header-popup">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body p-0">
-                    <!-- Titulo y texto de encabezado -->
-                    <h1 class="modal-title titulo_principal-popup" id="exampleModalLabel"> Seleccione el medio de pago</h1>
-
-                    <p class="texto_superior-popup"> Seleccione el medio de pago que mejor se adapte a su necesidad. </p>
-
-                    <!-- Sección iconos medios de pago Tarjeta de credito y PSE -->
-                    <!--//////      Funcionalidad de cambio de color de los botones e iconos de pago del poup se encuentran en el archivo instituciones.js     //////-->
-                    <div class="section_icons-popup">
-                        <!-- Tarjeta de credito -->
-                        <div class="secction_tarjeta-popup">
-                            <img id="img_tarjCred" src="{{URL::asset('/img/popup-pago/tarjetas-de-credito-azul.svg')}}" class="icon_popup">
-
-                            <h3 class="textoCheck_popup"> Tarjetas de crédito </h3>
-
-                            <input class="inputCheck_popup" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        </div>
-
-                        <!-- PSE -->
-                        <div class="secction_tarjeta-popup">
-                            <img id="img_pagoPse" src="{{URL::asset('/img/popup-pago/medios-online-pse-azul.svg')}}" class="icon_popup">
-
-                            <h3 class="textoCheck_popup"> Pago en línea (PSE) </h3>
-
-                            <input class="inputCheck_popup" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                        </div>
-                    </div>
-
-                    <!-- Sección botón Pagar -->
-                    <div class="section_btnPagar-popup">
-                        <button type="submit" class="btnPagar-popup" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera"> {{ __('Pagar') }}
-                            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_pagar-popup" alt="">
-                        </button>
-                    </div>
-
-                    <!-- @if (auth()->check())
-                        <button type="button" class="btn-modalPagos-PremiunHome" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera">Seleccionar</button>
-                    @else
-                        <a href="">
-                            <button class=" btn-modalPagos-PremiunHome"> Seleccionar</button>
-                        </a>
-                    @endif -->
-                </div>
-            </div>
-        </div>
-    </div>
-
     </body>
 </html>
 
