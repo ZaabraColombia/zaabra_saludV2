@@ -1,4 +1,36 @@
 /*-----------------------------------------------------------------------------------------------------------------*/
+function mensaje_error(id, mensaje, error = false) {
+    var lista = '';
+    if (error) {
+        lista = '<br><ul>';
+        $.each(error, function (key, item){
+            lista += '<li>' + item + '</li>';
+        });
+        lista += '</ul>';
+    }
+    $(id).html('<div class="alert alert-danger" role="alert">\n' +
+        '<h4 class="alert-heading">Cuidado!</h4>\n' +
+        '<p>' + mensaje + lista +'</p>\n' +
+        '</div>');
+}
+
+function mensaje_success(id, mensaje) {
+    $(id).html('<div class="alert alert-success" role="alert">\n' +
+        '<h4 class="alert-heading">Hecho!</h4>\n' +
+        '<p>' + mensaje + '</p>\n' +
+        '</div>');
+}
+
+function id_invalid(ids, status){
+    console.log(ids);
+    console.log(status);
+    if (status === 422) {
+        $.each(ids, function (index, element) {
+            $('#' + element).addClass('is-invalid');
+        });
+    }
+}
+
 $('.universidades').select2({
     theme: "bootstrap",
     placeholder: 'Seleccione una universidad',
@@ -111,32 +143,25 @@ $('#formulario_basico').validate({
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
-
-                $('#msg_basico').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
+                //Respuesta
+                mensaje_success('#msg_basico', response.mensaje);
             },
             error: function (event) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
-                //$('#').removeAttr('disabled');
-                var response = event.responseJSON;
-                $('#msg_basico').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
 
-                if (event.status === 422) {
-                    $.each(response.error, function (index, element) {
-                        $('#' + index).addClass('is-invalid');
-                    });
+                //Respuesta
+                var response = event.responseJSON;
+
+                if (event.status === 422){
+                    mensaje_error('#msg_basico', response.mensaje, response.error.mensajes);
+                }else {
+                    mensaje_error('#msg_basico', response.mensaje);
                 }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
             }
         });
     }
@@ -208,29 +233,26 @@ $('#formulario_contacto').validate({
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
-                $('#msg_contacto').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
+
+                //Respuesta
+                mensaje_success('#msg_contacto', response.mensaje);
             },
             error:function (event) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
+
+                //Respuesta
                 var response = event.responseJSON;
-                $('#msg_contacto').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-                if (event.status === 422) {
-                    $.each(response.error, function (index, element) {
-                        $('#' + index).addClass('is-invalid');
-                    });
+
+                if (event.status === 422){
+                    mensaje_error('#msg_contacto', response.mensaje, response.error.mensajes);
+                }else {
+                    mensaje_error('#msg_contacto', response.mensaje);
                 }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
 
             }
         });
@@ -274,12 +296,6 @@ $('#formulario_consulta').validate({
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
-                $('#mensaje-consulta').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
 
                 if (response.items_max)
                 {
@@ -303,29 +319,31 @@ $('#formulario_consulta').validate({
                     '</div>');
 
                 document.getElementById("formulario_consulta").reset();
+                //Respuesta
+                mensaje_success('#mensaje-consulta', response.mensaje);
             },
             error: function (event) {
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
                 var response = event.responseJSON;
-                $('#mensaje-consulta').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-                if (event.status === 422) {
-                    $.each(response.error, function (index, element) {
-                        $('#' + index).addClass('is-invalid');
-                    });
-                }
+
                 if (response.items_max)
                 {
                     $('#tipo_consulta').prop('disabled', true);
                     $('#valor_consulta').prop('disabled', true);
                     $(btn).prop('disabled', true);
                 }
+
+                //Respuesta
+                if (event.status === 422){
+                    mensaje_error('#mensaje-consulta', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensaje-consulta', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
             }
         });
     }
@@ -365,17 +383,22 @@ $('#consultas-lista').on('click', '.close' , function (e) {
 
             //Quitar la caja
             button.parent().parent().remove();
+            //Respuesta
+            mensaje_success('#mensaje-consulta', response.mensaje);
         },
         error: function (event) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
-            $('#mensaje-consulta').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
+            //Respuesta
+            if (event.status === 422){
+                mensaje_error('#mensaje-consulta', response.mensaje, response.error.mensajes)
+            }else {
+                mensaje_error('#mensaje-consulta', response.mensaje)
+            }
+
+            //Si es validación por formulario
+            if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
         }
     });
 
@@ -427,13 +450,9 @@ $('#formulario_destacado').validate({
                     $(btn).prop('disabled', true);
                 }
 
-                $('#destacado-mensaje').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    '<strong>' + response.mensaje + '</strong>\n' +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
                 document.getElementById("formulario_destacado").reset();
+                //Respuesta
+                mensaje_success('#destacado-mensaje', response.mensaje);
             },
             error: function (event){
 
@@ -441,12 +460,15 @@ $('#formulario_destacado').validate({
 
                 var response = event.responseJSON
 
-                $('#destacado-mensaje').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    '<strong>' + response.mensaje + '</strong>\n' +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
+                //Respuesta
+                if (event.status === 422){
+                    mensaje_error('#destacado-mensaje', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensaje-consulta', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
             }
         });
     }
@@ -475,23 +497,24 @@ $('#destacado-lista').on('click', '.close' , function (e) {
             $('#destacado_nombre').prop('disabled', false);
             $('#destacado_nombre_btn').prop('disabled', false);
 
-            $('#destacado-mensaje').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                '<strong>' + response.mensaje + '</strong>\n' +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
+            //Respuesta
+            mensaje_success('#destacado-mensaje', response.mensaje);
+
         },
         error: function (event){
 
             var response = event.responseJSON
 
-            $('#destacado-mensaje').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                '<strong>' + response.mensaje + '</strong>\n' +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
+            //Respuesta
+            if (event.status === 422){
+                mensaje_error('#destacado-mensaje', response.mensaje, response.error.mensajes)
+            }else {
+                mensaje_error('#mensaje-consulta', response.mensaje)
+            }
+
+            //Si es validación por formulario
+            if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+
         }
     });
 
@@ -530,28 +553,24 @@ $('#formulario_descripcion').validate({
             success: function( response ) {
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
-                $('#mensaje-perfil-profesional').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
+
+                //Respuesta
+                mensaje_success('#mensaje-perfil-profesional', response.mensaje);
             },
             error: function (event) {
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
                 var response = event.responseJSON;
-                $('#mensaje-perfil-profesional').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-                if (event.status === 422) {
-                    $.each(response.error, function (index, element) {
-                        $('#' + index).addClass('is-invalid');
-                    });
+
+                //Respuesta
+                if (event.status === 422){
+                    mensaje_error('#mensaje-perfil-profesional', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensaje-perfil-profesional', response.mensaje)
                 }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
             }
         });
     }
@@ -612,12 +631,6 @@ $('#formulario_estudios').validate({
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
-                $('#mensaje-estudios').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
 
                 if (response.items_max)
                 {
@@ -651,23 +664,16 @@ $('#formulario_estudios').validate({
 
                 document.getElementById("formulario_estudios").reset();
                 $('#imagen-universidad').removeAttr('src');
+                //Respuesta
+                mensaje_success('#mensaje-estudios', response.mensaje);
+
             },
             error: function (event) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
                 var response = event.responseJSON;
-                $('#mensaje-estudios').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-                if (event.status === 422) {
-                    $.each(response.error, function (index, element) {
-                        $('#' + index).addClass('is-invalid');
-                    });
-                }
+
                 if (response.items_max)
                 {
                     $('#logo_universidad').prop('disabled', true);
@@ -676,6 +682,16 @@ $('#formulario_estudios').validate({
                     $('#disciplina_estudio').prop('disabled', true);
                     $(btn).prop('disabled', true);
                 }
+                //Respuesta
+                if (event.status === 422){
+                    mensaje_error('#mensaje-perfil-profesional', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensaje-perfil-profesional', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+
             }
         });
     }
@@ -701,12 +717,6 @@ $('#estudios-lista').on('click', '.close' , function (e) {
         success: function( response ) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
-            $('#mensaje-estudios').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
 
             //quitar el disabled
             $('#logo_universidad').removeAttr('disabled');
@@ -717,17 +727,23 @@ $('#estudios-lista').on('click', '.close' , function (e) {
 
             //Quitar la caja
             button.parent().parent().remove();
+            //Respuesta
+            mensaje_success('#mensaje-estudios', response.mensaje);
         },
         error: function (event) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
-            $('#mensaje-estudios').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
+
+            //Respuesta
+            if (event.status === 422){
+                mensaje_error('#mensaje-estudios', response.mensaje, response.error.mensajes)
+            }else {
+                mensaje_error('#mensaje-estudios', response.mensaje)
+            }
+
+            //Si es validación por formulario
+            if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
         }
     });
 
@@ -795,13 +811,6 @@ $('#formulario_experiencia').validate({
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
-                $('#mensaje-experiencia').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-
                 if (response.items_max)
                 {
                     $('#logo_experiencia').prop('disabled', true);
@@ -839,6 +848,8 @@ $('#formulario_experiencia').validate({
 
                 document.getElementById("formulario_experiencia").reset();
                 $('#imagen-experiencia').removeAttr('src');
+                //Respuesta
+                mensaje_success('#mensaje-experiencia', response.mensaje);
             },
             error: function (event) {
                 // Pace.stop();
@@ -846,17 +857,7 @@ $('#formulario_experiencia').validate({
                 boton_guardar(btn);
 
                 var response = event.responseJSON;
-                $('#mensaje-experiencia').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-                if (event.status === 422) {
-                    $.each(response.error, function (index, element) {
-                        $('#' + index).addClass('is-invalid');
-                    });
-                }
+
                 if (response.items_max)
                 {
                     $('#logo_experiencia').prop('disabled', true);
@@ -866,6 +867,15 @@ $('#formulario_experiencia').validate({
                     $('#fin_experiencia').prop('disabled', true);
                     $(btn).prop('disabled', true);
                 }
+                //Respuesta
+                if (event.status === 422){
+                    mensaje_error('#mensaje-experiencia', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensaje-experiencia', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
             }
         });
     }
@@ -891,12 +901,6 @@ $('#experiencia-lista').on('click', '.close' , function (e) {
         success: function( response ) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
-            $('#mensaje-experiencia').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
 
             //quitar el disabled
             $('#logo_experiencia').removeAttr('disabled');
@@ -908,17 +912,23 @@ $('#experiencia-lista').on('click', '.close' , function (e) {
 
             //Quitar la caja
             button.parent().parent().remove();
+            //Respuesta
+            mensaje_success('#mensaje-experiencia', response.mensaje);
         },
         error: function (event) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
-            $('#mensaje-experiencia').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
+
+            //Respuesta
+            if (event.status === 422){
+                mensaje_error('#mensaje-experiencia', response.mensaje, response.error.mensajes)
+            }else {
+                mensaje_error('#mensaje-experiencia', response.mensaje)
+            }
+
+            //Si es validación por formulario
+            if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
         }
     });
 
@@ -967,13 +977,6 @@ $('#formulario_asociacion').validate({
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
-                $('#mensajes-asociacion').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-
                 if (response.items_max)
                 {
                     $('#imagenAsociacion').prop('disabled', true);
@@ -991,6 +994,8 @@ $('#formulario_asociacion').validate({
 
                 document.getElementById("formulario_asociacion").reset();
                 $('#img-asociacion').removeAttr('src');
+                //Respuesta
+                mensaje_success('#mensajes-asociacion', response.mensaje);
             },
             error: function (event) {
                 // Pace.stop();
@@ -998,22 +1003,22 @@ $('#formulario_asociacion').validate({
                 boton_guardar(btn);
 
                 var response = event.responseJSON;
-                $('#mensajes-asociacion').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-                if (event.status === 422) {
-                    $.each(response.error, function (index, element) {
-                        $('#' + index).addClass('is-invalid');
-                    });
-                }
+
                 if (response.items_max)
                 {
                     $('#imagenAsociacion').prop('disabled', true);
                     $(btn).prop('disabled', true);
                 }
+
+                //Respuesta
+                if (event.status === 422){
+                    mensaje_error('#mensajes-asociacion', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-asociacion', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
             }
         });
     }
@@ -1039,29 +1044,28 @@ $('#lista-asociacion').on('click', '.close' , function (e) {
         success: function( response ) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
-            $('#mensajes-asociacion').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
 
             //quitar el disabled
             $('#imagenAsociacion').removeAttr('disabled');
             $('#boton-guardar-asociacion').removeAttr('disabled');
             //Quitar la caja
             button.parent().parent().remove();
+            //Respuesta
+            mensaje_success('#mensajes-asociacion', response.mensaje);
         },
         error: function (event) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
-            $('#mensajes-asociacion').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
+            //Respuesta
+            if (event.status === 422){
+                mensaje_error('#mensajes-asociacion', response.mensaje, response.error.mensajes)
+            }else {
+                mensaje_error('#mensajes-asociacion', response.mensaje)
+            }
+
+            //Si es validación por formulario
+            if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
         }
     });
 
@@ -1098,13 +1102,6 @@ $('#formulario_idioma').validate({
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
-                $('#mensaje-idioma').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-
                 if (response.items_max)
                 {
                     $('#idioma').prop('disabled', true);
@@ -1122,6 +1119,8 @@ $('#formulario_idioma').validate({
                     '</div>');
 
                 document.getElementById("formulario_idioma").reset();
+                //Respuesta
+                mensaje_success('#mensaje-idioma', response.mensaje);
             },
             error: function (event) {
                 // Pace.stop();
@@ -1129,22 +1128,16 @@ $('#formulario_idioma').validate({
                 boton_guardar(btn);
 
                 var response = event.responseJSON;
-                $('#mensaje-idioma').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-                if (event.status === 422) {
-                    $.each(response.error, function (index, element) {
-                        $('#' + index).addClass('is-invalid');
-                    });
+
+                //Respuesta
+                if (event.status === 422){
+                    mensaje_error('#mensaje-idioma', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensaje-idioma', response.mensaje)
                 }
-                if (response.items_max)
-                {
-                    $('#idioma').prop('disabled', true);
-                    $(btn).prop('disabled', true);
-                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
             }
         });
     }
@@ -1172,31 +1165,30 @@ $('#lista-idioma').on('click', '.close' , function (e) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
 
-            $('#mensaje-idioma').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
-
             //quitar el disabled
             $('#idioma').removeAttr('disabled');
             $('#boton-guardar-idioma').removeAttr('disabled');
 
             //Quitar la caja
             button.parent().parent().remove();
+            //Respuesta
+            mensaje_success('#mensaje-idioma', response.mensaje);
         },
         error: function (event) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
 
             var response = event.responseJSON;
-            $('#mensaje-idioma').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
+
+            //Respuesta
+            if (event.status === 422){
+                mensaje_error('#mensaje-idioma', response.mensaje, response.error.mensajes)
+            }else {
+                mensaje_error('#mensaje-idioma', response.mensaje)
+            }
+
+            //Si es validación por formulario
+            if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
         }
     });
 
@@ -1290,13 +1282,6 @@ $('#formulario_tratamiento').validate({
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
-                $('#mensajes-tratamientos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-
                 if (response.items_max)
                 {
                     $('#imgTratamientoAntes').prop('disabled', true);
@@ -1341,6 +1326,8 @@ $('#formulario_tratamiento').validate({
                 document.getElementById("formulario_tratamiento").reset();
                 $('#imagen-tratamiento-antes').removeAttr('src');
                 $('#imagen-tratamiento-despues').removeAttr('src');
+                //Respuesta
+                mensaje_success('#mensajes-tratamientos', response.mensaje);
             },
             error: function (event) {
                 // Pace.stop();
@@ -1348,17 +1335,7 @@ $('#formulario_tratamiento').validate({
                 boton_guardar(btn);
 
                 var response = event.responseJSON;
-                $('#mensajes-tratamientos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-                if (event.status === 422) {
-                    $.each(response.error, function (index, element) {
-                        $('#' + index).addClass('is-invalid');
-                    });
-                }
+
                 if (response.items_max)
                 {
                     $('#imgTratamientoAntes').prop('disabled', true);
@@ -1369,6 +1346,15 @@ $('#formulario_tratamiento').validate({
                     $('#descripcionTratamientoDespues').prop('disabled', true);
                     $(btn).prop('disabled', true);
                 }
+                //Respuesta
+                if (event.status === 422){
+                    mensaje_error('#mensajes-tratamientos', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-tratamientos', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
             }
         });
     }
@@ -1396,13 +1382,6 @@ $('#lista-tratamientos').on('click', '.close' , function (e) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
 
-            $('#mensajes-tratamientos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
-
             //quitar el disabled
             $('#imgTratamientoAntes').removeAttr('disabled');
             $('#tituloTrataminetoAntes').removeAttr('disabled');
@@ -1414,18 +1393,24 @@ $('#lista-tratamientos').on('click', '.close' , function (e) {
 
             //Quitar la caja
             button.parent().parent().remove();
+            //Respuesta
+            mensaje_success('#mensajes-tratamientos', response.mensaje);
         },
         error: function (event) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
 
             var response = event.responseJSON;
-            $('#mensajes-tratamientos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
+
+            //Respuesta
+            if (event.status === 422){
+                mensaje_error('#mensajes-tratamientos', response.mensaje, response.error.mensajes)
+            }else {
+                mensaje_error('#mensajes-tratamientos', response.mensaje)
+            }
+
+            //Si es validación por formulario
+            if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
         }
     });
 
@@ -1500,13 +1485,6 @@ $('#formulario_premio').validate({
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
-                $('#mensajes-premios').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-
                 if (response.items_max)
                 {
                     $('#imgPremio').prop('disabled', true);
@@ -1538,23 +1516,15 @@ $('#formulario_premio').validate({
 
                 document.getElementById("formulario_premio").reset();
                 $('#img-premio').removeAttr('src');
+                //Respuesta
+                mensaje_success('#mensajes-premios', response.mensaje);
             },
             error: function (event) {
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
                 var response = event.responseJSON;
-                $('#mensajes-premios').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-                if (event.status === 422) {
-                    $.each(response.error, function (index, element) {
-                        $('#' + index).addClass('is-invalid');
-                    });
-                }
+
                 if (response.items_max)
                 {
                     $('#imgPremio').prop('disabled', true);
@@ -1563,6 +1533,15 @@ $('#formulario_premio').validate({
                     $('#descripcionPremio').prop('disabled', true);
                     $(btn).prop('disabled', true);
                 }
+                //Respuesta
+                if (event.status === 422){
+                    mensaje_error('#mensajes-premios', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-premios', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
             }
         });
     }
@@ -1588,12 +1567,6 @@ $('#lista-premios').on('click', '.close' , function (e) {
         success: function( response ) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
-            $('#mensajes-premios').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
 
             //quitar el disabled
             $('#imgPremio').removeAttr('disabled');
@@ -1603,17 +1576,22 @@ $('#lista-premios').on('click', '.close' , function (e) {
             $('#boton-guardar-premio').removeAttr('disabled');
             //Quitar la caja
             button.parent().parent().remove();
+            mensaje_success('#mensajes-premios', response.mensaje);
         },
         error: function (event) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
-            $('#mensajes-premios').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
+
+            //Respuesta
+            if (event.status === 422){
+                mensaje_error('#mensajes-premios', response.mensaje, response.error.mensajes)
+            }else {
+                mensaje_error('#mensajes-premios', response.mensaje)
+            }
+
+            //Si es validación por formulario
+            if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
         }
     });
 
@@ -1681,13 +1659,6 @@ $('#formulario_publicaciones').validate({
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
-                $('#mensajes-publicacion').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-
                 if (response.items_max)
                 {
                     $('#imagePublicacion').prop('disabled', true);
@@ -1715,23 +1686,16 @@ $('#formulario_publicaciones').validate({
 
                 document.getElementById("formulario_publicaciones").reset();
                 $('#img-publicacion').removeAttr('src');
+
+                //Respuesta
+                mensaje_success('#mensajes-publicacion', response.mensaje);
             },
             error: function (event) {
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
                 var response = event.responseJSON;
-                $('#mensajes-publicacion').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-                if (event.status === 422) {
-                    $.each(response.error, function (index, element) {
-                        $('#' + index).addClass('is-invalid');
-                    });
-                }
+
                 if (response.items_max)
                 {
                     $('#imagePublicacion').prop('disabled', true);
@@ -1739,6 +1703,15 @@ $('#formulario_publicaciones').validate({
                     $('#descripcionPublicacion').prop('disabled', true);
                     $(btn).prop('disabled', true);
                 }
+                //Respuesta
+                if (event.status === 422){
+                    mensaje_error('#mensajes-publicacion', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-publicacion', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
             }
         });
     }
@@ -1764,12 +1737,6 @@ $('#lista-publicacion').on('click', '.close' , function (e) {
         success: function( response ) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
-            $('#mensajes-publicacion').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
 
             //quitar el disabled
             $('#imagePublicacion').removeAttr('disabled');
@@ -1778,17 +1745,23 @@ $('#lista-publicacion').on('click', '.close' , function (e) {
             $('#boton-guardar-publicacion').removeAttr('disabled');
             //Quitar la caja
             button.parent().parent().remove();
+            //Respuesta
+            mensaje_success('#mensajes-publicacion', response.mensaje);
         },
         error: function (event) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
-            $('#mensajes-publicacion').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
+
+            //Respuesta
+            if (event.status === 422){
+                mensaje_error('#mensajes-publicacion', response.mensaje, response.error.mensajes)
+            }else {
+                mensaje_error('#mensajes-publicacion', response.mensaje)
+            }
+
+            //Si es validación por formulario
+            if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
         }
     });
 
@@ -1861,13 +1834,6 @@ $('#formulario_fotos').validate({
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
-                $('#mensajes-fotos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-
                 if (response.items_max)
                 {
                     $('#imgFoto').prop('disabled', true);
@@ -1896,6 +1862,9 @@ $('#formulario_fotos').validate({
 
                 document.getElementById("formulario_fotos").reset();
                 $('#img-foto').removeAttr('src');
+
+                //Respuesta
+                mensaje_success('#mensajes-fotos', response.mensaje);
             },
             error: function (event) {
                 // Pace.stop();
@@ -1903,17 +1872,7 @@ $('#formulario_fotos').validate({
                 boton_guardar(btn);
 
                 var response = event.responseJSON;
-                $('#mensajes-fotos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-                if (event.status === 422) {
-                    $.each(response.error, function (index, element) {
-                        $('#' + index).addClass('is-invalid');
-                    });
-                }
+
                 if (response.items_max)
                 {
                     $('#imgFoto').prop('disabled', true);
@@ -1922,6 +1881,16 @@ $('#formulario_fotos').validate({
                     $('#descripcionFoto').prop('disabled', true);
                     $(btn).prop('disabled', true);
                 }
+
+                //Respuesta
+                if (event.status === 422){
+                    mensaje_error('#mensajes-fotos', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-fotos', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
             }
         });
     }
@@ -1947,12 +1916,6 @@ $('#lista-fotos').on('click', '.close' , function (e) {
         success: function( response ) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
-            $('#mensajes-fotos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
 
             //quitar el disabled
             $('#imgFoto').removeAttr('disabled');
@@ -1962,17 +1925,23 @@ $('#lista-fotos').on('click', '.close' , function (e) {
             $('#boton-guardar-foto').removeAttr('disabled');
             //Quitar la caja
             button.parent().parent().remove();
+            //Respuesta
+            mensaje_success('#mensajes-fotos', response.mensaje);
         },
         error: function (event) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
-            $('#mensajes-fotos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
+
+            //Respuesta
+            if (event.status === 422){
+                mensaje_error('#mensajes-fotos', response.mensaje, response.error.mensajes)
+            }else {
+                mensaje_error('#mensajes-fotos', response.mensaje)
+            }
+
+            //Si es validación por formulario
+            if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
         }
     });
 
@@ -2027,13 +1996,6 @@ $('#formulario-videos').validate({
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
-                $('#mensajes-videos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-
                 if (response.items_max)
                 {
                     $('#urlVideo').prop('disabled', true);
@@ -2064,23 +2026,15 @@ $('#formulario-videos').validate({
                     '</div>');
 
                 document.getElementById("formulario-videos").reset();
+                //Respuesta
+                mensaje_success('#mensajes-videos', response.mensaje);
             },
             error: function (event) {
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
                 var response = event.responseJSON;
-                $('#mensajes-videos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                    response.mensaje +
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
-                    '</div>');
-                if (event.status === 422) {
-                    $.each(response.error, function (index, element) {
-                        $('#' + index).addClass('is-invalid');
-                    });
-                }
+
                 if (response.items_max)
                 {
                     $('#urlVideo').prop('disabled', true);
@@ -2089,6 +2043,15 @@ $('#formulario-videos').validate({
                     $('#descripcionVideo').prop('disabled', true);
                     $(btn).prop('disabled', true);
                 }
+                //Respuesta
+                if (event.status === 422){
+                    mensaje_error('#mensajes-videos', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-videos', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
             }
         });
     }
@@ -2114,12 +2077,6 @@ $('#lista-videos').on('click', '.close' , function (e) {
         success: function( response ) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
-            $('#mensajes-videos').html('<div class="alert alert-success alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
 
             //quitar el disabled
             $('#urlVideo').removeAttr('disabled');
@@ -2130,17 +2087,23 @@ $('#lista-videos').on('click', '.close' , function (e) {
 
             //Quitar la caja
             button.parent().parent().remove();
+            //Respuesta
+            mensaje_success('#mensajes-videos', response.mensaje);
         },
         error: function (event) {
             // Pace.stop();
             $('.form-control').removeClass('is-invalid');
             var response = event.responseJSON;
-            $('#mensajes-videos').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\n' +
-                response.mensaje +
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
-                '<span aria-hidden="true">&times;</span>\n' +
-                '</button>\n' +
-                '</div>');
+
+            //Respuesta
+            if (event.status === 422){
+                mensaje_error('#mensajes-videos', response.mensaje, response.error.mensajes)
+            }else {
+                mensaje_error('#mensajes-videos', response.mensaje)
+            }
+
+            //Si es validación por formulario
+            if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
         }
     });
 

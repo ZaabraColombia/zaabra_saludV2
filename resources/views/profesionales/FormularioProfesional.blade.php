@@ -238,7 +238,6 @@
         <!--------------------------------------------      Inicio 3 tercera parte del formulario *** INFORMACIÓN CONSULTA ***      ------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_dato-person infoBasica_formProf">
             <h5 class="col-12 icon_infoConsult-formProf"> Información consulta </h5>
-            <div id="mensaje-consulta"></div>
             <div class="consulta_guardada-formProf" id="consultas-lista">
                 <?php $count_consultas = 0; ?>
                 @foreach($objConsultas as $objConsultas)
@@ -260,7 +259,14 @@
                     @endif
                 @endforeach
             </div>
-
+            <div id="mensaje-consulta">
+                @if($count_consultas >= 3 )
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Hecho!</h4>
+                        <p>Ya tienes el máximo de consultas</p>
+                    </div>
+                @endif
+            </div>
             <form id="formulario_consulta" method="POST" action="javascript:void(0)"  enctype="multipart/form-data" accept-charset="UTF-8">
                 @csrf
                 <div class="col-12 seccion_consulta-formProf">
@@ -298,7 +304,6 @@
             @csrf
             <!---------------valida que ya exista informacion y la muestra en caso contrario muestra un formulario vacio--------------------->
                 <div class="row fila_infoBasica-formProf">
-                    <div class="col-12" id="destacado-mensaje"></div>
                     <div class="content_dest_list" id="destacado-lista">
                         <?php $destacables_count = 0;?>
                         @foreach($destacables as $destacable)
@@ -310,6 +315,14 @@
                                 </button>
                             </div>
                         @endforeach
+                    </div>
+                    <div class="col-12" id="destacado-mensaje">
+                        @if($destacables_count >= 9 )
+                            <div class="alert alert-success" role="alert">
+                                <h4 class="alert-heading">Hecho!</h4>
+                                <p>Ya tienes el máximo de temas</p>
+                            </div>
+                        @endif
                     </div>
                     <div class="col-12 p-0">
                         <div class="input-group">
@@ -642,7 +655,6 @@
         <!--------------------------------------------      Inicio 9 novena parte del formulario *** TRATAMIENTOS y PROCEDIMIENTOS ***      ----------------------------------->
         <div class="col-lg-10 col-xl-8 content_tratam-proced infoBasica_formProf">
             <h5 class="col-12 icon_infoTratam-formProf"> Tratamientos y procedimientos </h5>
-            <div id="mensajes-tratamientos"></div>
             <p class="text_superior-proced-formProf"> A continuación suba imágenes con respecto a los procedimientos y tratamientos, con su título y descripción. </p>
             <div id="lista-tratamientos">
                 <?php $count_tratamientos = 0; ?>
@@ -693,7 +705,14 @@
                     @endif
                 @endforeach
             </div>
-
+            <div id="mensajes-tratamientos">
+                @if($count_tratamientos >= 2 )
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Hecho!</h4>
+                        <p>Ya tienes el máximo de tratamientos</p>
+                    </div>
+                @endif
+            </div>
             <form method="POST" action="{{ url ('/FormularioProfesionalSave9') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_tratamiento">
                 @csrf
                 <div class="row content_antDesp-formProf">
@@ -792,7 +811,6 @@
             <h5 class="col-12 icon_infoPremReco-formProf"> Premios y reconocimientos </h5>
 
             <p class="text_superior-proced-formProf"> A continuación suba imágenes relacionadas con sus premios y reconocimientos, con nombre y descripción. </p>
-            <div id="mensajes-premios"></div>
             <!-- Modulo de los PREMIOS con información -->
             <div class="premios_guardada-formProf" id="lista-premios">
             <?php $counto_premios = 0; ?>
@@ -822,7 +840,14 @@
                     @endif
                 @endforeach
             </div>
-
+            <div id="mensajes-premios">
+                @if($counto_premios >= 4 )
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Hecho!</h4>
+                        <p>Ya tienes el máximo de premios y reconocimientos</p>
+                    </div>
+                @endif
+            </div>
             <form method="POST" action="{{ url ('/FormularioProfesionalSave10') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_premio">
                 @csrf
                 <div class="row content_antDesp-formProf premReco_formProf align-items-center">
@@ -893,7 +918,6 @@
             <h5 class="col-12 icon_infoPublic-formProf"> Publicaciones </h5>
 
             <p class="text_superior-proced-formProf"> A continuación suba imágenes de las publicaciones que ha realizado a lo largo de su experiencia. </p>
-            <div id="mensajes-publicacion"></div>
             <!-- Modulo de las PUBLICAIONES con información -->
             <div class="premios_guardada-formProf" id="lista-publicacion">
             <?php $count_publicaciones = 0;?>
@@ -919,6 +943,14 @@
                         </div>
                     @endif
                 @endforeach
+            </div>
+            <div id="mensajes-publicacion">
+                @if($count_publicaciones >= 4 )
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Hecho!</h4>
+                        <p>Ya tienes el máximo de publicaicones</p>
+                    </div>
+                @endif
             </div>
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave11') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_publicaciones">
@@ -989,7 +1021,6 @@
 
             <p class="text_superior-proced-formProf"> A continuación suba 10 imágenes como mínimo, con su respectivo nombre y descripción. </p>
 
-            <div id="mensajes-fotos"></div>
             <!-- Modulo de la GALERIA con información -->
             <div class="premios_guardada-formProf" id="lista-fotos">
             <?php $count_foto = 0;?>
@@ -1016,7 +1047,14 @@
                     @endif
                 @endforeach
             </div>
-
+            <div id="mensajes-fotos">
+                @if($count_foto >= 8 )
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Hecho!</h4>
+                        <p>Ya tienes el máximo de fotos</p>
+                    </div>
+                @endif
+            </div>
             <form method="POST" action="{{ url ('/FormularioProfesionalSave12') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_fotos">
             @csrf
             <!-- Modulos del contenido GALERIA -->
@@ -1100,6 +1138,15 @@
                         </div>
                     @endif
                 @endforeach
+            </div>
+
+            <div id="mensajes-fotos">
+                @if($count_videos >= 4 )
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Hecho!</h4>
+                        <p>Ya tienes el máximo de videos</p>
+                    </div>
+                @endif
             </div>
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave13') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario-videos">
