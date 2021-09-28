@@ -10,12 +10,12 @@ class profesionales_instituciones extends Model
     protected $fillable = [
         'id_profesional_inst',
         'id_institucion',
+        'id_universidad',
+        'id_especialidad',
         'primer_nombre',
         'segundo_nombre',
         'primer_apellido',
         'segundo_apellido',
-        'especialidad_uno',
-        'especialidad_dos',
         'foto_perfil_institucion'
     ];
 
