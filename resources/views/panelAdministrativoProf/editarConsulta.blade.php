@@ -9,7 +9,7 @@
                         <h1 class="title_miCita">Historia clínica</h1>
                         <span class="subtitle_miCita">Administre las historias clínicas de sus pacientes.</span>
                     </div>
-                </div>    
+                </div>
 
                 <h1 class="title_miCita">Consultas</h1>
 
@@ -40,7 +40,7 @@
                 </div>
 
                 <h2 class="text1_consulta">Cargue el archivo. Maximo 5 documentosy que el peso de cada uno sea inrferior a 1 MB.</h2>
-                
+
                 <h2 class="text2_consulta">Documento examenes</h2>
 
 
@@ -53,8 +53,8 @@
 
                 <div class="col-12 content_btns_histClinica mt-md-0">
                     <div class="col-12 content_btns_regPaciente mt-md-0 mt-lg-5">
-                        <a type="submit" href="{{route('pacienteRegistrado')}}" class="btn_enviar_histClinica" data-toggle="modal" data-target="#exampleModal3"> Guardar
-                            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar_histClinic" alt=""> 
+                        <a type="submit" href="{{route('profesional.pacienteRegistrado')}}" class="btn_enviar_histClinica" data-toggle="modal" data-target="#exampleModal3"> Guardar
+                            <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar_histClinic" alt="">
                         </a>
                     </div>
                 </div>
