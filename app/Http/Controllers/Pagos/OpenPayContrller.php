@@ -39,39 +39,67 @@ class OpenPayContrller extends Controller
                 $customer = array(
                     'name'          => $request->user()->primernombre,
                     'last_name'     => $request->user()->primerapellido,
-                    'email'         => $request->user()->email,
+                    //'email'         => $request->user()->email,
+                    'email'         => 'cesaralejandroantolinez@gmail.com',
                     'id_type_pay'   => $request->id_tipo_pago
                 );
 
-                // create object charge
-                $chargeRequest =  array(
-                    'method'        => ($request->metodo_pago != null) ? $request->metodo_pago : 'card',
-                    //'source_id'     => '167' . time(),
-                    'amount'        => $tipo_pago->valor * 12,//12 meses o 1 año
-                    'currency'      => 'COP',
-                    //"order_id"      => "oid-00051",
-                    'description'   => __('pagos.membresía') . " " . $tipo_pago->Nombre,
-                    "send_email"    => true,
-                    "confirm"       => false,
-                    //'device_session_id' => $request->deviceSessionId,
-                    'customer'      => $customer,
-                    'redirect_url'  => route('pay-openPay-response')
-                );
+                $order_id = $request->user()->id . time();
 
+                switch ($request->metodo_pago)
+                {
+                    default:
+                        // create object charge
+                        $chargeRequest =  array(
+                            'method'        => 'card',
+                            //'source_id'     => ,
+                            'amount'        => $tipo_pago->valor * 12,//12 meses o 1 año
+                            'currency'      => 'COP',
+                            "order_id"      => $order_id,
+                            'description'   => __('pagos.membresía') . " " . $tipo_pago->Nombre,
+                            "send_email"    => true,
+                            "confirm"       => false,
+                            //'device_session_id' => $request->deviceSessionId,
+                            'customer'      => $customer,
+                            'redirect_url'  => route('pay-openPay-response')
+                        );
 
-                $charge = $openpay->charges->create($chargeRequest);
+                        $charge = $openpay->charges->create($chargeRequest);
+                        $url = $charge->payment_method->url;
+
+                        break;
+                    case 'pse':
+                        // create object charge
+                        $chargeRequest =  array(
+                            'amount'        => $tipo_pago->valor * 12,//12 meses o 1 año
+                            'currency'      => 'COP',
+                            'description'   => __('pagos.membresía') . " " . $tipo_pago->Nombre,
+                            //"send_email"    => true,
+                            //"confirm"       => false,
+                            'iva'           => '19',
+                            //'device_session_id' => $request->deviceSessionId,
+                            'customer'      => $customer,
+                            "order_id"      => $order_id,
+                            'redirect_url'  => route('pay-openPay-response')
+                        );
+
+                        $charge = $openpay->pses->create($chargeRequest);
+
+                        $url = $charge->redirect_url;
+                        break;
+                }
 
                 //guardar historial pago
                 $historial = new HistorialPagos();
-                $historial->token               = $charge->id;
-                $historial->valor               = $charge->id;
-                $historial->respuesta           = json_encode($charge);
+                $historial->token               = $charge->order_id;
+                $historial->valor               = $charge->amount;
+                $historial->respuesta           = json_encode((array) $charge);
                 $historial->fecha_generar_pago  = date('Y-m-d h:s:i');
                 $historial->id_usuario          = $request->user()->id;
                 $historial->id_tipo_pago        = $request->id_tipo_pago;
                 $historial->save();
 
-                return redirect()->to($charge->payment_method->url);
+                return redirect()->to($url);
             }else {
                 return redirect()->back()->withErrors(['error' => __('pagos.valor')]);
             }
@@ -126,7 +154,6 @@ class OpenPayContrller extends Controller
                 ]
             ]);
         } catch (Exception $e) {
-            dd($e);
             return response()->json([
                 'error' => [
                     'category' => $e->getCategory(),
