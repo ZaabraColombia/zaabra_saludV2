@@ -32,7 +32,7 @@ Route::post('/buscar-especialidades',[App\Http\Controllers\profesionales\formula
 /*----------------------------------------------Pertenece a Publico-------------------------------------------------------------------------------*/
 
 /*Esta ruta es del home y dirige al controlador encargado de traer la informacion a la vista*/
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
 /*Esta ruta es de galeria profesiones y dirige al controlador encargado de traer la informacion a la vista*/

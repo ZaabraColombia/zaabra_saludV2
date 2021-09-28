@@ -11,7 +11,8 @@ class HistorialPagos extends Model
 
     protected $fillable = [
         'id',
-        'token',
+        'order_id',
+        'transaccion_id',
         'valor',
         'respuesta',
         'estado',
