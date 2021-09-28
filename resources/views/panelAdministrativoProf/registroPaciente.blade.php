@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="col-12 mb-5 content_btns_regPaciente">
-                    <a type="submit" href="{{route('paciente.pacienteRegistrado')}}" class="btn_enviar_histClinica" > Guardar
+                    <a type="submit" href="{{route('profesional.pacienteRegistrado')}}" class="btn_enviar_histClinica" > Guardar
                         <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar_histClinic" alt="">
                     </a>
                 </div>

@@ -53,7 +53,7 @@
 
                 <div class="col-12 content_btns_histClinica mt-md-0">
                     <div class="col-12 content_btns_regPaciente mt-md-0 mt-lg-5">
-                        <a type="submit" href="{{route('paciente.pacienteRegistrado')}}" class="btn_enviar_histClinica" data-toggle="modal" data-target="#exampleModal3"> Guardar
+                        <a type="submit" href="{{route('profesional.pacienteRegistrado')}}" class="btn_enviar_histClinica" data-toggle="modal" data-target="#exampleModal3"> Guardar
                             <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar_histClinic" alt="">
                         </a>
                     </div>
