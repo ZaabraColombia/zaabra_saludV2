@@ -40,8 +40,7 @@ class OpenPayContrller extends Controller
                 $customer = array(
                     'name'          => $request->user()->primernombre,
                     'last_name'     => $request->user()->primerapellido,
-                    //'email'         => $request->user()->email,
-                    'email'         => 'cesaralejandroantolinez@gmail.com',
+                    'email'         => $request->user()->email,
                     'id_type_pay'   => $request->id_tipo_pago
                 );
 
@@ -66,7 +65,10 @@ class OpenPayContrller extends Controller
                         );
 
                         $charge = $openpay->charges->create($chargeRequest);
+
+                        $order_res = $charge->order_id;
                         $url = $charge->payment_method->url;
+                        $valor = $charge->amount;
 
                         break;
                     case 'pse':
@@ -77,7 +79,7 @@ class OpenPayContrller extends Controller
                             'description'   => __('pagos.membresía') . " " . $tipo_pago->Nombre,
                             //"send_email"    => true,
                             //"confirm"       => false,
-                            'iva'           => '19',
+                            'iva'           => '0',
                             //'device_session_id' => $request->deviceSessionId,
                             'customer'      => $customer,
                             "order_id"      => $order_id,
@@ -87,13 +89,15 @@ class OpenPayContrller extends Controller
                         $charge = $openpay->pses->create($chargeRequest);
 
                         $url = $charge->redirect_url;
+                        $order_res = $charge->orderid;
+                        $valor = $tipo_pago->valor * 12;
                         break;
                 }
 
                 //guardar historial pago
                 $historial = new HistorialPagos();
-                $historial->order_id            = $charge->order_id;
-                $historial->valor               = $charge->amount;
+                $historial->order_id            = $order_res;
+                $historial->valor               = $valor;
                 $historial->respuesta           = json_encode((array) $charge);
                 $historial->fecha_generar_pago  = date('Y-m-d h:s:i');
                 $historial->id_usuario          = $request->user()->id;
