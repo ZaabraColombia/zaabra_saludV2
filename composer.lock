@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0dd9ec3f72832c1ab8eadf21d857135b",
+    "content-hash": "3bfc09f5b900bdab9ffc016e2162e2e2",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -2085,6 +2085,58 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v4.10.4"
             },
             "time": "2020-12-20T10:01:03+00:00"
+        },
+        {
+            "name": "openpay/sdk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/open-pay/openpay-php.git",
+                "reference": "73a9374c2303525ff95799c7be729d94042c694b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/open-pay/openpay-php/zipball/73a9374c2303525ff95799c7be729d94042c694b",
+                "reference": "73a9374c2303525ff95799c7be729d94042c694b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-hash": "*",
+                "php": ">=5.2.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.8.*"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Openpay": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Openpay",
+                    "email": "soporte@openpay.mx",
+                    "homepage": "http://www.openpay.mx/docs/libraries.html"
+                },
+                {
+                    "name": "Federico Balderas",
+                    "email": "federico.balderas@openpay.mx",
+                    "homepage": "https://openpay.mx"
+                }
+            ],
+            "description": "This is a client implementing the payment services for Openpay at openpay.mx",
+            "support": {
+                "issues": "https://github.com/open-pay/openpay-php/issues",
+                "source": "https://github.com/open-pay/openpay-php/tree/master"
+            },
+            "time": "2021-09-10T21:42:58+00:00"
         },
         {
             "name": "opis/closure",
@@ -7894,7 +7946,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "openpay/sdk": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

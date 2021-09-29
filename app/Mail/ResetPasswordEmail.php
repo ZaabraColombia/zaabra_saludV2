@@ -32,7 +32,7 @@ class ResetPasswordEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.confirmacion_recuperacion_de_contraseña', [
+        return $this->view('emails.confirmacion_recuperacion_de_contrasena', [
             'user'  => $this->user,
             'token' => $this->token,
         ])->subject(__('Confirmar correo electrónico'));
