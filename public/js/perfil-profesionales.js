@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  // Función para el slider de la línea de opciones de la landing page profesionales
   const swiper_profesional = new Swiper(".swiper_profesional", {
   
     //loop: false,
@@ -8,8 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
       delay: 4500,
       disableOnInteraction: false,
     },*/
+
     autoHeight: true,
     // If we need pagination
+    // If we need pagination
+    
     // If we need pagination
     pagination: {
       el: '.swiper-pagination',
@@ -22,18 +26,20 @@ document.addEventListener('DOMContentLoaded', function () {
     },
 
     breakpoints: {
-       // when window width is >= 320px
+      // when window width is >= 320px
       320: {
         slidesPerView: 3,
         slidesPerGroup: 1,
       },
-       // when window width is >= 1024px
+
+      // when window width is >= 1024px
       1024: {
         //enabled: false,
         slidesPerView: 5,
         slidesPerGroup: 5,
       },
-        // when window width is >= 1600px
+
+      // when window width is >= 1600px
       1600: {
         slidesPerView: 5,
         slidesPerGroup: 1,

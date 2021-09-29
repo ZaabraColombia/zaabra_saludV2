@@ -96,7 +96,7 @@
 .option_toggleFoot li::marker {
     color: #0083D6;
 }
-@media(min-width: 320px) and (orientation: portrait) {
+@media(max-width: 359.98px) {
     .imagen_bannerPrin-acerca {
         height: 18vh;
     }
@@ -113,13 +113,13 @@
     }
     .boton_collapse-on-acerca {
         font-size: .75em;
-        background-size: 6% !important;
+        background-size: 15px !important;
         background-position-x: 97% !important;
         padding: 2% 10% 02% 3% !important;
     }
     .boton_collapse-off-acerca {
         font-size: .75em;
-        background-size: 6%;
+        background-size: 15px;
         background-position-x: 97%;
         padding: 2% 10% 02% 3%;
     }
@@ -142,14 +142,22 @@
         margin-bottom: 5%;
     }
 }
-@media (min-width: 360px) and (orientation: portrait) {
+@media (min-width: 360px) {
     .title_banner_acerca {
         font-size: 1em;
         top: 16%;
         left: 4%;
     }
+    .boton_collapse-off-acerca {
+        font-size: .9em;
+        background-size: 15px;
+    }
+    .boton_collapse-on-acerca {
+        font-size: .9em;
+        background-size: 15px !important;
+    }
 }
-@media (min-width: 375px) and (orientation: portrait) {
+@media (min-width: 375px) {
     .title_banner_acerca {
         font-size: 1.1em;
         top: 15%;
@@ -160,7 +168,7 @@
         margin: 8% 0;
     }
 }
-@media (min-width: 768px) and (orientation: portrait) {
+@media (min-width: 601px) and (max-width: 1023.98px) {
     .imagen_bannerPrin-acerca {
         height: 20vh;
     }
@@ -177,30 +185,24 @@
         padding: 0;
         margin: 9.8% 0;
     }
-    .boton_collapse-on-acerca {
-        font-size: 1.4em;
-        padding: 0 10% 0 3% !important;
-        height: 5vh;
-        background-size: 4% !important;
-        background-position-x: 97% !important;
-    }
     .boton_collapse-off-acerca {
-        font-size: 1.4em;
-        padding: 0 10% 0 3%;
-        height: 5vh;
-        background-size: 4% !important;
-        background-position-x: 97%;
-    }
-    .txt_interno_toggleFoot {
         font-size: 1.2em;
-        margin-bottom: 5%;
+        background-size: 19px;
+    }
+    .boton_collapse-on-acerca {
+        font-size: 1.2em;
+        background-size: 19px !important;
     }
     .title_interno_toggleFoot {
-        font-size: 1.4em;
+        font-size: 1.2em;
         margin-bottom: 2%;
     }
+    .txt_interno_toggleFoot {
+        font-size: 1.1em;
+        margin-bottom: 5%;
+    }
     .option_toggleFoot {
-        font-size: 1.2em;
+        font-size: 1.1em;
         font-family: "Roboto", "Regular";
         color: #3E3E3E;
         padding-left: 6%;

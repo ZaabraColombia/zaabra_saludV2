@@ -70,7 +70,7 @@
                     <div class="card-body section_toggleFoot">
                         <p class="txt_interno_toggleFoot mb-0">
                             Gracias por acceder a la página web <a class="ancla_toggleFoot" href=""> www.zaabrasalud.co </a> operada por ZAABRA COLOMBIA S.A.S. en adelante “ZAABRA SALUD”, sociedad Responsable del Tratamiento de sus Datos Personales, 
-                            identificada con NIT 901.294.385-1, con domicilio principal en la ciudad de Bogotá D. C. y cuyas oficinas se encuentran ubicadas en la Carrera 64 No. 67B-89 Interior Dos. <br><br>
+                            identificada con NIT 901.294.385-1, con domicilio principal en la ciudad de Bogotá D. C. y cuyas oficinas se encuentran ubicadas en la carrera 64 No. 67b-89 interior dos. <br><br>
 
                             ZAABRA SALUD trabaja día por día para junto con su personal humano prestarle un servicio de calidad cuando usted, que es el cliente y nuestra razón de ser, adquiere uno de nuestros servicios, 
                             cuidar sus datos personales es parte fundamental de nuestros principios y responsabilidades, por eso, para su seguridad y comodidad estos están resguardados y protegidos por nosotros en ZAABRA SALUD. <br><br>
@@ -80,95 +80,208 @@
                             y como puede ejercerlos en caso de no estar de acuerdo en cómo los hemos tratado. <br><br>
 
                             Lo invitamos a leer detalladamente esta Política de Privacidad y si tiene alguna duda, le pedimos que por favor nos contacte al correo electrónico <span class="ancla_toggleFoot">servicioalcliente@zaabrasalud.co</span>
-                            o al teléfono celular 3212449869, o envíe una comunicación a la Carrera 64 No. 67B-89 Interior Dos, en la ciudad de Bogotá D. C. <br><br>
+                            o al teléfono celular 3212449869, o envíe una comunicación a la carrera 64 No. 67b-89 interior dos, en la ciudad de Bogotá D.C. <br><br>
 
                             Del mismo modo, en caso de que el tratamiento de datos personales se haya de efectuar por empresas proveedoras de servicios para ZAABRA SALUD, dichas empresas proveedoras deberán asumir compromisos de confidencialidad 
-                            y adoptar medidas que aseguren el debido cumplimiento de la normativa de protección de Datos Personales, en especial las establecidas en la 1581 de 2012 y su Decreto Reglamentario 1074 de 2015. <br><br>
+                            y adoptar medidas que aseguren el debido cumplimiento de la normativa de protección de Datos Personales, en especial las establecidas en la 1581 de 2012 y su Decreto Reglamentario 1074 de 2015.
+                        </p>
+
+                        <h5 class="title_interno_toggleFoot">¿QUE DATOS PERSONALES RECOLECTAMOS?</h5>
+                        <p class="txt_interno_toggleFoot mb-0">
+                            Cuando usted crea un usuario en ZAABRA SALUD, descarga una actualización para un programa o participa en una encuesta online, podemos recopilar diferente información incluidos su nombre, dirección, número de teléfono, 
+                            dirección de correo electrónico, preferencias de contacto. Una vez enviada esta información usted acepta, autoriza y otorga su consentimiento a ZAABRA SALUD para utilizar esta información de conformidad con lo establecido 
+                            en la ley 1581 de 2012 y demás normas que en Colombia regulan el tratamiento de datos personales. <br><br>
+                        </p>
+
+                        <p class="txt_interno_toggleFoot mb-0">
+                            Los datos personales a los que podríamos dar tratamiento, son los siguientes:
+                        </p>
+                        <ul class="option_toggleFoot">
+                            <li>Nombre completo.</li>
+                            <li>C.C. o NIT</li>
+                            <li>Dirección completa para facturación.</li>
+                            <li>Número de teléfono celular, teléfono fijo del consultorio.</li>
+                            <li>Correo electrónico.</li>
+                            <li>Número de tarjeta profesional, especialidad médica.</li>
+                            <li>Datos de cuentas de redes sociales.</li>
+                            <li>Datos de cuenta bancaria para procesa pagos número de la cuenta bancaria, (sucursal, plaza, cuenta clave ABA o SWIFT, copia de estado de cuenta bancaria mostrando cuenta clave a 18 dígitos y sin mostrar cantidades) 
+                                y/o de tarjeta de débito o crédito.
+                            </li>
+                            <li>Referencias comerciales incluyendo nombre y datos de contacto.</li>
+                            <li>Comprobante de domicilio con antigüedad menor a tres meses.</li>
+                            <li>Carta autorización para la realización de transferencias bancarias.</li>
+                        </ul>
+
+                        <p class="txt_interno_toggleFoot mb-0">
+                            ZABRA SALUD no recopila datos médicos ni otros datos personales sensibles, aunque puede actuar como encargado de los doctores afiliados a nuestros sistemas, con las obligaciones establecidas en la Ley.
+                        </p>
+
+                        <h5 class="title_interno_toggleFoot">¿COMO UTILIZAMOS SUS DATOS PERSONALES?</h5>
+                        <p class="txt_interno_toggleFoot mb-0">
+                            Finalidades del tratamiento: sus datos personales, serán mantenidos en la más estricta confidencialidad y serán resguardados de manera adecuada y solamente podrán ser tratados para las siguientes finalidades: <br><br>
+
+                            * Fines necesarios para la existencia, mantenimiento y cumplimiento de nuestra Relación Jurídica y para el cumplimiento y ejecución de obligaciones legales como usuario de nuestros servicios; para enviar notificaciones 
+                            importantes, tales como las notificaciones acerca de cambios en nuestros términos, condiciones, y políticas. <br><br>
+
+                            Los datos personales que recolectamos nos permite mantenerlo informado acerca de los últimos anuncios de productos, actualizaciones de programas, próximos eventos y servicios de ZAABRA SALUD. También ayuda a mejorar 
+                            nuestros servicios, contenidos y publicidades. También podemos utilizar su información para ayudarnos a desarrollar, entregar, y mejorar nuestros productos, servicios, contenidos y publicidad. Oportunamente, podemos 
+                            utilizar su información personal para enviar notificaciones importantes, tales como las notificaciones acerca de cambios en nuestros términos, condiciones, y políticas. También podemos utilizar información para fines 
+                            internos tales como auditorías, análisis de datos, e investigación para mejorar los productos, servicios y comunicaciones a los clientes de ZAABRA SALUD. En caso de un sorteo, concurso, o promoción similar podremos 
+                            usar la información que proporcione para administrar dichos programas. <br><br>
+
+                            Debido a que esta información no es indispensable para su relación con ZAABRA SALUD, puede optar por no recibir dichas comunicaciones, mediante aviso por escrito dirigido al correo electrónico indicado al inicio de este aviso.
+                        </p>
+
+                        <h5 class="title_interno_toggleFoot">¿RECOLECCIÓN Y USO DE INFORMACIÓN GENERAL NO DATOS PERSONALES?</h5>
+                        <p class="txt_interno_toggleFoot mb-0">
+                            También recolectamos información general no personal, la cual se compone por datos que no permiten asociación directa con ninguna persona. Podemos recolectar, utilizar, transferir, y revelar información general 
+                            para cualquier fin. A continuación, presentamos algunos ejemplos de información general que hemos recolectado y cómo podemos utilizarla: Podemos recolectar información tal como profesión, idioma, código postal, 
+                            código de área, ubicación, y la zona horaria en la que el software ZAABRA SALUD se utiliza, para poder entender mejor el comportamiento de los usuarios y mejorar nuestros productos, servicios y publicidades. 
+                            Podemos recolectar información relativa a la actividad de los clientes en nuestras páginas web y servicios. Esta información se compila y nos ayuda a proporcionar información de mayor utilidad a nuestros clientes 
+                            y a entender qué partes de nuestra página web, productos y servicios son de mayor interés. La información compilada se considera información general para los fines de la presente Política de Privacidad. 
+                            En caso de que combinemos información general no personal con datos personales, la información combinada será considerada información personal mientras se mantenga combinada.
+                        </p>
+
+                        <h5 class="title_interno_toggleFoot">¿CÓMO USAMOS LAS POLÍTICAS DIGITALES?</h5>
+                        <p class="txt_interno_toggleFoot mb-0">
+                            El IO del servicio de Consulta Digital que haga uso de cualquiera de los teléfonos de los doctores que aparecen en dicha plataforma, consiente expresamente el tratamiento del número del teléfono desde el cual realice 
+                            la llamada e información que facilite a través de la misma, de acuerdo con la política de protección de datos de ZAABRA SALUD y conforme se le informa en la correspondiente locución telefónica.
+                        </p>
+
+                        <h5 class="title_interno_toggleFoot">¿INTEGRIDAD Y CONSERVACIÓN DE DATOS PERSONALES?</h5>
+                        <p class="txt_interno_toggleFoot mb-0">
+                            ZAABRA SALUD facilita la conservación de los datos personales de una forma precisa, completa y actualizada. La información personal se conservará por el período que sea necesario para cumplir con los fines establecidos 
+                            en la presente Política de Privacidad, excepto que por Ley se requiera o autorice un período de conservación superior.
+                        </p>
+
+                        <h5 class="title_interno_toggleFoot">¿ACCESO A LOS DATOS PERSONALES?</h5>
+                        <p class="txt_interno_toggleFoot mb-0">
+                            Usted puede ayudarnos a garantizar que su información de contacto y sus preferencias son precisas, completas y están adecuadas comprobando sus datos en la sección de configuración de su espacio de usuario. Para cualquier 
+                            duda, aclaración o petición acerca de los datos personales ligada a su usuario le pedimos que se comunique a través del correo electrónico  <span class="ancla_toggleFoot">servicioalcliente@zaabrasalud.co</span>
+                        </p>
+
+                        <h5 class="title_interno_toggleFoot">¿MENORES DE EDAD?</h5>
+                        <p class="txt_interno_toggleFoot mb-0">
+                            Sólo pueden llenar y declarar bajo exigencia de decir la verdad las personas mayores de edad, en el entendido de que los datos por ellos manifestados son veraces y fidedignos. Si eres menor de edad, debe salir inmediatamente 
+                            de la aplicación o programa ZAABRA SALUD. No se hará uso de los datos personales de menores de edad existentes en las bases de datos de los usuarios. En caso de que un menor de edad envíe información personal a ZAABRA SALUD 
+                            y tengamos conocimiento de ello, suprimiremos esa información lo antes posible.
+                        </p>
+
+                        
+                        <h5 class="title_interno_toggleFoot">¿SITIOS Y SERVICIOS DE TERCEROS?</h5>
+                        <p class="txt_interno_toggleFoot mb-0">
+                            Las páginas web, así como la aplicación y servicios de ZAABRA SALUD pueden contener enlaces hacia páginas, productos y servicios de terceros. Nuestros productos y servicios pueden además utilizar u ofrecer productos o servicios 
+                            de terceros, por ejemplo, una aplicación de terceros para usted. La información recopilada por terceros, entre la que se incluye datos de localización o de contacto, está regulada por sus respectivas políticas de privacidad. Le 
+                            recomendamos que obtenga mayor información acerca de dichas políticas de privacidad.
+                        </p>
+
+                        <h5 class="title_interno_toggleFoot">¿EL COMPROMISO DE NUESTRA EMPRESA CONN SUS DATOS?</h5>
+                        <p class="txt_interno_toggleFoot mb-0">
+                            Para asegurarnos de que sus datos personales están bien resguardados, damos a conocer estas directrices a todos los empleados y contratistas de ZAABRA SALUD sin importar su función o línea de negocio e imponemos estrictas medidas 
+                            de seguridad dentro de la propia empresa. <br><br>
+
+                            Transferencia de Datos Personales: Sus datos personales podrán ser remitidos a prestadores de servicios que nos auxilien al cumplimiento de las finalidades mencionadas en este Aviso de Privacidad, quienes tendrán el carácter 
+                            de encargados y no deberán usar sus datos personales para fines no señalados en este Aviso de Privacidad. <br><br>
+
+                            Sus datos personales no podrán ser transferidos sin su consentimiento. En caso de otorgarlo, usted podrá revocarlo en cualquier momento, mediante comunicación por escrito entregada en nuestro domicilio o enviada por correo electrónico 
+                            a la dirección que aparece en este mismo aviso.
+                        </p>
+
+                        <h5 class="title_interno_toggleFoot">¿JURISDICCIÓN?</h5>
+                        <p class="txt_interno_toggleFoot mb-0">
+                            Cualquier controversia relacionada con la interpretación y aplicación de las presentes Políticas de Privacidad, se regirán por las Leyes Colombianas y se ventilarán en los Tribunales y autoridades administrativas de Colombia.
+                        </p>
+
+                        <h5 class="title_interno_toggleFoot">¿DESCARGO DE RESPONSABILIDAD?</h5>
+                        <p class="txt_interno_toggleFoot mb-0">
+                            La información presentada en este sitio web no tiene ninguna voluntad de sustituir a un consejo médico propiamente dicho, ni ZAABRA SALUD ser un servicio médico de referencia. Nos esforzamos continuamente por mantener un alto grado 
+                            de precisión y fiabilidad en la información médica proporcionada, pero no aseguramos la total exactitud, integridad o exhaustividad de la información contenida o vinculada a <span class="ancla_toggleFoot">zaabrasalud.co</span> o 
+                            sus sitios web. La selección de un médico es una decisión importante que no debe basarse únicamente en la publicidad o anuncios en este sitio web. ZAABRA SALUD no tiene ninguna responsabilidad vinculada a la calidad de los servicios 
+                            médicos prestados por los médicos que figuran en este sitio web ni asegura un mayor servicio que el de otros médicos con licencia. ZAABRA SALUD es una empresa independiente que ha desarrollado una metodología de selección de doctores 
+                            de alto nivel propia y exclusiva. ZAABRA SALUD no acepta y aloja ninguna publicidad. El uso de este sitio está sujeto a estos términos y condiciones. <br><br>
 
                             En ZAABRA SALUD tratamos la información que nos facilitan las personas interesadas con el fin de prestarle los servicios de intermediación online entre usuario y los profesionales incluidos en el directorio de la plataforma. <br><br>
 
-                            En el caso del directorio, los servicios consisten en el acceso a información sobre los profesionales, servicio de agendamiento de cita online o presencial, pago de la consulta con el profesional dentro 
-                            de la misma plataforma, por medio de la pasarela de pago PAYU, el valor de la consulta solo dependerá de lo definido por el profesional. <br><br>
+                            En el caso del directorio, los servicios consisten en el acceso a información sobre los profesionales, servicio de agendamiento de cita online o presencial, pago de la consulta con el profesional dentro de la misma plataforma, por 
+                            medio de la pasarela de pago OPENPAY, el valor de la consulta solo dependerá de lo definido por el profesional. <br><br>
 
-                            En el caso del software de gestión de consulta, los profesionales introducen información de sus propios pacientes. En este caso ZAABRA SALUD es un proveedor de servicios para los profesionales y encargado 
-                            del tratamiento de datos. El profesional es el responsable del tratamiento de datos. ZAABRA SALUD, en cumplimiento de lo estipulado por la normativa de protección de datos, tiene firmado un contrato 
-                            con el responsable del tratamiento. El responsable del tratamiento es el responsable de solicitar a los usuarios el consentimiento para el tratamiento de sus datos personales y de garantizar 
-                            el correcto cumplimiento de las normativas de privacidad. En ningún caso ZAABRA SALUD será responsable de la omisión por parte de un profesional o centro de su obligación de cumplimiento de la reglamentación vigente. <br><br>
+                            En el caso del software de gestión de consulta, los profesionales introducen información de sus propios pacientes. En este caso ZAABRA SALUD es un proveedor de servicios para los profesionales y encargado del tratamiento de datos. 
+                            El profesional es el responsable del tratamiento de datos. ZAABRA SALUD, en cumplimiento de lo estipulado por la normativa de protección de datos, tiene firmado un contrato con el responsable del tratamiento. El responsable del 
+                            tratamiento es el responsable de solicitar a los usuarios el consentimiento para el tratamiento de sus datos personales y de garantizar el correcto cumplimiento de las normativas de privacidad. En ningún caso ZAABRA SALUD será 
+                            responsable de la omisión por parte de un profesional o centro de su obligación de cumplimiento de la reglamentación vigente. <br><br>
 
-                            Los servicios de ZAABRA SALUD incluyen el envío de recordatorios de citas a través de SMS o correo electrónico, esto puede realizarse en nombre de ZAABRA SALUD o del profesional; 
-                            también se realizan envíos de otras comunicaciones, como campañas promocionales del propio profesional. <br><br>
+                            Los servicios de ZAABRA SALUD incluyen el envío de recordatorios de citas a través de SMS o correo electrónico, esto puede realizarse en nombre de ZAABRA SALUD o del profesional; también se realizan envíos de otras comunicaciones, 
+                            como campañas promocionales del propio profesional. <br><br>
 
-                            ZAABRA SALUD también puede enviarle noticias para solicitarle que deje sus comentarios después de la cita con el profesional, ya sea esta cita reservada por el usuario mediante la plataforma 
-                            web de ZAABRA SALUD o introducida por el profesional en el software de gestión de ZAABRA SALUD con el que el profesional gestiona su servicio. Estas comunicaciones se harán en 
-                            nombre de ZAABRA SALUD y enviarán al usuario al portal de ZAABRA SALUD donde podrá opinar en el perfil público del profesional con el que realizó la cita. <br><br>
+                            ZAABRA SALUD también puede enviarle noticias para solicitarle que deje sus comentarios después de la cita con el profesional, ya sea esta cita reservada por el usuario mediante la plataforma web de ZAABRA SALUD o introducida por 
+                            el profesional en el software de gestión de ZAABRA SALUD con el que el profesional gestiona su servicio. Estas comunicaciones se harán en nombre de ZAABRA SALUD y enviarán al usuario al portal de ZAABRA SALUD donde podrá opinar 
+                            en el perfil público del profesional con el que realizó la cita. <br><br>
 
-                            Los datos personales proporcionados se conservarán mientras el usuario permanezca activo en la plataforma y durante los plazos necesarios para dar cumplimiento a las obligaciones legales; 
-                            la base legal para el tratamiento de sus datos es el consentimiento del interesado. <br><br>
+                            Los datos personales proporcionados se conservarán mientras el usuario permanezca activo en la plataforma y durante los plazos necesarios para dar cumplimiento a las obligaciones legales; la base legal para el tratamiento de sus 
+                            datos es el consentimiento del interesado. <br><br>
 
-                            Los datos se comunicarán a los profesionales encargados de Tratamiento que dan distinto soporte a ZAABRA SALUD como Legal, alojamiento de datos, gestión de bases de datos y de comunicaciones, 
-                            así como a los terceros necesarios para dar cumplimiento a las obligaciones legales; cualquier persona tiene derecho a obtener información sobre si en ZAABRA SALUD estamos tratando datos personales que les conciernen, o no.  <br><br>
+                            Los datos se comunicarán a los profesionales encargados de Tratamiento que dan distinto soporte a ZAABRA SALUD como Legal, alojamiento de datos, gestión de bases de datos y de comunicaciones, así como a los terceros necesarios 
+                            para dar cumplimiento a las obligaciones legales; cualquier persona tiene derecho a obtener información sobre si en ZAABRA SALUD estamos tratando datos personales que les conciernen, o no. <br><br>
 
-                            Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, 
-                            los datos ya no sean necesarios para los fines que fueron recogidos. <br><br>
+                            Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean 
+                            necesarios para los fines que fueron recogidos. <br><br>
 
                             En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones. <br><br>
 
-                            En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, ZAABRA SALUD dejará de tratar los datos, 
-                            salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones. <br><br>
+                            En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, ZAABRA SALUD dejará de tratar los datos, salvo por motivos legítimos 
+                            imperiosos, o el ejercicio o la defensa de posibles reclamaciones. <br><br>
 
-                            Podrá ejercer sus derechos de la siguiente forma: dirigiéndose a ZAABRA COLOMBIA SAS, con dirección en la ciudad de Bogotá en la Carrera 64 # 67B-89 interior dos, o a través del correo electrónico 
+                            Podrá ejercer sus derechos de la siguiente forma: dirigiéndose a ZAABRA COLOMBIA SAS, con dirección en la ciudad de Bogotá en la carrera 64 # 67b-89 interior dos, o a través del correo electrónico 
                             <span class="ancla_toggleFoot">servicioalcliente@zaabrasalud.co</span> identificándose debidamente e indicando de forma expresa el concreto derecho que se quiere ejercer. <br><br>
 
-                            Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado 
-                            en el consentimiento previo a su retirada. <br><br>
+                            Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a 
+                            su retirada. <br><br>
 
                             Cuando precisemos obtener información por su parte, siempre le solicitaremos que nos la proporcione voluntariamente prestando su consentimiento de forma expresa a través de los medios habilitados para ello. <br><br>
 
                             El tratamiento de los datos recabados a través de los formularios de recogida de datos del sitio web u otras vías, quedará incorporado al Registro de Actividades de Tratamiento del cual es responsable ZAABRA SALUD. <br><br>
 
-                            ZAABRA SALUD trata los datos de forma confidencial y adopta las medidas técnicas y organizativas apropiadas para garantizar el nivel de seguridad adecuado al tratamiento, en cumplimiento de lo requerido 
-                            por la ley 1581 de 2012, de tratamiento de datos o habeas data. <br><br>
+                            ZAABRA SALUD trata los datos de forma confidencial y adopta las medidas técnicas y organizativas apropiadas para garantizar el nivel de seguridad adecuado al tratamiento, en cumplimiento de lo requerido por la ley 1581 
+                            de 2012, de tratamiento de datos o habeas data. <br><br>
 
-                            No obstante, no puede garantizar la absoluta invulnerabilidad de los sistemas, por tanto, no asume ninguna responsabilidad por los daños y perjuicios derivados de alteraciones que terceros 
-                            puedan causar en los sistemas informáticos, documentos electrónicos o ficheros del usuario.  <br><br>
+                            No obstante, no puede garantizar la absoluta invulnerabilidad de los sistemas, por tanto, no asume ninguna responsabilidad por los daños y perjuicios derivados de alteraciones que terceros puedan causar en los sistemas 
+                            informáticos, documentos electrónicos o ficheros del usuario. <br><br>
 
-                            Si opta por abandonar nuestro sitio web a través de enlaces a sitios web no pertenecientes a nuestra entidad, ZAABRA SALUD no se hará responsable de las políticas de privacidad de 
-                            dichos sitios web ni de las cookies que éstos puedan almacenar en el ordenador del usuario. <br><br>
+                            Si opta por abandonar nuestro sitio web a través de enlaces a sitios web no pertenecientes a nuestra entidad, ZAABRA SALUD no se hará responsable de las políticas de privacidad de dichos sitios web ni de las cookies que 
+                            éstos puedan almacenar en el ordenador del usuario. <br><br>
 
-                            Nuestra política con respecto al envío de nuestros propios correos electrónicos se centra en remitir únicamente comunicaciones que usted haya solicitado recibir. Si prefiere no 
-                            recibir estos mensajes por correo electrónico le ofreceremos a través de los mismos la posibilidad de ejercer su derecho de supresión y renuncia a la recepción de estos de 
-                            conformidad con lo dispuesto en la ley 1581 de 2012, que fue reglamentada por el decreto 1377 de 2013 <br><br>
+                            Nuestra política con respecto al envío de nuestros propios correos electrónicos se centra en remitir únicamente comunicaciones que usted haya solicitado recibir. Si prefiere no recibir estos mensajes por correo 
+                            electrónico le ofreceremos a través de los mismos la posibilidad de ejercer su derecho de supresión y renuncia a la recepción de estos de conformidad con lo dispuesto en la ley 1581 de 2012, que fue reglamentada 
+                            por el decreto 1377 de 2013. <br><br>
 
-                            En ZAABRA SALUD tratamos la información que nos facilitan las personas interesadas con el fin de prestarle los servicios de intermediación on line entre los profesionales y los usuarios, 
-                            a través del directorio de la plataforma.<br><br>
+                            En ZAABRA SALUD tratamos la información que nos facilitan las personas interesadas con el fin de prestarle los servicios de intermediación on line entre los profesionales y los usuarios, a través del directorio 
+                            de la plataforma. <br><br>
 
-                            ZAABRA SALUD recopila información tanto de los profesionales como de los usuarios, cuando se realiza el registro en la plataforma al diligenciar un formulario de contacto, enviar 
-                            mensajes o solicitar consultas por medio de formularios. <br><br>
+                            ZAABRA SALUD recopila información tanto de los profesionales como de los usuarios, cuando se realiza el registro en la plataforma al diligenciar un formulario de contacto, enviar mensajes o solicitar consultas 
+                            por medio de formularios. <br><br>
 
                             Al solicitar o registrarse en nuestro sitio, se le puede pedir que introduzca su nombre, dirección de correo electrónico, número de teléfono, ciudad de consulta, profesión, especialidad, entre otros. <br><br>
 
-                            Para información de facturación se pide incluir la información del pago y los datos de su tarjeta de crédito por medio de la pasarela de pagos estipulada en la página; al solicitar 
-                            asistencia o servicio al cliente, se le puede pedir que introduzca nombre, teléfono de contacto y correo electrónico y al diligenciar cualquiera de nuestros formularios en 
-                            ZAABRA SALUD, nosotros guardamos su dirección IP; Usted puede, sin embargo, visitar nuestro sitio de forma incógnita. <br><br>
+                            Para información de facturación se pide incluir la información del pago y los datos de su tarjeta de crédito por medio de la pasarela de pagos estipulada en la página; al solicitar asistencia o servicio al 
+                            cliente, se le puede pedir que introduzca nombre, teléfono de contacto y correo electrónico y al diligenciar cualquiera de nuestros formularios en ZAABRA SALUD, nosotros guardamos su dirección IP; Usted puede, 
+                            sin embargo, visitar nuestro sitio de forma incógnita. <br><br>
 
-                            Toda la información que usted nos provee puede ser usada en una o más de las siguientes formas: Para personalizar su perfil, para una mejor experiencia en servicio al cliente, 
-                            crear y gestionar su cuenta (botón mi cuenta), Procesar las transacciones de compra, verificar identidad  <br><br>
+                            Toda la información que usted nos provee puede ser usada en una o más de las siguientes formas: Para personalizar su perfil, para una mejor experiencia en servicio al cliente, crear y gestionar su cuenta 
+                            (botón mi cuenta), Procesar las transacciones de compra, verificar identidad y derechos a servicios; la información sea pública o privada, no será vendida, intercambiada, transferida o dada a otra empresa 
+                            por ningún motivo sin su consentimiento, excepto con el expreso propósito de entregar el servicio solicitado. <br><br>
 
-                            y derechos a servicios; la información sea pública o privada, no será vendida, intercambiada, transferida o dada a otra empresa por ningún motivo sin su consentimiento, 
-                            excepto con el expreso propósito de entregar el servicio solicitado. <br><br>
+                            La dirección de correo electrónico que usted proporciona será utilizada para: Enviarle información y actualizaciones correspondientes a las solicitudes o pagos realizados en la plataforma de ZAABRA SALUD, 
+                            también correos informativos o de su interés. <br><br>
 
-                            La dirección de correo electrónico que usted proporciona será utilizada para: Enviarle información y actualizaciones correspondientes a las solicitudes o pagos realizados 
-                            en la plataforma de ZAABRA SALUD, también correos informativos o de su interés. <br><br>
+                            Se entregarán métricas del movimiento de cada perfil una vez al mes solo en caso de solicitud del profesional, esta solicitud la puede realizar escribiendo al correo 
+                            <span class="ancla_toggleFoot">servicioalcliente@zaabrasalud.co</span> en los siguientes tres días hábiles recibirá la respuesta al correo registrado en el perfil. <br><br>
 
-                            Se entregarán métricas del movimiento de cada perfil una vez al mes solo en caso de solicitud del profesional, esta solicitud la puede realizar 
-                            escribiendo al correo  <span class="ancla_toggleFoot">servicioalcliente@zaabrasalud.co</span>, en los siguientes tres días hábiles recibirá la respuesta al correo registrado en el perfil.  <br><br>
-
-                            De igual manera por correo electrónico podremos evaluar y mejorar la calidad del servicio y del sitio web ZAABRA SALUD; en el momento que usted desee puede solicitar no recibir más correos; 
-                            si no desea que utilicemos su información de esta manera, se puede comunicar al 3212449869 o por medio de correo <span class="ancla_toggleFoot">servicioalcliente@zaabrasalud.co</span>. <br><br>
+                            De igual manera por correo electrónico podremos evaluar y mejorar la calidad del servicio y del sitio web ZAABRA SALUD; en el momento que usted desee puede solicitar no recibir más correos; si no desea 
+                            que utilicemos su información de esta manera, se puede comunicar al teléfono fijo 7123945 celular 3212449869 o por medio del correo electrónico <span class="ancla_toggleFoot">servicioalcliente@zaabrasalud.co</span> <br><br>
 
                             La información que recopilamos sobre usted, está almacenada en servidores de la compañía. <br><br>
 
-                            Al utilizar nuestro sitio web ZAABRA SALUD, usted acepta y da su consentimiento a nuestra política de privacidad. <br><br>
+                            Al utilizar nuestro sitio web ZAABRA SALUD, usted acepta y da su consentimiento a nuestra política de privacidad.
                         </p>
                     </div>
                 </div>
