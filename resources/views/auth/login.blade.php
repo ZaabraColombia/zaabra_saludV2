@@ -9,7 +9,7 @@
         <!-- titulo principal -->
         <h1 class="titulo_principal-login"> Acceda a nuestro portal de Zaabra Salud o regístrese. </h1>
         <!-- contenedor de elementos login -->
-        <div class="card col-11 col-md-10 col-lg-8 section_principal-login">
+        <div class="card section_principal-login">
             <!-- seccion body login -->
             <div class="card-body section_body-login">
                 <form method="POST" action="{{ route('login') }}">
@@ -39,7 +39,7 @@
                     </div>
 
                     <!-- seccion contraseña -->
-                    <div class="form-group row mb-3">
+                    <div class="form-group row mb-4">
                         <label for="password" class="col-md-12 col-form-label texto_label-login"> Contraseña </label>
 
                         <div class="col-12">

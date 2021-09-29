@@ -108,12 +108,12 @@
                     @endif
                 </ul>
             </div>
-            <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            <!-- <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
                 <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
             </div>
             <div class="ps__rail-y" style="top: 0px; height: 50vh; right: 0px;">
                 <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 50vh;"></div>
-            </div>
+            </div> -->
         </div>
 </div>

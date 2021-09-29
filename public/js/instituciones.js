@@ -70,3 +70,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }();
 
  });
+
+//Función para el banner principal de la vista institución profesionales
+const swiper_principalInstProf = new Swiper('.swiper_principalInstProf',{
+  // Optional parameters
+  // If we need pagination
+  loop: false,
+  effect: "fade",
+  
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  autoplay: {
+    delay: 3500,
+    disableOnInteraction: false,
+  },
+
+  // And if we need scrollbar
+});
