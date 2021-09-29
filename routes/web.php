@@ -32,7 +32,7 @@ Route::post('/buscar-especialidades',[App\Http\Controllers\profesionales\formula
 /*----------------------------------------------Pertenece a Publico-------------------------------------------------------------------------------*/
 
 /*Esta ruta es del home y dirige al controlador encargado de traer la informacion a la vista*/
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
 /*Esta ruta es de galeria profesiones y dirige al controlador encargado de traer la informacion a la vista*/
@@ -85,6 +85,9 @@ Route::get('auth/google', [\App\Http\Controllers\Auth\GoogleController::class, '
 Route::get('auth/google/callback', [\App\Http\Controllers\Auth\GoogleController::class, 'handleGoogleCallback'])->name('google-callback');
 Route::get('auth/facebook', [\App\Http\Controllers\Auth\FacebookController::class, 'redirectToFB'])->name('facebook-redirect');
 Route::get('auth/facebook/callback', [\App\Http\Controllers\Auth\FacebookController::class, 'handleCallback'])->name('facebook-callback');
+
+Route::post('/charge', [\App\Http\Controllers\Pagos\OpenPayContrller::class, 'store'])->name('pay-openPay')->middleware('auth');
+Route::get('/response-page', [\App\Http\Controllers\Pagos\OpenPayContrller::class, 'response_page'])->name('pay-openPay-response');
 
 
 
@@ -263,5 +266,5 @@ Route::get('/error505', function () { return view('errores/error505');})->name('
 
 
 Route::get('/test', function (){
-    return view('emails.confirmacion_newsletter');
+    return view('test');
 });
