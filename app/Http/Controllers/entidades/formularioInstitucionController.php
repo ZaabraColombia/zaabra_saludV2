@@ -22,6 +22,7 @@ use App\Models\galerias;
 use App\Models\videos;
 use File;
 use Illuminate\Support\Facades\Validator;
+use function GuzzleHttp\Promise\all;
 
 class formularioInstitucionController extends Controller{
 
@@ -733,6 +734,8 @@ class formularioInstitucionController extends Controller{
         $profesional->primer_apellido   = $request->primer_apellido_profecional;
         $profesional->segundo_apellido  = $request->segundo_apellido_profecional;
         $profesional->id_institucion    = $institucion->id;
+        $profesional->id_universidad    = $request->universidad;
+        $profesional->id_especialidad   = $request->especialidad;
 
         $foto = $request->file('foto_profecional');
         $nombre_foto = 'profesional-' . time() . '.' . $foto->guessExtension();

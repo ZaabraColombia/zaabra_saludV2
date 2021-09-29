@@ -21,7 +21,7 @@
         || queryRuta.includes("diagnosticosProfesional") || queryRuta.includes("crearFormulaProfesional")
         || queryRuta.includes("registroPaciente") || queryRuta.includes("pacienteRegistrado")
         || queryRuta.includes("editarConsulta") || queryRuta.includes("editarPatologia")
-        || queryRuta.includes("editarExpediente")) {
+        || queryRuta.includes("editarExpediente") || queryRuta.includes("perfil")) {
         selector(".footer_newsletter").style.display = "none";
     }
 }();

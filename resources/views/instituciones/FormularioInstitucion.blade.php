@@ -269,7 +269,7 @@
                             <div class="option_consulta-formProf">
                                 <label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Sedes en la que está el servicio </label>
                                 @if( is_string($servicio->sucursalservicio) )
-                                    @php  $new_array = explode(',', $servicio->sucursalservicio); @endphp
+                                    @php  $new_array = explode(',', $servicio->sucursalservicio ); @endphp
                                 @endif
                                 <ul>
                                     @foreach($new_array as $info)
@@ -286,7 +286,14 @@
                 <div class="row justify-content-center">
                     <!-- Contenido IZQUIERDO -->
                     <div class="col-md-6 leftSection_formInst downLine_formInst center_lineForm">
-                        <div class="col-12" id="mensajes-servicios"></div>
+                        <div class="col-12" id="mensajes-servicios">
+                            @if($count_servicios >= 6 )
+                                <div class="alert alert-success" role="alert">
+                                    <h4 class="alert-heading">Hecho!</h4>
+                                    <p>Ya tienes el máximo de servicos</p>
+                                </div>
+                            @endif
+                        </div>
                         <div class="col-12">
                             <label for="titulo_servicio" class="col-12 text_label-formInst"> Título del servicio </label>
                             <input class="form-control" id="titulo_servicio" placeholder="Título del servicio" type="text" name="titulo_servicio" {{ ($count_servicios >= 6) ? 'disabled' : '' }}>
@@ -511,7 +518,14 @@
 
             <form action="{{ route('entidad.create8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="form-profesionales-institucion">
                 @csrf
-                <div class="col-12" id="mensajes-profesionales"></div>
+                <div class="col-12" id="mensajes-profesionales">
+                    @if($count_profecionales >= 3 and !$is_asociacion )
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">Hecho!</h4>
+                            <p>Ya tienes el máximo de profesionales</p>
+                        </div>
+                    @endif
+                </div>
                 <!-- Profesional numero 1 -->
                 <div class="row fila_infoBasica-formInst mb-4">
                     <div class="col-md-3 contain_imgUsuario-formImg">
@@ -625,7 +639,14 @@
 
             <form method="POST" action="{{ route('entidad.create9') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-certificados-institucion">
                 @csrf
-                <div class="col-12" id="mensajes-certificaciones"></div>
+                <div class="col-12" id="mensajes-certificaciones">
+                    @if($count_certificaiones >= 4)
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">Hecho!</h4>
+                            <p>Ya tienes el máximo de certificaciones</p>
+                        </div>
+                    @endif
+                </div>
                 <div class="row justify-content-center">
                     <div class="col-md-6 photo1 leftSection_formInst content_antes-formInst">
                         <div class="col-12 leftSection_formInst">
@@ -736,7 +757,14 @@
 
             <form method="POST" action="{{ route('entidad.create10') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-sedes-institucion">
                 @csrf
-                <div class="col-12" id="mensajes-sedes"></div>
+                <div class="col-12" id="mensajes-sedes">
+                    @if($count_sedes >= 6)
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">Hecho!</h4>
+                            <p>Ya tienes el máximo de sedes</p>
+                        </div>
+                    @endif
+                </div>
                 <div class="row justify-content-center">
                     <div class="col-md-6">
                         <div class="col-12 leftSection_formInst">
@@ -872,7 +900,14 @@
 
             <form  action="{{ route('entidad.create12') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="form-galeria-institucion">
                 @csrf
-                <div id="mensajes-galeria"></div>
+                <div id="mensajes-galeria">
+                    @if($count_galeria >= 8)
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">Hecho!</h4>
+                            <p>Ya tienes el máximo de fotos</p>
+                        </div>
+                    @endif
+                </div>
                 <div class="row justify-content-center">
                     <div class="col-md-6 photo1 leftSection_formInst content_antes-formInst">
                         <div class="col-12 leftSection_formInst">
@@ -959,7 +994,14 @@
 
             <form method="POST" action="{{ route('entidad.create13') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-videos-institucion">
                 @csrf
-                <div id="mensajes-videos"></div>
+                <div id="mensajes-videos">
+                    @if($count_videos >= 4)
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">Hecho!</h4>
+                            <p>Ya tienes el máximo de videos</p>
+                        </div>
+                    @endif
+                </div>
                 <div class="row justify-content-center">
                     <div class="col-md-6 leftSection_formInst content_antes-formInst">
                         <div class="col-12 leftSection_formInst">
