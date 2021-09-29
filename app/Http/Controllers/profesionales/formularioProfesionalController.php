@@ -393,14 +393,6 @@ class formularioProfesionalController extends Controller
     }
     /*------------Fin  Funcion solo para verificar que perfil existe y esta se utiiliza en los demas metodos-----------------*/
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Http\JsonResponse
-     */
-
-
     /*-------------------------------------Creacion y/o modificacion formulario parte 1----------------------*/
     protected function create1(Request $request){
 
@@ -427,9 +419,12 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'Ingrese correctamente la información'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
@@ -486,11 +481,6 @@ class formularioProfesionalController extends Controller
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 1----------------------*/
 
-
-
-
-
-
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 2----------------------*/
     protected function create2(Request $request){
 
@@ -513,9 +503,12 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'Ingrese correctamente la información'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
@@ -556,14 +549,20 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors(), 'mensaje' => 'Ingrese correctamente la información'], Response::HTTP_UNPROCESSABLE_ENTITY);
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        //validar el valor maximo
+        //validar el valor máximo
         $count = tipoconsultas::where('idperfil', '=', $idProProfesi)->count();
 
         if ( $count >= 3 ) {
-            return response()->json(['mensaje' => 'Ingreso el maximo de items', 'items_max' => true], Response::HTTP_NOT_FOUND);
+            return response()->json(['mensaje' => 'Ingreso el máximo de items', 'items_max' => true], Response::HTTP_NOT_FOUND);
         }
 
         //Crear el objeto
@@ -578,7 +577,8 @@ class formularioProfesionalController extends Controller
         $count++;
 
         return response()->json([
-            'mensaje' => 'Se adiciono el tipo de consulta ' . $request->tipo_consulta,
+            'mensaje' => 'Se adiciono el tipo de consulta ' . $request->tipo_consulta .
+                ($count >= 3) ? '<br> Se agrego el máximo de tipo de consulta' : '',
             'items_max' => $count >= 3,
             'id' => $tipo_consulta->id
         ], Response::HTTP_OK);
@@ -626,7 +626,13 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors(), 'mensaje' => 'Ingrese correctamente la información'], Response::HTTP_UNPROCESSABLE_ENTITY);
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
         //actualizar perfil
@@ -635,8 +641,6 @@ class formularioProfesionalController extends Controller
         return response()->json(['mensaje' => 'Se actualizo el perfil profesional'], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 4----------------------*/
-
-
 
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 5----------------------*/
     public function create5(Request $request){
@@ -660,34 +664,24 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'Ingrese correctamente la información de la universidad'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        //validar el valor maximo de items
+        //validar el valor máximo de items
         $count = perfilesprofesionalesuniversidades::where('idPerfilProfesional', '=', $idProProfesi)->count();
 
         if ( $count >= 3 ) {
             return response()->json([
-                'mensaje' => 'Ingreso el maximo de items',
+                'mensaje' => 'Ingreso el máximo de items',
                 'items_max' => true
             ], Response::HTTP_NOT_FOUND);
         }
-
-        //Se valida si la universidad ya esta registrada
-        /*$val = perfilesprofesionalesuniversidades::where('idPerfilProfesional', '=', $idProProfesi)
-            ->where('id_universidadperfil', '=', $request->universidad_estudio)
-            ->select()
-            ->count();
-        if ($val >= 1) {
-            return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'La universidad ya esta ingresada'
-            ], Response::HTTP_UNPROCESSABLE_ENTITY);
-        }*/
-
         //Crear el objeto
         $universidad = new perfilesprofesionalesuniversidades();
 
@@ -710,7 +704,8 @@ class formularioProfesionalController extends Controller
         $count++;
 
         return response()->json([
-            'mensaje' => 'Se adiciono la universidad "' . $universidad->universidad->nombreuniversidad . '"',
+            'mensaje' => 'Se adiciono la universidad "' . $universidad->universidad->nombreuniversidad . '"' .
+                ($count >= 3) ? '<br> Se agrego el máximo de universidades.' : '',
             'items_max' => $count >= 3,
             'id' => $universidad->id_universidadperfil,
             'logo' => asset($universidad->logo_universidad),
@@ -735,9 +730,12 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'No se pudo eliminar correctamente'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
@@ -763,9 +761,6 @@ class formularioProfesionalController extends Controller
     }
     /*-------------------------------------Fin Eliminacion formulario parte 5----------------------*/
 
-
-
-
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 6----------------------*/
     public function create6(Request $request){
 
@@ -789,18 +784,21 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'Ingrese correctamente la información de la empresa'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        //validar el valor maximo de items
+        //validar el valor máximo de items
         $count = experiencias::where('idPerfilProfesional', '=', $idProProfesi)->count();
 
         if ( $count >= 4 ) {
             return response()->json([
-                'mensaje' => 'Ingreso el maximo de items',
+                'mensaje' => 'Ingreso el máximo de items',
                 'items_max' => true
             ], Response::HTTP_NOT_FOUND);
         }
@@ -828,7 +826,8 @@ class formularioProfesionalController extends Controller
         $count++;
 
         return response()->json([
-            'mensaje' => 'Se adiciono la experiencia de "' . $request->nombre_empresa . '"',
+            'mensaje' => 'Se adiciono la experiencia de "' . $request->nombre_empresa . '"' .
+                ($count >= 4) ? '<br> Se agrego el máximo de experiencia' : '',
             'items_max' => $count >= 4,
             'id' => $experiencia->idexperiencias,
             'logo' => asset($experiencia->imgexperiencia),
@@ -867,9 +866,6 @@ class formularioProfesionalController extends Controller
     }
     /*-------------------------------------Fin Eliminacion formulario parte 6----------------------*/
 
-
-
-
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 7----------------------*/
     public function create7(Request $request){
 
@@ -889,19 +885,22 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'Ingrese correctamente la imagen de la asociación'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        //validar el valor maximo de items
+        //validar el valor máximo de items
         $count = asociaciones::where('idPerfilProfesional', '=', $idProProfesi)->count();
         //$count = auth()->user()->profecional->idiomas;
 
         if ( $count >= 3 ) {
             return response()->json([
-                'mensaje' => 'Ingreso el maximo de asociaciones',
+                'mensaje' => 'Ingreso el máximo de asociaciones',
                 'items_max' => true
             ], Response::HTTP_NOT_FOUND);
         }
@@ -924,7 +923,8 @@ class formularioProfesionalController extends Controller
         $count++;
 
         return response()->json([
-            'mensaje' => 'Se adiciono el tratamiento',
+            'mensaje' => 'Se adiciono el asociación' .
+                ($count >= 3) ? '<br> Se agrego el máximo de asociaciones' : '',
             'items_max' => $count >= 3,
             'imagen' => asset($asociacion->imgasociacion),
             'id' => $asociacion->idAsociaciones,
@@ -973,8 +973,6 @@ class formularioProfesionalController extends Controller
     }
     /*-------------------------------------Fin Eliminacion formulario parte 7----------------------*/
 
-
-
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 8----------------------*/
     public function create8(Request $request){
 
@@ -991,20 +989,23 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'seleccione correctamente la información del idioma'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        //validar el valor maximo de items
+        //validar el valor máximo de items
         $count = usuario_idiomas::where('idPerfilProfesional', '=', $idProProfesi)->count();
         //$count = auth()->user()->profecional->idiomas;
 
         if ( $count >= 3 ) {
             return response()->json([
                 'error' => ['idioma' => ''],
-                'mensaje' => 'Ingreso el maximo de idiomas',
+                'mensaje' => 'Ingreso el máximo de idiomas',
                 'items_max' => true
             ], Response::HTTP_NOT_FOUND);
         }
@@ -1032,7 +1033,8 @@ class formularioProfesionalController extends Controller
         $count++;
 
         return response()->json([
-            'mensaje' => 'Se adiciono el idioma "' . $idioma->idioma->nombreidioma . '"',
+            'mensaje' => 'Se adiciono el idioma "' . $idioma->idioma->nombreidioma . '"' .
+                ($count >= 3) ? '<br> Se agrego el máximo de idiomas' : '',
             'items_max' => $count >= 3,
             'idioma' => $idioma->idioma->nombreidioma,
             'image' => asset($idioma->idioma->imgidioma),
@@ -1055,9 +1057,12 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'seleccione correctamente la información del idioma'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
@@ -1080,8 +1085,6 @@ class formularioProfesionalController extends Controller
         return response()->json(['mensaje' => 'El idioma "' . $nombre . '" se elimino correctamente'], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Eliminacion formulario parte 8----------------------*/
-
-
 
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 9----------------------*/
     public function create9(Request $request){
@@ -1107,19 +1110,22 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'Ingrese correctamente la información del tratamiento'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        //validar el valor maximo de items
+        //validar el valor máximo de items
         $count = tratamientos::where('idPerfilProfesional', '=', $idProProfesi)->count();
         //$count = auth()->user()->profecional->idiomas;
 
         if ( $count >= 2 ) {
             return response()->json([
-                'mensaje' => 'Ingreso el maximo de tratamientos',
+                'mensaje' => 'Ingreso el máximo de tratamientos',
                 'items_max' => true
             ], Response::HTTP_NOT_FOUND);
         }
@@ -1151,7 +1157,8 @@ class formularioProfesionalController extends Controller
         $count++;
 
         return response()->json([
-            'mensaje' => 'Se adiciono el tratamiento',
+            'mensaje' => 'Se adiciono el tratamiento' .
+                ($count >= 2) ? '<br> Se agrego el máximo de tratamientos' : '',
             'items_max' => $count >= 2,
             'imagen_antes' => asset($tratamineto->imgTratamientoAntes),
             'imagen_despues' => asset($tratamineto->imgTratamientodespues),
@@ -1175,9 +1182,12 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'seleccione correctamente la información del tratamiento'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
@@ -1206,7 +1216,6 @@ class formularioProfesionalController extends Controller
     }
     /*-------------------------------------Fin Eliminacion formulario parte 9----------------------*/
 
-
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 10----------------------*/
     public function create10(Request $request){
 
@@ -1230,19 +1239,22 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'Ingrese correctamente la información del premio'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        //validar el valor maximo de items
+        //validar el valor máximo de items
         $count = premios::where('idPerfilProfesional', '=', $idProProfesi)->count();
         //$count = auth()->user()->profecional->idiomas;
 
         if ( $count >= 4 ) {
             return response()->json([
-                'mensaje' => 'Ingreso el maximo de tratamientos',
+                'mensaje' => 'Ingreso el máximo de tratamientos',
                 'items_max' => true
             ], Response::HTTP_NOT_FOUND);
         }
@@ -1270,7 +1282,8 @@ class formularioProfesionalController extends Controller
         $count++;
 
         return response()->json([
-            'mensaje' => 'Se adiciono el tratamiento',
+            'mensaje' => 'Se adiciono el premio' .
+                ($count >= 4) ? '<br> Se agrego el máximo de premios' : '',
             'items_max' => $count >= 4,
             'imagen' => asset($premio->imgpremio),
             'id' => $premio->id,
@@ -1292,9 +1305,12 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'seleccione correctamente el premio'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
@@ -1343,19 +1359,22 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'Ingrese correctamente la información de la publicación'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        //validar el valor maximo de items
+        //validar el valor máximo de items
         $count = publicaciones::where('idPerfilProfesional', '=', $idProProfesi)->count();
         //$count = auth()->user()->profecional->idiomas;
 
         if ( $count >= 4 ) {
             return response()->json([
-                'mensaje' => 'Ingreso el maximo de publicaciones',
+                'mensaje' => 'Ingreso el máximo de publicaciones',
                 'items_max' => true
             ], Response::HTTP_NOT_FOUND);
         }
@@ -1382,7 +1401,8 @@ class formularioProfesionalController extends Controller
         $count++;
 
         return response()->json([
-            'mensaje' => 'Se adiciono el tratamiento',
+            'mensaje' => 'Se adiciono la publicación' .
+                ($count >= 4) ? '<br> Se agrego el máximo de publicaciones' : '',
             'items_max' => $count >= 4,
             'imagen' => asset($publicacion->imgpublicacion),
             'id' => $publicacion->id,
@@ -1404,9 +1424,12 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'seleccione correctamente la publicación'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
@@ -1433,12 +1456,8 @@ class formularioProfesionalController extends Controller
     }
     /*-------------------------------------Fin Eliminacion formulario parte 11----------------------*/
 
-
-
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 12----------------------*/
     public function create12(Request $request){
-
-
         /*id usuario logueado*/
         $id_user=auth()->user()->id;
 
@@ -1458,18 +1477,21 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'Ingrese correctamente la información de la foto'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        //validar el valor maximo de items
+        //validar el valor máximo de items
         $count = galerias::where('idPerfilProfesional', '=', $idProProfesi)->count();
 
         if ( $count >= 8 ) {
             return response()->json([
-                'mensaje' => 'Ingreso el maximo de fotos',
+                'mensaje' => 'Ingreso el máximo de fotos',
                 'items_max' => true
             ], Response::HTTP_NOT_FOUND);
         }
@@ -1497,7 +1519,8 @@ class formularioProfesionalController extends Controller
         $count++;
 
         return response()->json([
-            'mensaje' => 'Se adiciono el tratamiento',
+            'mensaje' => 'Se adiciono el fotos' .
+                ($count >= 8) ? '<br> Se agrego el máximo de fotos' : '',
             'items_max' => $count >= 8,
             'imagen' => asset($foto->imggaleria),
             'id' => $foto->id_galeria,
@@ -1520,9 +1543,12 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'seleccione correctamente la foto'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
@@ -1548,11 +1574,8 @@ class formularioProfesionalController extends Controller
     }
     /*-------------------------------------Fin Eliminacion formulario parte 12----------------------*/
 
-
-
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 13----------------------*/
     public function create13(Request $request){
-
 
         /*Llamamiento de la funcion verificaPerfil para hacer util la verificacion  */
         $verificaPerfil = $this->verificaPerfil();
@@ -1570,18 +1593,21 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'Ingrese correctamente la información del video'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        //validar el valor maximo de items
+        //validar el valor máximo de items
         $count = videos::where('idPerfilProfesional', '=', $idProProfesi)->count();
 
         if ( $count >= 4 ) {
             return response()->json([
-                'mensaje' => 'Ingreso el maximo de items',
+                'mensaje' => 'Ingreso el máximo de items',
                 'items_max' => true
             ], Response::HTTP_NOT_FOUND);
         }
@@ -1600,7 +1626,8 @@ class formularioProfesionalController extends Controller
         $count++;
 
         return response()->json([
-            'mensaje' => 'Se adiciono el video de "' . $request->nombreVideo . '"',
+            'mensaje' => 'Se adiciono el video de "' . $request->nombreVideo . '"' .
+                ($count >= 4) ? '<br> Se agrego el máximo de videos' : '',
             'items_max' => $count >= 4,
             'id' => $video->id,
         ], Response::HTTP_OK);
@@ -1649,9 +1676,12 @@ class formularioProfesionalController extends Controller
         ]);
 
         if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
             return response()->json([
-                'error' => $validator->errors(),
-                'mensaje' => 'Ingrese correctamente la información'
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Verifique los siguientes errores'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
@@ -1668,7 +1698,8 @@ class formularioProfesionalController extends Controller
         $destacable->save();
 
         return response([
-            'mensaje'   => 'El Tema "' . $request->destacado_nombre . '" ha sido creado',
+            'mensaje'   => 'El Tema "' . $request->destacado_nombre . '" ha sido creado' .
+                ($destacables_count >= 9) ? '<br> Se agrego el máximo de temas' : '',
             'nombre'    => $request->destacado_nombre,
             'id'        => $destacable->id_experto_en,
             'count'     => $destacables_count + 1]);

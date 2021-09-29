@@ -10040,12 +10040,12 @@ a:link, a:visited, a:active, a:hover {
 
 .inputBarraBusquedad {
   width: 100%;
-  height: 50px;
+  height: 30px;
   padding-left: 0;
   border-radius: 0;
-  font-size: 1.4em;
+  font-size: 1em;
   border: none;
-  padding: 2%;
+  padding: 0 2%;
   background: #faebd700;
 }
 
@@ -10397,7 +10397,7 @@ a:link, a:visited, a:active, a:hover {
 .dropdown-menu .menu_item {
   display: flex;
   width: 100%;
-  height: 6.5vh;
+  height: 50px;
   clear: both;
   font-weight: 400;
   color: #212529;
@@ -10416,7 +10416,6 @@ a:link, a:visited, a:active, a:hover {
 #ui-id-1 {
   z-index: 500 !important;
   background: white;
-  /*width: 29.7% !important;*/
   height: 25vh;
   overflow-x: hidden;
   border-bottom-left-radius: 5px;
@@ -10440,7 +10439,6 @@ a:link, a:visited, a:active, a:hover {
 .ui-menu {
   z-index: 500 !important;
   background: white;
-  /*width: 89.5% !important;*/
   height: 28vh;
   overflow-x: hidden;
   border-radius: 3px;
@@ -10511,7 +10509,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .contains_header {
-    width: 100%;
+    width: 95%;
     height: 100%;
     padding: 0;
   }
@@ -10574,7 +10572,6 @@ a:link, a:visited, a:active, a:hover {
     height: 25px;
     padding-left: 0;
     border-radius: 0;
-    font-size: 1.2em;
     border: none;
     padding: 1% 2%;
     background: #faebd700;
@@ -10711,11 +10708,6 @@ a:link, a:visited, a:active, a:hover {
     background-size: 16%;
   }
 }
-/*@media (min-width: 360px) and (orientation: portrait) {
-    .ui-menu {
-        height: 35vh;
-    }
-}*/
 @media (min-width: 601px) and (max-width: 1023.98px) {
   .navbar_zaabrasalud {
     background-color: #0083D6;
@@ -10745,10 +10737,8 @@ a:link, a:visited, a:active, a:hover {
     width: 70px;
   }
 
-  /*.navbar_zaabrasalud{
-      height: calc(2.6em + 1rem + 2px);
-  }*/
   .contains_header {
+    width: 75%;
     height: 100%;
     padding: 0;
     justify-content: space-between;
@@ -10806,7 +10796,7 @@ a:link, a:visited, a:active, a:hover {
     height: 45px;
     padding-left: 0;
     border-radius: 0;
-    font-size: 1.75em;
+    font-size: 1.5em;
     border: none;
     padding: 1% 2%;
     background: #faebd700;
@@ -10892,7 +10882,6 @@ a:link, a:visited, a:active, a:hover {
 
   .menu-hamburger .dropdown-toggle {
     background-size: 50px;
-    /* width: 100%; */
   }
 
   .menu_hamburguesa {
@@ -11032,152 +11021,13 @@ a:link, a:visited, a:active, a:hover {
   .menu-hamburger {
     width: 65px;
     height: 100%;
-<<<<<<< HEAD
-=======
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }
-@media (min-width: 1200px) and (max-width: 1359.98px) {
-  .contenedorLupa {
-    width: 5%;
-  }
-
-  .button-membresia {
-    max-width: 135px;
-  }
-
-  #ui-id-1 {
-    /*left: 25.6% !important;*/
-    /*width: 29.7% !important;*/
-    height: 27vh;
->>>>>>> c546b3f1dbc0025a32d3b3bfb882242811157499
+@media (min-width: 1440px) {
+  .inputBarraBusquedad {
+    height: 28px;
   }
 }
-/*@media (min-width: 1200px) {
-    //Seccion barra de busqueda
-    .contenedorLupa {
-        width: 5%;
-    }
-    // Seccion boton membresia
-    .button-membresia {
-        max-width: 135px;
-    }
-    #ui-id-1 {
-        left: 25.6% !important;
-        width: 29.7% !important;
-        height: 27vh;
-
-    }
-}*/
-/*@media (min-width: 1360px) {
-    #ui-id-1 {
-        //left: 25.2% !important;
-        height: 30vh;
-    }
-    .icon_searchH {
-        background-size: 60%;
-    }
-    .dropdown-menu .dropdown-item {
-        height: 55px;
-    }
-    .dropdown-menu .menu_item {
-        height: 55px;
-    }
-}*/
-/*@media (min-width: 1440px) {
-    .contains_barra{
-        display: none;
-    }
-    // Contenedor principal
-    .contains_header {
-        width: 75%;
-        height: 100%;
-        padding: 0;
-        justify-content: flex-start;
-    }
-    // Seccion logo zaabra
-    .logo_header {
-        width: 80%;
-    }
-    //Seccion barra de busqueda
-    .contains_boxsearch {
-        padding: 0%;
-        flex: 45%;
-        width: 45%;
-        height: 100%;
-        margin-right: 0;
-        align-items: center;
-        display: flex;
-        align-self: center;
-    }
-    .contenedorLupa {
-        padding: 0;
-        border: none;
-        height: auto;
-        width: 6%;
-        position: relative;
-        margin-top: 0;
-        margin-right: 3%;
-        right: 0;
-        align-items: flex-end;
-    }
-    .icon_searchH {
-        background-size: 60%;
-    }
-    #ui-id-1 {
-        //left: 25.65% !important;
-    }
-    //Seccion boton usuario
-    .dropdown-paciente {
-        width: 30%;
-        height: 100%;
-    }
-    .soy_paciente{
-        width: 8%;
-    }
-
-    .icon_paciente {
-        background-size: contain;
-        background-image: url('/img/header/icono-soy-paciente-blanco.svg');
-        background-repeat: no-repeat;
-        background-position-y: center;
-    }
-    .menu_paciente {
-        padding: 0;
-        height: auto;
-        width: 200px;
-    }
-    .texto_item-menu {
-        width: 60%;
-        margin-left: 20%;
-    }
-    .texto_item-menu-paciente {
-        width: 60%;
-        margin-left: 35%;
-    }
-    //Seccion membresia
-    .button-membresia {
-        display: flex;
-        max-width: 145px;
-    }
-    .img-button-membresia {
-        width: 100%;
-    }
-    //Seccion menu hamburguesa
-    .menu-hamburger {
-        width: 7%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .menu_hamburguesa {
-        height: auto;
-        width: 260px;
-    }
-}*/
 @media (min-width: 1920px) {
   .navbar_zaabrasalud {
     height: 75px;
@@ -11192,8 +11042,29 @@ a:link, a:visited, a:active, a:hover {
     height: 35px;
   }
 
+  .inputBarraBusquedad {
+    height: 35px;
+    font-size: 1.2em;
+  }
+
   .soy_paciente {
     width: 100px;
+  }
+
+  .contenedorLupa {
+    padding: 0;
+    border: none;
+    height: auto;
+    width: 5%;
+    position: relative;
+    margin-top: 0;
+    margin-right: 3%;
+    right: 0;
+    align-items: flex-end;
+  }
+
+  #ui-id-1 {
+    height: 31vh;
   }
 
   .soy_paciente .dropdown-toggle {
@@ -11221,132 +11092,6 @@ a:link, a:visited, a:active, a:hover {
   margin: auto;
 }
 
-<<<<<<< HEAD
-=======
-  .logo_header {
-    width: 95%;
-  }
-
-  .soy_paciente .dropdown-toggle {
-    background-image: url(/img/header/icono-soy-paciente-blanco.svg);
-    background-size: 75%;
-    background-position-x: center;
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .contenedorLupa {
-    padding: 0;
-    border: none;
-    height: auto;
-    width: 5%;
-    position: relative;
-    margin-top: 0;
-    margin-right: 3%;
-    right: 0;
-    align-items: flex-end;
-  }
-
-  #ui-id-1 {
-    /*width: 29.7% !important;*/
-    height: 31vh;
-  }
-
-  .soy_paciente .dropdown-toggle {
-    background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-    background-size: 70%;
-    background-position-x: center;
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .icon_paciente:focus {
-    background-image: url("/img/header/icono-soy-paciente-azul.svg");
-    background-color: #ffffff;
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .menu_paciente {
-    padding: 0;
-    height: auto;
-    width: 190%;
-  }
-
-  .button-membresia {
-    max-width: 180px;
-  }
-
-  .menu-hamburger .dropdown-toggle {
-    background-image: url(/img/header/icono-hamburguesa-blanco.svg);
-    background-repeat: no-repeat;
-    background-size: 40%;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .menu_hamburguesa {
-    height: auto;
-    width: 260px;
-  }
-
-  .menu-hamburger .dropdown-toggle {
-    background-image: url("/img/header/icono-hamburguesa-blanco.svg");
-    background-repeat: no-repeat;
-    background-size: 45%;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .icon-menu:focus {
-    background-image: url("/img/header/icono-hamburguesa-azul.svg");
-    background-size: 45%;
-    background-color: #ffffff;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-}
-.footer_newsletter {
-  background: #e8e8e8;
-  margin: auto;
-  padding: 1% 0;
-  text-align: center;
-  display: flex;
-}
-
-.newsletter_contenido {
-  padding: 0;
-  margin: auto;
-}
-
->>>>>>> c546b3f1dbc0025a32d3b3bfb882242811157499
 .newsletter_titulo {
   padding: 0;
   margin: 0;
@@ -12403,7 +12148,7 @@ a:link, a:visited, a:active, a:hover {
   color: #0083D6;
 }
 
-@media (min-width: 320px) and (orientation: portrait) {
+@media (max-width: 359.98px) {
   .imagen_bannerPrin-acerca {
     height: 18vh;
   }
@@ -12424,14 +12169,14 @@ a:link, a:visited, a:active, a:hover {
 
   .boton_collapse-on-acerca {
     font-size: 0.75em;
-    background-size: 6% !important;
+    background-size: 15px !important;
     background-position-x: 97% !important;
     padding: 2% 10% 2% 3% !important;
   }
 
   .boton_collapse-off-acerca {
     font-size: 0.75em;
-    background-size: 6%;
+    background-size: 15px;
     background-position-x: 97%;
     padding: 2% 10% 2% 3%;
   }
@@ -12458,14 +12203,24 @@ a:link, a:visited, a:active, a:hover {
     margin-bottom: 5%;
   }
 }
-@media (min-width: 360px) and (orientation: portrait) {
+@media (min-width: 360px) {
   .title_banner_acerca {
     font-size: 1em;
     top: 16%;
     left: 4%;
   }
+
+  .boton_collapse-off-acerca {
+    font-size: 0.9em;
+    background-size: 15px;
+  }
+
+  .boton_collapse-on-acerca {
+    font-size: 0.9em;
+    background-size: 15px !important;
+  }
 }
-@media (min-width: 375px) and (orientation: portrait) {
+@media (min-width: 375px) {
   .title_banner_acerca {
     font-size: 1.1em;
     top: 15%;
@@ -12477,7 +12232,7 @@ a:link, a:visited, a:active, a:hover {
     margin: 8% 0;
   }
 }
-@media (min-width: 768px) and (orientation: portrait) {
+@media (min-width: 601px) and (max-width: 1023.98px) {
   .imagen_bannerPrin-acerca {
     height: 20vh;
   }
@@ -12498,34 +12253,28 @@ a:link, a:visited, a:active, a:hover {
     margin: 9.8% 0;
   }
 
-  .boton_collapse-on-acerca {
-    font-size: 1.4em;
-    padding: 0 10% 0 3% !important;
-    height: 5vh;
-    background-size: 4% !important;
-    background-position-x: 97% !important;
-  }
-
   .boton_collapse-off-acerca {
-    font-size: 1.4em;
-    padding: 0 10% 0 3%;
-    height: 5vh;
-    background-size: 4% !important;
-    background-position-x: 97%;
+    font-size: 1.2em;
+    background-size: 19px;
   }
 
-  .txt_interno_toggleFoot {
+  .boton_collapse-on-acerca {
     font-size: 1.2em;
-    margin-bottom: 5%;
+    background-size: 19px !important;
   }
 
   .title_interno_toggleFoot {
-    font-size: 1.4em;
+    font-size: 1.2em;
     margin-bottom: 2%;
   }
 
+  .txt_interno_toggleFoot {
+    font-size: 1.1em;
+    margin-bottom: 5%;
+  }
+
   .option_toggleFoot {
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-family: "Roboto", "Regular";
     color: #3E3E3E;
     padding-left: 6%;
@@ -12613,7 +12362,6 @@ a:link, a:visited, a:active, a:hover {
 .imagen_bannerPrin-polit {
   width: 100%;
   padding: 0;
-  height: 30vh;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -12621,11 +12369,8 @@ a:link, a:visited, a:active, a:hover {
 .title_banner_polit {
   color: #0083D6;
   font-family: "Quicksand";
-  font-size: 2.2em;
   font-weight: 700;
   position: absolute;
-  top: 20%;
-  left: 16%;
   line-height: 1;
 }
 
@@ -12637,7 +12382,6 @@ a:link, a:visited, a:active, a:hover {
 
 .titulo_superior-polit {
   font-family: "Roboto", "Regular";
-  font-size: 1em;
   color: #3E3E3E;
   text-align: center;
   padding: 0;
@@ -12657,7 +12401,6 @@ a:link, a:visited, a:active, a:hover {
 
 .boton_collapse-on-polit {
   font-family: "Quicksand", "Regular";
-  font-size: 1em;
   font-weight: bold;
   text-decoration: none;
   color: #FFFFFF;
@@ -12667,17 +12410,14 @@ a:link, a:visited, a:active, a:hover {
   border-radius: 0px;
   border: 1px solid #0083D6;
   width: 100%;
-  height: 6vh;
   background-image: url("/img/iconos/icono-x.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-position-x: 95%;
-  background-size: 3%;
 }
 
 .boton_collapse-off-polit {
   font-family: "Quicksand", "Regular";
-  font-size: 1em;
   font-weight: bold;
   text-decoration: none;
   color: #232323;
@@ -12687,12 +12427,10 @@ a:link, a:visited, a:active, a:hover {
   border-radius: 0px;
   border: 1px solid #F5F5F5F5;
   width: 100%;
-  height: 6vh;
   background-image: url("/img/iconos/icono-mas.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-position-x: 95%;
-  background-size: 3%;
 }
 
 .text_interno-toggle-polit {
@@ -12707,55 +12445,57 @@ a:link, a:visited, a:active, a:hover {
   text-decoration: underline !important;
 }
 
-@media (min-width: 320px) and (orientation: portrait) {
-  .imagen_bannerPrin-polit {
-    height: 18vh;
-  }
+.imagen_bannerPrin-polit {
+  height: 100px;
+}
 
+.title_banner_polit {
+  font-size: 0.95em;
+  top: 90px;
+  left: 20px;
+}
+
+.section_principal-polit {
+  width: 100%;
+}
+
+.titulo_superior-polit {
+  font-size: 0.6em;
+}
+
+.boton_collapse-on-polit {
+  font-size: 0.75em;
+  background-size: 6%;
+}
+
+.boton_collapse-off-polit {
+  font-size: 0.75em;
+  background-size: 6%;
+}
+
+.text_interno-toggle-polit {
+  font-size: 0.6em;
+}
+
+.ancla_toggleFoot {
+  font-size: 1.1em;
+}
+
+@media (min-width: 360px) {
   .title_banner_polit {
-    font-size: 0.95em;
-    top: 17%;
-    left: 4%;
-  }
-
-  .section_principal-polit {
-    width: 100%;
+    font-size: 1.1em;
+    left: 28px;
   }
 
   .titulo_superior-polit {
-    font-size: 0.6em;
-  }
-
-  .boton_collapse-on-polit {
-    font-size: 0.75em;
-    background-size: 6%;
-  }
-
-  .boton_collapse-off-polit {
-    font-size: 0.75em;
-    background-size: 6%;
-  }
-
-  .text_interno-toggle-polit {
-    font-size: 0.6em;
-  }
-
-  .ancla_toggleFoot {
-    font-size: 1.1em;
+    font-size: 0.8em;
   }
 }
-@media (min-width: 360px) and (orientation: portrait) {
+@media (min-width: 375px) {
   .title_banner_polit {
     font-size: 1.1em;
-    top: 16%;
-    left: 4%;
-  }
-}
-@media (min-width: 375px) and (orientation: portrait) {
-  .title_banner_polit {
-    font-size: 1.1em;
-    top: 15.5%;
-    left: 4%;
+    top: 90px;
+    left: 30px;
   }
 
   .titulo_superior-polit {
@@ -12763,15 +12503,15 @@ a:link, a:visited, a:active, a:hover {
     margin: 8% 0;
   }
 }
-@media (min-width: 768px) and (orientation: portrait) {
+@media (min-width: 601px) and (max-width: 1023.98px) {
   .imagen_bannerPrin-polit {
-    height: 20vh;
+    height: 220px;
   }
 
   .title_banner_polit {
     font-size: 2.35em;
-    top: 15%;
-    left: 4%;
+    top: 150px;
+    left: 60px;
   }
 
   .section_principal-polit {
@@ -12779,7 +12519,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .titulo_superior-polit {
-    font-size: 1.6em;
+    font-size: 1.5em;
     padding: 0;
     margin: 5.5% 0;
   }
@@ -12804,79 +12544,81 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1em;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   .imagen_bannerPrin-polit {
-    height: 42vh;
+    height: 285px;
   }
 
   .title_banner_polit {
-    font-size: 3.1em;
-    top: 25%;
-    left: 10%;
+    font-size: 2.5em;
+    top: 150px;
+    left: 125px;
   }
 
   .section_principal-polit {
-    width: 65%;
+    width: 77%;
   }
 
   .titulo_superior-polit {
-    padding: 0;
-    margin: 5% 0;
+    font-size: 1.5em;
+  }
+
+  .boton_collapse-off-acerca {
+    font-size: 1.2em;
+    background-size: 21px;
+  }
+
+  .boton_collapse-on-acerca {
+    font-size: 1.2em;
+    background-size: 21px !important;
+  }
+
+  .title_interno_toggleFoot {
+    font-size: 1.2em;
+  }
+
+  .txt_interno_toggleFoot {
+    font-size: 1em;
+  }
+
+  .option_toggleFoot {
+    font-size: 1em;
   }
 }
-@media (min-width: 1360px) {
+@media (min-width: 1200px) {
+  .imagen_bannerPrin-polit {
+    height: 300px;
+  }
+
   .title_banner_polit {
-    font-size: 3em;
-    top: 25%;
-    left: 15%;
+    top: 150px;
+    left: 150px;
   }
 }
 @media (min-width: 1440px) {
+  .section_principal-polit {
+    width: 76%;
+  }
+
   .title_banner_polit {
-    font-size: 3.5em;
-    top: 24%;
-    left: 12%;
-  }
-
-  .titulo_superior-polit {
-    font-size: 1.25em;
-  }
-
-  .boton_collapse-off-polit {
-    font-size: 1.5em;
-    background-size: 3%;
-  }
-
-  .boton_collapse-on-polit {
-    font-size: 1.5em;
-    background-size: 3%;
-  }
-
-  .text_interno-toggle-polit {
-    font-size: 1em;
+    font-size: 3em;
+    top: 150px;
+    left: 180px;
   }
 }
 @media (min-width: 1920px) {
   .imagen_bannerPrin-polit {
-    height: 48vh;
+    height: 450px;
   }
 
   .title_banner_polit {
-    font-size: 4.25em;
-    top: 28%;
-    left: 15%;
+    font-size: 3.5em;
+    top: 200px;
+    left: 380px;
   }
 
-  .titulo_superior-polit {
-    margin: 5% 0;
-  }
-
-  .boton_collapse-off-polit {
-    background-size: 2%;
-  }
-
-  .boton_collapse-on-polit {
-    background-size: 2%;
+  .section_principal-polit {
+    width: 61%;
   }
 }
 .imagen_bannerPrin-pregunta {
@@ -13277,15 +13019,17 @@ a:link, a:visited, a:active, a:hover {
 .btn_agendarHome {
   font-family: "Quicksand";
   font-size: 1.25em;
-  color: #ffffff;
-  background: #0083d6;
+  font-weight: bolder;
   border: none;
   border-radius: 3px;
   height: calc(1.2em + 0.75rem + 2px);
-  width: 48%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-evenly;
+  padding: 0 5%;
 }
 
 .hvr-float-shadow {
@@ -13581,9 +13325,9 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 320px) {
   .contain_slide_prinHome {
     position: absolute;
-    top: 15px;
-    left: 25px;
-    width: 45%;
+    top: 10px;
+    left: 15px;
+    width: 60%;
   }
 
   .titulo-slide_prinHome {
@@ -13650,12 +13394,16 @@ a:link, a:visited, a:active, a:hover {
   .btn_agendarHome {
     font-family: "Quicksand";
     font-size: 0.6em;
-    color: #ffffff;
-    background: #0083d6;
+    font-weight: bolder;
     border: none;
     border-radius: 3px;
     height: calc(.8em + .85em + 2px);
-    width: 40%;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
   }
 
   .titulo_portafolio {
@@ -13936,13 +13684,17 @@ a:link, a:visited, a:active, a:hover {
   .btn_agendarHome {
     font-family: "Quicksand";
     font-size: 1em;
-    color: #ffffff !important;
-    background: #0083D6;
+    font-weight: bolder;
     border: none;
     border-radius: 3px;
     height: calc(1em + 1em + 1px);
-    width: 40%;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
     margin-top: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
   }
 
   /*.pagination_home {
@@ -14166,12 +13918,16 @@ a:link, a:visited, a:active, a:hover {
   .btn_agendarHome {
     font-family: "Quicksand";
     font-size: 1.1em;
-    color: #ffffff;
-    background: #0083d6;
+    font-weight: bolder;
     border: none;
     border-radius: 3px;
     height: calc(1.2em + 0.75rem + 2px);
-    width: 48%;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
   }
 
   .swiper-pagination-bullet {
@@ -14382,7 +14138,6 @@ a:link, a:visited, a:active, a:hover {
 
   .btn_agendarHome {
     font-size: 1.3em;
-    width: 40%;
   }
 
   .section_txtBanner {
@@ -14531,7 +14286,6 @@ a:link, a:visited, a:active, a:hover {
 
   .btn_agendarHome {
     font-size: 1.5em;
-    width: 35%;
   }
 
   .pagination_home {
@@ -14582,8 +14336,7 @@ a:link, a:visited, a:active, a:hover {
   .btn_agendarHome {
     font-family: "Quicksand";
     font-size: 1.25em;
-    color: #ffffff;
-    background: #0083D6;
+    font-weight: bolder;
     border: none;
     border-radius: 3px;
     height: calc(1.2em + 0.75rem + 2px);
@@ -14760,7 +14513,6 @@ a:link, a:visited, a:active, a:hover {
 
   .btn_agendarHome {
     font-size: 2em;
-    width: 35%;
   }
 
   .section_txtBanner {
@@ -20326,6 +20078,7 @@ a:link, a:visited, a:active, a:hover {
     justify-content: flex-end;
     padding-top: 50%;
   }
+
   .contains_slide .contains_buttons {
     max-width: 70%;
   }
@@ -24760,6 +24513,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .section_principal-login {
+  width: 90%;
   border: none;
   margin-bottom: 4%;
   padding: 0;
@@ -25009,17 +24763,18 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .titulo_principal-login {
-    font-size: 1.438em;
+    font-size: 1.5em;
     font-weight: 500;
-    margin: 8% 8% 5% 8%;
+    margin: 12% 8% 8% 8%;
   }
 
   .section_principal-login {
-    margin-bottom: 15.5%;
+    width: 85%;
+    margin-bottom: 21%;
   }
 
   .section_body-login {
-    padding: 2% 10% 0 10%;
+    padding: 5% 10% 0 10%;
   }
 
   .section_texto-iniciar {
@@ -25036,7 +24791,7 @@ a:link, a:visited, a:active, a:hover {
 
   .btn_Ingreso-login {
     font-size: 1.25em;
-    width: 40%;
+    width: 35%;
   }
 
   .flecha_ingreso-login {
@@ -25058,6 +24813,25 @@ a:link, a:visited, a:active, a:hover {
 
   .img_redes-login {
     max-width: 50px;
+  }
+}
+@media (min-width: 1024px) {
+  .section_principal-login {
+    width: 75%;
+    margin-bottom: 5%;
+  }
+
+  .titulo_principal-login {
+    margin: 5% 8% 3% 8%;
+  }
+
+  .btn_Ingreso-login {
+    width: 30%;
+  }
+}
+@media (min-width: 1200px) {
+  .section_principal-login {
+    width: 65%;
   }
 }
 @media (min-width: 1440px) {
@@ -25116,6 +24890,10 @@ a:link, a:visited, a:active, a:hover {
   .input_height-fullhd {
     height: 5vh;
     font-size: 1.25em;
+  }
+
+  .section_principal-login {
+    width: 60%;
   }
 }
 .add-border-green {
@@ -33701,8 +33479,8 @@ label.error {
     background-color: #ffffff;
     background-repeat: no-repeat;
     background-position: center;
-    width: 5%;
-    height: 3vh;
+    width: 25px;
+    height: 25px;
     margin-right: auto;
   }
 }
@@ -36250,5 +36028,429 @@ label.error {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+}
+.cabecera_forPacien {
+  margin: 5% auto;
+  width: 100%;
+}
+
+.titulo_forPacien {
+  font-size: 1.5em;
+  font-family: "Quicksand", "Regular";
+  font-weight: bold;
+  color: #0083D6;
+  text-align: center;
+}
+
+.subTitulo_forPacien {
+  font-size: 1em;
+  font-family: "Roboto", "Regular";
+  color: #3E3E3E;
+  text-align: initial;
+  padding: 0;
+  margin-top: 3%;
+}
+
+.tarjeta_datosSecun_formPaciente {
+  box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6% 0;
+  margin-bottom: 7%;
+  width: 100%;
+}
+
+.containt_img_formPacien {
+  width: 100%;
+}
+
+.content_img_formPacien {
+  height: 230px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input_imgUsuario-formPacien {
+  position: absolute;
+  top: 204px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 200px;
+  height: 235px;
+  opacity: 0;
+  overflow: auto;
+  margin: 0 auto;
+}
+
+.img_paciente_formPacien {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #dcdcdc;
+  border-radius: 100px;
+  background: #dcdcdc;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+.subirFoto_formPacien {
+  background-image: url(/img/formulario-profesional/icono-subir.svg);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 8%;
+  background-size: 12px;
+  text-align: center;
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.content_datosBasic_formPacien {
+  width: 100%;
+}
+
+.content_options_formPacien {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+}
+
+.documento_formPacien {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.content_documento_formPacien {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+}
+
+.text_label_formPacien {
+  font-size: 1em;
+  font-family: "Quicksand", "Regular";
+  font-weight: bold;
+  color: #232323;
+  width: 100%;
+  text-align: left;
+  padding: 8px 15px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.content_nombre_forPacien {
+  width: 100%;
+  padding: 0 0 0 0;
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+  justify-content: space-between;
+}
+
+.content_inputs_forPacien {
+  width: 100%;
+  padding: 0 0 0 0;
+  display: flex;
+}
+
+.content_btnGuardar_formPacien {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin-top: 5%;
+  margin-bottom: 0;
+}
+
+.datosSecond_formPacien {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .tarjeta_datosSecun_formPaciente {
+    padding: 3% 0;
+    margin-bottom: 4%;
+  }
+
+  .containt_img_formPacien {
+    width: 35%;
+  }
+
+  .input_imgUsuario-formPacien {
+    top: 284px;
+    left: 10%;
+    right: 66%;
+    width: 195px;
+    height: 235px;
+  }
+
+  .content_datosBasic_formPacien {
+    width: 65%;
+    padding-left: 2%;
+    border-left: 1px solid #dcdcdc;
+  }
+
+  .content_nombre_forPacien {
+    flex-direction: row;
+    height: 38px;
+  }
+
+  .content_documento_formPacien {
+    width: 50%;
+  }
+
+  .datosSecond_formPacien {
+    width: 49%;
+  }
+
+  .content_btnGuardar_formPacien {
+    margin-top: 3%;
+  }
+}
+@media (min-width: 1024px) {
+  .cabecera_forPacien {
+    margin: 5% auto;
+    width: 83%;
+  }
+
+  .tarjeta_datosSecun_formPaciente {
+    padding: 3% 0;
+    margin-bottom: 4%;
+  }
+
+  .tarjeta_datosSecun_formPaciente {
+    width: 83%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1200px) {
+  .cabecera_forPacien {
+    width: 80%;
+  }
+
+  .tarjeta_datosSecun_formPaciente {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1200px) {
+  .cabecera_forPacien {
+    width: 85%;
+  }
+
+  .tarjeta_datosSecun_formPaciente {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.swiper_principalInstProf {
+  height: 115px;
+}
+
+.containt_slide_instProf {
+  width: 115px;
+  top: 30px;
+  left: 25px;
+  position: absolute;
+}
+
+.container_principal_instProf {
+  background: #F9F9F9;
+  width: 100%;
+}
+
+.container_tarjetas_instProf {
+  background: #F9F9F9;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10% 0 5% 0;
+}
+
+.tarjeta_instProf {
+  width: 230px;
+  padding: 5% 1%;
+  margin-bottom: 5%;
+  box-shadow: 0px 3px 6px #00000038;
+}
+
+.img_perfil_instProf {
+  border: 1px solid #dcdcdc;
+  border-radius: 74px;
+  height: 115px;
+  width: 115px;
+  margin: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+.content_tarjeta_instProf {
+  padding: 0;
+  margin-top: 7%;
+}
+
+.content_tarjeta_instProf h2 {
+  font-family: "Quicksand";
+  font-size: 1.3em;
+  font-weight: bolder;
+  color: #019F86;
+  text-align: center;
+  margin: 0;
+}
+
+.content_tarjeta_instProf h5 {
+  font-family: "Quicksand";
+  font-size: 1.05em;
+  font-weight: bolder;
+  color: #232323;
+  text-align: center;
+}
+
+.content_tarjeta_instProf p {
+  font-family: "Roboto";
+  font-size: 0.85em;
+  font-weight: 500;
+  color: #232323;
+  text-align: center;
+}
+
+.content_btn_instprof {
+  width: 125px;
+  margin: auto;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 7%;
+}
+
+.btn_agendar_instProf {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #019F86 !important;
+  padding: 5%;
+  border-radius: 3px;
+  font-size: 1em;
+}
+
+@media (min-width: 700px) {
+  .swiper_principalInstProf {
+    height: 220px;
+  }
+
+  .containt_slide_instProf {
+    width: 250px;
+    top: 50px;
+    left: 65px;
+  }
+
+  .container_tarjetas_instProf {
+    justify-content: space-evenly;
+    width: 75%;
+    margin: auto;
+    padding: 10% 0 3% 0;
+  }
+
+  .tarjeta_instProf {
+    width: 250px;
+    margin-right: 3%;
+    margin-left: 3%;
+    margin-bottom: 5%;
+  }
+}
+@media (min-width: 1024px) {
+  .containt_slide_instProf {
+    left: 125px;
+  }
+
+  .container_tarjetas_instProf {
+    width: 77%;
+    padding: 10% 0 5% 0;
+  }
+
+  .tarjeta_instProf {
+    width: 246px;
+    padding: 3% 1%;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: 3%;
+  }
+}
+@media (min-width: 1200px) {
+  .swiper_principalInstProf {
+    height: 300px;
+  }
+
+  .containt_slide_instProf {
+    left: 150px;
+  }
+
+  .container_tarjetas_instProf {
+    padding: 7% 0 3% 0;
+  }
+
+  .tarjeta_instProf {
+    width: 221px;
+    padding: 3% 0.5%;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+  }
+}
+@media (min-width: 1360px) {
+  .swiper_principalInstProf {
+    height: 360px;
+  }
+
+  .containt_slide_instProf {
+    top: 85px;
+    left: 165px;
+  }
+
+  .tarjeta_instProf {
+    width: 235px;
+    margin-right: 1%;
+    margin-left: 1%;
+  }
+}
+@media (min-width: 1440px) {
+  .containt_slide_instProf {
+    left: 175px;
+  }
+
+  .tarjeta_instProf {
+    width: 254px;
+  }
+
+  .img_perfil_instProf {
+    border-radius: 74px;
+    height: 150px;
+    width: 150px;
+  }
+}
+@media (min-width: 1920px) {
+  .swiper_principalInstProf {
+    height: 500px;
+  }
+
+  .tarjeta_instProf {
+    width: 261px;
+    padding: 2% 0.5%;
   }
 }

@@ -1,0 +1,170 @@
+.swiper_principalInstProf {
+    height: 115px;
+}
+.containt_slide_instProf {
+    width: 115px;
+    top: 30px;
+    left: 25px;
+    position: absolute;
+}
+.container_principal_instProf {
+    background: #F9F9F9;
+    width: 100%;
+}
+.container_tarjetas_instProf {
+    background: #F9F9F9;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10% 0 5% 0;
+}
+.tarjeta_instProf {
+    width: 230px;
+    padding: 5% 1%;
+    margin-bottom: 5%;
+    box-shadow: 0px 3px 6px #00000038;
+ }
+.img_perfil_instProf {
+    border: 1px solid #dcdcdc;
+    border-radius: 74px;
+    height: 115px;
+    width: 115px;
+    margin: auto;
+    object-fit: cover;
+    object-position: top;
+}
+.content_tarjeta_instProf {
+    padding: 0;
+    margin-top: 7%;
+}
+.content_tarjeta_instProf h2 {
+    font-family: 'Quicksand';
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #019F86;
+    text-align: center;
+    margin: 0;
+}
+.content_tarjeta_instProf h5 {
+    font-family: 'Quicksand';
+    font-size: 1.05em;
+    font-weight: bolder;
+    color: #232323;
+    text-align: center;
+}
+.content_tarjeta_instProf p {
+    font-family: 'Roboto';
+    font-size: 0.85em;
+    font-weight: 500;
+    color: #232323;
+    text-align: center;
+}
+.content_btn_instprof {
+    width: 125px;
+    margin: auto;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 7%;
+}
+.btn_agendar_instProf {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #019F86 !important;
+    padding: 5%;
+    border-radius: 3px;
+    font-size: 1em;
+}
+@media(min-width: 700px) {
+    .swiper_principalInstProf {
+        height: 220px;
+    }
+    .containt_slide_instProf {
+        width: 250px;
+        top: 50px;
+        left: 65px;
+    }
+    .container_tarjetas_instProf {
+        justify-content: space-evenly;
+        width: 75%;
+        margin: auto;
+        padding: 10% 0 3% 0;
+    }
+    .tarjeta_instProf {
+        width: 250px;
+        margin-right: 3%;
+        margin-left: 3%;
+        margin-bottom: 5%;
+    }
+}
+@media(min-width: 1024px) {
+    .containt_slide_instProf {
+        left: 125px;
+    }
+    .container_tarjetas_instProf {
+        width: 77%;
+        padding: 10% 0 5% 0;
+    }
+    .tarjeta_instProf {
+        width: 246px;
+        padding: 3% 1%;
+        margin-right: 1%;
+        margin-left: 1%;
+        margin-bottom: 3%;
+    }
+}
+@media(min-width: 1200px) {
+    .swiper_principalInstProf {
+        height: 300px;
+    }
+    .containt_slide_instProf {
+        left: 150px;
+    }
+    .container_tarjetas_instProf {
+        padding: 7% 0 3% 0;
+    }
+    .tarjeta_instProf {
+        width: 221px;
+        padding: 3% .5%;
+        margin-right: .5%;
+        margin-left: .5%;
+    }
+}
+@media(min-width: 1360px) {
+    .swiper_principalInstProf {
+        height: 360px;
+    }
+    .containt_slide_instProf {
+        top: 85px;
+        left: 165px;
+    }
+    .tarjeta_instProf {
+        width: 235px;
+        margin-right: 1%;
+        margin-left: 1%;
+    }
+}
+@media(min-width: 1440px) {
+    .containt_slide_instProf {
+        left: 175px;
+    }
+    .tarjeta_instProf {
+        width: 254px;
+    }
+    .img_perfil_instProf {
+        border-radius: 74px;
+        height: 150px;
+        width: 150px;
+    }
+}
+@media(min-width: 1920px) {
+    .swiper_principalInstProf {
+        height: 500px;
+    }
+    .tarjeta_instProf {
+        width: 261px;
+        padding: 2% 0.5%;
+    }
+}

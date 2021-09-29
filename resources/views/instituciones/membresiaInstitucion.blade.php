@@ -259,11 +259,64 @@
     <!-- Seccion texto de la linea de ateción -->
     <div class="contain_accordion-institucion" id="accordion1">
       <p class="texto_lineaAtencion-institucion">
-        Instituciones como clínicas, centros médicos, hospitales, laboratorio clínico, laboratorio odontológico, IPS, EPS y clínicas veterinarias.
-        Comunicarse con nuestros medical software managers o directamente con nuestra línea de atención 7123945 - 3212449869.
+        Instituciones como clínicas, centros médicos, hospitales, laboratorios clínicos, laboratorios odontológicos, IPS, EPS, clínicas veterinarias o
+        si pertenece a alguna de las asociaciones que tienen convenios con nosotros,
+        comunicarse con nuestros medical software managers o directamente con nuestra línea de atención 7123945 - 3212449869.
       </p>
     </div>
   </section>
 </div>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal_dialog-popup" role="document">
+        <div class="modal-content modal_content-popup">
+            <!-- Sección boton derecho de cierre "X" -->
+            <div class="modal-header modal_header-popup">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body p-0">
+                <!-- Titulo y texto de encabezado -->
+                <h1 class="modal-title titulo_principal-popup" id="exampleModalLabel"> Seleccione el medio de pago</h1>
+
+                <p class="texto_superior-popup"> Seleccione el medio de pago que mejor se adapte a su necesidad. </p>
+
+                <!-- Sección iconos medios de pago Tarjeta de credito y PSE -->
+                <!--//////      Funcionalidad de cambio de color de los botones e iconos de pago del poup se encuentran en el archivo instituciones.js     //////-->
+                <form action="{{ route('pay-openPay') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="id_tipo_pago" id="id_tipo_pago" value="16">
+                    <div class="section_icons-popup">
+                        <!-- Tarjeta de credito -->
+                        <div class="secction_tarjeta-popup">
+                            <img id="img_tarjCred" src="{{ asset('/img/popup-pago/tarjetas-de-credito-azul.svg') }}" class="icon_popup">
+
+                            <h3 class="textoCheck_popup"> Tarjetas de crédito </h3>
+
+                            <input class="inputCheck_popup" type="radio" name="metodo_pago" id="metodo_pago" value="card" />
+                        </div>
+
+                        <!-- PSE -->
+                        <div class="secction_tarjeta-popup">
+                            <img id="img_pagoPse" src="{{ asset('/img/popup-pago/medios-online-pse-azul.svg') }}" class="icon_popup">
+
+                            <h3 class="textoCheck_popup"> Pago en línea (PSE) </h3>
+
+                            <input class="inputCheck_popup" type="radio" name="metodo_pago" id="metodo_pago" value="pse" />
+                        </div>
+                    </div>
+
+                    <!-- Sección botón Pagar -->
+                    <div class="section_btnPagar-popup">
+                        <button type="submit" class="btnPagar-popup" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera"> {{ __('Pagar') }}
+                            <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_pagar-popup" alt="">
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
