@@ -44,7 +44,7 @@
 
         <div class="section_btn_entidades">
           <a class="content_btn_entidades" href="{{url('Instituciones/'.$objinstituciones->slug)}}">
-            <button type="submit" value="" class="btnVer_entidades"> Ver insttituciones 
+            <button type="submit" value="" class="btnVer_entidades"> Ver instituciones 
               <img class="icon_arrow_entidades" src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" alt="">
             </button>
           </a>
