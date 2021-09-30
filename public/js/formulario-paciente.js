@@ -135,21 +135,6 @@ $('#form-basico-paciente').validate({
         },
         'numero_documento': {
             required: true,
-        },
-        'celular': {
-            required: true,
-        },
-        'telefono': {
-            required: true,
-        },
-        'departamento': {
-            required: true,
-        },
-        'municipio': {
-            required: true,
-        },
-        'eps': {
-            required: true,
         }
     },
     messages: {
@@ -164,28 +149,7 @@ $('#form-basico-paciente').validate({
         },
         'numero_documento':{
             required: "Por favor ingrese el número de identificación",
-        },
-        'celular':{
-            required: "Por favor ingrese el número celular",
-        },
-        'telefono':{
-            required: "Por favor ingrese el número del teléfono fijo",
-        },
-        'pais':{
-            required: "Por favor ingrese el país",
-        },
-        'departamento':{
-            required: "Por favor ingrese el departamento",
-        },
-        'provincia':{
-            required: "Por favor ingrese la provincia",
-        },
-        'municipio':{
-            required: "Por favor ingrese el municipio",
-        },
-        'eps':{
-            required: "Por favor ingrese la eps o regimen médico",
-        },
+        }
     },
     submitHandler: function(form) {
         //Elementos
@@ -240,6 +204,102 @@ $('#form-basico-paciente').validate({
         });
     }
 });
+
+$('#form-basico-contacto').validate({
+    rules: {
+        'celular': {
+            required: true,
+        },
+        'telefono': {
+            required: true,
+        },
+        'departamento': {
+            required: true,
+        },
+        'municipio': {
+            required: true,
+        },
+        'eps': {
+            required: true,
+        }
+    },
+    messages: {
+        'celular':{
+            required: "Por favor ingrese el número celular",
+        },
+        'telefono':{
+            required: "Por favor ingrese el número del teléfono fijo",
+        },
+        'pais':{
+            required: "Por favor ingrese el país",
+        },
+        'departamento':{
+            required: "Por favor ingrese el departamento",
+        },
+        'provincia':{
+            required: "Por favor ingrese la provincia",
+        },
+        'municipio':{
+            required: "Por favor ingrese el municipio",
+        },
+        'eps':{
+            required: "Por favor ingrese la eps o regimen médico",
+        },
+    },
+    submitHandler: function(form) {
+        //Elementos
+        var btn = '#btn-guardar-contacto-paciente';
+        boton_guardar_cargando(btn);
+        var formulario = $(form);
+        //console.log(formulario.attr('action'));
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+                //Finaliza la carga
+                $('.form-control').removeClass('is-invalid');
+                boton_guardar(btn);
+
+                //Respuesta
+                mensaje_success('#mensajes-contacto', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                $('.form-control').removeClass('is-invalid');
+                boton_guardar(btn);
+
+                //Respuesta
+                var response = event.responseJSON;
+
+                if (event.status === 422){
+                    mensaje_error('#mensajes-contacto', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-contacto', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
+});
+
 $('#form-password-paciente').validate({
     rules: {
         'password': {

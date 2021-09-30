@@ -54,7 +54,7 @@
                         <div class="content_documento_formPacien">
                             <label for="tipo_documento" class="text_label_formPacien">{{ __('paciente.tipo-documento') }}</label>
 
-                            <div class="content_inputs_forPacien">    
+                            <div class="content_inputs_forPacien">
                                 <select id="tipo_documento" class="form-control mr-md-1" name="tipo_documento">
                                     <option> Seleccione </option>
                                     <option value="1" {{ old('tipo_documento',$user->tipodocumento) == $user->tipodocumento ? 'selected' : ''}}> Cedula Ciudadania </option>
@@ -68,7 +68,7 @@
                         <div class="content_documento_formPacien">
                             <label for="numero_documento" class="text_label_formPacien">{{ __('paciente.numero-documento') }}</label>
 
-                            <div class="content_inputs_forPacien">   
+                            <div class="content_inputs_forPacien">
                                 <input id="numero_documento" class="form-control ml-md-1" type="text" name="numero_documento" value="{{ old('numero_documento', $user->numerodocumento) }}" />
                             </div>
                         </div>
@@ -83,9 +83,19 @@
                         </div>
                     </div>
                 </div>
+                <!-- Boton Guardar -->
+                <div class="content_btnGuardar_formPacien">
+                    <button id="btn-guardar-basico-paciente" class="btn btn-primary" data-text="{{ __('paciente.guardar') }}" data-text-loading="{{ __('paciente.cargando') }}...">
+                        {{ __('paciente.guardar') }}
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </div>
             </div>
+        </form>
 
+        <form action="{{ route('paciente.formulario-contacto') }}" id="form-basico-contacto" class="form">
             <div class="tarjeta_datosSecun_formPaciente">
+                <div id="mensajes-contacto" class="col-12"></div>
                 <!-- Celular -->
                 <div class="datosSecond_formPacien">
                     <div class="content_options_formPacien">
@@ -118,7 +128,7 @@
                     <div class="content_options_formPacien">
                         <label for="pais" class="text_label_formPacien"> {{ __('paciente.seleccione-pais') }} </label>
 
-                        <div class="content_inputs_forPacien"> 
+                        <div class="content_inputs_forPacien">
                             <select id="pais" class="form-control" name="pais">
                                 <option></option>
                                 @foreach($listaPaises as $pais)
@@ -134,7 +144,7 @@
                     <div class="content_options_formPacien">
                         <label for="departamento" class="text_label_formPacien"> {{ __('paciente.seleccione-departamento') }} </label>
 
-                        <div class="content_inputs_forPacien"> 
+                        <div class="content_inputs_forPacien">
                             <select id="departamento" class="form-control" name="departamento">
                                 @foreach($listaDepartamentos as $departamento)
                                     <option value="{{ $departamento->id_departamento }}"  {{ (old('departamento', $paciente->id_departamento) == $departamento->id_departamento) ? 'selected' : ''}}> {{ $departamento->nombre }}</option>
@@ -147,7 +157,7 @@
                     <div class="content_options_formPacien">
                         <label for="provincia" class="text_label_formPacien"> {{ __('paciente.seleccione-provincia') }} </label>
 
-                        <div class="content_inputs_forPacien"> 
+                        <div class="content_inputs_forPacien">
                             <select id="provincia" class="form-control" name="provincia">
                                 @foreach($listaProvincias as $provincia)
                                     <option value="{{ $provincia->id_provincia }}"  {{ (old('provincia', $paciente->id_provincia) == $provincia->id_provincia) ? 'selected' : ''}}> {{ $provincia->nombre }}</option>
@@ -158,9 +168,9 @@
 
                     <!-- Municipio -->
                     <div class="content_options_formPacien">
-                        <label for="municipio" class="text_label_formPacien"> {{ __('paciente.seleccione-municipio') }} </label>  
+                        <label for="municipio" class="text_label_formPacien"> {{ __('paciente.seleccione-municipio') }} </label>
 
-                        <div class="content_inputs_forPacien"> 
+                        <div class="content_inputs_forPacien">
                             <select id="municipio" class="form-control" name="municipio">
                                 @foreach($listaMunicipios as $municipio)
                                     <option value="{{ $municipio->id_municipio }}"  {{ (old('municipio', $paciente->id_municipio) == $municipio->id_municipio) ? 'selected' : ''}}> {{ $municipio->nombre }}</option>
@@ -173,7 +183,7 @@
                     <div class="content_options_formPacien">
                         <label for="eps" class="text_label_formPacien">{{ __('paciente.eps-regimen-medico') }}</label>
 
-                        <div class="content_inputs_forPacien"> 
+                        <div class="content_inputs_forPacien">
                             <input id="eps" class="form-control" type="text" name="eps" value="{{ old('eps', $paciente->eps) }}" />
                         </div>
                     </div>
@@ -181,15 +191,14 @@
 
                 <!-- Boton Guardar -->
                 <div class="content_btnGuardar_formPacien">
-                    <button id="btn-guardar-basico-paciente" class="btn btn-primary" data-text="{{ __('paciente.guardar') }}" data-text-loading="{{ __('paciente.cargando') }}...">
+                    <button id="btn-guardar-contacto-paciente" class="btn btn-primary" data-text="{{ __('paciente.guardar') }}" data-text-loading="{{ __('paciente.cargando') }}...">
                         {{ __('paciente.guardar') }}
                         <i class="fa fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
-   
         </form>
-     
+
     </section>
 
     {{--Cambiar contraseña paciente--}}
@@ -201,7 +210,7 @@
                 <div class="content_options_formPacien">
                     <label for="password" class="text_label_formPacien">{{ __('paciente.contraseña-actual') }}</label>
 
-                    <div class="content_inputs_forPacien"> 
+                    <div class="content_inputs_forPacien">
                         <input id="password" class="form-control" type="password" name="password" />
                     </div>
                 </div>
@@ -210,7 +219,7 @@
                 <div class="content_options_formPacien">
                     <label for="password_new" class="text_label_formPacien">{{ __('paciente.contraseña-nueva') }}</label>
 
-                    <div class="content_inputs_forPacien" class="text_label_formPacien"> 
+                    <div class="content_inputs_forPacien" class="text_label_formPacien">
                         <input id="password_new" class="form-control" type="password" name="password_new" />
                     </div>
                 </div>
@@ -219,7 +228,7 @@
                 <div class="content_options_formPacien">
                     <label for="password_new_confirmation" class="text_label_formPacien">{{ __('paciente.contraseña-repetir') }}</label>
 
-                    <div class="content_inputs_forPacien"> 
+                    <div class="content_inputs_forPacien">
                         <input id="password_new_confirmation" class="form-control" type="password" name="password_new_confirmation" />
                     </div>
                 </div>
