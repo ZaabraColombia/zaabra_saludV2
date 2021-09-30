@@ -11033,6 +11033,10 @@ a:link, a:visited, a:active, a:hover {
     height: 75px;
   }
 
+  .contains_header {
+    width: 65%;
+  }
+
   .logo_header {
     width: 75px;
     image-rendering: -webkit-optimize-contrast;
@@ -36224,6 +36228,13 @@ label.error {
     width: 83%;
   }
 
+  .input_imgUsuario-formPacien {
+    top: 295px;
+    left: 162px;
+    right: 665px;
+    width: 200px;
+  }
+
   .tarjeta_datosSecun_formPaciente {
     padding: 3% 0;
     margin-bottom: 4%;
@@ -36240,13 +36251,19 @@ label.error {
     width: 80%;
   }
 
+  .input_imgUsuario-formPacien {
+    top: 325px;
+    left: 195px;
+    right: 810px;
+  }
+
   .tarjeta_datosSecun_formPaciente {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1360px) {
   .cabecera_forPacien {
     width: 85%;
   }
@@ -36255,6 +36272,49 @@ label.error {
     width: 85%;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .input_imgUsuario-formPacien {
+    left: 275px;
+    right: 890px;
+  }
+}
+@media (min-width: 1440px) {
+  .input_imgUsuario-formPacien {
+    left: 315px;
+    right: 925px;
+  }
+}
+@media (min-width: 1920px) {
+  .tarjeta_datosSecun_formPaciente {
+    width: 100%;
+  }
+
+  .cabecera_forPacien {
+    width: 100%;
+  }
+
+  .titulo_forPacien {
+    font-size: 2.5em;
+  }
+
+  .subTitulo_forPacien {
+    font-size: 1.5em;
+  }
+
+  .input_imgUsuario-formPacien {
+    left: 315px;
+    right: 925px;
+  }
+
+  .input_imgUsuario-formPacien {
+    top: 330px;
+    left: 510px;
+    right: 1195px;
+  }
+
+  .text_label_formPacien {
+    font-size: 1.3em;
   }
 }
 .swiper_principalInstProf {
