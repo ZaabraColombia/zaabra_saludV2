@@ -1,52 +1,40 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  // Función para el slider de la línea de opciones de la landing page instituciones
-  const swiper_institucion = new Swiper(".swiper_institucion", {
-
-    //loop: false,
+    const swiper_institucion = new Swiper(".swiper_institucion", {
   
-    /*autoplay: {
-      delay: 4500,
-      disableOnInteraction: false,
-    },*/
-
-    autoHeight: true,
-    // If we need pagination
-    // If we need pagination
-  
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
-
-    // Navigation arrows
-    navigation: {
-      nextEl: '.btnNext_formProf',
-      prevEl: '.btnPrev_formProf',
-    },
-  
-    breakpoints: {
-      // when window width is >= 320px
-      320: {
-        slidesPerView: 3,
-        slidesPerGroup: 1,
-      },
-
-      // when window width is >= 1024px
-      1024: {
-        //enabled: false,
-        slidesPerView: 5,
-        slidesPerGroup: 5,
-      },
-
-      // when window width is >= 1600px
-      1600: {
-        slidesPerView: 5,
-        slidesPerGroup: 1,
-        spaceBetween: 5,
-      },
-    }
-  });
+        //loop: false,
+      
+        /*autoplay: {
+          delay: 4500,
+          disableOnInteraction: false,
+        },*/
+      
+        // If we need pagination
+        pagination: {
+            el: '.slide-counter',
+            type: 'fraction'
+        },
+      
+        breakpoints: {
+           // when window width is >= 320px
+          320: {
+            slidesPerView: 3,
+            slidesPerGroup: 1,
+          },
+           // when window width is >= 1024px
+          1024: {
+            //enabled: false,
+            slidesPerView: 5,
+            slidesPerGroup: 5,
+          },
+            // when window width is >= 1600px
+          1600: {
+            slidesPerView: 5,
+            slidesPerGroup: 1,
+            spaceBetween: 5,
+          },
+        }
+      });
 
 
       const swiper_galeria_prof = new Swiper(".swiper_galeria_inst", {

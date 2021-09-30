@@ -64,6 +64,12 @@ $('.evento_acordion .containt_options-collapse-acerca').on( "click", function() 
     $(this).find(".boton_collapse-off-acerca").toggleClass("boton_collapse-on-acerca");
 });
 
+// Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "Landin Instituciones" ubicada en el archivo "PerfilInstitucion.blade.php".
+$('.desplegable_LandInst .containt_collapse_LandInst').on( "click", function() {
+    $(this).siblings().find(".boton_collapse-off").removeClass("boton_collapse-on");
+    $(this).find(".boton_collapse-off").toggleClass("boton_collapse-on");
+});
+
 
 $('#newsletter').on('submit',function(e){
 
