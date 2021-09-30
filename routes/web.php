@@ -246,6 +246,7 @@ Route::middleware(['auth', 'roles', 'verified'])->group(function () {
 //        dd('ok');
 //    })->name('paciente.perfil');
     Route::post('/paciente/formulario-basico',[App\Http\Controllers\Paciente\FormularioPaciente::class,'basico'])->name('paciente.formulario-basico');
+    Route::post('/paciente/formulario-contacto',[App\Http\Controllers\Paciente\FormularioPaciente::class,'contacto'])->name('paciente.formulario-contacto');
     Route::post('/paciente/formulario-password',[App\Http\Controllers\Paciente\FormularioPaciente::class,'password'])->name('paciente.formulario-password');
 
 });
