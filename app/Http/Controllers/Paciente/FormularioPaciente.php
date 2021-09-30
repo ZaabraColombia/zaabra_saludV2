@@ -84,14 +84,7 @@ class FormularioPaciente extends Controller
             'primer_nombre'     => ['required'],
             'primer_apellido'   => ['required'],
             'tipo_documento'    => ['required', 'in:1,2,3'],
-            'numero_documento'  => ['required'],
-            'pais'              => ['required', 'exists:pais,id_pais'],
-            'departamento'      => ['required', 'exists:departamentos,id_departamento'],
-            'provincia'         => ['required', 'exists:provincias,id_provincia'],
-            'municipio'         => ['required', 'exists:municipios,id_municipio'],
-            'celular'           => ['required', 'size:10'],
-            'telefono'          => ['required', 'size:7'],
-            'eps'               => ['required'],
+            'numero_documento'  => ['required']
         ]);
 
         if ($validator->fails()) {
@@ -117,18 +110,12 @@ class FormularioPaciente extends Controller
         //Modificar la información del usuario
         $user->save();
 
-        //Información del perfil profesional
-        $perfil = Paciente::where('id_usuario', '=', $user->id)->first();
-
-        $perfil->telefono   = $request->telefono;
-        $perfil->celular    = $request->celular;
-        $perfil->direccion  = $request->direccion;
-        $perfil->eps        = $request->eps;
-        $perfil->id_municipio= $request->municipio;
-
         //Validar si llega la imagen
         if(!empty($request->file('foto_paciente')))
         {
+            //Información del perfil profesional
+            $perfil = Paciente::where('id_usuario', '=', $user->id)->first();
+
             //borra foto anterior
             if (@getimagesize(public_path() . "/" . $perfil->foto)) unlink(public_path() . "/" . $perfil->foto);
 
@@ -143,7 +130,53 @@ class FormularioPaciente extends Controller
 
             //capturar la fotp
             $perfil->foto = "img/pacientes/$user->id/" . $nombre_foto;
+
+            $perfil->save();
         }
+
+        return response()->json([
+            'mensaje' => 'Se modifico el perfil correctamente.'
+        ], Response::HTTP_OK);
+    }
+
+    /**
+     * Guardar la información de contacto
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function contacto(Request $request)
+    {
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'pais'              => ['required', 'exists:pais,id_pais'],
+            'departamento'      => ['required', 'exists:departamentos,id_departamento'],
+            'provincia'         => ['required', 'exists:provincias,id_provincia'],
+            'municipio'         => ['required', 'exists:municipios,id_municipio'],
+            'celular'           => ['required', 'size:10'],
+            'telefono'          => ['required', 'size:7'],
+            'eps'               => ['required'],
+        ]);
+
+        if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Ingrese correctamente la información'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        //Información del perfil profesional
+        $perfil = Paciente::where('id_usuario', '=', auth()->user()->id)->first();
+
+        $perfil->telefono   = $request->telefono;
+        $perfil->celular    = $request->celular;
+        $perfil->direccion  = $request->direccion;
+        $perfil->eps        = $request->eps;
+        $perfil->id_municipio= $request->municipio;
+
 
         $perfil->save();
 
@@ -151,7 +184,6 @@ class FormularioPaciente extends Controller
             'mensaje' => 'Se modifico el perfil correctamente.'
         ], Response::HTTP_OK);
     }
-
 
     //Guardar la información basica del paciente
     public function password(Request $request)
