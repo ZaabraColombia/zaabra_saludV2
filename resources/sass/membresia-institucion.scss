@@ -115,18 +115,18 @@
     font-size: 1.25em;
     font-weight: bold;
     text-decoration: none;
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     text-align: left;
     padding: 0 3%;
-    background: #019F86;
+    background: #019F86 !important;
     border-radius: 0px;
-    border: 1px solid #019F86;
+    border: 1px solid #019F86 !important;
     width: 100%;
     height: 6vh;
     background-image: url('/img/iconos/circulo-cierre-x-institucion.svg') !important;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-position-x: 95%;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-position-x: 95% !important;
     background-size: 4% !important;
 }
 .boton_collapse-off-institucion {
