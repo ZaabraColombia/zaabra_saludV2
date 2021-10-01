@@ -33380,6 +33380,7 @@ label.error {
 .sidebar-wrapper .menu .submenu.active {
   max-height: 999px;
   display: block;
+  padding: 0;
 }
 
 .sidebar-wrapper .menu .submenu .submenu-item.active {
