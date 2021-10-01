@@ -151,8 +151,8 @@ class perfilInstitucionController extends Controller  {
     WHERE ints.aprobado<>0 AND ints.id=$id");
     }
 
-    
-    // Función para cargar la vista de institución profesionales 
+
+    // Función para cargar la vista de institución profesionales
     public function profesionales(Request $request){
 
         $objinstitucionlandin = $this->cargarInfoInstitucLandin($request->slug);
@@ -173,9 +173,13 @@ class perfilInstitucionController extends Controller  {
         ->leftjoin('universidades', 'universidades.id_universidad', '=', 'profesionales_instituciones.id_universidad')
         ->get();
 
+        //Sacar las especialidades
+        $especialidades = array_unique(array_column($objProfesionalesIns->toArray(), 'nombre_especialidad'));
+
         return view('instituciones.profesionales-institucion', compact(
             'objbannersprincipalInstitucionProfesionales',
-            'objProfesionalesIns'
+            'objProfesionalesIns',
+            'especialidades'
         ));
     }
 
@@ -188,5 +192,5 @@ class perfilInstitucionController extends Controller  {
         ->get();
         return $consultaBannerInstitucionProfesionales;
     }
-    
+
 }
