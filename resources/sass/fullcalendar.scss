@@ -1,4 +1,4 @@
-.fc-agendarCita-button 
+.fc-agendarCita-button
 {
     background-color: #0083D6 !important;
     border-color: #0083D6 !important;
@@ -19,12 +19,12 @@
     background-color: #019F86 !important;
     border-color: #019F86 !important;
 }
-.fc-today-button 
+.fc-today-button
 {
     background-color: #019F86 !important;
     border-color: #019F86 !important;
 }
-.fc-dayGridMonth-button 
+.fc-dayGridMonth-button
 {
     background-color: #019F86 !important;
     border-color: #019F86 !important;
@@ -35,12 +35,47 @@
     border-color: #019F86 !important;
 }
 .fc-myCustomButton-button {
-    background-color: #019F86 !important;
-    border-color: #019F86 !important;
+    background-color: #0083D6 !important;
+    border-color: #0083D6 !important;
 }
 .fc-event-title-container {
     background-color: #0083D6 !important;
     border-color: #0083D6 !important;
+}
+
+.section_consulta{
+    margin-top: 1rem;
+    border-top: solid 0.05em #dcdcdc;
+}
+.section_consulta h2{
+    font-family: "Quicksand", sans-serif;
+    font-weight: bolder;
+    color: #232323;
+}
+.section_consulta > .precios{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
+}
+.section_consulta > .precios > ul{
+    display: flex;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    justify-content: space-around;
+}
+.section_consulta > .precios > ul > li > p{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    color: #3E3E3E;
+}
+.section_consulta > .precios > ul > li >span{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    color: #0083D6;
 }
 
 @media (min-width: 320px) and (orientation: portrait){

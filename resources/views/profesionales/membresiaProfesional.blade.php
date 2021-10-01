@@ -292,7 +292,7 @@
         </section>
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" target="_blank">
         <div class="modal-dialog modal-lg modal_dialog-popup" role="document">
             <div class="modal-content modal_content-popup">
                 <!-- Sección boton derecho de cierre "X" -->
@@ -335,7 +335,7 @@
 
                         <!-- Sección botón Pagar -->
                         <div class="section_btnPagar-popup">
-                            <button type="submit" class="btnPagar-popup" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera"> {{ __('Pagar') }}
+                            <button type="submit" class="btnPagar-popup" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera" formtarget="_blank"> {{ __('Pagar') }}
                                 <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_pagar-popup" alt="">
                             </button>
                         </div>

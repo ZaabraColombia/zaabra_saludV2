@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
         //Parametro para la creación del botón agendar cita
         customButtons: {
             myCustomButton: {
-            text: 'Agendar cita',
+                text: 'Ayuda',
                 click: function() {
-                    alert('clicked the custom button!');
+                    $('#ayuda').modal();
                 }
             }
         },
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             //Activar modal
             $('#ver-cita-paciente').modal();
         }
-      });
+    });
 
     if (calendarEl !=  null) {
         calendar.render();

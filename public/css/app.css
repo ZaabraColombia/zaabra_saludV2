@@ -33259,6 +33259,7 @@ label.error {
 .sidebar-wrapper .menu .submenu.active {
   max-height: 999px;
   display: block;
+  padding: 0;
 }
 
 .sidebar-wrapper .menu .submenu .submenu-item.active {
@@ -35888,13 +35889,53 @@ label.error {
 }
 
 .fc-myCustomButton-button {
-  background-color: #019F86 !important;
-  border-color: #019F86 !important;
+  background-color: #0083D6 !important;
+  border-color: #0083D6 !important;
 }
 
 .fc-event-title-container {
   background-color: #0083D6 !important;
   border-color: #0083D6 !important;
+}
+
+.section_consulta {
+  margin-top: 1rem;
+  border-top: solid 0.05em #dcdcdc;
+}
+
+.section_consulta h2 {
+  font-family: "Quicksand", sans-serif;
+  font-weight: bolder;
+  color: #232323;
+}
+
+.section_consulta > .precios {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-evenly;
+}
+
+.section_consulta > .precios > ul {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.section_consulta > .precios > ul > li > p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #3E3E3E;
+}
+
+.section_consulta > .precios > ul > li > span {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #0083D6;
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
@@ -36107,6 +36148,13 @@ label.error {
     width: 83%;
   }
 
+  .input_imgUsuario-formPacien {
+    top: 295px;
+    left: 162px;
+    right: 665px;
+    width: 200px;
+  }
+
   .tarjeta_datosSecun_formPaciente {
     padding: 3% 0;
     margin-bottom: 4%;
@@ -36123,13 +36171,19 @@ label.error {
     width: 80%;
   }
 
+  .input_imgUsuario-formPacien {
+    top: 325px;
+    left: 195px;
+    right: 810px;
+  }
+
   .tarjeta_datosSecun_formPaciente {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1360px) {
   .cabecera_forPacien {
     width: 85%;
   }
@@ -36138,6 +36192,49 @@ label.error {
     width: 85%;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .input_imgUsuario-formPacien {
+    left: 275px;
+    right: 890px;
+  }
+}
+@media (min-width: 1440px) {
+  .input_imgUsuario-formPacien {
+    left: 315px;
+    right: 925px;
+  }
+}
+@media (min-width: 1920px) {
+  .tarjeta_datosSecun_formPaciente {
+    width: 100%;
+  }
+
+  .cabecera_forPacien {
+    width: 100%;
+  }
+
+  .titulo_forPacien {
+    font-size: 2.5em;
+  }
+
+  .subTitulo_forPacien {
+    font-size: 1.5em;
+  }
+
+  .input_imgUsuario-formPacien {
+    left: 315px;
+    right: 925px;
+  }
+
+  .input_imgUsuario-formPacien {
+    top: 330px;
+    left: 510px;
+    right: 1195px;
+  }
+
+  .text_label_formPacien {
+    font-size: 1.3em;
   }
 }
 .swiper_principalInstProf {
