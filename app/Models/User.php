@@ -61,7 +61,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function paciente()
     {
-        return $this->belongsTo(Paciente::class, 'id_usuario', 'id');
+        return $this->hasOne(Paciente::class, 'id_usuario', 'id');
     }
 
 

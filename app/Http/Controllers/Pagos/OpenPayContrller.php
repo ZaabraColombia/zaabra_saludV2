@@ -36,12 +36,24 @@ class OpenPayContrller extends Controller
 
                 Openpay::setProductionMode(env('OPENPAY_PRODUCTION_MODE'));
 
+                //revisar si es profesional o administrador
+                $roles = $request->user()->roles->toArray();
+                if (in_array(3, array_column($roles, 'idrol')))//institusion
+                {
+                    $telefono = $request->user()->institucion->telefonouno;
+                } else if (in_array(2, array_column($roles, 'idrol'))){
+                    $telefono = $request->user()->profecional->celular;
+                } else {
+                    $telefono = '';
+                }
                 // create object customer
                 $customer = array(
-                    'name'          => $request->user()->primernombre,
-                    'last_name'     => $request->user()->primerapellido,
+                    'name'          => $request->user()->primernombre . ' ' . $request->user()->segundonombre,
+                    'last_name'     => $request->user()->primerapellido . ' ' . $request->user()->segundoapellido,
                     'email'         => $request->user()->email,
-                    'id_type_pay'   => $request->id_tipo_pago
+                    //'id_type_pay'   => $request->id_tipo_pago,
+                    //'external_id'   => $request->user()->id,
+                    'phone_number'  => $telefono
                 );
 
                 $order_id = $request->user()->id . time();
@@ -160,13 +172,14 @@ class OpenPayContrller extends Controller
             ]);
         } catch (Exception $e) {
             return response()->json([
-                'error' => [
-                    'category' => $e->getCategory(),
-                    'error_code' => $e->getErrorCode(),
-                    'description' => $e->getMessage(),
-                    'http_code' => $e->getHttpCode(),
-                    'request_id' => $e->getRequestId()
-                ]
+                'error' => $e
+//                'error' => [
+//                    'category' => $e->getCategory(),
+//                    'error_code' => $e->getErrorCode(),
+//                    'description' => $e->getMessage(),
+//                    'http_code' => $e->getHttpCode(),
+//                    'request_id' => $e->getRequestId()
+//                ]
             ]);
         }
     }
