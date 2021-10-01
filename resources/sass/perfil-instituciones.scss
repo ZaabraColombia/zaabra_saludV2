@@ -815,6 +815,24 @@
     align-items: center;
     margin: 0;
 }
+.boton_collapse-on-institucion {
+    font-family: 'Quicksand', 'Regular' !important;
+    font-size: 1.25em;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    color: #FFFFFF !important;
+    text-align: left !important;
+    padding: 0 3% !important;
+    background: #019F86 !important;
+    border-radius: 0px !important;
+    border: 1px solid #019F86 !important;
+    width: 100% !important;
+    background-image: url('/img/iconos/icono-x.svg') !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-position-x: 95% !important;
+    background-size: 5.5% !important;
+
 .opinion_verif_LandInst i {
     background-image: url('/img/landing-profesional/icono-todos-los-comentarios-verificados.svg');
     background-repeat: no-repeat;
@@ -1938,6 +1956,17 @@
         padding-bottom: 2%;
         margin-bottom: 1%;
     }
+    /*.sedes_institucion .card-body h5 {
+        font-size: 1em;
+    }*/
+    /*.sedes_institucion span{
+        font-size: 0.8em;
+    }*/
+    /*.sedes_institucion p {
+        font-size: 0.8em;
+    }*/
+    .desplegable_institucion .boton_collapse-off-institucion{
+    
     .desplegable_LandInst .boton_collapse-off-institu{
         height: 4vh;
         background-size: 3%;
@@ -2176,8 +2205,10 @@
     .swiper_galeria_inst {
         margin-bottom: 4%;
     }
-    .desplegable_LandInst .boton_collapse-off-institu{
-        height: 7vh;
+
+    .desplegable_institucion .boton_collapse-off-institucion{
+        /*.desplegable_LandInst .boton_collapse-off-institu{*/
+        /*height: 7vh;*/
         background-size: 3%;
     }
     .boton_collapse-on-institu{
@@ -2476,8 +2507,10 @@
     .desplegable_LandInst .card-header button{
         font-size: 1.6em;
     }
-    .desplegable_LandInst .boton_collapse-off-institu{
-        height: 6vh;
+    .desplegable_institucion .boton_collapse-off-institucion{
+    /*.desplegable_LandInst .boton_collapse-off-institu{*/
+        /*height: 6vh;*/
+
     }
     .title_opinionesInst {
         width: 68%;
