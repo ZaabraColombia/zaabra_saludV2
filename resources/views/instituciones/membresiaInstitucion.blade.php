@@ -310,7 +310,7 @@
 
                     <!-- Sección botón Pagar -->
                     <div class="section_btnPagar-popup">
-                        <button type="submit" class="btnPagar-popup" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera"> {{ __('Pagar') }}
+                        <button type="submit" class="btnPagar-popup" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera" formtarget="_blank"> {{ __('Pagar') }}
                             <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_pagar-popup" alt="">
                         </button>
                     </div>
