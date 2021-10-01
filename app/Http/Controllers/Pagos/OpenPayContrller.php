@@ -52,7 +52,7 @@ class OpenPayContrller extends Controller
                     'last_name'     => $request->user()->primerapellido . ' ' . $request->user()->segundoapellido,
                     'email'         => $request->user()->email,
                     //'id_type_pay'   => $request->id_tipo_pago,
-                    'external_id'   => $request->user()->id,
+                    //'external_id'   => $request->user()->id,
                     'phone_number'  => $telefono
                 );
 
@@ -227,7 +227,7 @@ class OpenPayContrller extends Controller
                 $historia_pago->respuesta           = json_encode((array) $charge);
                 $historia_pago->fecha_generar_pago  = $charge->creation_date;
                 $historia_pago->fecha_pago          = $charge->operation_date;
-                $historia_pago->id_usuario          = $charge->customer->external_id;
+                $historia_pago->id_usuario          = substr($charge->order_id, 0, -10);//obtengo el id del usuario del order id
                 //$historia_pago->id_tipo_pago        = $request->id_tipo_pago;
 
                 $historia_pago->save();
