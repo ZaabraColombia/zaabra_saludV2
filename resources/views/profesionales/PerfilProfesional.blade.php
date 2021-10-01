@@ -60,9 +60,9 @@
                 <a href="{{route('paciente.calendario-id-profesional', ['id' => $objprofesionallanding->idPerfilProfesional])}}">Agende su cita
                     <i class="fas fa-arrow-right arrow_mas"></i>
                 </a>
-                <a href="{{route('paciente.calendario')}}">Ver agenda
+                <!-- <a href="{{route('paciente.calendario')}}">Ver agenda
                     <i class="fas fa-arrow-right arrow_mas"></i>
-                </a>
+                </a> -->
             </div>
         </div>
     </section>
