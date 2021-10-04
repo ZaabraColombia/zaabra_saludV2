@@ -1,40 +1,52 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    const swiper_institucion = new Swiper(".swiper_institucion", {
+  // Función para el slider de la línea de opciones de la landing page instituciones
+  const swiper_institucion = new Swiper(".swiper_institucion", {
+
+    //loop: false,
   
-        //loop: false,
-      
-        /*autoplay: {
-          delay: 4500,
-          disableOnInteraction: false,
-        },*/
-      
-        // If we need pagination
-        pagination: {
-            el: '.slide-counter',
-            type: 'fraction'
-        },
-      
-        breakpoints: {
-           // when window width is >= 320px
-          320: {
-            slidesPerView: 3,
-            slidesPerGroup: 1,
-          },
-           // when window width is >= 1024px
-          1024: {
-            //enabled: false,
-            slidesPerView: 5,
-            slidesPerGroup: 5,
-          },
-            // when window width is >= 1600px
-          1600: {
-            slidesPerView: 5,
-            slidesPerGroup: 1,
-            spaceBetween: 5,
-          },
-        }
-      });
+    /*autoplay: {
+      delay: 4500,
+      disableOnInteraction: false,
+    },*/
+
+    autoHeight: true,
+    // If we need pagination
+    // If we need pagination
+  
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.btnNext_LandInst',
+      prevEl: '.btnPrev_LandInst',
+    },
+  
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+      },
+
+      // when window width is >= 1024px
+      1024: {
+        //enabled: false,
+        slidesPerView: 5,
+        slidesPerGroup: 5,
+      },
+
+      // when window width is >= 1600px
+      1600: {
+        slidesPerView: 5,
+        slidesPerGroup: 1,
+        spaceBetween: 5,
+      },
+    }
+  });
 
 
       const swiper_galeria_prof = new Swiper(".swiper_galeria_inst", {
@@ -52,46 +64,39 @@ document.addEventListener('DOMContentLoaded', function () {
         },
          // Navigation arrows
          navigation: {
-          nextEl: '.btn-next',
-          prevEl: '.btn-prev',
+          nextEl: '.btnPrev_gal_LandInst',
+          prevEl: '.btnNext_gal_LandInst',
         },
       
         breakpoints: {
            // when window width is >= 320px
-          320: {
+           320: {
             slidesPerView: 1,
             slidesPerGroup: 1,
           },
            // when window width is >= 768px
            768: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             slidesPerGroup: 1,
-            spaceBetween: 20,
+            //spaceBetween: 15,
           },
            // when window width is >= 1024px
           1024: {
             slidesPerView: 2,
             slidesPerGroup: 1,
-            spaceBetween: 20,
+            //spaceBetween: 15,
           },
-            // when window width is >= 1600px
-          1440: {
+            // when window width is >= 1440px
+          1360: {
             slidesPerView: 3,
             slidesPerGroup: 1,
-            spaceBetween: 20,
-          },
-
-          // when window width is >= 1920px
-          1920: {
-            slidesPerView: 3,
-            slidesPerGroup: 1,
-            spaceBetween: 15,
+            //spaceBetween: 15,
           },
         }
       });
 
  
-      const swiper_gale_prof = new Swiper(".swiper_gale_inst", {
+      const swiper_certificado_LandInst = new Swiper(".swiper_certificado_LandInst", {
         loop: true,
         resizeObserver: true,
        
@@ -106,8 +111,8 @@ document.addEventListener('DOMContentLoaded', function () {
         },
          // Navigation arrows
          navigation: {
-          nextEl: '.btn-next',
-          prevEl: '.btn-prev',
+          nextEl: '.btnPrev_cert_LandInst',
+          prevEl: '.btnNext_cert_LandInst',
         },
       
         breakpoints: {
@@ -120,26 +125,19 @@ document.addEventListener('DOMContentLoaded', function () {
            768: {
             slidesPerView: 2,
             slidesPerGroup: 1,
-            spaceBetween: 15,
+            //spaceBetween: 15,
           },
            // when window width is >= 1024px
           1024: {
             slidesPerView: 2,
             slidesPerGroup: 1,
-            spaceBetween: 15,
+            //spaceBetween: 15,
           },
             // when window width is >= 1440px
-          1440: {
+          1360: {
             slidesPerView: 3,
             slidesPerGroup: 1,
-            spaceBetween: 15,
-          },
-
-          // when window width is >= 1920px
-          1920: {
-            slidesPerView: 3,
-            slidesPerGroup: 1,
-            spaceBetween: 15,
+            //spaceBetween: 15,
           },
         }
       });
@@ -174,10 +172,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       })
 
-});
-
- // Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "membresiaProfesional" y "membresiaInstitucion" 
- $('.desplegable_institucion .containt_options-collapse-institucion').on( "click", function() {
-  $(this).siblings().find(".boton_collapse-off-institucion").removeClass("boton_collapse-on-institucion");
-  $(this).find(".boton_collapse-off-institucion").toggleClass("boton_collapse-on-institucion");
 });
