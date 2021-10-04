@@ -8,6 +8,12 @@
         <section class="section_data_instituciones">
             <div class="containt_princ_LandInst">
                 <div class="data_instituciones">
+                    <!-- <div class="section_backArrow">
+                        <a class="back_arrow back_text" href="#"> atras </a>
+                        <div class="heart-wrapper">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div> -->
                     @foreach ($objinstitucionlandin as $objinstitucionlandin)
                         <div class="content_logo_inst">
                             <img class="logo_sede_inst" src="{{URL::asset($objinstitucionlandin->logo)}}">
@@ -16,8 +22,8 @@
                         <div class="contains_info">
                             <h1>{{$objinstitucionlandin->nombreinstitucion}}</h1>
                             <h2>{{$objinstitucionlandin->nombretipo}}</h2>
-                            <h5 class="title-url mb-2"><i></i>{{$objinstitucionlandin->url}}</h5>
-                            <h5 class="title-tel mb-2"><i></i>{{$objinstitucionlandin->telefonouno}}</h5>
+                            <h5 class="title-url mb-2 mb-lg-0"><i></i>{{$objinstitucionlandin->url}}</h5>
+                            <h5 class="title-tel mb-2 mb-lg-0"><i></i>{{$objinstitucionlandin->telefonouno}}</h5>
                             <h5 class="title-adress"><i></i>{{$objinstitucionlandin->direccion}}<br>{{$objinstitucionlandin->ciudad}} {{$objinstitucionlandin->pais}}</h5>
                             <!-- Rating Stars Box -->
                             <div class='rating-stars start_calification'>
