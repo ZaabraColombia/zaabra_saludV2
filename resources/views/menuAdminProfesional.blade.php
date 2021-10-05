@@ -1,7 +1,10 @@
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active ps ps--active-y">
         <div class="sidebar-menu">
-            <h1 class="title_agenda mb-0 px-3">AGENDA PROFESIONAL</h1>
+            <div class="imgtxtagen">
+                <img class="imagen_usuario_agen" src="{{URL::asset('img/user/7/7-1631140530.jpg')}}" alt="">
+                <h1 class="title_agenda mb-0">Dr. Santiago Arturo Polo Chahin</h1>
+            </div>
             
             <ul class="menu pr-0">
                 <li class="sidebar-item  has-sub ">
