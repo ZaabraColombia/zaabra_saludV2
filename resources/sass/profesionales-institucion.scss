@@ -30,7 +30,7 @@
 }
 .container_principal_instProf {
     background: #F9F9F9;
-    margin: 5% 0;
+    width: 100%;
 }
 .container_tarjetas_instProf {
     background: #F9F9F9;
@@ -40,16 +40,16 @@
     padding: 10% 0 5% 0;
 }
 .tarjeta_instProf {
-    width: 250px !important;
-    padding: 5% 1% !important;
-    margin-bottom: 5% !important;
+    width: 230px;
+    padding: 5% 1%;
+    margin-bottom: 5%;
     box-shadow: 0px 3px 6px #00000038;
  }
 .img_perfil_instProf {
-    border: 1px solid #dcdcdc !important;
-    border-radius: 74px !important;
-    height: 115px !important;
-    width: 115px !important;
+    border: 1px solid #dcdcdc;
+    border-radius: 74px;
+    height: 115px;
+    width: 115px;
     margin: auto;
     object-fit: cover;
     object-position: top;
@@ -97,28 +97,6 @@
     padding: 5%;
     border-radius: 3px;
     font-size: 1em;
-}
-
-
-.container_grid {
-    width: 80%;
-}
-.asociado {
-    width: 135px;
-    padding: 0 !important;
-    border-radius: 3px;
-    margin-bottom: 3%;
-}
-
-@media(min-width: 360px) {
-    .container_grid {
-        width: 71%;
-    }
-}
-@media(min-width: 400px) {
-    .container_grid {
-        width: 62%;
-    }
 }
 @media(min-width: 700px) {
     .imagen_inst_instProf {
