@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
        
         autoplay: {
           delay: 4500,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
         },
       
         // If we need pagination
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
        
         autoplay: {
           delay: 4500,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
         },
       
         // If we need pagination

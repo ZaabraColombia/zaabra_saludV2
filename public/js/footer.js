@@ -45,23 +45,23 @@ function direccionFlecha (element){
     }
 }
 
-// Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "membresiaProfesional" y "membresiaInstitucion"
+// Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "membresiaProfesional".
 $('.evento_acordion .containt_options-collapse-membresia').on( "click", function() {
     $(this).siblings().find(".boton_collapse-off-membresia").removeClass("boton_collapse-on-membresia");
     $(this).find(".boton_collapse-off-membresia").toggleClass("boton_collapse-on-membresia");
 });
 
 
-// Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "membresiaProfesional" y "membresiaInstitucion"
+// Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "membresiaInstitucion".
 $('.evento_acordion .containt_options-collapse-institucion').on( "click", function() {
     $(this).siblings().find(".boton_collapse-off-institucion").removeClass("boton_collapse-on-institucion");
     $(this).find(".boton_collapse-off-institucion").toggleClass("boton_collapse-on-institucion");
 });
 
-// Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "membresiaProfesional" y "membresiaInstitucion"
-$('.evento_acordion .containt_options-collapse-acerca').on( "click", function() {
-    $(this).siblings().find(".boton_collapse-off-acerca").removeClass("boton_collapse-on-acerca");
-    $(this).find(".boton_collapse-off-acerca").toggleClass("boton_collapse-on-acerca");
+// Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "acerca, políticas y preguntas frecuentes".
+$('.evento_acordion .options_collapse_infoZaabra').on( "click", function() {
+    $(this).siblings().find(".btn_collapse_off_infoZaabra").removeClass("boton_collapse-on-acerca");
+    $(this).find(".btn_collapse_off_infoZaabra").toggleClass("boton_collapse-on-acerca");
 });
 
 // Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "Landin Instituciones" ubicada en el archivo "PerfilInstitucion.blade.php".
