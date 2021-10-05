@@ -13,7 +13,7 @@
     </div>
 
     <!-- Tarjetas profesionales de la institución -->
-    <!-- <div class="container_principal_instProf">
+    <div class="container_principal_instProf">
         <section class="container_tarjetas_instProf">
             @foreach ($objProfesionalesIns as $profesional)
                 <div class="card tarjeta_instProf">
@@ -33,43 +33,43 @@
                 </div>
             @endforeach
         </section>
-    </div> -->
+    </div>
 
 
-    <section class="container-fluid p-0">
-        <div class="container_principal_instProf">
-            <!-- Filter -->
-            <ul id="filterControls" class="list-inline cbp-l-filters-alignRight text-center">
-                <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item asociado" data-filter="*">Asociados</li>
-                @foreach($especialidades as $item)
-                    <li class="list-inline-item cbp-filter-item u-cubeportfolio__item asociado" data-filter=".{{ Str::slug($item) }}">{{ $item }}</li>
-                @endforeach
-            </ul>
-            <!-- End Filter -->
+{{--    <section class="container-fluid p-0">--}}
+{{--        <div class="container_principal_instProf">--}}
+{{--            <!-- Filter -->--}}
+{{--            <ul id="filterControls" class="list-inline cbp-l-filters-alignRight text-center">--}}
+{{--                <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item asociado" data-filter="*">Asociados</li>--}}
+{{--                @foreach($especialidades as $item)--}}
+{{--                    <li class="list-inline-item cbp-filter-item u-cubeportfolio__item asociado" data-filter=".{{ Str::slug($item) }}">{{ $item }}</li>--}}
+{{--                @endforeach--}}
+{{--            </ul>--}}
+{{--            <!-- End Filter -->--}}
 
-            <!-- Content -->
-            <div id="grid-container" class="container_grid">
-                @foreach ($objProfesionalesIns as $profesional)
-                    <div class="card tarjeta_instProf cbp-item {{ Str::slug($profesional->nombre_especialidad) }}">
-                        <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">
-                        <div class="card-body content_tarjeta_instProf">
-                            <h2>{{$profesional->nombre_especialidad}}</h2>
-                            <h5 class="niega_uppercase">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h5>
-                            <p>Especialista en {{$profesional->nombre_especialidad}}</p>
-                            <p>{{$profesional->nombre_universidad}}</p>
-                            <div class="content_btn_instprof">
-                                <a class="btn_agendar_instProf" href=""> Agendar cita
-                                    <i class="fas fa-arrow-right arrow_mas"></i>
-                                </a>
-                            </div>
+{{--            <!-- Content -->--}}
+{{--            <div id="grid-container" class="container_grid">--}}
+{{--                @foreach ($objProfesionalesIns as $profesional)--}}
+{{--                    <div class="card tarjeta_instProf cbp-item {{ Str::slug($profesional->nombre_especialidad) }}">--}}
+{{--                        <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">--}}
+{{--                        <div class="card-body content_tarjeta_instProf">--}}
+{{--                            <h2>{{$profesional->nombre_especialidad}}</h2>--}}
+{{--                            <h5 class="niega_uppercase">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h5>--}}
+{{--                            <p>Especialista en {{$profesional->nombre_especialidad}}</p>--}}
+{{--                            <p>{{$profesional->nombre_universidad}}</p>--}}
+{{--                            <div class="content_btn_instprof">--}}
+{{--                                <a class="btn_agendar_instProf" href=""> Agendar cita--}}
+{{--                                    <i class="fas fa-arrow-right arrow_mas"></i>--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
 
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <!-- End Content -->
-        </div>
-    </section>
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
+{{--            <!-- End Content -->--}}
+{{--        </div>--}}
+{{--    </section>--}}
 @endsection
 
 @section('scripts')
