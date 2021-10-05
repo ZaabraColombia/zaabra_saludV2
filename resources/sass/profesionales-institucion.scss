@@ -1,6 +1,27 @@
 .swiper_principalInstProf {
     height: 115px;
 }
+.imagen_inst_instProf {
+    width: 100%;
+    height: 170px;
+}
+.img_institucion_instProf {
+    width: 100%;
+    height: 100%;
+    background-size: cover !important;
+    opacity: 0.6;
+}
+.nombre_inst_instProf {
+    font-size: 1.5em;
+    font-family: 'Quicksand';
+    color: #019f86;
+    font-weight: bolder;
+    line-height: 1;
+    position: absolute;
+    top: 75px;
+    left: 20px;
+    width: 75%;
+}
 .containt_slide_instProf {
     width: 115px;
     top: 30px;
@@ -9,7 +30,7 @@
 }
 .container_principal_instProf {
     background: #F9F9F9;
-    width: 100%;
+    margin: 5% 0;
 }
 .container_tarjetas_instProf {
     background: #F9F9F9;
@@ -19,16 +40,16 @@
     padding: 10% 0 5% 0;
 }
 .tarjeta_instProf {
-    width: 230px;
-    padding: 5% 1%;
-    margin-bottom: 5%;
+    width: 250px !important;
+    padding: 5% 1% !important;
+    margin-bottom: 5% !important;
     box-shadow: 0px 3px 6px #00000038;
  }
 .img_perfil_instProf {
-    border: 1px solid #dcdcdc;
-    border-radius: 74px;
-    height: 115px;
-    width: 115px;
+    border: 1px solid #dcdcdc !important;
+    border-radius: 74px !important;
+    height: 115px !important;
+    width: 115px !important;
     margin: auto;
     object-fit: cover;
     object-position: top;
@@ -77,7 +98,40 @@
     border-radius: 3px;
     font-size: 1em;
 }
+
+
+.container_grid {
+    width: 80%;
+}
+.asociado {
+    width: 135px;
+    padding: 0 !important;
+    border-radius: 3px;
+    margin-bottom: 3%;
+}
+
+@media(min-width: 360px) {
+    .container_grid {
+        width: 71%;
+    }
+}
+@media(min-width: 400px) {
+    .container_grid {
+        width: 62%;
+    }
+}
 @media(min-width: 700px) {
+    .imagen_inst_instProf {
+        width: 100%;
+        height: 400px;
+    }
+    .nombre_inst_instProf {
+        font-size: 2.5em;
+        top: 156px;
+        left: 65px;
+        width: 55%;
+    }
+    
     .swiper_principalInstProf {
         height: 220px;
     }
@@ -100,6 +154,12 @@
     }
 }
 @media(min-width: 1024px) {
+    .nombre_inst_instProf {
+        font-size: 2.5em;
+        top: 130px;
+        left: 130px;
+        width: 50%;
+    }
     .containt_slide_instProf {
         left: 125px;
     }
@@ -133,6 +193,11 @@
     }
 }
 @media(min-width: 1360px) {
+    .nombre_inst_instProf {
+        font-size: 3em;
+        left: 170px;
+        width: 45%;
+    }
     .swiper_principalInstProf {
         height: 360px;
     }
@@ -147,6 +212,10 @@
     }
 }
 @media(min-width: 1440px) {
+    .nombre_inst_instProf {
+        font-size: 3.5em;
+        left: 180px;
+    }
     .containt_slide_instProf {
         left: 175px;
     }
@@ -160,6 +229,13 @@
     }
 }
 @media(min-width: 1920px) {
+    .imagen_inst_instProf {
+        height: 500px;
+    }
+    .nombre_inst_instProf {
+        left: 300px;
+        width: 35%;
+    }
     .swiper_principalInstProf {
         height: 500px;
     }
