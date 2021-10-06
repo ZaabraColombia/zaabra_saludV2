@@ -509,7 +509,7 @@ $('#form-servicios-institucion').validate({
                     '<label class="col-12 text_infoGuardada-formProf">' + $('#titulo_servicio').val() + '</label>\n' +
                     '</div>\n' +
                     '<div class="option_consulta-formProf">\n' +
-                    '<label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Descrpción </label>\n' +
+                    '<label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Descripción </label>\n' +
                     '<label class="col-12 text_infoGuardada-formProf">' + $('#descripcion_servicio').val() + '</label>\n' +
                     '</div>\n' +
                     '<div class="option_consulta-formProf">\n' +
