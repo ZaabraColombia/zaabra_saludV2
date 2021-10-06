@@ -32765,6 +32765,21 @@ label.error {
     font-size: 1.2em;
   }
 }
+.imgtxtagen {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5% 0;
+  padding: 0 0 0 3%;
+}
+
+.imagen_usuario_agen {
+  width: 50px;
+  height: 50px;
+  border-radius: 42px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .cards_panelPrincipal_prof {
   width: 100% !important;
   border: 1px solid #0083D6;
@@ -32811,11 +32826,11 @@ label.error {
 }
 
 .title_agenda {
-  padding: 0;
+  padding: 0 0 0 4%;
   margin: 1.5rem 0 1rem;
   color: #0083D6;
   font-weight: bolder;
-  font-size: 1.4em;
+  font-size: 1.2em;
   list-style: none;
   text-align: center;
 }
@@ -34093,7 +34108,7 @@ label.error {
 
 .container_principal_instProf {
   background: #F9F9F9;
-  margin: 5% 0;
+  width: 100%;
 }
 
 .container_tarjetas_instProf {
@@ -34105,17 +34120,17 @@ label.error {
 }
 
 .tarjeta_instProf {
-  width: 250px !important;
-  padding: 5% 1% !important;
-  margin-bottom: 5% !important;
+  width: 230px;
+  padding: 5% 1%;
+  margin-bottom: 5%;
   box-shadow: 0px 3px 6px #00000038;
 }
 
 .img_perfil_instProf {
-  border: 1px solid #dcdcdc !important;
-  border-radius: 74px !important;
-  height: 115px !important;
-  width: 115px !important;
+  border: 1px solid #dcdcdc;
+  border-radius: 74px;
+  height: 115px;
+  width: 115px;
   margin: auto;
   -o-object-fit: cover;
      object-fit: cover;
@@ -34173,27 +34188,6 @@ label.error {
   font-size: 1em;
 }
 
-.container_grid {
-  width: 80%;
-}
-
-.asociado {
-  width: 135px;
-  padding: 0 !important;
-  border-radius: 3px;
-  margin-bottom: 3%;
-}
-
-@media (min-width: 360px) {
-  .container_grid {
-    width: 71%;
-  }
-}
-@media (min-width: 400px) {
-  .container_grid {
-    width: 62%;
-  }
-}
 @media (min-width: 700px) {
   .imagen_inst_instProf {
     width: 100%;
