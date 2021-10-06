@@ -2,26 +2,26 @@
 
 @section('content')
 
-<div class="container-fluid">
+<div class="container-fluid contenedor_infoZaabra">
     
     <section class="row">
-        <h1 class="title_banner_polit"> POLÍTICAS DE USO </h1>
-        <img class="imagen_bannerPrin-polit" src="{{URL::asset('/img/banners/bannerquienessomos/banner-politicas-de-uso.jpeg')}}">
+        <h1 class="title_banner_infoZaabra"> POLÍTICAS DE USO </h1>
+        <img class="img_banner_infoZaabra" src="{{URL::asset('/img/banners/bannerquienessomos/banner-politicas-de-uso.jpeg')}}">
     </section>
 
-    <section class="section_principal-polit">
-        <p class="titulo_superior-polit"> Conozca todo sobre las políticas de uso y los términos y condiciones de Zaabra Salud y el sitio web. </p>
+    <section class="section_infoZaabra">
+        <p class="subTitulo_infoZaabra"> Conozca todo sobre las políticas de uso y los términos y condiciones de Zaabra Salud y el sitio web. </p>
 
-        <div class="mb-3 mb-md-5 evento_acordion contain_accordion-polit" id="accordion">
-            <div class="card containt_options-collapse-acerca">
-                <div id="headingOne">
-                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Políticas de cookies </button>
+        <div class="mb-3 mb-md-5 evento_acordion accordion_infoZaabra" id="accordion">
+            <div class="card options_collapse_infoZaabra">
+                <div id="headingOne"> <!-- Función del desplegable con cambio de color se encuentra ubicado en el archivo footer.js -->
+                    <button class="btn_collapse_off_infoZaabra" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Políticas de cookies </button>
                 </div>
 
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body section_toggleFoot">
-                        <h5 class="title_interno_toggleFoot"> ¿Qué son las cookies? </h5>
-                        <p class="txt_interno_toggleFoot">
+                    <div class="card-body toggle_infoZaabra">
+                        <h5 class="title_toggle_infoZaabra"> ¿Qué son las cookies? </h5>
+                        <p class="txt_toggle_infoZaabra">
                             Una cookie es un fichero que se descarga en su ordenador al acceder a determinadas páginas web. Las cookies permiten a una página web, entre otras cosas, almacenar 
                             y recuperar información sobre hábitos de navegación de un usuario o de su equipo y, dependiendo de la información que contengan y de la forma que utilice su equipo, 
                             pueden utilizarse para reconocer al usuario. <br><br>
@@ -31,19 +31,19 @@
                             Es importante aclarar que las cookies solo son leídas por la plataforma digital que las creó; la información que guardan las cookies en nuestras plataformas digitales 
                             están incluidas en la sesión de usuario, dejando cada valor guardado en una cookie de manera encriptada, las cuales se eliminan al cerrar sesión.
                         </p>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <p class="txt_toggle_infoZaabra mb-0">
                             Las clases de cookies que se utilizan en nuestra plataforma digital son las siguientes:
                         </p>
-                        <ul class="option_toggleFoot">
+                        <ul class="option_toggle_infoZaabra">
                             <li> <b> Cookies de sesión: </b> permanecen activas durante el tiempo que se tenga la sesión activa del usuario y se elimina una vez se cierre la sesión.</li>
                             <li> <b> Cookies de terceros: </b> Son instaladas por terceros quienes prestan un servicio específico en la plataforma como encargado, la cual trata los datos a través de cookies. </li>
                             <li> <b> Cookies de Análisis: </b> Permiten realizar seguimiento al comportamiento de los usuarios en la plataforma digital y estudiar la navegación de los usuarios. </li>
                         </ul>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <p class="txt_toggle_infoZaabra mb-0">
                             Los usuarios podrán deshabilitar, bloquear y/o eliminar las cookies en cualquier momento, el proceso varía según el navegador que esté en uso. 
                             De igual manera puede variar la configuración dependiendo la versión del navegador:
                         </p>
-                        <ul class="option_toggleFoot">
+                        <ul class="option_toggle_infoZaabra">
                             <li> <b> Chrome: </b> En el Navegador – 1. Configuración, 2. Configuración avanzada, 3. Privacidad y Seguridad, 4. Configuración del sitio web, 5. Cookies y datos del sitio. Para mayor información, consulte el soporte o ayuda del Navegador. </li>
                             <li> <b> Safari: </b> En el Navegador – 1. Preferencias, 2. Privacidad. Para mayor información, consulte el soporte o ayuda del Navegador. </li>
                             <li> <b> Internet Explorer: </b> En el Navegador – 1. Herramientas, 2. Opciones de Internet, 3. Privacidad, 4. Configuración avanzada. Para mayor información, consulte el soporte o ayuda del Navegador. </li> 
@@ -52,7 +52,7 @@
                             <li> <b> Navegador para dispositivos Android: </b> En el Navegador – 1. Menú, 2. Configuración, 3. Privacidad. Para mayor información, consulte el soporte o ayuda del Navegador. </li> 
                             <li> <b> Navegador para dispositivos IOS: </b> En el dispositivo – 1. Configuración, 2. Safari, 3. Privacidad y seguridad. Para mayor información, consulte el soporte o ayuda del Navegador </li> 
                         </ul>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <p class="txt_toggle_infoZaabra mb-0">
                             ZAABRA COLOMBIA SAS, propietaria de la plataforma tendrá la plena libertad y autoridad para modificar, adaptar o cambiar el contenido de esta 
                             Política de cookies en cualquier momento. Usted acepta y reconoce las actualizaciones de este documento, por medio de la fecha de elaboración que está visible en la Plataforma. <br><br>
                     
@@ -62,13 +62,13 @@
                 </div>
             </div>
 
-            <div class="card containt_options-collapse-acerca">
+            <div class="card options_collapse_infoZaabra">
                 <div id="headingTwo">
-                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Políticas de privacidad </button>
+                    <button class="btn_collapse_off_infoZaabra" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Políticas de privacidad </button>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                    <div class="card-body section_toggleFoot">
-                        <p class="txt_interno_toggleFoot mb-0">
+                    <div class="card-body toggle_infoZaabra">
+                        <p class="txt_toggle_infoZaabra mb-0">
                             Gracias por acceder a la página web <a class="ancla_toggleFoot" href=""> www.zaabrasalud.co </a> operada por ZAABRA COLOMBIA S.A.S. en adelante “ZAABRA SALUD”, sociedad Responsable del Tratamiento de sus Datos Personales, 
                             identificada con NIT 901.294.385-1, con domicilio principal en la ciudad de Bogotá D. C. y cuyas oficinas se encuentran ubicadas en la carrera 64 No. 67b-89 interior dos. <br><br>
 
@@ -86,17 +86,17 @@
                             y adoptar medidas que aseguren el debido cumplimiento de la normativa de protección de Datos Personales, en especial las establecidas en la 1581 de 2012 y su Decreto Reglamentario 1074 de 2015.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">¿QUE DATOS PERSONALES RECOLECTAMOS?</h5>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <h5 class="title_toggle_infoZaabra">¿QUE DATOS PERSONALES RECOLECTAMOS?</h5>
+                        <p class="txt_toggle_infoZaabra mb-0">
                             Cuando usted crea un usuario en ZAABRA SALUD, descarga una actualización para un programa o participa en una encuesta online, podemos recopilar diferente información incluidos su nombre, dirección, número de teléfono, 
                             dirección de correo electrónico, preferencias de contacto. Una vez enviada esta información usted acepta, autoriza y otorga su consentimiento a ZAABRA SALUD para utilizar esta información de conformidad con lo establecido 
                             en la ley 1581 de 2012 y demás normas que en Colombia regulan el tratamiento de datos personales. <br><br>
                         </p>
 
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <p class="txt_toggle_infoZaabra mb-0">
                             Los datos personales a los que podríamos dar tratamiento, son los siguientes:
                         </p>
-                        <ul class="option_toggleFoot">
+                        <ul class="option_toggle_infoZaabra">
                             <li>Nombre completo.</li>
                             <li>C.C. o NIT</li>
                             <li>Dirección completa para facturación.</li>
@@ -112,12 +112,12 @@
                             <li>Carta autorización para la realización de transferencias bancarias.</li>
                         </ul>
 
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <p class="txt_toggle_infoZaabra mb-0">
                             ZABRA SALUD no recopila datos médicos ni otros datos personales sensibles, aunque puede actuar como encargado de los doctores afiliados a nuestros sistemas, con las obligaciones establecidas en la Ley.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">¿COMO UTILIZAMOS SUS DATOS PERSONALES?</h5>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <h5 class="title_toggle_infoZaabra">¿COMO UTILIZAMOS SUS DATOS PERSONALES?</h5>
+                        <p class="txt_toggle_infoZaabra mb-0">
                             Finalidades del tratamiento: sus datos personales, serán mantenidos en la más estricta confidencialidad y serán resguardados de manera adecuada y solamente podrán ser tratados para las siguientes finalidades: <br><br>
 
                             * Fines necesarios para la existencia, mantenimiento y cumplimiento de nuestra Relación Jurídica y para el cumplimiento y ejecución de obligaciones legales como usuario de nuestros servicios; para enviar notificaciones 
@@ -132,8 +132,8 @@
                             Debido a que esta información no es indispensable para su relación con ZAABRA SALUD, puede optar por no recibir dichas comunicaciones, mediante aviso por escrito dirigido al correo electrónico indicado al inicio de este aviso.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">¿RECOLECCIÓN Y USO DE INFORMACIÓN GENERAL NO DATOS PERSONALES?</h5>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <h5 class="title_toggle_infoZaabra">¿RECOLECCIÓN Y USO DE INFORMACIÓN GENERAL NO DATOS PERSONALES?</h5>
+                        <p class="txt_toggle_infoZaabra mb-0">
                             También recolectamos información general no personal, la cual se compone por datos que no permiten asociación directa con ninguna persona. Podemos recolectar, utilizar, transferir, y revelar información general 
                             para cualquier fin. A continuación, presentamos algunos ejemplos de información general que hemos recolectado y cómo podemos utilizarla: Podemos recolectar información tal como profesión, idioma, código postal, 
                             código de área, ubicación, y la zona horaria en la que el software ZAABRA SALUD se utiliza, para poder entender mejor el comportamiento de los usuarios y mejorar nuestros productos, servicios y publicidades. 
@@ -142,41 +142,41 @@
                             En caso de que combinemos información general no personal con datos personales, la información combinada será considerada información personal mientras se mantenga combinada.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">¿CÓMO USAMOS LAS POLÍTICAS DIGITALES?</h5>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <h5 class="title_toggle_infoZaabra">¿CÓMO USAMOS LAS POLÍTICAS DIGITALES?</h5>
+                        <p class="txt_toggle_infoZaabra mb-0">
                             El IO del servicio de Consulta Digital que haga uso de cualquiera de los teléfonos de los doctores que aparecen en dicha plataforma, consiente expresamente el tratamiento del número del teléfono desde el cual realice 
                             la llamada e información que facilite a través de la misma, de acuerdo con la política de protección de datos de ZAABRA SALUD y conforme se le informa en la correspondiente locución telefónica.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">¿INTEGRIDAD Y CONSERVACIÓN DE DATOS PERSONALES?</h5>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <h5 class="title_toggle_infoZaabra">¿INTEGRIDAD Y CONSERVACIÓN DE DATOS PERSONALES?</h5>
+                        <p class="txt_toggle_infoZaabra mb-0">
                             ZAABRA SALUD facilita la conservación de los datos personales de una forma precisa, completa y actualizada. La información personal se conservará por el período que sea necesario para cumplir con los fines establecidos 
                             en la presente Política de Privacidad, excepto que por Ley se requiera o autorice un período de conservación superior.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">¿ACCESO A LOS DATOS PERSONALES?</h5>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <h5 class="title_toggle_infoZaabra">¿ACCESO A LOS DATOS PERSONALES?</h5>
+                        <p class="txt_toggle_infoZaabra mb-0">
                             Usted puede ayudarnos a garantizar que su información de contacto y sus preferencias son precisas, completas y están adecuadas comprobando sus datos en la sección de configuración de su espacio de usuario. Para cualquier 
                             duda, aclaración o petición acerca de los datos personales ligada a su usuario le pedimos que se comunique a través del correo electrónico  <span class="ancla_toggleFoot">servicioalcliente@zaabrasalud.co</span>
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">¿MENORES DE EDAD?</h5>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <h5 class="title_toggle_infoZaabra">¿MENORES DE EDAD?</h5>
+                        <p class="txt_toggle_infoZaabra mb-0">
                             Sólo pueden llenar y declarar bajo exigencia de decir la verdad las personas mayores de edad, en el entendido de que los datos por ellos manifestados son veraces y fidedignos. Si eres menor de edad, debe salir inmediatamente 
                             de la aplicación o programa ZAABRA SALUD. No se hará uso de los datos personales de menores de edad existentes en las bases de datos de los usuarios. En caso de que un menor de edad envíe información personal a ZAABRA SALUD 
                             y tengamos conocimiento de ello, suprimiremos esa información lo antes posible.
                         </p>
 
                         
-                        <h5 class="title_interno_toggleFoot">¿SITIOS Y SERVICIOS DE TERCEROS?</h5>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <h5 class="title_toggle_infoZaabra">¿SITIOS Y SERVICIOS DE TERCEROS?</h5>
+                        <p class="txt_toggle_infoZaabra mb-0">
                             Las páginas web, así como la aplicación y servicios de ZAABRA SALUD pueden contener enlaces hacia páginas, productos y servicios de terceros. Nuestros productos y servicios pueden además utilizar u ofrecer productos o servicios 
                             de terceros, por ejemplo, una aplicación de terceros para usted. La información recopilada por terceros, entre la que se incluye datos de localización o de contacto, está regulada por sus respectivas políticas de privacidad. Le 
                             recomendamos que obtenga mayor información acerca de dichas políticas de privacidad.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">¿EL COMPROMISO DE NUESTRA EMPRESA CONN SUS DATOS?</h5>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <h5 class="title_toggle_infoZaabra">¿EL COMPROMISO DE NUESTRA EMPRESA CONN SUS DATOS?</h5>
+                        <p class="txt_toggle_infoZaabra mb-0">
                             Para asegurarnos de que sus datos personales están bien resguardados, damos a conocer estas directrices a todos los empleados y contratistas de ZAABRA SALUD sin importar su función o línea de negocio e imponemos estrictas medidas 
                             de seguridad dentro de la propia empresa. <br><br>
 
@@ -187,13 +187,13 @@
                             a la dirección que aparece en este mismo aviso.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">¿JURISDICCIÓN?</h5>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <h5 class="title_toggle_infoZaabra">¿JURISDICCIÓN?</h5>
+                        <p class="txt_toggle_infoZaabra mb-0">
                             Cualquier controversia relacionada con la interpretación y aplicación de las presentes Políticas de Privacidad, se regirán por las Leyes Colombianas y se ventilarán en los Tribunales y autoridades administrativas de Colombia.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">¿DESCARGO DE RESPONSABILIDAD?</h5>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <h5 class="title_toggle_infoZaabra">¿DESCARGO DE RESPONSABILIDAD?</h5>
+                        <p class="txt_toggle_infoZaabra mb-0">
                             La información presentada en este sitio web no tiene ninguna voluntad de sustituir a un consejo médico propiamente dicho, ni ZAABRA SALUD ser un servicio médico de referencia. Nos esforzamos continuamente por mantener un alto grado 
                             de precisión y fiabilidad en la información médica proporcionada, pero no aseguramos la total exactitud, integridad o exhaustividad de la información contenida o vinculada a <span class="ancla_toggleFoot">zaabrasalud.co</span> o 
                             sus sitios web. La selección de un médico es una decisión importante que no debe basarse únicamente en la publicidad o anuncios en este sitio web. ZAABRA SALUD no tiene ninguna responsabilidad vinculada a la calidad de los servicios 
@@ -287,19 +287,19 @@
                 </div>
             </div>
 
-            <div class="card containt_options-collapse-acerca">
+            <div class="card options_collapse_infoZaabra">
                 <div id="headingThree">
-                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> Términos y condiciones de Zaabra Salud </button>
+                    <button class="btn_collapse_off_infoZaabra" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> Términos y condiciones de Zaabra Salud </button>
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                    <div class="card-body section_toggleFoot">
-                        <h5 class="title_interno_toggleFoot"> TÉRMINOS Y CONDICIONES GENERALES DEL SERVICIO </h5>
+                    <div class="card-body toggle_infoZaabra">
+                        <h5 class="title_toggle_infoZaabra"> TÉRMINOS Y CONDICIONES GENERALES DEL SERVICIO </h5>
 
-                        <h5 class="title_interno_toggleFoot">1. CONCEPTOS GENERALES</h5>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <h5 class="title_toggle_infoZaabra">1. CONCEPTOS GENERALES</h5>
+                        <p class="txt_toggle_infoZaabra mb-0">
                             En el presente contrato serán de aplicación las definiciones que se detallan más abajo. Así mismo, las palabras en singular incluirán el plural y viceversa.
                         </p>
-                        <ul class="option_toggleFoot">
+                        <ul class="option_toggle_infoZaabra">
                             <li>“Partes”: La Compañía y el Usuario de forma conjunta.</li>
                             <li>“Contrato”: El presente contrato de prestación de servicios incluyendo, las presentes condiciones generales, las condiciones particulares y todas sus cláusulas y/o Anexos.</li>
                             <li>“Profesional, tecnólogo, docente o estudiante”: Persona física o jurídica, según el caso, que suscribe este contrato con ZAABRA SALUD para beneficiarse del servicio de membresía.</li>
@@ -316,8 +316,8 @@
                                 es responsabilidad del profesional, estudiante o docente, el tiempo que se demore ingresando la información que se va a cargar en la página.</li>
                         </ul>
 
-                        <h5 class="title_interno_toggleFoot">2. MEMBRESÍA</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">2. MEMBRESÍA</h5>
+                        <p class="txt_toggle_infoZaabra">
                             2.1 Servicios ofrecidos por parte de ZAABRA SALUD al usuario, otorgando acceso a las siguientes funcionalidades y/o herramientas a través de su cuenta, las cuales se adaptarán a las características de los perfiles asignados:<br><br>
                             a. Beneficiarse de los servicios ofrecidos por ZAABRA SALUD a través del calendario de la plataforma.<br><br>
                             b. Incluir los perfiles entre los resultados de búsqueda de profesionales registrados en el sitio web o plataforma. <br><br>
@@ -338,8 +338,8 @@
                             ofertados actualmente. Así mismo ZAABRA SALUD se reserva el derecho a retirar o dejar de ofrecer, en cualquier momento, y sin previo aviso, cualquiera de los servicios ofrecidos.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">3. ASIGNACIÓN DE PERFIL</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">3. ASIGNACIÓN DE PERFIL</h5>
+                        <p class="txt_toggle_infoZaabra">
                             3.1 Una vez suscrito el presente contrato, el profesional recibirá vía correo electrónico la confirmación del pago y procederá a responder el formulario con todos los datos que ZAABRA SALUD solicita, 
                             estos serán verificados por el equipo profesional para su respectiva publicación. Cada profesional tendrá su perfil individual.<br><br>
                             3.2 Sin perjuicio de lo dispuesto en el apartado anterior, mediante la aceptación y la firma del presente contrato, el profesional acepta, consiente y autoriza de forma expresa a 
@@ -349,8 +349,8 @@
                             de la misma (eliminar errores, mejorar la calidad de las imágenes, confirmar la veracidad de la especialidad del profesional, entre otros).
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">4. CONTRAPRESTACIÓN</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">4. CONTRAPRESTACIÓN</h5>
+                        <p class="txt_toggle_infoZaabra">
                             4.1. ZAABRA SALUD tendrá derecho a percibir la retribución acordado en las condiciones particulares al inicio de cada uno de los periodos de facturación en función de la membresía que se adquiera, 
                             sin perjuicio de lo anterior, las partes podrán acordar posteriormente a la firma del presente acuerdo la modificación de la retribución que se detalla en las condiciones particulares, el profesional 
                             pagará su membresía a través de la plataforma, y dentro de esta misma plataforma el usuario agendará y de inmediato podrá dirigirse al pago de la consulta con el profesional; de acuerdo con el 
@@ -358,8 +358,8 @@
                             gastos operativos ocasionados con la pasarela de pagos PayU (Cargo fijo por transacción, porcentaje PayU x transacción, transacciones y transferencia, 4 x 1000).
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">5. DEVENGO, FACTURACIÓN Y FORMA DE PAGO</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">5. DEVENGO, FACTURACIÓN Y FORMA DE PAGO</h5>
+                        <p class="txt_toggle_infoZaabra">
                             5.1 La contraprestación devengada a favor de ZAABRA SALUD deberá ser abonada por el profesional, docente o estudiante al inicio de cada periodo de la membresía, 
                             ya sea pagada por 6 meses o 12 meses según sea el caso.<br><br>
                             5.2 Las facturas correspondientes serán emitidas por pagos de membresía por parte de ZAABRA SALUD en los siguientes 3 días hábiles, mediante el pago de la membresía, 
@@ -368,8 +368,8 @@
                             5.4 El cliente podrá solicitar la devolución (reembolso) de los montos pagados a ZAABRA SALUD en caso de presentarse errores de cobro, por ejemplo, pagos dobles o montos diferentes a los pactados.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">6. AGENDAMIENTO DE CITAS</h5>
-                        <p class="txt_interno_toggleFoot mb-0">
+                        <h5 class="title_toggle_infoZaabra">6. AGENDAMIENTO DE CITAS</h5>
+                        <p class="txt_toggle_infoZaabra mb-0">
                             6.1 Tras la activación de La membresía, ZAABRA SALUD confiere únicamente al profesional, excluyendo expresamente a cualquiera de las empresas y entidades que puedan formar parte su mismo grupo de sociedades, 
                             el uso de una landing page dentro de la plataforma de servicios profesionales por un tiempo específico y determinado. <br><br>
                             6.2 El permiso entregado a cada profesional le da el derecho al profesional para ingresar a su perfil y definir qué días y horas específicas podrá ofrecer su servicio a través de nuestra plataforma de ZAABRA SALUD, 
@@ -378,7 +378,7 @@
                             6.4 Este calendario permite al usuario y al profesional realizar las siguientes tareas:<br>
                         </p>
 
-                        <ul class="option_toggleFoot">
+                        <ul class="option_toggle_infoZaabra">
                             <li>Entregar a ZAABRA SALUD la disponibilidad de tiempo para consultas o servicio, tiempo en días y horas, para que le usuario pueda acceder y realizar el respectivo agendamiento de cita.</li>
                             <li>Confirmar los espacios que sean pagados por el usuario y de esta menara generar las notificaciones correspondientes antes de la consulta.</li>
                             <li>Podrá acceder a este desde cualquier dispositivo, sea computador, celular o Tablet.</li>
@@ -386,7 +386,7 @@
                         </ul>
                      
 
-                        <p class="txt_interno_toggleFoot">
+                        <p class="txt_toggle_infoZaabra">
                             6.5 ZAABRA SALUD se reserva el derecho a bloquear el acceso al calendario de agendamiento de citas, en el supuesto en el que se realice un uso indebido o inadecuado del mismo, 
                             o no se cumpla con el usuario final lo pactado, de conformidad con las previsiones del presente contrato, a estos efectos se entenderá como “uso inadecuado” a los siguiente: que este sea 
                             manejado por otras personas no autorizadas o no registradas anteriormente, no podrá enviar correos no deseados o spam, reproducir o intentar reproducir el software sin autorización, 
@@ -401,8 +401,8 @@
                             sentencias y gastos de todo tipo en los cuales pueda incurrir como consecuencia de reclamaciones de terceros en relación al uso por parte del cliente, o de su personal.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">7. DURACIÓN Y TERMINACIÓN</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">7. DURACIÓN Y TERMINACIÓN</h5>
+                        <p class="txt_toggle_infoZaabra">
                             7.1 El contrato entrará en vigor en el momento del pago de la membresía o suscripción, salvo acuerdo explícito en contra en las condiciones particulares del presente acuerdo, 
                             el período inicial del contrato será por el plazo de 12 meses o 6 meses según la membresía pagada; estos días comienzan a contar desde la fecha de pago de la membresía, esta 
                             deberá ser renovada con el pago cada periodo según el escogido, de no recibir el pago 8 días hábiles antes de terminar el periodo, el sistema inmediatamente cumplido el tiempo 
@@ -431,8 +431,8 @@
                             los daños y perjuicios causados, respetando en todo caso, los términos previstos en el presente acuerdo.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">8. DERECHOS Y OBLIGACIONES DE ZAABRA SALUD</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">8. DERECHOS Y OBLIGACIONES DE ZAABRA SALUD</h5>
+                        <p class="txt_toggle_infoZaabra">
                             8.1 En el marco de la prestación del servicio adquirido como membresía, ZAABRASALUD se compromete a: 
                             a) Ofrecer servicios de membresía en los términos previstos en las condiciones generales y, en su caso en las condiciones generales del servicio. 
                             b) Proporcionar al profesional, tecnólogo, docente o estudiante las herramientas necesarias para asignar el perfil e información para publicar en el sitio. 
@@ -442,8 +442,8 @@
                             nuestros canales virtuales, Teléfono 3212449869 o al correo electrónico <span class="ancla_toggleFoot">servicioalcliente@zaabrasalud.co</span>
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">9. OBLIGACIONES DEL PROFESIONAL, TECNÓLOGO, DOCENTE O ESTUDIANTE.</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">9. OBLIGACIONES DEL PROFESIONAL, TECNÓLOGO, DOCENTE O ESTUDIANTE.</h5>
+                        <p class="txt_toggle_infoZaabra">
                             9.1 El profesional, tecnólogo, docente o estudiante declara, garantiza y se obliga frente a ZAABRA SALUD a dar cumplimiento a toda y cada una de las previsiones del presente acuerdo, incluyendo términos y condiciones 
                             generales y términos y condiciones generales del servicio, con la debida diligencia y en atención a la naturaleza de su actividad profesional y en especial se compromete a: 
                             a) Mantener en todo momento actualizada la información de cada perfil. 
@@ -464,8 +464,8 @@
                                 importe de la contraprestación que se hubiese devengado a favor de ZAABRA SALUD durante el periodo de la membresía, así como cualquier otro daño generado a ZAABRA SALUD por dicho incumplimiento.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">10 MANIFESTACIONES Y GARANTÍAS AL USUARIO</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">10 MANIFESTACIONES Y GARANTÍAS AL USUARIO</h5>
+                        <p class="txt_toggle_infoZaabra">
                             10.1 El usuario manifiesta y garantiza a ZAABRA SALUD que: 
                             a) Tanto el usuario como representante legal del mismo tienen capacidad legal suficiente a los efectos de suscribir o aceptar el acuerdo y dar cumplimiento a la totalidad de las disposiciones del contrato, 
                             incluyendo las condiciones generales y condiciones del servicio y cualquier otra prevista en el mismo. 
@@ -489,16 +489,16 @@
                             ZAABRA SALUD los gastos legales, administrativos, judiciales, de abogados y procuradores.
                         </p>
                         
-                        <h5 class="title_interno_toggleFoot">11. CAMBIOS DE LOS PROCEDIMIENTOS</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">11. CAMBIOS DE LOS PROCEDIMIENTOS</h5>
+                        <p class="txt_toggle_infoZaabra">
                             11.1 Las Partes acuerdan que cualquier modificación implementada por ZAABRA SALUD en relación a los procesos de verificación, modificaciones en el sitio web de ZAABRA SALUD o en el ámbito de actividad u otras 
                             modificaciones a los efectos de adaptarse a la legislación aplicable no implicará una modificación del presente contrato y no dará lugar a la cancelación del mismo en los términos previstos en las condiciones generales. 
                             Se entenderá que el usuario acepta dicha modificación o actualización en el supuesto en el que el usuario siga haciendo uso del sitio web de ZAABRA SALUD, tras la entrada en vigencia de la actualización o modificación del 
                             Sitio Web de ZAABRA SALUD, en ningún caso, se requerirá la autorización expresa o la formalización de un acuerdo por separado entre las partes.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">12. SITIO WEB</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">12. SITIO WEB</h5>
+                        <p class="txt_toggle_infoZaabra">
                             12.1 El sitio web ZAABRA SALUD se ofrecen tal como han sido desarrollados y en la forma en la que estén disponibles en cada momento, a tal efecto, ZAABRA SALUD no garantiza al usuario o a cualquier otra persona o entidad, 
                             de forma expresa o implícita, que los mismos se adaptarán a cualquier finalidad o uso concreto, ni será completo, útil ni adecuado para la actividad del cliente o de cualquiera de los usuarios, incluyendo, de forma enunciativa 
                             pero no limitativa, garantía de comerciabilidad, patentabilidad y/o adecuación a un determinado propósito, ni de existencia de defectos o errores, ni en relación a su capacidad de integrarse en un sistema determinado, 
@@ -508,8 +508,8 @@
                             que dichas actuaciones de mantenimiento por la noche o en días no laborables.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">13. EXENCIÓN DE RESPONSABILIDAD</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">13. EXENCIÓN DE RESPONSABILIDAD</h5>
+                        <p class="txt_toggle_infoZaabra">
                             13.1 ZAABRA SALUD no será responsable por las pérdidas, daños directos, indirectos, emergentes, por el lucro cesante sufrido por el profesional, tecnólogo, docente, estudiante o los usuarios, o cualquier otro daño o coste incidental, 
                             especial o que sea consecuencia de una reclamación –incluidos los costes judiciales y de abogado o procurador, la responsabilidad civil o por producto o negligencia- fundada en una conducta o actividad desarrollada por 
                             ZAABRA SALUD o cualquier otro con motivo del uso del sitio web, o cualquier otro software o aplicación facilitada por ZAABRA SALUD en el marco de los servicios prestados, por cualquier motivo  
@@ -557,8 +557,8 @@
                             la información publicada por los Usuarios y terceros en el portal.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">14. DERECHOS DE PROPIEDAD INTELECTUAL Y/O INDUSTRIAL DE LA COMPAÑÍA Y DE LA INFORMACIÓN PUBLICADA POR EL PROFESIONAL Y/O USUARIO</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">14. DERECHOS DE PROPIEDAD INTELECTUAL Y/O INDUSTRIAL DE LA COMPAÑÍA Y DE LA INFORMACIÓN PUBLICADA POR EL PROFESIONAL Y/O USUARIO</h5>
+                        <p class="txt_toggle_infoZaabra">
                             14.1 Todos los derechos de propiedad industrial y/o intelectual sobre el Sitio Web ZAABRA SALUD, la aplicación móvil, el software de agendamiento de cita, las marcas de ZAABRA SALUD, las aplicaciones facilitadas por parte de 
                             ZAABRA SALUD en el marco de la prestación de los Servicios de membresía, los software de todo ello, así como de cualquier ampliación, mejora o modificación de todo ello y de los trabajos, materiales o elementos creados por parte de 
                             ZAABRA SALUD en el marco de la prestación de los servicios previstos en el presente Contrato o el cumplimiento de las obligaciones que se derivan del mismo, son de propiedad exclusiva de la Compañía, por lo que el Usuario o profesional, 
@@ -575,8 +575,8 @@
                             14.5 Las disposiciones previstas en el apartado anterior se confieren a ZAABRA SALUD por el tiempo máximo que permite la ley, por lo que permanecerán en vigencia tras la finalización del presente contrato.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">15. CONFIDENCIALIDAD</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">15. CONFIDENCIALIDAD</h5>
+                        <p class="txt_toggle_infoZaabra">
                             15.1 Las partes reconocen que durante la relación profesional entre ellas tendrán acceso a información relativa al presente contrato, acuerdos previos, documentación, correos electrónicos otro tipo de mensajes intercambiados 
                             entre las Partes, que tendrán la consideración de confidenciales y que deberán ser tratados con secreto para garantizar el buen fin de las relaciones entre las partes. A tal efecto, las partes se comprometen a mantener 
                             estricta confidencialidad sobre la información de este tipo, no pudiendo reproducirla, utilizarla, venderla, licenciarla, exponerla, publicarla o revelarla de cualquier forma a cualquier otra persona, sin autorización 
@@ -603,8 +603,8 @@
                             incluso, ser considerada competencia desleal.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">16. PROTECCIÓN DE LOS DATOS DE CARÁCTER PERSONAL</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">16. PROTECCIÓN DE LOS DATOS DE CARÁCTER PERSONAL</h5>
+                        <p class="txt_toggle_infoZaabra">
                             16.1 Las partes se obligan a tratar los datos de carácter personal a los que tengan acceso o que sean objeto de tratamiento durante la prestación de los servicios derivados de la ejecución del presente contrato en cumplimiento 
                             de la normativa aplicable en materia de privacidad y protección de datos<br><br>
                             personales incluyendo, entre otras, la ley 1581 de 2012 de protección de datos personales.<br><br>
@@ -637,22 +637,22 @@
                             posicionamiento empresarial Google My Business, con la finalidad de impulsar la presencia y el perfil o landing page en Google.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">17. RESOLUCIÓN DE SOLICITUDES Y RECLAMACIONES</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">17. RESOLUCIÓN DE SOLICITUDES Y RECLAMACIONES</h5>
+                        <p class="txt_toggle_infoZaabra">
                             17.1 Para cualquier solicitud o reclamación que pueda surgir en el marco de la prestación de los servicios, el profesional, tecnólogo, docente, estudiante o el mismo usuario se deberá dirigir a la cuenta de correo electrónico 
                             del asesor que ZAABRA SALUD asigne a su cuenta, o en su defecto, a <span class="ancla_toggleFoot">servicioalcliente@zaabrasalud.co</span> o al teléfono 3212449869.<br><br>
                             17.2 Las reclamaciones se deberán remitir dentro del plazo máximo de catorce (14) días a contar desde la fecha del evento que dio lugar a la reclamación. La comunicación de la reclamación deberá contener el motivo de la reclamación y 
                             los motivos que la fundamentan. En el supuesto en el que la reclamación o la queja tenga contenido ofensivo o inapropiado a criterio de ZAABRA SALUD o no se realice con la diligencia debida, esta no será atendida por ZAABRA SALUD.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">18. GESTIÓN DIARIA DEL CONTRATO</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">18. GESTIÓN DIARIA DEL CONTRATO</h5>
+                        <p class="txt_toggle_infoZaabra">
                             18.1 El profesional, tecnólogo, docente o estudiante deberá notificar a ZAABRA SALUD a la mayor brevedad posible de cualquier cambio de los datos de contacto del responsable, mediante comunicación por escrito dirigida a la 
                             dirección de correo electrónico prevista en el encabezamiento del presente contrato.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">19. MISCELÁNEA</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">19. MISCELÁNEA</h5>
+                        <p class="txt_toggle_infoZaabra">
                             <b>1. Cesión:</b> El cliente no podrá ceder los derechos y obligaciones en el marco de la relación contractual con ZAABRA SALUD o subrogar su posición contractual, sin el consentimiento previo y por escrito de ZAABRA SALUD. 
                             Sin perjuicio de lo anterior, el Cliente acuerda y autoriza de forma expresa que ZAABRA SALUD podrá ceder todos los derechos y obligaciones que se deriven de la relación profesional con ZAABRA SALUD, incluyendo, 
                             el contrato y las condiciones particulares y condiciones generales, entre otros, sin necesidad de obtener el consentimiento del cliente. Dicha cesión, exigirá por parte de la adquirente la aceptación previa de los 
@@ -675,15 +675,15 @@
                             Asimismo, en el supuesto en el que hubiese discrepancias entre las condiciones generales y las condiciones particulares, prevalecerán estas últimas.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">20. RÉGIMEN JURÍDICO Y LEY APLICABLE</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">20. RÉGIMEN JURÍDICO Y LEY APLICABLE</h5>
+                        <p class="txt_toggle_infoZaabra">
                             20.1 Este contrato tiene carácter mercantil y se regirá por sus propias cláusulas, y en lo no previsto en ellas, las partes se atendrán a las previsiones dispuestas en la legislación colombiana.<br><br>
                             20.2 renunciando las partes a cualquier privilegio que pudiera corresponder, cualquier disputa o controversia en relación con, en conexión con, o resultante del contrato será resuelto exclusivamente 
                             por los jueces y tribunales de Colombia.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">21. PARÁMETROS DE FOTOGRAFÍA</h5>
-                        <p class="txt_interno_toggleFoot mb-2">
+                        <h5 class="title_toggle_infoZaabra">21. PARÁMETROS DE FOTOGRAFÍA</h5>
+                        <p class="txt_toggle_infoZaabra mb-2">
                             21.1 Fotografía del perfil profesional, fotografía de aspecto cuadrado (altura igual al ancho) con dimensiones de 1.080 por 1.080 pixeles; La imagen con características de 24 bits por pixel, en espacio de color RGB, en fondo blanco, 
                             en formato jpg o png. foto de perfil de cuerpo medio plano; las fotos escogidas para el perfil, deben ser recientes y reflejar su actual apariencia. <br><br>
                             21.2 Fotografías para galería, estás imágenes deben complementar contenido y aportar material visual.
@@ -692,14 +692,14 @@
                 </div>
             </div>
 
-            <div class="card containt_options-collapse-acerca">
+            <div class="card options_collapse_infoZaabra">
                 <div id="headingFour">
-                    <button class="boton_collapse-off-acerca" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"> Términos y condiciones del Servicio </button>
+                    <button class="btn_collapse_off_infoZaabra" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"> Términos y condiciones del Servicio </button>
                 </div>
                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                    <div class="card-body section_toggleFoot">
-                        <h5 class="title_interno_toggleFoot">TÉRMINOS Y CONDICIONES</h5>
-                        <p class="txt_interno_toggleFoot">
+                    <div class="card-body toggle_infoZaabra">
+                        <h5 class="title_toggle_infoZaabra">TÉRMINOS Y CONDICIONES</h5>
+                        <p class="txt_toggle_infoZaabra">
                             Este documento describe los términos y condiciones generales (los "términos y condiciones generales"), aplicables al acceso y uso de los servicios ofrecidos por ZAABRA COLOMBIA S.A.S. ("Zaabra") dentro del sitio 
                             <a class="ancla_toggleFoot" href="">www.zaabrasalud.co</a> y/u otros dominios (urls) relacionados (en adelante "ZAABRA SALUD" o el "Sitio"), en donde éstos términos y condiciones se encuentren. cualquier persona que 
                             desee acceder y/o suscribirse y/o usar el sitio o los servicios podrá hacerlo sujetándose a los términos y condiciones generales, junto con todas las demás políticas y principios que rigen 
@@ -707,8 +707,8 @@
                             contratos y transacciones que se realicen en este sitio, así como sus efectos jurídicos, quedarán regidos por estas reglas y sometidos a la legislación aplicable en Colombia.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">AVISO LEGAL</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">AVISO LEGAL</h5>
+                        <p class="txt_toggle_infoZaabra">
                             El presente aviso legal regula el uso y utilización de la plataforma que es titular ZAABRA COLOMBIA SAS (en adelante ZAABRA SALUD). La navegación por el sitio web de ZAABRA SALUD le atribuye la condición de USUARIO del mismo y 
                             conlleva su aceptación plena y sin reservas de todas y cada una de las condiciones publicadas en este aviso legal, advirtiendo de que dichas condiciones podrán ser modificadas sin notificación previa por parte de ZAABRA SALUD, 
                             en cuyo caso se procederá a su publicación y aviso con la máxima antelación posible; por ello es recomendable leer atentamente su contenido en caso de desear acceder y hacer uso de la información y de los servicios ofrecidos 
@@ -718,8 +718,8 @@
                             retirar el acceso y su uso en cualquier momento.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">1. IDENTIFICACIÓN</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">1. IDENTIFICACIÓN</h5>
+                        <p class="txt_toggle_infoZaabra">
                             ZAABRA SALUD, en cumplimiento de la Ley 1581 de 2012<br>
                             Razón social: Zaabra Colombia sas<br>
                             Nombre Comercial: Zaabra Colombia<br>
@@ -727,8 +727,8 @@
                             Dirección: Carrera 64 # 67 B – 89 Interior dos
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">2. CONTACTO</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">2. CONTACTO</h5>
+                        <p class="txt_toggle_infoZaabra">
                             Para comunicarse con nosotros, contamos con diferentes medios de comunicación tanto escrita como telefónica y que detallamos a continuación<br>
                             Teléfono: 3212449869 – 7123946<br>
                             Correo electrónico: <span class="ancla_toggleFoot">servicioalcliente@zaabrasalud.co</span><br>
@@ -736,14 +736,14 @@
                             Todas las notificaciones y comunicaciones entre los usuarios y ZAABRA SALUD se considerarán eficaces, a todos los efectos, cuando se realicen a través de cualquier medio de los detallados anteriormente.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">3. CONDICIONES DE ACCESO Y USO</h5>
-                        <p class="txt_interno_toggleFoot mb-2">
+                        <h5 class="title_toggle_infoZaabra">3. CONDICIONES DE ACCESO Y USO</h5>
+                        <p class="txt_toggle_infoZaabra mb-2">
                             El sitio web y sus servicios son de acceso libre y gratuito. No obstante, ZAABRA SALUD puede condicionar la utilización de algunos de los servicios ofrecidos en su plataforma a la previa redacción del 
                             correspondiente formulario con todos los datos y documentos solicitados, toda esta información está sujeta a verificación; de igual manera el usuario garantiza la autenticidad y actualidad de todos 
                             aquellos datos que comunique a ZAABRA SALUD y será el único responsable de las manifestaciones falsas o inexactas que realice.<br><br>
                             El usuario o profesional se compromete expresamente a hacer un uso adecuado de los contenidos y servicios de ZAABRA SALUD y a no emplearlos con fines destructivos como:
                         </p>
-                        <ul class="option_toggleFoot">
+                        <ul class="option_toggle_infoZaabra">
                             <li>Difundir contenidos delictivos, violentos, pornográficos, racistas, xenófobos, ofensivos, de apología del terrorismo o, en general, contrarios a la ley o al orden público.</li>
                             <li>Introducir en la red virus informáticos o realizar actuaciones susceptibles de alterar, estropear, interrumpir o generar errores o daños en los documentos electrónicos, datos o sistemas físicos y lógicos de 
                                 ZAABRA SALUD o de terceras personas; así como obstaculizar el acceso de otros usuarios al sitio web y a sus servicios mediante el consumo masivo de los recursos informáticos a través de los cuales ZAABRA SALUD presta sus servicios.</li>
@@ -755,7 +755,7 @@
                             <li>Conseguir datos con finalidad publicitaria y de remitir publicidad de cualquier clase y comunicaciones con fines de venta u otras de naturaleza comercial sin que medie su previa solicitud o consentimiento.</li>
                         </ul>
 
-                        <p class="txt_interno_toggleFoot">
+                        <p class="txt_toggle_infoZaabra">
                             Todos los contenidos del sitio web, como textos, fotografías, gráficos, imágenes, iconos, tecnología, software, así como su diseño gráfico y códigos fuente, constituyen una obra cuya propiedad pertenece a ZAABRA SALUD, 
                             sin que puedan entenderse cedidos al usuario ninguno de los derechos de explotación sobre los mismos más allá de lo estrictamente necesario para el correcto uso de la web. <br><br>
                             En definitiva, los usuarios que accedan a este sitio web pueden visualizar los contenidos y efectuar, en su caso, copias privadas autorizadas siempre que los elementos reproducidos no sean cedidos posteriormente a terceros, 
@@ -772,8 +772,8 @@
                             ZAABRA SALUD no se responsabiliza del uso que cada usuario les dé a los materiales puestos a disposición en este sitio web ni de las actuaciones que realice en base a los mismos.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">3.1 EXCLUSIÓN DE GARANTÍAS Y DE RESPONSABILIDAD EN EL ACCESO Y USO</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">3.1 EXCLUSIÓN DE GARANTÍAS Y DE RESPONSABILIDAD EN EL ACCESO Y USO</h5>
+                        <p class="txt_toggle_infoZaabra">
                             El contenido del presente sitio web es de carácter general y tiene una finalidad simplemente informativa, sin que se garantice plenamente el acceso a todos los contenidos, ni su exhaustividad, corrección, vigencia o actualidad, 
                             ni su idoneidad o utilidad para un objetivo específico.<br><br> 
                             ZAABRA SALUD excluye, hasta donde permite el ordenamiento jurídico, cualquier responsabilidad por los daños y perjuicios de toda naturaleza derivados de: <br>
@@ -788,20 +788,20 @@
                             ni sugiere, invita o recomienda la visita a los mismos, por lo que tampoco será responsable del resultado obtenido. ZAABRA SALUD no se responsabiliza del establecimiento de hipervínculos por parte de terceros.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">3.2 PROCEDIMIENTO EN CASO DE REALIZACIÓN DE ACTIVIDADES DE CARÁCTER ILÍCITO</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">3.2 PROCEDIMIENTO EN CASO DE REALIZACIÓN DE ACTIVIDADES DE CARÁCTER ILÍCITO</h5>
+                        <p class="txt_toggle_infoZaabra">
                             En el caso de que cualquier usuario o un tercero considere que existen hechos o circunstancias que revelen el carácter ilícito de la utilización de cualquier contenido y/o de la realización de cualquier actividad en las páginas 
                             web incluidas o accesibles a través del sitio web, deberá enviar una notificación a ZAABRA SALUD identificándose debidamente y especificando las supuestas infracciones.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">3.3 PUBLICACIONES</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">3.3 PUBLICACIONES</h5>
+                        <p class="txt_toggle_infoZaabra">
                             La información administrativa facilitada a través del sitio web no sustituye la publicidad legal de las leyes, normativas, planes, disposiciones generales y actos que tengan que ser publicados formalmente a los diarios 
                             oficiales de las administraciones públicas, que constituyen el único instrumento que da fe de su autenticidad y contenido. La información disponible en este sitio web debe entenderse como una guía sin propósito de validez legal.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">4. PROCESO DE ACCESO A LOS SERVICIOS</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">4. PROCESO DE ACCESO A LOS SERVICIOS</h5>
+                        <p class="txt_toggle_infoZaabra">
                             Para la utilización de los servicios de <a class="ancla_toggleFoot" href="">www.zaabrasalud.co</a> es necesario que el cliente sea mayor de edad.<br><br>
                             <b>Registro de Usuario:</b> Para acceder a algunos de los servicios será necesaria la suscripción o registro del usuario, el cual creará su propio su cuenta por medio de un correo electrónico y una contraseña, los cuales se verifican 
                             automáticamente, con estos habilitará personalmente para poder tener acceso a los servicios.<br><br>
@@ -820,8 +820,8 @@
                             o que son objeto de contratación previa y que se regirán por sus condiciones específicas.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">5. RESPONSABILIDAD Y EXONERACIÓN DE RESPONSABILIDAD</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">5. RESPONSABILIDAD Y EXONERACIÓN DE RESPONSABILIDAD</h5>
+                        <p class="txt_toggle_infoZaabra">
                             ZAABRA SALUD no se responsabilizará de las consecuencias de cualquier índole que puedan derivarse de la falta de veracidad, exactitud y completitud de los datos facilitados por los usuarios a través del sitio web o sobre la identidad de los mismos.<br>
                             ZAABRA SALUD no se responsabiliza de los contenidos e información aportada, a través del sitio web, por los profesionales relacionados con la prestación de sus propios servicios ni de las condiciones específicas de éstos. Del mismo modo, 
                             ZAABRA SALUD no es responsable de ninguna de las respuestas y/u opiniones vertidas por los profesionales, ni de las consultas, comentarios u opiniones realizadas por el usuario a través del sitio web.<br>
@@ -835,14 +835,14 @@
                             En ningún caso ZAABRA SALUD será responsable por daños morales, lucro cesante y/o de cualquier daño indirecto que pueda sufrir el usuario.
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">6. ATENCIÓN AL USUARIO</h5>
-                        <p class="txt_interno_toggleFoot">
+                        <h5 class="title_toggle_infoZaabra">6. ATENCIÓN AL USUARIO</h5>
+                        <p class="txt_toggle_infoZaabra">
                             Para realizar cualquier consulta a ZAABRA SALUD relacionada con el funcionamiento del sitio web, información o disponibilidad de servicios, el cliente deberá dirigirse al Centro de Atención al Cliente, 
                             llamando al teléfono 3212449869 – 7123946 o enviando un correo electrónico a <span class="ancla_toggleFoot">servicioalcliente@zaabrasalud.co</span>
                         </p>
 
-                        <h5 class="title_interno_toggleFoot">7. LEGISLACIÓN APLICABLE</h5>
-                        <p class="txt_interno_toggleFoot mb-2">
+                        <h5 class="title_toggle_infoZaabra">7. LEGISLACIÓN APLICABLE</h5>
+                        <p class="txt_toggle_infoZaabra mb-2">
                             Las condiciones presentes se regirán por la legislación colombiana vigente; en materia de comercio electrónico y ventas en línea, el idioma utilizado será el español.
                         </p>
                     </div>

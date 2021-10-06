@@ -1,0 +1,248 @@
+.contenedor_infoZaabra {
+    padding-bottom: 50px;
+}
+.title_banner_infoZaabra {
+    color: #0083D6;
+    font-family: "Quicksand";
+    font-size: 0.95em;
+    font-weight: 700;
+    position: absolute;
+    top: 90px;
+    left: 20px;
+}
+.img_banner_infoZaabra {
+    width: 100%;
+    padding: 0;
+    height: 100px;
+    object-fit: cover;
+}
+.section_infoZaabra {
+    margin: auto;
+    padding: 0;
+    width: 100%;
+}
+.titulo_infoZaabra {
+    font-size: 1em;
+    font-family: 'Quicksand';
+    color: #232323;
+    text-align: center;
+    margin-top: 5%;
+}
+.subTitulo_infoZaabra {
+    font-size: .8em;
+    font-family: 'Roboto','Regular';
+    color: #3E3E3E;
+    text-align: center;
+    padding: 0;
+    margin: 5% 0;
+}
+.accordion_infoZaabra {
+    padding: 1% 0;
+    box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
+}
+.options_collapse_infoZaabra {
+    border-radius: 0px;
+    border: none;
+    padding: 1% 3%;
+}
+.btn_collapse_off_infoZaabra {
+    font-family: 'Quicksand', 'Regular';
+    font-size: .75em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #232323;
+    text-align: left;
+    padding: 2% 10% 2% 2%;
+    background: #F5F5F5;
+    border-radius: 0px;
+    border: 1px solid #F5F5F5F5;
+    width: 100%;
+    background-image: url('/img/iconos/icono-mas.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-x: 97%;
+    background-size: 15px;
+}
+.boton_collapse-on-acerca {
+    font-family: 'Quicksand', 'Regular' !important;
+    font-size: .75em !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    color: #FFFFFF !important;
+    text-align: left !important;
+    padding: 2% 10% 2% 2% !important;
+    background: #0083D6 !important;
+    border-radius: 0px !important;
+    border: 1px solid #0083D6 !important;
+    width: 100% !important;
+    background-image: url('/img/iconos/icono-x.svg') !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-position-x: 97% !important;
+    background-size: 15px !important;
+}
+.toggle_infoZaabra {
+    padding: 5% 4% 0 4%;
+}
+.title_toggle_infoZaabra {
+    font-size: 0.653em;
+    font-family: 'Roboto', 'Regular';
+    font-weight: bolder;
+    color: #3E3E3E;
+    margin: 2% 0 1% 0;
+}
+.txt_toggle_infoZaabra {
+    font-size: 0.6em;
+    font-family: 'Roboto', 'Regular';
+    color: #3E3E3E;
+}
+.option_toggle_infoZaabra li::marker {
+    color: #0083D6;
+}
+.option_toggle_infoZaabra {
+    font-size: .6em;
+    font-family: "Roboto", "Regular";
+    color: #3E3E3E;
+    padding-left: 3%;
+    margin-bottom: 0;
+}
+.option_toggle_infoZaabra {
+    font-size: 0.6em;
+    font-family: "Roboto", "Regular";
+    color: #3E3E3E;
+    padding-left: 3%;
+    margin-bottom: 5%;
+}
+@media(min-width: 360px) {
+    .contenedor_infoZaabra {
+        padding-bottom: 100px;
+    }
+    .img_banner_infoZaabra {
+        height: 120px;
+    }
+}
+@media(min-width: 400px) {
+    .contenedor_infoZaabra {
+        padding-bottom: 245px;
+    }
+    .img_banner_infoZaabra {
+        height: 135px;
+    }
+}
+@media(min-width: 600px) {
+    .contenedor_infoZaabra {
+        padding-bottom: 210px;
+    }
+    .title_banner_infoZaabra {
+        font-size: 2.2em;
+        top: 175px;
+        left: 60px;
+    }
+    .img_banner_infoZaabra {
+        height: 250px;
+    }
+    .section_infoZaabra {
+        width: 85%;
+    }
+    .titulo_infoZaabra {
+        font-size: 2em;
+    }
+    .subTitulo_infoZaabra {
+        font-size: 1.5em;
+    }
+    .btn_collapse_off_infoZaabra {
+        font-size: 1.2em;
+        background-size: 19px;
+    }
+    .boton_collapse-on-acerca {
+        font-size: 1.2em !important;
+        background-size: 19px !important;
+    }
+    .title_toggle_infoZaabra {
+        font-size: 1.2em;
+        margin-bottom: 2%;
+    }
+    .txt_toggle_infoZaabra {
+        font-size: 1.1em;
+        margin-bottom: 5%;
+    }
+    .option_toggle_infoZaabra {
+        font-size: 1.1em;
+        font-family: "Roboto", "Regular";
+        color: #3E3E3E;
+        padding-left: 6%;
+        margin-bottom: 5%;
+    }
+}
+@media(min-width: 1024px) {
+    .contenedor_infoZaabra {
+        padding-bottom: 0;
+    }
+    .title_banner_infoZaabra {
+        left: 125px;
+    }
+    .section_infoZaabra {
+        width: 77%;
+    }
+}
+@media (min-width: 1200px) {
+    .title_banner_infoZaabra {
+        left: 150px;
+    }
+    .img_banner_infoZaabra {
+        height: 300px;
+    }
+}
+@media (min-width: 1440px) {
+    .section_infoZaabra {
+        width: 65%;
+    }
+    .title_banner_infoZaabra {
+        font-size: 3.2em;
+        left: 180px;
+    }
+}
+@media (min-width: 1920px) {
+    .title_banner_infoZaabra {
+        font-size: 3.5em;
+        left: 330px;
+    }
+    .img_banner_infoZaabra {
+        height: 425px;
+    }
+    .section_infoZaabra {
+        width: 60%;
+    }
+    .titulo_infoZaabra {
+        font-size: 2.5em;
+    }
+    .subTitulo_infoZaabra {
+        font-size: 1.6em;
+        padding: 0 10%;
+    }
+    .btn_collapse_off_infoZaabra {
+        font-size: 1.5em;
+        background-size: 30px;
+    }
+    .boton_collapse-on-acerca {
+        font-size: 1.5em !important;
+        background-size: 30px !important;
+    }
+    .toggle_infoZaabra {
+        padding: 3% 3% 0 3%;
+    }
+    .txt_toggle_infoZaabra {
+        font-size: 1.2em;
+        margin-bottom: 2%;
+    }
+    .title_toggle_infoZaabra {
+        font-size: 1.35em;
+        margin-top: 0;
+        margin-bottom: 1%;
+    }
+    .option_toggle_infoZaabra {
+        font-size: 1.2em;
+        padding-left: 3%;
+        margin-bottom: 2%;
+    }
+}
