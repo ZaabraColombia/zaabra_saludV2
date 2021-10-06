@@ -12040,77 +12040,70 @@ a:link, a:visited, a:active, a:hover {
     width: 2%;
   }
 }
-.imagen_bannerPrin-acerca {
+.contenedor_infoZaabra {
+  padding-bottom: 50px;
+}
+
+.title_banner_infoZaabra {
+  color: #0083D6;
+  font-family: "Quicksand";
+  font-size: 0.95em;
+  font-weight: 700;
+  position: absolute;
+  top: 90px;
+  left: 20px;
+}
+
+.img_banner_infoZaabra {
   width: 100%;
   padding: 0;
-  height: 30vh;
+  height: 100px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.title_banner_acerca {
-  color: #0083D6;
-  font-family: "Quicksand";
-  font-size: 2.2em;
-  font-weight: 700;
-  position: absolute;
-  top: 20%;
-  left: 15.7%;
-}
-
-.section_principal-acerca {
+.section_infoZaabra {
   margin: auto;
   padding: 0;
-  width: 70%;
+  width: 100%;
 }
 
-.titulo_superior-acerca {
-  font-family: "Roboto", "Regular";
+.titulo_infoZaabra {
   font-size: 1em;
+  font-family: "Quicksand";
+  color: #232323;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.subTitulo_infoZaabra {
+  font-size: 0.8em;
+  font-family: "Roboto", "Regular";
   color: #3E3E3E;
   text-align: center;
-  padding: 0 3%;
-  margin: 7% 0;
+  padding: 0;
+  margin: 5% 0;
 }
 
-.contain_accordion-acerca {
+.accordion_infoZaabra {
   padding: 1% 0;
   box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
 }
 
-.containt_options-collapse-acerca {
+.options_collapse_infoZaabra {
   border-radius: 0px;
   border: none;
   padding: 1% 3%;
 }
 
-.boton_collapse-on-acerca {
-  font-family: "Quicksand", "Regular" !important;
-  font-size: 1em;
-  font-weight: bold !important;
-  text-decoration: none !important;
-  color: #FFFFFF !important;
-  text-align: left !important;
-  padding: 1% 3% !important;
-  background: #0083D6 !important;
-  border-radius: 0px !important;
-  border: 1px solid #0083D6 !important;
-  width: 100% !important;
-  background-image: url("/img/iconos/icono-x.svg") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-position-x: 97% !important;
-  background-size: 3% !important;
-}
-
-.boton_collapse-off-acerca {
+.btn_collapse_off_infoZaabra {
   font-family: "Quicksand", "Regular";
-  font-size: 1em;
+  font-size: 0.75em;
   font-weight: bold;
   text-decoration: none;
   color: #232323;
   text-align: left;
-  padding: 1% 3%;
+  padding: 2% 10% 2% 2%;
   background: #F5F5F5;
   border-radius: 0px;
   border: 1px solid #F5F5F5F5;
@@ -12119,165 +12112,132 @@ a:link, a:visited, a:active, a:hover {
   background-repeat: no-repeat;
   background-position: center;
   background-position-x: 97%;
-  background-size: 3%;
+  background-size: 15px;
 }
 
-.section_toggleFoot {
-  padding: 2% 3% 0 4%;
+.boton_collapse-on-acerca {
+  font-family: "Quicksand", "Regular" !important;
+  font-size: 0.75em !important;
+  font-weight: bold !important;
+  text-decoration: none !important;
+  color: #FFFFFF !important;
+  text-align: left !important;
+  padding: 2% 10% 2% 2% !important;
+  background: #0083D6 !important;
+  border-radius: 0px !important;
+  border: 1px solid #0083D6 !important;
+  width: 100% !important;
+  background-image: url("/img/iconos/icono-x.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-position-x: 97% !important;
+  background-size: 15px !important;
 }
 
-.txt_interno_toggleFoot {
-  font-size: 0.85em;
-  font-family: "Roboto", "Regular";
-  color: #3E3E3E;
+.toggle_infoZaabra {
+  padding: 5% 4% 0 4%;
 }
 
-.title_interno_toggleFoot {
-  font-size: 1em;
+.title_toggle_infoZaabra {
+  font-size: 0.653em;
   font-family: "Roboto", "Regular";
   font-weight: bolder;
   color: #3E3E3E;
   margin: 2% 0 1% 0;
 }
 
-.option_toggleFoot {
-  font-size: 0.85em;
+.txt_toggle_infoZaabra {
+  font-size: 0.6em;
+  font-family: "Roboto", "Regular";
+  color: #3E3E3E;
+}
+
+.option_toggle_infoZaabra li::marker {
+  color: #0083D6;
+}
+
+.option_toggle_infoZaabra {
+  font-size: 0.6em;
   font-family: "Roboto", "Regular";
   color: #3E3E3E;
   padding-left: 3%;
   margin-bottom: 0;
 }
 
-.option_toggleFoot li::marker {
-  color: #0083D6;
+.option_toggle_infoZaabra {
+  font-size: 0.6em;
+  font-family: "Roboto", "Regular";
+  color: #3E3E3E;
+  padding-left: 3%;
+  margin-bottom: 5%;
 }
 
-@media (max-width: 359.98px) {
-  .imagen_bannerPrin-acerca {
-    height: 18vh;
-  }
-
-  .title_banner_acerca {
-    font-size: 0.95em;
-    top: 16.7%;
-    left: 4%;
-  }
-
-  .section_principal-acerca {
-    width: 100%;
-  }
-
-  .titulo_superior-acerca {
-    font-size: 0.6em;
-  }
-
-  .boton_collapse-on-acerca {
-    font-size: 0.75em;
-    background-size: 15px !important;
-    background-position-x: 97% !important;
-    padding: 2% 10% 2% 3% !important;
-  }
-
-  .boton_collapse-off-acerca {
-    font-size: 0.75em;
-    background-size: 15px;
-    background-position-x: 97%;
-    padding: 2% 10% 2% 3%;
-  }
-
-  .section_toggleFoot {
-    padding: 5% 4% 0 4%;
-  }
-
-  .txt_interno_toggleFoot {
-    font-size: 0.6em;
-    margin-bottom: 5%;
-  }
-
-  .title_interno_toggleFoot {
-    font-size: 0.653em;
-    margin-bottom: 2%;
-  }
-
-  .option_toggleFoot {
-    font-size: 0.6em;
-    font-family: "Roboto", "Regular";
-    color: #3E3E3E;
-    padding-left: 3%;
-    margin-bottom: 5%;
-  }
-}
 @media (min-width: 360px) {
-  .title_banner_acerca {
-    font-size: 1em;
-    top: 16%;
-    left: 4%;
+  .contenedor_infoZaabra {
+    padding-bottom: 100px;
   }
 
-  .boton_collapse-off-acerca {
-    font-size: 0.9em;
-    background-size: 15px;
-  }
-
-  .boton_collapse-on-acerca {
-    font-size: 0.9em;
-    background-size: 15px !important;
+  .img_banner_infoZaabra {
+    height: 120px;
   }
 }
-@media (min-width: 375px) {
-  .title_banner_acerca {
-    font-size: 1.1em;
-    top: 15%;
-    left: 4%;
+@media (min-width: 400px) {
+  .contenedor_infoZaabra {
+    padding-bottom: 245px;
   }
 
-  .titulo_superior-acerca {
-    padding: 0 14%;
-    margin: 8% 0;
+  .img_banner_infoZaabra {
+    height: 135px;
   }
 }
-@media (min-width: 601px) and (max-width: 1023.98px) {
-  .imagen_bannerPrin-acerca {
-    height: 20vh;
+@media (min-width: 600px) {
+  .contenedor_infoZaabra {
+    padding-bottom: 210px;
   }
 
-  .title_banner_acerca {
-    font-size: 2.35em;
-    top: 14.8%;
-    left: 4%;
+  .title_banner_infoZaabra {
+    font-size: 2.2em;
+    top: 175px;
+    left: 60px;
   }
 
-  .section_principal-acerca {
+  .img_banner_infoZaabra {
+    height: 250px;
+  }
+
+  .section_infoZaabra {
     width: 85%;
   }
 
-  .titulo_superior-acerca {
-    font-size: 1.4em;
-    padding: 0;
-    margin: 9.8% 0;
+  .titulo_infoZaabra {
+    font-size: 2em;
   }
 
-  .boton_collapse-off-acerca {
+  .subTitulo_infoZaabra {
+    font-size: 1.5em;
+  }
+
+  .btn_collapse_off_infoZaabra {
     font-size: 1.2em;
     background-size: 19px;
   }
 
   .boton_collapse-on-acerca {
-    font-size: 1.2em;
+    font-size: 1.2em !important;
     background-size: 19px !important;
   }
 
-  .title_interno_toggleFoot {
+  .title_toggle_infoZaabra {
     font-size: 1.2em;
     margin-bottom: 2%;
   }
 
-  .txt_interno_toggleFoot {
+  .txt_toggle_infoZaabra {
     font-size: 1.1em;
     margin-bottom: 5%;
   }
 
-  .option_toggleFoot {
+  .option_toggle_infoZaabra {
     font-size: 1.1em;
     font-family: "Roboto", "Regular";
     color: #3E3E3E;
@@ -12285,615 +12245,90 @@ a:link, a:visited, a:active, a:hover {
     margin-bottom: 5%;
   }
 }
-@media (min-width: 1200px) {
-  .imagen_bannerPrin-acerca {
-    height: 37vh;
-  }
-
-  .title_banner_acerca {
-    font-size: 2.7em;
-    top: 22.6%;
-    left: 14.6%;
-  }
-
-  .section_principal-acerca {
-    width: 65%;
-  }
-
-  .titulo_superior-acerca {
-    padding: 0 7%;
-  }
-}
-@media (min-width: 1360px) {
-  .title_banner_acerca {
-    font-size: 2.9em;
-    top: 22.7%;
-    left: 16.1%;
-  }
-}
-@media (min-width: 1440px) {
-  .title_banner_acerca {
-    font-size: 3.1em;
-    top: 22%;
-    left: 16%;
-  }
-
-  .titulo_superior-acerca {
-    font-size: 1.25em;
-  }
-
-  .boton_collapse-off-acerca {
-    font-size: 1.5em;
-    background-size: 3%;
-  }
-
-  .boton_collapse-on-acerca {
-    font-size: 1.5em;
-    background-size: 3% !important;
-  }
-
-  .txt_interno_toggleFoot {
-    font-size: 1em;
-  }
-}
-@media (min-width: 1920px) {
-  .imagen_bannerPrin-acerca {
-    height: 45vh;
-  }
-
-  .title_banner_acerca {
-    font-size: 4.1em;
-    top: 25.8%;
-    left: 16.2%;
-  }
-
-  .titulo_superior-acerca {
-    margin: 5% 0;
-  }
-
-  .section_toggleFoot {
-    padding: 2% 5% 0 5%;
-  }
-
-  .boton_collapse-off-acerca {
-    background-size: 2%;
-  }
-
-  .boton_collapse-on-acerca {
-    background-size: 2% !important;
-  }
-}
-.imagen_bannerPrin-polit {
-  width: 100%;
-  padding: 0;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.title_banner_polit {
-  color: #0083D6;
-  font-family: "Quicksand";
-  font-weight: 700;
-  position: absolute;
-  line-height: 1;
-}
-
-.section_principal-polit {
-  margin: auto;
-  padding: 0;
-  width: 70%;
-}
-
-.titulo_superior-polit {
-  font-family: "Roboto", "Regular";
-  color: #3E3E3E;
-  text-align: center;
-  padding: 0;
-  margin: 5% 0;
-}
-
-.contain_accordion-polit {
-  padding: 1% 0;
-  box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
-}
-
-.containt_options-collapse-polit {
-  border-radius: 0px;
-  border: none;
-  padding: 1% 3%;
-}
-
-.boton_collapse-on-polit {
-  font-family: "Quicksand", "Regular";
-  font-weight: bold;
-  text-decoration: none;
-  color: #FFFFFF;
-  text-align: left;
-  padding: 0 3%;
-  background: #0083D6;
-  border-radius: 0px;
-  border: 1px solid #0083D6;
-  width: 100%;
-  background-image: url("/img/iconos/icono-x.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position-x: 95%;
-}
-
-.boton_collapse-off-polit {
-  font-family: "Quicksand", "Regular";
-  font-weight: bold;
-  text-decoration: none;
-  color: #232323;
-  text-align: left;
-  padding: 0 3%;
-  background: #F5F5F5;
-  border-radius: 0px;
-  border: 1px solid #F5F5F5F5;
-  width: 100%;
-  background-image: url("/img/iconos/icono-mas.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position-x: 95%;
-}
-
-.text_interno-toggle-polit {
-  font-size: 0.85em;
-  color: #3E3E3E;
-}
-
-.ancla_toggleFoot {
-  font-size: 1em;
-  font-weight: bold;
-  color: #0083D6 !important;
-  text-decoration: underline !important;
-}
-
-.imagen_bannerPrin-polit {
-  height: 100px;
-}
-
-.title_banner_polit {
-  font-size: 0.95em;
-  top: 90px;
-  left: 20px;
-}
-
-.section_principal-polit {
-  width: 100%;
-}
-
-.titulo_superior-polit {
-  font-size: 0.6em;
-}
-
-.boton_collapse-on-polit {
-  font-size: 0.75em;
-  background-size: 6%;
-}
-
-.boton_collapse-off-polit {
-  font-size: 0.75em;
-  background-size: 6%;
-}
-
-.text_interno-toggle-polit {
-  font-size: 0.6em;
-}
-
-.ancla_toggleFoot {
-  font-size: 1.1em;
-}
-
-@media (min-width: 360px) {
-  .title_banner_polit {
-    font-size: 1.1em;
-    left: 28px;
-  }
-
-  .titulo_superior-polit {
-    font-size: 0.8em;
-  }
-}
-@media (min-width: 375px) {
-  .title_banner_polit {
-    font-size: 1.1em;
-    top: 90px;
-    left: 30px;
-  }
-
-  .titulo_superior-polit {
-    padding: 0 14%;
-    margin: 8% 0;
-  }
-}
-@media (min-width: 601px) and (max-width: 1023.98px) {
-  .imagen_bannerPrin-polit {
-    height: 220px;
-  }
-
-  .title_banner_polit {
-    font-size: 2.35em;
-    top: 150px;
-    left: 60px;
-  }
-
-  .section_principal-polit {
-    width: 85%;
-  }
-
-  .titulo_superior-polit {
-    font-size: 1.5em;
-    padding: 0;
-    margin: 5.5% 0;
-  }
-
-  .boton_collapse-on-polit {
-    font-size: 1.4em;
-    height: 5vh;
-    background-size: 4%;
-  }
-
-  .boton_collapse-off-polit {
-    font-size: 1.4em;
-    height: 5vh;
-    background-size: 4%;
-  }
-
-  .text_interno-toggle-polit {
-    font-size: 1.1em;
-  }
-
-  .ancla_toggleFoot {
-    font-size: 1em;
-  }
-}
 @media (min-width: 1024px) {
-  .imagen_bannerPrin-polit {
-    height: 285px;
+  .contenedor_infoZaabra {
+    padding-bottom: 0;
   }
 
-  .title_banner_polit {
-    font-size: 2.5em;
-    top: 150px;
+  .title_banner_infoZaabra {
     left: 125px;
   }
 
-  .section_principal-polit {
+  .section_infoZaabra {
     width: 77%;
-  }
-
-  .titulo_superior-polit {
-    font-size: 1.5em;
-  }
-
-  .boton_collapse-off-acerca {
-    font-size: 1.2em;
-    background-size: 21px;
-  }
-
-  .boton_collapse-on-acerca {
-    font-size: 1.2em;
-    background-size: 21px !important;
-  }
-
-  .title_interno_toggleFoot {
-    font-size: 1.2em;
-  }
-
-  .txt_interno_toggleFoot {
-    font-size: 1em;
-  }
-
-  .option_toggleFoot {
-    font-size: 1em;
   }
 }
 @media (min-width: 1200px) {
-  .imagen_bannerPrin-polit {
-    height: 300px;
+  .title_banner_infoZaabra {
+    left: 150px;
   }
 
-  .title_banner_polit {
-    top: 150px;
-    left: 150px;
+  .img_banner_infoZaabra {
+    height: 300px;
   }
 }
 @media (min-width: 1440px) {
-  .section_principal-polit {
-    width: 76%;
+  .section_infoZaabra {
+    width: 65%;
   }
 
-  .title_banner_polit {
-    font-size: 3em;
-    top: 150px;
+  .title_banner_infoZaabra {
+    font-size: 3.2em;
     left: 180px;
   }
 }
 @media (min-width: 1920px) {
-  .imagen_bannerPrin-polit {
-    height: 450px;
-  }
-
-  .title_banner_polit {
+  .title_banner_infoZaabra {
     font-size: 3.5em;
-    top: 200px;
-    left: 380px;
+    left: 330px;
   }
 
-  .section_principal-polit {
-    width: 61%;
-  }
-}
-.imagen_bannerPrin-pregunta {
-  width: 100%;
-  padding: 0;
-  height: 30vh;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.title_banner_preFrec {
-  color: #0083D6;
-  font-family: "Quicksand";
-  font-size: 2.2em;
-  font-weight: 700;
-  position: absolute;
-  top: 17.5%;
-  left: 15.7%;
-  line-height: 1;
-}
-
-.section_principal-pregunta {
-  margin: auto;
-  padding: 0;
-  width: 70%;
-}
-
-.titulo_principal-pregunta {
-  font-family: "Quicksand";
-  font-size: 1.563em;
-  color: #232323;
-  text-align: center;
-  margin-top: 5%;
-}
-
-.titulo_superior-pregunta {
-  font-family: "Roboto", "Regular";
-  font-size: 1em;
-  color: #3E3E3E;
-  text-align: center;
-  padding: 0 3%;
-  margin: 5% 0;
-}
-
-.contain_accordion-pregunta {
-  padding: 1% 0;
-  box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
-}
-
-.containt_options-collapse-pregunta {
-  border-radius: 0px;
-  border: none;
-  padding: 1% 3%;
-}
-
-.boton_collapse-on-pregunta {
-  font-family: "Quicksand", "Regular";
-  font-size: 1em;
-  font-weight: bold;
-  text-decoration: none;
-  color: #FFFFFF;
-  text-align: left;
-  padding: 0 3%;
-  background: #0083D6;
-  border-radius: 0px;
-  border: 1px solid #0083D6;
-  width: 100%;
-  height: 6vh;
-  background-image: url("/img/iconos/icono-x.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position-x: 95%;
-  background-size: 3%;
-  margin: 0 0 0.3% 0;
-}
-
-.boton_collapse-off-pregunta {
-  font-family: "Quicksand", "Regular";
-  font-size: 1em;
-  font-weight: bold;
-  text-decoration: none;
-  color: #232323;
-  text-align: left;
-  padding: 0 3%;
-  background: #F5F5F5;
-  border-radius: 0px;
-  border: 1px solid #F5F5F5F5;
-  width: 100%;
-  height: 6vh;
-  background-image: url("/img/iconos/icono-mas.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position-x: 95%;
-  background-size: 3%;
-  margin: 0 0 0.3% 0;
-}
-
-@media (min-width: 320px) and (orientation: portrait) {
-  .imagen_bannerPrin-pregunta {
-    height: 18vh;
+  .img_banner_infoZaabra {
+    height: 425px;
   }
 
-  .title_banner_preFrec {
-    font-size: 0.95em;
-    top: 15%;
-    left: 4%;
+  .section_infoZaabra {
+    width: 60%;
   }
 
-  .section_principal-pregunta {
-    width: 100%;
+  .titulo_infoZaabra {
+    font-size: 2.5em;
   }
 
-  .titulo_principal-pregunta {
-    font-size: 1em;
-    margin-top: 5%;
-  }
-
-  .titulo_superior-pregunta {
-    font-size: 0.6em;
-    margin: 5% 0;
-  }
-
-  .boton_collapse-on-pregunta {
-    font-size: 0.625em;
-    padding: 0 8% 0 2%;
-    background-position-x: 98%;
-    background-size: 6%;
-  }
-
-  .boton_collapse-off-pregunta {
-    font-size: 0.625em;
-    padding: 0 12% 0 2%;
-    background-position-x: 98%;
-    background-size: 6%;
-  }
-}
-@media (min-width: 360px) and (orientation: portrait) {
-  .title_banner_preFrec {
-    font-size: 1.1em;
-    top: 16%;
-    left: 4%;
-  }
-}
-@media (min-width: 375px) and (orientation: portrait) {
-  .title_banner_preFrec {
-    font-size: 1.1em;
-    top: 14%;
-    left: 4%;
-  }
-
-  .titulo_superior-pregunta {
-    padding: 0 14%;
-    margin: 8% 0;
-  }
-}
-@media (min-width: 768px) and (orientation: portrait) {
-  .imagen_bannerPrin-pregunta {
-    height: 20vh;
-  }
-
-  .title_banner_preFrec {
-    font-size: 2.35em;
-    top: 13%;
-    left: 4%;
-  }
-
-  .titulo_principal-pregunta {
-    font-size: 2em;
-    margin-top: 5%;
-  }
-
-  .section_principal-pregunta {
-    width: 85%;
-  }
-
-  .titulo_superior-pregunta {
+  .subTitulo_infoZaabra {
     font-size: 1.6em;
-    padding: 0;
-    margin: 5% 0;
+    padding: 0 10%;
   }
 
-  .boton_collapse-on-pregunta {
-    font-size: 1.4em;
-    padding: 0 10% 0 3% !important;
-    height: 5vh;
-    background-size: 4% !important;
-    background-position-x: 97% !important;
-  }
-
-  .boton_collapse-off-pregunta {
-    font-size: 1.4em;
-    padding: 0 10% 0 3%;
-    height: 5vh;
-    background-size: 4% !important;
-    background-position-x: 97%;
-  }
-}
-@media (min-width: 1200px) {
-  .imagen_bannerPrin-pregunta {
-    height: 42vh;
-  }
-
-  .title_banner_preFrec {
-    font-size: 3.1em;
-    top: 21%;
-    left: 9.6%;
-  }
-
-  .section_principal-pregunta {
-    width: 65%;
-  }
-
-  .titulo_superior-pregunta {
-    padding: 0 7%;
-    margin: 5% 0;
-  }
-}
-@media (min-width: 1360px) {
-  .title_banner_preFrec {
-    font-size: 3em;
-    top: 21.4%;
-    left: 15.3%;
-  }
-}
-@media (min-width: 1440px) {
-  .title_banner_preFrec {
-    font-size: 3.5em;
-    top: 20%;
-    left: 11.6%;
-  }
-
-  .titulo_principal-pregunta {
-    font-size: 2em;
-  }
-
-  .titulo_superior-pregunta {
-    font-size: 1.25em;
-    padding: 0;
-  }
-
-  .boton_collapse-off-pregunta {
+  .btn_collapse_off_infoZaabra {
     font-size: 1.5em;
-    background-size: 3%;
+    background-size: 30px;
   }
 
-  .boton_collapse-on-pregunta {
-    font-size: 1.5em;
-    background-size: 3%;
-  }
-}
-@media (min-width: 1920px) {
-  .imagen_bannerPrin-pregunta {
-    height: 48vh;
+  .boton_collapse-on-acerca {
+    font-size: 1.5em !important;
+    background-size: 30px !important;
   }
 
-  .title_banner_preFrec {
-    font-size: 4.25em;
-    top: 22.8%;
-    left: 15%;
+  .toggle_infoZaabra {
+    padding: 3% 3% 0 3%;
   }
 
-  .titulo_superior-pregunta {
-    margin: 4% 0;
+  .txt_toggle_infoZaabra {
+    font-size: 1.2em;
+    margin-bottom: 2%;
   }
 
-  .boton_collapse-off-pregunta {
-    background-size: 2%;
+  .title_toggle_infoZaabra {
+    font-size: 1.35em;
+    margin-top: 0;
+    margin-bottom: 1%;
   }
 
-  .boton_collapse-on-pregunta {
-    background-size: 2%;
+  .option_toggle_infoZaabra {
+    font-size: 1.2em;
+    padding-left: 3%;
+    margin-bottom: 2%;
   }
 }
 /*.swiper {
@@ -21102,7 +20537,15 @@ a:link, a:visited, a:active, a:hover {
 
 .content_logo_inst {
   width: 200px;
+  height: 200px;
   margin: auto;
+}
+
+.logo_sede_inst {
+  box-shadow: 0px 3px 6px #00000029;
+  width: 100%;
+  height: 100%;
+  border-radius: 115px;
 }
 
 .data_instituciones .contains_info {
@@ -21181,26 +20624,15 @@ a:link, a:visited, a:active, a:hover {
   height: 20px;
 }
 
-.logo_sede_inst {
-  box-shadow: 0px 3px 6px #00000029;
-  border-radius: 115px;
-  width: 100%;
-}
-
-.img_sede_inst {
-  box-shadow: 0px 3px 6px #00000029;
-  width: 100%;
-  border-radius: 40px 0 0 0;
-}
-
 .start_calification {
-  width: 150px;
-  margin: auto;
+  width: 175px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .data_instituciones .rating-stars ul {
   display: flex;
-  justify-content: center;
+  justify-content: initial;
   margin-top: 3%;
   margin-bottom: 0;
 }
@@ -21383,10 +20815,9 @@ a:link, a:visited, a:active, a:hover {
   font-size: 0.9em;
   font-family: "Roboto";
   color: #3E3E3E;
-  width: 254px;
   margin-top: 5%;
   margin-bottom: 5%;
-  margin-left: auto;
+  padding-left: 12%;
 }
 
 .section_insti_active {
@@ -21436,7 +20867,7 @@ a:link, a:visited, a:active, a:hover {
   border-radius: 0px;
   border: 1px solid #019F86 !important;
   width: 100%;
-  background-image: url("/img/iconos/icono-x.svg") !important;
+  background-image: url("/img/iconos/circulo-cierre-x-institucion.svg") !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-position-x: 95% !important;
@@ -21494,10 +20925,9 @@ a:link, a:visited, a:active, a:hover {
   font-size: 0.9em;
   font-family: "Roboto";
   color: #3E3E3E;
-  width: 254px;
   margin-top: 5%;
   margin-bottom: 5%;
-  margin-left: auto;
+  padding-left: 12%;
 }
 
 .propuesta h2 {
@@ -21528,10 +20958,9 @@ a:link, a:visited, a:active, a:hover {
 
 .propuesta ul {
   padding: 0;
-  width: 254px;
   margin-top: 5%;
   margin-bottom: 5%;
-  margin-left: auto;
+  padding-left: 12%;
 }
 
 .propuesta ul li {
@@ -21632,7 +21061,7 @@ a:link, a:visited, a:active, a:hover {
   font-size: 1em;
   font-family: "Quicksand", sans-serif;
   font-weight: bolder;
-  text-transform: capitalize;
+  text-transform: none;
   height: calc(1.1em + 1.1em + 1px);
   line-height: 1.1;
   display: flex;
@@ -21851,7 +21280,7 @@ a:link, a:visited, a:active, a:hover {
   font-size: 1em;
   font-family: "Quicksand", sans-serif;
   font-weight: bolder;
-  text-transform: capitalize;
+  text-transform: none;
   height: calc(1.1em + 1.1em + 1px);
   line-height: 1.1;
   display: flex;
@@ -21936,7 +21365,7 @@ a:link, a:visited, a:active, a:hover {
   font-size: 1em;
   font-family: "Quicksand", sans-serif;
   font-weight: bolder;
-  text-transform: capitalize;
+  text-transform: none;
   height: calc(1.1em + 1.1em + 1px);
   line-height: 1.1;
   display: flex;
@@ -21967,29 +21396,6 @@ a:link, a:visited, a:active, a:hover {
   align-items: center;
   margin: 0;
 }
-
-
-.boton_collapse-on-institucion {
-  font-family: "Quicksand", "Regular" !important;
-  font-size: 1.25em;
-  font-weight: bold !important;
-  text-decoration: none !important;
-  color: #FFFFFF !important;
-  text-align: left !important;
-  padding: 0 3% !important;
-  background: #019F86 !important;
-  border-radius: 0px !important;
-  border: 1px solid #019F86 !important;
-  width: 100% !important;
-  background-image: url("/img/iconos/icono-x.svg") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-position-x: 95% !important;
-  background-size: 5.5% !important;
-}
-
-.sedes_institucion .card-body h5 {
-  color: #019F86;
 
 .opiniones_LandInst i {
   background-image: url("/img/landing-institucion/icono-opiniones-de-pacientesinst.svg");
@@ -22050,8 +21456,8 @@ a:link, a:visited, a:active, a:hover {
     margin: auto;
   }
 
-  .data_instituciones h1 {
-    font-size: 2.2em;
+  .data_instituciones .contains_info {
+    padding: 3%;
   }
 
   .data_instituciones h2 {
@@ -22062,17 +21468,24 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.15em;
   }
 
-  .rating-stars ul > li.star > i.fa {
-    font-size: 1.4em;
+  .data_instituciones .title-tel {
+    margin-right: 70px;
+  }
+
+  .start_calification {
+    width: 195px;
+  }
+
+  .contains_buttons_landInst {
+    width: 400px;
+    margin: auto;
   }
 
   .contains_buttons_landInst a:nth-child(1) {
-    font-size: 1.15em;
     width: 160px;
   }
 
   .contains_buttons_landInst a:nth-child(2) {
-    font-size: 1.15em;
     width: 160px;
   }
 
@@ -22090,15 +21503,19 @@ a:link, a:visited, a:active, a:hover {
       height: 110px;
   }*/
   .swiper_institucion .item_landing_insti {
-    height: 110px;
+    height: 135px;
   }
 
   .swiper_institucion .item_landing_insti {
-    background-size: 80px;
+    background-size: 100px;
   }
 
   .swiper_institucion .item_landing_insti span {
     font-size: 1.15em;
+    width: 140px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
   }
 
   .btnPrev_LandInst {
@@ -22125,8 +21542,18 @@ a:link, a:visited, a:active, a:hover {
     margin: auto;
   }
 
-  .servicios_instituciones h2 .quienes_somos h2,
-.propuesta h2, .convenios h2,
+  .servicios_instituciones i,
+.quienes_somos i, .propuesta i, .convenios i,
+.contain_swiper_certificados i,
+.sedes_institucion i, .mapa i,
+.galeria_institucion i,
+.videos_institucion i {
+    width: 55px;
+    height: 40px;
+  }
+
+  .servicios_instituciones h2,
+.quienes_somos h2, .propuesta h2, .convenios h2,
 .contain_swiper_certificados h2,
 .sedes_institucion h2, .mapa h2,
 .galeria_institucion h2,
@@ -22134,27 +21561,16 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.8em;
   }
 
-  .servicios_instituciones i,
-.quienes_somos i, .propuesta i, .convenios i,
-.contain_swiper_certificados i,
-.sedes_institucion i, .mapa i,
-.galeria_institucion i,
-.videos_institucion i {
-    width: 40px;
-    height: 30px;
-  }
-
   .servicios_instituciones p,
-.quienes_somos p {
-    font-size: 1em;
-    width: 560px;
+.quienes_somos p, .propuesta ul {
+    font-size: 1.1em;
     margin-top: 3%;
     margin-bottom: 3%;
+    padding-left: 9%;
   }
 
   .desplegable_LandInst {
-    width: 560px;
-    margin-left: auto;
+    padding-left: 9%;
   }
 
   .boton_collapse-off {
@@ -22170,7 +21586,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .card_txt_LandInst {
-    font-size: 1em;
+    font-size: 1.1em;
     padding: 3%;
   }
 
@@ -22179,19 +21595,11 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .lista_sede li {
-    font-size: 1em;
-  }
-
-  .propuesta ul {
-    font-size: 1em;
-    width: 560px;
-    margin-top: 3%;
-    margin-bottom: 3%;
+    font-size: 1.1em;
   }
 
   .propuesta p {
-    font-size: 1em;
-    width: 550px;
+    font-size: 1.1em;
     margin-top: 0;
     margin-bottom: 0;
   }
@@ -22217,13 +21625,44 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.5em;
   }
 
+  .swiper_certificado_LandInst h6 {
+    font-size: 1em;
+  }
+
+  .swiper_certificado_LandInst h5 {
+    font-size: 1.2em;
+  }
+
+  .swiper_certificado_LandInst p {
+    font-size: 1em;
+  }
+
   .container_cards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 5%;
-    width: 560px;
+    width: 100%;
     margin-left: auto;
+  }
+
+  .sedes_institucion .card-body h5 {
+    font-size: 1.3em;
+  }
+
+  .sedes_institucion .card_imgSede_LandInst {
+    border-radius: 80px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .sedes_institucion p {
+    font-size: 1.05em;
+  }
+
+  .sedes_institucion span {
+    font-size: 1.05em;
+  }
+
+  .mapa p {
+    font-size: 1.1em;
+    padding: 1% 0 3% 9%;
   }
 
   .btnPrev_gal_LandInst {
@@ -22241,8 +21680,125 @@ a:link, a:visited, a:active, a:hover {
   .btnNext_gal_LandInst:after {
     font-size: 1.5em;
   }
+
+  .slaider_galeria_LandInst {
+    padding: 0 3.3%;
+  }
+
+  .swiper_galeria_inst h5 {
+    font-size: 1.2em;
+  }
+
+  .swiper_galeria_inst p {
+    font-size: 1em;
+    height: 80px;
+  }
+
+  .card-img-top {
+    height: 175px;
+  }
+
+  .videos_institucion .card {
+    padding: 0 1.5%;
+    width: 300px;
+  }
+
+  .videos_institucion h5 {
+    font-size: 1.2em;
+  }
+
+  .videos_institucion p {
+    font-size: 1em;
+    height: 80px;
+  }
+
+  .opiniones_LandInst {
+    padding: 7% 13%;
+  }
+
+  .opiniones_LandInst i {
+    width: 55px;
+    height: 40px;
+  }
+
+  .opiniones_LandInst h2 {
+    font-size: 1.8em;
+  }
+
+  .opiniones_LandInst p {
+    font-size: 1.1em;
+    padding: 1% 0 3% 9%;
+  }
+
+  .opinion_verif_LandInst h3 {
+    font-size: 1.3em;
+  }
 }
 @media (min-width: 1024px) {
+  .section_data_instituciones {
+    padding: 3% 0;
+  }
+
+  .data_instituciones {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 1.5%;
+  }
+
+  .containt_princ_LandInst {
+    width: 85%;
+  }
+
+  .content_logo_inst {
+    width: 25%;
+    height: 25%;
+  }
+
+  .data_instituciones .contains_info {
+    padding: 0 0 0 2%;
+    width: 90%;
+    align-self: center;
+  }
+
+  .data_instituciones h1 {
+    text-align: initial;
+    margin: 0;
+  }
+
+  .data_instituciones h2 {
+    text-align: initial;
+    margin: 0;
+  }
+
+  .data_instituciones .title-url,
+.data_instituciones .title-tel,
+.data_instituciones .title-adress {
+    justify-content: flex-start;
+  }
+
+  .start_calification {
+    width: 110px;
+    margin-left: 0;
+  }
+
+  .contains_buttons_landInst {
+    width: 335px;
+    margin-left: 17%;
+    justify-content: space-between;
+  }
+
+  .content_sede_inst {
+    display: flex;
+    width: 50%;
+  }
+
+  .img_sede_inst {
+    box-shadow: 0px 3px 6px #00000029;
+    width: 100%;
+    border-radius: 40px 0 0 0;
+  }
+
   .btnPrev_LandInst {
     left: 0px;
   }
@@ -22250,3289 +21806,318 @@ a:link, a:visited, a:active, a:hover {
   .btnNext_LandInst {
     right: 0px;
   }
-}
-/*
-@media (min-width: 320px){
-    .section_data_instituciones{
-        width: 100%;
-        height: auto;
-        padding-top: 8%;
-        padding-bottom: 8%;
-    }
-    .item_landing_insti
-    .data_instituciones .contains_info{
-        width: 100%;
-    }
-    .content_logo_inst {
-        width: 55%;
-    }
-    .swiper_institucion .item_landing_insti {
-        margin-bottom: 45%;
-    }
-    .swiper_institucion .item_landing_insti span{
-        font-size: .75em; 
-    }
-    .data_instituciones .contains_info {
-        width: 100%;
-        padding-left: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 10% 0 5% 0;
-    }
-    .data_instituciones{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        align-content: center;
-        justify-content: center;
-        align-items: center;
-    }
-    .content_sede_inst {
-        display: none;
-    }
-    .data_instituciones h2{
-        margin-bottom: 1%;
-        font-size: 1.4em;
-    }
-    .data_instituciones h1{
-        font-size: 1.3em;
-        margin-bottom: 1%;
-    }
-    .title-adress i, .title-url i, .title-tel i{
-        width: 10%;
-        height: 20px;
-    }
-    .data_instituciones h5{
-        font-size: 0.8em;
-        text-transform: none;
-    }
-    .data_instituciones .title-url {
-        width: 85%;
-        margin-left: 0;
-        justify-content: flex-start;
-        padding-left: 13%;
-    }
-    .data_instituciones .title-tel {
-        width: 85%;
-        margin-left: 0;
-        justify-content: flex-start;
-        padding-left: 13%;
-    }
-    .data_instituciones .title-adress {
-        width: 85%;
-        margin-left: 0;
-        justify-content: flex-start;
-        padding-left: 13%;
-    }
-    .start_calification {
-        width: 58%;
-    }
-    .data_instituciones .rating-stars ul{
-        margin-top: 5%;
-        margin-bottom: 0;
-    }
-    .contains_buttons_landInst {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-    .contains_buttons_landInst a {
-        display: flex;
-        width: 45%;
-        padding: 1% 0;
-    }
-    .swiper_institucion{
-        width: 85%;
-    }
-    .item_landing_insti i{
-        width: 100%;
-        height: 50px;
-        background-position: center;
-    }
-    .item_landing_insti p{
-        font-size: 0.6em;
-    }
-    .contains_swiper_institucion{
-        margin-bottom: 10%;
-    }
-    .contains_swiper_institucion h1 {
-        max-width: 90%;
-        font-size: 1.3em;
-        margin-top: 5%;
-        margin-bottom: 8%;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .servicios_instituciones,
-    .quienes_somos{
-        width: 90%;
-        margin: auto;
-        margin-bottom: 8%;
-    }
-    .servicios_instituciones h2,
-    .quienes_somos h2{
-        font-size: 1.1em;
-    }
-    .servicios_instituciones p,
-    .quienes_somos p, .mapa p{
-        font-size: 0.75em;
-        padding-bottom: 3%;
-        padding-left: 14%;
-        padding-right: 5%;
-    }
-    .servicios_instituciones i,
-    .quienes_somos i {
-        width: 14%;
-        height: 30px;
-    }
-    .desplegable_LandInst .card{
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .desplegable_LandInst .card-header{
-       padding: 0;
-    }
-    .desplegable_LandInst .card-header button{
-        font-size: 1em;
-    }
-    .desplegable_LandInst .card-body p{
-        font-family: "Roboto";
-        font-size: 1.3em;
-        color: #3E3E3E;
-    }
-    .lista_sede{
-        width: 85%;
-        margin: auto;
-    }
-
-    .propuesta{
-        width: 90%;
-        margin: auto;
-    }
-    .propuesta h2{
-        font-size: 1.1em;
-    }
-    .propuesta h5{
-        font-size: 1em;
-    }
-    .propuesta p {
-        font-size: 0.75em;
-    }
-    .propuesta i {
-        width: 14%;
-        height: 30px;
-    }
-    .convenios{
-        width: 90%;
-        margin: auto;
-    }
-    .convenios h2{
-        font-size: 1.1em;
-    }
-    .convenios i {
-        width: 14%;
-        height: 30px;
-    }
-
-    .idiomas{
-        width: 90%;
-        margin: auto;
-    }
-    .idiomas ul li{
-        margin-bottom: 5%;
-        height: 12vh;
-    }
-    .idiomas img{
-        max-width: 100%;
-        -o-object-fit: cover;
-        object-fit: contain;
-        height: 20px;
-        image-rendering: -webkit-optimize-contrast;
-    }
-    .idiomas h2{
-        font-size: 1.1em;
-    }
-    .idiomas p{
-        font-size: 0.8em;
-    }
-    .idiomas i {
-        width: 14%;
-        height: 30px;
-    }
-
-    .mapa {
-        width: 90%;
-        margin: auto;
-    }
-        .mapa i {
-        width: 14%;
-        height: 30px;
-    }
-
-    .mapa h2{
-        font-size: 1.1em;
-    }
-
-    .slaider_cert_landInst {
-        display: flex;
-        flex-direction: column;
-        width: fit-content;
-    }
-    .swiper_certificado_LandInst img{
-        max-width: 100%;
-    }
-    .contain_swiper_certificados h2{
-        font-size: 1.1em;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 90%;
-    }
-    .contain_swiper_certificados i{
-        width: 14%;
-        height: 30px;
-    }
-    .swiper_certificado_LandInst h6{
-        font-size: 0.9em;
-        margin-top: 3%;
-        margin-bottom: 0;
-        text-align: left;
-    }
-    .swiper_certificado_LandInst h5{
-        font-size: 1.1em;
-    }
-    .swiper_certificado_LandInst p{
-        font-size: 0.7em;
-        margin-top: 1%;
-    }
-    .btnPrev_certInst {
-        width: 10px;
-        height: 16px;
-        left: 3%;
-        margin-top: -50%;
-    }
-    .btnNext_certInst {
-        width: 10px;
-        height: 16px;
-        right: 3%;
-        margin-top: -50%;
-    }
-    .swiper_certificado_LandInst{
-        max-width: 80%;
-        height: fit-content;
-        margin-top: 3%;
-        margin-bottom: 7%;
-    }
-    .btnPrev_inst {
-        width: 10px;
-        height: 16px;
-        left: 3%;
-        margin-top: -50%;
-    }
-    .btnNext_inst {
-        width: 10px;
-        height: 16px;
-        right: 3%;
-        margin-top: -50%;
-    }
-
-    .galeria_institucion h2 {
-        font-size: 1.1em;
-        text-align: center;
-        max-width: 100%;
-        padding-left: 5%;
-    }
-    .swiper_galeria_inst{
-        max-width: 80%;
-        height: fit-content;
-        margin-top: 3%;
-        margin-bottom: 7%;
-    }
-    .img_galeria_inst {
-        width: 100%;
-        height: 25vh;
-        object-fit: cover;
-    }
-    .galeria_institucion h5 {
-        font-size: 1.1em;
-        margin: 2% 0;
-    }
-    .galeria_institucion i {
-        width: 14%;
-        height: 30px;
-    }
-    .galeria_institucion p {
-        font-size: .75em;
-    }
-
-  /*.mapa{
-      width: 85%;
-      margin : auto;
-  }*/
-  .mapa iframe {
-    width: 100%;
-  }
-
-  .slaider_cert_landInst {
-    display: flex;
-    flex-direction: column;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-  }
-
-  .swiper_gale_inst img {
-    max-width: 100%;
-  }
-
-  .contains_swiper_certificados h2 {
-    font-size: 1.1em;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 90%;
-  }
-
-  .contains_swiper_certificados i {
-    width: 14%;
-    height: 30px;
-  }
-
-  .swiper_gale_inst h6 {
-    font-size: 0.9em;
-    margin-top: 3%;
-    margin-bottom: 0;
-    text-align: left;
-  }
-
-  .swiper_gale_inst h5 {
-    font-size: 1.1em;
-  }
-
-  .swiper_gale_inst p {
-    font-size: 0.7em;
-    margin-top: 1%;
-  }
-
-  .btnPrev_certInst {
-    width: 10px;
-    height: 16px;
-    left: 3%;
-    margin-top: -50%;
-  }
-
-  .btnNext_certInst {
-    width: 10px;
-    height: 16px;
-    right: 3%;
-    margin-top: -50%;
-  }
-
-  .swiper_gale_inst {
-    max-width: 80%;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    margin-top: 3%;
-    margin-bottom: 7%;
-  }
-
-  .btnPrev_inst {
-    width: 10px;
-    height: 16px;
-    left: 3%;
-    margin-top: -50%;
-  }
-
-  .btnNext_inst {
-    width: 10px;
-    height: 16px;
-    right: 3%;
-    margin-top: -50%;
-  }
-
-  .galeria_institucion h2 {
-    font-size: 1.1em;
-    text-align: center;
-    max-width: 100%;
-    padding-left: 5%;
-  }
-
-  .swiper_galeria_inst {
-    max-width: 80%;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    margin-top: 3%;
-    margin-bottom: 7%;
-  }
-
-  .img_galeria_inst {
-    width: 100%;
-    height: 25vh;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-
-  .galeria_institucion h5 {
-    font-size: 1.1em;
-    margin: 2% 0;
-  }
-
-  .galeria_institucion i {
-    width: 14%;
-    height: 30px;
-  }
-
-  .galeria_institucion p {
-    font-size: 0.75em;
-  }
-
-  .gallery_institucion > li {
-    border: 1px solid transparent;
-    float: left;
-    margin: 0 -1px -1px 0;
-    overflow: hidden;
-  }
-
-  .gallery_institucion > li > img {
-    cursor: zoom-in;
-    width: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-
-  .videos_institucion {
-    width: 90%;
-    margin: auto;
-  }
-
-  .videos_institucion h2 {
-    font-size: 1.1em;
-  }
-
-  .videos_institucion p {
-    font-size: 0.75em;
-  }
-
-  .videos_institucion i {
-    width: 14%;
-    height: 30px;
-  }
-
-  .videos_institucion .card {
-    width: 85%;
-    margin: auto;
-    margin-top: 5%;
-    margin-bottom: 10%;
-  }
-
-  .videos_institucion .card h4, h6 {
-    font-size: 1em;
-  }
-
-  .videos_institucion .card-body {
-    padding-top: 4%;
-  }
-
-  .videos_institucion .card-body h5 {
-    font-size: 1em;
-    text-align: initial;
-  }
-
-  .videos_institucion h2 {
-    font-size: 1.1em;
-  }
-
-  .title_opinionesInst {
-    font-size: 1.1em;
-    padding-left: 13%;
-    width: 90%;
-  }
-
-  .text_cabeceraInst {
-    font-size: 0.75em;
-    width: 75%;
-    margin-left: 18%;
-  }
-}
-@media (min-width: 375px) {
-  /*.logo_sede_inst{
-       width: 180px;
-       height: 180px;
-   }
-   .img_sede_inst{
-       width: 180px;
-       height: 180px;
-   }*/
-  .contains_swiper_institucion h1 {
-    font-size: 1.25em;
-  }
-
-  .servicios_instituciones h2,
-.quienes_somos h2 {
-    font-size: 1.3em;
-  }
-
-  .servicios_instituciones p,
-.quienes_somos p, .mapa p {
-    font-size: 0.8em;
-  }
-
-  .propuesta h2 {
-    font-size: 1.3em;
-  }
-
-  .propuesta i {
-    width: 12%;
-  }
-
-  .propuesta h5 {
-    font-size: 1em;
-  }
-
-  .propuesta p {
-    font-size: 0.8em;
-  }
-
-  .convenios h2 {
-    font-size: 1.3em;
-  }
-
-  .convenios i {
-    width: 12%;
-  }
-
-  .idiomas h2 {
-    font-size: 1.3em;
-  }
-
-  .sedes_institucion h2 {
-    font-size: 1.3em;
-  }
-
-  .sedes_institucion i {
-    width: 12%;
-  }
-
-  .sedes_institucion .card h4, h6 {
-    font-size: 1.1em;
-  }
-
-  .sedes_institucion .card-body h5 {
-    font-size: 1em;
-  }
-
-  .mapa i {
-    width: 12%;
-  }
-
-  .mapa h2 {
-    font-size: 1.3em;
-  }
-
-  .videos_institucion .card h4, h6 {
-    font-size: 1.1em;
-  }
-
-  .contains_swiper_certificados h2 {
-    font-size: 1.3em;
-  }
-
-  .contains_swiper_certificados i {
-    width: 12%;
-  }
-
-  .galeria_institucion h2 {
-    font-size: 1.3em;
-  }
-
-  .galeria_institucion i {
-    width: 12%;
-  }
-
-  /*.gallery_institucion > li > img{
-      height: 100px;
-  }*/
-  .videos_institucion h2 {
-    font-size: 1.3em;
-  }
-
-  .videos_institucion i {
-    width: 12%;
-  }
-
-  .rating-stars ul > li.star > i.fa {
-    font-size: 1.5em;
-  }
-
-  .videos_institucion .card {
-    width: 45%;
-  }
-}
-@media (min-width: 768px) {
-  .section_data_instituciones {
-    padding-bottom: 7%;
-  }
-
-  .contains_buttons_landInst {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 80%;
-    margin: auto;
-  }
-
-  .contains_buttons_landInst a {
-    font-size: 1.4em;
-    width: 36%;
-  }
-
-  .content_logo_inst {
-    width: 30%;
-  }
-
-  .title-adress i, .title-url i, .title-tel i {
-    width: 7%;
-    height: 25px;
-  }
-
-  .swiper_gale_inst img {
-    height: 14vh;
-    max-width: 100%;
-    -o-object-fit: contain;
-       object-fit: contain;
-  }
-
-  .data_instituciones .title-url {
-    padding-left: 26%;
-  }
-
-  .data_instituciones .title-tel {
-    padding-left: 26%;
-  }
-
-  .data_instituciones .title-adress {
-    padding-left: 26%;
-  }
-
-  .start_calification {
-    width: 33%;
-  }
-
-  /*.logo_sede_inst {
-      width: 250px;
-      height: 250px;
-  }
-  .img_sede_inst {
-      width: 250px;
-      height: 250px;
-  }*/
-  .data_instituciones .contains_info {
-    margin: 5% 0 3% 0;
-  }
-
-  .data_instituciones h2 {
-    font-size: 2em;
-  }
-
-  .data_instituciones h1 {
-    font-size: 1.8em;
-  }
-
-  .data_instituciones h5 {
-    font-size: 1.2em;
-  }
-
-  .contains_swiper_institucion h1 {
-    font-size: 2em;
-    margin-top: 7%;
-  }
-
-  .swiper_institucion .item_landing_insti {
-    height: 100px;
-    margin-bottom: 20%;
-  }
-
-  .swiper_institucion .item_landing_insti span {
-    margin-top: 110px;
-    font-size: 1.2em;
-  }
-
-  .servicios_instituciones, .quienes_somos {
-    margin-bottom: 0;
-  }
-
-  .item_landing_insti i {
-    height: 90px;
-  }
-
-  .item_landing_insti p {
-    margin-top: 5%;
-    font-size: 1.05em;
-    max-width: 65%;
-  }
 
   .contains_swiper_institucion {
     margin-bottom: 5%;
   }
 
-  .servicios_instituciones h2,
-.quienes_somos h2 {
-    font-size: 1.8em;
+  .contains_swiper_institucion h1 {
+    padding: 5% 0;
   }
 
-  .servicios_instituciones i,
-.quienes_somos i {
-    width: 10%;
-    height: 45px;
-  }
-
-  .servicios_instituciones p,
-.quienes_somos p, .mapa p {
-    font-size: 1.1em;
-    padding-left: 10%;
-  }
-
-  .desplegable_institucion .card {
-    max-width: 80%;
-  }
-
-  .desplegable_institucion .card-body p {
-    font-size: 1em;
-  }
-
-  .desplegable_institucion .card-header button {
-    font-size: 1.4em;
-  }
-
-  .lista_sede li {
-    width: 50%;
-    font-family: "Roboto";
-    font-size: 1em;
-    color: #3E3E3E;
-  }
-
-  .propuesta h2 {
-    font-size: 1.5em;
-  }
-
-  .propuesta i {
-    width: 10%;
-    height: 45px;
-  }
-
-  .propuesta ul {
-    padding-left: 10%;
-  }
-
-  .propuesta ul li {
-    list-style: none;
-    padding-top: 1%;
-    padding-bottom: 1%;
-  }
-
-  .propuesta h5 {
-    font-size: 1.5em;
-  }
-
-  .propuesta p {
-    font-size: 1.1em;
-    color: #3E3E3E;
-  }
-
-  .convenios h2 {
-    font-size: 1.5em;
-  }
-
-  .convenios i {
-    width: 10%;
-    height: 45px;
-  }
-
-  .convenios ul {
-    padding-left: 10%;
-  }
-
-  .idiomas h2 {
-    font-size: 1.8em;
-  }
-
-  .idiomas i {
-    width: 10%;
-    height: 45px;
-  }
-
-  .idiomas ul {
-    padding-left: 10%;
-  }
-
-  .idiomas ul li {
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    padding-left: 5%;
-  }
-
-  .idiomas .contains_idioma {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .idiomas img {
-    max-width: 50%;
-    height: 30px;
-  }
-
-  .idiomas p {
-    width: 90px;
-    font-size: 1.2em;
-    font-weight: 500;
-  }
-
-  .sedes_institucion span {
-    font-size: 1.2em;
-  }
-
-  .sedes_institucion h2 {
-    font-size: 1.8em;
-  }
-
-  .sedes_institucion i {
-    width: 10%;
-    height: 45px;
-  }
-
-  .sedes_institucion .card h4, h6 {
-    font-size: 1.6em;
-  }
-
-  .sedes_institucion .card {
-    width: 85%;
-  }
-
-  .sedes_institucion .card-body h5 {
-    font-size: 1.5em;
-  }
-
-  .sedes_institucion p {
-    font-size: 1.2em;
-  }
-
-  .sedes_institucion .card-img-top {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-
-  .mapa i {
-    width: 10%;
-    height: 45px;
-  }
-
-  .mapa h2 {
-    font-size: 1.5em;
-  }
-
-  /*.mapa {
-      width: 75%;
-      margin: auto;
-      margin-top: 5%;
-  }*/
   .section_insti {
-    margin-bottom: 7%;
+    padding-bottom: 5%;
   }
 
-  .contains_swiper_certificados h2 {
-    font-size: 1.8em;
-    margin-bottom: 0;
+  .servicios_instituciones p, .quienes_somos p, .propuesta ul {
+    padding-left: 7%;
   }
 
-  .contains_swiper_certificados i {
-    width: 10%;
-    height: 45px;
-  }
-
-  .slaider_cert_landInst {
-    width: 50%;
-  }
-
-  .swiper_gale_inst h6 {
-    font-size: 1.2em;
-    margin-bottom: 0;
-    text-align: left;
-    margin-top: 4%;
-  }
-
-  .swiper_gale_inst h5 {
-    font-size: 1.5em;
-  }
-
-  .swiper_gale_inst p {
-    font-size: 1.1em;
-  }
-
-  .btnPrev_certInst {
-    width: 18px;
-    height: 25px;
-    left: 4%;
-    margin-top: -33%;
-  }
-
-  .btnNext_certInst {
-    width: 18px;
-    height: 25px;
-    right: 4%;
-    margin-top: -33%;
-  }
-
-  .swiper_gale_inst {
-    max-width: 80%;
-  }
-
-  .swiper_galeria_inst {
-    max-width: 70%;
-  }
-
-  .galeria_institucion h5 {
-    font-size: 1.5em;
-    margin: 2% 0;
-  }
-
-  .btnPrev_inst {
-    width: 18px;
-    height: 25px;
-    left: 9%;
-    margin-top: -35%;
-  }
-
-  .btnNext_inst {
-    width: 18px;
-    height: 25px;
-    right: 9%;
-    margin-top: -35%;
-  }
-
-  .galeria_institucion h2 {
-    font-size: 1.5em;
-  }
-
-  .galeria_institucion i {
-    width: 10%;
-    height: 45px;
-  }
-
-  .galeria_institucion ul {
-    max-width: 75%;
-  }
-
-  .galeria_institucion p {
-    font-size: 1.1em;
-  }
-
-  /*.gallery_institucion > li{
-      width: calc(100% / 3);
-      height: calc(100% / 3);
-  }*/
-  /*.gallery_institucion > li > img {
-      height: 145px;
-  }*/
-  .videos_institucion h2 {
-    font-size: 1.5em;
-  }
-
-  .videos_institucion i {
-    width: 10%;
-    height: 45px;
-  }
-
-  .videos_institucion .card {
-    width: 75%;
-  }
-
-  .videos_institucion .card .card-img-top {
-    height: 35vh;
-  }
-
-  .videos_institucion .card-body h5 {
-    font-size: 1.5em;
-    text-align: initial;
-  }
-
-  .videos_institucion p {
-    font-size: 1.1em;
-  }
-
-  .rating-stars ul > li.star > i.fa {
-    font-size: 1.8em;
-  }
-
-  .title_opinionesInst {
-    font-size: 1.8em;
-    padding-left: 9%;
-    width: 90%;
-    height: 3.5vh;
-  }
-
-  .text_cabeceraInst {
-    font-size: 1.1em;
-    width: 80%;
-    margin-left: 14%;
-  }
-}
-@media (min-width: 1024px) {
-  .content_logo_inst {
-    width: 12%;
-  }
-
-  .slaider_cert_landInst {
-    width: 50%;
-  }
-
-  /*.logo_sede_inst {
-      width: 230px;
-      height: 230px;
-  }
-  .img_sede_inst {
-      width: 230px;
-      height: 230px;
-  }*/
-  .data_instituciones .contains_info {
-    width: 37%;
-    padding-left: 2%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 0;
-  }
-
-  .data_instituciones {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
-  .data_instituciones .title-url {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0;
-  }
-
-  .data_instituciones .title-tel {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0;
-  }
-
-  .data_instituciones .title-adress {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0;
-  }
-
-  .content_sede_inst {
-    display: flex;
-  }
-
-  .servicios_instituciones,
-.quienes_somos,
-.propuesta,
-.convenios,
-.idiomas,
-.sedes_institucion,
-.mapa,
-.videos_institucion {
-    width: 80%;
-    margin: auto;
-  }
-
-  .servicios_instituciones i,
-.quienes_somos i,
-.propuesta i,
-.convenios i,
-.idiomas i,
-.sedes_institucion i,
-.mapa i,
-.contains_swiper_certificados i,
-.galeria_institucion i,
-.videos_institucion i {
-    width: 7%;
-    height: 40px;
-  }
-
-  .servicios_instituciones p {
-    padding-left: 8%;
-  }
-
-  .mapa p {
-    padding-left: 8%;
-  }
-
-  .propuesta ul,
-.convenios ul,
-.idiomas ul {
-    padding-left: 8%;
-  }
-
-  .contains_swiper_certificados h2 {
-    width: 80%;
-  }
-
-  .swiper_gale_inst img {
-    height: 25vh;
-    max-width: 100%;
-  }
-
-  /*.gallery_institucion > li > img {
-      height: 165px;
-  }*/
-  /*.galeria_institucion h2{
-      width: 80%;
-  }*/
-  .galeria_institucion ul {
-    max-width: 70%;
-  }
-
-  /*.galeria_institucion {
-      height: 35vh;
-  }*/
-  .videos_institucion .card .card-img-top {
-    height: 25vh;
-  }
-
-  .boton_collapse-on-institucion {
-    background-size: 3.5% !important;
+  .desplegable_LandInst {
+    padding-left: 7%;
   }
 
   .container_cards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .sedes_institucion .card-img-top {
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-  }
-
-  .sedes_institucion .card {
-    width: 45%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    margin-bottom: 1%;
-  }
-
-  /*.sedes_institucion .card-body h5 {
-      font-size: 1em;
-  }*/
-  /*.sedes_institucion span{
-      font-size: 0.8em;
-  }*/
-  /*.sedes_institucion p {
-      font-size: 0.8em;
-  }*/
-  .desplegable_institucion .boton_collapse-off-institucion {
-    background-size: 3%;
-  }
-
-  .boton_collapse-on-institucion {
-    background-size: 3% !important;
-  }
-
-  .title_opinionesInst {
-    font-size: 1.8em;
-    padding-left: 5%;
-    height: 5vh;
-    width: 77%;
-  }
-
-  .text_cabeceraInst {
-    font-size: 1em;
-    width: 67%;
-    margin: auto;
-    margin-bottom: 2%;
-  }
-}
-@media (min-width: 1024px) and (max-height: 800px) {
-  .rating-stars ul > li.star > i.fa {
-    font-size: 1.3em;
-  }
-
-  .section_data_instituciones {
-    height: auto;
-    padding: 5% 0 3% 0;
-  }
-
-  .swiper_institucion .item_landing_insti {
-    margin-bottom: 45%;
-  }
-
-  .swiper_institucion .item_landing_insti span {
-    margin-top: 100px;
-  }
-
-  .servicios_instituciones h2, .quienes_somos h2 {
-    font-size: 1.5em;
-  }
-
-  .swiper_institucion .item_landing_insti span {
-    font-size: 1.1em;
-  }
-
-  .start_calification {
-    width: 50%;
-  }
-
-  .section_insti {
-    margin-bottom: 5%;
-  }
-
-  .desplegable_institucion .card {
-    max-width: 75%;
-  }
-
-  /*.data_instituciones{
-      flex-direction: row;
-      width: 100%;
-      height: 100%;
-      margin: auto;
-      align-content: flex-start;
-      align-items: flex-start;
-      justify-content: center;
-  }*/
-  /*.logo_sede_inst {
-      width: 200px;
-      height: 200px;
-      position: absolute;
-      left: 12%;
-      top: 13%;
-  }
-  .img_sede_inst {
-      width: 200px;
-      height: 200px;
-      position: absolute;
-      left: 12%;
-      top: 13%;
-  }*/
-  .convenios img {
-    padding: 2%;
-    height: 15vh;
-  }
-
-  .swiper_gale_inst {
-    max-width: 75%;
-  }
-
-  .content_sede_inst {
-    width: 33%;
-  }
-
-  .data_instituciones .title-adress, .title-url, .title-tel {
-    font-weight: 500;
-  }
-
-  .data_instituciones .title-url, .title-tel {
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-  }
-
-  .data_instituciones h2 {
-    font-size: 1.5em;
-  }
-
-  .data_instituciones h1 {
-    font-size: 1.3em;
-  }
-
-  .data_instituciones h5 {
-    font-size: 1em;
-  }
-
-  .title-adress i, .title-url i, .title-tel i {
-    width: 9%;
-    height: 20px;
-  }
-
-  .contains_buttons_landInst {
-    display: flex;
+    width: 100%;
     justify-content: space-between;
-    align-items: center;
-    width: 30%;
-    margin-left: 23%;
-    margin-top: -3%;
-  }
-
-  .contains_buttons_landInst a {
-    font-size: 1em;
-    width: 48%;
-    padding: 1% 0;
-  }
-
-  .data_instituciones h5:nth-child(7) {
-    padding-left: 6.5%;
-    font-weight: 500;
-  }
-
-  .contains_swiper_institucion {
-    margin-bottom: 0%;
-  }
-
-  .item_landing_insti i {
-    height: 75px;
-  }
-
-  .item_landing_insti p {
-    margin-top: 5%;
-    font-size: 0.9em;
-    max-width: 80%;
-  }
-
-  .servicios_instituciones p,
-.quienes_somos p, .mapa p {
-    font-size: 1em;
-    padding-left: 7%;
-  }
-
-  .contains_swiper_institucion h1 {
-    margin-top: 5%;
-    margin-bottom: 5%;
-    font-size: 1.5em;
-  }
-
-  .propuesta p {
-    font-size: 1em;
-    color: #3E3E3E;
-  }
-
-  .idiomas ul li {
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    padding-left: 5%;
-  }
-
-  .sedes_institucion .container_cards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-bottom: 6%;
   }
 
   .sedes_institucion .card {
-    width: 48%;
-    margin-top: 3%;
-    margin-bottom: 0;
-    padding-bottom: 2%;
-    padding-top: 2%;
-    padding-left: 1.7%;
-  }
-
-  .sedes_institucion h2 {
-    font-size: 1.5em;
-  }
-
-  .sedes_institucion .card h4, h6 {
-    font-size: 1.5em;
-  }
-
-  .sedes_institucion .card-body h5 {
-    font-size: 1.1em;
-  }
-
-  .sedes_institucion .card-img-top {
-    border-radius: 48%;
-    width: 120px;
-    height: 120px;
-  }
-
-  .sedes_institucion p {
-    font-size: 0.9em;
-    font-weight: 500;
-  }
-
-  .sedes_institucion .card-body {
-    padding-left: 3%;
-  }
-
-  .sedes_institucion span {
-    font-size: 0.9em;
-  }
-
-  .contains_swiper_certificados h2 {
+    width: 49%;
     margin-bottom: 4%;
-    font-size: 1.5em;
+    padding: 2% 0.5%;
   }
 
-  .swiper_gale_inst h6 {
-    font-size: 1em;
+  .sedes_institucion .card_imgSede_LandInst {
+    border-radius: 80px;
+    width: 105px;
+    height: 105px;
   }
 
-  .swiper_gale_inst h5 {
-    font-size: 1.2em;
+  .mapa p {
+    padding: 1% 0 3% 7%;
   }
 
-  .swiper_gale_inst p {
-    font-size: 1em;
+  .container_cards_video {
+    width: 95%;
+    margin: auto;
   }
 
-  .btnPrev_certInst {
-    width: 18px;
-    height: 25px;
-    left: 10%;
-    margin-top: -24%;
-  }
-
-  .btnNext_certInst {
-    width: 18px;
-    height: 25px;
-    right: 10%;
-    margin-top: -24%;
-  }
-
-  .galeria_institucion {
-    display: flow-root;
-    margin-bottom: 3%;
-  }
-
-  .galeria_institucion h5 {
-    font-size: 1.2em;
-    margin: 2% 0;
-  }
-
-  .galeria_institucion p {
-    font-size: 1em;
+  .card-img-top {
+    height: 200px;
   }
 
   .videos_institucion .card {
-    width: 45%;
-    margin-top: 3%;
-    margin-bottom: 4%;
-  }
-
-  .videos_institucion .card-body h5 {
-    font-size: 1.2em;
-    text-align: left;
+    padding: 0 1.5%;
+    width: 50%;
   }
 
   .videos_institucion p {
     font-size: 1em;
-    text-align: left;
+    height: 70px;
   }
 
-  .btnPrev_inst {
-    width: 18px;
-    height: 25px;
-    left: 10%;
-    margin-top: -21%;
+  .opiniones_LandInst p {
+    padding: 1% 0 3% 7.5%;
   }
 
-  .btnNext_inst {
-    width: 18px;
-    height: 25px;
-    right: 10%;
-    margin-top: -21%;
-  }
-
-  .galeria_institucion h2 {
-    width: 100%;
-    margin-bottom: 0;
-  }
-
-  .swiper_gale_inst {
-    margin-bottom: 4%;
-  }
-
-  .swiper_galeria_inst {
-    margin-bottom: 4%;
-  }
-
-  .desplegable_institucion .boton_collapse-off-institucion {
-    background-size: 3%;
-  }
-
-  .boton_collapse-on-institucion {
-    background-size: 3% !important;
-  }
-
-  .title_opinionesInst {
-    font-size: 1.5em;
-    padding-left: 5.5%;
-    height: 5vh;
-    width: 80%;
-  }
-
-  .text_cabeceraInst {
-    font-size: 1em;
-    width: 69%;
-    margin: auto;
-    margin-bottom: 2%;
+  .opinion_verif_LandInst i {
+    width: 35px;
+    height: 20px;
   }
 }
 @media (min-width: 1200px) {
-  .section_data_instituciones {
-    height: auto;
-    padding-top: 4%;
-    padding-bottom: 4%;
+  .containt_princ_LandInst {
+    width: 75%;
   }
 
-  .servicios_instituciones i,
-.quienes_somos i,
-.propuesta i,
-.convenios i,
-.idiomas i,
-.sedes_institucion i,
-.mapa i,
-.contains_swiper_certificados i,
-.galeria_institucion i,
-.videos_institucion i {
-    width: 6%;
-    height: 45px;
-  }
-
-  .servicios_instituciones p {
+  .servicios_instituciones p, .quienes_somos p, .propuesta ul {
     padding-left: 6%;
   }
 
-  .mapa p {
+  .desplegable_LandInst {
     padding-left: 6%;
   }
 
-  .propuesta ul,
-.convenios ul,
-.idiomas ul {
-    padding-left: 6%;
-    margin: 0;
+  .opiniones_LandInst p {
+    padding: 1% 0 3% 6.5%;
+  }
+}
+@media (min-width: 1360px) {
+  .data_instituciones {
+    margin-bottom: 0;
   }
 
-  /*.data_instituciones{
-      flex-direction: row;
-      width: 100%;
-      height: 100%;
-      margin: auto;
-      align-content: flex-start;
-      align-items: flex-start;
-      justify-content: center;
-  }*/
-  /*.logo_sede_inst {
-      width: 220px;
-      height: 220px;
-      position: absolute;
-      left: 12%;
-      top: 15%;
+  .contains_buttons_landInst {
+    margin-left: 17%;
   }
-  .img_sede_inst {
-      width: 220px;
-      height: 220px;
-      position: absolute;
-      left: 12%;
-      top: 15%;
-  }*/
-  .data_instituciones .title-adress, .title-url, .title-tel {
-    width: 100%;
-    font-weight: 500;
+
+  .slaider_certificado_LandInst {
+    padding: 0 2%;
+  }
+
+  .slaider_galeria_LandInst {
+    padding: 0 2%;
+  }
+
+  .container_cards_video {
+    width: 90%;
+  }
+
+  .opiniones_LandInst {
+    padding: 2% 13%;
+  }
+}
+@media (min-width: 1440px) {
+  .data_instituciones {
+    margin-bottom: 0;
+  }
+
+  .servicios_instituciones i, .quienes_somos i,
+.propuesta i, .convenios i, .contain_swiper_certificados i,
+.sedes_institucion i, .mapa i, .galeria_institucion i, .videos_institucion i {
+    width: 65px;
+    height: 40px;
+  }
+
+  .servicios_instituciones p, .quienes_somos p, .propuesta ul {
+    margin-top: 1%;
+    margin-bottom: 2%;
+  }
+
+  .opiniones_LandInst p {
+    padding: 1% 0 3% 5.5%;
+  }
+}
+@media (min-width: 1920px) {
+  .containt_princ_LandInst {
+    width: 65%;
+  }
+
+  .data_instituciones h1 {
+    font-size: 2.5em;
   }
 
   .data_instituciones h2 {
     font-size: 2em;
   }
 
-  .data_instituciones h1 {
-    font-size: 1.7em;
-  }
-
   .data_instituciones h5 {
-    font-size: 1.2em;
-  }
-
-  .contains_buttons_landInst a {
-    width: 45%;
-    padding: 1% 0;
-  }
-
-  .data_instituciones h5:nth-child(7) {
-    padding-left: 4%;
-    font-weight: 500;
-  }
-
-  .data_instituciones .title-url, .title-tel {
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-  }
-
-  .item_landing_insti i {
-    height: 75px;
-  }
-
-  .item_landing_insti p {
-    margin-top: 5%;
-    font-size: 0.9em;
-    max-width: 80%;
-  }
-
-  .swiper_institucion {
-    width: 70%;
-  }
-
-  .swiper_institucion .item_landing_insti span {
-    margin-top: 100px;
-    width: 80%;
-  }
-
-  .contains_swiper_institucion h1 {
-    margin-top: 5%;
-    margin-bottom: 4%;
-  }
-
-  /*.servicios_instituciones h2, .quienes_somos h2 {
-      font-size: 1.6em;
-  }*/
-  .servicios_instituciones p, .quienes_somos p, .mapa p {
-    font-size: 1em;
-    padding-left: 6%;
-  }
-
-  .desplegable_institucion .card-header button {
-    font-size: 1.5em;
-    color: #434343;
-    background-size: 2.5% !important;
-  }
-
-  .idiomas ul li {
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    padding-left: 5%;
-  }
-
-  .propuesta p {
-    font-size: 1em;
-    color: #3E3E3E;
-  }
-
-  /*.propuesta h2 {
-      font-size: 1.6em;
-  }*/
-  .sedes_institucion .container_cards,
-.container_cards,
-.videos_institucion .container_cards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .sedes_institucion .card {
-    width: 45%;
-    margin-bottom: 0;
-  }
-
-  .sedes_institucion .card h4, h6 {
     font-size: 1.3em;
   }
 
-  .sedes_institucion .card-body h5 {
-    font-size: 1.2em;
-  }
-
-  .sedes_institucion p {
-    font-size: 1em;
-    font-weight: 500;
-  }
-
-  .sedes_institucion span {
-    font-size: 1em;
-  }
-
-  .sedes_institucion h2 {
-    font-size: 1.8em;
-  }
-
-  .galeria_institucion h2 {
-    font-size: 1.8em;
-  }
-
-  .swiper_gale_inst h6 {
-    font-size: 1em;
-  }
-
-  .swiper_gale_inst h5 {
-    font-size: 1.3em;
-  }
-
-  .btnPrev_certInst {
-    margin-top: -20%;
-  }
-
-  .btnNext_certInst {
-    margin-top: -20%;
-  }
-
-  /*.swiper_certificados p {
-      font-size: 0.9em;
-  }*/
-  /*.galeria_institucion h2{
-      font-size: 1.6em;
-  }*/
-  /*.videos_institucion .card {
-      width: 30%;
-  }*/
-  .galeria_institucion {
-    width: 90%;
-    margin: auto;
-  }
-
-  .swiper_gale_inst {
-    max-width: 72%;
-  }
-
-  .swiper_galeria_inst {
-    max-width: 80%;
-  }
-
-  .img_galeria_inst {
-    height: 26vh;
-  }
-
-  .btnPrev_inst {
-    margin-top: -21%;
-  }
-
-  .btnNext_inst {
-    margin-top: -21%;
-  }
-
-  .galeria_institucion h5 {
-    font-size: 1.3em;
-    margin: 2% 0;
-  }
-
-  .videos_institucion .card-body h5 {
-    font-size: 1.3em;
-  }
-
-  /*.videos_institucion .card-body h5 {
-      font-size: 1.4em;
-      text-align: left;
-  }*/
-  /*.videos_institucion p {
-      font-size: 0.8em;
-      text-align: left;
-  }*/
-  /*.videos_institucion h2 {
-      font-size: 1.6em;
-  }*/
-  .videos_institucion .card .card-img-top {
-    height: 30vh;
-  }
-
-  .title_opinionesInst {
-    padding-left: 5%;
-    height: 5.5vh;
-  }
-
-  .text_cabeceraInst {
-    width: 70%;
-  }
-}
-@media (min-width: 1360px) {
-  .title_opinionesInst {
-    padding-left: 4.8%;
-    height: 5.8vh;
-  }
-}
-@media (min-width: 1440px) {
-  .data_instituciones .contains_info {
-    width: 30%;
-  }
-
-  .content_logo_inst {
-    width: 10%;
-  }
-
-  .data_instituciones .contains_info {
-    width: 33%;
-  }
-
-  .title-adress i, .title-url i, .title-tel i {
-    width: 7%;
-    height: 22px;
-  }
-
-  .content_sede_inst {
-    width: 29%;
-  }
-
-  .contains_buttons_landInst {
-    width: 28%;
-    margin-left: 25.5%;
-    margin-top: -2.5%;
-  }
-
-  .contains_buttons_landInst a {
-    font-size: 1.2em;
-  }
-
-  .section_insti {
-    width: 95%;
-    margin: auto;
-    margin-bottom: 3%;
-  }
-
-  .propuesta ul, .convenios ul, .idiomas ul {
-    padding-left: 7%;
-  }
-
-  .convenios img {
-    padding: 2%;
-    height: 15vh;
-  }
-
-  .btnPrev_certInst {
-    left: 13%;
-  }
-
-  .btnNext_certInst {
-    left: 86%;
-  }
-
-  .img_galeria_inst {
-    height: 20vh;
-  }
-
-  .btnPrev_inst {
-    left: 13%;
-    margin-top: -19%;
-  }
-
-  .btnNext_inst {
-    left: 86%;
-    margin-top: -19%;
-  }
-
-  .swiper_galeria_inst {
-    margin-bottom: 5%;
-  }
-
-  /*.logo_sede_inst{
-      left: 15%;
-      top: 15%;
-  }
-  .img_sede_inst {
-      left: 15%;
-      top: 15%;
-  }*/
-  .videos_institucion .card {
-    width: 23%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-  }
-
-  .videos_institucion .card .card-img-top {
-    height: 20vh;
-  }
-
-  /*.gallery_institucion > li {
-      width: calc(100% / 4);
-      height: calc(100% / 4);
-  }*/
-  /*.gallery_institucion > li > img {
-      height: 180px;
-  }*/
-  .data_instituciones .rating-stars ul {
-    margin-top: 8%;
-    margin-bottom: 0%;
+  .start_calification {
+    width: 135px;
   }
 
   .rating-stars ul > li.star > i.fa {
     font-size: 1.5em;
   }
 
+  .contains_buttons_landInst {
+    width: 375px;
+  }
+
+  .contains_buttons_landInst a:nth-child(1) {
+    font-size: 1.25em;
+    width: 175px;
+  }
+
+  .contains_buttons_landInst a:nth-child(2) {
+    font-size: 1.25em;
+    width: 175px;
+  }
+
   .contains_swiper_institucion {
-    margin-bottom: 0;
-  }
-
-  .contains_swiper_institucion h1 {
-    font-size: 2em;
-  }
-
-  .contains_swiper_institucion h1 {
-    margin-top: 3%;
+    width: 65%;
     margin-bottom: 3%;
   }
 
-  .swiper_institucion .item_landing_insti {
-    margin-bottom: 40%;
+  .contains_swiper_institucion h1 {
+    font-size: 2.5em;
   }
 
-  .servicios_instituciones i, .quienes_somos i, .propuesta i, .convenios i, .idiomas i, .sedes_institucion i,
-.mapa i, .contains_swiper_certificados i, .galeria_institucion i, .videos_institucion i {
-    width: 7%;
+  .swiper_institucion .item_landing_insti {
+    background-size: 115px;
+    height: 180px;
+  }
+
+  .swiper_institucion .item_landing_insti span {
+    font-size: 1.5em;
+    margin-top: 120px;
+    line-height: 25px;
+  }
+
+  .section_insti {
+    width: 65%;
+  }
+
+  .servicios_instituciones i, .quienes_somos i, .propuesta i,
+.convenios i, .contain_swiper_certificados i,
+.sedes_institucion i, .mapa i, .galeria_institucion i, .videos_institucion i {
+    width: 75px;
     height: 50px;
   }
 
-  .servicios_instituciones p, .quienes_somos p, .mapa p {
-    padding-left: 7%;
+  .servicios_instituciones h2, .quienes_somos h2, .propuesta h2,
+.convenios h2, .contain_swiper_certificados h2,
+.sedes_institucion h2, .mapa h2, .galeria_institucion h2, .videos_institucion h2 {
+    font-size: 2em;
   }
 
-  .desplegable_institucion .card {
-    max-width: 75%;
+  .servicios_instituciones p, .quienes_somos p, .propuesta ul {
+    font-size: 1.3em;
   }
 
-  .desplegable_institucion .card-header button {
-    font-size: 1.6em;
+  .boton_collapse-off {
+    font-size: 1.5em;
+    padding: 1.5% 2%;
+    background-size: 30px !important;
   }
 
-  .title_opinionesInst {
-    width: 68%;
-    padding-left: 4.8%;
+  .boton_collapse-on {
+    font-size: 1.5em !important;
+    padding: 1.5% 2% !important;
+    background-size: 30px !important;
   }
 
-  .title_opinionesInst {
-    height: 5.5vh;
+  .card_txt_LandInst {
+    font-size: 1.3em;
+    padding: 2%;
   }
 
-  .text_cabeceraInst {
-    width: 58%;
-    font-size: 1.1em;
+  .lista_sede li {
+    font-size: 1.3em;
   }
 
-    .gallery_institucion > li {
-        border: 1px solid transparent;
-        float: left;
-        margin: 0 -1px -1px 0;
-        overflow: hidden;
-    }
-    .gallery_institucion > li > img{
-        cursor: zoom-in;
-        width: 100%;
-        object-fit: cover;
-    }
-    .videos_institucion{
-        width: 90%;
-        margin: auto;
-    }
-    .videos_institucion h2{
-        font-size: 1.1em;
-    }
-    .videos_institucion p {
-        font-size: 0.75em;
-    }
-    .videos_institucion i {
-        width: 14%;
-        height: 30px;
-    }
-    .videos_institucion .card{
-        width: 85%;
-        margin: auto;
-        margin-top: 5%;
-        margin-bottom: 10%;
-    }
-    .videos_institucion .card h4, h6{
-        font-size: 1em;
-    }
-    .videos_institucion .card-body{
-        padding-top: 4%;
-    }
-    .videos_institucion .card-body h5{
-        font-size: 1em;
-        text-align: initial;
-    }
-    .videos_institucion h2{
-        font-size: 1.1em;
-    }
-    .title_opinionesInst {
-        font-size: 1.1em;
-        padding-left: 13%;
-        width: 90%;
-    }
-    .text_cabeceraInst {
-        font-size: .75em;
-        width: 75%;
-        margin-left: 18%;
-    }
-}
-@media (min-width: 375px){
-    .contains_swiper_institucion h1{
-        font-size: 1.25em;
-    }
-    .servicios_instituciones h2,
-    .quienes_somos h2 {
-        font-size: 1.3em;
-    }
-    .servicios_instituciones p,
-    .quienes_somos p, .mapa p{
-        font-size: 0.8em;
-    }
-    .propuesta h2{
-        font-size: 1.3em;
-    }
-    .propuesta i{
-        width: 12%;
-    }
-    .propuesta h5{
-        font-size: 1em;
-    }
-    .propuesta p {
-        font-size: 0.8em;
-    }
-    .convenios h2 {
-        font-size: 1.3em;
-    }
-    .convenios i{
-        width: 12%;
-    }
-    .idiomas h2 {
-        font-size: 1.3em;
-    }
-    .sedes_institucion h2 {
-        font-size: 1.3em;
-    }
-    .sedes_institucion i{
-        width: 12%;
-    }
-    .sedes_institucion .card h4, h6 {
-        font-size: 1.1em;
-    }
-    .sedes_institucion .card-body h5 {
-        font-size: 1em;
-    }
-    .mapa i{
-        width: 12%;
-    }
-    .mapa h2{
-        font-size: 1.3em;
-    }
-    .videos_institucion .card h4, h6 {
-        font-size: 1.1em;
-    }
-    .contain_swiper_certificados h2{
-        font-size: 1.3em;
-    }
-    .contain_swiper_certificados i{
-        width: 12%;
-    }
-    .galeria_institucion h2{
-        font-size: 1.3em;
-    }
-    .galeria_institucion i{
-        width: 12%;
-    }
-    .videos_institucion h2{
-        font-size: 1.3em;
-    }
-    .videos_institucion i{
-        width: 12%;
-    }
-    .rating-stars ul > li.star > i.fa {
-        font-size: 1.5em;
-    }
-    .videos_institucion .card {
-        width: 45%;
-    }
-}
-@media (min-width: 768px){
-    .section_data_instituciones {
-        padding-bottom: 7%;
-    }
-    .contains_buttons_landInst {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        width: 80%;
-        margin: auto;
-    }
-    .contains_buttons_landInst a{
-        font-size: 1.4em;
-        width: 36%;
-    }
-    .content_logo_inst {
-        width: 30%;
-    }
-    .title-adress i, .title-url i, .title-tel i {
-        width: 7%;
-        height: 25px;
-    }
-    .swiper_certificado_LandInst img{
-        height: 14vh;
-        max-width: 100%;
-        object-fit: contain;
-    }
-    .data_instituciones .title-url {
-        padding-left: 26%;
-    }
-    .data_instituciones .title-tel {
+  .slaider_certificado_LandInst {
+    padding: 0 1.5%;
+  }
 
-        padding-left: 26%;
-    }
-    .data_instituciones .title-adress {
-        padding-left: 26%;
-    }
-    .start_calification {
-        width: 33%;
-    }
-    .data_instituciones .contains_info {
-        margin: 5% 0 3% 0;
-    }
-    .data_instituciones h2{
-        font-size: 2em;
-    }
-    .data_instituciones h1{
-        font-size: 1.8em;
-    }
-    .data_instituciones h5 {
-        font-size: 1.2em;
-    }
-    .contains_swiper_institucion h1 {
-        font-size: 2em;
-        margin-top: 7%;
-    }
-    .swiper_institucion .item_landing_insti{
-        height: 100px;
-        margin-bottom: 20%;
-    }
-    .swiper_institucion .item_landing_insti span{
-        margin-top: 110px;
-        font-size: 1.2em; 
-    }
-    .servicios_instituciones, .quienes_somos {
-        margin-bottom: 0;
-    }
-    .item_landing_insti i{
-        height: 90px;
-    }
-    .item_landing_insti p {
-        margin-top: 5%;
-        font-size: 1.05em;
-        max-width: 65%;
-    }
-    .contains_swiper_institucion {
-        margin-bottom: 5%;
-    }
-    .servicios_instituciones h2,
-    .quienes_somos h2 {
-        font-size: 1.8em;
-    }
-    .servicios_instituciones i,
-    .quienes_somos i {
-        width: 10%;
-        height: 45px;
-    }
-    .servicios_instituciones p,
-    .quienes_somos p, .mapa p{
-        font-size: 1.1em;
-        padding-left: 10%;
-    }
-    .desplegable_LandInst .card{
-        max-width: 80%;
-    }
-    .desplegable_LandInst .card-body p{
-        font-size: 1em;
-    }
-    .desplegable_LandInst .card-header button {
-        font-size: 1.4em;
-    }
-    .lista_sede li {
-        width: 50%;
-        font-family: "Roboto";
-        font-size: 1em;
-        color: #3E3E3E;
-    }
-    .propuesta h2 {
-        font-size: 1.5em;
-    }
-    .propuesta i {
-        width: 10%;
-        height: 45px;
-    }
-    .propuesta ul{
-        padding-left: 10%;
-    }
-    .propuesta ul li {
-        list-style: none;
-        padding-top: 1%;
-        padding-bottom: 1%;
-    }
-    .propuesta h5 {
-        font-size: 1.5em;
-    }
-    .propuesta p {
-        font-size: 1.1em;
-        color: #3E3E3E;
-    }
-    .convenios h2 {
-        font-size: 1.5em;
-    }
-    .convenios i {
-        width: 10%;
-        height: 45px;
-    }
-    .convenios ul{
-        padding-left: 10%;
-    }
-    .idiomas h2 {
-        font-size: 1.8em;
-    }
-    .idiomas i {
-        width: 10%;
-        height: 45px;
-    }
-    .idiomas ul{
-        padding-left: 10%;
-    }
-    .idiomas ul li{
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: flex-start;
-        padding-left: 5%;
-    }
-    .idiomas .contains_idioma {
-        display: flex;
-        flex-direction: row;
-        align-content: center;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .idiomas img{
-        max-width: 50%;
-        height: 30px;
-    }
-    .idiomas p {
-        width: 90px;
-        font-size: 1.2em;
-        font-weight: 500;
-    }
-    .sedes_institucion span{
-        font-size: 1.2em;
-    }
-    .sedes_institucion h2 {
-        font-size: 1.8em;
-    }
-    .sedes_institucion i {
-        width: 10%;
-        height: 45px;
-    }
-    .sedes_institucion .card h4, h6 {
-        font-size: 1.6em;
-    }
-    .sedes_institucion .card{
-        width: 85%;
-    }
-    .sedes_institucion .card-body h5 {
-        font-size: 1.5em;
-    }
-    .sedes_institucion p {
-        font-size: 1.2em;
-    }
-    .sedes_institucion .card-img-top {
-        border-radius: 50%;
-        width: 150px;
-        height: 150px;
-        object-fit: cover;
-    }
-    .mapa i {
-        width: 10%;
-        height: 45px;
-    }
-    .mapa h2 {
-        font-size: 1.5em;
-    }
-    .section_insti {
-        margin-bottom: 7%;
-    }
-    .contain_swiper_certificados h2 {
-        font-size: 1.8em;
-        margin-bottom: 0;
-    }
-    .contain_swiper_certificados i {
-        width: 10%;
-        height: 45px;
-    }
-    .slaider_cert_landInst {
-        width: 50%;
-    }
-    .swiper_certificado_LandInst h6 {
-        font-size: 1.2em;
-        margin-bottom: 0;
-        text-align: left;
-        margin-top: 4%;
-    }
-    .swiper_certificado_LandInst h5 {
-        font-size: 1.5em;
-    }
-    .swiper_certificado_LandInst p {
-        font-size: 1.1em;
-    }
-    .btnPrev_certInst {
-        width: 18px;
-        height: 25px;
-        left: 4%;
-        margin-top: -33%;
-    }
-    .btnNext_certInst {
-        width: 18px;
-        height: 25px;
-        right: 4%;
-        margin-top: -33%;
-    }
-    .swiper_certificado_LandInst {
-        max-width: 80%;
-    }
-    .swiper_galeria_inst {
-        max-width: 70%;
-    }
-    .galeria_institucion h5 {
-        font-size: 1.5em;
-        margin: 2% 0;
-    }
-    .btnPrev_inst {
-        width: 18px;
-        height: 25px;
-        left: 9%;
-        margin-top: -35%;
-    }
-    .btnNext_inst {
-        width: 18px;
-        height: 25px;
-        right: 9%;
-        margin-top: -35%;
-    }
-    .galeria_institucion h2 {
-        font-size: 1.5em;
-    }
-    .galeria_institucion i {
-        width: 10%;
-        height: 45px;
-    }
-    .galeria_institucion ul {
-        max-width: 75%;
-    }
-    .galeria_institucion p {
-        font-size: 1.1em;
-    }
-    .videos_institucion h2 {
-        font-size: 1.5em;
-    }
-    .videos_institucion i {
-        width: 10%;
-        height: 45px;
-    }
-    .videos_institucion .card{
-        width: 75%;
-    }
-    .videos_institucion .card .card-img-top{
-        height: 35vh;
-    }
-    .videos_institucion .card-body h5 {
-        font-size: 1.5em;
-        text-align: initial;
-    }
-    .videos_institucion p {
-        font-size: 1.1em;
-    }
-    .rating-stars ul > li.star > i.fa{
-        font-size: 1.8em;
-    }
-    .title_opinionesInst {
-        font-size: 1.8em;
-        padding-left: 9%;
-        width: 90%;
-        height: 3.5vh;
-    }
-    .text_cabeceraInst {
-        font-size: 1.1em;
-        width: 80%;
-        margin-left: 14%;
-    }
-}
-@media (min-width: 1024px){
-    .content_logo_inst {
-        width: 12%;
-    }
+  .swiper_certificado_LandInst img {
+    height: 275px;
+  }
 
-    .slaider_cert_landInst {
-        width: 50%;
-    }
-    .data_instituciones .contains_info {
-        width: 37%;
-        padding-left: 2%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin: 0;
-    }
-    .data_instituciones{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-content: center;
-        justify-content: center;
-        align-items: flex-start;
-    }
-    .data_instituciones .title-url {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 0;
-    }
-    .data_instituciones .title-tel {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 0;
-    }
-    .data_instituciones .title-adress {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 0;
-    }
-    .content_sede_inst {
-        display: flex;
-    }
-    .servicios_instituciones,
-    .quienes_somos,
-    .propuesta,
-    .convenios,
-    .idiomas,
-    .sedes_institucion,
-    .mapa,
-    .videos_institucion {
-        width: 80%;
-        margin: auto;
-    }
-    .servicios_instituciones i,
-    .quienes_somos i,
-    .propuesta i,
-    .convenios i,
-    .idiomas i,
-    .sedes_institucion i,
-    .mapa i,
-    .contain_swiper_certificados i,
-    .galeria_institucion i,
-    .videos_institucion i {
-        width: 7%;
-        height: 40px;
-    }
-    .servicios_instituciones p{
-        padding-left: 8%;
-    }
-    .mapa p{
-        padding-left: 8%;
-    }
-    .propuesta ul,
-    .convenios ul,
-    .idiomas ul {
-        padding-left: 8%;
-    }
-    .contain_swiper_certificados h2{
-        width: 80%;
-    }
-    .swiper_certificado_LandInst img{
-        height: 25vh;
-        max-width: 100%;
-    }
-    .galeria_institucion ul {
-        max-width: 70%;
-    }
-    .videos_institucion .card .card-img-top {
-        height: 25vh;
-    }
-    .boton_collapse-on-institu{
-        background-size: 3.5% !important;
-    }
+  .swiper_certificado_LandInst h6 {
+    font-size: 1.15em;
+  }
 
-    .sedes_institucion .card-img-top {
-        border-radius: 50%;
-        width: 120px;
-        height: 120px;
-    }
-    .sedes_institucion .card {
-        width: 45%;
-        padding-top: 2%;
-        padding-bottom: 2%;
-        margin-bottom: 1%;
-    }
-    .desplegable_LandInst .boton_collapse-off-institu{
-        height: 4vh;
-        background-size: 3%;
-    }
-    .boton_collapse-on-institu{
-        background-size: 3% !important;
-    }
-    .title_opinionesInst {
-        font-size: 1.8em;
-        padding-left: 5%;
-        height: 5vh;
-        width: 77%;
-    }
-    .text_cabeceraInst {
-        font-size: 1em;
-        width: 67%;
-        margin: auto;
-        margin-bottom: 2%;
-    }
-}
-@media (min-width: 1024px) and (max-height: 800px){
+  .swiper_certificado_LandInst h5 {
+    font-size: 1.4em;
+  }
 
-    .rating-stars ul > li.star > i.fa{
-        font-size: 1.3em;
-    }
-    .section_data_instituciones{
-        height: auto;
-        padding: 5% 0 3% 0;
-    }
-    .swiper_institucion .item_landing_insti {
-        margin-bottom: 45%;
-    }
-    .swiper_institucion .item_landing_insti span {
-        margin-top: 100px;
-    }
-    .servicios_instituciones h2, .quienes_somos h2 {
-        font-size: 1.5em;
-    }
-    .swiper_institucion .item_landing_insti span {
-        font-size: 1.1em;
-    }
-    .start_calification {
-        width: 50%;
-    }
-    .section_insti {
-        margin-bottom: 5%;
-    }
-    .desplegable_LandInst .card {
-        max-width: 75%;
-    }
-    .convenios img {
-        padding: 2%;
-        height: 15vh;
-    }
-    .swiper_certificado_LandInst {
-        max-width: 75%;
-    }
-    .content_sede_inst {
-        width: 33%;
-    }
-    .data_instituciones .title-adress, .title-url, .title-tel {
-        font-weight: 500;
-    }
-    .data_instituciones .title-url, .title-tel {
-        display: flex;
-        align-items: center;
-        font-weight: 500;
-    }
-    .data_instituciones h2 {
-        font-size: 1.5em;
-    }
-    .data_instituciones h1 {
-        font-size: 1.3em;
-    }
-    .data_instituciones h5 {
-        font-size: 1em;
-    }
-    .title-adress i, .title-url i, .title-tel i {
-        width: 9%;
-        height: 20px;
-    }
-    .contains_buttons_landInst {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 30%;
-        margin-left: 23%;
-        margin-top: -3%;
-    }
-    .contains_buttons_landInst a {
-        font-size: 1em;
-        width: 48%;
-        padding: 1% 0;
-    }
-    .data_instituciones h5:nth-child(7){
-        padding-left: 6.5%;
-        font-weight: 500;
-    }
-    .contains_swiper_institucion {
-        margin-bottom: 0%;
-    }
-    .item_landing_insti i {
-        height: 75px;
-    }
-    .item_landing_insti p {
-        margin-top: 5%;
-        font-size: 0.9em;
-        max-width: 80%;
-    }
-    .servicios_instituciones p,
-    .quienes_somos p, .mapa p {
-        font-size: 1em;
-        padding-left: 7%;
-    }
-    .contains_swiper_institucion h1{
-        margin-top: 5%;
-        margin-bottom: 5%;
-        font-size: 1.5em;
-    }
-    .propuesta p {
-        font-size: 1em;
-        color: #3E3E3E;
-    }
-    .idiomas ul li {
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: center;
-        padding-left: 5%;
-    }
-    .sedes_institucion .container_cards {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-bottom: 6%;
-    }
-    .sedes_institucion .card {
-        width: 48%;
-        margin-top: 3%;
-        margin-bottom: 0;
-        padding-bottom: 2%;
-        padding-top: 2%;
-        padding-left: 1.7%;
-    }
-    .sedes_institucion h2{
-        font-size: 1.5em;
-    }
-    .sedes_institucion .card h4, h6 {
-        font-size: 1.5em;
-    }
-    .sedes_institucion .card-body h5 {
-        font-size: 1.1em;
-    }
-    .sedes_institucion .card-img-top {
-        border-radius: 48%;
-        width: 120px;
-        height: 120px;
-    }
-    .sedes_institucion p {
-        font-size: 0.9em;
-        font-weight: 500;
-    }
-    .sedes_institucion .card-body {
-        padding-left: 3%;
-    }
-    .sedes_institucion span{
-        font-size: 0.9em;
-    }
-    .contain_swiper_certificados h2{
-        margin-bottom: 4%;
-        font-size: 1.5em;
-    }
-    .swiper_certificado_LandInst h6{
-        font-size: 1em;
-    }
-    .swiper_certificado_LandInst h5 {
-        font-size: 1.2em;
-    }
-    .swiper_certificado_LandInst p {
-        font-size: 1em;
-    }
-    .btnPrev_certInst {
-        width: 18px;
-        height: 25px;
-        left: 10%;
-        margin-top: -24%;
-    }
-    .btnNext_certInst {
-        width: 18px;
-        height: 25px;
-        right: 10%;
-        margin-top: -24%;
-    }
-    .galeria_institucion {
-        display: flow-root;
-        margin-bottom: 3%;
-    }
-    .galeria_institucion h5 {
-        font-size: 1.2em;
-        margin: 2% 0;
-    }
-    .galeria_institucion p {
-        font-size: 1em;
-    }
-    .videos_institucion .card {
-        width: 45%;
-        margin-top: 3%;
-        margin-bottom: 4%;
-    }
-    .videos_institucion .card-body h5 {
-        font-size: 1.2em;
-        text-align: left;
-    }
-    .videos_institucion p {
-        font-size: 1em;
-        text-align: left;
-    }
-    .btnPrev_inst {
-        width: 18px;
-        height: 25px;
-        left: 10%;
-        margin-top: -21%;
-    }
-    .btnNext_inst {
-        width: 18px;
-        height: 25px;
-        right: 10%;
-        margin-top: -21%;
-    }
-    .galeria_institucion h2 {
-        width: 100%;
-        margin-bottom: 0;
-    }
-    .swiper_certificado_LandInst {
-        margin-bottom: 4%;
-    }
-    .swiper_galeria_inst {
-        margin-bottom: 4%;
-    }
-    .desplegable_LandInst .boton_collapse-off-institu{
-        height: 7vh;
-        background-size: 3%;
-    }
-    .boton_collapse-on-institu{
-        background-size: 3% !important;
-    }
-    .title_opinionesInst {
-        font-size: 1.5em;
-        padding-left: 5.5%;
-        height: 5vh;
-        width: 80%;
-    }
-    .text_cabeceraInst {
-        font-size: 1em;
-        width: 69%;
-        margin: auto;
-        margin-bottom: 2%;
-    }
-}
-@media (min-width: 1200px) {
-    .section_data_instituciones{
-        height: auto;
-        padding-top: 4%;
-        padding-bottom: 4%;
-    }
-    .servicios_instituciones i,
-    .quienes_somos i, 
-    .propuesta i,  
-    .convenios i, 
-    .idiomas i, 
-    .sedes_institucion i, 
-    .mapa i,
-    .contain_swiper_certificados i,  
-    .galeria_institucion i, 
-    .videos_institucion i {
-        width: 6%;
-        height: 45px;
-    }
-    .servicios_instituciones p {
-        padding-left: 6%;
-    }
-    .mapa p {
-        padding-left: 6%;
-    }
-    .propuesta ul, 
-    .convenios ul, 
-    .idiomas ul {
-        padding-left: 6%;
-        margin: 0;
-    }
-    .data_instituciones .title-adress, .title-url, .title-tel {
-        width: 100%;
-        font-weight: 500;
-    }
-    .data_instituciones h2 {
-        font-size: 2em;
-    }
-    .data_instituciones h1 {
-        font-size: 1.7em;
-    }
-    .data_instituciones h5 {
-        font-size: 1.2em;
-    }
-    .contains_buttons_landInst a{
-        width:45%;
-        padding: 1% 0;
-    }
-    .data_instituciones h5:nth-child(7){
-        padding-left: 4%;
-        font-weight: 500;
-    }
-    .data_instituciones .title-url, .title-tel {
-        display: flex;
-        align-items: center;
-        font-weight: 500;
-    }
-    .item_landing_insti i {
-        height: 75px;
-    }
-    .item_landing_insti p {
-        margin-top: 5%;
-        font-size: 0.9em;
-        max-width: 80%;
-    }
-    .swiper_institucion {
-        width: 70%;
-    }
-    .swiper_institucion .item_landing_insti span {
-        margin-top: 100px;
-        width: 80%;
-    }
-    .contains_swiper_institucion h1{
-        margin-top: 5%;
-        margin-bottom: 4%;
-    }
-    .servicios_instituciones p, .quienes_somos p, .mapa p{
-        font-size: 1em;
-        padding-left: 6%;
-    }
-    .desplegable_LandInst .card-header button {
-        font-size: 1.5em;
-        color: #434343;
-        background-size: 2.5% !important;
-    }
-    .idiomas ul li {
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: center;
-        padding-left: 5%;
-    }
-    .propuesta p {
-        font-size: 1em;
-        color: #3E3E3E;
-    }
-    .sedes_institucion .container_cards,
-    .container_cards,
-    .videos_institucion .container_cards{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    .sedes_institucion .card {
-        width: 45%;
-        margin-bottom: 0;
-    }
-    .sedes_institucion .card h4, h6 {
-        font-size: 1.3em;
-    }
-    .sedes_institucion .card-body h5 {
-        font-size: 1.2em;
-    }
-    .sedes_institucion p {
-        font-size: 1em;
-        font-weight: 500;
-    }
-    .sedes_institucion span {
-        font-size: 1em;
-    }
-    .sedes_institucion h2{
-        font-size: 1.8em;
-    }
-    .galeria_institucion h2 {
-        font-size: 1.8em;
-    }
-    .swiper_certificado_LandInst h6{
-        font-size: 1em;
-    }
-    .swiper_certificado_LandInst h5 {
-        font-size: 1.3em;
-    }
-    .btnPrev_certInst {
-        margin-top: -20%;
-    }
-    .btnNext_certInst {
-        margin-top: -20%;
-    }
-    .galeria_institucion {
-       width: 90%;
-       margin: auto;
-    }
-    .swiper_certificado_LandInst {
-        max-width: 72%;
-    }
-    .swiper_galeria_inst {
-        max-width: 80%;
-    }
-    .img_galeria_inst {
-        height: 26vh;
-    }
-    .btnPrev_inst {
-        margin-top: -21%;
-    }
-    .btnNext_inst {
-        margin-top: -21%;
-    }
-    .galeria_institucion h5 {
-        font-size: 1.3em;
-        margin: 2% 0;
-    }
-    .videos_institucion .card-body h5 {
-        font-size: 1.3em;
-    }
-    .videos_institucion .card .card-img-top {
-        height: 30vh;
-    }
-    .title_opinionesInst {
-        padding-left: 5%;
-        height: 5.5vh;
-    }
-    .text_cabeceraInst {
-        width: 70%;
-    }
-}
-@media (min-width: 1360px) {
-    .title_opinionesInst {
-        padding-left: 4.8%;
-        height: 5.8vh;
-    }
-}
-@media (min-width: 1440px){
-    .data_instituciones .contains_info {
-        width: 30%;
-    }
-    .content_logo_inst {
-        width: 10%;
-    }
-    .data_instituciones .contains_info {
-        width: 33%;
-    }
-    .title-adress i, .title-url i, .title-tel i {
-        width: 7%;
-        height: 22px;
-    }
-    .content_sede_inst {
-        width: 29%;
-    }
-    .contains_buttons_landInst {
-        width: 28%;
-        margin-left: 25.5%;
-        margin-top: -2.5%;
-    }
-    .contains_buttons_landInst a {
-        font-size: 1.2em;
-    }
+  .swiper_certificado_LandInst p {
+    font-size: 1.15em;
+  }
 
-    .section_insti {
-       width: 95%; 
-       margin: auto;
-       margin-bottom: 3%;
-    }
-    .propuesta ul, .convenios ul, .idiomas ul {
-        padding-left: 7%;
-    }
-    .convenios img {
-        padding: 2%;
-        height: 15vh;
-    }
-    .btnPrev_certInst {
-        left: 13%;
-    }
-    .btnNext_certInst {
-        left: 86%;
-    }
-    .img_galeria_inst {
-        height: 20vh;
-    }
-    .btnPrev_inst {
-        left: 13%;
-        margin-top: -19%;
-    }
-    .btnNext_inst {
-        left: 86%;
-        margin-top: -19%;
-    }
-    .swiper_galeria_inst {
-        margin-bottom: 5%;
-    }
-    .videos_institucion .card {
-        width: 23%;
-        margin-top: 2%;
-        margin-bottom: 2%;
-    }
-    .videos_institucion .card .card-img-top {
-        height: 20vh;
-    }
-    .data_instituciones .rating-stars ul {
-        margin-top: 8%;
-        margin-bottom: 0%;
-    }
-    .rating-stars ul > li.star > i.fa {
-        font-size: 1.5em;
-    }
-    .contains_swiper_institucion {
-        margin-bottom: 0;
-    }
-    .contains_swiper_institucion h1{
-        font-size: 2em;
-    }
-    .contains_swiper_institucion h1 {
-        margin-top: 3%;
-        margin-bottom: 3%;
-    }
-    .swiper_institucion .item_landing_insti {
-        margin-bottom: 40%;
-    }
-    .servicios_instituciones i, .quienes_somos i, .propuesta i, .convenios i, .idiomas i, .sedes_institucion i, 
-    .mapa i, .contain_swiper_certificados i, .galeria_institucion i, .videos_institucion i {
-        width: 7%;
-        height: 50px;
-    }
-    .servicios_instituciones p, .quienes_somos p, .mapa p {
-        padding-left: 7%;
-    }
-    .desplegable_LandInst .card {
-        max-width: 75%;
-    }
-    .desplegable_LandInst .card-header button{
-        font-size: 1.6em;
-    }
-    .desplegable_LandInst .boton_collapse-off-institu{
-        height: 6vh;
-    }
-    .title_opinionesInst {
-        width: 68%;
-        padding-left: 4.8%;
-    }
-    .title_opinionesInst {
-        height: 5.5vh;
-    }
-    .text_cabeceraInst {
-        width: 58%;
-        font-size: 1.1em;
-    }
+  .sedes_institucion .card_imgSede_LandInst {
+    border-radius: 80px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .sedes_institucion .card-body h5 {
+    font-size: 1.8em;
+  }
+
+  .sedes_institucion p {
+    font-size: 1.2em;
+  }
+
+  .sedes_institucion span {
+    font-size: 1.2em;
+  }
+
+  .mapa p {
+    font-size: 1.3em;
+    padding: 0% 0 3% 6%;
+  }
+
+  .swiper_galeria_inst h5 {
+    font-size: 1.4em;
+  }
+
+  .swiper_galeria_inst p {
+    font-size: 1.15em;
+    height: 90px;
+  }
+
+  .card-img-top {
+    height: 275px;
+  }
+
+  .videos_institucion h5 {
+    font-size: 1.4em;
+  }
+
+  .videos_institucion p {
+    font-size: 1.15em;
+    height: 75px;
+  }
+
+  .opiniones_LandInst {
+    padding: 3% 17.5%;
+  }
+
+  .opiniones_LandInst h2 {
+    font-size: 2em;
+  }
+
+  .opiniones_LandInst p {
+    font-size: 1.3em;
+    padding: 1% 0 3% 4.5%;
+  }
 }
-@media (min-width: 1600px){
-    .section_data_instituciones {
-        height: auto;
-        padding-top: 5%;
-        padding-bottom: 2%;
-    }
-    .servicios_instituciones,
-    .quienes_somos, 
-    .propuesta, 
-    .convenios, 
-    .idiomas, 
-    .sedes_institucion, 
-    .mapa, 
-    .videos_institucion {
-        width: 75%;
-        margin: auto;
-    }
-    .contain_swiper_certificados h2 {
-        width: 75%;
-    }
-    .data_instituciones .title-adress {
-        width: 100%;
-        font-weight: 500;
-    }
-    .data_instituciones h5:nth-child(7){
-        padding-left: 3%;
-    }
-    .data_instituciones h2 {
-        font-size: 2.2em;
-    }
-    .data_instituciones h1 {
-        font-size: 2em;
-    }
-    .data_instituciones h5 {
-        font-size: 1.4em;
-    }
-    .desplegable_LandInst .card{
-        padding: 0.4% 3%;
-    }
-    .desplegable_LandInst .card-header button{
-        background-size: 2% !important;
-    }
-    .contains_swiper_institucion h1{
-        font-size: 2.5em;
-    }
-    .rating-stars ul > li.star > i.fa {
-        font-size: 1.4em;
-    }
-    .swiper_institucion {
-        width: 60%;
-    }
-    .servicios_instituciones i,
-    .quienes_somos i, 
-    .propuesta i, 
-    .convenios i, 
-    .idiomas i, 
-    .sedes_institucion i, 
-    .mapa i,
-    .contain_swiper_certificados i,
-    .galeria_institucion i, 
-    .videos_institucion i {
-        width: 5%;
-        height: 45px;
-    }
-    .servicios_instituciones p {
-        padding-left: 5%;
-    }
-    .mapa p {
-        padding-left: 5%;
-    }
-    .servicios_instituciones h2, .quienes_somos h2 {
-        font-size: 1.8em;
-    }
-    .propuesta h2, .convenios h2, .mapa h2{ 
-        font-size: 1.8em;
-    }
-    .propuesta ul,  
-    .convenios ul, 
-    .idiomas ul {
-        padding-left: 5%;
-    }
-    .propuesta p{
-        font-size: 1.3em;
-    }
-    .sedes_institucion .card {
-        width: 45%;
-        padding-right: 8%;
-    }
-    .sedes_institucion .card h4, h6 {
-        font-size: 1.5em;
-    }
-    .sedes_institucion .card-body h5 {
-        font-size: 1.3em;
-    }
-    .sedes_institucion p{
-        font-size: 1.1em; 
-    }
-    .sedes_institucion span {
-        font-size: 1.1em;
-    }
-    .sedes_institucion .card-img-top {
-        border-radius: 50%;
-        width: 135px;
-        height: 135px;
-    }
-    .contain_swiper_certificados h2 {
-        font-size: 1.8em;
-        margin-bottom: 4%;
-    }
-    .sedes_institucion h2, .galeria_institucion h2, .videos_institucion h2 {
-        font-size: 1.8em;
-    }
-}
-@media (min-width: 1920px){
-    .contains_swiper_institucion h1 {
-        font-size: 2.2em;
-    }
-    .swiper_institucion .item_landing_insti{
-        height: 111px;
-    }
-    .swiper_institucion .item_landing_insti span{
-        margin-top: 120px;
-    }
-    .section_insti {
-        width: 90%;
-    }
-    .servicios_instituciones p, .quienes_somos p, .mapa p{
-        font-size: 1.2em;
-        padding-left: 5%;
-    }
-    .desplegable_LandInst .card {
-        max-width: 73%;
-    }
-    .convenios img {
-        height: 16vh;
-    }
-    .swiper_certificado_LandInst img {
-        height: 21vh;
-        max-width: 100%;
-    }
-    .btnPrev_certInst {
-        margin-top: -16%;
-        left: 15%;
-    }
-    .btnNext_certInst {
-        margin-top: -16%;
-        left: 84%;
-    }
-    .mapa {
-        width: 75%;
-        margin: auto;
-        margin-top: 5%;
-    }
-    .sedes_institucion .card {
-        width: 40%;
-        margin-bottom: 0;
-        margin-top: 3%;
-        padding-right: 0;
-        padding-left: 2%;
-    }
-    .galeria_institucion {
-        width: 84%;
-        margin: auto;
-    }
-    .img_galeria_inst {
-        height: 23vh;
-    }
-    .swiper_galeria_inst {
-        max-width: 86%;
-    }
-    .btnPrev_inst {
-        margin-top: -15%;
-        left: 15%;
-    }
-    .btnNext_inst {
-        margin-top: -15%;
-        left: 84%;
-    }
-    .videos_institucion .card {
-        width: 24%;
-    }
-    .videos_institucion .card .card-img-top {
-        height: 25vh;
-    }
-    .contains_buttons_landInst {
-        width: 23%;
-        margin-left: 27.5%;
-        margin-top: -2%;
-    }
-    .content_sede_inst {
-        width: 25%;
-    }
-    .title-adress i, .title-url i, .title-tel i {
-        width: 7%;
-        height: 23px;
-    }
-    .desplegable_LandInst .card-header button{
-        height: 7vh;
-        font-size: 1.8em;
-    }
-    .title_opinionesInst {
-        font-size: 1.8em;
-        padding-left: 3%;
-        width: 67%;
-        height: 4.5vh;
-    }
-    .text_cabeceraInst {
-        width: 60%;
-        font-size: 1.1em;
-    }
-}
-*/
 .containt_slide_prinInst {
   width: 28%;
   position: absolute;
@@ -33565,138 +30150,123 @@ label.error {
     width: 8%;
   }
 }
-.imagen_bannerPrin-contac {
-  width: 100%;
-  padding: 0;
-  height: 30vh;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.title_banner_contac {
-  color: #0083D6;
-  font-family: "Quicksand";
-  font-size: 2.2em;
-  font-weight: 700;
-  position: absolute;
-  top: 20%;
-  left: 16%;
-  line-height: 1;
-}
-
-.titulo_principal-contac {
-  font-size: 1.3em;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bolder;
-  color: #232323;
-  margin: 10% 0;
-  text-align: center;
-}
-
-.texto_superior-contac {
-  font-family: "Roboto", "Regular";
-  font-size: 1em;
-  color: #3E3E3E;
-  text-align: center;
-  margin: 2% 8%;
-}
-
-.containt_contacZaabra-contac {
+.infoZaabra_contacto {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   margin: 5% 0;
 }
 
-.icon_ubicacion-contac {
+.ubicacion-contacto {
   background-image: url("/img/contacto/icono-ubicacion.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  width: 35%;
-  padding-right: 0;
-  padding-left: 5%;
-  margin: 0;
+  width: 100%;
+  padding: 1% 0 1% 15%;
 }
 
-.icon_telefono-contac {
+.titulo_infoZaabra_contacto {
+  font-size: 0.8em;
+  font-family: "Quicksand";
+  font-weight: bold;
+  color: #232323;
+}
+
+.txt_infoZaabra_contacto {
+  font-size: 0.8em;
+  font-family: "Roboto";
+  color: #3E3E3E;
+}
+
+.telefono_contacto {
   background-image: url("/img/contacto/icono-telefono.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  width: 20%;
-  padding-right: 0;
-  padding-left: 5%;
-  margin: 0;
+  width: 100%;
+  padding: 1% 0 1% 15%;
 }
 
-.icon_email-contac {
+.email_contacto {
   background-image: url("/img/contacto/icono-email.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  width: 25%;
-  padding-right: 0;
-  padding-left: 5%;
-  margin: 0;
+  width: 100%;
+  padding: 1% 0 1% 15%;
 }
 
-.titulo_opcion-contac {
-  font-size: 1em;
-  font-weight: bold;
-}
-
-.text_opcion-contac {
-  font-size: 0.85em;
-}
-
-.fila_containt-options-contac {
+.options_users_contacto {
   background: #F6F6F6;
   justify-content: center;
 }
 
-.Subtitulo_interno-contac {
-  font-size: 1.3em;
+.body_contacto {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.titulo_users_contacto {
+  font-size: 1em;
   font-family: "Quicksand", sans-serif;
   font-weight: bolder;
   color: #019F86;
-  margin: 3% 0;
+  margin: 5% 0 3% 0;
   text-align: center;
 }
 
-.section_principal-contac {
+.Subtext_interno-contac {
+  font-size: 0.8em;
+  font-family: "Roboto", "Regular";
+  color: #3E3E3E;
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.tipos_users_contacto {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
   border: none;
-  margin-bottom: 3%;
-  padding: 0;
+  margin-bottom: 10%;
+  padding: 7% 3% 8% 3%;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
 }
 
-.section_body-contac {
-  padding: 2% 12% 5% 12%;
-}
-
 .section_input-option-contac {
-  justify-content: center;
-  height: calc(3em + 5em);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  height: 75px;
 }
 
 .input_option-contac {
   display: flex;
   justify-content: center;
   padding: 0;
+  width: 25%;
 }
 
 .input_img-option-contac {
   margin: 0;
   height: 100%;
-  width: 50%;
+  width: 50px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: top;
+     object-position: top;
 }
 
 .texto_option-input-contac {
   font-family: "Roboto";
-  font-size: 1em;
+  font-size: 0.95em;
   align-self: flex-end;
 }
 
-.name_user-contac, .name_institution-contac, .second_date-contac {
-  display: none;
+.content_btn-enviar-contac {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
 }
 
 .texto_label-contac {
@@ -33707,551 +30277,243 @@ label.error {
   text-align: left;
 }
 
-.content_btn-enviar-contac {
-  display: flex;
-  justify-content: center;
-}
-
 .btn_enviar-contac {
+  font-size: 0.95em;
   font-family: "Quicksand";
-  font-size: 1em;
   color: #ffffff;
   background: #0083D6;
   border: none;
   border-radius: 5px;
-  height: calc(1.6em + 0.75rem + 2px);
-  width: 30%;
-  margin-top: 5%;
-  margin-bottom: 0;
+  width: 100px;
+  margin: 0;
+  padding: 2% 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .flecha_envio-contac {
-  width: 10%;
+  width: 12px;
 }
 
 .content_terminos_contac {
   margin: 0;
   padding: 0;
   display: flex;
+  justify-content: space-between;
 }
 
 .check_terminos_contac {
-  width: 3%;
-  height: 2vh;
+  width: 18px;
+  height: 20px;
 }
 
 .txt_terminos_contac {
-  margin-left: 2%;
-  margin-bottom: 0;
   font-size: 0.85em;
+  font-family: "Roboto";
   color: #434142;
+  width: 92%;
+  margin: 0;
 }
 
 .txt_terminos_contac a {
+  font-size: 0.85em;
+  font-family: "Roboto";
   color: #434142 !important;
   font-weight: bold !important;
   text-decoration: underline !important;
 }
 
-@media (min-width: 320px) and (orientation: portrait) {
-  .imagen_bannerPrin-contac {
-    height: 18vh;
-  }
-
-  .title_banner_contac {
-    font-size: 0.95em;
-    top: 17%;
-    left: 4%;
-  }
-
-  .titulo_principal-contac {
-    font-size: 1em;
-    margin: 5% 6%;
-  }
-
-  .texto_superior-contac {
-    font-size: 0.75em;
-    margin: 5% 0;
-  }
-
-  .containt_contacZaabra-contac {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 3% 0 7% 0;
-  }
-
-  .section_input-option-contac {
-    justify-content: space-around;
-    height: calc(2em + 5em);
-  }
-
-  .icon_ubicacion-contac {
-    width: 100%;
-    padding-right: 0;
-    padding-left: 12%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .icon_telefono-contac {
-    width: 100%;
-    padding-right: 0;
-    padding-left: 12%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .icon_email-contac {
-    width: 100%;
-    padding-right: 0;
-    padding-left: 12%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .titulo_opcion-contac {
-    font-size: 0.75em;
-    font-weight: bold;
-  }
-
-  .text_opcion-contac {
-    font-size: 0.7em;
-  }
-
-  .Subtitulo_interno-contac {
-    font-size: 1em;
-    margin: 3% 0;
-  }
-
-  .Subtext_interno-contac {
-    font-family: "Roboto", "Regular";
-    font-size: 0.7em;
-    color: #3E3E3E;
-    text-align: center;
-    margin: 0 5% 5% 5%;
-  }
-
-  .section_principal-contac {
-    margin-bottom: 5%;
-  }
-
-  .section_body-contac {
-    padding: 2% 5%;
-  }
-
-  .input_img-option-contac {
-    width: 70%;
-  }
-
-  .btn_enviar-contac {
-    font-family: "Quicksand";
-    font-size: 0.85em;
-    color: #ffffff;
-    background: #0083D6;
-    border: none;
-    border-radius: 5px;
-    height: calc(1.6em + 0.75rem + 2px);
-    width: 50%;
-    margin-top: 5%;
-    margin-bottom: 2%;
-  }
-
-  .flecha_envio-contac {
-    width: 9%;
-  }
-
-  .content_terminos_contac {
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-
-  .check_terminos_contac {
-    width: 7%;
-    height: 2vh;
-  }
-
-  .txt_terminos_contac {
-    font-size: 0.7em;
-    font-weight: bold;
-    text-align: initial;
-    line-height: 1.5;
-    padding-left: 3%;
-    margin: 0;
-  }
-
-  .txt_terminos_contac a {
-    color: #434142 !important;
-    font-weight: bold !important;
-    text-decoration: underline !important;
-  }
+.name_user-contac, .name_institution-contac, .second_date-contac {
+  display: none;
 }
-@media (min-width: 360px) and (orientation: portrait) {
-  .title_banner_contac {
-    font-size: 1.1em;
-    top: 16%;
-    left: 4%;
+
+@media (min-width: 600px) {
+  .cabecera_contacto {
+    width: 85%;
+    margin: auto;
   }
 
-  .titulo_principal-contac {
-    font-size: 1em;
-    margin: 5% 16%;
-  }
-
-  .Subtext_interno-contac {
-    font-family: "Roboto", "Regular";
-    font-size: 0.7em;
-    color: #3E3E3E;
-    text-align: center;
-    margin: 0 15% 5% 15%;
-  }
-}
-@media (min-width: 375px) and (orientation: portrait) {
-  .title_banner_contac {
-    font-size: 1.1em;
-    top: 15.5%;
-    left: 4%;
-  }
-}
-@media (min-width: 768px) and (orientation: portrait) {
-  .imagen_bannerPrin-contac {
-    height: 20vh;
-  }
-
-  .title_banner_contac {
-    font-size: 2.35em;
-    top: 15%;
-    left: 4%;
-  }
-
-  .titulo_principal-contac {
-    font-size: 2em;
-  }
-
-  .texto_superior-contac {
-    font-size: 1.3em;
-    margin: 5% 10%;
-  }
-
-  .Subtitulo_interno-contac {
-    font-size: 2em;
-  }
-
-  .section_principal-contac {
-    margin-bottom: 5%;
-  }
-
-  .section_body-contac {
-    padding: 2% 10%;
-  }
-
-  .containt_contacZaabra-contac {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin: 3% 0 5% 0;
-  }
-
-  .icon_ubicacion-contac {
-    width: 44%;
-    padding-right: 0;
-    padding-left: 7%;
-  }
-
-  .icon_telefono-contac {
-    width: 19%;
-    padding-right: 0;
-    padding-left: 7%;
-    margin: 0;
-  }
-
-  .icon_email-contac {
-    width: 37%;
-    padding-right: 0;
-    padding-left: 7%;
-  }
-
-  .titulo_opcion-contac {
+  .titulo_infoZaabra_contacto {
     font-size: 1.2em;
-    font-weight: bold;
   }
 
-  .text_opcion-contac {
-    font-size: 1em;
+  .txt_infoZaabra_contacto {
+    font-size: 1.05em;
+  }
+
+  .ubicacion-contacto, .telefono_contacto, .email_contacto {
+    padding: 1% 0 1% 10%;
+  }
+
+  .body_contacto {
+    width: 75%;
+  }
+
+  .titulo_users_contacto {
+    font-size: 2em;
+  }
+
+  .Subtext_interno-contac {
+    font-size: 1.3em;
+    padding: 0 7%;
   }
 
   .section_input-option-contac {
-    justify-content: space-around;
-    height: calc(3em + 7em);
+    height: 100px;
+    justify-content: center;
   }
 
   .input_img-option-contac {
-    margin: 0;
-    height: 100%;
-    width: 60%;
+    width: 65px;
   }
 
   .texto_option-input-contac {
-    font-size: 1.25em;
-  }
-
-  .Subtext_interno-contac {
-    font-family: "Roboto", "Regular";
-    font-size: 1.2em;
-    color: #3E3E3E;
-    text-align: center;
-    margin: 0 15% 5% 15%;
-  }
-
-  .texto_label-contac {
     font-size: 1.3em;
   }
 
   .btn_enviar-contac {
-    font-family: "Quicksand";
-    font-size: 1.25em;
-    color: #ffffff;
-    background: #0083D6;
-    border: none;
-    border-radius: 5px;
-    height: calc(1.6em + 0.75rem + 2px);
-    width: 30%;
-    margin-top: 5%;
-    margin-bottom: 3%;
+    font-size: 1.2em;
+    width: 125px;
+    padding: 2%;
   }
 
   .flecha_envio-contac {
-    width: 12%;
+    width: 16px;
+  }
+
+  .texto_label-contac {
+    font-size: 1.2em;
   }
 
   .txt_terminos_contac {
     font-size: 1em;
-    padding-left: 2%;
-  }
-
-  .check_terminos_contac {
-    width: 4%;
-    height: 1.2vh;
+    width: 95%;
   }
 }
 @media (min-width: 1024px) {
-  .titulo_principal-contac {
-    font-size: 2em;
-    font-family: "Quicksand", sans-serif;
-    font-weight: bolder;
-    color: #232323;
-    margin: 3% 0;
-    text-align: center;
+  .cabecera_contacto {
+    width: 100%;
   }
 
-  .Subtitulo_interno-contac {
-    font-size: 2em;
-    font-family: "Quicksand", sans-serif;
-    font-weight: bolder;
-    color: #019F86;
-    margin: 3% 10% 2% 10%;
-    text-align: center;
+  .subTitulo_infoZaabra {
+    padding: 0 10%;
+    margin: 3% 0;
+  }
+
+  .infoZaabra_contacto {
+    flex-direction: row;
+    margin: 5% 0;
+    padding-left: 5%;
+  }
+
+  .telefono_contacto {
+    width: 75%;
+  }
+
+  .ubicacion-contacto, .telefono_contacto, .email_contacto {
+    padding: 0 0 0 5%;
   }
 
   .Subtext_interno-contac {
+    padding: 0 15%;
+  }
+
+  .btn_enviar-contac {
+    padding: 1% 3%;
+  }
+
+  .txt_terminos_contac {
     font-size: 1.1em;
-    margin: 0 25% 3%;
-    text-align: center;
   }
 }
 @media (min-width: 1200px) {
-  .imagen_bannerPrin-contac {
-    height: 42vh;
+  .body_contacto {
+    width: 65%;
   }
 
-  .title_banner_contac {
-    font-size: 3.1em;
-    top: 25%;
-    left: 10%;
+  .infoZaabra_contacto {
+    padding-left: 9%;
   }
 
-  .texto_superior-contac {
-    font-size: 1.1em;
-    margin: 2% 15%;
-  }
-
-  .icon_ubicacion-contac {
-    width: 30%;
-  }
-
-  .icon_telefono-contac {
-    width: 18%;
-  }
-
-  .icon_email-contac {
-    width: 22%;
-  }
-
-  .section_principal-contac {
-    margin-bottom: 3%;
-  }
-
-  .Subtext_interno-contac {
-    font-size: 1.1em;
-    margin: 0 30% 3%;
-    text-align: center;
-  }
-
-  .input_img-option-contac {
-    margin: 0;
-    height: 100%;
-    width: 40%;
-  }
-
-  .texto_label-contac {
-    font-size: 1.1em;
-  }
-
-  .btn_enviar-contac {
-    width: 25%;
-  }
-
-  .flecha_envio-contac {
-    width: 10%;
+  .infoZaabra_contacto {
+    padding-left: 15%;
+    padding-right: 5%;
   }
 }
 @media (min-width: 1360px) {
-  .title_banner_contac {
-    font-size: 3em;
-    top: 25%;
-    left: 15%;
+  .infoZaabra_contacto {
+    padding-left: 15%;
+    padding-right: 5%;
   }
 }
 @media (min-width: 1440px) {
-  .title_banner_contac {
-    font-size: 3.5em;
-    top: 24%;
-    left: 12%;
-  }
-
-  .titulo_principal-contac {
-    font-size: 2.5em;
-    margin: 3% 0;
-  }
-
-  .texto_superior-contac {
+  .titulo_infoZaabra_contacto {
     font-size: 1.5em;
-    margin: 2% 10%;
   }
 
-  .section_input-option-contac {
-    justify-content: center;
-    height: calc(5em + 5em);
+  .txt_infoZaabra_contacto {
+    font-size: 1.2em;
   }
 
-  .titulo_opcion-contac {
-    font-size: 1.5em;
-    font-weight: bold;
+  .infoZaabra_contacto {
+    padding-left: 10%;
+    padding-right: 2%;
   }
 
-  .text_opcion-contac {
-    font-size: 1.25em;
+  .txt_terminos_contac {
+    font-size: 1.2em;
+    width: 96%;
+  }
+}
+@media (min-width: 1920px) {
+  .cabecera_contacto {
+    width: 75%;
   }
 
-  .icon_ubicacion-contac {
-    width: 35%;
+  .subTitulo_infoZaabra {
+    padding: 0 15%;
   }
 
-  .icon_telefono-contac {
-    width: 20%;
-  }
-
-  .Subtitulo_interno-contac {
+  .titulo_users_contacto {
     font-size: 2.5em;
   }
 
   .Subtext_interno-contac {
-    font-size: 1.5em;
-    margin: 0 0 2% 0;
+    font-size: 1.6em;
   }
 
-  .texto_label-contac {
-    font-size: 1.5em;
+  .body_contacto {
+    width: 50%;
   }
 
-  .btn_enviar-contac {
-    font-size: 1.5em;
-  }
-
-  .flecha_envio-contac {
-    width: 11%;
-  }
-
-  .txt_terminos_contac {
-    font-size: 1em;
-  }
-}
-@media (min-width: 1920px) {
-  .imagen_bannerPrin-contac {
-    height: 48vh;
-  }
-
-  .title_banner_contac {
-    font-size: 4.25em;
-    top: 28%;
-    left: 15%;
-  }
-
-  .Subtitulo_interno-contac {
-    margin: 3% 20% 2% 20%;
-  }
-
-  .containt_contacZaabra-contac {
-    margin-left: 2%;
-  }
-
-  .icon_ubicacion-contac {
-    width: 30%;
-    padding-left: 4%;
-  }
-
-  .icon_telefono-contac {
-    width: 20%;
-    padding-left: 4%;
-  }
-
-  .icon_email-contac {
-    width: 20%;
-    padding-left: 4%;
+  .section_input-option-contac {
+    height: 125px;
   }
 
   .input_img-option-contac {
-    margin: 0;
-    height: 100%;
-    width: 35%;
+    width: 80px;
   }
 
   .texto_option-input-contac {
-    font-size: 1.25em;
-  }
-
-  .input_height-fullhd-contac {
-    height: 5vh;
-    font-size: 1.25em;
-  }
-
-  .flecha_envio-contac {
-    width: 8%;
-  }
-
-  .txt_terminos_contac {
-    margin-left: 1%;
-    font-size: 1.25em;
-  }
-
-  .check_terminos_contac {
-    width: 2%;
-    height: 2vh;
+    font-size: 1.5em;
   }
 
   .btn_enviar-contac {
-    margin-top: 4%;
+    font-size: 1.5em;
+    width: 160px;
+  }
+
+  .flecha_envio-contac {
+    width: 20px;
+  }
+
+  .texto_label-contac {
+    font-size: 1.38em;
+  }
+
+  .txt_terminos_contac {
+    font-size: 1.22em;
   }
 }
 .contain_principal101 {
@@ -36503,6 +32765,21 @@ label.error {
     font-size: 1.2em;
   }
 }
+.imgtxtagen {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5% 0;
+  padding: 0 0 0 3%;
+}
+
+.imagen_usuario_agen {
+  width: 50px;
+  height: 50px;
+  border-radius: 42px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .cards_panelPrincipal_prof {
   width: 100% !important;
   border: 1px solid #0083D6;
@@ -36549,11 +32826,11 @@ label.error {
 }
 
 .title_agenda {
-  padding: 0;
+  padding: 0 0 0 4%;
   margin: 1.5rem 0 1rem;
   color: #0083D6;
   font-weight: bolder;
-  font-size: 1.4em;
+  font-size: 1.2em;
   list-style: none;
   text-align: center;
 }
@@ -37798,6 +34075,30 @@ label.error {
   height: 115px;
 }
 
+.imagen_inst_instProf {
+  width: 100%;
+  height: 170px;
+}
+
+.img_institucion_instProf {
+  width: 100%;
+  height: 100%;
+  background-size: cover !important;
+  opacity: 0.6;
+}
+
+.nombre_inst_instProf {
+  font-size: 1.5em;
+  font-family: "Quicksand";
+  color: #019f86;
+  font-weight: bolder;
+  line-height: 1;
+  position: absolute;
+  top: 75px;
+  left: 20px;
+  width: 75%;
+}
+
 .containt_slide_instProf {
   width: 115px;
   top: 30px;
@@ -37888,6 +34189,18 @@ label.error {
 }
 
 @media (min-width: 700px) {
+  .imagen_inst_instProf {
+    width: 100%;
+    height: 400px;
+  }
+
+  .nombre_inst_instProf {
+    font-size: 2.5em;
+    top: 156px;
+    left: 65px;
+    width: 55%;
+  }
+
   .swiper_principalInstProf {
     height: 220px;
   }
@@ -37913,6 +34226,13 @@ label.error {
   }
 }
 @media (min-width: 1024px) {
+  .nombre_inst_instProf {
+    font-size: 2.5em;
+    top: 130px;
+    left: 130px;
+    width: 50%;
+  }
+
   .containt_slide_instProf {
     left: 125px;
   }
@@ -37951,6 +34271,12 @@ label.error {
   }
 }
 @media (min-width: 1360px) {
+  .nombre_inst_instProf {
+    font-size: 3em;
+    left: 170px;
+    width: 45%;
+  }
+
   .swiper_principalInstProf {
     height: 360px;
   }
@@ -37967,6 +34293,11 @@ label.error {
   }
 }
 @media (min-width: 1440px) {
+  .nombre_inst_instProf {
+    font-size: 3.5em;
+    left: 180px;
+  }
+
   .containt_slide_instProf {
     left: 175px;
   }
@@ -37982,6 +34313,15 @@ label.error {
   }
 }
 @media (min-width: 1920px) {
+  .imagen_inst_instProf {
+    height: 500px;
+  }
+
+  .nombre_inst_instProf {
+    left: 300px;
+    width: 35%;
+  }
+
   .swiper_principalInstProf {
     height: 500px;
   }

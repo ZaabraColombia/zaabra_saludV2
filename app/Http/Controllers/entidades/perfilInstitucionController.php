@@ -158,6 +158,7 @@ class perfilInstitucionController extends Controller  {
         $objinstitucionlandin = $this->cargarInfoInstitucLandin($request->slug);
         if (empty($objinstitucionlandin)) return redirect('/');
 
+        //$idUser=$objnombreInstitucion->idUser;
         $objbannersprincipalInstitucionProfesionales = $this->cargarBannerPrincipalInstitucionProfesionales();
 
         $objProfesionalesIns    = profesionales_instituciones::where('id_institucion', '=', $objinstitucionlandin[0]->id)
@@ -176,12 +177,28 @@ class perfilInstitucionController extends Controller  {
         //Sacar las especialidades
         $especialidades = array_unique(array_column($objProfesionalesIns->toArray(), 'nombre_especialidad'));
 
+        $institucion = $this->cargarInfoInstitucion($request->slug);
+        // LLama la imagen de la sede que esta en la landing page instituciones y la imprime en el bammer principal de la vista "profesionales-institucion". 
+        $id = $objinstitucionlandin[0]->id;
+        $objinstitucionlandinimgsede = $objinstitucionlandin[0];
+
         return view('instituciones.profesionales-institucion', compact(
             'objbannersprincipalInstitucionProfesionales',
             'objProfesionalesIns',
-            'especialidades'
+            'especialidades',
+            'institucion',
+            'objinstitucionlandinimgsede'
         ));
     }
+
+    
+    // consulta para cargar informacion de la landing
+    public function cargarInfoInstitucion($slug){
+        return DB::select("SELECT ints.id, ints.logo,ints.imagen , us.nombreinstitucion, ints.slug
+        FROM instituciones ints
+        INNER JOIN users us ON ints.idUser=us.id
+        WHERE ints.aprobado<>0 AND ints.slug like '$slug'");
+        }
 
     // consulta para cargar banner principal de la vista institción profesionales
     public function cargarBannerPrincipalInstitucionProfesionales(){
