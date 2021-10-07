@@ -507,9 +507,16 @@
                                 <div class="col-md-12 rightSection_formInst">
                                     <span>{{ $profecional->nombre_universidad }}</span>
                                 </div>
-                                <div class="col-md-12 rightSection_formInst">
-                                    <span>{{ $profecional->nombre_especialidad }}</span>
-                                </div>
+                                @if(!empty($profecional->nombre_especialidad))
+                                    <div class="col-md-12 rightSection_formInst">
+                                        <span>{{ $profecional->nombre_especialidad }}</span>
+                                    </div>
+                                @endif
+                                @if(!empty($profecional->cargo))
+                                    <div class="col-md-12 rightSection_formInst">
+                                        <span>{{ $profecional->cargo }}</span>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     @endif
@@ -561,6 +568,10 @@
                             <select name="especialidad" id="especialidad" class="form-control especialidades-search" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
                                 <option></option>
                             </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="cargo_profesional" class="col-12 text_label-formInst"> Cargo </label>
+                            <input type="text" name="cargo_profesional" id="cargo_profesional" class="form-control" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }} />
                         </div>
                     </div>
                 </div>
