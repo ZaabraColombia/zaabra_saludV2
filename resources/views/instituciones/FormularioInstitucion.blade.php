@@ -303,7 +303,7 @@
                             </div>
 
                             <div class="option_consulta-formProf">
-                                <label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Descrpción </label>
+                                <label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Descripción </label>
                                 <label class="col-12 text_infoGuardada-formProf"> {{$servicio->DescripcioServicios}} </label>
                             </div>
 
