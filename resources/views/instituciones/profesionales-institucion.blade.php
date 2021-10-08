@@ -13,7 +13,7 @@
     </div>
 
     <!-- Tarjetas profesionales de la institución -->
-    <!-- <div class="container_principal_instProf">
+    <div class="container_principal_instProf">
         <section class="container_tarjetas_instProf">
             @foreach ($objProfesionalesIns as $profesional)
                 <div class="card tarjeta_instProf">
@@ -33,22 +33,22 @@
                 </div>
             @endforeach
         </section>
-    </div> -->
+    </div>
 
-
-    <section class="container-fluid p-0">
-        <div class="container_principal_instProf">
+    
+    <section class="container mb-5">
+        <div class="">
             <!-- Filter -->
             <ul id="filterControls" class="list-inline cbp-l-filters-alignRight text-center">
-                <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item asociado" data-filter="*">Asociados</li>
+                <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item" data-filter="*">Asociados</li>
                 @foreach($especialidades as $item)
-                    <li class="list-inline-item cbp-filter-item u-cubeportfolio__item asociado" data-filter=".{{ Str::slug($item) }}">{{ $item }}</li>
+                    <li class="list-inline-item cbp-filter-item u-cubeportfolio__item" data-filter=".{{ Str::slug($item) }}">{{ $item }}</li>
                 @endforeach
             </ul>
             <!-- End Filter -->
 
             <!-- Content -->
-            <div id="grid-container" class="container_grid">
+            <div id="grid-container">
                 @foreach ($objProfesionalesIns as $profesional)
                     <div class="card tarjeta_instProf cbp-item {{ Str::slug($profesional->nombre_especialidad) }}">
                         <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">
