@@ -74,6 +74,9 @@
                         <a class="item_landing_insti servicios servicios_clicked"><span>Servicios profesionales</span></a>
                     </li>
                     <li class="swiper-slide">
+                        <a href="{{route('PerfilInstitucion-profesionales', ['slug' => $objinstitucionlandin->slug])}}" class="item_landing_insti profesional"><span>Profesionales</span></a>
+                    </li>
+                    <li class="swiper-slide">
                         <a class="item_landing_insti acerca"><span>Acerca de la Institución</span></a>
                     </li>
                     <li class="swiper-slide">
@@ -85,7 +88,6 @@
                     <li class="swiper-slide">
                         <a class="item_landing_insti galeria"><span>Galería</span></a>
                     </li>
-
                 </div>
 
                 <!-- If we need navigation buttons -->
@@ -102,6 +104,14 @@
                 <p>{{$objinstitucionlandin->DescripcionGeneralServicios}}</p>
             </div>
 
+
+            <!-- <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+  Tooltip on top
+</button> -->
+
+
+
+            
             <div class="desplegable_LandInst" id="accordion"> <!--Función del cambio de color a verde en los botones del collapse estan ubicados en el archivo "footer.js". -->
                 @foreach ($objinstitucionlandinservicios as $objinstitucionlandinservicios)
                     <div class="card containt_collapse_LandInst">
@@ -126,6 +136,9 @@
                 @endforeach
             </div>
         </section>
+
+        <div class="section_insti">
+        </div>
 
         <section class="section_insti section_acerca_institucion">
 
@@ -312,9 +325,10 @@
                     @endif
                 @endif
 
-                <div class="visible_container">
+              
                     @if(!empty($objprofesionalComentario))
                         @foreach ($objprofesionalComentario as $data)
+                        <div class="visible_container">
                         <div class="section_opciones" id="oscar">
                             <div class="section_usuario-prof">
                                 <div class="contains_avatar">
@@ -338,9 +352,10 @@
                                 <span>{{$data->comentario}}</span>
                             </div>
                         </div>
+                        </div>
                         @endforeach
                     @endif
-                </div>
+      
             </div>
 
             <div class="opinion_verif_LandInst">
