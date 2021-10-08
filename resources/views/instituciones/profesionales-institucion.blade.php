@@ -35,7 +35,6 @@
         </section>
     </div>
 
-
 {{--    <section class="container-fluid p-0">--}}
 {{--        <div class="container_principal_instProf">--}}
 {{--            <!-- Filter -->--}}
@@ -62,7 +61,6 @@
 {{--                                    <i class="fas fa-arrow-right arrow_mas"></i>--}}
 {{--                                </a>--}}
 {{--                            </div>--}}
-
 {{--                        </div>--}}
 {{--                    </div>--}}
 {{--                @endforeach--}}

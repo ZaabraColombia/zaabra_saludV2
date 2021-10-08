@@ -207,7 +207,7 @@
             <div class="tarjeta_datosSecun_formPaciente">
                 <div class="col-12" id="mensajes-password"></div>
                 <!-- contraseña actual -->
-                <div class="content_options_formPacien">
+                <div class="contraseña_inputs_formPacien">
                     <label for="password" class="text_label_formPacien">{{ __('paciente.contraseña-actual') }}</label>
 
                     <div class="content_inputs_forPacien">
@@ -216,7 +216,7 @@
                 </div>
 
                 <!-- contraseña nueva -->
-                <div class="content_options_formPacien">
+                <div class="contraseña_inputs_formPacien">
                     <label for="password_new" class="text_label_formPacien">{{ __('paciente.contraseña-nueva') }}</label>
 
                     <div class="content_inputs_forPacien" class="text_label_formPacien">
@@ -225,7 +225,7 @@
                 </div>
 
                 <!-- repetir contraseña -->
-                <div class="content_options_formPacien">
+                <div class="contraseña_inputs_formPacien">
                     <label for="password_new_confirmation" class="text_label_formPacien">{{ __('paciente.contraseña-repetir') }}</label>
 
                     <div class="content_inputs_forPacien">
