@@ -692,16 +692,18 @@ class formularioInstitucionController extends Controller{
 
         $validation = Validator::make($request->all(), [
             'foto_profecional' => ['required', 'image'],
-            'primer_nombre_profecional' => ['required'],
-            'primer_apellido_profecional' => ['required'],
-            'universidad' => ['required', 'exists:universidades,id_universidad'],
-            'especialidad' => ['required', 'exists:especialidades,idEspecialidad'],
+            'primer_nombre_profecional'     => ['required'],
+            'primer_apellido_profecional'   => ['required'],
+            'universidad'   => ['required', 'exists:universidades,id_universidad'],
+            //'especialidad'  => ['exists:especialidades,idEspecialidad'],
+            'cargo_profesional' => ['max:30'],
         ], [], [
             'foto_profecional' => 'Foto del profesional',
             'primer_nombre_profecional' => 'Primer nombre del profesional',
             'primer_apellido_profecional' => 'Primer apellido del profesional',
             'universidad' => 'Universidad',
-            'especialidad' => 'Especialidad'
+            //'especialidad' => 'Especialidad',
+            'cargo_profesional' => 'Cargo',
         ]);
 
         if ($validation->fails()) {
@@ -733,6 +735,7 @@ class formularioInstitucionController extends Controller{
         $profesional->segundo_nombre    = $request->segundo_nombre_profecional;
         $profesional->primer_apellido   = $request->primer_apellido_profecional;
         $profesional->segundo_apellido  = $request->segundo_apellido_profecional;
+        $profesional->cargo             = $request->cargo_profesional;
         $profesional->id_institucion    = $institucion->id;
         $profesional->id_universidad    = $request->universidad;
         $profesional->id_especialidad   = $request->especialidad;

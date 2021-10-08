@@ -903,9 +903,6 @@ $('#form-profesionales-institucion').validate({
         },
         'universidad': {
             required: true,
-        },
-        'especialidad': {
-            required: true,
         }
     },
     messages: {
@@ -920,9 +917,6 @@ $('#form-profesionales-institucion').validate({
         },
         'universidad':{
             required: "Por favor ingrese la universidad del profesional",
-        },
-        'especialidad':{
-            required: "Por favor ingrese la especialidad del profesional",
         }
     },
     submitHandler: function(form) {
@@ -981,6 +975,9 @@ $('#form-profesionales-institucion').validate({
                     '<div class="col-md-12 rightSection_formInst">\n' +
                     '<span>' + $('#especialidad option:selected').text() + '</span>\n' +
                     '</div>\n' +
+                    '<div class="col-md-12 rightSection_formInst">\n' +
+                    '<span>' + $('#cargo_profesional').val() + '' + '</span>\n' +
+                    '</div>\n' +
                     '</div>\n' +
                     '</div>');
 
@@ -993,6 +990,7 @@ $('#form-profesionales-institucion').validate({
                     $('#segundo_apellido_profecional').prop('disabled', true);
                     $('#universidad').prop('disabled', true);
                     $('#especialidad').prop('disabled', true);
+                    $('#cargo_profesional').prop('disabled', true);
                     $(btn).prop('disabled', true);
                 }
 
@@ -1020,6 +1018,7 @@ $('#form-profesionales-institucion').validate({
                     $('#segundo_apellido_profecional').prop('disabled', true);
                     $('#universidad').prop('disabled', true);
                     $('#especialidad').prop('disabled', true);
+                    $('#cargo_profesional').prop('disabled', true);
                     $(btn).prop('disabled', true);
                     $('#img-foto_profecional').attr('scr', '#');
                     formulario[0].reset();
