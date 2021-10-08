@@ -126,6 +126,12 @@
     flex-wrap: wrap;
     width: 100%;
 }
+.contraseña_inputs_formPacien {
+    display: flex; 
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
 @media(min-width: 768px) {
     .tarjeta_datosSecun_formPaciente {
         padding: 3% 0;
@@ -179,6 +185,10 @@
         width: 83%;
         margin-left: auto;
         margin-right: auto;
+    }
+    .contraseña_inputs_formPacien {
+        width: 75%;
+        margin: auto;
     }
 }
 @media (min-width: 1200px) {
