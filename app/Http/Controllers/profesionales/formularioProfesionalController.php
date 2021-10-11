@@ -1384,9 +1384,9 @@ class formularioProfesionalController extends Controller
         $publicacion = new publicaciones();
 
         //asignar los datos
-        $publicacion->idPerfilProfesional = $idProProfesi;
-        $publicacion->nombrepublicacion = $request->fechaPremio;
-        $publicacion->descripcion = $request->descripcionPremio;
+        $publicacion->idPerfilProfesional   = $idProProfesi;
+        $publicacion->nombrepublicacion     = $request->nombrePublicacion;
+        $publicacion->descripcion           = $request->descripcionPublicacion;
 
         //manejo de imagen
         $carpetaDestino = "img/user/$id_user";
@@ -1396,9 +1396,11 @@ class formularioProfesionalController extends Controller
 
         $imgPublicacion->move($carpetaDestino , $publicacion->imgpublicacion);
 
+
         $publicacion->save();
         //agrgar 1 suma uno
         $count++;
+
 
         return response()->json([
             'mensaje' => 'Se adiciono la publicación' .
