@@ -18,7 +18,7 @@
 
                 <div class="contains_option_days">
                     <h2 class="dias no_disponible"><i></i> Días no disponibles</h2>
-                    <h2 class="dias"><i></i> Días disponibles</h2>
+                    <h2 class="dias"><i></i> Días disponibles</h2>  
                 </div>
             </div>
             <div class="col-12 col-lg-9 p-0">

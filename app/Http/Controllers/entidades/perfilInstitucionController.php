@@ -168,6 +168,7 @@ class perfilInstitucionController extends Controller  {
             'profesionales_instituciones.segundo_nombre',
             'profesionales_instituciones.primer_apellido',
             'profesionales_instituciones.segundo_apellido',
+            'profesionales_instituciones.cargo',
             'especialidades.nombreEspecialidad as nombre_especialidad',
             'universidades.nombreuniversidad as nombre_universidad')
         ->leftjoin('especialidades', 'especialidades.idEspecialidad', '=', 'profesionales_instituciones.id_especialidad')
@@ -198,7 +199,7 @@ class perfilInstitucionController extends Controller  {
         FROM instituciones ints
         INNER JOIN users us ON ints.idUser=us.id
         WHERE ints.aprobado<>0 AND ints.slug like '$slug'");
-        }
+    }
 
     // consulta para cargar banner principal de la vista institción profesionales
     public function cargarBannerPrincipalInstitucionProfesionales(){
