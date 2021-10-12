@@ -21000,6 +21000,7 @@ a:link, a:visited, a:active, a:hover {
 .content_conv_landInst {
   display: flex;
   flex-wrap: wrap;
+  padding-left: 2.7em;
 }
 
 .conv_imgText_LandInst {
@@ -21010,18 +21011,23 @@ a:link, a:visited, a:active, a:hover {
 
 .convenios img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  height: 125px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
   image-rendering: -webkit-optimize-contrast;
 }
 
 .convenios h5 {
-  font-size: 1em;
+
+  font-size: 0.95em;
   padding-top: 1.5%;
   margin: 0;
   font-family: "Roboto";
   color: #3E3E3E;
   font-weight: bolder;
+  text-align: center;
 }
 
 .convenios ul li {
@@ -21647,19 +21653,13 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .conv_imgText_LandInst {
-    width: 48%;
-    padding-left: 0;
+    width: 49%;
     margin-top: 3%;
   }
 
-  .convenios img {
-    height: 200px;
-    -o-object-position: top;
-       object-position: top;
-  }
-
   .convenios h5 {
-    font-size: 1.25em;
+    font-size: 1.2em;
+
   }
 
   .btnPrev_cert_LandInst {
@@ -21864,12 +21864,27 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .content_conv_landInst {
-    padding-left: 4em;
+
+    padding-left: 3.3em;
+    justify-content: flex-start;
+  }
+
+  .conv_imgText_LandInst {
+    width: 32%;
+    margin: 3% 0.6% 0 0.6%;
   }
 
   .convenios img {
-    height: 220px;
+    height: 115px;
   }
+
+  .convenios h5 {
+    font-size: 1.1em;
+  }
+
+  /*.convenios img {
+      height: 220px;
+  }*/
 
   .content_sede_inst {
     display: flex;
@@ -22018,9 +22033,9 @@ a:link, a:visited, a:active, a:hover {
     padding: 0.2em 0 0.5em 0;
   }
 
-  .convenios img {
-    height: 275px;
-  }
+  /*.convenios img {
+      height: 275px;
+  }*/
 
   .contains_buttons_landInst {
     margin-left: 11em;
@@ -22328,12 +22343,15 @@ a:link, a:visited, a:active, a:hover {
     padding-left: 5.3em;
   }
 
-  .convenios img {
-    height: 325px;
+  .conv_imgText_LandInst {
+    width: 30%;
   }
 
+  /*.convenios img {
+      height: 325px;
+  }*/
   .convenios h5 {
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
 
   .mapa p {
@@ -34463,6 +34481,10 @@ label.error {
 
 .content_tarjeta_instProf {
   padding: 0 0 8% 0;
+}
+
+.subSpecialty {
+  display: none;
 }
 
 .content_tarjeta_instProf h2 {

@@ -426,25 +426,30 @@
 .content_conv_landInst {
     display: flex;
     flex-wrap: wrap;
+    padding-left: 2.7em;
 }
 .conv_imgText_LandInst {
     width: 100%;
-    padding-left: 2.7em;
+    //padding-left: 2.7em;
+
     margin-top: 5%;
     //margin-left: auto;
 }
 .convenios img{
     width: 100%;
-    object-fit: cover;
+    height: 125px;
+    object-fit: contain;
+    object-position: center;
     image-rendering: -webkit-optimize-contrast;
 }
 .convenios h5 {
-    font-size: 1em;
+    font-size: .95em;
     padding-top: 1.5%;
     margin: 0;
     font-family: "Roboto";
     color: #3E3E3E;
     font-weight: bolder;
+    text-align: center;
 }
 .convenios ul li{
     display: flex;
@@ -975,16 +980,16 @@
         justify-content: space-between;
     }
     .conv_imgText_LandInst {
-        width: 48%;
-        padding-left: 0;
+        width: 49%;
+        //padding-left: 0;
         margin-top: 3%;
     }
     .convenios img {
-        height: 200px;
-        object-position: top;
+        //height: 200px;
+        //object-position: top;
     }
     .convenios h5 {
-        font-size: 1.25em;
+        font-size: 1.2em;
     }
     .btnPrev_cert_LandInst {
         left: 2px;
@@ -1151,11 +1156,23 @@
         margin-left: 10.5em;
     }
     .content_conv_landInst {
-        padding-left: 4em;
+        padding-left: 3.3em;
+        justify-content: flex-start;
+    }
+    .conv_imgText_LandInst {
+        width: 32%;
+        margin: 3% .6% 0 .6%;
     }
     .convenios img {
-        height: 220px;
+        height: 115px;
     }
+    .convenios h5 {
+        font-size: 1.1em;
+    }
+    /*.convenios img {
+        height: 220px;
+    }*/
+
     .content_sede_inst {
         display: flex;
        // width: auto;
@@ -1277,9 +1294,10 @@
     .start_calification {
         padding: .2em 0 .5em 0;
     }
-    .convenios img {
+    /*.convenios img {
         height: 275px;
-    }
+    }*/
+
     .contains_buttons_landInst {
         margin-left: 11em;
     }
@@ -1531,11 +1549,14 @@
     .content_conv_landInst {
         padding-left: 5.3em;
     }
-    .convenios img {
-        height: 325px;
+    .conv_imgText_LandInst {
+        width: 30%;
     }
+    /*.convenios img {
+        height: 325px;
+    }*/
     .convenios h5 {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
     .mapa p {
         font-size: 1.25em;
