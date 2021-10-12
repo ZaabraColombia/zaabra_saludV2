@@ -696,14 +696,14 @@ class formularioInstitucionController extends Controller{
             'primer_nombre_profecional'     => ['required'],
             'primer_apellido_profecional'   => ['required'],
             'universidad'   => ['required', 'exists:universidades,id_universidad'],
-            //'especialidad'  => ['exists:especialidades,idEspecialidad'],
+            'especialidad.*'  => ['required','exists:especialidades,idEspecialidad'],
             'cargo_profesional' => ['max:30'],
         ], [], [
             'foto_profecional' => 'Foto del profesional',
             'primer_nombre_profecional' => 'Primer nombre del profesional',
             'primer_apellido_profecional' => 'Primer apellido del profesional',
             'universidad' => 'Universidad',
-            //'especialidad' => 'Especialidad',
+            'especialidad.*' => 'Especialidad',
             'cargo_profesional' => 'Cargo',
         ]);
 
@@ -739,7 +739,7 @@ class formularioInstitucionController extends Controller{
         $profesional->cargo             = $request->cargo_profesional;
         $profesional->id_institucion    = $institucion->id;
         $profesional->id_universidad    = $request->universidad;
-        $profesional->id_especialidad   = $request->especialidad;
+        //$profesional->id_especialidad   = $request->especialidad;
 
         $foto = $request->file('foto_profecional');
         $nombre_foto = 'profesional-' . time() . '.' . $foto->guessExtension();
@@ -752,6 +752,9 @@ class formularioInstitucionController extends Controller{
 
         //guardar profesional
         $profesional->save();
+
+        //Agregar especialidades
+        $profesional->especialidades()->attach($request->especialidad);
 
         return response([
             'mensaje'   => 'Se guardo correctamente la información',

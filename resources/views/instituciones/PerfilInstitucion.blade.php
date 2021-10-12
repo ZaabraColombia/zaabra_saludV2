@@ -158,15 +158,14 @@
 
             <div class="convenios">
                 <h2><i></i>Convenios</h2>
-                <div class="content_conv_landInst">
+                <div class="row">
                     @foreach($objConvenios as $convenio)
-                        <div class="conv_imgText_LandInst">
+                        <div class="col-md-4">
                             <img class="img-fluid" src="{{ asset($convenio->url_image) }}" alt="{{ $convenio->nombre_convenio }}">
-                            <h5>{{$convenio->nombre_convenio}}</h5>
                         </div>
                     @endforeach
                 </div>
-                <!-- <ul>
+                <ul>
                     <li>
                     {{--@if(!empty($objinstitucionlandineps))--}}
                         {{--@foreach ($objinstitucionlandineps as $objinstitucionlandineps)--}}
@@ -186,7 +185,7 @@
                             {{--<img src="{{URL::asset($objinstitucionlandinprepagada->urlimagen)}}">--}}
                         {{--@endforeach--}}
                     </li>
-                </ul> -->
+                </ul>
             </div>
         </section>
 

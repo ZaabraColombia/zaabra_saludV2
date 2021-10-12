@@ -45,6 +45,7 @@
 
     <section class="container-fluid" style="background: #F9F9F9;">
         <div class="container_principal_instProf">
+
            <!-- Filter -->
            <ul id="filterControls" class="list-inline cbp-l-filters-alignRight text-center">
                <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item asociado all_asociados" data-filter="*">Asociados</li>
@@ -59,6 +60,7 @@
                 @foreach ($objProfesionalesIns as $profesional)
                     <?php
                     $esp = '';
+
                     if (!empty($profesional->especialidades->toArray()))
                     {
                         foreach ($profesional->especialidades as $item)
@@ -74,6 +76,7 @@
                     <div class="card tarjeta_instProf cbp-item {{ $esp }}">
                         <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">
                         <div class="card-body content_tarjeta_instProf">
+
                             <h2 class="specialty">{{$especialidad}}</h2>
                             <h2 class="subSpecialty subSpecialty_text">{{$especialidad}}</h2>
 
@@ -114,6 +117,7 @@
                     {"width" : 300, "cols" : 1},
                 ]
 
+
             });
         });
 
@@ -126,7 +130,6 @@
                 $('.subSpecialty').show();
                 $('.subSpecialty_text').text($(this).text());
                 $('.specialty').hide(); 
-            
             });
         });
     </script>

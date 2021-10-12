@@ -551,7 +551,13 @@
                                 </div>
                                 @if(!empty($profecional->nombre_especialidad))
                                     <div class="col-md-12 rightSection_formInst">
-                                        <span>{{ $profecional->nombre_especialidad }}</span>
+                                        @if(!empty($profecional->especialidades->toArray()))
+                                            <ul>
+                                                <li>
+                                                    {!!  implode('</li><li>', array_column($profecional->especialidades->toArray(), 'nombreEspecialidad'))  !!}
+                                                </li>
+                                            </ul>
+                                        @endif
                                     </div>
                                 @endif
                                 @if(!empty($profecional->cargo))
@@ -607,8 +613,7 @@
                         </div>
                         <div class="col-12">
                             <label for="especialidad" class="col-12 text_label-formInst"> Especialidad </label>
-                            <select name="especialidad" id="especialidad" class="form-control especialidades-search" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
-                                <option></option>
+                            <select name="especialidad[]" id="especialidad" class="form-control especialidades-search" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }} >
                             </select>
                         </div>
                         <div class="col-12">
@@ -656,7 +661,7 @@
 
             <!-- Modulo de los Certificaciones con información -->
             <div class="premios_guardada-formProf" id="lista-certificaciones-institucion">
-                <?php $count_certificaiones = 0; ?>
+            <?php $count_certificaiones = 0; ?>
             @foreach($objCertificaciones as $certificacion)
                 @if(!empty($certificacion->imgcertificado))
                     <?php $count_certificaiones++; ?>
@@ -772,11 +777,11 @@
 
             <!-- Modulo de los Sedes con información -->
             <div class="premios_guardada-formProf" id="lista-sedes-institucion">
-                <?php $count_sedes = 0; ?>
+            <?php $count_sedes = 0; ?>
             @foreach($objSedes as $sede)
                 @if(!empty($sede->imgsede))
                     <?php $count_sedes++; ?>
-                        <!-- Contenido Certificaciones -->
+                    <!-- Contenido Certificaciones -->
                         <div class="savedData_formInst">
                             <div class="col-12 content_btnDelet-trata-formProf">
                                 <button type="submit" class="close" aria-label="Close" data-url="{{ route('entidad.delete10', ['id' => $sede->id]) }}">
@@ -921,7 +926,7 @@
 
             <!-- Modulo de la GALERIA con información -->
             <div class="premios_guardada-formProf" id="lista-galeria-intitucion">
-                <?php $count_galeria = 0; ?>
+            <?php $count_galeria = 0; ?>
             @foreach($objGaleria as $galeria)
                 @if(!empty($galeria->nombrefoto))
                     <?php $count_galeria++; ?>
@@ -1012,7 +1017,7 @@
 
             <!-- Modulos de los VIDEOS -->
             <div class="col-12 p-0 m-0" id="lista-videos-institucion">
-                <?php $count_videos = 0 ;?>
+            <?php $count_videos = 0 ;?>
             @foreach($objVideo as $video)
                 @if(!empty($video->nombrevideo))
                     <!-- Contenido VIDEOS -->
