@@ -21758,7 +21758,8 @@ a:link, a:visited, a:active, a:hover {
 }
 @media (min-width: 1024px) {
   .section_data_instituciones {
-    padding: 3% 0 5% 0;
+    display: flex;
+    padding: 2% 0;
   }
 
   .data_instituciones {
@@ -21766,7 +21767,6 @@ a:link, a:visited, a:active, a:hover {
     flex-direction: row;
     flex-wrap: nowrap;
     width: 64%;
-    height: 210px;
   }
 
   .containt_princ_LandInst {
@@ -21783,7 +21783,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .data_instituciones .contains_info {
-    padding: 0 0 0 1.5em;
+    padding: 0.6em 0 0.6em 1.5em;
     width: 90%;
     align-self: center;
   }
@@ -21822,9 +21822,7 @@ a:link, a:visited, a:active, a:hover {
 
   .contains_buttons_landInst {
     width: 335px;
-    bottom: 32.5em;
-    left: 16em;
-    position: absolute;
+    margin-left: 10.5em;
   }
 
   .content_sede_inst {
@@ -21835,7 +21833,7 @@ a:link, a:visited, a:active, a:hover {
 
   .img_sede_inst {
     box-shadow: 0px 3px 6px #00000029;
-    width: 310px;
+    width: 305px;
     border-radius: 40px 0 0 0;
   }
 
@@ -21934,17 +21932,15 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 1200px) {
   .data_instituciones {
     width: 65%;
-    height: 230px;
   }
 
   .content_sede_inst {
-    right: 10em;
-    top: 9em;
+    right: 10.5em;
+    top: 6.7em;
   }
 
-  .contains_buttons_landInst {
-    bottom: 32em;
-    left: 21.4em;
+  .img_sede_inst {
+    width: 310px;
   }
 
   .containt_princ_LandInst {
@@ -21976,13 +21972,8 @@ a:link, a:visited, a:active, a:hover {
     padding: 0.2em 0 0.5em 0;
   }
 
-  .data_instituciones .contains_info {
-    padding: 0 0 0 5%;
-  }
-
   .contains_buttons_landInst {
-    bottom: 21.5em;
-    left: 23.4em;
+    margin-left: 11em;
   }
 
   .content_sede_inst {
@@ -21990,7 +21981,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .img_sede_inst {
-    width: 310px;
+    width: 325px;
   }
 
   .slaider_certificado_LandInst {
@@ -22010,13 +22001,57 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1440px) {
+  .logo_sede_inst {
+    width: 165px;
+    height: 165px;
+  }
+
+  .data_instituciones h1 {
+    font-size: 1.8em;
+  }
+
+  .data_instituciones h2 {
+    font-size: 1.6em;
+  }
+
+  .data_instituciones .title-url, .data_instituciones .title-tel {
+    font-size: 1.2em;
+  }
+
+  .data_instituciones .title-adress {
+    font-size: 1.2em;
+  }
+
+  .start_calification {
+    margin-left: 0;
+    padding: 0.5em 0 0.5em 0;
+  }
+
+  .rating-stars ul > li.star > i.fa {
+    font-size: 1.5em;
+  }
+
+  .contains_buttons_landInst {
+    width: 430px;
+    margin-left: 13em;
+  }
+
+  .contains_buttons_landInst a:nth-child(1) {
+    width: 200px;
+    font-size: 1.2em;
+  }
+
+  .contains_buttons_landInst a:nth-child(2) {
+    width: 200px;
+    font-size: 1.2em;
+  }
+
   .img_sede_inst {
-    width: 305px;
+    width: 375px;
   }
 
   .data_instituciones {
     width: 65%;
-    height: 235px;
     margin-bottom: 0;
   }
 
@@ -22025,9 +22060,16 @@ a:link, a:visited, a:active, a:hover {
     padding: 0.3em 0 0.5em 0;
   }
 
-  .contains_buttons_landInst {
-    bottom: 39em;
-    left: 24.4em;
+  .boton_collapse-off {
+    font-size: 1.6em;
+    padding: 1% 2%;
+    background-size: 30px !important;
+  }
+
+  .boton_collapse-on {
+    font-size: 1.6em;
+    padding: 1% 2%;
+    background-size: 30px !important;
   }
 
   .servicios_instituciones i, .quienes_somos i,
@@ -22051,17 +22093,19 @@ a:link, a:visited, a:active, a:hover {
     width: 65%;
   }
 
-  .logo_sede_inst {
-    width: 165px;
-    height: 165px;
-  }
-
-  .data_instituciones {
-    height: 295px;
+  /*.logo_sede_inst {
+      width: 165px;
+      height: 165px;
+  }*/
+  /*.data_instituciones {
+      height: 295px;
+  }*/
+  .data_instituciones .contains_info {
+    padding: 0.6em 0 0.6em 2.5em;
   }
 
   .section_data_instituciones {
-    padding: 1.5% 0 3% 0;
+    padding: 2.5% 0 3% 0;
   }
 
   .data_instituciones h1 {
@@ -22081,38 +22125,37 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .content_sede_inst {
+    top: 8em;
     right: 24em;
   }
 
   .img_sede_inst {
-    width: 425px;
-  }
-
-  .start_calification {
-    margin-left: 0;
-    padding: 0.5em 0 0.5em 0;
-  }
-
-  .rating-stars ul > li.star > i.fa {
-    font-size: 1.5em;
+    width: 400px;
   }
 
   .contains_buttons_landInst {
-    width: 430px;
-    bottom: 35.5em;
-    left: 38em;
+    margin-left: 14em;
   }
 
+  /*.start_calification {
+      margin-left: 0;
+      padding: 0.5em 0 0.5em 0;
+  }*/
+  /*.rating-stars ul > li.star > i.fa {
+      font-size: 1.5em;
+  }
+  .contains_buttons_landInst {
+      width: 430px;
+      bottom: 35.5em;
+  }
   .contains_buttons_landInst a:nth-child(1) {
-    width: 200px;
-    font-size: 1.2em;
+      width: 200px;
+      font-size: 1.2em;
   }
-
   .contains_buttons_landInst a:nth-child(2) {
-    width: 200px;
-    font-size: 1.2em;
-  }
-
+      width: 200px;
+      font-size: 1.2em;
+  }*/
   .contains_swiper_institucion {
     width: 65%;
     margin-bottom: 3%;
@@ -22157,18 +22200,16 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.25em;
   }
 
-  .boton_collapse-off {
-    font-size: 1.6em;
-    padding: 1% 2%;
-    background-size: 30px !important;
+  /*.boton_collapse-off {
+      font-size: 1.6em;
+      padding: 1% 2%;
+      background-size: 30px !important;
   }
-
   .boton_collapse-on {
-    font-size: 1.6em;
-    padding: 1% 2%;
-    background-size: 30px !important;
-  }
-
+      font-size: 1.6em;
+      padding: 1% 2%;
+      background-size: 30px !important;
+  }*/
   .card_txt_LandInst {
     font-size: 1.25em;
   }
@@ -34333,19 +34374,25 @@ label.error {
   padding: 10% 0 5% 0;
 }
 
-.tarjeta_instProf {
-  width: 230px;
-  padding: 5% 1%;
-  margin-bottom: 5%;
-  box-shadow: 0px 3px 6px #00000038;
+/*.container_grid  {
+    width: 75%;
+}*/
+.container_principal_instProf {
+  background: transparent;
+  width: 100%;
+  margin: auto;
+  padding: 10% 0;
 }
 
-.img_perfil_instProf {
+.cbp .img_perfil_instProf {
   border: 1px solid #dcdcdc;
   border-radius: 74px;
   height: 115px;
   width: 115px;
-  margin: auto;
+  margin-top: 8%;
+  margin-right: auto;
+  margin-bottom: 5%;
+  margin-left: auto;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top;
@@ -34353,8 +34400,7 @@ label.error {
 }
 
 .content_tarjeta_instProf {
-  padding: 0;
-  margin-top: 7%;
+  padding: 0 0 8% 0;
 }
 
 .content_tarjeta_instProf h2 {
@@ -34382,6 +34428,16 @@ label.error {
   text-align: center;
 }
 
+.content_tarjeta_instProf h4 {
+  font-family: "Roboto";
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #232323;
+  font-weight: bolder;
+  text-align: center;
+  margin: 0;
+}
+
 .content_btn_instprof {
   width: 125px;
   margin: auto;
@@ -34389,20 +34445,41 @@ label.error {
   align-content: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 7%;
+  margin-top: 4%;
 }
 
 .btn_agendar_instProf {
+  font-size: 1em;
+  font-family: "Roboto";
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #019F86 !important;
+  background: #019F86;
   padding: 5%;
   border-radius: 3px;
-  font-size: 1em;
+}
+
+.cbp-l-filters-alignRight .cbp-filter-item {
+  font: 400 11px/31px "Roboto" !important;
+  border-radius: 5px;
+}
+
+.cbp-l-filters-alignRight .cbp-filter-item.cbp-filter-item-active {
+  font: 400 11px/31px "Roboto" !important;
+  background-color: #019F86 !important;
+  border-color: #019F86 !important;
+  border-radius: 5px;
+}
+
+.container_grid {
+  width: 85%;
 }
 
 @media (min-width: 700px) {
+  .container_grid {
+    width: 100%;
+  }
+
   .imagen_inst_instProf {
     width: 100%;
     height: 400px;
@@ -34433,13 +34510,53 @@ label.error {
   }
 
   .tarjeta_instProf {
-    width: 250px;
     margin-right: 3%;
     margin-left: 3%;
     margin-bottom: 5%;
   }
+
+  /*.container_grid {
+      width: 100%;
+  }*/
+  .cbp .img_perfil_instProf {
+    height: 145px;
+    width: 145px;
+  }
+
+  .content_tarjeta_instProf h2 {
+    font-size: 1.5em;
+  }
+
+  .content_tarjeta_instProf h5 {
+    font-size: 1.3em;
+  }
+
+  .content_tarjeta_instProf p {
+    font-size: 1em;
+  }
+
+  .container_principal_instProf {
+    padding: 7% 0;
+  }
+
+  .content_tarjeta_instProf h4 {
+    font-size: 1.15em;
+    height: 20px;
+  }
+
+  .cbp-l-filters-alignRight .cbp-filter-item {
+    font: 400 14px/31px "Roboto" !important;
+  }
+
+  .cbp-l-filters-alignRight .cbp-filter-item.cbp-filter-item-active {
+    font: 400 14px/31px "Roboto" !important;
+  }
 }
 @media (min-width: 1024px) {
+  .container_grid {
+    width: 85%;
+  }
+
   .nombre_inst_instProf {
     font-size: 2.5em;
     top: 130px;
@@ -34457,14 +34574,21 @@ label.error {
   }
 
   .tarjeta_instProf {
-    width: 246px;
     padding: 3% 1%;
     margin-right: 1%;
     margin-left: 1%;
     margin-bottom: 3%;
   }
+
+  .container_principal_instProf {
+    padding: 5% 0;
+  }
 }
 @media (min-width: 1200px) {
+  .container_grid {
+    width: 75%;
+  }
+
   .swiper_principalInstProf {
     height: 300px;
   }
@@ -34478,7 +34602,6 @@ label.error {
   }
 
   .tarjeta_instProf {
-    width: 221px;
     padding: 3% 0.5%;
     margin-right: 0.5%;
     margin-left: 0.5%;
@@ -34501,7 +34624,6 @@ label.error {
   }
 
   .tarjeta_instProf {
-    width: 235px;
     margin-right: 1%;
     margin-left: 1%;
   }
@@ -34514,10 +34636,6 @@ label.error {
 
   .containt_slide_instProf {
     left: 175px;
-  }
-
-  .tarjeta_instProf {
-    width: 254px;
   }
 
   .img_perfil_instProf {
@@ -34541,7 +34659,6 @@ label.error {
   }
 
   .tarjeta_instProf {
-    width: 261px;
-    padding: 2% 0.5%;
+    padding: 2% 0.5% !important;
   }
 }
