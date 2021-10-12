@@ -340,6 +340,7 @@
 
         {{--Cambiar contraseña PROFESIONAL--}}
         <section class="col-lg-10 col-xl-8 infoBasica_formProf">
+        <h5 class="col-12 icon_infoBasica-formProf"> Actualizar contraseña </h5>
             <form action="{{ route('paciente.formulario-password') }}" id="form-password-paciente" class="form pt-2 pb-3" method="post">
                 <div class="col-12" id="mensajes-password"></div>
                 <!-- contraseña actual -->
