@@ -194,6 +194,7 @@ class perfilInstitucionController extends Controller  {
         $especialidades = array_filter($especialidades);
 
 
+
         $institucion = $this->cargarInfoInstitucion($request->slug);
         // LLama la imagen de la sede que esta en la landing page instituciones y la imprime en el bammer principal de la vista "profesionales-institucion".
         $id = $objinstitucionlandin[0]->id;
