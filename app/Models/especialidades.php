@@ -36,4 +36,13 @@ class especialidades extends Model
             ]
         ];
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function intitucion_profesionales(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(profesionales_instituciones::class, 'institucion_profesionales_especialidades',
+            'id_especialidad', 'id_institucion_profesional');
+    }
 }

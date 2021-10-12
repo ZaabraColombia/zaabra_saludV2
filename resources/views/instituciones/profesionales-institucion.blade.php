@@ -21,15 +21,15 @@
                     <div class="card-body content_tarjeta_instProf">
                         @if(!empty($profesional->nombre_especialidad))
                             <h2>{{$profesional->nombre_especialidad}}</h2>
-                        @endif    
+                        @endif
                         <h5 class="niega_uppercase">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h5>
                         @if(!empty($profesional->nombre_especialidad))
                             <p>Especialista en {{$profesional->nombre_especialidad}}</p>
-                        @endif    
+                        @endif
                         <p>{{$profesional->nombre_universidad}}</p>
-                       
+
                             <p>{{$profesional->cargo}}</p>
-                   
+
                         @if(!empty($profesional->nombre_especialidad))
                             <div class="content_btn_instprof">
                                 <a class="btn_agendar_instProf" href=""> Agendar cita
@@ -57,7 +57,15 @@
             <!-- Content -->
             <div id="grid-container" class="container_grid cards_instProf">
                 @foreach ($objProfesionalesIns as $profesional)
-                    <div class="card tarjeta_instProf cbp-item {{ Str::slug($profesional->nombre_especialidad) }}">
+                    <?php
+                    $esp = '';
+                    if (!empty($profesional->especialidades))
+                    {
+                        foreach ($profesional->especialidades as $item)
+                            $esp .= Str::slug($item->nombreEspecialidad) . ' ';
+                    }
+                    ?>
+                    <div class="card tarjeta_instProf cbp-item {{ $esp }}">
                         <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">
                         <div class="card-body content_tarjeta_instProf">
                             <h2 class="show_especiality">{{$profesional->nombre_especialidad}}</h2>
@@ -96,7 +104,7 @@
                     {"width" : 480, "cols" : 1},
                     {"width" : 300, "cols" : 1},
                 ]
-                
+
             });
         });
 

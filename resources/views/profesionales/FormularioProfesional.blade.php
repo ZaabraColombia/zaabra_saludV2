@@ -341,7 +341,7 @@
         {{--Cambiar contraseña PROFESIONAL--}}
         <section class="col-lg-10 col-xl-8 infoBasica_formProf">
         <h5 class="col-12 icon_infoBasica-formProf"> Actualizar contraseña </h5>
-            <form action="{{ route('paciente.formulario-password') }}" id="form-password-paciente" class="form pt-2 pb-3" method="post">
+            <form action="{{ route('profesional.formulario-password') }}" id="form-password-profesional" class="form pt-2 pb-3" method="post">
                 <div class="col-12" id="mensajes-password"></div>
                 <!-- contraseña actual -->
                 <div class="contraseña_inputs_formPacien">
@@ -372,7 +372,7 @@
 
                 <!-- Boton guardar -->
                 <div class="btn_password_formProf">
-                    <button class="btn btn-primary" id="btn-guardar-password-paciente" data-text="{{ __('paciente.guardar') }}" data-text-loading="{{ __('paciente.cargando') }}...">
+                    <button class="btn btn-primary" id="btn-guardar-password-profesional" data-text="{{ __('paciente.guardar') }}" data-text-loading="{{ __('paciente.cargando') }}...">
                         {{ __('paciente.guardar') }}
                         <i class="fa fa-arrow-right"></i>
                     </button>
