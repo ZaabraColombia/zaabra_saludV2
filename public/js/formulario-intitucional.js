@@ -55,8 +55,9 @@ $('.universidades').select2({
 });
 
 $('.especialidades-search').select2({
-    theme: "bootstrap",
+    theme: "classic",
     placeholder: 'Seleccione una especialidad',
+    multiple: true,
     ajax: {
         url: '/buscar-especialidades',
         dataType: 'json',

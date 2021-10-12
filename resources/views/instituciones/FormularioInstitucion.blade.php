@@ -607,7 +607,7 @@
                         </div>
                         <div class="col-12">
                             <label for="especialidad" class="col-12 text_label-formInst"> Especialidad </label>
-                            <select name="especialidad" id="especialidad" class="form-control especialidades-search" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
+                            <select name="especialidad" id="especialidad" class="form-control especialidades-search" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }} >
                                 <option></option>
                             </select>
                         </div>
