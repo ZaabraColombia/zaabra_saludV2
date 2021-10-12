@@ -1208,7 +1208,7 @@
     .swiper_premios img{
         max-width: 100%;
         height: calc(6.5em + 6.5em + 1px);
-        object-fit: cover;
+        object-fit: contain;
         border-top-left-radius: 10%;
     }
     .contains_swiper_premios h2{
