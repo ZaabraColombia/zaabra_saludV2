@@ -207,9 +207,9 @@
         </div>
         <!--------------------------------------------      Fin 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ---------------------------------------------->
 
-        {{--Cambiar contraseña PROFESIONAL--}}
+        {{--Cambiar contraseña Institución--}}
         <section class="col-lg-10 col-xl-8 infoBasica_formProf">
-            <form action="{{ route('paciente.formulario-password') }}" id="form-password-paciente" class="form pt-2 pb-3" method="post">
+            <form action="{{ route('institucion.formulario-password') }}" id="form-password-institucion" class="form pt-2 pb-3" method="post">
                 <div class="col-12" id="mensajes-password"></div>
                 <!-- contraseña actual -->
                 <div class="contraseña_inputs_formPacien">
@@ -224,7 +224,7 @@
                 <div class="contraseña_inputs_formPacien">
                     <label for="password_new" class="text_label_formPacien">{{ __('paciente.contraseña-nueva') }}</label>
 
-                    <div class="content_inputs_forPacien" class="text_label_formPacien">
+                    <div class="content_inputs_forPacien">
                         <input id="password_new" class="form-control" type="password" name="password_new" />
                     </div>
                 </div>
@@ -240,14 +240,14 @@
 
                 <!-- Boton guardar -->
                 <div class="btn_password_formProf">
-                    <button class="btn2_enviar-formInst" id="btn-guardar-password-paciente" data-text="{{ __('paciente.guardar') }}" data-text-loading="{{ __('paciente.cargando') }}...">
+                    <button class="btn2_enviar-formInst" id="btn-guardar-password-institucion" data-text="{{ __('paciente.guardar') }}" data-text-loading="{{ __('paciente.cargando') }}...">
                         {{ __('paciente.guardar') }}
                         <i class="fa fa-arrow-right"></i>
                     </button>
                 </div>
             </form>
         </section>
-        
+
         <!-- Secciones de los botones anterior y siguiente -->
         <div class="col-lg-10 col-xl-8 content_botonInferior-next-formInst">
             <div class="col-md-3 content_btn-siguient-formInst">

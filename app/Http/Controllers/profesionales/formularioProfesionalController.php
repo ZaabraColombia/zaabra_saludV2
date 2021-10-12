@@ -31,6 +31,7 @@ use App\Models\galerias;
 use App\Models\videos;
 use File;
 use Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -1728,4 +1729,42 @@ class formularioProfesionalController extends Controller
 
     }
     /*-------------------------------------Fin delete Destacale formulario parte 14----------------------*/
+
+    //Guardar la información basica del paciente
+    public function password(Request $request)
+    {
+        //validar el formulario
+        $validator = Validator::make($request->all(),[
+            'password'          => ['required'],
+            'password_new'      => ['required', 'string', 'min:8', 'confirmed']
+        ]);
+
+        if ($validator->fails()) {
+            $men = $validator->errors()->all();
+            $error = array_keys($validator->errors()->messages());
+
+            return response()->json([
+                'error' => ['mensajes' => $men, 'ids' => $error],
+                'mensaje' => 'Ingrese correctamente la información'
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        //Revisar si es la clave
+        if (!\Illuminate\Support\Facades\Auth::attempt(['email' => auth()->user()->email, 'password' => $request->password]))
+        {
+            return response([
+                'mensaje' => 'Ingrese correctamente la contraseña'
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+
+        //Modificar la contraseña del usuario
+        $user           = User::find(auth()->user()->id);
+        $user->password = Hash::make($request->password_new);
+        $user->save();
+
+        return response()->json([
+            'mensaje' => 'Se modifico la contraseña correctamente.'
+        ], Response::HTTP_OK);
+    }
 }

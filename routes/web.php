@@ -145,6 +145,7 @@ Route::middleware(['auth', 'roles', 'verified'])->group(function (){
     //Selects dinamicos area, profesion, especialidad
     Route::get('profesion/{idArea}', [App\Http\Controllers\profesionales\profesionController::class,'mostrarProfesion'])->name('profesional.mostrarProfesion');
     Route::get('especialidad/{idProfesion}', [App\Http\Controllers\profesionales\especialidadController::class,'mostrarESpecialidad'])->name('profesional.mostrarESpecialidad');
+    Route::post('/profesional/formulario-password',[App\Http\Controllers\profesionales\especialidadController::class,'password'])->name('profesional.formulario-password');
 
     /*--------- Admin Profesional -----------*/
     Route:: get('/panelPrincipalProfesional',[App\Http\Controllers\admin\adminProfesionalController::class,'index'])->name('profesional.panelPrincipalProfesional');
@@ -216,6 +217,8 @@ Route::middleware(['auth', 'roles', 'verified'])->group(function () {
     /*-----formulario parte 13----*/
     Route::post('/FormularioInstitucionSave13',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create13'])->name('entidad.create13');
     Route::get('/FormularioInstituciondelete13/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete13'])->name('entidad.delete13');
+
+    Route::post('/institucion/form-password',[App\Http\Controllers\entidades\formularioInstitucionController::class,'password'])->name('entidad.formulario-password');
 
 });
 

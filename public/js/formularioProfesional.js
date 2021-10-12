@@ -2110,3 +2110,80 @@ $('#lista-videos').on('click', '.close' , function (e) {
 });
 
 /*------------------------------ Fin Sexta Parte del Formulario Perfil Profesional------------------------------*/
+
+$('#form-password-profesional').validate({
+    rules: {
+        'password': {
+            required: true,
+        },
+        'password_new': {
+            required: true,
+        },
+        'password_new_confirmation': {
+            required: true,
+        }
+    },
+    messages: {
+        'password':{
+            required: "Por favor ingrese la contraseña actual",
+        },
+        'password_new':{
+            required: "Por favor ingrese la contraseña nueva",
+        },
+        'password_new_confirmation':{
+            required: "Por favor repita la contraseña actual",
+        }
+    },
+    submitHandler: function(form) {
+        //Elementos
+        var btn = '#btn-guardar-password-profesional';
+        boton_guardar_cargando(btn);
+        var formulario = $(form);
+        //console.log(formulario.attr('action'));
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+
+                $('.form-control').removeClass('is-invalid');
+                boton_guardar(btn);
+
+                //Respuesta
+                mensaje_success('#mensajes-password', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                $('.form-control').removeClass('is-invalid');
+                boton_guardar(btn);
+
+                //Respuesta
+                var response = event.responseJSON;
+
+                if (event.status === 422){
+                    mensaje_error('#mensajes-password', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-password', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
+});
