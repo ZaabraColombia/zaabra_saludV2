@@ -210,7 +210,7 @@
         {{--Cambiar contraseña Institución--}}
         <section class="col-lg-10 col-xl-8 infoBasica_formProf">
             <h5 class="col-12 icon_infoBasica-formInst"> Actualizar contraseña </h5>
-            <form action="{{ route('institucion.formulario-password') }}" id="form-password-institucion" class="form pt-2 pb-3" method="post">
+            <form action="{{ route('entidad.formulario-password') }}" id="form-password-institucion" class="form pt-2 pb-3" method="post">
                 <div class="col-12" id="mensajes-password"></div>
                 <!-- contraseña actual -->
                 <div class="contraseña_inputs_formPacien">
