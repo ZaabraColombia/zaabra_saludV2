@@ -69,10 +69,10 @@
                         <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">
                         <div class="card-body content_tarjeta_instProf">
                             <h2 class="show_especiality">{{$profesional->nombre_especialidad}}</h2>
-                            <h2 class="hidden_especiality">{{$profesional->nombre_especialidad}}</h2>
+                            <h2 class="hidden_especiality hidden_especiality_text">{{$profesional->nombre_especialidad}}</h2>
                             <h5 class="niega_uppercase">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h5>
                             <p class="show_especiality">Especialista en {{$profesional->nombre_especialidad}}</p>
-                            <p class="hidden_especiality">Especialista en {{$profesional->nombre_especialidad}}</p>
+                            <p class="hidden_especiality">Especialista en <span class="hidden_especiality_text">{{$profesional->nombre_especialidad}}</span></p>
                             <p>{{$profesional->nombre_universidad}}</p>
                             <h4>{{$profesional->cargo}}</h4>
                             <div class="content_btn_instprof">
@@ -111,11 +111,13 @@
         $(document).ready(function(){
             $(".all_asociados").on( "click", function() {
                 $('.show_especiality').show(); 
-                $('.hidden_especiality').show(); 
+                $('.hidden_especiality').hide(); 
             });
             $(".one_especiality").on( "click", function() {
-                $('.hidden_especiality').show(); 
+                $('.hidden_especiality').show();
+                $('.hidden_especiality_text').text($(this).text());
                 $('.show_especiality').hide(); 
+            
             });
         });
     </script>
