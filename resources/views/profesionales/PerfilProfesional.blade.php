@@ -105,7 +105,7 @@
 
             <!-- If we need navigation buttons -->
             <div class="swiper-button-prev btnPrev_formProf"></div>
-            <div class="swiper-button-next btnNext_formProf"></div> 
+            <div class="swiper-button-next btnNext_formProf"></div>
         </div>
     </section>
 
@@ -125,7 +125,7 @@
                             <h5>{{$objprofesionallandingestudios->nombreestudio}}</h5>
                             <p>{{$objprofesionallandingestudios->nombreuniversidad}}</p>
                             <p>{{$objprofesionallandingestudios->fechaestudio}}</p>
-                        </div>    
+                        </div>
                         <div class="contains_logo">
                             <img src="{{URL::asset($objprofesionallandingestudios->logo_universidad)}}">
                         </div>
@@ -222,7 +222,7 @@
 
             <!-- If we need navigation buttons -->
             <div class="swiper-button-prev btnPrev_prem_formProf"></div>
-            <div class="swiper-button-next btnNext_prem_formProf"></div> 
+            <div class="swiper-button-next btnNext_prem_formProf"></div>
         </div>
         <!-- <a class="btn-procedimientos" href="">Ver agenda</a> -->
     </section>
@@ -232,7 +232,7 @@
             <h2><i></i>Publicaciones</h2>
             <div class="container_cards">
                 @foreach ($objprofesionallandingpublic as $key => $publicacion)
-                    @if($key == 1 or $key == 2)
+                    @if($key == 0 or $key == 1)
                         <div class="card">
                             <img class="card-img-top img_public" src="{{ asset($publicacion->imgpublicacion) }}">
                             <div class="card-body">
@@ -245,7 +245,7 @@
             </div>
             <div class="container_cards">
                 @foreach ($objprofesionallandingpublic as $key => $publicacion)
-                    @if($key == 3 or $key == 4)
+                    @if($key == 2 or $key == 3)
                         <div class="card">
                             <img class="card-img-top img_public" src="{{ asset($publicacion->imgpublicacion) }}">
                             <div class="card-body">
@@ -275,7 +275,7 @@
 
             <!-- If we need navigation buttons -->
             <div class="swiper-button-prev btnPrev_gall_formProf"></div>
-            <div class="swiper-button-next btnNext_gall_formProf"></div> 
+            <div class="swiper-button-next btnNext_gall_formProf"></div>
             </div>
             <!-- <a class="btn-procedimientos" href="">Ver agenda</a> -->
         </div>
