@@ -59,20 +59,29 @@
                 @foreach ($objProfesionalesIns as $profesional)
                     <?php
                     $esp = '';
-                    if (!empty($profesional->especialidades))
+                    if (!empty($profesional->especialidades->toArray()))
                     {
                         foreach ($profesional->especialidades as $item)
-                            $esp .= Str::slug($item->nombreEspecialidad) . ' ';
+                        $esp .= Str::slug($item->nombreEspecialidad) . ' ';
+
+                        $especialidad = $profesional->especialidades[0]->nombre_especialidad;
+                    }
+                    else {
+                        $especialidad = $profesional->nombre_especialidad;
+                        $esp = Str::slug($especialidad);
                     }
                     ?>
                     <div class="card tarjeta_instProf cbp-item {{ $esp }}">
                         <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">
                         <div class="card-body content_tarjeta_instProf">
-                            <h2 class="show_especiality">{{$profesional->nombre_especialidad}}</h2>
-                            <h2 class="hidden_especiality hidden_especiality_text">{{$profesional->nombre_especialidad}}</h2>
+                            <h2 class="specialty">{{$especialidad}}</h2>
+                            <h2 class="subSpecialty subSpecialty_text">{{$especialidad}}</h2>
+
                             <h5 class="niega_uppercase">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h5>
-                            <p class="show_especiality">Especialista en {{$profesional->nombre_especialidad}}</p>
-                            <p class="hidden_especiality">Especialista en <span class="hidden_especiality_text">{{$profesional->nombre_especialidad}}</span></p>
+
+                            <p class="specialty">Especialista en {{$especialidad}}</p>
+                            <p class="subSpecialty">Especialista en <span class="subSpecialty_text">{{$especialidad}}</span></p>
+
                             <p>{{$profesional->nombre_universidad}}</p>
                             <h4>{{$profesional->cargo}}</h4>
                             <div class="content_btn_instprof">
@@ -110,13 +119,13 @@
 
         $(document).ready(function(){
             $(".all_asociados").on( "click", function() {
-                $('.show_especiality').show(); 
-                $('.hidden_especiality').hide(); 
+                $('.specialty').show(); 
+                $('.subSpecialty').hide(); 
             });
             $(".one_especiality").on( "click", function() {
-                $('.hidden_especiality').show();
-                $('.hidden_especiality_text').text($(this).text());
-                $('.show_especiality').hide(); 
+                $('.subSpecialty').show();
+                $('.subSpecialty_text').text($(this).text());
+                $('.specialty').hide(); 
             
             });
         });
