@@ -34473,10 +34473,12 @@ label.error {
      object-position: top;
 }
 
-.content_tarjeta_instProf {
-  padding: 0 0 8% 0;
+/*.content_tarjeta_instProf {
+    padding: 0 0 8% 0;
 }
-
+.hidden_especiality {
+    display: none;
+}*/
 .content_tarjeta_instProf h2 {
   font-family: "Quicksand";
   font-size: 1.3em;
