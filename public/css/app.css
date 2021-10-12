@@ -21005,6 +21005,7 @@ a:link, a:visited, a:active, a:hover {
 
 .conv_imgText_LandInst {
   width: 100%;
+  padding-left: 2.7em;
   margin-top: 5%;
 }
 
@@ -21019,6 +21020,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .convenios h5 {
+
   font-size: 0.95em;
   padding-top: 1.5%;
   margin: 0;
@@ -21657,6 +21659,7 @@ a:link, a:visited, a:active, a:hover {
 
   .convenios h5 {
     font-size: 1.2em;
+
   }
 
   .btnPrev_cert_LandInst {
@@ -21861,6 +21864,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .content_conv_landInst {
+
     padding-left: 3.3em;
     justify-content: flex-start;
   }
@@ -21881,6 +21885,7 @@ a:link, a:visited, a:active, a:hover {
   /*.convenios img {
       height: 220px;
   }*/
+
   .content_sede_inst {
     display: flex;
     position: absolute;
@@ -22031,6 +22036,7 @@ a:link, a:visited, a:active, a:hover {
   /*.convenios img {
       height: 275px;
   }*/
+
   .contains_buttons_landInst {
     margin-left: 11em;
   }

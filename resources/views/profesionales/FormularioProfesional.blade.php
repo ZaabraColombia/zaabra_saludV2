@@ -94,20 +94,20 @@
                     <!-- Sección datos personales -->
                     <div class="row col-md-9 datos_principales-formProf">
 
-                            <div class="col-lg-6 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Nombres </label>
-                                <div class="col-12 nombres_usuario-formProf">
-                                    <input class="input_nomApl-formProf" value="{{ (isset($objuser->primernombre)) ? $objuser->primernombre : '' }}" name="primernombre"/>
-                                    <input class="input_nomApl-formProf" value="{{ (isset($objuser->segundonombre)) ? $objuser->segundonombre : '' }}" name="segundonombre"/>
-                                </div>
+                        <div class="col-lg-6 section_inputRight-text-formProf">
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Nombres </label>
+                            <div class="col-12 nombres_usuario-formProf">
+                                <input class="input_nomApl-formProf" value="{{ (isset($objuser->primernombre)) ? $objuser->primernombre : '' }}" name="primernombre"/>
+                                <input class="input_nomApl-formProf" value="{{ (isset($objuser->segundonombre)) ? $objuser->segundonombre : '' }}" name="segundonombre"/>
                             </div>
-                            <div class="col-lg-6 section_inputRight-text-formProf">
-                                <label for="example-date-input" class="col-12 text_label-formProf"> Apellidos </label>
-                                <div class="col-12 nombres_usuario-formProf">
-                                    <input class="input_nomApl-formProf" value="{{ (isset($objuser->primerapellido)) ? $objuser->primerapellido : '' }}" name="primerapellido"/>
-                                    <input class="input_nomApl-formProf" value="{{ (isset($objuser->segundoapellido)) ? $objuser->segundoapellido : '' }}" name="segundoapellido"/>
-                                </div>
+                        </div>
+                        <div class="col-lg-6 section_inputRight-text-formProf">
+                            <label for="example-date-input" class="col-12 text_label-formProf"> Apellidos </label>
+                            <div class="col-12 nombres_usuario-formProf">
+                                <input class="input_nomApl-formProf" value="{{ (isset($objuser->primerapellido)) ? $objuser->primerapellido : '' }}" name="primerapellido"/>
+                                <input class="input_nomApl-formProf" value="{{ (isset($objuser->segundoapellido)) ? $objuser->segundoapellido : '' }}" name="segundoapellido"/>
                             </div>
+                        </div>
 
                         <div class="col-md-6 section_inputRight-text-formProf">
                             <label for="example-date-input" class="col-12 text_label-formProf"> Fecha de nacimiento </label>
@@ -287,7 +287,7 @@
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
                     <button id="envia_consultas" type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" {{ ($count_consultas >= 3 ) ? 'disabled' : '' }}
-                            data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                    data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
                         Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
@@ -307,7 +307,7 @@
                     <div class="content_dest_list" id="destacado-lista">
                         <?php $destacables_count = 0;?>
                         @foreach($destacables as $destacable)
-                                <?php $destacables_count++;?>
+                            <?php $destacables_count++;?>
                             <div class="section_dest_list alert alert-info alert-dismissible fade show delete-destacable" role="alert" >
                                 <strong>{{ $destacable->nombreExpertoEn }}</strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" data-id="{{ $destacable->id_experto_en }}">
@@ -328,7 +328,7 @@
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Ingrese el tema" name="destacado_nombre" id="destacado_nombre" {{ ($destacables_count >= 9 ) ? 'disabled' : ''}}>
                             <button class="btn btn-primary" type="submit" id="destacado_nombre_btn" {{ ($destacables_count >= 9 ) ? 'disabled' : ''}}
-                                    data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                            data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
                                 Guardar
                                 <i class="fa fa-arrow-right"></i>
                             </button>
@@ -340,7 +340,7 @@
 
         {{--Cambiar contraseña PROFESIONAL--}}
         <section class="col-lg-10 col-xl-8 infoBasica_formProf">
-        <h5 class="col-12 icon_infoBasica-formProf"> Actualizar contraseña </h5>
+          <h5 class="col-12 icon_infoBasica-formProf"> Actualizar contraseña </h5>
             <form action="{{ route('profesional.formulario-password') }}" id="form-password-profesional" class="form pt-2 pb-3" method="post">
                 <div class="col-12" id="mensajes-password"></div>
                 <!-- contraseña actual -->
@@ -488,7 +488,7 @@
 
                 <div class="col-12 content_btnEnviar-formProf">
                     <button type="submit" class="btn2_enviar-formProf mb-md-4" id="boton-enviar-estudios" {{ ($count_estudios >= 3) ? 'disabled' : '' }}
-                            data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                    data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
                         Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
@@ -571,7 +571,7 @@
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
                     <button type="submit" class="btn2_enviar-formProf mb-md-4" id="boton-guardar-experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }}
-                            data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                    data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
                         Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
@@ -620,7 +620,7 @@
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
                     <button type="submit" class="btn2_enviar-formProf mb-md-4" id="boton-guardar-asociacion" {{ ($count_asociaciones >= 3 ) ? 'disabled' : '' }}
-                        data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                    data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
                         Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
@@ -667,7 +667,7 @@
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
                     <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-idioma"  {{ ($count_idiomas >= 3) ? 'disabled' : '' }}
-                        data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                    data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
                         Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
@@ -1030,7 +1030,7 @@
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
                     <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-publicacion" {{ ($count_publicaciones >= 4) ? 'disabled' : '' }}
-                        data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                    data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
                         Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
@@ -1138,7 +1138,7 @@
                 </div>
                 <div class="col-12 content_btnEnviar-formProf">
                     <button type="submit" class="btn2_enviar-formProf mb-md-4 my-lg-3" id="boton-guardar-foto" {{ ($count_foto >= 8) ? 'disabled' : '' }}
-                        data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
+                    data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">
                         Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_guardar-formProf" alt="">
                     </button>
