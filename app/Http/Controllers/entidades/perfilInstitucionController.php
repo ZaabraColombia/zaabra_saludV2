@@ -185,7 +185,14 @@ class perfilInstitucionController extends Controller  {
         {
             if (is_array($item)) foreach ($item as $i) array_push($array, $i);
         }
-        $especialidades = array_unique(array_column($array, 'nombreEspecialidad'));
+        $especialidades = array_unique(
+            array_merge(
+                array_column($array, 'nombreEspecialidad'),
+                array_column($objProfesionalesIns->toArray(), 'nombre_especialidad')
+            )
+        );
+        $especialidades = array_filter($especialidades);
+
 
         $institucion = $this->cargarInfoInstitucion($request->slug);
         // LLama la imagen de la sede que esta en la landing page instituciones y la imprime en el bammer principal de la vista "profesionales-institucion".
