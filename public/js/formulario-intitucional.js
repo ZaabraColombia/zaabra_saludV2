@@ -997,6 +997,7 @@ $('#form-profesionales-institucion').validate({
 
                 $('#img-foto_profecional').attr('src', '#');
                 formulario[0].reset();
+                $("#especialidad").val([]).change();
 
                 //Respuesta
                 mensaje_success('#mensajes-profesionales', response.mensaje)
@@ -1018,7 +1019,8 @@ $('#form-profesionales-institucion').validate({
                     $('#primer_apellido_profecional').prop('disabled', true);
                     $('#segundo_apellido_profecional').prop('disabled', true);
                     $('#universidad').prop('disabled', true);
-                    $('#especialidad').prop('disabled', true);
+                    $('#especialidad').prop('disabled', true).val([]).change();
+                    //$("#especialidad");
                     $('#cargo_profesional').prop('disabled', true);
                     $(btn).prop('disabled', true);
                     $('#img-foto_profecional').attr('scr', '#');
