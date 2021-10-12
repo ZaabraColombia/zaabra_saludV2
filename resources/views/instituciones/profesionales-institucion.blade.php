@@ -12,64 +12,93 @@
         <h1 class="nombre_inst_instProf">{{$institucion[0]->nombreinstitucion}}</h1>
     </div>
 
-    <!-- Tarjetas profesionales de la institución -->
+    {{--<!-- Tarjetas profesionales de la institución -->
     <div class="container_principal_instProf">
         <section class="container_tarjetas_instProf">
             @foreach ($objProfesionalesIns as $profesional)
                 <div class="card tarjeta_instProf">
                     <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">
                     <div class="card-body content_tarjeta_instProf">
-                        <h2>{{$profesional->nombre_especialidad}}</h2>
+                        @if(!empty($profesional->nombre_especialidad))
+                            <h2>{{$profesional->nombre_especialidad}}</h2>
+                        @endif
                         <h5 class="niega_uppercase">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h5>
-                        <p>Especialista en {{$profesional->nombre_especialidad}}</p>
+                        @if(!empty($profesional->nombre_especialidad))
+                            <p>Especialista en {{$profesional->nombre_especialidad}}</p>
+                        @endif
                         <p>{{$profesional->nombre_universidad}}</p>
-                        <div class="content_btn_instprof">
-                            <a class="btn_agendar_instProf" href=""> Agendar cita
-                                <i class="fas fa-arrow-right arrow_mas"></i>
-                            </a>
-                        </div>
 
+                            <p>{{$profesional->cargo}}</p>
+
+                        @if(!empty($profesional->nombre_especialidad))
+                            <div class="content_btn_instprof">
+                                <a class="btn_agendar_instProf" href=""> Agendar cita
+                                    <i class="fas fa-arrow-right arrow_mas"></i>
+                                </a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             @endforeach
         </section>
-    </div>
+    </div>--}}
 
+    <section class="container-fluid" style="background: #F9F9F9;">
+        <div class="container_principal_instProf">
 
-{{--    <section class="container-fluid p-0">--}}
-{{--        <div class="container_principal_instProf">--}}
-{{--            <!-- Filter -->--}}
-{{--            <ul id="filterControls" class="list-inline cbp-l-filters-alignRight text-center">--}}
-{{--                <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item asociado" data-filter="*">Asociados</li>--}}
-{{--                @foreach($especialidades as $item)--}}
-{{--                    <li class="list-inline-item cbp-filter-item u-cubeportfolio__item asociado" data-filter=".{{ Str::slug($item) }}">{{ $item }}</li>--}}
-{{--                @endforeach--}}
-{{--            </ul>--}}
-{{--            <!-- End Filter -->--}}
+           <!-- Filter -->
+           <ul id="filterControls" class="list-inline cbp-l-filters-alignRight text-center">
+               <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item asociado all_asociados" data-filter="*">Asociados</li>
+               @foreach($especialidades as $item)
+                   <li class="list-inline-item cbp-filter-item u-cubeportfolio__item asociado one_especiality" data-filter=".{{ Str::slug($item) }}">{{ $item }}</li>
+               @endforeach
+           </ul>
+           <!-- End Filter -->
 
-{{--            <!-- Content -->--}}
-{{--            <div id="grid-container" class="container_grid">--}}
-{{--                @foreach ($objProfesionalesIns as $profesional)--}}
-{{--                    <div class="card tarjeta_instProf cbp-item {{ Str::slug($profesional->nombre_especialidad) }}">--}}
-{{--                        <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">--}}
-{{--                        <div class="card-body content_tarjeta_instProf">--}}
-{{--                            <h2>{{$profesional->nombre_especialidad}}</h2>--}}
-{{--                            <h5 class="niega_uppercase">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h5>--}}
-{{--                            <p>Especialista en {{$profesional->nombre_especialidad}}</p>--}}
-{{--                            <p>{{$profesional->nombre_universidad}}</p>--}}
-{{--                            <div class="content_btn_instprof">--}}
-{{--                                <a class="btn_agendar_instProf" href=""> Agendar cita--}}
-{{--                                    <i class="fas fa-arrow-right arrow_mas"></i>--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
+            <!-- Content -->
+            <div id="grid-container" class="container_grid cards_instProf">
+                @foreach ($objProfesionalesIns as $profesional)
+                    <?php
+                    $esp = '';
 
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                @endforeach--}}
-{{--            </div>--}}
-{{--            <!-- End Content -->--}}
-{{--        </div>--}}
-{{--    </section>--}}
+                    if (!empty($profesional->especialidades->toArray()))
+                    {
+                        foreach ($profesional->especialidades as $item)
+                        $esp .= Str::slug($item->nombreEspecialidad) . ' ';
+
+                        $especialidad = $profesional->especialidades[0]->nombre_especialidad;
+                    }
+                    else {
+                        $especialidad = $profesional->nombre_especialidad;
+                        $esp = Str::slug($especialidad);
+                    }
+                    ?>
+                    <div class="card tarjeta_instProf cbp-item {{ $esp }}">
+                        <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">
+                        <div class="card-body content_tarjeta_instProf">
+
+                            <h2 class="specialty">{{$especialidad}}</h2>
+                            <h2 class="subSpecialty subSpecialty_text">{{$especialidad}}</h2>
+
+                            <h5 class="niega_uppercase">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h5>
+
+                            <p class="specialty">Especialista en {{$especialidad}}</p>
+                            <p class="subSpecialty">Especialista en <span class="subSpecialty_text">{{$especialidad}}</span></p>
+
+                            <p>{{$profesional->nombre_universidad}}</p>
+                            <h4>{{$profesional->cargo}}</h4>
+                            <div class="content_btn_instprof">
+                                <a class="btn_agendar_instProf" href=""> Agendar cita
+                                    <i class="fas fa-arrow-right arrow_mas"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <!-- End Content -->
+        </div>
+    </section>
 @endsection
 
 @section('scripts')
@@ -79,13 +108,28 @@
         jQuery(document).ready( function() {
             jQuery('#grid-container').cubeportfolio({
                 filters: '#filterControls',
+                  
                 mediaQueries: [
                     {"width" : 1500, "cols" : 4},
                     {"width" : 1100, "cols" : 4},
-                    {"width" : 800, "cols" : 3},
-                    {"width" : 480, "cols" : 2},
-                    {"width" : 380, "cols" : 1},
+                    {"width" : 700, "cols" : 3},
+                    {"width" : 480, "cols" : 1},
+                    {"width" : 300, "cols" : 1},
                 ]
+
+
+            });
+        });
+
+        $(document).ready(function(){
+            $(".all_asociados").on( "click", function() {
+                $('.specialty').show(); 
+                $('.subSpecialty').hide(); 
+            });
+            $(".one_especiality").on( "click", function() {
+                $('.subSpecialty').show();
+                $('.subSpecialty_text').text($(this).text());
+                $('.specialty').hide(); 
             });
         });
     </script>

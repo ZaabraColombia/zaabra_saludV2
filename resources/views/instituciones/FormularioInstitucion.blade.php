@@ -207,6 +207,48 @@
         </div>
         <!--------------------------------------------      Fin 2 segunda parte del formulario *** INFORMACIÓN CONTACTO ***      ---------------------------------------------->
 
+        {{--Cambiar contraseña Institución--}}
+        <section class="col-lg-10 col-xl-8 infoBasica_formProf">
+        <h5 class="col-12 icon_infoBasica-formInst"> Actualizar contraseña </h5>
+            <form action="{{ route('entidad.formulario-password') }}" id="form-password-institucion" class="form pt-2 pb-3" method="post">
+                <div class="col-12" id="mensajes-password"></div>
+                <!-- contraseña actual -->
+                <div class="contraseña_inputs_formPacien">
+                    <label for="password" class="text_label_formPacien">{{ __('paciente.contraseña-actual') }}</label>
+
+                    <div class="content_inputs_forPacien">
+                        <input id="password" class="form-control" type="password" name="password" />
+                    </div>
+                </div>
+
+                <!-- contraseña nueva -->
+                <div class="contraseña_inputs_formPacien">
+                    <label for="password_new" class="text_label_formPacien">{{ __('paciente.contraseña-nueva') }}</label>
+
+                    <div class="content_inputs_forPacien">
+                        <input id="password_new" class="form-control" type="password" name="password_new" />
+                    </div>
+                </div>
+
+                <!-- repetir contraseña -->
+                <div class="contraseña_inputs_formPacien">
+                    <label for="password_new_confirmation" class="text_label_formPacien">{{ __('paciente.contraseña-repetir') }}</label>
+
+                    <div class="content_inputs_forPacien">
+                        <input id="password_new_confirmation" class="form-control" type="password" name="password_new_confirmation" />
+                    </div>
+                </div>
+
+                <!-- Boton guardar -->
+                <div class="btn_password_formProf">
+                    <button class="btn2_enviar-formInst" id="btn-guardar-password-institucion" data-text="{{ __('paciente.guardar') }}" data-text-loading="{{ __('paciente.cargando') }}...">
+                        {{ __('paciente.guardar') }}
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </div>
+            </form>
+        </section>
+
         <!-- Secciones de los botones anterior y siguiente -->
         <div class="col-lg-10 col-xl-8 content_botonInferior-next-formInst">
             <div class="col-md-3 content_btn-siguient-formInst">
@@ -507,9 +549,22 @@
                                 <div class="col-md-12 rightSection_formInst">
                                     <span>{{ $profecional->nombre_universidad }}</span>
                                 </div>
-                                <div class="col-md-12 rightSection_formInst">
-                                    <span>{{ $profecional->nombre_especialidad }}</span>
-                                </div>
+                                @if(!empty($profecional->nombre_especialidad))
+                                    <div class="col-md-12 rightSection_formInst">
+                                        @if(!empty($profecional->especialidades->toArray()))
+                                            <ul>
+                                                <li>
+                                                    {!!  implode('</li><li>', array_column($profecional->especialidades->toArray(), 'nombreEspecialidad'))  !!}
+                                                </li>
+                                            </ul>
+                                        @endif
+                                    </div>
+                                @endif
+                                @if(!empty($profecional->cargo))
+                                    <div class="col-md-12 rightSection_formInst">
+                                        <span>{{ $profecional->cargo }}</span>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     @endif
@@ -558,9 +613,12 @@
                         </div>
                         <div class="col-12">
                             <label for="especialidad" class="col-12 text_label-formInst"> Especialidad </label>
-                            <select name="especialidad" id="especialidad" class="form-control especialidades-search" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
-                                <option></option>
+                            <select name="especialidad[]" id="especialidad" class="form-control especialidades-search" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }} >
                             </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="cargo_profesional" class="col-12 text_label-formInst"> Cargo </label>
+                            <input type="text" name="cargo_profesional" id="cargo_profesional" class="form-control" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }} />
                         </div>
                     </div>
                 </div>
@@ -603,7 +661,7 @@
 
             <!-- Modulo de los Certificaciones con información -->
             <div class="premios_guardada-formProf" id="lista-certificaciones-institucion">
-                <?php $count_certificaiones = 0; ?>
+            <?php $count_certificaiones = 0; ?>
             @foreach($objCertificaciones as $certificacion)
                 @if(!empty($certificacion->imgcertificado))
                     <?php $count_certificaiones++; ?>
@@ -719,11 +777,11 @@
 
             <!-- Modulo de los Sedes con información -->
             <div class="premios_guardada-formProf" id="lista-sedes-institucion">
-                <?php $count_sedes = 0; ?>
+            <?php $count_sedes = 0; ?>
             @foreach($objSedes as $sede)
                 @if(!empty($sede->imgsede))
                     <?php $count_sedes++; ?>
-                        <!-- Contenido Certificaciones -->
+                    <!-- Contenido Certificaciones -->
                         <div class="savedData_formInst">
                             <div class="col-12 content_btnDelet-trata-formProf">
                                 <button type="submit" class="close" aria-label="Close" data-url="{{ route('entidad.delete10', ['id' => $sede->id]) }}">
@@ -868,7 +926,7 @@
 
             <!-- Modulo de la GALERIA con información -->
             <div class="premios_guardada-formProf" id="lista-galeria-intitucion">
-                <?php $count_galeria = 0; ?>
+            <?php $count_galeria = 0; ?>
             @foreach($objGaleria as $galeria)
                 @if(!empty($galeria->nombrefoto))
                     <?php $count_galeria++; ?>
@@ -959,7 +1017,7 @@
 
             <!-- Modulos de los VIDEOS -->
             <div class="col-12 p-0 m-0" id="lista-videos-institucion">
-                <?php $count_videos = 0 ;?>
+            <?php $count_videos = 0 ;?>
             @foreach($objVideo as $video)
                 @if(!empty($video->nombrevideo))
                     <!-- Contenido VIDEOS -->

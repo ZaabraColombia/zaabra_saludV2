@@ -168,17 +168,35 @@ class perfilInstitucionController extends Controller  {
             'profesionales_instituciones.segundo_nombre',
             'profesionales_instituciones.primer_apellido',
             'profesionales_instituciones.segundo_apellido',
+            'profesionales_instituciones.cargo',
             'especialidades.nombreEspecialidad as nombre_especialidad',
             'universidades.nombreuniversidad as nombre_universidad')
         ->leftjoin('especialidades', 'especialidades.idEspecialidad', '=', 'profesionales_instituciones.id_especialidad')
         ->leftjoin('universidades', 'universidades.id_universidad', '=', 'profesionales_instituciones.id_universidad')
-        ->get();
+        ->with('especialidades')->get();
 
         //Sacar las especialidades
-        $especialidades = array_unique(array_column($objProfesionalesIns->toArray(), 'nombre_especialidad'));
+        //$especialidades = array_unique(array_column($objProfesionalesIns->toArray(), 'nombre_especialidad'));
+
+        //La lógica para aislar las especialidades
+        $esp = array_column($objProfesionalesIns->toArray(), 'especialidades');
+        $array = array();
+        foreach ($esp as $item)
+        {
+            if (is_array($item)) foreach ($item as $i) array_push($array, $i);
+        }
+        $especialidades = array_unique(
+            array_merge(
+                array_column($array, 'nombreEspecialidad'),
+                array_column($objProfesionalesIns->toArray(), 'nombre_especialidad')
+            )
+        );
+        $especialidades = array_filter($especialidades);
+
+
 
         $institucion = $this->cargarInfoInstitucion($request->slug);
-        // LLama la imagen de la sede que esta en la landing page instituciones y la imprime en el bammer principal de la vista "profesionales-institucion". 
+        // LLama la imagen de la sede que esta en la landing page instituciones y la imprime en el bammer principal de la vista "profesionales-institucion".
         $id = $objinstitucionlandin[0]->id;
         $objinstitucionlandinimgsede = $objinstitucionlandin[0];
 
@@ -191,14 +209,14 @@ class perfilInstitucionController extends Controller  {
         ));
     }
 
-    
+
     // consulta para cargar informacion de la landing
     public function cargarInfoInstitucion($slug){
         return DB::select("SELECT ints.id, ints.logo,ints.imagen , us.nombreinstitucion, ints.slug
         FROM instituciones ints
         INNER JOIN users us ON ints.idUser=us.id
         WHERE ints.aprobado<>0 AND ints.slug like '$slug'");
-        }
+    }
 
     // consulta para cargar banner principal de la vista institción profesionales
     public function cargarBannerPrincipalInstitucionProfesionales(){
