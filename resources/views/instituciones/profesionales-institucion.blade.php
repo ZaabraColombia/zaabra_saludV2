@@ -54,27 +54,29 @@
            </ul>
            <!-- End Filter -->
 
-           <!-- Content -->
-           <div id="grid-container" class="container_grid cards_instProf">
-               @foreach ($objProfesionalesIns as $profesional)
-                   <div class="card tarjeta_instProf cbp-item {{ Str::slug($profesional->nombre_especialidad) }}">
-                       <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">
-                       <div class="card-body content_tarjeta_instProf">
-                           <h2>{{$profesional->nombre_especialidad}}</h2>
-                           <h5 class="niega_uppercase">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h5>
-                           <p>Especialista en {{$profesional->nombre_especialidad}}</p>
-                           <p>{{$profesional->nombre_universidad}}</p>
-                           <h4>{{$profesional->cargo}}</h4>
-                           <div class="content_btn_instprof">
-                               <a class="btn_agendar_instProf" href=""> Agendar cita
-                                   <i class="fas fa-arrow-right arrow_mas"></i>
-                               </a>
-                           </div>
-                       </div>
-                   </div>
-               @endforeach
-           </div>
-           <!-- End Content -->
+            <!-- Content -->
+            <div id="grid-container" class="container_grid cards_instProf">
+                @foreach ($objProfesionalesIns as $profesional)
+                    <div class="card tarjeta_instProf cbp-item {{ Str::slug($profesional->nombre_especialidad) }}">
+                        <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">
+                        <div class="card-body content_tarjeta_instProf">
+                            <h2>{{$profesional->nombre_especialidad}}</h2>
+                            <h2>{{$profesional->nombre_especialidad}}</h2>
+                            <h5 class="niega_uppercase">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h5>
+                            <p>Especialista en {{$profesional->nombre_especialidad}}</p>
+                            <p>Especialista en {{$profesional->nombre_especialidad}}</p>
+                            <p>{{$profesional->nombre_universidad}}</p>
+                            <h4>{{$profesional->cargo}}</h4>
+                            <div class="content_btn_instprof">
+                                <a class="btn_agendar_instProf" href=""> Agendar cita
+                                    <i class="fas fa-arrow-right arrow_mas"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <!-- End Content -->
         </div>
     </section>
 @endsection
