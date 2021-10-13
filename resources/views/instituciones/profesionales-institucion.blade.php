@@ -66,7 +66,7 @@
                         foreach ($profesional->especialidades as $item)
                         $esp .= Str::slug($item->nombreEspecialidad) . ' ';
 
-                        $especialidad = $profesional->especialidades[0]->nombre_especialidad;
+                        $especialidad = $profesional->especialidades[0]->nombreEspecialidad; 
                     }
                     else {
                         $especialidad = $profesional->nombre_especialidad;
