@@ -12,7 +12,7 @@
         <h1 class="nombre_inst_instProf">{{$institucion[0]->nombreinstitucion}}</h1>
     </div>
 
-    {{--<!-- Tarjetas profesionales de la institución -->
+    <!-- {{--
     <div class="container_principal_instProf">
         <section class="container_tarjetas_instProf">
             @foreach ($objProfesionalesIns as $profesional)
@@ -41,22 +41,28 @@
                 </div>
             @endforeach
         </section>
-    </div>--}}
+    </div>--}} -->
 
     <section class="container-fluid" style="background: #F9F9F9;">
-        <div class="container_principal_instProf">
+        <!-- Filter -->
+        <div class="swiper-container swiper_btn_especialidades"> 
+            <ul id="filterControls" class="list-inline cbp-l-filters-alignRight text-center option_line_profInst swiper-wrapper">
+                <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item asociado all_asociados swiper-slide" data-filter="*">Asociados</li>
+                @foreach($especialidades as $item)
+                    <li class="list-inline-item cbp-filter-item u-cubeportfolio__item asociado one_especiality swiper-slide" data-filter=".{{ Str::slug($item) }}">{{ $item }}</li>
+                @endforeach
+            </ul>
+     
+        </div>
+        
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev btnPrev_especialidades"></div>
+        <div class="swiper-button-next btnNext_especialidades"></div> 
+        <!-- End Filter -->
 
-           <!-- Filter -->
-           <ul id="filterControls" class="list-inline cbp-l-filters-alignRight text-center">
-               <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item asociado all_asociados" data-filter="*">Asociados</li>
-               @foreach($especialidades as $item)
-                   <li class="list-inline-item cbp-filter-item u-cubeportfolio__item asociado one_especiality" data-filter=".{{ Str::slug($item) }}">{{ $item }}</li>
-               @endforeach
-           </ul>
-           <!-- End Filter -->
-
-            <!-- Content -->
-            <div id="grid-container" class="container_grid cards_instProf">
+        <!-- Contenido de las tarjetas de los profesionales -->
+        <div class="container_targets_prof">
+            <div id="grid-container" class="container_grid">
                 @foreach ($objProfesionalesIns as $profesional)
                     <?php
                     $esp = '';
@@ -73,10 +79,11 @@
                         $esp = Str::slug($especialidad);
                     }
                     ?>
-                    <div class="card tarjeta_instProf cbp-item {{ $esp }}">
-                        <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">
-                        <div class="card-body content_tarjeta_instProf">
 
+                    <div class="card cbp-item {{ $esp }}">
+                        <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">
+
+                        <div class="card-body">
                             <h2 class="specialty">{{$especialidad}}</h2>
                             <h2 class="subSpecialty subSpecialty_text">{{$especialidad}}</h2>
 
@@ -87,9 +94,10 @@
 
                             <p>{{$profesional->nombre_universidad}}</p>
                             <h4>{{$profesional->cargo}}</h4>
-                            <div class="content_btn_instprof">
-                                <a class="btn_agendar_instProf" href=""> Agendar cita
-                                    <i class="fas fa-arrow-right arrow_mas"></i>
+
+                            <div class="btn_tarjeta_prof">
+                                <a href=""> Agendar cita
+                                    <i class="fas fa-arrow-right"></i>
                                 </a>
                             </div>
                         </div>
@@ -109,15 +117,13 @@
             jQuery('#grid-container').cubeportfolio({
                 filters: '#filterControls',
                   
-                mediaQueries: [
-                    {"width" : 1500, "cols" : 4},
-                    {"width" : 1100, "cols" : 4},
-                    {"width" : 700, "cols" : 3},
-                    {"width" : 480, "cols" : 1},
-                    {"width" : 300, "cols" : 1},
-                ]
 
 
+
+            });
+
+            jQuery ("# ​​grid-container"). on ('updateSinglePageComplete.cbp', function () {
+                
             });
         });
 
@@ -130,6 +136,58 @@
                 $('.subSpecialty').show();
                 $('.subSpecialty_text').text($(this).text());
                 $('.specialty').hide(); 
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Función para el slider de la línea de opciones de la landing page instituciones
+            const swiper_galeria_prof = new Swiper(".swiper_btn_especialidades", {
+                //loop: true,
+                //resizeObserver: true,
+            
+                autoplay: {
+                delay: 455555555555500,
+                disableOnInteraction: true,
+                },
+            
+                // If we need pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+                // Navigation arrows
+                navigation: {
+                nextEl: '.btnPrev_especialidades',
+                prevEl: '.btnNext_especialidades',
+                },
+            
+                breakpoints: {
+                    // when window width is >= 320px
+                    320: {
+                        slidesPerView: 2,
+                        slidesPerGroup: 1,
+                    },
+                    // when window width is >= 768px
+                    768: {
+                        slidesPerView: 3,
+                        slidesPerGroup: 1,
+                    },
+                    // when window width is >= 1024px
+                    1024: {
+                        slidesPerView: 4,
+                        slidesPerGroup: 1,
+                    },
+                        // when window width is >= 1360px
+                    1360: {
+                        slidesPerView: 5,
+                        lidesPerGroup: 1,
+                    },
+                    
+                    // when window width is >= 1920px
+                    1920: {
+                        slidesPerView: 7,
+                        lidesPerGroup: 1,
+                    },
+                }
             });
         });
     </script>
