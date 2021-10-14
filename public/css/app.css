@@ -19870,7 +19870,7 @@ a:link, a:visited, a:active, a:hover {
   text-align: center;
   display: flex;
   flex-direction: column;
-  padding: 0;
+  padding: 1em 0.2em;
   justify-content: center;
   align-items: center;
 }
@@ -19980,6 +19980,7 @@ a:link, a:visited, a:active, a:hover {
     align-content: center;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2%;
   }
 
   .contains_slide_insti .contains_buttons a {
@@ -20010,7 +20011,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .card_normal_insti {
-    max-width: 75%;
+    max-width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 15%;
@@ -20079,11 +20080,10 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .card_generic_insti {
-    max-width: 75%;
+    max-width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5%;
-    height: 13vh;
   }
 
   .card_generic_insti .card-body h5 {
@@ -20217,7 +20217,6 @@ a:link, a:visited, a:active, a:hover {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5%;
-    height: 8vh;
   }
 
   .contains_slide_insti .contains_info {
@@ -20331,7 +20330,6 @@ a:link, a:visited, a:active, a:hover {
 
   .card_generic_insti {
     width: 24%;
-    height: 12vh;
     margin-bottom: 2%;
   }
 
@@ -20455,7 +20453,6 @@ a:link, a:visited, a:active, a:hover {
 
   .card_generic_insti {
     width: 24%;
-    height: 8vh;
     margin-bottom: 2%;
   }
 
@@ -34408,10 +34405,6 @@ label.error {
     font-size: 1.3em;
   }
 }
-.swiper_principalInstProf {
-  height: 115px;
-}
-
 .imagen_inst_instProf {
   width: 100%;
   height: 170px;
@@ -34436,34 +34429,62 @@ label.error {
   width: 75%;
 }
 
-.containt_slide_instProf {
-  width: 115px;
-  top: 30px;
-  left: 25px;
-  position: absolute;
-}
-
-.container_principal_instProf {
-  background: #F9F9F9;
-  width: 100%;
-}
-
-.container_tarjetas_instProf {
-  background: #F9F9F9;
+.option_line_profInst {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 10% 0 5% 0;
+  align-items: center;
+  padding-top: 30px;
+  justify-content: flex-start;
 }
 
-/*.container_grid  {
-    width: 75%;
-}*/
-.container_principal_instProf {
-  background: transparent;
+.swiper_btn_especialidades {
+  display: flex;
+  width: 275px;
+}
+
+.swiper_btn_especialidades .cbp-l-filters-alignRight .cbp-filter-item {
+  background-color: transparent;
+  color: #232323;
+  padding: 6px 2px;
+  margin: 0 5px 0 0;
+  font: 600 10px/20px "Roboto", sans-serif;
+  border: 1px solid #E4E2E2;
+  text-transform: none;
+  width: 133px !important;
+  border-radius: 5px;
+}
+
+.btnPrev_especialidades {
+  font-size: 1em;
+  /* top: 130px; */
+  /* left: -1px; */
+  /* right: auto; */
+  width: 10px;
+  height: 25px;
+  color: #019F86;
+}
+
+.btnNext_especialidades {
+  font-size: 1em;
+  /* top: 130px; */
+  /* right: -1px; */
+  left: auto;
+  width: 10px;
+  height: 25px;
+  color: #019F86;
+}
+
+.btnPrev_especialidades:after, .btnNext_especialidades:after {
+  font-size: 1.15em;
+  font-weight: bolder;
+}
+
+.container_targets_prof {
   width: 100%;
-  margin: auto;
-  padding: 10% 0;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 30px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .cbp .img_perfil_instProf {
@@ -34481,15 +34502,15 @@ label.error {
      object-position: top;
 }
 
-.content_tarjeta_instProf {
-  padding: 0 0 8% 0;
+.container_targets_prof .card-body {
+  padding: 0 0.5em 1em 0.5em;
 }
 
 .subSpecialty {
   display: none;
 }
 
-.content_tarjeta_instProf h2 {
+.container_targets_prof .card-body h2 {
   font-family: "Quicksand";
   font-size: 1.3em;
   font-weight: bolder;
@@ -34498,7 +34519,7 @@ label.error {
   margin: 0;
 }
 
-.content_tarjeta_instProf h5 {
+.container_targets_prof .card-body h5 {
   font-family: "Quicksand";
   font-size: 1.05em;
   font-weight: bolder;
@@ -34506,7 +34527,7 @@ label.error {
   text-align: center;
 }
 
-.content_tarjeta_instProf p {
+.container_targets_prof .card-body p {
   font-family: "Roboto";
   font-size: 0.85em;
   font-weight: 500;
@@ -34514,7 +34535,7 @@ label.error {
   text-align: center;
 }
 
-.content_tarjeta_instProf h4 {
+.container_targets_prof .card-body h4 {
   font-family: "Roboto";
   font-size: 0.9em;
   font-weight: 500;
@@ -34522,9 +34543,10 @@ label.error {
   font-weight: bolder;
   text-align: center;
   margin: 0;
+  height: 15px;
 }
 
-.content_btn_instprof {
+.btn_tarjeta_prof {
   width: 125px;
   margin: auto;
   display: flex;
@@ -34534,7 +34556,7 @@ label.error {
   margin-top: 4%;
 }
 
-.btn_agendar_instProf {
+.btn_tarjeta_prof a {
   font-size: 1em;
   font-family: "Roboto";
   display: flex;
@@ -34545,206 +34567,153 @@ label.error {
   border-radius: 3px;
 }
 
-.cbp-l-filters-alignRight .cbp-filter-item {
-  font: 400 11px/31px "Roboto" !important;
-  border-radius: 5px;
-}
-
-.cbp-l-filters-alignRight .cbp-filter-item.cbp-filter-item-active {
-  font: 400 11px/31px "Roboto" !important;
-  background-color: #019F86 !important;
-  border-color: #019F86 !important;
-  border-radius: 5px;
-}
-
-.container_grid {
-  width: 85%;
-}
-
-@media (min-width: 700px) {
-  .container_grid {
-    width: 100%;
+@media (min-width: 360px) {
+  .btnPrev_especialidades {
+    top: 283px;
+    left: 23px;
   }
 
+  .btnNext_especialidades {
+    top: 283px;
+    right: 23px;
+  }
+}
+@media (min-width: 600px) {
   .imagen_inst_instProf {
-    width: 100%;
     height: 400px;
   }
 
   .nombre_inst_instProf {
-    font-size: 2.5em;
-    top: 156px;
+    font-size: 2em;
+    top: 180px;
     left: 65px;
-    width: 55%;
-  }
-
-  .swiper_principalInstProf {
-    height: 220px;
-  }
-
-  .containt_slide_instProf {
-    width: 250px;
-    top: 50px;
-    left: 65px;
-  }
-
-  .container_tarjetas_instProf {
-    justify-content: space-evenly;
-    width: 75%;
-    margin: auto;
-    padding: 10% 0 3% 0;
-  }
-
-  .tarjeta_instProf {
-    margin-right: 3%;
-    margin-left: 3%;
-    margin-bottom: 5%;
-  }
-
-  /*.container_grid {
-      width: 100%;
-  }*/
-  .cbp .img_perfil_instProf {
-    height: 145px;
-    width: 145px;
-  }
-
-  .content_tarjeta_instProf h2 {
-    font-size: 1.5em;
-  }
-
-  .content_tarjeta_instProf h5 {
-    font-size: 1.3em;
-  }
-
-  .content_tarjeta_instProf p {
-    font-size: 1em;
-  }
-
-  .container_principal_instProf {
-    padding: 7% 0;
-  }
-
-  .content_tarjeta_instProf h4 {
-    font-size: 1.15em;
-    height: 20px;
-  }
-
-  .cbp-l-filters-alignRight .cbp-filter-item {
-    font: 400 14px/31px "Roboto" !important;
-  }
-
-  .cbp-l-filters-alignRight .cbp-filter-item.cbp-filter-item-active {
-    font: 400 14px/31px "Roboto" !important;
-  }
-}
-@media (min-width: 1024px) {
-  .container_grid {
-    width: 85%;
-  }
-
-  .nombre_inst_instProf {
-    font-size: 2.5em;
-    top: 130px;
-    left: 130px;
     width: 50%;
   }
 
-  .containt_slide_instProf {
-    left: 125px;
+  .swiper_btn_especialidades {
+    width: 555px;
   }
 
-  .container_tarjetas_instProf {
-    width: 77%;
-    padding: 10% 0 5% 0;
+  .swiper_btn_especialidades .cbp-l-filters-alignRight .cbp-filter-item {
+    font: 600 13px/20px "Roboto", sans-serif;
+    width: 180px !important;
   }
 
-  .tarjeta_instProf {
-    padding: 3% 1%;
-    margin-right: 1%;
-    margin-left: 1%;
-    margin-bottom: 3%;
+  .btnPrev_especialidades {
+    top: 545px;
+    left: 100px;
   }
 
-  .container_principal_instProf {
-    padding: 5% 0;
+  .btnNext_especialidades {
+    top: 545px;
+    right: 100px;
+  }
+
+  .container_targets_prof {
+    width: 80%;
+  }
+}
+@media (min-width: 1024px) {
+  .swiper_btn_especialidades {
+    width: 738px;
+  }
+
+  .btnPrev_especialidades {
+    top: 527px;
+    left: 120px;
+  }
+
+  .btnNext_especialidades {
+    top: 527px;
+    right: 120px;
+  }
+
+  .container_targets_prof {
+    width: 85%;
   }
 }
 @media (min-width: 1200px) {
-  .container_grid {
-    width: 75%;
+  .imagen_inst_instProf {
+    height: 550px;
   }
 
-  .swiper_principalInstProf {
-    height: 300px;
-  }
-
-  .containt_slide_instProf {
+  .nombre_inst_instProf {
+    font-size: 2.5em;
     left: 150px;
   }
 
-  .container_tarjetas_instProf {
-    padding: 7% 0 3% 0;
+  .btnPrev_especialidades {
+    top: 677px;
+    left: 210px;
   }
 
-  .tarjeta_instProf {
-    padding: 3% 0.5%;
-    margin-right: 0.5%;
-    margin-left: 0.5%;
+  .btnNext_especialidades {
+    top: 677px;
+    right: 210px;
+  }
+
+  .container_targets_prof {
+    width: 75%;
   }
 }
-@media (min-width: 1360px) {
-  .nombre_inst_instProf {
-    font-size: 3em;
-    left: 170px;
-    width: 45%;
+@media (min-width: 1300px) {
+  .swiper_btn_especialidades {
+    width: 925px;
   }
 
-  .swiper_principalInstProf {
-    height: 360px;
+  .btnPrev_especialidades {
+    left: 200px;
   }
 
-  .containt_slide_instProf {
-    top: 85px;
-    left: 165px;
+  .btnNext_especialidades {
+    right: 200px;
   }
 
-  .tarjeta_instProf {
-    margin-right: 1%;
-    margin-left: 1%;
+  .container_targets_prof {
+    width: 80%;
   }
 }
 @media (min-width: 1440px) {
-  .nombre_inst_instProf {
-    font-size: 3.5em;
-    left: 180px;
+  .btnPrev_especialidades {
+    left: 230px;
   }
 
-  .containt_slide_instProf {
-    left: 175px;
-  }
-
-  .img_perfil_instProf {
-    border-radius: 74px;
-    height: 150px;
-    width: 150px;
+  .btnNext_especialidades {
+    right: 230px;
   }
 }
 @media (min-width: 1920px) {
-  .imagen_inst_instProf {
-    height: 500px;
-  }
-
   .nombre_inst_instProf {
-    left: 300px;
-    width: 35%;
+    font-size: 3em;
+    left: 330px;
+    width: 40%;
   }
 
-  .swiper_principalInstProf {
-    height: 500px;
+  .swiper_btn_especialidades {
+    width: 1295px;
   }
 
-  .tarjeta_instProf {
-    padding: 2% 0.5% !important;
+  .swiper_btn_especialidades .cbp-l-filters-alignRight .cbp-filter-item {
+    font: 600 13.5px/25px "Roboto", sans-serif;
+    width: 180px !important;
+  }
+
+  .btnPrev_especialidades {
+    top: 685px;
+    left: 265px;
+  }
+
+  .btnNext_especialidades {
+    top: 685px;
+    right: 265px;
+  }
+
+  .btnPrev_especialidades:after, .btnNext_especialidades:after {
+    font-size: 1.5em;
+    font-weight: bolder;
+  }
+
+  .container_targets_prof {
+    width: 75%;
   }
 }

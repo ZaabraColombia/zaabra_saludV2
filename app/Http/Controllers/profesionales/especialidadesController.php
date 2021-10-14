@@ -11,7 +11,7 @@ class especialidadesController extends Controller
     {
 
         SEO::setTitle('Especialidades Médicas');
-        SEO::setDescription('En Zaabra Salud, más de 100 especialidades a su alcance. Busque, encuentre y reserve su cita, así de fácil');
+        SEO::setDescription('En Zaabra Salud, más de 100 especialidades a su alcance. Busque, encuentre y reserve su cita, así de fácil.');
         SEO::setCanonical('https://zaabrasalud.co/');
 
         //esta varible se llena con los datos recolectados en cada una de las consultas y entregan los datos
