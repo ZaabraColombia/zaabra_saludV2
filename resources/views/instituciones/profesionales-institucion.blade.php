@@ -122,7 +122,7 @@
 
             });
 
-            jQuery ("# ​​grid-container"). on ('updateSinglePageComplete.cbp', function () {
+            jQuery ("#grid-container"). on ('updateSinglePageComplete.cbp', function () {
                 
             });
         });
