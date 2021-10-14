@@ -432,7 +432,6 @@
 .conv_imgText_LandInst {
     width: 100%;
     //padding-left: 2.7em;
-
     margin-top: 5%;
     //margin-left: auto;
 }
@@ -835,14 +834,14 @@
     width: 30px;
     height: 20px;
 }
-.convenios img{
+/*.convenios img{
     max-width: 33.3%;
     padding: 0 2%;
     -o-object-fit: cover;
     object-fit: contain;
     height: auto;
     image-rendering: -webkit-optimize-contrast;
-}
+}*/
 @media(min-width: 360px) {
     .data_instituciones h1{
         font-size: 2em;

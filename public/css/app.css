@@ -21473,15 +21473,14 @@ a:link, a:visited, a:active, a:hover {
   height: 20px;
 }
 
-.convenios img {
-  max-width: 33.3%;
-  padding: 0 2%;
-  -o-object-fit: cover;
-  object-fit: contain;
-  height: auto;
-  image-rendering: -webkit-optimize-contrast;
-}
-
+/*.convenios img{
+    max-width: 33.3%;
+    padding: 0 2%;
+    -o-object-fit: cover;
+    object-fit: contain;
+    height: auto;
+    image-rendering: -webkit-optimize-contrast;
+}*/
 @media (min-width: 360px) {
   .data_instituciones h1 {
     font-size: 2em;
