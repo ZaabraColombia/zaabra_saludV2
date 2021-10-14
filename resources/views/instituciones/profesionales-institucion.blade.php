@@ -93,7 +93,7 @@
                             <p class="subSpecialty">Especialista en <span class="subSpecialty_text">{{$especialidad}}</span></p>
 
                             <p>{{$profesional->nombre_universidad}}</p>
-                            <h4>{{$profesional->cargo}}</h4>
+                            <h4 class="cargo_profInst">{{$profesional->cargo}}</h4>
 
                             <div class="btn_tarjeta_prof">
                                 <a href=""> Agendar cita
@@ -130,12 +130,14 @@
         $(document).ready(function(){
             $(".all_asociados").on( "click", function() {
                 $('.specialty').show(); 
+                $('.cargo_profInst').show(); 
                 $('.subSpecialty').hide(); 
             });
             $(".one_especiality").on( "click", function() {
                 $('.subSpecialty').show();
                 $('.subSpecialty_text').text($(this).text());
                 $('.specialty').hide(); 
+                $('.cargo_profInst').hide();
             });
         });
 
@@ -146,8 +148,8 @@
                 //resizeObserver: true,
             
                 autoplay: {
-                delay: 455555555555500,
-                disableOnInteraction: true,
+                delay: 4500,
+                disableOnInteraction: false,
                 },
             
                 // If we need pagination
