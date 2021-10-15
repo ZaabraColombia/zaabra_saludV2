@@ -87,8 +87,8 @@
                     <div class="data_profesionales">
                         <img src="{{ asset($profesional->fotoperfil) }}">
                         <div class="contains_info">
-                            <h2>{{$profesional->primernombre}} {{$profesional->segundonombre}} {{$profesional->primerapellido}} {{$profesional->segundoapellido}}</h2>
-                            <h1>{{$profesional->nombreEspecialidad}}</h1>
+                            <h2 id="nombre_profesional-paciente">{{$profesional->primernombre}} {{$profesional->segundonombre}} {{$profesional->primerapellido}} {{$profesional->segundoapellido}}</h2>
+                            <h1 id="especialidad_profesional-paciente">{{$profesional->nombreEspecialidad}}</h1>
                             <h5>{{$profesional->nombreuniversidad}}</h5>
                             <h5>N° Tarjeta profesional: {{$profesional->numeroTarjeta}}</h5>
                             <!-- Rating Stars Box -->
