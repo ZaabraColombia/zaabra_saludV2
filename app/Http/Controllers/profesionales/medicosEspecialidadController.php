@@ -17,8 +17,8 @@ class medicosEspecialidadController extends Controller{
         $objIdEspeciialidad = $this->especialidadId($nombreEspecialidad);
         $idEspecialidad = $objIdEspeciialidad->idEspecialidad;
 
-        SEO::setTitle('Especialidad | '.$objIdEspeciialidad->nombreEspecialidad);
-        SEO::setDescription('Encuentra un especialista médico en tu ciudad! Consulta opiniones de pacientes, pregunta a los expertos en salud y agenda ahora cita por Internet.');
+        SEO::setTitle('Especialidades Médicas | '.$objIdEspeciialidad->nombreEspecialidad);
+        SEO::setDescription('En Zaabra Salud, más de 100 especialidades a su alcance.Busque, encuentre y reserve su cita, así de fácil.');
         SEO::setCanonical('https://zaabrasalud.co/ramas-de-la-salud');
 
 

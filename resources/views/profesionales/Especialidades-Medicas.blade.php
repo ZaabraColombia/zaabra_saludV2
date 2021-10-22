@@ -36,7 +36,7 @@
         <h2 class="subTitle_espeMed">{{$especialidad->nombreEspecialidad}}</h2>
 
         <div class="section_btn_espeMed">
-          <a class="content_btn_espMed" href="{{url('Especialistas/'.$especialidad->slug)}}">
+          <a class="content_btn_espMed" href="{{ route('Especialistas-En', ['nombreEspecialidad' => $especialidad->slug]) }}">
             <button type="submit" value="" class="btnVer_espMed" > Ver especialidades
               <img class="icon_arrow_espMed" src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" alt="">
             </button>

@@ -130,7 +130,4 @@ document.addEventListener('DOMContentLoaded', function() {
         $('#ver-cita-profecional').modal('hide');
         $('#cancelada-cita-modal-profecional').modal('show');
     });
-
-
-
 });
