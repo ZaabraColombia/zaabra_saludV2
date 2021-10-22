@@ -39,10 +39,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route:: get('/ramas-de-la-salud',[App\Http\Controllers\profesionales\profesionesController::class,'index'])->name('ramas-de-la-salud');
 
 /*Esta ruta es de galeria especialidades y dirige al controlador encargado de traer la informacion a la vista*/
-Route:: get('/Especialidades-Medicas/{nombreProfesion}',[App\Http\Controllers\profesionales\especialidadesController::class,'index'])->name('Especialidades');
+Route:: get('/ramas-de-la-salud/{nombreProfesion}',[App\Http\Controllers\profesionales\especialidadesController::class,'index'])->name('Especialidades');
 
 /*Esta ruta es de galeria profesionales y dirige al controlador encargado de traer la informacion a la vista*/
-Route:: get('/Especialistas/{nombreEspecialidad}',[App\Http\Controllers\profesionales\medicosEspecialidadController::class,'index'])->name('Especialistas-En');
+Route:: get('/Especialidades/{nombreEspecialidad}',[App\Http\Controllers\profesionales\medicosEspecialidadController::class,'index'])->name('Especialistas-En');
 
 /*Esta ruta es de landing profesionales y dirige al controlador encargado de traer la informacion a la vista*/
 Route:: get('/PerfilProfesional/{slug}',[App\Http\Controllers\profesionales\perfilprofesionalController::class,'index'])->name('PerfilProfesional');
@@ -270,11 +270,8 @@ Route::get('/error505', function () { return view('errores/error505');})->name('
 
 
 Route::get('/test', function (){
-//    $p = \App\Models\profesionales_instituciones::with('especialidades')->get();
-//
-//    foreach ($p as $item)
-//    {
-//        dd($item->especialidades);
-//    }
+    //$p = \App\Models\profesiones::all();
+
+    //foreach ($p as $item) $item->save();
 
 });

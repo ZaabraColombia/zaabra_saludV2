@@ -17,6 +17,7 @@ class perfilprofesionalController extends Controller
     public function index($slug){
 
         $objprofesionallanding= $this->cargarInfoPrfesionalLanding($slug);
+        //dd($objprofesionallanding);
         if (empty($objprofesionallanding)) return redirect('/');
         $idPerfilProfesional = $objprofesionallanding[0]->idPerfilProfesional;
 
@@ -63,11 +64,11 @@ class perfilprofesionalController extends Controller
         public function cargarInfoPrfesionalLanding($slug){
         return DB::select("SELECT pf.idPerfilProfesional, pf.fotoperfil, CONCAT('Dr.(a) ',  us.primernombre) AS primernombre, us.segundonombre, us.primerapellido, us.segundoapellido, ep.nombreEspecialidad, pf.numeroTarjeta, pf.direccion, un.nombreuniversidad, pf.descripcionPerfil, mn.nombre
         FROM perfilesprofesionales pf
-        INNER JOIN users us ON pf.idUser=us.id
-        INNER JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
-        INNER JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
-        INNER JOIN universidades un ON pf.id_universidad=un.id_universidad
-        INNER JOIN municipios mn ON mn.id_municipio=pf.id_municipio
+        LEFT JOIN users us ON pf.idUser=us.id
+        LEFT JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad
+        LEFT JOIN perfilesprofesionalesuniversidades pu ON pf.idPerfilProfesional=pu.idPerfilProfesional
+        LEFT JOIN universidades un ON pf.id_universidad=un.id_universidad
+        LEFT JOIN municipios mn ON mn.id_municipio=pf.id_municipio
         WHERE pf.aprobado<>0 AND pf.slug like '$slug' LIMIT 1");
         }
 
