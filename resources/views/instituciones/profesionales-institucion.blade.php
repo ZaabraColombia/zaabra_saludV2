@@ -43,7 +43,7 @@
         </section>
     </div>--}} -->
 
-    <section class="container-fluid" style="background: #F9F9F9;">
+    <section class="container-fluid content_main">
         <!-- Filter -->
         <div class="swiper-container swiper_btn_especialidades"> 
             <ul id="filterControls" class="list-inline cbp-l-filters-alignRight text-center option_line_profInst swiper-wrapper">
@@ -52,13 +52,12 @@
                     <li class="list-inline-item cbp-filter-item u-cubeportfolio__item asociado one_especiality swiper-slide" data-filter=".{{ Str::slug($item) }}">{{ $item }}</li>
                 @endforeach
             </ul>
-     
+    
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev btnPrev_especialidades"></div>
+            <div class="swiper-button-next btnNext_especialidades"></div> 
+            <!-- End Filter -->
         </div>
-        
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev btnPrev_especialidades"></div>
-        <div class="swiper-button-next btnNext_especialidades"></div> 
-        <!-- End Filter -->
 
         <!-- Contenido de las tarjetas de los profesionales -->
         <div class="container_targets_prof">
@@ -84,16 +83,18 @@
                         <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">
 
                         <div class="card-body">
-                            <h2 class="specialty">{{$especialidad}}</h2>
-                            <h2 class="subSpecialty subSpecialty_text">{{$especialidad}}</h2>
+                            <div>
+                                <h2 class="specialty">{{$especialidad}}</h2>
+                                <h2 class="subSpecialty subSpecialty_text">{{$especialidad}}</h2>
 
-                            <h5 class="niega_uppercase">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h5>
+                                <h5 class="niega_uppercase">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h5>
 
-                            <p class="specialty">Especialista en {{$especialidad}}</p>
-                            <p class="subSpecialty">Especialista en <span class="subSpecialty_text">{{$especialidad}}</span></p>
+                                <p class="specialty">Especialista en {{$especialidad}}</p>
+                                <p class="subSpecialty">Especialista en <span class="subSpecialty_text">{{$especialidad}}</span></p>
 
-                            <p>{{$profesional->nombre_universidad}}</p>
-                            <h4 class="cargo_profInst">{{$profesional->cargo}}</h4>
+                                <p class="name_university">{{$profesional->nombre_universidad}}</p>
+                                <h4 class="cargo_profInst">{{$profesional->cargo}}</h4>
+                            </div>
 
                             <div class="btn_tarjeta_prof">
                                 <a href=""> Agendar cita
@@ -116,14 +117,12 @@
         jQuery(document).ready( function() {
             jQuery('#grid-container').cubeportfolio({
                 filters: '#filterControls',
-                  
-
-
-
-            });
-
-            jQuery ("#grid-container"). on ('updateSinglePageComplete.cbp', function () {
-                
+                /*mediaQueries: [
+                    {"width" : 1500, "cols" : 6},
+                    {"width" : 900, "cols" : 4},
+                    {"width" : 600, "cols" : 3},
+                    {"width" : 300, "cols" : 2},
+                ]*/
             });
         });
 
@@ -169,24 +168,24 @@
                         slidesPerGroup: 1,
                     },
                     // when window width is >= 768px
-                    768: {
-                        slidesPerView: 3,
+                    600: {
+                        slidesPerView: 4,
                         slidesPerGroup: 1,
                     },
                     // when window width is >= 1024px
                     1024: {
-                        slidesPerView: 4,
+                        slidesPerView: 5,
                         slidesPerGroup: 1,
                     },
                         // when window width is >= 1360px
-                    1360: {
+                    /*1360: {
                         slidesPerView: 5,
                         lidesPerGroup: 1,
-                    },
+                    },*/
                     
                     // when window width is >= 1920px
                     1920: {
-                        slidesPerView: 7,
+                        slidesPerView: 6,
                         lidesPerGroup: 1,
                     },
                 }

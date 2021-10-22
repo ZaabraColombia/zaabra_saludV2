@@ -1,3 +1,11 @@
+.content_main {
+    background: #F9F9F9;
+    padding: 0 10px;
+}
+.container_grid .card {
+    width: 145px !important;
+}
+
 .imagen_inst_instProf {
     width: 100%;
     height: 170px;
@@ -25,12 +33,14 @@
     align-items: center;
     padding-top: 30px;
     justify-content: flex-start;
+    margin-bottom: 45px !important;
 }
 // Slider 
 .swiper_btn_especialidades  {
     display: flex;
     width: 275px;
-    //padding: 0 2.5%;
+    //width: 300px;
+    //padding: 0 12px;
 }
 .swiper_btn_especialidades .cbp-l-filters-alignRight .cbp-filter-item {
     background-color: transparent;
@@ -41,36 +51,47 @@
     border: 1px solid #E4E2E2;
     text-transform: none;
     width: 133px !important;
-    //line-height: 1.5;
     border-radius: 5px;
 }
 .btnPrev_especialidades {
     font-size: 1em;
-    /* top: 130px; */
-    /* left: -1px; */
-    /* right: auto; */
-    width: 10px;
-    height: 25px;
+    top: 90px;
+    left: 85px;
+    //top: 130px;
+    //left: -1px;
+    //right: auto;
+    //width: 10px;
+    //height: 25px;
     color: #019F86;
+    background: #dee2e6;
+    border-radius: 25px;
+    width: 25px;
+    height: 25px;
+    box-shadow: .5px 0px 1.5px .5px rgb(0 0 0 / 30%);
 }
 .btnNext_especialidades {
     font-size: 1em;
-    /* top: 130px; */
-    /* right: -1px; */
-    left: auto;
-    width: 10px;
-    height: 25px;
+    top: 90px;
+    right: 85px;
+    //top: 130px; 
+    //right: -1px;
+    //left: auto;
+    //width: 10px;
+    //height: 25px;
     color: #019F86;
+    background: #dee2e6;
+    border-radius: 25px;
+    width: 25px;
+    height: 25px;
+    box-shadow: -.5px 0px 1.5px .5px rgb(0 0 0 / 30%);
 }
 .btnPrev_especialidades:after, .btnNext_especialidades:after {
-    font-size: 1.15em;
+    font-size: 1em;
     font-weight: bolder;
 }
 // contenedor tarjetas
 .container_targets_prof {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
     padding-bottom: 30px;
     margin-right: auto;
     margin-left: auto;
@@ -78,8 +99,8 @@
 .cbp .img_perfil_instProf {
     border: 1px solid #dcdcdc;
     border-radius: 74px;
-    height: 115px;
-    width: 115px;
+    height: 80px;
+    width: 80px;
     margin-top: 8%;
     margin-right: auto;
     margin-bottom: 5%;
@@ -88,37 +109,50 @@
     object-position: top;
 }
 .container_targets_prof .card-body {
-    padding: 0 0.5em 1em .5em;
+    padding: 0 .3em 1em .3em;
 }
 .subSpecialty {
     display: none;
 }
+/*.user_data {
+    height: 135px;
+}*/
 .container_targets_prof .card-body h2 {
     font-family: 'Quicksand';
-    font-size: 1.3em;
+    font-size: 1.15em;
     font-weight: bolder;
     color: #019F86;
     text-align: center;
     margin: 0;
+    line-height: 1.1;
+    //height: 35px;
+    //line-height: 1;
 }
 .container_targets_prof .card-body h5 {
     font-family: 'Quicksand';
-    font-size: 1.05em;
+    font-size: .9em;
     font-weight: bolder;
     color: #232323;
     text-align: center;
+    padding: .3em 0;
 }
 .container_targets_prof .card-body p {
     font-family: 'Roboto';
-    font-size: 0.85em;
+    font-size: 0.75em;
     font-weight: 500;
     color: #232323;
     text-align: center;
+    line-height: 1.1;
+}
+.name_university {
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .container_targets_prof .card-body h4 {
     font-family: 'Roboto';
     font-size: .9em;
-    font-weight: 500;
     color: #232323;
     font-weight: bolder;
     text-align: center;
@@ -136,16 +170,39 @@
     margin-top: 4%;
 }
 .btn_tarjeta_prof a {
-    font-size: 1em;
+    font-size: .9em;
     font-family: 'Roboto';
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     background: #019F86;
     padding: 5%;
     border-radius: 3px;
 }
 @media(min-width: 360px) {
+    .container_grid .card {
+        width: 165px !important;
+    }
+    .cbp .img_perfil_instProf {
+        height: 110px;
+        width: 110px;
+    }
+    /*.container_targets_prof .card-body h2 {
+        font-size: 1.25em;
+        height: 40px;
+    }
+    .container_targets_prof .card-body h5 {
+        font-size: 1em;
+    }
+    .container_targets_prof .card-body p {
+        font-size: 0.85em;
+    }
+    .container_targets_prof .card-body h4 {
+        font-size: 1em;
+    }
+    .btn_tarjeta_prof a {
+        font-size: 1em;
+    }
     .btnPrev_especialidades {
         top: 283px;
         left: 23px;
@@ -153,9 +210,27 @@
     .btnNext_especialidades {
         top: 283px;
         right: 23px;
+    }*/
+}
+@media(min-width: 375px) {
+    .container_grid .card {
+        width: 190px !important;
     }
 }
 @media(min-width: 600px) {
+    .swiper_btn_especialidades {
+        display: flex;
+        width: 550px;
+    }
+    .btnPrev_especialidades {
+        left: 193px;
+    }
+    .btnNext_especialidades {
+        left: 329px;
+    }
+    .container_grid .card {
+        width: 200px !important;
+    }
     .imagen_inst_instProf {
         height: 400px;
     }
@@ -165,7 +240,7 @@
         left: 65px;
         width: 50%;
     }
-    .swiper_btn_especialidades {
+    /*.swiper_btn_especialidades {
         width: 555px;
     }
     .swiper_btn_especialidades .cbp-l-filters-alignRight .cbp-filter-item {
@@ -179,13 +254,26 @@
     .btnNext_especialidades {
         top: 545px;
         right:100px;
-    }
+    }*/
     .container_targets_prof {
         width: 80%;
     }
 }
 @media(min-width: 1024px) {
     .swiper_btn_especialidades {
+        display: flex;
+        width: 689px;
+    }
+    .btnPrev_especialidades {
+        left: 260px;
+    }
+    .btnNext_especialidades {
+        left: 400px;
+    }
+    .container_targets_prof {
+        width: 85%;
+    }
+    /*.swiper_btn_especialidades {
         width: 738px;
     }
     .btnPrev_especialidades {
@@ -195,16 +283,20 @@
     .btnNext_especialidades {
         top: 527px;
         right:120px;
-    }
-    .container_targets_prof {
-        width: 85%;
-    }
+    }*/
+
 }
 @media(min-width: 1200px) {
     .imagen_inst_instProf {
         height: 550px;
     }
-    .nombre_inst_instProf {
+    .container_targets_prof {
+        width: 75%;
+    }
+    .container_grid .card {
+        width: 215px !important;
+    }
+    /*.nombre_inst_instProf {
         font-size: 2.5em;
         left: 150px;
     }
@@ -215,13 +307,11 @@
     .btnNext_especialidades {
         top: 677px;
         right:210px;
-    }
-    .container_targets_prof {
-        width: 75%;
-    }
+    }*/
+
 }
 @media(min-width: 1300px) {
-    .swiper_btn_especialidades {
+    /*.swiper_btn_especialidades {
         width: 925px;
     }
     .btnPrev_especialidades {
@@ -229,18 +319,24 @@
     }
     .btnNext_especialidades {
         right:200px;
-    }
+    }*/
     .container_targets_prof {
         width: 80%;
     }
+    .container_grid .card {
+        width: 205px !important;
+    }
 }
 @media(min-width: 1440px) {
-    .btnPrev_especialidades {
+    .container_grid .card {
+        width: 220px !important;
+    }
+    /*.btnPrev_especialidades {
         left: 230px;
     }
     .btnNext_especialidades {
         right:230px;
-    }
+    }*/
 }
 @media(min-width: 1920px) {
     .nombre_inst_instProf {
@@ -249,13 +345,27 @@
         width: 40%;
     }
     .swiper_btn_especialidades {
-        width: 1295px;
+        width: 1110px;
     }
+    .option_line_profInst {
+        margin-bottom: 60px !important;
+    }
+    /*.swiper_btn_especialidades {
+        width: 1295px;
+    }*/
     .swiper_btn_especialidades .cbp-l-filters-alignRight .cbp-filter-item {
-        font: 600 13.5px/25px "Quicksand", sans-serif;
+        font: 600 13px/25px "Quicksand", sans-serif;
         width: 180px !important;
     }
     .btnPrev_especialidades {
+        top: 100px;
+        left: 435px;
+    }
+    .btnNext_especialidades {
+        top: 100px;
+        left: 640px;
+    }
+    /*.btnPrev_especialidades {
         top: 685px;
         left: 265px;
     }
@@ -264,9 +374,9 @@
         right:265px;
     }
     .btnPrev_especialidades:after, .btnNext_especialidades:after {
-        font-size: 1.5em;
+        font-size: 1em;
         font-weight: bolder;
-    }
+    }*/
     .container_targets_prof {
         width: 75%;
     }
