@@ -13,7 +13,7 @@
                         <p class="text_slide_prinHome" style="color:{{($objbannersprincipalHome->color_texto)}};">{{($objbannersprincipalHome->texto_banner)}}</p>
                         <a type="submit" href="{{($objbannersprincipalHome->urlBoton_banner)}}" target="blank" class="btn_agendarHome" 
                             style="background-color:{{($objbannersprincipalHome->background_btn)}}; color:{{($objbannersprincipalHome->color_btn)}};"> {{($objbannersprincipalHome->texto_btn)}}
-                            <i class="fa fa-arrow-right ml-1 ml-md-2"></i>
+                            <!-- <i class="fa fa-arrow-right ml-1 ml-md-2"></i> -->
                         </a>
                     </div>
                 </div>

@@ -314,13 +314,13 @@ $('#form-password-paciente').validate({
     },
     messages: {
         'password':{
-            required: "Por favor ingrese el primer nombre",
+            required: "Por favor ingrese la contraseña actual",
         },
         'password_new':{
-            required: "Por favor ingrese el primer apellido",
+            required: "Por favor ingrese la contraseña nueva",
         },
         'password_new_confirmation':{
-            required: "Por favor ingrese el tipo de identificación",
+            required: "Por favor repita la contraseña actual",
         }
     },
     submitHandler: function(form) {

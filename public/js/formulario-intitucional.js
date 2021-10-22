@@ -55,8 +55,9 @@ $('.universidades').select2({
 });
 
 $('.especialidades-search').select2({
-    theme: "bootstrap",
+    theme: "classic",
     placeholder: 'Seleccione una especialidad',
+    multiple: true,
     ajax: {
         url: '/buscar-especialidades',
         dataType: 'json',
@@ -950,6 +951,16 @@ $('#form-profesionales-institucion').validate({
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
+                var especialidades = '';
+                if ($('#especialidad').val())
+                {
+                    especialidades = '<ul>';
+                    $.each($('#especialidad option:selected'), function (index, item){
+                        especialidades += '<li>' + $(item).text() + '</li>';
+                    });
+                    especialidades += '</ul>';
+                }
+
                 //Agrgar tarjeta del convenio
                 $('#lista-profesionales-institucion').append('<div class="col-md-3 content_loadImg-profes">\n' +
                     '<div class="col-12 p-0 contain_imgUsuario-formImg">\n' +
@@ -970,10 +981,7 @@ $('#form-profesionales-institucion').validate({
                     '<span>' + $('#primer_apellido_profecional').val() + ' ' + $('#segundo_apellido_profecional').val() + '</span>\n' +
                     '</div>\n' +
                     '<div class="col-md-12 rightSection_formInst">\n' +
-                    '<span>' + $('#universidad option:selected').text() + '</span>\n' +
-                    '</div>\n' +
-                    '<div class="col-md-12 rightSection_formInst">\n' +
-                    '<span>' + $('#especialidad option:selected').text() + '</span>\n' +
+                     especialidades +
                     '</div>\n' +
                     '<div class="col-md-12 rightSection_formInst">\n' +
                     '<span>' + $('#cargo_profesional').val() + '' + '</span>\n' +
@@ -996,6 +1004,7 @@ $('#form-profesionales-institucion').validate({
 
                 $('#img-foto_profecional').attr('src', '#');
                 formulario[0].reset();
+                $("#especialidad").val([]).change();
 
                 //Respuesta
                 mensaje_success('#mensajes-profesionales', response.mensaje)
@@ -1017,7 +1026,8 @@ $('#form-profesionales-institucion').validate({
                     $('#primer_apellido_profecional').prop('disabled', true);
                     $('#segundo_apellido_profecional').prop('disabled', true);
                     $('#universidad').prop('disabled', true);
-                    $('#especialidad').prop('disabled', true);
+                    $('#especialidad').prop('disabled', true).val([]).change();
+                    //$("#especialidad");
                     $('#cargo_profesional').prop('disabled', true);
                     $(btn).prop('disabled', true);
                     $('#img-foto_profecional').attr('scr', '#');
@@ -1873,4 +1883,81 @@ $('#lista-videos-institucion').on('click', '.close' , function (e) {
             mensaje_error('#mensajes-videos', response.mensaje);
         }
     });
+});
+
+$('#form-password-institucion').validate({
+    rules: {
+        'password': {
+            required: true,
+        },
+        'password_new': {
+            required: true,
+        },
+        'password_new_confirmation': {
+            required: true,
+        }
+    },
+    messages: {
+        'password':{
+            required: "Por favor ingrese la contraseña actual",
+        },
+        'password_new':{
+            required: "Por favor ingrese la contraseña nueva",
+        },
+        'password_new_confirmation':{
+            required: "Por favor repita la contraseña actual",
+        }
+    },
+    submitHandler: function(form) {
+        //Elementos
+        var btn = '#btn-guardar-password-institucion';
+        boton_guardar_cargando(btn);
+        var formulario = $(form);
+        //console.log(formulario.attr('action'));
+        //Ajax
+        $.ajaxSetup({
+            /*Se anade el token al ajax para seguridad*/
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var data = new FormData(formulario[0]);
+
+        $.ajax({
+            url:  formulario.attr('action'),
+            type: "post",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+            dataType: 'json',
+            success: function( response ) {
+
+                $('.form-control').removeClass('is-invalid');
+                boton_guardar(btn);
+
+                //Respuesta
+                mensaje_success('#mensajes-password', response.mensaje)
+            },
+            error: function (event) {
+                //Finaliza la carga
+                $('.form-control').removeClass('is-invalid');
+                boton_guardar(btn);
+
+                //Respuesta
+                var response = event.responseJSON;
+
+                if (event.status === 422){
+                    mensaje_error('#mensajes-password', response.mensaje, response.error.mensajes)
+                }else {
+                    mensaje_error('#mensajes-password', response.mensaje)
+                }
+
+                //Si es validación por formulario
+                if (response.error.ids !== undefined && response.error.ids !== null) id_invalid(response.error.ids, event.status);
+            }
+        });
+    }
 });

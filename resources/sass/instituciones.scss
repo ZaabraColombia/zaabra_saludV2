@@ -111,7 +111,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    padding: 0;
+    padding: 1em .2em;
     justify-content: center;
     align-items: center;
 }
@@ -209,6 +209,7 @@ color:#FFCC36;
         align-content: center;
         justify-content: center;
         align-items: center;
+        margin-bottom: 2%;
     }
     .contains_slide_insti .contains_buttons a{
         display: flex;
@@ -232,7 +233,7 @@ color:#FFCC36;
         margin-top: 3%;
     }
     .card_normal_insti{
-        max-width: 75%;
+        max-width: 80%;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 15%;
@@ -289,11 +290,11 @@ color:#FFCC36;
         padding-top: 10%;
     }
     .card_generic_insti{
-        max-width: 75%;
+        max-width: 80%;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 5%;
-        height: 13vh;
+        //height: 13vh;
     }
     .card_generic_insti .card-body h5{
         font-size: 1em;
@@ -415,7 +416,7 @@ color:#FFCC36;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 5%;
-        height: 8vh;
+        //height: 8vh;
     }
     .contains_slide_insti .contains_info{
         margin-top: 3%;
@@ -513,7 +514,7 @@ color:#FFCC36;
     }
     .card_generic_insti{
         width: 24%;
-        height: 12vh;
+        //height: 12vh;
         margin-bottom: 2%;
     }
     .card_generic_insti .card-body h5{
@@ -621,7 +622,7 @@ color:#FFCC36;
     }
     .card_generic_insti{
         width: 24%;
-        height: 8vh;
+        //height: 8vh;
         margin-bottom: 2%;
     }
     .card_generic_insti .card-body h5{

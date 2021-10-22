@@ -41,7 +41,7 @@
           <p class="text_ramSalud">{{$profesion->descripcion}}</p>
 
           <div class="section_btn_ramSalud">
-            <a class="content_btn_ramSalud" href="{{url('Especialidades-Medicas/'.$profesion->slug)}}">
+            <a class="content_btn_ramSalud" href="{{ route('Especialidades', ['nombreProfesion' => $profesion->slug]) }}">
               <button type="submit" value="" class="btnVer_ramSalud" > Ver especialidades
                 <img class="icon_arrow_ramSalud" src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" alt="">
               </button>
