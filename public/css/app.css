@@ -34405,8 +34405,13 @@ label.error {
     font-size: 1.3em;
   }
 }
+.content_main {
+  background: #F9F9F9;
+  padding: 0 10px;
+}
+
 .container_grid .card {
-  width: 140px !important;
+  width: 145px !important;
 }
 
 .imagen_inst_instProf {
@@ -34438,6 +34443,7 @@ label.error {
   align-items: center;
   padding-top: 30px;
   justify-content: flex-start;
+  margin-bottom: 45px !important;
 }
 
 .swiper_btn_especialidades {
@@ -34459,26 +34465,30 @@ label.error {
 
 .btnPrev_especialidades {
   font-size: 1em;
-  /* top: 130px; */
-  /* left: -1px; */
-  /* right: auto; */
-  width: 10px;
-  height: 25px;
+  top: 90px;
+  left: 85px;
   color: #019F86;
+  background: #dee2e6;
+  border-radius: 25px;
+  width: 25px;
+  height: 25px;
+  box-shadow: 0.5px 0px 1.5px 0.5px rgba(0, 0, 0, 0.3);
 }
 
 .btnNext_especialidades {
   font-size: 1em;
-  /* top: 130px; */
-  /* right: -1px; */
-  left: auto;
-  width: 10px;
-  height: 25px;
+  top: 90px;
+  right: 85px;
   color: #019F86;
+  background: #dee2e6;
+  border-radius: 25px;
+  width: 25px;
+  height: 25px;
+  box-shadow: -0.5px 0px 1.5px 0.5px rgba(0, 0, 0, 0.3);
 }
 
 .btnPrev_especialidades:after, .btnNext_especialidades:after {
-  font-size: 1.15em;
+  font-size: 1em;
   font-weight: bolder;
 }
 
@@ -34492,8 +34502,8 @@ label.error {
 .cbp .img_perfil_instProf {
   border: 1px solid #dcdcdc;
   border-radius: 74px;
-  height: 115px;
-  width: 115px;
+  height: 80px;
+  width: 80px;
   margin-top: 8%;
   margin-right: auto;
   margin-bottom: 5%;
@@ -34505,42 +34515,54 @@ label.error {
 }
 
 .container_targets_prof .card-body {
-  padding: 0 0.5em 1em 0.5em;
+  padding: 0 0.3em 1em 0.3em;
 }
 
 .subSpecialty {
   display: none;
 }
 
+/*.user_data {
+    height: 135px;
+}*/
 .container_targets_prof .card-body h2 {
   font-family: "Quicksand";
-  font-size: 1.3em;
+  font-size: 1.15em;
   font-weight: bolder;
   color: #019F86;
   text-align: center;
   margin: 0;
+  line-height: 1.1;
 }
 
 .container_targets_prof .card-body h5 {
   font-family: "Quicksand";
-  font-size: 1.05em;
+  font-size: 0.9em;
   font-weight: bolder;
   color: #232323;
   text-align: center;
+  padding: 0.3em 0;
 }
 
 .container_targets_prof .card-body p {
   font-family: "Roboto";
-  font-size: 0.85em;
+  font-size: 0.75em;
   font-weight: 500;
   color: #232323;
   text-align: center;
+  line-height: 1.1;
+}
+
+.name_university {
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container_targets_prof .card-body h4 {
   font-family: "Roboto";
   font-size: 0.9em;
-  font-weight: 500;
   color: #232323;
   font-weight: bolder;
   text-align: center;
@@ -34559,28 +34581,74 @@ label.error {
 }
 
 .btn_tarjeta_prof a {
-  font-size: 1em;
+  font-size: 0.9em;
   font-family: "Roboto";
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   background: #019F86;
   padding: 5%;
   border-radius: 3px;
 }
 
 @media (min-width: 360px) {
-  .btnPrev_especialidades {
-    top: 283px;
-    left: 23px;
+  .container_grid .card {
+    width: 165px !important;
   }
 
+  .cbp .img_perfil_instProf {
+    height: 110px;
+    width: 110px;
+  }
+
+  /*.container_targets_prof .card-body h2 {
+      font-size: 1.25em;
+      height: 40px;
+  }
+  .container_targets_prof .card-body h5 {
+      font-size: 1em;
+  }
+  .container_targets_prof .card-body p {
+      font-size: 0.85em;
+  }
+  .container_targets_prof .card-body h4 {
+      font-size: 1em;
+  }
+  .btn_tarjeta_prof a {
+      font-size: 1em;
+  }
+  .btnPrev_especialidades {
+      top: 283px;
+      left: 23px;
+  }
   .btnNext_especialidades {
-    top: 283px;
-    right: 23px;
+      top: 283px;
+      right: 23px;
+  }*/
+}
+@media (min-width: 375px) {
+  .container_grid .card {
+    width: 190px !important;
   }
 }
 @media (min-width: 600px) {
+  .swiper_btn_especialidades {
+    display: flex;
+    width: 550px;
+  }
+
+  .btnPrev_especialidades {
+    left: 193px;
+  }
+
+  .btnNext_especialidades {
+    left: 329px;
+  }
+
+  .container_grid .card {
+    width: 200px !important;
+  }
+
   .imagen_inst_instProf {
     height: 400px;
   }
@@ -34592,97 +34660,110 @@ label.error {
     width: 50%;
   }
 
-  .swiper_btn_especialidades {
-    width: 555px;
+  /*.swiper_btn_especialidades {
+      width: 555px;
   }
-
   .swiper_btn_especialidades .cbp-l-filters-alignRight .cbp-filter-item {
-    font: 600 13px/20px "Quicksand", sans-serif;
-    width: 180px !important;
+      font: 600 13px/20px "Quicksand", sans-serif;
+      width: 180px !important;
   }
-
   .btnPrev_especialidades {
-    top: 545px;
-    left: 100px;
+      top: 545px;
+      left: 100px;
   }
-
   .btnNext_especialidades {
-    top: 545px;
-    right: 100px;
-  }
-
+      top: 545px;
+      right:100px;
+  }*/
   .container_targets_prof {
     width: 80%;
   }
 }
 @media (min-width: 1024px) {
   .swiper_btn_especialidades {
-    width: 738px;
+    display: flex;
+    width: 689px;
   }
 
   .btnPrev_especialidades {
-    top: 527px;
-    left: 120px;
+    left: 260px;
   }
 
   .btnNext_especialidades {
-    top: 527px;
-    right: 120px;
+    left: 400px;
   }
 
   .container_targets_prof {
     width: 85%;
   }
+
+  /*.swiper_btn_especialidades {
+      width: 738px;
+  }
+  .btnPrev_especialidades {
+      top: 527px;
+      left: 120px;
+  }
+  .btnNext_especialidades {
+      top: 527px;
+      right:120px;
+  }*/
 }
 @media (min-width: 1200px) {
   .imagen_inst_instProf {
     height: 550px;
   }
 
-  .nombre_inst_instProf {
-    font-size: 2.5em;
-    left: 150px;
-  }
-
-  .btnPrev_especialidades {
-    top: 677px;
-    left: 210px;
-  }
-
-  .btnNext_especialidades {
-    top: 677px;
-    right: 210px;
-  }
-
   .container_targets_prof {
     width: 75%;
   }
+
+  .container_grid .card {
+    width: 215px !important;
+  }
+
+  /*.nombre_inst_instProf {
+      font-size: 2.5em;
+      left: 150px;
+  }
+  .btnPrev_especialidades {
+      top: 677px;
+      left: 210px;
+  }
+  .btnNext_especialidades {
+      top: 677px;
+      right:210px;
+  }*/
 }
 @media (min-width: 1300px) {
-  .swiper_btn_especialidades {
-    width: 925px;
+  /*.swiper_btn_especialidades {
+      width: 925px;
   }
-
   .btnPrev_especialidades {
-    left: 200px;
+      left: 200px;
   }
-
   .btnNext_especialidades {
-    right: 200px;
-  }
-
+      right:200px;
+  }*/
   .container_targets_prof {
     width: 80%;
   }
+
+  .container_grid .card {
+    width: 205px !important;
+  }
 }
 @media (min-width: 1440px) {
-  .btnPrev_especialidades {
-    left: 230px;
+  .container_grid .card {
+    width: 220px !important;
   }
 
-  .btnNext_especialidades {
-    right: 230px;
+  /*.btnPrev_especialidades {
+      left: 230px;
   }
+  .btnNext_especialidades {
+      right:230px;
+  }*/
 }
 @media (min-width: 1920px) {
   .nombre_inst_instProf {
@@ -34692,29 +34773,43 @@ label.error {
   }
 
   .swiper_btn_especialidades {
-    width: 1295px;
+    width: 1110px;
   }
 
+  .option_line_profInst {
+    margin-bottom: 60px !important;
+  }
+
+  /*.swiper_btn_especialidades {
+      width: 1295px;
+  }*/
   .swiper_btn_especialidades .cbp-l-filters-alignRight .cbp-filter-item {
-    font: 600 13.5px/25px "Quicksand", sans-serif;
+    font: 600 13px/25px "Quicksand", sans-serif;
     width: 180px !important;
   }
 
   .btnPrev_especialidades {
-    top: 685px;
-    left: 265px;
+    top: 100px;
+    left: 435px;
   }
 
   .btnNext_especialidades {
-    top: 685px;
-    right: 265px;
+    top: 100px;
+    left: 640px;
   }
 
+  /*.btnPrev_especialidades {
+      top: 685px;
+      left: 265px;
+  }
+  .btnNext_especialidades {
+      top: 685px;
+      right:265px;
+  }
   .btnPrev_especialidades:after, .btnNext_especialidades:after {
-    font-size: 1.5em;
-    font-weight: bolder;
-  }
-
+      font-size: 1em;
+      font-weight: bolder;
+  }*/
   .container_targets_prof {
     width: 75%;
   }
