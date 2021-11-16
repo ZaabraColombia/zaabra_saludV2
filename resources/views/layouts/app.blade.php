@@ -27,6 +27,16 @@
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.css" integrity="sha512-zwoDXU7OjppdwrN9brNSW0E2G5+BxJsDXrwoUCEYJ3mE4ZmApOp0DJc36amSk3h8iWi8+qjcii7WFb+9m8Ro4g==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
 
         @yield('styles')
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XYV89KDD52"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-XYV89KDD52');
+        </script>
     </head>
 
     <body>
@@ -39,7 +49,7 @@
             <main>
                 @yield('content')
             </main>
-            
+
             @include('footer')
         </div>
 

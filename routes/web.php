@@ -60,13 +60,13 @@ Route:: get('/PerfilInstitucion/{slug}',[App\Http\Controllers\entidades\perfilIn
 Route:: get('/PerfilInstitucion/{slug}/profesionales',[App\Http\Controllers\entidades\perfilInstitucionController::class,'profesionales'])->name('PerfilInstitucion-profesionales');
 
 /*Esta ruta direcciona a la vista de Acerca de Zaabra*/
-Route::get('/acerca', function () { return view('quienes-somos/acerca');})->name('acerca');
+Route::get('/acerca-de-Zaabra-salud', function () { return view('quienes-somos/acerca');})->name('acerca');
 
 /*Esta ruta direcciona a la vista de Preguntas Frecuentes*/
-Route::get('/preguntas', function () { return view('quienes-somos/preguntas');})->name('preguntas');
+Route::get('/preguntas-frecuentes', function () { return view('quienes-somos/preguntas');})->name('preguntas');
 
 /* Esta ruta direcciona a la vista de Políticas de uso */
-Route::get('/politicas', function () { return view('quienes-somos/politicas');})->name('politicas');
+Route::get('/politicas-de-uso-de-Zaabra-salud', function () { return view('quienes-somos/politicas');})->name('politicas');
 
 /* Esta ruta direcciona a la vista Contactenos */
 Route:: get('/contacto',[App\Http\Controllers\contactecnosController::class,'index'])->name('contacto');
@@ -76,10 +76,10 @@ Route:: post('/contacto',[App\Http\Controllers\contactecnosController::class,'sa
 Route:: post('/newsletter',[App\Http\Controllers\newsletter\newsletterController::class,'save'])->name('newsletter');
 
 // Esta ruta pertenece a la vista de membresía In stituciones
-Route::get('/membresiaInstitucion', function () { return view('instituciones/membresiaInstitucion');})->name('entidad.membresiaInstitucion');
+Route::get('/membresia-institucion', function () { return view('instituciones/membresiaInstitucion');})->name('entidad.membresiaInstitucion');
 
 // Esta ruta pertenece a la vista de membresía profesional
-Route::get('/membresiaProfesional', function () { return view('profesionales/membresiaProfesional');})->name('profesional.membresiaProfesional');
+Route::get('/membresia-profesional', function () { return view('profesionales/membresiaProfesional');})->name('profesional.membresiaProfesional');
 
 Route::get('auth/google', [\App\Http\Controllers\Auth\GoogleController::class, 'redirectToGoogle'])->name('google-redirect');
 Route::get('auth/google/callback', [\App\Http\Controllers\Auth\GoogleController::class, 'handleGoogleCallback'])->name('google-callback');

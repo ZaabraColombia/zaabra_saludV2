@@ -43,11 +43,17 @@
         </section>
     </div>--}} -->
 
+  
+
     <section class="container-fluid content_main">
         <!-- Filter -->
         <div class="swiper-container swiper_btn_especialidades"> 
             <ul id="filterControls" class="list-inline cbp-l-filters-alignRight text-center option_line_profInst swiper-wrapper">
-                <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item asociado all_asociados swiper-slide" data-filter="*">Asociados</li>
+                @if($institucion[0]->idtipoInstitucion == 9)
+                    <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item asociado all_asociados swiper-slide" data-filter="*">Asociados</li>
+                @else
+                    <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item asociado all_asociados swiper-slide" data-filter="*">Profesionales</li>
+                @endif
                 @foreach($especialidades as $item)
                     <li class="list-inline-item cbp-filter-item u-cubeportfolio__item asociado one_especiality swiper-slide" data-filter=".{{ Str::slug($item) }}">{{ $item }}</li>
                 @endforeach

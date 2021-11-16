@@ -304,18 +304,21 @@ $('#formulario_consulta').validate({
                     $(btn).prop('disabled', true);
                 }
 
-                $('#consultas-lista').append('<div class="section_infoConsulta-formProf">\n' +
-                    '<div class="col-12 content_btnX-cierre-formProf">\n' +
-                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
-                    '</div>\n' +
-                    '<div class="option_consulta-formProf">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf"> Tipo de consulta </label>\n' +
-                    '<span class="col-12 text_infoGuardada-formProf">' + $('#tipo_consulta').val() + '</span>\n' +
-                    '</div>\n' +
-                    '<div class="option_consulta-formProf">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf"> Valor consulta </label>\n' +
-                    '<span class="col-12 text_infoGuardada-formProf">' + $('#valor_consulta').val() + '</span>\n' +
-                    '</div>\n' +
+                $('#consultas-lista').append( // Module medical consultation information
+                    '<div class="card_information_saved_form">\n' +
+                        '<div class="content_btn_close_form">\n' +
+                            '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                        '</div>\n' +
+
+                        '<div class="data_saved_form border-top-0">\n' +
+                            '<h5 class="col-12"> Tipo de consulta </h5>\n' +
+                            '<span class="col-12 ">' + $('#tipo_consulta').val() + '</span>\n' +
+                        '</div>\n' +
+                        
+                        '<div class="data_saved_form">\n' +
+                            '<h5 class="col-12"> Valor consulta </h5>\n' +
+                            '<span class="col-12">' + $('#valor_consulta').val() + '</span>\n' +
+                        '</div>\n' +
                     '</div>');
 
                 document.getElementById("formulario_consulta").reset();
@@ -437,12 +440,13 @@ $('#formulario_destacado').validate({
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
-                $('#destacado-lista').append('<div class="alert alert-info alert-dismissible fade show" role="alert">\n' +
+                $('#destacado-lista').append(
+                '<div class="section_dest_list alert alert-info alert-dismissible fade show" role="alert">\n' +
                     '<strong>' + response.nombre + '</strong>\n' +
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close" data-id=' + response.id + '>\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
+                        '<span aria-hidden="true">&times;</span>\n' +
                     '</button>\n' +
-                    '</div>');
+                '</div>');
 
                 console.log(response.count);
                 if (response.count >= 9){
@@ -1108,14 +1112,16 @@ $('#formulario_idioma').validate({
                     $(btn).prop('disabled', true);
                 }
 
-                $('#lista-idioma').append('<div class="section_infoAsocia-formProf">\n' +
-                    '<div class="col-12 content_btnX-cierre-formProf">\n' +
-                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
-                    '</div>\n' +
-                    '<div class="">\n' +
-                    '<img id="imagenPrevisualizacion" class="img_bandera-forProf" src="' + response.image + '">\n' +
-                    '<label for="example-date-input" class="text_idioma-formProf">' + response.idioma + '</label>\n' +
-                    '</div>\n' +
+                $('#lista-idioma').append(  // Module languages
+                    '<div class="card_information_saved_form">\n' +
+                        '<div class="content_btn_close_form">\n' +
+                            '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                        '</div>\n' +
+
+                        '<div class="flag_saved_form">\n' +
+                            '<img id="imagenPrevisualizacion" src="' + response.image + '">\n' +
+                            '<label for="example-date-input" class="label_txt_form">' + response.idioma + '</label>\n' +
+                        '</div>\n' +
                     '</div>');
 
                 document.getElementById("formulario_idioma").reset();
@@ -1293,34 +1299,37 @@ $('#formulario_tratamiento').validate({
                     $(btn).prop('disabled', true);
                 }
 
-                $('#lista-tratamientos').append('<div class="traProce_guardada-formProf">\n' +
-                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
-                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 col-md-6">\n' +
-                    '<label class="col-12 title_trata-formProf"> Antes </label>\n' +
-                    '<div class="col-12 img_selccionada-formProf">\n' +
-                    '<img class="img_traProced-formProf" src="' + response.imagen_antes + '">\n' +
-                    '</div>\n' +
-                    '<div class="col-12 mt-2 text_label-formProf">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#tituloTrataminetoAntes').val() + ' </label>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 descripcion_Premio-formProf">\n' +
-                    ' <label class="col-12 text_infoGuardada-formProf"> ' + $('#descripcionTratamientoAntes').val() + ' </label>\n' +
-                    '</div>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 col-md-6 after_formProf">\n' +
-                    '<label class="col-12 title_trata-formProf"> Después </label>\n' +
-                    '<div class="col-12 img_selccionada-formProf">\n' +
-                    '<img class="img_traProced-formProf" src="' + response.imagen_despues + '">\n' +
-                    '</div>\n' +
-                    '<div class="col-12 mt-2 text_label-formProf">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#tituloTrataminetoDespues').val() + ' </label>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 descripcion_Premio-formProf">\n' +
-                    '<label class="col-12 text_infoGuardada-formProf"> ' + $('#descripcionTratamientoDespues').val() + ' </label>\n' +
-                    '</div>\n' +
-                    '</div>\n' +
+                $('#lista-tratamientos').append(  //Module treatments and procedures
+                    '<div class="card_contentDouble_form">\n' +
+                        '<div class="content_btn_close_form">\n' +
+                            '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                        '</div>\n' +
+
+                        '<div class="col-md-6 p-0 pr-md-3">\n' + // Content before
+                            '<h5 class="label_txt_form text-center mb-2"> Antes </h5>\n' +
+                            
+                            '<div class="image_preview_form">\n' +
+                                '<img src="' + response.imagen_antes + '">\n' +
+                            '</div>\n' +
+
+                            '<div class="text_preview_form">\n' +
+                                '<h5> ' + $('#tituloTrataminetoAntes').val() + ' </h5>\n' +
+                                ' <p> ' + $('#descripcionTratamientoAntes').val() + ' </p>\n' +
+                            '</div>\n' +
+                        '</div>\n' +
+
+                        '<div class="col-md-6 p-0 pl-md-3 line_vertical_form">\n' + // Content after
+                            '<h5 class="label_txt_form text-center mb-2"> Después </h5>\n' +
+
+                            '<div class="image_preview_form">\n' +
+                                '<img src="' + response.imagen_despues + '">\n' +
+                            '</div>\n' +
+
+                            '<div class="text_preview_form">\n' +
+                                '<h5> ' + $('#tituloTrataminetoDespues').val() + ' </h5>\n' +
+                                '<p> ' + $('#descripcionTratamientoDespues').val() + ' </p>\n' +
+                            '</div>\n' +
+                        '</div>\n' +
                     '</div>');
 
                 document.getElementById("formulario_tratamiento").reset();
@@ -1494,24 +1503,21 @@ $('#formulario_premio').validate({
                     $(btn).prop('disabled', true);
                 }
 
-                $('#lista-premios').append('<div class="section_infoExper-formProf">\n' +
-                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
-                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 mt-2 p-0">\n' +
-                    '<div class="img_selccionada-formProf">\n' +
-                    '<img class="img_anexada-formProf" src="' + response.imagen + '">\n' +
-                    '</div>\n' +
-                    '<div class="col-12 p-0 mt-2">\n' +
-                    '<label class="col-12 text_fechaPremio-formProf"> ' + $('#fechaPremio').val() + ' </label>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 text_label-formProf">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombrePremio').val() + '  </label>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 descripcion_Premio-formProf">\n' +
-                    '<label class="col-12 text_descPremio-formProf"> ' + $('#descripcionPremio').val() + ' </label>\n' +
-                    '</div>\n' +
-                    '</div>\n' +
+                $('#lista-premios').append(  // Module awards and honours
+                    '<div class="card_information_saved_form width_card_single">\n' +
+                        '<div class="content_btn_close_form">\n' +
+                            '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                        '</div>\n' +
+
+                        '<div class="image_preview_form">\n' +
+                            '<img src="' + response.imagen + '">\n' +
+                        '</div>\n' +
+                    
+                        '<div class="text_preview_form">\n' +
+                            '<span> ' + $('#fechaPremio').val() + ' </span>\n' +
+                            '<h5> ' + $('#nombrePremio').val() + '  </h5>\n' +
+                            '<p> ' + $('#descripcionPremio').val() + ' </p>\n' +
+                        '</div>\n' +    
                     '</div>');
 
                 document.getElementById("formulario_premio").reset();
@@ -1667,21 +1673,20 @@ $('#formulario_publicaciones').validate({
                     $(btn).prop('disabled', true);
                 }
 
-                $('#lista-publicacion').append('<div class="section_infoExper-formProf">\n' +
-                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
-                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 my-2">\n' +
-                    '<div class="img_selccionada-formProf">\n' +
-                    '<img class="img_anexada-formProf" src="' + response.imagen + '">\n' +
-                    '</div>\n' +
-                    '<div class="col-12 mt-2 text_label-formProf">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombrePublicacion').val() + ' </label>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 descripcion_Premio-formProf">\n' +
-                    '<label class="col-12 text_descPremio-formProf"> ' + $('#descripcionPublicacion').val() + ' </label>\n' +
-                    '</div>\n' +
-                    '</div>\n' +
+                $('#lista-publicacion').append(  // Module publication
+                    '<div class="card_information_saved_form width_card_single">\n' +
+                        '<div class="content_btn_close_form">\n' +
+                            '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                        '</div>\n' +
+
+                        '<div class="image_preview_form">\n' +
+                            '<img src="' + response.imagen + '">\n' +
+                        '</div>\n' +
+             
+                        '<div class="text_preview_form">\n' +
+                            '<h5> ' + $('#nombrePublicacion').val() + ' </h5>\n' +
+                            '<p> ' + $('#descripcionPublicacion').val() + ' </p>\n' +
+                        '</div>\n' +
                     '</div>');
 
                 document.getElementById("formulario_publicaciones").reset();
@@ -1843,21 +1848,20 @@ $('#formulario_fotos').validate({
                     $(btn).prop('disabled', true);
                 }
 
-                $('#lista-fotos').append('<div class="section_infoExper-formProf">\n' +
-                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
-                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 my-2 p-0">\n' +
-                    '<div class="img_selccionada-formProf">\n' +
-                    '<img  class="img_anexada-formProf" src="' + response.imagen + '">\n' +
-                    '</div>\n' +
-                    '<div class="col-12 mt-2 text_label-formProf">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombreFoto').val() + ' </label>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 descripcion_Premio-formProf">\n' +
-                    '<label class="col-12 text_descPremio-formProf"> ' + $('#descripcionFoto').val() + ' </label>\n' +
-                    '</div>\n' +
-                    '</div>\n' +
+                $('#lista-fotos').append(  // Module gallery
+                    '<div class="card_information_saved_form width_card_single">\n' +
+                        '<div class="content_btn_close_form">\n' +
+                            '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                        '</div>\n' +
+
+                        '<div class="image_preview_form">\n' +
+                            '<img src="' + response.imagen + '">\n' +
+                        '</div>\n' +
+
+                        '<div class="text_preview_form">\n' +
+                            '<h5> ' + $('#nombreFoto').val() + ' </h5>\n' +
+                            '<p> ' + $('#descripcionFoto').val() + ' </p>\n' +
+                        '</div>\n' +
                     '</div>');
 
                 document.getElementById("formulario_fotos").reset();
@@ -2005,24 +2009,21 @@ $('#formulario-videos').validate({
                     $(btn).prop('disabled', true);
                 }
 
-                $('#lista-videos').append('<div class="section_infoExper-formProf">\n' +
-                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
-                    '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 my-2">\n' +
-                    '<div class="img_selccionada-formProf">\n' +
-                    '<iframe class="img_anexada-formProf" src="' + $('#urlVideo').val() + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 p-0 mt-2">\n' +
-                    '<label class="col-12 text_fechaPremio-formProf"> ' + $('#fechaVideo').val() + ' </label>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 text_label-formProf">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombreVideo').val() + ' </label>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 descripcion_Premio-formProf">\n' +
-                    '<p class="col-12 text_descPremio-formProf"> ' + $('#descripcionVideo').val() + ' </p>\n' +
-                    '</div>\n' +
-                    '</div>\n' +
+                $('#lista-videos').append(  // Module video
+                    '<div class="card_information_saved_form width_card_single">\n' +
+                        '<div class="content_btn_close_form">\n' +
+                            '<button type="submit" class="close" aria-label="Close" data-id="' + response.id + '"><span aria-hidden="true">&times;</span></button>\n' +
+                        '</div>\n' +
+                        
+                        '<div class="image_preview_form">\n' +
+                            '<iframe src="' + $('#urlVideo').val() + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n' +
+                        '</div>\n' +
+
+                        '<div class="text_preview_form">\n' +
+                            '<span"> ' + $('#fechaVideo').val() + ' </span>\n' +
+                            '<h5> ' + $('#nombreVideo').val() + ' </h5>\n' +
+                            '<p> ' + $('#descripcionVideo').val() + ' </p>\n' +
+                        '</div>\n' +
                     '</div>');
 
                 document.getElementById("formulario-videos").reset();
