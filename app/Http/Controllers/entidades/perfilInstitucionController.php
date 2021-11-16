@@ -213,7 +213,7 @@ class perfilInstitucionController extends Controller  {
 
     // consulta para cargar informacion de la landing
     public function cargarInfoInstitucion($slug){
-        return DB::select("SELECT ints.id, ints.logo,ints.imagen , us.nombreinstitucion, ints.slug
+        return DB::select("SELECT ints.id, ints.logo,ints.imagen , us.nombreinstitucion, ints.slug, ints.idtipoInstitucion
         FROM instituciones ints
         INNER JOIN users us ON ints.idUser=us.id
         WHERE ints.aprobado<>0 AND ints.slug like '$slug'");
