@@ -67,7 +67,12 @@
 
         <!-- seccion datos consulta perfil profesional-->
         <section class="contains_swiper_institucion">
-            <h1>¿Por qué es un centro médico de alto nivel?</h1>
+            @if($objinstitucionlandin->idtipoInstitucion == 9)
+                <h1> !Una asociación médica de vanguardia!</h1>
+            @else
+                <h1>¿Por qué es un centro médico de alto nivel?</h1>
+            @endif
+     
             <div class="swiper-container swiper_institucion">
                 <div class="swiper-wrapper landingInsti">
                     <li class="swiper-slide">

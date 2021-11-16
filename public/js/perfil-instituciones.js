@@ -157,6 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
            sections_insti.map(seccionInst => seccionInst.classList.remove('section_insti_active'));
            menu_insti.map(menuInst => menuInst.classList.remove(
              'servicios_clicked',
+             'profesionales_clicked',
              'acerca_clicked',
              'certificados_clicked',
              'sedes_clicked',
@@ -165,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
              sections_insti[itera_insti].classList.toggle('section_insti_active');
             
             (itera_insti == 0) ? menu_insti[0].classList.toggle('servicios_clicked'): count++
-            (itera_insti == 1) ? menu_insti[1].classList.toggle('profesional'): count++
+            (itera_insti == 1) ? menu_insti[1].classList.toggle('profesionales_clicked'): count++
             (itera_insti == 2) ? menu_insti[2].classList.toggle('acerca_clicked'): count++
             (itera_insti == 3) ? menu_insti[3].classList.toggle('certificados_clicked'): count++
             (itera_insti == 4) ? menu_insti[4].classList.toggle('sedes_clicked'): count++

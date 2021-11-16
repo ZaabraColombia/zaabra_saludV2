@@ -70,9 +70,9 @@
     </ol>
 
     <!-- 1* Contenedor principal de la opción DATOS INSTITUCIONALES -->
-    <div class="container-fluid date_institution content_principal-formInst"> <!-- Clase "date_institution" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
+    <div class="container-fluid date_institution card_container_formZS"> <!-- Clase "date_institution" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
         <!-- Titulo y texto superior -->
-        <div class="col-lg-10 col-xl-8 content_textPrincipal-formInst">
+        <div class="col-lg-10 col-xl-8 main_title_formZS">
             <h1 class="titulo_principal-formInst"> LE DAMOS LA BIENVENIDA A ZAABRA SALUD </h1>
 
             <p class="texto_superior-formInst"> Ingrese los datos según corresponda y finalice el proceso completamente en línea. </p>
@@ -260,7 +260,7 @@
     </div>
 
     <!-- 2* Contenedor principal de la opción SERVICIOS PROFESIONALES -->
-    <div class="container-fluid professional_services content_principal-formInst"> <!-- Clase "professional_services" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
+    <div class="container-fluid professional_services card_container_formZS"> <!-- Clase "professional_services" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
         <!--------------------------------------------      Inicio 3 tercera parte del formulario *** SERVICIO PROFESIONAL ***      ------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-12 icon_servProf-formInst"> Servicios profesionales </h5>
@@ -389,7 +389,7 @@
     </div>
 
     <!-- 3* Contenedor principal de la opción ACERCA DE LA INSTITUCIÓN -->
-    <div class="container-fluid about_institution content_principal-formInst"> <!-- Clase "about_institution" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
+    <div class="container-fluid about_institution card_container_formZS"> <!-- Clase "about_institution" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
         <!--------------------------------------------      Inicio 5 quinta parte del formulario *** QUIENES SOMOS ***      ------------------------------------------------------>
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_quienes-formInst"> ¿Quiénes somos? </h5>
@@ -519,7 +519,7 @@
     </div>
 
     <!-- 4* Contenedor principal de la opción PROFESIONALES -->
-    <div class="container-fluid professional_inst content_principal-formInst"> <!-- Clase "professional_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
+    <div class="container-fluid professional_inst card_container_formZS"> <!-- Clase "professional_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
         <!--------------------------------------------      Inicio 8 octava parte del formulario *** PROFESIONALES ***      --------------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_profesionales-formInst"> Profesionales </h5>
@@ -652,7 +652,7 @@
     </div>
 
     <!-- 5* Contenedor principal de la opción CERTIFICACIONES -->
-    <div class="container-fluid certifications_inst content_principal-formInst"> <!-- Clase "certifications_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
+    <div class="container-fluid certifications_inst card_container_formZS"> <!-- Clase "certifications_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
         <!--------------------------------------------      Inicio 9 novena parte del formulario *** CERTIFICACIONES ***      ------------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_certificaciones-formInst"> Certificaciones </h5>
@@ -768,7 +768,7 @@
     </div>
 
     <!-- 6* Contenedor principal de la opción SEDES -->
-    <div class="container-fluid venues_inst content_principal-formInst"> <!-- Clase "venues_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
+    <div class="container-fluid venues_inst card_container_formZS"> <!-- Clase "venues_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
         <!--------------------------------------------      Inicio 10 decima parte del formulario *** SEDES ***      ---------------------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_sedes-formInst"> Sedes </h5>
@@ -917,7 +917,7 @@
     </div>
 
     <!-- 7* Contenedor principal de la opción GALERIA -->
-    <div class="container-fluid gallery_inst content_principal-formInst"> <!-- Clase "gallery_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
+    <div class="container-fluid gallery_inst card_container_formZS"> <!-- Clase "gallery_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
         <!--------------------------------------------      Inicio 12 doceava parte del formulario *** GALERIA ***      ------------------------------------------------------->
         <div class="col-lg-10 col-xl-8 content_tarjetasInfo-formInst">
             <h5 class="col-lg-12 icon_galeriaInst-formInst"> Galería </h5>

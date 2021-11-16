@@ -848,6 +848,65 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card options_collapse_infoZaabra">
+                <div id="headingFive">
+                    <button class="btn_collapse_off_infoZaabra" onclick="colorBtnToggle(this)" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Términos y condiciones de documentación requerida para diligenciamiento de perfiles </button>
+                </div>
+
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                    <div class="card-body toggle_infoZaabra">
+                        <h5 class="title_toggle_infoZaabra">DOCUMENTOS REQUERIDOS PARA PRESENTAR SU PERFIL DE LS ASOCICIÓN, INSTITUCIONAL Y/O PROFESIONAL EN NUESTRA PLATAFORMA</h5>
+
+                        <p class="txt_toggle_infoZaabra">
+                            A continuación,, relacionamos los documentos necesarios para la inscripción de su perfil y mostrarlo en nuestra plataforma:
+                        </p>
+
+                        <h5 class="title_toggle_infoZaabra">Persona natural</h5>
+
+                        <p class="txt_toggle_infoZaabra">
+                            1. Documento de identidad por ambos lados. <br>
+                            2. Título o títulos de las universidades que lo acredita como profesional y/o especialista en la salud.<br>
+                            3. Certificación de las instituciones donde ha estudiado (acta de grado y diplomas de especializaciónes).<br>
+                            4. Trjeta profesional por ambos lados.<br>
+                            5. Certificación del Consejo Nacional de Acreditación de su profesión.<br>
+                            6. Certificado ReTHUS<br>
+                            7. Certificado de las diferentes asociaciones a las que se acredita.<br>
+                            8. Dirección del consultorio donde presta sus servicios profesionales, número de télefono fijo y celular.<br>
+                                &nbsp; &nbsp; &nbsp; &nbsp; 8.1 Si es propio, certificar propiedad.<br>
+                                &nbsp; &nbsp; &nbsp; &nbsp; 8.2 Si es arrendatario, anexar contrato.<br>
+                            9. Acreditación de habilitación emitida por Secretaria de Salud para el funcionamiento del sitio donde presta sus servicios profesionales (si aplica).<br>
+                            10. Registro de secretaria de salud antes de la ley 1090 de 2006 (si aplica).<br>
+                            11. Si el título de pregrado es de una universidad extranjera, deberá cargar la Resolución de convalidación del título ante el Ministerio de Educación Nacional.<br>
+                        </p>
+
+                        <h5 class="title_toggle_infoZaabra">Persona Jurídica</h5>
+
+                        <p class="txt_toggle_infoZaabra">
+                            1. Certificado de cámara y comercio.<br>
+                            2. Cedula de ciudadania del representante legal por ambas caras.<br>
+                            3. Rut actualizado espedido por la DIAN.<br>
+                            4. Título o títulos de las universidades que acreditan como profesional y/o especialista en la salud de los integrantes de la Asocición o institución.<br>
+                            5. Certificado de las instituciones donde ha estudiado (acta de grado y diplomas de especializaciones), de cada uno de sus profesionales.<br>
+                            6. Tarjeta profesional de cada uno de sus profesionales.<br>
+                            7. Certificación del Consejo Nacional de Acreditación de su profesión y de los profesionales de su Asociación e institución.<br>
+                            8. Certificación de ReTHUS.<br>
+                            9. Certificación de las diferentes asociaciones a las que pertenece sus asociados o integrantes de la asociación o institución.<br>
+                            10. Dirección del consultorio donde presta sus servicios profesionales, número de télefono fijo y celular.<br>
+                                &nbsp; &nbsp; &nbsp; &nbsp; 10.1 Si es propio, certificado de la propiedad.<br>
+                                &nbsp; &nbsp; &nbsp; &nbsp; 10.2 Si es arrendatario, anexar contrato.<br>
+                            11. Acreditación de habilitación emitida por la Secretaria de Salud para el funcionamiento del sitio donde presta sus servicios profesionales (si aplica).<br>
+                            12. Registro de la Secretaria de Salud antes de la ley 1090 de 2006 (si aplica).<br>
+                            13. Si el título de pregrado es de una universidad extranjera, deberá cargar la resolución de convalidación del título ante el Ministerio de Educación Nacional.<br>
+                        </p>
+
+                        <p class="txt_toggle_infoZaabra">
+                            Todos los documentos anteriormente relacionaos los debera enviar escaneados en formato pdf al correo aléctronico <span class="ancla_toggleFoot">servicioalcliente@zaabrasalud.co</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </div>
