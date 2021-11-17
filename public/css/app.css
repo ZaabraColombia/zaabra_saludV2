@@ -24487,7 +24487,6 @@ a:link, a:visited, a:active, a:hover {
   justify-content: center;
   list-style: none;
   padding: 0;
-  height: 200px;
   width: 300px;
   margin: 5% auto;
 }
@@ -24524,6 +24523,7 @@ a:link, a:visited, a:active, a:hover {
 
 .section_icon_form {
   width: 100px;
+  height: 100px;
 }
 
 .section_input_double_form {
@@ -24546,58 +24546,126 @@ a:link, a:visited, a:active, a:hover {
 
 .iconGris_perfProf {
   background-image: url("/img/formulario-profesional/icono-perfil-profesional-gris.svg");
-  background-repeat: no-repeat;
-  background-size: 60px;
-  background-position-x: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
   color: #D1D1D1;
-  font-size: 0.9em;
 }
 
 .iconGris_trataProced {
   background-image: url("/img/formulario-profesional/icono-tratamientos-y-procedimientos-gris.svg");
-  background-repeat: no-repeat;
-  background-size: 60px;
-  background-position-x: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
   color: #D1D1D1;
-  font-size: 0.9em;
 }
 
 .iconGris_premioRecon {
   background-image: url("/img/formulario-profesional/icono-premios-y-reconocimientos-gris.svg");
-  background-repeat: no-repeat;
-  background-size: 60px;
-  background-position-x: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
   color: #D1D1D1;
-  font-size: 0.9em;
 }
 
 .iconGris_public {
   background-image: url("/img/formulario-profesional/icono-publicaciones-gris.svg");
-  background-repeat: no-repeat;
-  background-size: 60px;
-  background-position-x: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
   color: #D1D1D1;
-  font-size: 0.9em;
 }
 
 .iconGris_galeriaVideo {
   background-image: url("/img/formulario-profesional/icono-galeria-gris.svg");
+  color: #D1D1D1;
+}
+
+.iconAzul_datoPersonal {
+  background-image: url("/img/formulario-profesional/icono-datos-personales.svg");
+  color: #0083D6;
+}
+
+.iconAzul_perfProf {
+  background-image: url("/img/formulario-profesional/icono-perfil-profesional.svg");
+  color: #0083D6;
+}
+
+.iconAzul_trataProced {
+  background-image: url("/img/formulario-profesional/icono-tratamientos-y-procedimientos.svg");
+  color: #0083D6;
+}
+
+.iconAzul_premioRecon {
+  background-image: url("/img/formulario-profesional/icono-premios-y-reconocimientos.svg");
+  color: #0083D6;
+}
+
+.iconAzul_public {
+  background-image: url("/img/formulario-profesional/icono-publicaciones.svg");
+  color: #0083D6;
+}
+
+.iconAzul_galeriaVideo {
+  background-image: url("/img/formulario-profesional/icono-galeria.svg");
+  color: #0083D6;
+}
+
+.iconGris_servProfesional {
+  background-image: url("/img/formulario-institucion/icono-servicios-profesionales-gris.svg");
+  color: #D1D1D1;
+}
+
+.iconGris_acercaInst {
+  background-image: url("/img/formulario-institucion/acerca-de-la-institucion-gris.svg");
+  color: #D1D1D1;
+}
+
+.iconGris_profesionalInst {
+  background-image: url("/img/formulario-institucion/icono-profesionales-gris.svg");
+  color: #D1D1D1;
+}
+
+.iconGris_certifInst {
+  background-image: url("/img/formulario-institucion/icono-certificaciones-gris.svg");
+  color: #D1D1D1;
+}
+
+.iconGris_sedeInst {
+  background-image: url("/img/formulario-institucion/icono-sede-gris.svg");
+  color: #D1D1D1;
+}
+
+.iconGris_galeInst {
+  background-image: url("/img/formulario-institucion/icono-galeria-gris.svg");
+  color: #D1D1D1;
+}
+
+.iconVerde_datoInst {
+  background-image: url("/img/formulario-institucion/datos-institucionales-verde.svg");
+  color: #019F86;
+}
+
+.iconVerde_servProfesional {
+  background-image: url("/img/formulario-institucion/icono-servicios-profesionales.svg");
+  background-repeat: no-repeat;
+  color: #019F86;
+}
+
+.iconVerde_acercaInst {
+  background-image: url("/img/formulario-institucion/acerca-de-la-institucion.svg");
+  color: #019F86;
+}
+
+.iconVerde_profesionalInst {
+  background-image: url("/img/formulario-institucion/icono-profesionales.svg");
+  color: #019F86;
+}
+
+.iconVerde_certifInst {
+  background-image: url("/img/formulario-institucion/icono-certificaciones.svg");
+  color: #019F86;
+}
+
+.iconVerde_sedeInst {
+  background-image: url("/img/formulario-institucion/icono-sede.svg");
+  color: #019F86;
+}
+
+.iconVerde_galeInst {
+  background-image: url("/img/formulario-institucion/icono-galeria.svg");
+  color: #019F86;
+}
+
+.section_icon_form li {
   background-repeat: no-repeat;
   background-size: 60px;
   background-position-x: center;
@@ -24605,153 +24673,180 @@ a:link, a:visited, a:active, a:hover {
   height: 100%;
   display: flex;
   align-items: flex-end;
-  color: #D1D1D1;
-  font-size: 0.9em;
 }
 
 .section_icon_form p {
   font-family: "Quicksand", "Regular";
-  margin: 0;
+  font-size: 0.9em;
   text-align: center;
   display: flex;
   justify-content: center;
   width: 100%;
   height: 40px;
+  margin: 0;
   line-height: 1;
-}
-
-.iconAzul_datoPersonal {
-  background-image: url("/img/formulario-profesional/icono-datos-personales.svg");
-  background-repeat: no-repeat;
-  background-size: 60px;
-  background-position-x: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  color: #0083D6;
-  font-size: 0.9em;
-}
-
-.iconAzul_perfProf {
-  background-image: url("/img/formulario-profesional/icono-perfil-profesional.svg");
-  background-repeat: no-repeat;
-  background-size: 60px;
-  background-position-x: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  color: #0083D6;
-  font-size: 0.9em;
-}
-
-.iconAzul_trataProced {
-  background-image: url("/img/formulario-profesional/icono-tratamientos-y-procedimientos.svg");
-  background-repeat: no-repeat;
-  background-size: 60px;
-  background-position-x: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  color: #0083D6;
-  font-size: 0.9em;
-}
-
-.iconAzul_premioRecon {
-  background-image: url("/img/formulario-profesional/icono-premios-y-reconocimientos.svg");
-  background-repeat: no-repeat;
-  background-size: 60px;
-  background-position-x: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  color: #0083D6;
-  font-size: 0.9em;
-}
-
-.iconAzul_public {
-  background-image: url("/img/formulario-profesional/icono-publicaciones.svg");
-  background-repeat: no-repeat;
-  background-size: 60px;
-  background-position-x: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  color: #0083D6;
-  font-size: 0.9em;
-}
-
-.iconAzul_galeriaVideo {
-  background-image: url("/img/formulario-profesional/icono-galeria.svg");
-  background-repeat: no-repeat;
-  background-size: 60px;
-  background-position-x: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  color: #0083D6;
-  font-size: 0.9em;
 }
 
 .icon_basicInfo_formProf {
   background-image: url("/img/formulario-profesional/icono-informacion-basica.svg");
+  border-bottom: 1px solid #019F86;
+  color: #019F86;
 }
 
-.icon_infoContac-formProf {
+.icon_infoContac_Prof {
   background-image: url("/img/formulario-profesional/icono-informacion-de-contacto.svg");
+  border-bottom: 1px solid #019F86;
+  color: #019F86;
 }
 
-.icon_infoConsult-formProf {
+.icon_infoConsult_Prof {
   background-image: url("/img/formulario-profesional/icono-informacion-de-consulta.svg");
+  border-bottom: 1px solid #019F86;
+  color: #019F86;
 }
 
-.icon_destacado-formProf {
+.icon_destacado_Prof {
   background-image: url("/img/formulario-profesional/icono-agregar-especialidad-favoritos-verde.svg");
+  border-bottom: 1px solid #019F86;
+  color: #019F86;
 }
 
-.icon_infoSubPerfil-formProf {
+.icon_infoSubPerfil_Prof {
   background-image: url("/img/formulario-profesional/icono-subperfil-profesional.svg");
+  border-bottom: 1px solid #019F86;
+  color: #019F86;
 }
 
-.icon_infoEduc-formProf {
+.icon_infoEduc_Prof {
   background-image: url("/img/formulario-profesional/icono-educacion.svg");
+  border-bottom: 1px solid #019F86;
+  color: #019F86;
 }
 
-.icon_infoExper-formProf {
+.icon_infoExper_Prof {
   background-image: url("/img/formulario-profesional/icono-experiencia.svg");
+  border-bottom: 1px solid #019F86;
+  color: #019F86;
 }
 
-.icon_infoAsocia-formProf {
+.icon_infoAsocia_Prof {
   background-image: url("/img/formulario-profesional/icono-asociaciones.svg");
+  border-bottom: 1px solid #019F86;
+  color: #019F86;
 }
 
-.icon_infoIdioma-formProf {
+.icon_infoIdioma_Prof {
   background-image: url("/img/formulario-profesional/icono-idiomas.svg");
+  border-bottom: 1px solid #019F86;
+  color: #019F86;
 }
 
-.icon_infoTratam-formProf {
+.icon_infoTratam_Prof {
   background-image: url("/img/formulario-profesional/icono-interno-tratamientos-y-procedimientos.svg");
+  border-bottom: 1px solid #019F86;
+  color: #019F86;
 }
 
-.icon_infoPremReco-formProf {
+.icon_infoPremReco_Prof {
   background-image: url("/img/formulario-profesional/icono-interno-premios-y-reconocimientos.svg");
+  border-bottom: 1px solid #019F86;
+  color: #019F86;
 }
 
-.icon_infoPublic-formProf {
+.icon_infoPublic_Prof {
   background-image: url("/img/formulario-profesional/icono-interno-publicaciones.svg");
+  border-bottom: 1px solid #019F86;
+  color: #019F86;
 }
 
-.icon_infoGale-formProf {
+.icon_infoGale_Prof {
   background-image: url("/img/formulario-profesional/icono-interno-galeria.svg");
+  border-bottom: 1px solid #019F86;
+  color: #019F86;
 }
 
-.icon_infoVideo-formProf {
+.icon_infoVideo_Prof {
   background-image: url("/img/formulario-profesional/icono-videos.svg");
+  border-bottom: 1px solid #019F86;
+  color: #019F86;
+}
+
+.icon_infoBasica_Inst {
+  background-image: url("/img/formulario-institucion/icono-informacion-basica.svg");
+  border-bottom: 1px solid #0083D6;
+  color: #0083D6;
+}
+
+.icon_infoContac_Inst {
+  background-image: url("/img/formulario-institucion/icono-informacion-de-contacto.svg");
+  border-bottom: 1px solid #0083D6;
+  color: #0083D6;
+}
+
+.icon_servProf_Inst {
+  background-image: url("/img/formulario-institucion/icono-servicios-profesionales-azul.svg");
+  border-bottom: 1px solid #0083D6;
+  color: #0083D6;
+}
+
+.icon_servicios_Inst {
+  background-image: url("/img/formulario-institucion/icono-servicios.svg");
+  border-bottom: 1px solid #0083D6;
+  color: #0083D6;
+}
+
+.icon_quienes_Inst {
+  background-image: url("/img/formulario-institucion/icono-quienes-somos.svg");
+  border-bottom: 1px solid #0083D6;
+  color: #0083D6;
+}
+
+.icon_propuestaValor_Inst {
+  background-image: url("/img/formulario-institucion/icono-propuesta-valor.svg");
+  border-bottom: 1px solid #0083D6;
+  color: #0083D6;
+}
+
+.icon_convenios_Inst {
+  background-image: url("/img/formulario-institucion/icono-convenios.svg");
+  border-bottom: 1px solid #0083D6;
+  color: #0083D6;
+}
+
+.icon_profesionales_Inst {
+  background-image: url("/img/formulario-institucion/icono-profesionales-institucion.svg");
+  border-bottom: 1px solid #0083D6;
+  color: #0083D6;
+}
+
+.icon_certificaciones_Inst {
+  background-image: url("/img/formulario-institucion/icono-certificaciones-azul.svg");
+  border-bottom: 1px solid #0083D6;
+  color: #0083D6;
+}
+
+.icon_sedes_Inst {
+  background-image: url("/img/formulario-institucion/icono-sedes-azul.svg");
+  border-bottom: 1px solid #0083D6;
+  color: #0083D6;
+}
+
+.icon_ubiqueSede_Inst {
+  background-image: url("/img/formulario-institucion/icono-ubique-la-sede.svg");
+  border-bottom: 1px solid #0083D6;
+  color: #0083D6;
+}
+
+.icon_gallery_Inst {
+  background-image: url("/img/formulario-institucion/icono-galeria-azul.svg");
+  border-bottom: 1px solid #0083D6;
+  color: #0083D6;
+}
+
+.icon_video_Inst {
+  background-image: url("/img/formulario-institucion/icono-videos-azul.svg");
+  border-bottom: 1px solid #0083D6;
+  color: #0083D6;
 }
 
 .card_module_form .icon_text {
@@ -24761,10 +24856,8 @@ a:link, a:visited, a:active, a:hover {
   padding: 0.7rem 0 0.7rem 2rem;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #019F86;
   font-size: 1em;
   font-family: "Quicksand";
-  color: #019F86;
   text-transform: inherit;
 }
 
@@ -24868,6 +24961,56 @@ a:link, a:visited, a:active, a:hover {
   width: 11em;
 }
 
+.img_sede_form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: auto;
+  padding: 0;
+}
+
+.img_sede_form img {
+  height: 200px;
+  width: 100%;
+  background: #D1D1D1;
+  border: 1px solid #707070;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  align-self: center;
+}
+
+.img_sede_form input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  overflow: auto;
+  margin: 0 auto;
+}
+
+.img_sede_form p {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-size: 15px;
+  font-family: "Quicksand", "Regular";
+  font-size: 1em;
+  color: #434343;
+  text-align: right;
+  margin-top: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 11em;
+}
+
 .upload_file_img_form {
   display: flex;
   flex-direction: column;
@@ -24951,19 +25094,20 @@ a:link, a:visited, a:active, a:hover {
   margin-bottom: 0;
 }
 
-.button_save_form {
+.button_blue_form {
   font-family: "Quicksand";
   font-size: 1em;
   color: #FFFFFF;
   background: #0083D6;
   border: none;
   border-radius: 3px;
+  padding: 1px 6px;
   height: calc(1.6em + 0.75rem + 2px);
   display: flex;
   align-items: center;
 }
 
-.button_bottom_form {
+.button_green_form {
   font-family: "Quicksand";
   font-size: 1em;
   color: #FFFFFF;
@@ -24976,7 +25120,7 @@ a:link, a:visited, a:active, a:hover {
   align-items: center;
 }
 
-.button_bottom_previous_form {
+.button_transparent_form {
   font-family: "Quicksand";
   font-size: 1em;
   font-weight: bold;
@@ -25080,10 +25224,6 @@ a:link, a:visited, a:active, a:hover {
   border-top: 1px solid #019F86;
 }
 
-.data_saved_form li::marker {
-  color: #019F86;
-}
-
 .data_saved_form h5 {
   font-family: "Quicksand";
   font-size: 1em;
@@ -25101,6 +25241,15 @@ a:link, a:visited, a:active, a:hover {
   line-height: 1;
   padding: 0;
   margin: 0;
+}
+
+.data_saved_form ul {
+  margin: 0;
+  padding-left: 2em;
+}
+
+.data_saved_form li::marker {
+  color: #019F86;
 }
 
 .text_preview_form h5 {
@@ -25145,7 +25294,6 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 768px) {
   .container_line_module_form {
     justify-content: space-between;
-    height: 100px;
     width: 675px;
   }
 
@@ -25184,12 +25332,29 @@ a:link, a:visited, a:active, a:hover {
     width: 10.5em;
   }
 
+  .img_sede_form {
+    margin-top: auto;
+  }
+
+  .img_sede_form img {
+    height: 150px;
+    width: 90%;
+  }
+
+  .img_sede_form input {
+    width: 90%;
+  }
+
   .textarea_form {
     height: 90px;
   }
 
   .card_information_saved_form {
     width: 32%;
+  }
+
+  #lista-servicios-institucion .card_information_saved_form {
+    width: 48%;
   }
 
   .section_dest_list {
@@ -25202,7 +25367,6 @@ a:link, a:visited, a:active, a:hover {
 }
 @media (min-width: 1024px) {
   .container_line_module_form {
-    height: 110px;
     width: 760px;
     margin: 3% auto;
   }
@@ -25217,61 +25381,15 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .section_icon_form {
+    height: 110px;
     width: 115px;
   }
 
-  .iconGris_perfProf {
+  .section_icon_form li {
     background-size: 70px;
-    font-size: 1em;
   }
 
-  .iconGris_trataProced {
-    background-size: 70px;
-    font-size: 1em;
-  }
-
-  .iconGris_premioRecon {
-    background-size: 70px;
-    font-size: 1em;
-  }
-
-  .iconGris_public {
-    background-size: 70px;
-    font-size: 1em;
-  }
-
-  .iconGris_galeriaVideo {
-    background-size: 70px;
-    font-size: 1em;
-  }
-
-  .iconAzul_datoPersonal {
-    background-size: 70px;
-    font-size: 1em;
-  }
-
-  .iconAzul_perfProf {
-    background-size: 70px;
-    font-size: 1em;
-  }
-
-  .iconAzul_trataProced {
-    background-size: 70px;
-    font-size: 1em;
-  }
-
-  .iconAzul_premioRecon {
-    background-size: 70px;
-    font-size: 1em;
-  }
-
-  .iconAzul_public {
-    background-size: 70px;
-    font-size: 1em;
-  }
-
-  .iconAzul_galeriaVideo {
-    background-size: 70px;
+  .section_icon_form p {
     font-size: 1em;
   }
 
@@ -25289,6 +25407,10 @@ a:link, a:visited, a:active, a:hover {
     padding: 0.8em 2em;
   }
 
+  .img_user_form input {
+    width: 70%;
+  }
+
   .width_card_single {
     width: 32%;
   }
@@ -25300,7 +25422,6 @@ a:link, a:visited, a:active, a:hover {
 }
 @media (min-width: 1920px) {
   .container_line_module_form {
-    height: 125px;
     width: 975px;
   }
 
@@ -25313,61 +25434,15 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .section_icon_form {
+    height: 125px;
     width: 130px;
   }
 
-  .iconGris_perfProf {
+  .section_icon_form li {
     background-size: 75px;
-    font-size: 1.1em;
   }
 
-  .iconGris_trataProced {
-    background-size: 75px;
-    font-size: 1.1em;
-  }
-
-  .iconGris_premioRecon {
-    background-size: 75px;
-    font-size: 1.1em;
-  }
-
-  .iconGris_public {
-    background-size: 75px;
-    font-size: 1.1em;
-  }
-
-  .iconGris_galeriaVideo {
-    background-size: 75px;
-    font-size: 1.1em;
-  }
-
-  .iconAzul_datoPersonal {
-    background-size: 75px;
-    font-size: 1.1em;
-  }
-
-  .iconAzul_perfProf {
-    background-size: 75px;
-    font-size: 1.1em;
-  }
-
-  .iconAzul_trataProced {
-    background-size: 75px;
-    font-size: 1.1em;
-  }
-
-  .iconAzul_premioRecon {
-    background-size: 75px;
-    font-size: 1.1em;
-  }
-
-  .iconAzul_public {
-    background-size: 75px;
-    font-size: 1.1em;
-  }
-
-  .iconAzul_galeriaVideo {
-    background-size: 75px;
+  .section_icon_form p {
     font-size: 1.1em;
   }
 
@@ -25415,8 +25490,16 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .img_user_form p {
-    background-size: 17px;
+    background-size: 16px;
     width: 11em;
+  }
+
+  .img_sede_form img {
+    height: 175px;
+  }
+
+  .img_sede_form p {
+    font-size: 1.1em;
   }
 
   .label_txt_form {
@@ -25431,15 +25514,15 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.1em;
   }
 
-  .button_save_form {
+  .button_blue_form {
     font-size: 1.1em;
   }
 
-  .button_bottom_form {
+  .button_green_form {
     font-size: 1.1em;
   }
 
-  .button_bottom_previous_form {
+  .button_transparent_form {
     font-size: 1.1em;
   }
 
@@ -25457,6 +25540,10 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .data_saved_form span {
+    font-size: 1.1em;
+  }
+
+  .data_saved_form ul li {
     font-size: 1.1em;
   }
 }
@@ -25968,2484 +26055,6 @@ a:link, a:visited, a:active, a:hover {
   .texto_lineaAtencion-institucion {
     font-size: 1.5em;
     padding: 0 5%;
-  }
-}
-.optionList_formInst {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 2% auto;
-  width: 80%;
-  height: 12vh;
-}
-
-.content_icons-formInst {
-  width: 17%;
-}
-
-.iconGris_servProfesional {
-  background-image: url("/img/formulario-institucion/icono-servicios-profesionales-gris.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em;
-  color: #D1D1D1;
-}
-
-.iconGris_acercaInst {
-  background-image: url("/img/formulario-institucion/acerca-de-la-institucion-gris.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em;
-  color: #D1D1D1;
-}
-
-.iconGris_profesionalInst {
-  background-image: url("/img/formulario-institucion/icono-profesionales-gris.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em !important;
-  color: #D1D1D1 !important;
-}
-
-.iconGris_certifInst {
-  background-image: url("/img/formulario-institucion/icono-certificaciones-gris.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em;
-  color: #D1D1D1;
-}
-
-.iconGris_sedeInst {
-  background-image: url("/img/formulario-institucion/icono-sede-gris.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em;
-  color: #D1D1D1;
-}
-
-.iconGris_galeInst {
-  background-image: url("/img/formulario-institucion/icono-galeria-gris.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em;
-  color: #D1D1D1;
-}
-
-.iconVerde_datoInst {
-  background-image: url("/img/formulario-institucion/datos-institucionales-verde.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em !important;
-  color: #019F86 !important;
-}
-
-.iconVerde_servProfesional {
-  background-image: url("/img/formulario-institucion/icono-servicios-profesionales.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em !important;
-  font-family: "Quicksand", "Regular";
-  color: #019F86 !important;
-}
-
-.iconVerde_acercaInst {
-  background-image: url("/img/formulario-institucion/acerca-de-la-institucion.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em !important;
-  color: #019F86 !important;
-}
-
-.iconVerde_profesionalInst {
-  background-image: url("/img/formulario-institucion/icono-profesionales.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em !important;
-  color: #019F86 !important;
-}
-
-.iconVerde_certifInst {
-  background-image: url("/img/formulario-institucion/icono-certificaciones.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em !important;
-  color: #019F86 !important;
-}
-
-.iconVerde_sedeInst {
-  background-image: url("/img/formulario-institucion/icono-sede.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em !important;
-  color: #019F86 !important;
-}
-
-.iconVerde_galeInst {
-  background-image: url("/img/formulario-institucion/icono-galeria.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: 50%;
-  background-position-x: center;
-  display: flex;
-  align-items: flex-end;
-  line-height: 1;
-  font-size: 1em !important;
-  color: #019F86 !important;
-}
-
-.text_opcion-formInst {
-  font-family: "Quicksand", "Regular";
-  margin: 0;
-  text-align: center;
-  width: 100%;
-  height: 30%;
-}
-
-.card_container_formZS {
-  background: #F9F9F9;
-  padding-top: 3%;
-}
-
-.main_title_formZS {
-  margin: auto;
-  padding: 0;
-}
-
-.titulo_principal-formInst {
-  font-family: "Quicksand", "Regular";
-  font-size: 2em;
-  font-weight: bold;
-  color: #019F86;
-  text-align: initial;
-}
-
-.texto_superior-formInst {
-  font-family: "Roboto", "Regular";
-  font-size: 1em;
-  color: #3E3E3E;
-  text-align: initial;
-  padding: 0;
-  margin: 3% 0;
-}
-
-.content_tarjetasInfo-formInst {
-  background: #ffffff;
-  margin: auto;
-  margin-bottom: 3%;
-  padding: 0;
-  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25);
-}
-
-.icon_infoBasica-formInst {
-  background-image: url("/img/formulario-institucion/icono-informacion-basica.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #0083D6;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #0083D6;
-  text-transform: inherit;
-}
-
-.fila_infoBasica-formInst {
-  margin: 0;
-  padding: 2% 0 0 0;
-}
-
-.fila_infoUser-formInst {
-  margin: 0;
-  padding: 2% 0;
-}
-
-.contain_imgUsuario-formImg {
-  align-self: center;
-  text-align: center;
-}
-
-.img_usuario-formInst {
-  height: 22vh;
-  width: 100%;
-  border-radius: 135px;
-  background: #D1D1D1;
-  border: 1px solid #707070;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.input_imgUsuario-formInst {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  width: 90%;
-  height: 100%;
-  opacity: 0;
-  overflow: auto;
-  margin: 0 auto;
-}
-
-.icon_subirFoto-formInst {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 7%;
-  background-size: 7%;
-  margin-top: 3%;
-}
-
-.text_usuario-formInst {
-  font-family: "Quicksand", "Regular";
-  font-size: 1.15em;
-  color: #434343;
-  margin: 10% 0 5% 0;
-  padding-right: 0;
-}
-
-.datos_principales-formInst {
-  margin: 0;
-  padding: 0;
-  border-left: 1px solid #D1D1D1;
-}
-
-.rightSection_formInst {
-  padding: 0 0 0 15px;
-}
-
-.leftSection_formInst {
-  padding: 0 15px 0 0;
-}
-
-.text_label-formInst {
-  font-family: "Quicksand";
-  font-size: 1.15em;
-  color: #232323;
-  font-weight: bold;
-  padding: 0;
-  margin: 4% 0 3% 0;
-  line-height: 1;
-}
-
-.texto_saved-formInst {
-  font-family: "Quicksand";
-  font-size: 1.15em;
-  color: #232323;
-  padding: 0;
-  margin: 0;
-  line-height: 1;
-}
-
-.text_saved-formInst {
-  font-family: "Quicksand";
-  font-size: 1em;
-  color: #232323;
-  font-weight: bold;
-  padding: 0;
-  margin: 0;
-  line-height: 1;
-}
-
-.input_nomApl-formInst {
-  display: block;
-  height: calc(1.6em + 0.75rem + 2px);
-  padding: 0.375rem 0.75rem;
-  font-size: 0.9rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.datos_principales2-formInst {
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.contain_imgInst-formInst {
-  align-self: center;
-  text-align: center;
-  padding-top: 0;
-}
-
-.img_institucion-formInst {
-  height: 23vh;
-  width: 100%;
-  border-radius: 3px;
-  background: #D1D1D1;
-  border: 1px solid #707070;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.contain_imgInst-formInst .icon_subirFoto-formInst {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-size: 4%;
-  background-position-x: 23%;
-}
-
-.contain_imgInst-formInst .text_usuario-formInst {
-  font-family: "Quicksand", "Regular";
-  font-size: 1.15em;
-  color: #434343;
-  margin: 6% 0 0% 0%;
-  padding-right: 0;
-}
-
-.content_btnEnviar-formInst {
-  margin-left: auto;
-  padding: 0;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.btn_guardar-formInst {
-  font-family: "Quicksand";
-  font-size: 1.15em;
-  color: #ffffff;
-  background: #019F86;
-  border: none;
-  border-radius: 3px;
-  height: calc(1.6em + 0.75rem + 2px);
-  width: 76%;
-  margin-bottom: 10%;
-}
-
-.flechaBtn_guardar-formInst {
-  width: 9%;
-}
-
-.icon_infoContac-formInst {
-  background-image: url("/img/formulario-institucion/icono-informacion-de-contacto.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #0083D6;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #0083D6;
-  text-transform: inherit;
-}
-
-.btn2_enviar-formInst {
-  font-family: "Quicksand";
-  font-size: 1.15em;
-  color: #ffffff;
-  background: #019F86;
-  border: none;
-  border-radius: 3px;
-  height: calc(1.6em + 0.75rem + 2px);
-  width: 19%;
-  margin: 3% 0;
-}
-
-.icon_servProf-formInst {
-  background-image: url("/img/formulario-institucion/icono-servicios-profesionales-azul.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #0083D6;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #0083D6;
-  text-transform: inherit;
-}
-
-.text_infoImg-formInst {
-  font-family: "Roboto", "Regular";
-  font-size: 1em;
-  color: #DBDADA;
-  padding: 0 15px;
-}
-
-.icon_servicios-formInst {
-  background-image: url("/img/formulario-institucion/icono-servicios.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #0083D6;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #0083D6;
-  text-transform: inherit;
-}
-
-.section_servicio-formInst {
-  margin: 0;
-  padding: 0;
-}
-
-.content_cierreX-formInst {
-  height: 3vh;
-  padding: 0;
-}
-
-.downLine_formInst {
-  border-bottom: 1px solid #DBDADA;
-  padding-bottom: 2%;
-}
-
-.txtInfo_limitante-formInst {
-  font-family: "Roboto", "Regular";
-  font-size: 0.85em;
-  color: #E3342F;
-  font-weight: 500;
-  padding: 2% 0;
-}
-
-.center_lineForm {
-  border-right: 1px solid #D1D1D1;
-}
-
-.savedData_formInst {
-  width: 48%;
-  padding: 1%;
-  border: 1px solid #DBDADA;
-  border-radius: 3px;
-  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  margin: 3% 0 0 0;
-}
-
-/*.bootstrap-tagsinput  input {
-    background: yellow;
-
-}*/
-.icon_quienes-formInst {
-  background-image: url("/img/formulario-institucion/icono-quienes-somos.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #0083D6;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #0083D6;
-  text-transform: inherit;
-}
-
-.icon_propuestaValor-formInst {
-  background-image: url("/img/formulario-institucion/icono-propuesta-valor.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #0083D6;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #0083D6;
-  text-transform: inherit;
-}
-
-.modulo_convenio-formInst {
-  padding: 0;
-  margin: 1% 0;
-}
-
-.icon_convenios-formInst {
-  background-image: url("/img/formulario-institucion/icono-convenios.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #0083D6;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #0083D6;
-  text-transform: inherit;
-}
-
-.text_infoConvenio-formInst {
-  font-family: "Roboto", "Regular";
-  font-size: 0.85em;
-  color: #DBDADA;
-  padding: 0 15px;
-}
-
-.section_infoAsocia-formInst {
-  width: 32%;
-  padding: 0 1% 1% 1%;
-  margin: 3% 0 2% 0;
-  border: 1px solid #DBDADA;
-  border-radius: 3px;
-  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25);
-}
-
-.img_selccionada-formInst {
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  padding: 0;
-  align-items: center;
-  width: 120px;
-  height: 60px;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
-.content_imgGuardada-formInst {
-  margin: 3% 0 0 0;
-  padding: 0 3% 0 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.imgConvenio_guardada-formInst {
-  width: 120px;
-  height: 60px;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
-.content_agregarImg-formInst {
-  margin: 0;
-  padding: 0 1%;
-}
-
-.agregar_archivo-formInst {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  padding: 0;
-  width: 100%;
-}
-
-.agregar_archivo-formInst input[type=file] {
-  opacity: 0;
-  width: 100%;
-  height: 32px;
-  display: flex;
-}
-
-.agregar_archivo-formInst::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 10%;
-  background-size: 4%;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto de asociación 1";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.agregar_archivo-formInst1 {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  padding: 0;
-  width: 100%;
-}
-
-.agregar_archivo-formInst1 input[type=file] {
-  opacity: 0;
-  width: 100%;
-  height: 32px;
-  display: flex;
-}
-
-.agregar_archivo-formInst1::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 10%;
-  background-size: 4%;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto de asociación 1";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.agregar_archivo-formInst2 {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  padding: 0;
-  width: 100%;
-}
-
-.agregar_archivo-formInst2 input[type=file] {
-  opacity: 0;
-  width: 100%;
-  height: 32px;
-  display: flex;
-}
-
-.agregar_archivo-formInst2::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 10%;
-  background-size: 4%;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto de asociación 2";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.agregar_archivo-formInst3 {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  padding: 0;
-  width: 100%;
-}
-
-.agregar_archivo-formInst3 input[type=file] {
-  opacity: 0;
-  width: 100%;
-  height: 32px;
-  display: flex;
-}
-
-.agregar_archivo-formInst3::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 10%;
-  background-size: 4%;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto de asociación 3";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.img_guardada-formInst {
-  width: 120px;
-  height: 60px;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
-.txt_informativo-formInst {
-  text-align: center;
-  line-height: 1;
-  margin-bottom: 0;
-  padding: 0;
-}
-
-.content_loadImg-profes {
-  border: 1px solid #DBDADA;
-  border-radius: 5px;
-  padding: 1% 0;
-  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25);
-}
-
-.icon_profesionales-formInst {
-  background-image: url("/img/formulario-institucion/icono-profesionales-institucion.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #0083D6;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #0083D6;
-  text-transform: inherit;
-}
-
-.containt_loadProfes-formInst {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-.nombres_usuario-formInst {
-  display: flex;
-  justify-content: space-between;
-  padding: 0;
-}
-
-.input_nomApl-prefes-formProf {
-  display: block;
-  width: 48%;
-  height: calc(1.6em + 0.75rem + 2px);
-  padding: 0.375rem 0.75rem;
-  font-size: 0.9rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.containt_profGuardado-formInst {
-  margin: 3% 0;
-  padding: 0;
-  justify-content: space-evenly;
-}
-
-.img_save-formProf {
-  padding: 0;
-  margin: auto;
-}
-
-.icon_certificaciones-formInst {
-  background-image: url("/img/formulario-institucion/icono-certificaciones-azul.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #0083D6;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #0083D6;
-  text-transform: inherit;
-}
-
-.text_superior-proced-formInst {
-  font-family: "Roboto", "Regular";
-  font-size: 1em;
-  color: #434343;
-  margin: 2% 0;
-  width: 100%;
-}
-
-.content_antes-formInst {
-  border-right: 1px solid #D1D1D1;
-}
-
-.content_antes-formInst .agregar_archivo-formInst::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 15%;
-  background-size: 5%;
-  font-size: 1.15em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto de antes";
-  /* texto botón subir foto asociación */
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.img_saveCertifi-formInst {
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  padding: 0;
-  align-items: center;
-  width: 100%;
-  height: 30vh;
-}
-
-.img_anexada-formInst {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.content_antDesp-formInst {
-  padding: 0;
-  margin: 3% 0 0 0;
-}
-
-.photo1 .agregar_archivo-formInst::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 35%;
-  background-size: 3%;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto 1";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.photo2 .agregar_archivo-formInst::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 35%;
-  background-size: 3%;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto 2";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.photo3 .agregar_archivo-formInst::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 35%;
-  background-size: 3%;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto 3";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.photo4 .agregar_archivo-formInst::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 35%;
-  background-size: 3%;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto 4";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.icon_sedes-formInst {
-  background-image: url("/img/formulario-institucion/icono-sedes-azul.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #0083D6;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #0083D6;
-  text-transform: inherit;
-}
-
-.img_saveSede-formInst {
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  padding: 0;
-  align-items: center;
-  width: 100%;
-  height: 30vh;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
-.icon_ubiqueSede-formInst {
-  background-image: url("/img/formulario-institucion/icono-ubique-la-sede.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #0083D6;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #0083D6;
-  text-transform: inherit;
-}
-
-.icon_galeriaInst-formInst {
-  background-image: url("/img/formulario-institucion/icono-galeria-azul.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #0083D6;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #0083D6;
-  text-transform: inherit;
-}
-
-.content_btnX-cierre-forminst {
-  height: 3vh;
-  padding: 0;
-}
-
-.img_publi-formInst {
-  height: 100%;
-  width: 100%;
-}
-
-.photo5 .agregar_archivo-formInst::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 35%;
-  background-size: 3%;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto 5";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.photo6 .agregar_archivo-formInst::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 35%;
-  background-size: 3%;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto 6";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.photo7 .agregar_archivo-formInst::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 35%;
-  background-size: 3%;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto 7";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.photo8 .agregar_archivo-formInst::before {
-  background-image: url("/img/formulario-profesional/icono-subir.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 35%;
-  background-size: 3%;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #434343;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  content: "Subir foto 8";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.img_saveGallery-formInst {
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  padding: 0;
-  align-items: center;
-  width: 100%;
-  height: 30vh;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
-.icon_infoVideo-formInst {
-  background-image: url("/img/formulario-institucion/icono-videos-azul.svg");
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 2.5%;
-  padding-left: 4%;
-  height: 5vh;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #0083D6;
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  color: #0083D6;
-  text-transform: inherit;
-}
-
-.content_botonInferior-next-formInst {
-  display: flex;
-  justify-content: flex-end;
-  margin: auto;
-  padding: 0;
-}
-
-.content_botonesInferiores-formInst {
-  display: flex;
-  justify-content: space-between;
-  margin: auto;
-  padding: 0;
-}
-
-.content_btn-anter-formInst {
-  padding: 0;
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 3%;
-}
-
-.content_btn-siguient-formInst {
-  padding: 0;
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 3%;
-}
-
-.boton_inferior-anterior-formInst {
-  font-family: "Quicksand";
-  font-size: 1.15em;
-  color: #434343;
-  background: transparent;
-  border: 1px solid #434343;
-  border-radius: 3px;
-  height: calc(1.6em + 0.75rem + 2px);
-  width: 75%;
-}
-
-.boton_inferior-siguiente-formInst {
-  font-family: "Quicksand";
-  font-size: 1.15em;
-  color: #ffffff;
-  background: #0083D6;
-  border: none;
-  border-radius: 3px;
-  height: calc(1.6em + 0.75rem + 2px);
-  width: 75%;
-}
-
-.boton_inferior-finalizar-formInst {
-  font-family: "Quicksand";
-  font-size: 1.15em;
-  color: #ffffff;
-  background: #0083D6;
-  border: none;
-  border-radius: 3px;
-  height: calc(1.6em + 0.75rem + 2px);
-  width: 75%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flechaBtn_finalizar-formInst {
-  width: 10%;
-  margin-left: 5%;
-}
-
-.hidden-section-formInst {
-  display: none;
-}
-
-.btn_agregarMas-formInst {
-  background: transparent;
-  border: none;
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
-  padding: 0;
-  width: 25%;
-}
-
-.message-not {
-  display: none;
-}
-
-.premios_guardada-formInst {
-  margin: 0;
-  margin-top: 3%;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-between;
-  align-items: self-start;
-  flex-flow: wrap;
-  flex-wrap: wrap;
-}
-
-.section_infoExper-formInst {
-  width: 48%;
-  padding: 1%;
-  border: 1px solid #DBDADA;
-  border-radius: 3px;
-  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2%;
-}
-
-.text_infoImg-formInst {
-  font-family: "Roboto", "Regular";
-  font-size: 0.9em;
-  color: #DBDADA;
-  padding: 0;
-}
-
-@media (min-width: 320px) and (orientation: portrait) {
-  .optionList_formInst {
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 30vh;
-  }
-
-  .content_icons-formInst {
-    width: 25%;
-    height: 13vh;
-  }
-
-  .iconGris_servProfesional {
-    background-size: 65%;
-    font-size: 0.75em !important;
-  }
-
-  .iconGris_acercaInst {
-    background-size: 65%;
-    font-size: 0.75em !important;
-  }
-
-  .iconGris_profesionalInst {
-    background-size: 65%;
-    font-size: 0.75em !important;
-  }
-
-  .iconGris_certifInst {
-    background-size: 65%;
-    font-size: 0.75em !important;
-  }
-
-  .iconGris_sedeInst {
-    background-size: 65%;
-    font-size: 0.75em !important;
-  }
-
-  .iconGris_galeInst {
-    background-size: 65%;
-    font-size: 0.75em !important;
-  }
-
-  .iconVerde_datoInst {
-    background-size: 65%;
-    font-size: 0.75em !important;
-  }
-
-  .iconVerde_servProfesional {
-    background-size: 65%;
-    font-size: 0.75em !important;
-  }
-
-  .iconVerde_acercaInst {
-    background-size: 65%;
-    font-size: 0.75em !important;
-  }
-
-  .iconVerde_profesionalInst {
-    background-size: 65%;
-    font-size: 0.75em !important;
-  }
-
-  .iconVerde_certifInst {
-    background-size: 65%;
-    font-size: 0.75em !important;
-  }
-
-  .iconVerde_sedeInst {
-    background-size: 65%;
-    font-size: 0.75em !important;
-  }
-
-  .iconVerde_galeInst {
-    background-size: 65%;
-    font-size: 0.75em !important;
-  }
-
-  .titulo_principal-formInst {
-    font-size: 1.45em;
-    text-align: center;
-  }
-
-  .texto_superior-formInst {
-    font-size: 0.75em;
-  }
-
-  .icon_infoBasica-formInst {
-    background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
-    display: flex;
-    margin-bottom: 5%;
-  }
-
-  .img_usuario-formInst {
-    height: 35vh;
-    width: 75%;
-  }
-
-  .icon_subirFoto-formInst {
-    background-position-x: 21%;
-    background-size: 5%;
-  }
-
-  .contain_imgInst-formInst {
-    align-self: center;
-    text-align: center;
-    padding: 0 5%;
-    margin-top: 5%;
-  }
-
-  .contain_imgInst-formInst .icon_subirFoto-formInst {
-    background-position-x: 18%;
-    background-size: 5%;
-  }
-
-  .text_usuario-formInst {
-    font-size: 1em;
-    margin: 5% 0;
-  }
-
-  .contain_imgInst-formInst .text_usuario-formInst {
-    font-size: 1em;
-  }
-
-  .rightSection_formInst {
-    padding: 0 0 0 0;
-  }
-
-  .leftSection_formInst {
-    padding: 0;
-  }
-
-  .input_nomApl-formInst {
-    width: 100%;
-  }
-
-  .content_tarjetasInfo-formInst {
-    margin-bottom: 5%;
-  }
-
-  .btn_guardar-formInst {
-    font-size: 1em;
-    width: 45%;
-    margin: 5% 0;
-  }
-
-  .flechaBtn_guardar-formInst {
-    width: 13%;
-  }
-
-  .fila_infoBasica-formInst {
-    margin: 0;
-    padding: 0;
-  }
-
-  .fila_infoUser-formInst {
-    margin: 0;
-    padding: 0;
-  }
-
-  .icon_infoContac-formInst {
-    background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
-  }
-
-  .btn2_enviar-formInst {
-    font-size: 1em;
-    width: 45%;
-    margin: 5% 0;
-  }
-
-  .icon_servProf-formInst {
-    background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
-  }
-
-  .text_infoImg-formInst {
-    font-size: 0.75em;
-  }
-
-  .icon_servicios-formInst {
-    background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
-  }
-
-  .downLine_formInst {
-    border-bottom: 1px solid #DBDADA;
-    padding-bottom: 5%;
-  }
-
-  .content_btn-anter-formInst {
-    padding: 0;
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 5%;
-  }
-
-  .content_btn-siguient-formInst {
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 5%;
-  }
-
-  .savedData_formInst {
-    width: 100%;
-    padding: 2%;
-    margin: 5% 0 1% 0;
-  }
-
-  .icon_quienes-formInst {
-    background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
-  }
-
-  .icon_propuestaValor-formInst {
-    background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
-  }
-
-  .icon_convenios-formInst {
-    background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
-  }
-
-  .txt_informativo-formInst {
-    line-height: 0.5;
-    margin-bottom: 3%;
-  }
-
-  .text_infoConvenio-formInst {
-    font-size: 0.85em;
-    padding: 0;
-  }
-
-  .agregar_archivo-formInst1::before {
-    background-position-x: 14%;
-  }
-
-  .agregar_archivo-formInst2::before {
-    background-position-x: 14%;
-  }
-
-  .agregar_archivo-formInst3::before {
-    background-position-x: 14%;
-  }
-
-  .row_convenio-form {
-    padding: 0;
-    margin: 0;
-  }
-
-  .section_infoAsocia-formInst {
-    width: 100%;
-    padding: 0 3% 3% 3%;
-    margin: 4% 0 2% 0;
-  }
-
-  .content_agregarImg-formInst {
-    margin: auto;
-    padding: 0;
-    margin-bottom: 5%;
-  }
-
-  .datos_principales-formInst {
-    margin: 0;
-    padding: 0;
-    border-left: none;
-  }
-
-  .icon_profesionales-formInst {
-    background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
-  }
-
-  .nombres_usuario-formInst {
-    flex-direction: column;
-    padding: 0;
-    height: 15vh;
-  }
-
-  .input_nomApl-prefes-formProf {
-    width: 100%;
-    margin-bottom: 5%;
-  }
-
-  .containt_profGuardado-formInst {
-    margin: 5% auto;
-    padding: 0;
-    justify-content: space-evenly;
-  }
-
-  .img_save-formProf {
-    padding: 0;
-    display: flex;
-    justify-content: center;
-  }
-
-  .content_loadImg-profes {
-    border: 1px solid #DBDADA;
-    border-radius: 5px;
-    padding: 2% 0;
-    margin-bottom: 5%;
-  }
-
-  .icon_certificaciones-formInst {
-    background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
-  }
-
-  .text_superior-proced-formInst {
-    font-size: 0.75em;
-    margin: 5% 0;
-  }
-
-  .content_antes-formInst {
-    border-right: none;
-  }
-
-  .agregar_archivo-formInst {
-    width: 80%;
-  }
-
-  .content_antes-formInst .agregar_archivo-formInst::before {
-    background-position-x: 5%;
-    background-size: 6%;
-    font-size: 1em;
-  }
-
-  .photo1 .agregar_archivo-formInst::before {
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1em;
-  }
-
-  .photo2 .agregar_archivo-formInst::before {
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1em;
-  }
-
-  .photo3 .agregar_archivo-formInst::before {
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1em;
-  }
-
-  .photo4 .agregar_archivo-formInst::before {
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1em;
-  }
-
-  .img_saveCertifi-formInst {
-    width: 100%;
-    height: 35vh;
-  }
-
-  .icon_sedes-formInst {
-    background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
-  }
-
-  .icon_ubiqueSede-formInst {
-    background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
-  }
-
-  .icon_galeriaInst-formInst {
-    background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
-  }
-
-  .photo5 .agregar_archivo-formInst::before {
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1em;
-  }
-
-  .photo6 .agregar_archivo-formInst::before {
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1em;
-  }
-
-  .photo7 .agregar_archivo-formInst::before {
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1em;
-  }
-
-  .photo8 .agregar_archivo-formInst::before {
-    background-position-x: 25%;
-    background-size: 5%;
-    font-size: 1em;
-  }
-
-  .icon_infoVideo-formInst {
-    background-size: 8%;
-    padding-left: 10%;
-    height: 6vh;
-  }
-
-  .boton_inferior-siguiente-formInst {
-    width: 90%;
-    font-size: 1em;
-  }
-
-  .btn-next-320-formInst {
-    font-family: "Quicksand";
-    font-size: 1em;
-    color: #ffffff;
-    background: #0083D6;
-    border: none;
-    border-radius: 3px;
-    height: calc(1.6em + 0.75rem + 2px);
-    width: 45%;
-  }
-
-  .boton_inferior-anterior-formInst {
-    width: 90%;
-    font-size: 1em;
-  }
-
-  .boton_inferior-finalizar-formInst {
-    width: 90%;
-    font-size: 1em;
-  }
-
-  .section_infoExper-formInst {
-    width: 100%;
-    padding: 2%;
-    margin-bottom: 5%;
-  }
-
-  .text_label-formInst {
-    font-size: 1em;
-    margin: 4% 0 3% 0;
-    padding: 0;
-  }
-
-  .texto_saved-formInst {
-    font-size: 1em;
-    margin: 0;
-    padding: 0;
-  }
-
-  .text_saved-formInst {
-    font-size: 1em;
-    margin-top: 0;
-    padding: 0;
-  }
-
-  .text_infoImg-formInst {
-    font-size: 0.75em;
-    padding: 0;
-  }
-}
-@media (min-width: 768px) and (orientation: portrait) {
-  .optionList_formInst {
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    width: 75%;
-    height: 20vh;
-  }
-
-  .content_icons-formInst {
-    width: 25%;
-    height: 9vh;
-  }
-
-  .iconGris_servProfesional {
-    background-size: 50%;
-    font-size: 1em !important;
-  }
-
-  .iconGris_acercaInst {
-    background-size: 50%;
-    font-size: 1em !important;
-  }
-
-  .iconGris_profesionalInst {
-    background-size: 50%;
-    font-size: 1em !important;
-  }
-
-  .iconGris_certifInst {
-    background-size: 50%;
-    font-size: 1em !important;
-  }
-
-  .iconGris_sedeInst {
-    background-size: 50%;
-    font-size: 1em !important;
-  }
-
-  .iconGris_galeInst {
-    background-size: 50%;
-    font-size: 1em !important;
-  }
-
-  .iconVerde_datoInst {
-    background-size: 50%;
-    font-size: 1em !important;
-  }
-
-  .iconVerde_servProfesional {
-    background-size: 50%;
-    font-size: 1em !important;
-  }
-
-  .iconVerde_acercaInst {
-    background-size: 50%;
-    font-size: 1em !important;
-  }
-
-  .iconVerde_profesionalInst {
-    background-size: 50%;
-    font-size: 1em !important;
-  }
-
-  .iconVerde_certifInst {
-    background-size: 50%;
-    font-size: 1em !important;
-  }
-
-  .iconVerde_sedeInst {
-    background-size: 50%;
-    font-size: 1em !important;
-  }
-
-  .iconVerde_galeInst {
-    background-size: 50%;
-    font-size: 1em !important;
-  }
-
-  .text_opcion-formInst {
-    font-family: "Quicksand", "Regular";
-    margin: 0;
-    text-align: center;
-    width: 100%;
-    height: 30%;
-  }
-
-  .titulo_principal-formInst {
-    font-size: 2em;
-  }
-
-  .texto_superior-formInst {
-    font-size: 1em;
-  }
-
-  .icon_infoBasica-formInst {
-    background-size: 3%;
-    padding-left: 5%;
-    height: 2.5vh;
-    font-size: 1.2em;
-    margin-bottom: 3%;
-  }
-
-  .img_usuario-formInst {
-    height: 13vh;
-    width: 100%;
-  }
-
-  .img_institucion-formInst {
-    height: 12vh;
-  }
-
-  .icon_subirFoto-formInst {
-    background-position-x: 2%;
-    background-size: 8%;
-  }
-
-  .text_usuario-formInst {
-    font-size: 1em;
-  }
-
-  .datos_principales-formInst {
-    margin: 0;
-    padding: 0;
-    border-left: 1px solid #D1D1D1;
-  }
-
-  .rightSection_formInst {
-    padding: 0 0 0 15px;
-  }
-
-  .leftSection_formInst {
-    padding: 0 15px 0 0;
-  }
-
-  .text_label-formInst {
-    font-size: 1em;
-  }
-
-  .texto_saved-formInst {
-    font-size: 1em;
-  }
-
-  .text_saved-formInst {
-    font-size: 0.9em;
-    margin-top: 0%;
-  }
-
-  .input_nomApl-formInst {
-    width: 100%;
-    margin-bottom: 0%;
-  }
-
-  .datos_principales2-formInst {
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-
-  .contain_imgInst-formInst {
-    align-self: center;
-    text-align: center;
-    padding-top: 0;
-  }
-
-  .contain_imgInst-formInst .icon_subirFoto-formInst {
-    background-position-x: 21%;
-    background-size: 4.5%;
-    margin-bottom: 0;
-  }
-
-  .content_tarjetasInfo-formInst {
-    margin-bottom: 3%;
-  }
-
-  .btn_guardar-formInst {
-    font-size: 1em;
-    width: 17%;
-    margin: 3% 0;
-  }
-
-  .flechaBtn_guardar-formInst {
-    width: 11%;
-  }
-
-  .content_btn-anter-formInst {
-    margin-bottom: 3%;
-  }
-
-  .content_btn-siguient-formInst {
-    margin-bottom: 3%;
-  }
-
-  .fila_infoBasica-formInst {
-    margin: 0;
-    padding: 0;
-  }
-
-  .fila_infoUser-formInst {
-    margin: 0;
-    padding: 0;
-  }
-
-  .icon_infoContac-formInst {
-    background-size: 3%;
-    padding-left: 5%;
-    height: 2.5vh;
-    font-size: 1.2em;
-  }
-
-  .btn2_enviar-formInst {
-    font-size: 1em;
-    width: 17%;
-    margin: 3% 0;
-  }
-
-  .icon_servProf-formInst {
-    background-size: 3%;
-    padding-left: 5%;
-    height: 2.5vh;
-    font-size: 1.2em;
-  }
-
-  .text_infoImg-formInst {
-    font-family: "Roboto", "Regular";
-    font-size: 1em;
-    color: #DBDADA;
-    padding: 0 15px;
-  }
-
-  .icon_servicios-formInst {
-    background-size: 3%;
-    padding-left: 5%;
-    height: 2.5vh;
-    font-size: 1.2em;
-  }
-
-  .downLine_formInst {
-    border-bottom: 1px solid #DBDADA;
-    padding-bottom: 2%;
-  }
-
-  .savedData_formInst {
-    width: 48%;
-    padding: 2%;
-    margin: 3% 0 0 0;
-  }
-
-  .icon_quienes-formInst {
-    background-size: 3%;
-    padding-left: 5%;
-    height: 2.5vh;
-    font-size: 1.2em;
-  }
-
-  .icon_propuestaValor-formInst {
-    background-size: 3%;
-    padding-left: 5%;
-    height: 2.5vh;
-    font-size: 1.2em;
-  }
-
-  .row_convenio-form {
-    padding: 0;
-    margin: 1% 0;
-  }
-
-  .icon_convenios-formInst {
-    background-size: 3%;
-    padding-left: 5%;
-    height: 2.5vh;
-    font-size: 1.2em;
-  }
-
-  .text_infoConvenio-formInst {
-    font-family: "Roboto", "Regular";
-    font-size: 1em;
-    color: #DBDADA;
-    padding: 0 21px;
-  }
-
-  .section_infoAsocia-formInst {
-    width: 32%;
-    padding: 0 1% 2% 1%;
-    margin: 2% 0;
-  }
-
-  .content_agregarImg-formInst {
-    margin: 1% 0;
-    padding: 0;
-  }
-
-  .agregar_archivo-formInst1::before {
-    background-position-x: 8%;
-    background-size: 5%;
-  }
-
-  .agregar_archivo-formInst2::before {
-    background-position-x: 8%;
-    background-size: 5%;
-  }
-
-  .agregar_archivo-formInst3::before {
-    background-position-x: 8%;
-    background-size: 5%;
-  }
-
-  .txt_informativo-formInst {
-    text-align: center;
-    line-height: 1;
-    margin-bottom: 0;
-    padding: 0;
-  }
-
-  .containt_profGuardado-formInst {
-    margin: 1% auto;
-    padding: 0;
-    justify-content: space-evenly;
-  }
-
-  .icon_profesionales-formInst {
-    background-size: 3%;
-    padding-left: 5%;
-    height: 2.5vh;
-    font-size: 1.2em;
-  }
-
-  .nombres_usuario-formInst {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0;
-    height: 3vh;
-  }
-
-  .input_nomApl-prefes-formProf {
-    width: 48.7%;
-    margin-bottom: 0%;
-  }
-
-  .content_loadImg-profes {
-    border: 1px solid #DBDADA;
-    border-radius: 5px;
-    padding: 2% 0;
-  }
-
-  .icon_certificaciones-formInst {
-    background-size: 3%;
-    padding-left: 5%;
-    height: 2.5vh;
-    font-size: 1.2em;
-  }
-
-  .text_superior-proced-formInst {
-    font-size: 1em;
-    width: 100%;
-    margin: 2% 0;
-  }
-
-  .content_antes-formInst {
-    border-right: 1px solid #D1D1D1;
-  }
-
-  .agregar_archivo-formInst::before {
-    background-position-x: 13%;
-    background-size: 5%;
-    font-size: 1em;
-    padding-left: 0;
-  }
-
-  .content_antes-formInst .agregar_archivo-formInst::before {
-    background-position-x: 16%;
-    background-size: 5%;
-    font-size: 1em;
-  }
-
-  .photo1 .agregar_archivo-formInst::before {
-    background-position-x: 31%;
-    background-size: 4%;
-    font-size: 1em;
-  }
-
-  .photo2 .agregar_archivo-formInst::before {
-    background-position-x: 31%;
-    background-size: 4%;
-    font-size: 1em;
-  }
-
-  .img_saveCertifi-formInst {
-    width: 100%;
-    height: 20vh;
-  }
-
-  .icon_sedes-formInst {
-    background-size: 3%;
-    padding-left: 5%;
-    height: 2.5vh;
-    font-size: 1.2em;
-  }
-
-  .img_saveSede-formInst {
-    width: 100%;
-    height: 20vh;
-  }
-
-  .icon_ubiqueSede-formInst {
-    background-size: 3%;
-    padding-left: 5%;
-    height: 2.5vh;
-    font-size: 1.2em;
-  }
-
-  .icon_galeriaInst-formInst {
-    background-size: 3%;
-    padding-left: 5%;
-    height: 2.5vh;
-    font-size: 1.2em;
-  }
-
-  .photo3 .agregar_archivo-formInst::before {
-    background-position-x: 31%;
-    background-size: 4%;
-    font-size: 1em;
-  }
-
-  .photo4 .agregar_archivo-formInst::before {
-    background-position-x: 31%;
-    background-size: 4%;
-    font-size: 1em;
-  }
-
-  .photo5 .agregar_archivo-formInst::before {
-    background-position-x: 31%;
-    background-size: 4%;
-    font-size: 1em;
-  }
-
-  .photo6 .agregar_archivo-formInst::before {
-    background-position-x: 31%;
-    background-size: 4%;
-    font-size: 1em;
-  }
-
-  .photo7 .agregar_archivo-formInst::before {
-    background-position-x: 31%;
-    background-size: 4%;
-    font-size: 1em;
-  }
-
-  .photo8 .agregar_archivo-formInst::before {
-    background-position-x: 31%;
-    background-size: 4%;
-    font-size: 1em;
-  }
-
-  .icon_infoVideo-formInst {
-    background-size: 3%;
-    padding-left: 5%;
-    height: 2.5vh;
-    font-size: 1.2em;
-  }
-
-  .btn-next-320-formInst {
-    width: 68%;
-  }
-
-  .boton_inferior-siguiente-formInst {
-    width: 68%;
-  }
-
-  .boton_inferior-anterior-formInst {
-    width: 68%;
-  }
-
-  .boton_inferior-finalizar-formInst {
-    width: 68%;
-  }
-
-  .premios_guardada-formInst {
-    flex-flow: wrap;
-  }
-
-  .section_infoExper-formInst {
-    width: 48%;
-    padding: 2%;
-    margin-bottom: 3%;
-  }
-
-  .text_infoImg-formInst {
-    font-family: "Roboto", "Regular";
-    font-size: 1em;
-    color: #DBDADA;
-    padding: 0;
-  }
-}
-@media (min-width: 1200px) {
-  .optionList_formInst {
-    width: 60%;
-    height: 12vh;
-  }
-
-  .img_usuario-formInst {
-    height: 20vh;
-  }
-
-  .icon_subirFoto-formInst {
-    background-position-x: 3%;
-  }
-
-  .contain_imgInst-formInst .icon_subirFoto-formInst {
-    background-size: 5%;
-    background-position-x: 13%;
-  }
-}
-@media (min-width: 1440px) {
-  .img_usuario-formInst {
-    height: 23vh;
-  }
-
-  .icon_subirFoto-formInst {
-    background-position-x: 10%;
-  }
-
-  .contain_imgInst-formInst .icon_subirFoto-formInst {
-    background-size: 4%;
-    background-position-x: 20%;
-  }
-
-  .content_tarjetasInfo-formInst {
-    margin-bottom: 3%;
-  }
-
-  .agregar_archivo-formInst1::before {
-    background-position-x: 15%;
-  }
-
-  .agregar_archivo-formInst2::before {
-    background-position-x: 15%;
-  }
-
-  .agregar_archivo-formInst3::before {
-    background-position-x: 15%;
-  }
-
-  .photo1 .agregar_archivo-formInst::before {
-    background-position-x: 37%;
-    background-size: 2.8%;
-  }
-
-  .photo2 .agregar_archivo-formInst::before {
-    background-position-x: 37%;
-    background-size: 2.8%;
-  }
-
-  .photo3 .agregar_archivo-formInst::before {
-    background-position-x: 37%;
-    background-size: 2.8%;
-  }
-
-  .photo4 .agregar_archivo-formInst::before {
-    background-position-x: 37%;
-    background-size: 2.8%;
-  }
-
-  .photo5 .agregar_archivo-formInst::before {
-    background-position-x: 37%;
-    background-size: 2.8%;
-  }
-
-  .photo6 .agregar_archivo-formInst::before {
-    background-position-x: 37%;
-    background-size: 2.8%;
-  }
-
-  .photo7 .agregar_archivo-formInst::before {
-    background-position-x: 37%;
-    background-size: 2.8%;
-  }
-
-  .photo8 .agregar_archivo-formInst::before {
-    background-position-x: 37%;
-    background-size: 2.8%;
-  }
-}
-@media (min-width: 1920px) {
-  .optionList_formInst {
-    width: 55%;
-    height: 13vh;
-  }
-
-  .content_tarjetasInfo-formInst {
-    margin-bottom: 2%;
-  }
-
-  .contain_imgInst-formInst .icon_subirFoto-formInst {
-    background-size: 2.8%;
-    background-position-x: 28%;
-  }
-
-  .img_usuario-formInst {
-    height: 21vh;
-    width: 68%;
-  }
-
-  .icon_subirFoto-formInst {
-    background-position-x: 23%;
-    background-size: 4.5%;
-  }
-
-  .text_usuario-formInst {
-    margin: 5% 0;
-  }
-
-  .contain_imgInst-formInst .text_usuario-formInst {
-    margin: 3% 0 0 0;
-  }
-
-  .img_institucion-formInst {
-    height: 23vh;
-  }
-
-  .content_agregarImg-formInst {
-    margin: 2% 0 3% 0;
-    padding: 0 1%;
-  }
-
-  .section_infoAsocia-formInst {
-    margin: 2% 0;
-  }
-
-  .agregar_archivo-formInst1::before {
-    background-position-x: 25%;
-    background-size: 2.8%;
-  }
-
-  .agregar_archivo-formInst2::before {
-    background-position-x: 25%;
-    background-size: 2.8%;
-  }
-
-  .agregar_archivo-formInst3::before {
-    background-position-x: 25%;
-    background-size: 2.8%;
-  }
-
-  .photo1 .agregar_archivo-formInst::before {
-    background-position-x: 41%;
-    background-size: 2%;
-  }
-
-  .photo2 .agregar_archivo-formInst::before {
-    background-position-x: 41%;
-    background-size: 2%;
-  }
-
-  .photo3 .agregar_archivo-formInst::before {
-    background-position-x: 41%;
-    background-size: 2%;
-  }
-
-  .photo4 .agregar_archivo-formInst::before {
-    background-position-x: 41%;
-    background-size: 2%;
-  }
-
-  .photo5 .agregar_archivo-formInst::before {
-    background-position-x: 41%;
-    background-size: 2%;
-  }
-
-  .photo6 .agregar_archivo-formInst::before {
-    background-position-x: 41%;
-    background-size: 2%;
-  }
-
-  .photo7 .agregar_archivo-formInst::before {
-    background-position-x: 41%;
-    background-size: 2%;
-  }
-
-  .photo8 .agregar_archivo-formInst::before {
-    background-position-x: 41%;
-    background-size: 2%;
-  }
-
-  .flechaBtn_guardar-formInst {
-    width: 8%;
   }
 }
 .infoZaabra_contacto {
@@ -32084,301 +29693,6 @@ a:link, a:visited, a:active, a:hover {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  }
-}
-.cabecera_forPacien {
-  margin: 5% auto;
-  width: 100%;
-}
-
-.titulo_forPacien {
-  font-size: 1.5em;
-  font-family: "Quicksand", "Regular";
-  font-weight: bold;
-  color: #0083D6;
-  text-align: center;
-}
-
-.subTitulo_forPacien {
-  font-size: 1em;
-  font-family: "Roboto", "Regular";
-  color: #3E3E3E;
-  text-align: initial;
-  padding: 0;
-  margin-top: 3%;
-}
-
-.tarjeta_datosSecun_formPaciente {
-  box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.12);
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6% 0;
-  margin-bottom: 7%;
-  width: 100%;
-}
-
-.containt_img_formPacien {
-  width: 100%;
-}
-
-.content_img_formPacien {
-  height: 230px;
-  width: 200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.input_imgUsuario-formPacien {
-  position: absolute;
-  top: 204px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  width: 200px;
-  height: 235px;
-  opacity: 0;
-  overflow: auto;
-  margin: 0 auto;
-}
-
-.img_paciente_formPacien {
-  width: 200px;
-  height: 200px;
-  border: 1px solid #dcdcdc;
-  border-radius: 100px;
-  background: #dcdcdc;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
-}
-
-.subirFoto_formPacien {
-  background-image: url(/img/formulario-profesional/icono-subir.svg);
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 8%;
-  background-size: 12px;
-  text-align: center;
-  margin-top: 5%;
-  margin-left: 10%;
-}
-
-.content_datosBasic_formPacien {
-  width: 100%;
-}
-
-.content_options_formPacien {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  width: 100%;
-}
-
-.documento_formPacien {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.content_documento_formPacien {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  width: 100%;
-}
-
-.text_label_formPacien {
-  font-size: 1em;
-  font-family: "Quicksand", "Regular";
-  font-weight: bold;
-  color: #232323;
-  width: 100%;
-  text-align: left;
-  padding: 8px 15px;
-  margin: 0;
-  line-height: 1.6;
-}
-
-.content_nombre_forPacien {
-  width: 100%;
-  padding: 0 0 0 0;
-  display: flex;
-  flex-direction: column;
-  height: 90px;
-  justify-content: space-between;
-}
-
-.content_inputs_forPacien {
-  width: 100%;
-  padding: 0 0 0 0;
-  display: flex;
-}
-
-.content_btnGuardar_formPacien {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0;
-  margin-top: 5%;
-  margin-bottom: 0;
-}
-
-.datosSecond_formPacien {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.contraseña_inputs_formPacien {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .tarjeta_datosSecun_formPaciente {
-    padding: 3% 0;
-    margin-bottom: 4%;
-  }
-
-  .containt_img_formPacien {
-    width: 35%;
-  }
-
-  .input_imgUsuario-formPacien {
-    top: 284px;
-    left: 10%;
-    right: 66%;
-    width: 195px;
-    height: 235px;
-  }
-
-  .content_datosBasic_formPacien {
-    width: 65%;
-    padding-left: 2%;
-    border-left: 1px solid #dcdcdc;
-  }
-
-  .content_nombre_forPacien {
-    flex-direction: row;
-    height: 38px;
-  }
-
-  .content_documento_formPacien {
-    width: 50%;
-  }
-
-  .datosSecond_formPacien {
-    width: 49%;
-  }
-
-  .content_btnGuardar_formPacien {
-    margin-top: 3%;
-  }
-}
-@media (min-width: 1024px) {
-  .cabecera_forPacien {
-    margin: 5% auto;
-    width: 83%;
-  }
-
-  .input_imgUsuario-formPacien {
-    top: 295px;
-    left: 162px;
-    right: 665px;
-    width: 200px;
-  }
-
-  .tarjeta_datosSecun_formPaciente {
-    padding: 3% 0;
-    margin-bottom: 4%;
-  }
-
-  .tarjeta_datosSecun_formPaciente {
-    width: 83%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .contraseña_inputs_formPacien {
-    width: 75%;
-    margin: auto;
-  }
-}
-@media (min-width: 1200px) {
-  .cabecera_forPacien {
-    width: 80%;
-  }
-
-  .input_imgUsuario-formPacien {
-    top: 325px;
-    left: 195px;
-    right: 810px;
-  }
-
-  .tarjeta_datosSecun_formPaciente {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-@media (min-width: 1360px) {
-  .cabecera_forPacien {
-    width: 85%;
-  }
-
-  .tarjeta_datosSecun_formPaciente {
-    width: 85%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .input_imgUsuario-formPacien {
-    left: 275px;
-    right: 890px;
-  }
-}
-@media (min-width: 1440px) {
-  .input_imgUsuario-formPacien {
-    left: 315px;
-    right: 925px;
-  }
-}
-@media (min-width: 1920px) {
-  .tarjeta_datosSecun_formPaciente {
-    width: 100%;
-  }
-
-  .cabecera_forPacien {
-    width: 100%;
-  }
-
-  .titulo_forPacien {
-    font-size: 2.5em;
-  }
-
-  .subTitulo_forPacien {
-    font-size: 1.5em;
-  }
-
-  .input_imgUsuario-formPacien {
-    left: 315px;
-    right: 925px;
-  }
-
-  .input_imgUsuario-formPacien {
-    top: 330px;
-    left: 510px;
-    right: 1195px;
-  }
-
-  .text_label_formPacien {
-    font-size: 1.3em;
   }
 }
 .content_main {

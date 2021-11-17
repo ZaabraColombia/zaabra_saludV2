@@ -4,23 +4,6 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="{{ asset('css/select2-bootstrap.min.css') }}" rel="stylesheet" />
     <!--<link rel="stylesheet" href="{{ asset('plugins/pace/themes/blue/pace-theme-loading-bar.css') }}"/>-->
-
-    <style>
-        /*.pace-running > *:not(.pace) {
-            opacity:0.1;
-        }
-        #page_overlay {
-            position: fixed;
-            z-index: 2000;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-        }*/
-    </style>
 @endsection
 
 @section('content')
@@ -31,19 +14,16 @@
                 <p>Datos personales</p>
             </li>
         </div>
-
         <div class="section_icon_form">
             <li class="iconGris_perfProf perfil-profesional" onclick="containtHideOption(this)" data-position="professionalProfile">
                 <p>Perfil profesional</p>
             </li>
         </div>
-
         <div class="section_icon_form">
             <li class="iconGris_trataProced tratamiento-procedimiento" onclick="containtHideOption(this)" data-position="treatmentsProcedures">
                 <p>Tratamientos y procedimientos</p>
             </li>
         </div>
-
         <div class="section_icon_form">
             <li class="iconGris_premioRecon premio-reconocimiento" onclick="containtHideOption(this)" data-position="AwardsHonours">
                 <p>Premios y reconocimientos</p>
@@ -78,7 +58,7 @@
 
         <!-- 1.1 Basic information -->
         <div class="card_module_form">
-            <h5 class="icon_text icon_basicInfo_formProf"> Información básica </h5>
+            <h5 class="icon_text icon_basicInfo_formProf">Información básica</h5>
             <div id="msg_basico"></div>
 
             <form id="formulario_basico" method="POST" action="javascript:void(0)" enctype="multipart/form-data" accept-charset="UTF-8" class="pb-2">
@@ -87,14 +67,13 @@
                     <div class="col-md-3 img_user_form"> <!-- User image -->
                         <img id="imagenPrevisualizacion" src="{{ (isset($objFormulario->fotoperfil)) ? asset($objFormulario->fotoperfil) : '' }}">
                         <input type="file" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg" value="{{$objFormulario->fotoperfil}}">
-                        <p> Subir foto de perfil </p>
+                        <p>Subir foto de perfil</p>
                     </div>
 
                     <div class="col-md-9 line_vertical_form"> <!-- Personal information -->
                         <div class="row m-0">
                             <div class="col-lg-6 p-0 pr-lg-1">
                                 <label for="example-date-input" class="label_txt_form">Nombres</label>
-
                                 <div class="section_input_double_form">
                                     <input class="input_box_form mb-2 mb-md-0 mr-md-1" value="{{ (isset($objuser->primernombre)) ? $objuser->primernombre : '' }}" name="primernombre"/>
                                     <input class="input_box_form ml-md-1" value="{{ (isset($objuser->segundonombre)) ? $objuser->segundonombre : '' }}" name="segundonombre"/>
@@ -115,8 +94,7 @@
                             </div>
 
                             <div class="col-md-6 p-0 pl-md-1">
-                                <label for="idarea" class="label_txt_form"> Selecione área </label>
-                                
+                                <label for="idarea" class="label_txt_form">Selecione área</label>  
                                 <select id="idarea" name="idarea" class="input_box_form">
                                     <option></option>
                                     @foreach($area as $a)
@@ -126,8 +104,7 @@
                             </div>
 
                             <div class="col-md-6 p-0 pr-md-1">
-                                <label for="idprofesion" class="label_txt_form"> Selecione profesión </label>
-
+                                <label for="idprofesion" class="label_txt_form">Selecione profesión</label>
                                 <select id="idprofesion" name="idprofesion" class="input_box_form">
                                     @foreach($profesiones as $profesion)
                                         <option value="{{$profesion->idProfesion}}" {{ (isset($objFormulario->idprofesion) && $profesion->idProfesion == $objFormulario->idprofesion) ? 'selected' : '' }}> {{$profesion->nombreProfesion}}</option>
@@ -136,8 +113,7 @@
                             </div>
 
                             <div class="col-md-6 p-0 pl-md-1">
-                                <label for="idespecialidad" class="label_txt_form"> Seleccione especialidad </label>
-
+                                <label for="idespecialidad" class="label_txt_form">Seleccione especialidad</label>
                                 <select id="idespecialidad" name="idespecialidad" class="input_box_form">
                                     @foreach($especialidades as $especialidad)
                                         <option value="{{$especialidad->idEspecialidad}}" {{ (isset($objFormulario->idEspecialidad) && $especialidad->idEspecialidad == $objFormulario->idEspecialidad) ? 'selected' : '' }}> {{$especialidad->nombreEspecialidad}}</option>
@@ -146,8 +122,7 @@
                             </div>
 
                             <div class="col-md-6 p-0 pr-md-1">
-                                <label for="id_universidad" class="label_txt_form"> Selecione universidad </label>
-
+                                <label for="id_universidad" class="label_txt_form">Selecione universidad</label>
                                 <select id="id_universidad" name="id_universidad" class="input_box_form universidades">
                                     @if(isset($objFormulario->id_universidad))
                                         <option value="{{$objFormulario->id_universidad}}" selected>{{$objFormulario->nombreuniversidad}}</option>
@@ -157,7 +132,6 @@
 
                             <div class="col-md-6 p-0 pl-md-1">
                                 <label for="tarjeta" class="label_txt_form">Tarjeta profesional</label>
-
                                 <input class="input_box_form" id="tarjeta" placeholder="Número de tarjeta" type="number" name="numeroTarjeta" value="{{$objFormulario->numeroTarjeta}}">
                             </div>
                         </div>
@@ -165,7 +139,7 @@
                 </div>
 
                 <div class="section_button_form">  <!-- Save button -->
-                    <button type="submit" class="button_save_form" id="envia_basico" data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">Guardar
+                    <button type="submit" class="button_blue_form" id="envia_basico" data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>
@@ -174,29 +148,29 @@
 
         <!-- 1.2 Contac information -->
         <div class="card_module_form">
-            <h5 class="icon_text icon_infoContac-formProf"> Información de contacto </h5>
+            <h5 class="icon_text icon_infoContac_Prof">Información de contacto</h5>
             <div id="msg_contacto"></div>
 
             <form id="formulario_contacto" method="POST" action="javascript:void(0)"  enctype="multipart/form-data" accept-charset="UTF-8" class="pb-2">
                 @csrf
                 <div class="row m-0 py-3 px-0">
                     <div class="col-md-6 p-0 pr-md-1">
-                        <label for="celular" class="label_txt_form"> Celular </label>
+                        <label for="celular" class="label_txt_form">Celular</label>
                         <input class="input_box_form" id="celular" value="{{ (isset($objFormulario->celular)) ? $objFormulario->celular : '' }}" type="number" name="celular" required >
                     </div>
 
                     <div class="col-md-6 p-0 pl-md-1">
-                        <label for="telefono" class="label_txt_form"> Teléfono </label>
+                        <label for="telefono" class="label_txt_form">Teléfono</label>
                         <input class="input_box_form" id="telefono" value="{{ (isset($objFormulario->telefono)) ? $objFormulario->telefono : '' }}" type="number" name="telefono" >
                     </div>
 
                     <div class="col-md-6 p-0 pr-md-1">
-                        <label for="direccion" class="label_txt_form"> Dirección </label>
+                        <label for="direccion" class="label_txt_form">Dirección</label>
                         <input class="input_box_form" id="direccion" value="{{ (isset($objFormulario->direccion)) ? $objFormulario->direccion : '' }}" type="text" name="direccion" required>
                     </div>
 
                     <div class="col-md-6 p-0 pl-md-1"> <!--menu dinamico ciudades -->
-                        <label for="idpais" class="label_txt_form"> Seleccione país </label>
+                        <label for="idpais" class="label_txt_form">Seleccione país</label>
                         <select id="idpais" name="idpais" class="input_box_form">
                             @foreach($listaPaises as $pais)
                                 <option value="{{ $pais->id_pais }}"  {{ (isset($objFormulario->id_pais) && $objFormulario->id_pais == $pais->id_pais) ? 'selected' : ''}}> {{ $pais->nombre }}</option>
@@ -205,7 +179,7 @@
                     </div>
 
                     <div class="col-md-6 p-0 pr-md-1">
-                        <label for="id_departamento" class="label_txt_form"> Selecione departamento </label>
+                        <label for="id_departamento" class="label_txt_form">Selecione departamento</label>
                         <select name="id_departamento" id="id_departamento" class="input_box_form">
                             @foreach($listaDepartamentos as $departamento)
                                 <option value="{{ $departamento->id_departamento }}"  {{ (isset($objFormulario->id_departamento) && $objFormulario->id_departamento == $departamento->id_departamento) ? 'selected' : ''}}> {{ $departamento->nombre }}</option>
@@ -214,7 +188,7 @@
                     </div>
 
                     <div class="col-md-6 p-0 pl-md-1">
-                        <label for="id_provincia" class="label_txt_form"> Seleccione provincia </label>
+                        <label for="id_provincia" class="label_txt_form">Seleccione provincia</label>
                         <select name="id_provincia" id="id_provincia" class="input_box_form">
                             @foreach($listaProvincias as $provincia)
                                 <option value="{{ $provincia->id_provincia }}"  {{ (isset($objFormulario->id_provincia) && $objFormulario->id_provincia == $provincia->id_provincia) ? 'selected' : ''}}> {{ $provincia->nombre }}</option>
@@ -223,7 +197,7 @@
                     </div>
 
                     <div class="col-md-6 p-0 pr-md-1">
-                        <label for="id_municipio" class="label_txt_form"> Seleccione ciudad </label>
+                        <label for="id_municipio" class="label_txt_form">Seleccione ciudad</label>
                         <select name="id_municipio" id="id_municipio" class="input_box_form">
                             @foreach($listaMunicipios as $municipio)
                                 <option value="{{ $municipio->id_municipio }}"  {{ (isset($objFormulario->id_municipio) && $objFormulario->id_municipio == $municipio->id_municipio) ? 'selected' : ''}}> {{ $municipio->nombre }}</option>
@@ -233,7 +207,7 @@
                 </div>
 
                 <div class="section_button_form">  <!-- Save button -->
-                    <button type="submit" class="button_save_form" id="envia_contacto" data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">Guardar
+                    <button type="submit" class="button_blue_form" id="envia_contacto" data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>
@@ -242,14 +216,13 @@
 
         <!-- 1.3 Medical consultation information -->
         <div class="card_module_form">
-            <h5 class="icon_text icon_infoConsult-formProf mb-3">Información consulta</h5>
+            <h5 class="icon_text icon_infoConsult_Prof mb-3">Información consulta</h5>
 
-            <div class="content_information_saved_form" id="consultas-lista"> <!-- Saved information -->
+            <div class="content_information_saved_form" id="consultas-lista">
                 <?php $count_consultas = 0; ?>
                 @foreach($objConsultas as $objConsultas)
                     @if(!empty($objConsultas->nombreconsulta))
                         <?php $count_consultas++; ?>
-
                         <div class="card_information_saved_form">
                             <div class="content_btn_close_form">
                                 <button type="submit" class="close" aria-label="Close" data-id="{{ $objConsultas->id }}"><span aria-hidden="true">&times;</span></button>
@@ -282,23 +255,23 @@
                 @csrf
                 <div class="row m-0 pb-3 px-0">
                     <div class="col-md-6 p-0 pr-md-1">
-                        <label for="tipo_consulta" class="label_txt_form"> Tipo consulta </label>
+                        <label for="tipo_consulta" class="label_txt_form">Tipo consulta</label>
                         <select id="tipo_consulta" class="input_box_form" name="tipo_consulta" {{ ($count_consultas >= 3 ) ? 'disabled' : '' }}>
                             <option></option>
-                            <option value="Presencial"> Presencial </option>
-                            <option value="Virtual"> Virtual </option>
-                            <option value="Control médico"> Control Médico </option>
+                            <option value="Presencial">Presencial</option>
+                            <option value="Virtual">Virtual</option>
+                            <option value="Control médico">Control Médico</option>
                         </select>
                     </div>
 
                     <div class="col-md-6 p-0 pl-md-1">
-                        <label for="valor_consulta" class="label_txt_form"> Valor </label>
+                        <label for="valor_consulta" class="label_txt_form">Valor</label>
                         <input type="number" min="0" class="input_box_form" id="valor_consulta" name="valor_consulta" {{ ($count_consultas >= 3 ) ? 'disabled' : '' }}>
                     </div>
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button id="envia_consultas" type="submit" class="button_save_form" {{ ($count_consultas >= 3 ) ? 'disabled' : '' }} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
+                    <button id="envia_consultas" type="submit" class="button_blue_form" {{ ($count_consultas >= 3 ) ? 'disabled' : '' }} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>
@@ -307,7 +280,8 @@
 
         <!-- 1.14 Featured in -->
         <div class="card_module_form">
-            <h5 class="icon_text icon_destacado-formProf">Destacado en</h5>
+            <h5 class="icon_text icon_destacado_Prof">Destacado en</h5>
+
             <form id="formulario_destacado" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" class="pb-2" >
                 @csrf
                 <div class="row m-0 py-3 px-0">
@@ -347,7 +321,7 @@
 
         <!-- 1.15 Recover password -->
         <div class="card_module_form">
-          <h5 class="icon_text icon_basicInfo_formProf"> Actualizar contraseña </h5>
+          <h5 class="icon_text icon_basicInfo_formProf">Actualizar contraseña</h5>
 
             <form action="{{ route('profesional.formulario-password') }}" id="form-password-profesional" method="post" class="pb-2">
                 <div id="mensajes-password"></div>
@@ -370,7 +344,7 @@
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button class="button_save_form" id="btn-guardar-password-profesional" data-text="{{ __('paciente.guardar') }}" data-text-loading="{{ __('paciente.cargando') }}..."> Guardar
+                    <button class="button_blue_form" id="btn-guardar-password-profesional" data-text="{{ __('paciente.guardar') }}" data-text-loading="{{ __('paciente.cargando') }}..."> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>
@@ -380,7 +354,7 @@
         <!-- Next button -->
         <div class="container_button_form"> 
             <div class="section_button_form">
-                <button type="submit" class="button_bottom_form" onclick="btnHideNext(this)" code-position="personalData"> Siguiente
+                <button type="submit" class="button_green_form" onclick="btnHideNext(this)" code-position="personalData"> Siguiente
                     <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                 </button>
             </div>
@@ -388,10 +362,10 @@
     </div>
 
     <!-- 2. PROFESSIONAL PROFILE -->
-    <div class="container-fluid container_module_form professional_profile">
+    <div class="container_module_form professional_profile">
         <!-- 2.4 Professional profile -->
         <div class="card_module_form">
-            <h5 class="icon_text icon_infoSubPerfil-formProf mb-3">Perfil profesional</h5>
+            <h5 class="icon_text icon_infoSubPerfil_Prof mb-3">Perfil profesional</h5>
             <div id="mensaje-perfil-profesional"></div>
 
             <form id="formulario_descripcion" method="post" action="javascript:void(0)" enctype="multipart/form-data" accept-charset="UTF-8" class="pb-2">
@@ -406,7 +380,7 @@
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button type="submit" id="btn-guardar-perfil-profesional" class="button_save_form" data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
+                    <button type="submit" id="btn-guardar-perfil-profesional" class="button_blue_form" data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>
@@ -415,7 +389,7 @@
 
         <!-- 2.5 Education -->
         <div class="card_module_form">
-            <h5 class="icon_text icon_infoEduc-formProf mb-3">Educación</h5>
+            <h5 class="icon_text icon_infoEduc_Prof mb-3">Educación</h5>
             <div id="mensaje-estudios"></div>
 
             <div class="content_information_saved_form" id="estudios-lista">
@@ -433,18 +407,18 @@
                             </div>
 
                             <div class="data_saved_form">
-                                <h5> Fecha de finalización </h5>
-                                <span> {{$educacion->fechaestudio}} </span>
+                                <h5>Fecha de finalización</h5>
+                                <span>{{$educacion->fechaestudio}}</span>
                             </div>
 
                             <div class="data_saved_form">
-                                <h5> Universidad </h5>
-                                <span> {{$educacion->nombreuniversidad}} </span>
+                                <h5>Universidad</h5>
+                                <span>{{$educacion->nombreuniversidad}}</span>
                             </div>
 
                             <div class="data_saved_form">
-                                <h5> Disciplina académica </h5>
-                                <span> {{$educacion->nombreestudio}} </span>
+                                <h5>Disciplina académica</h5>
+                                <span>{{$educacion->nombreestudio}}</span>
                             </div>
                         </div>
                     @endif
@@ -479,7 +453,7 @@
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button type="submit" class="button_save_form" id="boton-enviar-estudios" {{ ($count_estudios >= 3) ? 'disabled' : '' }} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
+                    <button type="submit" class="button_blue_form" id="boton-enviar-estudios" {{ ($count_estudios >= 3) ? 'disabled' : '' }} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>
@@ -488,7 +462,7 @@
 
         <!-- 2.6 Job experienses -->
         <div class="card_module_form">
-            <h5 class="icon_text icon_infoExper-formProf mb-3">Experiencia Laboral</h5>
+            <h5 class="icon_text icon_infoExper_Prof mb-3">Experiencia Laboral</h5>
             <div id="mensaje-experiencia"></div>
 
             <div class="content_information_saved_form" id="experiencia-lista">
@@ -558,7 +532,7 @@
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button type="submit" class="button_save_form" id="boton-guardar-experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
+                    <button type="submit" class="button_blue_form" id="boton-guardar-experiencia" {{ ($count_experiencia >= 4 ) ? 'disabled' : '' }} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>
@@ -567,7 +541,7 @@
 
         <!-- 2.7 Associations -->
         <div class="card_module_form">
-            <h5 class="icon_text icon_infoAsocia-formProf mb-3">Asociaciones</h5>
+            <h5 class="icon_text icon_infoAsocia_Prof mb-3">Asociaciones</h5>
             <div id="mensajes-asociacion"></div>
 
             <div class="content_information_saved_form" id="lista-asociacion">
@@ -603,7 +577,7 @@
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button type="submit" class="button_save_form" id="boton-guardar-asociacion" {{ ($count_asociaciones >= 3 ) ? 'disabled' : '' }} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
+                    <button type="submit" class="button_blue_form" id="boton-guardar-asociacion" {{ ($count_asociaciones >= 3 ) ? 'disabled' : '' }} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>
@@ -612,7 +586,7 @@
 
         <!-- 2.8 Languages -->
         <div class="card_module_form">
-            <h5 class="icon_text icon_infoIdioma-formProf mb-3">Idiomas</h5>
+            <h5 class="icon_text icon_infoIdioma_Prof mb-3">Idiomas</h5>
             <div id="mensaje-idioma"></div>
 
             <div class="content_information_saved_form" id="lista-idioma">
@@ -649,20 +623,21 @@
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button type="submit" class="button_save_form" id="boton-guardar-idioma"  {{ ($count_idiomas >= 3) ? 'disabled' : '' }} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
+                    <button type="submit" class="button_blue_form" id="boton-guardar-idioma"  {{ ($count_idiomas >= 3) ? 'disabled' : '' }} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>
             </form>
         </div>
+
         <!-- Previous and next buttons -->
         <div class="container_button_form"> 
             <div class="section_button_form justify-content-between">
-                <button type="submit" class="button_bottom_previous_form" onclick="btnHidePrevious(this)" code-position="professionalProfile">
+                <button type="submit" class="button_transparent_form" onclick="btnHidePrevious(this)" code-position="professionalProfile">
                     <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="pr-2">Anterior
                 </button>
 
-                <button type="submit" class="button_bottom_form" onclick="btnHideNext(this)" code-position="professionalProfile">Siguiente
+                <button type="submit" class="button_green_form" onclick="btnHideNext(this)" code-position="professionalProfile">Siguiente
                     <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                 </button>
             </div>
@@ -670,10 +645,10 @@
     </div>
 
     <!-- 3. TREATMENTS AND PROCEDURES -->
-    <div class="container-fluid container_module_form treatments_procedures">
+    <div class="container_module_form treatments_procedures">
         <!-- 3.9 Treatments and procedures -->
         <div class="card_module_form">
-            <h5 class="icon_text icon_infoTratam-formProf mb-3"> Tratamientos y procedimientos </h5>
+            <h5 class="icon_text icon_infoTratam_Prof mb-3"> Tratamientos y procedimientos </h5>
             <h5 class="textTop_informative_form"> A continuación suba imágenes con respecto a los procedimientos y tratamientos, con su título y descripción. </h5>
 
             <div class="content_information_saved_form" id="lista-tratamientos">
@@ -724,6 +699,7 @@
                     </div>
                 @endif
             </div>
+
             <form method="POST" action="{{ url ('/FormularioProfesionalSave9') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_tratamiento" class="pb-2">
                 @csrf
                 <div class="row m-0 pb-3 px-0">
@@ -734,7 +710,7 @@
                             <div class="upload_file_img_form">
                                 <img class="imagenPrevisualizacion" id="imagen-tratamiento-antes"/>
                                 <input type='file' id="imgTratamientoAntes" name="imgTratamientoAntes" onchange="ver_imagen('imgTratamientoAntes', 'imagen-tratamiento-antes');" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}/>
-                                <p>Subir imagen antes</p>
+                                <p style="width: 11em;">Subir imagen antes</p>
                             </div>
 
                             <p class="text_informative_form text-center"> Tamaño 225px x 225px. Peso máximo 400kb </p>
@@ -772,7 +748,7 @@
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button type="submit" class="button_save_form" id="boton-guardar-tratamiento" data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
+                    <button type="submit" class="button_blue_form" id="boton-guardar-tratamiento" data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>
@@ -782,11 +758,11 @@
         <!-- Previous and next buttons -->
         <div class="container_button_form"> 
             <div class="section_button_form justify-content-between">    
-                <button type="submit" class="button_bottom_previous_form" onclick="btnHidePrevious(this)" code-position="treatmentsProcedures">
+                <button type="submit" class="button_transparent_form" onclick="btnHidePrevious(this)" code-position="treatmentsProcedures">
                     <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="pr-2">Anterior
                 </button>
             
-                <button type="submit" class="button_bottom_form" onclick="btnHideNext(this)" code-position="treatmentsProcedures"> Siguiente
+                <button type="submit" class="button_green_form" onclick="btnHideNext(this)" code-position="treatmentsProcedures"> Siguiente
                     <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                 </button>
             </div>
@@ -794,10 +770,10 @@
     </div>
 
     <!-- 4. AWARDS AND HONOURS -->
-    <div class="container-fluid container_module_form Awards_honours">
+    <div class="container_module_form Awards_honours">
         <!-- 4.10 Awards and honours -->
         <div class="card_module_form">
-            <h5 class="icon_text icon_infoPremReco-formProf mb-3">Premios y reconocimientos</h5>
+            <h5 class="icon_text icon_infoPremReco_Prof mb-3">Premios y reconocimientos</h5>
             <h5 class="textTop_informative_form">A continuación suba imágenes relacionadas con sus premios y reconocimientos, con nombre y descripción.</h5>
 
             <div class="content_information_saved_form" id="lista-premios">
@@ -840,20 +816,20 @@
                         <div class="upload_file_img_form">
                             <img class="imagenPrevisualizacion" id="img-premio"/>
                             <input type='file' id="imgPremio" name="imgPremio" onchange="ver_imagen('imgPremio', 'img-premio');" {{ ($counto_premios >= 4) ? 'disabled' : '' }}/>
-                            <p style="width: 12.5em;">Subir imagen premio</p>
+                            <p style="width: 11.5em;">Subir imagen premio</p>
                         </div>
 
                         <p class="text_informative_form text-center">Tamaño 356 x 326px. Peso máximo 300kb</p>
                     </div>
   
                     <div class="col-md-6 p-0">
-                        <label for="fechaPremio" class="label_txt_form"> Fecha de inicio </label>
+                        <label for="fechaPremio" class="label_txt_form">Fecha de inicio</label>
                         <input class="input_box_form" type="date"  id="fechaPremio" name="fechaPremio" {{ ($counto_premios >= 4) ? 'disabled' : '' }}>
 
-                        <label for="nombrePremio" class="label_txt_form"> Título de la imagen 1 </label>
+                        <label for="nombrePremio" class="label_txt_form">Título de la imagen 1</label>
                         <input class="input_box_form" id="nombrePremio" placeholder="Título de la imagen" type="text" name="nombrePremio" {{ ($counto_premios >= 4) ? 'disabled' : '' }}>
 
-                        <label for="descripcionPremio" class="label_txt_form"> Descripción del premio </label>
+                        <label for="descripcionPremio" class="label_txt_form">Descripción del premio</label>
                         <input class="input_box_form" id="descripcionPremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionPremio" {{ ($counto_premios >= 4) ? 'disabled' : '' }}>
                         
                         <p class="text_informative_form">160 Caracteres</p>
@@ -861,7 +837,7 @@
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button type="submit" class="button_save_form" id="boton-guardar-premio" data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">Guardar
+                    <button type="submit" class="button_blue_form" id="boton-guardar-premio" data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}...">Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>
@@ -871,11 +847,11 @@
         <!-- Previous and next buttons -->
         <div class="container_button_form"> 
             <div class="section_button_form justify-content-between">
-                <button type="submit" class="button_bottom_previous_form" onclick="btnHidePrevious(this)" code-position="AwardsHonours">
+                <button type="submit" class="button_transparent_form" onclick="btnHidePrevious(this)" code-position="AwardsHonours">
                     <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="pr-2">Anterior
                 </button>
             
-                <button type="submit" class="button_bottom_form" onclick="btnHideNext(this)" code-position="AwardsHonours">Siguiente
+                <button type="submit" class="button_green_form" onclick="btnHideNext(this)" code-position="AwardsHonours">Siguiente
                     <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                 </button>
             </div>
@@ -883,10 +859,10 @@
     </div>
 
     <!-- 5. PUBLICATION -->
-    <div class="container-fluid container_module_form publications_formInst">
+    <div class="container_module_form publications_formInst">
         <!-- 5.11 Publication -->
         <div class="card_module_form">
-            <h5 class="icon_text icon_infoPublic-formProf mb-3">Publicaciones</h5>
+            <h5 class="icon_text icon_infoPublic_Prof mb-3">Publicaciones</h5>
             <h5 class="textTop_informative_form">A continuación suba imágenes de las publicaciones que ha realizado a lo largo de su experiencia.</h5>
 
             <div class="content_information_saved_form" id="lista-publicacion">
@@ -946,7 +922,7 @@
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button type="submit" class="button_save_form" id="boton-guardar-publicacion" {{ ($count_publicaciones >= 4) ? 'disabled' : '' }} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
+                    <button type="submit" class="button_blue_form" id="boton-guardar-publicacion" {{ ($count_publicaciones >= 4) ? 'disabled' : '' }} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2" alt="">
                     </button>
                 </div>
@@ -956,11 +932,11 @@
         <!-- Previous and next buttons -->
         <div class="container_button_form"> 
             <div class="section_button_form justify-content-between">
-                <button type="submit" class="button_bottom_previous_form" onclick="btnHidePrevious(this)" code-position="publicationsFormProf">
+                <button type="submit" class="button_transparent_form" onclick="btnHidePrevious(this)" code-position="publicationsFormProf">
                     <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="pr-2">Anterior
                 </button>
          
-                <button type="submit" class="button_bottom_form" onclick="btnHideNext(this)" code-position="publicationsFormInst"> Siguiente
+                <button type="submit" class="button_green_form" onclick="btnHideNext(this)" code-position="publicationsFormInst"> Siguiente
                     <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                 </button>
             </div>
@@ -968,10 +944,10 @@
     </div>
 
     <!-- 6. GALLERY AND VIDEO -->
-    <div class="container-fluid container_module_form gallery_formInst">
+    <div class="container_module_form gallery_formInst">
         <!-- 6.12 Gallery -->
         <div class="card_module_form">
-            <h5 class="icon_text icon_infoGale-formProf mb-3">Galería</h5>
+            <h5 class="icon_text icon_infoGale_Prof mb-3">Galería</h5>
             <h5 class="textTop_informative_form">A continuación suba 10 imágenes como mínimo, con su respectivo nombre y descripción.</h5>
 
             <div class="content_information_saved_form" id="lista-fotos">
@@ -1005,6 +981,7 @@
                     </div>
                 @endif
             </div>
+            
             <form method="POST" action="{{ url ('/FormularioProfesionalSave12') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_fotos" class="pb-2">
                 @csrf
                 <div class="row m-0 pb-3 px-0">
@@ -1012,7 +989,7 @@
                         <div class="upload_file_img_form">
                             <img class="imagenPrevisualizacion"  id="img-foto"/>
                             <input type='file' id="imgFoto" name="imgFoto" onchange="ver_imagen('imgFoto', 'img-foto');" {{ ($count_foto >= 8) ? 'disabled' : '' }}/>
-                            <p style="width: 12.5em;">Subir imagen galería</p>
+                            <p style="width: 11.5em;">Subir imagen galería</p>
                         </div>
 
                         <p class="text_informative_form text-center">Tamaño 400 x 400px. Peso máximo 500kb</p>
@@ -1033,7 +1010,7 @@
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button type="submit" class="button_save_form" id="boton-guardar-foto" {{ ($count_foto >= 8) ? 'disabled' : '' }} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
+                    <button type="submit" class="button_blue_form" id="boton-guardar-foto" {{ ($count_foto >= 8) ? 'disabled' : '' }} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>
@@ -1042,11 +1019,10 @@
 
         <!-- 6.13 Video -->
         <div class="card_module_form">
-            <h5 class="icon_text icon_infoVideo-formProf mb-3">Videos</h5>
+            <h5 class="icon_text icon_infoVideo_Prof mb-3">Videos</h5>
             <h5 class="textTop_informative_form">A continuación suba el link del video, con su respectivo nombre y descripción.</h5>
-
             <div id="mensajes-videos"></div>
-            <!-- Modulos de los VIDEOS -->
+
             <div class="content_information_saved_form" id="lista-videos">
                 <?php $count_videos = 0;?>
                 @foreach($objVideo as $video)
@@ -1083,16 +1059,15 @@
             <form method="POST" action="{{ url ('/FormularioProfesionalSave13') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario-videos" class="pb-2">
                 @csrf
                 <div class="row m-0 pb-3 px-0">
-                     <div class="col-md-6 p-0 pr-md-1">
+                    <div class="col-md-6 p-0 pr-md-1">
                         <label for="urlVideo" class="label_txt_form">Url video</label>
                         <input class="input_box_form" id="urlVideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlVideo" {{ ($count_videos >= 4) ? 'disabled' : '' }}>
                     
                         <label for="fechaVideo" class="label_txt_form">Fecha</label>
                         <input class="input_box_form" type="date"  id="fechaVideo" name="fechaVideo" >
                     </div>
-                   
 
-                     <div class="col-md-6 p-0 pl-md-1">     
+                    <div class="col-md-6 p-0 pl-md-1">     
                         <label for="nombreVideo" class="label_txt_form">Título video</label>
                         <input class="input_box_form" id="nombreVideo" placeholder="Título video" type="text" name="nombreVideo" {{ ($count_videos >= 4) ? 'disabled' : '' }}>
         
@@ -1104,7 +1079,7 @@
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button type="submit" class="button_save_form" id="boton-guardar-video" data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
+                    <button type="submit" class="button_blue_form" id="boton-guardar-video" data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2" {{ ($count_videos >= 4) ? 'disabled' : '' }}>
                     </button>
                 </div>
@@ -1114,11 +1089,11 @@
         <!-- Previous and next buttons -->
         <div class="container_button_form"> 
             <div class="section_button_form justify-content-between">
-                <button type="submit" class="button_bottom_previous_form" onclick="btnHidePrevious(this)" code-position="galleryFormProf">
+                <button type="submit" class="button_transparent_form" onclick="btnHidePrevious(this)" code-position="galleryFormProf">
                     <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="pr-2">Anterior
                 </button>
  
-                <a type="submit" class="button_bottom_form" href="{{ url('/PerfilProfesional/' . $objuser->id) }}">Finalizar
+                <a type="submit" class="button_green_form" href="{{ url('/PerfilProfesional/' . $objuser->id) }}">Finalizar
                     <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                 </a>
             </div>
