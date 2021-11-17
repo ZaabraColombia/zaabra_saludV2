@@ -5,7 +5,7 @@
     justify-content: center;
     list-style: none;
     padding: 0;
-    height: 200px;
+    //height: 200px;
     width: 300px;
     margin: 5% auto;
 }
@@ -37,6 +37,7 @@
 }
 .section_icon_form {
     width: 100px;
+    height: 100px;
 }
 .section_input_double_form {
     display: flex;
@@ -54,58 +55,109 @@
     margin: 0;
     padding: 0;
 }
-// Icons, titles and texts
-// Icons gray color 
+// Icons and texts option line
+// Icons gray color PROFESSIONAL FORM
 .iconGris_perfProf {
     background-image: url('/img/formulario-profesional/icono-perfil-profesional-gris.svg');
-    background-repeat: no-repeat;
-    background-size: 60px;
-    background-position-x: center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
     color: $gray_first;
-    font-size: .9em;
 }
 .iconGris_trataProced {
     background-image: url('/img/formulario-profesional/icono-tratamientos-y-procedimientos-gris.svg');
-    background-repeat: no-repeat;
-    background-size: 60px;
-    background-position-x: center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
     color: $gray_first;
-    font-size: .9em;
 }
 .iconGris_premioRecon {
     background-image: url('/img/formulario-profesional/icono-premios-y-reconocimientos-gris.svg');
-    background-repeat: no-repeat;
-    background-size: 60px;
-    background-position-x: center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
     color: $gray_first;
-    font-size: .9em;
 }
 .iconGris_public {
     background-image: url('/img/formulario-profesional/icono-publicaciones-gris.svg');
-    background-repeat: no-repeat;
-    background-size: 60px;
-    background-position-x: center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
     color: $gray_first;
-    font-size: .9em;
 }
 .iconGris_galeriaVideo {
     background-image: url('/img/formulario-profesional/icono-galeria-gris.svg');
+    color: $gray_first;
+}
+// Icon's blue color PROFESSIONAL FORM
+.iconAzul_datoPersonal {
+    background-image: url('/img/formulario-profesional/icono-datos-personales.svg');
+    color: $blue_official;
+}
+.iconAzul_perfProf {
+    background-image: url('/img/formulario-profesional/icono-perfil-profesional.svg');
+    color: $blue_official;
+}
+.iconAzul_trataProced {
+    background-image: url('/img/formulario-profesional/icono-tratamientos-y-procedimientos.svg');
+    color: $blue_official;
+}
+.iconAzul_premioRecon {
+    background-image: url('/img/formulario-profesional/icono-premios-y-reconocimientos.svg');
+    color: $blue_official;
+}
+.iconAzul_public {
+    background-image: url('/img/formulario-profesional/icono-publicaciones.svg');
+    color: $blue_official;
+}
+.iconAzul_galeriaVideo {
+    background-image: url('/img/formulario-profesional/icono-galeria.svg');
+    color: $blue_official;
+}
+// Icons gray color INSTITUTION FORM
+.iconGris_servProfesional {
+    background-image: url('/img/formulario-institucion/icono-servicios-profesionales-gris.svg');
+    color: $gray_first;
+}
+.iconGris_acercaInst {
+    background-image: url('/img/formulario-institucion/acerca-de-la-institucion-gris.svg');
+    color: $gray_first;
+}
+.iconGris_profesionalInst {
+    background-image: url('/img/formulario-institucion/icono-profesionales-gris.svg');
+    color: $gray_first;
+}
+.iconGris_certifInst {
+    background-image: url('/img/formulario-institucion/icono-certificaciones-gris.svg');
+    color: $gray_first;
+}
+.iconGris_sedeInst {
+    background-image: url('/img/formulario-institucion/icono-sede-gris.svg');
+    color: $gray_first;
+}
+.iconGris_galeInst {
+    background-image: url('/img/formulario-institucion/icono-galeria-gris.svg');
+    color: $gray_first;
+}
+// Icons green color INSTITUTION FORM
+.iconVerde_datoInst {
+    background-image: url('/img/formulario-institucion/datos-institucionales-verde.svg');
+    color: $green_official;
+}
+.iconVerde_servProfesional {
+    background-image: url('/img/formulario-institucion/icono-servicios-profesionales.svg');
+    background-repeat: no-repeat;
+    color: $green_official;
+}
+.iconVerde_acercaInst {
+    background-image: url('/img/formulario-institucion/acerca-de-la-institucion.svg');
+    color: $green_official;
+}
+.iconVerde_profesionalInst {
+    background-image: url('/img/formulario-institucion/icono-profesionales.svg');
+    color: $green_official;
+}
+.iconVerde_certifInst {
+    background-image: url('/img/formulario-institucion/icono-certificaciones.svg');
+    color: $green_official;
+}
+.iconVerde_sedeInst {
+    background-image: url('/img/formulario-institucion/icono-sede.svg');
+    color: $green_official;
+}
+.iconVerde_galeInst {
+    background-image: url('/img/formulario-institucion/icono-galeria.svg');
+    color: $green_official;
+}
+.section_icon_form li {  // Propiedades del icono linea de opciones
     background-repeat: no-repeat;
     background-size: 60px;
     background-position-x: center;
@@ -113,134 +165,154 @@
     height: 100%;
     display: flex;
     align-items: flex-end;
-    color: $gray_first;
-    font-size: .9em;
 }
-.section_icon_form p { // Texto de los iconos de la línea de opciones
+.section_icon_form p { // Propiedades del texto de los iconos línea de opciones
     font-family: 'Quicksand', 'Regular';
-    margin: 0;
+    font-size: .9em;
     text-align: center;
     display: flex;
     justify-content: center;
     width: 100%;
     height: 40px;
+    margin: 0;
     line-height: 1;
 }
-// Icon's blue color
-.iconAzul_datoPersonal {
-    background-image: url('/img/formulario-profesional/icono-datos-personales.svg');
-    background-repeat: no-repeat;
-    background-size: 60px;
-    background-position-x: center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    color: $blue_official;
-    font-size: .9em;
-}
-.iconAzul_perfProf {
-    background-image: url('/img/formulario-profesional/icono-perfil-profesional.svg');
-    background-repeat: no-repeat;
-    background-size: 60px;
-    background-position-x: center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    color: $blue_official;
-    font-size: .9em;
-}
-.iconAzul_trataProced {
-    background-image: url('/img/formulario-profesional/icono-tratamientos-y-procedimientos.svg');
-    background-repeat: no-repeat;
-    background-size: 60px;
-    background-position-x: center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    color: $blue_official;
-    font-size: .9em;
-}
-.iconAzul_premioRecon {
-    background-image: url('/img/formulario-profesional/icono-premios-y-reconocimientos.svg');
-    background-repeat: no-repeat;
-    background-size: 60px;
-    background-position-x: center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    color: $blue_official;
-    font-size: .9em;
-}
-.iconAzul_public {
-    background-image: url('/img/formulario-profesional/icono-publicaciones.svg');
-    background-repeat: no-repeat;
-    background-size: 60px;
-    background-position-x: center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    color: $blue_official;
-    font-size: .9em;
-}
-.iconAzul_galeriaVideo {
-    background-image: url('/img/formulario-profesional/icono-galeria.svg');
-    background-repeat: no-repeat;
-    background-size: 60px;
-    background-position-x: center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    color: $blue_official;
-    font-size: .9em;
-}
-// Icons and card titles
+// Icons and card titles PROFESSIONAL FORM
 .icon_basicInfo_formProf {
     background-image: url('/img/formulario-profesional/icono-informacion-basica.svg') ;
+    border-bottom: 1px solid $green_official;
+    color: $green_official;
 }
-.icon_infoContac-formProf {
+.icon_infoContac_Prof {
     background-image: url('/img/formulario-profesional/icono-informacion-de-contacto.svg') ;
+    border-bottom: 1px solid $green_official;
+    color: $green_official;
 }
-.icon_infoConsult-formProf {
+.icon_infoConsult_Prof {
     background-image: url('/img/formulario-profesional/icono-informacion-de-consulta.svg') ;
+    border-bottom: 1px solid $green_official;
+    color: $green_official;
 }
-.icon_destacado-formProf {
+.icon_destacado_Prof {
     background-image: url('/img/formulario-profesional/icono-agregar-especialidad-favoritos-verde.svg') ;
+    border-bottom: 1px solid $green_official;
+    color: $green_official;
 }
-.icon_infoSubPerfil-formProf {
+.icon_infoSubPerfil_Prof {
     background-image: url('/img/formulario-profesional/icono-subperfil-profesional.svg') ;
+    border-bottom: 1px solid $green_official;
+    color: $green_official;
 }
-.icon_infoEduc-formProf {
+.icon_infoEduc_Prof {
     background-image: url('/img/formulario-profesional/icono-educacion.svg') ;
+    border-bottom: 1px solid $green_official;
+    color: $green_official;
 }
-.icon_infoExper-formProf {
+.icon_infoExper_Prof {
     background-image: url('/img/formulario-profesional/icono-experiencia.svg') ;
+    border-bottom: 1px solid $green_official;
+    color: $green_official;
 }
-.icon_infoAsocia-formProf {
+.icon_infoAsocia_Prof {
     background-image: url('/img/formulario-profesional/icono-asociaciones.svg') ;
+    border-bottom: 1px solid $green_official;
+    color: $green_official;
 }
-.icon_infoIdioma-formProf {
+.icon_infoIdioma_Prof {
     background-image: url('/img/formulario-profesional/icono-idiomas.svg') ;
+    border-bottom: 1px solid $green_official;
+    color: $green_official;
 }
-.icon_infoTratam-formProf {
+.icon_infoTratam_Prof {
     background-image: url('/img/formulario-profesional/icono-interno-tratamientos-y-procedimientos.svg') ;
+    border-bottom: 1px solid $green_official;
+    color: $green_official;
 }
-.icon_infoPremReco-formProf {
+.icon_infoPremReco_Prof {
     background-image: url('/img/formulario-profesional/icono-interno-premios-y-reconocimientos.svg') ;
+    border-bottom: 1px solid $green_official;
+    color: $green_official;
 }
-.icon_infoPublic-formProf {
+.icon_infoPublic_Prof {
     background-image: url('/img/formulario-profesional/icono-interno-publicaciones.svg') ;
+    border-bottom: 1px solid $green_official;
+    color: $green_official;
 }
-.icon_infoGale-formProf {
+.icon_infoGale_Prof {
     background-image: url('/img/formulario-profesional/icono-interno-galeria.svg') ;
+    border-bottom: 1px solid $green_official;
+    color: $green_official;
 }
-.icon_infoVideo-formProf {
+.icon_infoVideo_Prof {
     background-image: url('/img/formulario-profesional/icono-videos.svg') ;
+    border-bottom: 1px solid $green_official;
+    color: $green_official;
+}
+// Icon card INSTITUTION FORM
+.icon_infoBasica_Inst {
+    background-image: url('/img/formulario-institucion/icono-informacion-basica.svg') ;
+    border-bottom: 1px solid $blue_official;
+    color: $blue_official;
+}
+.icon_infoContac_Inst {
+    background-image: url('/img/formulario-institucion/icono-informacion-de-contacto.svg') ;
+    border-bottom: 1px solid $blue_official;
+    color: $blue_official;
+}
+.icon_servProf_Inst {
+    background-image: url('/img/formulario-institucion/icono-servicios-profesionales-azul.svg') ;
+    border-bottom: 1px solid $blue_official;
+    color: $blue_official;
+}
+.icon_servicios_Inst {
+    background-image: url('/img/formulario-institucion/icono-servicios.svg') ;
+    border-bottom: 1px solid $blue_official;
+    color: $blue_official;
+}
+.icon_quienes_Inst {
+    background-image: url('/img/formulario-institucion/icono-quienes-somos.svg') ;
+    border-bottom: 1px solid $blue_official;
+    color: $blue_official;
+}
+.icon_propuestaValor_Inst {
+    background-image: url('/img/formulario-institucion/icono-propuesta-valor.svg') ;
+    border-bottom: 1px solid $blue_official;
+    color: $blue_official;
+}
+.icon_convenios_Inst {
+    background-image: url('/img/formulario-institucion/icono-convenios.svg') ;
+    border-bottom: 1px solid $blue_official;
+    color: $blue_official;
+}
+.icon_profesionales_Inst {
+    background-image: url('/img/formulario-institucion/icono-profesionales-institucion.svg') ;
+    border-bottom: 1px solid $blue_official;
+    color: $blue_official;
+}
+.icon_certificaciones_Inst {
+    background-image: url('/img/formulario-institucion/icono-certificaciones-azul.svg') ;
+    border-bottom: 1px solid $blue_official;
+    color: $blue_official;
+}
+.icon_sedes_Inst {
+    background-image: url('/img/formulario-institucion/icono-sedes-azul.svg') ;
+    border-bottom: 1px solid $blue_official;
+    color: $blue_official;
+}
+.icon_ubiqueSede_Inst {
+    background-image: url('/img/formulario-institucion/icono-ubique-la-sede.svg') ;
+    border-bottom: 1px solid $blue_official;
+    color: $blue_official;
+}
+.icon_gallery_Inst {
+    background-image: url('/img/formulario-institucion/icono-galeria-azul.svg') ;
+    border-bottom: 1px solid $blue_official;
+    color: $blue_official;
+}
+.icon_video_Inst {
+    background-image: url('/img/formulario-institucion/icono-videos-azul.svg') ;
+    border-bottom: 1px solid $blue_official;
+    color: $blue_official;
 }
 .card_module_form .icon_text { // Propiedades del icono y el titulo de las tajetas de modulos del formualrio
     background-repeat: no-repeat ;
@@ -249,10 +321,8 @@
     padding: .7rem 0 .7rem 2rem;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid $green_official;
     font-size: 1em;
     font-family: 'Quicksand';
-    color: $green_official;
     text-transform: inherit;
 }
 // Titles and texts
@@ -345,6 +415,50 @@
     margin-right: auto;
     width: 11em;
 }
+.img_sede_form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1em;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    padding: 0;
+}
+.img_sede_form img {
+    height: 200px;
+    width: 100%;
+    background: $gray_first;
+    border: 1px solid $gray_second;
+    object-fit: cover;
+    object-position: center;
+    align-self: center;
+}
+.img_sede_form input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    overflow: auto;
+    margin: 0 auto;
+}
+.img_sede_form p {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-size: 15px;
+    font-family: "Quicksand", "Regular";
+    font-size: 1em;
+    color: $black_second;
+    text-align: right;
+    margin-top: .5em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 11em;
+}
 // Upload user logos and images
 .upload_file_img_form {
     display: flex;
@@ -424,18 +538,19 @@
     margin-bottom: 0;
 }
 // Buttons
-.button_save_form {
+.button_blue_form {
     font-family: "Quicksand";
     font-size: 1em;
     color: $withe_official;
     background: $blue_official;
     border: none;
     border-radius: 3px;
+    padding: 1px 6px;
     height: calc(1.6em + 0.75rem + 2px);
     display: flex;
     align-items: center;
 }
-.button_bottom_form {
+.button_green_form {
     font-family: "Quicksand";
     font-size: 1em;
     color: $withe_official;
@@ -447,7 +562,7 @@
     display: flex;
     align-items: center;
 }
-.button_bottom_previous_form {
+.button_transparent_form {
     font-family: "Quicksand";
     font-size: 1em;
     font-weight: bold;
@@ -536,9 +651,6 @@
     padding-top: .5em;
     border-top: 1px solid $green_official;
 }
-.data_saved_form li::marker{
-    color: $green_official;
-}
 .data_saved_form h5 {
     font-family: "Quicksand";
     font-size: 1em;
@@ -555,6 +667,13 @@
     line-height: 1;
     padding: 0;
     margin: 0;
+}
+.data_saved_form ul {
+    margin: 0;
+    padding-left: 2em;
+}
+.data_saved_form li::marker{
+    color: $green_official;
 }
 .text_preview_form h5 {
     font-family: 'Quicksand';
@@ -597,7 +716,7 @@
     // Containers, contents, sections and cards 
     .container_line_module_form {
         justify-content: space-between;
-        height: 100px;
+        //height: 100px;
         width: 675px;
     }
     .container_button_form {
@@ -630,6 +749,16 @@
     .img_user_form p {
         width: 10.5em;
     }
+    .img_sede_form {
+        margin-top: auto;
+    }
+    .img_sede_form img {
+        height: 150px;
+        width: 90%;
+    }
+    .img_sede_form input {
+        width: 90%;
+    }
     // Text area
     .textarea_form {
         height: 90px;
@@ -638,6 +767,9 @@
     // Saved content, card, target and section
     .card_information_saved_form {
         width: 32%;
+    }
+    #lista-servicios-institucion .card_information_saved_form {
+        width: 48%;
     }
     .section_dest_list {
         width: 49.5%;
@@ -649,7 +781,7 @@
 @media(min-width: 1024px) {
     // Containers, contents, sections and cards 
     .container_line_module_form {
-        height: 110px;
+        //height: 110px;
         width: 760px;
         margin: 3% auto;
     }
@@ -661,52 +793,14 @@
         margin-bottom: 1.3em;
     }
     .section_icon_form {
+        height: 110px;
         width: 115px;
     }
-    // Icons gray color 
-    .iconGris_perfProf {
-        background-size: 70px;
-        font-size: 1em;
+    // Icons and texts option line
+    .section_icon_form li {  // Propiedades del icono línea de opciones
+        background-size: 70px; 
     }
-    .iconGris_trataProced {
-        background-size: 70px;
-        font-size: 1em;
-    }
-    .iconGris_premioRecon {
-        background-size: 70px;
-        font-size: 1em;
-    }
-    .iconGris_public {
-        background-size: 70px;
-        font-size: 1em;
-    }
-    .iconGris_galeriaVideo {
-        background-size: 70px;
-        font-size: 1em;
-    }
-    // Icon's blue color
-    .iconAzul_datoPersonal {
-        background-size: 70px;
-        font-size: 1em;
-    }
-    .iconAzul_perfProf {
-        background-size: 70px;
-        font-size: 1em;
-    }
-    .iconAzul_trataProced {
-        background-size: 70px;
-        font-size: 1em;
-    }
-    .iconAzul_premioRecon {
-        background-size: 70px;
-        font-size: 1em;
-    }
-    .iconAzul_public {
-        background-size: 70px;
-        font-size: 1em;
-    }
-    .iconAzul_galeriaVideo {
-        background-size: 70px;
+    .section_icon_form p {   // Propiedades del texto de los iconos línea de opciones
         font-size: 1em;
     }
     // Titles and texts
@@ -724,6 +818,10 @@
         width: 85%;
         padding: 0.8em 2em;
     }
+    // Upload User profile image
+    .img_user_form input {
+        width: 70%;
+    }
     // SAVED USER INFORMATION 
     // Saved content, card, target and section
     .width_card_single {
@@ -739,7 +837,7 @@
 @media(min-width: 1920px) {
     // Containers, contents, sections and cards 
     .container_line_module_form {
-        height: 125px;
+        //height: 125px;
         width: 975px;
     }
     .container_button_form {
@@ -749,52 +847,14 @@
         width: 66%;
     }
     .section_icon_form {
+        height: 125px;
         width: 130px;
     }
-    // Icons gray color 
-    .iconGris_perfProf {
-        background-size: 75px;
-        font-size: 1.1em;
+    // Icons and texts option line 
+    .section_icon_form li {  // Propiedades del icono línea de opciones
+        background-size: 75px; 
     }
-    .iconGris_trataProced {
-        background-size: 75px;
-        font-size: 1.1em;
-    }
-    .iconGris_premioRecon {
-        background-size: 75px;
-        font-size: 1.1em;
-    }
-    .iconGris_public {
-        background-size: 75px;
-        font-size: 1.1em;
-    }
-    .iconGris_galeriaVideo {
-        background-size: 75px;
-        font-size: 1.1em;
-    }
-    // Icon's blue color
-    .iconAzul_datoPersonal {
-        background-size: 75px;
-        font-size: 1.1em;
-    }
-    .iconAzul_perfProf {
-        background-size: 75px;
-        font-size: 1.1em;
-    }
-    .iconAzul_trataProced {
-        background-size: 75px;
-        font-size: 1.1em;
-    }
-    .iconAzul_premioRecon {
-        background-size: 75px;
-        font-size: 1.1em;
-    }
-    .iconAzul_public {
-        background-size: 75px;
-        font-size: 1.1em;
-    }
-    .iconAzul_galeriaVideo {
-        background-size: 75px;
+    .section_icon_form p {   // Propiedades del texto de los iconos línea de opciones
         font-size: 1.1em;
     }
     // Titles and texts
@@ -833,9 +893,15 @@
         width: 170px;
     }
     .img_user_form p {
-        background-size: 17px;
+        background-size: 16px;
         width: 11em;
     } 
+    .img_sede_form img {
+        height: 175px;
+    }
+    .img_sede_form p {
+        font-size: 1.1em;
+    }
     // Labels
     .label_txt_form {
         font-size: 1.1em;
@@ -849,13 +915,13 @@
         font-size: 1.1em;
     }
     // Buttons
-    .button_save_form {
+    .button_blue_form {
         font-size: 1.1em;
     }
-    .button_bottom_form {
+    .button_green_form {
         font-size: 1.1em;
     }
-    .button_bottom_previous_form {
+    .button_transparent_form {
         font-size: 1.1em;
     }
     // Saved images and logos
@@ -871,6 +937,9 @@
         font-size: 1.1em;
     }
     .data_saved_form span {
+        font-size: 1.1em;
+    }
+    .data_saved_form ul li {
         font-size: 1.1em;
     }
 }

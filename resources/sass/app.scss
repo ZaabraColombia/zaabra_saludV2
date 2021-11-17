@@ -21,9 +21,8 @@
 @import 'register';
 @import 'email';
 @import 'membresia-profesional';
-@import 'formulario-profesional';
+@import 'forms';
 @import 'membresia-institucion';
-@import 'formulario-institucion';
 @import 'contacto';
 @import 'error101';
 @import 'popup-pago';
@@ -35,6 +34,5 @@
 @import 'ordenMedica';
 @import 'agenda-profesional';
 @import 'fullcalendar';
-@import'formulario-pacientes';
 @import'profesionales-institucion';
 $urlZaabra: 'http://localhost:8000/';
