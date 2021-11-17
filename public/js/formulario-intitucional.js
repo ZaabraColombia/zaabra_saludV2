@@ -501,23 +501,27 @@ $('#form-servicios-institucion').validate({
                 $('.input_servicios_institucion').each(function () {
                     lista += '<li>' + $(this).val() + '</li>';
                 });
-                $('#lista-servicios-institucion').append('<div class="savedData_formInst">\n' +
-                    '<div class="col-12 content_cierreX-formInst">\n' +
-                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '"><span aria-hidden="true">&times;</span></button>\n' +
+                $('#lista-servicios-institucion').append(  // Module services
+                '<div class="card_information_saved_form">\n' +
+                    '<div class="content_btn_close_form">\n' +
+                        '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '"><span aria-hidden="true">&times;</span></button>\n' +
                     '</div>\n' +
-                    '<div class="option_consulta-formProf">\n' +
-                    '<label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Título del servicio </label>\n' +
-                    '<label class="col-12 text_infoGuardada-formProf">' + $('#titulo_servicio').val() + '</label>\n' +
+
+                    '<div class="data_saved_form border-top-0">\n' +
+                        '<h5>Título del servicio</h5>\n' +
+                        '<span>' + $('#titulo_servicio').val() + '</span>\n' +
                     '</div>\n' +
-                    '<div class="option_consulta-formProf">\n' +
-                    '<label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Descripción </label>\n' +
-                    '<label class="col-12 text_infoGuardada-formProf">' + $('#descripcion_servicio').val() + '</label>\n' +
+
+                    '<div class="data_saved_form">\n' +
+                        '<h5> Descripción </h5>\n' +
+                        '<span>' + $('#descripcion_servicio').val() + '</span>\n' +
                     '</div>\n' +
-                    '<div class="option_consulta-formProf">\n' +
-                    '<label for="example-date-input" class="col-12 title_infoGuardada-formProf"> Sedes en la que está el servicio </label>\n' +
-                    '<ul>' + lista + '</ul>\n' +
+
+                    '<div class="data_saved_form">\n' +
+                        '<h5>Sedes en la que está el servicio</h5>\n' +
+                        '<ul>' + lista + '</ul>\n' +
                     '</div>\n' +
-                    '</div>');
+                '</div>');
 
                 /* Deshabilitar formulario cuando llegue al maximo de items */
                 if (response.max_items > 0) {
@@ -795,15 +799,20 @@ $('#form-convenios-institucion').validate({
                 boton_guardar(btn);
 
                 //Agrgar tarjeta del convenio
-                $('#lista-convenios-institucion').append('<div class="col-md-3 col-sm-6">\n' +
-                    '<div class="col-12 content_btnX-cierre-formProf my-2">\n' +
-                    '<label for="example-date-input" class="text_saved-formInst pb-0"> Convenio ' + $('#tipo_convenio option:selected').text() + '</label>\n' +
-                    '<button type="button" class="close" aria-label="Close" data-url="' + response.url + '"><span aria-hidden="true">&times;</span></button>\n' +
+                $('#lista-convenios-institucion').append(  // Module covenants
+                '<div class="card_information_saved_form">\n' +
+                    '<div class="content_btn_close_form">\n' +
+                        '<button type="button" class="close" aria-label="Close" data-url="' + response.url + '"><span aria-hidden="true">&times;</span></button>\n' +
                     '</div>\n' +
-                    '<div class="option_asociacion-formProf">\n' +
-                    '<img class="img_guardada-formProf" id="imagenPrevisualizacion" src="' + response.image + '">\n' +
+
+                    '<div class="data_saved_form border-top-0 mb-3">\n' +
+                        '<h5> Convenio ' + $('#tipo_convenio option:selected').text() + '</h5>\n' +
                     '</div>\n' +
-                    '</div>');
+
+                    '<div class="image_saved_form">\n' +
+                        '<img id="imagenPrevisualizacion" src="' + response.image + '">\n' +
+                    '</div>\n' +
+                '</div>');
 
                 /* Deshabilitar formulario cuando llegue al maximo de items */
                 if (response.max_items > 0) {
@@ -962,32 +971,31 @@ $('#form-profesionales-institucion').validate({
                 }
 
                 //Agrgar tarjeta del convenio
-                $('#lista-profesionales-institucion').append('<div class="col-md-3 content_loadImg-profes">\n' +
-                    '<div class="col-12 p-0 contain_imgUsuario-formImg">\n' +
-                    '<div class="col-12 pr-2 content_cierreX-formInst">\n' +
-                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
+                $('#lista-profesionales-institucion').append(  // Module professionals
+                '<div class="card_information_saved_form">\n' +
+                    '<div class="content_btn_close_form">\n' +
+                        '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' + '<span aria-hidden="true">&times;</span>\n' + '</button>\n' +
+                    '</div>\n' +    
+
+                    '<div class="img_user_form mb-3">\n' +
+                        '<img src="' + response.image + '">\n' +
                     '</div>\n' +
-                    '<div class="col-12 col-md-10 img_save-formProf">\n' +
-                    '<img class="img_usuario-formInst" src="' + response.image + '">\n' +
+
+                    '<div class="">\n' +
+                        '<div class="data_saved_form">\n' +
+                            '<h5>' + $('#primer_nombre_profecional').val() + ' ' + $('#segundo_nombre_profecional').val() + $('#primer_apellido_profecional').val() + ' ' + $('#segundo_apellido_profecional').val() + '</h5>\n' +
+                            '<span>' + $('#universidad option:selected').text() + '' + '</span>\n' +
+                        '</div>\n' +    
+
+                        '<div class="data_saved_form">\n' +
+                            especialidades +
+                        '</div>\n' +
+
+                        '<div class="data_saved_form">\n' +
+                            '<h5>' + $('#cargo_profesional').val() + '' + '</h5>\n' +
+                        '</div>\n' +
                     '</div>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 mt-3 containt_loadProfes-formInst">\n' +
-                    '<div class="col-md-12 rightSection_formInst">\n' +
-                    '<span>' + $('#primer_nombre_profecional').val() + ' ' + $('#segundo_nombre_profecional').val() + '</span>\n' +
-                    '</div>\n' +
-                    '<div class="col-md-12 rightSection_formInst">\n' +
-                    '<span>' + $('#primer_apellido_profecional').val() + ' ' + $('#segundo_apellido_profecional').val() + '</span>\n' +
-                    '</div>\n' +
-                    '<div class="col-md-12 rightSection_formInst">\n' +
-                     especialidades +
-                    '</div>\n' +
-                    '<div class="col-md-12 rightSection_formInst">\n' +
-                    '<span>' + $('#cargo_profesional').val() + '' + '</span>\n' +
-                    '</div>\n' +
-                    '</div>\n' +
-                    '</div>');
+                '</div>');
 
                 /* Deshabilitar formulario cuando llegue al maximo de items */
                 if (response.max_items > 0) {
@@ -1078,9 +1086,10 @@ $('#lista-profesionales-institucion').on('click', '.close' , function (e) {
             $('#segundo_apellido_profecional').prop('disabled', false);
             $('#universidad').prop('disabled', false);
             $('#especialidad').prop('disabled', false);
+            $('#cargo').prop('disabled', false);
             $('#btn-guardar-profecionales-institucion').prop('disabled', false);
             //Quitar la caja
-            button.parent().parent().parent().remove();
+            button.parent().parent().remove();
         },
         error: function (event) {
             // Pace.stop();
@@ -1154,28 +1163,24 @@ $('#form-certificados-institucion').validate({
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
-                //Agrgar tarjeta del convenio
-                $('#lista-certificaciones-institucion').append('<div class="col-md-6">\n' +
-                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
-                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
+                //Agrgar tarjeta del certificaciones
+                $('#lista-certificaciones-institucion').append(  // Module certifications
+                '<div class="card_information_saved_form width_card_single">\n' +
+                    '<div class="content_btn_close_form">\n' +
+                        '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' + '<span aria-hidden="true">&times;</span>\n' + '</button>\n' +
                     '</div>\n' +
-                    '<div class="col-12 mt-2 p-0">\n' +
-                    '<div class="img_saveCertifi-formInst">\n' +
-                    '<img class="img_anexada-formInst"  src="' + response.image + '">\n' +
+
+                    
+                    '<div class="image_preview_form">\n' +
+                        '<img src="' + response.image + '">\n' +
                     '</div>\n' +
-                    '<div class="col-12 p-0 mt-2">\n' +
-                    '<label class="col-12 text_fechaPremio-formProf"> ' + $('#fecha_certificado').val() + ' </label>\n' +
+
+                    '<div class="text_preview_form">\n' +
+                        '<span> ' + $('#fecha_certificado').val() + ' </span>\n' +
+                        '<h5> ' + $('#titulo_certificado').val() + ' </h5>\n' +
+                        '<p> ' + $('#descripcion_certificacion').val() + ' </p>\n' +
                     '</div>\n' +
-                    '<div class="col-12 text_label-formProf">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#titulo_certificado').val() + ' </label>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 descripcion_Premio-formProf">\n' +
-                    '<label class="col-12 text_descPremio-formProf"> ' + $('#descripcion_certificacion').val() + ' </label>\n' +
-                    '</div>\n' +
-                    '</div>\n' +
-                    '</div>');
+                '</div>');
 
                 /* Deshabilitar formulario cuando llegue al maximo de items */
                 if (response.max_items > 0) {
@@ -1340,34 +1345,25 @@ $('#form-sedes-institucion').validate({
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
-                //Agrgar tarjeta del convenio
-                $('#lista-sedes-institucion').append('<div class="savedData_formInst">\n' +
-                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
-                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
+                //Agrgar tarjeta sedes de la institución
+                $('#lista-sedes-institucion').append(  // Module venues 
+                '<div class="card_information_saved_form width_card_single">\n' +
+                    '<div class="content_btn_close_form">\n' +
+                        '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' + '<span aria-hidden="true">&times;</span>\n' + '</button>\n' +
                     '</div>\n' +
-                    '<div class="col-12 mt-2 p-0">\n' +
-                    '<div class="img_saveSede-formInst">\n' +
-                    '<img class="img_anexada-formInst" src="' + response.image + '">\n' +
+
+                    '<div class="image_preview_form">\n' +
+                        '<img src="' + response.image + '">\n' +
                     '</div>\n' +
-                    '<div class="col-12 text_label-formInst">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf">' + $('#nombre_sede').val() + '</label>\n' +
+
+                    '<div class="text_preview_form">\n' +
+                        '<h5>' + $('#nombre_sede').val() + '</h5>\n' +
+                        '<span>' + $('#direccion_sede').val() + '</span>\n' +
+                        '<h5>' + $('#horario_sede').val() + '</h5>\n' +
+                        '<span style="color: #0083D6; font-weight: bold">' + $('#telefono_sede').val() + '</span>\n' +
+                        '<span>' + $('#url_mapa_sede').val() + '</span>\n' +
                     '</div>\n' +
-                    '<div class="col-12 texto_saved-formInst">\n' +
-                    '<label class="col-12 text_descPremio-formProf">' + $('#direccion_sede').val() + '</label>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 texto_saved-formInst">\n' +
-                    '<label class="col-12 text_descPremio-formProf">' + $('#horario_sede').val() + '</label>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 texto_saved-formInst">\n' +
-                    '<label class="col-12 text_descPremio-formProf">' + $('#telefono_sede').val() + '</label>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 texto_saved-formInst">\n' +
-                    '<label class="col-12 text_descPremio-formProf">' + $('#url_mapa_sede').val() + '</label>\n' +
-                    '</div>\n' +
-                    '</div>\n' +
-                    '</div>');
+                '</div>');
 
                 /* Deshabilitar formulario cuando llegue al maximo de items */
                 if (response.max_items > 0) {
@@ -1529,28 +1525,23 @@ $('#form-galeria-institucion').validate({
                 $('.form-control').removeClass('is-invalid');
                 boton_guardar(btn);
 
-                //Agrgar tarjeta del convenio
-                $('#lista-galeria-intitucion').append('<div class="savedData_formInst">\n' +
-                    '<div class="col-12 content_btnDelet-trata-formProf">\n' +
-                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
+                //Agrgar tarjeta de galería
+                $('#lista-galeria-intitucion').append(  // Module gallery
+                '<div class="card_information_saved_form width_card_single">\n' +
+                    '<div class="content_btn_close_form">\n' +
+                        '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' + '<span aria-hidden="true">&times;</span>\n' + '</button>\n' +
                     '</div>\n' +
-                    '<div class="col-12 mt-2 p-0">\n' +
-                    '<div class="img_saveSede-formInst">\n' +
-                    '<img  class="img_anexada-formInst" src="' + response.image + '">\n' +
+
+                    '<div class="image_preview_form">\n' +
+                        '<img src="' + response.image + '">\n' +
                     '</div>\n' +
-                    '<div class="col-12 text_label-formInst">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf">' + $('#fecha_galeria_institucion').val() + '</label>\n' +
+
+                    '<div class="text_preview_form">\n' +
+                        '<span>' + $('#fecha_galeria_institucion').val() + '</span>\n' +
+                        '<h5> ' + $('#nombre_galeria_institucion').val() + '</h5>\n' +
+                        '<p>' + $('#descripcion_galeria_institucion').val() + '</p>\n' +
                     '</div>\n' +
-                    '<div class="col-12 text_label-formInst">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombre_galeria_institucion').val() + '</label>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 descripcion_Premio-formProf">\n' +
-                    '<label class="col-12 text_descPremio-formProf">' + $('#descripcion_galeria_institucion').val() + '</label>\n' +
-                    '</div>\n' +
-                    '</div>\n' +
-                    '</div>');
+                '</div>');
 
                 /* Deshabilitar formulario cuando llegue al maximo de items */
                 if (response.max_items > 0) {
@@ -1776,27 +1767,22 @@ $('#form-videos-institucion').validate({
                 boton_guardar(btn);
 
                 //Agrgar tarjeta del convenio
-                $('#lista-videos-institucion').append('<div class="section_infoExper-formInst">\n' +
-                    '<div class="col-12 content_cierreX-formInst">\n' +
-                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' +
-                    '<span aria-hidden="true">&times;</span>\n' +
-                    '</button>\n' +
+                $('#lista-videos-institucion').append(  // Module videos
+                '<div class="card_information_saved_form width_card_single">\n' +
+                    '<div class="content_btn_close_form">\n' +
+                        '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' + '<span aria-hidden="true">&times;</span>\n' + '</button>\n' +
                     '</div>\n' +
-                    '<div class="col-12 my-2">\n' +
-                    '<div class="col-10 img_selccionada-formProf">\n' +
-                    '<iframe class="img_anexada-formProf" src="' + $('#url_video_institucion').val() + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n' +
+
+                    '<div class="image_preview_form">\n' +
+                        '<iframe src="' + $('#url_video_institucion').val() + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n' +
                     '</div>\n' +
-                    '<div class="col-12 p-0 mt-2">\n' +
-                    '<label class="col-12 text_fechaPremio-formProf"> ' + $('#fecha_video_institucion').val() + ' </label>\n' +
+
+                    '<div class="text_preview_form">\n' +
+                        '<span> ' + $('#fecha_video_institucion').val() + ' </span>\n' +
+                        '<h5> ' + $('#nombre_video_institucion').val() + ' </h5>\n' +
+                        '<p> ' + $('#descripcion_video_institucion').val() + ' </p>\n' +
                     '</div>\n' +
-                    '<div class="col-12 text_label-formInst">\n' +
-                    '<label class="col-12 title_infoGuardada-formProf"> ' + $('#nombre_video_institucion').val() + ' </label>\n' +
-                    '</div>\n' +
-                    '<div class="col-12 descripcion_Premio-formProf">\n' +
-                    '<p class="col-12 text_descPremio-formProf"> ' + $('#descripcion_video_institucion').val() + ' </p>\n' +
-                    '</div>\n' +
-                    '</div>\n' +
-                    '</div>');
+                '</div>');
 
                 /* Deshabilitar formulario cuando llegue al maximo de items */
                 if (response.max_items > 0) {
