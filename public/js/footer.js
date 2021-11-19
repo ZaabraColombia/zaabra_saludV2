@@ -45,6 +45,115 @@ function direccionFlecha (element){
     }
 }
 
+
+
+$('#accordion').on('show.bs.collapse', '.card', function () {
+    var card = $(this);
+
+    card.find('button').removeClass("button_acordion").addClass("button_show_acordion");
+}).on('hide.bs.collapse', '.card', function () {
+    var card = $(this);
+
+    card.find('button').removeClass("button_show_acordion").addClass("button_acordion");
+});
+
+$('.accordion').on('show.bs.collapse', '.card', function () {
+    var card = $(this);
+
+    card.find('button').removeClass("button_acordion").addClass("button_show_acordion");
+}).on('hide.bs.collapse', '.card', function () {
+    var card = $(this);
+
+    card.find('button').removeClass("button_show_acordion").addClass("button_acordion");
+});
+
+
+
+
+
+
+
+/*
+
+
+
+$(document).ready(function(){
+    $(".as").on("click", function(id) {
+        let result = id();
+
+        if ( $(".collapse").hasClass("show") ) {
+            $(".as").addClass("boton_collapse-on-acerca");
+            $(".as").removeClass("btn_collapse_off_infoZaabra");
+        } 
+        else {
+            $(".as").addClass("btn_collapse_off_infoZaabra");
+            $(".as").removeClass("boton_collapse-on-acerca");
+        }
+    });
+  });
+
+
+
+
+$(".as").on("aria-expanded", function(){
+
+        //$(this).removeClass("btn_collapse_off_infoZaabra");
+        $(this).addClass("boton_collapse-on-acerca");
+
+} );
+
+
+
+
+$(document).ready(function(){
+
+    $(".ol").on('show.bs.collapse', function (){
+
+        if ( $(this).selector('.show') ) {
+            $(".as").addClass('.boton_collapse-on-acerca');
+        } else {
+            $(".as").addClass("btn_collapse_off_infoZaabra");
+            $(".as").removeClass("boton_collapse-on-acerca");
+        }
+
+    });
+
+});
+
+
+$(document).ready(function() {
+    $('.ol').on('show.bs.collapse', function () {
+        $("#listas li").each(function(){
+            alert($(this).attr('id'));
+        });
+    });
+});
+
+
+$('.ol').on('show.bs.collapse', function () {
+    $(".as").addClass("boton_collapse-on-acerca");
+});
+
+
+$('.ol').on('hidden.bs.collapse', function () {
+    $(".as").addClass("btn_collapse_off_infoZaabra");
+    $(".as").removeClass("boton_collapse-on-acerca");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "membresiaProfesional".
 $('.evento_acordion .containt_options-collapse-membresia').on( "click", function() {
     $(this).siblings().find(".boton_collapse-off-membresia").removeClass("boton_collapse-on-membresia");
@@ -58,17 +167,14 @@ $('.evento_acordion .containt_options-collapse-institucion').on( "click", functi
     $(this).find(".boton_collapse-off-institucion").toggleClass("boton_collapse-on-institucion");
 });
 
-// Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "acerca, políticas y preguntas frecuentes".
-$('.evento_acordion .options_collapse_infoZaabra').on( "click", function() {
-    $(this).siblings().find(".btn_collapse_off_infoZaabra").removeClass("boton_collapse-on-acerca");
-    $(this).find(".btn_collapse_off_infoZaabra").toggleClass("boton_collapse-on-acerca");
-});
+
 
 // Función para cambiar de color y dejar un solo item desplegado en las opciones de las tarjetas de la vista "Landin Instituciones" ubicada en el archivo "PerfilInstitucion.blade.php".
 $('.desplegable_LandInst .containt_collapse_LandInst').on( "click", function() {
     $(this).siblings().find(".boton_collapse-off").removeClass("boton_collapse-on");
     $(this).find(".boton_collapse-off").toggleClass("boton_collapse-on");
 });
+*/
 
 
 $('#newsletter').on('submit',function(e){

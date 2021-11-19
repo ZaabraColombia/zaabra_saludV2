@@ -12040,73 +12040,231 @@ a:link, a:visited, a:active, a:hover {
     width: 2%;
   }
 }
-.contenedor_infoZaabra {
-  padding-bottom: 50px;
-}
-
-.title_banner_infoZaabra {
-  color: #0083D6;
-  font-family: "Quicksand";
-  font-size: 0.95em;
-  font-weight: 700;
-  position: absolute;
-  top: 90px;
-  left: 20px;
-}
-
-.img_banner_infoZaabra {
-  width: 100%;
+.main_container_infoZaabra {
+  margin: 0;
   padding: 0;
-  height: 100px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  padding-bottom: 50px;
+  width: 100%;
 }
 
-.section_infoZaabra {
+.container_form_infoZaabra {
+  background: #F5F5F5;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.section_banner_infoZaabra {
+  display: flex;
+  align-items: center;
+  height: 105px;
+}
+
+.section_acordion {
   margin: auto;
   padding: 0;
-  width: 100%;
+  width: 93%;
 }
 
-.titulo_infoZaabra {
-  font-size: 1em;
-  font-family: "Quicksand";
-  color: #232323;
-  text-align: center;
-  margin-top: 5%;
+.section_contacto_infoZaabra {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 15px 0;
+  margin: auto;
+  width: 90%;
 }
 
-.subTitulo_infoZaabra {
-  font-size: 0.8em;
-  font-family: "Roboto", "Regular";
-  color: #3E3E3E;
-  text-align: center;
-  padding: 0;
-  margin: 5% 0;
+.section_type_user {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
-.accordion_infoZaabra {
-  padding: 1% 0;
-  box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
-}
-
-.options_collapse_infoZaabra {
+.card_acordion {
   border-radius: 0px;
   border: none;
   padding: 1% 3%;
 }
 
-.btn_collapse_off_infoZaabra {
-  font-family: "Quicksand", "Regular";
+.card_form_infoZaabra {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  border: none;
+  margin: auto;
+  padding: 1.5em 0;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+}
+
+.content_accordion {
+  padding: 10px 0;
+  box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
+}
+
+.content_icon_infoZaabra {
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  padding: 0.3em 0 0.3em 3em;
+}
+
+.content_type_user {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  height: 75px;
+}
+
+.content_check_box {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.img_banner_infoZaabra {
+  width: 100%;
+  padding: 0;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.icon_location {
+  background-image: url("/img/contacto/icono-ubicacion.svg");
+}
+
+.icon_phone {
+  background-image: url("/img/contacto/icono-telefono.svg");
+}
+
+.icon_email {
+  background-image: url("/img/contacto/icono-email.svg");
+}
+
+.title_banner_infoZaabra {
+  font-family: "Quicksand";
+  color: #0083D6;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin: 0;
+  position: absolute;
+  left: 20px;
+}
+
+.title_body_infoZaabra {
+  font-size: 1.1em;
+  font-family: "Quicksand";
+  font-weight: bolder;
+  color: #0083D6;
+  margin: 0;
+  padding: 1em 0.5em;
+  text-align: center;
+}
+
+.text_top_infoZaabra {
+  font-size: 0.9em;
+  font-family: "Roboto";
+  color: #3E3E3E;
+  text-align: center;
+  padding: 15px 0;
+  margin: 0 5%;
+}
+
+.toggle_info {
+  padding: 0.9em;
+  padding-bottom: 0;
+}
+
+.title_toggle_info {
+  font-size: 0.8em;
+  font-family: "Roboto";
+  font-weight: bolder;
+  color: #3E3E3E;
+  margin: 2% 0 1% 0;
+}
+
+.txt_toggle_info {
   font-size: 0.75em;
+  font-family: "Roboto";
+  color: #3E3E3E;
+}
+
+.text_li_toggle_info {
+  font-size: 0.75em;
+  font-family: "Roboto";
+  color: #3E3E3E;
+  line-height: 1.3;
+  padding-left: 2em;
+  margin-bottom: 0.7em;
+}
+
+.text_type_user {
+  font-family: "Roboto";
+  font-size: 0.95em;
+  align-self: flex-end;
+  margin: 0;
+}
+
+.txt_input_check_box {
+  font-size: 0.9em;
+  font-family: "Roboto";
+  color: #434343;
+  width: 90%;
+  margin: 0;
+}
+
+.txt_input_check_box a {
+  font-size: 0.9em;
+  font-family: "Roboto";
+  line-height: 1.2;
+  color: #434343;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.toggle_info a {
+  font-size: 0.75em;
+  font-family: "Roboto";
+  color: #0083D6;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.text_li_toggle_info li::marker {
+  color: #0083D6;
+  font-size: 1.4em;
+}
+
+.input_type_user {
+  margin: 0;
+  height: inherit;
+  width: 50px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: top;
+     object-position: top;
+  position: absolute;
+}
+
+.input_check_box {
+  width: 18px;
+  height: 20px;
+}
+
+.button_acordion {
+  font-family: "Quicksand", "Regular";
+  font-size: 0.9em;
   font-weight: bold;
   text-decoration: none;
   color: #232323;
   text-align: left;
-  padding: 2% 10% 2% 2%;
+  padding: 0.8em;
+  padding-right: 33px;
   background: #F5F5F5;
   border-radius: 0px;
-  border: 1px solid #F5F5F5F5;
+  border: 1px solid #F5F5F5;
   width: 100%;
   background-image: url("/img/iconos/icono-mas.svg");
   background-repeat: no-repeat;
@@ -12115,220 +12273,241 @@ a:link, a:visited, a:active, a:hover {
   background-size: 15px;
 }
 
-.boton_collapse-on-acerca {
-  font-family: "Quicksand", "Regular" !important;
-  font-size: 0.75em !important;
-  font-weight: bold !important;
-  text-decoration: none !important;
-  color: #FFFFFF !important;
-  text-align: left !important;
-  padding: 2% 10% 2% 2% !important;
-  background: #0083D6 !important;
-  border-radius: 0px !important;
-  border: 1px solid #0083D6 !important;
-  width: 100% !important;
-  background-image: url("/img/iconos/icono-x.svg") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-position-x: 97% !important;
-  background-size: 15px !important;
+.button_show_acordion {
+  font-family: "Quicksand", "Regular";
+  font-size: 0.9em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #FFFFFF;
+  text-align: left;
+  padding: 0.8em;
+  padding-right: 33px;
+  background: #0083D6;
+  border-radius: 0px;
+  border: 1px solid #0083D6;
+  width: 100%;
+  background-image: url("/img/iconos/icono-x.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-x: 97%;
+  background-size: 15px;
 }
 
-.toggle_infoZaabra {
-  padding: 5% 4% 0 4%;
+.name_user-contac, .name_institution-contac, .second_date-contac {
+  display: none;
 }
 
-.title_toggle_infoZaabra {
-  font-size: 0.653em;
-  font-family: "Roboto", "Regular";
-  font-weight: bolder;
-  color: #3E3E3E;
-  margin: 2% 0 1% 0;
-}
-
-.txt_toggle_infoZaabra {
-  font-size: 0.6em;
-  font-family: "Roboto", "Regular";
-  color: #3E3E3E;
-}
-
-.option_toggle_infoZaabra li::marker {
-  color: #0083D6;
-}
-
-.option_toggle_infoZaabra {
-  font-size: 0.6em;
-  font-family: "Roboto", "Regular";
-  color: #3E3E3E;
-  padding-left: 3%;
-  margin-bottom: 0;
-}
-
-.option_toggle_infoZaabra {
-  font-size: 0.6em;
-  font-family: "Roboto", "Regular";
-  color: #3E3E3E;
-  padding-left: 3%;
-  margin-bottom: 5%;
-}
-
-@media (min-width: 360px) {
-  .contenedor_infoZaabra {
-    padding-bottom: 100px;
-  }
-
-  .img_banner_infoZaabra {
-    height: 120px;
+@media (min-width: 375px) {
+  .main_container_infoZaabra {
+    padding-bottom: 157px;
   }
 }
-@media (min-width: 400px) {
-  .contenedor_infoZaabra {
-    padding-bottom: 245px;
+@media (min-width: 768px) {
+  .main_container_infoZaabra {
+    padding-bottom: 258px;
   }
 
-  .img_banner_infoZaabra {
-    height: 135px;
-  }
-}
-@media (min-width: 600px) {
-  .contenedor_infoZaabra {
-    padding-bottom: 210px;
+  .section_banner_infoZaabra {
+    height: auto;
   }
 
-  .title_banner_infoZaabra {
-    font-size: 2.2em;
-    top: 175px;
-    left: 60px;
-  }
-
-  .img_banner_infoZaabra {
-    height: 250px;
-  }
-
-  .section_infoZaabra {
+  .section_acordion {
     width: 85%;
   }
 
-  .titulo_infoZaabra {
+  .section_contacto_infoZaabra {
+    padding: 30px 0;
+    width: 85%;
+  }
+
+  .content_icon_infoZaabra {
+    padding: 0.5em 0 0.5em 4.5em;
+  }
+
+  .content_type_user {
+    height: 115px;
+  }
+
+  .card_form_infoZaabra {
+    width: 85%;
+    padding: 3.5em 0;
+  }
+
+  .content_check_box {
+    margin-top: 1em;
+  }
+
+  .title_banner_infoZaabra {
     font-size: 2em;
+    left: 60px;
   }
 
-  .subTitulo_infoZaabra {
-    font-size: 1.5em;
+  .title_body_infoZaabra {
+    font-size: 1.7em;
   }
 
-  .btn_collapse_off_infoZaabra {
-    font-size: 1.2em;
-    background-size: 19px;
+  .text_top_infoZaabra {
+    font-size: 1.35em;
+    margin: 0 6%;
   }
 
-  .boton_collapse-on-acerca {
-    font-size: 1.2em !important;
-    background-size: 19px !important;
-  }
-
-  .title_toggle_infoZaabra {
-    font-size: 1.2em;
-    margin-bottom: 2%;
-  }
-
-  .txt_toggle_infoZaabra {
+  .title_toggle_info {
     font-size: 1.1em;
-    margin-bottom: 5%;
   }
 
-  .option_toggle_infoZaabra {
-    font-size: 1.1em;
-    font-family: "Roboto", "Regular";
-    color: #3E3E3E;
-    padding-left: 6%;
-    margin-bottom: 5%;
+  .txt_toggle_info {
+    font-size: 1em;
+  }
+
+  .text_li_toggle_info {
+    font-size: 1em;
+  }
+
+  .text_type_user {
+    font-size: 1.3em;
+  }
+
+  .txt_input_check_box {
+    font-size: 1em;
+    width: 95%;
+  }
+
+  .txt_input_check_box a {
+    font-size: 1em;
+  }
+
+  .toggle_info a {
+    font-size: 1em;
+  }
+
+  .input_type_user {
+    width: 75px;
+  }
+
+  .button_acordion {
+    font-size: 1.2em;
+    padding-right: 45px;
+    background-size: 21px;
+  }
+
+  .button_show_acordion {
+    font-size: 1.2em;
+    padding-right: 45px;
+    background-size: 21px;
   }
 }
 @media (min-width: 1024px) {
-  .contenedor_infoZaabra {
-    padding-bottom: 0;
+  .main_container_infoZaabra {
+    padding-bottom: 40px;
+  }
+
+  .section_acordion {
+    width: 75%;
+  }
+
+  .section_contacto_infoZaabra {
+    flex-direction: row;
+    padding: 45px 0;
+    width: 95%;
+  }
+
+  .content_icon_infoZaabra {
+    padding: 0 0 0 3.5em;
+  }
+
+  .card_form_infoZaabra {
+    width: 75%;
   }
 
   .title_banner_infoZaabra {
-    left: 125px;
+    left: 127px;
   }
 
-  .section_infoZaabra {
-    width: 77%;
+  .text_top_infoZaabra {
+    font-size: 1.35em;
+    margin: 0 12%;
   }
 }
 @media (min-width: 1200px) {
+  .section_contacto_infoZaabra {
+    width: 85%;
+  }
+
+  .card_form_infoZaabra {
+    width: 65%;
+    margin-top: 2%;
+  }
+
   .title_banner_infoZaabra {
     left: 150px;
   }
-
-  .img_banner_infoZaabra {
-    height: 300px;
-  }
 }
-@media (min-width: 1440px) {
-  .section_infoZaabra {
-    width: 65%;
+@media (min-width: 1300px) {
+  .card_form_infoZaabra {
+    width: 55%;
   }
 
   .title_banner_infoZaabra {
-    font-size: 3.2em;
-    left: 180px;
+    font-size: 2.5em;
+    left: 170px;
   }
 }
 @media (min-width: 1920px) {
-  .title_banner_infoZaabra {
-    font-size: 3.5em;
-    left: 330px;
+  .section_acordion {
+    width: 65%;
   }
 
-  .img_banner_infoZaabra {
-    height: 425px;
-  }
-
-  .section_infoZaabra {
+  .section_contacto_infoZaabra {
     width: 60%;
   }
 
-  .titulo_infoZaabra {
-    font-size: 2.5em;
+  .card_form_infoZaabra {
+    width: 50%;
   }
 
-  .subTitulo_infoZaabra {
-    font-size: 1.6em;
-    padding: 0 10%;
+  .title_banner_infoZaabra {
+    font-size: 3.5em;
+    left: 335px;
   }
 
-  .btn_collapse_off_infoZaabra {
-    font-size: 1.5em;
-    background-size: 30px;
+  .title_body_infoZaabra {
+    font-size: 2.2em;
   }
 
-  .boton_collapse-on-acerca {
-    font-size: 1.5em !important;
-    background-size: 30px !important;
+  .text_top_infoZaabra {
+    font-size: 1.7em;
+    margin: 0 17%;
   }
 
-  .toggle_infoZaabra {
-    padding: 3% 3% 0 3%;
+  .toggle_info {
+    padding: 2em;
+    padding-bottom: 0;
   }
 
-  .txt_toggle_infoZaabra {
+  .title_toggle_info {
     font-size: 1.2em;
-    margin-bottom: 2%;
   }
 
-  .title_toggle_infoZaabra {
-    font-size: 1.35em;
-    margin-top: 0;
-    margin-bottom: 1%;
+  .txt_toggle_info {
+    font-size: 1.1em;
   }
 
-  .option_toggle_infoZaabra {
-    font-size: 1.2em;
-    padding-left: 3%;
-    margin-bottom: 2%;
+  .text_li_toggle_info {
+    font-size: 1.1em;
+  }
+
+  .toggle_info a {
+    font-size: 1.1em;
+  }
+
+  .button_acordion {
+    font-size: 1.4em;
+    background-size: 25px;
+  }
+
+  .button_show_acordion {
+    font-size: 1.4em;
+    background-size: 25px;
   }
 }
 /*.swiper {
@@ -26055,372 +26234,6 @@ a:link, a:visited, a:active, a:hover {
   .texto_lineaAtencion-institucion {
     font-size: 1.5em;
     padding: 0 5%;
-  }
-}
-.infoZaabra_contacto {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin: 5% 0;
-}
-
-.ubicacion-contacto {
-  background-image: url("/img/contacto/icono-ubicacion.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 100%;
-  padding: 1% 0 1% 15%;
-}
-
-.titulo_infoZaabra_contacto {
-  font-size: 0.8em;
-  font-family: "Quicksand";
-  font-weight: bold;
-  color: #232323;
-}
-
-.txt_infoZaabra_contacto {
-  font-size: 0.8em;
-  font-family: "Roboto";
-  color: #3E3E3E;
-}
-
-.telefono_contacto {
-  background-image: url("/img/contacto/icono-telefono.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 100%;
-  padding: 1% 0 1% 15%;
-}
-
-.email_contacto {
-  background-image: url("/img/contacto/icono-email.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 100%;
-  padding: 1% 0 1% 15%;
-}
-
-.options_users_contacto {
-  background: #F6F6F6;
-  justify-content: center;
-}
-
-.body_contacto {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.titulo_users_contacto {
-  font-size: 1em;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bolder;
-  color: #019F86;
-  margin: 5% 0 3% 0;
-  text-align: center;
-}
-
-.Subtext_interno-contac {
-  font-size: 0.8em;
-  font-family: "Roboto", "Regular";
-  color: #3E3E3E;
-  text-align: center;
-  margin-bottom: 5%;
-}
-
-.tipos_users_contacto {
-  display: flex;
-  flex-wrap: wrap;
-  width: 90%;
-  border: none;
-  margin-bottom: 10%;
-  padding: 7% 3% 8% 3%;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
-}
-
-.section_input-option-contac {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  height: 75px;
-}
-
-.input_option-contac {
-  display: flex;
-  justify-content: center;
-  padding: 0;
-  width: 25%;
-}
-
-.input_img-option-contac {
-  margin: 0;
-  height: 100%;
-  width: 50px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: top;
-     object-position: top;
-}
-
-.texto_option-input-contac {
-  font-family: "Roboto";
-  font-size: 0.95em;
-  align-self: flex-end;
-}
-
-.content_btn-enviar-contac {
-  display: flex;
-  justify-content: center;
-  margin-top: 5%;
-}
-
-.texto_label-contac {
-  font-family: "Quicksand", "Regular";
-  font-size: 1em;
-  font-weight: bold;
-  color: #232323;
-  text-align: left;
-}
-
-.btn_enviar-contac {
-  font-size: 0.95em;
-  font-family: "Quicksand";
-  color: #ffffff;
-  background: #0083D6;
-  border: none;
-  border-radius: 5px;
-  width: 100px;
-  margin: 0;
-  padding: 2% 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.flecha_envio-contac {
-  width: 12px;
-}
-
-.content_terminos_contac {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-.check_terminos_contac {
-  width: 18px;
-  height: 20px;
-}
-
-.txt_terminos_contac {
-  font-size: 0.85em;
-  font-family: "Roboto";
-  color: #434142;
-  width: 92%;
-  margin: 0;
-}
-
-.txt_terminos_contac a {
-  font-size: 0.85em;
-  font-family: "Roboto";
-  color: #434142 !important;
-  font-weight: bold !important;
-  text-decoration: underline !important;
-}
-
-.name_user-contac, .name_institution-contac, .second_date-contac {
-  display: none;
-}
-
-@media (min-width: 600px) {
-  .cabecera_contacto {
-    width: 85%;
-    margin: auto;
-  }
-
-  .titulo_infoZaabra_contacto {
-    font-size: 1.2em;
-  }
-
-  .txt_infoZaabra_contacto {
-    font-size: 1.05em;
-  }
-
-  .ubicacion-contacto, .telefono_contacto, .email_contacto {
-    padding: 1% 0 1% 10%;
-  }
-
-  .body_contacto {
-    width: 75%;
-  }
-
-  .titulo_users_contacto {
-    font-size: 2em;
-  }
-
-  .Subtext_interno-contac {
-    font-size: 1.3em;
-    padding: 0 7%;
-  }
-
-  .section_input-option-contac {
-    height: 100px;
-    justify-content: center;
-  }
-
-  .input_img-option-contac {
-    width: 65px;
-  }
-
-  .texto_option-input-contac {
-    font-size: 1.3em;
-  }
-
-  .btn_enviar-contac {
-    font-size: 1.2em;
-    width: 125px;
-    padding: 2%;
-  }
-
-  .flecha_envio-contac {
-    width: 16px;
-  }
-
-  .texto_label-contac {
-    font-size: 1.2em;
-  }
-
-  .txt_terminos_contac {
-    font-size: 1em;
-    width: 95%;
-  }
-}
-@media (min-width: 1024px) {
-  .cabecera_contacto {
-    width: 100%;
-  }
-
-  .subTitulo_infoZaabra {
-    padding: 0 10%;
-    margin: 3% 0;
-  }
-
-  .infoZaabra_contacto {
-    flex-direction: row;
-    margin: 5% 0;
-    padding-left: 5%;
-  }
-
-  .telefono_contacto {
-    width: 75%;
-  }
-
-  .ubicacion-contacto, .telefono_contacto, .email_contacto {
-    padding: 0 0 0 5%;
-  }
-
-  .Subtext_interno-contac {
-    padding: 0 15%;
-  }
-
-  .btn_enviar-contac {
-    padding: 1% 3%;
-  }
-
-  .txt_terminos_contac {
-    font-size: 1.1em;
-  }
-}
-@media (min-width: 1200px) {
-  .body_contacto {
-    width: 65%;
-  }
-
-  .infoZaabra_contacto {
-    padding-left: 9%;
-  }
-
-  .infoZaabra_contacto {
-    padding-left: 15%;
-    padding-right: 5%;
-  }
-}
-@media (min-width: 1360px) {
-  .infoZaabra_contacto {
-    padding-left: 15%;
-    padding-right: 5%;
-  }
-}
-@media (min-width: 1440px) {
-  .titulo_infoZaabra_contacto {
-    font-size: 1.5em;
-  }
-
-  .txt_infoZaabra_contacto {
-    font-size: 1.2em;
-  }
-
-  .infoZaabra_contacto {
-    padding-left: 10%;
-    padding-right: 2%;
-  }
-
-  .txt_terminos_contac {
-    font-size: 1.2em;
-    width: 96%;
-  }
-}
-@media (min-width: 1920px) {
-  .cabecera_contacto {
-    width: 75%;
-  }
-
-  .subTitulo_infoZaabra {
-    padding: 0 15%;
-  }
-
-  .titulo_users_contacto {
-    font-size: 2.5em;
-  }
-
-  .Subtext_interno-contac {
-    font-size: 1.6em;
-  }
-
-  .body_contacto {
-    width: 50%;
-  }
-
-  .section_input-option-contac {
-    height: 125px;
-  }
-
-  .input_img-option-contac {
-    width: 80px;
-  }
-
-  .texto_option-input-contac {
-    font-size: 1.5em;
-  }
-
-  .btn_enviar-contac {
-    font-size: 1.5em;
-    width: 160px;
-  }
-
-  .flecha_envio-contac {
-    width: 20px;
-  }
-
-  .texto_label-contac {
-    font-size: 1.38em;
-  }
-
-  .txt_terminos_contac {
-    font-size: 1.22em;
   }
 }
 .contain_principal101 {
