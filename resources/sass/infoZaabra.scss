@@ -34,6 +34,18 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+.section_type_plan {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: auto;
+}
+.section_button_infoZaabra {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-top: 1.5em;
+}
 .card_acordion {
     border-radius: 0px;
     border: none;
@@ -47,6 +59,15 @@
     margin: auto;
     padding: 1.5em 0;
     box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
+}
+.card_membresia {
+    margin: 1em auto;
+    padding: 1em 0;
+    box-shadow: 3px 4px 10px 2px rgb(0 0 0 / 15%);
+}
+.content_subTitle {
+    padding: 5% 0;
+    margin: 0 7%;
 }
 .content_accordion {
     padding: 10px 0;
@@ -63,6 +84,12 @@
     justify-content: center;
     padding: 0;
     height: 75px;
+}
+.content_type_plan {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .content_check_box {
     margin: 0;
@@ -96,22 +123,36 @@
     position: absolute;
     left: 20px;
 }
+.title_membresia {
+    font-family: 'Quicksand';
+    color: $blue_official;
+    font-weight: bold;
+    font-size: 1.8em;
+    text-align: center;
+}
 .title_body_infoZaabra {
-    font-size: 1.1em;
+    font-size: 1.5em;
     font-family: "Quicksand";
     font-weight: bolder;
     color: $blue_official;
-    margin: 0;
-    padding: 1em .5em;
+    margin-bottom: 5%;
     text-align: center;
 }
-.text_top_infoZaabra {
-    font-size: .9em;
+.subTitle_infoZaabra {
+    font-size: 1.2em;
     font-family: 'Roboto';
     color: $black_firsrt;
     text-align: center;
-    padding: 15px 0;
-    margin: 0 5%;
+    line-height: 1;
+    margin: 0;
+}
+.text_info_infoZaabra {
+    font-size: 1em;
+    font-family: 'Roboto';
+    color: $black_firsrt;
+    text-align: center;
+    line-height: 1.1;
+    margin: 0;
 }
 .toggle_info {
     padding: .9em;
@@ -140,6 +181,8 @@
 .text_type_user {
     font-family: 'Roboto';
     font-size: .95em;
+    line-height: 1;
+    text-align: center;
     align-self: flex-end;
     margin: 0;
 }
@@ -158,6 +201,11 @@
     font-weight: bold;
     text-decoration: underline;
 }
+.text_btn_precio {
+    font-family: "Quicksand";
+    font-size: 1em;
+    color: $withe_official;
+}
 // a
 .toggle_info a {
     font-size: .75em;
@@ -166,9 +214,20 @@
     text-decoration: none;
     background-color: transparent;
 }
+.a_underline {
+    text-decoration: underline !important;
+    color: #0083D6 !important;
+}
+.section_type_plan a {
+    color: $black_second;
+}
 // li
 .text_li_toggle_info li::marker {
     color: $blue_official;
+    font-size: 1.4em;
+}
+.desplegable_LandInst .text_li_toggle_info li::marker {
+    color: $green_official;
     font-size: 1.4em;
 }
 // Inputs
@@ -180,6 +239,9 @@
     object-position: top;
     position: absolute;
 }
+.input_type_plan {
+    width: 60px;
+}
 .input_check_box {
     width: 18px;
     height: 20px;
@@ -187,9 +249,10 @@
 // Buttons
 .button_acordion {
     font-family: 'Quicksand', 'Regular';
-    font-size: .9em;
+    font-size: 1em;
     font-weight: bold;
     text-decoration: none;
+    line-height: 1.1;
     color: $black_third;
     text-align: left;
     padding: .8em;
@@ -206,9 +269,10 @@
 }
 .button_show_acordion {
     font-family: 'Quicksand', 'Regular';
-    font-size: .9em;
+    font-size: 1em;
     font-weight: bold;
     text-decoration: none;
+    line-height: 1.1;
     color: $withe_official;
     text-align: left;
     padding: .8em;
@@ -222,6 +286,48 @@
     background-position: center;
     background-position-x: 97%;
     background-size: 15px;
+}
+.button_show_acordion_green {
+    font-family: 'Quicksand', 'Regular';
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 1.1;
+    color: $withe_official;
+    text-align: left;
+    padding: .8em;
+    padding-right: 33px;
+    background: $green_official;
+    border-radius: 0px;
+    border: 1px solid $green_official;
+    width: 100%;
+    background-image: url('/img/iconos/circulo-cierre-x-institucion.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-x: 97%;
+    background-size: 15px;
+}
+.button_blue_infoZaabra {
+    font-family: "Quicksand";
+    font-size: 1em;
+    color: $withe_official;
+    background: $blue_official;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+}
+.button_green_infoZaabra {
+    font-family: "Quicksand";
+    font-size: 1em;
+    color: $withe_official;
+    background: $green_official;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
 }
 // Others
 .name_user-contac, .name_institution-contac, .second_date-contac{
@@ -248,18 +354,26 @@
         padding: 30px 0;
         width: 85%;
     }
+    .section_type_plan {
+        width: 60%
+    }
     .content_icon_infoZaabra {
         padding: 0.5em 0 0.5em 4.5em;
     }
     .content_type_user {
         height: 115px;
     }
+    .content_check_box {
+        margin-top: 1em;
+    }
     .card_form_infoZaabra {
         width: 85%;
         padding: 3.5em 0;
     }
-    .content_check_box {
-        margin-top: 1em;
+    .card_membresia {
+        width: 75%;
+        margin: 2em auto;
+        padding: 2.5em 0;
     }
     // Texts
     .title_banner_infoZaabra {
@@ -267,11 +381,16 @@
         left: 60px;
     }
     .title_body_infoZaabra {
-        font-size: 1.7em;
+        font-size: 2em;
     }
-    .text_top_infoZaabra {
-        font-size: 1.35em;
-        margin: 0 6%;
+    .title_membresia {
+        font-size: 2.4em;
+    }
+    .subTitle_infoZaabra {
+        font-size: 1.5em;
+    }
+    .text_info_infoZaabra {
+        font-size: 1.2em;
     }
     .title_toggle_info {
         font-size: 1.1em;
@@ -292,6 +411,9 @@
     .txt_input_check_box a {
         font-size: 1em;
     }
+    .text_btn_precio {
+        font-size: 1.2em;
+    }
     // a
     .toggle_info a {
         font-size: 1em;
@@ -299,6 +421,9 @@
     // Inputs
     .input_type_user {
         width: 75px;
+    }
+    .input_type_plan {
+        width: 70px;
     }
     // Buttons
     .button_acordion {
@@ -310,6 +435,19 @@
         font-size: 1.2em;
         padding-right: 45px;
         background-size: 21px;
+    }
+    .button_show_acordion_green {
+        font-size: 1.2em;
+        padding-right: 45px;
+        background-size: 21px;
+    }
+    .button_blue_infoZaabra {
+        font-size: 1.2em;
+        padding: 5px 20px;
+    }
+    .button_green_infoZaabra {
+        font-size: 1.2em;
+        padding: 5px 20px;
     }
 }
 @media(min-width: 1024px) {
@@ -325,19 +463,22 @@
         padding: 45px 0;
         width: 95%;
     }
+    .content_subTitle {
+        padding: 3% 0;
+        margin: 0 12%;
+    }
     .content_icon_infoZaabra {
         padding: 0 0 0 3.5em;
     }
     .card_form_infoZaabra {
         width: 75%;
     }
+    .card_membresia {
+        width: 70%;
+    }
     // Texts
     .title_banner_infoZaabra {
         left: 127px;
-    }
-    .text_top_infoZaabra {
-        font-size: 1.35em;
-        margin: 0 12%;
     }
 }
 @media(min-width: 1200px) {
@@ -347,7 +488,6 @@
     }
     .card_form_infoZaabra {
         width: 65%;
-        margin-top: 2%;
     }
     // Texts
     .title_banner_infoZaabra {
@@ -357,12 +497,59 @@
 @media(min-width: 1300px) {
     // Container, section, content, card
     .card_form_infoZaabra {
-        width: 55%;
+        width: 50%;
+    }
+    .section_type_plan {
+        width: 50%;
+    }
+    .content_subTitle {
+        margin: 0 17%;
+    }
+    .card_membresia {
+        width: 65%;
     }
     // Texts
     .title_banner_infoZaabra {
         font-size: 2.5em;
         left: 170px;
+    }
+    .title_body_infoZaabra {
+        font-size: 2.5em;
+        margin-bottom: 3%;
+    }
+    .subTitle_infoZaabra {
+        font-size: 1.8em;
+    }
+    .text_info_infoZaabra {
+        font-size: 1.5em;
+    }
+    .text_btn_precio {
+        font-size: 1.4em;
+    }
+    // Inputs
+    .input_type_plan {
+        width: 80px;
+    }
+    // Buttons
+    .button_acordion {
+        font-size: 1.5em;
+        background-size: 25px;
+    }
+    .button_show_acordion {
+        font-size: 1.5em;
+        background-size: 25px;
+    }
+    .button_show_acordion_green {
+        font-size: 1.5em;
+        background-size: 25px;
+    }
+    .button_blue_infoZaabra {
+        font-size: 1.4em;
+        padding: 5px 25px;
+    }
+    .button_green_infoZaabra {
+        font-size: 1.4em;
+        padding: 5px 25px;
     }
 }
 @media(min-width: 1920px) {
@@ -373,7 +560,13 @@
     .section_contacto_infoZaabra {
         width: 60%;
     }
+    .section_type_plan {
+        width: 35%;
+    }
     .card_form_infoZaabra {
+        width: 40%;
+    }
+    .card_membresia {
         width: 50%;
     }
     // Texts
@@ -381,12 +574,8 @@
         font-size: 3.5em;
         left: 335px;
     }
-    .title_body_infoZaabra {
-        font-size: 2.2em;
-    }
-    .text_top_infoZaabra {
-        font-size: 1.7em;
-        margin: 0 17%;
+    .title_membresia {
+        font-size: 3em;
     }
     .toggle_info {
         padding: 2em;
@@ -404,14 +593,5 @@
     // a
     .toggle_info a {
         font-size: 1.1em;
-    }
-    // Buttons
-    .button_acordion {
-        font-size: 1.4em;
-        background-size: 25px;
-    }
-    .button_show_acordion {
-        font-size: 1.4em;
-        background-size: 25px;
     }
 }

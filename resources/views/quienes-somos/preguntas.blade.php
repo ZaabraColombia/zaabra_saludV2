@@ -8,10 +8,13 @@
         <h1 class="title_banner_infoZaabra"> PREGUNTAS <br> FRECUENTES </h1>
     </section>
 
-    <h2 class="text_top_infoZaabra my-4 my-md-5">¿Dudas? ¿Inquietudes? <br> En esta sección resolveremos todas las preguntas más frecuentes sobre Zaabra salud.</h2>
+    <div class="content_subTitle">
+        <h2 class="subTitle_infoZaabra mb-2">¿Dudas? ¿Inquietudes?</h2>
+        <h2 class="text_info_infoZaabra">En esta sección resolveremos todas las preguntas más frecuentes sobre Zaabra salud.</h2>
+    </div>
 
     <section class="section_acordion">
-        <div id="accordion" class="content_accordion">  <!-- Función del desplegable con cambio de color se encuentra ubicado en el archivo footer.js -->
+        <div id="accordion" class="content_accordion accordion">  <!-- Clase accordion para función del desplegable con cambio de color se encuentra ubicado en el archivo footer.js -->
             <div class="card card_acordion"> <!-- ¿Qué es Zaabra Salud? -->
                 <div id="headingOne">
                     <button class="button_acordion" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">¿Qué es Zaabra Salud?</button>

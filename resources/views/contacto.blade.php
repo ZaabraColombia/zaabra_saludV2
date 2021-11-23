@@ -8,8 +8,10 @@
         <h1 class="title_banner_infoZaabra">CONTÁCTENOS</h1>
     </section>
 
-    <h2 class="title_body_infoZaabra">¡Hola! ¿Desea contactarse con Zaabra Salud?</h2>
-    <h2 class="text_top_infoZaabra py-0">Queremos que se ponga en contacto con nosotros para compartir sus comentarios, opiniones y necesidades o para recibir una asesoría completa sobre un producto o servicios de su interés.</h2>
+    <div class="content_subTitle">
+        <h2 class="title_body_infoZaabra">¡Hola! ¿Desea contactarse con Zaabra Salud?</h2>
+        <h2 class="text_info_infoZaabra">Queremos que se ponga en contacto con nosotros para compartir sus comentarios, opiniones y necesidades o para recibir una asesoría completa sobre un producto o servicios de su interés.</h2>
+    </div>
 
     <div class="section_contacto_infoZaabra">
         <div class="content_icon_infoZaabra icon_location">
@@ -30,8 +32,10 @@
 
     <!-- fila contenido opciones y formulario contacto -->
     <div class="container_form_infoZaabra pb-5">
-        <h2 class="title_body_infoZaabra"> Ponerse en contacto </h2>
-        <h2 class="text_top_infoZaabra pt-0">Seleccione el perfil con el que se identifica, complete el siguiente formulario y haga clic en enviar.</h2>
+        <div class="content_subTitle">
+            <h2 class="title_body_infoZaabra"> Ponerse en contacto </h2>
+            <h2 class="text_info_infoZaabra">Seleccione el perfil con el que se identifica, complete el siguiente formulario y haga clic en enviar.</h2>
+        </div>
 
         <div class="card card_form_infoZaabra">
             @if (session('status'))
@@ -46,7 +50,7 @@
                 @if(!empty($objuser))
                     <div id="persona">
                         <div class="section_type_user"> <!-- Usuarios paciente, doctor e institución -->
-                            <div class="content_type_user">
+                            <div class="content_type_user"> <!-- Eventyo on click en archivo contacto.js -->
                                 <input id="inpt4" class="input_type_user" onclick="elementHidden(this)" type="image" src="/img/iconos/icono-paciente.svg" name="idrol" value="1" data-position="paciente" checked> <!-- Evento onclick en archivo register.js -->
                                 <label id="txt4" class="text_type_user" for="idrol"> Paciente </label>
                             </div>
@@ -121,9 +125,9 @@
                             <textarea class="input_box_form" name="asunto" id="asunto" required placeholder="Escribe Aqui"></textarea>
                         </div>
 
-                        <div class="content_terminos_contac">
-                            <input class="check_terminos_contac" type="checkbox" id="">
-                            <h4 class="txt_terminos_contac"> Acepto
+                        <div class="content_check_box">
+                            <input class="input_check_box" type="checkbox" id="">
+                            <h4 class="txt_input_check_box"> Acepto
                                 <a href="{{url('politicas')}}" target="blank"> términos y condiciones </a> y autorizo el <a href="{{url('politicas')}}" target="blank">tratamiento de mis datos personales</a>.
                             </h4>
                         </div>
@@ -132,7 +136,7 @@
                 @else
                     <div id="persona">
                         <div class="section_type_user"> <!-- Usuarios paciente, doctor e institución -->
-                            <div class="content_type_user">
+                            <div class="content_type_user"><!-- Eventyo on click en archivo contacto.js -->
                                 <input id="inpt4" class="input_type_user" onclick="elementHidden(this)" type="image" src="/img/iconos/icono-paciente.svg" name="idrol" value="1" data-position="paciente" checked> <!-- Evento onclick en archivo register.js -->
                                 <label id="txt4"  class="text_type_user" for="idrol"> Paciente </label>
                             </div>
@@ -212,8 +216,8 @@
                     </div>
                 @endif
 
-                <div class="section_button_form justify-content-center mt-3"> <!-- Send button -->
-                    <button id="send_form" type="submit" class="button_blue_form px-3 px-lg-4"> {{ __('Enviar') }}
+                <div class="section_button_infoZaabra"> <!-- Send button -->
+                    <button id="send_form" type="submit" class="button_blue_infoZaabra"> {{ __('Enviar') }}
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>

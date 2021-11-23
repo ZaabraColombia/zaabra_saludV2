@@ -108,27 +108,20 @@
 
                 <p>{{$objinstitucionlandin->DescripcionGeneralServicios}}</p>
             </div>
-
-
-            <!-- <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
-  Tooltip on top
-</button> -->
-
-
-
             
-            <div class="desplegable_LandInst" id="accordion"> <!--Función del cambio de color a verde en los botones del collapse estan ubicados en el archivo "footer.js". -->
+            <div class="desplegable_LandInst accordion_green" id="accordion"> <!--Función del cambio de color a verde en los botones del collapse estan ubicados en el archivo "footer.js". -->
                 @foreach ($objinstitucionlandinservicios as $objinstitucionlandinservicios)
-                    <div class="card containt_collapse_LandInst">
+                    <div class="card card_acordion">
                         <div id="heading_{{$loop->iteration}}">
-                            <button class="boton_collapse-off" data-toggle="collapse" data-target="#collapse_{{$loop->iteration}}" aria-expanded="true" aria-controls="collapse_{{$loop->iteration}}">{{$objinstitucionlandinservicios->tituloServicios}}</button>
+                            <button class="button_acordion" data-toggle="collapse" data-target="#collapse_{{$loop->iteration}}" aria-expanded="true" aria-controls="collapse_{{$loop->iteration}}">{{$objinstitucionlandinservicios->tituloServicios}}</button>
                         </div>
 
                         <div id="collapse_{{$loop->iteration}}" class="collapse" aria-labelledby="heading_{{$loop->iteration}}" data-parent="#accordion">
-                            <div class="card-body card_txt_LandInst">
-                                <p>{{$objinstitucionlandinservicios->DescripcioServicios}}</p>
+                            <div class="card-body toggle_info">
+                                <p class="txt_toggle_info">{{$objinstitucionlandinservicios->DescripcioServicios}}</p>
                             </div>
-                            <div class="lista_sede">
+
+                            <div class="text_li_toggle_info">
                                 @if($objinstitucionlandinservicios->sucursalservicio)
                                     @php  $new_array = explode(',',$objinstitucionlandinservicios->sucursalservicio); @endphp
                                 @endif

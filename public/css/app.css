@@ -12081,6 +12081,20 @@ a:link, a:visited, a:active, a:hover {
   justify-content: space-evenly;
 }
 
+.section_type_plan {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+.section_button_infoZaabra {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-top: 1.5em;
+}
+
 .card_acordion {
   border-radius: 0px;
   border: none;
@@ -12095,6 +12109,17 @@ a:link, a:visited, a:active, a:hover {
   margin: auto;
   padding: 1.5em 0;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+}
+
+.card_membresia {
+  margin: 1em auto;
+  padding: 1em 0;
+  box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
+}
+
+.content_subTitle {
+  padding: 5% 0;
+  margin: 0 7%;
 }
 
 .content_accordion {
@@ -12114,6 +12139,13 @@ a:link, a:visited, a:active, a:hover {
   justify-content: center;
   padding: 0;
   height: 75px;
+}
+
+.content_type_plan {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .content_check_box {
@@ -12153,23 +12185,39 @@ a:link, a:visited, a:active, a:hover {
   left: 20px;
 }
 
-.title_body_infoZaabra {
-  font-size: 1.1em;
+.title_membresia {
   font-family: "Quicksand";
-  font-weight: bolder;
   color: #0083D6;
-  margin: 0;
-  padding: 1em 0.5em;
+  font-weight: bold;
+  font-size: 1.8em;
   text-align: center;
 }
 
-.text_top_infoZaabra {
-  font-size: 0.9em;
+.title_body_infoZaabra {
+  font-size: 1.5em;
+  font-family: "Quicksand";
+  font-weight: bolder;
+  color: #0083D6;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+.subTitle_infoZaabra {
+  font-size: 1.2em;
   font-family: "Roboto";
   color: #3E3E3E;
   text-align: center;
-  padding: 15px 0;
-  margin: 0 5%;
+  line-height: 1;
+  margin: 0;
+}
+
+.text_info_infoZaabra {
+  font-size: 1em;
+  font-family: "Roboto";
+  color: #3E3E3E;
+  text-align: center;
+  line-height: 1.1;
+  margin: 0;
 }
 
 .toggle_info {
@@ -12203,6 +12251,8 @@ a:link, a:visited, a:active, a:hover {
 .text_type_user {
   font-family: "Roboto";
   font-size: 0.95em;
+  line-height: 1;
+  text-align: center;
   align-self: flex-end;
   margin: 0;
 }
@@ -12224,6 +12274,12 @@ a:link, a:visited, a:active, a:hover {
   text-decoration: underline;
 }
 
+.text_btn_precio {
+  font-family: "Quicksand";
+  font-size: 1em;
+  color: #FFFFFF;
+}
+
 .toggle_info a {
   font-size: 0.75em;
   font-family: "Roboto";
@@ -12232,8 +12288,22 @@ a:link, a:visited, a:active, a:hover {
   background-color: transparent;
 }
 
+.a_underline {
+  text-decoration: underline !important;
+  color: #0083D6 !important;
+}
+
+.section_type_plan a {
+  color: #434343;
+}
+
 .text_li_toggle_info li::marker {
   color: #0083D6;
+  font-size: 1.4em;
+}
+
+.desplegable_LandInst .text_li_toggle_info li::marker {
+  color: #019F86;
   font-size: 1.4em;
 }
 
@@ -12248,6 +12318,10 @@ a:link, a:visited, a:active, a:hover {
   position: absolute;
 }
 
+.input_type_plan {
+  width: 60px;
+}
+
 .input_check_box {
   width: 18px;
   height: 20px;
@@ -12255,9 +12329,10 @@ a:link, a:visited, a:active, a:hover {
 
 .button_acordion {
   font-family: "Quicksand", "Regular";
-  font-size: 0.9em;
+  font-size: 1em;
   font-weight: bold;
   text-decoration: none;
+  line-height: 1.1;
   color: #232323;
   text-align: left;
   padding: 0.8em;
@@ -12275,9 +12350,10 @@ a:link, a:visited, a:active, a:hover {
 
 .button_show_acordion {
   font-family: "Quicksand", "Regular";
-  font-size: 0.9em;
+  font-size: 1em;
   font-weight: bold;
   text-decoration: none;
+  line-height: 1.1;
   color: #FFFFFF;
   text-align: left;
   padding: 0.8em;
@@ -12291,6 +12367,51 @@ a:link, a:visited, a:active, a:hover {
   background-position: center;
   background-position-x: 97%;
   background-size: 15px;
+}
+
+.button_show_acordion_green {
+  font-family: "Quicksand", "Regular";
+  font-size: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 1.1;
+  color: #FFFFFF;
+  text-align: left;
+  padding: 0.8em;
+  padding-right: 33px;
+  background: #019F86;
+  border-radius: 0px;
+  border: 1px solid #019F86;
+  width: 100%;
+  background-image: url("/img/iconos/circulo-cierre-x-institucion.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-x: 97%;
+  background-size: 15px;
+}
+
+.button_blue_infoZaabra {
+  font-family: "Quicksand";
+  font-size: 1em;
+  color: #FFFFFF;
+  background: #0083D6;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.button_green_infoZaabra {
+  font-family: "Quicksand";
+  font-size: 1em;
+  color: #FFFFFF;
+  background: #019F86;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
 }
 
 .name_user-contac, .name_institution-contac, .second_date-contac {
@@ -12320,6 +12441,10 @@ a:link, a:visited, a:active, a:hover {
     width: 85%;
   }
 
+  .section_type_plan {
+    width: 60%;
+  }
+
   .content_icon_infoZaabra {
     padding: 0.5em 0 0.5em 4.5em;
   }
@@ -12328,13 +12453,19 @@ a:link, a:visited, a:active, a:hover {
     height: 115px;
   }
 
+  .content_check_box {
+    margin-top: 1em;
+  }
+
   .card_form_infoZaabra {
     width: 85%;
     padding: 3.5em 0;
   }
 
-  .content_check_box {
-    margin-top: 1em;
+  .card_membresia {
+    width: 75%;
+    margin: 2em auto;
+    padding: 2.5em 0;
   }
 
   .title_banner_infoZaabra {
@@ -12343,12 +12474,19 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .title_body_infoZaabra {
-    font-size: 1.7em;
+    font-size: 2em;
   }
 
-  .text_top_infoZaabra {
-    font-size: 1.35em;
-    margin: 0 6%;
+  .title_membresia {
+    font-size: 2.4em;
+  }
+
+  .subTitle_infoZaabra {
+    font-size: 1.5em;
+  }
+
+  .text_info_infoZaabra {
+    font-size: 1.2em;
   }
 
   .title_toggle_info {
@@ -12376,12 +12514,20 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1em;
   }
 
+  .text_btn_precio {
+    font-size: 1.2em;
+  }
+
   .toggle_info a {
     font-size: 1em;
   }
 
   .input_type_user {
     width: 75px;
+  }
+
+  .input_type_plan {
+    width: 70px;
   }
 
   .button_acordion {
@@ -12394,6 +12540,22 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.2em;
     padding-right: 45px;
     background-size: 21px;
+  }
+
+  .button_show_acordion_green {
+    font-size: 1.2em;
+    padding-right: 45px;
+    background-size: 21px;
+  }
+
+  .button_blue_infoZaabra {
+    font-size: 1.2em;
+    padding: 5px 20px;
+  }
+
+  .button_green_infoZaabra {
+    font-size: 1.2em;
+    padding: 5px 20px;
   }
 }
 @media (min-width: 1024px) {
@@ -12411,6 +12573,11 @@ a:link, a:visited, a:active, a:hover {
     width: 95%;
   }
 
+  .content_subTitle {
+    padding: 3% 0;
+    margin: 0 12%;
+  }
+
   .content_icon_infoZaabra {
     padding: 0 0 0 3.5em;
   }
@@ -12419,13 +12586,12 @@ a:link, a:visited, a:active, a:hover {
     width: 75%;
   }
 
-  .title_banner_infoZaabra {
-    left: 127px;
+  .card_membresia {
+    width: 70%;
   }
 
-  .text_top_infoZaabra {
-    font-size: 1.35em;
-    margin: 0 12%;
+  .title_banner_infoZaabra {
+    left: 127px;
   }
 }
 @media (min-width: 1200px) {
@@ -12435,7 +12601,6 @@ a:link, a:visited, a:active, a:hover {
 
   .card_form_infoZaabra {
     width: 65%;
-    margin-top: 2%;
   }
 
   .title_banner_infoZaabra {
@@ -12444,12 +12609,70 @@ a:link, a:visited, a:active, a:hover {
 }
 @media (min-width: 1300px) {
   .card_form_infoZaabra {
-    width: 55%;
+    width: 50%;
+  }
+
+  .section_type_plan {
+    width: 50%;
+  }
+
+  .content_subTitle {
+    margin: 0 17%;
+  }
+
+  .card_membresia {
+    width: 65%;
   }
 
   .title_banner_infoZaabra {
     font-size: 2.5em;
     left: 170px;
+  }
+
+  .title_body_infoZaabra {
+    font-size: 2.5em;
+    margin-bottom: 3%;
+  }
+
+  .subTitle_infoZaabra {
+    font-size: 1.8em;
+  }
+
+  .text_info_infoZaabra {
+    font-size: 1.5em;
+  }
+
+  .text_btn_precio {
+    font-size: 1.4em;
+  }
+
+  .input_type_plan {
+    width: 80px;
+  }
+
+  .button_acordion {
+    font-size: 1.5em;
+    background-size: 25px;
+  }
+
+  .button_show_acordion {
+    font-size: 1.5em;
+    background-size: 25px;
+  }
+
+  .button_show_acordion_green {
+    font-size: 1.5em;
+    background-size: 25px;
+  }
+
+  .button_blue_infoZaabra {
+    font-size: 1.4em;
+    padding: 5px 25px;
+  }
+
+  .button_green_infoZaabra {
+    font-size: 1.4em;
+    padding: 5px 25px;
   }
 }
 @media (min-width: 1920px) {
@@ -12461,7 +12684,15 @@ a:link, a:visited, a:active, a:hover {
     width: 60%;
   }
 
+  .section_type_plan {
+    width: 35%;
+  }
+
   .card_form_infoZaabra {
+    width: 40%;
+  }
+
+  .card_membresia {
     width: 50%;
   }
 
@@ -12470,13 +12701,8 @@ a:link, a:visited, a:active, a:hover {
     left: 335px;
   }
 
-  .title_body_infoZaabra {
-    font-size: 2.2em;
-  }
-
-  .text_top_infoZaabra {
-    font-size: 1.7em;
-    margin: 0 17%;
+  .title_membresia {
+    font-size: 3em;
   }
 
   .toggle_info {
@@ -12498,16 +12724,6 @@ a:link, a:visited, a:active, a:hover {
 
   .toggle_info a {
     font-size: 1.1em;
-  }
-
-  .button_acordion {
-    font-size: 1.4em;
-    background-size: 25px;
-  }
-
-  .button_show_acordion {
-    font-size: 1.4em;
-    background-size: 25px;
   }
 }
 /*.swiper {
@@ -21795,7 +22011,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .desplegable_LandInst {
-    padding-left: 9%;
+    padding-left: 5%;
   }
 
   .boton_collapse-off {
@@ -22109,7 +22325,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .desplegable_LandInst {
-    padding-left: 7%;
+    padding-left: 2em;
   }
 
   .container_cards {
@@ -22196,10 +22412,6 @@ a:link, a:visited, a:active, a:hover {
       height: 135px;
   }*/
   .servicios_instituciones p, .quienes_somos p, .propuesta ul {
-    padding-left: 6%;
-  }
-
-  .desplegable_LandInst {
     padding-left: 6%;
   }
 
@@ -24167,499 +24379,6 @@ a:link, a:visited, a:active, a:hover {
     width: 8%;
   }
 }
-.section_principal-membresia {
-  width: 100%;
-}
-
-.titulo_membresia {
-  font-size: 1.8em;
-  font-family: "Quicksand";
-  font-weight: bold;
-  color: #0083D6;
-  text-align: center;
-  margin-top: 10%;
-}
-
-.subtitulo_membresia {
-  font-family: "Roboto", "Regular";
-  font-size: 1em;
-  color: #3E3E3E;
-  text-align: center;
-  padding: 0;
-  margin-top: 5%;
-}
-
-.section_inputs-option-membresia {
-  display: flex;
-  justify-content: center;
-  height: 100px;
-  margin: 10% 0;
-}
-
-.input_option-membresia {
-  width: 125px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0;
-}
-
-.input_img-option-membresia {
-  width: 60px;
-  height: 100%;
-  -o-object-fit: scale-down;
-     object-fit: scale-down;
-  -o-object-position: top;
-     object-position: top;
-  margin: 0;
-}
-
-.ruta_membresiaInst {
-  display: flex;
-  justify-content: center;
-  width: 110px;
-}
-
-.texto_input-doctor-membresia {
-  font-family: "Roboto";
-  font-size: 0.75em;
-  color: #0083D6;
-  text-align: center;
-  margin-top: 65px;
-}
-
-.texto_input-instituto-membresia {
-  font-family: "Roboto";
-  font-size: 0.75em;
-  color: #3E3E3E;
-  text-align: center;
-  margin-top: 65px;
-}
-
-.contain_accordion-membresia {
-  margin: 5% 0;
-  padding: 5% 0;
-  box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
-}
-
-.titulo_tarjeta-membresia {
-  font-family: "Quicksand", "Regular";
-  font-size: 1.5em;
-  font-weight: bolder;
-  color: #232323;
-  text-align: center;
-  margin: 0;
-}
-
-.texto_tiempo-membresia {
-  font-size: 0.8em;
-  font-family: "Roboto", "Regular";
-  color: #0083D6;
-  text-align: center;
-  padding: 0;
-  margin: 3% 0;
-}
-
-.content_collapse_membresia {
-  margin-top: 5%;
-}
-
-.containt_options-collapse-membresia {
-  border-radius: 0px;
-  border: none;
-  padding: 1% 3%;
-}
-
-.boton_collapse-off-membresia {
-  font-family: "Quicksand", "Regular";
-  font-size: 0.9em;
-  font-weight: bolder;
-  text-decoration: none;
-  color: #232323;
-  text-align: left;
-  padding: 3% 2%;
-  background: #F5F5F5;
-  border-radius: 0px;
-  border: 1px solid #F5F5F5F5;
-  width: 100%;
-  background-image: url("/img/iconos/icono-mas.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position-x: 95%;
-  background-size: 17px;
-}
-
-.boton_collapse-on-membresia {
-  font-family: "Quicksand", "Regular" !important;
-  font-size: 0.9em !important;
-  font-weight: bolder !important;
-  text-decoration: none !important;
-  color: #FFFFFF !important;
-  text-align: left !important;
-  padding: 3% 2% !important;
-  background: #0083D6 !important;
-  border-radius: 0px !important;
-  border: 1px solid #0083D6 !important;
-  width: 100% !important;
-  background-image: url("/img/iconos/icono-x.svg") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-position-x: 95% !important;
-  background-size: 17px !important;
-}
-
-.text_interno-toggle-membresia {
-  font-size: 0.7em;
-  color: #3E3E3E;
-  padding: 4% 3%;
-}
-
-.containt_btn_membresia {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5%;
-}
-
-.btn_registro_membresia {
-  font-family: "Quicksand";
-  font-size: 0.8em;
-  color: #ffffff;
-  background: #0083D6;
-  border: none;
-  border-radius: 3px;
-  margin: auto;
-  padding: 5% 7%;
-  width: 85px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.flecha_ingreso-membresia {
-  width: 11px;
-}
-
-.btn_precio-tarjeta-membresia {
-  background: #0083D6;
-  border: none;
-  border-radius: 5px;
-  width: 110px;
-  padding: 2%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.precio_tarjeta-membresia {
-  font-family: "Quicksand";
-  font-size: 1.1em;
-  font-weight: normal;
-  color: #ffffff;
-  text-align: center;
-}
-
-.texto_precio-membresia {
-  font-family: "Roboto", "Regular";
-  font-size: 1em;
-  font-weight: normal;
-  color: #ffffff;
-  text-align: center;
-}
-
-.texto_inferior_membresia {
-  font-family: "Roboto", "Regular";
-  font-size: 0.8em;
-  color: #3E3E3E;
-  text-align: center;
-  padding: 0 3%;
-  margin-top: 4%;
-}
-
-.btn_inicio_membresia {
-  font-family: "Quicksand";
-  font-size: 0.8em;
-  color: #ffffff;
-  background: #0083D6;
-  border: none;
-  border-radius: 3px;
-  margin: auto;
-  padding: 2%;
-  width: 85px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.contac_membresia {
-  text-decoration: underline !important;
-  color: #0083D6 !important;
-}
-
-@media (min-width: 700px) {
-  .titulo_membresia {
-    font-size: 2.2em;
-    margin-top: 6%;
-  }
-
-  .subtitulo_membresia {
-    font-size: 1.5em;
-    margin-top: 4%;
-  }
-
-  .section_inputs-option-membresia {
-    height: 130px;
-    margin: 5% 0;
-  }
-
-  .input_option-membresia {
-    width: 190px;
-  }
-
-  .input_img-option-membresia {
-    width: 75px;
-  }
-
-  .texto_input-doctor-membresia {
-    font-size: 1.2em;
-    margin-top: 75px;
-  }
-
-  .ruta_membresiaInst {
-    width: 180px;
-  }
-
-  .texto_input-instituto-membresia {
-    font-size: 1.2em;
-    margin-top: 75px;
-    width: 180px;
-  }
-
-  .contain_accordion-membresia {
-    width: 80%;
-    margin: 5% auto;
-  }
-
-  .titulo_tarjeta-membresia {
-    font-size: 2.2em;
-  }
-
-  .texto_tiempo-membresia {
-    font-size: 1.15em;
-  }
-
-  .boton_collapse-off-membresia {
-    font-size: 1.3em;
-    padding: 2%;
-    background-size: 23px;
-  }
-
-  .boton_collapse-on-membresia {
-    font-size: 1.3em !important;
-    padding: 2% !important;
-    background-size: 23px !important;
-  }
-
-  .text_interno-toggle-membresia {
-    font-size: 1.1em;
-    color: #3E3E3E;
-    padding: 4% 3%;
-  }
-
-  .btn_registro_membresia {
-    font-size: 1.3em;
-    width: 125px;
-  }
-
-  .flecha_ingreso-membresia {
-    width: 15px;
-  }
-
-  .btn_precio-tarjeta-membresia {
-    width: 200px;
-    padding: 1%;
-  }
-
-  .precio_tarjeta-membresia {
-    font-size: 2em;
-  }
-
-  .texto_precio-membresia {
-    font-size: 1.5em;
-  }
-
-  .texto_inferior_membresia {
-    font-size: 1.15em;
-    padding: 0 8%;
-  }
-
-  .btn_inicio_membresia {
-    font-size: 1.3em;
-    padding: 1%;
-    width: 140px;
-  }
-}
-@media (min-width: 1024px) {
-  .titulo_membresia {
-    margin-top: 5%;
-  }
-
-  .subtitulo_membresia {
-    margin-top: 2%;
-  }
-
-  .section_inputs-option-membresia {
-    margin: 4% 0;
-  }
-
-  .contain_accordion-membresia {
-    width: 75%;
-    margin: 4% auto;
-    padding: 3% 1%;
-  }
-
-  .containt_btn_membresia {
-    margin-top: 3%;
-  }
-}
-@media (min-width: 1360px) {
-  .contain_accordion-membresia {
-    width: 70%;
-    padding: 3%;
-  }
-
-  .texto_tiempo-membresia {
-    margin: 2% 0;
-  }
-
-  .text_interno-toggle-membresia {
-    padding: 3% 3%;
-  }
-
-  .content_collapse_membresia {
-    margin-top: 3%;
-  }
-}
-@media (min-width: 1440px) {
-  .section_inputs-option-membresia {
-    height: 155px;
-  }
-
-  .texto_input-doctor-membresia {
-    margin-top: 100px;
-  }
-
-  .input_img-option-membresia {
-    width: 90px;
-    -o-object-fit: contain;
-       object-fit: contain;
-  }
-
-  .texto_input-instituto-membresia {
-    margin-top: 100px;
-  }
-}
-@media (min-width: 1920px) {
-  .titulo_membresia {
-    font-size: 3.2em;
-    margin-top: 4%;
-  }
-
-  .subtitulo_membresia {
-    font-size: 1.8em;
-  }
-
-  .section_inputs-option-membresia {
-    height: 170px;
-    margin: 3% 0;
-  }
-
-  .input_img-option-membresia {
-    width: 100px;
-    -o-object-fit: contain;
-       object-fit: contain;
-  }
-
-  .texto_input-doctor-membresia {
-    font-size: 1.5em;
-    margin-top: 105px;
-    width: 230px;
-  }
-
-  .input_option-membresia {
-    width: 230px;
-  }
-
-  .ruta_membresiaInst {
-    width: 230px;
-  }
-
-  .texto_input-instituto-membresia {
-    font-size: 1.5em;
-    margin-top: 105px;
-    width: 230px;
-  }
-
-  .contain_accordion-membresia {
-    width: 60%;
-    margin: 2.5% auto;
-    padding: 2% 0%;
-  }
-
-  .titulo_tarjeta-membresia {
-    font-size: 2.8em;
-  }
-
-  .texto_tiempo-membresia {
-    font-size: 1.5em;
-  }
-
-  .boton_collapse-off-membresia {
-    font-size: 1.8em;
-    padding: 1.5% 2%;
-    background-size: 30px;
-  }
-
-  .boton_collapse-on-membresia {
-    font-size: 1.8em !important;
-    padding: 1.5% 2% !important;
-    background-size: 30px !important;
-  }
-
-  .text_interno-toggle-membresia {
-    font-size: 1.45em;
-  }
-
-  .btn_registro_membresia {
-    font-size: 1.8em;
-    width: 200px;
-  }
-
-  .flecha_ingreso-membresia {
-    width: 23px;
-  }
-
-  .btn_precio-tarjeta-membresia {
-    width: 275px;
-  }
-
-  .precio_tarjeta-membresia {
-    font-size: 2.8em;
-  }
-
-  .texto_precio-membresia {
-    font-size: 2.2em;
-  }
-
-  .texto_inferior_membresia {
-    font-size: 1.5em;
-  }
-
-  .btn_inicio_membresia {
-    font-size: 1.8em;
-    width: 200px;
-  }
-}
 .container_line_module_form {
   display: flex;
   flex-wrap: wrap;
@@ -25280,8 +24999,7 @@ a:link, a:visited, a:active, a:hover {
   background: #0083D6;
   border: none;
   border-radius: 3px;
-  padding: 1px 6px;
-  height: calc(1.6em + 0.75rem + 2px);
+  padding: 4px 6px;
   display: flex;
   align-items: center;
 }
@@ -25293,8 +25011,7 @@ a:link, a:visited, a:active, a:hover {
   background: #019F86;
   border: none;
   border-radius: 3px;
-  padding: 1px 6px;
-  height: calc(1.6em + 0.75rem + 2px);
+  padding: 4px 6px;
   display: flex;
   align-items: center;
 }
@@ -25307,8 +25024,7 @@ a:link, a:visited, a:active, a:hover {
   background: transparent;
   border: 1px solid #434343;
   border-radius: 3px;
-  padding: 1px 6px;
-  height: calc(1.6em + 0.75rem + 2px);
+  padding: 4px 6px;
   display: flex;
   align-items: center;
 }
@@ -25694,15 +25410,15 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .button_blue_form {
-    font-size: 1.1em;
+    font-size: 1.2em;
   }
 
   .button_green_form {
-    font-size: 1.1em;
+    font-size: 1.2em;
   }
 
   .button_transparent_form {
-    font-size: 1.1em;
+    font-size: 1.2em;
   }
 
   .image_preview_form {
@@ -25724,516 +25440,6 @@ a:link, a:visited, a:active, a:hover {
 
   .data_saved_form ul li {
     font-size: 1.1em;
-  }
-}
-.section_principal-institucion {
-  width: 100%;
-}
-
-.titulo_membresia_inst {
-  font-size: 1.8em;
-  font-family: "Quicksand";
-  font-weight: bold;
-  color: #019F86;
-  text-align: center;
-  margin-top: 10%;
-}
-
-.subtitulo_membresia_inst {
-  font-family: "Roboto", "Regular";
-  font-size: 1em;
-  color: #3E3E3E;
-  text-align: center;
-  padding: 0;
-  margin-top: 5%;
-}
-
-.section_inputs-option-institucion {
-  display: flex;
-  justify-content: center;
-  height: 100px;
-  margin: 10% 0;
-}
-
-.input_option-institucion {
-  width: 125px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0;
-}
-
-.input_img-option-institucion {
-  width: 60px;
-  height: 100%;
-  -o-object-fit: scale-down;
-     object-fit: scale-down;
-  -o-object-position: top;
-     object-position: top;
-  margin: 0;
-}
-
-.ruta_membresiaProf {
-  display: flex;
-  justify-content: center;
-  width: 110px;
-}
-
-.texto_input-doctor-institucion {
-  font-family: "Roboto";
-  font-size: 0.75em;
-  color: #3E3E3E;
-  text-align: center;
-  margin-top: 65px;
-}
-
-.texto_input-instituto-institucion {
-  font-family: "Roboto";
-  font-size: 0.75em;
-  color: #019F86;
-  text-align: center;
-  margin-top: 65px;
-}
-
-.contain_accordion-institucion {
-  margin: 5% 0;
-  padding: 5% 0;
-  box-shadow: 3px 4px 10px 2px rgba(0, 0, 0, 0.15);
-}
-
-.titulo_tarjeta-institucion {
-  font-family: "Quicksand", "Regular";
-  font-size: 1.5em;
-  font-weight: bolder;
-  color: #232323;
-  text-align: center;
-  margin: 0;
-}
-
-.texto_tiempo-institucion {
-  font-size: 0.8em;
-  font-family: "Roboto", "Regular";
-  color: #019F86;
-  text-align: center;
-  padding: 0;
-  margin: 3% 0;
-}
-
-.content_collapse_membresia_inst {
-  margin-top: 5%;
-}
-
-.containt_options-collapse-institucion {
-  border-radius: 0px;
-  border: none;
-  padding: 1% 3%;
-}
-
-.boton_collapse-off-institucion {
-  font-family: "Quicksand", "Regular";
-  font-size: 0.9em;
-  font-weight: bolder;
-  text-decoration: none;
-  color: #232323;
-  text-align: left;
-  padding: 3% 2%;
-  background: #F5F5F5;
-  border-radius: 0px;
-  border: 1px solid #F5F5F5F5;
-  width: 100%;
-  background-image: url("/img/iconos/icono-mas.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position-x: 95%;
-  background-size: 17px;
-}
-
-.boton_collapse-on-institucion {
-  font-family: "Quicksand", "Regular" !important;
-  font-size: 0.9em !important;
-  font-weight: bolder !important;
-  text-decoration: none !important;
-  color: #FFFFFF !important;
-  text-align: left !important;
-  padding: 3% 2% !important;
-  background: #019F86 !important;
-  border-radius: 0px !important;
-  border: 1px solid #019F86 !important;
-  width: 100% !important;
-  background-image: url("/img/iconos/circulo-cierre-x-institucion.svg") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-position-x: 95% !important;
-  background-size: 17px !important;
-}
-
-.text_interno-toggle-institucion {
-  font-size: 0.7em;
-  color: #3E3E3E;
-  padding: 4% 3%;
-}
-
-.containt_btn_membresia_inst {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5%;
-}
-
-.btn_registro_membresia_inst {
-  font-family: "Quicksand";
-  font-size: 0.8em;
-  color: #ffffff;
-  background: #019F86;
-  border: none;
-  border-radius: 3px;
-  margin: auto;
-  padding: 5% 7%;
-  width: 85px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.flecha_ingreso-institucion {
-  width: 11px;
-}
-
-.btn_precio-tarjeta-institucion {
-  background: #019F86;
-  border: none;
-  border-radius: 5px;
-  width: 110px;
-  padding: 2%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.precio_tarjeta-institucion {
-  font-family: "Quicksand";
-  font-size: 1.1em;
-  font-weight: normal;
-  color: #ffffff;
-  text-align: center;
-}
-
-.texto_precio-institucion {
-  font-family: "Roboto", "Regular";
-  font-size: 1em;
-  font-weight: normal;
-  color: #ffffff;
-  text-align: center;
-}
-
-.texto_inferior-institucion {
-  font-family: "Roboto", "Regular";
-  font-size: 0.8em;
-  color: #3E3E3E;
-  text-align: center;
-  padding: 0 3%;
-  margin-top: 4%;
-}
-
-.btn_inicio_membresia_inst {
-  font-family: "Quicksand";
-  font-size: 0.8em;
-  color: #ffffff;
-  background: #019F86;
-  border: none;
-  border-radius: 3px;
-  margin: auto;
-  padding: 2%;
-  width: 85px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.contac_institucion {
-  text-decoration: underline !important;
-  color: #0083D6 !important;
-}
-
-.texto_lineaAtencion-institucion {
-  font-family: "Roboto", "Regular";
-  font-size: 0.8em;
-  color: #3E3E3E;
-  text-align: center;
-  padding: 3%;
-}
-
-@media (min-width: 700px) {
-  .titulo_membresia_inst {
-    font-size: 2.2em;
-    margin-top: 6%;
-  }
-
-  .subtitulo_membresia_inst {
-    font-size: 1.5em;
-    margin-top: 4%;
-  }
-
-  .section_inputs-option-institucion {
-    height: 130px;
-    margin: 5% 0;
-  }
-
-  .input_option-institucion {
-    width: 190px;
-  }
-
-  .input_img-option-institucion {
-    width: 75px;
-  }
-
-  .texto_input-instituto-institucion {
-    font-size: 1.2em;
-    margin-top: 75px;
-  }
-
-  .ruta_membresiaProf {
-    width: 180px;
-  }
-
-  .texto_input-doctor-institucion {
-    font-size: 1.2em;
-    margin-top: 75px;
-    width: 180px;
-  }
-
-  .contain_accordion-institucion {
-    width: 80%;
-    margin: 5% auto;
-  }
-
-  .titulo_tarjeta-institucion {
-    font-size: 2.2em;
-  }
-
-  .texto_tiempo-institucion {
-    font-size: 1.15em;
-  }
-
-  .boton_collapse-off-institucion {
-    font-size: 1.3em;
-    padding: 2%;
-    background-size: 23px;
-  }
-
-  .boton_collapse-on-institucion {
-    font-size: 1.3em !important;
-    padding: 2% !important;
-    background-size: 23px !important;
-  }
-
-  .text_interno-toggle-institucion {
-    font-size: 1.1em;
-    color: #3E3E3E;
-    padding: 4% 3%;
-  }
-
-  .btn_registro_membresia_inst {
-    font-size: 1.3em;
-    width: 125px;
-  }
-
-  .flecha_ingreso-institucion {
-    width: 15px;
-  }
-
-  .btn_precio-tarjeta-institucion {
-    width: 200px;
-    padding: 1%;
-  }
-
-  .precio_tarjeta-institucion {
-    font-size: 2em;
-  }
-
-  .texto_precio-institucion {
-    font-size: 1.5em;
-  }
-
-  .texto_inferior-institucion {
-    font-size: 1.15em;
-    padding: 0 8%;
-  }
-
-  .btn_inicio_membresia_inst {
-    font-size: 1.3em;
-    padding: 1%;
-    width: 140px;
-  }
-
-  .texto_lineaAtencion-institucion {
-    font-size: 1.15em;
-  }
-}
-@media (min-width: 1024px) {
-  .titulo_membresia_inst {
-    margin-top: 5%;
-  }
-
-  .subtitulo_membresia_inst {
-    margin-top: 2%;
-  }
-
-  .section_inputs-option-institucion {
-    margin: 4% 0;
-  }
-
-  .contain_accordion-institucion {
-    width: 75%;
-    margin: 4% auto;
-    padding: 3% 1%;
-  }
-
-  .containt_btn_membresia_inst {
-    margin-top: 3%;
-  }
-}
-@media (min-width: 1360px) {
-  .contain_accordion-institucion {
-    width: 70%;
-    padding: 3%;
-  }
-
-  .texto_tiempo-institucion {
-    margin: 2% 0;
-  }
-
-  .text_interno-toggle-institucion {
-    padding: 3% 3%;
-  }
-
-  .content_collapse_membresia {
-    margin-top: 3%;
-  }
-}
-@media (min-width: 1440px) {
-  .section_inputs-option-institucion {
-    height: 155px;
-  }
-
-  .texto_input-instituto-institucion {
-    margin-top: 100px;
-  }
-
-  .input_img-option-institucion {
-    width: 90px;
-    -o-object-fit: contain;
-       object-fit: contain;
-  }
-
-  .texto_input-doctor-institucion {
-    margin-top: 100px;
-  }
-}
-@media (min-width: 1920px) {
-  .titulo_membresia_inst {
-    font-size: 3.2em;
-    margin-top: 4%;
-  }
-
-  .subtitulo_membresia_inst {
-    font-size: 1.8em;
-  }
-
-  .section_inputs-option-institucion {
-    height: 170px;
-    margin: 3% 0;
-  }
-
-  .input_img-option-institucion {
-    width: 100px;
-    -o-object-fit: contain;
-       object-fit: contain;
-  }
-
-  .texto_input-instituto-institucion {
-    font-size: 1.5em;
-    margin-top: 105px;
-    width: 230px;
-  }
-
-  .input_option-institucion {
-    width: 230px;
-  }
-
-  .ruta_membresiaProf {
-    width: 230px;
-  }
-
-  .texto_input-doctor-institucion {
-    font-size: 1.5em;
-    margin-top: 105px;
-    width: 230px;
-  }
-
-  .contain_accordion-institucion {
-    width: 60%;
-    margin: 2.5% auto;
-    padding: 2% 0%;
-  }
-
-  .titulo_tarjeta-institucion {
-    font-size: 2.8em;
-  }
-
-  .texto_tiempo-institucion {
-    font-size: 1.5em;
-  }
-
-  .boton_collapse-off-institucion {
-    font-size: 1.8em;
-    padding: 1.5% 2%;
-    background-size: 30px;
-  }
-
-  .boton_collapse-on-institucion {
-    font-size: 1.8em !important;
-    padding: 1.5% 2% !important;
-    background-size: 30px !important;
-  }
-
-  .text_interno-toggle-institucion {
-    font-size: 1.45em;
-  }
-
-  .btn_registro_membresia_inst {
-    font-size: 1.8em;
-    width: 200px;
-  }
-
-  .flecha_ingreso-institucion {
-    width: 23px;
-  }
-
-  .btn_precio-tarjeta-institucion {
-    width: 275px;
-  }
-
-  .precio_tarjeta-institucion {
-    font-size: 2.8em;
-  }
-
-  .texto_precio-institucion {
-    font-size: 2.2em;
-  }
-
-  .texto_inferior-institucion {
-    font-size: 1.5em;
-  }
-
-  .btn_inicio_membresia_inst {
-    font-size: 1.8em;
-    width: 200px;
-  }
-
-  .texto_lineaAtencion-institucion {
-    font-size: 1.5em;
-    padding: 0 5%;
   }
 }
 .contain_principal101 {

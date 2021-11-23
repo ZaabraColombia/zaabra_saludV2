@@ -8,10 +8,12 @@
         <h1 class="title_banner_infoZaabra">POLÍTICAS DE USO</h1>
     </section>
 
-    <h2 class="text_top_infoZaabra my-4 my-md-5">Conozca todo sobre las políticas de uso y los términos y condiciones de Zaabra Salud y el sitio web.</h2>
+    <div class="content_subTitle">
+        <h2 class="text_info_infoZaabra">Conozca todo sobre las políticas de uso y los términos y condiciones de Zaabra Salud y el sitio web.</h2>
+    </div>
 
     <section class="section_acordion">
-        <div id="accordion" class="content_accordion">  <!-- Función del desplegable con cambio de color se encuentra ubicado en el archivo footer.js -->
+        <div id="accordion" class="content_accordion accordion">  <!-- Clase accordion para función del desplegable con cambio de color se encuentra ubicado en el archivo footer.js -->
             <div class="card card_acordion"> <!-- Políticas de cookies -->
                 <div id="headingOne">
                     <button class="button_acordion" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Políticas de cookies</button>

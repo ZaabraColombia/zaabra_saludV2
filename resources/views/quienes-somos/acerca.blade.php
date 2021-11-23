@@ -8,10 +8,12 @@
         <h1 class="title_banner_infoZaabra">ACERCA DE ZAABRA</h1>
     </section>
 
-    <h2 class="text_top_infoZaabra my-4 my-md-5">Zaabra Salud, es el sitio donde están, los mejores especialistas e instituciones medicas de todas partes del país al alcance de sus manos y con tan solo un click.</h2>
+    <div class="content_subTitle">
+        <h2 class="text_info_infoZaabra">Zaabra Salud, es el sitio donde están, los mejores especialistas e instituciones medicas de todas partes del país al alcance de sus manos y con tan solo un click.</h2>
+    </div>
 
     <section class="section_acordion">
-        <div id="accordion" class="content_accordion">  <!-- Función del desplegable con cambio de color se encuentra ubicado en el archivo footer.js -->
+        <div id="accordion" class="content_accordion accordion">  <!-- Clase accordion para función del desplegable con cambio de color se encuentra ubicado en el archivo footer.js -->
             <div class="card card_acordion"> <!-- ¿Quiénes somos? -->
                 <div id="headingOne"> 
                     <button id="One" class="button_acordion" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">¿Quiénes somos</button>
