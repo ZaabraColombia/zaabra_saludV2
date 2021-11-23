@@ -545,8 +545,7 @@
     background: $blue_official;
     border: none;
     border-radius: 3px;
-    padding: 1px 6px;
-    height: calc(1.6em + 0.75rem + 2px);
+    padding: 4px 6px;
     display: flex;
     align-items: center;
 }
@@ -557,8 +556,7 @@
     background: $green_official;
     border: none;
     border-radius: 3px;
-    padding: 1px 6px;
-    height: calc(1.6em + 0.75rem + 2px);
+    padding: 4px 6px;
     display: flex;
     align-items: center;
 }
@@ -570,8 +568,7 @@
     background: transparent;
     border: 1px solid $black_second;
     border-radius: 3px;
-    padding: 1px 6px;
-    height: calc(1.6em + 0.75rem + 2px);
+    padding: 4px 6px;
     display: flex;
     align-items: center;
 }
@@ -916,13 +913,13 @@
     }
     // Buttons
     .button_blue_form {
-        font-size: 1.1em;
+        font-size: 1.2em;
     }
     .button_green_form {
-        font-size: 1.1em;
+        font-size: 1.2em;
     }
     .button_transparent_form {
-        font-size: 1.1em;
+        font-size: 1.2em;
     }
     // Saved images and logos
     .image_preview_form {
