@@ -63,30 +63,45 @@
     </div>
 
     <div class="accordion_green"> <!-- Clase accordion para función del desplegable con cambio de color se encuentra ubicado en el archivo footer.js -->
-      <div class="card card_acordion"> <!-- Página web -->
-        <div id="headingTwo">
-          <button class="button_acordion" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Página web</button>
+      <div class="card card_acordion"> <!-- Agenda online -->
+        <div id="headingFiveteen">
+          <button class="button_acordion" data-toggle="collapse" data-target="#collapseFiveteen" aria-expanded="false" aria-controls="collapseFiveteen">Agenda online</button>
         </div>
 
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div id="collapseFiveteen" class="collapse" aria-labelledby="headingFiveteen" data-parent="#accordion">
           <div class="card-body toggle_info">
             <p class="txt_toggle_info">
-              Zaabra Salud le permite construir el perfil de su institución.
-            </p>
+              Aquí podrá encontrar agendamiento online, disponibilidad del profesional, podrá gestionar sus citas, encontrará las alertas 
+              y notificaciones y podrá administrar por medio de WhatsApp, correo electrónico o mensajes de texto.
+            </P>
           </div>
         </div>
       </div>
 
-      <div class="card card_acordion"> <!-- Galería -->
-        <div id="headingThree">
-          <button class="button_acordion" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Galería</button>
+      <div class="card card_acordion"> <!-- Historia clínica -->
+        <div id="headingSixteen">
+          <button class="button_acordion" data-toggle="collapse" data-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">Historia clínica</button>
         </div>
 
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div id="collapseSixteen" class="collapse" aria-labelledby="headingSixteen" data-parent="#accordion">
+        <div class="card-body toggle_info">
+            <p class="txt_toggle_info">
+              Una consulta personalizada para cada usuario o paciente que agende su consulta a través de Zaabra Salud.
+            </P>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card_acordion"> <!-- Registro de pacientes -->
+        <div id="headingEight">
+          <button class="button_acordion" data-toggle="collapse" data-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">Registro de pacientes</button>
+        </div>
+
+        <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
           <div class="card-body toggle_info">
             <p class="txt_toggle_info">
-              Los usuarios de Zaabra Salud podrán observar en la galería de su Landing page institucional, imágenes de los tratamientos, cirugías o procedimientos realizados por la entidad y sus profesionales.
-            </P>
+              Cada usuario posee unas credenciales de acceso. Con estos podrá acceder al sitio 24/7. Garantizamos alta disponibilidad y acceso en múltiples dispositivos: Computadores, móviles y Tablets.
+            </p>
           </div>
         </div>
       </div>
@@ -106,9 +121,23 @@
         </div>
       </div>
 
-      <div class="card card_acordion"> <!-- Servicios ofrecidos por la institución -->
+      <div class="card card_acordion"> <!-- Página web -->
+        <div id="headingTwo">
+          <button class="button_acordion" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Página web</button>
+        </div>
+
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body toggle_info">
+            <p class="txt_toggle_info">
+              Zaabra Salud le permite construir el perfil de su institución.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card_acordion"> <!-- Portafolio de servicios -->
         <div id="headingFive">
-            <button class="button_acordion" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">Servicios ofrecidos por la institución</button>
+            <button class="button_acordion" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">Portafolio de servicios</button>
         </div>
 
         <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
@@ -120,27 +149,13 @@
         </div>
       </div>
 
-      <div class="card card_acordion"> <!-- Acerca de la institución -->
-        <div id="headingSix">
-          <button class="button_acordion" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">Acerca de la institución</button>
-        </div>
-
-        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
-          <div class="card-body toggle_info">
-            <p class="txt_toggle_info">
-              Su experiencia, trayectoria y crecimiento desde el inicio.
-            </P>
-          </div>
-        </div>
-      </div>
-
       <div class="card card_acordion"> <!-- Certificaciones -->
         <div id="headingSeven">
           <button class="button_acordion" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">Certificaciones</button>
         </div>
 
         <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
-        <div class="card-body toggle_info">
+          <div class="card-body toggle_info">
             <p class="txt_toggle_info">
               Publique sus premios y reconocimientos, que gracias a su trabajo y el tiempo ha obtenido.
             </P>
@@ -148,16 +163,16 @@
         </div>
       </div>
 
-      <div class="card card_acordion"> <!-- Registro de usuarios -->
-        <div id="headingEight">
-          <button class="button_acordion" data-toggle="collapse" data-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">Registro de usuarios</button>
+      <div class="card card_acordion"> <!-- Galería -->
+        <div id="headingThree">
+          <button class="button_acordion" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Galería</button>
         </div>
 
-        <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
           <div class="card-body toggle_info">
             <p class="txt_toggle_info">
-              Cada usuario posee unas credenciales de acceso. Con estos podrá acceder al sitio 24/7. Garantizamos alta disponibilidad y acceso en múltiples dispositivos: Computadores, móviles y Tablets.
-            </p>
+              Los usuarios de Zaabra Salud podrán observar en la galería de su Landing page institucional, imágenes de los tratamientos, cirugías o procedimientos realizados por la entidad y sus profesionales.
+            </P>
           </div>
         </div>
       </div>
@@ -171,20 +186,6 @@
           <div class="card-body toggle_info">
             <p class="txt_toggle_info">
               Consulte sus métricas de desempeño: Clics recibidos, consultas agendadas, consultas efectivas, consultas canceladas, servicios más consultados y mucho más.
-            </P>
-          </div>
-        </div>
-      </div>
-
-      <div class="card card_acordion"> <!-- Asesoramiento y soporte técnico -->
-        <div id="headingTen">
-          <button class="button_acordion" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">Asesoramiento y soporte técnico</button>
-        </div>
-
-        <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordion">
-          <div class="card-body toggle_info">
-            <p class="txt_toggle_info">
-              Trabajamos para usted, por eso siempre tiene canales de comunicación directa para responder a todas sus inquietudes.
             </P>
           </div>
         </div>
@@ -205,6 +206,20 @@
         </div>
       </div>
 
+      <div class="card card_acordion"> <!-- Reportes y RIPs -->
+        <div id="headingFourteen">
+          <button class="button_acordion" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="true" aria-controls="collapseFourteen">Reportes y RIPs</button>
+        </div>
+
+        <div id="collapseFourteen" class="collapse" aria-labelledby="headingFourteen" data-parent="#accordion">
+          <div class="card-body toggle_info">
+            <p class="txt_toggle_info">
+              Reportes y gráficas en tiempo real de usuarios que navegan y visitan la landing page de su institución.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div class="card card_acordion"> <!-- Posicionamiento web -->
         <div id="headingTwelve">
           <button class="button_acordion" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">Posicionamiento web</button>
@@ -215,6 +230,20 @@
             <p class="txt_toggle_info">
               Nos enfocamos en lograr que los profesionales y las instituciones sean reconocidos, posicionamos su perfil en la búsqueda de los usuarios.
             </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card_acordion"> <!-- Asesoramiento y soporte técnico -->
+        <div id="headingTen">
+          <button class="button_acordion" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">Asesoramiento y soporte técnico</button>
+        </div>
+
+        <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordion">
+          <div class="card-body toggle_info">
+            <p class="txt_toggle_info">
+              Trabajamos para usted, por eso siempre tiene canales de comunicación directa para responder a todas sus inquietudes.
+            </P>
           </div>
         </div>
       </div>
@@ -233,16 +262,16 @@
         </div>
       </div>
 
-      <div class="card card_acordion"> <!-- Reportes -->
-        <div id="headingFourteen">
-          <button class="button_acordion" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="true" aria-controls="collapseFourteen">Reportes</button>
+      <div class="card card_acordion"> <!-- Acerca de la institución -->
+        <div id="headingSix">
+          <button class="button_acordion" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">Acerca de la institución</button>
         </div>
 
-        <div id="collapseFourteen" class="collapse" aria-labelledby="headingFourteen" data-parent="#accordion">
+        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
           <div class="card-body toggle_info">
             <p class="txt_toggle_info">
-              Reportes y gráficas en tiempo real de usuarios que navegan y visitan la landing page de su institución.
-            </p>
+              Su experiencia, trayectoria y crecimiento desde el inicio.
+            </P>
           </div>
         </div>
       </div>
