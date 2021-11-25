@@ -712,7 +712,7 @@
                                 <span>{{ $sede->direccion }}</span>
                                 <h5>{{ $sede->horario_sede }}</h5>
                                 <span style="color: #0083D6; font-weight: bold">{{ $sede->telefono }}</span>
-                                <span>{{ $sede->url_map }}</span>
+                                <!-- <span>{{ $sede->url_map }}</span> -->
                             </div>
                         </div>
                     @endif
@@ -742,21 +742,20 @@
                     </div>
 
                     <div class="col-md-6 p-0">
-                            <label for="nombre_sede" class="label_txt_form">Nombre de la sede</label>
-                            <input class="input_box_form" id="nombre_sede" placeholder="Nombre de la sede" type="text" name="nombre_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} />
-                    
-                            <label for="direccion_sede" class="label_txt_form">Dirrección</label>
-                            <input class="input_box_form" id="direccion_sede" placeholder="Dirección" type="text" name="direccion_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} />
+                        <label for="nombre_sede" class="label_txt_form">Nombre de la sede</label>
+                        <input class="input_box_form" id="nombre_sede" placeholder="Nombre de la sede" type="text" name="nombre_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} />
+                
+                        <label for="direccion_sede" class="label_txt_form">Dirrección</label>
+                        <input class="input_box_form" id="direccion_sede" placeholder="Dirección" type="text" name="direccion_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} />
 
-                            <label for="horario_sede" class="label_txt_form">Horario</label>
-                            <input class="input_box_form" id="horario_sede" placeholder="Horario" type="text" name="horario_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} />
-                    
-                            <label for="telefono_sede" class="label_txt_form">Teléfono</label>
-                            <input class="input_box_form" id="telefono_sede" placeholder="Número de teléfono" type="text" name="telefono_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} />
-                    
-                            <label for="url_mapa_sede" class="label_txt_form">Url ubicación sede (Google Map)</label>
-                            <input class="input_box_form" id="url_mapa_sede" placeholder="Url" type="text" name="url_mapa_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} />
-                    
+                        <label for="horario_sede" class="label_txt_form">Horario</label>
+                        <input class="input_box_form" id="horario_sede" placeholder="Horario" type="text" name="horario_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} />
+                
+                        <label for="telefono_sede" class="label_txt_form">Teléfono</label>
+                        <input class="input_box_form" id="telefono_sede" placeholder="Número de teléfono" type="text" name="telefono_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} />
+                
+                        <!-- <label for="url_mapa_sede" class="label_txt_form">Url ubicación sede (Google Map)</label>
+                        <input class="input_box_form" id="url_mapa_sede" placeholder="Url" type="text" name="url_mapa_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} /> -->
                     </div>
                 </div>
 

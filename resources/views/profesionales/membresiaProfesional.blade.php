@@ -63,25 +63,11 @@
             </div>
             
             <div class="accordion"> <!-- Clase accordion para función del desplegable con cambio de color se encuentra ubicado en el archivo footer.js -->
-                <div class="card card_acordion"> <!-- Página web -->
-                    <div id="headingTwo">
-                        <button class="button_acordion" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Página web</button>
-                    </div>
-
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <div class="card-body toggle_info">
-                            <p class="txt_toggle_info">
-                                Zaabra Salud le permite construir su perfil profesional, muestre su información de contacto, profesión y especialidad,
-                                tipos de consulta, redes sociales, formación académica, certificados, procedimientos y más. Todo en un solo lugar.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="card card_acordion"> <!-- Agenda online -->
                     <div id="headingThree">
                         <button class="button_acordion" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Agenda online</button>
                     </div>
+
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                         <div class="card-body toggle_info">
                             <p class="txt_toggle_info">
@@ -96,10 +82,55 @@
                     <div id="headingFour">
                         <button class="button_acordion" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Historia clínica</button>
                     </div>
+
                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                         <div class="card-body toggle_info">
                             <p class="txt_toggle_info">
                                 Una consulta personalizada para cada usuario o paciente que agenda su consulta a través de Zaabra Salud.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card_acordion"> <!-- Registro de pacientes -->
+                    <div id="headingTwelve">
+                        <button class="button_acordion" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">Registro de pacientes</button>
+                    </div>
+
+                    <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordion">
+                        <div class="card-body toggle_info">
+                            <p class="txt_toggle_info">
+                                Cada usuario posee unas credenciales de acceso. Con estos podrá acceder al sitio 24/7. Garantizamos alta disponibilidad y acceso en múltiples dispositivos: Computadores, móviles y Tablets.
+                            </P>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card_acordion"> <!-- Opiniones de pacientes -->
+                    <div id="headingFiveteen">
+                        <button class="button_acordion" data-toggle="collapse" data-target="#collapseFiveteen" aria-expanded="false" aria-controls="collapseFiveteen">Opiniones de pacientes</button>
+                    </div>
+
+                    <div id="collapseFiveteen" class="collapse" aria-labelledby="headingFiveteen" data-parent="#accordion">
+                        <div class="card-body toggle_info">
+                            <p class="txt_toggle_info">
+                                Zaabra Salud tiene al servicio de los usuarios y de los profesionales comentarios, testimonios y calificación por medio de estrellas,
+                                estos comentarios son verificados por Zaabra Salud, si tiene una buena calificación, su perfil profesional será más visible.
+                            </P>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card_acordion"> <!-- Página web -->
+                    <div id="headingTwo">
+                        <button class="button_acordion" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Página web</button>
+                    </div>
+
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body toggle_info">
+                            <p class="txt_toggle_info">
+                                Zaabra Salud le permite construir su perfil profesional, muestre su información de contacto, profesión y especialidad,
+                                tipos de consulta, redes sociales, formación académica, certificados, procedimientos y más. Todo en un solo lugar.
                             </p>
                         </div>
                     </div>
@@ -119,10 +150,11 @@
                     </div>
                 </div>
 
-                <div class="card card_acordion"> <!-- Tratamientos y procedimientos -->
+                <div class="card card_acordion"> <!-- Portafolio de servicios -->
                     <div id="headingSix">
-                        <button class="button_acordion" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">Tratamientos y procedimientos</button>
+                        <button class="button_acordion" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">Portafolio de servicios</button>
                     </div>
+
                     <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
                         <div class="card-body toggle_info">
                             <p class="txt_toggle_info">
@@ -142,6 +174,20 @@
                             <p class="txt_toggle_info">
                                 Publique sus premios y reconocimientos, que gracias a su trabajo y el tiempo ha obtenido.
                             </P>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card_acordion"> <!-- Galería -->
+                    <div id="headingFourteen">
+                        <button class="button_acordion" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="true" aria-controls="collapseFourteen">Galería</button>
+                    </div>
+
+                    <div id="collapseFourteen" class="collapse" aria-labelledby="headingFourteen" data-parent="#accordion">
+                        <div class="card-body toggle_info">
+                            <p class="txt_toggle_info">
+                                Los usuarios finales o pacientes podrán observar en la galería de su Landing page imágenes de las cirugías o tratamientos de cada profesional, se podrá observar paso a paso toda la transformación del antes y después.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -175,6 +221,20 @@
                     </div>
                 </div>
 
+                <div class="card card_acordion"> <!-- Reportes y RIPs -->
+                    <div id="headingSixteen">
+                        <button class="button_acordion" data-toggle="collapse" data-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">Reportes y RIPs</button>
+                    </div>
+
+                    <div id="collapseSixteen" class="collapse" aria-labelledby="headingSixteen" data-parent="#accordion">
+                        <div class="card-body toggle_info">
+                            <p class="txt_toggle_info">
+                                Reportes y gráficas en tiempo real de pacientes, citas, historias clínicas, diagnósticos, comprobantes diarios, histórico, generación de RIPs.
+                            </P>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="card card_acordion"> <!-- Posicionamiento web -->
                     <div id="headingTen">
                         <button class="button_acordion" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">Posicionamiento web</button>
@@ -184,34 +244,6 @@
                         <div class="card-body toggle_info">
                             <p class="txt_toggle_info">
                                 Nos enfocamos en lograr que los profesionales y las instituciones sean reconocidos, posicionamos su perfil en la búsqueda de los usuarios.
-                            </P>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card card_acordion"> <!-- Cambios y actualizaciones -->
-                    <div id="headingEleven">
-                        <button class="button_acordion" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="true" aria-controls="collapseEleven">Cambios y actualizaciones</button>
-                    </div>
-
-                    <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordion">
-                        <div class="card-body toggle_info">
-                            <p class="txt_toggle_info">
-                                Ingrese a su perfil, edite su información, actualice sus estudios, experiencia y mucho más. La nueva información está sujeta a verificación.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card card_acordion"> <!-- Registro de usuarios -->
-                    <div id="headingTwelve">
-                        <button class="button_acordion" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">Registro de usuarios</button>
-                    </div>
-
-                    <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordion">
-                        <div class="card-body toggle_info">
-                            <p class="txt_toggle_info">
-                                Cada usuario posee unas credenciales de acceso. Con estos podrá acceder al sitio 24/7. Garantizamos alta disponibilidad y acceso en múltiples dispositivos: Computadores, móviles y Tablets.
                             </P>
                         </div>
                     </div>
@@ -231,45 +263,16 @@
                     </div>
                 </div>
 
-                <div class="card card_acordion"> <!-- Galería -->
-                    <div id="headingFourteen">
-                        <button class="button_acordion" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="true" aria-controls="collapseFourteen">Galería</button>
+                <div class="card card_acordion"> <!-- Cambios y actualizaciones -->
+                    <div id="headingEleven">
+                        <button class="button_acordion" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="true" aria-controls="collapseEleven">Cambios y actualizaciones</button>
                     </div>
 
-                    <div id="collapseFourteen" class="collapse" aria-labelledby="headingFourteen" data-parent="#accordion">
+                    <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordion">
                         <div class="card-body toggle_info">
                             <p class="txt_toggle_info">
-                                Los usuarios finales o pacientes podrán observar en la galería de su Landing page imágenes de las cirugías o tratamientos de cada profesional, se podrá observar paso a paso toda la transformación del antes y después.
+                                Ingrese a su perfil, edite su información, actualice sus estudios, experiencia y mucho más. La nueva información está sujeta a verificación.
                             </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card card_acordion"> <!-- Opiniones de pacientes -->
-                    <div id="headingFiveteen">
-                        <button class="button_acordion" data-toggle="collapse" data-target="#collapseFiveteen" aria-expanded="false" aria-controls="collapseFiveteen">Opiniones de pacientes</button>
-                    </div>
-
-                    <div id="collapseFiveteen" class="collapse" aria-labelledby="headingFiveteen" data-parent="#accordion">
-                        <div class="card-body toggle_info">
-                            <p class="txt_toggle_info">
-                                Zaabra Salud tiene al servicio de los usuarios y de los profesionales comentarios, testimonios y calificación por medio de estrellas,
-                                estos comentarios son verificados por Zaabra Salud, si tiene una buena calificación, su perfil profesional será más visible.
-                            </P>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card card_acordion"> <!-- Reportes y RIPs -->
-                    <div id="headingSixteen">
-                        <button class="button_acordion" data-toggle="collapse" data-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">Reportes y RIPs</button>
-                    </div>
-
-                    <div id="collapseSixteen" class="collapse" aria-labelledby="headingSixteen" data-parent="#accordion">
-                    <div class="card-body toggle_info">
-                            <p class="txt_toggle_info">
-                                Reportes y gráficas en tiempo real de pacientes, citas, historias clínicas, diagnósticos, comprobantes diarios, histórico, generación de RIPs.
-                            </P>
                         </div>
                     </div>
                 </div>
