@@ -349,8 +349,8 @@
                 @endif
             @endif
 
-            <div class="visible_container">
-                @if(!empty($objprofesionalComentario))
+            @if(!empty($objprofesionalComentario))
+                <div class="visible_container">
                     @foreach ($objprofesionalComentario as $data)
                     <div class="section_opciones" id="oscar">
                         <div class="section_usuario-prof">
@@ -376,8 +376,8 @@
                         </div>
                     </div>
                     @endforeach
-                @endif
-            </div>
+                </div>
+            @endif
         </div>
 
         <!-- <div class="section_masComent-prof">

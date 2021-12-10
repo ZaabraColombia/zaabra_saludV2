@@ -53,7 +53,7 @@
         @endforeach
       </div>
       <!-- If we need pagination -->
-      <!-- <div class="swiper-pagination"></div> -->
+      <div class="swiper-pagination"></div>
     </div>
     <!--carrusel instituciones premiun-->
   </section>
