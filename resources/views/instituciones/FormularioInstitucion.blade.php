@@ -496,7 +496,7 @@
                                 </div>
                          
                                 <div class="data_saved_form">
-                                    @if(!empty($profecional->nombre_especialidad))
+                                    {{--@if(!empty($profecional->nombre_especialidad))--}}
                                         @if(!empty($profecional->especialidades->toArray()))
                                             <ul>
                                                 <li>
@@ -504,7 +504,7 @@
                                                 </li>
                                             </ul>
                                         @endif
-                                    @endif
+                                    {{--@endif--}}
                                 </div>
 
                                 <div class="data_saved_form border-top-0">
