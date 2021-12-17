@@ -1,110 +1,90 @@
-.height_verify {
-    margin: 14.9% 0;
-}
-
-// Contenedor principal login
-   .contenedorPrin_login {
-    background: #F9F9F9;
-}
-// Titulo principal 
-.titulo_principal-login {
-    font-family: 'Roboto', 'Regular';
-    font-size: 1em;
-    font-weight: 500;
-    color: #3E3E3E;
-    text-align: center;
-    margin: 3% 8% 2% 8%;
-}
-// Sección principal Login
-.section_principal-login {
+// Contenedores, secciones, contenidos y tarjetas
+.tarjeta_principal {
     width: 90%;
     border: none;
-    margin-bottom: 4%;
-    padding: 0;
     box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
+    margin-bottom: 50px;
 }
-// Sección body login
-.section_body-login {
-    padding: 2% 12% 0 12%;
-}
-.content_iniciar-crear {
+.tarjeta_header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     background: #ffffff;
     border: none;
     padding: 0;
-    margin: 3% 0;
+    margin: 0;
 }
-// Iniciar sesión 
-.section_texto-iniciar {
-    font-family: 'Quicksand', 'Regular';
-    font-size: 1.25em;
+.seccion_activa {
+    width: 50%;
+    border-bottom: 5px solid #0083D6;
+    box-shadow: 1px 1px 4px 3px rgb(0 131 214/ 15%);
+    padding: 0;
+}
+.seccion_inactiva {
+    width: 50%;
+    border-bottom: 5px solid #D1D1D1;
+    padding: 0;
+}
+.seccion_redes_sociales {
+    padding: 0 0 20px 0;
+    background: #ffffff;
+}
+.contenedor_icono_red {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 0 0 0;
+    margin: auto;
+}
+.contenido_icono {
+    width: 50px;
+}
+.contenedor_tarjeta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 50px 0 118px 0;
+}
+// Títulos, subtítulos y textos 
+.titulo_h1 {
+    font-size: 1.2em;
+    font-family: "Roboto";
+    font-weight: 500;
+    color: #3E3E3E;
+    text-align: center;
+    margin: auto;
+    padding: 15px 0 30px 0;
+}
+.titulo_h2 {
+    font-size: 1.2em;
+    font-family: 'Quicksand';
     font-weight: bold;
     color: #0083D6;
-    text-decoration: none;
     text-align: center;
-    align-items: center;
-    border-bottom: 8px solid #0083D6;
-    padding: 0;
+    margin: 0;
+    padding: 13px 0;
 }
-// Crear cuenta
-.section_texto-crear {
-    text-decoration: none;
-    text-align: center;
-    align-items: center;
-    border-bottom: 8px solid #D1D1D1;
-    padding: 0;
-}
-.texto_crear-login {
-    font-family: 'Quicksand', 'Regular';
-    font-size: 1.25em;
-    font-weight: bold;
-    color: #D1D1D1 !important;
-    text-decoration: none;
-}
-.texto_label-login {
-    font-family: 'Quicksand', 'Regular';
+.texto_label {
+    font-family: 'Quicksand';
     font-size: 1em;
     font-weight: bold;
     color: #232323;
-    text-align: left;
+    margin-bottom: 5px;
 }
-// Botón inferior ingreasar
-.content_btn-ingresar-login {
-    text-align: center;
-}
-.btn_Ingreso-login {
-    font-family: "Quicksand";
-    font-size: 1em;
-    color: #ffffff;
-    background: #0083D6;
-    border: none;
-    border-radius: 5px;
-    height: calc(1.6em + 0.75rem + 2px);
-    width: 35%;
-}
-.flecha_ingreso-login {
-    width: 8%;
-}
-.texto_olvide-login {
-    font-family: 'Roboto', 'Regular';
+.texto_href {
+    font-family: 'Roboto';
     font-size: 1em;
     color: #0083D6 !important;
     text-decoration: underline !important;
     display: flex;
     justify-content: center;
-    margin: 3% 0;
+    margin: 10px 0 -3px 0;
 }
-// Sección footer del login
-.content_pie-login {
-    padding: 0;
-    padding-bottom: 5%;
-    background: #ffffff;
-}
-.texto_inferior-login {
+.texto_flotante {
     font-family: "Roboto";
-    font-size: 1em;
+    font-size: .95em;
     font-style: italic;
     font-weight: 500;
     color: #3E3E3E;
@@ -112,261 +92,124 @@
     background: #ffffff;
     padding: 0;
     margin: auto;
-    margin-top: -1.5%;
+    margin-top: -10px;
+    width: 40%;
 }
-.content_imgRedes-login {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 0;
-    margin: auto;
-    margin-top: 1%;
+// Inputs
+.input_form {
+    display: block;
+    width: 100%;
+    height: calc(1.6em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 0.9em;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.img_redes-login {
-    max-width: 50px;
+.input_form:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #8fd0f8;
+    outline: 0;
+    box-shadow: 0 0 0 3px rgb(52 144 220 / 20%);
 }
-@media (min-width: 320px) and (orientation: portrait) {
-    // Contenedor principal login
-    .contenedorPrin_login {
-        background: #F9F9F9;
-    }
-    // Titulo principal 
-    .titulo_principal-login {
-        font-family: 'Roboto', 'Regular';
-        font-size: .8em;
-        font-weight: 500;
-        color: #3E3E3E;
-        text-align: center;
-        margin: 5% 15%;
-    }
-    // Sección principal Login
-    .section_principal-login {
-        border: none;
-        margin-bottom: 10%;
-        padding: 0;
-        box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
-    }
-    // Sección body del login
-    .section_body-login {
-        padding: 2% 5%;
-    }
-    .content_iniciar-crear {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #ffffff;
-        border: none;
-        padding: 0;
-        margin: 3% 0;
-    }
-    // Iniciar sesión
-    .section_texto-iniciar {
-        font-family: 'Quicksand', 'Regular';
-        font-size: 1em;
-        font-weight: bold;
-        color: #0083D6;
-        text-decoration: none;
-        text-align: center;
-        align-items: center;
-        border-bottom: 5px solid #0083D6;
-        padding: 0;
-    }
-    // Crear cuenta
-    .section_texto-crear {
-        text-decoration: none;
-        text-align: center;
-        align-items: center;
-        border-bottom: 5px solid #D1D1D1;
-        padding: 0;
-    }
-    .texto_crear-login {
-        font-family: 'Quicksand', 'Regular';
-        font-size: 1em;
-        font-weight: bold;
-        color: #D1D1D1 !important;
-        text-decoration: none;
-    }
-    // Botón inferior ingreasar
-    .content_btn-ingresar-login {
-        text-align: center;
-    }
-    .btn_Ingreso-login {
-        font-family: "Quicksand";
-        font-size: .85em;
-        color: #ffffff;
-        background: #0083D6;
-        border: none;
-        border-radius: 5px;
-        height: calc(1.6em + 0.75rem + 2px);
-        width: 50%;
-    }
-    .flecha_ingreso-login {
-        width: 9%;
-    }
-    .texto_olvide-login {
-        font-family: 'Roboto', 'Regular';
-        font-size: .85em;
-        color: #0083D6 !important;
-        text-decoration: underline !important;
-        display: flex;
-        justify-content: center;
-        margin: 3% 0;
-    }
-    // Sección footer del login
-    .content_pie-login {
-        padding: 0;
-        padding-bottom: 5%;
-        background: #ffffff;
-    }
-    .texto_inferior-login {
-        font-family: "Roboto";
-        font-size: 0.8em;
-        font-style: italic;
-        font-weight: 500;
-        color: #3E3E3E;
-        text-align: center;
-        background: #ffffff;
-        padding: 0;
-        margin: auto;
-        margin-top: -2.8%;
-    }
-    .content_imgRedes-login {
-        display: flex;
-        height: 100%;
-        align-items: center;
-        justify-content: space-evenly;
-        padding: 0;
-        margin: auto;
-        margin-top: 1%;
-    }
-    .img_redes-login {
-        max-width: 35px;
-    }
-}   
+.height_verify {
+    margin: 14.9% 0;
+}
 
-@media (min-width: 768px) and (orientation: portrait) {
+@media (min-width: 768px) {
+    // Contenedores, secciones, contenidos y tarjetas
+    .tarjeta_principal {
+        width: 70%;
+        margin-bottom: 113px;
+    }
+    .contenedor_icono_red {
+        width: 30%;
+        padding: 20px 0 15px;
+    }
+    .contenido_icono {
+        width: 60px;
+    }
+    .seccion_redes_sociales {
+        padding: 0 0 30px 0;
+    }
+    .contenedor_tarjeta {
+        padding: 100px 0 283px 0;
+    }
+    // Títulos, subtítulos y textos
+    .titulo_h1 {
+        font-size: 1.5em;
+        padding: 35px 0 45px 0;
+        
+    }
+    .titulo_h2 {
+        font-size: 1.563em;
+        padding: 20px 0;
+    }
+    .texto_label {
+        font-size: 1.15em;
+    }
+    .texto_href {
+        font-size: 1.15em;
+    }
+    .texto_flotante {
+        font-size: 1em;
+    }
+    // Inputs
+    .input_form {
+        font-size: 1.15em;
+    }
     .height_verify {
         margin: 25.5% 0;
     }
-    // Titulo principal
-    .titulo_principal-login {
-        font-size: 1.5em;
-        font-weight: 500;
-        margin: 12% 8% 8% 8%;
-    }
-     // Sección principal Login
-     .section_principal-login {
-         width: 85%;
-        margin-bottom: 21%;
-    }
-    // Sección body del login
-    .section_body-login {
-        padding: 5% 10% 0 10%;
-    }
-    // Iniciar sesión
-    .section_texto-iniciar {
-        font-size: 1.563em;
-    }
-    // Crear cuenta
-    .texto_crear-login {
-        font-size: 1.563em;
-    }
-    .texto_label-login {
-        font-size: 1.438em;
-    }
-    // Botón inferior ingresar
-    .btn_Ingreso-login {
-        font-size: 1.25em;
-        width: 35%;
-    }
-    .flecha_ingreso-login {
-        width: 9%;
-    }
-    .texto_olvide-login {
-        font-size: 1.1em;
-    }
-    // Sección footer del login
-    .content_pie-login {
-        border-top: 3px solid rgba(0, 0, 0, 0.125);
-    }
-    .texto_inferior-login {
-        font-size: 1.125em;
-        margin-top: -1.5%;
-    }
-    .img_redes-login {
-        max-width: 50px;
-    }
 }
+
 @media (min-width: 1024px) {
-    .section_principal-login {
-        width: 75%;
-        margin-bottom: 5%;
-    }
-    .titulo_principal-login {
-        margin: 5% 8% 3% 8%;
-    }
-    .btn_Ingreso-login {
-        width: 30%;
-    }
-}
-@media (min-width: 1200px) {
-    .section_principal-login {
-        width: 65%;
-    }
-}
-@media (min-width: 1440px) {
-    // Titulo principal
-    .titulo_principal-login {
-        font-size: 1.5em;
-        font-weight: 500;
-    }
-    // Iniciar sesión
-    .section_texto-iniciar {
-        font-size: 2em;
-        border-bottom: 10px solid #0083D6;
-    }
-    // Crear cuenta
-    .section_texto-crear {
-        border-bottom: 10px solid #D1D1D1;
-    }
-    .texto_crear-login {
-        font-size: 2em;
-    }
-    .texto_label-login {
-        font-size: 1.5em;
-    }
-    // Botón inferior ingresar
-    .btn_Ingreso-login {
-        font-size: 1.5em;
-    }
-    .flecha_ingreso-login {
-        width: 7%;
-    }
-    .texto_olvide-login {
-        font-size: 1.5em;
-    }
-    // Sección footer del login
-    .content_pie-login {
-        border-top: 3px solid rgba(0, 0, 0, 0.125);
-    }
-    .texto_olvide-login {
-        font-size: 1.5em;
-    }
-    .texto_inferior-login {
-        font-size: 1.5em;
-        margin-top: -1.5%;
-    }
-    .img_redes-login {
-        max-width: 70px;
-    }
-}
-@media (min-width: 1920px) {
-    .input_height-fullhd {
-        height: 5vh;
-        font-size: 1.25em;
-    }
-    .section_principal-login {
+    // Contenedores, secciones, contenidos y tarjetas
+    .tarjeta_principal {
         width: 60%;
+        margin-bottom: 30px;
+    }
+    .contenedor_tarjeta {
+        padding: 50px 0 94px 0;
+    }
+    // Títulos, subtítulos y textos
+    .titulo_h1 {
+        padding: 0 0 45px 0;
+    }
+    .texto_flotante {
+        width: 25%;
+    }
+}
+
+@media (min-width: 1200px) {
+    // Contenedores, secciones, contenidos y tarjetas
+    .tarjeta_principal {
+        width: 55%;
+    }
+    .contenedor_tarjeta {
+        padding: 50px 0 90px 0;
+    }
+}
+
+@media (min-width: 1440px) {
+    // Contenedores, secciones, contenidos y tarjetas
+    .contenedor_tarjeta {
+        padding: 50px 0 171px 0;
+    }
+}
+
+@media (min-width: 1920px) {
+    // Contenedores, secciones, contenidos y tarjetas
+    .tarjeta_principal {
+        width: 40%;
+    }
+    .contenedor_tarjeta {
+        padding: 50px 0 211px 0;
     }
 }
