@@ -18,6 +18,7 @@ const swiper_principalGaleriaProf = new Swiper('.swiper_principalGaleriaProf',{
 });
 
 //Carrusel de logos inferior galeriaProfesiones, Rama de la salud, Entidades
+/*
 const swiper_logosGaleriaProf = new Swiper(".swiper_logosGaleriaProf", {
 
   loop: true,
@@ -55,4 +56,4 @@ const swiper_logosGaleriaProf = new Swiper(".swiper_logosGaleriaProf", {
     }
   }
 });
-
+*/

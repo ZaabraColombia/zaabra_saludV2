@@ -6,14 +6,16 @@
     <div class="swiper-wrapper">
       @foreach ($objbannersprincipalEspecialidades as $objbannersprincipalEspecialidades)
         <img class="swiper-slide imagen_bannerPrin-espc" src="{{URL::asset($objbannersprincipalEspecialidades->rutaImagenVenta)}}">
+
         <div class="containt_slide_prinProf">
-            <h1 class="titulo_banner_prof" style="color:{{($objbannersprincipalEspecialidades->color_titulo)}};">{{($objbannersprincipalEspecialidades->titulo_banner)}}</h1>
-            <p class="texto_banner_prof" style="color:{{($objbannersprincipalEspecialidades->color_texto)}};">{{($objbannersprincipalEspecialidades->texto_banner)}}</p>
-            @if(!empty($objbannerprincipalEspecioalidades->urlBoton_banner))
-              <a type="submit" href="{{($objbannersprincipalEspecialidades->urlBoton_banner)}}" target="blank" class="btn_agendarHome"> {{ __('Ver más') }}
-                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt="">
-              </a>
-            @endif
+          <h1 class="titulo_banner_prof" style="color:{{($objbannersprincipalEspecialidades->color_titulo)}};">{{($objbannersprincipalEspecialidades->titulo_banner)}}</h1>
+          <p class="texto_banner_prof" style="color:{{($objbannersprincipalEspecialidades->color_texto)}};">{{($objbannersprincipalEspecialidades->texto_banner)}}</p>
+
+          @if(!empty($objbannerprincipalEspecioalidades->urlBoton_banner))
+            <a type="submit" href="{{($objbannersprincipalEspecialidades->urlBoton_banner)}}" target="blank" class="btn_agendarHome"> {{ __('Ver más') }}
+              <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt="">
+            </a>
+          @endif
         </div>
       @endforeach
     </div>
@@ -26,7 +28,6 @@
 
   <!-- Contenedor de las tarjetas de las profesiones -->
   <section class="row col-11 col-xl-8 container_espeMed">
-
     @foreach ($objEspecialidades as $especialidad)
       <div class="col-6 col-lg-3 section_espeMed">
         <div class="content_img_espeMed">
@@ -46,21 +47,21 @@
     @endforeach
   </section>
 
-  <!-- Carrusel de logos inferior, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
   <!--carousel universidades-->
-  <section class="contains_slider_logoshome">
-      <h2 class="titulo_logos">Ellos confían en nosotros</h2>
-      <div class="swiper-container swiper_logoshome">
-          <div class="swiper-wrapper">
-            @foreach ($objcarruselespecialidades as $carrusel_especialidades)
-              <img class="swiper-slide" src="{{URL::asset($carrusel_especialidades->rutaImagenVenta)}}">
-            @endforeach
-          </div>
+  <section class="seccion_carrusel_inferior">   <!-- Funcionalidad del carrusel alojada en el archivo home.js -->
+    <h2 class="titulo_principal">Ellos confían en nosotros</h2>
+
+    <div class="swiper-container swiper_logos_inferior">
+      <div class="swiper-wrapper">
+        @foreach ($objcarruselespecialidades as $carrusel_especialidades)
+          <img class="swiper-slide" src="{{URL::asset($carrusel_especialidades->rutaImagenVenta)}}">
+        @endforeach
       </div>
 
       <!-- If we need navigation buttons -->
-      <div class="btn-prev"></div>
-      <div class="btn-next"></div>
+      <div class="swiper-button-prev flecha_izquierda"></div>
+      <div class="swiper-button-next flecha_derecha"></div> 
+    </div>
   </section>
 @endsection
 
