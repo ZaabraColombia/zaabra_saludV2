@@ -113,7 +113,8 @@
                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
                     <div class="card-body toggle_info">
                         <p class="txt_toggle_info">
-                            Sí, todos y todas somos usuarios de servicios de salud. De modo que un usuario podrá registrarse como paciente y como profesional de salud, en caso de que lo sea y ofrezca sus servicios. <br>
+                            Sí, todos y todas somos usuarios de servicios de salud. De modo que un usuario podrá registrarse como paciente y como profesional de salud, en caso de que lo sea y ofrezca sus 
+                            servicios. <br>
                             <b>Aclaración:</b> Cada perfil debe estar registrado con una dirección de correo electrónico diferente.
                         </p>
                     </div>
@@ -138,7 +139,9 @@
 
             <div class="card card_acordion"> <!-- ¿Cuáles especialidades puedo conseguir en Zaabra Salud? -->
                 <div id="headingSeven">
-                    <button class="button_acordion" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">¿Cuáles especialidades puedo conseguir en Zaabra Salud?</button>
+                    <button class="button_acordion" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        ¿Cuáles especialidades puedo conseguir en Zaabra Salud?
+                    </button>
                 </div>
 
                 <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
@@ -166,7 +169,9 @@
 
             <div class="card card_acordion"> <!-- ¿Cuáles tipos de entidades puedo conseguir en Zaabra Salud? -->
                 <div id="headingEight">
-                    <button class="button_acordion" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">¿Cuáles tipos de entidades puedo conseguir en Zaabra Salud?</button>
+                    <button class="button_acordion" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        ¿Cuáles tipos de entidades puedo conseguir en Zaabra Salud?
+                    </button>
                 </div>
 
                 <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
@@ -190,7 +195,9 @@
 
             <div class="card card_acordion"> <!-- ¿Puedo tener más de una cita agendada? -->
                 <div id="headingNine">
-                    <button class="button_acordion" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">¿Puedo tener más de una cita agendada?</button>
+                    <button class="button_acordion" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                        ¿Puedo tener más de una cita agendada?
+                    </button>
                 </div>
 
                 <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
@@ -204,7 +211,9 @@
 
             <div class="card card_acordion"> <!-- ¿Puedo agendar una cita para un tercero? -->
                 <div id="headingTen">
-                    <button class="button_acordion" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">¿Puedo agendar una cita para un tercero?</button>
+                    <button class="button_acordion" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                        ¿Puedo agendar una cita para un tercero?
+                    </button>
                 </div>
 
                 <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordion">
@@ -219,7 +228,9 @@
 
             <div class="card card_acordion"> <!-- Para agendar una cita, ¿Debo pagarla? -->
                 <div id="headingEleven">
-                    <button class="button_acordion" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">Para agendar una cita, ¿Debo pagarla?</button>
+                    <button class="button_acordion" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                        Para agendar una cita, ¿Debo pagarla?
+                    </button>
                 </div>
 
                 <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordion">
@@ -233,14 +244,16 @@
 
             <div class="card card_acordion"> <!-- ¿Puedo hacer modificaciones o cancelaciones sobre una cita agendada? -->
                 <div id="headingTwelve">
-                    <button class="button_acordion" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">¿Puedo hacer modificaciones o cancelaciones sobre una cita agendada?</button>
+                    <button class="button_acordion" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                        ¿Puedo hacer modificaciones o cancelaciones sobre una cita agendada?
+                    </button>
                 </div>
 
                 <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordion">
                     <div class="card-body toggle_info">
                         <p class="txt_toggle_info">
                             Sí. En Zaabra Salud un paciente puede cancelar una cita agendada. Para temas de devoluciones de pagos, consulte el módulo de
-                            <a href="{{url('politicas')}}" target="blank">Términos y Condiciones.</a>
+                            <a href="{{url('politicas-de-uso-de-Zaabra-salud')}}" target="blank">Términos y Condiciones.</a>
                         </p>
                     </div>
                 </div>
@@ -248,7 +261,9 @@
 
             <div class="card card_acordion"> <!-- ¿Zaabra Salud garantiza la seguridad y privacidad de mi información y datos personales? -->
                 <div id="headingThirteen">
-                    <button class="button_acordion" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">¿Zaabra Salud garantiza la seguridad y privacidad de mi información y datos personales?</button>
+                    <button class="button_acordion" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                        ¿Zaabra Salud garantiza la seguridad y privacidad de mi información y datos personales?
+                    </button>
                 </div>
 
                 <div id="collapseThirteen" class="collapse" aria-labelledby="headingThirteen" data-parent="#accordion">

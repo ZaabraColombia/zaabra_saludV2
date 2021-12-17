@@ -23,26 +23,28 @@
                 <h2>{{$objcarruselprofesionalespremiun->primernombre}} {{$objcarruselprofesionalespremiun->primerapellido}}</h2>
                 <h5>{{$objcarruselprofesionalespremiun->nombreEspecialidad}}</h5>
                 <h5>{{$objcarruselprofesionalespremiun->nombre}}</h5>
-                  <!-- Rating Stars Box -->
-                  <div class='rating-stars text-center'>
-                    <ul id='stars'>
-                      <li class='star' title='Poor' data-value='1'>
-                        <i class='fa fa-star fa-fw'></i>
-                      </li>
-                      <li class='star' title='Fair' data-value='2'>
-                        <i class='fa fa-star fa-fw'></i>
-                      </li>
-                      <li class='star' title='Good' data-value='3'>
-                        <i class='fa fa-star fa-fw'></i>
-                      </li>
-                      <li class='star' title='Excellent' data-value='4'>
-                        <i class='fa fa-star fa-fw'></i>
-                      </li>
-                      <li class='star' title='WOW!!!' data-value='5'>
-                        <i class='fa fa-star fa-fw'></i>
-                      </li>
-                    </ul>
-                  </div>
+
+                <!-- Rating Stars Box -->
+                <div class='rating-stars text-center'>
+                  <ul id='stars'>
+                    <li class='star' title='Poor' data-value='1'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Fair' data-value='2'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Good' data-value='3'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Excellent' data-value='4'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='WOW!!!' data-value='5'>
+                      <i class='fa fa-star fa-fw'></i>
+                    </li>
+                  </ul>
+                </div>
+
                 <p>{{$objcarruselprofesionalespremiun->descripcionPerfil}}</p>
               </div>
 
@@ -50,6 +52,7 @@
                 <a href="{{route('paciente.calendario-id-profesional', ['id' => $objcarruselprofesionalespremiun->idPerfilProfesional])}}">Agende su cita
                     <i class="fas fa-arrow-right arrow_mas"></i>
                 </a>
+
                 <a href="{{ url('/PerfilProfesional/' .  $objcarruselprofesionalespremiun->slug) }}">Ver perfil
                     <i class="fas fa-arrow-right arrow_mas"></i>
                 </a>
@@ -66,45 +69,49 @@
 
   <!--galeria profesionales pago normal-->
   <section class="container_cards_normal">
-      @foreach ($objmedicospagonormal as $objmedicospagonormal)
-        <div class="card card_normal">
-          <img class="card-img-top" src="{{URL::asset($objmedicospagonormal->fotoperfil)}}">
-          <div class="card-body">
-            <h2>{{$objmedicospagonormal->nombreEspecialidad}}</h2>
-            <h5 class="niega_uppercase">{{$objmedicospagonormal->primernombre}} {{$objmedicospagonormal->primerapellido}}</h5>
-            <span>{{$objmedicospagonormal->concatNombreEspecialidad}}</span>
-            <p>{{$objmedicospagonormal->nombreuniversidad}}</p>
-            <!-- Rating Stars Box -->
-              <div class='rating-stars text-center'>
-                <ul id='stars'>
-                  <li class='star' title='Poor' data-value='1'>
-                    <i class='fa fa-star fa-fw'></i>
-                  </li>
-                  <li class='star' title='Fair' data-value='2'>
-                    <i class='fa fa-star fa-fw'></i>
-                  </li>
-                  <li class='star' title='Good' data-value='3'>
-                    <i class='fa fa-star fa-fw'></i>
-                  </li>
-                  <li class='star' title='Excellent' data-value='4'>
-                    <i class='fa fa-star fa-fw'></i>
-                  </li>
-                  <li class='star' title='WOW!!!' data-value='5'>
-                    <i class='fa fa-star fa-fw'></i>
-                  </li>
-                </ul>
-              </div>
-                <div class="contains_buttons">
-                  <a href="{{route('paciente.calendario-id-profesional', ['id' => $objmedicospagonormal->idPerfilProfesional])}}">Agendar
-                      <i class="fas fa-arrow-right arrow_mas"></i>
-                  </a>
-                  <a href="{{ url('/PerfilProfesional/' .  $objmedicospagonormal->slug) }}">Ver más
-                      <i class="fas fa-arrow-right arrow_mas"></i>
-                  </a>
-                </div>
+    @foreach ($objmedicospagonormal as $objmedicospagonormal)
+      <div class="card card_normal">
+        <img class="card-img-top" src="{{URL::asset($objmedicospagonormal->fotoperfil)}}">
+
+        <div class="card-body">
+          <h2>{{$objmedicospagonormal->nombreEspecialidad}}</h2>
+          <h5 class="niega_uppercase">{{$objmedicospagonormal->primernombre}} {{$objmedicospagonormal->primerapellido}}</h5>
+          <span>{{$objmedicospagonormal->concatNombreEspecialidad}}</span>
+          <p>{{$objmedicospagonormal->nombreuniversidad}}</p>
+
+          <!-- Rating Stars Box -->
+          <div class='rating-stars text-center'>
+            <ul id='stars'>
+              <li class='star' title='Poor' data-value='1'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='Fair' data-value='2'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='Good' data-value='3'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='Excellent' data-value='4'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='WOW!!!' data-value='5'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+            </ul>
+          </div>
+
+          <div class="contains_buttons">
+            <a href="{{route('paciente.calendario-id-profesional', ['id' => $objmedicospagonormal->idPerfilProfesional])}}">Agendar
+                <i class="fas fa-arrow-right arrow_mas"></i>
+            </a>
+
+            <a href="{{ url('/PerfilProfesional/' .  $objmedicospagonormal->slug) }}">Ver más
+                <i class="fas fa-arrow-right arrow_mas"></i>
+            </a>
           </div>
         </div>
-      @endforeach
+      </div>
+    @endforeach
   </section>
 
   <!--galeria profesionales sin pago -->
@@ -112,55 +119,54 @@
     @foreach ($objmedicossinpago as $medicos_sin_pago)
       <div class="card card_generic">
         <div class="card-body">
-            <a href="{{ url('/PerfilProfesional/' . $medicos_sin_pago->slug) }}">
-                <h5 class="niega_uppercase">{{$medicos_sin_pago->primernombre}} {{$medicos_sin_pago->primerapellido}}</h5>
-                <p>{{$medicos_sin_pago->nombreEspecialidad}}</p>
-            </a>
+          <a href="{{ url('/PerfilProfesional/' . $medicos_sin_pago->slug) }}">
+            <h5 class="niega_uppercase">{{$medicos_sin_pago->primernombre}} {{$medicos_sin_pago->primerapellido}}</h5>
+            <p>{{$medicos_sin_pago->nombreEspecialidad}}</p>
+          </a>
+
           <!-- Rating Stars Box -->
-              <div class='rating-stars text-center'>
-                <ul id='stars'>
-                  <li class='star' title='Poor' data-value='1'>
-                    <i class='fa fa-star fa-fw'></i>
-                  </li>
-                  <li class='star' title='Fair' data-value='2'>
-                    <i class='fa fa-star fa-fw'></i>
-                  </li>
-                  <li class='star' title='Good' data-value='3'>
-                    <i class='fa fa-star fa-fw'></i>
-                  </li>
-                  <li class='star' title='Excellent' data-value='4'>
-                    <i class='fa fa-star fa-fw'></i>
-                  </li>
-                  <li class='star' title='WOW!!!' data-value='5'>
-                    <i class='fa fa-star fa-fw'></i>
-                  </li>
-                </ul>
-              </div>
+          <div class='rating-stars text-center'>
+            <ul id='stars'>
+              <li class='star' title='Poor' data-value='1'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='Fair' data-value='2'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='Good' data-value='3'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='Excellent' data-value='4'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='WOW!!!' data-value='5'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     @endforeach
   </section>
 
-  <!--carrusel publicidad -->
-  <!-- Carrusel de logos inferior, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
   <!--carousel universidades-->
-  <section class="contains_slider_logoshome">
-    <h2 class="titulo_logos">Ellos confían en nosotros</h2>
-    <div class="swiper-container swiper_logoshome">
-        <div class="swiper-wrapper">
-          @foreach ($objcarruselPublicidadprofesionales as $objcarruselPublicidadprofesionales)
-            <img class="swiper-slide" src="{{URL::asset($objcarruselPublicidadprofesionales->rutaImagenVenta)}}">
-          @endforeach
-        </div>
+  <section class="seccion_carrusel_inferior">   <!-- Funcionalidad del carrusel alojada en el archivo home.js -->
+    <h2 class="titulo_principal">Ellos confían en nosotros</h2>
+
+    <div class="swiper-container swiper_logos_inferior">
+      <div class="swiper-wrapper">
+        @foreach ($objcarruselPublicidadprofesionales as $objcarruselPublicidadprofesionales)
+          <img class="swiper-slide" src="{{URL::asset($objcarruselPublicidadprofesionales->rutaImagenVenta)}}">
+        @endforeach
+      </div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev flecha_izquierda"></div>
+      <div class="swiper-button-next flecha_derecha"></div>       
     </div>
-
-    <!-- If we need navigation buttons -->
-    <div class="btn-prev"></div>
-    <div class="btn-next"></div>
   </section>
-
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('js/profesionales.js') }}"></script>
+  <script src="{{ asset('js/profesionales.js') }}"></script>
 @endsection

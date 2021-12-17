@@ -1,100 +1,87 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container-fluid" style="background: #F9F9F9">
+        <div class="row justify-content-center py-4 py-md-5">
+            <div class="w-100">
+                <h1 class="titulo_h1"> Acceda a nuestro portal de Zaabra <br> Salud o regístrese. </h1>
+            </div>
 
-<!-- contenedor principal -->
-<div class="container-fluid contenedorPrin_login">
-    <!-- fila principal -->
-    <div class="row justify-content-center">
-        <!-- titulo principal -->
-        <h1 class="titulo_principal-login"> Acceda a nuestro portal de Zaabra Salud o regístrese. </h1>
-        <!-- contenedor de elementos login -->
-        <div class="card section_principal-login">
-            <!-- seccion body login -->
-            <div class="card-body section_body-login">
-                <form method="POST" action="{{ route('login') }}">
-                    <!-- seccion iniciar sesion y creaar cuenta -->
-                    <div class="row card-header content_iniciar-crear">
-                        <div class="col-6 section_texto-iniciar">
-                            <a> Iniciar Sesión </a>
-                        </div>
-
-                        <div class="col-6 section_texto-crear">
-                            <a href="{{ route('register') }}" class="texto_crear-login"> Crear Cuenta </a>
-                        </div>
+            <div class="card tarjeta_principal">
+                <div class="card-header tarjeta_header">
+                    <div class="seccion_activa">
+                        <h2 class="titulo_h2">Iniciar Sesión</h2>
                     </div>
-                    @csrf
-                    <!-- seccion correo electronico -->
-                    <div class="form-group row mt-4 mb-0">
-                        <label for="email" class="col-md-12 col-form-label texto_label-login"> Correo Electrónico </label>
 
-                        <div class="col-12">
-                            <input id="email" type="email" class="form-control input_height-fullhd @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="servicioalcliente@zaabrasalud.co">
+                    <div class="seccion_inactiva">
+                        <a href="{{ route('register') }}">
+                            <h2 class="titulo_h2" style="color: #D1D1D1">Crear Cuenta</h2>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-body pt-md-5 pb-md-4">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="email" class="texto_label"> Correo Electrónico </label>
+
+                            <input id="email" type="email" class="input_form @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="servicioalcliente@zaabrasalud.co">
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
-                    </div>
+                
+                        <div class="mb-3">
+                            <label for="password" class="texto_label"> Contraseña </label>
 
-                    <!-- seccion contraseña -->
-                    <div class="form-group row mb-4">
-                        <label for="password" class="col-md-12 col-form-label texto_label-login"> Contraseña </label>
-
-                        <div class="col-12">
-                            <input id="password" type="password" class="form-control input_height-fullhd @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Contraseña">
+                            <input id="password" type="password" class="input_form @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Contraseña">
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
-                    </div>
 
-                    <!-- seccion boton ingresar -->
-                    <div class="form-group row mb-0">
-                        <div class="col-12 content_btn-ingresar-login">
-                            <button type="submit" class="btn_Ingreso-login"> Ingresar
-                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-login" alt="">
+                        <div class="seccion_btn_central m-0">
+                            <button type="submit" class="btn_grande_central_azul px-4"> Ingresar
+                                <i class="fas fa-arrow-right pl-1"></i>
                             </button>
-
-                            @if (Route::has('password.request'))
-                                <a class="texto_olvide-login" href="{{ route('password.request') }}">
-                                    Olvidé mi contraseña
-                                </a>
-                            @endif
                         </div>
-                    </div>
-                    <!-- <div class="form-group row">
-                        <div class="col-md-6 offset-md-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                <label class="form-check-label" for="remember">
-                                    {{ __('Remember Me') }}
-                                </label>
+
+                        @if (Route::has('password.request'))
+                            <a class="texto_href" href="{{ route('password.request') }}">
+                                Olvidé mi contraseña
+                            </a>
+                        @endif
+                        <!-- <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                    </div> -->
-                </form>
-            </div>
+                        </div> -->
+                    </form>
+                </div>
 
-            <!-- seccion pie de pagina login -->
-            <div class="card-footer content_pie-login">
-                <!-- texto pie de pagina -->
-                <p class="col-4 col-md-2 texto_inferior-login">  o ingrese con  </p>
-                <!-- seccion iconos redes sociales -->
-                <div class="col-4 col-md-3 content_imgRedes-login">
-                    <a class="" href="{{ route('facebook-redirect') }}">
-                        <img class="img_redes-login" src="{{ asset('/img/iconos/icono-facebook.svg') }}">
-                    </a>
-                    <a class="" href="{{ route('google-redirect') }}">
-                        <img class="img_redes-login" src="{{ asset('/img/iconos/icono-gmail.svg') }}">
-                    </a>
+                <div class="card-footer seccion_redes_sociales">
+                    <p class="texto_flotante">  o ingrese con  </p>
+
+                    <div class="contenedor_icono_red">
+                        <a class="contenido_icono" href="{{ route('facebook-redirect') }}">
+                            <img style="width: 100%" src="{{ asset('/img/iconos/icono-facebook.svg') }}">
+                        </a>
+                        <a class="contenido_icono" href="{{ route('google-redirect') }}">
+                            <img style="width: 100%" src="{{ asset('/img/iconos/icono-gmail.svg') }}">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
 @endsection
