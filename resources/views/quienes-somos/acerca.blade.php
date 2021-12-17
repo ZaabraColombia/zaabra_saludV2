@@ -9,24 +9,29 @@
     </section>
 
     <div class="content_subTitle">
-        <h2 class="text_info_infoZaabra">Zaabra Salud, es el sitio donde están, los mejores especialistas e instituciones medicas de todas partes del país al alcance de sus manos y con tan solo un click.</h2>
+        <h2 class="text_info_infoZaabra">Zaabra Salud, es el sitio donde están, los mejores especialistas e instituciones medicas de todas partes del país al alcance de 
+            sus manos y con tan solo un click.
+        </h2>
     </div>
 
     <section class="section_acordion">
         <div id="accordion" class="content_accordion accordion">  <!-- Clase accordion para función del desplegable con cambio de color se encuentra ubicado en el archivo footer.js -->
             <div class="card card_acordion"> <!-- ¿Quiénes somos? -->
                 <div id="headingOne"> 
-                    <button id="One" class="button_acordion" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">¿Quiénes somos</button>
+                    <button id="One" class="button_acordion" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        ¿Quiénes somos
+                    </button>
                 </div>
 
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body toggle_info">
                         <p class="txt_toggle_info">
-                            Zaabra es una empresa de desarrollo de productos digitales, con soluciones alrededor del e-commerce y plataformas especializadas en potenciar a profesionales y empresarios colombianos. 
-                            Creamos soluciones digitales integrales, hechas a la medida de las necesidades del mercado.
+                            Zaabra es una empresa de desarrollo de productos digitales, con soluciones alrededor del e-commerce y plataformas especializadas en potenciar a 
+                            profesionales y empresarios colombianos. Creamos soluciones digitales integrales, hechas a la medida de las necesidades del mercado.
                         </p>
                         <p class="txt_toggle_info">
-                            Potenciamos la comercialización de productos y servicios, incrementamos el alcance de los profesionales en el entorno digital y propiciamos su apertura a nuevos nichos de mercado.
+                            Potenciamos la comercialización de productos y servicios, incrementamos el alcance de los profesionales en el entorno digital y propiciamos su 
+                            apertura a nuevos nichos de mercado.
                         </p>
                         
                         <h5 class="title_toggle_info"> Nos caracteriza: </h5>
@@ -40,12 +45,14 @@
             
                         <h5 class="title_toggle_info"> Nuestra Misión: </h5>
                         <p class="txt_toggle_info">
-                            En Zaabra tenemos la misión de generar bienestar mediante el desarrollo y la innovación tecnológica, fortaleciendo la economía nacional con buenas prácticas y relaciones transparentes con nuestro entorno.
+                            En Zaabra tenemos la misión de generar bienestar mediante el desarrollo y la innovación tecnológica, fortaleciendo la economía nacional con buenas 
+                            prácticas y relaciones transparentes con nuestro entorno.
                         </p>
                     
                         <h5 class="title_toggle_info"> Nuestra Visión: </h5>
                         <p class="txt_toggle_info">
-                            Zaabra, como compañía, se proyecta para ser un referente de soluciones digitales a nivel nacional en el año 2021, incursionando también en mercados internacionales.
+                            Zaabra, como compañía, se proyecta para ser un referente de soluciones digitales a nivel nacional en el año 2021, incursionando también en mercados 
+                            internacionales.
                         </p>
                     </div>
                 </div>
@@ -53,7 +60,9 @@
 
             <div class="card card_acordion"> <!-- ¿Cómo funciona Zaabra Salud? -->
                 <div id="headingTwo">
-                    <button id="two" class="button_acordion" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">¿Cómo funciona Zaabra Salud?</button>
+                    <button id="two" class="button_acordion" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        ¿Cómo funciona Zaabra Salud?
+                    </button>
                 </div>
 
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
@@ -88,7 +97,9 @@
 
             <div class="card card_acordion"> <!-- ¿Responsabilidad social? -->
                 <div id="headingThree">
-                    <button id="three" class="button_acordion" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Responsabilidad social</button>
+                    <button id="three" class="button_acordion" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Responsabilidad social
+                    </button>
                 </div>
 
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">

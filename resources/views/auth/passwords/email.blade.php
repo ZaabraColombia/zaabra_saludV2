@@ -1,15 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Contenedor principal -->
-<div class="container-fluid contenedorPrin_email">
-    <!-- Fila principal -->
-    <div class="row justify-content-center">
+<div class="container-fluid" style="background: #F9F9F9">
+    <div class="contenedor_tarjeta">
+        <div class="w-100 mb-3">
+            <h1 class="titulo_h2"> Restaurar Contraseña </h1>
+        </div>
 
-        <!-- contenedor de elementos login -->
-        <div class="card col-11 col-md-10 col-lg-8 section_principal-email">
-            <!-- seccion body login -->
-            <div class="card-body section_body-email">
+        <div class="card tarjeta_principal">
+            <div class="card-body pt-4 pb-5 pt-md-5">
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
@@ -17,32 +16,25 @@
                 @endif
 
                 <form method="POST" action="{{ route('password.email') }}">
-                    @csrf
-                    <div class="form-group row">
-                        <!-- Titulo interno de la tarjeta email -->
-                        <h3 class="titulo_superior-tarjeta-email"> Restaurar Contraseña </h3>
-                        <!-- titulo principal -->
-                        <p class="titulo_principal-email"> Ingrese su correo electrónico. Le enviaremos las instrucciones para recuperar su contraseña. </p>
-                        <!-- Campo de Correo Electrónico -->
-                        <div class="col-md-12">
-                            <label for="email" class="col-md-12 pl-0 col-form-label texto_label-email">{{ __('Correo Electrónico') }}</label>
-                            <input id="email" type="email" class="form-control input_height-fullhd-email input_text-email @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="servicioalcliente@zaabrasalud.co">
+                    @csrf        
+                    <p class="texto_label text-center mb-4"> Ingrese su correo electrónico. Le enviaremos las instrucciones para recuperar su contraseña. </p>
+                    
+                    <div class="mb-3">
+                        <label for="email" class="texto_label">{{ __('Correo Electrónico') }}</label>
+                        <input id="email" type="email" class="input_form @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="servicioalcliente@zaabrasalud.co">
 
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
 
                     <!-- Botón Ingresar -->
-                    <div class="form-group row mb-2 mb-md-0">
-                        <div class="col-12 content_btn-enviar-email">
-                            <button type="submit" class="btn_Ingreso-email"> {{ __('Enviar') }}
-                                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-email" alt="">
-                            </button>
-                        </div>
+                    <div class="seccion_btn_central m-0">
+                        <button type="submit" class="btn_grande_central_azul px-4"> {{ __('Enviar') }}
+                            <i class="fas fa-arrow-right pl-1"></i>
+                        </button>
                     </div>
                 </form>
             </div>
