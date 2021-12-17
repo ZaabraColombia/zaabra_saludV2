@@ -28,8 +28,8 @@ const swiper_especialistas = new Swiper(".swiper_especialistas", {
   },
   // Navigation arrows
   navigation: {
-    nextEl: '.btn-next',
-    prevEl: '.btn-prev',
+    nextEl: '.flecha_izquierda',
+    prevEl: '.flecha_derecha',
   },
 
   breakpoints: {
@@ -37,30 +37,25 @@ const swiper_especialistas = new Swiper(".swiper_especialistas", {
     320: {
       slidesPerView: 1,
       slidesPerGroup: 1,
+      spaceBetween: 25,
     },
-      // when window width is >= 768px
+    // when window width is >= 768px
       768: {
       slidesPerView: 2,
       slidesPerGroup: 1,
-      spaceBetween: 15,
+      spaceBetween: 30,
     },
-    // when window width is >= 1024px
-    1024: {
-    slidesPerView: 3,
-    slidesPerGroup: 1,
-    spaceBetween: 10,
+    // when window width is >= 1200px
+    1200: {
+      slidesPerView: 3,
+      slidesPerGroup: 1,
+      spaceBetween: 30,
     },
     // when window width is >= 1360px
     1360: {
       slidesPerView: 4,
       slidesPerGroup: 1,
-      spaceBetween: 10,
-    },
-    // when window width is >= 1920px
-    1920: {
-      slidesPerView: 4,
-      slidesPerGroup: 1,
-      spaceBetween: 10,
+      spaceBetween: 20,
     },
   }
 });
@@ -69,11 +64,25 @@ const swiper_triple = new Swiper(".swiper_triple", {
 
   slidesPerView: 3,
   slidesPerGroup: 3,
-  spaceBetween: 5,
+  spaceBetween: 3,
   
+  breakpoints: {
+    // when window width is >= 768px
+    768: {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      spaceBetween: 6,
+    },
+    // when window width is >= 1200px
+    1200: {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      spaceBetween: 9,
+    },
+  }
 });
 
-const swiper_logoshome = new Swiper(".swiper_logoshome", {
+const swiper_logos_inferior = new Swiper(".swiper_logos_inferior", {
 
   loop: true,
   loopFillGroupWithBlank: true,
@@ -84,28 +93,40 @@ const swiper_logoshome = new Swiper(".swiper_logoshome", {
   },
   // Navigation arrows
   navigation: {
-    nextEl: '.btn-next',
-    prevEl: '.btn-prev',
+    nextEl: '.flecha_izquierda',
+    prevEl: '.flecha_derecha',
   },
 
   breakpoints: {
-      // when window width is >= 320px
+    // when window width is >= 320px
     320: {
-      slidesPerView: 4,
+      slidesPerView: 3,
       slidesPerGroup: 1,
-      spaceBetween: 7,
+      spaceBetween: 20,
     },
-      // when window width is >= 1024px
+    // when window width is >= 768px
+    768: {
+      slidesPerView: 5,
+      slidesPerGroup: 1,
+      spaceBetween: 30,
+    },
+    // when window width is >= 1024px
     1024: {
       slidesPerView: 8,
       slidesPerGroup: 1,
-      spaceBetween: 15,
+      spaceBetween: 30,
     },
-      // when window width is >= 1440px
-    1440: {
-      slidesPerView: 8,
+    // when window width is >= 1440px
+    1360: {
+      slidesPerView: 10,
       slidesPerGroup: 1,
-      spaceBetween: 15,
+      spaceBetween: 30,
+    },
+    // when window width is >= 1920px
+    1920: {
+      slidesPerView: 12,
+      slidesPerGroup: 1,
+      spaceBetween: 30,
     },
   }
 });
