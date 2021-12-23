@@ -915,6 +915,7 @@ $('#form-profesionales-institucion').validate({
             required: true,
         }
     },
+    
     messages: {
         'foto_profecional':{
             required: "Por favor ingrese la foto del profesional",
@@ -970,21 +971,31 @@ $('#form-profesionales-institucion').validate({
                     especialidades += '</ul>';
                 }
 
-                //Agrgar tarjeta del convenio
+                //Agrgar tarjeta del professionals
                 $('#lista-profesionales-institucion').append(  // Module professionals
-                '<div class="card_information_saved_form">\n' +
-                    '<div class="content_btn_close_form">\n' +
-                        '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' + '<span aria-hidden="true">&times;</span>\n' + '</button>\n' +
-                    '</div>\n' +    
+                '<div class="card_proffesional" >\n' +
+                    
+                    '<div class="section_btn_close pt-3" style="background: white">\n' +
+                        '<button class="button_edit">\n' + 
+                            '<i class="fas fa-edit pr-2"></i>\n' + 
+                        '</button>\n' +
 
-                    '<div class="img_user_form mb-3">\n' +
-                        '<img src="' + response.image + '">\n' +
-                    '</div>\n' +
+                        '<button type="submit" class="close" style="opacity: inherit;" aria-label="Close" data-url="' + response.url + '">\n' + 
+                            '<i aria-hidden="true" class="fas fa-trash-alt pl-2" style="color: #019f86"></i>\n' + 
+                        '</button>\n' +
+                    '</div>\n' +  
+                    
+
+                    '<div style="background: white">\n' +
+                        '<div class="img_user_form pb-4">\n' +
+                            '<img src="' + response.image + '">\n' +
+                        '</div>\n' +
+                    '</div>\n'+  
 
                     '<div class="">\n' +
                         '<div class="data_saved_form">\n' +
                             '<h5>' + $('#primer_nombre_profecional').val() + ' ' + $('#segundo_nombre_profecional').val() + $('#primer_apellido_profecional').val() + ' ' + $('#segundo_apellido_profecional').val() + '</h5>\n' +
-                            '<span>' + $('#universidad option:selected').text() + '' + '</span>\n' +
+                            '<p>' + $('#universidad option:selected').text() + '' + '</p>\n' +
                         '</div>\n' +    
 
                         '<div class="data_saved_form">\n' +
@@ -992,7 +1003,7 @@ $('#form-profesionales-institucion').validate({
                         '</div>\n' +
 
                         '<div class="data_saved_form">\n' +
-                            '<h5>' + $('#cargo_profesional').val() + '' + '</h5>\n' +
+                            '<span>' + $('#cargo_profesional').val() + '' + '</span>\n' +
                         '</div>\n' +
                     '</div>\n' +
                 '</div>');
@@ -1947,3 +1958,29 @@ $('#form-password-institucion').validate({
         });
     }
 });
+
+function cargarleccion(nombre){
+
+    $.ajax({
+        type: "PUT",
+        
+        url: "contenido/"+nombre+".html", 
+        
+        data: "",
+        
+        datatype: "html",
+        
+        success: function(datahtml){
+        
+            $("#contentlesson").html(datahtml);
+        
+        },
+        
+        error:  function(){
+        
+            $("#contentlesson").html("<p>error al cargar desde Ajax</p>")
+        }
+    
+    });
+
+}

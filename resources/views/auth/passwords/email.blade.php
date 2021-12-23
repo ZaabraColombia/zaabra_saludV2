@@ -4,7 +4,7 @@
 <div class="container-fluid" style="background: #F9F9F9">
     <div class="contenedor_tarjeta">
         <div class="w-100 mb-3">
-            <h1 class="titulo_h2"> Restaurar Contraseña </h1>
+            <h1 class="titulo_principal"> Restaurar Contraseña </h1>
         </div>
 
         <div class="card tarjeta_principal">
@@ -17,7 +17,7 @@
 
                 <form method="POST" action="{{ route('password.email') }}">
                     @csrf        
-                    <p class="texto_label text-center mb-4"> Ingrese su correo electrónico. Le enviaremos las instrucciones para recuperar su contraseña. </p>
+                    <p class="texto_label text-left font-weight-light mb-4"> Ingrese su correo electrónico. Le enviaremos las instrucciones para recuperar su contraseña. </p>
                     
                     <div class="mb-3">
                         <label for="email" class="texto_label">{{ __('Correo Electrónico') }}</label>

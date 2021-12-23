@@ -8,6 +8,8 @@ function hideForm (z){
         selector(".names_person").style.display = "block";
         selector(".datos_secundarios").style.display = "block";
         selector(".names_institution").style.display = "none";
+
+        document.getElementById ("tarjeta").style.marginBottom= '50px';
         // Metodo para realizar el cambio de color de los iconos y el texto en las opciones de la vista " register ", por medio de la función hideForm
         // Opción paciente
         document.getElementById ("inpt1"). src = '/img/iconos/icono-paciente-amarillo.svg';
@@ -27,6 +29,8 @@ function hideForm (z){
         selector(".names_person").style.display = "block";
         selector(".datos_secundarios").style.display = "block";
         selector(".names_institution").style.display = "none";
+
+        document.getElementById ("tarjeta").style.marginBottom= '50px';
         // Metodo para realizar el cambio de color de los iconos y el texto en las opciones de la vista " register ", por medio de la función hideForm
         //Opción doctor
         document.getElementById ("inpt2"). src = '/img/iconos/icono-doctor-azul.svg';
@@ -46,6 +50,8 @@ function hideForm (z){
         selector(".names_institution").style.display = "block";
         selector(".datos_secundarios").style.display = "block";
         selector(".names_person").style.display = "none";
+
+        document.getElementById ("tarjeta").style.marginBottom= '50px';
         // Metodo para realizar el cambio de color de los iconos y el texto en las opciones de la vista " register ", por medio de la función hideForm
         // Opción institución
         document.getElementById ("inpt3"). src = '/img/iconos/icono-institucion-verde.svg';
