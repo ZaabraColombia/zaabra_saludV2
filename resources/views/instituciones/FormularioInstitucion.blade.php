@@ -185,7 +185,7 @@
 
             <form action="{{ route('entidad.formulario-password') }}" id="form-password-institucion" method="post" class="pb-2">
                 <div class="col-12" id="mensajes-password"></div>
-                
+
                 <div class="row m-0 pb-3 px-0">
                     <div class="col-md-6 p-0 pr-md-1"> <!-- Current password -->
                         <label for="password" class="label_txt_form">{{ __('paciente.contraseña-actual') }}</label>
@@ -212,7 +212,7 @@
         </div>
 
         <!-- Next button -->
-        <div class="container_button_form"> 
+        <div class="container_button_form">
             <div class="section_button_form">
                 <button type="submit" class="button_blue_form" onclick="hideBtnNext(this)" code-position="dateInstitution">Siguiente
                     <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="pl-2">
@@ -331,7 +331,7 @@
         </div>
 
         <!-- Previous and next buttons -->
-        <div class="container_button_form"> 
+        <div class="container_button_form">
             <div class="section_button_form justify-content-between">
                 <button type="submit" class="button_transparent_form" onclick="hideBtnPrevious(this)" code-position="professionalServices">
                     <img src="{{asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="pr-2"> Anterior
@@ -357,7 +357,7 @@
                     <div class="col-12 px-0">
                         <h5 for="descripcion_quienes_somos" class="textTop_informative_form">Escriba una breve descripción de ¿Quiénes son?.</h5>
                         <textarea class="textarea_form" id="descripcion_quienes_somos" cols="30" rows="10" maxlength="270" type="text" name="descripcion_quienes_somos" >{{ old('descripcion_quienes_somos', $objFormulario->quienessomos) }}</textarea>
-                        
+
                         <p class="text_informative_form">270 Caracteres</p>
                     </div>
                 </div>
@@ -374,14 +374,14 @@
         <div class="card_module_form">
             <h5 class="icon_text icon_propuestaValor_Inst mb-3">Propuesta de valor</h5>
             <div id="mensajes-propuesta-valor"></div>
-            
+
             <form method="POST" action="{{ route('entidad.create6') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-propuesta-valor-institucion" class="pb-2">
                 @csrf
                 <div class="row m-0 pb-3 px-0">
                     <div class="col-12 px-0">
                         <h5 for="propuesta_valor" class="textTop_informative_form">Escriba una breve descripción de la propuesta de valor.</h5>
                         <textarea class="textarea_form" id="propuesta_valor" type="text" cols="30" rows="10" maxlength="270" name="propuesta_valor" >{{ old('propuesta_valor', $objFormulario->propuestavalor) }}</textarea>
-                        
+
                         <p class="text_informative_form">270 Caracteres</p>
                     </div>
                 </div>
@@ -422,7 +422,7 @@
 
             <form method="POST" action="{{ route('entidad.create7') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-convenios-institucion" class="pb-2">
                 @csrf
-                <div class="row m-0 pb-3 px-0">                   
+                <div class="row m-0 pb-3 px-0">
                     <div class="col-12" id="mensajes-convenios"></div>
 
                     <div class="col-md-6 px-0 align-self-end">
@@ -456,12 +456,12 @@
         </div>
 
         <!-- Previous and next buttons -->
-        <div class="container_button_form"> 
+        <div class="container_button_form">
             <div class="section_button_form justify-content-between">
                 <button type="submit" class="button_transparent_form" onclick="hideBtnPrevious(this)" code-position="aboutInstitution">
                     <img src="{{asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="pr-2"> Anterior
                 </button>
-            
+
                 <button type="submit" class="button_blue_form" onclick="hideBtnNext(this)" code-position="aboutInstitution"> Siguiente
                     <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="pl-2">
                 </button>
@@ -480,10 +480,10 @@
                 @foreach($objProfesionalesIns as $profecional)
                     @if(!empty($profecional->foto_perfil_institucion))
                         <?php $count_profecionales++; ?>
-                        <div class="card_proffesional">
-                            
+                        <div class="card_proffesional card-profesional" id="card-profesional-{{ $profecional->id_profesional_inst }}">
+
                             <div class="section_btn_close pt-3" style="background: white">
-                                <button class="button_edit">
+                                <button class="button_edit btn-edit-profesional" data-url="{{ route('entidad.get8', ['id' => $profecional->id_profesional_inst]) }}" >
                                     <i class="fas fa-edit pr-2"></i>
                                 </button>
 
@@ -503,7 +503,7 @@
                                     <h5>{{ $profecional->primer_nombre }} {{ $profecional->segundo_nombre }} {{ $profecional->primer_apellido }} {{ $profecional->segundo_apellido }}</h5>
                                     <p>{{ $profecional->nombre_universidad }}</p>
                                 </div>
-                         
+
                                 <div class="data_saved_form">
                                     {{--@if(!empty($profecional->nombre_especialidad))--}}
                                         @if(!empty($profecional->especialidades->toArray()))
@@ -544,7 +544,7 @@
                         <input type="file" id="foto_profecional" name="foto_profecional" onchange="ver_imagen('foto_profecional', 'img-foto_profecional');" accept="image/png, image/jpeg">
                         <p>Subir foto de perfil</p>
                     </div>
-              
+
                     <div class="col-md-9 line_vertical_form"> <!-- Personal information -->
                         <div class="row m-0">
                             <div class="col-lg-6 p-0 pr-lg-1">
@@ -593,7 +593,7 @@
         </div>
 
         <!-- Previous and next buttons -->
-        <div class="container_button_form"> 
+        <div class="container_button_form">
             <div class="section_button_form justify-content-between">
                 <button type="submit" class="button_transparent_form" onclick="hideBtnPrevious(this)" code-position="professionalInst">
                     <img src="{{asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="pr-2">Anterior
@@ -682,7 +682,7 @@
         </div>
 
         <!-- Previous and next buttons -->
-        <div class="container_button_form"> 
+        <div class="container_button_form">
             <div class="section_button_form justify-content-between">
                 <button type="submit" class="button_transparent_form" onclick="hideBtnPrevious(this)" code-position="certificationsInst">
                     <img src="{{asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="pr-2">Anterior
@@ -753,16 +753,16 @@
                     <div class="col-md-6 p-0">
                         <label for="nombre_sede" class="label_txt_form">Nombre de la sede</label>
                         <input class="input_box_form" id="nombre_sede" placeholder="Nombre de la sede" type="text" name="nombre_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} />
-                
+
                         <label for="direccion_sede" class="label_txt_form">Dirrección</label>
                         <input class="input_box_form" id="direccion_sede" placeholder="Dirección" type="text" name="direccion_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} />
 
                         <label for="horario_sede" class="label_txt_form">Horario</label>
                         <input class="input_box_form" id="horario_sede" placeholder="Horario" type="text" name="horario_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} />
-                
+
                         <label for="telefono_sede" class="label_txt_form">Teléfono</label>
                         <input class="input_box_form" id="telefono_sede" placeholder="Número de teléfono" type="text" name="telefono_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} />
-                
+
                         <!-- <label for="url_mapa_sede" class="label_txt_form">Url ubicación sede (Google Map)</label>
                         <input class="input_box_form" id="url_mapa_sede" placeholder="Url" type="text" name="url_mapa_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} /> -->
                     </div>
@@ -803,7 +803,7 @@
         </div>
 
         <!-- Previous and next buttons -->
-        <div class="container_button_form"> 
+        <div class="container_button_form">
             <div class="section_button_form justify-content-between">
                 <button type="submit" class="button_transparent_form" onclick="hideBtnPrevious(this)" code-position="venuesInst">
                     <img src="{{asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="pr-2"> Anterior
@@ -872,10 +872,10 @@
                     <div class="col-md-6 p-0">
                         <label for="fecha_galeria_institucion" class="label_txt_form">Fecha</label>
                         <input class="input_box_form" type="date"  id="fecha_galeria_institucion" name="fecha_galeria_institucion" {{ ($count_galeria >= 8) ? 'disabled' : '' }} />
-                    
+
                         <label for="nombre_galeria_institucion" class="label_txt_form">Título de la imagen</label>
                         <input class="input_box_form" id="nombre_galeria_institucion" placeholder="Título de la imagen" type="text" name="nombre_galeria_institucion" {{ ($count_galeria >= 8) ? 'disabled' : '' }} />
-                    
+
                         <label for="descripcion_galeria_institucion" class="label_txt_form">Descripción</label>
                         <input class="input_box_form" id="descripcion_galeria_institucion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion_galeria_institucion" {{ ($count_galeria >= 8) ? 'disabled' : '' }} />
                         <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
@@ -908,12 +908,12 @@
                             <div class="image_preview_form">
                                 <iframe src="{{ $video->urlvideo }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
-                            
+
                             <div class="text_preview_form">
                                 <span>{{ $video->fechavideo }}</span>
                                 <h5>{{ $video->nombrevideo }}</h5>
                                 <p>{{ $video->descripcionvideo }}</p>
-                            </div> 
+                            </div>
                         </div>
                     @endif
                 @endforeach
@@ -939,13 +939,13 @@
                         <input class="input_box_form" type="date"  id="fecha_video_institucion" name="fecha_video_institucion" {{ ($count_videos >= 4) ? 'disabled' : '' }} />
                     </div>
 
-                    <div class="col-md-6 p-0 pl-md-1">  
+                    <div class="col-md-6 p-0 pl-md-1">
                         <label for="nombre_video_institucion" class="label_txt_form">Título video</label>
                         <input class="input_box_form" id="nombre_video_institucion" placeholder="Título video" type="text" name="nombre_video_institucion" {{ ($count_videos >= 4) ? 'disabled' : '' }} />
 
                         <label for="descripcion_video_institucion" class="label_txt_form">Descripción video</label>
                         <input class="input_box_form" id="descripcion_video_institucion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion_video_institucion" {{ ($count_videos >= 4) ? 'disabled' : '' }} />
-                        
+
                         <p class="text_informative_form">160 Caracteres</p>
                     </div>
                 </div>
@@ -959,7 +959,7 @@
         </div>
 
         <!-- Previous and next buttons -->
-        <div class="container_button_form"> 
+        <div class="container_button_form">
             <div class="section_button_form justify-content-between">
                 <button type="submit" class="button_transparent_form" onclick="hideBtnPrevious(this)" code-position="galleryInst">
                     <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="pr-2"> Anterior

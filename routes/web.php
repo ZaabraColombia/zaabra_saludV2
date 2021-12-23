@@ -70,7 +70,7 @@ Route::get('/politicas-de-uso-de-Zaabra-salud', function () { return view('quien
 
 /* Esta ruta direcciona a la vista Contactenos */
 Route:: get('/contacto',[App\Http\Controllers\contactecnosController::class,'index'])->name('contacto');
-Route:: post('/contacto',[App\Http\Controllers\contactecnosController::class,'save'])->name('contacto');
+//Route:: post('/contacto',[App\Http\Controllers\contactecnosController::class,'save'])->name('contacto');
 
 /* Pertenece a newsletter */
 Route:: post('/newsletter',[App\Http\Controllers\newsletter\newsletterController::class,'save'])->name('newsletter');
@@ -201,6 +201,7 @@ Route::middleware(['auth', 'roles', 'verified'])->group(function () {
     Route::post('/FormularioInstitucionSave7',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create7'])->name('entidad.create7');
     Route::get('/FormularioInstituciondelete7/{id_convenio}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete7'])->name('entidad.delete7');
     /*-----formulario parte 8----*/
+    Route::get('/FormularioInstitucionGet8/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'get8'])->name('entidad.get8');
     Route::post('/FormularioInstitucionSave8',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create8'])->name('entidad.create8');
     Route::get('/FormularioInstituciondelete8/{id_profesional}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete8'])->name('entidad.delete8');
     /*-----formulario parte 9----*/

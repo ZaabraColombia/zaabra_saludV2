@@ -688,6 +688,18 @@ class formularioInstitucionController extends Controller{
 
 
 
+    /*-------------------------------------Llamar a profesional formulario parte 8----------------------*/
+    public function get8(Request $request)
+    {
+        $profesional = profesionales_instituciones::query()
+            ->with(['especialidades', 'universidad'])
+            ->where('id_profesional_inst', '=', $request->id)
+            ->first();
+
+        $profesional->foto_perfil_institucion = asset($profesional->foto_perfil_institucion);
+        return response(['profesional' => $profesional], Response::HTTP_OK);
+    }
+    /*-------------------------------------fin a profesional formulario parte 8----------------------*/
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 8----------------------*/
     public function create8(Request $request){
 
