@@ -480,19 +480,28 @@
                 @foreach($objProfesionalesIns as $profecional)
                     @if(!empty($profecional->foto_perfil_institucion))
                         <?php $count_profecionales++; ?>
-                        <div class="card_information_saved_form">
-                            <div class="content_btn_close_form">
-                                <button type="submit" class="close" aria-label="Close" data-url="{{ route('entidad.delete8', ['id_profesional' => $profecional->id_profesional_inst]) }}"><span aria-hidden="true">&times;</span></button>
+                        <div class="card_proffesional">
+                            
+                            <div class="section_btn_close pt-3" style="background: white">
+                                <button class="button_edit">
+                                    <i class="fas fa-edit pr-2"></i>
+                                </button>
+
+                                <button type="submit" class="close" aria-label="Close" style="opacity: inherit;" data-url="{{ route('entidad.delete8', ['id_profesional' => $profecional->id_profesional_inst]) }}">
+                                    <i aria-hidden="true" class="fas fa-trash-alt pl-2" style="color: #019f86"></i>
+                                </button>
                             </div>
 
-                            <div class="img_user_form mb-3">
-                                <img src="{{ asset($profecional->foto_perfil_institucion) }}">
+                            <div style="background: white">
+                                <div class="img_user_form pb-4">
+                                    <img src="{{ asset($profecional->foto_perfil_institucion) }}">
+                                </div>
                             </div>
 
                             <div class="">
                                 <div class="data_saved_form">
                                     <h5>{{ $profecional->primer_nombre }} {{ $profecional->segundo_nombre }} {{ $profecional->primer_apellido }} {{ $profecional->segundo_apellido }}</h5>
-                                    <span>{{ $profecional->nombre_universidad }}</span>
+                                    <p>{{ $profecional->nombre_universidad }}</p>
                                 </div>
                          
                                 <div class="data_saved_form">
@@ -507,11 +516,11 @@
                                     {{--@endif--}}
                                 </div>
 
-                                <div class="data_saved_form border-top-0">
-                                    @if(!empty($profecional->cargo))
+                                @if(!empty($profecional->cargo))
+                                    <div class="data_saved_form">
                                         <span>{{ $profecional->cargo }}</span>
-                                    @endif
-                                </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     @endif
