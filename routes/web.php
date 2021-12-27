@@ -70,7 +70,7 @@ Route::get('/politicas-de-uso-de-Zaabra-salud', function () { return view('quien
 
 /* Esta ruta direcciona a la vista Contactenos */
 Route:: get('/contacto',[App\Http\Controllers\contactecnosController::class,'index'])->name('contacto');
-//Route:: post('/contacto',[App\Http\Controllers\contactecnosController::class,'save'])->name('contacto');
+Route:: post('/contacto',[App\Http\Controllers\contactecnosController::class,'save'])->name('contacto-post');
 
 /* Pertenece a newsletter */
 Route:: post('/newsletter',[App\Http\Controllers\newsletter\newsletterController::class,'save'])->name('newsletter');

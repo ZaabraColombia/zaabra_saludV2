@@ -46,7 +46,7 @@
 
             <form id="contactForm" method="post" action="javascript:void(0)" class="px-3 px-md-5">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+                <input type="hidden" id="tipo_contacto" name="tipo_contacto">
                 @if(!empty($objuser))
                     <div id="persona">
                         <div class="section_type_user"> <!-- Usuarios paciente, doctor e institución -->
@@ -210,7 +210,11 @@
                         <div class="content_check_box">
                             <input class="input_check_box" type="checkbox" id="">
                             <span class="txt_input_check_box"> Acepto
-                                <a href="{{url('politicas')}}" target="blank"> términos y condiciones </a> y autorizo el <a href="{{url('politicas')}}" target="blank"> tratamiento de mis datos personales </a>
+                                <a href="{{url('politicas')}}" target="blank">Términos y condiciones </a>
+                                y autorizo el
+                                <a href="{{url('politicas')}}" target="blank">
+                                    tratamiento de mis datos personales
+                                </a>
                             </span>
                         </div>
                     </div>
@@ -221,13 +225,13 @@
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>
-        
-                <div class="alert alert-success d-none mt-5" id="msg_div">
+
+                <div class="alert mt-5" id="msg_div" style="display: none;">
                     <span id="res_message"></span>
                 </div>
             </form>
         </div>
-        
+
     </div>
 </div>
 @endsection
