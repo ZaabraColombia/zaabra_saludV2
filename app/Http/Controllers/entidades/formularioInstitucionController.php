@@ -688,17 +688,35 @@ class formularioInstitucionController extends Controller{
 
 
 
+    /*-------------------------------------Llamar a profesional formulario parte 8----------------------*/
+    public function get8(Request $request)
+    {
+        $profesional = profesionales_instituciones::query()
+            ->with(['especialidades', 'universidad'])
+            ->where('id_profesional_inst', '=', $request->id)
+            ->first();
+
+        $profesional->foto_perfil_institucion = asset($profesional->foto_perfil_institucion);
+        return response(['profesional' => $profesional], Response::HTTP_OK);
+    }
+    /*-------------------------------------fin a profesional formulario parte 8----------------------*/
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 8----------------------*/
     public function create8(Request $request){
 
+        //validar foto si es editar o crear
+        $foto_validate = ($request->id_profesional == null) ? ['required', 'image'] : ['image'];
+        //dd($request->all());
+
         $validation = Validator::make($request->all(), [
-            'foto_profecional' => ['required', 'image'],
+            //'id_profesional' => ['required'],
+            'foto_profecional' => $foto_validate,
             'primer_nombre_profecional'     => ['required'],
             'primer_apellido_profecional'   => ['required'],
             'universidad'   => ['required', 'exists:universidades,id_universidad'],
             'especialidad.*'  => ['required','exists:especialidades,idEspecialidad'],
             'cargo_profesional' => ['max:30'],
         ], [], [
+            //'id_profesional' => 'Foto del profesional',
             'foto_profecional' => 'Foto del profesional',
             'primer_nombre_profecional' => 'Primer nombre del profesional',
             'primer_apellido_profecional' => 'Primer apellido del profesional',
@@ -730,36 +748,63 @@ class formularioInstitucionController extends Controller{
             ], Response::HTTP_NOT_FOUND);
         }
 
+        $array = [
+            'id_profesional_inst'   => $request->id_profesional,
+            'primer_nombre'     => $request->primer_nombre_profecional,
+            'segundo_nombre'    => $request->segundo_nombre_profecional,
+            'primer_apellido'   => $request->primer_apellido_profecional,
+            'segundo_apellido'  => $request->segundo_apellido_profecional,
+            'cargo'             => $request->cargo_profesional,
+            //'id_institucion'    => $institucion->id,
+            'id_universidad'    => $request->universidad,
+        ];
+
         //Crear el profesional
-        $profesional = new profesionales_instituciones();
-        $profesional->primer_nombre     = $request->primer_nombre_profecional;
-        $profesional->segundo_nombre    = $request->segundo_nombre_profecional;
-        $profesional->primer_apellido   = $request->primer_apellido_profecional;
-        $profesional->segundo_apellido  = $request->segundo_apellido_profecional;
-        $profesional->cargo             = $request->cargo_profesional;
-        $profesional->id_institucion    = $institucion->id;
-        $profesional->id_universidad    = $request->universidad;
+        $profesional = profesionales_instituciones::query()->updateOrCreate(
+            ['id_profesional_inst' => $request->id_profesional, 'id_institucion' => $institucion->id],
+            $array
+        );
+
+//        $profesional->primer_nombre     = $request->primer_nombre_profecional;
+//        $profesional->segundo_nombre    = $request->segundo_nombre_profecional;
+//        $profesional->primer_apellido   = $request->primer_apellido_profecional;
+//        $profesional->segundo_apellido  = $request->segundo_apellido_profecional;
+//        $profesional->cargo             = $request->cargo_profesional;
+//        $profesional->id_institucion    = $institucion->id;
+//        $profesional->id_universidad    = $request->universidad;
         //$profesional->id_especialidad   = $request->especialidad;
 
-        $foto = $request->file('foto_profecional');
-        $nombre_foto = 'profesional-' . time() . '.' . $foto->guessExtension();
+        if ($request->id_profesional == null or $request->file('foto_profecional'))
+        {
+            //eliminar foto si existe
+            //$ruta_foto = asset($profesional->foto_perfil_institucion);
+            //if (@getimagesize($ruta_foto)) unlink($ruta_foto);
 
-        /*guarda la imagen en carpeta con el id del usuario*/
-        $foto->move("img/instituciones/$id_user", $nombre_foto);
+            //dd($ruta_foto);
 
-        //capturar la fotp
-        $profesional->foto_perfil_institucion = "img/instituciones/$id_user/" . $nombre_foto;
+            $foto = $request->file('foto_profecional');
+            $nombre_foto = 'profesional-' . time() . '.' . $foto->guessExtension();
 
-        //guardar profesional
-        $profesional->save();
+            /*guarda la imagen en carpeta con el id del usuario*/
+            $foto->move("img/instituciones/$id_user", $nombre_foto);
+
+            //capturar la fotp
+            $profesional->foto_perfil_institucion = "img/instituciones/$id_user/" . $nombre_foto;
+
+            //guardar profesional
+            $profesional->save();
+        }
 
         //Agregar especialidades
-        $profesional->especialidades()->attach($request->especialidad);
+        $profesional->especialidades()->sync($request->especialidad);
 
         return response([
             'mensaje'   => 'Se guardo correctamente la información',
             'url'       => route('entidad.delete8', ['id_profesional' => $profesional->id_profesional_inst]),
             'image'     => asset($profesional->foto_perfil_institucion),
+            'id'        => $profesional->id_profesional_inst,
+            'edited'    => $request->id_profesional != null,
+            'url_edit'  => route('entidad.get8', ['id' => $profesional->id_profesional_inst]),
             'max_items' => $profesionales >= 2 and !$this->is_asociacion()// Se le resta 1 porque se agregó 1
         ], Response::HTTP_OK);
     }

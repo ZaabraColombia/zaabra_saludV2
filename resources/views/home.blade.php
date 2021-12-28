@@ -7,12 +7,12 @@
             @foreach ($objbannersprincipalHome as $objbannersprincipalHome)
                 <div class="swiper-slide ">
                     <img class="swiper-slide" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
-                    
+
                     <div class="content_bannerPrincipal">
                         <h1 class="titulo_bannerPrincipal" style="color:{{($objbannersprincipalHome->color_titulo)}};">{{($objbannersprincipalHome->titulo_banner)}}</h1>
                         <p class="txt_bannerPrincipal" style="color:{{($objbannersprincipalHome->color_texto)}};">{{($objbannersprincipalHome->texto_banner)}}</p>
-                        <a class="boton_bannerPrincipal" type="submit" href="{{($objbannersprincipalHome->urlBoton_banner)}}" target="blank"  
-                            style="background-color:{{($objbannersprincipalHome->background_btn)}}; color:{{($objbannersprincipalHome->color_btn)}};"> 
+                        <a class="boton_bannerPrincipal" type="submit" href="{{($objbannersprincipalHome->urlBoton_banner)}}" target="blank"
+                            style="background-color:{{($objbannersprincipalHome->background_btn)}}; color:{{($objbannersprincipalHome->color_btn)}};">
                             {{($objbannersprincipalHome->texto_btn)}}
                         </a>
                     </div>
@@ -45,7 +45,7 @@
                 </a>
             </div>
         </div>
-        
+
         <div class="tarjeta_opcion animacion_tarjeta">
             <div class="cabecera_tarjeta">
                 <img class="icono_tarjeta" src="{{URL::asset('/img/home/instituciones-medicas.svg')}}">
@@ -54,7 +54,7 @@
             <div class="cuerpo_tarjeta">
                 <h5 class="subTitulo_contenido">Instituciones médicas</h5>
                 <p class="txt_contenido"> Clínicas, centros médicos y odontológicos, toma de exámenes y mucho más.</p>
-                
+
                 <a href="{{url('/Instituciones-Medicas')}}" class="btn_central_verde animación_boton">Ver más
                     <i class="fas fa-arrow-right pl-1"></i>
                 </a>
@@ -66,8 +66,8 @@
     @foreach ($objbannersparallaxHome as $objbannersparallaxHome)
         <div class="imagen_parallax" style="background-image: url( {{URL::asset($objbannersparallaxHome->rutaImagenVenta)}} );"></div>
     @endforeach
-   
-    <h1 class="titulo_principal">Nuestros Especialistas</h1>   
+
+    <h1 class="titulo_principal">Nuestros Especialistas</h1>
 
     <!--carousel especialistas-->
     <div class="swiper-container swiper_especialistas">
@@ -96,11 +96,11 @@
 
         <!-- If we need navigation buttons -->
         <div class="swiper-button-prev flecha_izquierda"></div>
-        <div class="swiper-button-next flecha_derecha"></div> 
+        <div class="swiper-button-next flecha_derecha"></div>
     </div>
 
     <!--banner triple-->
-    <div class="swiper-container swiper_triple">   
+    <div class="swiper-container swiper_triple">
         <div class="swiper-wrapper">
             @foreach ($objcarruselTriple as $objcarruselTriple)
                 <img class="swiper-slide"  src="{{URL::asset($objcarruselTriple->rutaImagenVenta)}}">
@@ -153,7 +153,7 @@
 
             <!-- If we need navigation buttons -->
             <div class="swiper-button-prev flecha_izquierda"></div>
-            <div class="swiper-button-next flecha_derecha"></div> 
+            <div class="swiper-button-next flecha_derecha"></div>
         </div>
     </section>
 @endsection
