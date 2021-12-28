@@ -7,9 +7,9 @@
 @section('content')
 
     <!-- Swiper Banner principal, funcionalidad del swiper alojada en el archivo instituciones.js -->
-    <div class="imagen_inst_instProf">
-        <div class="img_institucion_instProf" style="background: url('{{URL::asset($institucion[0]->imagen)}}') center center no-repeat;"></div>
-        <h1 class="nombre_inst_instProf">{{$institucion[0]->nombreinstitucion}}</h1>
+    <div class="content_bannerMain">
+        <div class="image_bannerMain" style="background: url('{{URL::asset($institucion[0]->imagen)}}') center center no-repeat;"></div>
+        <h1 class="titulo_bannerMain">{{$institucion[0]->nombreinstitucion}}</h1>
     </div>
 
     <!-- {{--
@@ -63,7 +63,7 @@
         </div>
 
         <!-- Contenido de las tarjetas de los profesionales -->
-        <div class="container_targetProf">
+      
             <div id="grid-container" class="container_grid">
                 @foreach ($objProfesionalesIns as $profesional)
                     <?php
@@ -86,28 +86,28 @@
                         <img class="img_professional" src="{{ asset($profesional->foto_perfil_institucion) }}">
 
                         <div class="card-body px-1 py-3">
-                            <h2 class="specialty titulo_card">{{$especialidad}}</h2>
-                            <h2 class="subSpecialty subSpecialty_text titulo_card">{{$especialidad}}</h2>
+                            <h2 class="specialty titulo_card mb-1">{{$especialidad}}</h2>
+                            <h2 class="subSpecialty subSpecialty_text titulo_card mb-1">{{$especialidad}}</h2>
 
                             <h2 class="niega_uppercase subTitulo_card">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h2>
 
                             <p class="specialty text_card">Especialista en {{$especialidad}}</p>
-                            <p class="subSpecialty text_card">Especialista en <span class="subSpecialty_text text_card">{{$especialidad}}</span></p>
+                            <p class="subSpecialty text_card">Especialista en <span class="subSpecialty_text">{{$especialidad}}</span></p>
 
-                            <p class="name_university text_card">{{$profesional->nombre_universidad}}</p>
+                            <p class="name_university text_univ_card">{{$profesional->nombre_universidad}}</p>
                             <h2 class="cargo_profInst text_cargo_card">{{$profesional->cargo}}</h2>
                    
 
-                            <div class="btn_tarjeta_prof">
-                                <a href=""> Agendar cita
-                                    <i class="fas fa-arrow-right"></i>
+                            <div class="content_btn_cardProf mt-1">
+                                <a class="btn_cardProf" href=""> Agendar cita
+                                    <i class="fas fa-arrow-right pl-2"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
-        </div>
+
     </section>
 @endsection
 
@@ -118,12 +118,14 @@
         jQuery(document).ready( function() {
             jQuery('#grid-container').cubeportfolio({
                 filters: '#filterControls',
-                /*mediaQueries: [
-                    {"width" : 1500, "cols" : 6},
+                mediaQueries: [
+                    {"width" : 1500, "cols" : 7},
+                    {"width" : 1300, "cols" : 6},
+                    {"width" : 1100, "cols" : 5},
                     {"width" : 900, "cols" : 4},
-                    {"width" : 600, "cols" : 3},
+                    {"width" : 700, "cols" : 3},
                     {"width" : 300, "cols" : 2},
-                ]*/
+                ]
             });
         });
 
