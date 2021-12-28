@@ -12877,6 +12877,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 .txt_especialista {
+  color: #434142 !important;
   font-size: 1em;
   font-family: "Roboto";
   text-align: center;
@@ -19845,6 +19846,12 @@ a:link, a:visited, a:active, a:hover {
   width: 100%;
 }
 
+.section_toggle {
+  width: 90%;
+  margin: auto;
+  padding-bottom: 20px;
+}
+
 .data_instituciones {
   display: flex;
   flex-direction: column;
@@ -20008,64 +20015,64 @@ a:link, a:visited, a:active, a:hover {
   padding: 10% 0;
 }
 
-.servicios {
+.serv_grey {
   background-image: url("/img/landing-institucion/icono-principal-servicios-profesionales.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.acerca {
+.acer_grey {
   background-image: url("/img/landing-institucion/icono-acerca-de-la-institucion.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.certificados {
+.cert_grey {
   background-image: url("/img/landing-institucion/icono-certificaciones.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.sedes {
+.sede_grey {
   background-image: url("/img/landing-institucion/icono-principal-sedes.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.galeria {
+.gale_grey {
   background-image: url("/img/landing-institucion/icono-galeria.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.profesional {
+.prof_grey {
   background-image: url("/img/landing-institucion/icono-profesionales.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.servicios_clicked {
+.serv_green {
   background-image: url("/img/landing-institucion/icono-principal-servicios-profesionales-verde.svg");
 }
 
-.acerca_clicked {
+.prof_green {
+  background-image: url("/img/landing-institucion/icono-profesionales-verde.svg");
+}
+
+.acer_green {
   background-image: url("/img/landing-institucion/icono-acerca-de-la-institucion-verde.svg");
 }
 
-.certificados_clicked {
+.cert_green {
   background-image: url("/img/landing-institucion/icono-certificaciones-verde.svg");
 }
 
-.sedes_clicked {
+.sede_green {
   background-image: url("/img/landing-institucion/icono-principal-sedes-verde.svg");
 }
 
-.gale-inst_clicked {
+.gale_green {
   background-image: url("/img/landing-institucion/icono-galeria-verde.svg");
-}
-
-.profesionales_clicked {
-  background-image: url("/img/landing-institucion/icono-profesionales-verde.svg");
 }
 
 .swiper_institucion .item_landing_insti {
@@ -20145,8 +20152,12 @@ a:link, a:visited, a:active, a:hover {
   padding-left: 2.7em;
 }
 
-.section_insti_active {
+.section_active {
   display: block !important;
+}
+
+.inactived {
+  display: none;
 }
 
 .section_insti {
@@ -20816,6 +20827,10 @@ a:link, a:visited, a:active, a:hover {
     margin: auto;
   }
 
+  .section_toggle {
+    padding-bottom: 50px;
+  }
+
   .logo_sede_inst {
     width: 200px;
     height: 200px;
@@ -21123,6 +21138,10 @@ a:link, a:visited, a:active, a:hover {
   .section_data_instituciones {
     display: flex;
     padding: 2% 0;
+  }
+
+  .section_toggle {
+    width: 75%;
   }
 
   .data_instituciones {
@@ -21474,6 +21493,10 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 1920px) {
   .containt_princ_LandInst {
     width: 65%;
+  }
+
+  .section_toggle {
+    width: 60%;
   }
 
   /*.logo_sede_inst {
@@ -26949,14 +26972,19 @@ a:link, a:visited, a:active, a:hover {
   padding: 0 10px;
 }
 
-.container_targetProf {
+.content_bannerMain {
   width: 100%;
-  margin-right: auto;
-  margin-left: auto;
+  height: 170px;
 }
 
 .content_cardProf {
   padding: 0 0.3em 1em 0.3em;
+}
+
+.content_btn_cardProf {
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 .swiper_especialidad {
@@ -26974,6 +27002,25 @@ a:link, a:visited, a:active, a:hover {
      object-fit: cover;
   -o-object-position: top;
      object-position: top;
+}
+
+.image_bannerMain {
+  width: 100%;
+  height: 100%;
+  background-size: cover !important;
+  opacity: 0.6;
+}
+
+.titulo_bannerMain {
+  font-size: 1.5em;
+  font-family: "Quicksand";
+  color: #019f86;
+  font-weight: bolder;
+  line-height: 1;
+  position: absolute;
+  top: 75px;
+  left: 20px;
+  width: 75%;
 }
 
 .titulo_card {
@@ -27002,6 +27049,20 @@ a:link, a:visited, a:active, a:hover {
   color: #232323;
   text-align: center;
   line-height: 1.1;
+  height: 22px;
+}
+
+.text_univ_card {
+  font-family: "Roboto";
+  font-size: 0.7em;
+  font-weight: 500;
+  color: #232323;
+  text-align: center;
+  line-height: 1.1;
+  height: 22px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .text_cargo_card {
@@ -27011,10 +27072,10 @@ a:link, a:visited, a:active, a:hover {
   font-weight: bolder;
   text-align: center;
   margin: 0;
-  height: 25px;
+  height: 22px;
   display: flex;
+  align-items: flex-start;
   justify-content: center;
-  align-items: center;
 }
 
 .swiper_especialidad .cbp-l-filters-alignRight .cbp-filter-item {
@@ -27022,7 +27083,7 @@ a:link, a:visited, a:active, a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  font: 600 12.5px/20px "Quicksand", sans-serif;
+  font: 600 11.5px/20px "Quicksand", sans-serif;
   color: #232323;
   text-transform: none;
   text-align: center;
@@ -27052,115 +27113,57 @@ a:link, a:visited, a:active, a:hover {
   font-weight: bolder;
 }
 
-.imagen_inst_instProf {
-  width: 100%;
-  height: 170px;
-}
-
-.img_institucion_instProf {
-  width: 100%;
-  height: 100%;
-  background-size: cover !important;
-  opacity: 0.6;
-}
-
-.nombre_inst_instProf {
-  font-size: 1.5em;
-  font-family: "Quicksand";
-  color: #019f86;
-  font-weight: bolder;
-  line-height: 1;
-  position: absolute;
-  top: 75px;
-  left: 20px;
-  width: 75%;
-}
-
-.option_line_profInst {
+.btn_cardProf {
+  font-size: 0.8em;
+  font-family: "Roboto";
   display: flex;
   align-items: center;
-  padding-top: 30px;
-  justify-content: flex-start;
+  background: #019F86;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .subSpecialty {
   display: none;
 }
 
-/*.user_data {
-    height: 135px;
-}*/
-/*
-.container_targetProf .card-body h5 {
-    font-family: 'Quicksand';
-    font-size: .9em;
-    font-weight: bolder;
-    color: #232323;
-    text-align: center;
-    padding: .3em 0;
-}
-*/
-.name_university {
-  height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn_tarjeta_prof {
-  width: 125px;
-  margin: auto;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 4%;
-}
-
-.btn_tarjeta_prof a {
-  font-size: 0.9em;
-  font-family: "Roboto";
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background: #019F86;
-  padding: 5%;
-  border-radius: 3px;
-}
-
-@media (min-width: 360px) {
-  /*.cbp .img_perfil_instProf {
-      height: 110px;
-      width: 110px;
-  }*/
-  /*.container_targetProf .card-body h2 {
-      font-size: 1.25em;
-      height: 40px;
-  }
-  .container_targetProf .card-body h5 {
-      font-size: 1em;
-  }
-  .container_targetProf .card-body p {
-      font-size: 0.85em;
-  }
-  .container_targetProf .card-body h4 {
-      font-size: 1em;
-  }
-  .btn_tarjeta_prof a {
-      font-size: 1em;
-  }
-  .btn_prev {
-      top: 283px;
-      left: 23px;
-  }
-  .btn_next {
-      top: 283px;
-      right: 23px;
-  }*/
-}
 @media (min-width: 600px) {
   .content_main {
     padding: 0 30px;
+  }
+
+  .content_bannerMain {
+    height: 400px;
+  }
+
+  .titulo_bannerMain {
+    font-size: 2em;
+    top: 180px;
+    left: 65px;
+    width: 50%;
+  }
+
+  .titulo_card {
+    font-size: 1em;
+  }
+
+  .subTitulo_card {
+    font-size: 0.9em;
+  }
+
+  .text_card {
+    font-size: 0.8em;
+    height: 26px;
+  }
+
+  .text_univ_card {
+    font-size: 0.8em;
+    height: 26px;
+  }
+
+  .text_cargo_card {
+    font-size: 0.9em;
+    height: 26px;
   }
 
   .swiper_especialidad {
@@ -27175,179 +27178,23 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.3em;
   }
 
-  /*
-      .swiper_especialidad {
-      display: flex;
-      width: 550px;
+  .btn_cardProf {
+    font-size: 0.9em;
   }
-  .btn_prev {
-      left: 193px;
-  }
-  .btn_next {
-      left: 329px;
-  }
-  */
-  .container_grid .card {
-    width: 200px !important;
-  }
-
-  .imagen_inst_instProf {
-    height: 400px;
-  }
-
-  .nombre_inst_instProf {
-    font-size: 2em;
-    top: 180px;
-    left: 65px;
-    width: 50%;
-  }
-
-  /*.swiper_especialidad {
-      width: 555px;
-  }
-  .swiper_especialidad .cbp-l-filters-alignRight .cbp-filter-item {
-      font: 600 13px/20px "Quicksand", sans-serif;
-      width: 180px !important;
-  }
-  .btn_prev {
-      top: 545px;
-      left: 100px;
-  }
-  .btn_next {
-      top: 545px;
-      right:100px;
-  }*/
-  .container_targetProf {
-    width: 80%;
-  }
-}
-@media (min-width: 1024px) {
-  /*
-      .swiper_especialidad {
-      display: flex;
-      width: 689px;
-  }
-  .btn_prev {
-      left: 260px;
-  }
-  .btn_next {
-      left: 400px;
-  }
-  */
-  .container_targetProf {
-    width: 85%;
-  }
-
-  /*.swiper_especialidad {
-      width: 738px;
-  }
-  .btn_prev {
-      top: 527px;
-      left: 120px;
-  }
-  .btn_next {
-      top: 527px;
-      right:120px;
-  }*/
 }
 @media (min-width: 1200px) {
-  .imagen_inst_instProf {
+  .content_bannerMain {
     height: 550px;
   }
-
-  .container_targetProf {
-    width: 75%;
-  }
-
-  .container_grid .card {
-    width: 215px !important;
-  }
-
-  /*.nombre_inst_instProf {
-      font-size: 2.5em;
-      left: 150px;
-  }
-
-  */
-}
-@media (min-width: 1300px) {
-  /*.swiper_especialidad {
-      width: 925px;
-  }
-  .btn_prev {
-      left: 200px;
-  }
-  .btn_next {
-      right:200px;
-  }*/
-  .container_targetProf {
-    width: 80%;
-  }
-
-  .container_grid .card {
-    width: 205px !important;
-  }
-}
-@media (min-width: 1440px) {
-  .container_grid .card {
-    width: 220px !important;
-  }
-
-  /*.btn_prev {
-      left: 230px;
-  }
-  .btn_next {
-      right:230px;
-  }*/
 }
 @media (min-width: 1920px) {
   .content_main {
     padding: 0 130px;
   }
 
-  .nombre_inst_instProf {
+  .titulo_bannerMain {
     font-size: 3em;
     left: 330px;
     width: 40%;
-  }
-
-  /*
-      .swiper_especialidad {
-      width: 1110px;
-  }
-  .option_line_profInst {
-      //margin-bottom: 60px !important;
-  }
-  .swiper_especialidad {
-      width: 1295px;
-  }*/
-  /*.swiper_especialidad .cbp-l-filters-alignRight .cbp-filter-item {
-      font: 600 13px/25px "Quicksand", sans-serif;
-      width: 180px !important;
-  }*/
-  /*
-  .btn_prev {
-      top: 100px;
-      left: 435px;
-  }
-  .btn_next {
-      top: 100px;
-      left: 640px;
-  }
-  */
-  /*.btn_prev {
-      top: 685px;
-      left: 265px;
-  }
-  .btn_next {
-      top: 685px;
-      right:265px;
-  }
-  .btn_prev:after, .btn_next:after {
-      font-size: 1em;
-      font-weight: bolder;
-  }*/
-  .container_targetProf {
-    width: 75%;
   }
 }
