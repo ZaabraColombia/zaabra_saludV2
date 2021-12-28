@@ -41,4 +41,12 @@ class profesionales_instituciones extends Model
     {
         return $this->belongsTo(universidades::class, 'id_universidad', 'id_universidad');
     }
+
+    /**
+     * @return BelongsTo
+     */
+    public function institucion(): BelongsTo
+    {
+        return $this->belongsTo(instituciones::class, 'id_institucion', 'id');
+    }
 }
