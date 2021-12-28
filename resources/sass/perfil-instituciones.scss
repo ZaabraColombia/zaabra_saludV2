@@ -6,6 +6,11 @@
 .containt_princ_LandInst {
     width: 100%;
 }
+.section_toggle {
+    width: 90%;
+    margin:auto;
+    padding-bottom: 20px;
+}
 .data_instituciones{
     display: flex;
     flex-direction: column;
@@ -861,6 +866,9 @@
         width: 52%;
         margin: auto;
     }
+    .section_toggle {
+        padding-bottom: 50px;
+    }
     .logo_sede_inst {
         width: 200px;
         height: 200px;
@@ -1116,6 +1124,9 @@
     .section_data_instituciones {
         display: flex;
         padding: 2% 0;
+    }
+    .section_toggle {
+        width: 75%;
     }
     .data_instituciones {
         display: flex;
@@ -1411,6 +1422,9 @@
 @media (min-width: 1920px) {
     .containt_princ_LandInst {
         width: 65%;
+    }
+    .section_toggle {
+        width: 60%;
     }
     /*.logo_sede_inst {
         width: 165px;

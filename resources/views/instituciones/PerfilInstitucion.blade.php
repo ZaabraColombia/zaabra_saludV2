@@ -114,7 +114,7 @@
         </div>
     </section>
 
-    <section id="serv_ins" class="px-2 px-md-5 pb-5">
+    <section id="serv_ins" class="section_toggle">
 
         <div class="servicios_instituciones">
             <h2><i></i>Servicios profesionales</h2>
@@ -148,10 +148,10 @@
         </div>
     </section>
 
-    <div class="prof_ins" class="px-2 px-md-5 pb-5">
+    <div class="prof_ins" class="section_toggle">
     </div>
 
-    <section id="acer_ins" class="px-2 px-md-5 pb-5">
+    <section id="acer_ins" class="section_toggle">
 
         <div class="quienes_somos">
             <h2><i></i>¿Quiénes somos?</h2>
@@ -202,7 +202,7 @@
     </section>
 
 
-    <div id="cert_ins" class="px-2 px-md-5 pb-5">
+    <div id="cert_ins" class="section_toggle">
         <h2><i></i>Certificados</h2>
         <div class="swiper-container swiper_certificado_LandInst">
             <div class="swiper-wrapper">
@@ -223,7 +223,7 @@
     </div>
 
 
-    <section id="sede_ins" class="px-2 px-md-5 pb-5">
+    <section id="sede_ins" class="section_toggle">
         <div class="sedes_institucion">
             <h2><i></i>Sedes</h2>
             <div class="container_cards">
@@ -249,7 +249,7 @@
         </div>
     </section>
 
-    <section id="gale_ins" class="px-2 px-md-5 pb-5">
+    <section id="gale_ins" class="section_toggle">
         <div class="galeria_institucion">
             <h2><i></i>Galería</h2>
             <div class="swiper-container swiper_galeria_inst">
