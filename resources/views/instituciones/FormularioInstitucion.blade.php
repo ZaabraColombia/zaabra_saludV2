@@ -494,17 +494,17 @@
 
                             <div style="background: white">
                                 <div class="img_user_form pb-4">
-                                    <img src="{{ asset($profecional->foto_perfil_institucion) }}">
+                                    <img class="card-img-profesional" src="{{ asset($profecional->foto_perfil_institucion) }}">
                                 </div>
                             </div>
 
                             <div class="">
                                 <div class="data_saved_form">
-                                    <h5>{{ $profecional->primer_nombre }} {{ $profecional->segundo_nombre }} {{ $profecional->primer_apellido }} {{ $profecional->segundo_apellido }}</h5>
-                                    <p>{{ $profecional->nombre_universidad }}</p>
+                                    <h5 class="card-nombre-profesional">{{ $profecional->primer_nombre }} {{ $profecional->segundo_nombre }} {{ $profecional->primer_apellido }} {{ $profecional->segundo_apellido }}</h5>
+                                    <p class="card-universidad-profesional">{{ $profecional->nombre_universidad }}</p>
                                 </div>
 
-                                <div class="data_saved_form">
+                                <div class="data_saved_form card-especialidades-profesional">
                                     {{--@if(!empty($profecional->nombre_especialidad))--}}
                                         @if(!empty($profecional->especialidades->toArray()))
                                             <ul>
@@ -518,7 +518,7 @@
 
                                 @if(!empty($profecional->cargo))
                                     <div class="data_saved_form">
-                                        <span>{{ $profecional->cargo }}</span>
+                                        <span class="card-cargo-profesional">{{ $profecional->cargo }}</span>
                                     </div>
                                 @endif
                             </div>
@@ -528,6 +528,7 @@
             </div>
 
             <form action="{{ route('entidad.create8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="form-profesionales-institucion"  class="pb-2">
+                <input type="hidden" id="id_profesional" name="id_profesional">
                 @csrf
                 <div class="col-12" id="mensajes-profesionales">
                     @if($count_profecionales >= 3 and !$is_asociacion )
@@ -584,7 +585,12 @@
                     </div>
                 </div>
 
-                <div class="section_button_form">  <!-- Save button -->
+                <div class="section_button_form">
+                    <!-- botón para canelar y limpiar formulario -->
+                    <button type="button" class="btn btn-default" id="btn-cancelar-editar-profesional" style="display: none;">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                    <!-- Save button -->
                     <button type="submit" class="button_green_form" id="btn-guardar-profecionales-institucion" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}  data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}..."> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2"/>
                     </button>

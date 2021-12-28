@@ -904,9 +904,9 @@ $('#lista-convenios-institucion').on('click', '.close' , function (e) {
 //Agregar profesional
 $('#form-profesionales-institucion').validate({
     rules: {
-        'foto_profecional': {
-            required: true,
-        },
+        // 'foto_profecional': {
+        //     required: true,
+        // },
         'primer_nombre_profecional': {
             required: true,
         },
@@ -919,9 +919,9 @@ $('#form-profesionales-institucion').validate({
     },
 
     messages: {
-        'foto_profecional':{
-            required: "Por favor ingrese la foto del profesional",
-        },
+        // 'foto_profecional':{
+        //     required: "Por favor ingrese la foto del profesional",
+        // },
         'primer_nombre_profecional':{
             required: "Por favor ingrese el primer nombre del profesional",
         },
@@ -973,42 +973,53 @@ $('#form-profesionales-institucion').validate({
                     especialidades += '</ul>';
                 }
 
-                //Agrgar tarjeta del professionals
-                $('#lista-profesionales-institucion').append(  // Module professionals
-                '<div class="card_proffesional" >\n' +
+                if (response.edited)
+                {
+                    let card = $('#card-profesional-' + response.id);
 
-                    '<div class="section_btn_close pt-3" style="background: white">\n' +
-                        '<button class="button_edit">\n' +
-                            '<i class="fas fa-edit pr-2"></i>\n' +
+                    card.find('.card-img-profesional').attr('src', response.image);
+                    card.find('.card-nombre-profesional').html($('#primer_nombre_profecional').val() + ' ' + $('#segundo_nombre_profecional').val() + $('#primer_apellido_profecional').val() + ' ' + $('#segundo_apellido_profecional').val());
+                    card.find('.card-universidad-profesional').html($('#universidad option:selected').text());
+                    card.find('.card-especialidades-profesional').html(especialidades);
+                    card.find('.card-cargo-profesional').html($('#cargo_profesional').val());
+                } else {
+                    //Agregar tarjeta del profesional
+                    $('#lista-profesionales-institucion').append(  // Module professionals
+                        '<div class="card_proffesional" id="card-profesional-' + response.id + '">\n' +
+
+                        '<div class="section_btn_close pt-3" style="background: white">\n' +
+                        '<button class="button_edit btn-edit-profesional" data-url="' + response.url_edit + '">\n' +
+                        '<i class="fas fa-edit pr-2"></i>\n' +
                         '</button>\n' +
 
                         '<button type="submit" class="close" style="opacity: inherit;" aria-label="Close" data-url="' + response.url + '">\n' +
-                            '<i aria-hidden="true" class="fas fa-trash-alt pl-2" style="color: #019f86"></i>\n' +
+                        '<i aria-hidden="true" class="fas fa-trash-alt pl-2" style="color: #019f86"></i>\n' +
                         '</button>\n' +
-                    '</div>\n' +
+                        '</div>\n' +
 
 
-                    '<div style="background: white">\n' +
+                        '<div style="background: white">\n' +
                         '<div class="img_user_form pb-4">\n' +
-                            '<img src="' + response.image + '">\n' +
+                        '<img  class="card-img-profesional" src="' + response.image + '">\n' +
                         '</div>\n' +
-                    '</div>\n'+
+                        '</div>\n'+
 
-                    '<div class="">\n' +
+                        '<div class="">\n' +
                         '<div class="data_saved_form">\n' +
-                            '<h5>' + $('#primer_nombre_profecional').val() + ' ' + $('#segundo_nombre_profecional').val() + $('#primer_apellido_profecional').val() + ' ' + $('#segundo_apellido_profecional').val() + '</h5>\n' +
-                            '<p>' + $('#universidad option:selected').text() + '' + '</p>\n' +
-                        '</div>\n' +
-
-                        '<div class="data_saved_form">\n' +
-                            especialidades +
+                        '<h5 class="card-nombre-profesional" >' + $('#primer_nombre_profecional').val() + ' ' + $('#segundo_nombre_profecional').val() + $('#primer_apellido_profecional').val() + ' ' + $('#segundo_apellido_profecional').val() + '</h5>\n' +
+                        '<p class="card-universidad-profesional" >' + $('#universidad option:selected').text() + '' + '</p>\n' +
                         '</div>\n' +
 
-                        '<div class="data_saved_form">\n' +
-                            '<span>' + $('#cargo_profesional').val() + '' + '</span>\n' +
+                        '<div class="data_saved_form card-especialidades-profesional">\n' +
+                        especialidades +
                         '</div>\n' +
-                    '</div>\n' +
-                '</div>');
+
+                        '<div class="data_saved_form">\n' +
+                        '<span class="card-cargo-profesional" >' + $('#cargo_profesional').val() + '' + '</span>\n' +
+                        '</div>\n' +
+                        '</div>\n' +
+                        '</div>');
+                }
 
                 /* Deshabilitar formulario cuando llegue al maximo de items */
                 if (response.max_items > 0) {
@@ -1023,9 +1034,15 @@ $('#form-profesionales-institucion').validate({
                     $(btn).prop('disabled', true);
                 }
 
-                $('#img-foto_profecional').attr('src', '#');
                 formulario[0].reset();
-                $("#especialidad").val([]).change();
+                //$('#img-foto_profecional').attr('src', '#');
+                //$("#especialidad").val([]).change();
+                $('#img-foto_profecional').attr('src', '#');
+                $('#universidad').html('').val('').trigger('change');
+                $('#especialidad').html('').val('').trigger('change');
+                $('#id_profesional').val('');
+
+                $('#btn-cancelar-editar-profesional').hide();
 
                 //Respuesta
                 mensaje_success('#mensajes-profesionales', response.mensaje)
@@ -1118,6 +1135,12 @@ $('#lista-profesionales-institucion').on('click', '.close' , function (e) {
     {
         let btn_profesional = $(this);
 
+        let form = $('#form-profesionales-institucion');
+        form[0].reset();
+        $('#universidad').html('').val('').trigger('change');
+        $('#especialidad').html('').val('').trigger('change');
+        $('#id_profesional').val('');
+        window.scrollBy(0, window.innerHeight);
         $.ajax({
             dataType: 'json',
             url:  btn_profesional.data('url'),
@@ -1130,15 +1153,25 @@ $('#lista-profesionales-institucion').on('click', '.close' , function (e) {
                 //$('#foto_profecional').val('disabled');
 
                 $('#img-foto_profecional').attr('src', res.profesional.foto_perfil_institucion);
+                $('#id_profesional').val(res.profesional.id_profesional_inst);
 
                 $('#primer_nombre_profecional').val(res.profesional.primer_nombre);
                 $('#segundo_nombre_profecional').val(res.profesional.segundo_nombre);
                 $('#primer_apellido_profecional').val(res.profesional.primer_apellido);
                 $('#segundo_apellido_profecional').val(res.profesional.segundo_apellido);
-                $('#universidad').select2('data', {id: res.profesional.id_universidad, text:res.profesional.universidad.nombreuniversidad, selected: true});
-                $('#universidad').val(res.profesional.id_universidad).trigger('change');
-                //$('#especialidad').val(res.);
+
+                $('#universidad').append('<option value="' + res.profesional.id_universidad + '" selected>' + res.profesional.universidad.nombreuniversidad + '</option>')
+                    .val(res.profesional.id_universidad).trigger('change');
+
+                $.each(res.profesional.especialidades, function (key, item) {
+                    $('#especialidad').append('<option value="' + item.idEspecialidad + '" selected>' + item.nombreEspecialidad + '</option>');
+                });
+
+                $('#especialidad').trigger('change');
+
                 $('#cargo_profesional').val(res.profesional.cargo);
+
+                $('#btn-cancelar-editar-profesional').show();
             },
             error: function (res, status) {
 
@@ -1148,6 +1181,17 @@ $('#lista-profesionales-institucion').on('click', '.close' , function (e) {
         });
 
     });
+
+$('#btn-cancelar-editar-profesional').click(function (e) {
+    let form = $('#form-profesionales-institucion');
+    form[0].reset();
+    $('#img-foto_profecional').attr('src', '#');
+    $('#universidad').html('').val('').trigger('change');
+    $('#especialidad').html('').val('').trigger('change');
+    $('#id_profesional').val('');
+
+    $('#btn-cancelar-editar-profesional').hide();
+});
 //Formulario 9
 //Agregar certificaciones
 $('#form-certificados-institucion').validate({
