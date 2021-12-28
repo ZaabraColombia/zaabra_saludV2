@@ -42,52 +42,28 @@ class HomeController extends Controller
         $objbanneruniversidad = $this->cargarbannerUniversidad();
         $objcarruselTriple = $this->cargarBannertriple();
 
-        $objProfesionalesIns = profesionales_instituciones::query()
-            ->select('profesionales_instituciones.id_profesional_inst as idPerfilProfesional',
-                'profesionales_instituciones.foto_perfil_institucion as fotoperfil',
-                'profesionales_instituciones.primer_nombre as primernombre',
-                'profesionales_instituciones.primer_apellido as primerapellido',
-                'especialidades.nombreEspecialidad as nombreEspecialidad',
-                'universidades.nombreuniversidad as nombreuniversidad',
-                'instituciones.slug as slug_institucion'
-            )
-            ->leftjoin('especialidades', 'especialidades.idEspecialidad', '=', 'profesionales_instituciones.id_especialidad')
-            ->leftjoin('universidades', 'universidades.id_universidad', '=', 'profesionales_instituciones.id_universidad')
-            ->leftjoin('instituciones', 'instituciones.id', '=', 'profesionales_instituciones.id_institucion')
-            ->with('especialidades')->get();
-
-
-
-        //$objprofesionaleshome = $objprofesionaleshome->toArray();
-        foreach ($objProfesionalesIns as $item)
-        {
-            //dd($objProfesionalesIns);
-            $array = new \stdClass();
-
-            $array->idPerfilProfesional = $item->idPerfilProfesional;
-            $array->fotoperfil = $item->fotoperfil;
-            $array->primernombre = $item->primernombre;
-            $array->primerapellido = $item->primerapellido;
-            $array->nombreEspecialidad = $item->nombreEspecialidad;
-            $array->nombreuniversidad = $item->nombreuniversidad;
-            $array->slug_institucion = $item->slug_institucion;
-
-            if (empty($item->nombreEspecialidad))
-            {
-                if (isset($item->especialidades[0]))
-                {
-                    $array->nombreEspecialidad = $item->especialidades[0]->nombreEspecialidad;
-                }
-            }
-
-            array_push($objprofesionaleshome, $array);
-        }
-
+        $intitucionProfesionales = profesionales_instituciones::query()
+            ->select([
+                'id_profesional_inst',
+                'foto_perfil_institucion',
+                'primer_nombre',
+                'primer_apellido',
+                //'id_especialidad',
+                'id_universidad',
+                'id_institucion'
+            ])
+            ->with([
+                'universidad:id_universidad,nombreuniversidad',
+                'especialidades:idEspecialidad,nombreEspecialidad',
+                'institucion:id,slug'
+            ])
+            ->get();
 
         return view('home', compact(
             'objbannersprincipalHome',
             'objbannersparallaxHome',
             'objprofesionaleshome',
+            'intitucionProfesionales',
             'objbanneruniversidad',
             'objcarruselTriple'
         ));
