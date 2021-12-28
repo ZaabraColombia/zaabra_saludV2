@@ -1,7 +1,7 @@
 // Funcion para ocultar y mostrar elementos en la vista CONTACTOS
 function elementHidden (z){
     let myvar = z.getAttribute('data-position');
-    
+
     let selector = document.querySelector.bind(document);
     // Condicional para el registro de usuario rol Paciente
     if (myvar == "paciente") {
@@ -20,6 +20,7 @@ function elementHidden (z){
         document.getElementById ("txt6").style.color = "#3E3E3E";
 
         document.getElementById("valor_tipo1").value = document.getElementById("inpt4").value;
+        document.getElementById('tipo_contacto').value = 'Paciente';
     }
 
     // Condicional para el registro de usuario rol Medico/a
@@ -39,6 +40,7 @@ function elementHidden (z){
         document.getElementById ("txt6").style.color = "#3E3E3E";
 
         document.getElementById("valor_tipo1").value = document.getElementById("inpt5").value;
+        document.getElementById('tipo_contacto').value = 'Profesional';
     }
 
     // Condicional para el registro de usuario rol Institución
@@ -58,6 +60,7 @@ function elementHidden (z){
         document.getElementById ("txt5").style.color = "#3E3E3E";
 
         document.getElementById("valor_tipo1").value = document.getElementById("inpt6").value;
+        document.getElementById('tipo_contacto').value = 'Institución';
     }
 }
 
@@ -68,28 +71,38 @@ $('#contactForm').on('submit',function(e){
     e.preventDefault();
     //$('#send_form').html('enviando...');
     $.ajax({
-      url: "contacto",
-      type:"POST",
-      data:{
-        "_token": $("meta[name='csrf-token']").attr("content"),
-        "primernombre": $('#primernombre').val(),
-        "segundonombre": $('#segundonombre').val(),
-        "primerapellido": $('#primerapellido').val(),
-        "segundoapellido": $('#segundoapellido').val(),
-        "nombreinstitucion": $('#nombreinstitucion').val(),
-        "email": $('#email').val(),
-        "asunto": $('#asunto').val(),
-      },
-      success:function(response){
-        $('#send_form').hide();
-        $('#res_message').show();
-        $('#res_message').html(response.msg);
-        $('#msg_div').removeClass('d-none');
-        document.getElementById("contactForm").reset(); 
-        setTimeout(function(){
-            $('#res_message').hide();
-            $('#msg_div').hide();
+        url: "contacto",
+        type:"POST",
+        data:{
+            "_token": $("meta[name='csrf-token']").attr("content"),
+            "primernombre": $('#primernombre').val(),
+            "segundonombre": $('#segundonombre').val(),
+            "primerapellido": $('#primerapellido').val(),
+            "segundoapellido": $('#segundoapellido').val(),
+            "nombreinstitucion": $('#nombreinstitucion').val(),
+            "email": $('#email').val(),
+            "tipo_contacto": $('#tipo_contacto').val(),
+            "asunto": $('#asunto').val(),
+        },
+        success:function(response){
+
+            //$('#send_form').hide();
+            $('#res_message').show().html(response.msg);
+            $('#msg_div').addClass('alert-success').show();
+            //document.getElementById("contactForm").reset();
+            setTimeout(function(){
+                $('#res_message').hide();
+                $('#msg_div').removeClass('alert-success').hide();
             },3000);
-         },
-     });
+        },
+        error: function (error) {
+            $('#res_message').show().html('error');
+            $('#msg_div').addClass('alert-danger').show();
+            //document.getElementById("contactForm").reset();
+            setTimeout(function(){
+                $('#res_message').hide();
+                $('#msg_div').removeClass('alert-danger').hide();
+            },3000);
+        }
     });
+});

@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactoEmail;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\contactecnos;
+use Illuminate\Support\Facades\Mail;
+
 class contactecnosController extends Controller
 {
     public function index()
@@ -26,52 +32,38 @@ class contactecnosController extends Controller
 
     /*consulta infromacion del usuario logueado*/
     public function cargaDatosUser($id_user){
-    return DB::select("SELECT us.primernombre, us.segundonombre, us.primerapellido, us.segundoapellido, us.nombreinstitucion, us.email
+        return DB::select("SELECT us.primernombre, us.segundonombre, us.primerapellido, us.segundoapellido, us.nombreinstitucion, us.email
     FROM users us
     WHERE id=$id_user");
     }
 
-  /*------------ Funcion solo para verificar que perfil existe y esta se utiiliza en las demas-----------------*/
-  protected function verificaPerfil(){
-    /*id usuario logueado*/
-    $id_user=auth()->user()->id;
+    /* Función solo para verificar que perfil existe y esta se utiliza en las demás */
+    protected function verificaPerfil(){
+        /*id usuario logueado*/
+        $id_user=auth()->user()->id;
 
-    /*consulta si existe el profesional*/
-    $idexisteperfil = DB::table('perfilesprofesionales')
-    ->select('idPerfilProfesional')
-    ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
-    ->where('perfilesprofesionales.idUser', $id_user)
-    ->first();
-    return $idexisteperfil;
-      }
-    /*------------Fin  Funcion solo para verificar que perfil existe y esta se utiiliza en los demas metodos-----------------*/
+        /*consulta si existe el profesional*/
+        $idexisteperfil = DB::table('perfilesprofesionales')
+            ->select('idPerfilProfesional')
+            ->join('users', 'perfilesprofesionales.idUser', '=', 'users.id')
+            ->where('perfilesprofesionales.idUser', $id_user)
+            ->first();
+        return $idexisteperfil;
+    }
+    /*- Fin función solo para verificar que perfil existe y esta se utiliza en los demás métodos -*/
 
 
-   public function save(Request $request){
-     
-        if (!Auth::guest()){
-            $id_user=auth()->user()->id;/*id usuario logueado*/
+    /**
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function save(Request $request){
 
-            /*anexo iduser   al request*/
-            $request->merge([
-                'id_user' => "$id_user", 
-                ]);
+        $contact = $request->all();
 
-            $data = $request->all();
-            $result = contactecnos::create($data);
-                if($result){ 
-                    $arr = array('msg' => 'Gracias por comunicarse con nosotros, pronto recibirá un correo', 'status' => true);
-                }
-        }else{
-            $data = $request->all();
-            $result = contactecnos::create($data);
-            if($result){ 
-                $arr = array('msg' => 'Gracias por comunicarse con nosotros, pronto recibirá un correo', 'status' => true);
-            }
-        }
+        Mail::to('servicioalcliente@zaabrasalud.co')->send(new ContactoEmail($contact));
 
-        return Response()->json($arr);
-
+        return response(['msg' => 'Gracias por comunicarse con nosotros, pronto recibirá un correo'], Response::HTTP_OK);
     }
 
 }

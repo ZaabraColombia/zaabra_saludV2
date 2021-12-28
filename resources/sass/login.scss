@@ -15,6 +15,17 @@
     padding: 0;
     margin: 0;
 }
+.seccion_opcion_usuario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: auto;
+    padding: 15px 0;
+}
+.seccion_opcion_registro {
+    height: 100px;
+    width: 70px;
+}
 .seccion_activa {
     width: 50%;
     border-bottom: 5px solid #0083D6;
@@ -45,7 +56,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 50px 0 118px 0;
+    padding: 40px 0 115px 0;
 }
 // Títulos, subtítulos y textos 
 .titulo_h1 {
@@ -95,6 +106,20 @@
     margin-top: -10px;
     width: 40%;
 }
+.txt_opcion_registro {  
+    font-size: 1em;
+    font-family: 'Roboto';
+    position: relative;
+    bottom: 33px;
+    width: 100%;
+    text-align: center;
+}
+.txt_check {  
+    font-size: .8em;
+    font-family: 'Roboto';
+    color: #3E3E3E;
+    padding-left: 8px;
+}
 // Inputs
 .input_form {
     display: block;
@@ -118,10 +143,27 @@
     outline: 0;
     box-shadow: 0 0 0 3px rgb(52 144 220 / 20%);
 }
+.input_registro {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: top;
+    position: relative;
+    z-index: 5;
+}
 .height_verify {
     margin: 14.9% 0;
 }
-
+// Clases utilizadas para la función de ocultar y mostrar elementos en la vista de registro de usuarios
+// La función se encuentra en el archivo register.js
+.names_person, .names_institution, .datos_secundarios{
+    display: none;
+}
+@media (min-width: 375px) {
+    .tarjeta_principal {
+        margin-bottom: 175px;
+    }
+}
 @media (min-width: 768px) {
     // Contenedores, secciones, contenidos y tarjetas
     .tarjeta_principal {
@@ -135,17 +177,24 @@
     .contenido_icono {
         width: 60px;
     }
+    .seccion_opcion_usuario {
+        width: 85%;
+        padding: 0;
+    }
+    .seccion_opcion_registro {
+        height: 125px;
+        width: 85px;
+    }
     .seccion_redes_sociales {
         padding: 0 0 30px 0;
     }
     .contenedor_tarjeta {
-        padding: 100px 0 283px 0;
+        padding: 90px 0 237px 0;
     }
     // Títulos, subtítulos y textos
     .titulo_h1 {
         font-size: 1.5em;
-        padding: 35px 0 45px 0;
-        
+        padding: 35px 0 45px 0;  
     }
     .titulo_h2 {
         font-size: 1.563em;
@@ -160,12 +209,21 @@
     .texto_flotante {
         font-size: 1em;
     }
+    .txt_opcion_registro {
+        font-size: 1.25em;
+    }
+    .txt_check {  
+        font-size: 1em;
+    }
     // Inputs
     .input_form {
         font-size: 1.15em;
     }
     .height_verify {
         margin: 25.5% 0;
+    }
+    .margInferior {
+        margin-bottom: 322px;
     }
 }
 
@@ -176,7 +234,7 @@
         margin-bottom: 30px;
     }
     .contenedor_tarjeta {
-        padding: 50px 0 94px 0;
+        padding: 20px 0 68px 0;
     }
     // Títulos, subtítulos y textos
     .titulo_h1 {
@@ -185,6 +243,9 @@
     .texto_flotante {
         width: 25%;
     }
+    .margInferior {
+        margin-bottom: 34px;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -192,15 +253,18 @@
     .tarjeta_principal {
         width: 55%;
     }
-    .contenedor_tarjeta {
-        padding: 50px 0 90px 0;
+    .seccion_opcion_usuario {
+        width: 75%;
     }
 }
 
 @media (min-width: 1440px) {
     // Contenedores, secciones, contenidos y tarjetas
     .contenedor_tarjeta {
-        padding: 50px 0 171px 0;
+        padding: 40px 0 146px 0;
+    }
+    .margInferior {
+        margin-bottom: 110px;
     }
 }
 
@@ -210,6 +274,9 @@
         width: 40%;
     }
     .contenedor_tarjeta {
-        padding: 50px 0 211px 0;
+        padding: 50px 0 245px 0;
+    }
+    .margInferior {
+        margin-bottom: 175px;
     }
 }
