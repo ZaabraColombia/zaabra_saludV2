@@ -74,20 +74,22 @@
         <div class="swiper-wrapper">
             @foreach ($objprofesionaleshome as $profesionales_home)
             <div class="card swiper-slide border-0">
-                <img class="imagen_especialista" src="{{URL::asset($profesionales_home->fotoperfil)}}">
+                <a href="{{url('PerfilProfesional/'.$profesionales_home->slug)}}" class="m-0">
+                    <img class="imagen_especialista" src="{{URL::asset($profesionales_home->fotoperfil)}}">
 
-                <div class="card-body contenido_especialista">
-                    <h5 class="titulo_contenido">{{$profesionales_home->nombreEspecialidad}}</h5>
-                    <span class="txt_especialista">Especialista en {{$profesionales_home->nombreEspecialidad}}</span>
-                    <p class="txt_especialista"> <b>{{$profesionales_home->nombreuniversidad}}</b></p>
-                    <p class="txt_especialista">{{$profesionales_home->primernombre}} {{$profesionales_home->primerapellido}}</p>
+                    <div class="card-body contenido_especialista">
+                        <h5 class="titulo_contenido">{{$profesionales_home->nombreEspecialidad}}</h5>
+                        <span class="txt_especialista">Especialista en {{$profesionales_home->nombreEspecialidad}}</span>
+                        <p class="txt_especialista"> <b>{{$profesionales_home->nombreuniversidad}}</b></p>
+                        <p class="txt_especialista">{{$profesionales_home->primernombre}} {{$profesionales_home->primerapellido}}</p>
 
-                    <div class="seccion_btn_central">
-                        <a href="{{url('PerfilProfesional/'.$profesionales_home->slug)}}" class="btn_grande_central_azul">Ver detalles
-                            <i class="fas fa-arrow-right pl-1"></i>
-                        </a>
+                        <div class="seccion_btn_central">
+                            <a href="{{url('PerfilProfesional/'.$profesionales_home->slug)}}" class="btn_grande_central_azul">Ver detalles
+                                <i class="fas fa-arrow-right pl-1"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             @endforeach
         </div>
@@ -105,6 +107,39 @@
             @endforeach
         </div>
     </div>
+
+    <h1 class="titulo_principal" style="color: #019f86">Nuestros Asociados</h1>  
+
+    <!--carousel entidades-->
+    <div class="swiper-container swiper_especialistas">
+        <div class="swiper-wrapper">
+            @foreach ($objprofesionaleshome as $profesionales_home)
+                <div class="card swiper-slide border-0">
+                    <a href="{{url('PerfilProfesional/'.$profesionales_home->slug)}}" class="m-0">
+                        <img class="imagen_especialista" src="{{URL::asset($profesionales_home->fotoperfil)}}">
+
+                        <div class="card-body contenido_especialista">
+                            <h5 class="titulo_contenido" style="color: #019f86">{{$profesionales_home->nombreEspecialidad}}</h5>
+                            <span class="txt_especialista">Especialista en {{$profesionales_home->nombreEspecialidad}}</span>
+                            <p class="txt_especialista"> <b>{{$profesionales_home->nombreuniversidad}}</b></p>
+                            <p class="txt_especialista">{{$profesionales_home->primernombre}} {{$profesionales_home->primerapellido}}</p>
+
+                            <div class="seccion_btn_central">
+                                <a href="{{url('PerfilProfesional/'.$profesionales_home->slug)}}" class="btn_central_verde">Ver detalles
+                                    <i class="fas fa-arrow-right pl-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </a>  
+                </div>
+            @endforeach
+        </div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev flecha_izquierda" style="color: #019f86"></div>
+        <div class="swiper-button-next flecha_derecha" style="color: #019f86"></div> 
+    </div>
+
 
     <!--carousel universidades-->
     <section class="seccion_carrusel_inferior">

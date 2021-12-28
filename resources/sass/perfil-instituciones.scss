@@ -157,53 +157,53 @@
     margin: 0;
     padding: 10% 0;
 }
-.servicios {
+.serv_grey {
     background-image: url('/img/landing-institucion/icono-principal-servicios-profesionales.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
-.acerca {
+.acer_grey {
     background-image: url('/img/landing-institucion/icono-acerca-de-la-institucion.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
-.certificados {
+.cert_grey {
     background-image: url('/img/landing-institucion/icono-certificaciones.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
-.sedes {
+.sede_grey {
     background-image: url('/img/landing-institucion/icono-principal-sedes.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
-.galeria {
+.gale_grey {
     background-image: url('/img/landing-institucion/icono-galeria.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
-.profesional {
+.prof_grey {
     background-image: url('/img/landing-institucion/icono-profesionales.svg');
     background-repeat: no-repeat;
     background-size: contain;
 }
-.servicios_clicked {
+.serv_green {
     background-image: url('/img/landing-institucion/icono-principal-servicios-profesionales-verde.svg');
 }
-.acerca_clicked {
+.prof_green {
+    background-image: url('/img/landing-institucion/icono-profesionales-verde.svg');
+}
+.acer_green {
     background-image: url('/img/landing-institucion/icono-acerca-de-la-institucion-verde.svg');
 }
-.certificados_clicked {
+.cert_green {
     background-image: url('/img/landing-institucion/icono-certificaciones-verde.svg');
 }
-.sedes_clicked {
+.sede_green {
     background-image: url('/img/landing-institucion/icono-principal-sedes-verde.svg');
 }
-.gale-inst_clicked {
+.gale_green {
     background-image: url('/img/landing-institucion/icono-galeria-verde.svg');
-}
-.profesionales_clicked {
-    background-image: url('/img/landing-institucion/icono-profesionales-verde.svg');
 }
 
 .swiper_institucion .item_landing_insti {
@@ -274,8 +274,11 @@
     margin-bottom: 5%;
     padding-left: 2.7em;
 }
-.section_insti_active{
+.section_active{
     display: block !important;
+}
+.inactived {
+    display: none;
 }
 .section_insti{
     display: none;
