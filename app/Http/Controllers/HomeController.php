@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\profesionales_instituciones;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -41,10 +42,28 @@ class HomeController extends Controller
         $objbanneruniversidad = $this->cargarbannerUniversidad();
         $objcarruselTriple = $this->cargarBannertriple();
 
+        $intitucionProfesionales = profesionales_instituciones::query()
+            ->select([
+                'id_profesional_inst',
+                'foto_perfil_institucion',
+                'primer_nombre',
+                'primer_apellido',
+                //'id_especialidad',
+                'id_universidad',
+                'id_institucion'
+            ])
+            ->with([
+                'universidad:id_universidad,nombreuniversidad',
+                'especialidades:idEspecialidad,nombreEspecialidad',
+                'institucion:id,slug'
+            ])
+            ->get();
+
         return view('home', compact(
             'objbannersprincipalHome',
             'objbannersparallaxHome',
             'objprofesionaleshome',
+            'intitucionProfesionales',
             'objbanneruniversidad',
             'objcarruselTriple'
         ));

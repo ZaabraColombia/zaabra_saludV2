@@ -1,222 +1,164 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- contenedor principal -->
-<div class="container-fluid contenedorPrin_Register">
-    <!-- fila principal -->
-    <div class="row justify-content-center">
-        <!-- titulo principal -->
-        <h1 class="titulo_principal-register"> Acceda a nuestro portal de Zaabra Salud o regístrese. </h1>
-        <!-- contenedor de elementos login -->
-        <div class="card col-11 col-md-10 col-lg-8 section_principal-register">
-            <!-- seccion body login -->
-            <div class="card-body section_body-register">
-                <form method="POST" action="{{ route('register') }}" onsubmit="return validateform()" name="formularioRegistro">
-                @csrf
-                    <!-- seccion iniciar sesion, creaar cuenta y titulo interno -->
-                    <div class="row card-header content_iniciar-crear">
-                        <div class="col-6 section_texto-inicio">
-                            <a href="{{ route('login') }}" class="texto_iniciar-register"> Iniciar Sesión </a>
-                        </div>
-
-                        <div class="col-6 section_texto-registro">
-                            <a> Crear Cuenta </a>
-                        </div>
-                        <p class="texto_superior-tarjeta-register"> Registrarme como </p>
+    <div class="container-fluid" style="background: #F9F9F9">
+        <div class="row justify-content-center py-4 py-md-5">
+            <div class="w-100">
+                <h1 class="titulo_h1"> Acceda a nuestro portal de Zaabra <br> Salud o regístrese. </h1>
+            </div>
+            
+            <div id="tarjeta" class="card tarjeta_principal margInferior">
+                <div class="card-header tarjeta_header">
+                    <div class="seccion_inactiva">
+                        <a href="{{ route('login') }}">
+                            <h2 class="titulo_h2" style="color: #D1D1D1">Iniciar Sesión</h2>
+                        </a>
                     </div>
 
-                    <div id="persona">
-                        <!-- Seccion opciones paara Registrarse -->
-                        <div class="row section_input-option-register">
-                            <div class="col-3 form-check input_option-register">
-                                <!-- Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto. La función " hedeForm " se encuentra en el archivo register.js -->
-                                <!-- Opción paciente -->
-                                <input id="inpt1" class="form-check-input input_img-option icon_pac" onclick="hideForm(this)" type="image" src="/img/iconos/icono-paciente.svg" value="1"  data-position="paciente">
-                                <label id="txt1" class="form-check-label texto_option-input" for="idrol"> Paciente </label>
+                    <div class="seccion_activa">
+                        <h2 class="titulo_h2">Crear Cuenta </h2>
+                    </div>
+                </div>
+
+                <p class="texto_label text-left font-weight-light mt-4 pl-3"> Registrarme como: </p>
+
+                <div class="card-body pt-md-4 pb-md-5">
+                    <form method="POST" action="{{ route('register') }}" onsubmit="return validateform()" name="formularioRegistro">
+                    @csrf
+                        <div class="seccion_opcion_usuario"> <!-- Oopciones de registro -->
+                            <div class=" seccion_opcion_registro">
+                                <!-- Paciente: Despliegue de formulario y cambio de color opción, en archivo "register.js"-->
+                                <input id="inpt1" class="input_registro" onclick="hideForm(this)" type="image" src="/img/iconos/icono-paciente.svg" value="1"  data-position="paciente">
+                                <label id="txt1" class="txt_opcion_registro" for="idrol"> Paciente </label>
                             </div>
 
-                            <div class="col-3 form-check input_option-register">
-                                <!-- Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto. La función " hedeForm " se encuentra en el archivo register.js -->
-                                <!-- Opción doctor -->
-                                <input id="inpt2" class="form-check-input input_img-option" onclick="hideForm(this)" type="image" src="/img/iconos/icono-doctor.svg"  value="2"  data-position="doctor">
-                                <label id="txt2" class="form-check-label texto_option-input" for="idrol"> Doctor/a </label>
+                            <div class=" seccion_opcion_registro">
+                                <!-- Doctor: Despliegue de formulario y cambio de color opción, en archivo "register.js"-->
+                                <input id="inpt2" class="input_registro" onclick="hideForm(this)" type="image" src="/img/iconos/icono-doctor.svg"  value="2"  data-position="doctor">
+                                <label id="txt2" class="txt_opcion_registro" for="idrol"> Doctor/a </label>
                             </div>
 
-                            <div class="col-3 form-check input_option-register">
-                                <!-- Evento onclick para desplegar el formulario de registro y el cambio de color del icono y el texto. La función " hedeForm " se encuentra en el archivo register.js -->
-                                <!-- Opción institución -->
-                                <input id="inpt3" class="form-check-input input_img-option" onclick="hideForm(this)" type="image" src="/img/iconos/icono-institucion.svg"  value="3"  data-position="institucion">
-                                <label id="txt3" class="form-check-label texto_option-input" for="idrol"> Institución </label>
+                            <div class=" seccion_opcion_registro">
+                                <!-- Institución: Despliegue de formulario y cambio de color opción, en archivo "register.js"-->
+                                <input id="inpt3" class="input_registro" onclick="hideForm(this)" type="image" src="/img/iconos/icono-institucion.svg"  value="3"  data-position="institucion">
+                                <label id="txt3" class="txt_opcion_registro" for="idrol"> Institución </label>
                             </div>
                         </div>
 
-                        <input type="hidden" name="idrol"  id="valor_tipo">
-                        <!-- Sección campos de validación Nombres y Apellidos -->
-                        <div class="names_person">
-                            <!-- Campos de Nombres -->
-                            <div class="form-group row mb-0">
-                                <label for="primernombre" class="col-md-12 col-form-label texto_label-register">{{ __('Nombres *') }}</label>
+                        <div id="persona"> <!-- Nombres y apellidos persona -->
+                            <input type="hidden" name="idrol"  id="valor_tipo">
 
-                                <div class="col-md-6 mb-3 mb-md-0">
-                                    <input id="primernombre" type="text" class="form-control input_height-fullhd-register" name="primernombre" value="{{ old('primernombre') }}"  autocomplete="primernombre" autofocus placeholder="Primer Nombre">
-
+                            <div class="names_person my-3"> 
+                            
+                                <label for="primernombre" class="texto_label">{{ __('Nombres *') }}</label>
+                                <div class="d-md-flex">
+                                    <input id="primernombre" type="text" class="input_form mb-2 mr-md-1 @error('primernombre') is-invalid @enderror" name="primernombre" value="{{ old('primernombre') }}"  
+                                    autocomplete="primernombre" autofocus placeholder="Primer Nombre">
                                     @error('primernombre')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                    
+                                    <input id="segundonombre" type="text" class="input_form mb-3 ml-md-1 @error('segundonombre') is-invalid @enderror" name="segundonombre" value="{{ old('segundonombre') }}"  
+                                    autofocus placeholder="Segundo Nombre">
                                 </div>
 
-                                <div class="col-md-6">
-                                    <input id="segundonombre" type="text" class="form-control input_height-fullhd-register @error('segundonombre') is-invalid @enderror" name="segundonombre" value="{{ old('segundonombre') }}"  autofocus placeholder="Segundo Nombre">
-                                </div>
-                            </div>
-
-                            <!-- Campos de Apellidos -->
-                            <div class="form-group row mb-0">
-                                <label for="primerapellido" class="col-md-12 col-form-label texto_label-register">{{ __('Apellidos *') }}</label>
-
-                                <div class="col-md-6 mb-3 mb-md-0">
-                                    <input id="primerapellido" type="text" class="form-control input_height-fullhd-register @error('primerapellido') is-invalid @enderror" name="primerapellido" value="{{ old('primerapellido') }}"  autocomplete="primerapellido" autofocus placeholder="Primer Apellido">
-
+                            
+                                <label for="primerapellido" class="texto_label">{{ __('Apellidos *') }}</label>
+                                
+                                <div class="d-md-flex">
+                                    <input id="primerapellido" type="text" class="input_form mb-2 mr-md-1 @error('primerapellido') is-invalid @enderror" name="primerapellido" value="{{ old('primerapellido') }}"  
+                                    autocomplete="primerapellido" autofocus placeholder="Primer Apellido">
                                     @error('primerapellido')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                </div>
-
-                                <div class="col-md-6">
-                                    <input id="segundoapellido" type="text" class="form-control input_height-fullhd-register @error('segundoapellido') is-invalid @enderror" name="segundoapellido" value="{{ old('segundoapellido') }}" autofocus placeholder="Segundo Apellido">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Sección de instituciones -->
-                    <div id="institucion" class="names_institution">
-                        <!-- Campo de nombre de la institución -->
-                        <div class="form-group row name_institution m-0">
-                            <label for="nombreinstitucion" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Nombre Institución *') }}</label>
-
-                            <div class="col-md-12 px-0">
-                                <input id="nombreinstitucion" type="text" class="form-control input_height-fullhd-register @error('nombreinstitucion') is-invalid @enderror" name="nombreinstitucion" value="{{ old('nombreinstitucion') }}" autofocus placeholder="Nombre Institucion">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Sección de datos secundarios para Registrarse -->
-                    <div class="datos_secundarios">
-                        <!-- Campos de tipo de documento y Número de documento -->
-                        <div class="row">
-                            <!-- Campo Tipo de documento -->
-                            <div class="form-group col-12 col-md-6 m-0">
-                                <label for="tipodocumento" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Tipo Documento *') }}</label>
-
-                                <select class="form-select col-12 form-control input_height-fullhd-register @error('tipodocumento') is-invalid @enderror" name="tipodocumento" required>
-                                    <option value="" selected> Seleccione </option>
-                                    <option value="1"> Cedula Ciudadania </option>
-                                    <option value="2"> Cedula Extranjeria </option>
-                                    <option value="3"> Nit </option>
-                                </select>
-                            </div>
-
-                            <!-- Número de documento -->
-                            <div class="form-group col-md-6 m-0">
-                                <label for="numerodocumento" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Numero Documento *') }}</label>
-                                <div class="col-md-12 p-0">
-                                    <input id="numerodocumento" type="number" class="form-control input_height-fullhd-register" name="numerodocumento" value="{{ old('numerodocumento') }}" autocomplete="numerodocumento" autofocus>
-                                    @error('numerodocumento')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Correo electrónico -->
-                        <div class="form-group col-12 p-0 m-0">
-                            <label for="email" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Correo electrónico *') }}</label>
-
-                            <div class="col-12 p-0">
-                                <input id="email" type="email" class="form-control input_height-fullhd-register" name="email" value="{{ old('email') }}" autocomplete="email" required placeholder="servicioalcliente@zaabrasalud.co">
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                
+                                    <input id="segundoapellido" type="text" class="input_form ml-md-1 @error('segundoapellido') is-invalid @enderror" name="segundoapellido" 
+                                    value="{{ old('segundoapellido') }}" autofocus placeholder="Segundo Apellido">
+                                </div> 
                             </div>
                         </div>
 
-                        <!-- Campos de contraseña y confirmar contraseña -->
-                        <div class="row mb-md-4">
+                        <div id="institucion" class="names_institution mt-3"> <!-- Nombre institución -->
+                            <label for="nombreinstitucion" class="texto_label">{{ __('Nombre Institución *') }}</label>
 
-                            <!-- Contraseña -->
-                            <div class="form-group col-md-6 m-0">
-                                <label for="password" class="col-md-12 px-0 col-form-label texto_label-register">{{ __('Contraseña *') }}</label>
-
-                                <div class="col-md-12 px-0">
-                                    <input id="password" type="password" class="form-control input_height-fullhd-register @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Contraseña">
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <!-- Confirmar contraseña -->
-                            <div class="form-group col-md-6">
-                                <label for="password-confirm" class="col-md-12 pl-0 col-form-label texto_label-register">{{ __('Confirmar contraseña *') }}</label>
-
-                                <div class="col-md-12 px-0">
-                                    <input id="password-confirm" type="password" class="form-control input_height-fullhd-register" name="password_confirmation" required autocomplete="new-password" placeholder="Contraseña">
-                                </div>
-                            </div>
+                            <input id="nombreinstitucion" type="text" class="input_form mb-3 @error('nombreinstitucion') is-invalid @enderror" name="nombreinstitucion" value="{{ old('nombreinstitucion') }}" 
+                            autofocus placeholder="Nombre Institucion">
                         </div>
 
-                        <!-- Check Políticas y terminos -->
-                        <div class="form-group row mb-0">
-                            <div class="col-12">
-                                <input type="checkbox" class="check_option-register" id="aceptoTerminos" name="aceptoTerminos" value="1"  required>
-                                <div class="col-12 section_terminos-register">
-                                    <h4 class="texto_inferior-tarjeta-register"> Declaro que he leído y acepto la
-                                        <a class="text_link-register" href="{{url('politicas')}}" target="blank"> política de privacidad</a>  y los
-                                        <a class="text_link-register" href="{{url('politicas')}}" target="blank"> términos y condiciones</a>  de Zaabra Salud.
-                                    </h4>
-                                </div>
+                        <div class="datos_secundarios"> <!-- Datos secundarios --> 
+                            <label for="tipodocumento" class="texto_label">{{ __('Tipo Documento *') }}</label>
+
+                            <select class="input_form mb-3 @error('tipodocumento') is-invalid @enderror" name="tipodocumento" required>
+                                <option value="" selected> Seleccione </option>
+                                <option value="1"> Cedula Ciudadania </option>
+                                <option value="2"> Cedula Extranjeria </option>
+                                <option value="3"> Nit </option>
+                            </select>
+                        
+                            <label for="numerodocumento" class="texto_label">{{ __('Numero Documento *') }}</label>
+                            
+                            <input id="numerodocumento" type="number" class="input_form mb-3 @error('numerodocumento') is-invalid @enderror" name="numerodocumento" value="{{ old('numerodocumento') }}" 
+                            autocomplete="numerodocumento" autofocus>
+                            @error('numerodocumento')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        
+                            <label for="email" class="texto_label">{{ __('Correo electrónico *') }}</label>
+
+                            <input id="email" type="email" class="input_form mb-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" required placeholder="servicioalcliente@zaabrasalud.co">
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        
+                            <label for="password" class="texto_label">{{ __('Contraseña *') }}</label>
+
+                            <input id="password" type="password" class="input_form mb-3 @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Contraseña">
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+
+                            <label for="password-confirm" class="texto_label">{{ __('Confirmar contraseña *') }}</label>
+
+                            <input id="password-confirm" type="password" class="input_form mb-3  @error('password-confirm') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password" placeholder="Contraseña">
+
+                            <div class="d-flex"> <!-- Check Políticas y terminos -->
+                                <input type="checkbox" class="" id="aceptoTerminos" name="aceptoTerminos" value="1"  required>
+
+                                <p class="txt_check"> Declaro que he leído y acepto la
+                                    <a class="text_link-register" href="{{url('politicas')}}" target="blank"> política de privacidad</a>  y los
+                                    <a class="text_link-register" href="{{url('politicas')}}" target="blank"> términos y condiciones</a>  de Zaabra Salud.
+                                </p>
                             </div>
-                        </div>
+                        
+                            <div class="d-flex mt-2"> <!-- Check de Promociones -->
+                                <input type="checkbox" class="" id="">
 
-                        <!-- Check de Promociones -->
-                        <div class="form-group row mb-0">
-                            <div class="col-12 section_option-promo-register">
-                                <input type="checkbox" class="check_option-register" id="">
-                                <div class="col-12 section_terminos-register">
-                                    <span class="texto_inferior-tarjeta-register"> Me gustaría recibir comunicaciones promocionales. </span>
-                                </div>
+                                <p class="txt_check">Me gustaría recibir comunicaciones promocionales.</p>
                             </div>
-                        </div>
 
-                        <!-- Confirmación de e-mail -->
-                        <div class="form-group col-12 section_terminos-register">
-                            <p class="texto_inferior-tarjeta-register mt-1 mb-3 mb-md-4 mt-lg-3"> Recibirá un e-mail de confirmación. </p>
-                        </div>
+                            <p class="txt_check mt-2 mb-3 p-0">Me gustaría recibir comunicaciones promocionales.</p> <!-- Confirmación de e-mail -->
 
-                        <!-- Botón Ingresar -->
-                        <div class="form-group row mb-2 mb-md-0">
-                            <div class="col-12 content_btn-ingresar-register">
-                                <button type="submit" class="btn_Ingreso-register"> {{ __('Ingresar') }}
-                                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-register" alt="">
+                            <div class="seccion_btn_central m-0"> <!-- Botón Ingresar -->
+                                <button type="submit" class="btn_grande_central_azul px-4"> {{ __('Ingresar') }}
+                                    <i class="fas fa-arrow-right pl-1"></i>
                                 </button>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
 
 @section('scripts')
