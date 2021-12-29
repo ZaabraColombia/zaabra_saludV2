@@ -135,8 +135,8 @@
                                 <input type="checkbox" class="" id="aceptoTerminos" name="aceptoTerminos" value="1"  required>
 
                                 <p class="txt_check"> Declaro que he leído y acepto la
-                                    <a class="text_link-register" href="{{url('politicas')}}" target="blank"> política de privacidad</a>  y los
-                                    <a class="text_link-register" href="{{url('politicas')}}" target="blank"> términos y condiciones</a>  de Zaabra Salud.
+                                    <a class="txt_link_check" href="{{url('politicas')}}" target="blank">política de privacidad</a>  y los
+                                    <a class="txt_link_check" href="{{url('politicas')}}" target="blank">términos y condiciones</a>  de Zaabra Salud.
                                 </p>
                             </div>
                         
@@ -146,7 +146,7 @@
                                 <p class="txt_check">Me gustaría recibir comunicaciones promocionales.</p>
                             </div>
 
-                            <p class="txt_check mt-2 mb-3 p-0">Me gustaría recibir comunicaciones promocionales.</p> <!-- Confirmación de e-mail -->
+                            <p class="txt_check text-center mt-2 mb-3 p-0">Recibirá un e-mail de confirmación.</p> <!-- Confirmación de e-mail -->
 
                             <div class="seccion_btn_central m-0"> <!-- Botón Ingresar -->
                                 <button type="submit" class="btn_grande_central_azul px-4"> {{ __('Ingresar') }}

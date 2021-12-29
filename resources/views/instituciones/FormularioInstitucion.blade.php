@@ -587,8 +587,8 @@
 
                 <div class="section_button_form">
                     <!-- botón para canelar y limpiar formulario -->
-                    <button type="button" class="btn btn-default" id="btn-cancelar-editar-profesional" style="display: none;">
-                        <i class="fas fa-times"></i> Cancelar
+                    <button type="button" class="button_transparent_form mr-2" id="btn-cancelar-editar-profesional" style="display: none;">
+                       Cancelar  <i class="fas fa-times pl-2"></i>
                     </button>
                     <!-- Save button -->
                     <button type="submit" class="button_green_form" id="btn-guardar-profecionales-institucion" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}  data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}..."> Guardar

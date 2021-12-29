@@ -1,13 +1,12 @@
 @extends('layouts.app')
 @section('content')
-
     @php
-    $new_array = array();
+        $new_array = array();
     @endphp
     <!-- seccion datos perfil profesional-->
-    <section class="section_data_instituciones">
-        <div class="containt_princ_LandInst">
-            <div class="data_instituciones">
+    <section class="card_head_lan">
+        <div class="section_main_data">
+            <div class="content_data_lan">
                 <!-- <div class="section_backArrow">
                     <a class="back_arrow back_text" href="#"> atras </a>
                     <div class="heart-wrapper">
@@ -15,19 +14,19 @@
                     </div>
                 </div> -->
                 @foreach ($objinstitucionlandin as $objinstitucionlandin)
-                    <div class="content_logo_inst">
-                        <img class="logo_sede_inst" src="{{URL::asset($objinstitucionlandin->logo)}}">
+                    <div class="content_logo_inst m-auto"> <!--clase sin atributos -->
+                        <img class="logo_sede_lan" src="{{URL::asset($objinstitucionlandin->logo)}}">
                     </div>
 
-                    <div class="contains_info">
-                        <h1>{{$objinstitucionlandin->nombreinstitucion}}</h1>
-                        <h2>{{$objinstitucionlandin->nombretipo}}</h2>
-                        <h5 class="title-url mb-2 mb-lg-0"><i></i>{{$objinstitucionlandin->url}}</h5>
-                        <h5 class="title-tel mb-2 mb-lg-0"><i></i>{{$objinstitucionlandin->telefonouno}}</h5>
-                        <h5 class="title-adress"><i></i>{{$objinstitucionlandin->direccion}}<br>{{$objinstitucionlandin->ciudad}} {{$objinstitucionlandin->pais}}</h5>
+                    <div class="main_data_lan">
+                        <h1 class="title_color_h1">{{$objinstitucionlandin->nombreinstitucion}}</h1>
+                        <h2 class="subTitle_h2">{{$objinstitucionlandin->nombretipo}}</h2>
+                        <h5 class="text_h5"><i class="icon_pweb"></i>{{$objinstitucionlandin->url}}</h5>
+                        <h5 class="text_h5"><i class="icon_cont"></i>{{$objinstitucionlandin->telefonouno}}</h5>
+                        <h5 class="text_h5"><i class="icon_addr"></i>{{$objinstitucionlandin->direccion}}<br>{{$objinstitucionlandin->ciudad}} {{$objinstitucionlandin->pais}}</h5>
                         <!-- Rating Stars Box -->
                         <div class='rating-stars start_calification'>
-                            <ul id='stars'>
+                            <ul id='stars' class="my-0">
                                 <li class='star' title='Poor' data-value='1'>
                                 <i class='fa fa-star fa-fw'></i>
                                 </li>
@@ -47,19 +46,18 @@
                         </div>
                     </div>
 
-                    <div class="content_sede_inst">
-                        <img class="img_sede_inst" src="{{URL::asset($objinstitucionlandinimgsede->imagen)}}">
+                    <div class="content_img_sede">
+                        <img class="img_sede_lan" src="{{URL::asset($objinstitucionlandinimgsede->imagen)}}">
                     </div>
                 @endforeach
-
             </div>
 
-            <div class="contains_buttons_landInst">
-                <a href="">Agende su cita
-                    <i class="fas fa-arrow-right arrow_mas"></i>
+            <div class="section_btn_lan">
+                <a class="btn_colorful" href="">Agende su cita
+                    <i class="fas fa-arrow-right pl-2"></i>
                 </a>
-                <a href="{{route('PerfilInstitucion-profesionales', ['slug' => $objinstitucionlandin->slug])}}">Ver profesional
-                    <i class="fas fa-arrow-right arrow_mas"></i>
+                <a class="btn_colorless" href="{{route('PerfilInstitucion-profesionales', ['slug' => $objinstitucionlandin->slug])}}">Ver profesional
+                    <i class="fas fa-arrow-right pl-2"></i>
                 </a>
             </div>
         </div>
@@ -68,9 +66,9 @@
     <!-- seccion datos consulta perfil profesional-->
     <section class="contains_swiper_institucion">
         @if($objinstitucionlandin->idtipoInstitucion == 9)
-            <h1> !Una asociación médica de vanguardia!</h1>
+            <h1 class="title_black_h1"> !Una asociación médica de vanguardia!</h1>
         @else
-            <h1>¿Por qué es un centro médico de alto nivel?</h1>
+            <h1 class="title_black_h1">¿Por qué es un centro médico de alto nivel?</h1>
         @endif
     
         <div class="swiper-container swiper_institucion">
@@ -117,9 +115,9 @@
     <section id="serv_ins" class="section_toggle">
 
         <div class="servicios_instituciones">
-            <h2><i></i>Servicios profesionales</h2>
+            <h2 class="subTitle_color_h2"><i></i>Servicios profesionales</h2>
 
-            <p>{{$objinstitucionlandin->DescripcionGeneralServicios}}</p>
+            <p class="text_p">{{$objinstitucionlandin->DescripcionGeneralServicios}}</p>
         </div>
         
         <div class="desplegable_LandInst accordion_green" id="accordion"> <!--Función del cambio de color a verde en los botones del collapse estan ubicados en el archivo "footer.js". -->
@@ -154,21 +152,21 @@
     <section id="acer_ins" class="section_toggle">
 
         <div class="quienes_somos">
-            <h2><i></i>¿Quiénes somos?</h2>
-            <p>{{$objinstitucionlandin->quienessomos}}</p>
+            <h2 class="subTitle_color_h2"><i></i>¿Quiénes somos?</h2>
+            <p class="text_p">{{$objinstitucionlandin->quienessomos}}</p>
         </div>
 
         <div class="propuesta">
-            <h2><i></i>Propuesta de valor</h2>
+            <h2 class="subTitle_black_h2"><i></i>Propuesta de valor</h2>
             <ul>
                 <li>
-                    <p>{{$objinstitucionlandin->propuestavalor}}</p>
+                    <p class="text_p p-0">{{$objinstitucionlandin->propuestavalor}}</p>
                 </li>
             </ul>
         </div>
 
         <div class="convenios">
-            <h2><i></i>Convenios</h2>
+            <h2 class="subTitle_black_h2"><i></i>Convenios</h2>
             <div class="content_conv_landInst">
                 @foreach($objConvenios as $convenio)
                     <div class="conv_imgText_LandInst">
@@ -203,7 +201,7 @@
 
 
     <div id="cert_ins" class="section_toggle">
-        <h2><i></i>Certificados</h2>
+        <h2 class="subTitle_color_h2"><i></i>Certificados</h2>
         <div class="swiper-container swiper_certificado_LandInst">
             <div class="swiper-wrapper">
                 @foreach ($objinstitucionlandinpremios as $objinstitucionlandinpremios)
@@ -225,7 +223,7 @@
 
     <section id="sede_ins" class="section_toggle">
         <div class="sedes_institucion">
-            <h2><i></i>Sedes</h2>
+            <h2 class="subTitle_color_h2"><i></i>Sedes</h2>
             <div class="container_cards">
                 @foreach ($objinstitucionlandinSedes as $objinstitucionlandinSedes)
                     <div class="card">
@@ -243,15 +241,15 @@
         </div>
 
         <div class="mapa">
-            <h2><i></i>Ubica la sede</h2>
-            <p>Conoce como llegar a la sede más cercana.</p>
+            <h2 class="subTitle_black_h2"><i></i>Ubica la sede</h2>
+            <p class="text_p">Conoce como llegar a la sede más cercana.</p>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.7670370514384!2d-74.07662168467442!3d4.635601943507973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a2d7480bc75%3A0x893a7b8651243c29!2sMedPlus%20Medicina%20Prepagada%20Palermo%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1625066882913!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
     <section id="gale_ins" class="section_toggle">
         <div class="galeria_institucion">
-            <h2><i></i>Galería</h2>
+            <h2 class="subTitle_color_h2"><i></i>Galería</h2>
             <div class="swiper-container swiper_galeria_inst">
                 <div class="swiper-wrapper">
                     @foreach ($objinstitucionlandingaleria as $objinstitucionlandingaleria)
@@ -270,7 +268,7 @@
         </div>
 
         <div class="videos_institucion">
-            <h2><i></i>Videos</h2>
+            <h2 class="subTitle_black_h2"><i></i>Videos</h2>
             <div class="container_cards_video">
                 @foreach ($objinstitucionlandinvideo as $objinstitucionlandinvideo)
                     <div class="card">
@@ -286,8 +284,8 @@
     </section>
 
     <section class="container-fluid opiniones_LandInst">
-        <h2><i></i> Opiniones de pacientes </h2>
-        <p> Describa su opinión y seleccione las estrellas según el puntaje que le quiera asignar al médico. </p>
+        <h2 class="subTitle_color_h2"><i></i> Opiniones de pacientes </h2>
+        <p class="text_p"> Describa su opinión y seleccione las estrellas según el puntaje que le quiera asignar al médico. </p>
 
         <div id="resultados">
             <div class="alert alert-success d-none mt-5" id="msg_comentario">

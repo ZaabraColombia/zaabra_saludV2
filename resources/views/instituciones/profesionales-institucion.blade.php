@@ -63,7 +63,6 @@
         </div>
 
         <!-- Contenido de las tarjetas de los profesionales -->
-      
             <div id="grid-container" class="container_grid">
                 @foreach ($objProfesionalesIns as $profesional)
                     <?php
@@ -122,9 +121,9 @@
                     {"width" : 1500, "cols" : 7},
                     {"width" : 1300, "cols" : 6},
                     {"width" : 1100, "cols" : 5},
-                    {"width" : 900, "cols" : 4},
-                    {"width" : 700, "cols" : 3},
-                    {"width" : 300, "cols" : 2},
+                    {"width" :  900, "cols" : 4},
+                    {"width" :  700, "cols" : 3},
+                    {"width" :  300, "cols" : 2},
                 ]
             });
         });
@@ -150,7 +149,7 @@
                 //resizeObserver: true,
             
                 autoplay: {
-                delay: 48888888888888500,
+                delay: 5500,
                 disableOnInteraction: false,
                 },
             
