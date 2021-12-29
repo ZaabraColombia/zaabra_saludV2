@@ -19837,13 +19837,184 @@ a:link, a:visited, a:active, a:hover {
     padding-right: 15%;
   }
 }
-.section_data_instituciones {
+.card_head_lan {
   background: #F5F5F5;
-  padding: 10% 0;
+  padding: 40px 0;
 }
 
-.containt_princ_LandInst {
+.section_main_data {
   width: 100%;
+  margin: auto;
+}
+
+.section_btn_lan {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  margin: auto;
+}
+
+.main_data_lan {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.content_data_lan {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.content_img_sede {
+  display: none;
+}
+
+.logo_sede_lan {
+  width: 160px;
+  height: 160px;
+  border-radius: 115px;
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.icon_pweb {
+  background-image: url("/img/landing-institucion/icono-pagina-web.svg");
+}
+
+.icon_cont {
+  background-image: url("/img/landing-institucion/icono-contacto.svg");
+}
+
+.icon_addr {
+  background-image: url("/img/landing-institucion/icono-direccion.svg");
+}
+
+.main_data_lan h5 i {
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 28px;
+  height: 20px;
+}
+
+.start_calification {
+  display: flex;
+  margin-top: 5px;
+  align-self: center;
+}
+
+.title_color_h1 {
+  font-size: 1.5em;
+  font-family: "Quicksand";
+  color: #019F86;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.title_black_h1 {
+  font-size: 1.5em;
+  font-family: "Quicksand";
+  color: #232323;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 30px 0;
+  margin: 0;
+}
+
+.subTitle_h2 {
+  font-size: 1.3em;
+  font-family: "Quicksand";
+  font-weight: bolder;
+  color: #232323;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.subTitle_color_h2 {
+  font-size: 1.3em;
+  font-family: "Quicksand";
+  font-weight: bolder;
+  color: #019F86;
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+}
+
+.subTitle_black_h2 {
+  font-size: 1.3em;
+  font-family: "Quicksand";
+  font-weight: bolder;
+  color: #434343;
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+}
+
+.text_h5 {
+  font-size: 1em;
+  font-family: "Roboto";
+  color: #232323;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  overflow-wrap: anywhere;
+  margin-bottom: 3px;
+}
+
+.text_p {
+  font-size: 1em;
+  font-family: "Roboto";
+  color: #3E3E3E;
+  margin: 0;
+  padding-left: 2.5em;
+}
+
+.btn_colorful {
+  font-size: 1em;
+  font-family: "Quicksand";
+  font-weight: lighter;
+  color: #ffff;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background: #019F86;
+  border-radius: 5px;
+  border: 0.5px solid #019F86;
+  padding: 5px 7px;
+}
+
+.btn_colorless {
+  font-size: 1em;
+  font-family: "Quicksand";
+  font-weight: lighter;
+  color: #232323 !important;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background: #EFEFEF;
+  border-radius: 5px;
+  border: 0.5px solid #434343;
+  padding: 5px 7px;
+}
+
+.propuesta ul {
+  margin-top: 5px;
+  padding-left: 2.5em;
+}
+
+.propuesta ul li {
+  list-style: none;
+}
+
+.propuesta ul li:nth-child(1) {
+  background: #F5F5F5;
+  padding: 15px 10px;
 }
 
 .section_toggle {
@@ -19852,167 +20023,16 @@ a:link, a:visited, a:active, a:hover {
   padding-bottom: 20px;
 }
 
-.data_instituciones {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-.content_logo_inst {
-  width: auto;
-  height: auto;
-  margin: auto;
-}
-
-.logo_sede_inst {
-  box-shadow: 0px 3px 6px #00000029;
-  width: 160px;
-  height: 160px;
-  border-radius: 115px;
-}
-
-.data_instituciones .contains_info {
-  width: 100%;
-  padding: 5%;
-  display: flex;
-  flex-direction: column;
-}
-
-.data_instituciones h1 {
-  font-size: 1.7em;
-  font-family: "Quicksand", sans-serif;
-  color: #019F86;
-  font-weight: bold;
-  text-align: center;
-}
-
-.data_instituciones h2 {
-  font-size: 1.5em;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bolder;
-  color: #232323;
-  text-align: center;
-}
-
-.data_instituciones h5 {
-  font-size: 1em;
-  font-family: "Roboto";
-  color: #3E3E3E;
-}
-
-.data_instituciones h5:nth-child(1) {
-  font-weight: 500;
-}
-
-.data_instituciones .title-url {
-  display: flex;
-  align-items: center;
-  overflow-wrap: anywhere;
-  line-height: 1;
-}
-
-.data_instituciones .title-url i {
-  background-image: url("/img/landing-institucion/icono-pagina-web.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 30px;
-  height: 20px;
-}
-
-.data_instituciones .title-tel {
-  display: flex;
-  align-items: center;
-  margin-right: 60px;
-}
-
-.data_instituciones .title-tel i {
-  background-image: url("/img/landing-institucion/icono-contacto.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 30px;
-  height: 20px;
-}
-
-.data_instituciones .title-adress {
-  display: flex;
-  align-items: center;
-}
-
-.data_instituciones .title-adress i {
-  background-image: url("/img/landing-institucion/icono-direccion.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 30px;
-  height: 20px;
-}
-
-.start_calification {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.data_instituciones .rating-stars ul {
-  display: flex;
-  justify-content: initial;
-  margin-top: 3%;
-  margin-bottom: 0;
-}
-
-.content_sede_inst {
-  display: none;
-}
-
-.contains_buttons_landInst {
-  display: flex;
-  padding: 0 5%;
-  justify-content: space-between;
-}
-
-.contains_buttons_landInst a:nth-child(1) {
-  font-size: 1em;
-  font-family: "Quicksand";
-  font-weight: lighter;
-  width: 140px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  border-radius: 3px;
-  background: #019F86;
-  color: #ffff;
-  border: 0.5px solid #019F86;
-  padding: 1% 0;
-}
-
-.contains_buttons_landInst a:nth-child(2) {
-  font-size: 1em;
-  font-family: "Quicksand";
-  font-weight: lighter;
-  width: 140px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  border-radius: 3px;
-  background: #EFEFEF;
-  color: #232323;
-  border: 0.5px solid #434343;
-  padding: 1% 0;
-}
-
+/*.content_logo_inst {
+    width: auto;
+    height: auto;
+    margin: auto;
+}*/
 .contains_swiper_institucion {
   width: 95%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10%;
-}
-
-.contains_swiper_institucion h1 {
-  font-size: 1.5em;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bolder;
-  color: #232323;
-  text-align: center;
-  margin: 0;
-  padding: 10% 0;
 }
 
 .serv_grey {
@@ -20123,33 +20143,12 @@ a:link, a:visited, a:active, a:hover {
   font-weight: bolder;
 }
 
-.servicios_instituciones h2 {
-  font-size: 1.5em;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bolder;
-  color: #019F86;
-  display: flex;
-  align-content: center;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
-}
-
 .servicios_instituciones i {
   background-image: url("/img/landing-institucion/icono-servicios-profesionales.svg");
   background-repeat: no-repeat;
   background-size: contain;
   width: 35px;
   height: 27px;
-}
-
-.servicios_instituciones p {
-  font-size: 0.9em;
-  font-family: "Roboto";
-  color: #3E3E3E;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  padding-left: 2.7em;
 }
 
 .section_active {
@@ -20237,18 +20236,6 @@ a:link, a:visited, a:active, a:hover {
   color: #019F86;
 }
 
-.quienes_somos h2 {
-  font-size: 1.5em;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bolder;
-  color: #019F86;
-  display: flex;
-  align-content: center;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
-}
-
 .quienes_somos i {
   background-image: url("/img/landing-institucion/icono-quienes-somos.svg");
   background-repeat: no-repeat;
@@ -20257,67 +20244,12 @@ a:link, a:visited, a:active, a:hover {
   height: 27px;
 }
 
-.quienes_somos p {
-  font-size: 0.9em;
-  font-family: "Roboto";
-  color: #3E3E3E;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  padding-left: 2.7em;
-}
-
-.propuesta h2 {
-  font-size: 1.5em;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bolder;
-  color: #434343;
-  display: flex;
-  align-content: center;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
-}
-
 .propuesta i {
   background-image: url("/img/landing-institucion/icono-propuesta-valor.svg");
   background-repeat: no-repeat;
   background-size: contain;
   width: 35px;
   height: 27px;
-}
-
-.propuesta p {
-  font-size: 0.9em;
-  font-family: "Roboto";
-  color: #3E3E3E;
-}
-
-.propuesta ul {
-  padding: 0;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  padding-left: 2.7em;
-}
-
-.propuesta ul li {
-  list-style: none;
-}
-
-.propuesta ul li:nth-child(1) {
-  background: #F5F5F5;
-  padding: 5% 1%;
-}
-
-.convenios h2 {
-  font-size: 1.5em;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bolder;
-  color: #434343;
-  display: flex;
-  align-content: center;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
 }
 
 .convenios i {
@@ -20370,18 +20302,6 @@ a:link, a:visited, a:active, a:hover {
 
 .convenios ul li:nth-child(odd) {
   background: #F5F5F5;
-}
-
-.contain_swiper_certificados h2 {
-  font-size: 1.5em;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bolder;
-  color: #019F86;
-  display: flex;
-  align-content: center;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
 }
 
 .contain_swiper_certificados i {
@@ -20478,18 +20398,6 @@ a:link, a:visited, a:active, a:hover {
   margin: auto;
 }
 
-.sedes_institucion h2 {
-  font-size: 1.5em;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bolder;
-  color: #019F86;
-  display: flex;
-  align-content: center;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
-}
-
 .sedes_institucion i {
   background-image: url("/img/landing-institucion/icono-sedes.svg");
   background-repeat: no-repeat;
@@ -20560,18 +20468,6 @@ a:link, a:visited, a:active, a:hover {
   color: #0083D6;
 }
 
-.mapa h2 {
-  font-size: 1.5em;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bolder;
-  color: #434343;
-  display: flex;
-  align-content: center;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
-}
-
 .mapa i {
   background-image: url("/img/landing-institucion/icono-ubique-su-sede.svg");
   background-repeat: no-repeat;
@@ -20580,27 +20476,8 @@ a:link, a:visited, a:active, a:hover {
   height: 27px;
 }
 
-.mapa p {
-  font-size: 0.9em;
-  font-family: "Roboto";
-  color: #3E3E3E;
-  padding: 3% 0 3% 12%;
-}
-
 .mapa iframe {
   width: 100%;
-}
-
-.galeria_institucion h2 {
-  font-size: 1.5em;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bolder;
-  color: #019F86;
-  display: flex;
-  align-content: center;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
 }
 
 .galeria_institucion i {
@@ -20698,18 +20575,6 @@ a:link, a:visited, a:active, a:hover {
   flex-wrap: wrap;
 }
 
-.videos_institucion h2 {
-  font-size: 1.5em;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bolder;
-  color: #434343;
-  display: flex;
-  align-content: center;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
-}
-
 .videos_institucion i {
   background-image: url("/img/landing-institucion/icono-videos.svg");
   background-repeat: no-repeat;
@@ -20752,31 +20617,12 @@ a:link, a:visited, a:active, a:hover {
   margin: 0;
 }
 
-.opiniones_LandInst h2 {
-  font-size: 1.5em;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bolder;
-  color: #019F86;
-  display: flex;
-  align-content: center;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
-}
-
 .opiniones_LandInst i {
   background-image: url("/img/landing-institucion/icono-opiniones-de-pacientesinst.svg");
   background-repeat: no-repeat;
   background-size: contain;
   width: 35px;
   height: 27px;
-}
-
-.opiniones_LandInst p {
-  font-size: 0.9em;
-  font-family: "Roboto";
-  color: #3E3E3E;
-  padding: 0.5em 0 0 2.7em;
 }
 
 .opinion_verif_LandInst {
@@ -20812,49 +20658,28 @@ a:link, a:visited, a:active, a:hover {
     height: auto;
     image-rendering: -webkit-optimize-contrast;
 }*/
-@media (min-width: 360px) {
-  .data_instituciones h1 {
-    font-size: 2em;
-  }
-}
 @media (min-width: 700px) {
-  .section_data_instituciones {
-    padding: 5% 0;
+  .section_main_data {
+    width: 52%;
   }
 
-  .containt_princ_LandInst {
-    width: 52%;
-    margin: auto;
+  .logo_sede_lan {
+    width: 200px;
+    height: 200px;
+  }
+
+  .text_p {
+    padding-left: 3.3em;
+  }
+
+  .propuesta ul {
+    padding-left: 3.3em;
   }
 
   .section_toggle {
     padding-bottom: 50px;
   }
 
-  .logo_sede_inst {
-    width: 200px;
-    height: 200px;
-  }
-
-  .data_instituciones .contains_info {
-    padding: 3% 0;
-  }
-
-  .data_instituciones h2 {
-    font-size: 1.8em;
-  }
-
-  .data_instituciones h5 {
-    font-size: 1.15em;
-  }
-
-  .data_instituciones .title-tel {
-    margin-right: 70px;
-  }
-
-  /*.start_calification {
-      width: 195px;
-  }*/
   .contains_buttons_landInst {
     width: 100%;
     margin: auto;
@@ -20872,11 +20697,6 @@ a:link, a:visited, a:active, a:hover {
   .contains_swiper_institucion {
     width: 85%;
     margin-bottom: 7%;
-  }
-
-  .contains_swiper_institucion h1 {
-    font-size: 1.8em;
-    padding: 7% 0;
   }
 
   /*.landingInsti {
@@ -20928,27 +20748,27 @@ a:link, a:visited, a:active, a:hover {
 .sedes_institucion i, .mapa i,
 .galeria_institucion i,
 .videos_institucion i, .opiniones_LandInst i {
-    width: 55px;
-    height: 40px;
+    width: 47px;
+    height: 35px;
   }
 
-  .servicios_instituciones h2,
-.quienes_somos h2, .propuesta h2, .convenios h2,
-.contain_swiper_certificados h2,
-.sedes_institucion h2, .mapa h2,
-.galeria_institucion h2,
-.videos_institucion h2 {
-    font-size: 1.8em;
+  /*
+  .servicios_instituciones h2, 
+  .quienes_somos h2, .propuesta h2, .convenios h2,
+  .contain_swiper_certificados h2,
+  .sedes_institucion h2, .mapa h2,
+  .galeria_institucion h2,
+  .videos_institucion h2 {
+      font-size: 1.8em;
   }
-
-  .servicios_instituciones p,
-.quienes_somos p, .propuesta ul {
-    font-size: 1.1em;
-    margin-top: 1%;
-    margin-bottom: 2%;
-    padding-left: 3.7em;
+     .servicios_instituciones p, 
+  .quienes_somos p, .propuesta ul {
+      font-size: 1.1em;
+      margin-top: 1%;
+      margin-bottom: 2%;
+      padding-left: 3.7em;
   }
-
+  */
   .desplegable_LandInst {
     padding-left: 5%;
   }
@@ -20976,17 +20796,6 @@ a:link, a:visited, a:active, a:hover {
 
   .lista_sede li {
     font-size: 1.1em;
-  }
-
-  .propuesta p {
-    font-size: 1.1em;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .propuesta ul li:nth-child(1) {
-    background: #F5F5F5;
-    padding: 3% 1%;
   }
 
   .content_conv_landInst {
@@ -21060,11 +20869,6 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.05em;
   }
 
-  .mapa p {
-    font-size: 1.1em;
-    padding: 1% 0 3% 9%;
-  }
-
   .btnPrev_gal_LandInst {
     left: 2px;
   }
@@ -21116,15 +20920,6 @@ a:link, a:visited, a:active, a:hover {
     padding: 7% 8%;
   }
 
-  .opiniones_LandInst h2 {
-    font-size: 1.8em;
-  }
-
-  .opiniones_LandInst p {
-    font-size: 1.1em;
-    padding: 0.5em 0 0 3.7em;
-  }
-
   .opinion_verif_LandInst h3 {
     font-size: 1.3em;
   }
@@ -21135,73 +20930,70 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1024px) {
-  .section_data_instituciones {
+  .card_head_lan {
+    padding: 30px 0 5px 0;
+  }
+
+  .section_main_data {
+    width: 85%;
+  }
+
+  .section_btn_lan {
+    position: relative;
+    bottom: 30px;
+  }
+
+  .content_data_lan {
     display: flex;
-    padding: 2% 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 0;
+  }
+
+  .content_img_sede {
+    display: flex;
+    width: 375px;
+    height: 185px;
+    align-self: flex-end;
+  }
+
+  .logo_sede_lan {
+    width: 135px;
+    height: 135px;
+  }
+
+  .img_sede_lan {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 40px 0 0 0;
+  }
+
+  .start_calification {
+    align-self: flex-start;
+  }
+
+  .title_color_h1 {
+    text-align: initial;
+  }
+
+  .subTitle_h2 {
+    text-align: initial;
+    margin-bottom: 3px;
+  }
+
+  .rating-stars ul > li.star > i.fa {
+    font-size: 1.3em;
   }
 
   .section_toggle {
     width: 75%;
   }
 
-  .data_instituciones {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 64%;
-  }
-
-  .containt_princ_LandInst {
-    width: 85%;
-  }
-
   /*.content_logo_inst {
       width: 26.5%;
       height: 130px;
   }*/
-  .logo_sede_inst {
-    width: 133px;
-    height: 135px;
-  }
-
-  .data_instituciones .contains_info {
-    padding: 0.6em 0 0.6em 1.5em;
-    width: 90%;
-    align-self: center;
-  }
-
-  .data_instituciones h1 {
-    font-size: 1.6em;
-    text-align: initial;
-    margin: 0;
-    line-height: 0.95;
-  }
-
-  .data_instituciones h2 {
-    font-size: 1.4em;
-    text-align: initial;
-    margin: 0;
-  }
-
-  .data_instituciones .title-url,
-.data_instituciones .title-tel {
-    font-size: 1em;
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .data_instituciones .title-adress {
-    width: 100%;
-    font-size: 1em;
-    justify-content: flex-start;
-    line-height: 1;
-  }
-
-  .start_calification {
-    margin-left: 0;
-    padding: 0.2em 0;
-  }
-
   .contains_buttons_landInst {
     width: 335px;
     margin-left: 10.5em;
@@ -21228,18 +21020,6 @@ a:link, a:visited, a:active, a:hover {
   /*.convenios img {
       height: 220px;
   }*/
-  .content_sede_inst {
-    display: flex;
-    position: absolute;
-    right: 5em;
-  }
-
-  .img_sede_inst {
-    box-shadow: 0px 3px 6px #00000029;
-    width: 305px;
-    border-radius: 40px 0 0 0;
-  }
-
   .btnPrev_LandInst {
     left: 3px;
   }
@@ -21253,18 +21033,9 @@ a:link, a:visited, a:active, a:hover {
     margin-bottom: 5%;
   }
 
-  .contains_swiper_institucion h1 {
-    font-size: 1.6em;
-    padding: 5% 0;
-  }
-
   .section_insti {
     width: 75%;
     padding-bottom: 5%;
-  }
-
-  .servicios_instituciones p, .quienes_somos p, .propuesta ul {
-    padding-left: 7%;
   }
 
   .desplegable_LandInst {
@@ -21276,12 +21047,13 @@ a:link, a:visited, a:active, a:hover {
     justify-content: space-between;
   }
 
-  .servicios_instituciones h2, .quienes_somos h2, .propuesta h2,
-.convenios h2, .contain_swiper_certificados h2, .sedes_institucion h2,
-.mapa h2, .galeria_institucion h2, .videos_institucion h2 {
-    font-size: 1.6em;
+  /*
+  .servicios_instituciones h2, .quienes_somos h2, .propuesta h2, 
+  .convenios h2, .contain_swiper_certificados h2, .sedes_institucion h2, 
+  .mapa h2, .galeria_institucion h2, .videos_institucion h2 {
+      font-size: 1.6em;
   }
-
+  */
   .sedes_institucion .card {
     width: 49%;
     margin-left: 0;
@@ -21294,10 +21066,6 @@ a:link, a:visited, a:active, a:hover {
     border-radius: 80px;
     width: 105px;
     height: 105px;
-  }
-
-  .mapa p {
-    padding: 1% 0 3% 7%;
   }
 
   .container_cards_video {
@@ -21327,26 +21095,9 @@ a:link, a:visited, a:active, a:hover {
     width: 35px;
     height: 20px;
   }
-
-  .opiniones_LandInst h2 {
-    font-size: 1.6em;
-  }
 }
 @media (min-width: 1200px) {
-  .data_instituciones {
-    width: 65%;
-  }
-
-  .content_sede_inst {
-    right: 10.5em;
-    top: 6.7em;
-  }
-
-  .img_sede_inst {
-    width: 310px;
-  }
-
-  .containt_princ_LandInst {
+  .section_main_data {
     width: 75%;
   }
 
@@ -21354,36 +21105,13 @@ a:link, a:visited, a:active, a:hover {
       width: 25%;
       height: 135px;
   }*/
-  .servicios_instituciones p, .quienes_somos p, .propuesta ul {
-    padding-left: 6%;
-  }
-
-  .opiniones_LandInst p {
-    padding: 1% 0 3% 6.5%;
-  }
 }
 @media (min-width: 1360px) {
-  .section_data_instituciones {
-    padding: 2% 0 3% 0;
-  }
-
-  .start_calification {
-    padding: 0.2em 0 0.5em 0;
-  }
-
   /*.convenios img {
       height: 275px;
   }*/
   .contains_buttons_landInst {
     margin-left: 11em;
-  }
-
-  .content_sede_inst {
-    right: 12em;
-  }
-
-  .img_sede_inst {
-    width: 325px;
   }
 
   .slaider_certificado_LandInst {
@@ -21403,34 +21131,49 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1440px) {
-  .logo_sede_inst {
+  .content_img_sede {
+    display: flex;
+    width: 460px;
+    height: 210px;
+    align-self: flex-end;
+  }
+
+  .logo_sede_lan {
     width: 165px;
     height: 165px;
   }
 
-  .data_instituciones h1 {
+  .title_color_h1 {
     font-size: 1.8em;
   }
 
-  .data_instituciones h2 {
+  .title_black_h1 {
+    font-size: 1.8em;
+  }
+
+  .subTitle_h2 {
     font-size: 1.6em;
   }
 
-  .data_instituciones .title-url, .data_instituciones .title-tel {
-    font-size: 1.2em;
+  .subTitle_color_h2 {
+    font-size: 1.6em;
   }
 
-  .data_instituciones .title-adress {
-    font-size: 1.2em;
+  .subTitle_black_h2 {
+    font-size: 1.6em;
   }
 
-  .start_calification {
-    margin-left: 0;
-    padding: 0.5em 0 0.5em 0;
+  .text_h5 {
+    font-size: 1.15em;
   }
 
-  .rating-stars ul > li.star > i.fa {
-    font-size: 1.5em;
+  .text_p {
+    font-size: 1.15em;
+    padding-left: 4em;
+  }
+
+  .propuesta ul {
+    padding-left: 4em;
   }
 
   .contains_buttons_landInst {
@@ -21446,20 +21189,6 @@ a:link, a:visited, a:active, a:hover {
   .contains_buttons_landInst a:nth-child(2) {
     width: 200px;
     font-size: 1.2em;
-  }
-
-  .img_sede_inst {
-    width: 375px;
-  }
-
-  .data_instituciones {
-    width: 65%;
-    margin-bottom: 0;
-  }
-
-  .start_calification {
-    margin-left: 0;
-    padding: 0.3em 0 0.5em 0;
   }
 
   .boton_collapse-off {
@@ -21480,18 +21209,9 @@ a:link, a:visited, a:active, a:hover {
     width: 65px;
     height: 40px;
   }
-
-  .servicios_instituciones p, .quienes_somos p, .propuesta ul {
-    margin-top: 1%;
-    margin-bottom: 2%;
-  }
-
-  .opiniones_LandInst p {
-    padding: 1% 0 3% 5.5%;
-  }
 }
 @media (min-width: 1920px) {
-  .containt_princ_LandInst {
+  .section_main_data {
     width: 65%;
   }
 
@@ -21499,57 +21219,7 @@ a:link, a:visited, a:active, a:hover {
     width: 60%;
   }
 
-  /*.logo_sede_inst {
-      width: 165px;
-      height: 165px;
-  }*/
-  /*.data_instituciones {
-      height: 295px;
-  }*/
-  .data_instituciones .contains_info {
-    padding: 0.6em 0 0.6em 2.5em;
-  }
-
-  .section_data_instituciones {
-    padding: 2.5% 0 3% 0;
-  }
-
-  .data_instituciones h1 {
-    font-size: 2em;
-  }
-
-  .data_instituciones h2 {
-    font-size: 1.8em;
-  }
-
-  .data_instituciones .title-url, .data_instituciones .title-tel {
-    font-size: 1.3em;
-  }
-
-  .data_instituciones .title-adress {
-    font-size: 1.3em;
-  }
-
-  .content_sede_inst {
-    top: 8em;
-    right: 24em;
-  }
-
-  .img_sede_inst {
-    width: 400px;
-  }
-
-  .contains_buttons_landInst {
-    margin-left: 14em;
-  }
-
-  /*.start_calification {
-      margin-left: 0;
-      padding: 0.5em 0 0.5em 0;
-  }*/
-  /*.rating-stars ul > li.star > i.fa {
-      font-size: 1.5em;
-  }
+  /*
   .contains_buttons_landInst {
       width: 430px;
       bottom: 35.5em;
@@ -21565,10 +21235,6 @@ a:link, a:visited, a:active, a:hover {
   .contains_swiper_institucion {
     width: 65%;
     margin-bottom: 3%;
-  }
-
-  .contains_swiper_institucion h1 {
-    font-size: 2em;
   }
 
   .section_insti {
@@ -21589,21 +21255,18 @@ a:link, a:visited, a:active, a:hover {
     margin-top: 121px;
   }
 
-  .servicios_instituciones h2, .quienes_somos h2, .propuesta h2,
-.convenios h2, .contain_swiper_certificados h2, .sedes_institucion h2,
-.mapa h2, .galeria_institucion h2, .videos_institucion h2 {
-    font-size: 2em;
+  /*
+  .servicios_instituciones h2, .quienes_somos h2, .propuesta h2, 
+  .convenios h2, .contain_swiper_certificados h2, .sedes_institucion h2, 
+  .mapa h2, .galeria_institucion h2, .videos_institucion h2 {
+      font-size: 2em;
   }
-
+  */
   .servicios_instituciones i, .quienes_somos i, .propuesta i,
 .convenios i, .contain_swiper_certificados i, .sedes_institucion i,
 .mapa i, .galeria_institucion i, .videos_institucion i, .opiniones_LandInst i {
     width: 75px;
     height: 50px;
-  }
-
-  .servicios_instituciones p, .quienes_somos p, .propuesta ul {
-    font-size: 1.25em;
   }
 
   /*.boton_collapse-off {
@@ -21695,11 +21358,6 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.3em;
   }
 
-  .mapa p {
-    font-size: 1.25em;
-    padding: 0 0 2% 6%;
-  }
-
   .swiper_galeria_inst img {
     height: 250px;
   }
@@ -21736,15 +21394,6 @@ a:link, a:visited, a:active, a:hover {
 
   .opiniones_LandInst {
     padding: 3em 23em;
-  }
-
-  .opiniones_LandInst h2 {
-    font-size: 1.8em;
-  }
-
-  .opiniones_LandInst p {
-    font-size: 1.25em;
-    padding: 1% 0 3% 6%;
   }
 
   .opinion_verif_LandInst i {
@@ -22400,6 +22049,14 @@ a:link, a:visited, a:active, a:hover {
   padding-left: 8px;
 }
 
+.txt_link_check {
+  font-size: 0.8em;
+  font-family: "Roboto";
+  color: #0083D6 !important;
+  text-decoration: underline !important;
+  font-weight: 700;
+}
+
 .input_form {
   display: block;
   width: 100%;
@@ -22508,6 +22165,10 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .txt_check {
+    font-size: 1em;
+  }
+
+  .txt_link_check {
     font-size: 1em;
   }
 

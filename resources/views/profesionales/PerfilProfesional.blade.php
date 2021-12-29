@@ -58,7 +58,7 @@
 
             <div class="contains_buttons">
                 <a href="{{route('paciente.calendario-id-profesional', ['id' => $objprofesionallanding->idPerfilProfesional])}}">Agende su cita
-                    <i class="fas fa-arrow-right arrow_mas"></i>
+                    <i class="fas fa-arrow-right pl-2"></i>
                 </a>
                 <!-- <a href="{{route('paciente.calendario')}}">Ver agenda
                     <i class="fas fa-arrow-right arrow_mas"></i>

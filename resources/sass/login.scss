@@ -120,6 +120,13 @@
     color: #3E3E3E;
     padding-left: 8px;
 }
+.txt_link_check {  
+    font-size: .8em;
+    font-family: 'Roboto';
+    color: #0083D6 !important;
+    text-decoration: underline !important;
+    font-weight: 700;
+}
 // Inputs
 .input_form {
     display: block;
@@ -213,6 +220,9 @@
         font-size: 1.25em;
     }
     .txt_check {  
+        font-size: 1em;
+    }
+    .txt_link_check {  
         font-size: 1em;
     }
     // Inputs
