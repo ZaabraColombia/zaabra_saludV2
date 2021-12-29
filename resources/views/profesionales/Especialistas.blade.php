@@ -50,11 +50,11 @@
 
               <div class="contains_buttons">
                 <a href="{{route('paciente.calendario-id-profesional', ['id' => $objcarruselprofesionalespremiun->idPerfilProfesional])}}">Agende su cita
-                    <i class="fas fa-arrow-right arrow_mas"></i>
+                    <i class="fas fa-arrow-right pl-2"></i>
                 </a>
 
                 <a href="{{ url('/PerfilProfesional/' .  $objcarruselprofesionalespremiun->slug) }}">Ver perfil
-                    <i class="fas fa-arrow-right arrow_mas"></i>
+                    <i class="fas fa-arrow-right pl-2"></i>
                 </a>
               </div>
             </div>
@@ -102,11 +102,11 @@
 
           <div class="contains_buttons">
             <a href="{{route('paciente.calendario-id-profesional', ['id' => $objmedicospagonormal->idPerfilProfesional])}}">Agendar
-                <i class="fas fa-arrow-right arrow_mas"></i>
+                <i class="fas fa-arrow-right pl-2"></i>
             </a>
 
             <a href="{{ url('/PerfilProfesional/' .  $objmedicospagonormal->slug) }}">Ver más
-                <i class="fas fa-arrow-right arrow_mas"></i>
+                <i class="fas fa-arrow-right pl-2"></i>
             </a>
           </div>
         </div>

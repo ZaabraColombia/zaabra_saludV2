@@ -113,31 +113,30 @@
     </section>
 
     <section id="serv_ins" class="section_toggle">
-
         <div class="servicios_instituciones">
             <h2 class="subTitle_color_h2"><i></i>Servicios profesionales</h2>
 
-            <p class="text_p">{{$objinstitucionlandin->DescripcionGeneralServicios}}</p>
+            <p class="text_p mb-3">{{$objinstitucionlandin->DescripcionGeneralServicios}}</p>
         </div>
         
         <div class="desplegable_LandInst accordion_green" id="accordion"> <!--Función del cambio de color a verde en los botones del collapse estan ubicados en el archivo "footer.js". -->
             @foreach ($objinstitucionlandinservicios as $objinstitucionlandinservicios)
-                <div class="card card_acordion">
+                <div class="card card_acordion px-0">
                     <div id="heading_{{$loop->iteration}}">
                         <button class="button_acordion" data-toggle="collapse" data-target="#collapse_{{$loop->iteration}}" aria-expanded="true" aria-controls="collapse_{{$loop->iteration}}">{{$objinstitucionlandinservicios->tituloServicios}}</button>
                     </div>
 
                     <div id="collapse_{{$loop->iteration}}" class="collapse" aria-labelledby="heading_{{$loop->iteration}}" data-parent="#accordion">
                         <div class="card-body toggle_info">
-                            <p class="txt_toggle_info">{{$objinstitucionlandinservicios->DescripcioServicios}}</p>
+                            <p class="text_p p-0">{{$objinstitucionlandinservicios->DescripcioServicios}}</p>
                         </div>
 
-                        <div class="text_li_toggle_info">
+                        <div class="toggle_info">
                             @if($objinstitucionlandinservicios->sucursalservicio)
                                 @php  $new_array = explode(',',$objinstitucionlandinservicios->sucursalservicio); @endphp
                             @endif
                             @foreach($new_array as $info)
-                                <li>{{$info}}</li>
+                                <li class="text_p p-0">{{$info}}</li>
                             @endforeach
                         </div>
                     </div>
@@ -153,7 +152,7 @@
 
         <div class="quienes_somos">
             <h2 class="subTitle_color_h2"><i></i>¿Quiénes somos?</h2>
-            <p class="text_p">{{$objinstitucionlandin->quienessomos}}</p>
+            <p class="text_p mb-3">{{$objinstitucionlandin->quienessomos}}</p>
         </div>
 
         <div class="propuesta">
@@ -242,7 +241,7 @@
 
         <div class="mapa">
             <h2 class="subTitle_black_h2"><i></i>Ubica la sede</h2>
-            <p class="text_p">Conoce como llegar a la sede más cercana.</p>
+            <p class="text_p mb-3">Conoce como llegar a la sede más cercana.</p>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.7670370514384!2d-74.07662168467442!3d4.635601943507973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a2d7480bc75%3A0x893a7b8651243c29!2sMedPlus%20Medicina%20Prepagada%20Palermo%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1625066882913!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
