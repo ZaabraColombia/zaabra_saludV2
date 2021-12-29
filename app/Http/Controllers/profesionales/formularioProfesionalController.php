@@ -494,8 +494,8 @@ class formularioProfesionalController extends Controller
 
         //validar el formulario
         $validator = Validator::make($request->all(),[
-            'celular'           => ['required', 'size:10'],
-            'telefono'          => ['required', 'size:7'],
+            'celular'           => ['required', 'min:7', 'max:10'],
+            'telefono'          => ['min:7', 'max:10'],
             'direccion'         => ['required'],
             'idpais'            => ['required', 'exists:pais,id_pais'],
             'id_departamento'   => ['required', 'exists:departamentos,id_departamento'],
