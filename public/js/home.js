@@ -28,8 +28,8 @@ const swiper_especialistas = new Swiper(".swiper_especialistas", {
   },
   // Navigation arrows
   navigation: {
-    nextEl: '.flecha_izquierda',
-    prevEl: '.flecha_derecha',
+    nextEl: '.flecha_derecha',
+    prevEl: '.flecha_izquierda',
   },
 
   breakpoints: {
@@ -93,8 +93,8 @@ const swiper_logos_inferior = new Swiper(".swiper_logos_inferior", {
   },
   // Navigation arrows
   navigation: {
-    nextEl: '.flecha_izquierda',
-    prevEl: '.flecha_derecha',
+    nextEl: '.flecha_derecha',
+    prevEl: '.flecha_izquierda',
   },
 
   breakpoints: {
