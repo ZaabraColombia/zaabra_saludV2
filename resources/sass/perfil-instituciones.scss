@@ -103,6 +103,16 @@
     align-items: center;
     margin: 0;
 }
+.text_h3 {
+    font-size: 1em;
+    font-family: 'Roboto';
+    color: #434343;
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+}
 .text_h5 {
     font-size: 1em;
     font-family: "Roboto";
@@ -120,7 +130,6 @@
     margin: 0;
     padding-left: 2.5em;
 }
-
 // Botones 
 .btn_colorful {
     font-size: 1em;
@@ -750,16 +759,7 @@
     justify-content: center;
     margin: 3% 0 0 0;
 }
-.opinion_verif_LandInst h3 {
-    font-size: .9em;
-    font-family: 'Roboto';
-    color: #434343;
-    display: flex;
-    align-content: center;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 0;
-}
+
 .opinion_verif_LandInst i {
     background-image: url('/img/landing-profesional/icono-todos-los-comentarios-verificados.svg');
     background-repeat: no-repeat;
@@ -1022,9 +1022,7 @@
     }
 
  
-    .opinion_verif_LandInst h3 {
-        font-size: 1.3em;
-    }
+
     .opinion_verif_LandInst i {
         width: 30px;
         height: 20px;
@@ -1282,6 +1280,9 @@
     }
     .subTitle_black_h2 {
         font-size: 1.6em;
+    }
+    .text_h3 {
+        font-size: 1.15em;
     }
     .text_h5 {
         font-size: 1.15em;

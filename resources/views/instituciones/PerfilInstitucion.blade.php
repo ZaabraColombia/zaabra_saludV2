@@ -368,7 +368,7 @@
         </div>
 
         <div class="opinion_verif_LandInst">
-            <h3><i></i> Todos los comentarios son de pacientes verificados. </h3>
+            <h3 class="text_h3"><i></i> Todos los comentarios son de pacientes verificados. </h3>
             <!-- <h2 class="icono_verificado-prof txt_verify-bottom"> Todos los comentarios son de pacientes verificados. </h2> -->
         </div>
     </section>
