@@ -32,18 +32,17 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesPerGroup: 1,
       },
 
+      // when window width is >= 700px
+      700: {
+        slidesPerView: 4,
+        slidesPerGroup: 1,
+      },
+
       // when window width is >= 1024px
       1024: {
         //enabled: false,
         slidesPerView: 5,
-        slidesPerGroup: 5,
-      },
-
-      // when window width is >= 1600px
-      1600: {
-        slidesPerView: 5,
         slidesPerGroup: 1,
-        spaceBetween: 5,
       },
     }
   });
