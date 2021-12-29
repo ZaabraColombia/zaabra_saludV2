@@ -80,7 +80,7 @@
 
       <div class="card card_acordion"> <!-- Historia clínica -->
         <div id="headingSixteen">
-          <button class="button_acordion" data-toggle="collapse" data-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">Historia clínica</button>
+          <button class="button_acordion" data-toggle="collapse" data-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">Historia clínica **</button>
         </div>
 
         <div id="collapseSixteen" class="collapse" aria-labelledby="headingSixteen" data-parent="#accordion">
@@ -208,7 +208,7 @@
 
       <div class="card card_acordion"> <!-- Reportes y RIPs -->
         <div id="headingFourteen">
-          <button class="button_acordion" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="true" aria-controls="collapseFourteen">Reportes y RIPs</button>
+          <button class="button_acordion" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="true" aria-controls="collapseFourteen">Reportes y RIPs **</button>
         </div>
 
         <div id="collapseFourteen" class="collapse" aria-labelledby="headingFourteen" data-parent="#accordion">
