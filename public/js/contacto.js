@@ -70,6 +70,8 @@ function elementHidden (z){
 $('#contactForm').on('submit',function(e){
     e.preventDefault();
     //$('#send_form').html('enviando...');
+    $('#send_form').prop('disabled', true)
+        .html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&nbsp;' + 'enviando');
     $.ajax({
         url: "contacto",
         type:"POST",
@@ -86,18 +88,19 @@ $('#contactForm').on('submit',function(e){
         },
         success:function(response){
 
-            //$('#send_form').hide();
-            $('#res_message').show().html(response.msg);
+            $('#send_form').prop('disabled', false).html('Enviar <i class="fas fa-arrow-right"></i>');
+            $('#res_message').html(response.msg).show();
             $('#msg_div').addClass('alert-success').show();
-            //document.getElementById("contactForm").reset();
+            document.getElementById("contactForm").reset();
             setTimeout(function(){
                 $('#res_message').hide();
                 $('#msg_div').removeClass('alert-success').hide();
             },3000);
         },
         error: function (error) {
-            $('#res_message').show().html('error');
-            $('#msg_div').addClass('alert-danger').show();
+            $('#send_form').prop('disabled', false).html('Enviar <i class="fas fa-arrow-right"></i>');
+            $('#res_message').html('error');
+            $('#msg_div').show().addClass('alert-danger');
             //document.getElementById("contactForm").reset();
             setTimeout(function(){
                 $('#res_message').hide();
