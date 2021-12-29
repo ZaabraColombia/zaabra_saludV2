@@ -115,24 +115,30 @@
         <div class="swiper-wrapper">
             @foreach ($intitucionProfesionales as $profesional)
                 <div class="card swiper-slide border-0">
-                    <a href="{{ route('PerfilProfesional', ['slug' => $profesional->institucion->slug]) }}" class="m-0">
+                    <a href="{{ route('PerfilInstitucion', ['slug' => $profesional->institucion->slug]) }}" class="m-0">
                         <img class="imagen_especialista" src="{{ asset($profesional->foto_perfil_institucion) }}">
                         <div class="card-body contenido_especialista">
                             <h5 class="titulo_contenido" style="color: #019f86">
-                                {{ $profesional->especialidades[0]->nombreEspecialidad }}
+                                @if(!empty($profesional->especialidades[0]))
+                                    {{ $profesional->especialidades[0]->nombreEspecialidad }}
+                                @endif
                             </h5>
                             <span class="txt_especialista">
-                                Especialista en {{ $profesional->especialidades[0]->nombreEspecialidad }}
+                                @if(!empty($profesional->especialidades[0]))
+                                    Especialista en {{ $profesional->especialidades[0]->nombreEspecialidad }}
+                                @endif
                             </span>
                             <p class="txt_especialista">
-                                <b>{{$profesional->universidad->nombreuniversidad}}</b>
+                                @if(!empty($profesional->universidad->nombreuniversidad))
+                                    <b>{{$profesional->universidad->nombreuniversidad}}</b>
+                                @endif
                             </p>
                             <p class="txt_especialista">
                                 {{ $profesional->primer_nombre }} {{ $profesional->primer_apellido }}
                             </p>
 
                             <div class="seccion_btn_central">
-                                <a href="{{ route('PerfilProfesional', ['slug' => $profesional->institucion->slug]) }}"
+                                <a href="{{ route('PerfilInstitucion', ['slug' => $profesional->institucion->slug]) }}"
                                    class="btn_central_verde">
                                     Ver detalles <i class="fas fa-arrow-right pl-1"></i>
                                 </a>
