@@ -70,8 +70,8 @@ function elementHidden (z){
 $('#contactForm').on('submit',function(e){
     e.preventDefault();
     //$('#send_form').html('enviando...');
-    $('#send_form').prop('disabled', true)
-        .html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&nbsp;' + 'enviando');
+    // $('#send_form').prop('disabled', true)
+    //     .html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&nbsp;' + 'enviando');
     $.ajax({
         url: "contacto",
         type:"POST",
