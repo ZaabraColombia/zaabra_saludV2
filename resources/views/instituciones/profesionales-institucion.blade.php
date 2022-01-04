@@ -33,7 +33,7 @@
                         @if(!empty($profesional->nombre_especialidad))
                             <div class="content_btn_instprof">
                                 <a class="btn_agendar_instProf" href=""> Agendar cita
-                                    <i class="fas fa-arrow-right arrow_mas"></i>
+                                    <i class="fas fa-arrow-right pl-2"></i>
                                 </a>
                             </div>
                         @endif
