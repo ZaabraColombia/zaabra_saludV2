@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
     resizeObserver: true,
     
     autoplay: {
-      delay: 4555555555555555500,
+      delay: 4500,
       disableOnInteraction: false,
     },
   

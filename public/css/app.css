@@ -19938,11 +19938,6 @@ a:link, a:visited, a:active, a:hover {
   justify-content: space-between;
 }
 
-/*.container_cards_video {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}*/
 .module_opinion_ins {
   background: #F5F5F5;
   padding: 0;
@@ -20547,18 +20542,6 @@ a:link, a:visited, a:active, a:hover {
     justify-content: space-between;
   }
 
-  /*
-      .container_cards {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-
-  }
-  .container_cards {
-      //width: 100%;
-      justify-content: space-between;
-  }
-  */
   .logo_sede_lan {
     width: 135px;
     height: 135px;
