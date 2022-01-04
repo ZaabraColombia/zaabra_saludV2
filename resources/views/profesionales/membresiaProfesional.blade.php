@@ -78,7 +78,7 @@
                     </div>
                 </div>
 
-                <div class="card card_acordion"> <!-- Historia clínica -->
+                {{-- <div class="card card_acordion"> <!-- Historia clínica -->
                     <div id="headingFour">
                         <button class="button_acordion" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Historia clínica **</button>
                     </div>
@@ -90,7 +90,7 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="card card_acordion"> <!-- Registro de pacientes -->
                     <div id="headingTwelve">
@@ -221,7 +221,7 @@
                     </div>
                 </div>
 
-                <div class="card card_acordion"> <!-- Reportes y RIPs -->
+                {{-- <div class="card card_acordion"> <!-- Reportes y RIPs -->
                     <div id="headingSixteen">
                         <button class="button_acordion" data-toggle="collapse" data-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">Reportes y RIPs **</button>
                     </div>
@@ -233,7 +233,7 @@
                             </P>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="card card_acordion"> <!-- Posicionamiento web -->
                     <div id="headingTen">
