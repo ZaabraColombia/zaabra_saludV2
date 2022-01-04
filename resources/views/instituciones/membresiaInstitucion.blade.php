@@ -78,7 +78,7 @@
         </div>
       </div>
 
-      <div class="card card_acordion"> <!-- Historia clínica -->
+      {{-- <div class="card card_acordion"> <!-- Historia clínica -->
         <div id="headingSixteen">
           <button class="button_acordion" data-toggle="collapse" data-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">Historia clínica **</button>
         </div>
@@ -90,7 +90,7 @@
             </P>
           </div>
         </div>
-      </div>
+      </div> --}}
 
       <div class="card card_acordion"> <!-- Registro de pacientes -->
         <div id="headingEight">
@@ -206,7 +206,7 @@
         </div>
       </div>
 
-      <div class="card card_acordion"> <!-- Reportes y RIPs -->
+      {{-- <div class="card card_acordion"> <!-- Reportes y RIPs -->
         <div id="headingFourteen">
           <button class="button_acordion" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="true" aria-controls="collapseFourteen">Reportes y RIPs **</button>
         </div>
@@ -218,7 +218,7 @@
             </p>
           </div>
         </div>
-      </div>
+      </div> --}}
 
       <div class="card card_acordion"> <!-- Posicionamiento web -->
         <div id="headingTwelve">
@@ -277,9 +277,9 @@
       </div>
     </div>
 
-    <p class="text_info_infoZaabra p-3"> Puede complementar y personalizar su plan con recursos publicitarios adicionales. <a class="a_underline" href="{{route('contacto')}}" target="blank"> contáctenos </a> para ser atendido por un representante. *Vigencia anual. </p>
+    <p class="text_info_infoZaabra pad_text_bottom"> Puede complementar y personalizar su plan con recursos publicitarios adicionales. <a class="a_underline" href="{{route('contacto')}}" target="blank"> contáctenos </a> para ser atendido por un representante. *Vigencia anual. </p>
 
-    <div class="section_button_infoZaabra"> <!-- Register button -->
+    <div class="section_button_infoZaabra m-0"> <!-- Register button -->
       <a href="{{route('register')}}">
         <button type="submit" class="button_green_infoZaabra" data-toggle="modal" data-target="#exampleModal"> {{ __('Empezar') }}
             <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
@@ -290,7 +290,7 @@
 
   <!-- Línea de atención -->
   <div class="card_membresia">
-    <p class="text_info_infoZaabra p-3">
+    <p class="text_info_infoZaabra pad_text_bottom">
       Instituciones como clínicas, centros médicos, hospitales, laboratorios clínicos, laboratorios odontológicos, IPS, EPS, clínicas veterinarias o
       si pertenece a alguna de las asociaciones que tienen convenios con nosotros,
       comunicarse con nuestros medical software managers o directamente con nuestra línea de atención 7123945 - 3212449869.
