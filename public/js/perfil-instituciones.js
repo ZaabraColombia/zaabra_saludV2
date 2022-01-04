@@ -32,23 +32,22 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesPerGroup: 1,
       },
 
+      // when window width is >= 700px
+      700: {
+        slidesPerView: 4,
+        slidesPerGroup: 1,
+      },
+
       // when window width is >= 1024px
       1024: {
         //enabled: false,
         slidesPerView: 5,
-        slidesPerGroup: 5,
-      },
-
-      // when window width is >= 1600px
-      1600: {
-        slidesPerView: 5,
         slidesPerGroup: 1,
-        spaceBetween: 5,
       },
     }
   });
 
-
+/*
   const swiper_galeria_prof = new Swiper(".swiper_galeria_inst", {
     loop: true,
     resizeObserver: true,
@@ -94,9 +93,9 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     }
   });
+*/
 
-
-  const swiper_certificado_LandInst = new Swiper(".swiper_certificado_LandInst", {
+  const swiper_certificado_Lan = new Swiper(".swiper_certificado_Lan", {
     loop: true,
     resizeObserver: true,
     
@@ -106,38 +105,34 @@ document.addEventListener('DOMContentLoaded', function () {
     },
   
     // If we need pagination
-    pagination: {
-        el: '.swiper-pagination',
-    },
+    //pagination: {
+      //el: '.swiper-pagination',
+    //},
       // Navigation arrows
       navigation: {
-      nextEl: '.btnPrev_cert_LandInst',
-      prevEl: '.btnNext_cert_LandInst',
+      nextEl: '.btnNext_cert_LandInst',
+      prevEl: '.btnPrev_cert_LandInst',
     },
   
     breakpoints: {
-        // when window width is >= 320px
+      // when window width is >= 320px
       320: {
         slidesPerView: 1,
         slidesPerGroup: 1,
+        spaceBetween: 15,
       },
-        // when window width is >= 768px
-        768: {
+      // when window width is >= 500px
+        500: {
         slidesPerView: 2,
         slidesPerGroup: 1,
-        //spaceBetween: 15,
+        spaceBetween: 15,
       },
-        // when window width is >= 1024px
-      1024: {
-        slidesPerView: 2,
-        slidesPerGroup: 1,
-        //spaceBetween: 15,
-      },
+
         // when window width is >= 1440px
       1360: {
         slidesPerView: 3,
         slidesPerGroup: 1,
-        //spaceBetween: 15,
+        spaceBetween: 15,
       },
     }
   });
