@@ -42,12 +42,12 @@
               </div>
 
               <div class="contains_buttons">
-                <a href="">Agende su cita
-                  <i class="fas fa-arrow-right arrow_mas"></i>
+                <a href=""> Agende su cita
+                  <i class="fas fa-arrow-right pl-2"></i>
                 </a>
 
                 <a href="{{url('PerfilInstitucion/'.$carrusel_instituciones_premiun->slug)}}">Ver perfil
-                  <i class="fas fa-arrow-right arrow_mas"></i>
+                  <i class="fas fa-arrow-right pl-2"></i>
                 </a>
               </div>
             </div>
@@ -97,11 +97,11 @@
 
           <div class="contains_buttons">
             <a href="">Agendar
-              <i class="fas fa-arrow-right arrow_mas"></i>
+              <i class="fas fa-arrow-right pl-2"></i>
             </a>
 
             <a href="{{url('PerfilInstitucion/'.$instituciones_pago_normal->slug)}}">Ver más
-              <i class="fas fa-arrow-right arrow_mas"></i>
+              <i class="fas fa-arrow-right pl-2"></i>
             </a>
           </div>
         </div>
