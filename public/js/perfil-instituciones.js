@@ -44,6 +44,12 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesPerView: 5,
         slidesPerGroup: 1,
       },
+      // when window width is >= 1920px
+      1920: {
+        //enabled: false,
+        slidesPerView: 6,
+        slidesPerGroup: 1,
+      },
     }
   });
 
@@ -121,14 +127,15 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesPerGroup: 1,
         spaceBetween: 15,
       },
+      
       // when window width is >= 500px
-        500: {
+      500: {
         slidesPerView: 2,
         slidesPerGroup: 1,
         spaceBetween: 15,
       },
 
-        // when window width is >= 1440px
+      // when window width is >= 1440px
       1360: {
         slidesPerView: 3,
         slidesPerGroup: 1,

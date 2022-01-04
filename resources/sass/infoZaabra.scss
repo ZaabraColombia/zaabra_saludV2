@@ -313,7 +313,7 @@
     color: $withe_official;
     background: $blue_official;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 5px 15px;
     display: flex;
     align-items: center;
@@ -324,7 +324,7 @@
     color: $withe_official;
     background: $green_official;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 5px 15px;
     display: flex;
     align-items: center;
@@ -332,6 +332,9 @@
 // Others
 .name_user-contac, .name_institution-contac, .second_date-contac{
     display: none;
+}
+.pad_text_bottom {
+    padding: 1em;
 }
 @media(min-width: 375px) {
     // Container, section, content, card
@@ -480,6 +483,9 @@
     .title_banner_infoZaabra {
         left: 127px;
     }
+    .pad_text_bottom {
+        padding: 1em 1.9em;
+    }
 }
 @media(min-width: 1200px) {
     // Container, section, content, card
@@ -520,9 +526,9 @@
     .subTitle_infoZaabra {
         font-size: 1.8em;
     }
-    .text_info_infoZaabra {
+    /*.text_info_infoZaabra {
         font-size: 1.5em;
-    }
+    }*/
     .text_btn_precio {
         font-size: 1.4em;
     }
@@ -593,5 +599,8 @@
     // a
     .toggle_info a {
         font-size: 1.1em;
+    }
+    .pad_text_bottom {
+        padding: 1em 4em;
     }
 }

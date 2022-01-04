@@ -473,7 +473,6 @@
 .mapa iframe{
     width: 100%;
 }
-
 @media(min-width: 500px) {
     // Contenedores, tarjetas y secciones
     .card_sede_ins {
@@ -770,6 +769,9 @@
     }
     .section_opinion_ins {
         width: 60%;
+    }
+    .content_img_sede {
+        height: 227px;
     }
     .module_convenio_ins {
         padding-left: 5.3em;
