@@ -12396,7 +12396,7 @@ a:link, a:visited, a:active, a:hover {
   color: #FFFFFF;
   background: #0083D6;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   padding: 5px 15px;
   display: flex;
   align-items: center;
@@ -12408,7 +12408,7 @@ a:link, a:visited, a:active, a:hover {
   color: #FFFFFF;
   background: #019F86;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   padding: 5px 15px;
   display: flex;
   align-items: center;
@@ -12416,6 +12416,10 @@ a:link, a:visited, a:active, a:hover {
 
 .name_user-contac, .name_institution-contac, .second_date-contac {
   display: none;
+}
+
+.pad_text_bottom {
+  padding: 1em;
 }
 
 @media (min-width: 375px) {
@@ -12593,6 +12597,10 @@ a:link, a:visited, a:active, a:hover {
   .title_banner_infoZaabra {
     left: 127px;
   }
+
+  .pad_text_bottom {
+    padding: 1em 1.9em;
+  }
 }
 @media (min-width: 1200px) {
   .section_contacto_infoZaabra {
@@ -12638,10 +12646,9 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.8em;
   }
 
-  .text_info_infoZaabra {
-    font-size: 1.5em;
-  }
-
+  /*.text_info_infoZaabra {
+      font-size: 1.5em;
+  }*/
   .text_btn_precio {
     font-size: 1.4em;
   }
@@ -12724,6 +12731,10 @@ a:link, a:visited, a:active, a:hover {
 
   .toggle_info a {
     font-size: 1.1em;
+  }
+
+  .pad_text_bottom {
+    padding: 1em 4em;
   }
 }
 .swiper_principal {
@@ -20747,6 +20758,10 @@ a:link, a:visited, a:active, a:hover {
 
   .section_opinion_ins {
     width: 60%;
+  }
+
+  .content_img_sede {
+    height: 227px;
   }
 
   .module_convenio_ins {
