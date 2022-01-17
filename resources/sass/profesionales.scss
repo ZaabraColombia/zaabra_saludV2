@@ -108,6 +108,9 @@
     margin-left: auto;
     margin-right: auto;
 }
+.contanier_cards_generic{
+    padding-top: 50px;
+}
 .card_generic{
     background: #EEF7FF;
 }
@@ -311,14 +314,11 @@
         width: 45%;
         height: calc(1rem + 1rem + 2px);
     }
-    .contanier_cards_generic{
-        padding-top: 10%;
-    }
     .card_generic{
         max-width: 75%;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 5%;
+        margin-bottom: 18px;
     }
     .card_generic .card-body {
         padding: 3% 0;
@@ -430,7 +430,6 @@
     }
     .contanier_cards_generic {
         display: flex;
-        padding-top: 5%;
         flex-wrap: wrap;
         align-content: center;
         justify-content: center;
@@ -440,8 +439,6 @@
         width: 30%;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 5%;
-        height: 8vh;
     }
     .contains_slide .contains_info{
         margin-top: 3%;
@@ -578,8 +575,6 @@
     }
     .card_generic{
         width: 24%;
-        height: 10vh;
-        margin-bottom: 2%;
     }
     .card_generic .card-body h5{
         font-size: 1.2em;
@@ -734,8 +729,6 @@
     }
     .card_generic{
         width: 24%;
-        height: 10vh;
-        margin-bottom: 2%;
     }
     .card_generic .card-body h5{
         font-size: 1.2em;
@@ -799,7 +792,6 @@
     }
     .card_generic {
         width: 22%;
-        height: 10vh;
     }    
 
 
