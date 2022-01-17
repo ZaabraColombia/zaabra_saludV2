@@ -949,15 +949,15 @@ class formularioInstitucionController extends Controller{
             'nombre_sede'   => ['required'],
             'direccion_sede'=> ['required'],
             'horario_sede'  => ['required'],
-            'telefono_sede' => ['required', 'integer', 'min:7'],
-            'url_mapa_sede' => ['required', 'url']
+            'telefono_sede' => ['required', 'min:7']
+            // 'url_mapa_sede' => ['required', 'url']
         ], [], [
             'img_sede'     => 'Foto de la sede',
             'nombre_sede'   => 'Nombre de la sede',
             'direccion_sede'=> 'Dirección de la sede',
             'horario_sede'  => 'Horario de la sede',
-            'telefono_sede' => 'Teléfono de la sede',
-            'url_mapa_sede' => 'Url de la ubicación de la sede'
+            'telefono_sede' => 'Teléfono de la sede'
+            // 'url_mapa_sede' => 'Url de la ubicación de la sede'
         ]);
 
         if ($validation->fails()) {
@@ -1050,7 +1050,7 @@ class formularioInstitucionController extends Controller{
     /*-------------------------------------Inicio Creacion y/o modificacion formulario parte 11----------------------*/
     public function create11(Request $request){
         $validation = Validator::make($request->all(), [
-            'url_map_principal_institucion'       => ['required', 'url']
+            'url_map_principal_institucion'       => [/*'required', 'url'*/]
         ], [], [
             'url_map_principal_institucion'       => 'Url de la ubicación principal'
         ]);
@@ -1078,8 +1078,11 @@ class formularioInstitucionController extends Controller{
             ], Response::HTTP_NOT_FOUND);
         }
 
-        //guardar la información quienes somos
-        $url_map->url_maps   = $request->url_map_principal_institucion;
+        // Ubicación de la institución principal por medio de coordenadas
+        $coor = array ("lat"=> $request->coordenada_lat, "lon" => $request->get("coordenada_long"));
+
+        // Guardar la ubicación de la sede principal de la institución
+        $url_map->url_maps   = json_encode($coor);
 
         //guardar contacto
         $url_map->save();
