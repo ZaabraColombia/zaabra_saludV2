@@ -281,3 +281,27 @@ function showElement(x){
     $('#gale').addClass('gale_green')
   }
 };
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Imprime la latitud y longitud del sitio.
+  var map = L.map('map').setView(Object.values($('#map').data("location")), 20);
+
+  // var geocoder = L.Control.geocoder({
+  //   defaultMarkGeocode: true,
+  //   collapsed: false
+  // })
+  // .addTo(map);
+    
+  // Adiciona la marca del lugar con icono tipo globo.
+  var marker = L.marker(Object.values($('#map').data("location"))).addTo(map);
+
+  // Adiciona el popUp con el nombre del sitio.
+  marker.bindPopup($('#map').data("name")).openPopup();
+  
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+});
+
+
+

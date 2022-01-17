@@ -1381,9 +1381,9 @@ $('#form-sedes-institucion').validate({
         'telefono_sede': {
             required: true,
         },
-        'url_mapa_sede': {
-            required: true,
-        }
+        // 'url_mapa_sede': {
+        //     required: true,
+        // }
     },
     messages: {
         'img_sede':{
@@ -1401,9 +1401,9 @@ $('#form-sedes-institucion').validate({
         'telefono_sede':{
             required: "Por favor ingrese el teléfono de la sede",
         },
-        'url_mapa_sede':{
-            required: "Por favor ingrese la url de la ubicación de la sede",
-        }
+        // 'url_mapa_sede':{
+        //     required: "Por favor ingrese la url de la ubicación de la sede",
+        // }
     },
     submitHandler: function(form) {
         //Elementos
@@ -1452,7 +1452,7 @@ $('#form-sedes-institucion').validate({
                         '<span>' + $('#direccion_sede').val() + '</span>\n' +
                         '<h5>' + $('#horario_sede').val() + '</h5>\n' +
                         '<span style="color: #0083D6; font-weight: bold">' + $('#telefono_sede').val() + '</span>\n' +
-                        '<span>' + $('#url_mapa_sede').val() + '</span>\n' +
+                        // '<span>' + $('#url_mapa_sede').val() + '</span>\n' +
                     '</div>\n' +
                 '</div>');
 
@@ -1463,7 +1463,7 @@ $('#form-sedes-institucion').validate({
                     $('#direccion_sede').prop('disabled', true);
                     $('#horario_sede').prop('disabled', true);
                     $('#telefono_sede').prop('disabled', true);
-                    $('#url_mapa_sede').prop('disabled', true);
+                    // $('#url_mapa_sede').prop('disabled', true);
                     $(btn).prop('disabled', true);
                 }
 
@@ -1489,7 +1489,7 @@ $('#form-sedes-institucion').validate({
                     $('#direccion_sede').prop('disabled', true);
                     $('#horario_sede').prop('disabled', true);
                     $('#telefono_sede').prop('disabled', true);
-                    $('#url_mapa_sede').prop('disabled', true);
+                    // $('#url_mapa_sede').prop('disabled', true);
                     $(btn).prop('disabled', true);
                     $('#img-img_sede').attr('scr', '#');
                     formulario[0].reset();
@@ -1537,7 +1537,7 @@ $('#lista-sedes-institucion').on('click', '.close' , function (e) {
             $('#direccion_sede').prop('disabled', false);
             $('#horario_sede').prop('disabled', false);
             $('#telefono_sede').prop('disabled', false);
-            $('#url_mapa_sede').prop('disabled', false);
+            // $('#url_mapa_sede').prop('disabled', false);
             $('#btn-guardar-sede-institucion').prop('disabled', false);
             //Quitar la caja
             button.parent().parent().remove();
@@ -1723,6 +1723,8 @@ $('#lista-galeria-intitucion').on('click', '.close' , function (e) {
         }
     });
 });
+
+
 //Formulario 11
 $('#form-ubicaion-institucion').validate({
     rules: {
@@ -2064,3 +2066,35 @@ function cargarleccion(nombre){
     });
 
 }
+
+// Mapa: Ubicación de la institución principal del formulario
+document.addEventListener('DOMContentLoaded', function () {
+  var map = L.map('map').setView([4.639386, -74.082412], 5);
+
+    var geocoder = L.Control.geocoder({
+        defaultMarkGeocode: true,
+        collapsed: false
+    })
+    .on('markgeocode', function(e) {
+    //   console.log(e.geocode.properties.lat);
+    //   var bbox = e.geocode.bbox;
+    //   var poly = L.polygon([
+    //     bbox.getSouthEast(),
+    //     bbox.getNorthEast(),
+    //     bbox.getNorthWest(),
+    //     bbox.getSouthWest()
+    //   ]).addTo(map);
+    //   map.fitBounds(poly.getBounds());
+
+    // Captura del valor de la latitud y la lolngitud del map "leaflet" en el input del formulario, modulo ubicación de la sede.
+    document.getElementById('coordenada_lat').value = e.geocode.properties.lat;
+    document.getElementById('coordenada_long').value = e.geocode.properties.lon;
+    // $('#').val(e.geocode.properties.lon);
+    })
+    .addTo(map);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    })
+    .addTo(map);
+});

@@ -44,7 +44,7 @@
                 </div>
             @endif
 
-            <form id="contactForm" method="post" action="javascript:void(0)" class="px-3 px-md-5">
+            <form id="contactForm" method="post" action="javascript:void(0)" class="px-3 px-md-4">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" id="tipo_contacto" name="tipo_contacto">
                 @if(!empty($objuser))
