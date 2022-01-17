@@ -53,10 +53,10 @@
             </div>
 
             <div class="section_btn_lan">
-                <a class="btn_colorful" href="">Agende su cita
+                <a class="btn_colorful" href="{{$objinstitucionlandin->url}}" target="black">Ir a sitio web
                     <i class="fas fa-arrow-right pl-2"></i>
                 </a>
-                <a class="btn_colorless" href="{{route('PerfilInstitucion-profesionales', ['slug' => $objinstitucionlandin->slug])}}">Ver profesional
+                <a class="btn_colorless" href="{{route('PerfilInstitucion-profesionales', ['slug' => $objinstitucionlandin->slug])}}">Ver profesionales
                     <i class="fas fa-arrow-right pl-2"></i>
                 </a>
             </div>
@@ -243,7 +243,8 @@
         <div class="mapa">
             <h2 class="subTitle_black_h2"><i class="icon_item_ins"></i>Ubica la sede</h2>
             <p class="text_p mb-3">Conoce como llegar a la sede más cercana.</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.7670370514384!2d-74.07662168467442!3d4.635601943507973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a2d7480bc75%3A0x893a7b8651243c29!2sMedPlus%20Medicina%20Prepagada%20Palermo%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1625066882913!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+            <div id="map" class="ubicacion_inst" data-location='{!! $objinstitucionlandin->url_maps !!}' data-name='{{$objinstitucionlandin->nombreinstitucion}}'></div>
         </div>
     </section>
 
@@ -338,37 +339,35 @@
                     @endif
                 @endif
 
-                
-                    @if(!empty($objprofesionalComentario))
-                        @foreach ($objprofesionalComentario as $data)
-                        <div class="visible_container">
-                        <div class="section_opciones" id="oscar">
-                            <div class="section_usuario-prof">
-                                <div class="contains_avatar">
-                                    <i class="fas fa-circle circle_opinion-prof"></i>
-                                </div>
-                                <div class="contains_text">
-                                    <p class="name_usuario-prof">{{$data->primernombre}} {{$data->primerapellido}}</p>
-                                    <p class="icono_verify verify_usuario-prof"> Paciente verificado </p>
-                                </div>
+                @if(!empty($objprofesionalComentario))
+                    @foreach ($objprofesionalComentario as $data)
+                    <div class="visible_container">
+                    <div class="section_opciones" id="oscar">
+                        <div class="section_usuario-prof">
+                            <div class="contains_avatar">
+                                <i class="fas fa-circle circle_opinion-prof"></i>
+                            </div>
+                            <div class="contains_text">
+                                <p class="name_usuario-prof">{{$data->primernombre}} {{$data->primerapellido}}</p>
+                                <p class="icono_verify verify_usuario-prof"> Paciente verificado </p>
+                            </div>
 
-                                <div class="section_stars-prof">
-                                    @for ($i=1; $i <= $data->calificacion; $i++)
-                                    <i class='fa fa-star fa-fw' style="color: #E6C804;"></i>
-                                    @endfor
-                                    @for ($i=$data->calificacion; $i <= 4; $i++)
-                                    <i class="far fa-star" style="color: #E6C804;"></i>
-                                    @endfor
-                                </div>
-                            </div>
-                            <div class="section_comentario-prof">
-                                <span>{{$data->comentario}}</span>
+                            <div class="section_stars-prof">
+                                @for ($i=1; $i <= $data->calificacion; $i++)
+                                <i class='fa fa-star fa-fw' style="color: #E6C804;"></i>
+                                @endfor
+                                @for ($i=$data->calificacion; $i <= 4; $i++)
+                                <i class="far fa-star" style="color: #E6C804;"></i>
+                                @endfor
                             </div>
                         </div>
+                        <div class="section_comentario-prof">
+                            <span>{{$data->comentario}}</span>
                         </div>
-                        @endforeach
-                    @endif
-        
+                    </div>
+                    </div>
+                    @endforeach
+                @endif
             </div>
 
             <div class="section_opinions">
@@ -377,5 +376,6 @@
         </div>
     </section>
 @endsection
+
 <!-- Archivo JS for formulario profesional-->
 <script src="{{ asset('js/perfil-instituciones.js') }}"></script>
