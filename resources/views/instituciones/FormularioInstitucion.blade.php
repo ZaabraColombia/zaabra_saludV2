@@ -792,13 +792,17 @@
                 <div class="row m-0 pb-3 px-0">
                     <div class="col-12 px-0">
                         <h5 for="propuesta_valor" class="textTop_informative_form">A continuación enlace las sedes en Google Maps.</h5>
-                        <input class="input_box_form" id="url_map_principal_institucion" placeholder="https://www.google.com/maps/embed?pb=....." type="text" name="url_map_principal_institucion" />
+                        <input class="input_box_form mb2" id="coordenada_lat" placeholder="https://www.google.com/maps/embed?pb=....." type="hidden" name="coordenada_lat" />
+                        <input class="input_box_form" id="coordenada_long" placeholder="https://www.google.com/maps/embed?pb=....." type="hidden" name="coordenada_long" />
                     </div>
                 </div>
 
+                <div id="map" class="ubicacion_inst"></div>
+                <!-- 
                 <div class="col-12 px-0 {{ empty($objFormulario->url_maps) ? 'd-none' : '' }}">
                     <iframe src="{{$objFormulario->url_maps}}" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" id="map_principal_institucion"></iframe>
                 </div>
+                -->
 
                 <div class="section_button_form"> <!-- Save button -->
                     <button type="submit" class="button_green_form" id="btn-guardar-ubicacion-institucion" data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}..."> Guardar
