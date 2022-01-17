@@ -579,6 +579,14 @@
     color: #019f86;
     padding: 0;
 }
+// map
+.ubicacion_inst {
+    width: 290px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
 // SAVED USER INFORMATION 
 // Saved content, card, target and section
 .content_information_saved_form {
@@ -746,6 +754,12 @@
     align-items: flex-end; 
     margin-bottom: 0;
 }
+@media(min-width: 360px) {
+    // map
+    .ubicacion_inst {
+        width: 320px;
+    }
+}
 // Media query responsive
 @media(min-width: 768px) {
     // Containers, contents, sections and cards 
@@ -815,6 +829,10 @@
     .width_card_single {
         width: 45%;
     }
+    // Map
+    .ubicacion_inst {
+        width: 625px;
+    }
 }
 @media(min-width: 1024px) {
     // Containers, contents, sections and cards 
@@ -865,6 +883,11 @@
     .width_card_single {
         width: 32%;
     }
+    // Mapa
+    .ubicacion_inst {
+        width: 750px;
+        height: 350px;
+    }
 }
 @media(min-width: 1360px) {
     // SAVED USER INFORMATION 
@@ -875,6 +898,10 @@
     .card_proffesional {
         width: 22%;
         margin-bottom: 2em;
+    }
+    // Mapa
+    .ubicacion_inst {
+        width: 850px;
     }
 }
 @media(min-width: 1440px) {

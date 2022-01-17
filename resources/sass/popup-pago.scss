@@ -1,277 +1,88 @@
-/////  MODAL POPUP OPCIONES DE PAGO, estructura ubicada en la vista app.blade.php  /////
-.modal_dialog-popup {
-    margin: 15% auto;
+.popUp_dialog {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
-.modal_content-popup {
+.popUp_content {
     border: none;
     border-radius: 5px;
-    width: 75%;
+    width: 95%;
     background: linear-gradient(180deg, white 100%, #e7e2e2 50%, #cccbcb 100%);
     margin: auto;
-    padding: 2% 0 0 0;
+    padding: 25px 20px 35px 20px;
 }
-// Sección boton derecho de cierre "X"
-.modal_header-popup {
-    padding: 0% 2%;
-    margin: 0;
+.popUp_header {
+    margin-bottom: 5px;
+    padding: 0;
     border-bottom: none;
-    height: 4vh;
 }
-/*.btn_close-popup {
-    border-radius: 18px !important;
-    background-color: #0083D6;
-    padding: 0 !important;
-    margin-top: 0 !important;
-    margin-right: 0 !important;
-    width: 5%;
-    height: 3.5vh;
-    text-align: center;
-    opacity: inherit;
-    border: 1px solid transparent;
-    margin-left: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.Xcierre_modal-popup {
-    font-size: 1.5em;
-    font-weight: 100;
-    color: #ffffff;
-}*/
-// Titulo y texto de encabezado
-.titulo_principal-popup {
+.titulo_popUp {
+    font-size: 1.2em;
+    font-weight: bold;
     color: #232323;
-    font-size: 1.3em;
     text-align: center;
     text-transform: none;
+    margin-bottom: 10px;
 }
-.texto_superior-popup {
-    font-size: 1.1em;
+.texto_popUp {
+    font-family: 'Quicksand';
+    font-size: 1em;
     color: #232323;
     text-align: center;
-    margin-top: 2%;
+    line-height: 1.2;
 }
-// Sección iconos medios de pago Tarjeta de credito y PSE
-.section_icons-popup {
+.popUp_seccion_medio_pago {
     display: flex;
     justify-content: space-evenly;
-    margin: 3% 0;
+    margin: 0;
     padding: 0;
 }
-.secction_tarjeta-popup {
+.popUp_medio_pago {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0;
+    padding: 20px 0;
 }
-.icon_popup {
+.icon_popUp {
     width: 70px;
 }
-.textoCheck_popup {
-    font-size: 1em;
-    font-family: 'Quicksand', 'Regular';
-    color: #232323;
-}
-.inputCheck_popup {
-    height: 2.5vh;
-    width: 2.5vh;
-    margin: 0;
-}
-// Botón inferior Pagar
-.section_btnPagar-popup {
-    text-align: center;
-    padding: 0;
-    margin: 5% auto;
-}
-.btnPagar-popup {
+.btnPagar_popUp {
     font-family: "Quicksand";
-    font-size: 1.3em;
+    font-size: 1em;
     color: #ffffff;
     background: #0083D6;
-    border: none;
+    border: 1px solid transparent;
     border-radius: 3px;
-    height: calc(1.6em + 0.75rem + 2px);
-    width: 28%;
     display: flex;
-    justify-content: center;
     align-items: center;
     margin: auto;
+    padding: 5px 20px;
 }
-.btnPagar-popup-inst {
-    font-family: "Quicksand";
-    font-size: 1.3em;
-    color: #ffffff;
-    background: #019F86;
-    border: none;
-    border-radius: 3px;
-    height: calc(1.6em + 0.75rem + 2px);
-    width: 28%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-}
-.flecha_pagar-popup {
-    width: 10%;
-    margin-left: 5%;
-}
-@media (min-width: 320px) and (orientation: portrait) {
-    .modal_dialog-popup {
-        margin: 25% auto;
-    }
-    .modal_content-popup {
-        width: 80%;
-        padding: 4%;
-    }
-    .modal_header-popup {
-        padding: 0;
-    }
-    // Sección boton derecho de cierre "X"
-    /*.btn_close-popup {
-        width: 9%;
-        height: 96%;
-    }
-    .Xcierre_modal-popup {
-        font-size: 1.2em;
-        font-weight: normal;
-        color: #ffffff;
-    }*/
-    // Titulo y texto de encabezado
-    .titulo_principal-popup {
-        font-size: 1em;
-    }
-    .texto_superior-popup {
-        font-size: .8em;
-        text-align: center;
-        margin-top: 5%;
-    }
-    .textoCheck_popup {
-        font-size: .8em;
-    }
-    .section_icons-popup {
-        margin: 7% 0;
-    }
-    // Botón inferior Pagar
-    .section_btnPagar-popup {
-        text-align: center;
-        margin: 3% auto;
-    }
-    .btnPagar-popup {
-        font-size: .8em;
-        width: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-    }
-    .flecha_pagar-popup {
-        width: 11%;
-        margin-left: 5%;
+@media(min-width: 375px) {
+    .popUp_content {
+        width: 75%;
     }
 }
-@media (min-width: 768px) and (orientation: portrait) {
-    .modal_content-popup {
-        width: 100%;
-        padding: 4%;
-    }
-    .modal_header-popup {
-        height: 3vh;
-    }
-    // Sección boton derecho de cierre "X"
-    /*.btn_close-popup {
-        width: 8%;
-        height: 3vh;
-    }
-    .Xcierre_modal-popup {
-        font-size: 2em;
-    }*/
-    // Titulo y texto de encabezado
-    .titulo_principal-popup {
+@media(min-width: 1920px) {
+    .titulo_popUp {
         font-size: 1.5em;
     }
-    .texto_superior-popup {
+    .texto_popUp {
+        font-size: 1.15em;
+    }
+    .icon_popUp {
+        width: 75px;
+    }
+    .btnPagar_popUp {
         font-size: 1.25em;
     }
-    // Sección iconos medios de pago Tarjeta de credito y PSE
-    .section_icons-popup {
-        justify-content: space-around;
-        margin: 7% 0;
+    .popUp_content {
+        padding: 30px 19px 45px 20px;
     }
-    .icon_popup {
-        width: 90px;
-    }
-    .textoCheck_popup {
-        font-size: 1.2em;
-    }
-    .inputCheck_popup {
-        height: 2.3vh;
-        width: 2.3vh;
-        margin: 0;
-    }
-    // Botón inferior Pagar
-    .btnPagar-popup {
-        font-size: 1.5em;
-        width: 50%;
-    }
-    .flecha_pagar-popup {
-        width: 10%;
-    }
-}
-@media (min-width: 1200px) {
-    // Botón inferior Pagar
-    .section_btnPagar-popup {
-        margin: 4% auto;
-    }   
-    .flecha_pagar-popup {
-        width: 9%;
-    } 
-}
-@media (min-width: 1440px) {
-    .modal_dialog-popup {
-        margin: 15% auto;
-    }
-    .modal_content-popup {
-        width: 100%;
-    }
-    // Sección boton derecho de cierre "X"
-    .modal_header-popup {
-        height: 3vh;
-    }
-    /*.btn_close-popup {
-        width: 3.8%;
-        height: 3.2vh;
-    }*/
-    // Titulo y texto de encabezado
-    .titulo_principal-popup {
-        font-size: 2em;
-    }
-    .texto_superior-popup {
-        font-size: 1.5em;
-    }
-    // Sección iconos medios de pago Tarjeta de credito y PSE
-    .icon_popup {
-        width: 100px;
-    }
-    .textoCheck_popup {
-        font-size: 1.5em;
-    }
-    .inputCheck_popup {
-        height: 3vh;
-        width: 3vh;
-        margin: 0;
-    }
-    // Botón inferior Pagar
-    .btnPagar-popup {
-        font-size: 1.563em;
-        width: 30%;
-    }
-    .flecha_pagar-popup {
-        width: 8%;
-    }
-}
-@media (min-width: 1920px) {
-    .modal_dialog-popup {
-        margin: 9% auto;
+    .popUp_medio_pago {
+        padding: 26px 0;
     }
 }

@@ -364,13 +364,16 @@
         padding: 0.5em 0 0.5em 4.5em;
     }
     .content_type_user {
-        height: 115px;
+        height: 100px;
     }
     .content_check_box {
         margin-top: 1em;
     }
+    .content_subTitle {
+        margin: 0 15%;
+    }
     .card_form_infoZaabra {
-        width: 85%;
+        width: 65%;
         padding: 3.5em 0;
     }
     .card_membresia {
@@ -468,13 +471,10 @@
     }
     .content_subTitle {
         padding: 3% 0;
-        margin: 0 12%;
+        margin: 0 25%;
     }
     .content_icon_infoZaabra {
         padding: 0 0 0 3.5em;
-    }
-    .card_form_infoZaabra {
-        width: 75%;
     }
     .card_membresia {
         width: 70%;
@@ -492,8 +492,11 @@
     .section_contacto_infoZaabra {
         width: 85%;
     }
+    .content_subTitle {
+        margin: 0 27%;
+    }
     .card_form_infoZaabra {
-        width: 65%;
+        width: 50%;
     }
     // Texts
     .title_banner_infoZaabra {
@@ -502,14 +505,14 @@
 }
 @media(min-width: 1300px) {
     // Container, section, content, card
-    .card_form_infoZaabra {
-        width: 50%;
-    }
     .section_type_plan {
         width: 50%;
     }
     .content_subTitle {
-        margin: 0 17%;
+        margin: 0 30%;
+    }
+    .card_form_infoZaabra {
+        width: 45%;
     }
     .card_membresia {
         width: 65%;
@@ -569,8 +572,11 @@
     .section_type_plan {
         width: 35%;
     }
+    .content_subTitle {
+        margin: 0 35%;
+    }
     .card_form_infoZaabra {
-        width: 40%;
+        width: 35%;
     }
     .card_membresia {
         width: 50%;

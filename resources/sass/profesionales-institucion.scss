@@ -110,7 +110,7 @@
     color: #232323;
     text-transform: none;
     text-align: center;
-    line-height: 1.1;
+    line-height: 1 !important;
     border: 1px solid #E4E2E2;
     border-radius: 5px;
     margin: 0;
@@ -200,6 +200,14 @@
     }
 }
 
+@media(min-width: 1200px) {
+    // Botones
+    // Botón especialidad del swiper no seleccionado
+    .swiper_especialidad .cbp-l-filters-alignRight .cbp-filter-item {
+        font: 600 13.5px/20px "Quicksand", sans-serif;
+    }  
+}
+
 @media(min-width: 1920px) {
     //Contenedores, contenido, secciones y tarjetas
     .content_main {
@@ -209,5 +217,5 @@
         font-size: 3em;
         left: 330px;
         width: 40%;
-    }    
+    }  
 }
