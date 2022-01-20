@@ -81,7 +81,7 @@
                         }
                     ?>
 
-                    <div class="card cbp-item {{ $esp }} pt-4">
+                    <div class="card cbp-item {{ $esp }} pt-4 zoom_img">
                         <img class="img_professional" src="{{ asset($profesional->foto_perfil_institucion) }}">
 
                         <div class="card-body px-1 py-3">
