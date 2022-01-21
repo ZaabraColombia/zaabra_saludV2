@@ -221,8 +221,8 @@
                 @endif
 
                 <div class="section_button_infoZaabra"> <!-- Send button -->
-                    <button id="send_form" type="submit" class="button_blue_infoZaabra"> {{ __('Enviar') }}
-                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
+                    <button id="send_form" type="submit" class="button_blue_infoZaabra">
+                        {{ __('Enviar') }}&nbsp;<i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
 
