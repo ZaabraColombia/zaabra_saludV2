@@ -213,9 +213,10 @@
         <h2><i></i>Premios y Reconocimientos</h2>
         <div class="swiper-container swiper_premios">
             <div class="swiper-wrapper">
-
                 @foreach ($objprofesionallandingpremio as $objprofesionallandingpremio)
                     <div class="swiper-slide content_imgPrem_formProf">
+                        <a href="{{ asset($objprofesionallandingpremio->imgpremio) }}"
+                            data-fancybox="gallery" data-caption="{{ $objprofesionallandingpremio->nombrepremio }}">
                         <img src="{{URL::asset($objprofesionallandingpremio->imgpremio)}}">
                         <h6>{{$objprofesionallandingpremio->fechapremio}}</h6>
                         <h5>{{$objprofesionallandingpremio->nombrepremio}}</h5>
@@ -270,9 +271,8 @@
                 <div class="swiper-wrapper">
                     @foreach ($objprofesionallandinggaler as $objprofesionallandinggaler)
                         <div class="swiper-slide content_imgGall_formProf">
-                            <a href="{{ asset($objprofesionallandinggaler->imggaleria) }}"
-                               data-fancybox="gallery"
-                               data-caption="{{ $objprofesionallandinggaler->nombrefoto }}">
+                            <a href="{{ asset($objprofesionallandinggaler->imggaleria) }}" 
+                               data-fancybox="group" data-caption="{{ $objprofesionallandinggaler->nombrefoto }}">
                                 <img class="img_galleryLprof" src="{{ asset($objprofesionallandinggaler->imggaleria) }}">
                             </a>
                             <h5>{{$objprofesionallandinggaler->nombrefoto}}</h5>
@@ -399,12 +399,13 @@
 
 @section('scripts')
     <!-- Script JS for perfil profesional -->
-    <script src="{{ asset('js/perfil-profesionales.js') }}"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     <script>
         Fancybox.bind("[data-fancybox]", {
             // Your options go here
         });
     </script>
+    <script src="{{ asset('js/perfil-profesionales.js') }}"></script>
 
 @endsection
