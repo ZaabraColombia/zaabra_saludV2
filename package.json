@@ -24,6 +24,7 @@
     "dependencies": {
         "fullcalendar": "^5.9.0",
         "jquery-validation": "^1.19.3",
+        "jquery-zoom": "^1.7.21",
         "leaflet": "^1.7.1"
     }
 }

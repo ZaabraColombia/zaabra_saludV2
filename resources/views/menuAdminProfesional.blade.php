@@ -46,12 +46,12 @@
                                     <a href='{{url("$objListaUsuario2->urlPermiso")}}'>{{$objListaUsuario2->nombrePermiso}}</a>
                                 </li>
                             @endforeach -->
-                            <li class="submenu-item ">
+                            <!-- <li class="submenu-item ">
                                 <a id="hist" class="actived" href='{{url("historiaClinicaProfesional")}}'>Historia clínica</a>
                             </li>
                             <li class="submenu-item ">
                                 <a id="formula" class="actived" href='{{url("prescripcionesProfesional")}}'>Prescripciones/ fórmulas médicas</a>
-                            </li>
+                            </li> -->
                             <li class="submenu-item ">
                                 <a id="diag" class="actived" href='{{url("diagnosticosProfesional")}}'>Diagnósticos (CIE - 10)</a>
                             </li>

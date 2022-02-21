@@ -145,6 +145,27 @@
     display: none;
 }
 
+
+
+
+.zoom_img {
+    width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.zoom_img img{
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: relative;
+	transition: transform 0.01ms;
+}
+.zoom_img img:hover {
+    transform: scale(2);
+    top: 50px;
+}
+
+
 @media(min-width: 600px) {
     // Contenedores, contenido, secciones y tarjetas
     .content_main {

@@ -1,4 +1,9 @@
 @extends('layouts.app')
+
+@section('styles')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css">
+@endsection
+
 @section('content')
     @php
         $new_array = array();
@@ -207,7 +212,11 @@
             <div class="swiper-wrapper">
                 @foreach ($objinstitucionlandinpremios as $objinstitucionlandinpremios)
                     <div class="swiper-slide slaider_certificado_LandInst">
-                        <img class="imagen_carrusel" src="{{URL::asset($objinstitucionlandinpremios->imgcertificado)}}">
+                        <a href="{{ asset($objinstitucionlandinpremios->imgcertificado) }}"
+                            data-fancybox="group"
+                            data-caption="{{ $objinstitucionlandinpremios->titulocertificado}}"  data-width="1500" data-height="1000">
+                            <img class="imagen_carrusel" src="{{URL::asset($objinstitucionlandinpremios->imgcertificado)}}">
+                        </a>
                         <h6 class="date_carrusel">{{$objinstitucionlandinpremios->fechacertificado}}</h6>
                         <h5 class="title_carrusel">{{$objinstitucionlandinpremios->titulocertificado}}</h5>
                         <p class="parrafo_carrusel">{{$objinstitucionlandinpremios->descrpcioncertificado}}</p>
@@ -256,7 +265,10 @@
                 <div class="swiper-wrapper">
                     @foreach ($objinstitucionlandingaleria as $objinstitucionlandingaleria)
                         <div class="swiper-slide slaider_certificado_LandInst">
-                            <img class="imagen_carrusel" src="{{URL::asset($objinstitucionlandingaleria->imggaleria)}}" alt="{{$objinstitucionlandingaleria->descripcion}}">
+                            <a href="{{ asset($objinstitucionlandingaleria->imggaleria) }}"
+                               data-fancybox="gallery" data-caption="{{ $objinstitucionlandingaleria->nombrefoto}}" data-width="1500" data-height="1000">
+                                <img class="imagen_carrusel" src="{{URL::asset($objinstitucionlandingaleria->imggaleria)}}">
+                            </a>
                             <h5 class="title_carrusel margin_top_section">{{$objinstitucionlandingaleria->nombrefoto}}</h5>
                             <p class="parrafo_carrusel">{{$objinstitucionlandingaleria->descripcion}}</p>
                         </div>
@@ -377,5 +389,49 @@
     </section>
 @endsection
 
+
+
+@section('scripts')
 <!-- Archivo JS for formulario profesional-->
 <script src="{{ asset('js/perfil-instituciones.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script>
+        Fancybox.bind("[data-fancybox]", {
+
+        // Init fancybox
+        // =============
+        var selector = '.swiper-container:not(.slick-cloned)';
+
+        // Skip cloned elements
+        $().fancybox({
+        selector : selector,
+        backFocus : false
+        });
+
+        // Attach custom click event on cloned elements, 
+        // trigger click event on corresponding link
+        $(document).on('click', '.slick-cloned', function(e) {
+        $(selector)
+            .eq( ( $(e.currentTarget).attr("data-slick-index") || 0) % $(selector).length )
+            .trigger("click.fb-start", {
+            $trigger: $(this)
+            });
+
+        return false;
+        });
+
+        // Init Slick
+        // ==========
+        $(".main-slider").slick({
+        slidesToShow   : 1,
+        infinite : true,
+        dots     : false,
+        arrows   : false
+        });
+
+
+        });
+    </script>
+
+@endsection
