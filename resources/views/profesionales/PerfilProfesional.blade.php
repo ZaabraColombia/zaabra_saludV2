@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('styles')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css">
+@endsection
+
 @section('content')
     <!-- seccion datos perfil profesional-->
     <section class="section_data_profesionales">
@@ -60,7 +64,7 @@
                 <a href="{{route('paciente.calendario-id-profesional', ['id' => $objprofesionallanding->idPerfilProfesional])}}">Agende su cita
                     <i class="fas fa-arrow-right pl-2"></i>
                 </a>
-                <!-- <a href="{{route('paciente.calendario')}}">Ver agenda
+            <!-- <a href="{{route('paciente.calendario')}}">Ver agenda
                     <i class="fas fa-arrow-right pl-2"></i>
                 </a> -->
             </div>
@@ -169,10 +173,10 @@
             <ul>
                 <li>
                     @foreach ($objprofesionallandingidioma as $objprofesionallandingidioma)
-                    <div class="contains_idioma">
-                        <img src="{{URL::asset($objprofesionallandingidioma->imgidioma)}}">
-                        <p>{{$objprofesionallandingidioma->nombreidioma}}</p>
-                    </div>
+                        <div class="contains_idioma">
+                            <img src="{{URL::asset($objprofesionallandingidioma->imgidioma)}}">
+                            <p>{{$objprofesionallandingidioma->nombreidioma}}</p>
+                        </div>
                     @endforeach
                 </li>
             </ul>
@@ -209,9 +213,10 @@
         <h2><i></i>Premios y Reconocimientos</h2>
         <div class="swiper-container swiper_premios">
             <div class="swiper-wrapper">
-
                 @foreach ($objprofesionallandingpremio as $objprofesionallandingpremio)
                     <div class="swiper-slide content_imgPrem_formProf">
+                        <a href="{{ asset($objprofesionallandingpremio->imgpremio) }}"
+                            data-fancybox="gallery" data-caption="{{ $objprofesionallandingpremio->nombrepremio }}">
                         <img src="{{URL::asset($objprofesionallandingpremio->imgpremio)}}">
                         <h6>{{$objprofesionallandingpremio->fechapremio}}</h6>
                         <h5>{{$objprofesionallandingpremio->nombrepremio}}</h5>
@@ -266,16 +271,19 @@
                 <div class="swiper-wrapper">
                     @foreach ($objprofesionallandinggaler as $objprofesionallandinggaler)
                         <div class="swiper-slide content_imgGall_formProf">
-                            <img class="img_galleryLprof" src="{{URL::asset($objprofesionallandinggaler->imggaleria)}}">
+                            <a href="{{ asset($objprofesionallandinggaler->imggaleria) }}" 
+                               data-fancybox="group" data-caption="{{ $objprofesionallandinggaler->nombrefoto }}">
+                                <img class="img_galleryLprof" src="{{ asset($objprofesionallandinggaler->imggaleria) }}">
+                            </a>
                             <h5>{{$objprofesionallandinggaler->nombrefoto}}</h5>
                             <p>{{$objprofesionallandinggaler->descripcion}}</p>
                         </div>
                     @endforeach
                 </div>
 
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev btnPrev_gall_formProf"></div>
-            <div class="swiper-button-next btnNext_gall_formProf"></div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev btnPrev_gall_formProf"></div>
+                <div class="swiper-button-next btnNext_gall_formProf"></div>
             </div>
             <!-- <a class="btn-procedimientos" href="">Ver agenda</a> -->
         </div>
@@ -322,19 +330,19 @@
                             <div class="rating-stars section_Starts-form">
                                 <ul id='stars'>
                                     <li class='star' title='Poor' data-value='1'>
-                                    <i class='fa fa-star fa-fw'></i>
+                                        <i class='fa fa-star fa-fw'></i>
                                     </li>
                                     <li class='star' title='Fair' data-value='2'>
-                                    <i class='fa fa-star fa-fw'></i>
+                                        <i class='fa fa-star fa-fw'></i>
                                     </li>
                                     <li class='star' title='Good' data-value='3'>
-                                    <i class='fa fa-star fa-fw'></i>
+                                        <i class='fa fa-star fa-fw'></i>
                                     </li>
                                     <li class='star' title='Excellent' data-value='4'>
-                                    <i class='fa fa-star fa-fw'></i>
+                                        <i class='fa fa-star fa-fw'></i>
                                     </li>
                                     <li class='star' title='WOW!!!' data-value='5'>
-                                    <i class='fa fa-star fa-fw'></i>
+                                        <i class='fa fa-star fa-fw'></i>
                                     </li>
                                 </ul>
                             </div>
@@ -352,29 +360,29 @@
             @if(!empty($objprofesionalComentario))
                 <div class="visible_container">
                     @foreach ($objprofesionalComentario as $data)
-                    <div class="section_opciones" id="oscar">
-                        <div class="section_usuario-prof">
-                            <div class="contains_avatar">
-                                <i class="fas fa-circle circle_opinion-prof"></i>
-                            </div>
-                            <div class="contains_text">
-                                <p class="name_usuario-prof">{{$data->primernombre}} {{$data->primerapellido}}</p>
-                                <p class="icono_verify verify_usuario-prof"> Paciente verificado </p>
-                            </div>
+                        <div class="section_opciones" id="oscar">
+                            <div class="section_usuario-prof">
+                                <div class="contains_avatar">
+                                    <i class="fas fa-circle circle_opinion-prof"></i>
+                                </div>
+                                <div class="contains_text">
+                                    <p class="name_usuario-prof">{{$data->primernombre}} {{$data->primerapellido}}</p>
+                                    <p class="icono_verify verify_usuario-prof"> Paciente verificado </p>
+                                </div>
 
-                            <div class="section_stars-prof">
-                                @for ($i=1; $i <= $data->calificacion; $i++)
-                                <i class='fa fa-star fa-fw' style="color: #E6C804;"></i>
-                                @endfor
-                                @for ($i=$data->calificacion; $i <= 4; $i++)
-                                <i class="far fa-star" style="color: #E6C804;"></i>
-                                @endfor
+                                <div class="section_stars-prof">
+                                    @for ($i=1; $i <= $data->calificacion; $i++)
+                                        <i class='fa fa-star fa-fw' style="color: #E6C804;"></i>
+                                    @endfor
+                                    @for ($i=$data->calificacion; $i <= 4; $i++)
+                                        <i class="far fa-star" style="color: #E6C804;"></i>
+                                    @endfor
+                                </div>
+                            </div>
+                            <div class="section_comentario-prof">
+                                <span>{{$data->comentario}}</span>
                             </div>
                         </div>
-                        <div class="section_comentario-prof">
-                            <span>{{$data->comentario}}</span>
-                        </div>
-                    </div>
                     @endforeach
                 </div>
             @endif
@@ -388,5 +396,16 @@
         </div>
     </section>
 @endsection
-<!-- Script JS for perfil profesional -->
-<script src="{{ asset('js/perfil-profesionales.js') }}"></script>
+
+@section('scripts')
+    <!-- Script JS for perfil profesional -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script>
+        Fancybox.bind("[data-fancybox]", {
+            // Your options go here
+        });
+    </script>
+    <script src="{{ asset('js/perfil-profesionales.js') }}"></script>
+
+@endsection
