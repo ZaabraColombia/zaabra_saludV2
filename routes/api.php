@@ -18,6 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/search/cie10', [\App\Http\Controllers\Api\SearchController::class, 'cie10'])->name('search-cie10');
-Route::get('/search/cups', [\App\Http\Controllers\Api\SearchController::class, 'cups'])->name('search-cups');
-Route::get('/search/cums', [\App\Http\Controllers\Api\SearchController::class, 'cums'])->name('search-cums');
+Route::get('/search/cie10', [\App\Http\Controllers\Api\SearchController::class, 'cie10'])
+    ->name('search-cie10');
+Route::get('/search/cups', [\App\Http\Controllers\Api\SearchController::class, 'cups'])
+    ->name('search-cups');
+Route::get('/search/cums', [\App\Http\Controllers\Api\SearchController::class, 'cums'])
+    ->name('search-cums');
