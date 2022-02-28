@@ -5,9 +5,9 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class adminConfigCalendarController extends Controller
-{
-    public function index(){
-        return view('panelAdministrativoProf.configCalendar');
-    }
-}
+// class adminConfigCalendarController extends Controller
+// {
+//     public function index(){
+//         return view('panelAdministrativoProf.configCalendar');
+//     }
+// }

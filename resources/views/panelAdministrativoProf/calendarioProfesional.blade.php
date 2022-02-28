@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="row m-0 pb-4">
-                    <a href="{{url('configCalendar')}}" class="button_blue_form mr-3">
+                    <a href="{{route('profesional.configurar-calendario')}}" class="button_blue_form mr-3">
                         <i class="fas fa-cogs pr-2"></i>Configuración de cita
                     </a>
 
