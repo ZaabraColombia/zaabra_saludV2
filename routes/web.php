@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Paciente;
+use App\Http\Controllers\entidades;
 use Illuminate\Support\Facades\Route;
 
 
@@ -76,7 +77,7 @@ Route:: post('/contacto',[App\Http\Controllers\contactecnosController::class,'sa
 Route:: post('/newsletter',[App\Http\Controllers\newsletter\newsletterController::class,'save'])->name('newsletter');
 
 // Esta ruta pertenece a la vista de membresía In stituciones
-Route::get('/membresia-institucion', function () { return view('instituciones/membresiaInstitucion');})->name('entidad.membresiaInstitucion');
+Route::get('/membresia-institucion', function () { return view('instituciones/membresiaInstitucion');})->name('membresiaInstitucion');
 
 // Esta ruta pertenece a la vista de membresía profesional
 Route::get('/membresia-profesional', function () { return view('profesionales/membresiaProfesional');})->name('profesional.membresiaProfesional');
@@ -188,48 +189,77 @@ Route::middleware(['auth', 'roles', 'verified'])->group(function (){
 });
 
 /*------------------------------------------------Pertenece a entidades-------------------------------------------------------------------------------*/
-Route::middleware(['auth', 'roles', 'verified'])->group(function () {
+Route::middleware(['auth', 'roles', 'verified'])->as('entidad.')->group(function () {
 
     /*Esta ruta es del formulario del profesional */
-    Route::get('/FormularioInstitucion',[App\Http\Controllers\entidades\formularioInstitucionController::class,'index'])->name('entidad.FormularioInstitucion');
+    Route::get('/FormularioInstitucion',[App\Http\Controllers\entidades\formularioInstitucionController::class,'index'])->name('FormularioInstitucion');
 
     /*-----formulario parte 1----*/
-    Route::post('/FormularioInstitucionSave',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create1'])->name('entidad.create1');
+    Route::post('/FormularioInstitucionSave',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create1'])->name('create1');
     /*-----formulario parte 2----*/
-    Route::post('/FormularioInstitucionSave2',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create2'])->name('entidad.create2');
+    Route::post('/FormularioInstitucionSave2',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create2'])->name('create2');
     /*-----formulario parte 3----*/
-    Route::post('/FormularioInstitucionSave3',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create3'])->name('entidad.create3');
+    Route::post('/FormularioInstitucionSave3',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create3'])->name('create3');
     /*-----formulario parte 4----*/
-    Route::post('/FormularioInstitucionSave4',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create4'])->name('entidad.create4');
-    Route::get('/FormularioInstituciondelete4/{id_servicio}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete4'])->name('entidad.delete4');
+    Route::post('/FormularioInstitucionSave4',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create4'])->name('create4');
+    Route::get('/FormularioInstituciondelete4/{id_servicio}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete4'])->name('delete4');
     /*-----formulario parte 5----*/
-    Route::post('/FormularioInstitucionSave5',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create5'])->name('entidad.create5');
+    Route::post('/FormularioInstitucionSave5',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create5'])->name('create5');
     /*-----formulario parte 6----*/
-    Route::post('/FormularioInstitucionSave6',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create6'])->name('entidad.create6');
+    Route::post('/FormularioInstitucionSave6',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create6'])->name('create6');
     /*-----formulario parte 7----*/
-    Route::post('/FormularioInstitucionSave7',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create7'])->name('entidad.create7');
-    Route::get('/FormularioInstituciondelete7/{id_convenio}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete7'])->name('entidad.delete7');
+    Route::post('/FormularioInstitucionSave7',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create7'])->name('create7');
+    Route::get('/FormularioInstituciondelete7/{id_convenio}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete7'])->name('delete7');
     /*-----formulario parte 8----*/
-    Route::get('/FormularioInstitucionGet8/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'get8'])->name('entidad.get8');
-    Route::post('/FormularioInstitucionSave8',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create8'])->name('entidad.create8');
-    Route::get('/FormularioInstituciondelete8/{id_profesional}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete8'])->name('entidad.delete8');
+    Route::get('/FormularioInstitucionGet8/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'get8'])->name('get8');
+    Route::post('/FormularioInstitucionSave8',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create8'])->name('create8');
+    Route::get('/FormularioInstituciondelete8/{id_profesional}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete8'])->name('delete8');
     /*-----formulario parte 9----*/
-    Route::post('/FormularioInstitucionSave9',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create9'])->name('entidad.create9');
-    Route::get('/FormularioInstituciondelete9/{id_certificacion}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete9'])->name('entidad.delete9');
+    Route::post('/FormularioInstitucionSave9',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create9'])->name('create9');
+    Route::get('/FormularioInstituciondelete9/{id_certificacion}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete9'])->name('delete9');
     /*-----formulario parte 10----*/
-    Route::post('/FormularioInstitucionSave10',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create10'])->name('entidad.create10');
-    Route::get('/FormularioInstituciondelete10/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete10'])->name('entidad.delete10');
+    Route::post('/FormularioInstitucionSave10',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create10'])->name('create10');
+    Route::get('/FormularioInstituciondelete10/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete10'])->name('delete10');
     /*-----formulario parte 11----*/
-    Route::post('/FormularioInstitucionSave11',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create11'])->name('entidad.create11');
+    Route::post('/FormularioInstitucionSave11',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create11'])->name('create11');
     /*-----formulario parte 12----*/
-    Route::post('/FormularioInstitucionSave12',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create12'])->name('entidad.create12');
-    Route::get('/FormularioInstituciondelete12/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete12'])->name('entidad.delete12');
+    Route::post('/FormularioInstitucionSave12',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create12'])->name('create12');
+    Route::get('/FormularioInstituciondelete12/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete12'])->name('delete12');
     /*-----formulario parte 13----*/
-    Route::post('/FormularioInstitucionSave13',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create13'])->name('entidad.create13');
-    Route::get('/FormularioInstituciondelete13/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete13'])->name('entidad.delete13');
+    Route::post('/FormularioInstitucionSave13',[App\Http\Controllers\entidades\formularioInstitucionController::class,'create13'])->name('create13');
+    Route::get('/FormularioInstituciondelete13/{id}',[App\Http\Controllers\entidades\formularioInstitucionController::class,'delete13'])->name('delete13');
 
-    Route::post('/institucion/form-password',[App\Http\Controllers\entidades\formularioInstitucionController::class,'password'])->name('entidad.formulario-password');
+    Route::post('/institucion/form-password',[App\Http\Controllers\entidades\formularioInstitucionController::class,'password'])->name('formulario-password');
 
+    /*--------- Admin Entidad -----------*/
+    Route::group(['prefix' => '/institucion'], function (){
+        Route:: get('/panel',[entidades\Admin\PanelController::class,'index'])->name('panel');
+        Route:: get('/citas',[entidades\Admin\CitasController::class,'index'])->name('citas');
+        Route:: get('/pagos',[entidades\Admin\PagosController::class,'index'])->name('pagos');
+
+        Route::get('/configurar-calendario', [entidades\Admin\CalendarioController::class, 'configuracion'])
+            ->name('configurar-calendario');
+        Route::get('/calendario',[entidades\Admin\CalendarioController::class,'index'])
+            ->name('calendarioProfesional');
+
+        Route:: get('/cie10',[entidades\Admin\HistoriaClinicaController::class,'cie10'])
+            ->name('cie10');
+        Route:: get('/cups',[entidades\Admin\HistoriaClinicaController::class,'cups'])
+            ->name('cups');
+        Route:: get('/cums',[entidades\Admin\HistoriaClinicaController::class,'cums'])
+            ->name('cums');
+
+        Route:: get('/favoritos',[entidades\Admin\FavoritosController::class,'index'])
+            ->name('favoritos');
+        Route:: post('/favoritosSave',[entidades\Admin\FavoritosController::class,'create'])
+            ->name('favoritosSave');
+        Route:: post('/favoritosSave2',[entidades\Admin\FavoritosController::class,'create2'])
+            ->name('favoritosSave2');
+        Route:: post('/favoritosSave3',[entidades\Admin\FavoritosController::class,'create3'])
+            ->name('favoritosSave3');
+        Route:: post('/favoritosSave4',[entidades\Admin\FavoritosController::class,'create4'])
+            ->name('favoritosSave4');
+    });
 });
 
 
