@@ -31,6 +31,12 @@
                             <li class="submenu-item ">
                                 <a id="pago" class="actived" href='{{url("pagosProfesional")}}'>Mis pagos</a>
                             </li>
+                            <li class="submenu-item ">
+                                <a id="pago" class="actived" href='{{url("pagosProfesional")}}'>Mis paciente</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a id="pago" class="actived" href='{{url("pagosProfesional")}}'>Mis contactos</a>
+                            </li>
                         </ul>
                     </li>
                 @endif
