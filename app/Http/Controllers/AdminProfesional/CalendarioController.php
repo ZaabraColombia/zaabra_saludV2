@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Horario;
 use App\Models\tipoconsultas;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -62,9 +63,17 @@ class CalendarioController extends Controller
             'descanso' => $request->get('descanso')
         ]);
 
-        return response(['message' => 'Configuración de la cita listo'], Response::HTTP_ACCEPTED);
+        return response([
+            'message' => 'Configuración de la cita listo'
+        ], Response::HTTP_ACCEPTED);
     }
 
+    /**
+     * Agregar un horario
+     *
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
     public function horario_agregar(Request $request)
     {
         $validator = Validator::make( $request->all(), [
@@ -102,11 +111,42 @@ class CalendarioController extends Controller
         //parce days in text
         foreach ($schedule[0]['daysOfWeek'] as $key => $item) $schedule[0]['daysOfWeek'][$key] = daysWeekText($item);
 
-        return response(['message' => '', 'item' => $schedule[0]], Response::HTTP_ACCEPTED);
+        return response([
+            'message' => 'Horario Agregado', 'item' => $schedule[0]
+        ], Response::HTTP_ACCEPTED);
     }
 
-    public function horario_eliminar()
+    /**
+     *  Eliminar un horario
+     *
+     * @return Application|ResponseFactory|Response
+     */
+    public function horario_eliminar(Request $request)
     {
+        $validator = Validator::make( $request->all(), [
+            'id'    => ['required', 'integer'],
+        ]);
 
+        if ($validator->failed())
+        {
+            return response(['error' => $validator->errors()->all()], Response::HTTP_NOT_FOUND);
+        }
+
+        //user
+        $user = Auth::user();
+        //schedule
+        $schedule = $user->calendar_config->schedule_on;
+
+        //delete schedule
+        $key_schedule_delete = array_search($request->id, array_column($schedule, 'id'));
+        unset($schedule[$key_schedule_delete]);
+
+        //save
+        $user->calendar_config->schedule_on = $schedule;
+        $user->calendar_config->save();
+
+        return response([
+            'message' => __('calendar.deleted-schedule-confirmation')
+        ], Response::HTTP_OK);
     }
 }
