@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Paciente\Admin;
 use App\Http\Controllers\Controller;
-
-use App\Models\consultas;
-use App\Models\perfilesprofesionales;
 use App\Models\tipoconsultas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use function view;
 
-class adminCalendarioController extends Controller{
+class CalendarioController extends Controller{
     public function index(Request $request){
 
         if (isset($request->id))
@@ -20,17 +18,17 @@ class adminCalendarioController extends Controller{
             $calificacion   = $this->calificacion($request->id);
 
             if (!empty($profesional)) {
-                return view('panelAdministrativo.calendario', compact(
+                return view('panelAdministrativoPac.calendario', compact(
                     'profesional',
                     'consultas',
                     'calificacion'
                 ));
             }else{
-                return view('panelAdministrativo.calendario', ['error' => 'El perfil no existe']);
+                return view('panelAdministrativoPac.calendario', ['error' => 'El perfil no existe']);
             }
         }
 
-        return view('panelAdministrativo.calendario');
+        return view('panelAdministrativoPac.calendario');
     }
 
     public function profesional($id){

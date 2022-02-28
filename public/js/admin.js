@@ -5,11 +5,11 @@ for(var i = 0; i < sidebarItems.length; i++) {
     let sidebarItem = sidebarItems[i];
 	sidebarItems[i].querySelector('.sidebar-link').addEventListener('click', function(e) {
         e.preventDefault();
-        
+
         let submenu = sidebarItem.querySelector('.submenu');
         if(submenu.style.display == 'none') submenu.classList.add('active')
         else submenu.classList.remove('active')
-        
+
         slideToggle(submenu, 300)
     })
 }
@@ -32,23 +32,23 @@ window.addEventListener('resize', (event) => {
 // Función para ocultar y mostrar los pop-up de las tarjetas de la agenda los cuales se encuentran en la vista citas.blade.php
 function elementClose (z){
     let myvar = z.getAttribute('data-position');
-    
+
     let selector = document.querySelector.bind(document);
     // Condicional para la función del pop-up
     if (myvar == "cancelo") {
         selector(".modalB").style.display = "block";
         selector(".modalA").style.display = "none";
-        jQuery(".modal-backdrop.show").css("display","none"); 
+        jQuery(".modal-backdrop.show").css("display","none");
     }
     else if (myvar == "edito") {
         selector(".modalD").style.display = "block";
         selector(".modalC").style.display = "none";
-        jQuery(".modal-backdrop.show").css("display","none"); 
+        jQuery(".modal-backdrop.show").css("display","none");
     }
     else if (myvar == "cancelar") {
         selector(".modalE").style.display = "block";
         selector(".modalC").style.display = "none";
-        jQuery(".modal-backdrop.show").css("display","none"); 
+        jQuery(".modal-backdrop.show").css("display","none");
     }
 }
 
@@ -77,7 +77,7 @@ function elementClose (z){
         $('#cita0').removeClass('actived');
         $('#cita0').addClass('unactived');
     }
-    else if (queryRuta.includes("ordenesMedicas")) {
+    else if (queryRuta.includes("ordenesMedicas") || queryRuta.includes("ordenes-medicas")) {
 
         $('#cita_padre').removeClass('actived');
         $('#cita_padre').addClass('citaPadre');
@@ -147,7 +147,7 @@ function elementClose (z){
         $('#pago').addClass('unactived');
     }
 
-    else if (queryRuta.includes("historiaClinica") || queryRuta.includes("registroPaciente") || queryRuta.includes("pacienteRegistrado")
+    else if (queryRuta.includes("historiaClinica") || queryRuta.includes("historia-clinica") || queryRuta.includes("registroPaciente") || queryRuta.includes("pacienteRegistrado")
     || queryRuta.includes("editarConsulta") || queryRuta.includes("editarPatologia")
     || queryRuta.includes("editarExpediente")) {
 

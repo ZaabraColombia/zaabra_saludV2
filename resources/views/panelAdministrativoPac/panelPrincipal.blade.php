@@ -1,4 +1,4 @@
-@extends('panelAdministrativo.panelAdministrativo')
+@extends('panelAdministrativoPac.panelAdministrativo')
 
 @section('Panel')
     <div class="container container_principal p-md-0">
@@ -21,7 +21,7 @@
                             </a>
                         </div>
                     </div>
-                @endforeach  
+                @endforeach
             @endif
         </div>
     </div>

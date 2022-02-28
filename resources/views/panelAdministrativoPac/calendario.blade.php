@@ -1,4 +1,4 @@
-@extends('panelAdministrativo.panelAdministrativo')
+@extends('panelAdministrativoPac.panelAdministrativo')
 
 @section('styles')
     <!--Framewor Agenda-->

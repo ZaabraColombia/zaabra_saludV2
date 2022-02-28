@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\entidades\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Models\favoritos_especialidades;
-use App\Models\favoritos_servicios;
 use App\Models\favoritos_especialistas;
 use App\Models\favoritos_instituciones;
-
+use App\Models\favoritos_servicios;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-use Auth;
-
-class adminFavoritosController extends Controller
+class FavoritosController extends Controller
 {
     public function index(){
         if (Auth::check()){
@@ -22,7 +21,7 @@ class adminFavoritosController extends Controller
             $objFavoritoEspec=$this->cargaFavoritoEspecialista($id_users);
             $objFavoritoInst=$this->cargaFavoritoInstitucion($id_users);
 
-            return view('panelAdministrativo.favoritos',compact(
+            return view('panelAdministrativoPac.favoritos',compact(
                 'objFavorito',
                 'objFavoritoServicio',
                 'objFavoritoEspec',
@@ -30,7 +29,7 @@ class adminFavoritosController extends Controller
             ));
         }else{
             return redirect()->guest('/login');
-        } 
+        }
     }
 
     // 1. Funciones para la tarjeta de especialidades favoritas agenda paciente, vista favorito.blade.php
@@ -40,20 +39,20 @@ class adminFavoritosController extends Controller
         LEFT JOIN users us   ON fe.id_users=us.id
         WHERE fe.id_users=$id_users");
     }
-    
+
     public function  create(Request $request) {
         /*id usuario logueado*/
-        $id_users=auth()->user()->id; 
+        $id_users=auth()->user()->id;
         $request->merge([
-            'id_users' => "$id_users", 
+            'id_users' => "$id_users",
         ]);
         unset($request['_token']);
         $data = $request->all();
         $result = favoritos_especialidades::create($data);
-        if($result){ 
+        if($result){
             $arr = array('msg' => 'La especialidad ha sido guardad en sus favoritos', 'status' => true);
         }
-        return Response()->json($arr);  
+        return Response()->json($arr);
     }
 
     // 2. Funciones para la tarjeta de servicios favoritos agenda paciente, vista favoritos.blade.php
@@ -65,22 +64,22 @@ class adminFavoritosController extends Controller
     }
 
     public function create2(Request $request) {
-       
+
         /*id usuario logueado*/
-        $id_users=auth()->user()->id; 
+        $id_users=auth()->user()->id;
         $request->merge([
-            'id_users' => "$id_users", 
+            'id_users' => "$id_users",
         ]);
         unset($request['_token']);
         $data = $request->all();
         $result = favoritos_servicios::create($data);
-        if($result){ 
+        if($result){
             $arr = array('msg' => 'El servicio ha sido guardado en sus favoritos', 'status' => true);
         }
-        return Response()->json($arr);  
+        return Response()->json($arr);
     }
 
-    // 3. Funciones para la tarjeta de especialistas favoritos agenda paciente, vista favoritos.blade.php 
+    // 3. Funciones para la tarjeta de especialistas favoritos agenda paciente, vista favoritos.blade.php
     public function cargaFavoritoEspecialista($id_users){
         return DB::select(
             "SELECT fes.nombre_favorito_especialista
@@ -91,19 +90,19 @@ class adminFavoritosController extends Controller
     }
 
     public function create3(Request $request) {
-       
+
         /*id usuario logueado*/
-        $id_users=auth()->user()->id; 
+        $id_users=auth()->user()->id;
         $request->merge([
-            'id_users' => "$id_users", 
+            'id_users' => "$id_users",
         ]);
         unset($request['_token']);
         $data = $request->all();
         $result = favoritos_especialistas::create($data);
-        if($result){ 
+        if($result){
             $arr = array('msg' => 'El especialista ha sido guardado en sus favoritos', 'status' => true);
         }
-        return Response()->json($arr);  
+        return Response()->json($arr);
     }
 
     // 4. Funciones para la tarjeta de instituciones favoritos agenda paciente, vista favoritos.blade.php
@@ -117,18 +116,18 @@ class adminFavoritosController extends Controller
     }
 
     public function create4(Request $request) {
-        
+
         /*id usuario logueado*/
-        $id_users=auth()->user()->id; 
+        $id_users=auth()->user()->id;
         $request->merge([
-            'id_users' => "$id_users", 
+            'id_users' => "$id_users",
         ]);
         unset($request['_token']);
         $data = $request->all();
         $result = favoritos_instituciones::create($data);
-        if($result){ 
+        if($result){
             $arr = array('msg' => 'La institucion ha sido guardado en sus favoritos', 'status' => true);
         }
-        return Response()->json($arr);  
+        return Response()->json($arr);
     }
 }
