@@ -153,6 +153,8 @@ Route::middleware(['auth', 'roles', 'verified'])->group(function (){
     Route:: get('/calendarioProfesional',[App\Http\Controllers\admin\adminCalendarioProfesionalController::class,'index'])->name('profesional.calendarioProfesional');
     Route:: get('/citasProfesional',[App\Http\Controllers\admin\adminCitasProfesionalController::class,'index'])->name('profesional.citasProfesional');
     Route:: get('/pagosProfesional',[App\Http\Controllers\admin\adminPagosProfesionalController::class,'index'])->name('profesional.pagosProfesional');
+
+    Route::get('/profesional/configurar-calendario', [\App\Http\Controllers\AdminProfesional\CalendarioController::class, 'configuracion'])->name('profesional.configurar-calendario');
     //Route:: get('/ordenesMedicas',[App\Http\Controllers\admin\adminExamenesController::class,'index'])->name('ordenesMedicas');
     //Route:: get('/prescripciones',[App\Http\Controllers\admin\adminPrescripcionesController::class,'index'])->name('prescripciones');
 

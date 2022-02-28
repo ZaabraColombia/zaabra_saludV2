@@ -81,4 +81,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(instituciones::class, 'idUser', 'id');
 
     }
+
+    public function horario()
+    {
+        return $this->hasOne(Horario::class);
+    }
 }
