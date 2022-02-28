@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Paciente;
 use App\Http\Controllers\entidades;
+use App\Http\Controllers\Paciente;
+use App\Http\Controllers\profesionales\Admin;
 use Illuminate\Support\Facades\Route;
 
 
@@ -155,7 +156,7 @@ Route::middleware(['auth', 'roles', 'verified'])->group(function (){
     Route:: get('/citasProfesional',[App\Http\Controllers\admin\adminCitasProfesionalController::class,'index'])->name('profesional.citasProfesional');
     Route:: get('/pagosProfesional',[App\Http\Controllers\admin\adminPagosProfesionalController::class,'index'])->name('profesional.pagosProfesional');
 
-    Route::get('/profesional/configurar-calendario', [\App\Http\Controllers\AdminProfesional\CalendarioController::class, 'configuracion'])->name('profesional.configurar-calendario');
+    Route::get('/profesional/configurar-calendario', [\App\Http\Controllers\profesionales\Admin\CalendarioController::class, 'configuracion'])->name('profesional.configurar-calendario');
     //Route:: get('/ordenesMedicas',[App\Http\Controllers\admin\adminExamenesController::class,'index'])->name('ordenesMedicas');
     //Route:: get('/prescripciones',[App\Http\Controllers\admin\adminPrescripcionesController::class,'index'])->name('prescripciones');
 
@@ -186,6 +187,10 @@ Route::middleware(['auth', 'roles', 'verified'])->group(function (){
     //Route:: post('/favoritosGeneralSave2',[App\Http\Controllers\admin\adminFavoritosController::class,'create2'])->name('favoritosGeneralSave2');
     //Route:: post('/favoritosGeneralSave3',[App\Http\Controllers\admin\adminFavoritosController::class,'create3'])->name('favoritoSGeneralSave3');
     //Route:: post('/favoritosGeneralSave4',[App\Http\Controllers\admin\adminFavoritosController::class,'create4'])->name('favoritosGeneralSave4');
+
+    Route::as('profesional.')->prefix('/profesional')->group(function (){
+        Route::resource('Contacto', Admin\ContactosController::class);
+    });
 });
 
 /*------------------------------------------------Pertenece a entidades-------------------------------------------------------------------------------*/

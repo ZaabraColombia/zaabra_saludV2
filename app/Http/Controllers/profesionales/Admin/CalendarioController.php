@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\AdminProfesional;
+namespace App\Http\Controllers\profesionales\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Horario;
-use App\Models\tipoconsultas;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
@@ -15,6 +14,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use function daysWeekText;
+use function response;
 use function view;
 
 class CalendarioController extends Controller
@@ -148,5 +149,92 @@ class CalendarioController extends Controller
         return response([
             'message' => __('calendar.deleted-schedule-confirmation')
         ], Response::HTTP_OK);
+    }
+
+    /**
+     * Perimte listar las citas libres por día
+     *
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function citas_libres(Request $request)
+    {
+        //Validate date
+        $validate = Validator::make($request->all(), [
+            'date'  => ['required', 'date_format:Y-m-d']
+        ]);
+        if ($validate->fails()) {
+            return response(['error' =>  $validate->errors()->first('date')], Response::HTTP_NOT_FOUND);
+        }
+
+        //User
+        $user = Auth::user();
+
+        //Dates day's of Operative
+        $datesOperative = $user->medical_dates;
+
+        //validate number week of date
+        $weekDay = date('w', strtotime($request->date));
+
+        //create list of dates
+        $dateInterval = ($user->calendar_config->date_duration + $user->calendar_config->date_interval) * 60;
+        $listDates = array();
+
+        //Search interval schedule in configuration
+        foreach ($user->calendar_config->schedule_on as $item)
+        {
+
+            if (in_array( $weekDay, $item['daysOfWeek']))
+            {
+                $startDate = strtotime("$request->date " . $item['startTime']);
+                $endDate = strtotime("$request->date " . $item['endTime']);
+
+                //Add posible dates
+                for($date = $startDate; ($date + $dateInterval) <= $endDate; $date+= $dateInterval){
+
+                    $startTime = date('Y-m-d H:i', $date);
+                    $endTime = date('Y-m-d H:i', $date + $dateInterval );
+
+
+                    //validate exist or conflict date
+                    $valid = true;
+                    foreach ($datesOperative as $dateOperative) {
+                        if (
+                            //Check that start new date is between start operative & end operative
+                            (strtotime($dateOperative->start_date) <= strtotime($startTime)
+                                && strtotime($dateOperative->end_date) >= strtotime($startTime))
+                            or
+                            //Check that end new date is between start operative & end operative
+                            (strtotime($dateOperative->start_date) <= strtotime($endTime)
+                                && strtotime($dateOperative->end_date) >= strtotime($endTime))
+                            or
+                            //Check that start operative is between start new date & end new date
+                            (strtotime($startTime) <= strtotime($dateOperative->start_date)
+                                && strtotime($startTime) >= strtotime($dateOperative->start_date))
+                            or
+                            //Check that end operative is between start new date & end new date
+                            (strtotime($startTime) <= strtotime($dateOperative->end_date)
+                                && strtotime($startTime) >= strtotime($dateOperative->end_date))
+                        )
+                        {
+                            $valid = false;
+                            break;
+                        }
+                    }
+
+                    if ($valid)
+                    {
+                        //Add date in list
+                        array_push($listDates, [
+                            'startTime' => $startTime,
+                            'endTime' => $endTime,
+                            'nameOperative' => "$user->last_name $user->name"
+                        ]);
+                    }
+                }
+            }
+        }
+
+        return response(['data' => $listDates], Response::HTTP_OK);
     }
 }
