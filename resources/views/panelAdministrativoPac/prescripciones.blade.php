@@ -1,4 +1,4 @@
-@extends('panelAdministrativo.panelAdministrativo')
+@extends('panelAdministrativoPac.panelAdministrativo')
 @section('Panel')
     <section class="section">
         <div class="row m-0 p-0" id="basic-table">
@@ -8,7 +8,7 @@
                         <h1 class="title_ordMed">Mis prescripciones/fórmulas</h1>
                         <span class="subtitle_ordMed">Encuentre aquí sus prescripciones y/o fórmulas médicas.</span>
                     </div>
-                </div>    
+                </div>
 
                 <div class="card container_pres">
                     <div class="card-content">

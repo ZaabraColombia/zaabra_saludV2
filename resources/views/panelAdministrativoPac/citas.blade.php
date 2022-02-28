@@ -1,4 +1,4 @@
-@extends('panelAdministrativo.panelAdministrativo')
+@extends('panelAdministrativoPac.panelAdministrativo')
 @section('Panel')
     <section class="section">
         <div class="row m-0 p-0" id="basic-table">
@@ -10,7 +10,7 @@
                     </div>
 
                     <button type="submit" class="btn_agendar_cita"> Agende su cita
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_btn_agendar" alt=""> 
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_btn_agendar" alt="">
                     </button>
                 </div>
 
@@ -172,13 +172,13 @@
 
                         <div class="col-md-6 p-0">
                             <label for="example-date-input" class="col-12 text_label-formProf">Fecha</label>
-                        
+
                             <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
                         </div>
 
                         <div class="col-md-6 p-0">
                             <label for="example-date-input" class="col-12 text_label-formProf">Hora</label>
-                        
+
                             <input class="form-control" type="time" value="" id="example-date-input" name="fechaestudio[]">
                         </div>
 

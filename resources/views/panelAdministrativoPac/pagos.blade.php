@@ -1,4 +1,4 @@
-@extends('panelAdministrativo.panelAdministrativo')
+@extends('panelAdministrativoPac.panelAdministrativo')
 @section('Panel')
         <section class="section">
             <div class="row m-0 p-0" id="basic-table">
@@ -8,7 +8,7 @@
                             <h1 class="title_miCita">Mis pagos</h1>
                             <span class="subtitle_miCita">Encuentre aquí los pagos realizados por cada una de sus citas.</span>
                         </div>
-                    </div>    
+                    </div>
 
                     <div class="card container_pagos">
                         <div class="card-content">
@@ -34,7 +34,7 @@
                                                 <td>$50.000</td>
                                                 <td class="content_btn_descargar">
                                                     <button type="submit" class="btn_descargar_pago"> Descargar
-                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt=""> 
+                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt="">
                                                     </button>
                                                 </td>
                                             </tr>
@@ -46,7 +46,7 @@
                                                 <td>$50.000</td>
                                                 <td class="content_btn_descargar">
                                                     <button type="submit" class="btn_descargar_pago"> Descargar
-                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt=""> 
+                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt="">
                                                     </button>
                                                 </td>
                                             </tr>
@@ -58,7 +58,7 @@
                                                 <td>$50.000</td>
                                                 <td class="content_btn_descargar">
                                                     <button type="submit" class="btn_descargar_pago"> Descargar
-                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt=""> 
+                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt="">
                                                     </button>
                                                 </td>
                                             </tr>
@@ -70,7 +70,7 @@
                                                 <td>$50.000</td>
                                                 <td class="content_btn_descargar">
                                                     <button type="submit" class="btn_descargar_pago"> Descargar
-                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt=""> 
+                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt="">
                                                     </button>
                                                 </td>
                                             </tr>
@@ -82,7 +82,7 @@
                                                 <td>$50.000</td>
                                                 <td class="content_btn_descargar">
                                                     <button type="submit" class="btn_descargar_pago"> Descargar
-                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt=""> 
+                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt="">
                                                     </button>
                                                 </td>
                                             </tr>
