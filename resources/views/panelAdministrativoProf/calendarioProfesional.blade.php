@@ -18,11 +18,11 @@
 
                 <div class="contains_option_days">
                     <h2 class="dias no_disponible"><i></i> Días no disponibles</h2>
-                    <h2 class="dias"><i></i> Días disponibles</h2>  
+                    <h2 class="dias"><i></i> Días disponibles</h2>
                 </div>
             </div>
             <div class="col-12 col-lg-9 p-0">
-                <div id="calendar-profesional"></div>
+                <div id="calendar"></div>
             </div>
         </div>
 
@@ -196,5 +196,43 @@
     <script src="{{ asset('fullCalendar/main.js') }}"></script>
     <script src="{{ asset('fullCalendar/locales/es.js') }}"></script>
 
-    <script src="{{ asset('js/calendar-profesional.js') }}"></script>
+{{--    <script src="{{ asset('js/calendar-profesional.js') }}"></script>--}}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            //Iniciar data
+            {{--var weekNotBusiness = '{!! json_encode($weekNotBusiness) !!}';--}}
+
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                //businessHours: {{--  json_encode($user->calendar_config->schedule_on)  --}}'',
+                //events: '',
+                // Botones de mes, semana y día.
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                // Propiedad para cambio de lenguaje
+                locale: 'es',
+                // Evento de mensaje de alerta
+                dateClick: function (event) {
+                },
+                selectable: false,
+                editable: false,
+                //
+                eventClick: function(info) {
+                },
+                //
+                select: function(info) {
+                },
+                //
+                dayCellDidMount: function (date) {
+                }
+            });
+            calendar.render();
+        });
+    </script>
 @endsection
