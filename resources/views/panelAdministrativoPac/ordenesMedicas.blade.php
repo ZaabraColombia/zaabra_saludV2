@@ -1,4 +1,4 @@
-@extends('panelAdministrativo.panelAdministrativo')
+@extends('panelAdministrativoPac.panelAdministrativo')
 @section('Panel')
     <section class="section">
         <div class="row m-0 p-0" id="basic-table">
@@ -8,7 +8,7 @@
                         <h1 class="title_ordMed">Mis exámenes</h1>
                         <span class="subtitle_ordMed">Encuentre aquí todos sus exámenes y resultados. Puede cargarlos y asignarlos a un Especialistas.</span>
                     </div>
-                </div>    
+                </div>
 
                 <div class="card container_ordMed">
                     <div class="card-content">
@@ -56,7 +56,7 @@
                     </div>
 
                     <span class="text_inferior_ordMed">Seleccione y cargue el archivo. Máximo 5 documentos y que el peso de cada uno sea inferior a 1MB.</span>
-                    
+
                     <h2 class="txt_doc_ordMed">Documento</h2>
 
                     <div class="section_addFile_ordMed">

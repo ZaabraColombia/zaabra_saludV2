@@ -1,4 +1,4 @@
-@extends('panelAdministrativo.panelAdministrativo')
+@extends('panelAdministrativoPac.panelAdministrativo')
 @section('Panel')
 
     <h1 class="titulo_principal_fav">Mis favoritos</h1>

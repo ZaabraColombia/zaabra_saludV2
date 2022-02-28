@@ -1,4 +1,4 @@
-@extends('panelAdministrativo.panelAdministrativo')
+@extends('panelAdministrativoPac.panelAdministrativo')
 @section('Panel')
     <section id="basic-horizontal-layouts">
             <div class="row match-height">
