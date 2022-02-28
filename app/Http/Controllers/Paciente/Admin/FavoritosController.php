@@ -24,7 +24,7 @@ class FavoritosController extends Controller
             $objFavoritoEspec=$this->cargaFavoritoEspecialista($id_users);
             $objFavoritoInst=$this->cargaFavoritoInstitucion($id_users);
 
-            return view('panelAdministrativo.favoritos',compact(
+            return view('panelAdministrativoPac.favoritos',compact(
                 'objFavorito',
                 'objFavoritoServicio',
                 'objFavoritoEspec',

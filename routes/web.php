@@ -15,12 +15,12 @@ Auth::routes(['verify' => true]);
 Route::get('/search/filtro', [App\Http\Controllers\buscador\buscadorController::class, 'filtroBusquedad'])->name('search.filtro');
 Route::get('/search', [App\Http\Controllers\buscador\buscadorController::class, 'search'])->name('search');
 
-/*Paquete busquedad dinamica ciudades */
+/*Paquete búsqueda dinámica ciudades */
 Route::get('get-Departamento',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getDepartamento'])->name('gte-departamentos')->middleware('auth');
 Route::get('get-Provincia',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getProvincia'])->name('get-provincias')->middleware('auth');
 Route::get('get-Ciudad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getCiudad'])->name('get-ciudad')->middleware('auth');
 
-/*Paquete busquedad dinamica areas */
+/*Paquete búsqueda dinámica areas */
 Route::get('get-profesion',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getprofesion']);
 Route::get('get-especialidad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getespecialidad']);
 
@@ -31,26 +31,26 @@ Route::post('/buscar-especialidades',[App\Http\Controllers\profesionales\formula
 
 /*----------------------------------------------Pertenece a Publico-------------------------------------------------------------------------------*/
 
-/*Esta ruta es del home y dirige al controlador encargado de traer la informacion a la vista*/
+/*Esta ruta es del home y dirige al controlador encargado de traer la información a la vista*/
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
-/*Esta ruta es de galeria profesiones y dirige al controlador encargado de traer la informacion a la vista*/
+/*Esta ruta es de galería profesiones y dirige al controlador encargado de traer la información a la vista*/
 Route:: get('/ramas-de-la-salud',[App\Http\Controllers\profesionales\profesionesController::class,'index'])->name('ramas-de-la-salud');
 
-/*Esta ruta es de galeria especialidades y dirige al controlador encargado de traer la informacion a la vista*/
+/*Esta ruta es de galería especialidades y dirige al controlador encargado de traer la información a la vista*/
 Route:: get('/ramas-de-la-salud/{nombreProfesion}',[App\Http\Controllers\profesionales\especialidadesController::class,'index'])->name('Especialidades');
 
-/*Esta ruta es de galeria profesionales y dirige al controlador encargado de traer la informacion a la vista*/
+/*Esta ruta es de galería profesionales y dirige al controlador encargado de traer la informacion a la vista*/
 Route:: get('/Especialidades/{nombreEspecialidad}',[App\Http\Controllers\profesionales\medicosEspecialidadController::class,'index'])->name('Especialistas-En');
 
 /*Esta ruta es de landing profesionales y dirige al controlador encargado de traer la informacion a la vista*/
 Route:: get('/PerfilProfesional/{slug}',[App\Http\Controllers\profesionales\perfilprofesionalController::class,'index'])->name('PerfilProfesional');
 
-/*Esta ruta es de galeria tipo entidades*/
+/*Esta ruta es de galería tipo entidades*/
 Route:: get('/Instituciones-Medicas',[App\Http\Controllers\entidades\entidadesController::class,'index'])->name('Instituciones-Medicas');
 
-/*Esta ruta es de galeria instituciones segun la entidad seleccionada*/
+/*Esta ruta es de galería instituciones segun la entidad seleccionada*/
 Route:: get('/Instituciones/{slug}',[App\Http\Controllers\entidades\institucionesController::class,'index'])->name('Instituciones');
 
 /*Esta ruta es de landing institucion y dirige al controlador encargado de traer la informacion a la vista*/
