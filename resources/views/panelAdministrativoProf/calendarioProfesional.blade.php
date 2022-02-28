@@ -16,6 +16,14 @@
                     </div>
                 </div>
 
+                <div class="row m-0 pb-4">
+                    <a href="{{url('configCalendar')}}" class="button_blue_form mr-3">
+                        <i class="fas fa-cogs pr-2"></i>Configuración de cita
+                    </a>
+
+                    <button id="upload-calendar" class="button_blue_form"><i class="fas fa-sync-alt pr-2"></i>actualizar</button>
+                </div>
+
                 <div class="contains_option_days">
                     <h2 class="dias no_disponible"><i></i> Días no disponibles</h2>
                     <h2 class="dias"><i></i> Días disponibles</h2>
