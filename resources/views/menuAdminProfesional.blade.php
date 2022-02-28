@@ -38,7 +38,7 @@
                     <li class="sidebar-item  has-sub">
                         <!-- <a href="#" class="sidebar-link">
                             <i class="bi bi-collection-fill"></i>-->
-                        <span id="historia_padre" class="titulo_menu">Mi Historia Clínica</span>
+                        <span id="historia_padre" class="titulo_menu">Procedimientos</span>
                         <!-- </a> -->
                         <ul class="submenu active p-0">
                             <!-- @foreach($objListaUsuario2 as $objListaUsuario2)
