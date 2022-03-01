@@ -5,45 +5,32 @@
 @extends('panelAdministrativoProf.panelAdministrativoProfesional')
 
 @section('PanelProf')
-    <nav id="nav_breadcrumb" aria-label="breadcrumb">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb py-1">
-                <li class="breadcrumb-item">
-                    <a href="#">
-                      Calendario
-                    </a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a href="#">
-                        Configuración del Calendario
-                    </a>
-                </li>
-            </ol>
-        </nav>
-    </nav>
     <!-- Form update duration date -->
+    <div class="main_title">
+        <h1>Configuración de cita</h1>
+        <span>Administre su horario de la cita</span>
+    </div>
+
     <form action="#" method="post" id="form-config-date">
         @csrf
         <div class="form_config">
-            <h2>Configuración de cita</h2>
+
 
             <div class="row">
                 <div class="col-md-6">
-                    <label for="date-duration">Durración de cita</label>
+                    <label for="date-duration">Durración de cita (min)</label>
                     <input type="number" id="date-duration" name="date-duration" value="date-duration">
                 </div>
 
                 <div class="col-md-6">
-                    <label for="date-after">Después de cita</label>
+                    <label for="date-after">Tiempo entre citas (min)</label>
                     <input type="number"id="date-after" name="date-after" value="date-after">
                 </div>
             </div>
 
             <!-- Buttons -->
             <div class="row btn_bottom"> 
-                <button type="submit" class="btn_blue">Guardar
-                    <i class="fas fa-save pl-2"></i>
-                </button>
+                <button type="submit" class="btn_blue px-4">Guardar</button>
             </div>
         </div>
     </form>
@@ -53,34 +40,34 @@
         <form action="" method="post" id="">
             @csrf
             <div class="form_config">
-                <h2>Adicionar Horario</h2>
+                <h2>Nuevo Horario</h2>
                 <div class="">
-                    <ul class="row justify-content-between mb-4">
-                        <li class="col-1">
+                    <ul class="row m-0">
+                        <li class="col-3">
                             <input class="" type="checkbox" value="1" id="week-1" name="">
                             <span>lunes</span>
                         </li>
-                        <li class="col-1">
+                        <li class="col-3">
                             <input class="" type="checkbox" value="1" id="week-1" name="">
                             <span>Martes</span>
                         </li>
-                        <li class="col-1">
+                        <li class="col-3">
                             <input class="" type="checkbox" value="1" id="week-1" name="">
                             <span>Miércoles</span>
                         </li>
-                        <li class="col-1">
+                        <li class="col-3">
                             <input class="" type="checkbox" value="1" id="week-1" name="">
                             <span>Jueves</span>
                         </li>
-                        <li class="col-1">
+                        <li class="col-3">
                             <input class="" type="checkbox" value="1" id="week-1" name="">
                             <span>Viernes</span>
                         </li>
-                        <li class="col-1">
+                        <li class="col-3">
                             <input class="" type="checkbox" value="1" id="week-1" name="">
                             <span>Sábado</span>
                         </li>
-                        <li class="col-1">
+                        <li class="col-3">
                             <input class="" type="checkbox" value="1" id="week-1" name="">
                             <span>Domingo</span>
                         </li>
@@ -102,7 +89,7 @@
                 <!-- Buttons -->
                 <div class="row btn_bottom"> 
                     <button type="submit" class="btn_blue">Agregar
-                        <i class="fas fa-plus pl-2"></i>
+                        <i class="fas fa-plus pl-1"></i>
                     </button>
                 </div>
             </div>
@@ -111,13 +98,19 @@
         <div class="form_config">
             <h2>Horario</h2>
 
-            <div class="col-12">
-                <table class="table table-striped table-bordered p-0" id="table-schedule">
+            <div>
+                <table class="table p-0" id="">
                     <thead>
                         <tr>
-                            <th>Días</th>
-                            <th>Horas</th>
-                            <th>Acción</th>
+                            <th>
+                                <span>Días</span> 
+                            </th>
+                            <th>
+                                <span>Horas</span> 
+                            </th>
+                            <th>
+                                <span>Acción</span> 
+                            </th>
                         </tr>
                     </thead>
 
@@ -131,12 +124,8 @@
                             <td>
                                 <span>07:00 a.m. - 04:00 p.m.</span>
                             </td>
-                            <td>
-                                <div class="btn_bottom">
-                                    <button class="btn_red" data-id="">Eliminar
-                                        <i class="fa fa-trash pl-2"></i>
-                                    </button>
-                                </div>
+                            <td class="d-flex justify-content-center">
+                                <button class="btn_cierre_citasProf" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
                             </td>
                         </tr>
 
@@ -149,12 +138,8 @@
                             <td>
                                 <span>09:00 a.m. - 04:00 p.m.</span>
                             </td>
-                            <td>
-                                <div class="btn_bottom">
-                                    <button class="btn_red" data-id="">Eliminar
-                                        <i class="fa fa-trash pl-2"></i>
-                                    </button>
-                                </div>
+                            <td class="d-flex justify-content-center">
+                                <button class="btn_cierre_citasProf" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
                             </td>
                         </tr>
                     </tbody>
