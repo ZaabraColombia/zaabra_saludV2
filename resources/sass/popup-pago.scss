@@ -1,71 +1,5 @@
-.popUp_dialog {
-    position: absolute;
-    top: 50px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-.popUp_content {
-    border: none;
-    border-radius: 5px;
-    width: 95%;
-    background: linear-gradient(180deg, white 100%, #e7e2e2 50%, #cccbcb 100%);
-    margin: auto;
-    padding: 25px 20px 35px 20px;
-}
-.popUp_header {
-    margin-bottom: 5px;
-    padding: 0;
-    border-bottom: none;
-}
-.titulo_popUp {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #232323;
-    text-align: center;
-    text-transform: none;
-    margin-bottom: 10px;
-}
-.texto_popUp {
-    font-family: 'Quicksand';
-    font-size: 1em;
-    color: #232323;
-    text-align: center;
-    line-height: 1.2;
-}
-.popUp_seccion_medio_pago {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 0;
-    padding: 0;
-}
-.popUp_medio_pago {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
-}
-.icon_popUp {
-    width: 70px;
-}
-.btnPagar_popUp {
-    font-family: "Quicksand";
-    font-size: 1em;
-    color: #ffffff;
-    background: #0083D6;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    margin: auto;
-    padding: 5px 20px;
-}
-
-
-
 .modal_container {
-    width: 450px;
+    width: 300px;
     padding: 30px 0;
     margin: auto;
     .modal-header {
@@ -113,6 +47,26 @@
             font-family: 'Roboto';
             color: $black_second;
             font-weight: 400;
+        }
+        .modal_medio_pago {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 0;
+            padding: 0;
+            .info_medio_pago {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 20px 0;
+                img {
+                    width: 85px;
+                }
+                .Check_medio_pago {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
         }
         .modal_info_cita {
             background-color: #EFEFEF;
@@ -163,6 +117,7 @@
     }
     .modal-footer {
         padding: 10px 20px 0px;
+        justify-content: center;
         .modal_btn_blue {
             font-family: "Quicksand";
             font-size: 16px;
@@ -181,31 +136,24 @@
             border-radius: 5px;
             padding: 5px 10px;
         }
+        .modal_btn_green {
+            font-family: "Quicksand";
+            font-size: 16px;
+            color: $withe_official;
+            background: $green_official;
+            border: solid 1px $green_official;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
     }  
 }
-
-@media(min-width: 375px) {
-    .popUp_content {
-        width: 75%;
-    }
-}
-@media(min-width: 1920px) {
-    .titulo_popUp {
-        font-size: 1.5em;
-    }
-    .texto_popUp {
-        font-size: 1.15em;
-    }
-    .icon_popUp {
-        width: 75px;
-    }
-    .btnPagar_popUp {
-        font-size: 1.25em;
-    }
-    .popUp_content {
-        padding: 30px 19px 45px 20px;
-    }
-    .popUp_medio_pago {
-        padding: 26px 0;
+@media(min-width: 768px) {
+    .modal_container {
+        width: 450px;
+        .modal-body .modal_medio_pago .info_medio_pago {  
+            img {
+                width: 100px;
+            }
+        }
     }
 }
