@@ -1,15 +1,13 @@
-@extends('profesionales.admin.layouts.panelAdministrativoProfesional')
+@extends('profesionales.admin.layouts.panel')
 
-@section('PanelProf')
+@section('contenido')
         <section class="section">
             <div class="row containt_agendaProf" id="basic-table">
                 <div class="col-12 p-0">
-                    <div class="section_cabecera_citas padRight_agenProf">
+                    <div class="section_cabecera_citas">
                         <div>
-                            <h1 class="title_miCita">Procedimientos (CUPS)</h1>
-                            <span class="subtitle_miCita">Procedimientos (CUPS) de acuerdo con la Resolución No.0002238 de 2020 emitida por el Ministerio de Salud y Protección Social,
-                                la cual define la Actualización única de procedimientos en Salud - CUPS.
-                            </span>
+                            <h1 class="title_miCita">Diagnósticos (CIE - 10)</h1>
+                            <span class="subtitle_miCita">Descargue el documentos de Diagnósticos (CIE - 10).</span>
                         </div>
                     </div>
 
@@ -25,11 +23,11 @@
                                                 <td>
                                                     <div class="input-group mb-3">
                                                         <input type="text" name="search" id="search"
-                                                               class="search form-control" placeholder="Buscar cums"
-                                                               data-description="#description" data-type="cums"/>
-                                                        {{--                                                        <div class="input-group-append">--}}
-                                                        {{--                                                            <span class="fas fa-search"></span>--}}
-                                                        {{--                                                        </div>--}}
+                                                               class="search form-control" placeholder="Buscar Diagnostico"
+                                                               data-description="#description" data-type="cie10"/>
+{{--                                                        <div class="input-group-append">--}}
+{{--                                                            <span class="fas fa-search"></span>--}}
+{{--                                                        </div>--}}
                                                     </div>
                                                 </td>
                                             </tr>
