@@ -17,24 +17,24 @@
                     <li class="sidebar-item  has-sub">
                         <span id="cita_padre" class="titulo_menu">Mis citas</span>
                         <ul class="submenu active p-0">
-                            <li class="submenu-item">
-                                <a id="cita" class="actived" href='{{ route('profesional.citas') }}'>Citas</a>
-                            </li>
+{{--                            <li class="submenu-item">--}}
+{{--                                <a id="cita" class="actived" href='{{ route('profesional.citas') }}'>Citas</a>--}}
+{{--                            </li>--}}
                             <li class="submenu-item ">
                                 <a id="calendario" class="actived" href='{{ route('profesional.calendario') }}'>Calendario</a>
                             </li>
                             <li class="submenu-item ">
                                 <a id="calendario" class="actived" href='{{ route('profesional.configurar-calendario') }}'>Configuración del Calendario</a>
                             </li>
-                            <li class="submenu-item ">
-                                <a id="pago" class="actived" href='{{ route('profesional.pagos') }}'>Mis pagos</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a id="pago" class="actived" href='{{ route('profesional.pacientes') }}'>Mis paciente</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a id="pago" class="actived" href='{{ route('profesional.contactos.index') }}'>Mis contactos</a>
-                            </li>
+{{--                            <li class="submenu-item ">--}}
+{{--                                <a id="pago" class="actived" href='{{ route('profesional.pagos') }}'>Mis pagos</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="submenu-item ">--}}
+{{--                                <a id="pago" class="actived" href='{{ route('profesional.pacientes') }}'>Mis paciente</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="submenu-item ">--}}
+{{--                                <a id="pago" class="actived" href='{{ route('profesional.contactos.index') }}'>Mis contactos</a>--}}
+{{--                            </li>--}}
                         </ul>
                     </li>
                 @endif
