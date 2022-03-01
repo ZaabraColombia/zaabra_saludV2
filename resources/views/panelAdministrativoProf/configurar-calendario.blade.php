@@ -14,8 +14,6 @@
     <form action="#" method="post" id="form-config-date">
         @csrf
         <div class="form_config">
-
-
             <div class="row">
                 <div class="col-md-6">
                     <label for="date-duration">Durración de cita (min)</label>
