@@ -11,7 +11,7 @@
                                 la cual define la Actualización única de procedimientos en Salud - CUPS.
                             </span>
                         </div>
-                    </div>    
+                    </div>
 
                     <div class="card container_proced">
                         <div class="card-content">
@@ -22,25 +22,32 @@
                                         <tbody>
                                             <tr>
                                                 <td><b>Nombre :</b></td>
-                                                <td>2238 Por la cual Actualiza la Clasificación Única de Procedimientos en Salud - CUPS (002).pdf</td>
-                                                <td>12.5Mb 10/12/2020</td>
+                                                <td>
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" name="search" id="search"
+                                                               class="search form-control" placeholder="Buscar cums"
+                                                               data-description="#description" data-type="cums"/>
+                                                        {{--                                                        <div class="input-group-append">--}}
+                                                        {{--                                                            <span class="fas fa-search"></span>--}}
+                                                        {{--                                                        </div>--}}
+                                                    </div>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td><b>Descripción :</b></td>
-                                                <td>Actualización en la Clasificación Única de Procedimientos en Salud - CUPS (002)</td>
-                                                <td></td>
+                                                <td id="description"></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-
-                                <button type="submit" class="btn_descargar_agenProf"> Descargar
-                                    <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt=""> 
-                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/search.js') }}"></script>
 @endsection

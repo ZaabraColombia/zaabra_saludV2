@@ -1,4 +1,4 @@
-@extends('profesionales.admin.layouts.panelAdministrativoProfesional')
+@extends('panelAdministrativoProf.panelAdministrativoProfesional')
 
 @section('PanelProf')
     <section class="section">

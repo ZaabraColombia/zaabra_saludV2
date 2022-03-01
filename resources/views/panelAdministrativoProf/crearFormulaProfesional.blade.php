@@ -1,4 +1,4 @@
-@extends('profesionales.admin.layouts.panelAdministrativoProfesional')
+@extends('panelAdministrativoProf.panelAdministrativoProfesional')
 
 @section('PanelProf')
     <section class="section">
@@ -9,7 +9,7 @@
                         <h1 class="title_miCita">Prescripciones/fórmulas médicas</h1>
                         <span class="subtitle_miCita">Agregue los medicamentos de la prescripción/fórmula de sus pacientes</span>
                     </div>
-                </div>
+                </div>    
 
                 <div class="content_inputs_formula">
                     <div class="section_input_formula">
@@ -59,7 +59,7 @@
                     <input class="btn_agregar_fav icono_agragar_histClinica" type="button" id="btnagregar_espec" value="Agregar medicamento">
 
                     <button type="submit" class="btn_enviar_histClinica" data-toggle="modal" data-target="#exampleModal3"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                     </button>
                 </div>
             </div>

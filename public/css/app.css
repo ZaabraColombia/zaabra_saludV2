@@ -22947,6 +22947,122 @@ a:link, a:visited, a:active, a:hover {
   padding: 5px 20px;
 }
 
+.modal_container {
+  width: 450px;
+  padding: 30px 0;
+  margin: auto;
+}
+.modal_container .modal-header {
+  padding: 0 20px 10px;
+}
+.modal_container .modal-header h1 {
+  font-size: 24px;
+  font-family: "Quicksand";
+  color: #434343;
+  font-weight: bold;
+  margin: 0;
+}
+.modal_container .modal-header span {
+  font-size: 30px;
+}
+.modal_container .modal-body {
+  padding: 15px 20px;
+}
+.modal_container .modal-body .date_calendar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 75px;
+}
+.modal_container .modal-body .date_calendar span {
+  font-size: 20px;
+  font-family: "Quicksand";
+  color: #434343;
+  font-weight: bold;
+}
+.modal_container .modal-body h2 {
+  font-size: 20px;
+  font-family: "Quicksand";
+  color: #434343;
+  font-weight: bold;
+  margin: 0;
+}
+.modal_container .modal-body h3 {
+  font-size: 16px;
+  font-family: "Quicksand";
+  color: #434343;
+  font-weight: bold;
+  margin: 0;
+}
+.modal_container .modal-body span {
+  font-size: 16px;
+  font-family: "Roboto";
+  color: #434343;
+  font-weight: 400;
+}
+.modal_container .modal-body .modal_info_cita {
+  background-color: #EFEFEF;
+  border-radius: 5px;
+}
+.modal_container .modal-body .form_modal label {
+  font-size: 16px;
+  font-family: "Roboto";
+  color: #707070;
+  margin-bottom: 3px;
+}
+.modal_container .modal-body .form_modal select, .modal_container .modal-body .form_modal input[type=text], .modal_container .modal-body .form_modal [type=number], .modal_container .modal-body .form_modal [type=time], .modal_container .modal-body .form_modal [type=email] {
+  display: block;
+  width: 100%;
+  height: calc(1.6em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #434343;
+  background-color: #FFFFFF;
+  background-clip: padding-box;
+  border: 1px solid #CED4DA;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.modal_container .modal-body .form_modal .input-group input {
+  display: block;
+  width: auto;
+  height: calc(1.6em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #434343;
+  background-color: #FFFFFF;
+  background-clip: padding-box;
+  border: 1px solid #CED4DA;
+  border-radius: 0;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.modal_container .modal-footer {
+  padding: 10px 20px 0px;
+}
+.modal_container .modal-footer .modal_btn_blue {
+  font-family: "Quicksand";
+  font-size: 16px;
+  color: #FFFFFF;
+  background: #0083D6;
+  border: 1px solid #0083D6;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+.modal_container .modal-footer .modal_btn_transparent {
+  font-family: "Quicksand";
+  font-size: 16px;
+  color: #434343;
+  background: #FFFFFF;
+  border: solid 1px #434343;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
 @media (min-width: 375px) {
   .popUp_content {
     width: 75%;

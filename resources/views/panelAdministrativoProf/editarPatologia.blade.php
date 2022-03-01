@@ -1,4 +1,4 @@
-@extends('profesionales.admin.layouts.panelAdministrativoProfesional')
+@extends('panelAdministrativoProf.panelAdministrativoProfesional')
 
 @section('PanelProf')
     <section class="section">
@@ -9,8 +9,8 @@
                         <h1 class="title_miCita">Historia clínica</h1>
                         <span class="subtitle_miCita">Diligencie los datos básicos del paciente.</span>
                     </div>
-                </div>
-
+                </div>  
+                
                 <h1 class="title_miCita">Patología</h1>
 
                 <div class="content_inputs_formula">
@@ -53,7 +53,7 @@
 
                 <div class="col-12 content_btns_regPaciente">
                     <a type="submit" href="" class="btn_enviar_histClinica" data-toggle="modal" data-target="#exampleModal3"> Guardar
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt="">
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_guardar-formProf" alt=""> 
                     </a>
                 </div>
             </div>
