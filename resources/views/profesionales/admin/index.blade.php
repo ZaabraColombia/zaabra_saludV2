@@ -1,6 +1,6 @@
-@extends('profesionales.admin.layouts.panelAdministrativoProfesional')
+@extends('profesionales.admin.layouts.panel')
 
-@section('PanelProf')
+@section('contenido')
     <div class="container container_principal p-md-0">
         <div class="row">
             @if(!empty($objListaUsuario4->isNotEmpty()))
@@ -11,10 +11,10 @@
                                 <div class="card-body card_optionPrincipal cardtipo{{$objListaUsuario4->idrol}}">
                                     <div class="target-panel">
                                         <div>
-                                        <img src="{{URL::asset($objListaUsuario4->urlImagen)}}" alt="">
+                                        <img src="{{ asset($objListaUsuario4->urlImagen) }}" alt="">
                                         </div>
                                         <div>
-                                            <span class="text-muted font-semibold">{{$objListaUsuario4->nombrePermiso}}</span>
+                                            <span class="text-muted font-semibold">{{ $objListaUsuario4->nombrePermiso }}</span>
                                         </div>
                                     </div>
                                 </div>

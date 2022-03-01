@@ -22,7 +22,7 @@ class CalendarioController extends Controller
 {
     public function index()
     {
-
+        return view('profesionales.admin.calendario.calendario');
     }
 
     /**
@@ -360,7 +360,7 @@ class CalendarioController extends Controller
             $config = new Horario();
         }
 
-        return view('panelAdministrativoProf.configurar-calendario', compact('config'));
+        return view('profesionales.admin.calendario.configurar-calendario', compact('config'));
     }
 
     public function dias(Request $request)

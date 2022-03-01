@@ -2,9 +2,9 @@
 
 @endsection
 
-@extends('panelAdministrativoProf.panelAdministrativoProfesional')
+@extends('profesionales.admin.layouts.panel')
 
-@section('PanelProf')
+@section('contenido')
     <!-- Form update duration date -->
     <div class="main_title">
         <h1>Configuración de cita</h1>
@@ -29,7 +29,7 @@
             </div>
 
             <!-- Buttons -->
-            <div class="row btn_bottom"> 
+            <div class="row btn_bottom">
                 <button type="submit" class="btn_blue px-4">Guardar</button>
             </div>
         </div>
@@ -87,7 +87,7 @@
                 </div>
 
                 <!-- Buttons -->
-                <div class="row btn_bottom"> 
+                <div class="row btn_bottom">
                     <button type="submit" class="btn_blue">Agregar
                         <i class="fas fa-plus pl-1"></i>
                     </button>
@@ -103,13 +103,13 @@
                     <thead>
                         <tr>
                             <th>
-                                <span>Días</span> 
+                                <span>Días</span>
                             </th>
                             <th>
-                                <span>Horas</span> 
+                                <span>Horas</span>
                             </th>
                             <th>
-                                <span>Acción</span> 
+                                <span>Acción</span>
                             </th>
                         </tr>
                     </thead>
@@ -182,7 +182,7 @@
                 });
             });
 
-   
+
 
 
         });

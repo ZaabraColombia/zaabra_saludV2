@@ -1,11 +1,11 @@
-@extends('panelAdministrativoProf.panelAdministrativoProfesional')
+@extends('profesionales.admin.layouts.panel')
 
 @section('styles')
     <!--Framewor Agenda-->
     <link rel="stylesheet" href="{{ asset('fullCalendar/main.css') }}">
 @endsection
 
-@section('PanelProf')
+@section('contenido')
     <section class="section">
         <div class="row containt_agendaProf" id="basic-table">
             <div class="col-12 p-0">

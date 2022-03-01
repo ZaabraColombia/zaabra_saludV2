@@ -1,4 +1,4 @@
-@extends('panelAdministrativoProf.panelAdministrativoProfesional')
+@extends('profesionales.admin.layouts.panelAdministrativoProfesional')
 
 @section('PanelProf')
     <section class="section">
@@ -120,13 +120,13 @@
 
                         <div class="col-md-6 p-0">
                             <label for="example-date-input" class="col-12 text_label-formProf">Fecha</label>
-                        
+
                             <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="fechaestudio[]">
                         </div>
 
                         <div class="col-md-6 p-0">
                             <label for="example-date-input" class="col-12 text_label-formProf">Hora</label>
-                        
+
                             <input class="form-control" type="time" value="" id="example-date-input" name="fechaestudio[]">
                         </div>
                     </form>

@@ -78,7 +78,7 @@ Route:: post('/contacto',[App\Http\Controllers\contactecnosController::class,'sa
 Route:: post('/newsletter',[App\Http\Controllers\newsletter\newsletterController::class,'save'])->name('newsletter');
 
 // Esta ruta pertenece a la vista de membresía In stituciones
-Route::get('/membresia-institucion', function () { return view('instituciones/membresiaInstitucion');})->name('membresiaInstitucion');
+Route::get('/membresia-institucion', function () { return view('instituciones/membresiaInstitucion');})->name('entidad.membresiaInstitucion');
 
 // Esta ruta pertenece a la vista de membresía profesional
 Route::get('/membresia-profesional', function () { return view('profesionales/membresiaProfesional');})->name('profesional.membresiaProfesional');
@@ -99,97 +99,100 @@ Route:: post('/comentarios',[App\Http\Controllers\comentarios\comentariosControl
 
 /*----------------------------------------------Pertenece a profesional-------------------------------------------------------------------------------*/
 
-Route::middleware(['auth', 'roles', 'verified'])->group(function (){
+Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(function (){
 
     /*Esta ruta es del formulario del profesional */
-    Route::get('/FormularioProfesional',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'index'])->name('profesional.FormularioProfesional');
+    Route::get('/FormularioProfesional',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'index'])->name('FormularioProfesional');
 
     /*-----formulario parte 1----*/
-    Route::post('/FormularioProfesionalSave',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create1'])->name('profesional.create1');
+    Route::post('/FormularioProfesionalSave',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create1'])->name('create1');
     /*-----formulario parte 2----*/
-    Route::post('/FormularioProfesionalSave2',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create2'])->name('profesional.create2');
+    Route::post('/FormularioProfesionalSave2',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create2'])->name('create2');
     /*-----formulario parte 3----*/
-    Route::post('/FormularioProfesionalSave3',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create3'])->name('profesional.create3');
-    Route::post('/FormularioProfesionaldelete3',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete3'])->name('profesional.delete3');
+    Route::post('/FormularioProfesionalSave3',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create3'])->name('create3');
+    Route::post('/FormularioProfesionaldelete3',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete3'])->name('delete3');
     /*-----formulario parte 4----*/
-    Route::post('/FormularioProfesionalSave4',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create4'])->name('profesional.create4');
+    Route::post('/FormularioProfesionalSave4',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create4'])->name('create4');
     /*-----formulario parte 5----*/
-    Route::post('/FormularioProfesionalSave5',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create5'])->name('profesional.create5');
-    Route::post('/FormularioProfesionaldelete5',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete5'])->name('profesional.delete5');
+    Route::post('/FormularioProfesionalSave5',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create5'])->name('create5');
+    Route::post('/FormularioProfesionaldelete5',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete5'])->name('delete5');
     /*-----formulario parte 6----*/
-    Route::post('/FormularioProfesionalSave6',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create6'])->name('profesional.create6');
-    Route::post('/FormularioProfesionaldelete6',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete6'])->name('profesional.delete6');
+    Route::post('/FormularioProfesionalSave6',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create6'])->name('create6');
+    Route::post('/FormularioProfesionaldelete6',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete6'])->name('delete6');
     /*-----formulario parte 7----*/
-    Route::post('/FormularioProfesionalSave7',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create7'])->name('profesional.create7');
-    Route::post('/FormularioProfesionaldelete7',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete7'])->name('profesional.delete7');
+    Route::post('/FormularioProfesionalSave7',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create7'])->name('create7');
+    Route::post('/FormularioProfesionaldelete7',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete7'])->name('delete7');
     /*-----formulario parte 8----*/
-    Route::post('/FormularioProfesionalSave8',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create8'])->name('profesional.create8');
-    Route::post('/FormularioProfesionaldelete8',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete8'])->name('profesional.delete8');
+    Route::post('/FormularioProfesionalSave8',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create8'])->name('create8');
+    Route::post('/FormularioProfesionaldelete8',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete8'])->name('delete8');
     /*-----formulario parte 9----*/
-    Route::post('/FormularioProfesionalSave9',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create9'])->name('profesional.create9');
-    Route::post('/FormularioProfesionaldelete9',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete9'])->name('profesional.delete9');
+    Route::post('/FormularioProfesionalSave9',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create9'])->name('create9');
+    Route::post('/FormularioProfesionaldelete9',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete9'])->name('delete9');
     /*-----formulario parte 10----*/
-    Route::post('/FormularioProfesionalSave10',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create10'])->name('profesional.create10');
-    Route::post('/FormularioProfesionaldelete10',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete10'])->name('profesional.delete10');
+    Route::post('/FormularioProfesionalSave10',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create10'])->name('create10');
+    Route::post('/FormularioProfesionaldelete10',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete10'])->name('delete10');
     /*-----formulario parte 11----*/
-    Route::post('/FormularioProfesionalSave11',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create11'])->name('profesional.create11');
-    Route::post('/FormularioProfesionaldelete11',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete11'])->name('profesional.delete11');
+    Route::post('/FormularioProfesionalSave11',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create11'])->name('create11');
+    Route::post('/FormularioProfesionaldelete11',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete11'])->name('delete11');
     /*-----formulario parte 12----*/
-    Route::post('/FormularioProfesionalSave12',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create12'])->name('profesional.create12');
-    Route::post('/FormularioProfesionaldelete12',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete12'])->name('profesional.delete12');
+    Route::post('/FormularioProfesionalSave12',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create12'])->name('create12');
+    Route::post('/FormularioProfesionaldelete12',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete12'])->name('delete12');
     /*-----formulario parte 13----*/
-    Route::post('/FormularioProfesionalSave13',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create13'])->name('profesional.create13');
-    Route::post('/FormularioProfesionaldelete13',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete13'])->name('profesional.delete13');
+    Route::post('/FormularioProfesionalSave13',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create13'])->name('create13');
+    Route::post('/FormularioProfesionaldelete13',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'delete13'])->name('delete13');
     /*-----formulario parte 14----*/
-    Route::post('/FormularioProfesionalAddDestacable',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'addDestacable'])->name('profesional.create14');
-    Route::post('/FormularioProfesionalDeleteDestacable',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'deleteDestacable'])->name('profesional.delete14');
+    Route::post('/FormularioProfesionalAddDestacable',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'addDestacable'])->name('create14');
+    Route::post('/FormularioProfesionalDeleteDestacable',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'deleteDestacable'])->name('delete14');
 
     //Selects dinamicos area, profesion, especialidad
-    Route::get('profesion/{idArea}', [App\Http\Controllers\profesionales\profesionController::class,'mostrarProfesion'])->name('profesional.mostrarProfesion');
-    Route::get('especialidad/{idProfesion}', [App\Http\Controllers\profesionales\especialidadController::class,'mostrarESpecialidad'])->name('profesional.mostrarESpecialidad');
-    Route::post('/profesional/formulario-password',[App\Http\Controllers\profesionales\especialidadController::class,'password'])->name('profesional.formulario-password');
+    Route::get('profesion/{idArea}', [App\Http\Controllers\profesionales\profesionController::class,'mostrarProfesion'])->name('mostrarProfesion');
+    Route::get('especialidad/{idProfesion}', [App\Http\Controllers\profesionales\especialidadController::class,'mostrarESpecialidad'])->name('mostrarESpecialidad');
+    Route::post('/profesional/formulario-password',[App\Http\Controllers\profesionales\especialidadController::class,'password'])->name('formulario-password');
 
     /*--------- Admin Profesional -----------*/
-    Route:: get('/panelPrincipalProfesional',[App\Http\Controllers\admin\adminProfesionalController::class,'index'])->name('profesional.panelPrincipalProfesional');
-    Route:: get('/panelAdministrativoProfesional/{idPerfilProfesional}',[App\Http\Controllers\admin\adminProfesionalController::class,'cita'])->name('profesional.panelAdministrativoProfesional');
-    Route:: get('/calendarioProfesional',[App\Http\Controllers\admin\adminCalendarioProfesionalController::class,'index'])->name('profesional.calendarioProfesional');
-    Route:: get('/citasProfesional',[App\Http\Controllers\admin\adminCitasProfesionalController::class,'index'])->name('profesional.citasProfesional');
-    Route:: get('/pagosProfesional',[App\Http\Controllers\admin\adminPagosProfesionalController::class,'index'])->name('profesional.pagosProfesional');
+    Route::prefix('/profesional')->group(function () {
 
-    Route::get('/profesional/configurar-calendario', [\App\Http\Controllers\profesionales\Admin\CalendarioController::class, 'configuracion'])->name('profesional.configurar-calendario');
-    //Route:: get('/ordenesMedicas',[App\Http\Controllers\admin\adminExamenesController::class,'index'])->name('ordenesMedicas');
-    //Route:: get('/prescripciones',[App\Http\Controllers\admin\adminPrescripcionesController::class,'index'])->name('prescripciones');
+        Route::get('/panel',[profesionales\Admin\PanelController::class,'index'])->name('panel');
+        Route::get('/calendario',[profesionales\Admin\CalendarioController::class,'index'])->name('calendario');
+        Route::get('/configurar-calendario', [profesionales\Admin\CalendarioController::class, 'configuracion'])->name('configurar-calendario');
+        Route::get('/citas',[profesionales\Admin\CitasController::class,'index'])->name('citas');
+        Route::get('/pagos',[profesionales\Admin\PagosController::class,'index'])->name('pagos');
+        Route::get('/pacientes',[profesionales\Admin\PacientesController::class,'index'])->name('pacientes');
 
-    Route:: get('/historiaClinicaProfesional',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'index'])->name('profesional.historiaClinicaProfesional');
-    Route:: get('/registroPaciente',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'registrar'])->name('profesional.registroPaciente');
-    Route:: get('/pacienteRegistrado',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'registro'])->name('profesional.pacienteRegistrado');
-    Route:: get('/editarConsulta',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'consulta'])->name('profesional.editarConsulta');
-    Route:: get('/editarPatologia',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'patologia'])->name('profesional.editarPatologia');
-    Route:: get('/editarExpediente',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'Expediente'])->name('profesional.editarExpediente');
+        //Route:: get('/panelAdministrativoProfesional/{idPerfilProfesional}',[App\Http\Controllers\admin\adminProfesionalController::class,'cita'])->name('panelAdministrativoProfesional');
 
-    Route:: get('/prescripcionesProfesional',[App\Http\Controllers\admin\adminPrescripcionesProfesionalController::class,'index'])->name('profesional.prescripcionesProfesional');
-    Route:: get('/crearFormulaProfesional',[App\Http\Controllers\admin\adminPrescripcionesProfesionalController::class,'formulas'])->name('profesional.crearFormulaProfesional');
+        //Route:: get('/ordenesMedicas',[App\Http\Controllers\admin\adminExamenesController::class,'index'])->name('ordenesMedicas');
+        //Route:: get('/prescripciones',[App\Http\Controllers\admin\adminPrescripcionesController::class,'index'])->name('prescripciones');
 
-    Route:: get('/diagnosticosProfesional',[App\Http\Controllers\admin\adminDiagnosticosProfesionalController::class,'index'])->name('profesional.diagnosticosProfesinal');
-    Route:: get('/procedimientosProfesional',[App\Http\Controllers\admin\adminProcedimientosProfesionalController::class,'index'])->name('profesional.procedimientosProfesional');
-    Route:: get('/vademecumProfesional',[App\Http\Controllers\admin\adminVademecumProfesionalController::class,'index'])->name('profesional.vademecumProfesional');
-    //Route:: get('/servicios',[App\Http\Controllers\admin\adminController::class,'oscar2'])->name('servicios');
+//        Route:: get('/historiaClinicaProfesional',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'index'])->name('historiaClinicaProfesional');
+//        Route:: get('/registroPaciente',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'registrar'])->name('registroPaciente');
+//        Route:: get('/pacienteRegistrado',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'registro'])->name('pacienteRegistrado');
+//        Route:: get('/editarConsulta',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'consulta'])->name('editarConsulta');
+//        Route:: get('/editarPatologia',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'patologia'])->name('editarPatologia');
+//        Route:: get('/editarExpediente',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'Expediente'])->name('editarExpediente');
 
-    Route:: get('/cie10',[App\Http\Controllers\admin\AdminHistoriaClinicaController::class,'cie10'])
-        ->name('profesional.cie10');
-    Route:: get('/cups',[App\Http\Controllers\admin\AdminHistoriaClinicaController::class,'cups'])
-        ->name('profesional.cups');
-    Route:: get('/cums',[App\Http\Controllers\admin\AdminHistoriaClinicaController::class,'cums'])
-        ->name('profesional.cums');
+        Route:: get('/prescripcionesProfesional',[App\Http\Controllers\admin\adminPrescripcionesProfesionalController::class,'index'])->name('prescripcionesProfesional');
+        Route:: get('/crearFormulaProfesional',[App\Http\Controllers\admin\adminPrescripcionesProfesionalController::class,'formulas'])->name('crearFormulaProfesional');
 
-    Route:: get('/favoritosProfesional',[App\Http\Controllers\admin\adminFavoritosProfesionalController::class,'index'])->name('profesional.favoritosProfesional');
-    //Route:: post('/favoritosGeneralSave',[App\Http\Controllers\admin\adminFavoritosController::class,'create'])->name('favoritosGeneralSave');
-    //Route:: post('/favoritosGeneralSave2',[App\Http\Controllers\admin\adminFavoritosController::class,'create2'])->name('favoritosGeneralSave2');
-    //Route:: post('/favoritosGeneralSave3',[App\Http\Controllers\admin\adminFavoritosController::class,'create3'])->name('favoritoSGeneralSave3');
-    //Route:: post('/favoritosGeneralSave4',[App\Http\Controllers\admin\adminFavoritosController::class,'create4'])->name('favoritosGeneralSave4');
+        Route:: get('/diagnosticosProfesional',[App\Http\Controllers\admin\adminDiagnosticosProfesionalController::class,'index'])->name('diagnosticosProfesinal');
+        Route:: get('/procedimientosProfesional',[App\Http\Controllers\admin\adminProcedimientosProfesionalController::class,'index'])->name('procedimientosProfesional');
+        Route:: get('/vademecumProfesional',[App\Http\Controllers\admin\adminVademecumProfesionalController::class,'index'])->name('vademecumProfesional');
+        //Route:: get('/servicios',[App\Http\Controllers\admin\adminController::class,'oscar2'])->name('servicios');
 
-    Route::as('profesional.')->prefix('/profesional')->group(function (){
-        Route::resource('Contacto', profesionales\Admin\ContactosController::class);
+        Route:: get('/cie10',[App\Http\Controllers\admin\AdminHistoriaClinicaController::class,'cie10'])
+            ->name('cie10');
+        Route:: get('/cups',[App\Http\Controllers\admin\AdminHistoriaClinicaController::class,'cups'])
+            ->name('cups');
+        Route:: get('/cums',[App\Http\Controllers\admin\AdminHistoriaClinicaController::class,'cums'])
+            ->name('cums');
+
+        Route:: get('/favoritos',[App\Http\Controllers\admin\adminFavoritosProfesionalController::class,'index'])->name('favoritos');
+        //Route:: post('/favoritosGeneralSave',[App\Http\Controllers\admin\adminFavoritosController::class,'create'])->name('favoritosGeneralSave');
+        //Route:: post('/favoritosGeneralSave2',[App\Http\Controllers\admin\adminFavoritosController::class,'create2'])->name('favoritosGeneralSave2');
+        //Route:: post('/favoritosGeneralSave3',[App\Http\Controllers\admin\adminFavoritosController::class,'create3'])->name('favoritoSGeneralSave3');
+        //Route:: post('/favoritosGeneralSave4',[App\Http\Controllers\admin\adminFavoritosController::class,'create4'])->name('favoritosGeneralSave4');
+
+        Route::resource('contactos', profesionales\Admin\ContactosController::class);
     });
 });
 
