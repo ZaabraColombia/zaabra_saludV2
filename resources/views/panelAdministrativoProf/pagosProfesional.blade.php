@@ -1,4 +1,4 @@
-@extends('profesionales.admin.layouts.panelAdministrativoProfesional')
+@extends('panelAdministrativoProf.panelAdministrativoProfesional')
 
 @section('PanelProf')
         <section class="section">
@@ -9,7 +9,7 @@
                             <h1 class="title_miCita">Mis pagos</h1>
                             <span class="subtitle_miCita">Encuentre aquí los pagos realizados por cada una de sus citas.</span>
                         </div>
-                    </div>
+                    </div>    
 
                     <div class="card container_pagos">
                         <div class="card-content">
@@ -35,7 +35,7 @@
                                                 <td>$50.000</td>
                                                 <td class="content_btn_descargar">
                                                     <button type="submit" class="btn_descargar_pago"> Descargar
-                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt="">
+                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt=""> 
                                                     </button>
                                                 </td>
                                             </tr>
@@ -47,7 +47,7 @@
                                                 <td>$45.000</td>
                                                 <td class="content_btn_descargar">
                                                     <button type="submit" class="btn_descargar_pago"> Descargar
-                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt="">
+                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt=""> 
                                                     </button>
                                                 </td>
                                             </tr>
@@ -59,7 +59,7 @@
                                                 <td>$30.000</td>
                                                 <td class="content_btn_descargar">
                                                     <button type="submit" class="btn_descargar_pago"> Descargar
-                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt="">
+                                                        <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt=""> 
                                                     </button>
                                                 </td>
                                             </tr>
