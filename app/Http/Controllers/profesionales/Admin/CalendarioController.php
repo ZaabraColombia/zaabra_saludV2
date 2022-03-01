@@ -21,7 +21,25 @@ class CalendarioController extends Controller
 {
     public function index()
     {
-        return view('profesionales.admin.calendario.calendario');
+        $user = Auth::user();
+        //Validar calendario
+
+        if (!isset($user->horario) or !is_array($user->horario->horario)
+            or empty($user->horario->duracion) or empty($user->horario->descanso))
+            return redirect()->route('profesional.configurar-calendario')
+                ->with('warning', 'Por favor configurar el calendario');
+
+        $weekNotBusiness = array();
+        foreach (array_column($user->horario->horario, 'daysOfWeek') as $item)
+            $weekNotBusiness = array_merge($weekNotBusiness, $item);
+
+        $weekNotBusiness = array_unique($weekNotBusiness);
+        $horario = $user->horario;
+
+        return view('profesionales.admin.calendario.calendario', compact(
+            'weekNotBusiness',
+            'horario'
+        ));
     }
 
     /**
@@ -490,7 +508,9 @@ class CalendarioController extends Controller
         $schedule = $user->horario->horario;
 
         //delete schedule
-        $key_schedule_delete = array_search($request->id, array_column($schedule, 'id'));
+        $array = array_filter(array_combine(array_keys($schedule), array_column($schedule, 'id')));
+        $key_schedule_delete = array_search($request->id, $array);
+
         unset($schedule[$key_schedule_delete]);
 
         //save
