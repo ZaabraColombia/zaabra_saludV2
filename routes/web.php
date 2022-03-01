@@ -171,6 +171,13 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
         Route::get('/pagos',[profesionales\Admin\PagosController::class,'index'])->name('pagos');
         Route::get('/pacientes',[profesionales\Admin\PacientesController::class,'index'])->name('pacientes');
 
+        Route:: get('/cie10',[profesionales\Admin\HistoriaClinicaController::class,'cie10'])
+            ->name('cie10');
+        Route:: get('/cups',[profesionales\Admin\HistoriaClinicaController::class,'cups'])
+            ->name('cups');
+        Route:: get('/cums',[profesionales\Admin\HistoriaClinicaController::class,'cums'])
+            ->name('cums');
+
         //Route:: get('/panelAdministrativoProfesional/{idPerfilProfesional}',[App\Http\Controllers\admin\adminProfesionalController::class,'cita'])->name('panelAdministrativoProfesional');
 
         //Route:: get('/ordenesMedicas',[App\Http\Controllers\admin\adminExamenesController::class,'index'])->name('ordenesMedicas');
@@ -190,13 +197,6 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
         Route:: get('/procedimientosProfesional',[App\Http\Controllers\admin\adminProcedimientosProfesionalController::class,'index'])->name('procedimientosProfesional');
         Route:: get('/vademecumProfesional',[App\Http\Controllers\admin\adminVademecumProfesionalController::class,'index'])->name('vademecumProfesional');
         //Route:: get('/servicios',[App\Http\Controllers\admin\adminController::class,'oscar2'])->name('servicios');
-
-        Route:: get('/cie10',[App\Http\Controllers\admin\AdminHistoriaClinicaController::class,'cie10'])
-            ->name('cie10');
-        Route:: get('/cups',[App\Http\Controllers\admin\AdminHistoriaClinicaController::class,'cups'])
-            ->name('cups');
-        Route:: get('/cums',[App\Http\Controllers\admin\AdminHistoriaClinicaController::class,'cums'])
-            ->name('cums');
 
         Route:: get('/favoritos',[App\Http\Controllers\admin\adminFavoritosProfesionalController::class,'index'])->name('favoritos');
         //Route:: post('/favoritosGeneralSave',[App\Http\Controllers\admin\adminFavoritosController::class,'create'])->name('favoritosGeneralSave');

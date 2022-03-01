@@ -1,6 +1,6 @@
-@extends('profesionales.admin.layouts.panelAdministrativoProfesional')
+@extends('profesionales.admin.layouts.panel')
 
-@section('PanelProf')
+@section('contenido')
         <section class="section">
             <div class="row containt_agendaProf" id="basic-table">
                 <div class="col-12 p-0">
