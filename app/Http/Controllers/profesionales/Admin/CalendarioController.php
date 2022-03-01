@@ -348,6 +348,8 @@ class CalendarioController extends Controller
     }
 
     /**
+     * Vista para configurar el calendario
+     *
      * @return Application|Factory|View
      */
     public function configuracion()
@@ -363,16 +365,27 @@ class CalendarioController extends Controller
         return view('profesionales.admin.calendario.configurar-calendario', compact('config'));
     }
 
-    public function dias(Request $request)
+    /**
+     * Configurar los parámetros del día
+     *
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function cita(Request $request)
     {
-        $validator = Validator::make( $request->all(), [
+        $validator = Validator::make($request->all(),[
             'duracion' => ['required', 'integer'],
             'descanso' => ['required', 'integer']
         ]);
 
-        if ($validator->failed())
+        if ($validator->fails())
         {
-            return response(['error' => $validator->errors()->all()], Response::HTTP_NOT_FOUND);
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validator->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
         }
 
         //user
@@ -387,7 +400,10 @@ class CalendarioController extends Controller
         ]);
 
         return response([
-            'message' => 'Configuración de la cita listo'
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Configuración de la cita listo'
+            ]
         ], Response::HTTP_ACCEPTED);
     }
 

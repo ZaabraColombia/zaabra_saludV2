@@ -11,20 +11,20 @@
         <span>Administre su horario de la cita</span>
     </div>
 
-    <form action="#" method="post" id="form-config-date">
+    <form action="{{ route('profesional.configurar-calendario.cita') }}"
+          method="post" id="form-dias" class="forms" data-alert="#alert-cita">
         @csrf
         <div class="form_config">
-
-
+            <div id="alert-cita"></div>
             <div class="row">
                 <div class="col-md-6">
-                    <label for="date-duration">Durración de cita (min)</label>
-                    <input type="number" id="date-duration" name="date-duration" value="date-duration">
+                    <label for="duracion">Duración de cita (min)</label>
+                    <input type="number" id="duracion" name="duracion">
                 </div>
 
                 <div class="col-md-6">
-                    <label for="date-after">Tiempo entre citas (min)</label>
-                    <input type="number"id="date-after" name="date-after" value="date-after">
+                    <label for="descanso">Tiempo entre citas (min)</label>
+                    <input type="number" id="descanso" name="descanso">
                 </div>
             </div>
 
@@ -37,52 +37,54 @@
 
     <div class="">
         <!-- Form add schedule-->
-        <form action="" method="post" id="">
+        <form action="{{ asset('profesional.configurar-calendario.horario-agregar') }}"
+              method="post" id="form-horario-agregar" class="forms" data-alert="#alert-horario-agregar">
             @csrf
             <div class="form_config">
+                <div id="alert-horario-agregar"></div>
                 <h2>Nuevo Horario</h2>
                 <div class="">
                     <ul class="row m-0">
                         <li class="col-3">
-                            <input class="" type="checkbox" value="1" id="week-1" name="">
-                            <span>lunes</span>
+                            <input type="checkbox" value="0" id="week-0" name="week[]">
+                            <label for="week-0">lunes</label>
                         </li>
                         <li class="col-3">
-                            <input class="" type="checkbox" value="1" id="week-1" name="">
-                            <span>Martes</span>
+                            <input type="checkbox" value="1" id="week-1" name="week[]">
+                            <label for="week-1">Martes</label>
                         </li>
                         <li class="col-3">
-                            <input class="" type="checkbox" value="1" id="week-1" name="">
-                            <span>Miércoles</span>
+                            <input type="checkbox" value="2" id="week-2" name="week[]">
+                            <label for="week-2">Miércoles</label>
                         </li>
                         <li class="col-3">
-                            <input class="" type="checkbox" value="1" id="week-1" name="">
-                            <span>Jueves</span>
+                            <input type="checkbox" value="3" id="week-3" name="week[]">
+                            <label for="week-3">Jueves</label>
                         </li>
                         <li class="col-3">
-                            <input class="" type="checkbox" value="1" id="week-1" name="">
-                            <span>Viernes</span>
+                            <input type="checkbox" value="4" id="week-4" name="week[]">
+                            <label for="week-4">Viernes</label>
                         </li>
                         <li class="col-3">
-                            <input class="" type="checkbox" value="1" id="week-1" name="">
-                            <span>Sábado</span>
+                            <input type="checkbox" value="5" id="week-5" name="week[]">
+                            <label for="week-5">Sábado</label>
                         </li>
                         <li class="col-3">
-                            <input class="" type="checkbox" value="1" id="week-1" name="">
-                            <span>Domingo</span>
+                            <input type="checkbox" value="6" id="week-6" name="week[]">
+                            <label for="week-6">Domingo</label>
                         </li>
                     </ul>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="startTime">Inicio</label>
-                        <input type="time" class="" id="startTime" name="startTime">
+                        <label for="hora_inicio">Inicio</label>
+                        <input type="time" id="hora_inicio" name="hora_inicio">
                     </div>
 
                     <div class="col-md-6 data_group_form">
-                        <label for="endTime">Fin</label>
-                        <input type="time" class="" id="endTime" name="endTime">
+                        <label for="hora_final">Fin</label>
+                        <input type="time" id="hora_final" name="hora_final">
                     </div>
                 </div>
 
@@ -150,41 +152,25 @@
 @endsection
 
 @section('scripts')
-    <script defer>
+    <script src="{{ asset('js/alertas.js') }}"></script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
-            $('#form-config-date').submit(function (e) {
+            $('#form-dias').submit(function (e) {
                 e.preventDefault();
                 var form = $(this);
-
                 $.ajax({
                     data: form.serialize(),
                     url: form.attr('action'),
                     dataType: 'json',
                     method: 'post',
                     success: function (res, status) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Hecho',
-                            text: res.message,
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
+                        $('#alert-cita').html(alert(res.message, 'success'));
                     },
                     error: function (res, status) {
-                        Swal.fire({
-                            icon: 'warning',
-                            title: 'Alerta',
-                            text: res.message,
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
+                        $('#alert-cita').html(alert(res.responseJSON.message, 'danger'));
                     }
                 });
             });
-
-
-
-
         });
 
         $(function () {

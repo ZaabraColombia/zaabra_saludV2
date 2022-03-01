@@ -153,8 +153,20 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
     Route::prefix('/profesional')->group(function () {
 
         Route::get('/panel',[profesionales\Admin\PanelController::class,'index'])->name('panel');
-        Route::get('/calendario',[profesionales\Admin\CalendarioController::class,'index'])->name('calendario');
-        Route::get('/configurar-calendario', [profesionales\Admin\CalendarioController::class, 'configuracion'])->name('configurar-calendario');
+
+        Route::get('/calendario',[profesionales\Admin\CalendarioController::class,'index'])
+            ->name('calendario');
+
+        //Configurar calendario
+        Route::get('/configurar-calendario', [profesionales\Admin\CalendarioController::class, 'configuracion'])
+            ->name('configurar-calendario');
+        Route::post('/configurar-calendario/cita', [profesionales\Admin\CalendarioController::class, 'cita'])
+            ->name('configurar-calendario.cita');
+        Route::post('/configurar-calendario/agregar_horario', [profesionales\Admin\CalendarioController::class, 'horario_agregar'])
+            ->name('configurar-calendario.horario-agregar');
+        Route::post('/configurar-calendario/eliminar_horario', [profesionales\Admin\CalendarioController::class, 'horario_eliminar'])
+            ->name('configurar-calendario.horario-eliminar');
+
         Route::get('/citas',[profesionales\Admin\CitasController::class,'index'])->name('citas');
         Route::get('/pagos',[profesionales\Admin\PagosController::class,'index'])->name('pagos');
         Route::get('/pacientes',[profesionales\Admin\PacientesController::class,'index'])->name('pacientes');
