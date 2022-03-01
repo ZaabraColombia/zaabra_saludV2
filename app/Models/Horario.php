@@ -21,6 +21,10 @@ class Horario extends Model
         'user_id'
     ];
 
+    protected $casts = [
+        'horario' => 'array'
+    ];
+
     /**
      * @return BelongsTo
      */

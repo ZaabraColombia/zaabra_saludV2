@@ -1,4 +1,4 @@
-@extends('panelAdministrativoProf.panelAdministrativoProfesional')
+@extends('profesionales.admin.layouts.panelAdministrativoProfesional')
 
 @section('PanelProf')
         <section class="section">
@@ -9,7 +9,7 @@
                             <h1 class="title_miCita">Diagnósticos (CIE - 10)</h1>
                             <span class="subtitle_miCita">Descargue el documentos de Diagnósticos (CIE - 10).</span>
                         </div>
-                    </div>    
+                    </div>
 
                     <div class="card container_proced">
                         <div class="card-content">
@@ -36,7 +36,7 @@
                                 </div>
 
                                 <button type="submit" class="btn_descargar_agenProf"> Descargar
-                                    <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt=""> 
+                                    <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt="">
                                 </button>
                             </div>
                         </div>

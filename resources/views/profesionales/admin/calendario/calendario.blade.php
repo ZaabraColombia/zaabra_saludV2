@@ -1,11 +1,11 @@
-@extends('panelAdministrativoProf.panelAdministrativoProfesional')
+@extends('profesionales.admin.layouts.panel')
 
 @section('styles')
     <!--Framewor Agenda-->
     <link rel="stylesheet" href="{{ asset('fullCalendar/main.css') }}">
 @endsection
 
-@section('PanelProf')
+@section('contenido')
     <section class="section">
         <div class="row containt_agendaProf" id="basic-table">
             <div class="col-12 p-0">
@@ -28,6 +28,10 @@
                     <h2 class="dias no_disponible"><i></i> Días no disponibles</h2>
                     <h2 class="dias"><i></i> Días disponibles</h2>
                 </div>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_opcion_cita">
+                    Launch demo modal
+                </button>
             </div>
             <div class="col-12 col-lg-9 p-0">
                 <div id="calendar"></div>
@@ -35,6 +39,70 @@
         </div>
 
     </section>
+
+
+
+    <div class="modal fade" id="modal_opcion_cita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" target="_blank">
+        <div class="modal-dialog popUp_dialog" role="document">
+            <div class="modal-content popUp_content">
+                <!-- Sección boton derecho de cierre "X" -->
+                <div class="modal-header popUp_header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body p-0">
+                    <!-- Titulo y texto de encabezado -->
+                    <h1 class="modal-title titulo_popUp" id="exampleModalLabel">Martes 01</h1>
+
+                    <p class="texto_popUp"> Seleccione el medio de pago que mejor se adapte a su necesidad. </p>
+
+                    <!-- Sección iconos medios de pago Tarjeta de credito y PSE -->
+                    <!--//////      Funcionalidad de cambio de color de los botones e iconos de pago del poup se encuentran en el archivo instituciones.js     //////-->
+                    <form action="{{ route('pay-openPay') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="id_tipo_pago" id="id_tipo_pago" value="13">
+                        <div class="popUp_seccion_medio_pago">
+                            <!-- Tarjeta de credito -->
+                            <div class="popUp_medio_pago">
+                                <img id="img_tarjCred" src="{{ asset('/img/popup-pago/tarjetas-de-credito-azul.svg') }}" class="icon_popUp">
+
+                                <h3 class="texto_popUp"> Tarjetas de <br> crédito </h3>
+
+                                <input class="inputCheck_popup" type="radio" name="metodo_pago" id="metodo_pago" value="card" />
+                            </div>
+
+                            <!-- PSE -->
+                            <div class="popUp_medio_pago">
+                                <img id="img_pagoPse" src="{{ asset('/img/popup-pago/medios-online-pse-azul.svg') }}" class="icon_popUp">
+
+                                <h3 class="texto_popUp"> Pago en línea <br> (PSE) </h3>
+
+                                <input class="inputCheck_popup" type="radio" name="metodo_pago" id="metodo_pago" value="pse" />
+                            </div>
+                        </div>
+
+                        <!-- Sección botón Pagar -->
+                        <div class="p-0">
+                            <button type="submit" class="btnPagar_popUp" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera" formtarget="_blank"> {{ __('Pagar') }}
+                                <i class="fas fa-arrow-right pl-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
 
     <!-- Pop-up  ver cita -->
     <div class="modal fade modalC" id="ver-cita-profecional" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

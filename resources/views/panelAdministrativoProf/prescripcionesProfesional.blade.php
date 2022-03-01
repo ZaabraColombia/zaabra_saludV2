@@ -1,4 +1,4 @@
-@extends('panelAdministrativoProf.panelAdministrativoProfesional')
+@extends('profesionales.admin.layouts.panelAdministrativoProfesional')
 
 @section('PanelProf')
     <section class="section">
@@ -11,9 +11,9 @@
                     </div>
 
                     <a type="submit" href='{{url("crearFormulaProfesional")}}' class="btn_crear_formula"> Crear fórmula
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_btn_agendar" alt=""> 
+                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_btn_agendar" alt="">
                     </a>
-                </div>    
+                </div>
 
                 <div class="card container_formula">
                     <div class="card-content">

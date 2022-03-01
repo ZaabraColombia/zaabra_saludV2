@@ -1,4 +1,4 @@
-@extends('panelAdministrativoProf.panelAdministrativoProfesional')
+@extends('profesionales.admin.layouts.panelAdministrativoProfesional')
 
 @section('PanelProf')
         <section class="section">
@@ -11,7 +11,7 @@
                                 la cual define la Actualización única de procedimientos en Salud - CUPS.
                             </span>
                         </div>
-                    </div>    
+                    </div>
 
                     <div class="card container_proced">
                         <div class="card-content">
@@ -35,7 +35,7 @@
                                 </div>
 
                                 <button type="submit" class="btn_descargar_agenProf"> Descargar
-                                    <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt=""> 
+                                    <img src="{{URL::asset('/img/iconos/icono-descargar-pagos.svg')}}" class="icon_descargar" alt="">
                                 </button>
                             </div>
                         </div>

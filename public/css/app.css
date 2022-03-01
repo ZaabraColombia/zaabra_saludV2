@@ -22370,7 +22370,7 @@ a:link, a:visited, a:active, a:hover {
 }
 .form_config h2 {
   font-size: 25px;
-  font-family: "Roboto";
+  font-family: "Quicksand";
   color: #0083D6;
   font-weight: 400;
   padding-bottom: 7px;
@@ -22408,6 +22408,7 @@ a:link, a:visited, a:active, a:hover {
 }
 .form_config .btn_bottom .btn_blue {
   font-size: 20px;
+  font-family: "Quicksand";
   background-color: #0083D6;
   border: 1px solid #0083D6;
   border-radius: 4px;
@@ -22416,11 +22417,12 @@ a:link, a:visited, a:active, a:hover {
 }
 .form_config .btn_bottom .btn_red {
   font-size: 20px;
+  font-family: "Quicksand";
   background-color: #e3342f;
   border: 1px solid #e3342f;
   border-radius: 4px;
   color: #FFFFFF;
-  padding: 5px 15px;
+  padding: 5px 10px;
 }
 .form_config ul {
   padding: 0;
@@ -22438,8 +22440,12 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Roboto";
   color: #707070;
 }
+.form_config .table thead tr th,
+.form_config .table tbody tr td {
+  border-top: none;
+}
 .form_config .table thead tr th span,
-.form_config tbody tr td span {
+.form_config .table tbody tr td span {
   font-size: 20px;
   font-family: "Roboto";
   color: #707070;
@@ -25137,28 +25143,32 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/iconos/icono-doctor-azul.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  background-position-x: 42%;
+  background-position-x: 130px;
+  margin-bottom: 10px;
 }
 
 .icon_servicio_favProf {
   background-image: url("/img/iconos/icono-servicios.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  background-position-x: 26%;
+  background-position-x: 83px;
+  margin-bottom: 10px;
 }
 
 .icon_especialista_favProf {
   background-image: url("/img/iconos/icono-especialistas-favoritos.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  background-position-x: 34%;
+  background-position-x: 107px;
+  margin-bottom: 10px;
 }
 
 .icon_institucion_favProf {
   background-image: url("/img/iconos/icono-instituciones-favoritas.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  background-position-x: 36%;
+  background-position-x: 115px;
+  margin-bottom: 10px;
 }
 
 @media (min-width: 320px) and (orientation: portrait) {
@@ -25246,26 +25256,6 @@ a:link, a:visited, a:active, a:hover {
     margin-bottom: 5%;
     margin-left: auto;
   }
-
-  .icon_especialidad_favProf {
-    background-position-x: 60%;
-    margin-bottom: 5%;
-  }
-
-  .icon_servicio_favProf {
-    background-position-x: 37%;
-    margin-bottom: 5%;
-  }
-
-  .icon_especialista_favProf {
-    background-position-x: 48%;
-    margin-bottom: 5%;
-  }
-
-  .icon_institucion_favProf {
-    background-position-x: 51%;
-    margin-bottom: 5%;
-  }
 }
 @media (min-width: 360px) and (orientation: portrait) {
   .btn_crear_histClinica {
@@ -25282,22 +25272,6 @@ a:link, a:visited, a:active, a:hover {
 
   .btn_crear_formula {
     width: 35%;
-  }
-
-  .icon_especialidad_favProf {
-    background-position-x: 52%;
-  }
-
-  .icon_servicio_favProf {
-    background-position-x: 33%;
-  }
-
-  .icon_especialista_favProf {
-    background-position-x: 42%;
-  }
-
-  .icon_institucion_favProf {
-    background-position-x: 45%;
   }
 }
 @media (min-width: 375px) and (orientation: portrait) {
@@ -25417,26 +25391,6 @@ a:link, a:visited, a:active, a:hover {
     width: 25%;
     margin-top: 3%;
     margin-bottom: 5%;
-  }
-
-  .icon_especialidad_favProf {
-    background-position-x: 45%;
-    margin-bottom: 3%;
-  }
-
-  .icon_servicio_favProf {
-    background-position-x: 28%;
-    margin-bottom: 3%;
-  }
-
-  .icon_especialista_favProf {
-    background-position-x: 36%;
-    margin-bottom: 3%;
-  }
-
-  .icon_institucion_favProf {
-    background-position-x: 39%;
-    margin-bottom: 3%;
   }
 }
 @media (min-width: 1024px) {
@@ -25589,23 +25543,19 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .icon_especialidad_favProf {
-    background-position-x: 46%;
-    margin-bottom: 3%;
+    background-position-x: 165px;
   }
 
   .icon_servicio_favProf {
-    background-position-x: 29%;
-    margin-bottom: 3%;
+    background-position-x: 105px;
   }
 
   .icon_especialista_favProf {
-    background-position-x: 38%;
-    margin-bottom: 3%;
+    background-position-x: 133px;
   }
 
   .icon_institucion_favProf {
-    background-position-x: 40%;
-    margin-bottom: 3%;
+    background-position-x: 140px;
   }
 }
 @media (min-width: 1920px) {
@@ -25687,22 +25637,6 @@ a:link, a:visited, a:active, a:hover {
 
   .btn_descargar_agenProf {
     width: 8vw;
-  }
-
-  .icon_especialidad_favProf {
-    background-position-x: 37%;
-  }
-
-  .icon_servicio_favProf {
-    background-position-x: 24%;
-  }
-
-  .icon_especialista_favProf {
-    background-position-x: 30%;
-  }
-
-  .icon_institucion_favProf {
-    background-position-x: 32%;
   }
 }
 .fc-agendarCita-button {
@@ -25982,7 +25916,7 @@ a:link, a:visited, a:active, a:hover {
 
 .zoom_img img:hover {
   transform: scale(2);
-  top: 50px;
+  top: 27px;
 }
 
 @media (min-width: 600px) {
