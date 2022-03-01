@@ -245,7 +245,7 @@
                                 <h3 id="fecha-profesional" >Jueves, 12 de mayo</h3>
                                 <span id="hora-profesional">10:47 - 11:47 a.m</span>
                             </div>
-                            <div class="col-md-5 p-0 mb-2 text-center">
+                            <div class="col-md-5 p-0 mb-2  text-md-center">
                                 <h3>Tipo de cita</h3>
                                 <span id="tipo_cita-profesional">Presencial</span>
                             </div>
@@ -285,7 +285,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="modal_btn_transparent px-4" id="cancelar-cita-btn-profesional">Cancelar</button>
+                    <button type="submit" class="modal_btn_transparent px-4" id="">Cancelar</button>
                     <button type="submit" class="modal_btn_blue px-4" id="">Agendar</button>
                 </div>
             </div>
@@ -297,7 +297,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
-                    <h1>Reagendar cita</h1>
+                    <h1>Reagendares cita</h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -353,7 +353,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="modal_btn_transparent px-4" id="cancelar-cita-btn-profesional">Cancelar</button>
+                    <button type="submit" class="modal_btn_transparent px-4" id="">Cancelar</button>
                     <button type="submit" class="modal_btn_blue px-4" id="">Confirmar</button>
                 </div>
             </div>
