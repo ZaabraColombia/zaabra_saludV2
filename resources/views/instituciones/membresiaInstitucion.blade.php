@@ -56,7 +56,7 @@
 
 
     <div class="section_button_infoZaabra my-3"> <!-- botón precio -->
-      <button type="submit" class="button_green_infoZaabra flex-column px-3 px-lg-4" data-toggle="modal" data-target="#exampleModal">
+      <button type="submit" class="button_green_infoZaabra flex-column px-3 px-lg-4" data-toggle="modal" data-target="#info_pago">
         <h5 class="title_membresia" style="color: #FFFFFF">$179.900</h5>
         <span class="text_btn_precio">Mensual &nbsp;*</span>
       </button>
@@ -281,7 +281,7 @@
 
     <div class="section_button_infoZaabra m-0"> <!-- Register button -->
       <a href="{{route('register')}}">
-        <button type="submit" class="button_green_infoZaabra" data-toggle="modal" data-target="#exampleModal"> {{ __('Empezar') }}
+        <button type="submit" class="button_green_infoZaabra" data-toggle="modal" data-target="#info_pago"> {{ __('Empezar') }}
             <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
         </button>
       </a>
@@ -299,56 +299,44 @@
 
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog popUp_dialog" role="document">
-        <div class="modal-content popUp_content">
-            <!-- Sección boton derecho de cierre "X" -->
-            <div class="modal-header popUp_header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+<div class="modal fade" id="info_pago" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal_container">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <h2 class="text-center mb-2"> Seleccione el medio de pago</h2>
+        <h3 class="text-center"> Seleccione el medio de pago que mejor se adapte a su necesidad. </h3>
+
+        <form action="{{ route('pay-openPay') }}" method="post">
+          @csrf
+          <input type="hidden" name="id_tipo_pago" id="id_tipo_pago" value="16">
+          <div class="modal_medio_pago">
+            <div class="info_medio_pago">
+              <img id="img_tarjCred" src="{{ asset('/img/popup-pago/tarjetas-de-credito-consultorio-verde.svg') }}">
+              <h3 class="text-center mb-2">Tarjetas de <br> crédito</h3>
+              <input class="Check_medio_pago" type="radio" name="metodo_pago" id="metodo_pago" value="card" />
             </div>
 
-            <div class="modal-body p-0">
-                <!-- Titulo y texto de encabezado -->
-                <h1 class="modal-title titulo_popUp" id="exampleModalLabel"> Seleccione el medio de pago</h1>
-
-                <p class="texto_popUp"> Seleccione el medio de pago que mejor se adapte a su necesidad. </p>
-
-                <!-- Sección iconos medios de pago Tarjeta de credito y PSE -->
-                <!--//////      Funcionalidad de cambio de color de los botones e iconos de pago del poup se encuentran en el archivo instituciones.js     //////-->
-                <form action="{{ route('pay-openPay') }}" method="post">
-                    @csrf
-                    <input type="hidden" name="id_tipo_pago" id="id_tipo_pago" value="16">
-                    <div class="popUp_seccion_medio_pago">
-                        <!-- Tarjeta de credito -->
-                        <div class="popUp_medio_pago">
-                            <img id="img_tarjCred" src="{{ asset('/img/popup-pago/tarjetas-de-credito-consultorio-verde.svg') }}" class="icon_popUp">
-
-                            <h3 class="texto_popUp"> Tarjetas de <br> crédito </h3>
-
-                            <input class="inputCheck_popup" type="radio" name="metodo_pago" id="metodo_pago" value="card" />
-                        </div>
-
-                        <!-- PSE -->
-                        <div class="popUp_medio_pago">
-                            <img id="img_pagoPse" src="{{ asset('/img/popup-pago/medios-online-pse-consultorio-verde.svg') }}" class="icon_popUp">
-
-                            <h3 class="texto_popUp"> Pago en línea <br> (PSE) </h3>
-
-                            <input class="inputCheck_popup" type="radio" name="metodo_pago" id="metodo_pago" value="pse" />
-                        </div>
-                    </div>
-
-                    <!-- Sección botón Pagar -->
-                    <div class="p-0">
-                        <button type="submit" class="btnPagar_popUp" style="background: #019F86" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera" formtarget="_blank"> {{ __('Pagar') }}
-                        <i class="fas fa-arrow-right pl-2"></i>
-                        </button>
-                    </div>
-                </form>
+            <div class="info_medio_pago">
+              <img id="img_pagoPse" src="{{ asset('/img/popup-pago/medios-online-pse-consultorio-verde.svg') }}">
+              <h3 class="text-center mb-2">Pago en línea <br> (PSE)</h3>
+              <input class="Check_medio_pago" type="radio" name="metodo_pago" id="metodo_pago" value="pse" />
             </div>
-        </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="submit" class="modal_btn_green px-4" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera" formtarget="_blank">
+          Pagar <i class="fas fa-arrow-right pl-2"></i>
+        </button>
+      </div>
     </div>
+  </div>
 </div>
 @endsection
