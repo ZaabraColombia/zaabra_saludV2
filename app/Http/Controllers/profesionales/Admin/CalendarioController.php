@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use function daysWeekText;
 use function response;
 use function view;
 
@@ -421,9 +420,14 @@ class CalendarioController extends Controller
             'hora_final'=> ['required', 'date_format:H:i']
         ]);
 
-        if ($validator->failed())
+        if ($validator->fails())
         {
-            return response(['error' => $validator->errors()->all()], Response::HTTP_NOT_FOUND);
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validator->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
         }
 
         //user
@@ -435,7 +439,6 @@ class CalendarioController extends Controller
             'startTime'     => $request->get('hora_inicio'),
             'endTime'       => $request->get('hora_final'),
         ];
-
         //add schedule
         if (is_array($horario->horario))
         {
@@ -444,14 +447,19 @@ class CalendarioController extends Controller
             $horario->horario = $schedule;
         }
 
-
         $horario->save();
+
+        //dd($schedule[0]['daysOfWeek']);
 
         //parce days in text
         foreach ($schedule[0]['daysOfWeek'] as $key => $item) $schedule[0]['daysOfWeek'][$key] = daysWeekText($item);
 
         return response([
-            'message' => 'Horario Agregado', 'item' => $schedule[0]
+            'message'   => [
+                'title' => 'Hecho',
+                'text'  => 'Horario Agregado'
+            ],
+            'item'      => $schedule[0]
         ], Response::HTTP_ACCEPTED);
     }
 
@@ -463,29 +471,37 @@ class CalendarioController extends Controller
     public function horario_eliminar(Request $request)
     {
         $validator = Validator::make( $request->all(), [
-            'id'    => ['required', 'integer'],
+            'id'    => ['required'],
         ]);
 
-        if ($validator->failed())
+        if ($validator->fails())
         {
-            return response(['error' => $validator->errors()->all()], Response::HTTP_NOT_FOUND);
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validator->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
         }
 
         //user
         $user = Auth::user();
         //schedule
-        $schedule = $user->calendar_config->schedule_on;
+        $schedule = $user->horario->horario;
 
         //delete schedule
         $key_schedule_delete = array_search($request->id, array_column($schedule, 'id'));
         unset($schedule[$key_schedule_delete]);
 
         //save
-        $user->calendar_config->schedule_on = $schedule;
-        $user->calendar_config->save();
+        $user->horario->horario = $schedule;
+        $user->horario->save();
 
         return response([
-            'message' => __('calendar.deleted-schedule-confirmation')
+            'message'   => [
+                'title' => 'Hecho',
+                'text'  => 'Horario Eliminado'
+            ],
         ], Response::HTTP_OK);
     }
 }

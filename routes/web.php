@@ -164,7 +164,7 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
             ->name('configurar-calendario.cita');
         Route::post('/configurar-calendario/agregar_horario', [profesionales\Admin\CalendarioController::class, 'horario_agregar'])
             ->name('configurar-calendario.horario-agregar');
-        Route::post('/configurar-calendario/eliminar_horario', [profesionales\Admin\CalendarioController::class, 'horario_eliminar'])
+        Route::delete('/configurar-calendario/eliminar_horario', [profesionales\Admin\CalendarioController::class, 'horario_eliminar'])
             ->name('configurar-calendario.horario-eliminar');
 
         Route::get('/citas',[profesionales\Admin\CitasController::class,'index'])->name('citas');
@@ -176,12 +176,12 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
         //Route:: get('/ordenesMedicas',[App\Http\Controllers\admin\adminExamenesController::class,'index'])->name('ordenesMedicas');
         //Route:: get('/prescripciones',[App\Http\Controllers\admin\adminPrescripcionesController::class,'index'])->name('prescripciones');
 
-//        Route:: get('/historiaClinicaProfesional',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'index'])->name('historiaClinicaProfesional');
-//        Route:: get('/registroPaciente',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'registrar'])->name('registroPaciente');
-//        Route:: get('/pacienteRegistrado',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'registro'])->name('pacienteRegistrado');
-//        Route:: get('/editarConsulta',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'consulta'])->name('editarConsulta');
-//        Route:: get('/editarPatologia',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'patologia'])->name('editarPatologia');
-//        Route:: get('/editarExpediente',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'Expediente'])->name('editarExpediente');
+        //Route:: get('/historiaClinicaProfesional',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'index'])->name('historiaClinicaProfesional');
+        //Route:: get('/registroPaciente',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'registrar'])->name('registroPaciente');
+        //Route:: get('/pacienteRegistrado',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'registro'])->name('pacienteRegistrado');
+        //Route:: get('/editarConsulta',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'consulta'])->name('editarConsulta');
+        //Route:: get('/editarPatologia',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'patologia'])->name('editarPatologia');
+        //Route:: get('/editarExpediente',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'Expediente'])->name('editarExpediente');
 
         Route:: get('/prescripcionesProfesional',[App\Http\Controllers\admin\adminPrescripcionesProfesionalController::class,'index'])->name('prescripcionesProfesional');
         Route:: get('/crearFormulaProfesional',[App\Http\Controllers\admin\adminPrescripcionesProfesionalController::class,'formulas'])->name('crearFormulaProfesional');
