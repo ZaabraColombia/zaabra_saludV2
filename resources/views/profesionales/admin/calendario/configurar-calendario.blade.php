@@ -46,32 +46,32 @@
                 <div class="">
                     <ul class="row m-0">
                         <li class="col-3">
-                            <input type="checkbox" value="0" id="semana-0" name="semana[]">
-                            <label for="semana-0">lunes</label>
-                        </li>
-                        <li class="col-3">
                             <input type="checkbox" value="1" id="semana-1" name="semana[]">
-                            <label for="semana-1">Martes</label>
+                            <label for="semana-1">lunes</label>
                         </li>
                         <li class="col-3">
                             <input type="checkbox" value="2" id="semana-2" name="semana[]">
-                            <label for="semana-2">Miércoles</label>
+                            <label for="semana-2">Martes</label>
                         </li>
                         <li class="col-3">
                             <input type="checkbox" value="3" id="semana-3" name="semana[]">
-                            <label for="semana-3">Jueves</label>
+                            <label for="semana-3">Miércoles</label>
                         </li>
                         <li class="col-3">
                             <input type="checkbox" value="4" id="semana-4" name="semana[]">
-                            <label for="semana-4">Viernes</label>
+                            <label for="semana-4">Jueves</label>
                         </li>
                         <li class="col-3">
                             <input type="checkbox" value="5" id="semana-5" name="semana[]">
-                            <label for="semana-5">Sábado</label>
+                            <label for="semana-5">Viernes</label>
                         </li>
                         <li class="col-3">
                             <input type="checkbox" value="6" id="semana-6" name="semana[]">
-                            <label for="semana-6">Domingo</label>
+                            <label for="semana-6">Sábado</label>
+                        </li>
+                        <li class="col-3">
+                            <input type="checkbox" value="0" id="semana-0" name="semana[]">
+                            <label for="semana-0">Domingo</label>
                         </li>
                     </ul>
                 </div>

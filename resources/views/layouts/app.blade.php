@@ -71,8 +71,6 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>-->
 
-        @yield('scripts')
-
         <!-- Scripts  areas-->
         <script src="{{ asset('js/header.js') }}"></script>
         <script src="{{ asset('js/home.js') }}"></script>
@@ -97,6 +95,7 @@
             crossorigin="">
         </script> -->
 
+        @yield('scripts')
     </body>
 </html>
 

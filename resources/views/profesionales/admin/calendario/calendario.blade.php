@@ -62,15 +62,15 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="submit" class="modal_btn_blue" id="" 
-                            data-toggle="modal" data-target="#modal_ver_cita" formtarget="_blank">Ver cita
-                    </button>
-                    <button type="submit" class="modal_btn_blue" id="" 
+                    <button type="button" class="modal_btn_blue" id="btn-day-clicked" data-date=""
                             data-toggle="modal" data-target="#agregar_cita" formtarget="_blank">Agendar cita
                     </button>
-                    <button type="submit" class="modal_btn_blue" id="" 
-                            data-toggle="modal" data-target="#modalPagoEspera" formtarget="_blank">Horario disponible
+                    <button type="button" class="modal_btn_blue" id="btn-day-see" data-date=""
+                            data-toggle="modal" data-target="#modal_ver_cita" formtarget="_blank">Ver cita
                     </button>
+{{--                    <button type="submit" class="modal_btn_blue" id=""--}}
+{{--                            data-toggle="modal" data-target="#modalPagoEspera" formtarget="_blank">Horario disponible--}}
+{{--                    </button>--}}
                 </div>
             </div>
         </div>
@@ -209,13 +209,13 @@
                             data-toggle="modal" data-target="#cancelar_cita" formtarget="_blank">
                         Cancelar cita
                     </button>
-                    <button type="submit" class="modal_btn_blue" id="" 
+                    <button type="submit" class="modal_btn_blue" id=""
                             data-toggle="modal" data-target="#reagendar_cita" formtarget="_blank">
-                            Reagendar cita
+                        Reagendar cita
                     </button>
-                    <button type="submit" class="modal_btn_blue" id="" 
+                    <button type="submit" class="modal_btn_blue" id=""
                             data-toggle="modal" data-target="#editar_cita" formtarget="_blank">
-                            Editar cita
+                        Editar cita
                     </button>
                 </div>
             </div>
@@ -251,7 +251,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <form method="POST" action="" id="form-agendar-cita-profesional">
                         <div class="form_modal">
                             <div class="row m-0">
@@ -321,7 +321,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <form method="POST" action="" id="form-agendar-cita-profesional">
                         <div class="form_modal">
                             <div class="row m-0">
@@ -360,8 +360,8 @@
         </div>
     </div>
 
-        <!-- Modal  Cancelar cita -->
-        <div class="modal fade" id="cancelar_cita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal  Cancelar cita -->
+    <div class="modal fade" id="cancelar_cita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -398,108 +398,26 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Pop-up editar cita -->
-    <div class="modal fade modalD" id="editar-cita-model-profesional" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal_citas_popUp" role="document">
-            <div class="modal-content content_modalCitas">
-                <!-- Sección boton derecho de cierre "X" -->
-                <div class="modal-header modal_headerCitas">
-                    <h1 class="title_popup_miCita" id="exampleModalLabel">Agendar cita</h1>
-
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body modal_headerCitas">
-                    <form method="POST" action="" id="form-agendar-cita-profesional">
-                        <div class="col-md-6 p-0">
-                            <label for="especialidad_input-profesional" class="col-12 text_label-formProf">Especialidad</label>
-                            <input class="form-control" type="text" value="{{ auth()->user()->profecional->profecion->nombreProfesion }}" id="especialidad_input-profesional" name="especialidad_input-profesional" readonly>
-                        </div>
-
-                        <div class="col-md-6 p-0">
-                            <label for="tipo_cita_select-editar-profesional" class="col-12 text_label-formProf">Tipo de cita</label>
-                            <select id="tipo_cita_select-editar-profesional" class="form-control" name="tipo_cita_select-editar-profesional">
-                                <option value="Presencial"> Presencial </option>
-                                <option value="Virtual"> Virtual </option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 p-0">
-                            <label for="paciente_input-editar-profesional" class="col-12 text_label-formProf">Nombre Paciente</label>
-                            <input class="form-control" type="text" id="paciente_input-editar-profesional" name="paciente_input-editar-profesional">
-                        </div>
-
-                        <div class="col-md-6 p-0">
-                            <label for="fecha_input-editar-profesional" class="col-12 text_label-formProf">Fecha</label>
-                            <input class="form-control" type="text" id="fecha_input-editar-profesional" name="fecha_input-editar-profesional" disabled>
-                        </div>
-
-                        <div class="col-md-6 p-0">
-                            <label for="hora_input-editar-profesional" class="col-12 text_label-formProf">Hora</label>
-                            <input class="form-control" type="time" id="hora_input-editar-profesional" name="hora_input-editar-profesional">
-                        </div>
-
-                    </form>
-                </div>
-
-                <!-- Sección botón Pagar -->
-                <div class="modal-footer section_btn_citas">
-                    <button type="submit" class="btnAgendar-popup" id="editar-cita-profesional">Guardar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Pop-up cancelar cita -->
-    <div class="modal fade modalE" id="cancelada-cita-modal-profecional" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
-        <div class="modal-dialog modal-lg container_modal_cancelo" role="document">
-            <div class="modal-content content_canceloCita">
-                <!-- Sección boton derecho de cierre "X" -->
-                <div class="modal-header modal_cancelarCitasProf">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body modal_contentCitasProf">
-                    <h1 class="title_cancelar_miCita" id="exampleModalLabel3">Cita cancelada.</h1>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @section('scripts')
-    <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('js/alertas.js') }}"></script>
+
     <!-- Full calendar JS -->
     <script src="{{ asset('fullCalendar/main.js') }}"></script>
     <script src="{{ asset('fullCalendar/locales/es.js') }}"></script>
-
-{{--    <script src="{{ asset('js/calendar-profesional.js') }}"></script>--}}
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
             //Iniciar data
-            {{--var weekNotBusiness = '{!! json_encode($weekNotBusiness) !!}';--}}
+            var weekNotBusiness = '{!! json_encode($weekNotBusiness) !!}';
 
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
-                //businessHours: {{--  json_encode($user->calendar_config->schedule_on)  --}}'',
+                businessHours: {!! json_encode($horario->horario) !!},
                 //events: '',
                 // Botones de mes, semana y día.
                 headerToolbar: {
@@ -511,6 +429,28 @@
                 locale: 'es',
                 // Evento de mensaje de alerta
                 dateClick: function (event) {
+                    var today = moment();
+
+                    var day = moment(event.date);
+
+                    if (weekNotBusiness.includes(event.date.getDay()))
+                    {
+
+                        if (today.startOf('day').diff(day.startOf('day'), 'days') <= 0)
+                        {
+                            if (event.view.type === "dayGridMonth") {
+                                $('#btn-day-clicked').data("date", event.dateStr);
+                                $('#btn-day-see').data("date", event.dateStr);
+
+                                $('#modal_dia_calendario').modal();
+                            }
+                        } else {
+                            calendar.changeView('timeGridDay', event.dateStr);
+                        }
+
+                    } else {
+                        alert('');
+                    }
                 },
                 selectable: false,
                 editable: false,
