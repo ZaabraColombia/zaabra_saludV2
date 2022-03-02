@@ -30,6 +30,9 @@ Route::get('get-especialidad',[App\Http\Controllers\profesionales\formularioProf
 Route::post('/buscar-universidad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'buscar_universidad'])->name('buscador-universidad')->middleware('auth');
 /* Autocompletado especialidades */
 Route::post('/buscar-especialidades',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'buscar_especialidades'])->name('buscador-especialidades')->middleware('auth');
+Route::post('/buscar-pacientes',[App\Http\Controllers\buscador\buscadorController::class,'buscar_paciente'])
+    ->name('buscador-paciente')
+    ->middleware('auth');
 
 /*----------------------------------------------Pertenece a Publico-------------------------------------------------------------------------------*/
 
@@ -156,6 +159,12 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
 
         Route::get('/calendario',[profesionales\Admin\CalendarioController::class,'index'])
             ->name('calendario');
+        Route::post('/calendario/dias-libre',[profesionales\Admin\CalendarioController::class,'citas_libres'])
+            ->name('calendario.dias-libre');
+        Route::post('/calendario/crear-cita',[profesionales\Admin\CalendarioController::class,'crear_cita'])
+            ->name('calendario.crear-cita');
+        Route::get('/calendario/ver-citas',[profesionales\Admin\CalendarioController::class,'ver_citas'])
+            ->name('calendario.ver-citas');
 
         //Configurar calendario
         Route::get('/configurar-calendario', [profesionales\Admin\CalendarioController::class, 'configuracion'])

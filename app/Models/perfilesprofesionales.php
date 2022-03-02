@@ -79,4 +79,9 @@ class perfilesprofesionales extends Model
             ]
         ];
     }
+
+    public function citas()
+    {
+        return $this->hasMany(Cita::class, 'profesional_id', 'idPerfilProfesional');
+    }
 }
