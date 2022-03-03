@@ -511,6 +511,7 @@
             $('#btn-day-see').click(function (e) {
                 var btn = $(this);
                 calendar.changeView('timeGridDay', btn.data('date'));
+                $('#modal_dia_calendario').modal('hide');
             });
 
             //Abrir modal para asignar cita
