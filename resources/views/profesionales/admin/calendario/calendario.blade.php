@@ -122,6 +122,7 @@
 
                         <div class="form_modal">
                             <div class="row m-0">
+                                <div class="col-12 p-0" id="alerta-agregar_cita"></div>
                                 <div class="col-12 p-0">
                                     <label for="numero_id">Número de identificación</label>
                                     <select type="text" id="numero_id" name="numero_id" required>
@@ -520,6 +521,8 @@
                 citas_libre(btn.data('date'), $('#disponibilidad'));
 
                 $('#agregar_cita').modal();
+                $('#lugar').val($('#lugar').data('default'));
+
                 $('#modal_dia_calendario').modal('hide');
             });
 
@@ -538,10 +541,13 @@
                     method: 'POST',
                     success: function (res, status) {
 
-                        $('#alert-cita').html(alert(res.message, 'success'));
+                        $('#alerta-general').html(alert(res.message, 'success'));
 
                         $('#agregar_cita').modal('hide');
+                        //resetear formulario
                         form[0].reset();
+                        $('#lugar').val($('#lugar').data('default'));
+                        $('#numero_id').val(null).trigger('change');
 
                         setTimeout(function () {
                             calendar.refetchEvents();
@@ -551,13 +557,7 @@
 
                         var response = res.responseJSON;
 
-                        Swal.fire({
-                            icon: 'warning',
-                            title: '{{ __('trans.warning') }}',
-                            text: response.error,
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
+                        $('#alerta-agregar_cita').html(alert(response.message, 'danger'));
 
                         setTimeout(function () {
                             calendar.refetchEvents();

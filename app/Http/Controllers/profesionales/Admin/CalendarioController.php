@@ -78,7 +78,7 @@ class CalendarioController extends Controller
         $user = Auth::user();
 
         //Citas médicas
-        $datesOperatives = $user->citas;
+        $datesOperatives = $user->profecional->citas;
 
         //Horario
         $horario = $user->horario;
@@ -113,20 +113,20 @@ class CalendarioController extends Controller
                         foreach ($datesOperatives as $dateOperative) {
                             if (
                                 //Validar si la hora de inicio está entre la hora inicio y fin de la cita existente
-                                (strtotime($dateOperative->start_date) <= strtotime($startTime)
-                                    && strtotime($dateOperative->end_date) >= strtotime($startTime))
+                                (strtotime($dateOperative->fecha_inicio) <= strtotime($startTime)
+                                    && strtotime($dateOperative->fecha_fin) >= strtotime($startTime))
                                 or
                                 //Validar si la hora de fin está entre la hora inicio y fin de la cita existente
-                                (strtotime($dateOperative->start_date) <= strtotime($endTime)
-                                    && strtotime($dateOperative->end_date) >= strtotime($endTime))
+                                (strtotime($dateOperative->fecha_inicio) <= strtotime($endTime)
+                                    && strtotime($dateOperative->fecha_fin) >= strtotime($endTime))
                                 or
                                 //Validar si la hora inicio existente está entre la hora inicio y fin
-                                (strtotime($startTime) <= strtotime($dateOperative->start_date)
-                                    && strtotime($startTime) >= strtotime($dateOperative->start_date))
+                                (strtotime($startTime) <= strtotime($dateOperative->fecha_inicio)
+                                    && strtotime($startTime) >= strtotime($dateOperative->fecha_inicio))
                                 or
                                 //Validar si la hora din existente está entre la hora inicio y fin
-                                (strtotime($startTime) <= strtotime($dateOperative->end_date)
-                                    && strtotime($startTime) >= strtotime($dateOperative->end_date))
+                                (strtotime($startTime) <= strtotime($dateOperative->fecha_fin)
+                                    && strtotime($startTime) >= strtotime($dateOperative->fecha_fin))
                             )
                             {
                                 $valid = false;
@@ -203,13 +203,22 @@ class CalendarioController extends Controller
 
         //Validate date
         $validate = Validator::make($all, [
+            'disponibilidad' => ['required'],
             'disponibilidad.*' => ['required', 'date_format:Y-m-d H:i'],
             'numero_id' => ['required'],
             'tipo_cita' => ['required'],
             'lugar'     => ['required'],
             'cantidad'  => ['required'],
             'modalidad_pago' => ['required']
+        ], [], [
+            'disponibilidad' => 'Disponibilidad',
+            'numero_id' => 'Número de identificación',
+            'tipo_cita' => 'Tipo de cita',
+            'lugar'     => 'Lugar',
+            'cantidad'  => 'Cantidad',
+            'modalidad_pago' => 'Modalidad de pago'
         ]);
+
 
         if ($validate->fails()) {
             return response([
@@ -224,17 +233,18 @@ class CalendarioController extends Controller
         $user = Auth::user();
 
         //Validar la disponibilidad de la cita
-        $date_count = Cita::query()->where('profesional_id', '=', $user->id)
+        $date_count = Cita::query()->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
             ->where(function ($query) use ($all){
-                $query->whereRaw('(fecha_inicio >= "' . date('Y-m-d H:i', strtotime($all['disponibilidad']['start'])) .
+                $query->whereRaw('(fecha_inicio >= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
                     '" and fecha_inicio < "' . date('Y-m-d H:i', strtotime($all['disponibilidad']['end'])) . '")')
-                    ->orWhereRaw('(fecha_fin > "' . date('Y-m-d H:i', strtotime($all['disponibilidad']['start'])) .
-                        '" and fecha_fin <= "' . date('Y-m-d H:i', strtotime($all['disponibilidad']['end'])) . '")')
-                    ->orWhereRaw('(fecha_inicio <= "' . date('Y-m-d H:i', strtotime($all['disponibilidad']['start'])) .
-                        '" and fecha_fin > "' . date('Y-m-d H:i', strtotime($all['disponibilidad']['start'])) . '")')
-                    ->orWhereRaw('(fecha_inicio < "' . date('Y-m-d H:i', strtotime($all['disponibilidad']['end'])) .
-                        '" and fecha_fin >= "' . date('Y-m-d H:i', strtotime($all['disponibilidad']['end'])) . '")');
+                    ->orWhereRaw('(fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
+                        '" and fecha_fin <= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) . '")')
+                    ->orWhereRaw('(fecha_inicio <= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
+                        '" and fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) . '")')
+                    ->orWhereRaw('(fecha_inicio < "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) .
+                        '" and fecha_fin >= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) . '")');
             })->count();
+
 
         if ($date_count > 0)
         {

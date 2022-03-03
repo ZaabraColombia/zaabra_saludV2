@@ -48,6 +48,8 @@ class perfilesprofesionales extends Model
 
     protected $primaryKey = 'idPerfilProfesional';
 
+    protected $table = 'perfilesprofesionales';
+
 
     public function user()
     {
