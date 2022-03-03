@@ -174,6 +174,7 @@ class CalendarioController extends Controller
                     ->take(1)
             ])
             ->where('profesional_id', '=', Auth::user()->profecional->idPerfilProfesional)
+            ->where('estado', '!=', 'cancelado')
             ->where('Fecha_inicio', '>=', date('Y-m-d') . " 00:00")
             ->with(['paciente', 'paciente.user'])->get();
 
@@ -406,16 +407,34 @@ class CalendarioController extends Controller
     /**
      * Permite cancelar cita
      *
-     * @param MedicalDate $date
+     * @param Request $request
      * @return Application|ResponseFactory|Response
      */
-    public function cancelar_cita(MedicalDate $date)
+    public function cancelar_cita(Request $request)
     {
-        $date->update([
-            'status' => 'cancelado'
+        $user = Auth::user();
+        $cita = Cita::query()
+            ->where('id_cita', '=', $request->get('id_cita'))
+            ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->first();
+
+        if (empty($cita)) return response([
+            'message' => [
+                'title' => 'Error',
+                'text'  => 'Cita no seleccionada'
+            ]
+        ], Response::HTTP_NOT_FOUND);
+
+        $cita->update([
+            'estado' => 'cancelado'
         ]);
 
-        return response(['message' => __('calendar.date-cancel'),], Response::HTTP_OK);
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Cita cancelada'
+            ]
+        ], Response::HTTP_OK);
     }
 
     /**

@@ -341,7 +341,7 @@
     </div>
 
     <!-- Modal  Cancelar cita -->
-    <div class="modal fade" id="cancelar_cita" tabindex="-1" >
+    <div class="modal fade" id="modal_cancelar_cita" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -354,26 +354,29 @@
                 <div class="modal-body">
                     <div class="modal_info_cita mb-3">
                         <div class="p-3">
-                            <h2 id="nombre_paciente-profesional">Laura León</h2>
-                            <p>Cc 1033457845</p>
-                            <p>laural@hotmail.com</p>
+                            <h2 class="nombre_paciente"></h2>
+                            <p class="numero_id"></p>
+                            <p class="correo"></p>
                         </div>
                         <div class="row m-0">
                             <div class="col-md-7 p-0 pl-3 mb-2">
-                                <h3 id="fecha-profesional" >Jueves, 12 de mayo</h3>
-                                <span id="hora-profesional">10:47 - 11:47 a.m</span>
+                                <h3 class="fecha"></h3>
+                                <span class="hora"></span>
                             </div>
                             <div class="col-md-5 p-0 mb-2 text-center">
                                 <h3>Tipo de cita</h3>
-                                <span id="tipo_cita-profesional">Presencial</span>
+                                <span class="tipo_cita"></span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="modal_btn_transparent px-4" id="cancelar-cita-btn-profesional">Cancelar</button>
-                    <button type="submit" class="modal_btn_blue px-4" id="">Confirmar</button>
+                    <form action="{{ route('profesional.calendario.cancelar-cita') }}" method="post" id="form-cita-cancelar">
+                        <input type="hidden" class="form-control" id="id_cita-cancelar" name="id_cita"/>
+                        <button type="button" class="modal_btn_transparent px-4" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="modal_btn_blue px-4" id="">Confirmar</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -820,6 +823,79 @@
                         var response = res.responseJSON;
 
                         $('#alerta-reasignar').html(alert(response.message, 'danger'));
+
+                        setTimeout(function () {
+                            calendar.refetchEvents();
+                        },3000);
+                    }
+                });
+            });
+
+            //Abrir modal para cancelar la cita
+            $('#btn-cita-cancelar').click(function (e) {
+                var btn = $(this);
+                $('#modal_ver_cita').modal('hide');
+
+                $.ajax({
+                    data: { id: btn.data('id') },
+                    dataType: 'json',
+                    url: '{{ route('profesional.calendario.ver-cita') }}',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'POST',
+                    success: function (res) {
+                        var modal = $('#modal_cancelar_cita');
+
+                        modal.find('.fecha').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
+                        modal.find('.hora').html(moment(res.item.fecha_inicio).format('hh:mm A') +
+                            '-' + moment(res.item.fecha_fin).format('hh:mm A'));
+                        modal.find('.nombre_paciente').html(res.item.nombre_paciente);
+                        modal.find('.tipo_cita').html(res.item.tipo_cita);
+                        modal.find('.correo').html(res.item.correo);
+                        modal.find('.numero_id').html(res.item.numero_id);
+
+                        modal.find('#id_cita-cancelar').val(res.item.id);
+
+                        modal.modal();
+                    },
+                    error: function (res, status) {
+                        var response = res.responseJSON;
+                        $('#alerta-general').html(alert(response.message, 'danger'));
+                    }
+                });
+            });
+
+            //Aceptar cita cancelada
+            $('#form-cita-cancelar').submit(function (e) {
+                e.preventDefault();
+                var form = $(this);
+
+                $.ajax({
+                    data: form.serialize(),
+                    dataType: 'json',
+                    url: form.attr('action'),
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'POST',
+                    success: function (res, status) {
+
+                        $('#alerta-general').html(alert(res.message, 'success'));
+
+                        $('#modal_cancelar_cita').modal('hide');
+                        //resetear formulario
+                        form[0].reset();
+
+                        setTimeout(function () {
+                            calendar.refetchEvents();
+                        },3000);
+                    },
+                    error: function (res, status) {
+
+                        var response = res.responseJSON;
+
+                        $('#alerta-general').html(alert(response.message, 'danger'));
 
                         setTimeout(function () {
                             calendar.refetchEvents();
