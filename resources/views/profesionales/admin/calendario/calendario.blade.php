@@ -197,7 +197,7 @@
     </div>
 
     <!-- Modal editar cita -->
-    <div class="modal fade" id="modal_editar_cita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal_editar_cita" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -227,6 +227,7 @@
                         </div>
                         <div class="form_modal">
                             <div class="row m-0">
+                                <div class="col-12 p-0" id="alerta-editar"></div>
                                 <input type="hidden" id="id_cita-editar" name="id_cita"/>
                                 <div class="col-12 p-0">
                                     <label for="tipo_cita-editar">Tipo de cita</label>
@@ -271,7 +272,7 @@
     </div>
 
     <!-- Modal  reagendar cita -->
-    <div class="modal fade" id="reagendar_cita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal_reagendar_cita" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -280,66 +281,67 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
-                <div class="modal-body">
-                    <div class="modal_info_cita mb-3">
-                        <div class="p-3">
-                            <h2 id="nombre_paciente-profesional">Laura León</h2>
-                            <p>Cc 1033457845</p>
-                            <p>laural@hotmail.com</p>
-                        </div>
-                        <div class="row m-0">
-                            <div class="col-md-7 p-0 pl-3 mb-2">
-                                <h3 id="fecha-profesional" >Jueves, 12 de mayo</h3>
-                                <span id="hora-profesional">10:47 - 11:47 a.m</span>
+                <form method="POST" action="{{ route('profesional.calendario.reagendar-cita') }}" id="form-cita-reagendar">
+                    <div class="modal-body">
+                        <div class="modal_info_cita mb-3">
+                            <div class="p-3">
+                                <h2 class="nombre_paciente"></h2>
+                                <p class="numero_id"></p>
+                                <p class="correo"></p>
                             </div>
-                            <div class="col-md-5 p-0 mb-2 text-center">
-                                <h3>Tipo de cita</h3>
-                                <span id="tipo_cita-profesional">Presencial</span>
+                            <div class="row m-0">
+                                <div class="col-md-7 p-0 pl-3 mb-2">
+                                    <h3 class="fecha"></h3>
+                                    <span class="hora"></span>
+                                </div>
+                                <div class="col-md-5 p-0 mb-2 text-center">
+                                    <h3>Tipo de cita</h3>
+                                    <span class="tipo_cita"></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <form method="POST" action="" id="form-agendar-cita-profesional">
                         <div class="form_modal">
                             <div class="row m-0">
+                                <div class="col-12 p-0" id="alerta-reasignar"></div>
+                                <label for="fecha-reasignar"></label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary" type="button" id="button-addon1">
+                                        <button class="btn btn-outline-secondary" type="button" id="dia-anterior">
                                             <i class="fas fa-chevron-left"></i>
                                         </button>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                    <input type="date" class="form-control" id="fecha-reasignar" name="fecha-reasignar"/>
                                     <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                                        <button class="btn btn-outline-secondary" type="button" id="dia-siguiente">
                                             <i class="fas fa-chevron-right"></i>
                                         </button>
                                     </div>
                                 </div>
                                 <div class="col-12 p-0">
-                                    <label for="available_time">Horario disponible</label>
-                                    <select id="available_time" name="available_time">
-                                        <option ></option>
-                                        <option value="Mañana">08:00 - 12:00</option>
-                                        <option value="Tarde">12:00 - 18:00</option>
-                                        <option value="Noche">18:00 - 20:00</option>
+                                    <label for="disponibilidad-reasignar">Horario disponible</label>
+                                    <select id="disponibilidad-reasignar" name="disponibilidad" required>
+                                        <option></option>
                                     </select>
                                 </div>
                             </div>
+                            <input type="hidden" id="id_cita-reasignar" name="id_cita"/>
                         </div>
-                    </form>
-                </div>
+                    </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="modal_btn_transparent px-4" id="cancelar-cita-btn-profesional">Cancelar</button>
-                    <button type="submit" class="modal_btn_blue px-4" id="">Confirmar</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="modal_btn_transparent px-4" data-dismiss="modal">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="modal_btn_blue px-4">Confirmar</button>
+                    </div>
+                </form>
             </div>
+
         </div>
     </div>
 
     <!-- Modal  Cancelar cita -->
-    <div class="modal fade" id="cancelar_cita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="cancelar_cita" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -689,7 +691,135 @@
 
                         var response = res.responseJSON;
 
-                        $('#alerta-agregar_cita').html(alert(response.message, 'danger'));
+                        $('#alerta-editar').html(alert(response.message, 'danger'));
+
+                        setTimeout(function () {
+                            calendar.refetchEvents();
+                        },3000);
+                    }
+                });
+            });
+
+            //Abrir modal para reagendar cita
+            $('#btn-cita-reagendar').click(function (e) {
+                var btn = $(this);
+                $('#modal_ver_cita').modal('hide');
+
+                $.ajax({
+                    data: { id: btn.data('id') },
+                    dataType: 'json',
+                    url: '{{ route('profesional.calendario.ver-cita') }}',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'POST',
+                    success: function (res) {
+                        var modal = $('#modal_reagendar_cita');
+
+                        modal.find('.fecha').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
+                        modal.find('.hora').html(moment(res.item.fecha_inicio).format('hh:mm A') +
+                            '-' + moment(res.item.fecha_fin).format('hh:mm A'));
+                        modal.find('.nombre_paciente').html(res.item.nombre_paciente);
+                        modal.find('.tipo_cita').html(res.item.tipo_cita);
+                        modal.find('.correo').html(res.item.correo);
+                        modal.find('.numero_id').html(res.item.numero_id);
+
+                        modal.find('#fecha-reasignar').val(moment().format('YYYY-MM-DD'));
+                        modal.find('#id_cita-reasignar').val(res.item.id);
+
+                        $('#dia-anterior').prop('disabled', true);
+
+                        citas_libre(moment().format('YYYY-MM-DD'), $('#disponibilidad-reasignar'));
+
+                        modal.modal();
+                    },
+                    error: function (res, status) {
+                        var response = res.responseJSON;
+                        $('#alerta-general').html(alert(response.message, 'danger'));
+                    }
+                });
+            });
+
+            //Cambio de fecha
+            $('#fecha-reasignar').change(function (e) {
+                var fecha = $(this);
+                var validar = moment(fecha.val()).diff(moment().format('YYYY-MM-DD'), 'days', true);
+
+                var btn_prev = $('#dia-anterior');
+                btn_prev.prop('disabled', false);
+
+                if (validar < 0 )
+                {
+                    fecha.val(moment().format('YYYY-MM-DD'));
+                    btn_prev.prop('disabled', true);
+                }
+
+                citas_libre(fecha.val(), $('#disponibilidad-reasignar'));
+            });
+
+            //Día anterior botón
+            $('#dia-anterior').click(function (e) {
+                var btn = $(this);
+
+                var fecha = $('#fecha-reasignar');
+
+                btn.prop('disabled', false);
+
+                fecha.val(moment(fecha.val()).add(-1, 'day').format('YYYY-MM-DD'));
+
+                var validar = moment(fecha.val()).diff(moment().format('YYYY-MM-DD'), 'days', true);
+
+                if ( validar <= 0 )
+                {
+                    btn.prop('disabled', true);
+                }
+
+                citas_libre(fecha.val(), $('#disponibilidad-reasignar'));
+            });
+
+            //Día siguiente botón
+            $('#dia-siguiente').click(function (e) {
+                var btn = $(this);
+
+                var fecha = $('#fecha-reasignar');
+
+                $('#dia-anterior').prop('disabled', false);
+
+                fecha.val(moment(fecha.val()).add(1, 'day').format('YYYY-MM-DD'));
+
+                citas_libre(fecha.val(), $('#disponibilidad-reasignar'));
+            });
+
+            //Guardar cita reagendada
+            $('#form-cita-reagendar').submit(function (e) {
+                e.preventDefault();
+                var form = $(this);
+
+                $.ajax({
+                    data: form.serialize(),
+                    dataType: 'json',
+                    url: form.attr('action'),
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'POST',
+                    success: function (res, status) {
+
+                        $('#alerta-general').html(alert(res.message, 'success'));
+
+                        $('#modal_reagendar_cita').modal('hide');
+                        //resetear formulario
+                        form[0].reset();
+
+                        setTimeout(function () {
+                            calendar.refetchEvents();
+                        },3000);
+                    },
+                    error: function (res, status) {
+
+                        var response = res.responseJSON;
+
+                        $('#alerta-reasignar').html(alert(response.message, 'danger'));
 
                         setTimeout(function () {
                             calendar.refetchEvents();

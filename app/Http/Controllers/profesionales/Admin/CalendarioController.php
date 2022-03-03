@@ -422,54 +422,73 @@ class CalendarioController extends Controller
      * Reprogramar cita
      *
      * @param Request $request
-     * @param MedicalDate $date
      * @return Application|ResponseFactory|Response
      */
-    public function reprogramar_cita(Request $request, MedicalDate $date)
+    public function reagendar_cita(Request $request)
     {
-        $all = ['date' => json_decode($request->get('new-date'), true)];
+        $all = ['fecha' => json_decode($request->get('disponibilidad'), true)];
         //Validate date
         $validate = Validator::make($all, [
-            'date.*'  => ['required', 'date_format:Y-m-d H:i'],
+            'fecha.*'  => ['required', 'date_format:Y-m-d H:i'],
         ]);
 
         if ($validate->fails())
             return response([
-                'error' =>  $validate->errors()->all()
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
             ], Response::HTTP_NOT_FOUND);
 
 
         //user
         $user = Auth::user();
 
-        //validate date free
-        $date_count = MedicalDate::where('user_id', '=', $user->id)
-            //->whereDate('start_date', '=', date('Y-m-d', strtotime($all['date']['start'])))
+        //Validar disponibilidad de la cita
+        $date_count = Cita::query()->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
             ->where(function ($query) use ($all){
-                $query->whereRaw('(start_date >= "' . date('Y-m-d H:i', strtotime($all['date']['start'])) .
-                    '" and start_date < "' . date('Y-m-d H:i', strtotime($all['date']['end'])) . '")')
-                    ->orWhereRaw('(end_date > "' . date('Y-m-d H:i', strtotime($all['date']['start'])) .
-                        '" and end_date <= "' . date('Y-m-d H:i', strtotime($all['date']['end'])) . '")')
-                    ->orWhereRaw('(start_date <= "' . date('Y-m-d H:i', strtotime($all['date']['start'])) .
-                        '" and end_date > "' . date('Y-m-d H:i', strtotime($all['date']['start'])) . '")')
-                    ->orWhereRaw('(start_date < "' . date('Y-m-d H:i', strtotime($all['date']['end'])) .
-                        '" and end_date >= "' . date('Y-m-d H:i', strtotime($all['date']['end'])) . '")');
+                $query->whereRaw('(fecha_inicio >= "' . date('Y-m-d H:i:s', strtotime($all['fecha']['start'])) .
+                    '" and fecha_inicio < "' . date('Y-m-d H:i', strtotime($all['fecha']['end'])) . '")')
+                    ->orWhereRaw('(fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['fecha']['start'])) .
+                        '" and fecha_fin <= "' . date('Y-m-d H:i:s', strtotime($all['fecha']['end'])) . '")')
+                    ->orWhereRaw('(fecha_inicio <= "' . date('Y-m-d H:i:s', strtotime($all['fecha']['start'])) .
+                        '" and fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['fecha']['start'])) . '")')
+                    ->orWhereRaw('(fecha_inicio < "' . date('Y-m-d H:i:s', strtotime($all['fecha']['end'])) .
+                        '" and fecha_fin >= "' . date('Y-m-d H:i:s', strtotime($all['fecha']['end'])) . '")');
             })->count();
 
         if ($date_count > 0)
-            return response(['error' => __('calendar.date-not-free')], Response::HTTP_NOT_FOUND);
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => 'La cita no esta disponible'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+
+        $cita = Cita::query()
+            ->where('id_cita', '=', $request->get('id_cita'))
+            ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->first();
+
+        if (empty($cita)) return response([
+            'message' => [
+                'title' => 'Error',
+                'text'  => 'Cita no seleccionada'
+            ]
+        ], Response::HTTP_NOT_FOUND);
 
 
-        $query = [
-            'start_date'    => date('Y-m-d H:i', strtotime($all['date']['start'])),
-            'end_date'      => date('Y-m-d H:i', strtotime($all['date']['end'])),
-            'status'        => 'reasignado',
-        ];
-
-        $date->update($query);
+        $cita->update([
+            'fecha_inicio'  => date('Y-m-d H:i', strtotime($all['fecha']['start'])),
+            'fecha_fin'     => date('Y-m-d H:i', strtotime($all['fecha']['end'])),
+        ]);
 
         return response([
-            'message' => __('calendar.date-reschedule')], Response::HTTP_CREATED);
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Cita reagendada'
+            ]
+        ], Response::HTTP_CREATED);
     }
 
     /**
