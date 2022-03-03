@@ -192,6 +192,29 @@ class CalendarioController extends Controller
     }
 
     /**
+     * Permite ver una cita
+     *
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function ver_cita(Request $request)
+    {
+        $date = Cita::find($request->id);
+
+        $data = [
+            'id' => $date->id_cita,
+            'nombre_paciente' => $date->paciente->user->nombre_completo,
+            'fecha_inicio' => $date->fecha_inicio,
+            'fecha_fin' => $date->fecha_fin,
+            'tipo_cita' => $date->tipo_consulta->nombreconsulta
+        ];
+
+        return response([
+            'item' => $data
+        ], Response::HTTP_OK);
+    }
+
+    /**
      * Permite crear una cita
      *
      * @param Request $request
@@ -203,8 +226,8 @@ class CalendarioController extends Controller
 
         //Validate date
         $validate = Validator::make($all, [
-            'disponibilidad' => ['required'],
-            'disponibilidad.*' => ['required', 'date_format:Y-m-d H:i'],
+            'disponibilidad'    => ['required'],
+            'disponibilidad.*'  => ['required', 'date_format:Y-m-d H:i'],
             'numero_id' => ['required'],
             'tipo_cita' => ['required'],
             'lugar'     => ['required'],

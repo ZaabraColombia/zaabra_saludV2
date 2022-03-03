@@ -77,31 +77,39 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
-                    <h1>Cita <label id="especialidad-profesional"></label></h1>
+                    <h1>Cita</h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
                 <div class="modal-body">
-                    <h2 class="mb-3" id="nombre_paciente-profesional">Laura León</h2>
+                    <h2 class="mb-3 nombre_paciente"></h2>
                     <div class="mb-2">
-                        <h3 id="fecha-profesional" >Jueves, 12 de mayo</h3>
-                        <span id="hora-profesional">10:47 - 11:47 a.m</span>
+                        <h3 class="fecha"></h3>
+                        <span class="hora"></span>
                     </div>
                     <div class="mb-2">
                         <h3>Tipo de cita</h3>
-                        <span id="tipo_cita-profesional">Presencial</span>
+                        <span class="tipo_cita"></span>
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="modal_btn_blue" id="editar-cita-btn-profesional" data-id>
-                        Editar cita
-                    </button>
-                    <button type="button" class="modal_btn_transparent" id="cancelar-cita-btn-profesional">
+
+                    <button type="button" class="modal_btn_transparent" id="btn-cita-cancelar"
+                            data-toggle="modal" data-target="#cancelar_cita" formtarget="_blank">
                         Cancelar cita
                     </button>
+                    <button type="submit" class="modal_btn_blue" id="btn-cita-reagendar"
+                            data-toggle="modal" data-target="#reagendar_cita" formtarget="_blank">
+                        Reagendar cita
+                    </button>
+                    <button type="submit" class="modal_btn_blue" id="btn-cita-editar"
+                            data-toggle="modal" data-target="#editar_cita" formtarget="_blank">
+                        Editar cita
+                    </button>
+
                 </div>
             </div>
         </div>
@@ -179,44 +187,13 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="modal_btn_transparent px-4" id="cancelar-cita-btn-profesional">Cancelar</button>
+                        <button type="button" class="modal_btn_transparent px-4"
+                                id="cancelar-cita-btn-profesional" data-dismiss="modal">
+                            Cancelar
+                        </button>
                         <button type="submit" class="modal_btn_blue px-4">Agendar</button>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal  opciones de la cita -->
-    <div class="modal fade" id="modal_opcion_cita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" target="_blank">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content modal_container">
-                <div class="modal-header">
-                    <h1>Cita</h1>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body">
-                    <div class="modal-title date_calendar">
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="modal_btn_transparent" id=""
-                            data-toggle="modal" data-target="#cancelar_cita" formtarget="_blank">
-                        Cancelar cita
-                    </button>
-                    <button type="submit" class="modal_btn_blue" id=""
-                            data-toggle="modal" data-target="#reagendar_cita" formtarget="_blank">
-                        Reagendar cita
-                    </button>
-                    <button type="submit" class="modal_btn_blue" id=""
-                            data-toggle="modal" data-target="#editar_cita" formtarget="_blank">
-                        Editar cita
-                    </button>
-                </div>
             </div>
         </div>
     </div>
@@ -458,8 +435,38 @@
                 },
                 selectable: false,
                 editable: false,
+                //Abrir evento
                 eventClick: function(info) {
 
+                    // $('.event-click-data').data('id', info.event._def.publicId)
+                    // $('#event-clicked').modal();
+                    $.ajax({
+                        data: { id: info.event._def.publicId},
+                        dataType: 'json',
+                        url: '{{ route('profesional.calendario.ver-cita') }}',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        method: 'POST',
+                        success: function (res) {
+                            var modal = $('#modal_ver_cita');
+
+                            modal.find('.fecha').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
+                            modal.find('.hora').html(moment(res.item.fecha_inicio).format('hh:mm A') + '-' + moment(res.item.fecha_fin).format('hh:mm A'));
+                            modal.find('.nombre_paciente').html(res.item.nombre_paciente);
+                            modal.find('.tipo_cita').html(res.item.tipo_cita);
+
+                            $('#cancelar_cita').data('id', res.item.id);
+                            $('#reagendar_cita').data('id', res.item.id);
+                            $('#editar_cita').data('id', res.item.id);
+
+                            modal.modal();
+                        },
+                        error: function (res, status) {
+                            var response = res.responseJSON;
+                            $('#alerta-general').html(alert(response.message, 'danger'));
+                        }
+                    });
                 },
                 select: function(info) {
 
@@ -567,7 +574,7 @@
                 });
             });
 
-            //Bucar paciente
+            //Buscar paciente
             $('#numero_id').select2({
                 language: 'es',
                 theme: 'bootstrap4',
@@ -611,6 +618,8 @@
             $('#tipo_cita').change(function (e) {
                 $('#cantidad').val($('#tipo_cita option:selected').data('cantidad'));
             });
+
+
         });
     </script>
 @endsection
