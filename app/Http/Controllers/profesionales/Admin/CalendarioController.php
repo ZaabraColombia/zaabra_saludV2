@@ -199,14 +199,34 @@ class CalendarioController extends Controller
      */
     public function ver_cita(Request $request)
     {
+        //Validate date
+        $validate = Validator::make($request->all(), [
+            'id'  => ['required']
+        ]);
+
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
         $date = Cita::find($request->id);
 
         $data = [
             'id' => $date->id_cita,
             'nombre_paciente' => $date->paciente->user->nombre_completo,
-            'fecha_inicio' => $date->fecha_inicio,
-            'fecha_fin' => $date->fecha_fin,
-            'tipo_cita' => $date->tipo_consulta->nombreconsulta
+            'numero_id'     => $date->paciente->user->numerodocumento,
+            'correo'        => $date->paciente->user->email,
+            'fecha_inicio'  => $date->fecha_inicio,
+            'fecha_fin'     => $date->fecha_fin,
+            'tipo_cita'     => $date->tipo_consulta->nombreconsulta,
+            'tipo_cita_id'  => $date->tipo_consulta->id,
+            'cantidad'      => $date->pago->valor,
+            'modalidad'     => $date->pago->tipo,
+            'lugar'         => $date->lugar,
         ];
 
         return response([
@@ -322,54 +342,65 @@ class CalendarioController extends Controller
     }
 
     /**
-     * Permite editar una cita
-     *
-     * @param $id
-     * @return Application|ResponseFactory|Response
-     */
-    public function editar_cita($id){
-
-        $date = MedicalDate::query()
-            ->with('patient:id,name,last_name,id_card,email')
-            ->where('id', $id)
-            ->first();
-
-        return response(['date' => $date->toArray()], Response::HTTP_OK);
-    }
-
-    /**
      * Permite actualizar cita
      *
      * @param Request $request
-     * @param MedicalDate $date
      * @return Application|ResponseFactory|Response
      */
-    public function actualizar_cita(Request $request, MedicalDate $date)
+    public function actualizar_cita(Request $request)
     {
         //Validate date
         $validate = Validator::make($request->all(), [
-            'date-type'  => ['required', 'exists:tenant.date_types,id'],
-            'consent'  => ['required', 'exists:tenant.consents,id'],
-            'agreement'  => ['exists:tenant.agreements,id'],
-            'place'  => ['required'],
-            'money'  => ['required'],
+            'id_cita' => ['required'],
+            'tipo_cita' => ['required'],
+            'lugar'     => ['required'],
+            'cantidad'  => ['required'],
+            'modalidad_pago' => ['required']
+        ], [
+            'id_cita.required' => 'Algo salio mal con la cita, por favor cierre y vuélvalo a intentar'
+        ], [
+            'tipo_cita' => 'Tipo de cita',
+            'lugar'     => 'Lugar',
+            'cantidad'  => 'Cantidad',
+            'modalidad_pago' => 'Modalidad de pago'
         ]);
 
         if ($validate->fails()) return response([
-            'error' =>  $validate->errors()->all()
+            'message' => [
+                'title' => 'Error',
+                'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+            ]
         ], Response::HTTP_NOT_FOUND);
 
-        $query = [
-            'place'         => $request->place,
-            'description'   => $request->description,
-            'money'         => $request->money,
-            'date_type_id'  => $request->get('date-type'),
-            'consent_id'    => $request->get('consent'),
-            'agreement_id'  => $request->get('agreement'),
-        ];
+        $user = Auth::user();
+        $cita = Cita::query()
+            ->where('id_cita', '=', $request->get('id_cita'))
+            ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->first();
 
-        $date->update($query);
-        return response(['message' => __('calendar.date-edit'),], Response::HTTP_OK);
+        if (empty($cita)) return response([
+            'message' => [
+                'title' => 'Error',
+                'text'  => 'Cita no seleccionada'
+            ]
+        ], Response::HTTP_NOT_FOUND);
+
+        $cita->update([
+            'lugar'         => $request->get('lugar'),
+            'tipo_cita_id'  => $request->get('tipo_cita'),
+        ]);
+
+        $cita->pago->update([
+            'valor'     => $request->get('cantidad'),
+            'tipo'      => $request->get('modalidad_pago'),
+        ]);
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Cita editada'
+            ]
+        ], Response::HTTP_OK);
     }
 
     /**

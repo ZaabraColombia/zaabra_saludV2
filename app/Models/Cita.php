@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cita extends Model
@@ -55,11 +56,11 @@ class Cita extends Model
     }
 
     /**
-     * @return HasMany
+     * @return HasOne
      */
-    public function pagos(): HasMany
+    public function pago(): HasOne
     {
-        return $this->hasMany(PagoCita::class);
+        return $this->hasOne(PagoCita::class, 'cita_id', 'id_cita');
     }
 
     /**

@@ -16,6 +16,7 @@ class PagoCita extends Model
         'vencimiento',
         'valor',
         'aprobado',
+        'tipo',
         'referencia_autorizacion',
         'cita_id'
     ];
@@ -24,7 +25,7 @@ class PagoCita extends Model
 
     public function cita(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(Cita::class);
+        return $this->belongsTo(Cita::class, 'cita_id', 'id_cita');
     }
 
     public function historial_pagos(): \Illuminate\Database\Eloquent\Relations\HasMany

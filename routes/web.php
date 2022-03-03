@@ -167,6 +167,8 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
             ->name('calendario.ver-citas');
         Route::post('/calendario/ver-cita',[profesionales\Admin\CalendarioController::class,'ver_cita'])
             ->name('calendario.ver-cita');
+        Route::post('/calendario/actualizar-cita',[profesionales\Admin\CalendarioController::class,'actualizar_cita'])
+            ->name('calendario.actualizar-cita');
 
         //Configurar calendario
         Route::get('/configurar-calendario', [profesionales\Admin\CalendarioController::class, 'configuracion'])

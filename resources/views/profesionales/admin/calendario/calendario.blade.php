@@ -97,16 +97,13 @@
 
                 <div class="modal-footer">
 
-                    <button type="button" class="modal_btn_transparent" id="btn-cita-cancelar"
-                            data-toggle="modal" data-target="#cancelar_cita" formtarget="_blank">
+                    <button type="button" class="modal_btn_transparent" id="btn-cita-cancelar">
                         Cancelar cita
                     </button>
-                    <button type="submit" class="modal_btn_blue" id="btn-cita-reagendar"
-                            data-toggle="modal" data-target="#reagendar_cita" formtarget="_blank">
+                    <button type="submit" class="modal_btn_blue" id="btn-cita-reagendar">
                         Reagendar cita
                     </button>
-                    <button type="submit" class="modal_btn_blue" id="btn-cita-editar"
-                            data-toggle="modal" data-target="#editar_cita" formtarget="_blank">
+                    <button type="submit" class="modal_btn_blue" id="btn-cita-editar">
                         Editar cita
                     </button>
 
@@ -177,8 +174,8 @@
                                     <label for="modalidad_pago">Modalidad de pago</label>
                                     <select id="modalidad_pago" name="modalidad_pago" required>
                                         <option></option>
-                                        <option value="Virtual">Virtual</option>
-                                        <option value="Presencial">Presencial</option>
+                                        <option value="virtual">Virtual</option>
+                                        <option value="presencial">Presencial</option>
                                     </select>
                                 </div>
                             </div>
@@ -198,8 +195,8 @@
         </div>
     </div>
 
-    <!-- Modal  editar cita -->
-    <div class="modal fade" id="editar_cita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal editar cita -->
+    <div class="modal fade" id="modal_editar_cita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -208,62 +205,65 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
-                <div class="modal-body">
-                    <div class="modal_info_cita mb-3">
-                        <div class="p-3">
-                            <h2 id="nombre_paciente-profesional">Laura León</h2>
-                            <p>Cc 1033457845</p>
-                            <p>laural@hotmail.com</p>
-                        </div>
-                        <div class="row m-0">
-                            <div class="col-md-7 p-0 pl-3 mb-2">
-                                <h3 id="fecha-profesional" >Jueves, 12 de mayo</h3>
-                                <span id="hora-profesional">10:47 - 11:47 a.m</span>
+                <form method="POST" action="{{ route('profesional.calendario.actualizar-cita') }}" id="form-editar-cita">
+                    <div class="modal-body">
+                        <div class="modal_info_cita mb-3">
+                            <div class="p-3">
+                                <h2 class="nombre_paciente"></h2>
+                                <p class="numero_id"></p>
+                                <p class="correo"></p>
                             </div>
-                            <div class="col-md-5 p-0 mb-2 text-center">
-                                <h3>Tipo de cita</h3>
-                                <span id="tipo_cita-profesional">Presencial</span>
+                            <div class="row m-0">
+                                <div class="col-md-7 p-0 pl-3 mb-2">
+                                    <h3 class="fecha" ></h3>
+                                    <span class="hora"></span>
+                                </div>
+                                <div class="col-md-5 p-0 mb-2 text-center">
+                                    <h3>Tipo de cita</h3>
+                                    <span class="tipo_cita"></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <form method="POST" action="" id="form-agendar-cita-profesional">
                         <div class="form_modal">
                             <div class="row m-0">
+                                <input type="hidden" id="id_cita-editar" name="id_cita">
                                 <div class="col-12 p-0">
-                                    <label for="appoiment_type">Tipo de cita</label>
-                                    <select id="appoiment_type" name="appoiment_type">
+                                    <label for="tipo_cita-editar">Tipo de cita</label>
+                                    <select id="tipo_cita-editar" name="tipo_cita">
                                         <option ></option>
-                                        <option value="Virtual">Virtual</option>
-                                        <option value="Presencial">Presencial</option>
+                                        @if($tipoCitas->isNotEmpty())
+                                            @foreach($tipoCitas as $cita)
+                                                <option value="{{ $cita->id }}">{{ $cita->nombreconsulta }}</option>
+                                            @endforeach
+                                        @endisset
                                     </select>
                                 </div>
                                 <div class="col-12 p-0">
-                                    <label for="appoiment_place">Lugar de cita</label>
-                                    <input type="text" id="appoiment_place" name="appoiment_place">
+                                    <label for="lugar-editar">Lugar de cita</label>
+                                    <input type="text" id="lugar-editar" name="lugar">
                                 </div>
                                 <div class="col-md-6 p-0 pr-2">
-                                    <label for="pay_type">Modalidad de pago</label>
-                                    <select id="pay_type" name="pay_type">
-                                        <option ></option>
-                                        <option value="Virtual">Virtual</option>
-                                        <option value="Presencial">Presencial</option>
+                                    <label for="modalidad_pago-editar">Modalidad de pago</label>
+                                    <select id="modalidad_pago-editar" name="modalidad_pago">
+                                        <option></option>
+                                        <option value="virtual">Virtual</option>
+                                        <option value="presencial">Presencial</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 p-0 pl-2">
-                                    <label for="pay">Pago</label>
-                                    <input type="text" id="pay" name="pay">
+                                    <label for="cantidad-editar">Pago</label>
+                                    <input type="text" id="cantidad-editar" name="cantidad">
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="modal_btn_transparent px-4" id="cancelar-cita-btn-profesional">Cancelar</button>
-                    <button type="submit" class="modal_btn_blue px-4" id="">Agendar</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="modal_btn_transparent px-4" data-dismiss="modal">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="modal_btn_blue px-4">Guardar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -456,9 +456,9 @@
                             modal.find('.nombre_paciente').html(res.item.nombre_paciente);
                             modal.find('.tipo_cita').html(res.item.tipo_cita);
 
-                            $('#cancelar_cita').data('id', res.item.id);
-                            $('#reagendar_cita').data('id', res.item.id);
-                            $('#editar_cita').data('id', res.item.id);
+                            $('#btn-cita-cancelar').data('id', res.item.id);
+                            $('#btn-cita-reagendar').data('id', res.item.id);
+                            $('#btn-cita-editar').data('id', res.item.id);
 
                             modal.modal();
                         },
@@ -619,7 +619,82 @@
                 $('#cantidad').val($('#tipo_cita option:selected').data('cantidad'));
             });
 
+            //Abrir modal para editar la cita
+            $('#btn-cita-editar').click(function (e) {
+                var btn = $(this);
+                $('#modal_ver_cita').modal('hide');
 
+                $.ajax({
+                    data: { id: btn.data('id') },
+                    dataType: 'json',
+                    url: '{{ route('profesional.calendario.ver-cita') }}',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'POST',
+                    success: function (res) {
+                        var modal = $('#modal_editar_cita');
+
+                        modal.find('.fecha').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
+                        modal.find('.hora').html(moment(res.item.fecha_inicio).format('hh:mm A') +
+                            '-' + moment(res.item.fecha_fin).format('hh:mm A'));
+                        modal.find('.nombre_paciente').html(res.item.nombre_paciente);
+                        modal.find('.tipo_cita').html(res.item.tipo_cita);
+                        modal.find('.correo').html(res.item.correo);
+                        modal.find('.numero_id').html(res.item.numero_id);
+
+                        modal.find('#tipo_cita-editar').val(res.item.tipo_cita_id);
+                        modal.find('#lugar-editar').val(res.item.lugar);
+                        modal.find('#modalidad_pago-editar').val(res.item.modalidad);
+                        modal.find('#cantidad-editar').val(res.item.cantidad);
+                        modal.find('#id_cita-editar').val(res.item.id);
+
+                        modal.modal();
+                    },
+                    error: function (res, status) {
+                        var response = res.responseJSON;
+                        $('#alerta-general').html(alert(response.message, 'danger'));
+                    }
+                });
+            });
+
+            //Guardar cita editada
+            $('#form-editar-cita').submit(function (e) {
+                e.preventDefault();
+                var form = $(this);
+
+                $.ajax({
+                    data: form.serialize(),
+                    dataType: 'json',
+                    url: form.attr('action'),
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'POST',
+                    success: function (res, status) {
+
+                        $('#alerta-general').html(alert(res.message, 'success'));
+
+                        $('#modal_editar_cita').modal('hide');
+                        //resetear formulario
+                        form[0].reset();
+
+                        setTimeout(function () {
+                            calendar.refetchEvents();
+                        },3000);
+                    },
+                    error: function (res, status) {
+
+                        var response = res.responseJSON;
+
+                        $('#alerta-agregar_cita').html(alert(response.message, 'danger'));
+
+                        setTimeout(function () {
+                            calendar.refetchEvents();
+                        },3000);
+                    }
+                });
+            });
         });
     </script>
 @endsection
