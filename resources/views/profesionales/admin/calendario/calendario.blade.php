@@ -174,7 +174,8 @@
                                     <label for="modalidad_pago">Modalidad de pago</label>
                                     <select id="modalidad_pago" name="modalidad_pago" required>
                                         <option></option>
-                                        <option value="virtual">Virtual</option>
+                                        <option value="tarjeta credito">Tarjeta de crédito</option>
+                                        <option value="pse">PSE</option>
                                         <option value="presencial">Presencial</option>
                                     </select>
                                 </div>
@@ -226,10 +227,10 @@
                         </div>
                         <div class="form_modal">
                             <div class="row m-0">
-                                <input type="hidden" id="id_cita-editar" name="id_cita">
+                                <input type="hidden" id="id_cita-editar" name="id_cita"/>
                                 <div class="col-12 p-0">
                                     <label for="tipo_cita-editar">Tipo de cita</label>
-                                    <select id="tipo_cita-editar" name="tipo_cita">
+                                    <select id="tipo_cita-editar" name="tipo_cita" required>
                                         <option ></option>
                                         @if($tipoCitas->isNotEmpty())
                                             @foreach($tipoCitas as $cita)
@@ -240,19 +241,20 @@
                                 </div>
                                 <div class="col-12 p-0">
                                     <label for="lugar-editar">Lugar de cita</label>
-                                    <input type="text" id="lugar-editar" name="lugar">
+                                    <input type="text" id="lugar-editar" name="lugar" required/>
                                 </div>
                                 <div class="col-md-6 p-0 pr-2">
                                     <label for="modalidad_pago-editar">Modalidad de pago</label>
-                                    <select id="modalidad_pago-editar" name="modalidad_pago">
+                                    <select id="modalidad_pago-editar" name="modalidad_pago" required>
                                         <option></option>
-                                        <option value="virtual">Virtual</option>
+                                        <option value="tarjeta credito">Tarjeta de crédito</option>
+                                        <option value="pse">PSE</option>
                                         <option value="presencial">Presencial</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 p-0 pl-2">
                                     <label for="cantidad-editar">Pago</label>
-                                    <input type="text" id="cantidad-editar" name="cantidad">
+                                    <input type="text" id="cantidad-editar" name="cantidad" required/>
                                 </div>
                             </div>
                         </div>
