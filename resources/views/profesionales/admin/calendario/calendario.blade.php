@@ -49,9 +49,9 @@
                         <span id="span-day-clicked"></span>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="modal_btn_blue" id="btn-day-clicked">Agendar cita</button>
-                    <button type="button" class="modal_btn_blue" id="btn-day-see">Ver citas</button>
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_blue" id="btn-day-clicked">Agendar cita</button>
+                    <button type="button" class="button_blue" id="btn-day-see">Ver citas</button>
                 </div>
             </div>
         </div>
@@ -80,18 +80,16 @@
                     </div>
                 </div>
 
-                <div class="modal-footer">
-
-                    <button type="button" class="modal_btn_transparent" id="btn-cita-cancelar">
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_transparent" id="btn-cita-cancelar">
                         Cancelar cita
                     </button>
-                    <button type="submit" class="modal_btn_blue" id="btn-cita-reagendar">
+                    <button type="submit" class="button_blue" id="btn-cita-reagendar">
                         Reagendar cita
                     </button>
-                    <button type="submit" class="modal_btn_blue" id="btn-cita-editar">
+                    <button type="submit" class="button_blue" id="btn-cita-editar">
                         Editar cita
                     </button>
-
                 </div>
             </div>
         </div>
@@ -167,12 +165,12 @@
                         </div>
                     </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="modal_btn_transparent px-4"
+                    <div class="modal-footer content_btn_center">
+                        <button type="button" class="mbutton_transparent"
                                 id="cancelar-cita-btn-profesional" data-dismiss="modal">
                             Cancelar
                         </button>
-                        <button type="submit" class="modal_btn_blue px-4">Agendar</button>
+                        <button type="submit" class="button_blue">Agendar</button>
                     </div>
                 </form>
             </div>
@@ -243,11 +241,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="modal_btn_transparent px-4" data-dismiss="modal">
+                    <div class="modal-footer content_btn_center">
+                        <button type="button" class="button_transparent" data-dismiss="modal">
                             Cancelar
                         </button>
-                        <button type="submit" class="modal_btn_blue px-4">Guardar</button>
+                        <button type="submit" class="button_blue">Guardar</button>
                     </div>
                 </form>
             </div>
@@ -312,11 +310,11 @@
                     </div>
 
 
-                    <div class="modal-footer">
-                        <button type="button" class="modal_btn_transparent px-4" data-dismiss="modal">
+                    <div class="modal-footer content_btn_center">
+                        <button type="button" class="mbutton_transparent" data-dismiss="modal">
                             Cancelar
                         </button>
-                        <button type="submit" class="modal_btn_blue px-4">Confirmar</button>
+                        <button type="submit" class="button_blue">Confirmar</button>
                     </div>
                 </form>
             </div>
@@ -354,11 +352,11 @@
                     </div>
                 </div>
 
-                <div class="modal-footer">
+                <div class="modal-footer content_btn_center">
                     <form action="{{ route('profesional.calendario.cancelar-cita') }}" method="post" id="form-cita-cancelar">
                         <input type="hidden" class="form-control" id="id_cita-cancelar" name="id_cita"/>
-                        <button type="button" class="modal_btn_transparent px-4" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="modal_btn_blue px-4" id="">Confirmar</button>
+                        <button type="button" class="button_transparent" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="button_blue" id="">Confirmar</button>
                     </form>
                 </div>
             </div>
