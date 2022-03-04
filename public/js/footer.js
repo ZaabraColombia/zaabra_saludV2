@@ -21,7 +21,14 @@
         || queryRuta.includes("diagnosticosProfesional") || queryRuta.includes("crearFormulaProfesional")
         || queryRuta.includes("registroPaciente") || queryRuta.includes("pacienteRegistrado")
         || queryRuta.includes("editarConsulta") || queryRuta.includes("editarPatologia")
-        || queryRuta.includes("editarExpediente") || queryRuta.includes("perfil")) {
+        || queryRuta.includes("panel") || queryRuta.includes("calendario")
+        || queryRuta.includes("configurar-calendario") || queryRuta.includes("citas")
+        || queryRuta.includes("pagos") || queryRuta.includes("pacientes")
+        || queryRuta.includes("cie10") || queryRuta.includes("cups")
+        || queryRuta.includes("cums") || queryRuta.includes("favoritos")
+        || queryRuta.includes("contactos")
+    )
+    {
         selector(".footer_newsletter").style.display = "none";
     }
 }();

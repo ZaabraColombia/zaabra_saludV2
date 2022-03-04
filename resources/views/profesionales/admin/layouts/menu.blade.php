@@ -24,16 +24,16 @@ $user = Auth::user();
                                 <a id="calendario" class="actived" href='{{ route('profesional.calendario') }}'>Calendario</a>
                             </li>
                             <li class="submenu-item ">
-                                <a id="calendario" class="actived" href='{{ route('profesional.configurar-calendario') }}'>Configuración del Calendario</a>
+                                <a id="configurar-calendario" class="actived" href='{{ route('profesional.configurar-calendario') }}'>Configuración del Calendario</a>
                             </li>
 {{--                            <li class="submenu-item ">--}}
 {{--                                <a id="pago" class="actived" href='{{ route('profesional.pagos') }}'>Mis pagos</a>--}}
 {{--                            </li>--}}
 {{--                            <li class="submenu-item ">--}}
-{{--                                <a id="pago" class="actived" href='{{ route('profesional.pacientes') }}'>Mis paciente</a>--}}
+{{--                                <a id="pacientes" class="actived" href='{{ route('profesional.pacientes') }}'>Mis paciente</a>--}}
 {{--                            </li>--}}
 {{--                            <li class="submenu-item ">--}}
-{{--                                <a id="pago" class="actived" href='{{ route('profesional.contactos.index') }}'>Mis contactos</a>--}}
+{{--                                <a id="contactos" class="actived" href='{{ route('profesional.contactos.index') }}'>Mis contactos</a>--}}
 {{--                            </li>--}}
                         </ul>
                     </li>
@@ -43,13 +43,13 @@ $user = Auth::user();
                         <span id="historia_padre" class="titulo_menu">Procedimientos</span>
                         <ul class="submenu active p-0">
                             <li class="submenu-item ">
-                                <a id="diag" class="actived" href='{{ route('profesional.cie10') }}'>Diagnósticos (CIE - 10)</a>
+                                <a id="cie10" class="actived" href='{{ route('profesional.cie10') }}'>Diagnósticos (CIE - 10)</a>
                             </li>
                             <li class="submenu-item ">
-                                <a id="proced" class="actived" href='{{ route('profesional.cups') }}'>Procedimientos (CUPS)</a>
+                                <a id="cups" class="actived" href='{{ route('profesional.cups') }}'>Procedimientos (CUPS)</a>
                             </li>
                             <li class="submenu-item ">
-                                <a id="vademe" class="actived" href='{{ route("profesional.cums") }}'>Vademecum actualizado COLOMBIA INVIMA (CUMS)</a>
+                                <a id="cums" class="actived" href='{{ route("profesional.cums") }}'>Vademecum actualizado COLOMBIA INVIMA (CUMS)</a>
                             </li>
                         </ul>
                     </li>
