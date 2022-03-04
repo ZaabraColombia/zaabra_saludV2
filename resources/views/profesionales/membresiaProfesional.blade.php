@@ -322,8 +322,8 @@
                     </form>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="submit" class="modal_btn_blue px-4" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera" formtarget="_blank">
+                <div class="modal-footer content_btn_center">
+                    <button type="submit" class="button_blue" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera" formtarget="_blank">
                         Pagar<i class="fas fa-arrow-right pl-2"></i>
                     </button>
                 </div>

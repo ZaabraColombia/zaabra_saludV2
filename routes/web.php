@@ -309,7 +309,7 @@ Route::middleware(['auth', 'roles', 'verified'])->as('entidad.')->group(function
 /*Esta ruta es del paciente*/
 Route::middleware(['auth', 'roles', 'verified'])->as('paciente.')->prefix('/paciente')->group(function () {
 
-    Route:: get('/panelPrincipal',[Paciente\Admin\InicioController::class,'index'])->name('panelPrincipal');
+    Route:: get('/panel',[Paciente\Admin\InicioController::class,'index'])->name('panel');
     Route:: get('/citas',[Paciente\Admin\CitasController::class,'index'])->name('citas');
     Route:: get('/calendario',[Paciente\Admin\CalendarioController::class,'index'])->name('calendario');
     Route:: get('/calendario/{id}',[Paciente\Admin\CalendarioController::class,'index'])->name('calendario-id-profesional');
