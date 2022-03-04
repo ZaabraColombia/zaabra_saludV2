@@ -25,6 +25,13 @@
                     <h2 class="dias no_disponible"><i></i> Días no disponibles</h2>
                     <h2 class="dias"><i></i> Días disponibles</h2>
                 </div>
+
+                {{--                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_dia_calendario">--}}
+                {{--                    Día del calendario--}}
+                {{--                </button>--}}
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_opcion_cita">
+                    Opciones de la cita
+                </button>
             </div>
             <div class="col-12 col-lg-9 p-0" id="alerta-general"></div>
             <div class="col-12 col-lg-9 p-0">
