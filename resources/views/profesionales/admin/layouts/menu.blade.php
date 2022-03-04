@@ -1,17 +1,17 @@
 @php
-
+$user = Auth::user();
 @endphp
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active ps ps--active-y">
         <div class="sidebar-menu">
             <div class="imgtxtagen">
-                <img class="imagen_usuario_agen" src="{{ asset('img/user/7/7-1631140530.jpg') }}" alt="user.png">
-                <h1 class="title_agenda mb-0">Dr. Santiago Arturo Polo Chahin</h1>
+                <img class="imagen_usuario_agen" src="{{ asset($user->profecional->fotoperfil ?? 'img/menu/avatar.png') }}" alt="user.png">
+                <h1 class="title_agenda mb-0">{{ $user->nombre_completo }}</h1>
             </div>
 
             <ul class="menu pr-0">
                 <li class="sidebar-item  has-sub ">
-                    <a id="menu_panel" class="actived" href="{{ url('/panelPrincipalProfesional') }}"> Menu </a>
+                    <a id="menu_panel" class="actived" href="{{ route('profesional.panel') }}"> Menu </a>
                 </li>
                 @if(!empty($objListaUsuario1->isNotEmpty()))
                     <li class="sidebar-item  has-sub">
