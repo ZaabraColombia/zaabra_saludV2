@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\profesionales\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cita;
 use App\Models\Horario;
+use App\Models\Paciente;
+use App\Models\PagoCita;
+use App\Models\tipoconsultas;
+use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
@@ -33,12 +38,17 @@ class CalendarioController extends Controller
         foreach (array_column($user->horario->horario, 'daysOfWeek') as $item)
             $weekNotBusiness = array_merge($weekNotBusiness, $item);
 
-        $weekNotBusiness = array_unique($weekNotBusiness);
         $horario = $user->horario;
+        $weekNotBusiness = array_unique($weekNotBusiness);
+        $tipoCitas = tipoconsultas::query()
+            ->where('idperfil', '=', $user->id)
+            ->get();
 
         return view('profesionales.admin.calendario.calendario', compact(
             'weekNotBusiness',
-            'horario'
+            'horario',
+            'tipoCitas',
+            'user'
         ));
     }
 
@@ -54,15 +64,21 @@ class CalendarioController extends Controller
         $validate = Validator::make($request->all(), [
             'date'  => ['required', 'date_format:Y-m-d']
         ]);
+
         if ($validate->fails()) {
-            return response(['error' =>  $validate->errors()->first('date')], Response::HTTP_NOT_FOUND);
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
         }
 
         //User
         $user = Auth::user();
 
         //Citas médicas
-        $datesOperative = $user->medical_dates;
+        $datesOperatives = $user->profecional->citas;
 
         //Horario
         $horario = $user->horario;
@@ -70,11 +86,12 @@ class CalendarioController extends Controller
         //Validar el número del dia de la semana
         $diaSemana = date('w', strtotime($request->date));
 
+        //crear intervalos
+        $intervaloCita = ($horario->duracion + $horario->descanso) * 60;
         //Crear las citas libres
-        $intervaloCita = ($horario->date_duration + $horario->date_interval) * 60;
         $listDates = array();
 
-        //Search interval schedule in configuration
+        //Buscar los dias disponibles
         foreach ($horario->horario as $item)
         {
 
@@ -83,53 +100,96 @@ class CalendarioController extends Controller
                 $startDate = strtotime("$request->date " . $item['startTime']);
                 $endDate = strtotime("$request->date " . $item['endTime']);
 
-                //Add posible dates
+                //generar posibles citas
                 for($date = $startDate; ($date + $intervaloCita) <= $endDate; $date+= $intervaloCita){
 
                     $startTime = date('Y-m-d H:i', $date);
                     $endTime = date('Y-m-d H:i', $date + $intervaloCita );
 
 
-                    //validate exist or conflict date
+                    //Validar la disponibilidad de las citas
                     $valid = true;
-                    foreach ($datesOperative as $dateOperative) {
-                        if (
-                            //Check that start new date is between start operative & end operative
-                            (strtotime($dateOperative->start_date) <= strtotime($startTime)
-                                && strtotime($dateOperative->end_date) >= strtotime($startTime))
-                            or
-                            //Check that end new date is between start operative & end operative
-                            (strtotime($dateOperative->start_date) <= strtotime($endTime)
-                                && strtotime($dateOperative->end_date) >= strtotime($endTime))
-                            or
-                            //Check that start operative is between start new date & end new date
-                            (strtotime($startTime) <= strtotime($dateOperative->start_date)
-                                && strtotime($startTime) >= strtotime($dateOperative->start_date))
-                            or
-                            //Check that end operative is between start new date & end new date
-                            (strtotime($startTime) <= strtotime($dateOperative->end_date)
-                                && strtotime($startTime) >= strtotime($dateOperative->end_date))
-                        )
-                        {
-                            $valid = false;
-                            break;
+                    if (!empty($datesOperatives)) {
+                        foreach ($datesOperatives as $dateOperative) {
+                            if (
+                                //Validar si la hora de inicio está entre la hora inicio y fin de la cita existente
+                                (strtotime($dateOperative->fecha_inicio) <= strtotime($startTime)
+                                    && strtotime($dateOperative->fecha_fin) >= strtotime($startTime))
+                                or
+                                //Validar si la hora de fin está entre la hora inicio y fin de la cita existente
+                                (strtotime($dateOperative->fecha_inicio) <= strtotime($endTime)
+                                    && strtotime($dateOperative->fecha_fin) >= strtotime($endTime))
+                                or
+                                //Validar si la hora inicio existente está entre la hora inicio y fin
+                                (strtotime($startTime) <= strtotime($dateOperative->fecha_inicio)
+                                    && strtotime($startTime) >= strtotime($dateOperative->fecha_inicio))
+                                or
+                                //Validar si la hora din existente está entre la hora inicio y fin
+                                (strtotime($startTime) <= strtotime($dateOperative->fecha_fin)
+                                    && strtotime($startTime) >= strtotime($dateOperative->fecha_fin))
+                            )
+                            {
+                                $valid = false;
+                                break;
+                            }
                         }
                     }
 
                     if ($valid)
                     {
-                        //Add date in list
+                        //Agregar la disponibilidad
                         $listDates[] = [
                             'startTime' => $startTime,
-                            'endTime' => $endTime,
-                            'nameOperative' => "$user->last_name $user->name"
+                            'endTime' => $endTime
                         ];
                     }
                 }
             }
         }
 
-        return response(['data' => $listDates], Response::HTTP_OK);
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Fechas disponibles'
+            ],
+            'data' => $listDates
+        ], Response::HTTP_OK);
+    }
+
+    /**
+     * Permite ver una cita
+     *
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function ver_citas(Request $request)
+    {
+        $dates = Cita::query()
+            ->select(['id_cita as id', 'fecha_inicio as start', 'fecha_fin as end', 'paciente_id'])
+            ->selectRaw('CASE estado WHEN "reservado" THEN "background" WHEN "agendado" THEN "auto" END AS display')
+            ->addSelect([
+                'tipo_cita' => tipoconsultas::query()
+                    ->select('nombreconsulta')
+                    ->whereColumn('tipo_cita_id', 'tipoconsultas.id')
+                    ->take(1)
+            ])
+            ->where('profesional_id', '=', Auth::user()->profecional->idPerfilProfesional)
+            ->where('estado', '!=', 'cancelado')
+            ->where('Fecha_inicio', '>=', date('Y-m-d') . " 00:00")
+            ->with(['paciente', 'paciente.user'])->get();
+
+        $data = array();
+        foreach ($dates as $date) {
+            $data[] = [
+                'id'    => $date->id,
+                'start' => $date->start,
+                'end'   => $date->end,
+                'display' => $date->display,
+                'title' => $date->paciente->user->nombre_completo,
+            ];
+        }
+
+        return response($data, Response::HTTP_OK);
     }
 
     /**
@@ -140,30 +200,39 @@ class CalendarioController extends Controller
      */
     public function ver_cita(Request $request)
     {
-        $dates = MedicalDate::query()
-            ->select(['id', 'start_date as start', 'end_date as end', 'status'])
-            ->selectRaw('CASE type_date WHEN "reservado" THEN "background" WHEN "cita" THEN "auto" END AS display')
-            ->addSelect([
-                'type-date' => DateType::query()
-                    ->select('date_types.name')
-                    ->whereColumn('date_type_id', 'date_types.id')
-                    ->take(1)
-            ])
-            ->addSelect([
-                'title' => Patient::query()
-                    ->selectRaw('concat(patients.name, " ", patients.last_name)')
-                    ->whereColumn('patient_id', 'patients.id')
-                    ->take(1)
-            ])
-            //->addSelect('concat(type-date, " ", patient)')
-            ->where('start_date', '>=', date('Y-m-d') . " 00:00")
-            ->where(function ($query){
-                return $query->where('status', 4)
-                    ->orWhereNull('status');
-            })
-            ->get();
+        //Validate date
+        $validate = Validator::make($request->all(), [
+            'id'  => ['required']
+        ]);
 
-        return response($dates->toArray(), Response::HTTP_OK);
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $date = Cita::find($request->id);
+
+        $data = [
+            'id' => $date->id_cita,
+            'nombre_paciente' => $date->paciente->user->nombre_completo,
+            'numero_id'     => $date->paciente->user->numerodocumento,
+            'correo'        => $date->paciente->user->email,
+            'fecha_inicio'  => $date->fecha_inicio,
+            'fecha_fin'     => $date->fecha_fin,
+            'tipo_cita'     => $date->tipo_consulta->nombreconsulta,
+            'tipo_cita_id'  => $date->tipo_consulta->id,
+            'cantidad'      => $date->pago->valor,
+            'modalidad'     => $date->pago->tipo,
+            'lugar'         => $date->lugar,
+        ];
+
+        return response([
+            'item' => $data
+        ], Response::HTTP_OK);
     }
 
     /**
@@ -174,194 +243,271 @@ class CalendarioController extends Controller
      */
     public function crear_cita(Request $request)
     {
-        $all = array_merge($request->all(), ['date' => json_decode($request->get('new-date'), true)]);
+        $all = array_merge($request->all(), ['disponibilidad' => json_decode($request->get('disponibilidad'), true)]);
 
         //Validate date
         $validate = Validator::make($all, [
-            'date.*'  => ['required', 'date_format:Y-m-d H:i'],
-            'id_card'   => ['required', 'exists:tenant.patients,id_card'],
-            'date-type'  => ['required', 'exists:tenant.date_types,id'],
-            'consent'  => ['required', 'exists:tenant.consents,id'],
-            'agreement'  => ['exists:tenant.agreements,id'],
-            'place'  => ['required'],
-            //'description'  => ['required'],
-            'money'  => ['required'],
+            'disponibilidad'    => ['required'],
+            'disponibilidad.*'  => ['required', 'date_format:Y-m-d H:i'],
+            'numero_id' => ['required'],
+            'tipo_cita' => ['required'],
+            'lugar'     => ['required'],
+            'cantidad'  => ['required'],
+            'modalidad_pago' => ['required']
+        ], [], [
+            'disponibilidad' => 'Disponibilidad',
+            'numero_id' => 'Número de identificación',
+            'tipo_cita' => 'Tipo de cita',
+            'lugar'     => 'Lugar',
+            'cantidad'  => 'Cantidad',
+            'modalidad_pago' => 'Modalidad de pago'
         ]);
 
+
         if ($validate->fails()) {
-            return response(['error' =>  $validate->errors()->all()], Response::HTTP_NOT_FOUND);
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
         }
 
         //user
         $user = Auth::user();
 
-        //validate date free
-        $date_count = MedicalDate::where('user_id', '=', $user->id)
-            //->whereDate('start_date', '=', date('Y-m-d', strtotime($all['date']['start'])))
+        //Validar la disponibilidad de la cita
+        $date_count = Cita::query()->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
             ->where(function ($query) use ($all){
-                $query->whereRaw('(start_date >= "' . date('Y-m-d H:i', strtotime($all['date']['start'])) .
-                    '" and start_date < "' . date('Y-m-d H:i', strtotime($all['date']['end'])) . '")')
-                    ->orWhereRaw('(end_date > "' . date('Y-m-d H:i', strtotime($all['date']['start'])) .
-                        '" and end_date <= "' . date('Y-m-d H:i', strtotime($all['date']['end'])) . '")')
-                    ->orWhereRaw('(start_date <= "' . date('Y-m-d H:i', strtotime($all['date']['start'])) .
-                        '" and end_date > "' . date('Y-m-d H:i', strtotime($all['date']['start'])) . '")')
-                    ->orWhereRaw('(start_date < "' . date('Y-m-d H:i', strtotime($all['date']['end'])) .
-                        '" and end_date >= "' . date('Y-m-d H:i', strtotime($all['date']['end'])) . '")');
+                $query->whereRaw('(fecha_inicio >= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
+                    '" and fecha_inicio < "' . date('Y-m-d H:i', strtotime($all['disponibilidad']['end'])) . '")')
+                    ->orWhereRaw('(fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
+                        '" and fecha_fin <= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) . '")')
+                    ->orWhereRaw('(fecha_inicio <= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
+                        '" and fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) . '")')
+                    ->orWhereRaw('(fecha_inicio < "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) .
+                        '" and fecha_fin >= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) . '")');
             })->count();
+
 
         if ($date_count > 0)
         {
-            return response(['error' => __('calendar.date-not-free')], Response::HTTP_NOT_FOUND);
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => 'Cita no disponible'
+                ]
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        $patient = Patient::select('id')->where('id_card', '=', $all['id_card'])->where('status', '=', 1)->first();
-
-        //dd($all);
-
-        $query = [
-            'start_date'    => date('Y-m-d H:i', strtotime($all['date']['start'])),
-            'end_date'      => date('Y-m-d H:i', strtotime($all['date']['end'])),
-            'type_date'     => 'cita',
-            'place'         => $all['place'],
-            'description'   => $all['description'],
-            'money'         => $all['money'],
-            'user_id'       => $user->id,
-            'patient_id'    => $patient->id,
-            'date_type_id'  => (isset($all['date-type'])) ? $all['date-type']:null,
-            'consent_id'    => (isset($all['consent'])) ? $all['consent']:null,
-            'agreement_id'  => (isset($all['agreement'])) ? $all['agreement']:null,
-        ];
-
-        $date = MedicalDate::create($query);
-
-        return response([
-            'message' => __('calendar.date-create'),
-            'event' => [
-                'start' => '',
-                'end' => '',
-                'display' => '',
-                'title' => $patient->full_name
-            ]], Response::HTTP_CREATED);
-    }
-
-    /**
-     * Permite editar una cita
-     *
-     * @param $id
-     * @return Application|ResponseFactory|Response
-     */
-    public function editar_cita($id){
-
-        $date = MedicalDate::query()
-            ->with('patient:id,name,last_name,id_card,email')
-            ->where('id', $id)
+        $patient = User::query()
+            ->select('id')
+            ->where('numerodocumento', '=', $all['numero_id'])
             ->first();
 
-        return response(['date' => $date->toArray()], Response::HTTP_OK);
+        //crear cita
+        $query = [
+            'fecha_inicio'  => date('Y-m-d H:i', strtotime($all['disponibilidad']['start'])),
+            'fecha_fin'     => date('Y-m-d H:i', strtotime($all['disponibilidad']['end'])),
+            'estado'        => 'agendado',
+            'lugar'         => $all['lugar'],
+            'tipo_cita_id'  => $all['tipo_cita'],
+            //'money'         => $all['money'],
+            'profesional_id'=> $user->profecional->idPerfilProfesional,
+            'paciente_id'   => $patient->paciente->id,
+        ];
+        $date = Cita::query()->create($query);
+
+        //Crear pago
+        $pago = PagoCita::query()->create([
+            'fecha'     => date('Y-m-d h:i'),
+            'vencimiento' => date('Y-m-d h:i + 30 minutes'),
+            'valor'     => $all['cantidad'],
+            'aprobado'  => 0,
+            'tipo'      => $all['modalidad_pago'],
+            'cita_id'   => $date->id_cita,
+        ]);
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Cita agendada'
+            ],
+            'event' => [
+                'start'     => $date->fecha_inicio,
+                'end'       => $date->fecha_fin,
+                //'display'   => '',
+                'title'     => $patient->nombre_completo
+            ]
+        ], Response::HTTP_CREATED);
     }
 
     /**
      * Permite actualizar cita
      *
      * @param Request $request
-     * @param MedicalDate $date
      * @return Application|ResponseFactory|Response
      */
-    public function actualizar_cita(Request $request, MedicalDate $date)
+    public function actualizar_cita(Request $request)
     {
         //Validate date
         $validate = Validator::make($request->all(), [
-            'date-type'  => ['required', 'exists:tenant.date_types,id'],
-            'consent'  => ['required', 'exists:tenant.consents,id'],
-            'agreement'  => ['exists:tenant.agreements,id'],
-            'place'  => ['required'],
-            'money'  => ['required'],
+            'id_cita' => ['required'],
+            'tipo_cita' => ['required'],
+            'lugar'     => ['required'],
+            'cantidad'  => ['required'],
+            'modalidad_pago' => ['required']
+        ], [
+            'id_cita.required' => 'Algo salio mal con la cita, por favor cierre y vuélvalo a intentar'
+        ], [
+            'tipo_cita' => 'Tipo de cita',
+            'lugar'     => 'Lugar',
+            'cantidad'  => 'Cantidad',
+            'modalidad_pago' => 'Modalidad de pago'
         ]);
 
         if ($validate->fails()) return response([
-            'error' =>  $validate->errors()->all()
+            'message' => [
+                'title' => 'Error',
+                'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+            ]
         ], Response::HTTP_NOT_FOUND);
 
-        $query = [
-            'place'         => $request->place,
-            'description'   => $request->description,
-            'money'         => $request->money,
-            'date_type_id'  => $request->get('date-type'),
-            'consent_id'    => $request->get('consent'),
-            'agreement_id'  => $request->get('agreement'),
-        ];
+        $user = Auth::user();
+        $cita = Cita::query()
+            ->where('id_cita', '=', $request->get('id_cita'))
+            ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->first();
 
-        $date->update($query);
-        return response(['message' => __('calendar.date-edit'),], Response::HTTP_OK);
+        if (empty($cita)) return response([
+            'message' => [
+                'title' => 'Error',
+                'text'  => 'Cita no seleccionada'
+            ]
+        ], Response::HTTP_NOT_FOUND);
+
+        $cita->update([
+            'lugar'         => $request->get('lugar'),
+            'tipo_cita_id'  => $request->get('tipo_cita'),
+        ]);
+
+        $cita->pago->update([
+            'valor'     => $request->get('cantidad'),
+            'tipo'      => $request->get('modalidad_pago'),
+        ]);
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Cita editada'
+            ]
+        ], Response::HTTP_OK);
     }
 
     /**
      * Permite cancelar cita
      *
-     * @param MedicalDate $date
+     * @param Request $request
      * @return Application|ResponseFactory|Response
      */
-    public function cancelar_cita(MedicalDate $date)
+    public function cancelar_cita(Request $request)
     {
-        $date->update([
-            'status' => 'cancelado'
+        $user = Auth::user();
+        $cita = Cita::query()
+            ->where('id_cita', '=', $request->get('id_cita'))
+            ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->first();
+
+        if (empty($cita)) return response([
+            'message' => [
+                'title' => 'Error',
+                'text'  => 'Cita no seleccionada'
+            ]
+        ], Response::HTTP_NOT_FOUND);
+
+        $cita->update([
+            'estado' => 'cancelado'
         ]);
 
-        return response(['message' => __('calendar.date-cancel'),], Response::HTTP_OK);
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Cita cancelada'
+            ]
+        ], Response::HTTP_OK);
     }
 
     /**
      * Reprogramar cita
      *
      * @param Request $request
-     * @param MedicalDate $date
      * @return Application|ResponseFactory|Response
      */
-    public function reprogramar_cita(Request $request, MedicalDate $date)
+    public function reagendar_cita(Request $request)
     {
-        $all = ['date' => json_decode($request->get('new-date'), true)];
+        $all = ['fecha' => json_decode($request->get('disponibilidad'), true)];
         //Validate date
         $validate = Validator::make($all, [
-            'date.*'  => ['required', 'date_format:Y-m-d H:i'],
+            'fecha.*'  => ['required', 'date_format:Y-m-d H:i'],
         ]);
 
         if ($validate->fails())
             return response([
-                'error' =>  $validate->errors()->all()
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
             ], Response::HTTP_NOT_FOUND);
 
 
         //user
         $user = Auth::user();
 
-        //validate date free
-        $date_count = MedicalDate::where('user_id', '=', $user->id)
-            //->whereDate('start_date', '=', date('Y-m-d', strtotime($all['date']['start'])))
+        //Validar disponibilidad de la cita
+        $date_count = Cita::query()->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
             ->where(function ($query) use ($all){
-                $query->whereRaw('(start_date >= "' . date('Y-m-d H:i', strtotime($all['date']['start'])) .
-                    '" and start_date < "' . date('Y-m-d H:i', strtotime($all['date']['end'])) . '")')
-                    ->orWhereRaw('(end_date > "' . date('Y-m-d H:i', strtotime($all['date']['start'])) .
-                        '" and end_date <= "' . date('Y-m-d H:i', strtotime($all['date']['end'])) . '")')
-                    ->orWhereRaw('(start_date <= "' . date('Y-m-d H:i', strtotime($all['date']['start'])) .
-                        '" and end_date > "' . date('Y-m-d H:i', strtotime($all['date']['start'])) . '")')
-                    ->orWhereRaw('(start_date < "' . date('Y-m-d H:i', strtotime($all['date']['end'])) .
-                        '" and end_date >= "' . date('Y-m-d H:i', strtotime($all['date']['end'])) . '")');
+                $query->whereRaw('(fecha_inicio >= "' . date('Y-m-d H:i:s', strtotime($all['fecha']['start'])) .
+                    '" and fecha_inicio < "' . date('Y-m-d H:i', strtotime($all['fecha']['end'])) . '")')
+                    ->orWhereRaw('(fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['fecha']['start'])) .
+                        '" and fecha_fin <= "' . date('Y-m-d H:i:s', strtotime($all['fecha']['end'])) . '")')
+                    ->orWhereRaw('(fecha_inicio <= "' . date('Y-m-d H:i:s', strtotime($all['fecha']['start'])) .
+                        '" and fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['fecha']['start'])) . '")')
+                    ->orWhereRaw('(fecha_inicio < "' . date('Y-m-d H:i:s', strtotime($all['fecha']['end'])) .
+                        '" and fecha_fin >= "' . date('Y-m-d H:i:s', strtotime($all['fecha']['end'])) . '")');
             })->count();
 
         if ($date_count > 0)
-            return response(['error' => __('calendar.date-not-free')], Response::HTTP_NOT_FOUND);
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => 'La cita no esta disponible'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+
+        $cita = Cita::query()
+            ->where('id_cita', '=', $request->get('id_cita'))
+            ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->first();
+
+        if (empty($cita)) return response([
+            'message' => [
+                'title' => 'Error',
+                'text'  => 'Cita no seleccionada'
+            ]
+        ], Response::HTTP_NOT_FOUND);
 
 
-        $query = [
-            'start_date'    => date('Y-m-d H:i', strtotime($all['date']['start'])),
-            'end_date'      => date('Y-m-d H:i', strtotime($all['date']['end'])),
-            'status'        => 'reasignado',
-        ];
-
-        $date->update($query);
+        $cita->update([
+            'fecha_inicio'  => date('Y-m-d H:i', strtotime($all['fecha']['start'])),
+            'fecha_fin'     => date('Y-m-d H:i', strtotime($all['fecha']['end'])),
+        ]);
 
         return response([
-            'message' => __('calendar.date-reschedule')], Response::HTTP_CREATED);
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Cita reagendada'
+            ]
+        ], Response::HTTP_CREATED);
     }
 
     /**

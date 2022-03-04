@@ -16,4 +16,24 @@ class tipoconsultas extends Model
         'updated_at',
         'created_at',
     ];
+
+    protected $table = 'tipoconsultas';
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function profesional(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(perfilesprofesionales::class, 'idperfil', 'idPerfilProfesional');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function institucion(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(instituciones::class, 'idinstitucion', 'id');
+    }
+
+
 }

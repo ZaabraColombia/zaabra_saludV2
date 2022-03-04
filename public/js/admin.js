@@ -60,7 +60,10 @@ function elementClose (z){
         $('#menu_panel').removeClass('actived');
         $('#menu_panel').addClass('unactived');
     }
-
+    else if (queryRuta.includes("panel"))
+    {
+        $('#menu_panel').removeClass('actived').addClass('unactived');
+    }
     else if (queryRuta.includes("citas")) {
 
         $('#cita_padre').removeClass('actived');
@@ -116,10 +119,9 @@ function elementClose (z){
 !function() {
     let queryRuta = window.location.pathname;
     // Condicionales de la validación de cada una de las rutas para remover y adicionar las clases descritas.
-    if (queryRuta.includes("panelPrincipal")) {
-
-        $('#menu_panel').removeClass('actived');
-        $('#menu_panel').addClass('unactived');
+    if (queryRuta.includes("panel"))
+    {
+        $('#menu_panel').removeClass('actived').addClass('unactived');
     }
 
     else if (queryRuta.includes("citas")) {
@@ -130,6 +132,12 @@ function elementClose (z){
         $('#cita').removeClass('actived');
         $('#cita').addClass('unactived');
     }
+    else if (queryRuta.includes("configurar")) {
+
+        $('#cita_padre').removeClass('actived').addClass('citaPadre');
+
+        $('#configurar-calendario').removeClass('actived').addClass('unactived');
+    }
     else if (queryRuta.includes("calendario")) {
 
         $('#cita_padre').removeClass('actived');
@@ -138,6 +146,7 @@ function elementClose (z){
         $('#calendario').removeClass('actived');
         $('#calendario').addClass('unactived');
     }
+
     else if (queryRuta.includes("pagos")) {
 
         $('#cita_padre').removeClass('actived');
@@ -193,7 +202,6 @@ function elementClose (z){
         $('#vademe').removeClass('actived');
         $('#vademe').addClass('unactived');
     }
-
     else if (queryRuta.includes("favoritos")) {
 
         $('#favorito_padre').removeClass('actived');
@@ -201,5 +209,39 @@ function elementClose (z){
 
         $('#fav').removeClass('actived');
         $('#fav').addClass('unactived');
+    }
+    //desde aqui
+    else if (queryRuta.includes("pacientes"))
+    {
+        $('#cita_padre').removeClass('actived').addClass('citaPadre');
+
+        $('#pacientes').removeClass('actived').addClass('unactived');
+    }
+    else if (queryRuta.includes("contactos"))
+    {
+        $('#cita_padre').removeClass('actived').addClass('citaPadre');
+
+        $('#contactos').removeClass('actived').addClass('unactived');
+    }
+    else if (queryRuta.includes("cie10"))
+    {
+
+        $('#historia_padre').removeClass('actived').addClass('citaPadre');
+
+        $('#cie10').removeClass('actived').addClass('unactived');
+    }
+    else if (queryRuta.includes("cups"))
+    {
+
+        $('#historia_padre').removeClass('actived').addClass('citaPadre');
+
+        $('#cups').removeClass('actived').addClass('unactived');
+    }
+    else if (queryRuta.includes("cums"))
+    {
+
+        $('#historia_padre').removeClass('actived').addClass('citaPadre');
+
+        $('#cums').removeClass('actived').addClass('unactived');
     }
 }();

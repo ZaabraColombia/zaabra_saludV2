@@ -6,23 +6,27 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cita extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $fillable = [
-        'id',
+        'id_cita',
         'fecha_inicio',
         'fecha_fin',
         'estado',
         'paciente_id',
         'profesional_id',
         'profesional_ins_id',
-        'horario_id',
+        //'horario_id',
+        'lugar',
         'tipo_cita_id'
     ];
+
+    protected $primaryKey = 'id_cita';
 
     protected $table = 'citas';
 
@@ -52,11 +56,19 @@ class Cita extends Model
     }
 
     /**
-     * @return HasMany
+     * @return HasOne
      */
-    public function pagos(): HasMany
+    public function pago(): HasOne
     {
-        return $this->hasMany(PagoCita::class);
+        return $this->hasOne(PagoCita::class, 'cita_id', 'id_cita');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function tipo_consulta(): BelongsTo
+    {
+        return $this->belongsTo(tipoconsultas::class, 'tipo_cita_id');
     }
 
 }
