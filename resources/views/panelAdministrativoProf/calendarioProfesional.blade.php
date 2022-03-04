@@ -246,7 +246,7 @@
                                 <span id="hora-profesional">10:47 - 11:47 a.m</span>
                             </div>
                             <div class="col-md-5 p-0 mb-2  text-md-center">
-                                <h3>Tipo de cita</h3>
+                                <h3>Tipo de citas</h3>
                                 <span id="tipo_cita-profesional">Presencial</span>
                             </div>
                         </div>

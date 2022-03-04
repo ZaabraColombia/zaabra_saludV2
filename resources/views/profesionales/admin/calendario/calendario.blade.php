@@ -17,10 +17,6 @@
                 </div>
 
                 <div class="row m-0 pb-4">
-                    <a href="{{route('profesional.configurar-calendario')}}" class="button_blue_form mr-3">
-                        <i class="fas fa-cogs pr-2"></i>Configuración de cita
-                    </a>
-
                     <button id="upload-calendar" class="button_blue_form"><i class="fas fa-sync-alt pr-2"></i>actualizar</button>
                 </div>
 
@@ -61,14 +57,14 @@
                     </div>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="modal_btn_blue" id="btn-day-clicked" data-date=""
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_blue" id="btn-day-clicked" data-date=""
                             data-toggle="modal" data-target="#agregar_cita" formtarget="_blank">Agendar cita
                     </button>
-                    <button type="button" class="modal_btn_blue" id="btn-day-see" data-date=""
+                    <button type="button" class="button_blue" id="btn-day-see" data-date=""
                             data-toggle="modal" data-target="#modal_ver_cita" formtarget="_blank">Ver cita
                     </button>
-{{--                    <button type="submit" class="modal_btn_blue" id=""--}}
+{{--                    <button type="submit" class="button_blue" id=""--}}
 {{--                            data-toggle="modal" data-target="#modalPagoEspera" formtarget="_blank">Horario disponible--}}
 {{--                    </button>--}}
                 </div>
@@ -99,12 +95,12 @@
                     </div>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="modal_btn_blue" id="editar-cita-btn-profesional" data-id>
-                        Editar cita
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_blue" id="editar-cita-btn-profesional" data-id>
+                        Editar
                     </button>
-                    <button type="button" class="modal_btn_transparent" id="cancelar-cita-btn-profesional">
-                        Cancelar cita
+                    <button type="button" class="button_transparent" id="cancelar-cita-btn-profesional">
+                        Cancelar
                     </button>
                 </div>
             </div>
@@ -180,9 +176,9 @@
                     </form>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="modal_btn_transparent px-4" id="cancelar-cita-btn-profesional">Cancelar</button>
-                    <button type="submit" class="modal_btn_blue px-4" id="">Agendar</button>
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_transparent" id="cancelar-cita-btn-profesional">Cancelar</button>
+                    <button type="submit" class="button_blue" id="">Agendar</button>
                 </div>
             </div>
         </div>
@@ -204,18 +200,18 @@
                     </div>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="modal_btn_transparent" id=""
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_transparent" id=""
                             data-toggle="modal" data-target="#cancelar_cita" formtarget="_blank">
-                        Cancelar cita
+                        Cancelar
                     </button>
-                    <button type="submit" class="modal_btn_blue" id=""
-                            data-toggle="modal" data-target="#reagendar_cita" formtarget="_blank">
-                        Reagendar cita
-                    </button>
-                    <button type="submit" class="modal_btn_blue" id=""
+                    <button type="submit" class="button_blue" id=""
                             data-toggle="modal" data-target="#editar_cita" formtarget="_blank">
-                        Editar cita
+                        Editar
+                    </button>
+                    <button type="submit" class="button_blue" id=""
+                            data-toggle="modal" data-target="#reagendar_cita" formtarget="_blank">
+                        Reagendar
                     </button>
                 </div>
             </div>
@@ -245,7 +241,7 @@
                                 <h3 id="fecha-profesional" >Jueves, 12 de mayo</h3>
                                 <span id="hora-profesional">10:47 - 11:47 a.m</span>
                             </div>
-                            <div class="col-md-5 p-0 mb-2 text-center">
+                            <div class="col-md-5 p-0 pl-3 mb-2">
                                 <h3>Tipo de cita</h3>
                                 <span id="tipo_cita-profesional">Presencial</span>
                             </div>
@@ -284,9 +280,9 @@
                     </form>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="modal_btn_transparent px-4" id="cancelar-cita-btn-profesional">Cancelar</button>
-                    <button type="submit" class="modal_btn_blue px-4" id="">Agendar</button>
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_transparent" id="cancelar-cita-btn-profesional">Cancelar</button>
+                    <button type="submit" class="button_blue" id="">Agendar</button>
                 </div>
             </div>
         </div>
@@ -352,9 +348,9 @@
                     </form>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="modal_btn_transparent px-4" id="cancelar-cita-btn-profesional">Cancelar</button>
-                    <button type="submit" class="modal_btn_blue px-4" id="">Confirmar</button>
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_transparent" id="cancelar-cita-btn-profesional">Cancelar</button>
+                    <button type="submit" class="button_blue" id="">Confirmar</button>
                 </div>
             </div>
         </div>
@@ -391,9 +387,9 @@
                     </div>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="modal_btn_transparent px-4" id="cancelar-cita-btn-profesional">Cancelar</button>
-                    <button type="submit" class="modal_btn_blue px-4" id="">Confirmar</button>
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_transparent" id="cancelar-cita-btn-profesional">Cancelar</button>
+                    <button type="submit" class="button_blue" id="">Confirmar</button>
                 </div>
             </div>
         </div>

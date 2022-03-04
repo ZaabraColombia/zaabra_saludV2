@@ -14,7 +14,7 @@ class ContactosController extends Controller
      */
     public function index()
     {
-        //
+        return view('profesionales.admin.contactos.contactos');
     }
 
     /**

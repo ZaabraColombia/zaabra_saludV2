@@ -260,7 +260,7 @@
                             <option></option>
                             <option value="Presencial">Presencial</option>
                             <option value="Virtual">Virtual</option>
-                            <option value="Control médico">Control Médico</option>
+                            <option value="Control">Control</option>
                         </select>
                     </div>
 

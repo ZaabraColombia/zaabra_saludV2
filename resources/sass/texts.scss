@@ -1,0 +1,92 @@
+// Texto Azul en negrita (izquierdo, centrado y derecho)
+.blue_bold {
+    color: $blue_official;
+    font-weight: bold;
+}
+.blue_light {
+    color: $blue_official;
+    font-weight: 500;
+}
+.gray_bold {
+    color: $gray_second;
+    font-weight: bold;
+}
+.gray_light {
+    color: $gray_second;
+    font-weight: 500;
+}
+.black_bold {
+    color: $black_firsrt;
+    font-weight: bold;
+}
+.black_light {
+    color: $black_firsrt;
+    font-weight: 500;
+}
+.withe_bold {
+    color: $withe_official;
+    font-weight: bold;
+}
+.withe_light {
+    color: $withe_official;
+    font-weight: 500;
+}
+// Tamaño de fuente (título, subtitulos y textos)
+.fs_title {
+    font-size: 26px;
+}
+.fs_title_module {
+    font-size: 20px;
+}
+.fs_subtitle {
+    font-size: 17px;
+}
+.fs_subtitle_module {
+    font-size: 16px;
+}
+.fs_text {
+    font-size: 15px;
+}
+.fs_text_small {
+    font-size: 12px;
+}
+@media(min-width: 768px) {
+    .fs_title {
+        font-size: 32px;
+    }
+    .fs_title_module {
+        font-size: 24px;
+    }
+    .fs_subtitle {
+        font-size: 20px;
+    }
+    .fs_subtitle_module {
+        font-size: 22px;
+    }
+    .fs_text {
+        font-size: 17px;
+    }
+    .fs_text_small {
+        font-size: 16px;
+    }
+}
+@media(min-width: 1440px) {
+    .fs_title {
+        font-size: 38px;
+    }
+    .fs_title_module {
+        font-size: 26px;
+    }
+    .fs_subtitle {
+        font-size: 24px;
+    }
+    .fs_subtitle_module {
+        font-size: 23px;
+    }
+    .fs_text {
+        font-size: 19px;
+    }
+    .fs_text_small {
+        font-size: 17px;
+    }
+}
