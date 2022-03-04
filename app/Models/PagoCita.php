@@ -21,6 +21,11 @@ class PagoCita extends Model
         'cita_id'
     ];
 
+    protected $casts = [
+        'fecha' => 'datetime',
+        'vencimiento' => 'datetime',
+    ];
+
     protected $table = 'pago_citas';
 
     public function cita(): \Illuminate\Database\Eloquent\Relations\BelongsTo
