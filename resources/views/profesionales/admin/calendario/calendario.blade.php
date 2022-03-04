@@ -330,6 +330,7 @@
         </div>
     </div>
 
+
     <!-- Modal  Cancelar cita -->
     <div class="modal fade" id="modal_cancelar_cita" tabindex="-1" >
         <div class="modal-dialog" role="document">
