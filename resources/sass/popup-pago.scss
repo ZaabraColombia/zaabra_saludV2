@@ -1,6 +1,6 @@
 .modal_container {
     width: 300px;
-    padding: 30px 0;
+    padding: 30px 0 10px 0;
     margin: auto;
     .modal-header {
         padding: 0 20px 10px;
@@ -115,37 +115,37 @@
             }
         }
     }
-    .modal-footer {
-        padding: 10px 20px 0px;
-        justify-content: center;
-        .modal_btn_blue {
-            font-family: "Quicksand";
-            font-size: 16px;
-            color: $withe_official;
-            background: $blue_official;
-            border: 1px solid $blue_official;
-            border-radius: 5px;
-            padding: 5px 10px;
-        }
-        .modal_btn_transparent {
-            font-family: "Quicksand";
-            font-size: 16px;
-            color: $black_second;
-            background: $withe_official;
-            border: solid 1px $black_second;
-            border-radius: 5px;
-            padding: 5px 10px;
-        }
-        .modal_btn_green {
-            font-family: "Quicksand";
-            font-size: 16px;
-            color: $withe_official;
-            background: $green_official;
-            border: solid 1px $green_official;
-            border-radius: 5px;
-            padding: 5px 10px;
-        }
-    }  
+    // .modal-footer {
+    //     padding: 10px 20px 0px;
+    //     justify-content: center;
+    //     .modal_btn_blue {
+    //         font-family: "Quicksand";
+    //         font-size: 16px;
+    //         color: $withe_official;
+    //         background: $blue_official;
+    //         border: 1px solid $blue_official;
+    //         border-radius: 5px;
+    //         padding: 5px 10px;
+    //     }
+    //     .modal_btn_transparent {
+    //         font-family: "Quicksand";
+    //         font-size: 16px;
+    //         color: $black_second;
+    //         background: $withe_official;
+    //         border: solid 1px $black_second;
+    //         border-radius: 5px;
+    //         padding: 5px 10px;
+    //     }
+    //     .modal_btn_green {
+    //         font-family: "Quicksand";
+    //         font-size: 16px;
+    //         color: $withe_official;
+    //         background: $green_official;
+    //         border: solid 1px $green_official;
+    //         border-radius: 5px;
+    //         padding: 5px 10px;
+    //     }
+    // }  
 }
 @media(min-width: 768px) {
     .modal_container {

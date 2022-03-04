@@ -1,0 +1,173 @@
+// Contenedores de elementos de los formularios
+.containt_main_form {
+    background-color: $withe_official;
+    border: 1px solid $gray_second;
+    border-radius: 9px;
+    padding: 20px 15px;
+}
+.content_row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.content_row_flex {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.col_flex {
+    display: flex;
+    width: 100%;
+    position: relative;
+    flex-wrap: wrap;
+}
+.col_block {
+    display: block;
+    width: 100%;
+    position: relative;
+    flex-wrap: wrap;
+}
+// Listas 
+.list__form {
+    ul {
+        padding: 0;
+        margin: 0;
+        li {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin-bottom: 13px;
+        }
+    }
+}
+.list__form_column {
+    ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        margin: 0;
+        li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style: none;
+            width: 33%;
+            &:nth-child(1){
+                background-image: url('/img/landing-profesional/icono-presencial.svg');
+                background-repeat: no-repeat;
+                background-size: 18px;
+                padding-left: 15px;
+            }
+            &:nth-child(2){
+                background-image: url('/img/landing-profesional/icono-virtual.svg');
+                background-repeat: no-repeat;
+                background-size: 18px;
+            }
+            &:nth-child(3){
+                background-image: url('/img/landing-profesional/icono-control-medico.svg');
+                background-repeat: no-repeat;
+                background-size: 18px;
+            }
+        }
+    }
+}
+// Tablas
+.table thead tr th,
+.table tbody tr td  {
+    border-top: none;
+    font-family: 'Roboto';
+}
+// Calendario pignose
+.pignose-calendar .pignose-calendar-header .pignose-calendar-week.pignose-calendar-week-sat {
+    color: #212529 !important;
+}
+.pignose-calendar .pignose-calendar-unit a {
+    font-weight: bold !important;
+    color: #3490dc !important;
+}
+.pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-disabled a {
+    background-color: #6c757d !important;
+    color: #ffffff !important;
+}
+.pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-active a {
+    background-color: #38c172 !important;
+    color: #ffffff !important;
+}
+// Calendario pacientes (plugin Pignose)
+.pignose-calendar {
+    width: 100% !important;
+}
+@media(min-width: 768px) {
+    // Contenedores de elementos de los formularios
+    .containt_right {
+        padding-left: 50px;
+    }
+    .col_flex_md {
+        display: flex;
+        width: 48%;
+        position: relative;
+        flex-wrap: wrap;
+    }
+    .col_block_md {
+        display: block;
+        width: 48%;
+        position: relative;
+        flex-wrap: wrap;
+    }
+    .list__form_column ul li {
+        width: 30%;
+        &:nth-child(1){
+            background-size: 22px;
+        }
+        &:nth-child(2){
+            background-size: 22px;
+        }
+        &:nth-child(3){
+            background-size: 22px;
+        }
+    }
+    .w_md_30 {
+        width: 30%;
+    }
+    .w_md_65 {
+        width: 65%;
+    }
+    .w_md_85 {
+        width: 85%;
+    }
+}
+
+@media(min-width: 1300px) {
+    .list__form_column ul li:nth-child(1) {
+        padding-left: 25px;
+    }
+    .w_lg_35 {
+        width: 35%;
+    }
+    .w_lg_65 {
+        width: 65%;
+    }
+    .w_lg_100 {
+        width: 100%;
+    }
+}
+@media(min-width: 1440px) {
+    // Contenedores de elementos de los formularios
+    .containt_right {
+        padding-left: 100px;
+    }
+    .list__form_column ul li {
+        width: 30%;
+        &:nth-child(1){
+            background-size: 25px;
+        }
+        &:nth-child(2){
+            background-size: 25px;
+        }
+        &:nth-child(3){
+            background-size: 25px;
+        }
+    }
+    .w_xl_90 {
+        width: 90%;
+    }
+}

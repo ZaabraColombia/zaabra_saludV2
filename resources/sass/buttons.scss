@@ -1,0 +1,102 @@
+// Contenedores para los botones
+.content_btn_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content_btn_right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+// Botones rectangulares
+.button_blue {
+    font-family: "Quicksand";
+    font-size: 16px;
+    font-weight: 600;
+    color: $withe_official;
+    background: $blue_official;
+    border: 1px solid $blue_official;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+.button_transparent {
+    font-family: "Quicksand";
+    font-size: 16px;
+    color: $black_second;
+    background: $withe_official;
+    border: solid 1px $black_second;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+.button_green {
+    font-family: "Quicksand";
+    font-size: 16px;
+    color: $withe_official;
+    background: $green_official;
+    border: solid 1px $green_official;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+.button_red {
+    font-family: "Quicksand";
+    font-size: 16px;
+    color: $withe_official;
+    background: $red_first;
+    border: solid 1px $red_first;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
+
+
+
+
+
+
+// Buttons
+.button_blue_form {
+    font-family: "Quicksand";
+    font-size: 1em;
+    color: $withe_official;
+    background: $blue_official;
+    border: none;
+    border-radius: 3px;
+    padding: 4px 6px;
+    display: flex;
+    align-items: center;
+}
+.button_green_form {
+    font-family: "Quicksand";
+    font-size: 1em;
+    color: $withe_official;
+    background: $green_official;
+    border: none;
+    border-radius: 3px;
+    padding: 4px 6px;
+    display: flex;
+    align-items: center;
+}
+.button_transparent_form {
+    font-family: "Quicksand";
+    font-size: 1em;
+    font-weight: bold;
+    color: $black_second;
+    background: transparent;
+    border: 1px solid $black_second;
+    border-radius: 3px;
+    padding: 4px 6px;
+    display: flex;
+    align-items: center;
+}
+.button_edit {
+    border: none;
+    background: transparent;
+    font-size: 1.4em;
+    color: #019f86;
+    padding: 0;
+}
+
+
+
+

@@ -18,17 +18,17 @@ class CalendarioController extends Controller{
             $calificacion   = $this->calificacion($request->id);
 
             if (!empty($profesional)) {
-                return view('panelAdministrativoPac.calendario', compact(
+                return view('panelAdministrativoPac.calendario.asignar-cita', compact(
                     'profesional',
                     'consultas',
                     'calificacion'
                 ));
             }else{
-                return view('panelAdministrativoPac.calendario', ['error' => 'El perfil no existe']);
+                return view('panelAdministrativoPac.calendario.asignar-cita', ['error' => 'El perfil no existe']);
             }
         }
 
-        return view('panelAdministrativoPac.calendario');
+        return view('panelAdministrativoPac.calendario.asignar-cita');
     }
 
     public function profesional($id){
