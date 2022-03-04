@@ -30,6 +30,9 @@ Route::get('get-especialidad',[App\Http\Controllers\profesionales\formularioProf
 Route::post('/buscar-universidad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'buscar_universidad'])->name('buscador-universidad')->middleware('auth');
 /* Autocompletado especialidades */
 Route::post('/buscar-especialidades',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'buscar_especialidades'])->name('buscador-especialidades')->middleware('auth');
+Route::post('/buscar-pacientes',[App\Http\Controllers\buscador\buscadorController::class,'buscar_paciente'])
+    ->name('buscador-paciente')
+    ->middleware('auth');
 
 /*----------------------------------------------Pertenece a Publico-------------------------------------------------------------------------------*/
 
@@ -156,6 +159,20 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
 
         Route::get('/calendario',[profesionales\Admin\CalendarioController::class,'index'])
             ->name('calendario');
+        Route::post('/calendario/dias-libre',[profesionales\Admin\CalendarioController::class,'citas_libres'])
+            ->name('calendario.dias-libre');
+        Route::post('/calendario/crear-cita',[profesionales\Admin\CalendarioController::class,'crear_cita'])
+            ->name('calendario.crear-cita');
+        Route::get('/calendario/ver-citas',[profesionales\Admin\CalendarioController::class,'ver_citas'])
+            ->name('calendario.ver-citas');
+        Route::post('/calendario/ver-cita',[profesionales\Admin\CalendarioController::class,'ver_cita'])
+            ->name('calendario.ver-cita');
+        Route::post('/calendario/actualizar-cita',[profesionales\Admin\CalendarioController::class,'actualizar_cita'])
+            ->name('calendario.actualizar-cita');
+        Route::post('/calendario/reagendar-cita',[profesionales\Admin\CalendarioController::class,'reagendar_cita'])
+            ->name('calendario.reagendar-cita');
+        Route::post('/calendario/cancelar-cita',[profesionales\Admin\CalendarioController::class,'cancelar_cita'])
+            ->name('calendario.cancelar-cita');
 
         //Configurar calendario
         Route::get('/configurar-calendario', [profesionales\Admin\CalendarioController::class, 'configuracion'])
@@ -178,6 +195,16 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
         Route:: get('/cums',[profesionales\Admin\HistoriaClinicaController::class,'cums'])
             ->name('cums');
 
+        Route:: get('/favoritos',[profesionales\Admin\FavoritosController::class,'index'])->name('favoritos');
+        Route:: post('/guardar-especialidades',[profesionales\Admin\FavoritosController::class,'guardar_especialidades'])
+            ->name('favoritos.guardar_especialidades');
+        Route:: post('/guardar-servicios',[profesionales\Admin\FavoritosController::class,'guardar_servicios'])
+            ->name('favoritos.guardar_servicios');
+        Route:: post('/guardar-profesional',[profesionales\Admin\FavoritosController::class,'guardar_profesional'])
+            ->name('favoritos.guardar_profesional');
+        Route:: post('/guardar-instituciones',[profesionales\Admin\FavoritosController::class,'guardar_instituciones'])
+            ->name('favoritos.guardar_instituciones');
+
         //Route:: get('/panelAdministrativoProfesional/{idPerfilProfesional}',[App\Http\Controllers\admin\adminProfesionalController::class,'cita'])->name('panelAdministrativoProfesional');
 
         //Route:: get('/ordenesMedicas',[App\Http\Controllers\admin\adminExamenesController::class,'index'])->name('ordenesMedicas');
@@ -197,12 +224,6 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
         Route:: get('/procedimientosProfesional',[App\Http\Controllers\admin\adminProcedimientosProfesionalController::class,'index'])->name('procedimientosProfesional');
         Route:: get('/vademecumProfesional',[App\Http\Controllers\admin\adminVademecumProfesionalController::class,'index'])->name('vademecumProfesional');
         //Route:: get('/servicios',[App\Http\Controllers\admin\adminController::class,'oscar2'])->name('servicios');
-
-        Route:: get('/favoritos',[App\Http\Controllers\admin\adminFavoritosProfesionalController::class,'index'])->name('favoritos');
-        //Route:: post('/favoritosGeneralSave',[App\Http\Controllers\admin\adminFavoritosController::class,'create'])->name('favoritosGeneralSave');
-        //Route:: post('/favoritosGeneralSave2',[App\Http\Controllers\admin\adminFavoritosController::class,'create2'])->name('favoritosGeneralSave2');
-        //Route:: post('/favoritosGeneralSave3',[App\Http\Controllers\admin\adminFavoritosController::class,'create3'])->name('favoritoSGeneralSave3');
-        //Route:: post('/favoritosGeneralSave4',[App\Http\Controllers\admin\adminFavoritosController::class,'create4'])->name('favoritosGeneralSave4');
 
         Route::resource('contactos', profesionales\Admin\ContactosController::class);
     });

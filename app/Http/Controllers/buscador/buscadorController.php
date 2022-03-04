@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\buscador;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\profesiones;
@@ -10,6 +12,7 @@ use App\Models\perfilesprofesionales;
 use App\Models\instituciones;
 use App\Models\pais;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class buscadorController extends Controller
 {
@@ -171,6 +174,33 @@ class buscadorController extends Controller
         $data = array_merge($profesiones->toArray(), $profesionales->toArray(), $instituciones->toArray());
 
         return response($data, 200);
+    }
+
+
+    public function buscar_paciente(Request $request)
+    {
+        //validate request
+        $validator = Validator::make($request->all(),[
+            'searchTerm' => ['required']
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error'     => $validator->errors(),
+                'mensaje'   => __('trans.search-incorrect')
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $patients = User::query()
+            ->select('numerodocumento as id', 'numerodocumento as text', 'primernombre', 'segundonombre', 'primerapellido', 'segundoapellido', 'email')
+            ->selectRaw('CONCAT(primernombre, " ",segundonombre) as nombre, CONCAT(primerapellido, " ",segundoapellido) as apellido')
+            ->where('numerodocumento','like','%' . $request->searchTerm . '%')
+            ->orderBy('numerodocumento','ASC')
+            ->whereHas('roles', function (Builder $query){
+                $query->where('idrol', '=', 1);
+            })->get();
+
+        return response($patients, Response::HTTP_OK);
     }
 }
 

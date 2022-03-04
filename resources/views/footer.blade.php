@@ -349,6 +349,6 @@
 
     <!-- Copyright -->
     <div class="col-12 footer_copy-right">
-      <span class="texto_copy-right">&copy; Zaabrasalud 2021 </span>
+      <span class="texto_copy-right">&copy; Zaabrasalud 2022 </span>
     </div>
 </footer>

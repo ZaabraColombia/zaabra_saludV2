@@ -86,4 +86,29 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Horario::class);
     }
+
+
+    /**
+     * @return string
+     */
+    public function getNombreCompletoAttribute(): string
+    {
+        return "{$this->primernombre} {$this->segundonombre} {$this->primerapellido} {$this->segundoapellido}";
+    }
+
+    /**
+     * @return string
+     */
+    public function getNombreAttribute(): string
+    {
+        return "{$this->primernombre} {$this->segundonombre}";
+    }
+
+    /**
+     * @return string
+     */
+    public function getApellidoAttribute(): string
+    {
+        return "{$this->primerapellido} {$this->segundoapellido}";
+    }
 }

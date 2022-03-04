@@ -24,7 +24,7 @@
         @guest
             <div class="soy_paciente dropdown">
                 <a class="dropdown-toggle icon_paciente" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-                
+
                 <div class="dropdown-menu dropdown-menu-right menu_paciente" aria-labelledby="dropdownMenuLink" style="">
                     <a class="dropdown-item menu_item-paciente icon-paciente" href="{{ route('login') }}"><span class="texto_item-menu-paciente">Soy paciente</span></a>
                         <div class="dropdown-divider m-0"></div>
@@ -80,19 +80,33 @@
                 <div class="dropdown-menu dropdown-menu-right menu_hamburguesa" aria-labelledby="dropdownMenuLink" style="">
                     @if(!empty($objtipoUsuarioLogueado))
                         @if($objtipoUsuarioLogueado->idrol==1)
-                            <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
+                            <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ route('paciente.panel') }}">
+                                <span class="texto_item-menu-paciente">Agenda</span>
+                            </a>
                             <div class="dropdown-divider m-0"></div>
-                            <a class="dropdown-item menu_item-paciente icon-perfil" href="{{ url('/perfil') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
+                            <a class="dropdown-item menu_item-paciente icon-perfil" href="{{ url('/perfil') }}">
+                                <span class="texto_item-menu-paciente">Mi perfil</span>
+                            </a>
                         @elseif($objtipoUsuarioLogueado->idrol==2)
-                            <a class="dropdown-item menu_item-paciente icon-perfil" href="{{ url('/FormularioProfesional') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
+                            <a class="dropdown-item menu_item-paciente icon-perfil" href="{{ url('/FormularioProfesional') }}">
+                                <span class="texto_item-menu-paciente">Mi perfil</span>
+                            </a>
                             <div class="dropdown-divider m-0"></div>
-                            <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipalProfesional') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
+                            <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ route('profesional.panel') }}">
+                                <span class="texto_item-menu-paciente">Agenda</span>
+                            </a>
                         @elseif($objtipoUsuarioLogueado->idrol==3)
-                            <a class="dropdown-item menu_item-paciente icon-perfil" href="{{ url('/FormularioInstitucion') }}"><span class="texto_item-menu-paciente">Mi perfil</span></a>
+                            <a class="dropdown-item menu_item-paciente icon-perfil" href="{{ url('/FormularioInstitucion') }}">
+                                <span class="texto_item-menu-paciente">Mi perfil</span>
+                            </a>
                             <div class="dropdown-divider m-0"></div>
-                            <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}"><span class="texto_item-menu-paciente">Agenda</span></a>
+                            <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}">
+                                <span class="texto_item-menu-paciente">Agenda</span>
+                            </a>
                         @elseif($objtipoUsuarioLogueado->idrol==4)
-                            <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}"><span class="texto_item-menu-paciente">Admin</span></a>
+                            <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}">
+                                <span class="texto_item-menu-paciente">Admin</span>
+                            </a>
                         @endif
                     @endif
 

@@ -4,7 +4,7 @@
         <div class="sidebar-menu">
             <h1 class="title_agenda mb-0 px-3">AGENDA PACIENTE</h1>
 
-            <ul class="menu">
+            <ul class="menu pl-3 pr-0">
                 <a id="menu_panel" class="actived" href="{{ url('/panelPrincipal') }}" class=""><i class="fas fa-home"></i> Menu</a>
 
 

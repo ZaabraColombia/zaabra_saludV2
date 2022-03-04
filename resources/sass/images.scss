@@ -1,0 +1,27 @@
+// Contenedores de elementos de los formularios
+.content_img_center {
+    margin: auto;
+    img {
+        width: 200px;
+        border-radius: 100px;
+    }
+}
+
+
+@media(min-width: 768px) {
+    .content_img_center {
+        justify-content: flex-start;
+    }
+}
+@media(min-width: 1300px) {
+    .content_img_center {
+        margin: 0;
+        img {
+            width: 180px;
+            border-radius: 100px;
+        }
+    }
+}
+@media(min-width: 1440px) {
+
+}
