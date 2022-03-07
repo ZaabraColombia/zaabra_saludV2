@@ -3,11 +3,11 @@
     <div class="sidebar-wrapper active ps ps--active-y">
         <div class="sidebar-menu">
             <div class="row sidebar_head mt-lg-3">
-                <div class="col-4 col-lg-12 section_img">
+                <div class="col-4 col-lg-12 col-xl-4 section_img">
                     <img src="http://localhost:8000/img/user/7/7-1631140530.jpg" alt="user.png" width="50" height="50">
                 </div>
              
-                <div class="col-8 col-lg-12 mb-lg-2 section_info">
+                <div class="col-8 col-lg-12 col-xl-8 mb-lg-2 mb-xl-0 section_info">
                     <h6>¡Bienvenido!</h6>
                     <h2>Alexander alejandro Sancristobal</h2>
                 </div>

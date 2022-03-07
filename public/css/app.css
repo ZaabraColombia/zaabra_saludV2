@@ -13332,6 +13332,7 @@ a:link, a:visited, a:active, a:hover {
 
   .txt_especialista {
     font-size: 1em;
+    height: 37px;
   }
 
   .btn_grande_central_azul {
@@ -25936,6 +25937,12 @@ a:link, a:visited, a:active, a:hover {
     width: 40%;
   }
 }
+.content_btn_left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .content_btn_center {
   display: flex;
   justify-content: center;
@@ -26296,8 +26303,11 @@ a:link, a:visited, a:active, a:hover {
   margin: auto;
 }
 .content_img_center img {
-  width: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (min-width: 768px) {
@@ -26310,8 +26320,8 @@ a:link, a:visited, a:active, a:hover {
     margin: 0;
   }
   .content_img_center img {
-    width: 180px;
-    border-radius: 100px;
+    width: 170px;
+    height: 170px;
   }
 }
 .font_fam {

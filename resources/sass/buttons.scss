@@ -1,4 +1,9 @@
-// Contenedores para los botones
+// Contenedores para la ubicación de los botones (izquierda, centrado y derecha)
+.content_btn_left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
 .content_btn_center {
     display: flex;
     justify-content: center;
