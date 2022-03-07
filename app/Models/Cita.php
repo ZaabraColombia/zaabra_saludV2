@@ -30,6 +30,11 @@ class Cita extends Model
 
     protected $table = 'citas';
 
+    protected $casts = [
+        'fecha_inicio'  => 'datetime',
+        'fecha_fin'     => 'datetime',
+    ];
+
 
     /**
      * @return BelongsTo
@@ -69,6 +74,33 @@ class Cita extends Model
     public function tipo_consulta(): BelongsTo
     {
         return $this->belongsTo(tipoconsultas::class, 'tipo_cita_id');
+    }
+
+    /**
+     * @return string
+     */
+    public function getBgEstadoAttribute(): string
+    {
+        switch ($this->estado)
+        {
+//            case 'agendado':
+//                $bg = 'primary';
+//                break;
+            case 'cancelado':
+                $bg = 'danger';
+                break;
+            case 'completado':
+                $bg = 'success';
+                break;
+            case 'reservado':
+                $bg = 'info';
+                break;
+            default:
+                $bg = 'primary';
+                break;
+        }
+
+        return $bg;
     }
 
 }
