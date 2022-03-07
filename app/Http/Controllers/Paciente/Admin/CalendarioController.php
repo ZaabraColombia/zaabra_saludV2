@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Paciente\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\perfilesprofesionales;
 use App\Models\tipoconsultas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use function view;
 
 class CalendarioController extends Controller{
+
+
     public function index(Request $request){
 
         if (isset($request->id))
@@ -29,6 +32,11 @@ class CalendarioController extends Controller{
         }
 
         return view('panelAdministrativoPac.calendario.asignar-cita');
+    }
+
+    public function asignar_cita_profesional(perfilesprofesionales $profesional)
+    {
+        return view('paciente.admin.calendario.asignar-cita-profesional', compact('profesional'));
     }
 
     public function profesional($id){

@@ -50,7 +50,7 @@
                             <h3 class="fs_subtitle_module black_bold text-center">Tipo de consulta</h3>
                             <div class="list__form_column">
                                 <ul class="">
-                                    @foreach ($consultas as $consulta)
+                                    @foreach ($profesional->tipo_consultas as $consulta)
                                         <li>
                                             <p class="fs_text_small gray_light menu_{{$loop->iteration}}"><i></i>{{$consulta->nombreconsulta}}</p>
                                             <span class="fs_text_small gray_light"><i></i>${{number_format($consulta->valorconsulta, 0, ",", ".") }}</span>

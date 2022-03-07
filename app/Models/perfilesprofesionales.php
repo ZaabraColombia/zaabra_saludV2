@@ -86,4 +86,9 @@ class perfilesprofesionales extends Model
     {
         return $this->hasMany(Cita::class, 'profesional_id', 'idPerfilProfesional');
     }
+
+    public function tipo_consultas()
+    {
+        return $this->hasMany(tipoconsultas::class, 'idperfil', 'idPerfilProfesional');
+    }
 }

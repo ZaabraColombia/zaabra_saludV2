@@ -311,8 +311,10 @@ Route::middleware(['auth', 'roles', 'verified'])->as('paciente.')->prefix('/paci
 
     Route:: get('/panel',[Paciente\Admin\InicioController::class,'index'])->name('panel');
     Route:: get('/citas',[Paciente\Admin\CitasController::class,'index'])->name('citas');
-    Route:: get('/calendario',[Paciente\Admin\CalendarioController::class,'index'])->name('calendario');
-    Route:: get('/calendario/{id}',[Paciente\Admin\CalendarioController::class,'index'])->name('calendario-id-profesional');
+    Route:: get('/asignar-cita/profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'asignar_cita_profesional'])
+        ->name('asignar-cita-profesional');
+    Route:: get('/asignar-cita/institucion/{institucion:slug}',[Paciente\Admin\CalendarioController::class,'asignar_cita_institucion'])
+        ->name('asignar-cita-institucion');
 
     //Route:: get('/panelAdministrativo/{idPerfilProfesional}',[App\Http\Controllers\admin\adminController::class,'cita'])->name('panelAdministrativo');
     Route:: get('/pagos',[Paciente\Admin\PagosController::class,'index'])->name('pagos');
