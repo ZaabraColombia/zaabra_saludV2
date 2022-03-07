@@ -26303,8 +26303,11 @@ a:link, a:visited, a:active, a:hover {
   margin: auto;
 }
 .content_img_center img {
-  width: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (min-width: 768px) {
@@ -26317,8 +26320,8 @@ a:link, a:visited, a:active, a:hover {
     margin: 0;
   }
   .content_img_center img {
-    width: 180px;
-    border-radius: 100px;
+    width: 170px;
+    height: 170px;
   }
 }
 .font_fam {
