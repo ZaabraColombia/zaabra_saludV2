@@ -29,12 +29,12 @@ $user = Auth::user();
                             <li class="submenu-item ">
                                 <a id="pago" class="actived" href='{{ route('profesional.pagos') }}'>Mis pagos</a>
                             </li>
-{{--                            <li class="submenu-item ">--}}
-{{--                                <a id="pacientes" class="actived" href='{{ route('profesional.pacientes') }}'>Mis paciente</a>--}}
-{{--                            </li>--}}
-{{--                            <li class="submenu-item ">--}}
-{{--                                <a id="contactos" class="actived" href='{{ route('profesional.contactos.index') }}'>Mis contactos</a>--}}
-{{--                            </li>--}}
+                            <li class="submenu-item ">
+                                <a id="pacientes" class="actived" href='{{ route('profesional.pacientes') }}'>Mis pacientes</a>
+                           </li>
+                            <li class="submenu-item ">
+                               <a id="contactos" class="actived" href='{{ route('profesional.contactos.index') }}'>Mis contactos</a>    
+                           </li>
                         </ul>
                     </li>
                 @endif

@@ -24,7 +24,7 @@
                         <h5 class="fs_text gray_light">{{$profesional->nombreuniversidad}}</h5>
                         <h5 class="fs_text gray_bold">N° Tarjeta profesional: {{$profesional->numeroTarjeta}}</h5>
                         <!-- Rating Stars Box -->
-                        <div class='rating-stars star_box'>
+                        <!-- <div class='rating-stars star_box'>
                             @if(!empty($comentarios))
                                 @foreach($comentarios as $promedioEstrellas)
                                 @endforeach
@@ -39,7 +39,7 @@
                                     </li>
                                 @endfor
                             @endif
-                        </div>
+                        </div> -->
 
                         <!-- <div class="contains_direccion"></div> -->
                         <h5 class="fs_text gray_light"><i></i>{{ $profesional->direccion }}</h5>

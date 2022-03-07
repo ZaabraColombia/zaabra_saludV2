@@ -1,7 +1,7 @@
 .font_fam {
     font-family: 'Roboto';
 }
-// Texto Azul en negrita (izquierdo, centrado y derecho)
+// Color y grosor de la fuente
 .blue_bold {
     color: $blue_official;
     font-weight: bold;
@@ -34,7 +34,7 @@
     color: $withe_official;
     font-weight: 500;
 }
-// Tamaño de fuente (título, subtitulos y textos)
+// Tamaños de fuente (título, subtitulos y textos)
 .fs_title {
     font-size: 26px;
 }
@@ -53,6 +53,7 @@
 .fs_text_small {
     font-size: 12px;
 }
+// Media query (Responsive)
 @media(min-width: 768px) {
     .fs_title {
         font-size: 32px;

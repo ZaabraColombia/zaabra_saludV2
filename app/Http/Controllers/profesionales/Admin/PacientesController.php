@@ -9,6 +9,6 @@ class PacientesController extends Controller
 {
     public function index()
     {
-        
+        return view('profesionales.admin.pacientes');
     }
 }

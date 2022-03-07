@@ -23893,7 +23893,6 @@ a:link, a:visited, a:active, a:hover {
   font-family: "Roboto", "Regular";
   text-decoration: underline !important;
   color: #434343 !important;
-  width: 33%;
   text-align: initial;
   border: none;
   background: transparent;
@@ -24001,7 +24000,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .btn_agregar_fav {
-    width: 42%;
+    width: 110px;
     font-size: 0.9em;
   }
 
@@ -24036,10 +24035,6 @@ a:link, a:visited, a:active, a:hover {
 
   .icon_institucion_fav {
     background-position-x: 39%;
-  }
-
-  .btn_agregar_fav {
-    width: 35%;
   }
 }
 @media (min-width: 768px) and (orientation: portrait) {
@@ -24092,10 +24087,6 @@ a:link, a:visited, a:active, a:hover {
     height: 4vh;
   }
 
-  .btn_agregar_fav {
-    width: 32%;
-  }
-
   .main_card_favServ {
     width: 48%;
     height: -webkit-fit-content;
@@ -24114,6 +24105,10 @@ a:link, a:visited, a:active, a:hover {
   .container_table_fav {
     padding: 5% 2%;
   }
+
+  .btn_agregar_fav {
+    width: 120px;
+  }
 }
 @media (min-width: 1200px) {
   .icon_especialidad_fav {
@@ -24130,10 +24125,6 @@ a:link, a:visited, a:active, a:hover {
 
   .icon_institucion_fav {
     background-position-x: 33%;
-  }
-
-  .btn_agregar_fav {
-    width: 28%;
   }
 }
 @media (min-width: 1440px) {
@@ -24180,10 +24171,6 @@ a:link, a:visited, a:active, a:hover {
     background-position-x: 43%;
     margin-bottom: 3%;
   }
-
-  .btn_agregar_fav {
-    width: 29%;
-  }
 }
 @media (min-width: 1920px) {
   .container_principal_fav {
@@ -24204,10 +24191,6 @@ a:link, a:visited, a:active, a:hover {
 
   .icon_institucion_fav {
     background-position-x: 29%;
-  }
-
-  .btn_agregar_fav {
-    width: 23%;
   }
 
   .alto_predet {
@@ -26111,6 +26094,12 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/landing-profesional/icono-control-medico.svg");
   background-repeat: no-repeat;
   background-size: 18px;
+}
+
+.table thead tr th {
+  font-family: "Quicksand";
+  color: #0083D6;
+  font-weight: bold;
 }
 
 .table thead tr th,

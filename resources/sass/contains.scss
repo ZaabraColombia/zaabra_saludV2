@@ -5,6 +5,7 @@
     border-radius: 9px;
     padding: 20px 15px;
 }
+// Contenedores implementados con CSS puro
 .content_row {
     display: flex;
     flex-wrap: wrap;
@@ -25,6 +26,7 @@
     position: relative;
     flex-wrap: wrap;
 }
+// Fin de contenedores implementados con CSS puro
 // Listas 
 .list__form {
     ul {
@@ -71,6 +73,11 @@
     }
 }
 // Tablas
+.table thead tr th {
+    font-family: 'Quicksand';
+    color: $blue_official;
+    font-weight: bold;
+}
 .table thead tr th,
 .table tbody tr td  {
     border-top: none;
