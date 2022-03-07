@@ -24,7 +24,7 @@ const swiper_especialistas = new Swiper(".swiper_especialistas", {
   
   autoplay: {
     delay: 5500,
-    disableOnInteraction: true,
+    disableOnInteraction: false,
   },
   // Navigation arrows
   navigation: {
