@@ -1,4 +1,9 @@
-// Contenedores para los botones
+// Contenedores para la ubicación de los botones (izquierda, centrado y derecha)
+.content_btn_left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
 .content_btn_center {
     display: flex;
     justify-content: center;
@@ -13,7 +18,6 @@
 .button_blue {
     font-family: "Quicksand";
     font-size: 16px;
-    font-weight: 600;
     color: $withe_official;
     background: $blue_official;
     border: 1px solid $blue_official;

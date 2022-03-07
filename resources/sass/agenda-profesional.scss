@@ -1,3 +1,43 @@
+// SIDEBAR Imagen y nombre del usuario 
+// de la agenda pacientes
+.sidebar_head {
+    width: 95%;
+    margin: auto;
+    background-color: #e9f0f3b0;
+    border-radius: 5px;
+    box-shadow: inset 0px 1px 6px -2px #000;
+    .section_img {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        img {
+            border-radius: 50px;
+            object-fit: cover;
+            margin: 10px 0;
+        }
+    }
+    .section_info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        font-family: 'Roboto';
+        color: $blue_official;
+        font-weight: 500;
+        text-align: center;
+        h6 {
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+        h2 {
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+
 .imgtxtagen {
     display: flex;
     flex-wrap: wrap;

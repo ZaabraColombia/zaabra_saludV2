@@ -123,7 +123,7 @@
                                     {{ $profesional->especialidades[0]->nombreEspecialidad }}
                                 @endif
                             </h5>
-                            <span class="txt_especialista">
+                            <span class="txt_especialista" style="height: 37px; line-height: 1">
                                 @if(!empty($profesional->especialidades[0]))
                                     Especialista en {{ $profesional->especialidades[0]->nombreEspecialidad }}
                                 @endif

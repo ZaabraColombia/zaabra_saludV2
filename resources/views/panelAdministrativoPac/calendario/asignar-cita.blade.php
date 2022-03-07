@@ -112,7 +112,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Detalles de la cita</h5>
+                    <h5 class="fs_title_module black_bold" id="exampleModalLabel">Detalles de la cita</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>

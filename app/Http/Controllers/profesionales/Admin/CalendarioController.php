@@ -321,7 +321,7 @@ class CalendarioController extends Controller
         //Crear pago
         $pago = PagoCita::query()->create([
             'fecha'     => date('Y-m-d h:i'),
-            'vencimiento' => date('Y-m-d h:i + 30 minutes'),
+            'vencimiento' => date('Y-m-d h:i'),
             'valor'     => $all['cantidad'],
             'aprobado'  => 0,
             'tipo'      => $all['modalidad_pago'],
