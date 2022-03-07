@@ -1,21 +1,21 @@
-@extends('panelAdministrativoPac.panelAdministrativo')
+@extends('paciente.admin.layouts.layout')
 
 @section('styles')
     <!-- Libreria de calendar_date min.css -->
     <link rel="stylesheet" href="{{ asset('plugins/pg-calendar-master/dist/css/pignose.calendar.min.css') }}">
 @endsection
 
-@section('Panel')
+@section('contenido')
     <div class="container-fluid px-lg-0">
-        @if(isset($profesional))  
-            <div class="content_row"> 
-                <div id="data-eventos-profesional" data-events='[{"id":0,"title":"Medicina","profesional":"Jorge Machado","start":"2021-08-21","tipo_cita":"Virtual","allDay":true},{"id":1,"title":"Medicina","profesional":"Jorge Machado","start":"2021-08-22","tipo_cita":"Virtual","allDay":true},{"id":2,"title":"Odontologia","profesional":"Jhoana Gutierres","start":"2021-08-23","tipo_cita":"Prensencial","allDay":true},{"id":3,"title":"Odontologia","profesional":"Jhoana Gutierres","start":"2021-08-24","tipo_cita":"Prensencial","allDay":true}]'></div>                    
+        @if(isset($profesional))
+            <div class="content_row">
+                <div id="data-eventos-profesional" data-events='[{"id":0,"title":"Medicina","profesional":"Jorge Machado","start":"2021-08-21","tipo_cita":"Virtual","allDay":true},{"id":1,"title":"Medicina","profesional":"Jorge Machado","start":"2021-08-22","tipo_cita":"Virtual","allDay":true},{"id":2,"title":"Odontologia","profesional":"Jhoana Gutierres","start":"2021-08-23","tipo_cita":"Prensencial","allDay":true},{"id":3,"title":"Odontologia","profesional":"Jhoana Gutierres","start":"2021-08-24","tipo_cita":"Prensencial","allDay":true}]'></div>
                 <!-- Información del Profesional -->
                 <div class="col_flex w_lg_35">
                     <div class="content_img_center w_md_35">
                         <img src="{{ asset($profesional->fotoperfil) }}">
                     </div>
-                    
+
                     <div class="w_md_65 w_lg_100">
                         <h2 class="fs_title_module blue_bold" id="nombre_profesional-paciente">
                             {{$profesional->primernombre}} {{$profesional->segundonombre}} {{$profesional->primerapellido}} {{$profesional->segundoapellido}}
@@ -65,8 +65,8 @@
                 <div class="content_row w_lg_65">
                     <div class="col_flex col_flex_md">
                         <div class="calendar w-100"></div>
-                    </div>   
-                    
+                    </div>
+
                     <div class="content_row col_flex_md ml-md-auto mt-lg-2">
                         <div class="col_flex">
                             <div class="mt-4 mb-3 mt-md-0">
@@ -103,7 +103,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
         @endif
     </div>
 
