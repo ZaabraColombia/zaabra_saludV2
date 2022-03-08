@@ -46,8 +46,7 @@ class CalendarioController extends Controller{
     {
         $horario = $profesional->user->horario;
 
-        if (!isset($horario) or !is_array($horario)
-            or empty($horario->duracion) or empty($horario->descanso))
+        if (!isset($horario) or empty($horario->duracion) or empty($horario->descanso))
             return redirect()->route('PerfilProfesional', ['slug' => $profesional->slug])
                 ->with('warning', 'El doctor no tiene agenda disponible');
 
