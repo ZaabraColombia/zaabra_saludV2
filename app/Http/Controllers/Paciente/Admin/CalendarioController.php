@@ -44,6 +44,13 @@ class CalendarioController extends Controller{
 
     public function asignar_cita_profesional(perfilesprofesionales $profesional)
     {
+        $horario = $profesional->user->horario;
+
+        if (!isset($horario) or !is_array($horario)
+            or empty($horario->duracion) or empty($horario->descanso))
+            return redirect()->route('PerfilProfesional', ['slug' => $profesional->slug])
+                ->with('warning', 'El doctor no tiene agenda disponible');
+
         $weekNotBusiness = array();
         foreach (array_column($profesional->user->horario->horario, 'daysOfWeek') as $item)
             $weekNotBusiness = array_merge($weekNotBusiness, $item);
