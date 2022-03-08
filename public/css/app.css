@@ -23103,17 +23103,6 @@ a:link, a:visited, a:active, a:hover {
     margin-top: 5% !important;
     margin-bottom: 2% !important;
   }
-
-  .icon_menu_agenda {
-    background-image: url("/img/header/icono-hamburguesa-azul.svg");
-    background-size: 100%;
-    background-color: #ffffff;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 25px;
-    height: 25px;
-    margin-right: auto;
-  }
 }
 @media (min-width: 768px) {
   .container_target {
@@ -26429,5 +26418,22 @@ a:link, a:visited, a:active, a:hover {
 
   .fs_text_small {
     font-size: 17px;
+  }
+}
+.bg_gray {
+  background-color: #F9F9F9;
+}
+
+.bg_white {
+  background-color: #FFFFFF;
+}
+
+@media (min-width: 320px) {
+  .menu_mobile {
+    background-image: url("/img/header/icono-hamburguesa-azul.svg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 25px;
+    height: 25px;
   }
 }

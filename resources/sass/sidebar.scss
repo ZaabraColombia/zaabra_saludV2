@@ -1,0 +1,29 @@
+// Contenido Dashboard
+.bg_gray {
+    background-color: $gray_official;
+}
+// Sidebar o Menú lateral Dashboard
+.bg_white {
+    background-color: $withe_official;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 320px){
+    // Menú hamburguesa versión CELULAR Y TABLET
+    .menu_mobile {
+        background-image: url('/img/header/icono-hamburguesa-azul.svg');
+        background-repeat: no-repeat;
+        background-position: bottom;
+        width: 25px;
+        height: 25px;
+    }
+}
