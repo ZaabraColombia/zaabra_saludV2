@@ -6,7 +6,7 @@ $user = Auth::user();
         <div class="sidebar-menu">
             <div class="row sidebar_head mt-lg-3">
                 <div class="col-4 col-lg-12 col-xl-4 section_img">
-                    <img src="{{ asset($user->profecional->fotoperfil ?? 'img/menu/avatar.png') }}" alt="user.png" width="50" height="50">
+                    <img src="{{ asset($user->paciente->foto ?? 'img/menu/avatar.png') }}" alt="user.png" width="50" height="50">
                 </div>
 
                 <div class="col-8 col-lg-12 col-xl-8 mb-lg-2 mb-xl-0 section_info">
@@ -125,12 +125,5 @@ $user = Auth::user();
                 @endif
             </ul>
         </div>
-        <!-- <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
-        <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
-            <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-        </div>
-        <div class="ps__rail-y" style="top: 0px; height: 50vh; right: 0px;">
-            <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 50vh;"></div>
-        </div> -->
     </div>
 </div>
