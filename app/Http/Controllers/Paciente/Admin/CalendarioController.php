@@ -5,7 +5,10 @@ use App\Http\Controllers\Controller;
 use App\Models\perfilesprofesionales;
 use App\Models\tipoconsultas;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use function view;
 
 class CalendarioController extends Controller{
@@ -36,7 +39,122 @@ class CalendarioController extends Controller{
 
     public function asignar_cita_profesional(perfilesprofesionales $profesional)
     {
-        return view('paciente.admin.calendario.asignar-cita-profesional', compact('profesional'));
+        $weekNotBusiness = array();
+        foreach (array_column($profesional->user->horario->horario, 'daysOfWeek') as $item)
+            $weekNotBusiness = array_merge($weekNotBusiness, $item);
+        $weekNotBusiness = array_unique($weekNotBusiness);
+
+        $weekDisabled = array_values(array_diff(array(0, 1, 2, 3, 4, 5, 6), $weekNotBusiness));
+
+        return view('paciente.admin.calendario.asignar-cita-profesional',
+            compact('profesional', 'weekDisabled'));
+    }
+
+    public function dias_libre_profesional(Request $request, perfilesprofesionales $profesional)
+    {
+        //Validate date
+        $validate = Validator::make($request->all(), [
+            'date'  => ['required', 'date_format:Y-m-d']
+        ]);
+
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //Citas médicas
+        $datesOperatives = $profesional->citas()->whereNotIn('estado', ['cancelado']);
+
+        //Horario
+        $horario = $profesional->user->horario;
+
+
+        //Validar el número del dia de la semana
+        $diaSemana = date('w', strtotime($request->date));
+
+        //crear intervalos
+        $intervaloCita = ($horario->duracion + $horario->descanso) * 60;
+        //Crear las citas libres
+        $listDates = array();
+
+        //Buscar los dias disponibles
+        foreach ($horario->horario as $item)
+        {
+
+            if (in_array( $diaSemana, $item['daysOfWeek']))
+            {
+                $startDate = strtotime("$request->date " . $item['startTime']);
+                $endDate = strtotime("$request->date " . $item['endTime']);
+
+                //generar posibles citas
+                for($date = $startDate; ($date + $intervaloCita) <= $endDate; $date+= $intervaloCita){
+
+                    $startTime = date('Y-m-d H:i', $date);
+                    $endTime = date('Y-m-d H:i', $date + $intervaloCita );
+
+
+                    //Validar la disponibilidad de las citas
+                    $valid = true;
+                    if (!empty($datesOperatives)) {
+                        foreach ($datesOperatives as $dateOperative) {
+                            if (
+                                //Validar si la hora de inicio está entre la hora inicio y fin de la cita existente
+                                (strtotime($dateOperative->fecha_inicio) <= strtotime($startTime)
+                                    && strtotime($dateOperative->fecha_fin) >= strtotime($startTime))
+                                or
+                                //Validar si la hora de fin está entre la hora inicio y fin de la cita existente
+                                (strtotime($dateOperative->fecha_inicio) <= strtotime($endTime)
+                                    && strtotime($dateOperative->fecha_fin) >= strtotime($endTime))
+                                or
+                                //Validar si la hora inicio existente está entre la hora inicio y fin
+                                (strtotime($startTime) <= strtotime($dateOperative->fecha_inicio)
+                                    && strtotime($startTime) >= strtotime($dateOperative->fecha_inicio))
+                                or
+                                //Validar si la hora din existente está entre la hora inicio y fin
+                                (strtotime($startTime) <= strtotime($dateOperative->fecha_fin)
+                                    && strtotime($startTime) >= strtotime($dateOperative->fecha_fin))
+                            )
+                            {
+                                $valid = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    if ($valid)
+                    {
+                        //Agregar la disponibilidad
+                        $listDates[] = [
+                            'startTime' => $startTime,
+                            'endTime' => $endTime
+                        ];
+                    }
+                }
+            }
+        }
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Fechas disponibles'
+            ],
+            'data' => $listDates
+        ], Response::HTTP_OK);
+    }
+
+    public function finalizar_cita_profesional(Request $request, perfilesprofesionales $profesional)
+    {
+        $request->validate([
+            '' => ['required', ''],
+            '' => ['required', ''],
+            '' => ['required', ''],
+            '' => ['required', ''],
+            '' => ['required', ''],
+        ]);
     }
 
     public function profesional($id){

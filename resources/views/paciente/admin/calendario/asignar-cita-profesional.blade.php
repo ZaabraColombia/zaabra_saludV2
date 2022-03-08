@@ -6,6 +6,9 @@
 @endsection
 
 @section('contenido')
+    @php
+    $user = Auth::user();
+    @endphp
     <div class="container-fluid px-lg-0">
         @if(isset($profesional))
             <div class="content_row">
@@ -18,44 +21,28 @@
 
                     <div class="w_md_65 w_lg_100">
                         <h2 class="fs_title_module blue_bold" id="nombre_profesional-paciente">
-                            {{$profesional->primernombre}} {{$profesional->segundonombre}} {{$profesional->primerapellido}} {{$profesional->segundoapellido}}
+                            {{$profesional->user->nombre_completo }}
                         </h2>
                         <h4 class="fs_subtitle_module black_bold mb-0" id="especialidad_profesional-paciente">{{$profesional->nombreEspecialidad}}</h4>
                         <h5 class="fs_text gray_light">{{$profesional->nombreuniversidad}}</h5>
                         <h5 class="fs_text gray_bold">N° Tarjeta profesional: {{$profesional->numeroTarjeta}}</h5>
-                        <!-- Rating Stars Box -->
-                        <div class='rating-stars star_box'>
-                            @if(!empty($comentarios))
-                                @foreach($comentarios as $promedioEstrellas)
-                                @endforeach
-                                @for ($i=1; $i <= $promedioEstrellas->calificacionRedondeada; $i++)
-                                    <li class='star' title='Poor'>
-                                        <i class='fa fa-star fa-fw' style="color: #E6C804;"></i>
-                                    </li>
-                                @endfor
-                                @for ($i=$promedioEstrellas->calificacionRedondeada; $i <= 4; $i++)
-                                    <li class='star' title='Poor'>
-                                        <i class="far fa-star" style="color: #E6C804;"></i>
-                                    </li>
-                                @endfor
-                            @endif
-                        </div>
 
-                        <!-- <div class="contains_direccion"></div> -->
                         <h5 class="fs_text gray_light"><i></i>{{ $profesional->direccion }}</h5>
                         <h5 class="fs_text gray_light">{{ $profesional->nombre }}</h5>
 
-                        <!-- seccion datos consulta perfil profesional-->
+                        <!-- sección datos consulta perfil profesional-->
                         <div class="mt-2 mb-3 w_md_85 w_lg_100 w_xl_90">
                             <h3 class="fs_subtitle_module black_bold text-center">Tipo de consulta</h3>
                             <div class="list__form_column">
-                                <ul class="">
-                                    @foreach ($profesional->tipo_consultas as $consulta)
-                                        <li>
-                                            <p class="fs_text_small gray_light menu_{{$loop->iteration}}"><i></i>{{$consulta->nombreconsulta}}</p>
-                                            <span class="fs_text_small gray_light"><i></i>${{number_format($consulta->valorconsulta, 0, ",", ".") }}</span>
-                                        </li>
-                                    @endforeach
+                                <ul>
+                                    @if(!empty($profesional->tipo_consultas))
+                                        @foreach ($profesional->tipo_consultas as $consulta)
+                                            <li>
+                                                <p class="fs_text_small gray_light menu_{{$loop->iteration}}"><i></i>{{$consulta->nombreconsulta}}</p>
+                                                <span class="fs_text_small gray_light"><i></i>${{number_format($consulta->valorconsulta, 0, ",", ".") }}</span>
+                                            </li>
+                                        @endforeach
+                                    @endif
                                 </ul>
                             </div>
                         </div>
@@ -77,29 +64,35 @@
                         </div>
 
                         <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
-                            <div class="input__box mb-3">
-                                <label for="tipo_cita-select-paciente" class="">Modalidad de pago</label>
-                                <select id="tipo_cita-select-paciente" class="form-control" name="tipo_cita-select-paciente">
-                                    <option value="Presencial"> Presencial </option>
-                                    <option value="Virtual"> Virtual </option>
-                                </select>
-                            </div>
-                            <div class="input__box mb-3">
-                                <label for="tipo_cita-select-paciente" class="">Tipo de cita</label>
-                                <select id="tipo_cita-select-paciente" class="form-control" name="tipo_cita-select-paciente">
-                                    <option value="Presencial"> Presencial </option>
-                                    <option value="Virtual"> Virtual </option>
-                                    <option value="Control médico"> Control</option>
-                                </select>
-                            </div>
-                            <div class="input__box mb-3">
-                                <label for="hora_input-paciente">Hora de la cita</label>
-                                <input type="time" id="hora_input-paciente" name="hora_input-paciente">
-                            </div>
+                            <form action="{{ route('paciente.finalizar-cita-profesional', ['profesional' => $profesional->slug]) }}"
+                                  method="post" id="form-finalizar-cita-profesional">
+                                <div class="input__box mb-3">
+                                    <label for="modalidad">Modalidad de pago</label>
+                                    <select id="modalidad" class="form-control" name="modalidad" required>
+                                        <option value="Presencial"> Presencial </option>
+                                        <option value="Virtual"> Virtual </option>
+                                    </select>
+                                </div>
+                                <div class="input__box mb-3">
+                                    <label for="tipo_cita">Tipo de cita</label>
+                                    <select id="tipo_cita" class="form-control" name="tipo_cita" required>
+                                        <option></option>
+                                        @if(!empty($profesional->tipo_consultas))
+                                            @foreach ($profesional->tipo_consultas as $consulta)
+                                                <option value="{{ $consulta->id }}" data-valor="{{ $consulta->valorconsulta }}">{{ $consulta->nombreconsulta }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                <div class="input__box mb-3">
+                                    <label for="hora">Hora de la cita</label>
+                                    <select id="hora" name="hora"  class="form-control" required></select>
+                                </div>
 
-                            <div class="row m-0 content_btn_right">
-                                <button type="submit" class="button_blue" data-toggle="modal" data-target="#exampleModal">Finalizar</button>
-                            </div>
+                                <div class="row m-0 content_btn_right">
+                                    <button type="submit" class="button_blue" data-toggle="modal" data-target="#exampleModal">Finalizar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -114,25 +107,26 @@
                 <div class="modal-header">
                     <h5 class="fs_title_module black_bold" id="exampleModalLabel">Detalles de la cita</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <h5>Fernando Alexander Sandoval Gutierrez</h5>
+                        <h5 class="profesional">Fernando Alexander Sandoval Gutierrez</h5>
                         <h5>Cc 1033456847</h5>
                     </div>
                     <div>
-                        <h5>Dra. Claudia Marcela Perez Jimenez</h5>
-                        <h5>Tipo cita: ita presencial</h5>
-                        <h5>Hora cita: 04:00 P.M.</h5>
-                        <h5>Dirección: Carrera 8 # 127 - 85</h5>
-                        <h5>Valor cita: 120.000</h5>
+                        <h5 class="profesional">Dr(a). {{$profesional->user->nombre_completo }}</h5>
+                        <h5>{{$profesional->numerodocumento }}</h5>
+                        <h5 id="modal-tipo-de-cita"></h5>
+                        <h5 id="modal-horario"></h5>
+                        <h5>{{ $profesional->direccion }}</h5>
+                        <h5>Valor cita: <span id="modal-valor"></span></h5>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-primary" id="modal-boton">Guardar</button>
                 </div>
             </div>
         </div>
@@ -140,27 +134,56 @@
 @endsection
 
 @section('scripts')
-    <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
-    <!-- Full calendar JS -->
-
-    <!-- Libreria de calendar_date min.js -->
+    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
     <script src="{{ asset('plugins/pg-calendar-master/dist/js/pignose.calendar.min.js') }}"></script>
+
     <script>
         $(function() {
+
+            var weekNotBusiness = {!! json_encode($weekDisabled) !!};
+
             $('.calendar').pignoseCalendar({
-		        lang: 'es',
-                minDate: '2022-01-15',
-		        maxDate: '2022-06-24',
-                disabledWeekdays: [3], // WEDNESDAY (0)
-                disabledDates: [
-                    '2022-03-08',
-                    '2022-03-19',
-                    '2022-03-30'
-                ],
+                lang: 'es',
+                minDate: '{{ date('Y-m-d') }}',
+                /*maxDate: '2022-06-24',*/
+                disabledWeekdays: weekNotBusiness, // WEDNESDAY (0)
+                disabledDates: [],
                 disabledRanges: [
-                    ['2022-04-07', '2022-04-22'], // 2022-04-07 ~ 22
+                    //['2022-04-07', '2022-04-22'], // 2022-04-07 ~ 22
                 ],
-	        });
+                select: function (date, context) {
+                    //onsole.log(date[0]._i);
+                    var hora = $('#hora');
+                    hora.html('<option></option>');
+
+                    if (date[0] !== null && date[0] !== undefined )
+                    {
+                        $.ajax({
+                            data: { date: date[0]._i},
+                            dataType: 'json',
+                            url: '{{ route('paciente.dias-libre-profesional', ['profesional' => $profesional->slug]) }}',
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            method: 'POST',
+                            success: function (res) {
+
+                                //get list
+                                $.each(res.data, function (index, item) {
+                                    hora.append('<option value=\'{"start":"' + item.startTime + '","end": "' + item.endTime + '"}\'>' +
+                                        moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
+                                        '</option>');
+                                });
+                            },
+                            error: function (res, status) {
+                                var response = res.responseJSON;
+                                $('#alerta-general').html(alert(response.message, 'danger'));
+                            }
+                        });
+                    }
+                }
+            });
+
         });
     </script>
 @endsection
