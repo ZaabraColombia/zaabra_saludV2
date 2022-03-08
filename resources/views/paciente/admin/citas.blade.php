@@ -21,9 +21,9 @@
                         <span class="subtitle_miCita">encuentre aquí todas sus citas</span>
                     </div>
 
-                    <button type="submit" class="btn_agendar_cita"> Agende su cita
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_btn_agendar" alt="">
-                    </button>
+{{--                    <button type="submit" class="btn_agendar_cita"> Agende su cita--}}
+{{--                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_btn_agendar" alt="">--}}
+{{--                    </button>--}}
                 </div>
 
                 <div class="card container_citas">
