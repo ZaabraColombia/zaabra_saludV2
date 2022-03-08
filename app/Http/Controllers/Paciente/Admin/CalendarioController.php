@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Paciente\Admin;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Pagos\CitaOpenPay;
 use App\Models\Cita;
 use App\Models\PagoCita;
 use App\Models\perfilesprofesionales;
@@ -71,7 +72,7 @@ class CalendarioController extends Controller{
         }
 
         //Citas médicas
-        $datesOperatives = $profesional->citas()->whereNotIn('estado', ['cancelado']);
+        $datesOperatives = $profesional->citas()->whereNotIn('estado', ['cancelado'])->get();
 
         //Horario
         $horario = $profesional->user->horario;
@@ -215,10 +216,26 @@ class CalendarioController extends Controller{
             'tipo'      => $all['modalidad'],
             'cita_id'   => $date->id_cita,
         ]);
-
         return redirect()
             ->route('paciente.citas')
             ->with('success', "Cita asignada con {$profesional->user->nombre_completo}");
+        /*
+        $openPay = new CitaOpenPay();
+
+        if ($all['modalidad'] == 'pse' or $all['modalidad'] == 'tarjeta credito')
+        {
+            return redirect()->to($openPay->store($date, $pago, $profesional, $user));
+        } else {
+            return redirect()
+                ->route('paciente.citas')
+                ->with('success', "Cita asignada con {$profesional->user->nombre_completo}");
+        }*/
+
+    }
+
+    public function respuesta(Request $request)
+    {
+
     }
 
     public function profesional($id){
