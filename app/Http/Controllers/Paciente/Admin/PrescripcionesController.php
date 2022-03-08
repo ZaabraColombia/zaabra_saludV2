@@ -7,6 +7,6 @@ use function view;
 class PrescripcionesController extends Controller
 {
     public function index(){
-        return view('panelAdministrativoPac.prescripciones');
+        return view('paciente.admin.prescripciones');
     }
 }

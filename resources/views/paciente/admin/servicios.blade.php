@@ -1,5 +1,6 @@
-@extends('panelAdministrativoPac.panelAdministrativo')
-@section('Panel')
+@extends('paciente.admin.layouts.layout')
+
+@section('contenido')
     <section id="basic-horizontal-layouts">
             <div class="row match-height">
                 <div class="col-md-6 col-12">

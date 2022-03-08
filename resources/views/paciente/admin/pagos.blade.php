@@ -1,5 +1,6 @@
-@extends('panelAdministrativoPac.panelAdministrativo')
-@section('Panel')
+@extends('paciente.admin.layouts.layout')
+
+@section('contenido')
         <section class="section">
             <div class="row m-0 p-0" id="basic-table">
                 <div class="col-12 p-0">

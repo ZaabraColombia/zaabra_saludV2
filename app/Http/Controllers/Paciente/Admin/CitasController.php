@@ -7,7 +7,7 @@ use function view;
 class CitasController extends Controller
 {
     public function index(){
-        return view('panelAdministrativoPac.citas');
+        return view('paciente.admin.citas');
     }
 }
 

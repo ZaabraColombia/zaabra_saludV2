@@ -323,14 +323,14 @@ Route::middleware(['auth', 'roles', 'verified'])->as('paciente.')->prefix('/paci
 
     //Route:: get('/panelAdministrativo/{idPerfilProfesional}',[App\Http\Controllers\admin\adminController::class,'cita'])->name('panelAdministrativo');
     Route::get('/pagos',[Paciente\Admin\PagosController::class,'index'])->name('pagos');
-    Route::get('/ordenes-medicas',[Paciente\Admin\ExamenesController::class,'index'])->name('ordenesMedicas');
+    Route::get('/ordenes-medicas',[Paciente\Admin\FormulasMedicas::class,'index'])->name('ordenes-medicas');
     Route::get('/prescripciones',[Paciente\Admin\prescripcionesController::class,'index'])->name('prescripciones');
 
-    Route::get('/historia-clinica',[Paciente\Admin\historiaClinica::class,'index'])->name('HistoriaClinica');
-    Route::get('/servicios',[Paciente\Admin\inicioController::class,'oscar2'])->name('servicios');
+    //Route::get('/historia-clinica',[Paciente\Admin\historiaClinica::class,'index'])->name('HistoriaClinica');
+    //Route::get('/servicios',[Paciente\Admin\inicioController::class,'oscar2'])->name('servicios');
 
     //Revisar
-    Route::get('/favoritos-general',[Paciente\Admin\favoritosController::class,'index'])->name('favoritosGeneral');
+    Route::get('/favoritos',[Paciente\Admin\favoritosController::class,'index'])->name('favoritosGeneral');
     Route::post('/favoritosGeneralSave',[Paciente\Admin\favoritosController::class,'create'])->name('favoritosGeneralSave');
     Route::post('/favoritosGeneralSave2',[Paciente\Admin\favoritosController::class,'create2'])->name('favoritosGeneralSave2');
     Route::post('/favoritosGeneralSave3',[Paciente\Admin\favoritosController::class,'create3'])->name('favoritoSGeneralSave3');
