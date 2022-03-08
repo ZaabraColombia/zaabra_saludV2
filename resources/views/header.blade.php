@@ -84,11 +84,11 @@
                                 <span class="texto_item-menu-paciente">Agenda</span>
                             </a>
                             <div class="dropdown-divider m-0"></div>
-                            <a class="dropdown-item menu_item-paciente icon-perfil" href="{{ url('/perfil') }}">
+                            <a class="dropdown-item menu_item-paciente icon-perfil" href="{{ route('paciente.perfil') }}">
                                 <span class="texto_item-menu-paciente">Mi perfil</span>
                             </a>
                         @elseif($objtipoUsuarioLogueado->idrol==2)
-                            <a class="dropdown-item menu_item-paciente icon-perfil" href="{{ url('/FormularioProfesional') }}">
+                            <a class="dropdown-item menu_item-paciente icon-perfil" href="{{ route('profesional.perfil') }}">
                                 <span class="texto_item-menu-paciente">Mi perfil</span>
                             </a>
                             <div class="dropdown-divider m-0"></div>
