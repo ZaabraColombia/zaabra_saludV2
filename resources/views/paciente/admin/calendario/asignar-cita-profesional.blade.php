@@ -7,12 +7,24 @@
 
 @section('contenido')
     @php
-    $user = Auth::user();
+        $user = Auth::user();
     @endphp
     <div class="container-fluid px-lg-0">
         @if(isset($profesional))
+            <div class="content_row" id="alertas">
+                <div class="col_flex w_lg_35">
+                    @if ($errors->any())
+                        <div class="alert alert-danger" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="alert-heading">Error</h4>
+                            <p>{{ collect($errors->all())->implode('<br>') }}</p>
+                        </div>
+                    @endif
+                </div>
+            </div>
             <div class="content_row">
-                <div id="data-eventos-profesional" data-events='[{"id":0,"title":"Medicina","profesional":"Jorge Machado","start":"2021-08-21","tipo_cita":"Virtual","allDay":true},{"id":1,"title":"Medicina","profesional":"Jorge Machado","start":"2021-08-22","tipo_cita":"Virtual","allDay":true},{"id":2,"title":"Odontologia","profesional":"Jhoana Gutierres","start":"2021-08-23","tipo_cita":"Prensencial","allDay":true},{"id":3,"title":"Odontologia","profesional":"Jhoana Gutierres","start":"2021-08-24","tipo_cita":"Prensencial","allDay":true}]'></div>
                 <!-- Información del Profesional -->
                 <div class="col_flex w_lg_35">
                     <div class="content_img_center w_md_35">
@@ -66,11 +78,13 @@
                         <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
                             <form action="{{ route('paciente.finalizar-cita-profesional', ['profesional' => $profesional->slug]) }}"
                                   method="post" id="form-finalizar-cita-profesional">
+                                @csrf
                                 <div class="input__box mb-3">
                                     <label for="modalidad">Modalidad de pago</label>
                                     <select id="modalidad" class="form-control" name="modalidad" required>
-                                        <option value="Presencial"> Presencial </option>
-                                        <option value="Virtual"> Virtual </option>
+                                        <option value="pse"> PSE </option>
+                                        <option value="tarjeta credito"> Tarjeta crédito </option>
+                                        <option value="presencial"> Presencial </option>
                                     </select>
                                 </div>
                                 <div class="input__box mb-3">
@@ -90,7 +104,9 @@
                                 </div>
 
                                 <div class="row m-0 content_btn_right">
-                                    <button type="submit" class="button_blue" data-toggle="modal" data-target="#exampleModal">Finalizar</button>
+                                    <button type="button" class="button_blue" id="btn-finalizar-cita-profesional">
+                                        Finalizar
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -101,7 +117,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="confirmar-cita" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -112,8 +128,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <h5 class="profesional">Fernando Alexander Sandoval Gutierrez</h5>
-                        <h5>Cc 1033456847</h5>
+                        <h5 class="profesional">{{ $user->nombre_completo }}</h5>
+                        <h5>{{ $user->numerodocumento }}</h5>
                     </div>
                     <div>
                         <h5 class="profesional">Dr(a). {{$profesional->user->nombre_completo }}</h5>
@@ -126,7 +142,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="modal-boton">Guardar</button>
+                    <button type="button" class="btn btn-primary" id="btn_confirmar_cita">Guardar</button>
                 </div>
             </div>
         </div>
@@ -137,53 +153,89 @@
     <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
     <script src="{{ asset('plugins/pg-calendar-master/dist/js/pignose.calendar.min.js') }}"></script>
 
+    <script src="{{ asset('js/alertas.js') }}"></script>
+
     <script>
-        $(function() {
+        var weekNotBusiness = {!! json_encode($weekDisabled) !!};
 
-            var weekNotBusiness = {!! json_encode($weekDisabled) !!};
+        $('.calendar').pignoseCalendar({
+            lang: 'es',
+            initialize: false,
+            minDate: '{{ date('Y-m-d') }}',
+            /*maxDate: '2022-06-24',*/
+            disabledWeekdays: weekNotBusiness, // WEDNESDAY (0)
+            disabledDates: [],
+            disabledRanges: [
+                //['2022-04-07', '2022-04-22'], // 2022-04-07 ~ 22
+            ],
+            select: function (date, context) {
+                console.log(date[0]);
+                var hora = $('#hora');
+                hora.html('<option></option>');
 
-            $('.calendar').pignoseCalendar({
-                lang: 'es',
-                minDate: '{{ date('Y-m-d') }}',
-                /*maxDate: '2022-06-24',*/
-                disabledWeekdays: weekNotBusiness, // WEDNESDAY (0)
-                disabledDates: [],
-                disabledRanges: [
-                    //['2022-04-07', '2022-04-22'], // 2022-04-07 ~ 22
-                ],
-                select: function (date, context) {
-                    //onsole.log(date[0]._i);
-                    var hora = $('#hora');
-                    hora.html('<option></option>');
+                if (date[0]._i !== null && date[0]._i !== undefined )
+                {
+                    $.ajax({
+                        data: { date: date[0]._i},
+                        dataType: 'json',
+                        url: '{{ route('paciente.dias-libre-profesional', ['profesional' => $profesional->slug]) }}',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        method: 'POST',
+                        success: function (res) {
 
-                    if (date[0] !== null && date[0] !== undefined )
-                    {
-                        $.ajax({
-                            data: { date: date[0]._i},
-                            dataType: 'json',
-                            url: '{{ route('paciente.dias-libre-profesional', ['profesional' => $profesional->slug]) }}',
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            },
-                            method: 'POST',
-                            success: function (res) {
-
-                                //get list
-                                $.each(res.data, function (index, item) {
-                                    hora.append('<option value=\'{"start":"' + item.startTime + '","end": "' + item.endTime + '"}\'>' +
-                                        moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
-                                        '</option>');
-                                });
-                            },
-                            error: function (res, status) {
-                                var response = res.responseJSON;
-                                $('#alerta-general').html(alert(response.message, 'danger'));
-                            }
-                        });
-                    }
+                            //get list
+                            $.each(res.data, function (index, item) {
+                                hora.append('<option value=\'{"start":"' + item.startTime + '","end": "' + item.endTime + '"}\'>' +
+                                    moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
+                                    '</option>');
+                            });
+                        },
+                        error: function (res, status) {
+                            var response = res.responseJSON;
+                            $('#alerta-general').html(alert(response.message, 'danger'));
+                        }
+                    });
                 }
-            });
+            }
+        });
+
+        $('#btn-finalizar-cita-profesional').click(function (e) {
+            e.preventDefault();
+
+            var modal = $('#confirmar-cita');
+
+            var horario = $.parseJSON($('#hora').val());
+            var tipo_cita = $('#tipo_cita');
+            var modalidad = $('#modalidad');
+            var btn_confirmar_cita = $('#btn_confirmar_cita');
+
+            if (
+                horario !== undefined && horario !== null &&
+                modalidad.val() !== undefined && modalidad.val() !== null &&
+                tipo_cita.val() !== undefined && tipo_cita.val() !== null
+            )
+            {
+                $('#modal-horario').html(moment(horario.start, 'YYYY-MM-DD HH:mm').format('DD-MMM /YYYY')
+                    + '<br>' + moment(horario.start, 'YYYY-MM-DD HH:mm').format('hh:mm A')
+                    + ' - ' + moment(horario.end, 'YYYY-MM-DD HH:mm').format('hh:mm A')
+                );
+                $('#modal-tipo-de-cita').html(tipo_cita.find('option:selected').html());
+                $('#modal-valor').html(tipo_cita.find('option:selected').data('valor'));
+
+                btn_confirmar_cita.html((modalidad.val() === 'presencial') ? 'Finalizar':'Pagar')
+
+                modal.modal('show');
+            } else {
+                $('#alertas').html(alert({title: "Error", text:"No se pudo completar el agendamiento, revisa la información"}, 'danger'));
+            }
 
         });
+
+        $('#btn_confirmar_cita').click(function (e) {
+            $('#form-finalizar-cita-profesional').submit();
+        });
+
     </script>
 @endsection

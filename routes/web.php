@@ -316,7 +316,7 @@ Route::middleware(['auth', 'roles', 'verified'])->as('paciente.')->prefix('/paci
         ->name('asignar-cita-profesional');
     Route::post('/asignar-cita/dias-libre-profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'dias_libre_profesional'])
         ->name('dias-libre-profesional');
-    Route::post('/finalizar-cita-profesional/profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'finalizar_cita_profesional'])
+    Route::post('/finalizar-cita-profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'finalizar_cita_profesional'])
         ->name('finalizar-cita-profesional');
     Route::get('/asignar-cita/institucion/{institucion:slug}',[Paciente\Admin\CalendarioController::class,'asignar_cita_institucion'])
         ->name('asignar-cita-institucion');
