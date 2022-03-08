@@ -11,8 +11,8 @@
     @endphp
     <div class="container-fluid px-lg-0">
         @if(isset($profesional))
-            <div class="content_row" id="alertas">
-                <div class="col_flex w_lg_35">
+            <div class="content_row">
+                <div class="col_flex w_lg_35" id="alertas">
                     @if ($errors->any())
                         <div class="alert alert-danger" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
