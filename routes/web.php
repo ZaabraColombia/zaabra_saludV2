@@ -50,7 +50,7 @@ Route:: get('/ramas-de-la-salud/{nombreProfesion}',[App\Http\Controllers\profesi
 Route:: get('/Especialidades/{nombreEspecialidad}',[App\Http\Controllers\profesionales\medicosEspecialidadController::class,'index'])->name('Especialistas-En');
 
 /*Esta ruta es de landing profesionales y dirige al controlador encargado de traer la informacion a la vista*/
-Route:: get('/PerfilProfesional/{slug}',[App\Http\Controllers\profesionales\perfilprofesionalController::class,'index'])->name('PerfilProfesional');
+Route:: get('/PerfilProfesional/{slug}',[App\Http\Controllers\profesionales\perfilprofesionalController::class,'index'])->name('perfil');
 
 /*Esta ruta es de galería tipo entidades*/
 Route:: get('/Instituciones-Medicas',[App\Http\Controllers\entidades\entidadesController::class,'index'])->name('Instituciones-Medicas');
@@ -309,27 +309,34 @@ Route::middleware(['auth', 'roles', 'verified'])->as('entidad.')->group(function
 /*Esta ruta es del paciente*/
 Route::middleware(['auth', 'roles', 'verified'])->as('paciente.')->prefix('/paciente')->group(function () {
 
-    Route:: get('/panel',[Paciente\Admin\InicioController::class,'index'])->name('panel');
-    Route:: get('/citas',[Paciente\Admin\CitasController::class,'index'])->name('citas');
-    Route:: get('/calendario',[Paciente\Admin\CalendarioController::class,'index'])->name('calendario');
-    Route:: get('/calendario/{id}',[Paciente\Admin\CalendarioController::class,'index'])->name('calendario-id-profesional');
+    Route::get('/panel',[Paciente\Admin\InicioController::class,'index'])->name('panel');
+
+    Route::get('/citas',[Paciente\Admin\CitasController::class,'index'])->name('citas');
+    Route::get('/asignar-cita/profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'asignar_cita_profesional'])
+        ->name('asignar-cita-profesional');
+    Route::post('/asignar-cita/dias-libre-profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'dias_libre_profesional'])
+        ->name('dias-libre-profesional');
+    Route::post('/finalizar-cita-profesional/profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'finalizar_cita_profesional'])
+        ->name('finalizar-cita-profesional');
+    Route::get('/asignar-cita/institucion/{institucion:slug}',[Paciente\Admin\CalendarioController::class,'asignar_cita_institucion'])
+        ->name('asignar-cita-institucion');
 
     //Route:: get('/panelAdministrativo/{idPerfilProfesional}',[App\Http\Controllers\admin\adminController::class,'cita'])->name('panelAdministrativo');
-    Route:: get('/pagos',[Paciente\Admin\PagosController::class,'index'])->name('pagos');
-    Route:: get('/ordenes-medicas',[Paciente\Admin\ExamenesController::class,'index'])->name('ordenesMedicas');
-    Route:: get('/prescripciones',[Paciente\Admin\prescripcionesController::class,'index'])->name('prescripciones');
+    Route::get('/pagos',[Paciente\Admin\PagosController::class,'index'])->name('pagos');
+    Route::get('/ordenes-medicas',[Paciente\Admin\FormulasMedicas::class,'index'])->name('ordenes-medicas');
+    Route::get('/prescripciones',[Paciente\Admin\prescripcionesController::class,'index'])->name('prescripciones');
 
-    Route:: get('/historia-clinica',[Paciente\Admin\historiaClinica::class,'index'])->name('HistoriaClinica');
-    Route:: get('/servicios',[Paciente\Admin\inicioController::class,'oscar2'])->name('servicios');
+    //Route::get('/historia-clinica',[Paciente\Admin\historiaClinica::class,'index'])->name('HistoriaClinica');
+    //Route::get('/servicios',[Paciente\Admin\inicioController::class,'oscar2'])->name('servicios');
 
     //Revisar
-    Route:: get('/favoritos-general',[Paciente\Admin\favoritosController::class,'index'])->name('favoritosGeneral');
-    Route:: post('/favoritosGeneralSave',[Paciente\Admin\favoritosController::class,'create'])->name('favoritosGeneralSave');
-    Route:: post('/favoritosGeneralSave2',[Paciente\Admin\favoritosController::class,'create2'])->name('favoritosGeneralSave2');
-    Route:: post('/favoritosGeneralSave3',[Paciente\Admin\favoritosController::class,'create3'])->name('favoritoSGeneralSave3');
-    Route:: post('/favoritosGeneralSave4',[Paciente\Admin\favoritosController::class,'create4'])->name('favoritosGeneralSave4');
+    Route::get('/favoritos',[Paciente\Admin\favoritosController::class,'index'])->name('favoritosGeneral');
+    Route::post('/favoritosGeneralSave',[Paciente\Admin\favoritosController::class,'create'])->name('favoritosGeneralSave');
+    Route::post('/favoritosGeneralSave2',[Paciente\Admin\favoritosController::class,'create2'])->name('favoritosGeneralSave2');
+    Route::post('/favoritosGeneralSave3',[Paciente\Admin\favoritosController::class,'create3'])->name('favoritoSGeneralSave3');
+    Route::post('/favoritosGeneralSave4',[Paciente\Admin\favoritosController::class,'create4'])->name('favoritosGeneralSave4');
 
-    Route:: get('/perfil',[Paciente\FormularioPaciente::class,'index'])->name('perfil');
+    Route::get('/perfil',[Paciente\FormularioPaciente::class,'index'])->name('perfil');
 
     Route::post('/paciente/formulario-basico',[Paciente\FormularioPaciente::class,'basico'])->name('formulario-basico');
     Route::post('/paciente/formulario-contacto',[Paciente\FormularioPaciente::class,'contacto'])->name('formulario-contacto');

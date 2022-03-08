@@ -62,7 +62,7 @@ class perfilprofesionalController extends Controller
 
          // consulta para cargar todas los profesionales segun su area profesion y especialidad
         public function cargarInfoPrfesionalLanding($slug){
-        return DB::select("SELECT pf.idPerfilProfesional, pf.fotoperfil, CONCAT('Dr.(a) ',  us.primernombre) AS primernombre, us.segundonombre, us.primerapellido, us.segundoapellido, ep.nombreEspecialidad, pf.numeroTarjeta, pf.direccion, un.nombreuniversidad, pf.descripcionPerfil, mn.nombre
+        return DB::select("SELECT pf.idPerfilProfesional, pf.fotoperfil, CONCAT('Dr.(a) ',  us.primernombre) AS primernombre, us.segundonombre, us.primerapellido, us.segundoapellido, ep.nombreEspecialidad, pf.numeroTarjeta, pf.direccion, un.nombreuniversidad, pf.descripcionPerfil, mn.nombre, pf.slug
         FROM perfilesprofesionales pf
         LEFT JOIN users us ON pf.idUser=us.id
         LEFT JOIN especialidades ep ON pf.idespecialidad=ep.idEspecialidad

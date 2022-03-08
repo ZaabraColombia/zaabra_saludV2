@@ -1,5 +1,6 @@
-@extends('panelAdministrativoPac.panelAdministrativo')
-@section('Panel')
+@extends('paciente.admin.layouts.layout')
+
+@section('contenido')
 
     <h1 class="titulo_principal_fav">Mis favoritos</h1>
     <p class="subtitulo_principal_fav">Registre sus favoritos y reciba información relacionada con sus intereses.</p>

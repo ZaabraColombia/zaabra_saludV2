@@ -1,6 +1,6 @@
-@extends('panelAdministrativoPac.panelAdministrativo')
+@extends('paciente.admin.layouts.layout')
 
-@section('Panel')
+@section('contenido')
     <div class="container container_principal p-md-0">
         <div class="row">
             @if(!empty($objListaUsuario4->isNotEmpty()))

@@ -8,7 +8,7 @@ class PagosController extends Controller
 {
 
     public function index(){
-        return view('panelAdministrativoPac.pagos');
+        return view('paciente.admin.pagos');
     }
 
 }
