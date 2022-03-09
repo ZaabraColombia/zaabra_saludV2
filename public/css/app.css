@@ -23085,6 +23085,17 @@ a:link, a:visited, a:active, a:hover {
     font-size: 18px;
   }
 }
+.content__target {
+  border: 1px solid #0083D6;
+  text-align: center;
+  color: #3E3E3E;
+  padding: 15px 0;
+}
+.content__target img {
+  width: 80px;
+  height: 80px;
+}
+
 .text-muted {
   color: #232323 !important;
   font-family: "Quicksand";
