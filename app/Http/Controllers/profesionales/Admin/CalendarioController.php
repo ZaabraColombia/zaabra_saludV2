@@ -165,8 +165,8 @@ class CalendarioController extends Controller
     public function ver_citas(Request $request)
     {
         $dates = Cita::query()
-            ->select(['id_cita as id', 'fecha_inicio as start', 'fecha_fin as end', 'paciente_id'])
-            ->selectRaw('CASE estado WHEN "reservado" THEN "background" WHEN "agendado" THEN "auto" END AS display')
+            ->select(['id_cita', 'fecha_inicio as start', 'fecha_fin as end', 'paciente_id'])
+            //->selectRaw('CASE estado WHEN "reservado" THEN "background" WHEN "agendado" THEN "auto" END AS display')
             ->addSelect([
                 'tipo_cita' => tipoconsultas::query()
                     ->select('nombreconsulta')
@@ -176,15 +176,38 @@ class CalendarioController extends Controller
             ->where('profesional_id', '=', Auth::user()->profecional->idPerfilProfesional)
             ->where('estado', '!=', 'cancelado')
             ->where('Fecha_inicio', '>=', date('Y-m-d') . " 00:00")
-            ->with(['paciente', 'paciente.user'])->get();
+            ->with(['paciente', 'paciente.user', 'pago'])->get();
 
         $data = array();
+
         foreach ($dates as $date) {
+            //validar background
+            switch ($date->pago->tipo)
+            {
+                case 'presencial':
+                    //Color cita pago
+                    $background = '#D6FFFB';
+                    $color = '#323232';
+                    break;
+                case 'virtual':
+                    //Si esta aprobado es pagado, si no es pagado se establece como no pagado
+                    $background = ($date->pago->aprobado) ? '#1B85D7':'#019F86';
+                    $color = '#FFFFFF';
+                    break;
+                default:
+                    $background = null;
+                    $color = null;
+                    break;
+            }
+
             $data[] = [
-                'id'    => $date->id,
+                'id'    => $date->id_cita,
                 'start' => $date->start,
                 'end'   => $date->end,
-                'display' => $date->display,
+                'backgroundColor' => $background,
+                'textColor' => $color,
+                'borderColor' => $background,
+                'display' => 'auto',
                 'title' => $date->paciente->user->nombre_completo,
             ];
         }
