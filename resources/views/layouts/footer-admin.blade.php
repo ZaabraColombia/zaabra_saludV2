@@ -2,64 +2,8 @@
 <footer>
     <!-- Contenedor principal del footer -->
     <div class="container-fluid p-0">
-        <!-- Row newsletter-->
-        <div class="row footer_newsletter">
-            <!-- Column titulo-->
-            <div class="col-lg-10 mt-2 mt-lg-0 newsletter_contenido">
-                <h1 class="newsletter_titulo">¡Suscríbase a nuestro newsletter!</h1>
-                <p class="newsletter_texto"> Manténgase al día de todas nuestras novedades </p>
-            </div>
 
-            <!-- Column form suscribirme -->
-            <div class="col-lg-7 suscribirme_contenido d-none d-lg-block">
-                <form id="newsletter" method="post" action="javascript:void(0)" class="row form_suscribirme">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input class="form-control col-lg-8 col-xl-7 input_suscribirme" type="email" id="correo_newsletter" name="correo_newsletter" placeholder="servicioalcliente@zaabrasalud.co">
-
-                    <button class="col-lg-3 col-xl-2 boton_suscribirme" id="send_form" type="submit">
-                        <span class="text_sucrib-foot"> Suscribirme </span>
-                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="boton_icon-flecha" alt="">
-                    </button>
-
-                    <div class="col-lg-10 terminos_contenido d-none d-lg-flex">
-                        <input class="checkBox_terminos" type="checkbox" id="">
-                        <h4 class="texto_terminos"> Acepto
-                            <a href="{{url('/politicas-de-uso-de-Zaabra-salud')}}" target="blank"> términos y condiciones </a> y autorizo el <a href="{{url('/politicas-de-uso-de-Zaabra-salud')}}" target="blank"> tratamiento de mis datos personales </a>
-                        </h4>
-                    </div>
-                </form>
-                <div id="msg_div">
-
-                </div>
-
-            </div>
-
-            <!-- Column terminos -->
-
-            <!--******************************     Column form suscribirme version MOBILE      *********************************-->
-            <form id="newsletter2" method="post" action="javascript:void(0)" class="row col-10 col-md-9 p-0 m-auto d-block d-lg-none">
-               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input class="form-control input_suscribirme-cel" type="email" id="correo_newsletter2" name="correo_newsletter" placeholder="servicioalcliente@zaabrasalud.co">
-                <div class="col-12 check_terminos-cel">
-                    <input type="checkbox" class="boton_check-terminos-cel" id="">
-                    <span class="texto_terminos-cel">Acepto
-                        <a href="{{url('/politicas-de-uso-de-Zaabra-salud')}}" target="blank"> términos y condiciones </a> y autorizo el <a href="{{url('/politicas-de-uso-de-Zaabra-salud')}}" target="blank"> tratamiento de mis datos personales </a>
-                    </span>
-                </div>
-                <button id="send_form2" type="submit" class="col-5 col-md-4 mb-2 boton_suscribirme-cel">
-                    <span> Suscribirme </span>
-                    <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="icono_flecha-suscribirme-cel" alt="">
-                </button>
-            </form>
-
-            <div class="alert_Newsletter2 d-none" id="msg_div2">
-                <span id="res_message2"></span>
-            </div>
-
-            <!--******************************     Column end form suscribirme version MOBILE      *********************************-->
-        </div>
-
-        <!-- Row información Zaabrasalud-->
+        <!-- Row información zaabrasalud-->
         <div class="row footer_info-zaabrasalud">
             <!-- Column contenido contactanos-->
             <div class="col-lg-4 contactanos_contenido d-none d-lg-flex">
@@ -333,15 +277,18 @@
         <div class="row footer_iconos-colombia">
             <div class="col-12 col-md-10 col-lg-10 col-xl-7 d-flex m-auto p-0">
                 <div class="col-4 col-md-4 col-lg-5 col-xl-4 icon_gob-colombia">
-                    <img class="imagen_icono-gobierno" src="{{URL::asset('/img/logos/logo-gobierno-de-colombia.png')}}">
+                    <img class="imagen_icono-gobierno" src="{{ asset('/img/logos/logo-gobierno-de-colombia.png') }}"
+                         alt="colombia.png" />
                 </div>
 
                 <div class="col-5 col-md-5 col-lg-4 col-xl-4 icon_hecho-colombia">
-                    <img class="imagen_icono-colombia" src="{{URL::asset('/img/logos/logo_hecho_en_colombia.png')}}">
+                    <img class="imagen_icono-colombia" src="{{ asset('/img/logos/logo_hecho_en_colombia.png') }}"
+                         alt="logo_hecho_en_colombia.png" />
                 </div>
 
                 <div class="col-3 col-md-3 col-lg-3 col-xl-4 icon_ssl-colombia">
-                    <img class="imagen_icono-ssl" src="{{URL::asset('/img/logos/logo_ssl_secure_connection.png')}}">
+                    <img class="imagen_icono-ssl" src="{{ asset('/img/logos/logo_ssl_secure_connection.png') }}"
+                         alt="logo_ssl_secure_connection.png" />
                 </div>
             </div>
         </div>

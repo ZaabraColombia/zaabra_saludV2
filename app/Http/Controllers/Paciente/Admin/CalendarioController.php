@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers\Paciente\Admin;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Pagos\CitaOpenPay;
+use App\Models\Cita;
+use App\Models\PagoCita;
 use App\Models\perfilesprofesionales;
 use App\Models\tipoconsultas;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use function view;
 
 class CalendarioController extends Controller{
@@ -39,6 +44,12 @@ class CalendarioController extends Controller{
 
     public function asignar_cita_profesional(perfilesprofesionales $profesional)
     {
+        $horario = $profesional->user->horario;
+
+        if (!isset($horario) or empty($horario->duracion) or empty($horario->descanso))
+            return redirect()->route('PerfilProfesional', ['slug' => $profesional->slug])
+                ->with('warning', 'El doctor no tiene agenda disponible');
+
         $weekNotBusiness = array();
         foreach (array_column($profesional->user->horario->horario, 'daysOfWeek') as $item)
             $weekNotBusiness = array_merge($weekNotBusiness, $item);
@@ -67,7 +78,7 @@ class CalendarioController extends Controller{
         }
 
         //Citas médicas
-        $datesOperatives = $profesional->citas()->whereNotIn('estado', ['cancelado']);
+        $datesOperatives = $profesional->citas()->whereNotIn('estado', ['cancelado'])->get();
 
         //Horario
         $horario = $profesional->user->horario;
@@ -125,7 +136,11 @@ class CalendarioController extends Controller{
                         }
                     }
 
-                    if ($valid)
+                    //validar que no se pueda agendar 2 horas antes de llegar a la cita
+                    $hoy = Carbon::now()->subHours(2);
+                    $start = new Carbon($startTime);
+
+                    if ($valid and $hoy->lessThan($start))
                     {
                         //Agregar la disponibilidad
                         $listDates[] = [
@@ -148,14 +163,75 @@ class CalendarioController extends Controller{
 
     public function finalizar_cita_profesional(Request $request, perfilesprofesionales $profesional)
     {
+        $request->merge(['disponibilidad' => json_decode($request->get('hora'), true)]);
+
         $request->validate([
-            '' => ['required', ''],
-            '' => ['required', ''],
-            '' => ['required', ''],
-            '' => ['required', ''],
-            '' => ['required', ''],
+            'disponibilidad'    => ['required'],
+            'disponibilidad.*'  => ['required', 'date_format:Y-m-d H:i'],
+            'tipo_cita'         => ['required'],
+            'modalidad'         => ['required', Rule::in(['pse', 'tarjeta credito', 'presencial'])],
         ]);
+
+        $all = $request->all();
+
+        //Validar la disponibilidad de la cita
+        $date_count = Cita::query()->where('profesional_id', '=', $profesional->idPerfilProfesional)
+            ->where(function ($query) use ($all){
+                $query->whereRaw('(fecha_inicio >= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
+                    '" and fecha_inicio < "' . date('Y-m-d H:i', strtotime($all['disponibilidad']['end'])) . '")')
+                    ->orWhereRaw('(fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
+                        '" and fecha_fin <= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) . '")')
+                    ->orWhereRaw('(fecha_inicio <= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
+                        '" and fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) . '")')
+                    ->orWhereRaw('(fecha_inicio < "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) .
+                        '" and fecha_fin >= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) . '")');
+            })
+            ->whereNotIn('estado', ['cancelado'])
+            ->count();
+
+        if ($date_count > 0)
+        {
+            return redirect()
+                ->back()
+                ->withErrors(['cita' => 'Cita no disponible']);
+        }
+
+        $user = Auth::user();
+
+        //crear cita
+        $query = [
+            'fecha_inicio'  => date('Y-m-d H:i', strtotime($all['disponibilidad']['start'])),
+            'fecha_fin'     => date('Y-m-d H:i', strtotime($all['disponibilidad']['end'])),
+            'estado'        => 'agendado',
+            'lugar'         => $profesional->direccion,
+            'tipo_cita_id'  => $all['tipo_cita'],
+            //'money'         => $all['money'],
+            'profesional_id'=> $profesional->idPerfilProfesional,
+            'paciente_id'   => $user->paciente->id,
+        ];
+
+        $date = Cita::query()->create($query);
+
+        $fechaPago = Carbon::now();
+        $consulta = tipoconsultas::query()
+            ->where('id', '=', $all['tipo_cita'])
+            ->first(['valorconsulta']);
+
+        //Crear pago
+        $pago = PagoCita::query()->create([
+            'fecha'     => $fechaPago,
+            'vencimiento' => $fechaPago->add(8, 'days'),
+            'valor'     => $consulta->valorconsulta,
+            'aprobado'  => 0,
+            'tipo'      => $all['modalidad'],
+            'cita_id'   => $date->id_cita,
+        ]);
+
+        return redirect()
+            ->route('paciente.citas')
+            ->with('success', "Cita asignada con {$profesional->user->nombre_completo}");
     }
+
 
     public function profesional($id){
         return DB::select("SELECT pf.idPerfilProfesional, pf.fotoperfil, CONCAT('Dr.(a) ',  us.primernombre) AS primernombre, us.segundonombre, us.primerapellido, us.segundoapellido, ep.nombreEspecialidad, pf.numeroTarjeta, pf.direccion, un.nombreuniversidad, pf.descripcionPerfil, mn.nombre
@@ -167,6 +243,7 @@ class CalendarioController extends Controller{
         INNER JOIN municipios mn ON mn.id_municipio=pf.id_municipio
         WHERE pf.aprobado<>0 AND pf.idPerfilProfesional = '$id' LIMIT 1");
     }
+
     // consulta comentarios
     public function calificacion($idPerfilProfesional){
         return DB::select("SELECT us.primernombre, us.primerapellido, c.comentario,c.calificacion,

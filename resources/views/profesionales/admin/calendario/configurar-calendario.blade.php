@@ -13,7 +13,7 @@
                 <h2 class="subtitle__lg black_light">Administre su horario de la cita</h2>
             </div>
 
-            <form action="{{ route('profesional.configurar-calendario.cita') }}"
+            <form action="{{ route('profesional.agenda.configurar-calendario.cita') }}"
                 method="post" id="form-dias" class="forms" data-alert="#alert-cita">
                 @csrf
                 <div class="containt_main_form mb-3">
@@ -38,7 +38,7 @@
             </form>
 
             <!-- Form add schedule-->
-            <form action="{{ route('profesional.configurar-calendario.horario-agregar') }}"
+            <form action="{{ route('profesional.agenda.configurar-calendario.horario-agregar') }}"
                 method="post" id="form-horario-agregar" class="forms" data-alert="#alert-horario-agregar">
                 @csrf
                 <div class="containt_main_form mb-3">
@@ -200,7 +200,7 @@
             {
                 $.ajax({
                     data: {id: btn.data('id')},
-                    url: '{{ route('profesional.configurar-calendario.horario-eliminar') }}',
+                    url: '{{ route('profesional.agenda.configurar-calendario.horario-eliminar') }}',
                     dataType: 'json',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

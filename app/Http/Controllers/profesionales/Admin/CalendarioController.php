@@ -9,6 +9,7 @@ use App\Models\Paciente;
 use App\Models\PagoCita;
 use App\Models\tipoconsultas;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
@@ -134,13 +135,16 @@ class CalendarioController extends Controller
                             }
                         }
                     }
+                    //validar que no se pueda agendar 2 horas antes de llegar a la cita
+                    $hoy = Carbon::now()->subHours(2);
+                    $start = new Carbon($startTime);
 
-                    if ($valid)
+                    if ($valid and $hoy->lessThan($start))
                     {
                         //Agregar la disponibilidad
                         $listDates[] = [
                             'startTime' => $startTime,
-                            'endTime' => $endTime
+                            'endTime' => $endTime,
                         ];
                     }
                 }
@@ -165,8 +169,8 @@ class CalendarioController extends Controller
     public function ver_citas(Request $request)
     {
         $dates = Cita::query()
-            ->select(['id_cita as id', 'fecha_inicio as start', 'fecha_fin as end', 'paciente_id'])
-            ->selectRaw('CASE estado WHEN "reservado" THEN "background" WHEN "agendado" THEN "auto" END AS display')
+            ->select(['id_cita', 'fecha_inicio as start', 'fecha_fin as end', 'paciente_id'])
+            //->selectRaw('CASE estado WHEN "reservado" THEN "background" WHEN "agendado" THEN "auto" END AS display')
             ->addSelect([
                 'tipo_cita' => tipoconsultas::query()
                     ->select('nombreconsulta')
@@ -176,15 +180,38 @@ class CalendarioController extends Controller
             ->where('profesional_id', '=', Auth::user()->profecional->idPerfilProfesional)
             ->where('estado', '!=', 'cancelado')
             ->where('Fecha_inicio', '>=', date('Y-m-d') . " 00:00")
-            ->with(['paciente', 'paciente.user'])->get();
+            ->with(['paciente', 'paciente.user', 'pago'])->get();
 
         $data = array();
+
         foreach ($dates as $date) {
+            //validar background
+            switch ($date->pago->tipo)
+            {
+                case 'presencial':
+                    //Color cita pago
+                    $background = '#D6FFFB';
+                    $color = '#323232';
+                    break;
+                case 'virtual':
+                    //Si esta aprobado es pagado, si no es pagado se establece como no pagado
+                    $background = ($date->pago->aprobado) ? '#1B85D7':'#019F86';
+                    $color = '#FFFFFF';
+                    break;
+                default:
+                    $background = null;
+                    $color = null;
+                    break;
+            }
+
             $data[] = [
-                'id'    => $date->id,
+                'id'    => $date->id_cita,
                 'start' => $date->start,
                 'end'   => $date->end,
-                'display' => $date->display,
+                'backgroundColor' => $background,
+                'textColor' => $color,
+                'borderColor' => $background,
+                'display' => 'auto',
                 'title' => $date->paciente->user->nombre_completo,
             ];
         }
@@ -253,7 +280,7 @@ class CalendarioController extends Controller
             'tipo_cita' => ['required'],
             'lugar'     => ['required'],
             'cantidad'  => ['required'],
-            'modalidad_pago' => ['required']
+            'modalidad_pago' => ['required', Rule::in(['virtual', 'presencial'])]
         ], [], [
             'disponibilidad' => 'Disponibilidad',
             'numero_id' => 'Número de identificación',
@@ -318,10 +345,20 @@ class CalendarioController extends Controller
         ];
         $date = Cita::query()->create($query);
 
+        //vencimiento
+        $fechaVencimiento = Carbon::now();
+        $fecha = $date->fecha_inicio;
+        $fechaVencimiento = $fechaVencimiento->addDays(8);
+
+        if ($fechaVencimiento->greaterThan($fecha->subHour(1)))
+        {
+            $fechaVencimiento = $fecha;
+        }
+
         //Crear pago
         $pago = PagoCita::query()->create([
             'fecha'     => date('Y-m-d h:i'),
-            'vencimiento' => date('Y-m-d h:i'),
+            'vencimiento' => $fechaVencimiento,
             'valor'     => $all['cantidad'],
             'aprobado'  => 0,
             'tipo'      => $all['modalidad_pago'],
@@ -331,13 +368,7 @@ class CalendarioController extends Controller
         return response([
             'message' => [
                 'title' => 'Hecho',
-                'text'  => 'Cita agendada'
-            ],
-            'event' => [
-                'start'     => $date->fecha_inicio,
-                'end'       => $date->fecha_fin,
-                //'display'   => '',
-                'title'     => $patient->nombre_completo
+                'text'  => "Cita agendada para el paciente {$patient->nombre_completo}"
             ]
         ], Response::HTTP_CREATED);
     }
@@ -356,7 +387,7 @@ class CalendarioController extends Controller
             'tipo_cita' => ['required'],
             'lugar'     => ['required'],
             'cantidad'  => ['required'],
-            'modalidad_pago' => ['required']
+            'modalidad_pago' => ['required', Rule::in(['virtual', 'presencial'])]
         ], [
             'id_cita.required' => 'Algo salio mal con la cita, por favor cierre y vuélvalo a intentar'
         ], [
@@ -500,6 +531,20 @@ class CalendarioController extends Controller
         $cita->update([
             'fecha_inicio'  => date('Y-m-d H:i', strtotime($all['fecha']['start'])),
             'fecha_fin'     => date('Y-m-d H:i', strtotime($all['fecha']['end'])),
+        ]);
+
+        //vencimiento
+        $fechaVencimiento = Carbon::now();
+        $fecha = $cita->fecha_inicio;
+        $fechaVencimiento = $fechaVencimiento->addDays(8);
+
+        if ($fechaVencimiento->greaterThan($fecha->subHour(1)))
+        {
+            $fechaVencimiento = $fecha;
+        }
+
+        $cita->pago->update([
+            'vencimiento' => $fechaVencimiento
         ]);
 
         return response([

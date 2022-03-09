@@ -99,7 +99,7 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * @return string
      */
-    public function getNombreAttribute(): string
+    public function getNombresAttribute(): string
     {
         return "{$this->primernombre} {$this->segundonombre}";
     }
@@ -107,7 +107,7 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * @return string
      */
-    public function getApellidoAttribute(): string
+    public function getApellidosAttribute(): string
     {
         return "{$this->primerapellido} {$this->segundoapellido}";
     }

@@ -129,7 +129,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="{{ route('profesional.calendario.crear-cita') }}" id="form-agendar-cita-profesional">
+                <form method="POST" action="{{ route('profesional.agenda.calendario.crear-cita') }}" id="form-agendar-cita-profesional">
                     <div class="modal-body">
                         <div class="form_modal">
                             <div class="row m-0">
@@ -180,8 +180,7 @@
                                     <label for="modalidad_pago">Modalidad de pago</label>
                                     <select id="modalidad_pago" name="modalidad_pago" required>
                                         <option></option>
-                                        <option value="tarjeta credito">Tarjeta de crédito</option>
-                                        <option value="pse">PSE</option>
+                                        <option value="virtual">Virtual</option>
                                         <option value="presencial">Presencial</option>
                                     </select>
                                 </div>
@@ -211,7 +210,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="{{ route('profesional.calendario.actualizar-cita') }}" id="form-editar-cita">
+                <form method="POST" action="{{ route('profesional.agenda.calendario.actualizar-cita') }}" id="form-editar-cita">
                     <div class="modal-body">
                         <div class="modal_info_cita mb-3">
                             <div class="p-3">
@@ -253,8 +252,7 @@
                                     <label for="modalidad_pago-editar">Modalidad de pago</label>
                                     <select id="modalidad_pago-editar" name="modalidad_pago" required>
                                         <option></option>
-                                        <option value="tarjeta credito">Tarjeta de crédito</option>
-                                        <option value="pse">PSE</option>
+                                        <option value="virtual">Virtual</option>
                                         <option value="presencial">Presencial</option>
                                     </select>
                                 </div>
@@ -286,7 +284,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="{{ route('profesional.calendario.reagendar-cita') }}" id="form-cita-reagendar">
+                <form method="POST" action="{{ route('profesional.agenda.calendario.reagendar-cita') }}" id="form-cita-reagendar">
                     <div class="modal-body">
                         <div class="modal_info_cita mb-3">
                             <div class="p-3">
@@ -378,7 +376,7 @@
                 </div>
 
                 <div class="modal-footer content_btn_center">
-                    <form action="{{ route('profesional.calendario.cancelar-cita') }}" method="post" id="form-cita-cancelar">
+                    <form action="{{ route('profesional.agenda.calendario.cancelar-cita') }}" method="post" id="form-cita-cancelar">
                         <input type="hidden" class="form-control" id="id_cita-cancelar" name="id_cita"/>
                         <button type="button" class="button_transparent" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="button_blue" id="">Confirmar</button>
@@ -410,7 +408,7 @@
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
                 businessHours: {!! json_encode($horario->horario) !!},
-                events: '{{ route('profesional.calendario.ver-citas') }}',
+                events: '{{ route('profesional.agenda.calendario.ver-citas') }}',
                 // Botones de mes, semana y día.
                 headerToolbar: {
                     left: 'prev,next today',
@@ -456,7 +454,7 @@
                     $.ajax({
                         data: { id: info.event._def.publicId},
                         dataType: 'json',
-                        url: '{{ route('profesional.calendario.ver-cita') }}',
+                        url: '{{ route('profesional.agenda.calendario.ver-cita') }}',
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
@@ -495,7 +493,7 @@
                 $.ajax({
                     data: { date: date},
                     dataType: 'json',
-                    url: '{{ route('profesional.calendario.dias-libre') }}',
+                    url: '{{ route('profesional.agenda.calendario.dias-libre') }}',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
@@ -640,7 +638,7 @@
                 $.ajax({
                     data: { id: btn.data('id') },
                     dataType: 'json',
-                    url: '{{ route('profesional.calendario.ver-cita') }}',
+                    url: '{{ route('profesional.agenda.calendario.ver-cita') }}',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
@@ -717,7 +715,7 @@
                 $.ajax({
                     data: { id: btn.data('id') },
                     dataType: 'json',
-                    url: '{{ route('profesional.calendario.ver-cita') }}',
+                    url: '{{ route('profesional.agenda.calendario.ver-cita') }}',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
@@ -845,7 +843,7 @@
                 $.ajax({
                     data: { id: btn.data('id') },
                     dataType: 'json',
-                    url: '{{ route('profesional.calendario.ver-cita') }}',
+                    url: '{{ route('profesional.agenda.calendario.ver-cita') }}',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },

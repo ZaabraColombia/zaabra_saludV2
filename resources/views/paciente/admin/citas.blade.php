@@ -3,6 +3,17 @@
 @section('contenido')
     <section class="section">
         <div class="row m-0 p-0" id="basic-table">
+            <div class="col-12">
+                @if(session('success'))
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="alert-heading">Hecho</h4>
+                        <p>{{ session('success') }}</p>
+                    </div>
+                @endif
+            </div>
             <div class="col-12 p-0">
                 <div class="section_cabecera_citas">
                     <div>
@@ -10,9 +21,9 @@
                         <span class="subtitle_miCita">encuentre aquí todas sus citas</span>
                     </div>
 
-                    <button type="submit" class="btn_agendar_cita"> Agende su cita
-                        <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_btn_agendar" alt="">
-                    </button>
+{{--                    <button type="submit" class="btn_agendar_cita"> Agende su cita--}}
+{{--                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_btn_agendar" alt="">--}}
+{{--                    </button>--}}
                 </div>
 
                 <div class="card container_citas">

@@ -21,18 +21,18 @@ $user = Auth::user();
 
                 <li class="sidebar-item  has-sub">
                     <button id="cita_padre">Mi Agenda
-                        <i class="fas fa-angle-down pl-2 open"></i> 
+                        <i class="fas fa-angle-down pl-2 open"></i>
                     </button>
 
                     <ul class="submenu active">
                         <li class="submenu-item">
-                            <a id="cita" class="" href='{{ route('profesional.citas') }}'>Citas</a>
+                            <a id="cita" class="" href='{{ route('profesional.agenda.citas') }}'>Citas</a>
                         </li>
                         <li class="submenu-item ">
-                            <a id="calendario" class="" href='{{ route('profesional.calendario') }}'>Calendario</a>
+                            <a id="calendario" class="" href='{{ route('profesional.agenda.calendario') }}'>Calendario</a>
                         </li>
                         <li class="submenu-item ">
-                            <a id="configurar-calendario" class="" href='{{ route('profesional.configurar-calendario') }}'>Configuración del Calendario</a>
+                            <a id="configurar-calendario" class="" href='{{ route('profesional.agenda.configurar-calendario') }}'>Configuración del Calendario</a>
                         </li>
                     </ul>
                 </li>
@@ -57,18 +57,18 @@ $user = Auth::user();
 
                 <li class="sidebar-item  has-sub">
                     <button id="historia_padre">Catálogos
-                        <i class="fas fa-angle-down pl-2 open"></i> 
+                        <i class="fas fa-angle-down pl-2 open"></i>
                     </button>
 
                     <ul class="submenu active">
                         <li class="submenu-item ">
-                            <a id="cie10" class="" href='{{ route('profesional.cie10') }}'>Diagnósticos (CIE - 10)</a>
+                            <a id="cie10" class="" href='{{ route('profesional.catalogos.cie10') }}'>Diagnósticos (CIE - 10)</a>
                         </li>
                         <li class="submenu-item ">
-                            <a id="cups" class="" href='{{ route('profesional.cups') }}'>Procedimientos (CUPS)</a>
+                            <a id="cups" class="" href='{{ route('profesional.catalogos.cups') }}'>Procedimientos (CUPS)</a>
                         </li>
                         <li class="submenu-item ">
-                            <a id="cums" class="" href='{{ route("profesional.cums") }}'>Vademecum actualizado COLOMBIA INVIMA (CUMS)</a>
+                            <a id="cums" class="" href='{{ route("profesional.catalogos.cums") }}'>Vademecum actualizado COLOMBIA INVIMA (CUMS)</a>
                         </li>
                     </ul>
                 </li>
