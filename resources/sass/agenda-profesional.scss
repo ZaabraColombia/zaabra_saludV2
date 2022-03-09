@@ -1,3 +1,23 @@
+// FONT SIZE TEXTOS DE LA AGENDA
+.title__xl {
+    font-size: 24px;
+}
+.subtitle__lg {
+    font-size: 16px;
+}
+.text__md {
+    font-size: 15px;
+}
+.text_small {
+    font-size: 14px;
+}
+
+// .section_cabecera_agenda {
+//     padding-top: 15px;
+//     padding-bottom: 20px;
+// }
+//****************************************************          ****************************************************//
+
 // SIDEBAR Imagen y nombre del usuario 
 // de la agenda pacientes
 .sidebar_head {
@@ -68,7 +88,7 @@
 //****************************************************      Estilos de Mis Citas       ****************************************************//
 .containt_agendaProf {
     margin: 0;
-    padding: 0 6%;
+    padding: 0 15px;
 }
 .btn_editar_citasProf{
     border: none;
@@ -495,6 +515,21 @@
     }
 }
 @media (min-width: 768px) and (orientation: portrait) {
+    .title__xl {
+        font-size: 30px;
+    }
+    .subtitle__lg {
+        font-size: 22px;
+    }
+    .text__md {
+        font-size: 16px;
+    }
+
+    .containt_agendaProf {
+        padding: 0 60px;
+    }
+    //****************************************************          ****************************************************//
+
     .panel-Administrativo_prof {
         background: #F9F9F9;
         padding: 3% 2% 30% 3%;
@@ -594,6 +629,25 @@
     }
 }
 @media (min-width: 1024px) {
+    .title__xl {
+        font-size: 28px;
+    }
+    .subtitle__lg {
+        font-size: 22px;
+    }
+    .text__md {
+        font-size: 16px;
+    }
+
+    .containt_agendaProf {
+        padding: 0 0 0 40px;
+    }
+    // .section_cabecera_agenda {
+    //     padding-top: 30px;
+    //     padding-bottom: 20px;
+    // }
+    //****************************************************          ****************************************************//
+
     //****************************************************      Estilos de Historia Clínica       ****************************************************//
     //**********************     Estilos Editar Consultas       **********************
     .section_addFile_consulta {
@@ -674,6 +728,13 @@
     }
 }
 @media (min-width: 1440px) {
+    .containt_agendaProf {
+        padding: 0 60px;
+    }
+    // .section_cabecera_agenda {
+    //     width: 90%;
+    // }
+    //****************************************************          ****************************************************//
     //****************************************************      Estilos de Historia Clínica       ****************************************************//
     .content_histClinica {
         width: 75%;

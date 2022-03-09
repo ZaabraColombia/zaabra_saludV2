@@ -5,12 +5,12 @@
 @extends('profesionales.admin.layouts.panel')
 
 @section('contenido')
-    <div class="container-fluid">
-        <div class="containt_right">
+    <div class="container-fluid p-0 pr-lg-4">
+        <div class="containt_agendaProf">
             <!-- Form update duration date -->
-            <div class="my-4">
-                <h1 class="fs_title blue_bold">Configuración de cita</h1>
-                <h2 class="fs_subtitle gray_light">Administre su horario de la cita</h2>
+            <div class="my-4 my-xl-5">
+                <h1 class="title__xl blue_bold">Configuración de cita</h1>
+                <h2 class="subtitle__lg black_light">Administre su horario de la cita</h2>
             </div>
 
             <form action="{{ route('profesional.configurar-calendario.cita') }}"
@@ -44,7 +44,7 @@
                 <div class="containt_main_form mb-3">
                     <div id="alert-horario-agregar"></div>
                     <div class="mb-3">
-                        <h2 class="fs_subtitle blue_bold">Nuevo Horario</h2>
+                        <h2 class="subtitle__lg blue_bold">Nuevo Horario</h2>
                     </div>
 
                     <div class="list__form">
@@ -101,16 +101,16 @@
 
             <div class="containt_main_form mb-3">
                 <div class="mb-3">
-                    <h2 class="fs_subtitle blue_bold">Horario</h2>
+                    <h2 class="subtitle__lg blue_bold">Horario</h2>
                 </div>
 
                 <div>
                     <table class="table p-0" id="table-horario">
                         <thead>
                             <tr>
-                                <th class="fs_text black_bold">Días</th>
-                                <th class="fs_text black_bold">Horas</th>
-                                <th class="fs_text black_bold">Acción</th>
+                                <th class="text__md">Días</th>
+                                <th class="text__md">Horas</th>
+                                <th class="text__md">Acción</th>
                             </tr>
                         </thead>
 
@@ -118,13 +118,13 @@
                         @if(!empty($config->horario) and is_array($config->horario))
                             @foreach($config->horario as $item)
                                 <tr>
-                                    <td class="fs_text gray_light">
+                                    <td class="text__md black_light">
                                         @if(!empty($item['daysOfWeek']))
                                             @php foreach ($item['daysOfWeek'] as $k => $i) $item['daysOfWeek'][$k] = daysWeekText($i); @endphp
                                             {{ implode('-', $item['daysOfWeek']) }}
                                         @endif
                                     </td>
-                                    <td class="fs_text gray_light">{{ date('h:i A', strtotime($item['startTime'])) }} - {{ date('h:i A', strtotime($item['endTime'])) }}</td>
+                                    <td class="text__md black_light">{{ date('h:i A', strtotime($item['startTime'])) }} - {{ date('h:i A', strtotime($item['endTime'])) }}</td>
                                     <td class="d-flex justify-content-center">
                                         <button class="btn_cierre_citasProf eliminar-horario" type="button" data-id="{{ $item['id'] }}"></button>
                                     </td>
