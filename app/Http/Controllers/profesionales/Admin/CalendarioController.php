@@ -135,13 +135,16 @@ class CalendarioController extends Controller
                             }
                         }
                     }
+                    //validar que no se pueda agendar 2 horas antes de llegar a la cita
+                    $hoy = Carbon::now()->subHours(2);
+                    $start = new Carbon($startTime);
 
-                    if ($valid)
+                    if ($valid and $hoy->lessThan($start))
                     {
                         //Agregar la disponibilidad
                         $listDates[] = [
                             'startTime' => $startTime,
-                            'endTime' => $endTime
+                            'endTime' => $endTime,
                         ];
                     }
                 }
