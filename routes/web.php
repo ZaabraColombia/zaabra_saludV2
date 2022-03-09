@@ -161,43 +161,50 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
 
         Route::get('/panel',[profesionales\Admin\PanelController::class,'index'])->name('panel');
 
-        Route::get('/calendario',[profesionales\Admin\CalendarioController::class,'index'])
-            ->name('calendario');
-        Route::post('/calendario/dias-libre',[profesionales\Admin\CalendarioController::class,'citas_libres'])
-            ->name('calendario.dias-libre');
-        Route::post('/calendario/crear-cita',[profesionales\Admin\CalendarioController::class,'crear_cita'])
-            ->name('calendario.crear-cita');
-        Route::get('/calendario/ver-citas',[profesionales\Admin\CalendarioController::class,'ver_citas'])
-            ->name('calendario.ver-citas');
-        Route::post('/calendario/ver-cita',[profesionales\Admin\CalendarioController::class,'ver_cita'])
-            ->name('calendario.ver-cita');
-        Route::post('/calendario/actualizar-cita',[profesionales\Admin\CalendarioController::class,'actualizar_cita'])
-            ->name('calendario.actualizar-cita');
-        Route::post('/calendario/reagendar-cita',[profesionales\Admin\CalendarioController::class,'reagendar_cita'])
-            ->name('calendario.reagendar-cita');
-        Route::post('/calendario/cancelar-cita',[profesionales\Admin\CalendarioController::class,'cancelar_cita'])
-            ->name('calendario.cancelar-cita');
+        Route::as('agenda.')->group(function (){
 
-        //Configurar calendario
-        Route::get('/configurar-calendario', [profesionales\Admin\CalendarioController::class, 'configuracion'])
-            ->name('configurar-calendario');
-        Route::post('/configurar-calendario/cita', [profesionales\Admin\CalendarioController::class, 'cita'])
-            ->name('configurar-calendario.cita');
-        Route::post('/configurar-calendario/agregar_horario', [profesionales\Admin\CalendarioController::class, 'horario_agregar'])
-            ->name('configurar-calendario.horario-agregar');
-        Route::delete('/configurar-calendario/eliminar_horario', [profesionales\Admin\CalendarioController::class, 'horario_eliminar'])
-            ->name('configurar-calendario.horario-eliminar');
+            Route::get('/citas',[profesionales\Admin\CitasController::class,'index'])->name('citas');
 
-        Route::get('/citas',[profesionales\Admin\CitasController::class,'index'])->name('citas');
+            Route::get('/calendario',[profesionales\Admin\CalendarioController::class,'index'])
+                ->name('calendario');
+            Route::post('/calendario/dias-libre',[profesionales\Admin\CalendarioController::class,'citas_libres'])
+                ->name('calendario.dias-libre');
+            Route::post('/calendario/crear-cita',[profesionales\Admin\CalendarioController::class,'crear_cita'])
+                ->name('calendario.crear-cita');
+            Route::get('/calendario/ver-citas',[profesionales\Admin\CalendarioController::class,'ver_citas'])
+                ->name('calendario.ver-citas');
+            Route::post('/calendario/ver-cita',[profesionales\Admin\CalendarioController::class,'ver_cita'])
+                ->name('calendario.ver-cita');
+            Route::post('/calendario/actualizar-cita',[profesionales\Admin\CalendarioController::class,'actualizar_cita'])
+                ->name('calendario.actualizar-cita');
+            Route::post('/calendario/reagendar-cita',[profesionales\Admin\CalendarioController::class,'reagendar_cita'])
+                ->name('calendario.reagendar-cita');
+            Route::post('/calendario/cancelar-cita',[profesionales\Admin\CalendarioController::class,'cancelar_cita'])
+                ->name('calendario.cancelar-cita');
+
+            //Configurar calendario
+            Route::get('/configurar-calendario', [profesionales\Admin\CalendarioController::class, 'configuracion'])
+                ->name('configurar-calendario');
+            Route::post('/configurar-calendario/cita', [profesionales\Admin\CalendarioController::class, 'cita'])
+                ->name('configurar-calendario.cita');
+            Route::post('/configurar-calendario/agregar_horario', [profesionales\Admin\CalendarioController::class, 'horario_agregar'])
+                ->name('configurar-calendario.horario-agregar');
+            Route::delete('/configurar-calendario/eliminar_horario', [profesionales\Admin\CalendarioController::class, 'horario_eliminar'])
+                ->name('configurar-calendario.horario-eliminar');
+        });
+
         Route::get('/pagos',[profesionales\Admin\PagosController::class,'index'])->name('pagos');
+
         Route::get('/pacientes',[profesionales\Admin\PacientesController::class,'index'])->name('pacientes');
 
-        Route:: get('/cie10',[profesionales\Admin\HistoriaClinicaController::class,'cie10'])
-            ->name('cie10');
-        Route:: get('/cups',[profesionales\Admin\HistoriaClinicaController::class,'cups'])
-            ->name('cups');
-        Route:: get('/cums',[profesionales\Admin\HistoriaClinicaController::class,'cums'])
-            ->name('cums');
+        Route::as('catalogos.')->group(function () {
+            Route:: get('/cie10',[profesionales\Admin\HistoriaClinicaController::class,'cie10'])
+                ->name('cie10');
+            Route:: get('/cups',[profesionales\Admin\HistoriaClinicaController::class,'cups'])
+                ->name('cups');
+            Route:: get('/cums',[profesionales\Admin\HistoriaClinicaController::class,'cums'])
+                ->name('cums');
+        });
 
         Route:: get('/favoritos',[profesionales\Admin\FavoritosController::class,'index'])->name('favoritos');
         Route:: post('/guardar-especialidades',[profesionales\Admin\FavoritosController::class,'guardar_especialidades'])
@@ -208,6 +215,8 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
             ->name('favoritos.guardar_profesional');
         Route:: post('/guardar-instituciones',[profesionales\Admin\FavoritosController::class,'guardar_instituciones'])
             ->name('favoritos.guardar_instituciones');
+
+        Route::resource('contactos', profesionales\Admin\ContactosController::class);
 
         //Route:: get('/panelAdministrativoProfesional/{idPerfilProfesional}',[App\Http\Controllers\admin\adminProfesionalController::class,'cita'])->name('panelAdministrativoProfesional');
 
@@ -221,15 +230,14 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
         //Route:: get('/editarPatologia',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'patologia'])->name('editarPatologia');
         //Route:: get('/editarExpediente',[App\Http\Controllers\admin\adminHistoriaClinicaProfesional::class,'Expediente'])->name('editarExpediente');
 
-        Route:: get('/prescripcionesProfesional',[App\Http\Controllers\admin\adminPrescripcionesProfesionalController::class,'index'])->name('prescripcionesProfesional');
-        Route:: get('/crearFormulaProfesional',[App\Http\Controllers\admin\adminPrescripcionesProfesionalController::class,'formulas'])->name('crearFormulaProfesional');
+        //Route:: get('/prescripcionesProfesional',[App\Http\Controllers\admin\adminPrescripcionesProfesionalController::class,'index'])->name('prescripcionesProfesional');
+        //Route:: get('/crearFormulaProfesional',[App\Http\Controllers\admin\adminPrescripcionesProfesionalController::class,'formulas'])->name('crearFormulaProfesional');
 
-        Route:: get('/diagnosticosProfesional',[App\Http\Controllers\admin\adminDiagnosticosProfesionalController::class,'index'])->name('diagnosticosProfesinal');
-        Route:: get('/procedimientosProfesional',[App\Http\Controllers\admin\adminProcedimientosProfesionalController::class,'index'])->name('procedimientosProfesional');
-        Route:: get('/vademecumProfesional',[App\Http\Controllers\admin\adminVademecumProfesionalController::class,'index'])->name('vademecumProfesional');
+        //Route:: get('/diagnosticosProfesional',[App\Http\Controllers\admin\adminDiagnosticosProfesionalController::class,'index'])->name('diagnosticosProfesinal');
+        //Route:: get('/procedimientosProfesional',[App\Http\Controllers\admin\adminProcedimientosProfesionalController::class,'index'])->name('procedimientosProfesional');
+        //Route:: get('/vademecumProfesional',[App\Http\Controllers\admin\adminVademecumProfesionalController::class,'index'])->name('vademecumProfesional');
         //Route:: get('/servicios',[App\Http\Controllers\admin\adminController::class,'oscar2'])->name('servicios');
 
-        Route::resource('contactos', profesionales\Admin\ContactosController::class);
     });
 });
 
