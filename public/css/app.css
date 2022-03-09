@@ -22907,14 +22907,41 @@ a:link, a:visited, a:active, a:hover {
   transition: left 0.5s ease-out;
 }
 
-.sidebar-wrapper .sidebar-header {
-  padding: 2rem 2rem 1rem;
-  font-size: 2rem;
-  font-weight: 700;
+.bg_gray {
+  background-color: #F9F9F9;
 }
 
-.sidebar-wrapper .sidebar-header img {
-  height: 1.2rem;
+.bg_white {
+  background-color: #FFFFFF;
+}
+
+.sidebar-menu .sidebar__header {
+  display: flex;
+  align-items: center;
+  padding: 35px 20px 0 20px;
+}
+.sidebar-menu .sidebar__header img {
+  width: 60px;
+  height: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50px;
+}
+.sidebar-menu .sidebar__header .user_data {
+  display: block;
+  padding-left: 15px;
+}
+.sidebar-menu .sidebar__header .user_data h2 {
+  font-size: 20px;
+  font-family: "Quicksand";
+  color: #0083D6;
+  margin: 0;
+}
+.sidebar-menu .sidebar__header .user_data h3 {
+  font-size: 18px;
+  font-family: "Quicksand";
+  color: #232323;
+  margin: 0;
 }
 
 .sidebar-wrapper .sidebar-toggler.x {
@@ -22926,7 +22953,7 @@ a:link, a:visited, a:active, a:hover {
 
 .sidebar-wrapper .menu {
   margin-top: 2rem;
-  padding: 0 2rem;
+  padding-left: 1rem;
   font-weight: 600;
 }
 
@@ -22969,31 +22996,31 @@ a:link, a:visited, a:active, a:hover {
   position: relative;
 }
 
-.sidebar-wrapper .menu .sidebar-item.has-sub .sidebar-link:after {
-  content: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><path stroke="gray" stroke-width="1" d="M6 9l6 6 6-6"/></svg>');
-  position: absolute;
-  color: #ccc;
-  right: 15px;
-  top: 12px;
-  display: block;
+.sidebar-wrapper .menu .sidebar-item a {
+  color: #232323;
 }
 
-.sidebar-wrapper .menu .sidebar-item.active .sidebar-link {
-  background-color: #435ebe;
+.sidebar-wrapper .menu .sidebar-item button {
+  font-size: 16px;
+  font-family: "Quicksand";
+  color: #232323;
+  margin: 0;
+  padding: 7px 0 7px 25px;
+  width: 180px;
+  background: transparent;
+  border-radius: 5px;
+  border: none;
+  text-align: initial;
 }
-
-.sidebar-wrapper .menu .sidebar-item.active .sidebar-link span {
-  color: #fff;
+.sidebar-wrapper .menu .sidebar-item button:hover {
+  background: #0083D6;
+  color: #FFFFFF;
+  border-radius: 5px;
 }
-
-.sidebar-wrapper .menu .sidebar-item.active .sidebar-link i,
-.sidebar-wrapper .menu .sidebar-item.active .sidebar-link svg {
-  fill: #fff;
-  color: #fff;
-}
-
-.sidebar-wrapper .menu .sidebar-item.active .sidebar-link.has-sub:after {
-  content: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><path stroke="%23fff" stroke-width="1" d="M6 9l6 6 6-6"/></svg>');
+.sidebar-wrapper .menu .sidebar-item button:focus {
+  background: #0083D6;
+  color: #FFFFFF;
+  border-radius: 5px;
 }
 
 .sidebar-wrapper .menu .submenu {
@@ -23006,16 +23033,7 @@ a:link, a:visited, a:active, a:hover {
 .sidebar-wrapper .menu .submenu.active {
   max-height: 999px;
   display: block;
-  padding: 0;
-}
-
-.sidebar-wrapper .menu .submenu .submenu-item.active {
-  position: relative;
-}
-
-.sidebar-wrapper .menu .submenu .submenu-item.active > a {
-  color: #435ebe;
-  font-weight: 700;
+  padding-left: 30px;
 }
 
 .sidebar-wrapper .menu .submenu .submenu-item a {
@@ -23024,38 +23042,49 @@ a:link, a:visited, a:active, a:hover {
   font-weight: 600;
   letter-spacing: 0.5px;
   transition: all 0.3s;
-  font-size: 0.85rem;
+  font-size: 14px;
   text-decoration: none;
+  color: #232323;
+}
+.sidebar-wrapper .menu .submenu .submenu-item a:hover {
+  color: #0083D6;
 }
 
-.sidebar-wrapper .menu .submenu .submenu-item .actived:hover {
-  margin-left: 0.1rem;
-  color: #ffffff !important;
-  background-color: #0083D6;
-  text-decoration: none;
+@media (min-width: 320px) {
+  .menu_mobile {
+    background-image: url("/img/header/icono-hamburguesa-azul.svg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 25px;
+    height: 25px;
+  }
 }
+@media (min-width: 1024px) {
+  .sidebar-menu .sidebar__header .user_data {
+    padding-left: 10px;
+  }
 
-.actived {
-  color: #232323 !important;
+  .sidebar-menu .sidebar__header .user_data h2 {
+    font-size: 16px;
+  }
+
+  .sidebar-menu .sidebar__header .user_data h3 {
+    font-size: 13px;
+  }
 }
+@media (min-width: 1200px) {
+  .sidebar-menu .sidebar__header .user_data {
+    padding-left: 15px;
+  }
 
-.unactived {
-  color: #0083D6 !important;
-  text-decoration: none !important;
+  .sidebar-menu .sidebar__header .user_data h2 {
+    font-size: 20px;
+  }
+
+  .sidebar-menu .sidebar__header .user_data h3 {
+    font-size: 18px;
+  }
 }
-
-.titulo_menu {
-  color: #232323 !important;
-  display: flex;
-  width: 75%;
-}
-
-.citaPadre {
-  color: #ffffff !important;
-  background-color: #0083D6;
-  padding-left: 5%;
-}
-
 .text-muted {
   color: #232323 !important;
   font-family: "Quicksand";
@@ -23176,14 +23205,6 @@ a:link, a:visited, a:active, a:hover {
   box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25);
 }
 
-.section_cabecera_citas {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 5%;
-  padding-top: 2%;
-}
-
 .title_miCita {
   font-size: 2em;
   font-family: "Quicksand";
@@ -23233,7 +23254,6 @@ a:link, a:visited, a:active, a:hover {
   padding: 1.2em;
   padding-left: 0;
   font-size: 1em;
-  font-weight: bold;
   font-family: "Quicksand";
 }
 
@@ -23586,11 +23606,6 @@ a:link, a:visited, a:active, a:hover {
     width: 23%;
   }
 
-  .section_cabecera_citas {
-    padding-bottom: 10%;
-    padding-top: 10%;
-  }
-
   .flecha_btn_agendar {
     width: 9%;
   }
@@ -23632,12 +23647,6 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1440px) {
-  .section_cabecera_citas {
-    width: 90%;
-    padding-bottom: 3%;
-    padding-top: 2%;
-  }
-
   .btn_agendar_cita {
     width: 17%;
   }
@@ -23695,35 +23704,43 @@ a:link, a:visited, a:active, a:hover {
   align-items: center;
 }
 
-.text_calendar, .dias {
+.content_dias_agenda span {
+  font-size: 14px;
   font-family: "Roboto";
   color: #3E3E3E;
-}
-
-.dias {
   display: flex;
-  align-content: center;
+  align-items: baseline;
+  margin-bottom: 5px;
 }
-
-.dias i {
+.content_dias_agenda span i {
   width: 15px;
   height: 15px;
-  border-radius: 50%;
   border: 1px solid #707070;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
   margin-right: 7px;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
+}
+
+.disponible i {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+}
+
+.cita_pag i {
+  background: #1B85D7 0% 0% no-repeat padding-box;
+}
+
+.cita_pag_pres i {
+  background: #D6FFFB 0% 0% no-repeat padding-box;
 }
 
 .no_disponible i {
-  background: #d8d8d8;
+  background: #D8D8D8 0% 0% no-repeat padding-box;
 }
 
-.contains_option_days {
-  display: flex;
-  flex-direction: column;
-  margin-top: 0;
+.cita_agen i {
+  background: #019F86 0% 0% no-repeat padding-box;
+}
+
+.cita_cancel i {
+  background: #9DD1F9 0% 0% no-repeat padding-box;
 }
 
 @media (min-width: 320px) {
@@ -24665,6 +24682,22 @@ a:link, a:visited, a:active, a:hover {
     font-size: 1.2em;
   }
 }
+.title__xl {
+  font-size: 24px;
+}
+
+.subtitle__lg {
+  font-size: 16px;
+}
+
+.text__md {
+  font-size: 15px;
+}
+
+.text_small {
+  font-size: 14px;
+}
+
 .sidebar_head {
   width: 95%;
   margin: auto;
@@ -24730,7 +24763,7 @@ a:link, a:visited, a:active, a:hover {
 
 .containt_agendaProf {
   margin: 0;
-  padding: 0 6%;
+  padding: 0 15px;
 }
 
 .btn_editar_citasProf {
@@ -25198,6 +25231,22 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 768px) and (orientation: portrait) {
+  .title__xl {
+    font-size: 30px;
+  }
+
+  .subtitle__lg {
+    font-size: 22px;
+  }
+
+  .text__md {
+    font-size: 16px;
+  }
+
+  .containt_agendaProf {
+    padding: 0 60px;
+  }
+
   .panel-Administrativo_prof {
     background: #F9F9F9;
     padding: 3% 2% 30% 3%;
@@ -25308,6 +25357,22 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1024px) {
+  .title__xl {
+    font-size: 28px;
+  }
+
+  .subtitle__lg {
+    font-size: 22px;
+  }
+
+  .text__md {
+    font-size: 16px;
+  }
+
+  .containt_agendaProf {
+    padding: 0 0 0 40px;
+  }
+
   .section_addFile_consulta {
     display: flex;
     padding: 5% 0 0 0;
@@ -25394,6 +25459,10 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 @media (min-width: 1440px) {
+  .containt_agendaProf {
+    padding: 0 60px;
+  }
+
   .content_histClinica {
     width: 75%;
   }
@@ -26088,7 +26157,7 @@ a:link, a:visited, a:active, a:hover {
 .table thead tr th {
   font-family: "Quicksand";
   color: #0083D6;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .table thead tr th,
@@ -26418,22 +26487,5 @@ a:link, a:visited, a:active, a:hover {
 
   .fs_text_small {
     font-size: 17px;
-  }
-}
-.bg_gray {
-  background-color: #F9F9F9;
-}
-
-.bg_white {
-  background-color: #FFFFFF;
-}
-
-@media (min-width: 320px) {
-  .menu_mobile {
-    background-image: url("/img/header/icono-hamburguesa-azul.svg");
-    background-repeat: no-repeat;
-    background-position: bottom;
-    width: 25px;
-    height: 25px;
   }
 }

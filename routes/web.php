@@ -50,7 +50,7 @@ Route:: get('/ramas-de-la-salud/{nombreProfesion}',[App\Http\Controllers\profesi
 Route:: get('/Especialidades/{nombreEspecialidad}',[App\Http\Controllers\profesionales\medicosEspecialidadController::class,'index'])->name('Especialistas-En');
 
 /*Esta ruta es de landing profesionales y dirige al controlador encargado de traer la informacion a la vista*/
-Route:: get('/PerfilProfesional/{slug}',[App\Http\Controllers\profesionales\perfilprofesionalController::class,'index'])->name('perfil');
+Route:: get('/PerfilProfesional/{slug}',[App\Http\Controllers\profesionales\perfilprofesionalController::class,'index'])->name('PerfilProfesional');
 
 /*Esta ruta es de galería tipo entidades*/
 Route:: get('/Instituciones-Medicas',[App\Http\Controllers\entidades\entidadesController::class,'index'])->name('Instituciones-Medicas');
@@ -105,7 +105,7 @@ Route:: post('/comentarios',[App\Http\Controllers\comentarios\comentariosControl
 Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(function (){
 
     /*Esta ruta es del formulario del profesional */
-    Route::get('/FormularioProfesional',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'index'])->name('FormularioProfesional');
+    Route::get('/FormularioProfesional',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'index'])->name('perfil');
 
     /*-----formulario parte 1----*/
     Route::post('/FormularioProfesionalSave',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'create1'])->name('create1');

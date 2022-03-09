@@ -5,12 +5,12 @@
 @extends('profesionales.admin.layouts.panel')
 
 @section('contenido')
-    <div class="container-fluid">
-        <div class="containt_right">
+    <div class="container-fluid p-0 pr-lg-4">
+        <div class="containt_agendaProf">
             <!-- Form update duration date -->
-            <div class="my-4">
-                <h1 class="fs_title blue_bold">Configuración de cita</h1>
-                <h2 class="fs_subtitle gray_light">Administre su horario de la cita</h2>
+            <div class="my-4 my-xl-5">
+                <h1 class="title__xl blue_bold">Configuración de cita</h1>
+                <h2 class="subtitle__lg black_light">Administre su horario de la cita</h2>
             </div>
 
             <form action="{{ route('profesional.configurar-calendario.cita') }}"

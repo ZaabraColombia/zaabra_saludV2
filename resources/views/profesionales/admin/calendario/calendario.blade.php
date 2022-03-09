@@ -10,31 +10,48 @@
     <section class="section">
         <div class="row containt_agendaProf" id="basic-table">
             <div class="col-12 p-0">
-                <div class="section_cabecera_citas">
-                    <div>
-                        <h1 class="title_miCita">Mi Calendario</h1>
-                        <span class="subtitle_miCita">Administre su calendario de citas</span>
-                    </div>
+                <div class="my-4 my-xl-5">
+                    <h1 class="title__xl blue_bold">Mi Calendario</h1>
+                    <span class="subtitle__lg black_light">Administre su calendario de citas</span>
                 </div>
 
                 <div class="row m-0 pb-4">
                     <button id="actualizar-calendar" class="button_blue_form"><i class="fas fa-sync-alt pr-2"></i>Actualizar</button>
                 </div>
 
-                <div class="contains_option_days">
-                    <h2 class="dias no_disponible"><i></i> Días no disponibles</h2>
-                    <h2 class="dias"><i></i> Días disponibles</h2>
+                <div class="row m-0 content_dias_agenda mb-md-3">
+                    <div class="col-md-4 pl-0">
+                        <span class="disponible"> <i></i> Días disponibles</span>
+                    </div>
+
+                    <div class="col-md-4 pl-0">
+                        <span class="cita_pag"> <i></i> Citas pagadas</span>
+                    </div>
+
+                    <div class="col-md-4 pl-0">
+                        <span class="cita_pag_pres"> <i></i> Cita pago presencial</span>
+                    </div>
+
+                    <div class="col-md-4 pl-0">
+                        <span class="no_disponible"> <i></i> Días no disponibles</span>
+                    </div>
+
+                    <div class="col-md-4 pl-0">
+                        <span class="cita_agen"> <i></i> Citas agendadas</span>
+                    </div>
+
+                    <div class="col-md-4 pl-0">
+                        <span class="cita_cancel"> <i></i> Citas canceladas</span>
+                    </div>
                 </div>
 
-                {{--                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_dia_calendario">--}}
-                {{--                    Día del calendario--}}
-                {{--                </button>--}}
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_opcion_cita">
                     Opciones de la cita
                 </button>
             </div>
             <div class="col-12 col-lg-9 p-0" id="alerta-general"></div>
-            <div class="col-12 col-lg-9 p-0">
+
+            <div class="col-12 col-lg-9 p-0 mb-3">
                 <div id="calendar"></div>
             </div>
         </div>

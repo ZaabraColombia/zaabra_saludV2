@@ -1,72 +1,99 @@
 @php
 $user = Auth::user();
 @endphp
-<div id="sidebar" class="active">
+<div class="active" id="sidebar">
     <div class="sidebar-wrapper active ps ps--active-y">
         <div class="sidebar-menu">
-            <div class="imgtxtagen">
-                <img class="imagen_usuario_agen" src="{{ asset($user->profecional->fotoperfil ?? 'img/menu/avatar.png') }}" alt="user.png">
-                <h1 class="title_agenda mb-0">{{ $user->nombre_completo }}</h1>
+            <div class="sidebar__header">
+                <img src="{{ asset($user->profecional->fotoperfil ?? 'img/menu/avatar.png') }}" alt="user.png">
+                <div class="user_data">
+                    <h2>Dr(a) Alejandra de Santa María</h2>
+                    <h3>Otorrinonaringología</h3>
+                </div>
             </div>
 
-            <ul class="menu pr-0">
-                <li class="sidebar-item  has-sub ">
-                    <a id="menu_panel" class="actived" href="{{ route('profesional.panel') }}"> Menu </a>
+            <ul class="menu">
+                <li class="sidebar-item  has-sub">
+                    <a id="menu_panel" href="{{ route('profesional.panel') }}">
+                        <button>Menu</button>
+                    </a>
                 </li>
-                @if(!empty($objListaUsuario1->isNotEmpty()))
-                    <li class="sidebar-item  has-sub">
-                        <span id="cita_padre" class="titulo_menu">Mis citas</span>
-                        <ul class="submenu active p-0">
-                            <li class="submenu-item">
-                                <a id="cita" class="actived" href='{{ route('profesional.citas') }}'>Citas</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a id="calendario" class="actived" href='{{ route('profesional.calendario') }}'>Calendario</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a id="configurar-calendario" class="actived" href='{{ route('profesional.configurar-calendario') }}'>Configuración del Calendario</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a id="pago" class="actived" href='{{ route('profesional.pagos') }}'>Mis pagos</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a id="pacientes" class="actived" href='{{ route('profesional.pacientes') }}'>Mis pacientes</a>
-                           </li>
-                            <li class="submenu-item ">
-                               <a id="contactos" class="actived" href='{{ route('profesional.contactos.index') }}'>Mis contactos</a>    
-                           </li>
-                        </ul>
-                    </li>
-                @endif
-                @if(!empty($objListaUsuario2->isNotEmpty()))
-                    <li class="sidebar-item  has-sub">
-                        <span id="historia_padre" class="titulo_menu">Procedimientos</span>
-                        <ul class="submenu active p-0">
-                            <li class="submenu-item ">
-                                <a id="cie10" class="actived" href='{{ route('profesional.cie10') }}'>Diagnósticos (CIE - 10)</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a id="cups" class="actived" href='{{ route('profesional.cups') }}'>Procedimientos (CUPS)</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a id="cums" class="actived" href='{{ route("profesional.cums") }}'>Vademecum actualizado COLOMBIA INVIMA (CUMS)</a>
-                            </li>
-                        </ul>
-                    </li>
-                @endif
 
+                <li class="sidebar-item  has-sub">
+                    <button id="cita_padre">Mi Agenda
+                        <i class="fas fa-angle-down pl-2 open"></i> 
+                    </button>
 
-                @if(!empty($objListaUsuario3->isNotEmpty()))
-                    <li class="sidebar-item  has-sub">
-                        <span id="favorito_padre" class="titulo_menu">Mis favoritos</span>
-                        <ul class="submenu active p-0">
+                    <ul class="submenu active">
+                        <li class="submenu-item">
+                            <a id="cita" class="" href='{{ route('profesional.citas') }}'>Citas</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a id="calendario" class="" href='{{ route('profesional.calendario') }}'>Calendario</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a id="configurar-calendario" class="" href='{{ route('profesional.configurar-calendario') }}'>Configuración del Calendario</a>
+                        </li>
+                    </ul>
+                </li>
 
-                            <li class="submenu-item ">
-                                <a id="fav" class="actived" href='{{ route('profesional.favoritos') }}'>Favoritos</a>
-                            </li>
-                        </ul>
-                    </li>
-                @endif
+                <li class="sidebar-item  has-sub">
+                    <a id="pago" class="" href='{{ route('profesional.pagos') }}'>
+                        <button>Mis pagos</button>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  has-sub">
+                    <a id="pacientes" class="" href='{{ route('profesional.pacientes') }}'>
+                        <button>Mis pacientes</button>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  has-sub">
+                    <a id="contactos" class="" href='{{ route('profesional.contactos.index') }}'>
+                        <button>Mis contactos</button>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  has-sub">
+                    <button id="historia_padre">Catálogos
+                        <i class="fas fa-angle-down pl-2 open"></i> 
+                    </button>
+
+                    <ul class="submenu active">
+                        <li class="submenu-item ">
+                            <a id="cie10" class="" href='{{ route('profesional.cie10') }}'>Diagnósticos (CIE - 10)</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a id="cups" class="" href='{{ route('profesional.cups') }}'>Procedimientos (CUPS)</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a id="cums" class="" href='{{ route("profesional.cums") }}'>Vademecum actualizado COLOMBIA INVIMA (CUMS)</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item  has-sub">
+                    <a id="fav" class="" href='{{ route('profesional.favoritos') }}'>
+                        <button>Mis favoritos</button>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  has-sub">
+                    <a id="fav" class="" target="_blank" href="https://www.prescripciontotal.com.co/consultorio-generico/login">
+                        <button>PLM</button>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  has-sub">
+                    <a id="fav" class="" target="_blank" href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS">
+                        <button>Mipres
+                        <i class="fas fa-arrow-right-from-bracket"></i>
+                        <!-- <i class="fas fa-arrow-up-line"></i> -->
+                            <!-- <i class="fas fa-arrow-up pl-2 open"></i>  -->
+                        </button>
+                    </a>
+                </li>
 
                 @if(!empty($objListaUsuario5->isNotEmpty()))
                     <li class="sidebar-item  has-sub">
@@ -119,3 +146,8 @@ $user = Auth::user();
         </div>
     </div>
 </div>
+
+@section('scripts')
+    <script>
+    </script>
+@endsection

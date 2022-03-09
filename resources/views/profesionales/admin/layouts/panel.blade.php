@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row m-0 p-0">
-        <div class="col-2 col-lg-3 d-none d-lg-block bg_white p-0">
+        <div class="col-lg-3 d-none d-lg-block bg_white p-0">
             @include('profesionales.admin.layouts.menu')
         </div>
 

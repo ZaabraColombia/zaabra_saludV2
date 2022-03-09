@@ -1,10 +1,10 @@
 @extends('profesionales.admin.layouts.panel')
 
 @section('contenido')
-    <div class="container-fluid">   
-        <div class="containt_right"> 
-            <div class="my-4">       
-                <h1 class="fs_title blue_bold">Mis Pacientes</h1>
+    <div class="container-fluid p-0 pr-lg-4">   
+        <div class="containt_agendaProf"> 
+            <div class="my-4 my-xl-5">       
+                <h1 class="title__xl blue_bold">Mis Pacientes</h1>
             </div>
 
             <!-- Contenedor barra de búsqueda y botón agregar contacto -->
@@ -17,7 +17,7 @@
             </div>
 
             <!-- Contenedor formato tabla de la lista de contactos -->
-            <div class="containt_main_form">
+            <div class="containt_main_form mb-3">
                 <div class="table-responsive">
                     <table class="table">
                         <thead>

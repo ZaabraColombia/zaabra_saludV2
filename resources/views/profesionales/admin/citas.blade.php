@@ -1,14 +1,12 @@
 @extends('profesionales.admin.layouts.panel')
 
 @section('contenido')
-    <section class="section">
+    <section class="section pr-lg-4">
         <div class="row containt_agendaProf" id="basic-table">
             <div class="col-12 p-0">
-                <div class="section_cabecera_citas">
-                    <div>
-                        <h1 class="title_miCita">Mis citas</h1>
-                        <span class="subtitle_miCita">Encuentre aquí las citas agendadas por sus pacientes.</span>
-                    </div>
+                <div class="my-4 my-xl-5">
+                    <h1 class="title__xl blue_bold">Mis citas</h1>
+                    <span class="subtitle__lg black_light">Encuentre aquí las citas agendadas por sus pacientes.</span>
                 </div>
 
                 <div class="card container_citas">
@@ -39,8 +37,7 @@
                                                     <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>
                                                 </td>
                                                 <td>
-{{--                                                    <button class="btn_editar_citasProf" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>--}}
-{{--                                                    <button class="btn_cierre_citasProf" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>--}}
+
                                                 </td>
                                             </tr>
                                         @endforeach
