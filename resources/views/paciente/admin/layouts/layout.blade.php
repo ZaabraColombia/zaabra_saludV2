@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-admin')
 
 @section('content')
     <div class="row m-0 p-0">
@@ -8,7 +8,8 @@
 
         <div class="col-12 col-lg-10 panel-Administrativo">
             <div class="dropdown d-lg-none">
-                <a class="icon_menu_agenda dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                <a class="icon_menu_agenda dropdown-toggle" type="button" id="dropdownMenu2"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="z-index: 450;">
                     @include('paciente.admin.layouts.menu')

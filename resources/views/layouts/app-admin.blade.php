@@ -74,7 +74,7 @@
         <!-- Scripts  areas-->
         <script src="{{ asset('js/header.js') }}"></script>
         <script src="{{ asset('js/home.js') }}"></script>
-        <script src="{{ asset('js/footer.js') }}"></script>
+{{--        <script src="{{ asset('js/footer.js') }}"></script>--}}
         <script src="{{ asset('js/formularios.js') }}"></script>
         <script src="{{ asset('js/comentarios.js') }}"></script>
         <script src="{{ asset('js/filtroBusquedad.js') }}"></script>
