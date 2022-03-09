@@ -3,6 +3,7 @@
 use App\Http\Controllers\entidades;
 use App\Http\Controllers\Paciente;
 use App\Http\Controllers\profesionales;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
 
@@ -363,8 +364,15 @@ Route::get('/error505', function () { return view('errores/error505');})->name('
 
 
 Route::get('/test', function (){
-    //$p = \App\Models\profesiones::all();
+    //vencimiento
+    $fechaVencimiento = Carbon::now();
+    $fecha = new Carbon('2022-03-10 06:30');
+    $fechaVencimiento = $fechaVencimiento->addDays(8);
 
-    //foreach ($p as $item) $item->save();
+    if ($fechaVencimiento->greaterThan($fecha->subHour(1)))
+    {
+        $fechaVencimiento = $fecha->subHour(1);
+    }
+    dd($fechaVencimiento);
 
 });
