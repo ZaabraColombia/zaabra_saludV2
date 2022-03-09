@@ -163,8 +163,7 @@
                                     <label for="modalidad_pago">Modalidad de pago</label>
                                     <select id="modalidad_pago" name="modalidad_pago" required>
                                         <option></option>
-                                        <option value="tarjeta credito">Tarjeta de crédito</option>
-                                        <option value="pse">PSE</option>
+                                        <option value="virtual">Virtual</option>
                                         <option value="presencial">Presencial</option>
                                     </select>
                                 </div>
@@ -236,8 +235,7 @@
                                     <label for="modalidad_pago-editar">Modalidad de pago</label>
                                     <select id="modalidad_pago-editar" name="modalidad_pago" required>
                                         <option></option>
-                                        <option value="tarjeta credito">Tarjeta de crédito</option>
-                                        <option value="pse">PSE</option>
+                                        <option value="virtual">Virtual</option>
                                         <option value="presencial">Presencial</option>
                                     </select>
                                 </div>

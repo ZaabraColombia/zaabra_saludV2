@@ -276,7 +276,7 @@ class CalendarioController extends Controller
             'tipo_cita' => ['required'],
             'lugar'     => ['required'],
             'cantidad'  => ['required'],
-            'modalidad_pago' => ['required']
+            'modalidad_pago' => ['required', Rule::in(['virtual', 'presencial'])]
         ], [], [
             'disponibilidad' => 'Disponibilidad',
             'numero_id' => 'Número de identificación',
@@ -379,7 +379,7 @@ class CalendarioController extends Controller
             'tipo_cita' => ['required'],
             'lugar'     => ['required'],
             'cantidad'  => ['required'],
-            'modalidad_pago' => ['required']
+            'modalidad_pago' => ['required', Rule::in(['virtual', 'presencial'])]
         ], [
             'id_cita.required' => 'Algo salio mal con la cita, por favor cierre y vuélvalo a intentar'
         ], [
