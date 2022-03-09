@@ -222,27 +222,12 @@ class CalendarioController extends Controller{
             'tipo'      => $all['modalidad'],
             'cita_id'   => $date->id_cita,
         ]);
+
         return redirect()
             ->route('paciente.citas')
             ->with('success', "Cita asignada con {$profesional->user->nombre_completo}");
-        /*
-        $openPay = new CitaOpenPay();
-
-        if ($all['modalidad'] == 'pse' or $all['modalidad'] == 'tarjeta credito')
-        {
-            return redirect()->to($openPay->store($date, $pago, $profesional, $user));
-        } else {
-            return redirect()
-                ->route('paciente.citas')
-                ->with('success', "Cita asignada con {$profesional->user->nombre_completo}");
-        }*/
-
     }
 
-    public function respuesta(Request $request)
-    {
-
-    }
 
     public function profesional($id){
         return DB::select("SELECT pf.idPerfilProfesional, pf.fotoperfil, CONCAT('Dr.(a) ',  us.primernombre) AS primernombre, us.segundonombre, us.primerapellido, us.segundoapellido, ep.nombreEspecialidad, pf.numeroTarjeta, pf.direccion, un.nombreuniversidad, pf.descripcionPerfil, mn.nombre
@@ -254,6 +239,7 @@ class CalendarioController extends Controller{
         INNER JOIN municipios mn ON mn.id_municipio=pf.id_municipio
         WHERE pf.aprobado<>0 AND pf.idPerfilProfesional = '$id' LIMIT 1");
     }
+
     // consulta comentarios
     public function calificacion($idPerfilProfesional){
         return DB::select("SELECT us.primernombre, us.primerapellido, c.comentario,c.calificacion,
