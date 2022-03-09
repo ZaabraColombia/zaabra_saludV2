@@ -2,9 +2,9 @@
 // Contenedor input con los elementos (label e input)
 .input__box {
     label {
-        font-size: 15px;
+        font-size: 14px;
         font-family: 'Roboto';
-        color: $gray_second;
+        color: $black_firsrt;
         margin-bottom: 4px;
     }
     input {
@@ -13,7 +13,7 @@
         height: calc(1.6em + 0.75rem + 2px);
         padding: 0.375rem 0.75rem;
         margin-bottom: 15px;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 400;
         line-height: 1.6;
         color: $black_second;
@@ -34,9 +34,9 @@
 // Input checks
 .input__check {
     label {
-        font-size: 15px;
+        font-size: 14px;
         font-family: 'Roboto';
-        color: $gray_second;
+        color: $black_firsrt;
         margin-bottom: 0;
     }
     input {
@@ -49,16 +49,16 @@
     // Inputs
     .input__box {
         label {
-            font-size: 17px;
+            font-size: 16px;
         }
         input {
-            font-size: 16px;
+            font-size: 15px;
         }
     }
     // Input checks
     .input__check {
         label {
-            font-size: 17px;
+            font-size: 14px;
         }
         input {
             width: 20px;
@@ -70,16 +70,16 @@
     // Inputs
     .input__box {
         label {
-            font-size: 19px;
+            font-size: 16px;
         }
         input {
-            font-size: 18px;
+            font-size: 15px;
         }
     }
     // Input checks
     .input__check {
         label {
-            font-size: 19px;
+            font-size: 16px;
         }
         input {
             width: 20px;
