@@ -61,7 +61,7 @@
                 @yield('content')
             </main>
 
-            @include('layouts.footer')
+            @include('layouts.footer-admin')
         </div>
 
         <script src="{{ asset('js/app.js') }}"></script>
