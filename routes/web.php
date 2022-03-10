@@ -95,8 +95,12 @@ Route::get('auth/facebook/callback', [\App\Http\Controllers\Auth\FacebookControl
 Route::post('/charge', [\App\Http\Controllers\Pagos\OpenPayContrller::class, 'store'])->name('pay-openPay')->middleware('auth');
 Route::get('/response-page', [\App\Http\Controllers\Pagos\OpenPayContrller::class, 'response_page'])->name('pay-openPay-response');
 
-Route::get('/respuesta-pago-cita', [Paciente\Admin\CalendarioController::class, 'respuesta'])
-    ->name('respuesta-pago-cita');
+Route::get('/profesional/detalle-pago-cita/{pago_cita}', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'detalle_profesional'])
+    ->name('profesional.detalle-pago-cita');
+Route::post('/profesional/pago-cita', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'store_profesional'])
+    ->name('profesional.pago-cita');
+Route::get('/profesional/respuesta-pago-cita', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'response_profesional'])
+    ->name('profesional.respuesta-pago-cita');
 
 
 

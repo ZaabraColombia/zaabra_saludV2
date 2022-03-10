@@ -22,6 +22,10 @@ class HistorialPagoCita extends Model
 
     protected $table = 'historial_pago_citas';
 
+    protected $casts = [
+        'fecha' => 'datetime'
+    ];
+
     public function pago_cita(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(PagoCita::class);
