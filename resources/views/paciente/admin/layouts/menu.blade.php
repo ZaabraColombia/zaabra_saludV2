@@ -19,25 +19,25 @@ $user = Auth::user();
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a id="pago" href='{{ route('paciente.pagos') }}'>
+                    <a id="pago" href='{{ route('paciente.citas') }}'>
                         <button>Mis citas</button>
                     </a>
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a id="pacientes" href='{{ route('paciente.pacientes') }}'>
+                    <a id="pacientes" href='{{ route('paciente.pagos') }}'>
                         <button>Mis pagos</button>
                     </a>
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a id="contactos" href='{{ route('paciente.contactos.index') }}'>
+                    <a id="contactos" href='{{ route('paciente.perfil') }}'>
                         <button>Actualizar datos</button>
                     </a>
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a id="fav" href='{{ route('paciente.favoritos') }}'>
+                    <a id="fav" href='#'>
                         <button>Mis profesionales</button>
                     </a>
                 </li>
