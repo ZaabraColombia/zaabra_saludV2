@@ -35,8 +35,8 @@
                         <h2 class="fs_title_module blue_bold" id="nombre_profesional-paciente">
                             {{$profesional->user->nombre_completo }}
                         </h2>
-                        <h4 class="fs_subtitle_module black_bold mb-0" id="especialidad_profesional-paciente">{{$profesional->nombreEspecialidad}}</h4>
-                        <h5 class="fs_text gray_light">{{$profesional->nombreuniversidad}}</h5>
+                        <h4 class="fs_subtitle_module black_bold mb-0" id="especialidad_profesional-paciente">{{ $profesional->especialidad->nombreEspecialidad ?? null }}</h4>
+                        <h5 class="fs_text gray_light">{{$profesional->universidad->nombreuniversidad}}</h5>
                         <h5 class="fs_text gray_bold">N° Tarjeta profesional: {{$profesional->numeroTarjeta}}</h5>
 
                         <h5 class="fs_text gray_light"><i></i>{{ $profesional->direccion }}</h5>
