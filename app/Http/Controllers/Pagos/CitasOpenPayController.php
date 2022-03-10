@@ -122,6 +122,8 @@ class CitasOpenPayController extends Controller
                     'pago_cita_id' => $pagoCita->id,
                 ]);
 
+
+
                 return redirect()->to($url);
             }else {
                 return redirect()->back()->withErrors(['error' => 'error al hacer el pago']);
@@ -145,6 +147,8 @@ class CitasOpenPayController extends Controller
 
             $charge = $openpay->charges->get($request->id);
 
+            dd($charge);
+
             $historial = HistorialPagoCita::query()->updateOrCreate(
                 ['referencia_autorizacion'], [
                 'referencia_autorizacion'   => $charge->order_id,
@@ -166,7 +170,8 @@ class CitasOpenPayController extends Controller
             return view('test');
 
         } catch (Exception $e) {
-            abort(404);
+            //abort(404);
+            dd($e);
         }
 
     }
