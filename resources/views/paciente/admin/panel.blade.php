@@ -7,7 +7,7 @@
                 <div class="row m-0">
                     <!-- Mis citas -->
                     <div class="col-6 col-md-4 p-2">
-                        <a  href="">
+                        <a  href="{{ route('paciente.citas') }}">
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mi-calendario.png') }}" alt="">
 
@@ -27,7 +27,7 @@
                     </div>
                     <!-- Actualizar datos -->
                     <div class="col-6 col-md-4 p-2">
-                        <a  href="">
+                        <a  href="{{ route('paciente.perfil') }}">
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mi-historia-clinica.png') }}" alt="">
 
@@ -37,7 +37,7 @@
                     </div>
                     <!-- Mis profesionales -->
                     <div class="col-6 col-md-4 p-2">
-                        <a  href="">
+                        <a  href="#">
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mis-examenes.jpg') }}" alt="">
 
@@ -47,7 +47,7 @@
                     </div>
                     <!-- Mis favoritos -->
                     <div class="col-6 col-md-4 p-2">
-                        <a  href="">
+                        <a  href="{{ route('paciente.favoritos') }}">
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mis-favoritos.png') }}" alt="">
 
