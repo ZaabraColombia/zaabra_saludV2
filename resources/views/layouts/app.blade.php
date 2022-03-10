@@ -55,7 +55,7 @@
 
         @include('header')
 
-        <div id="app">
+        <div id=""> {{-- Se elimino el id app --}}
             <!--    Contenido   -->
             <main>
                 @yield('content')
