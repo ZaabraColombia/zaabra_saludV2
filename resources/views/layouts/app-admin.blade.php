@@ -57,7 +57,7 @@
 
         <div id="app">
             <!--    Contenido   -->
-            <main>
+            <main style="width: 100%">
                 @yield('content')
             </main>
 

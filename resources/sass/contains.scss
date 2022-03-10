@@ -5,6 +5,9 @@
     border-radius: 9px;
     padding: 20px 15px;
 }
+.content_asig_cita {
+    padding: 0 15px;
+}
 // Contenedores implementados con CSS puro
 .content_row {
     display: flex;
@@ -142,7 +145,11 @@
         width: 85%;
     }
 }
-
+@media(min-width: 1024px) {
+    .content_asig_cita {
+        padding: 70px 45px 20px 45px;
+    }
+}
 @media(min-width: 1300px) {
     .list__form_column ul li:nth-child(1) {
         padding-left: 25px;
