@@ -9,7 +9,7 @@
     @php
         $user = Auth::user();
     @endphp
-    <div class="container-fluid px-lg-0">
+    <div class="container-fluid content_asig_cita">
         @if(isset($profesional))
             <div class="content_row">
                 <div class="col_flex w_lg_35" id="alertas">

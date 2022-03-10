@@ -23085,6 +23085,18 @@ a:link, a:visited, a:active, a:hover {
     font-size: 18px;
   }
 }
+#app {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background-color: #F9F9F9;
+}
+
+#footer {
+  align-self: flex-end;
+  width: 100%;
+}
+
 .content__target {
   border: 1px solid #0083D6;
   border-radius: 5px;
@@ -26037,6 +26049,10 @@ a:link, a:visited, a:active, a:hover {
   padding: 20px 15px;
 }
 
+.content_asig_cita {
+  padding: 0 15px;
+}
+
 .content_row {
   display: flex;
   flex-wrap: wrap;
@@ -26180,6 +26196,11 @@ a:link, a:visited, a:active, a:hover {
 
   .w_md_85 {
     width: 85%;
+  }
+}
+@media (min-width: 1024px) {
+  .content_asig_cita {
+    padding: 70px 45px 20px 45px;
   }
 }
 @media (min-width: 1300px) {

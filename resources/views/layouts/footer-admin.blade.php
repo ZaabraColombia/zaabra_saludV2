@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer>
+<footer id="footer">
     <!-- Contenedor principal del footer -->
     <div class="container-fluid p-0">
 
