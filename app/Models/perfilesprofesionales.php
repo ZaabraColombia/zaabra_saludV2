@@ -91,4 +91,9 @@ class perfilesprofesionales extends Model
     {
         return $this->hasMany(tipoconsultas::class, 'idperfil', 'idPerfilProfesional');
     }
+
+    public function universidad()
+    {
+        return $this->belongsTo(universidades::class, 'id_universidad', 'id_universidad');
+    }
 }
