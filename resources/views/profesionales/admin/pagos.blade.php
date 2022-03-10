@@ -25,14 +25,14 @@
                                                 <th></th>
                                             </tr>
                                         </thead>
-                                        
+
                                         <tbody>
                                             @if($pagos->isNotEmpty())
                                                 @foreach($pagos as $pago)
                                                     <tr>
-                                                        <td>{{ $pago->fecha->format('d,m /Y') }}</td>
-                                                        <td>{{ $pago->cita->tipo_consulta->nombreconsulta }}</td>
-                                                        <td>{{ $pago->cita->paciente->user->nombre_completo }}</td>
+                                                        <td>{{ $pago->fecha->format('d-m /Y') }}</td>
+                                                        <td>{{ $pago->cita->tipo_consulta->nombreconsulta ?? ''}}</td>
+                                                        <td>{{ $pago->cita->paciente->user->nombre_completo ?? ''}}</td>
                                                         <td>{{ ($pago->aprobado) ? 'Aprobado':'Por pagar' }}</td>
                                                         <td>{{ $pago->valor }}</td>
                                                         <td class="content_btn_descargar">

@@ -14,12 +14,14 @@ class PagosController extends Controller
     {
         $pagos = PagoCita::query()
             ->with([
-                'cita' => function ($query) {
-                    $query->where('profesional_id', '=', Auth::user()->profecional->idPerfilProfesional);
-                },
+                'cita',
+                'cita.tipo_consulta',
                 'cita.paciente',
                 'cita.paciente.user'
             ])
+            ->whereHas('cita', function ($query) {
+                $query->where('profesional_id', '=', Auth::user()->profecional->idPerfilProfesional);
+            })
             ->get();
 
         return view('profesionales.admin.pagos', compact('pagos'));
