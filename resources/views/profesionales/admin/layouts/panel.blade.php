@@ -14,7 +14,7 @@
                     @include('profesionales.admin.layouts.menu')
                 </div>
             </div>
-
+            
             <main>
                 @yield('contenido')
             </main>
