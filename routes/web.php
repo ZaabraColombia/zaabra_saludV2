@@ -19,12 +19,18 @@ Route::get('/search/filtro', [App\Http\Controllers\buscador\buscadorController::
 Route::get('/search', [App\Http\Controllers\buscador\buscadorController::class, 'search'])->name('search');
 
 /*Paquete búsqueda dinámica ciudades */
-Route::get('get-Departamento',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getDepartamento'])
+Route::get('/get-Departamento',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getDepartamento'])
     ->name('gte-departamentos')->middleware('auth');
-Route::get('get-Provincia',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getProvincia'])
+Route::get('/get-Provincia',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getProvincia'])
     ->name('get-provincias')->middleware('auth');
-Route::get('get-Ciudad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getCiudad'])
+Route::get('/get-Ciudad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getCiudad'])
     ->name('get-ciudad')->middleware('auth');
+Route::get('/paciente/get-Departamento',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getDepartamento'])
+    ->name('paciente-gte-departamentos')->middleware('auth');
+Route::get('/paciente/get-Provincia',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getProvincia'])
+    ->name('paciente-get-provincias')->middleware('auth');
+Route::get('/paciente/get-Ciudad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getCiudad'])
+    ->name('paciente-get-ciudad')->middleware('auth');
 
 /*Paquete búsqueda dinámica areas */
 Route::get('get-profesion',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getprofesion']);
