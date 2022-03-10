@@ -3,10 +3,11 @@
 @section('contenido')
     <div class="container py-4 px-lg-5">
         <div class="row m-0 p-0">
-            <div class="col-12 col-lg-8 p-0 m-0">
+            <div class="col-12 col-lg-8 col-xl-9 p-0 m-0">
                 <div class="row m-0 justify-content-between">
-                    <div class="col-6 col-md-4 col-lg-6 p-2 px-xl-4">
-                        <a  href="">
+                    <!-- Mi agenda -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{ route('profesional.agenda.calendario') }}'>
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mi-calendario.png') }}" alt="">
 
@@ -14,9 +15,9 @@
                             </div>
                         </a>
                     </div>
-
-                    <div class="col-6 col-md-4 col-lg-6 p-2 px-xl-4">
-                        <a  href="">
+                    <!-- Mis catalogos -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{ route('profesional.catalogos.cie10') }}'>
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mis-citas.jpg') }}" alt="">
 
@@ -24,9 +25,9 @@
                             </div>
                         </a>
                     </div>
-
-                    <div class="col-6 col-md-4 col-lg-6 p-2 px-xl-4">
-                        <a  href="">
+                    <!-- Mis pagos -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{ route('profesional.pagos') }}'>
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mis-pagos.png') }}" alt="">
 
@@ -34,9 +35,9 @@
                             </div>
                         </a>
                     </div>
-
-                    <div class="col-6 col-md-4 col-lg-6 p-2 px-xl-4">
-                        <a  href="">
+                    <!-- Mis pacientes -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{ route('profesional.pacientes') }}'>
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mi-historia-clinica.png') }}" alt="">
 
@@ -44,9 +45,9 @@
                             </div>
                         </a>
                     </div>
-
-                    <div class="col-6 col-md-4 col-lg-6 p-2 px-xl-4">
-                        <a  href="">
+                    <!-- Mis contactos -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{ route('profesional.contactos.index') }}'>
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mis-examenes.jpg') }}" alt="">
 
@@ -54,9 +55,9 @@
                             </div>
                         </a>
                     </div>
-
-                    <div class="col-6 col-md-4 col-lg-6 p-2 px-xl-4">
-                        <a  href="">
+                    <!-- Mis favoritos -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{ route('profesional.favoritos') }}'>
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mis-favoritos.png') }}" alt="">
 
@@ -67,18 +68,19 @@
                 </div>
             </div>
 
-            <div class="col-12 col-lg-4 p-0 m-0">
+            <div class="col-12 col-lg-4 col-xl-3 p-0 m-0">
                 <div class="row m-0">
+                    <!-- PLM -->
                     <div class="col-6 col-lg-12 py-3 px-2 py-lg-2">
-                        <a  href="">
+                        <a  href="https://www.prescripciontotal.com.co/consultorio-generico/login" target="_blank">
                             <div class="content__logos">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/plm.png') }}" alt="">
                             </div>
                         </a>
                     </div>
-
+                    <!-- Mipres -->
                     <div class="col-6 col-lg-12 py-3 px-2 py-lg-2">
-                        <a  href="">
+                        <a  href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS" target="_blank">
                             <div class="content__logos">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mipres-zaabra.png') }}" alt="">
                             </div>
