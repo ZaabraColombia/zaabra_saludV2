@@ -44,10 +44,6 @@
                         <span class="cita_cancel"> <i></i> Citas canceladas</span>
                     </div>
                 </div>
-
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_opcion_cita">
-                    Opciones de la cita
-                </button>
             </div>
             <div class="col-12 col-lg-9 p-0" id="alerta-general"></div>
 

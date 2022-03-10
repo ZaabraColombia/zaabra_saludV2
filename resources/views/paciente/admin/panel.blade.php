@@ -1,7 +1,7 @@
 @extends('paciente.admin.layouts.layout')
 
 @section('contenido')
-<div class="container py-4 px-lg-5">
+    <div class="container py-4 px-lg-5">
         <div class="row m-0 p-0">
             <div class="col-12 p-0 m-0">
                 <div class="row m-0">
@@ -58,7 +58,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 @endsection
 

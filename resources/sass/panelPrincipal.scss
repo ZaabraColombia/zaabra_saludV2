@@ -1,3 +1,13 @@
+#app {
+    display: flex;
+    flex-wrap: wrap;
+    min-height:100vh;
+    background-color: #F9F9F9;
+}
+#footer {
+align-self: flex-end;
+    width: 100%;
+}
 .content__target {
     border: 1px solid $blue_official;
     border-radius: 5px;
