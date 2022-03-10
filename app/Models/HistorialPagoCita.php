@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class HistorialPagoCita extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $fillable = [
         'id',
@@ -23,7 +23,8 @@ class HistorialPagoCita extends Model
     protected $table = 'historial_pago_citas';
 
     protected $casts = [
-        'fecha' => 'datetime'
+        'fecha' => 'datetime',
+        'respuesta' => 'array'
     ];
 
     public function pago_cita(): \Illuminate\Database\Eloquent\Relations\BelongsTo

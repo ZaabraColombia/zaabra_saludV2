@@ -80,9 +80,9 @@ class CitasOpenPayController extends Controller
                     "order_id"      => $order_id,
                     'amount'        => $pagoCita->valor,
                     'currency'      => 'COP',
-                    'description'   => "Cita medica {$profesional->user->nombre_completo} \n"
+                    'description'   => "Cita medica {$profesional->user->nombre_completo}"
                         . "{$cita->fecha_inicio->format('Y-m-d')} / "
-                        . "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A')} \n"
+                        . "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A')}"
                         . "{$cita->lugar}",
                     //'device_session_id' => $request->deviceSessionId,
                     'customer'      => $customer,
@@ -114,7 +114,7 @@ class CitasOpenPayController extends Controller
                 }
 
                 //guardar historial pago cita
-                $historial = HistorialPagoCita::query()->create([
+                HistorialPagoCita::query()->create([
                     'referencia_autorizacion' => $order_res,
                     'metodo' => $request->metodo_pago,
                     'respuesta' => json_encode((array) $charge),
@@ -123,21 +123,19 @@ class CitasOpenPayController extends Controller
                 ]);
 
 
-
                 return redirect()->to($url);
             }else {
                 return redirect()->back()->withErrors(['error' => 'error al hacer el pago']);
             }
         } catch (Exception $e) {
-            dd($e);
-            //abort(404);
+            //dd($e);
+            abort(404);
         }
     }
 
 
     public function response_profesional(Request $request)
     {
-
         try {
 
             // create instance OpenPay
@@ -147,15 +145,20 @@ class CitasOpenPayController extends Controller
 
             $charge = $openpay->charges->get($request->id);
 
-            dd($charge);
+            //Guardar respuesta
+            $respuesta = collect($charge)->mapWithKeys(function ($item, $key) {
+                $key = preg_match('/^\x00(?:.*?)\x00(.+)/', $key, $matches) ? $matches[1] : $key;
+                return [$key => $item];
+            });
 
             $historial = HistorialPagoCita::query()->updateOrCreate(
-                ['referencia_autorizacion'], [
-                'referencia_autorizacion'   => $charge->order_id,
+                [
+                    'referencia_autorizacion'   => $charge->order_id
+                ] , [
                 'metodo'                    => $charge->method,
-                'respuesta'                 => json_encode((array) $charge),
+                'respuesta'                 => $respuesta,
                 'fecha'                     => Carbon::now(),
-                'estado'                    => 1,
+                'estado'                    => ($charge->status == 'completed') ? 1:0,
             ]);
 
             //Validar el pago
@@ -163,15 +166,15 @@ class CitasOpenPayController extends Controller
             {
                 $historial->pago_cita->update([
                     'aprobado'                  => 1,
-                    'referencia_autorizacion'   => 1,
+                    'referencia_autorizacion'   => $charge->order_id,
                 ]);
             }
 
             return view('test');
 
         } catch (Exception $e) {
-            //abort(404);
-            dd($e);
+            abort(404);
+            //dd($e);
         }
 
     }
