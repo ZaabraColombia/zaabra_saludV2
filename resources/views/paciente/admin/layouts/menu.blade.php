@@ -5,45 +5,45 @@ $user = Auth::user();
     <div class="sidebar-wrapper active ps ps--active-y">
         <div class="sidebar-menu">
             <div class="sidebar__header">
-                <img src="{{ asset($user->profecional->fotoperfil ?? 'img/menu/avatar.png') }}" alt="user.png">
+                <img src="{{ asset($user->paciente->foto ?? 'img/menu/avatar.png') }}" alt="user.png">
                 <div class="user_data">
-                    <h2>Alejandra de Santa María</h2>
+                    <h2>{{ $user->nombre_completo }}</h2>
                 </div>
             </div>
 
             <ul class="menu">
                 <li class="sidebar-item  has-sub">
-                    <a id="menu_panel" href="{{ route('profesional.panel') }}">
+                    <a id="menu_panel" href="{{ route('paciente.panel') }}">
                         <button>Menu</button>
                     </a>
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a id="pago" class="" href='{{ route('profesional.pagos') }}'>
+                    <a id="pago" href='{{ route('paciente.pagos') }}'>
                         <button>Mis citas</button>
                     </a>
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a id="pacientes" class="" href='{{ route('profesional.pacientes') }}'>
+                    <a id="pacientes" href='{{ route('paciente.pacientes') }}'>
                         <button>Mis pagos</button>
                     </a>
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a id="contactos" class="" href='{{ route('profesional.contactos.index') }}'>
+                    <a id="contactos" href='{{ route('paciente.contactos.index') }}'>
                         <button>Actualizar datos</button>
                     </a>
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a id="fav" class="" href='{{ route('profesional.favoritos') }}'>
+                    <a id="fav" href='{{ route('paciente.favoritos') }}'>
                         <button>Mis profesionales</button>
                     </a>
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a id="fav" class="" href='{{ route('profesional.favoritos') }}'>
+                    <a id="fav" href='{{ route('paciente.favoritos') }}'>
                         <button>Mis favoritos</button>
                     </a>
                 </li>
