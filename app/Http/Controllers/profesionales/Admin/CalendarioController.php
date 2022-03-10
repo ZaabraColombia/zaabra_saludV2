@@ -32,7 +32,7 @@ class CalendarioController extends Controller
 
         if (!isset($user->horario) or !is_array($user->horario->horario)
             or empty($user->horario->duracion) or empty($user->horario->descanso))
-            return redirect()->route('profesional.configurar-calendario')
+            return redirect()->route('profesional.agenda.configurar-calendario')
                 ->with('warning', 'Por favor configurar el calendario');
 
         $weekNotBusiness = array();
