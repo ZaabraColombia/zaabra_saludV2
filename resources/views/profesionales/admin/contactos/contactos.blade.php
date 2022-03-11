@@ -22,9 +22,10 @@
             </div>
 
             <!-- Contenedor formato tabla de la lista de contactos -->
+            <div class="containt_main_form mb-3" id="alertas"></div>
             <div class="containt_main_form mb-3">
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table" id="table-contactos">
                         <thead>
                         <tr>
                             <th>Nombre</th>
@@ -75,11 +76,9 @@
                 </div>
                 <form method="post" id="form-contacto" class="forms">
                     <div class="modal-body">
-
-                        <input type="hidden">
                         @csrf
                         <div class="containt_main_form">
-                            <div id="alert-horario-agregar"></div>
+                            <div class="row" id="alertas-modal"></div>
                             <div class="row">
                                 <div class="col-12 input__box">
                                     <label for="nombre">Nombre / Razón social (*)</label>
@@ -152,6 +151,8 @@
     </div>
 @endsection
 @section('scripts')
+    <script src="{{ asset('js/alertas.js') }}"></script>
+
     <script>
         //Abrir modal para crear contacto
         $('#btn-agregar-contacto').click(function (e) {
@@ -161,6 +162,43 @@
             $('#modal_contactos').modal();
         });
 
+        //Abrir modal para editar
+        $('#table-contactos tbody').on('.btn-editar-contacto', 'click', function (e) {
+            var form = $('#form-contacto');
+            var ruta = '{{ route('profesional.contactos.edit', ['contacto' => ':id']) }}';
+            var btn = $(this);
 
+            form.attr('action', ruta.replace(':id', btn.data('id')));
+            form[0].reset();
+            $('#modal_contactos').modal();
+        });
+
+        //Capturar el envío del formulario
+        $('#form-contacto').submit(function (e) {
+            var form = $(this);
+
+            $.ajax({
+                url: form.attr('action'),
+                data: form.serialize(),
+                type: 'post',
+                dataType: 'json',
+                success: function (response) {
+                    //mensaje
+                    $('#alertas').html(alert(response.message, 'success'));
+
+                    //Agregar en tabla
+                    $('#table-contactos tbody').append('<tr>'
+                        + '<td>' + response.item.nombre + '</td>'
+                        + '<td>' + response.item.direccion + '</td>'
+                        + '<td>' + response.item.telefono + ' - ' + response.item.telefono_opcional + '</td>'
+                        + '<td>' + response.item.correo + '</td>'
+                        + '</tr>');
+                },
+                error: function (error) {
+                    //mensaje
+                    $('#alertas-modal').html(alert(error.responseJSON.message, 'danger'));
+                }
+            });
+        });
     </script>
 @endsection
