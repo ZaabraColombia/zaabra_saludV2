@@ -7,7 +7,7 @@ $user = Auth::user();
             <div class="sidebar__header">
                 <img src="{{ asset($user->profecional->fotoperfil ?? 'img/menu/avatar.png') }}" alt="user.png">
                 <div class="user_data">
-                    <h2>Dr(a) Alejandra de Santa María</h2>
+                    <h2>Dr.(a) Alejandra de Santa María</h2>
                     <h3>Otorrinonaringología</h3>
                 </div>
             </div>
@@ -81,16 +81,16 @@ $user = Auth::user();
 
                 <li class="sidebar-item  has-sub">
                     <a id="fav" class="" target="_blank" href="https://www.prescripciontotal.com.co/consultorio-generico/login">
-                        <button>PLM</button>
+                        <button class="py-0">
+                            <img src="{{ asset('/img/agenda/panelPrincipal/plm.png') }}" alt="" width="100px">                          
+                        </button>
                     </a>
                 </li>
 
                 <li class="sidebar-item  has-sub">
                     <a id="fav" class="" target="_blank" href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS">
-                        <button>Mipres
-                        <i class="fas fa-arrow-right-from-bracket"></i>
-                        <!-- <i class="fas fa-arrow-up-line"></i> -->
-                            <!-- <i class="fas fa-arrow-up pl-2 open"></i>  -->
+                        <button class="py-0">
+                            <img src="{{ asset('/img/agenda/panelPrincipal/mipres-zaabra.png') }}" alt="" width="100px">
                         </button>
                     </a>
                 </li>

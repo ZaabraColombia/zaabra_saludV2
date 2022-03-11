@@ -14,7 +14,19 @@ $user = Auth::user();
             <ul class="menu">
                 <li class="sidebar-item  has-sub">
                     <a id="menu_panel" href="{{ route('paciente.panel') }}">
-                        <button>Menu</button>
+                        <button>Menú</button>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  has-sub">
+                    <a id="fav" href='#'>
+                        <button>Mis profesionales</button>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  has-sub">
+                    <a id="contactos" href='{{ route('paciente.perfil') }}'>
+                        <button>Actualizar datos</button>
                     </a>
                 </li>
 
@@ -27,18 +39,6 @@ $user = Auth::user();
                 <li class="sidebar-item  has-sub">
                     <a id="pacientes" href='{{ route('paciente.pagos') }}'>
                         <button>Mis pagos</button>
-                    </a>
-                </li>
-
-                <li class="sidebar-item  has-sub">
-                    <a id="contactos" href='{{ route('paciente.perfil') }}'>
-                        <button>Actualizar datos</button>
-                    </a>
-                </li>
-
-                <li class="sidebar-item  has-sub">
-                    <a id="fav" href='#'>
-                        <button>Mis profesionales</button>
                     </a>
                 </li>
 

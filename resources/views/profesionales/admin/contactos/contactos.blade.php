@@ -29,6 +29,8 @@
                                 <th>Dirección</th>
                                 <th>Teléfono</th>
                                 <th>E-mail</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,12 +39,24 @@
                                 <td>Carrera 34 # 45 - 09</td>
                                 <td>310 324 5687</td>
                                 <td>henrrycon@gmail.com</td>
+                                <td>
+                                    <button class="btn_action" type="button" data-id=""> <i class="fas fa-edit"></i> </button>
+                                </td>
+                                <td>
+                                    <button class="btn_action" type="button" data-id=""> <i class="fas fa-trash"></i> </button>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Henrry Alexander Contreras Valbuena</td>
                                 <td>Carrera 34 # 45 - 09</td>
                                 <td>310 324 5687</td>
                                 <td>henrrycon@gmail.com</td>
+                                <td>
+                                    <button class="btn_action" type="button" data-id=""> <i class="fas fa-edit"></i> </button>
+                                </td>
+                                <td>
+                                    <button class="btn_action" type="button" data-id=""> <i class="fas fa-trash"></i> </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

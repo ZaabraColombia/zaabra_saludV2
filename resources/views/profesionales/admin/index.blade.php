@@ -5,23 +5,23 @@
         <div class="row m-0 p-0">
             <div class="col-12 col-lg-8 col-xl-9 p-0 m-0">
                 <div class="row m-0 justify-content-between">
-                    <!-- Mi agenda -->
+                    <!-- Mis calendario -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='{{ route('profesional.agenda.calendario') }}'>
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mi-calendario.png') }}" alt="">
 
-                                <h3 class="subtitle__lg">Mi Agenda</h3>
+                                <h3 class="subtitle__lg">Mi Calendario</h3>
                             </div>
                         </a>
                     </div>
-                    <!-- Mis catalogos -->
+                    <!-- Mis citas -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='{{ route('profesional.catalogos.cie10') }}'>
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mis-citas.jpg') }}" alt="">
 
-                                <h3 class="subtitle__lg">Mis Catálogos</h3>
+                                <h3 class="subtitle__lg">Mis Citas</h3>
                             </div>
                         </a>
                     </div>

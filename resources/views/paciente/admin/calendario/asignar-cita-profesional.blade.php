@@ -26,7 +26,7 @@
             </div>
             <div class="content_row">
                 <!-- Información del Profesional -->
-                <div class="col_flex w_lg_35">
+                <div class="col_flex w_lg_35 mb-md-4">
                     <div class="content_img_center w_md_35">
                         <img src="{{ asset($profesional->fotoperfil) }}">
                     </div>
@@ -44,7 +44,7 @@
 
                         <!-- sección datos consulta perfil profesional-->
                         <div class="mt-2 mb-3 w_md_85 w_lg_100 w_xl_90">
-                            <h3 class="fs_subtitle_module black_bold text-center">Tipo de consulta</h3>
+                            <h3 class="fs_subtitle_module black_bold">Tipo de consulta</h3>
                             <div class="list__form_column">
                                 <ul>
                                     @if(!empty($profesional->tipo_consultas))
@@ -69,9 +69,9 @@
                     <div class="content_row col_flex_md ml-md-auto mt-lg-2">
                         <div class="col_flex">
                             <div class="mt-4 mb-3 mt-md-0">
-                                <span class="badge rounded-pill bg-primary mb-3">Días disponibles</span>
-                                <span class="badge rounded-pill bg-secondary mb-3">Días no disponibles</span>
-                                <span class="badge rounded-pill bg-success mb-3">Días seleccionados</span>
+                                <span class="badge rounded-pill bg-primary mb-3 w-100">Días disponibles</span>
+                                <span class="badge rounded-pill bg-secondary mb-3 w-100">Días no disponibles</span>
+                                <span class="badge rounded-pill bg-success mb-3 w-100">Días seleccionados</span>
                             </div>
                         </div>
 

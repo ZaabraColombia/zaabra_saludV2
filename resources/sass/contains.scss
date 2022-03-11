@@ -85,6 +85,23 @@
 .table tbody tr td  {
     border-top: none;
     font-family: 'Roboto';
+    .btn_action {
+        border: none;
+        background-color: transparent;
+        color: $blue_official;
+        padding: 6px;
+        border-radius: 25px;
+        width: 28px;
+        display: flex;
+        justify-content: center;
+        &:hover {
+            background-color: $blue_official;
+            color: $withe_official;
+        }
+        i {
+            font-size: 15px;
+        }
+    }
 }
 // Calendario pignose
 .pignose-calendar .pignose-calendar-header .pignose-calendar-week.pignose-calendar-week-sat {
@@ -147,7 +164,7 @@
 }
 @media(min-width: 1024px) {
     .content_asig_cita {
-        padding: 70px 45px 20px 45px;
+        padding: 30px 20px 20px 30px;
     }
 }
 @media(min-width: 1300px) {
@@ -162,6 +179,9 @@
     }
     .w_lg_100 {
         width: 100%;
+    }
+    .content_asig_cita {
+        padding: 40px 20px 30px 30px;
     }
 }
 @media(min-width: 1440px) {
