@@ -398,3 +398,4 @@ Route::get('/test', function (){
 
 // Ruta detalles-pago
 Route:: get('/detalles-pago',[App\Http\Controllers\pagosController::class,'index'])->name('detalles-pago');
+Route:: get('/comprobantes-pago',[App\Http\Controllers\pagosController::class,'index2'])->name('comprobantes-pago');

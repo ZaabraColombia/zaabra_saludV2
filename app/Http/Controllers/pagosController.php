@@ -12,4 +12,9 @@ class pagosController extends Controller
         return view('pagos.detalles-pago');
     }
 
+    public function index2()
+    {
+        return view('pagos.comprobantes-pago');
+    }
+
 }
