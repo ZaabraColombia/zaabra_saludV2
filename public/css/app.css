@@ -23675,6 +23675,10 @@ a:link, a:visited, a:active, a:hover {
   text-transform: uppercase;
 }
 
+.fc-col-header-cell-cushion::first-letter {
+  text-transform: uppercase;
+}
+
 .content_dias_agenda span {
   font-size: 14px;
   font-family: "Roboto";
@@ -26381,6 +26385,10 @@ a:link, a:visited, a:active, a:hover {
   }
 }
 .font_fam {
+  font-family: "Roboto";
+}
+
+.font_roboto {
   font-family: "Roboto";
 }
 

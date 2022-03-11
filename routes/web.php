@@ -393,3 +393,8 @@ Route::get('/test', function (){
     dd($fechaVencimiento);
 
 });
+
+
+
+// Ruta detalles-pago
+Route:: get('/detalles-pago',[App\Http\Controllers\pagosController::class,'index'])->name('detalles-pago');

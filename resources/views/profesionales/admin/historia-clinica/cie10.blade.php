@@ -6,7 +6,7 @@
                 <div class="col-12 p-0">
                     <div class="my-4 my-xl-5">
                         <h1 class="title__xl blue_bold">Diagnósticos (CIE - 10)</h1>
-                        <span class="text__md black_light">Descargue el documentos de Diagnósticos (CIE - 10).</span>
+                        <span class="text__md black_light">Consulte el documento de diagnóstico (CIE - 10).</span>
                     </div>
 
                     <div class="card container_proced">
