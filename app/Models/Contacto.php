@@ -18,6 +18,7 @@ class Contacto extends Model
         'telefono_adicional',
         'numero_identificacion',
         'dependencia',
+        'correo',
         'tipo',
         'tipo_cuenta',
         'numero_cuenta',

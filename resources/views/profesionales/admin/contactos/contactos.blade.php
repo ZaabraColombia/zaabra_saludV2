@@ -29,8 +29,8 @@
             </div>
 
             <!-- Contenedor formato tabla de la lista de contactos -->
-            <div class="containt_main_form mb-3" id="alertas"></div>
             <div class="containt_main_form mb-3">
+                <div class="row" id="alertas"></div>
                 <div class="table-responsive">
                     <table class="table" id="table-contactos">
                         <thead>
@@ -65,30 +65,30 @@
                             @endforeach
                         @endif
 
-{{--                        <tr>--}}
-{{--                            <td>Henrry Alexander Contreras Valbuena</td>--}}
-{{--                            <td>Carrera 34 # 45 - 09</td>--}}
-{{--                            <td>310 324 5687</td>--}}
-{{--                            <td>henrrycon@gmail.com</td>--}}
-{{--                            <td>--}}
-{{--                                <button class="btn_action" type="button" data-id=""> <i class="fas fa-edit"></i> </button>--}}
-{{--                            </td>--}}
-{{--                            <td>--}}
-{{--                                <button class="btn_action" type="button" data-id=""> <i class="fas fa-trash"></i> </button>--}}
-{{--                            </td>--}}
-{{--                        </tr>--}}
-{{--                        <tr>--}}
-{{--                            <td>Henrry Alexander Contreras Valbuena</td>--}}
-{{--                            <td>Carrera 34 # 45 - 09</td>--}}
-{{--                            <td>310 324 5687</td>--}}
-{{--                            <td>henrrycon@gmail.com</td>--}}
-{{--                            <td>--}}
-{{--                                <button class="btn_action" type="button" data-id=""> <i class="fas fa-edit"></i> </button>--}}
-{{--                            </td>--}}
-{{--                            <td>--}}
-{{--                                <button class="btn_action" type="button" data-id=""> <i class="fas fa-trash"></i> </button>--}}
-{{--                            </td>--}}
-{{--                        </tr>--}}
+                        {{--                        <tr>--}}
+                        {{--                            <td>Henrry Alexander Contreras Valbuena</td>--}}
+                        {{--                            <td>Carrera 34 # 45 - 09</td>--}}
+                        {{--                            <td>310 324 5687</td>--}}
+                        {{--                            <td>henrrycon@gmail.com</td>--}}
+                        {{--                            <td>--}}
+                        {{--                                <button class="btn_action" type="button" data-id=""> <i class="fas fa-edit"></i> </button>--}}
+                        {{--                            </td>--}}
+                        {{--                            <td>--}}
+                        {{--                                <button class="btn_action" type="button" data-id=""> <i class="fas fa-trash"></i> </button>--}}
+                        {{--                            </td>--}}
+                        {{--                        </tr>--}}
+                        {{--                        <tr>--}}
+                        {{--                            <td>Henrry Alexander Contreras Valbuena</td>--}}
+                        {{--                            <td>Carrera 34 # 45 - 09</td>--}}
+                        {{--                            <td>310 324 5687</td>--}}
+                        {{--                            <td>henrrycon@gmail.com</td>--}}
+                        {{--                            <td>--}}
+                        {{--                                <button class="btn_action" type="button" data-id=""> <i class="fas fa-edit"></i> </button>--}}
+                        {{--                            </td>--}}
+                        {{--                            <td>--}}
+                        {{--                                <button class="btn_action" type="button" data-id=""> <i class="fas fa-trash"></i> </button>--}}
+                        {{--                            </td>--}}
+                        {{--                        </tr>--}}
                         </tbody>
                     </table>
                 </div>
@@ -110,11 +110,16 @@
                     <div class="modal-body">
                         @csrf
                         <div class="containt_main_form">
-                            <div class="row" id="alertas-modal"></div>
                             <div class="row">
+                                <div class="col-12" id="alertas-modal"></div>
                                 <div class="col-12 input__box">
                                     <label for="nombre">Nombre / Razón social (*)</label>
-                                    <input type="text" id="nombre" name="nombre" class="campo"/>
+                                    <input type="text" id="nombre" name="nombre" class="campo" required/>
+                                </div>
+
+                                <div class="col-12 input__box">
+                                    <label for="numero_identificacion">Cédula / NIT </label>
+                                    <input type="text" id="numero_identificacion" name="numero_identificacion" class="campo"/>
                                 </div>
 
                                 <div class="col-12 input__box">
@@ -129,7 +134,7 @@
 
                                 <div class="col-12 input__box">
                                     <label for="telefono">Teléfono (*)</label>
-                                    <input type="text" id="telefono" name="telefono" class="campo"/>
+                                    <input type="text" id="telefono" name="telefono" class="campo" required/>
                                 </div>
 
                                 <div class="col-12 input__box">
@@ -246,7 +251,9 @@
 
         //Capturar el envío del formulario
         $('#form-contacto').submit(function (e) {
+            e.preventDefault();
             var form = $(this);
+            var modal = $('#modal_contactos');
 
             $.ajax({
                 url: form.attr('action'),
@@ -260,15 +267,15 @@
                     //Validar si se actualizo o se creo
                     switch (response.type) {
                         case 'created':
-                            //Agregar en tabla
-                            $('#table-contactos tbody').append('<tr>'
-                                + '<td class="nombre">' + response.item.nombre + '</td>'
-                                + '<td class="direccion">' + response.item.direccion + '</td>'
-                                + '<td class="telefono">' + response.item.telefono + ' - ' + response.item.telefono_opcional + '</td>'
-                                + '<td class="correo">' + response.item.correo + '</td>'
-                                + '<td class="boton-editar">' + response.item.correo + '</td>'
-                                + '<td class="correo">' + response.item.correo + '</td>'
-                                + '</tr>');
+                            table.row.add([
+                                response.item.nombre,
+                                response.item.direccion,
+                                response.item.telefono,
+                                response.item.correo,
+                                '<button class="btn_action" type="button" data-id="' + response.item.id + '"> <i class="fas fa-edit"></i> </button>',
+                                '<button class="btn_action" type="button" data-id="' + response.item.id + '"> <i class="fas fa-trash"></i> </button>',
+                            ]).draw().node();
+                            modal.modal('hide');
                             break;
                     }
                 },
