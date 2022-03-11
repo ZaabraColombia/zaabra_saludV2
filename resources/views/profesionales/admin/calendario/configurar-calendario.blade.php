@@ -104,13 +104,13 @@
                     <h2 class="subtitle__lg blue_bold">Horario</h2>
                 </div>
 
-                <div>
-                    <table class="table p-0" id="table-horario">
+                <div class="table-responsive">
+                    <table class="table" id="table-horario">
                         <thead>
                             <tr>
-                                <th class="text__md">Días</th>
-                                <th class="text__md">Horas</th>
-                                <th class="text__md">Acción</th>
+                                <th>Días</th>
+                                <th>Horas</th>
+                                <th>Acción</th>
                             </tr>
                         </thead>
 
@@ -118,14 +118,14 @@
                         @if(!empty($config->horario) and is_array($config->horario))
                             @foreach($config->horario as $item)
                                 <tr>
-                                    <td class="text__md black_light">
+                                    <td>
                                         @if(!empty($item['daysOfWeek']))
                                             @php foreach ($item['daysOfWeek'] as $k => $i) $item['daysOfWeek'][$k] = daysWeekText($i); @endphp
                                             {{ implode('-', $item['daysOfWeek']) }}
                                         @endif
                                     </td>
-                                    <td class="text__md black_light">{{ date('h:i A', strtotime($item['startTime'])) }} - {{ date('h:i A', strtotime($item['endTime'])) }}</td>
-                                    <td class="d-flex justify-content-center">
+                                    <td>{{ date('h:i A', strtotime($item['startTime'])) }} - {{ date('h:i A', strtotime($item['endTime'])) }}</td>
+                                    <td>
                                         <button class="btn_cierre_citasProf eliminar-horario" type="button" data-id="{{ $item['id'] }}"></button>
                                     </td>
                                 </tr>

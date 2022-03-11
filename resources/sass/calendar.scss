@@ -7,19 +7,23 @@
     justify-content: flex-start;
     align-items: center;
 }
+.fc-toolbar-title::first-letter {
+    text-transform: uppercase;
+}
 .content_dias_agenda {
     span  {
         font-size: 14px;
         font-family: "Roboto";
         color: #3E3E3E;
         display: flex;
-        align-items: baseline;
-        margin-bottom: 5px;
+        align-items: center;
+        margin-bottom: 10px;
+        width: 173px;
         i {
-            width: 15px;
-            height: 15px;
+            width: 21px;
+            height: 21px;
             border: 1px solid #707070;
-            margin-right: 7px;
+            margin-right: 25px;
         }
     }
 }
@@ -52,6 +56,14 @@
     }
     .text_calendar{
         font-size: 1.1em;
+    }
+    .content_center_agenda {
+        display: flex;
+        justify-content: center;
+    }
+    .content_right_agenda {
+        display: flex;
+        justify-content: flex-end;
     }
     .dias{
         font-size: 1em;
