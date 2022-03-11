@@ -73,8 +73,9 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form method="post" id="form-contacto" class="forms">
+                <form method="post" id="form-contacto" class="forms">
+                    <div class="modal-body">
+
                         <input type="hidden">
                         @csrf
                         <div class="containt_main_form">
@@ -140,21 +141,26 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer content_btn_right">
-                    <button type="button" class="button_transparent">Cancelar</button>
-                    <button type="button" class="button_blue">Confirmar</button>
-                </div>
+                    </div>
+                    <div class="modal-footer content_btn_right">
+                        <button type="button" class="button_transparent">Cancelar</button>
+                        <button type="button" class="button_blue">Confirmar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 @endsection
 @section('scripts')
     <script>
+        //Abrir modal para crear contacto
         $('#btn-agregar-contacto').click(function (e) {
-
+            var form = $('#form-contacto');
+            form.attr('action', '{{ route('profesional.contactos.store') }}');
+            form[0].reset();
             $('#modal_contactos').modal();
         });
+
+
     </script>
 @endsection
