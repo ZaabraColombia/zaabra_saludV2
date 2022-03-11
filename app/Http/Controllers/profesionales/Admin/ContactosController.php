@@ -3,28 +3,37 @@
 namespace App\Http\Controllers\profesionales\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contacto;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ContactosController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
-        return view('profesionales.admin.contactos.contactos');
+        $contactos = Contacto::query()
+            ->where('user_id', '=', Auth::user()->id)
+            ->get();
+
+        return view('profesionales.admin.contactos.contactos', compact('contactos'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
-        //
+        return view();
     }
 
     /**

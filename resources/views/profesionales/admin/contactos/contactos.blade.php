@@ -1,9 +1,9 @@
 @extends('profesionales.admin.layouts.panel')
 
 @section('contenido')
-    <div class="container-fluid p-0 pr-lg-4">   
-        <div class="containt_agendaProf"> 
-            <div class="my-4 my-xl-5">       
+    <div class="container-fluid p-0 pr-lg-4">
+        <div class="containt_agendaProf">
+            <div class="my-4 my-xl-5">
                 <h1 class="title__xl blue_bold">Mis Contactos</h1>
             </div>
 
@@ -32,6 +32,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @if($contactos->isNotEmpty())
+                            @foreach($contactos as $contacto)
+                                <tr>
+                                    <td>Henrry Alexander Contreras Valbuena</td>
+                                    <td>Carrera 34 # 45 - 09</td>
+                                    <td>310 324 5687</td>
+                                    <td>henrrycon@gmail.com</td>
+                                </tr>
+                            @endforeach
+                        @endif
                             <tr>
                                 <td>Henrry Alexander Contreras Valbuena</td>
                                 <td>Carrera 34 # 45 - 09</td>
@@ -104,4 +114,4 @@
             </div>
         </div>
     </div>
-@endsection 
+@endsection
