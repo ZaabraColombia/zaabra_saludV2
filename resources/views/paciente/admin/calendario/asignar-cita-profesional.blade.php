@@ -104,6 +104,9 @@
                                 </div>
 
                                 <div class="row m-0 content_btn_right">
+                                    <button type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#staticBackdrop">
+                                        static modal
+                                    </button>
                                     <button type="button" class="button_blue" id="btn-finalizar-cita-profesional">
                                         Finalizar
                                     </button>
@@ -144,6 +147,39 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-primary" id="btn_confirmar_cita">Guardar</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal static de pregunta-->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title fs_title" id="staticBackdropLabel">Asignación de citas</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h3 class="text-center fs_subtitle blue_bold">¡Bienvenido!</h3>
+                    <h3 class="text-center fs_subtitle black_light">Sr(a). Marco Antonio Garzon Sepulveda</h3>
+                </div>
+                
+                <p class="text-center fs_text black_light">
+                    Este es su primer agendamiento de cita para la consulta de Odontologia.
+                </p>
+
+                <div>
+                    <span class="fs_text black_bold"> Especialista: &nbsp;</span>
+                    <span class="fs_text black_light">Santiago Arturo Polo chahin</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="button_transparent" data-dismiss="modal">No</button>
+                <button type="button" class="button_blue ml-3">Si</button>
+            </div>
             </div>
         </div>
     </div>
