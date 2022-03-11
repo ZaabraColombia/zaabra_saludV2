@@ -35,10 +35,10 @@
                         @if($contactos->isNotEmpty())
                             @foreach($contactos as $contacto)
                                 <tr>
-                                    <td>Henrry Alexander Contreras Valbuena</td>
-                                    <td>Carrera 34 # 45 - 09</td>
-                                    <td>310 324 5687</td>
-                                    <td>henrrycon@gmail.com</td>
+                                    <td>{{ $contacto->nombre }}</td>
+                                    <td>{{ $contacto->direccion }}</td>
+                                    <td>{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</td>
+                                    <td>{{ $contacto->correo }}</td>
                                 </tr>
                             @endforeach
                         @endif
