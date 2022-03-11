@@ -11,12 +11,17 @@ class Contacto extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'id',
         'nombre',
         'direccion',
+        'ciudad',
         'telefono',
         'telefono_adicional',
-        'correo',
+        'numero_identificacion',
+        'dependencia',
+        'tipo',
+        'tipo_cuenta',
+        'numero_cuenta',
+        'observacion',
         'user_id'
     ];
 
