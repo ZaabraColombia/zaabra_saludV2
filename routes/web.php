@@ -385,15 +385,5 @@ Route::get('/error505', function () { return view('errores/error505');})->name('
 
 
 Route::get('/test', function (){
-    //vencimiento
-    $fechaVencimiento = Carbon::now();
-    $fecha = new Carbon('2022-03-10 06:30');
-    $fechaVencimiento = $fechaVencimiento->addDays(8);
-
-    if ($fechaVencimiento->greaterThan($fecha->subHour(1)))
-    {
-        $fechaVencimiento = $fecha->subHour(1);
-    }
-    dd($fechaVencimiento);
-
+    return view('emails.confirmacion_cita_medica');
 });

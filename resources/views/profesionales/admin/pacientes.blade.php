@@ -1,9 +1,9 @@
 @extends('profesionales.admin.layouts.panel')
 
 @section('contenido')
-    <div class="container-fluid p-0 pr-lg-4">   
-        <div class="containt_agendaProf"> 
-            <div class="my-4 my-xl-5">       
+    <div class="container-fluid p-0 pr-lg-4">
+        <div class="containt_agendaProf">
+            <div class="my-4 my-xl-5">
                 <h1 class="title__xl blue_bold">Mis Pacientes</h1>
             </div>
 
@@ -23,24 +23,24 @@
                         <thead>
                             <tr>
                                 <th>Nombre</th>
+                                <th>Numero identificación</th>
                                 <th>Dirección</th>
                                 <th>Teléfono</th>
                                 <th>E-mail</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Henrry Alexander Contreras Valbuena</td>
-                                <td>Carrera 34 # 45 - 09</td>
-                                <td>310 324 5687</td>
-                                <td>henrrycon@gmail.com</td>
-                            </tr>
-                            <tr>
-                                <td>Henrry Alexander Contreras Valbuena</td>
-                                <td>Carrera 34 # 45 - 09</td>
-                                <td>310 324 5687</td>
-                                <td>henrrycon@gmail.com</td>
-                            </tr>
+                        @if($pacientes->isNotEmpty())
+                            @foreach($pacientes as $paciente)
+                                <tr>
+                                    <td>{{ $paciente->user->nombre_completo }}</td>
+                                    <td>{{ $paciente->user->numerodocumento }}</td>
+                                    <td>{{ $paciente->direccion }}</td>
+                                    <td>{{ "{$paciente->celular} - {$paciente->telefono}" }}</td>
+                                    <td>{{ $paciente->user->email }}</td>
+                                </tr>
+                            @endforeach
+                        @endif
                         </tbody>
                     </table>
                 </div>
