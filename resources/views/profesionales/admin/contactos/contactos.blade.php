@@ -64,31 +64,6 @@
                                 </tr>
                             @endforeach
                         @endif
-
-                        {{--                        <tr>--}}
-                        {{--                            <td>Henrry Alexander Contreras Valbuena</td>--}}
-                        {{--                            <td>Carrera 34 # 45 - 09</td>--}}
-                        {{--                            <td>310 324 5687</td>--}}
-                        {{--                            <td>henrrycon@gmail.com</td>--}}
-                        {{--                            <td>--}}
-                        {{--                                <button class="btn_action" type="button" data-id=""> <i class="fas fa-edit"></i> </button>--}}
-                        {{--                            </td>--}}
-                        {{--                            <td>--}}
-                        {{--                                <button class="btn_action" type="button" data-id=""> <i class="fas fa-trash"></i> </button>--}}
-                        {{--                            </td>--}}
-                        {{--                        </tr>--}}
-                        {{--                        <tr>--}}
-                        {{--                            <td>Henrry Alexander Contreras Valbuena</td>--}}
-                        {{--                            <td>Carrera 34 # 45 - 09</td>--}}
-                        {{--                            <td>310 324 5687</td>--}}
-                        {{--                            <td>henrrycon@gmail.com</td>--}}
-                        {{--                            <td>--}}
-                        {{--                                <button class="btn_action" type="button" data-id=""> <i class="fas fa-edit"></i> </button>--}}
-                        {{--                            </td>--}}
-                        {{--                            <td>--}}
-                        {{--                                <button class="btn_action" type="button" data-id=""> <i class="fas fa-trash"></i> </button>--}}
-                        {{--                            </td>--}}
-                        {{--                        </tr>--}}
                         </tbody>
                     </table>
                 </div>
@@ -212,12 +187,15 @@
         $('#btn-agregar-contacto').click(function (e) {
             var form = $('#form-contacto');
             form.attr('action', '{{ route('profesional.contactos.store') }}');
+            form.attr('method', 'post');
             form[0].reset();
             $('#modal_contactos').modal();
         });
 
+        //Id del row a tratar
+        var row;
         //Abrir modal para editar
-        $('#table-contactos tbody').on('.btn-editar-contacto', 'click', function (e) {
+        $('#table-contactos tbody').on('click', '.btn-editar-contacto', function (e) {
             var form = $('#form-contacto');
             var ruta_guardar = '{{ route('profesional.contactos.update', ['contacto' => ':id']) }}';
             var ruta_ver     = '{{ route('profesional.contactos.show', ['contacto' => ':id']) }}';
@@ -225,6 +203,10 @@
 
             form[0].reset();
             form.attr('action', ruta_guardar.replace(':id', btn.data('id')));
+            form.attr('method', 'put');
+
+            //llamar someId de la tabla
+            row = table.row( btn.parents('tr') );
 
             $.ajax({
                 url: ruta_ver.replace(':id', btn.data('id')),
@@ -258,7 +240,7 @@
             $.ajax({
                 url: form.attr('action'),
                 data: form.serialize(),
-                type: 'post',
+                type: form.attr('method'),
                 dataType: 'json',
                 success: function (response) {
                     //mensaje
@@ -272,11 +254,22 @@
                                 response.item.direccion,
                                 response.item.telefono,
                                 response.item.correo,
-                                '<button class="btn_action" type="button" data-id="' + response.item.id + '"> <i class="fas fa-edit"></i> </button>',
-                                '<button class="btn_action" type="button" data-id="' + response.item.id + '"> <i class="fas fa-trash"></i> </button>',
+                                '<button class="btn_action btn-editar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-edit"></i> </button>',
+                                '<button class="btn_action btn-eliminar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> </button>',
                             ]).draw().node();
                             modal.modal('hide');
                             break;
+                            case 'updated':
+                                row.data([
+                                    response.item.nombre,
+                                    response.item.direccion,
+                                    response.item.telefono,
+                                    response.item.correo,
+                                    '<button class="btn_action btn-editar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-edit"></i> </button>',
+                                    '<button class="btn_action btn-eliminar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> </button>',
+                                ]).draw();
+                                modal.modal('hide');
+                                break;
                     }
                 },
                 error: function (error) {

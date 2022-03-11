@@ -54,7 +54,7 @@ class ContactosController extends Controller
         return response([
             'message' => [
                 'title' => 'Hecho',
-                'text'  => 'Fechas disponibles'
+                'text'  => "Contacto {$contacto->nombre} creado"
             ],
             'item' => $contacto->toArray(),
             'type' => 'created'
@@ -67,21 +67,25 @@ class ContactosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
-        //
+        $contacto = Contacto::query()
+            ->where('id', '=', $id)
+            ->where('user_id', '=', Auth::user()->id)
+            ->first();
+
+        if (empty($contacto)) return response([
+            'message' => [
+                'title' => 'Error',
+                'text'  => 'El contacto no esta disponible'
+            ]
+        ], Response::HTTP_NOT_FOUND);
+
+        return response([
+            'item' => $contacto->toArray(),
+        ], Response::HTTP_OK);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -92,7 +96,39 @@ class ContactosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = $this->validador($request);
+
+        if ($validator->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validator->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $contacto = Contacto::query()
+            ->where('id', '=', $id)
+            ->where('user_id', '=', Auth::user()->id)
+            ->first();
+
+        if (empty($contacto)) return response([
+            'message' => [
+                'title' => 'Error',
+                'text'  => 'El contacto no esta disponible'
+            ]
+        ], Response::HTTP_NOT_FOUND);
+
+        $contacto->update($request->all());
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => "Contacto {$contacto->nombre} editado"
+            ],
+            'item' => $contacto->toArray(),
+            'type' => 'updated'
+        ], Response::HTTP_OK);
     }
 
     /**
