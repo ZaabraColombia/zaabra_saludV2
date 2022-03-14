@@ -49,4 +49,12 @@ class profesionales_instituciones extends Model
     {
         return $this->belongsTo(instituciones::class, 'id_institucion', 'id');
     }
+
+    /**
+     * @return string
+     */
+    public function getNombreCompletoAttribute(): string
+    {
+        return "{$this->primer_nombre} {$this->segundo_nombre} {$this->primer_apellido} {$this->segundo_apellido}";
+    }
 }
