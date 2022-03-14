@@ -1,11 +1,18 @@
 @extends('paciente.admin.layouts.layout')
 
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
+    <style>
+        /*.dataTables_filter, .dataTables_info { display: none;!important; }*/
+    </style>
+@endsection
+
 @section('contenido')
     <section class="section">
         <div class="row m-0 p-0" id="basic-table">
             <div class="col-12">
                 @if(session('success'))
-                    <div class="alert alert-success" role="alert">
+                    <div class="alert alert-success w-100" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -20,10 +27,6 @@
                         <h1 class="title_miCita">Mis citas</h1>
                         <span class="subtitle_miCita">encuentre aquí todas sus citas</span>
                     </div>
-
-{{--                    <button type="submit" class="btn_agendar_cita"> Agende su cita--}}
-{{--                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="flecha_btn_agendar" alt="">--}}
-{{--                    </button>--}}
                 </div>
 
                 <div class="card container_citas">
@@ -31,106 +34,51 @@
                         <div class="card-body py-0">
                             <!-- Table with outer spacing -->
                             <div class="table-responsive section_tableCitas">
-                                <table class="table table-lg table_citas">
+                                <table class="table table-lg table_citas" id="table-citas">
                                     <thead>
-                                        <tr>
-                                            <th>Fecha</th>
-                                            <th>Hora</th>
-                                            <th>Dirección</th>
-                                            <th>Ciudad</th>
-                                            <th>Tipo de cita</th>
-                                            <th>Especialidad</th>
-                                            <th>Institución</th>
-                                            <th>Especialista</th>
-                                            <th>Estado</th>
-                                        </tr>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Dirección</th>
+                                        {{--                                            <th>Ciudad</th>--}}
+                                        <th>Tipo de cita</th>
+                                        {{--                                            <th>Especialidad</th>--}}
+                                        {{--                                            <th>Institución</th>--}}
+                                        <th>Especialista</th>
+                                        <th>Estado</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>25/05/2021</td>
-                                            <td>10:00 a.m.</td>
-                                            <td>Cra 14 No 93B - 15</td>
-                                            <td>Bogotá</td>
-                                            <td>Presencial</td>
-                                            <td>Traumatología</td>
-                                            <td>Clinica Reina Sofia</td>
-                                            <td>Sergio Santa María</td>
-                                            <td>
-                                                <span class="badge bg-success">Confirmada</span>
-                                            </td>
-                                            <!-- <td>
-                                                <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
-                                                <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
-                                            </td> -->
-                                        </tr>
-                                        <tr>
-                                            <td>25/05/2021</td>
-                                            <td>10:00 a.m.</td>
-                                            <td>Cra 14 No 93B - 15</td>
-                                            <td>Bogotá</td>
-                                            <td>Presencial</td>
-                                            <td>Traumatología</td>
-                                            <td>Clinica Reina Sofia</td>
-                                            <td>Sergio Santa María</td>
-                                            <td>
-                                                <span class="badge bg-danger">Cancelada</span>
-                                            </td>
-                                            <!-- <td>
-                                            <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
-                                                <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
-                                            </td> -->
-                                        </tr>
-                                        <tr>
-                                            <td>25/05/2021</td>
-                                            <td>10:00 a.m.</td>
-                                            <td>Cra 14 No 93B - 15</td>
-                                            <td>Bogotá</td>
-                                            <td>Presencial</td>
-                                            <td>Traumatología</td>
-                                            <td>Clinica Reina Sofia</td>
-                                            <td>Sergio Santa María</td>
-                                            <td>
-                                                <span class="badge bg-success">Confirmada</span>
-                                            </td>
-                                            <!-- <td>
-                                            <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
-                                                <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
-                                            </td> -->
-                                        </tr>
-                                        <tr>
-                                            <td>25/05/2021</td>
-                                            <td>10:00 a.m.</td>
-                                            <td>Cra 14 No 93B - 15</td>
-                                            <td>Bogotá</td>
-                                            <td>Presencial</td>
-                                            <td>Traumatología</td>
-                                            <td>Clinica Reina Sofia</td>
-                                            <td>Sergio Santa María</td>
-                                            <td>
-                                                <span class="badge bg-danger">Cancelada</span>
-                                            </td>
-                                            <!-- <td>
-                                            <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
-                                                <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
-                                            </td> -->
-                                        </tr>
-                                        <tr>
-                                            <td>25/05/2021</td>
-                                            <td>10:00 a.m.</td>
-                                            <td>Cra 14 No 93B - 15</td>
-                                            <td>Bogotá</td>
-                                            <td>Presencial</td>
-                                            <td>Traumatología</td>
-                                            <td>Clinica Reina Sofia</td>
-                                            <td>Sergio Santa María</td>
-                                            <td>
-                                                <span class="badge bg-success">Confirmada</span>
-                                            </td>
-                                            <!-- <td>
-                                                <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>
-                                                <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>
-                                            </td> -->
-                                        </tr>
+                                    @if($citas->isNotEmpty())
+                                        @foreach($citas as $cita)
+                                            <tr>
+                                                <td>{{ $cita->fecha_inicio->format('d-m-Y') }}</td>
+                                                <td>{{ "{$cita->fecha_inicio->format('H:i a')} - {$cita->fecha_fin->format('H:i a')}" }}</td>
+                                                <td>{{ $cita->lugar }}</td>
+                                                {{--                                                <td>Bogotá</td>--}}
+                                                <td>{{ $cita->tipo_consulta->nombreconsulta }}</td>
+                                                {{--                                                <td>Traumatología</td>--}}
+                                                {{--                                                <td>Clinica Reina Sofia</td>--}}
+                                                <td>
+                                                    @if(!empty($cita->profesional))
+                                                        {{ $cita->profesional->user->nombre_completo }}
+                                                        <a href="{{route('PerfilProfesional', ['slug' => $cita->profesional->slug])}}" target="_blank"> <i class="fas fa-external-link-alt" style="color: #0c0c0c"></i></a>
+                                                    @endif
+                                                    @if(!empty($cita->profesional_ins))
+                                                        {{ "{$cita->profesional_ins->institucion->user->nombreinstitucion} - {$cita->profesional_ins->nombre_completo}" }}
+                                                            <a href="{{route('PerfilInstitucion', ['slug' => $cita->profesional_ins->institucion->slug])}}" target="_blank"> <i class="fas fa-external-link-alt" style="color: #0c0c0c"></i></a>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>
+                                                </td>
+                                                {{--                                            <td>--}}
+                                                {{--                                                <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>--}}
+                                                {{--                                                <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>--}}
+                                                {{--                                            </td> --}}
+                                            </tr>
+                                        @endforeach
+                                    @endif
                                     </tbody>
                                 </table>
                             </div>
@@ -261,4 +209,27 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
+    <script src="{{ asset('js/alertas.js') }}"></script>
+
+    <script>
+        //Inicializar tabla
+        var table = $('#table-citas').DataTable({
+            bFilter: false,
+            bInfo: false,
+            response: true,
+            language: {
+                url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+            },
+            searching: true,
+        });
+
+        $("#search").on('keyup change',function(){
+            var texto = $(this).val();
+            table.search(texto).draw();
+        });
+    </script>
 @endsection

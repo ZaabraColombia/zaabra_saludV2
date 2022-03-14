@@ -41,6 +41,7 @@
                             <th>Correo</th>
                             <th></th>
                             <th></th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -51,6 +52,11 @@
                                     <td>{{ $contacto->direccion }}</td>
                                     <td>{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</td>
                                     <td>{{ $contacto->correo }}</td>
+                                    <td>
+                                        <button class="btn_action btn-ver-contacto" type="button" data-id="{{ $contacto->id }}">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
                                     <td>
                                         <button class="btn_action btn-editar-contacto" type="button" data-id="{{ $contacto->id }}">
                                             <i class="fas fa-edit"></i>
@@ -71,12 +77,12 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="modal_contactos">
+    <!-- Modal Editar y Crear -->
+    <div class="modal fade modal_contactos" id="modal_contactos">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="fs_title_module blue_bold" id="exampleModalLabel">Nuevo Contacto</h1>
+                    <h1 class="fs_title_module blue_bold" id="exampleModalLabel"><span id="titulo">Nuevo</span> Contacto</h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -161,6 +167,70 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal Eliminar -->
+    <div class="modal fade modal_contactos" id="modal_contactos_eliminar">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="fs_title_module blue_bold" id="exampleModalLabel">Eliminar Contacto</h1>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Mantener las cases "label-*" -->
+                <div class="modal-body">
+                    <p><strong>Nombre:</strong><span class="label-nombre"></span></p>
+                    <p><strong>Número de identificación:</strong><span class="label-numero_identificacion"></span></p>
+                    <p><strong>Correo:</strong><span class="label-correo"></span></p>
+                    <p><strong>Teléfonos:</strong><span class="label-telefono"></span> - <span class="label-telefono_adicional"></span></p>
+                    <p><strong>Ciudad:</strong><span class="label-ciudad"></span></p>
+                    <p><strong>Dirección:</strong><span class="label-direccion"></span></p>
+                    <p><strong>Dependencia:</strong><span class="label-dependencia"></span></p>
+                    <p><strong>Tipo de contacto:</strong><span class="label-tipo"></span></p>
+                    <p><strong>Tipo de cuenta bancaria:</strong><span class="label-tipo_cuenta"></span></p>
+                    <p><strong>Número de cuenta bancaria:</strong><span class="label-numero_cuenta"></span></p>
+                </div>
+                <div class="modal-footer content_btn_right">
+                    <form method="post" id="form-contacto-eliminar" class="forms">
+                        @csrf
+                        <button type="button" class="button_transparent" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="button_blue">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Ver -->
+    <div class="modal fade modal_contactos" id="modal_contactos_ver">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="fs_title_module blue_bold" id="exampleModalLabel">Ver Contacto</h1>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Mantener las cases "label-*" -->
+                <div class="modal-body">
+                    <p><strong>Nombre:</strong><span class="label-nombre"></span></p>
+                    <p><strong>Número de identificación:</strong><span class="label-numero_identificacion"></span></p>
+                    <p><strong>Correo:</strong><span class="label-correo"></span></p>
+                    <p><strong>Teléfonos:</strong><span class="label-telefono"></span> - <span class="label-telefono_adicional"></span></p>
+                    <p><strong>Ciudad:</strong><span class="label-ciudad"></span></p>
+                    <p><strong>Dirección:</strong><span class="label-direccion"></span></p>
+                    <p><strong>Dependencia:</strong><span class="label-dependencia"></span></p>
+                    <p><strong>Tipo de contacto:</strong><span class="label-tipo"></span></p>
+                    <p><strong>Tipo de cuenta bancaria:</strong><span class="label-tipo_cuenta"></span></p>
+                    <p><strong>Número de cuenta bancaria:</strong><span class="label-numero_cuenta"></span></p>
+                </div>
+                <div class="modal-footer content_btn_right">
+                    <button type="button" class="button_transparent" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('scripts')
     <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
@@ -190,11 +260,12 @@
             form.attr('method', 'post');
             form[0].reset();
             $('#modal_contactos').modal();
+            $('#titulo').html('Nuevo');
         });
 
         //Id del row a tratar
         var row;
-        //Abrir modal para editar
+        //Abrir modal para editar, eliminar y ver
         $('#table-contactos tbody').on('click', '.btn-editar-contacto', function (e) {
             var form = $('#form-contacto');
             var ruta_guardar = '{{ route('profesional.contactos.update', ['contacto' => ':id']) }}';
@@ -204,6 +275,7 @@
             form[0].reset();
             form.attr('action', ruta_guardar.replace(':id', btn.data('id')));
             form.attr('method', 'put');
+            $('#titulo').html('Editar');
 
             //llamar someId de la tabla
             row = table.row( btn.parents('tr') );
@@ -229,13 +301,87 @@
             });
 
             $('#modal_contactos').modal();
-        });
+        })
+            .on('click', '.btn-eliminar-contacto', function (e) {
+                var form            = $('#form-contacto-eliminar');
+                var ruta_eliminar   = '{{ route('profesional.contactos.update', ['contacto' => ':id']) }}';
+                var ruta_ver        = '{{ route('profesional.contactos.show', ['contacto' => ':id']) }}';
+                var btn = $(this);
+                var modal = $('#modal_contactos_eliminar');
+
+                form[0].reset();
+                form.attr('action', ruta_eliminar.replace(':id', btn.data('id')));
+                form.attr('method', 'delete');
+
+                //llamar someId de la tabla
+                row = table.row( btn.parents('tr') );
+
+                $.ajax({
+                    url: ruta_ver.replace(':id', btn.data('id')),
+                    data: form.serialize(),
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (response) {
+
+                        //Lleno la base de datos
+                        var item = response.item;
+
+                        $.each(item, function (key, item) {
+                            modal.find('.label-' + key).html(item);
+                            console.log(key);
+                        });
+
+                        modal.modal();
+                    },
+                    error: function (error) {
+                        //mensaje
+                        $('#alertas').html(alert(error.responseJSON.message, 'danger'));
+                    }
+                });
+            })
+            .on('click', '.btn-ver-contacto', function (e) {
+                var form            = $('#form-contacto-eliminar');
+                var ruta_eliminar   = '{{ route('profesional.contactos.update', ['contacto' => ':id']) }}';
+                var ruta_ver        = '{{ route('profesional.contactos.show', ['contacto' => ':id']) }}';
+                var btn = $(this);
+                var modal = $('#modal_contactos_ver');
+
+                form[0].reset();
+                form.attr('action', ruta_eliminar.replace(':id', btn.data('id')));
+                form.attr('method', 'delete');
+
+                //llamar someId de la tabla
+                row = table.row( btn.parents('tr') );
+
+                $.ajax({
+                    url: ruta_ver.replace(':id', btn.data('id')),
+                    data: form.serialize(),
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (response) {
+
+                        //Lleno la base de datos
+                        var item = response.item;
+
+                        $.each(item, function (key, item) {
+                            modal.find('.label-' + key).html(item);
+                        });
+
+                        modal.modal();
+                    },
+                    error: function (error) {
+                        //mensaje
+                        $('#alertas').html(alert(error.responseJSON.message, 'danger'));
+                    }
+                });
+
+            });
 
         //Capturar el envío del formulario
-        $('#form-contacto').submit(function (e) {
+        $('#form-contacto, #form-contacto-eliminar').submit(function (e) {
             e.preventDefault();
             var form = $(this);
-            var modal = $('#modal_contactos');
+            var modal = $('.modal_contactos');
 
             $.ajax({
                 url: form.attr('action'),
@@ -254,23 +400,30 @@
                                 response.item.direccion,
                                 response.item.telefono,
                                 response.item.correo,
+                                '<button class="btn_action btn-ver-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-eye"></i> </button>',
                                 '<button class="btn_action btn-editar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-edit"></i> </button>',
                                 '<button class="btn_action btn-eliminar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> </button>',
                             ]).draw().node();
                             modal.modal('hide');
                             break;
-                            case 'updated':
-                                row.data([
-                                    response.item.nombre,
-                                    response.item.direccion,
-                                    response.item.telefono,
-                                    response.item.correo,
-                                    '<button class="btn_action btn-editar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-edit"></i> </button>',
-                                    '<button class="btn_action btn-eliminar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> </button>',
-                                ]).draw();
-                                modal.modal('hide');
-                                break;
+                        case 'updated':
+                            row.data([
+                                response.item.nombre,
+                                response.item.direccion,
+                                response.item.telefono,
+                                response.item.correo,
+                                '<button class="btn_action btn-ver-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-eye"></i> </button>',
+                                '<button class="btn_action btn-editar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-edit"></i> </button>',
+                                '<button class="btn_action btn-eliminar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> </button>',
+                            ]).draw();
+                            modal.modal('hide');
+                            break;
+                        case 'deleted':
+                            row.remove().draw();
+                            modal.modal('hide');
+                            break;
                     }
+                    row = undefined;
                 },
                 error: function (error) {
                     //mensaje
@@ -278,5 +431,7 @@
                 }
             });
         });
+
+
     </script>
 @endsection

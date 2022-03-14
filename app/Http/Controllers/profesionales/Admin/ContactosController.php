@@ -139,7 +139,28 @@ class ContactosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $contacto = Contacto::query()
+            ->where('id', '=', $id)
+            ->where('user_id', '=', Auth::user()->id)
+            ->first();
+
+        if (empty($contacto)) return response([
+            'message' => [
+                'title' => 'Error',
+                'text'  => 'El contacto no esta disponible'
+            ]
+        ], Response::HTTP_NOT_FOUND);
+
+        $contacto->delete();
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => "Contacto {$contacto->nombre} eliminado"
+            ],
+
+            'type' => 'deleted'
+        ], Response::HTTP_OK);
     }
 
 

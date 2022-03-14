@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Paciente\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Pagos\CitaOpenPay;
+use App\Models\Antiguedad;
 use App\Models\Cita;
 use App\Models\PagoCita;
 use App\Models\perfilesprofesionales;
@@ -46,10 +47,12 @@ class CalendarioController extends Controller{
     {
         $horario = $profesional->user->horario;
 
+        //Valida si la configuración del calendario está realizada
         if (!isset($horario) or empty($horario->duracion) or empty($horario->descanso))
             return redirect()->route('PerfilProfesional', ['slug' => $profesional->slug])
                 ->with('warning', 'El doctor no tiene agenda disponible');
 
+        //Atrae los dias de la semana que NO labora
         $weekNotBusiness = array();
         foreach (array_column($profesional->user->horario->horario, 'daysOfWeek') as $item)
             $weekNotBusiness = array_merge($weekNotBusiness, $item);
@@ -57,8 +60,49 @@ class CalendarioController extends Controller{
 
         $weekDisabled = array_values(array_diff(array(0, 1, 2, 3, 4, 5, 6), $weekNotBusiness));
 
+        //validar si es primera vez la cita del doctor y paciente
+        $antiguedad = Antiguedad::query()
+            ->where('paciente_id', '=', Auth::user()->paciente->id)
+            ->where('profesional_id', '=', $profesional->idPerfilProfesional)
+            ->first();
+
         return view('paciente.admin.calendario.asignar-cita-profesional',
-            compact('profesional', 'weekDisabled'));
+            compact('profesional', 'weekDisabled', 'antiguedad'));
+    }
+
+    public function antiguedad_profesional(Request $request, perfilesprofesionales $profesional)
+    {
+        //Validar antiguedad
+        $validate = Validator::make($request->all(), [
+            'antiguedad'  => ['required', 'boolean']
+        ]);
+
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //validar si es primera vez la cita del doctor y paciente
+        $antiguedad = Antiguedad::query()
+            ->firstOrNew([
+                'paciente_id' => Auth::user()->paciente->id,
+                'profesional_id' => $profesional->idPerfilProfesional,
+            ]);
+
+        //Es verdadero si es nuevo, pero es falso si es antiguo, se invierte en el guardado
+        $antiguedad->confirmacion = !$request->get('antiguedad');
+        $antiguedad->save();
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Guardado correctamente'
+            ]
+        ], Response::HTTP_OK);
     }
 
     public function dias_libre_profesional(Request $request, perfilesprofesionales $profesional)

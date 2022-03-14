@@ -1,5 +1,12 @@
 @extends('profesionales.admin.layouts.panel')
 
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
+    <style>
+        /*.dataTables_filter, .dataTables_info { display: none;!important; }*/
+    </style>
+@endsection
+
 @section('contenido')
     <section class="section pr-lg-4">
         <div class="row containt_agendaProf" id="basic-table">
@@ -14,7 +21,7 @@
                         <div class="card-body py-0">
                             <!-- Table with outer spacing -->
                             <div class="table-responsive section_tableCitas">
-                                <table class="table table-lg table_citas">
+                                <table class="table table-lg table_citas" id="table-citas">
                                     <thead>
                                         <tr>
                                             <th>Fecha</th>
@@ -155,4 +162,27 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
+    <script src="{{ asset('js/alertas.js') }}"></script>
+
+    <script>
+        //Inicializar tabla
+        var table = $('#table-citas').DataTable({
+            bFilter: false,
+            bInfo: false,
+            response: true,
+            language: {
+                url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+            },
+            searching: true,
+        });
+
+        $("#search").on('keyup change',function(){
+            var texto = $(this).val();
+            table.search(texto).draw();
+        });
+    </script>
 @endsection
