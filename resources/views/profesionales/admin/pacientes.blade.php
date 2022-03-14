@@ -1,5 +1,12 @@
 @extends('profesionales.admin.layouts.panel')
 
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
+    <style>
+        .dataTables_filter, .dataTables_info { display: none;!important; }
+    </style>
+@endsection
+
 @section('contenido')
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
@@ -19,7 +26,7 @@
             <!-- Contenedor formato tabla de la lista de contactos -->
             <div class="containt_main_form mb-3">
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table" id="table-pacientes">
                         <thead>
                             <tr>
                                 <th>Nombre</th>
@@ -47,4 +54,27 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
+    <script src="{{ asset('js/alertas.js') }}"></script>
+
+    <script>
+        //Inicializar tabla
+        var table = $('#table-pacientes').DataTable({
+            bFilter: false,
+            bInfo: false,
+            response: true,
+            language: {
+                url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+            },
+            searching: true,
+        });
+
+        $("#search").on('keyup change',function(){
+            var texto = $(this).val();
+            table.search(texto).draw();
+        });
+    </script>
 @endsection
