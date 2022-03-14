@@ -30,21 +30,57 @@
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th>Numero identificación</th>
+                                <th>Especialidad</th>
+                                <th>Universidad</th>
+                                <th>Teléfonos</th>
                                 <th>Dirección</th>
-                                <th>Teléfono</th>
-                                <th>E-mail</th>
+                                <th>Institución</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                        @if($pacientes->isNotEmpty())
-                            @foreach($pacientes as $paciente)
+                        @if($profesionales->isNotEmpty())
+                            @foreach($profesionales as $profesional)
                                 <tr>
-                                    <td>{{ $paciente->user->nombre_completo }}</td>
-                                    <td>{{ $paciente->user->numerodocumento }}</td>
-                                    <td>{{ $paciente->direccion }}</td>
-                                    <td>{{ "{$paciente->celular} - {$paciente->telefono}" }}</td>
-                                    <td>{{ $paciente->user->email }}</td>
+                                    <td>{{ $profesional->user->nombre_completo }}</td>
+                                    <td>{{ $profesional->especialidad->nombreEspecialidad }}</td>
+                                    <td>{{ $profesional->universidad->nombreuniversidad }}</td>
+                                    <td>{{ "{$profesional->celular} - {$profesional->telefono}" }}</td>
+                                    <td>{{ $profesional->direccion }}</td>
+                                    <td>{{ $profesional->EmpresaActual }}</td>
+                                    <td>
+                                        <a href="{{ route('PerfilProfesional', ['slug' => $profesional->slug]) }}" target="_blank">
+                                            <i class="fas fa-external-link-alt" style="color: #0c0c0c"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('paciente.asignar-cita-profesional', ['profesional' => $profesional->slug]) }}">
+                                            <i class="fas fa-calendar-check" style="color: #0c0c0c"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        @if($profesionales_ins->isNotEmpty())
+                            @foreach($profesionales_ins as $profesional)
+                                <tr>
+                                    <td>{{ $profesional->nombre_completo }}</td>
+                                    <td>{{ $profesional->especialidad[0]->nombreEspecialidad ?? '' }}</td>
+                                    <td>{{ $profesional->universidad->nombreuniversidad }}</td>
+                                    <td>{{ "{$profesional->institucion->telefonouno} - {$profesional->institucion->telefono2}" }}</td>
+                                    <td>{{ $profesional->institucion->direccion }}</td>
+                                    <td>{{ $profesional->institucion->user->nombreinstitucion }}</td>
+                                    <td>
+                                        <a href="{{ route('PerfilInstitucion', ['slug' => $profesional->institucion->slug]) }}" target="_blank">
+                                            <i class="fas fa-external-link-alt" style="color: #0c0c0c"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="#">
+                                            <i class="fas fa-calendar-check" style="color: #0c0c0c"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
                         @endif

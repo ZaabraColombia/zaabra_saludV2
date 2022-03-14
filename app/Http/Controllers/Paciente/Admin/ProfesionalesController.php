@@ -9,6 +9,7 @@ use App\Models\profesionales_instituciones;
 use App\Models\tipoconsultas;
 use App\Models\universidades;
 use App\Models\User;
+use http\QueryString;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\Auth;
 use function view;
@@ -76,10 +77,17 @@ class ProfesionalesController extends Controller
             ->get();
 
         $profesionales_ins = profesionales_instituciones::query()
-
+            ->whereHas('citas', function ($query) {
+                $query->where('paciente_id', '=', Auth::user()->paciente->id);
+            })
+            ->with([
+                'institucion',
+                'universidad',
+                'especialidades',
+            ])
             ->get();
 
-        return view('paciente.admin.profesionales', compact('profesionales'));
+        return view('paciente.admin.profesionales', compact('profesionales', 'profesionales_ins'));
     }
 
 }
