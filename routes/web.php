@@ -357,6 +357,7 @@ Route::middleware(['auth', 'roles', 'verified'])->as('paciente.')->prefix('/paci
     Route::get('/pagos',[Paciente\Admin\PagosController::class,'index'])->name('pagos');
     Route::get('/ordenes-medicas',[Paciente\Admin\FormulasMedicas::class,'index'])->name('ordenes-medicas');
     Route::get('/prescripciones',[Paciente\Admin\prescripcionesController::class,'index'])->name('prescripciones');
+    Route::get('/profesionales',[Paciente\Admin\ProfesionalesController::class,'index'])->name('profesionales');
 
     //Route::get('/historia-clinica',[Paciente\Admin\historiaClinica::class,'index'])->name('HistoriaClinica');
     //Route::get('/servicios',[Paciente\Admin\inicioController::class,'oscar2'])->name('servicios');
