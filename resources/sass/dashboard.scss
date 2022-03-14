@@ -74,7 +74,6 @@
     list-style: none;
     font-weight: 600;
 }
-
 .sidebar-wrapper .menu .sidebar-link {
     display: block;
     padding: .7rem 1rem;
@@ -108,7 +107,6 @@
 .sidebar-wrapper .menu .sidebar-item button {
     font-size: 16px;
     font-family: 'Quicksand';
-    color: $black_third;
     margin: 0;
     padding: 7px 0 7px 25px;
     width: 180px;
@@ -127,57 +125,32 @@
         border-radius: 5px;
     }
 }
-
 // Items de los submenus
-.sidebar-wrapper .menu .submenu {
-    list-style: none;
-    display: none;
-    transition: max-height 2s cubic-bezier(0, .55, .45, 1);
-    overflow: hidden;
-}
-.sidebar-wrapper .menu .submenu.active {
-    max-height: 999px;
-    display: block;
-    padding-left: 30px;
-}
-
-.sidebar-wrapper .menu .submenu .submenu-item a {
-    padding: .7rem 1rem;
-    display: block;
-    font-weight: 600;
-    letter-spacing: .5px;
-    transition: all .3s;
-    font-size: 14px;
-    text-decoration: none;
-    color: #232323;
-    &:hover {
+.sidebar-wrapper .menu .sub_menu {
+    padding-left: 45px;
+    .submenu-item {
+        padding-top: 10px;
+        list-style: none;
+    }
+    a:hover {
         color: $blue_official;
     }
 }
-
-// .sidebar-wrapper .menu .submenu .submenu-item .actived:hover {
-//     margin-left: .1rem;
-//     color: #ffffff !important;
-//     background-color: #0083D6;
-//     text-decoration: none;
-// }
-// .actived {
-//     color: #232323 !important;
-// }
-// .unactived {
-//     color: #0083D6 !important;
-//     text-decoration: none !important;
-// }
-// .titulo_menu {
-//     color: #232323 !important;
-//     display: flex;
-//     width: 75%;
-// }
-// .citaPadre {
-//     color: #ffffff !important;
-//     background-color: #0083D6;
-//     padding-left: 5%;
-// }
+.btn_active {
+    background: $blue_official !important;
+    color: $withe_official !important;
+    border-radius: 5px;
+}
+.txt_active {
+    color: $blue_official !important;
+    text-decoration: none;
+}
+.accordion button[aria-expanded="true"] {
+    .icon_angle {
+        transform: rotate(180deg);
+        padding-right: .5rem;
+    }
+}
 
 @media (min-width: 320px){
     // Menú hamburguesa versión CELULAR Y TABLET
