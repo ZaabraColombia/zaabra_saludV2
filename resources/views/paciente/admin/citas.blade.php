@@ -60,9 +60,13 @@
                                                 {{--                                                <td>Traumatología</td>--}}
                                                 {{--                                                <td>Clinica Reina Sofia</td>--}}
                                                 <td>
-                                                    @if(!empty($cita->profesional)) {{ $cita->profesional->user->nombre_completo }} @endif
+                                                    @if(!empty($cita->profesional))
+                                                        {{ $cita->profesional->user->nombre_completo }}
+                                                        <a href="{{route('PerfilProfesional', ['slug' => $cita->profesional->slug])}}" target="_blank"> <i class="fas fa-external-link-alt" style="color: #0c0c0c"></i></a>
+                                                    @endif
                                                     @if(!empty($cita->profesional_ins))
                                                         {{ "{$cita->profesional_ins->institucion->user->nombreinstitucion} - {$cita->profesional_ins->nombre_completo}" }}
+                                                            <a href="{{route('PerfilInstitucion', ['slug' => $cita->profesional_ins->institucion->slug])}}" target="_blank"> <i class="fas fa-external-link-alt" style="color: #0c0c0c"></i></a>
                                                     @endif
                                                 </td>
                                                 <td>
