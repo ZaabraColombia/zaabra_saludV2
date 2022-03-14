@@ -84,7 +84,9 @@
                                     <select id="modalidad" class="form-control" name="modalidad" required>
                                         <option value="pse"> PSE </option>
                                         <option value="tarjeta credito"> Tarjeta crédito </option>
-                                        <option value="presencial"> Presencial </option>
+                                        @if(!empty($antiguedad) and $antiguedad->confirmacion == true)
+                                            <option value="presencial" id="option-presencial"> Presencial </option>
+                                        @endif
                                     </select>
                                 </div>
                                 <div class="input__box mb-3">
@@ -152,37 +154,36 @@
     </div>
 
     <!-- Modal static de pregunta-->
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title fs_title" id="staticBackdropLabel">Asignación de citas</h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div>
-                    <h3 class="text-center fs_subtitle blue_bold">¡Bienvenido!</h3>
-                    <h3 class="text-center fs_subtitle black_light">Sr(a). Marco Antonio Garzon Sepulveda</h3>
-                </div>
-                
-                <p class="text-center fs_text black_light">
-                    Este es su primer agendamiento de cita para la consulta de Odontologia.
-                </p>
+    @empty($antiguedad)
+        <div class="modal fade" id="modal_antiguedad" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs_title" id="staticBackdropLabel">Asignación de citas</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <h3 class="text-center fs_subtitle blue_bold">¡Bienvenido!</h3>
+                            <h3 class="text-center fs_subtitle black_light">Sr(a). {{ Auth::user()->nombre_completo }}</h3>
+                        </div>
 
-                <div>
-                    <span class="fs_text black_bold"> Especialista: &nbsp;</span>
-                    <span class="fs_text black_light">Santiago Arturo Polo chahin</span>
+                        <p class="text-center fs_text black_light">
+                            Este es su primer agendamiento de cita para la consulta de Odontologia.
+                        </p>
+
+                        <div>
+                            <span class="fs_text black_bold"> Especialista: &nbsp;</span>
+                            <span class="fs_text black_light">{{ $profesional->user->nombre_completo }}</span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="button_transparent" data-confirmacion="0">No</button>
+                        <button class="button_blue ml-3" data-confirmacion="1">Si</button>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="button_transparent" data-dismiss="modal">No</button>
-                <button type="button" class="button_blue ml-3">Si</button>
-            </div>
             </div>
         </div>
-    </div>
+    @endempty
 @endsection
 
 @section('scripts')
@@ -272,6 +273,31 @@
         $('#btn_confirmar_cita').click(function (e) {
             $('#form-finalizar-cita-profesional').submit();
         });
+
+        @empty($antiguedad)
+        $('#modal_antiguedad').modal()
+            .on('click', 'button', function (e) {
+                var btn = $(this);
+
+                $.ajax({
+                    url: '{{ route('paciente.confirmar-antiguedad-profesional', ['profesional' => $profesional->idPerfilProfesional]) }}',
+                    //Verdadero primera vez
+                    data: {antiguedad:btn.data('confirmacion')},
+                    type: 'post',
+                    dataType: 'json',
+                    success: function (response) {
+                        if (btn.data('confirmacion')) {
+                            $('#option-presencial').remove();
+                        }else{
+                            $('#modalidad').append('<option value="presencial"> Presencial </option>');
+                        }
+                        $('#modal_antiguedad').modal('hide');
+                    },
+                    error: function (error) {
+                    }
+                });
+            });
+        @endempty
 
     </script>
 @endsection
