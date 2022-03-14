@@ -87,7 +87,7 @@
         <!--<script src="{{ asset('js/adicionarcamposformulario.js') }}"></script>-->
 
         <!--js admin template-->
-        <script src="{{ asset('js/admin.js') }}"></script>
+{{--        <script src="{{ asset('js/admin.js') }}"></script>--}}
 
         <!-- <script src="{{ asset('/plugins/map-leaflet/leatlef.js') }}"></script> -->
         <!-- <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"

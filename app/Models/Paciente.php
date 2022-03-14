@@ -35,4 +35,9 @@ class Paciente extends Model
     {
         return $this->hasOne(municipio::class, 'id_municipio', 'id_municipio');
     }
+
+    public function citas()
+    {
+        return $this->hasMany(Cita::class, 'paciente_id', 'id');
+    }
 }
