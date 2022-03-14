@@ -31,12 +31,13 @@ class CitasOpenPayController extends Controller
                 'cita.paciente.user',
                 'cita.profesional',
                 'cita.profesional.user',
+                'cita.profesional.especialidad',
             ])
             ->first();
 
         if (empty($pagoCita)) abort(404);
 
-        return view('test', $pagoCita);
+        return view('pagos.detalles-pago', compact('pagoCita'));
     }
 
     public function store_profesional(Request $request)
