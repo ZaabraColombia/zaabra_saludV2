@@ -35,5 +35,10 @@ class tipoconsultas extends Model
         return $this->belongsTo(instituciones::class, 'idinstitucion', 'id');
     }
 
+    public function citas()
+    {
+        return $this->hasMany(Cita::class, 'tipo_cita_id');
+    }
+
 
 }

@@ -29,72 +29,26 @@
                                         <th>Fecha</th>
                                         <th>Hora</th>
                                         <th>Tipo de cita</th>
-                                        <th>Especialidad</th>
                                         <th>Valor</th>
-                                                                                        <th></th>
+{{--<th></th>--}}
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>25/05/2021</td>
-                                        <td>10:00 am</td>
-                                        <td>Presencial</td>
-                                        <td>Traumatología</td>
-                                        <td>$50.000</td>
-                                        <td class="content_btn_descargar">
-                                            <button class="btn_descargar_pago">
-                                                Descargar&nbsp;<i class="fas fa-download"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>25/05/2021</td>
-                                        <td>10:00 am</td>
-                                        <td>Presencial</td>
-                                        <td>Traumatología</td>
-                                        <td>$50.000</td>
-                                        <td class="content_btn_descargar">
-                                            <button class="btn_descargar_pago">
-                                                Descargar&nbsp;<i class="fas fa-download"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>25/05/2021</td>
-                                        <td>10:00 am</td>
-                                        <td>Presencial</td>
-                                        <td>Traumatología</td>
-                                        <td>$50.000</td>
-                                        <td class="content_btn_descargar">
-                                            <button class="btn_descargar_pago">
-                                                Descargar&nbsp;<i class="fas fa-download"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>25/05/2021</td>
-                                        <td>10:00 am</td>
-                                        <td>Presencial</td>
-                                        <td>Traumatología</td>
-                                        <td>$50.000</td>
-                                        <td class="content_btn_descargar">
-                                            <button class="btn_descargar_pago">
-                                                Descargar&nbsp;<i class="fas fa-download"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>25/05/2021</td>
-                                        <td>10:00 am</td>
-                                        <td>Presencial</td>
-                                        <td>Traumatología</td>
-                                        <td>$50.000</td>
-                                        <td class="content_btn_descargar">
-                                            <button class="btn_descargar_pago">
-                                                Descargar&nbsp;<i class="fas fa-download"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    @if($pagos->isNotEmpty())
+                                        @foreach($pagos as $pago)
+                                            <tr>
+                                                <td>{{ $pago->fecha->format('d-m-Y') }}</td>
+                                                <td>{{ $pago->fecha->format('H:i a') }}</td>
+                                                <td>{{ $pago->cita->tipo_consulta->nombreconsulta }}</td>
+                                                <td>${{ $pago->valor }}</td>
+{{--                                                <td class="content_btn_descargar">--}}
+{{--                                                    <button class="btn_descargar_pago">--}}
+{{--                                                        Descargar&nbsp;<i class="fas fa-download"></i>--}}
+{{--                                                    </button>--}}
+{{--                                                </td>--}}
+                                            </tr>
+                                        @endforeach
+                                    @endif
                                     </tbody>
                                 </table>
                             </div>
