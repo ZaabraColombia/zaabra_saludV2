@@ -7,13 +7,13 @@ use App\Models\HistorialPagos;
 use App\Models\pagos;
 use App\Models\TipoPago;
 use Illuminate\Http\Request;
-use Openpay;
+use Openpay\Data\Openpay;
 use Exception;
-use OpenpayApiError;
-use OpenpayApiAuthError;
-use OpenpayApiRequestError;
-use OpenpayApiConnectionError;
-use OpenpayApiTransactionError;
+use Openpay\Data\OpenpayApiError;
+use Openpay\Data\OpenpayApiAuthError;
+use Openpay\Data\OpenpayApiRequestError;
+use Openpay\Data\OpenpayApiConnectionError;
+use Openpay\Data\OpenpayApiTransactionError;
 
 //require_once '../vendor/autoload.php';
 

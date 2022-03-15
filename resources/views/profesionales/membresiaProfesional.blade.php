@@ -12,7 +12,7 @@
                 <input class="input_type_plan" type="image" src="/img/iconos/icono-doctor-azul.svg" name="idrol" value="2" data-position="doctor">
                 <label class="text_type_user mt-2" style="color: #0083D6" for="idrol"> Doctor/a </label>
             </div>
-            
+
             <a class="content_type_plan" href="{{ route('entidad.membresiaInstitucion') }}">
                 <input class="input_type_plan" type="image" src="/img/iconos/icono-institucion.svg" name="idrol" value="3" data-position="institucion">
                 <label class="text_type_user mt-2" for="idrol"> Consultorios médicos/ <br> Odontológicos </label>
@@ -61,7 +61,7 @@
                     <span class="text_btn_precio">Mensual &nbsp;*</span>
                 </button>
             </div>
-            
+
             <div class="accordion"> <!-- Clase accordion para función del desplegable con cambio de color se encuentra ubicado en el archivo footer.js -->
                 <div class="card card_acordion"> <!-- Agenda online -->
                     <div id="headingThree">
@@ -277,7 +277,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <p class="text_info_infoZaabra p-3"> Puede complementar y personalizar su plan con recursos publicitarios adicionales. <a class="a_underline" href="{{route('contacto')}}" target="blank"> contáctenos </a> para ser atendido por un representante. *Vigencia anual. </p>
 
             <div class="section_button_infoZaabra"> <!-- Register button -->
@@ -287,7 +287,7 @@
                     </button>
                 </a>
             </div>
-        </div> 
+        </div>
     </div>
 
     <div class="modal fade" id="info_pago" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" target="_blank">
@@ -298,12 +298,10 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
-                <div class="modal-body">
-                    <h2 class="text-center mb-2"> Seleccione el medio de pago</h2>
-                    <h3 class="text-center"> Seleccione el medio de pago que mejor se adapte a su necesidad. </h3>
-
-                    <form action="{{ route('pay-openPay') }}" method="post">
+                <form action="{{ route('pay-openPay') }}" method="post">
+                    <div class="modal-body">
+                        <h2 class="text-center mb-2"> Seleccione el medio de pago</h2>
+                        <h3 class="text-center"> Seleccione el medio de pago que mejor se adapte a su necesidad. </h3>
                         @csrf
                         <input type="hidden" name="id_tipo_pago" id="id_tipo_pago" value="13">
                         <div class="modal_medio_pago">
@@ -319,14 +317,14 @@
                                 <input class="Check_medio_pago" type="radio" name="metodo_pago" id="metodo_pago" value="pse" />
                             </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
 
-                <div class="modal-footer content_btn_center">
-                    <button type="submit" class="button_blue" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera" formtarget="_blank">
-                        Pagar<i class="fas fa-arrow-right pl-2"></i>
-                    </button>
-                </div>
+                    <div class="modal-footer content_btn_center">
+                        <button type="submit" class="button_blue" id="btnPagarPremium2" data-toggle="modal" data-target="#modalPagoEspera" formtarget="_blank">
+                            Pagar<i class="fas fa-arrow-right pl-2"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

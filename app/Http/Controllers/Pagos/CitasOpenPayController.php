@@ -10,13 +10,13 @@ use App\Models\pagos;
 use App\Models\TipoPago;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Openpay;
+use Openpay\Data\Openpay;
 use Exception;
-use OpenpayApiError;
-use OpenpayApiAuthError;
-use OpenpayApiRequestError;
-use OpenpayApiConnectionError;
-use OpenpayApiTransactionError;
+use Openpay\Data\OpenpayApiError;
+use Openpay\Data\OpenpayApiAuthError;
+use Openpay\Data\OpenpayApiRequestError;
+use Openpay\Data\OpenpayApiConnectionError;
+use Openpay\Data\OpenpayApiTransactionError;
 
 //require_once '../vendor/autoload.php';
 
@@ -202,7 +202,7 @@ class CitasOpenPayController extends Controller
                             'method'        => 'card',
                             'amount'        => $pagoCita->valor,
                             'currency'      => 'COP',
-                            'description'   => $description,
+                            'description'   => 'Descripcion ',
                             'iva'           => 0,
                             "order_id"      => $order_id,
                             //'country'       => 'COL',
@@ -258,9 +258,7 @@ class CitasOpenPayController extends Controller
             });
 
             $historial = HistorialPagoCita::query()->updateOrCreate(
-                [
-                    'referencia_autorizacion'   => $charge->order_id
-                ] , [
+                ['referencia_autorizacion'   => $charge->order_id] , [
                 'metodo'                    => $charge->method,
                 'respuesta'                 => $respuesta,
                 'fecha'                     => Carbon::now(),
