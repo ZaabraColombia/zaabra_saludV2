@@ -1122,13 +1122,13 @@ class formularioInstitucionController extends Controller{
         $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
         //Validar si se llego al maximo de items
-        $galeria = galerias::where('idInstitucion', '=', $institucion->id)->count();
-        if ($galeria >= 8){
-            return response()->json([
-                'max_items' => true,
-                'mensaje' => 'No puede agregar mas fotos'
-            ], Response::HTTP_NOT_FOUND);
-        }
+//        $galeria = galerias::where('idInstitucion', '=', $institucion->id)->count();
+//        if ($galeria >= 8){
+//            return response()->json([
+//                'max_items' => true,
+//                'mensaje' => 'No puede agregar mas fotos'
+//            ], Response::HTTP_NOT_FOUND);
+//        }
 
         //Crear el profesional
         $foto   = new galerias();
@@ -1152,7 +1152,8 @@ class formularioInstitucionController extends Controller{
             'mensaje'   => 'Se guardo correctamente la información',
             'url'       => route('entidad.delete12', ['id' => $foto->id_galeria]),
             'image'     => asset($foto->imggaleria),
-            'max_items' => $galeria >= 7 // Se le resta 1 porque se agregó 1
+            //'max_items' => $galeria >= 7 // Se le resta 1 porque se agregó 1
+            'max_items' => false // Se le resta 1 porque se agregó 1
         ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 12----------------------*/
@@ -1222,13 +1223,13 @@ class formularioInstitucionController extends Controller{
         $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
         //Validar si se llego al maximo de items
-        $videos = videos::where('idinstitucion', '=', $institucion->id)->count();
-        if ($videos >= 4){
-            return response()->json([
-                'max_items' => true,
-                'mensaje' => 'No puede agregar mas fotos'
-            ], Response::HTTP_NOT_FOUND);
-        }
+//        $videos = videos::where('idinstitucion', '=', $institucion->id)->count();
+//        if ($videos >= 4){
+//            return response()->json([
+//                'max_items' => true,
+//                'mensaje' => 'No puede agregar mas fotos'
+//            ], Response::HTTP_NOT_FOUND);
+//        }
 
         //Crear el profesional
         $video   = new videos();
@@ -1244,7 +1245,8 @@ class formularioInstitucionController extends Controller{
         return response([
             'mensaje'   => 'Se guardo correctamente la información',
             'url'       => route('entidad.delete13', ['id' => $video->id]),
-            'max_items' => $videos >= 3 // Se le resta 1 porque se agregó 1
+            //'max_items' => $videos >= 3 // Se le resta 1 porque se agregó 1
+            'max_items' => false
         ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 13----------------------*/
