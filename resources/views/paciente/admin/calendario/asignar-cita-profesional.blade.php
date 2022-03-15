@@ -1,7 +1,7 @@
 @extends('paciente.admin.layouts.layout')
 
 @section('styles')
-    <!-- Libreria de calendar_date min.css -->
+    <!-- Librería de calendar_date min.css -->
     <link rel="stylesheet" href="{{ asset('plugins/pg-calendar-master/dist/css/pignose.calendar.min.css') }}">
 @endsection
 

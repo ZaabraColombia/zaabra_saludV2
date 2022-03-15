@@ -57,4 +57,9 @@ class profesionales_instituciones extends Model
     {
         return "{$this->primer_nombre} {$this->segundo_nombre} {$this->primer_apellido} {$this->segundo_apellido}";
     }
+
+    public function citas()
+    {
+        return $this->hasMany(Cita::class, 'profesional_ins_id', 'id_profesional_inst');
+    }
 }

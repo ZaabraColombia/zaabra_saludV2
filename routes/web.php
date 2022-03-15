@@ -106,7 +106,7 @@ Route::get('/response-page', [\App\Http\Controllers\Pagos\OpenPayContrller::clas
 
 Route::get('/profesional/detalle-pago-cita/{pago_cita}', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'detalle_profesional'])
     ->name('profesional.detalle-pago-cita');
-Route::post('/profesional/pago-cita', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'store_profesional'])
+Route::get('/profesional/pago-cita/{pago_cita}/{metodo_pago}', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'store_profesional'])
     ->name('profesional.pago-cita');
 Route::get('/profesional/respuesta-pago-cita', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'response_profesional'])
     ->name('profesional.respuesta-pago-cita');
@@ -114,11 +114,9 @@ Route::get('/profesional/respuesta-pago-cita', [\App\Http\Controllers\Pagos\Cita
 
 
 /*------------------------------------------------- Pertenece a calificacion y comentarios-------------------------------------------------------------------------------*/
-
 Route:: post('/comentarios',[App\Http\Controllers\comentarios\comentariosController::class,'save'])->name('comentarios');
 
 /*----------------------------------------------Pertenece a profesional-------------------------------------------------------------------------------*/
-
 Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(function (){
 
     /*Esta ruta es del formulario del profesional */
@@ -328,8 +326,6 @@ Route::middleware(['auth', 'roles', 'verified'])->as('entidad.')->group(function
     });
 });
 
-
-
 /*------------------------------------------------Pertenece el paciente-------------------------------------------------------------------------------*/
 /*Esta ruta es del paciente*/
 Route::middleware(['auth', 'roles', 'verified'])->as('paciente.')->prefix('/paciente')->group(function () {
@@ -357,6 +353,7 @@ Route::middleware(['auth', 'roles', 'verified'])->as('paciente.')->prefix('/paci
     Route::get('/pagos',[Paciente\Admin\PagosController::class,'index'])->name('pagos');
     Route::get('/ordenes-medicas',[Paciente\Admin\FormulasMedicas::class,'index'])->name('ordenes-medicas');
     Route::get('/prescripciones',[Paciente\Admin\prescripcionesController::class,'index'])->name('prescripciones');
+    Route::get('/profesionales',[Paciente\Admin\ProfesionalesController::class,'index'])->name('profesionales');
 
     //Route::get('/historia-clinica',[Paciente\Admin\historiaClinica::class,'index'])->name('HistoriaClinica');
     //Route::get('/servicios',[Paciente\Admin\inicioController::class,'oscar2'])->name('servicios');
