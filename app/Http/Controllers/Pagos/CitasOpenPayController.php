@@ -167,7 +167,8 @@ class CitasOpenPayController extends Controller
                     'name'          => $paciente->user->nombres,
                     'last_name'     => $paciente->user->apellidos,
                     'email'         => $paciente->user->email,
-                    'phone_number'  => $paciente->celular
+                    //'phone_number'  => $paciente->celular
+                    'phone_number'  => '3204321811'
                 );
 
                 $description = "Cita medica {$profesional->user->nombre_completo}"
