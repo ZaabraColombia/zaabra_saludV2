@@ -9,10 +9,10 @@
     <section class="section_data_profesionales">
         <div class="data_profesionales">
             <div class="section_backArrow">
-                <a class="back_arrow back_text" href="#"> atras </a>
-                <div class="heart-wrapper">
-                    <i class="far fa-heart"></i>
-                </div>
+{{--                <a class="back_arrow back_text" href="#"> atras </a>--}}
+{{--                <div class="heart-wrapper">--}}
+{{--                    <i class="far fa-heart"></i>--}}
+{{--                </div>--}}
             </div>
             @foreach ($objprofesionallanding as $objprofesionallanding)
                 <img src="{{URL::asset($objprofesionallanding->fotoperfil)}}">
