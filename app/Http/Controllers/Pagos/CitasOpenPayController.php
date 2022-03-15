@@ -40,7 +40,7 @@ class CitasOpenPayController extends Controller
         return view('pagos.detalles-pago', compact('pagoCita'));
     }
 
-    public function store_profesional(Request $request)
+    /*public function store_profesional_two(Request $request)
     {
         try {
             $pagoCita = PagoCita::query()
@@ -132,8 +132,112 @@ class CitasOpenPayController extends Controller
             //dd($e);
             abort(404);
         }
-    }
+    }*/
 
+    public function store_profesional(Request $request)
+    {
+        try {
+            $pagoCita = PagoCita::query()
+                ->where('id', '=', $request->pago_cita)
+                ->with([
+                    'cita',
+                    'cita.paciente',
+                    'cita.paciente.user',
+                    'cita.profesional',
+                    'cita.profesional.user',
+                ])
+                ->first();
+
+            if (isset($pagoCita) and $pagoCita->valor != null)
+            {
+                // create instance OpenPay
+                $openpay = Openpay::getInstance(env('OPENPAY_ID'), env('OPENPAY_SK'), 'CO');
+
+                Openpay::setProductionMode(env('OPENPAY_PRODUCTION_MODE'));
+
+                // create object customer
+                $paciente = $pagoCita->cita->paciente;
+
+                $order_id = $paciente->user->id . time();
+
+                $profesional = $pagoCita->cita->profesional;
+                $cita = $pagoCita->cita;
+
+                $customer = array(
+                    'name'          => $paciente->user->nombres,
+                    'last_name'     => $paciente->user->apellidos,
+                    'email'         => $paciente->user->email,
+                    'phone_number'  => $paciente->celular
+                );
+
+                $description = "Cita medica {$profesional->user->nombre_completo}"
+                    . "{$cita->fecha_inicio->format('Y-m-d')} / "
+                    . "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A')} / "
+                    . "{$cita->lugar}";
+
+                switch ($request->metodo_pago)
+                {
+                    case 'pse':
+
+                        $chargeRequest =  array(
+                            //'method'        => 'bank_account',
+                            "order_id"      => $order_id,
+                            'amount'        => $pagoCita->valor,
+                            'currency'      => 'COP',
+                            'iva'           => 0,
+                            'customer'      => $customer,
+                            'description'   => $description,
+                            'redirect_url'  => route('profesional.respuesta-pago-cita')
+                        );
+
+                        $charge = $openpay->pses->create($chargeRequest);
+                        $order_res = $charge->orderid;
+                        $url = $charge->redirect_url;
+
+                        break;
+                    default:
+
+                        $chargeRequest =  array(
+                            'method'        => 'card',
+                            'amount'        => $pagoCita->valor,
+                            'currency'      => 'COP',
+                            'description'   => $description,
+                            'iva'           => 0,
+                            "order_id"      => $order_id,
+                            //'country'       => 'COL',
+                            'send_email'    => false,
+                            'confirm'       => false,
+                            'customer'      => $customer,
+                            'redirect_url'  => route('profesional.respuesta-pago-cita')
+                        );
+
+                        $charge = $openpay->charges->create($chargeRequest);
+                        $order_res = $charge->order_id;
+                        $url = $charge->payment_method->url;
+
+                        break;
+                }
+
+                //guardar historial pago cita
+                HistorialPagoCita::query()->create([
+                    'referencia_autorizacion' => $order_res,
+                    'metodo' => $request->metodo_pago,
+                    'respuesta' => json_encode((array) $charge),
+                    'fecha' => Carbon::now(),
+                    'pago_cita_id' => $pagoCita->id,
+                ]);
+
+                //dd($charge);
+
+                return redirect()->to($url);
+            }else {
+                return redirect()->back()->withErrors(['error' => 'error al hacer el pago']);
+            }
+        } catch (Exception $e) {
+            dd($e);
+            abort(404);
+        }
+    }
 
     public function response_profesional(Request $request)
     {
@@ -170,6 +274,8 @@ class CitasOpenPayController extends Controller
                     'referencia_autorizacion'   => $charge->order_id,
                 ]);
             }
+
+            dd($charge);
 
             return view('test');
 

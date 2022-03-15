@@ -106,7 +106,7 @@ Route::get('/response-page', [\App\Http\Controllers\Pagos\OpenPayContrller::clas
 
 Route::get('/profesional/detalle-pago-cita/{pago_cita}', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'detalle_profesional'])
     ->name('profesional.detalle-pago-cita');
-Route::post('/profesional/pago-cita', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'store_profesional'])
+Route::get('/profesional/pago-cita/{pago_cita}/{metodo_pago}', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'store_profesional'])
     ->name('profesional.pago-cita');
 Route::get('/profesional/respuesta-pago-cita', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'response_profesional'])
     ->name('profesional.respuesta-pago-cita');
@@ -114,11 +114,9 @@ Route::get('/profesional/respuesta-pago-cita', [\App\Http\Controllers\Pagos\Cita
 
 
 /*------------------------------------------------- Pertenece a calificacion y comentarios-------------------------------------------------------------------------------*/
-
 Route:: post('/comentarios',[App\Http\Controllers\comentarios\comentariosController::class,'save'])->name('comentarios');
 
 /*----------------------------------------------Pertenece a profesional-------------------------------------------------------------------------------*/
-
 Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(function (){
 
     /*Esta ruta es del formulario del profesional */
@@ -327,8 +325,6 @@ Route::middleware(['auth', 'roles', 'verified'])->as('entidad.')->group(function
             ->name('favoritosSave4');
     });
 });
-
-
 
 /*------------------------------------------------Pertenece el paciente-------------------------------------------------------------------------------*/
 /*Esta ruta es del paciente*/
