@@ -10,7 +10,6 @@
                         <a  href="#">
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mis-examenes.jpg') }}" alt="">
-
                                 <h3 class="subtitle__lg">Mis Profesionales</h3>
                             </div>
                         </a>

@@ -16,43 +16,38 @@
                     <span class="subtitle__lg black_light">Encuentre aquí las citas agendadas por sus pacientes.</span>
                 </div>
 
-                <div class="card container_citas">
-                    <div class="card-content">
-                        <div class="card-body py-0">
-                            <!-- Table with outer spacing -->
-                            <div class="table-responsive section_tableCitas">
-                                <table class="table table-lg table_citas" id="table-citas">
-                                    <thead>
-                                        <tr>
-                                            <th>Fecha</th>
-                                            <th>Hora</th>
-                                            <th>Tipo de cita</th>
-                                            <th>Paciente</th>
-                                            <th>Estado</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    @if($citas->isNotEmpty())
-                                        @foreach($citas as $cita)
-                                            <tr>
-                                                <td>{{ $cita->fecha_inicio->format('d-m /Y') }}</td>
-                                                <td>{{ "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A') }" }}</td>
-                                                <td>{{ $cita->tipo_consulta->nombreconsulta }}</td>
-                                                <td>{{ $cita->paciente->user->nombre_completo }}</td>
-                                                <td>
-                                                    <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>
-                                                </td>
-                                                <td>
+                <div class="containt_main_form mb-3">
+                    <div class="table-responsive">
+                        <table class="table" id="table-citas">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Tipo de cita</th>
+                                    <th>Paciente</th>
+                                    <th>Estado</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @if($citas->isNotEmpty())
+                                @foreach($citas as $cita)
+                                    <tr>
+                                        <td>{{ $cita->fecha_inicio->format('d-m /Y') }}</td>
+                                        <td>{{ "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A') }" }}</td>
+                                        <td>{{ $cita->tipo_consulta->nombreconsulta }}</td>
+                                        <td>{{ $cita->paciente->user->nombre_completo }}</td>
+                                        <td>
+                                            <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>
+                                        </td>
+                                        <td>
 
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @endif
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

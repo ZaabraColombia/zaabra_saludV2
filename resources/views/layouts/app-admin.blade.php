@@ -89,6 +89,11 @@
         <!--js admin template-->
 {{--        <script src="{{ asset('js/admin.js') }}"></script>--}}
 
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+        <script>
+            feather.replace()
+        </script>
+
         <!-- <script src="{{ asset('/plugins/map-leaflet/leatlef.js') }}"></script> -->
         <!-- <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
             integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="

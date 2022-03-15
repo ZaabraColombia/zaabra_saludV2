@@ -1,32 +1,29 @@
+.modal {
+    overflow-y: auto;
+}
 .modal_container {
-    width: 300px;
-    padding: 30px 0 10px 0;
-    margin: auto;
     .modal-header {
-        padding: 0 20px 10px;
-        h1 {
-            font-size: 24px;
-            font-family: 'Quicksand';
-            color: $black_second;
-            font-weight: bold;
-            margin: 0;
-        }
+        padding-bottom: 0;
+        border-bottom: none;
         span {
-            font-size: 30px;
+            font-size: 40px;
+            font-weight: 200;
+            font-family: 'Roboto';
+            text-transform: capitalize;
+            &:hover {
+                color: $blue_official;
+            }
         }
     }
     .modal-body {
-        padding: 15px 20px;
-        .date_calendar {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 75px;
-            span {
-                font-size: 20px;
-                font-family: 'Quicksand';
-                color: $black_second;
-                font-weight: bold;
-            }
+        padding-top: 5px;
+        h1 {
+            font-size: 22px;
+            font-family: 'Quicksand';
+            color: $blue_official;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 25px;
         }
         h2 {
             font-size: 20px;
@@ -41,12 +38,6 @@
             color: $black_second;
             font-weight: bold;
             margin: 0;
-        }
-        span {
-            font-size: 16px;
-            font-family: 'Roboto';
-            color: $black_second;
-            font-weight: 400;
         }
         .modal_medio_pago {
             display: flex;
@@ -71,6 +62,27 @@
         .modal_info_cita {
             background-color: #EFEFEF;
             border-radius: 5px;
+            padding: 15px 15px;
+            .info_contac {
+                span:nth-child(1)  {
+                    font-size: 14px;
+                    font-family: 'Quicksand';
+                    color: $black_second;
+                    font-weight: bold;
+                }
+                span:nth-child(2)  {
+                    font-size: 13px;
+                    font-family: 'Roboto';
+                    color: $black_second;
+                    font-weight: 100;
+                }
+                span:nth-child(3)  {
+                    font-size: 13px;
+                    font-family: 'Roboto';
+                    color: $black_second;
+                    font-weight: 100;
+                }
+            }
         }
         .form_modal {
             label{
@@ -94,6 +106,13 @@
                 border: 1px solid $gray_third;
                 border-radius: 0.25rem;
                 transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+                &:focus {
+                    color: $black_second;
+                    background-color: $gray_official;
+                    border-color: $blue_gray;
+                    outline: 0;
+                    box-shadow: 0px 0px 1.2px 2px rgb(30 200 252 / 10%);
+                }
             }
             .input-group {
                 input {
@@ -111,49 +130,90 @@
                     border: 1px solid $gray_third;
                     border-radius: 0;
                     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+                    &:focus {
+                        color: $black_second;
+                        background-color: $gray_official;
+                        border-color: $blue_gray;
+                        outline: 0;
+                        box-shadow: 0px 0px 1.2px 2px rgb(30 200 252 / 10%);
+                    }
                 }
             }
         }
+    } 
+    .modal-footer {
+        border-top: none;
+        padding-bottom: 30px;
     }
-    // .modal-footer {
-    //     padding: 10px 20px 0px;
-    //     justify-content: center;
-    //     .modal_btn_blue {
-    //         font-family: "Quicksand";
-    //         font-size: 16px;
-    //         color: $withe_official;
-    //         background: $blue_official;
-    //         border: 1px solid $blue_official;
-    //         border-radius: 5px;
-    //         padding: 5px 10px;
-    //     }
-    //     .modal_btn_transparent {
-    //         font-family: "Quicksand";
-    //         font-size: 16px;
-    //         color: $black_second;
-    //         background: $withe_official;
-    //         border: solid 1px $black_second;
-    //         border-radius: 5px;
-    //         padding: 5px 10px;
-    //     }
-    //     .modal_btn_green {
-    //         font-family: "Quicksand";
-    //         font-size: 16px;
-    //         color: $withe_official;
-    //         background: $green_official;
-    //         border: solid 1px $green_official;
-    //         border-radius: 5px;
-    //         padding: 5px 10px;
-    //     }
-    // }  
+}
+
+.card_day {
+    width: 175px;
+    margin: auto;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        .card_header_day {
+            width: 25px;
+            height: 10px;
+            background: darkgray;
+            border-radius: 10px;
+        }
+    }
+    .card-body {
+        display: flex;
+        justify-content: center;
+        span {
+            font-size: 18px;
+            font-family: 'Quicksand';
+            color: $black_second;
+            font-weight: bolder;
+            text-transform: capitalize;
+        }
+    }
+}
+
+.eliminar_horario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .trash_2 {
+        width: 70px;
+        height: 70px;
+        border-radius: 35px;
+        border: 2px solid #e3342f;
+        padding: 10px;
+        margin-bottom: 15px;
+        color: #e3342f;
+        box-shadow: 0px 1px 8px 8px rgb(244 100 100 / 20%);
+    }
 }
 @media(min-width: 768px) {
     .modal_container {
-        width: 450px;
         .modal-body .modal_medio_pago .info_medio_pago {  
             img {
                 width: 100px;
             }
+        }
+    }
+    .modal_container .modal-body .modal_info_cita {
+        padding: 15px 25px;
+        .info_contac {
+            span:nth-child(1)  {
+                font-size: 17px;
+            }
+            span:nth-child(2)  {
+                font-size: 16px;
+            }
+            span:nth-child(3)  {
+                font-size: 16px;
+            }
+        }
+    }
+    .modal_container .modal-body {
+        h1 {
+            font-size: 26px;
         }
     }
 }
