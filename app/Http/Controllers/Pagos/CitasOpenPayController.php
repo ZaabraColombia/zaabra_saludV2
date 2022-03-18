@@ -4,21 +4,12 @@ namespace App\Http\Controllers\Pagos;
 
 use App\Http\Controllers\Controller;
 use App\Models\HistorialPagoCita;
-use App\Models\HistorialPagos;
 use App\Models\PagoCita;
-use App\Models\pagos;
-use App\Models\TipoPago;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Openpay\Data\Openpay;
 use Exception;
-use Openpay\Data\OpenpayApiError;
-use Openpay\Data\OpenpayApiAuthError;
-use Openpay\Data\OpenpayApiRequestError;
-use Openpay\Data\OpenpayApiConnectionError;
-use Openpay\Data\OpenpayApiTransactionError;
-
-//require_once '../vendor/autoload.php';
+use Openpay\Data\OpenpayApi;
 
 class CitasOpenPayController extends Controller
 {
@@ -252,18 +243,17 @@ class CitasOpenPayController extends Controller
             $charge = $openpay->charges->get($request->id);
 
             //Guardar respuesta
-            $respuesta = collect($charge)->mapWithKeys(function ($item, $key) {
-                $key = preg_match('/^\x00(?:.*?)\x00(.+)/', $key, $matches) ? $matches[1] : $key;
-                return [$key => $item];
-            });
+            $respuesta = $this->clearKeys((array) $charge);
 
             $historial = HistorialPagoCita::query()->updateOrCreate(
-                ['referencia_autorizacion'   => $charge->order_id] , [
+                ['referencia_autorizacion'  => $charge->order_id] , [
                 'metodo'                    => $charge->method,
                 'respuesta'                 => $respuesta,
-                'fecha'                     => Carbon::now(),
+                'fecha'                     => Carbon::make($charge->creation_date),
                 'estado'                    => ($charge->status == 'completed') ? 1:0,
             ]);
+
+            //dd($historial->respuesta);
 
             //Validar el pago
             if (isset($historial->pago_cita) and $historial->estado == 1)
@@ -274,14 +264,40 @@ class CitasOpenPayController extends Controller
                 ]);
             }
 
-            dd($charge);
-
-            return view('test');
+            return view('pagos.comprobantes-pago', compact('historial'));
 
         } catch (Exception $e) {
-            abort(404);
             //dd($e);
+            abort(404);
         }
 
+    }
+
+    private function clearKeys(array $item): array
+    {
+        $array = collect($item)->mapWithKeys(function ($item, $key) {
+            //Limpiar el nombre
+            $key = preg_match('/^\x00(?:.*?)\x00(.+)/', $key, $matches) ? $matches[1] : $key;
+
+            //Limpiar los atributos
+            if (is_object($item)) $item = $this->clearKeys((array) $item);
+
+            //Limpiar si atrae un array de objetos
+            if (is_array($item))
+            {
+                $a = array();
+                foreach ($item as $k => $i)
+                {
+                    if (!is_object($i))
+                    {
+                        $a[$k] = $i;
+                    }
+                }
+                $item = $a;
+            }
+            return [$key => $item];
+        });
+
+        return $array->toArray();
     }
 }
