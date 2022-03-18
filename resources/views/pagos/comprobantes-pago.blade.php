@@ -5,56 +5,74 @@
         <div class="mt-3 mb-5">
             <h1 class="fs_title blue_light">Comprobante de pago en línea</h1>
         </div>
-
         <div class="row mb-4">
+            {{-- Datos --}}
+            @php
+                $paciente = $historial->pago_cita->cita->paciente;
+            @endphp
+
+            @if($historial->metodo == 'bank_account')
+                <div class="col-12">
+                    <span class="fs_subtitle black_bold font_roboto">Tipo de pago: &nbsp;&nbsp;&nbsp;</span>
+                    <span class="fs_subtitle black_light font_roboto">PSE</span>
+                </div>
+            @endif
+
             <div class="col-12">
                 <span class="fs_subtitle black_bold font_roboto">Pago realizado por: &nbsp;&nbsp;&nbsp;</span>
-                <span class="fs_subtitle black_light font_roboto">Marco Antonio Garzón Sepúlveda</span>
+                <span class="fs_subtitle black_light font_roboto">{{ $paciente->user->nombre_completo }}</span>
             </div>
 
+            @php
+                $cita = $historial->pago_cita->cita;
+                $profesional = $historial->pago_cita->cita->profesional;
+            @endphp
             <div class="col-12">
                 <span class="fs_subtitle black_bold font_roboto">Descripción de pago: &nbsp;&nbsp;&nbsp;</span>
-                <span class="fs_subtitle black_light font_roboto">Cita presencial</span>
+                <span class="fs_subtitle black_light font_roboto">{{ "Cita medica {$profesional->user->nombre_completo} "
+                    . "{$cita->fecha_inicio->format('Y-m-d')} / "
+                    . "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A')} / "
+                    . "{$cita->lugar}" }}</span>
             </div>
 
             <div class="col-12">
                 <span class="fs_subtitle black_bold font_roboto">N° de referencia: &nbsp;&nbsp;&nbsp;</span>
-                <span class="fs_subtitle black_light font_roboto">000000000000</span>
+                <span class="fs_subtitle black_light font_roboto">{{ $historial->referencia_autorizacion }}</span>
             </div>
-
             <div class="col-12">
                 <span class="fs_subtitle black_bold font_roboto">Fecha y hora de la transacción: &nbsp;&nbsp;&nbsp;</span>
-                <span class="fs_subtitle black_light font_roboto">Jueves 10 de Marzo de 2022 05:59:35 a.m.</span>
+                <span class="fs_subtitle black_light font_roboto">{{ $historial->fecha->format('d-M \d\e\l Y h:i a') }}</span>
             </div>
 
             <div class="col-12">
                 <span class="fs_subtitle black_bold font_roboto">Número de comprobante: &nbsp;&nbsp;&nbsp;</span>
-                <span class="fs_subtitle black_light font_roboto">123561555</span>
+                <span class="fs_subtitle black_light font_roboto">{{ $historial->respuesta['id'] }}</span>
             </div>
 
-            <div class="col-12">
-                <span class="fs_subtitle black_bold font_roboto">Código del Banco: &nbsp;&nbsp;&nbsp;</span>
-                <span class="fs_subtitle black_light font_roboto">0002</span>
-            </div>
+            @if($historial->metodo == 'card')
+                <div class="col-12">
+                    <span class="fs_subtitle black_bold font_roboto">Código del Banco: &nbsp;&nbsp;&nbsp;</span>
+                    <span class="fs_subtitle black_light font_roboto">{{ $historial->respuesta['authorization'] }}</span>
+                </div>
 
-            <div class="col-12">
-                <span class="fs_subtitle black_bold font_roboto">Nombre del Banco: &nbsp;&nbsp;&nbsp;</span>
-                <span class="fs_subtitle black_light font_roboto">0017</span>
-            </div>
-
+                <div class="col-12">
+                    <span class="fs_subtitle black_bold font_roboto">Nombre del Banco: &nbsp;&nbsp;&nbsp;</span>
+                    <span class="fs_subtitle black_light font_roboto">{{ $historial->respuesta['card']['bank_name'] }}</span>
+                </div>
+            @endif
             <div class="col-12">
                 <span class="fs_subtitle black_bold font_roboto">Valor: &nbsp;&nbsp;&nbsp;</span>
-                <span class="fs_subtitle black_light font_roboto">$ 100.000</span>
+                <span class="fs_subtitle black_light font_roboto">${{ number_format($historial->pago_cita->valor, 0, ",", ".") }}</span>
             </div>
-
-            <div class="col-12">
-                <span class="fs_subtitle black_bold font_roboto">Cuenta: &nbsp;&nbsp;&nbsp;</span>
-                <span class="fs_subtitle black_light font_roboto">********5461</span>
-            </div>
-
+            @if($historial->metodo == 'card')
+                <div class="col-12">
+                    <span class="fs_subtitle black_bold font_roboto">Cuenta: &nbsp;&nbsp;&nbsp;</span>
+                    <span class="fs_subtitle black_light font_roboto">{{ $historial->respuesta['card']['serializableData']['card_number'] }}</span>
+                </div>
+            @endif
             <div class="col-12">
                 <span class="fs_subtitle black_bold font_roboto">Estado de la transacción: &nbsp;&nbsp;&nbsp;</span>
-                <span class="fs_subtitle black_light font_roboto">TRANSACCIÓN APROBADA – TRANSACCIÓN RECHAZADA</span>
+                <span class="fs_subtitle black_light font_roboto">TRANSACCIÓN {{ $historial->estado ? 'APROBADA':'RECHAZADA' }}</span>
             </div>
         </div>
 
