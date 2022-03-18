@@ -51,7 +51,7 @@
                                         @foreach ($profesional->tipo_consultas as $consulta)
                                             <li>
                                                 <p class="fs_text_small gray_light menu_{{$loop->iteration}}"><i></i>{{$consulta->nombreconsulta}}</p>
-                                                <span class="fs_text_small gray_light"><i></i>${{number_format($consulta->valorconsulta, 0, ",", ".") }}</span>
+                                                <span class="fs_text_small gray_light"><i></i>${{ number_format($consulta->valorconsulta, 0, ",", ".") }}</span>
                                             </li>
                                         @endforeach
                                     @endif
@@ -95,7 +95,7 @@
                                         <option></option>
                                         @if(!empty($profesional->tipo_consultas))
                                             @foreach ($profesional->tipo_consultas as $consulta)
-                                                <option value="{{ $consulta->id }}" data-valor="{{ $consulta->valorconsulta }}">{{ $consulta->nombreconsulta }}</option>
+                                                <option value="{{ $consulta->id }}" data-valor="${{ number_format($consulta->valorconsulta, 0, ",", ".") }}">{{ $consulta->nombreconsulta }}</option>
                                             @endforeach
                                         @endif
                                     </select>
