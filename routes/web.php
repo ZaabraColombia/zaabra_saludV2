@@ -392,8 +392,16 @@ Route::get('/test', function (){
     return view('emails.confirmacion_cita_medica');
 });
 
+// Ruta para la vista asignar cita profesional institución
+Route::get('/test-asignar-cita-profesional-institucion', function (){
+    $profesional= \App\Models\perfilesprofesionales::first();
+    $weekDisabled = array(1,2); 
+    return view('paciente.admin.calendario.asignar-cita-profesional-institucion', compact('profesional', 'weekDisabled'));
+});
+
 
 
 // Ruta detalles-pago
 Route:: get('/detalles-pago',[App\Http\Controllers\pagosController::class,'index'])->name('detalles-pago');
 Route:: get('/comprobantes-pago',[App\Http\Controllers\pagosController::class,'index2'])->name('comprobantes-pago');
+
