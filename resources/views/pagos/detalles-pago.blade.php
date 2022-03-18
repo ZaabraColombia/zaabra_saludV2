@@ -40,18 +40,28 @@
             <div class="col-12">
                 <h4 class="mb-3 fs_subtitle black_bold font_roboto">Pague aquí:</h4>
                 <div class="row d-flex m-0 justify-content-center">
-                    <div class="col-6 col-lg-4 pr-2 pl-0">
-                        <a href="{{ route('profesional.pago-cita', ['pago_cita' => $pagoCita->id, 'metodo_pago' => 'pse']) }}">
-                            <img class="d-flex m-auto" id="img_pagoPse" src="{{ asset('/img/popup-pago/medios-online-pse-azul.svg') }}">
-                            <h4 class="fs_subtitle black_bold text-center">Pagos seguros en línea</h4>
-                        </a>
-                    </div>
-                    <div class="col-6 col-lg-4 p-0 pl-md-0" style="border-left: 1px solid #c5c3c3;">
-                        <a href="{{ route('profesional.pago-cita', ['pago_cita' => $pagoCita->id, 'metodo_pago' => 'card']) }}">
-                            <img class="d-flex m-auto" id="img_tarjCred" src="{{ asset('/img/popup-pago/tarjetas-de-credito-azul.svg') }}">
-                            <h4 class="fs_subtitle black_bold text-center">Tarjeta de crédito</h4>
-                        </a>
-                    </div>
+
+                    @if($pagoCita->aprobado == false and $pagoCita->tipo == 'virtual')
+                        <div class="col-6 col-lg-4 pr-2 pl-0">
+                            <a href="{{ route('profesional.pago-cita', ['pago_cita' => $pagoCita->id, 'metodo_pago' => 'pse']) }}">
+                                <img class="d-flex m-auto" id="img_pagoPse" src="{{ asset('/img/popup-pago/medios-online-pse-azul.svg') }}">
+                                <h4 class="fs_subtitle black_bold text-center">Pagos seguros en línea</h4>
+                            </a>
+                        </div>
+                        <div class="col-6 col-lg-4 p-0 pl-md-0" style="border-left: 1px solid #c5c3c3;">
+                            <a href="{{ route('profesional.pago-cita', ['pago_cita' => $pagoCita->id, 'metodo_pago' => 'card']) }}">
+                                <img class="d-flex m-auto" id="img_tarjCred" src="{{ asset('/img/popup-pago/tarjetas-de-credito-azul.svg') }}">
+                                <h4 class="fs_subtitle black_bold text-center">Tarjeta de crédito</h4>
+                            </a>
+                        </div>
+                    @endif
+                    @if($pagoCita->aprobado == true and $pagoCita->tipo == 'virtual')
+                        <h3 class="fs_subtitle black_bold font_roboto">La cita esta pagada correctamente.</h3>
+                    @endif
+                    @if($pagoCita->tipo == 'presencial')
+                        <h3 class="fs_subtitle black_bold font_roboto">La cita se debe pagar en el consultorio o entidad.</h3>
+                    @endif
+
                 </div>
             </div>
         </div>
