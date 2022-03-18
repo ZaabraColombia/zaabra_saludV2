@@ -79,58 +79,60 @@
 
     <!-- Modal Editar y Crear -->
     <div class="modal fade modal_contactos" id="modal_contactos">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content modal_container">
                 <div class="modal-header">
-                    <h1 class="fs_title_module blue_bold" id="exampleModalLabel"><span id="titulo">Nuevo</span> Contacto</h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <form method="post" id="form-contacto" class="forms">
                     <div class="modal-body">
+                        <h1><span id="titulo">Nuevo</span> Contacto</h1>
                         @csrf
-                        <div class="containt_main_form">
-                            <div class="row">
+                        <div class="form_modal">
+                            <div class="row m-0">
                                 <div class="col-12" id="alertas-modal"></div>
-                                <div class="col-12 input__box">
+                                
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="nombre">Nombre / Razón social (*)</label>
                                     <input type="text" id="nombre" name="nombre" class="campo" required/>
                                 </div>
 
-                                <div class="col-12 input__box">
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
                                     <label for="numero_identificacion">Cédula / NIT </label>
                                     <input type="text" id="numero_identificacion" name="numero_identificacion" class="campo"/>
                                 </div>
 
-                                <div class="col-12 input__box">
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="ciudad">Ciudad</label>
                                     <input type="text" id="ciudad" name="ciudad" class="campo"/>
                                 </div>
 
-                                <div class="col-12 input__box">
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
                                     <label for="direccion">Dirección</label>
                                     <input type="text" id="direccion" name="direccion" class="campo"/>
                                 </div>
 
-                                <div class="col-12 input__box">
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="telefono">Teléfono (*)</label>
                                     <input type="text" id="telefono" name="telefono" class="campo" required/>
                                 </div>
 
-                                <div class="col-12 input__box">
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
                                     <label for="telefono_adicional">Teléfono adicional</label>
                                     <input type="text" id="telefono_adicional" name="telefono_adicional" class="campo"/>
                                 </div>
 
-                                <div class="col-12 input__box">
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="correo">Correo</label>
                                     <input type="email" id="correo" name="correo" class="campo"/>
                                 </div>
 
-                                <div class="col-12 input__box">
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
                                     <label for="tipo">Tipo Contacto</label>
-                                    <select type="email" id="tipo" name="tipo" class="form-control campo">
+                                    <select type="email" id="tipo" name="tipo" class="campo">
                                         <option></option>
                                         <option value="proveedor">Proveedor</option>
                                         <option value="paciente">Paciente</option>
@@ -138,28 +140,28 @@
                                     </select>
                                 </div>
 
-                                <div class="col-12 input__box">
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="tipo_cuenta">Tipo de cuenta bancaria</label>
-                                    <select type="email" id="tipo_cuenta" name="tipo_cuenta" class="form-control campo">
+                                    <select type="email" id="tipo_cuenta" name="tipo_cuenta" class="campo">
                                         <option></option>
                                         <option value="ahorro">Ahorro</option>
                                         <option value="corriente">Corriente</option>
                                     </select>
                                 </div>
 
-                                <div class="col-12 input__box">
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
                                     <label for="numero_cuenta">Número de cuenta bancaria</label>
                                     <input type="text" id="numero_cuenta" name="numero_cuenta" class="campo"/>
                                 </div>
 
-                                <div class="col-12 input__box">
+                                <div class="col-12 p-0">
                                     <label for="observacion">Observación</label>
                                     <textarea name="observacion" id="observacion" class="form-control campo"></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer content_btn_right">
+                    <div class="modal-footer content_btn_center">
                         <button type="button" class="button_transparent" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="button_blue">Confirmar</button>
                     </div>
@@ -171,31 +173,73 @@
     <!-- Modal Eliminar -->
     <div class="modal fade modal_contactos" id="modal_contactos_eliminar">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content modal_container">
                 <div class="modal-header">
-                    <h1 class="fs_title_module blue_bold" id="exampleModalLabel">Eliminar Contacto</h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <!-- Mantener las cases "label-*" -->
                 <div class="modal-body">
-                    <p><strong>Nombre:</strong><span class="label-nombre"></span></p>
-                    <p><strong>Número de identificación:</strong><span class="label-numero_identificacion"></span></p>
-                    <p><strong>Correo:</strong><span class="label-correo"></span></p>
-                    <p><strong>Teléfonos:</strong><span class="label-telefono"></span> - <span class="label-telefono_adicional"></span></p>
-                    <p><strong>Ciudad:</strong><span class="label-ciudad"></span></p>
-                    <p><strong>Dirección:</strong><span class="label-direccion"></span></p>
-                    <p><strong>Dependencia:</strong><span class="label-dependencia"></span></p>
-                    <p><strong>Tipo de contacto:</strong><span class="label-tipo"></span></p>
-                    <p><strong>Tipo de cuenta bancaria:</strong><span class="label-tipo_cuenta"></span></p>
-                    <p><strong>Número de cuenta bancaria:</strong><span class="label-numero_cuenta"></span></p>
+                    <h1>Eliminar Contacto</h1>
+                    <div class="modal_info_cita">
+                        <div class="info_contac">
+                            <span>Nombre:</span>
+                            <span class="label-nombre"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Número identificación:&nbsp;</span>
+                            <span class="label-numero_identificacion"></span>
+                        </div>
+                        
+                        <div class="info_contac">
+                            <span>Correo:&nbsp;</span>
+                            <span class="label-correo"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Teléfonos:&nbsp;</span>
+                            <span class="label-telefono"></span> - 
+                            <span class="label-telefono_adicional"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Ciudad:&nbsp;</span>
+                            <span class="label-ciudad"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Dirección:&nbsp;</span>
+                            <span class="label-direccion"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Dependencia:&nbsp;</span>
+                            <span class="label-dependencia"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Tipo contacto:&nbsp;</span>
+                            <span class="label-tipo"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Tipo cuenta bancaria:&nbsp;</span>
+                            <span class="label-tipo_cuenta"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Número cuenta bancaria:&nbsp;</span>
+                            <span class="label-numero_cuenta"></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer content_btn_right">
+                <div class="modal-footer content_btn_center">
                     <form method="post" id="form-contacto-eliminar" class="forms">
                         @csrf
-                        <button type="button" class="button_transparent" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="button_blue">Eliminar</button>
+                        <button type="button" class="button_transparent ml-2" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="button_blue ml-2">Eliminar</button>
                     </form>
                 </div>
             </div>
@@ -205,27 +249,69 @@
     <!-- Modal Ver -->
     <div class="modal fade modal_contactos" id="modal_contactos_ver">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content modal_container">
                 <div class="modal-header">
-                    <h1 class="fs_title_module blue_bold" id="exampleModalLabel">Ver Contacto</h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <!-- Mantener las cases "label-*" -->
                 <div class="modal-body">
-                    <p><strong>Nombre:</strong><span class="label-nombre"></span></p>
-                    <p><strong>Número de identificación:</strong><span class="label-numero_identificacion"></span></p>
-                    <p><strong>Correo:</strong><span class="label-correo"></span></p>
-                    <p><strong>Teléfonos:</strong><span class="label-telefono"></span> - <span class="label-telefono_adicional"></span></p>
-                    <p><strong>Ciudad:</strong><span class="label-ciudad"></span></p>
-                    <p><strong>Dirección:</strong><span class="label-direccion"></span></p>
-                    <p><strong>Dependencia:</strong><span class="label-dependencia"></span></p>
-                    <p><strong>Tipo de contacto:</strong><span class="label-tipo"></span></p>
-                    <p><strong>Tipo de cuenta bancaria:</strong><span class="label-tipo_cuenta"></span></p>
-                    <p><strong>Número de cuenta bancaria:</strong><span class="label-numero_cuenta"></span></p>
+                    <h1>Ver Contacto</h1>
+                    <div class="modal_info_cita">
+                        <div class="info_contac">
+                            <span>Nombre:</span>
+                            <span class="label-nombre"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Número identificación:&nbsp;</span>
+                            <span class="label-numero_identificacion"></span>
+                        </div>
+                        
+                        <div class="info_contac">
+                            <span>Correo:&nbsp;</span>
+                            <span class="label-correo"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Teléfonos:&nbsp;</span>
+                            <span class="label-telefono"></span> - 
+                            <span class="label-telefono_adicional"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Ciudad:&nbsp;</span>
+                            <span class="label-ciudad"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Dirección:&nbsp;</span>
+                            <span class="label-direccion"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Dependencia:&nbsp;</span>
+                            <span class="label-dependencia"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Tipo contacto:&nbsp;</span>
+                            <span class="label-tipo"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Tipo cuenta bancaria:&nbsp;</span>
+                            <span class="label-tipo_cuenta"></span>
+                        </div>
+
+                        <div class="info_contac">
+                            <span>Número cuenta bancaria:&nbsp;</span>
+                            <span class="label-numero_cuenta"></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer content_btn_right">
+                <div class="modal-footer content_btn_center">
                     <button type="button" class="button_transparent" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>

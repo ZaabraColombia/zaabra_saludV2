@@ -14,7 +14,7 @@ $user = Auth::user();
             <ul class="menu">
                 <li class="sidebar-item  has-sub">
                     <a id="menu_panel" href="{{ route('paciente.panel') }}">
-                        <button>Menú</button>
+                        <button class="{{ request()->routeIs('paciente.panel') ? 'btn_active' : '' }}">Menú</button>
                     </a>
                 </li>
 
@@ -26,25 +26,25 @@ $user = Auth::user();
 
                 <li class="sidebar-item  has-sub">
                     <a id="contactos" href='{{ route('paciente.perfil') }}'>
-                        <button>Actualizar datos</button>
+                        <button class="{{ request()->routeIs('paciente.perfil') ? 'btn_active' : '' }}">Actualizar datos</button>
                     </a>
                 </li>
 
                 <li class="sidebar-item  has-sub">
                     <a id="pago" href='{{ route('paciente.citas') }}'>
-                        <button>Mis citas</button>
+                        <button class="{{ request()->routeIs('paciente.citas') ? 'btn_active' : '' }}">Mis citas</button>
                     </a>
                 </li>
 
                 <li class="sidebar-item  has-sub">
                     <a id="pacientes" href='{{ route('paciente.pagos') }}'>
-                        <button>Mis pagos</button>
+                        <button class="{{ request()->routeIs('paciente.pagos') ? 'btn_active' : '' }}">Mis pagos</button>
                     </a>
                 </li>
 
                 <li class="sidebar-item  has-sub">
                     <a id="fav" href='{{ route('paciente.favoritos') }}'>
-                        <button>Mis favoritos</button>
+                        <button class="{{ request()->routeIs('paciente.favoritos') ? 'btn_active' : '' }}">Mis favoritos</button>
                     </a>
                 </li>
             </ul>

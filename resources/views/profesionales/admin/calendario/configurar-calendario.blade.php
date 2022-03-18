@@ -10,7 +10,7 @@
             <!-- Form update duration date -->
             <div class="my-4 my-xl-5">
                 <h1 class="title__xl blue_bold">Configuración de cita</h1>
-                <h2 class="subtitle__lg black_light">Administre su horario de la cita</h2>
+                <h2 class="subtitle__lg black_light">Administre el horario de las citas</h2>
             </div>
 
             <form action="{{ route('profesional.agenda.configurar-calendario.cita') }}"
@@ -126,13 +126,41 @@
                                     </td>
                                     <td>{{ date('h:i A', strtotime($item['startTime'])) }} - {{ date('h:i A', strtotime($item['endTime'])) }}</td>
                                     <td>
-                                        <button class="btn_cierre_citasProf eliminar-horario" type="button" data-id="{{ $item['id'] }}"></button>
+                                        <button class="btn_cierre_citasProf eliminar-horario" type="button" data-id="{{ $item['id'] }}"
+                                        data-toggle="modal" data-target="#modal_cancelar_cita"></button>
                                     </td>
                                 </tr>
                             @endforeach
                         @endif
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal  Eliminar horario -->
+    <div class="modal fade" id="modal_cancelar_cita" tabindex="-1" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal_container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <h1>Eliminar horario</h1>
+                    
+                    <div class="eliminar_horario">
+                        <i data-feather="trash-2" class="trash_2"></i>
+                        <h3>Desea eliminar el horario</h3>
+                    </div>
+                </div>
+
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_transparent" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="button_blue" id="">Confirmar</button>
                 </div>
             </div>
         </div>

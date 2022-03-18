@@ -161,6 +161,13 @@
     .w_md_85 {
         width: 85%;
     }
+    .mt_md_lg {
+        margin-top: 15px;
+    }
+    .my__md {
+        margin-top: 20px;
+        margin-bottom: 25px;
+    }
 }
 @media(min-width: 1024px) {
     .content_asig_cita {
@@ -171,6 +178,9 @@
     .list__form_column ul li:nth-child(1) {
         padding-left: 25px;
     }
+    .align_between_1300 {
+        align-content: space-between;
+    }
     .w_lg_35 {
         width: 35%;
     }
@@ -179,6 +189,13 @@
     }
     .w_lg_100 {
         width: 100%;
+    }
+    .my__md {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .mt_md_lg {
+        margin-top: 30px;
     }
     .content_asig_cita {
         padding: 40px 20px 30px 30px;

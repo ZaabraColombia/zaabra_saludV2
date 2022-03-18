@@ -17,6 +17,9 @@
 
                 <div class="row m-0 pb-4">
                     <button id="actualizar-calendar" class="button_blue_form"><i class="fas fa-sync-alt pr-2"></i>Actualizar</button>
+                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_ver_cita">
+                        Open modal
+                    </button> -->
                 </div>
 
                 <div class="row m-0 content_dias_agenda mb-md-3">
@@ -65,10 +68,20 @@
                 </div>
 
                 <div class="modal-body">
-                    <div class="modal-title date_calendar">
-                        <span id="span-day-clicked"></span>
+                    <h1>Agendamiento de citas</h1>
+
+                    <div class="card card_day mb-2">
+                        <div class="card-header">
+                            <div class="card_header_day"></div>
+                            <div class="card_header_day"></div>
+                        </div>
+                        <div class="card-body">
+                            <span id="span-day-clicked"></span>
+                        </div> 
+                        <div class="card-footer"></div>
                     </div>
                 </div>
+
                 <div class="modal-footer content_btn_center">
                     <button type="button" class="button_blue" id="btn-day-clicked">Agendar cita</button>
                     <button type="button" class="button_blue" id="btn-day-see">Ver citas</button>
@@ -77,26 +90,130 @@
         </div>
     </div>
 
-    <!-- Modal ver cita -->
-    <div class="modal fade" id="modal_ver_cita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal  agendar cita -->
+    <div class="modal fade" id="agregar_cita" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
-                    <h1>Cita</h1>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <form method="POST" action="{{ route('profesional.agenda.calendario.crear-cita') }}" id="form-agendar-cita-profesional">
+                    <div class="modal-body">
+                        <h1>Agendar cita</h1>
+                        
+                        <div class="form_modal">
+                            <div class="row m-0">
+                                <div class="col-12 p-0" id="alerta-agregar_cita"></div>
+
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                    <label for="numero_id">Número de identificación</label>
+                                    <select type="text" id="numero_id" name="numero_id" required>
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                    <label for="nombre">Nombres</label>
+                                    <input type="text" id="nombre" name="nombre" readonly/>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                    <label for="apellido">Apellidos</label>
+                                    <input type="text" id="apellido" name="apellido" readonly/>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                    <label for="correo">Correo</label>
+                                    <input type="email" id="correo" name="correo" readonly/>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                    <label for="tipo_cita">Tipo de cita</label>
+                                    <select id="tipo_cita" name="tipo_cita" required>
+                                        <option ></option>
+                                        @if($tipoCitas->isNotEmpty())
+                                            @foreach($tipoCitas as $cita)
+                                                <option value="{{ $cita->id }}" data-cantidad="{{ $cita->valorconsulta }}">{{ $cita->nombreconsulta }}</option>
+                                            @endforeach
+                                        @endisset
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                    <label for="disponibilidad">Horario disponible</label>
+                                    <select id="disponibilidad" name="disponibilidad" required></select>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                    <label for="lugar">Lugar de cita</label>
+                                    <input type="text" id="lugar" name="lugar" required
+                                           value="{{ $user->profecional->direccion }}"
+                                           data-default="{{ $user->profecional->direccion }}" />
+                                </div>
+
+                                <div class="col-lg-6 p-0 pl-lg-2">
+                                    <label for="cantidad">Pago</label>
+                                    <input type="text" id="cantidad" name="cantidad" required/>
+                                </div>
+
+                                <div class="col-lg-6 p-0 pr-lg-2">
+                                    <label for="modalidad_pago">Modalidad de pago</label>
+                                    <select id="modalidad_pago" name="modalidad_pago" required>
+                                        <option></option>
+                                        <option value="virtual">Virtual</option>
+                                        <option value="presencial">Presencial</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer content_btn_center">
+                        <button type="button" class="button_transparent"
+                                id="cancelar-cita-btn-profesional" data-dismiss="modal">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="button_blue">Agendar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal ver cita -->
+    <div class="modal fade" id="modal_ver_cita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal_container">
+                <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
                 <div class="modal-body">
-                    <h2 class="mb-3 nombre_paciente"></h2>
-                    <div class="mb-2">
-                        <h3 class="fecha"></h3>
-                        <span class="hora"></span>
-                    </div>
-                    <div class="mb-2">
-                        <h3>Tipo de cita</h3>
-                        <span class="tipo_cita"></span>
+                    <h1>Detalle de la cita</h1>
+
+
+
+                    <div class="modal_info_cita">
+                        <div class="p-3">
+                            <h2 class="nombre_paciente"></h2>
+                            <p class="numero_id"></p>
+                            <p class="correo"></p>
+                        </div>
+
+                        <div class="row m-0">
+                            <div class="col-md-7 p-0 pl-3 mb-2">
+                                <h3 class="fecha" ></h3>
+                                <span class="hora"></span>
+                            </div>
+                            <div class="col-md-5 p-0 pl-3 mb-2">
+                                <h3>Tipo de cita</h3>
+                                <span class="tipo_cita"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -115,99 +232,19 @@
         </div>
     </div>
 
-    <!-- Modal  agendar cita -->
-    <div class="modal fade" id="agregar_cita" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content modal_container">
-                <div class="modal-header">
-                    <h1>Agendar cita</h1>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form method="POST" action="{{ route('profesional.agenda.calendario.crear-cita') }}" id="form-agendar-cita-profesional">
-                    <div class="modal-body">
-                        <div class="form_modal">
-                            <div class="row m-0">
-                                <div class="col-12 p-0" id="alerta-agregar_cita"></div>
-                                <div class="col-12 p-0">
-                                    <label for="numero_id">Número de identificación</label>
-                                    <select type="text" id="numero_id" name="numero_id" required>
-                                    </select>
-                                </div>
-                                <div class="col-12 p-0">
-                                    <label for="nombre">Nombres</label>
-                                    <input type="text" id="nombre" name="nombre" readonly/>
-                                </div>
-                                <div class="col-12 p-0">
-                                    <label for="apellido">Apellidos</label>
-                                    <input type="text" id="apellido" name="apellido" readonly/>
-                                </div>
-                                <div class="col-12 p-0">
-                                    <label for="correo">Correo</label>
-                                    <input type="email" id="correo" name="correo" readonly/>
-                                </div>
-                                <div class="col-12 p-0">
-                                    <label for="tipo_cita">Tipo de cita</label>
-                                    <select id="tipo_cita" name="tipo_cita" required>
-                                        <option ></option>
-                                        @if($tipoCitas->isNotEmpty())
-                                            @foreach($tipoCitas as $cita)
-                                                <option value="{{ $cita->id }}" data-cantidad="{{ $cita->valorconsulta }}">{{ $cita->nombreconsulta }}</option>
-                                            @endforeach
-                                        @endisset
-                                    </select>
-                                </div>
-                                <div class="col-12 p-0">
-                                    <label for="disponibilidad">Horario disponible</label>
-                                    <select id="disponibilidad" name="disponibilidad" required></select>
-                                </div>
-                                <div class="col-12 p-0">
-                                    <label for="lugar">Lugar de cita</label>
-                                    <input type="text" id="lugar" name="lugar" required
-                                           value="{{ $user->profecional->direccion }}"
-                                           data-default="{{ $user->profecional->direccion }}" />
-                                </div>
-                                <div class="col-md-6 p-0 pr-2">
-                                    <label for="cantidad">Pago</label>
-                                    <input type="text" id="cantidad" name="cantidad" required/>
-                                </div>
-                                <div class="col-md-6 p-0 pl-2">
-                                    <label for="modalidad_pago">Modalidad de pago</label>
-                                    <select id="modalidad_pago" name="modalidad_pago" required>
-                                        <option></option>
-                                        <option value="virtual">Virtual</option>
-                                        <option value="presencial">Presencial</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer content_btn_center">
-                        <button type="button" class="mbutton_transparent"
-                                id="cancelar-cita-btn-profesional" data-dismiss="modal">
-                            Cancelar
-                        </button>
-                        <button type="submit" class="button_blue">Agendar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <!-- Modal editar cita -->
     <div class="modal fade" id="modal_editar_cita" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
-                    <h1>Editar cita</h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <form method="POST" action="{{ route('profesional.agenda.calendario.actualizar-cita') }}" id="form-editar-cita">
                     <div class="modal-body">
+                        <h1>Editar cita</h1>
+                        
                         <div class="modal_info_cita mb-3">
                             <div class="p-3">
                                 <h2 class="nombre_paciente"></h2>
@@ -219,12 +256,13 @@
                                     <h3 class="fecha" ></h3>
                                     <span class="hora"></span>
                                 </div>
-                                <div class="col-md-5 p-0 mb-2 text-center">
+                                <div class="col-md-5 p-0 pl-3 mb-2">
                                     <h3>Tipo de cita</h3>
                                     <span class="tipo_cita"></span>
                                 </div>
                             </div>
                         </div>
+
                         <div class="form_modal">
                             <div class="row m-0">
                                 <div class="col-12 p-0" id="alerta-editar"></div>
@@ -244,7 +282,7 @@
                                     <label for="lugar-editar">Lugar de cita</label>
                                     <input type="text" id="lugar-editar" name="lugar" required/>
                                 </div>
-                                <div class="col-md-6 p-0 pr-2">
+                                <div class="col-md-6 p-0 pr-md-2">
                                     <label for="modalidad_pago-editar">Modalidad de pago</label>
                                     <select id="modalidad_pago-editar" name="modalidad_pago" required>
                                         <option></option>
@@ -252,7 +290,7 @@
                                         <option value="presencial">Presencial</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6 p-0 pl-2">
+                                <div class="col-md-6 p-0 pl-md-2">
                                     <label for="cantidad-editar">Pago</label>
                                     <input type="text" id="cantidad-editar" name="cantidad" required/>
                                 </div>
@@ -275,13 +313,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
-                    <h1>Reagendar cita</h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <form method="POST" action="{{ route('profesional.agenda.calendario.reagendar-cita') }}" id="form-cita-reagendar">
                     <div class="modal-body">
+                        <h1>Reagendar cita</h1>
+
                         <div class="modal_info_cita mb-3">
                             <div class="p-3">
                                 <h2 class="nombre_paciente"></h2>
@@ -293,7 +333,7 @@
                                     <h3 class="fecha"></h3>
                                     <span class="hora"></span>
                                 </div>
-                                <div class="col-md-5 p-0 mb-2 text-center">
+                                <div class="col-md-5 p-0 pl-3 mb-2">
                                     <h3>Tipo de cita</h3>
                                     <span class="tipo_cita"></span>
                                 </div>
@@ -329,7 +369,7 @@
 
 
                     <div class="modal-footer content_btn_center">
-                        <button type="button" class="mbutton_transparent" data-dismiss="modal">
+                        <button type="button" class="button_transparent" data-dismiss="modal">
                             Cancelar
                         </button>
                         <button type="submit" class="button_blue">Confirmar</button>
@@ -339,20 +379,20 @@
         </div>
     </div>
 
-
     <!-- Modal  Cancelar cita -->
     <div class="modal fade" id="modal_cancelar_cita" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
-                    <h1>Cancelar cita</h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
                 <div class="modal-body">
-                    <div class="modal_info_cita mb-3">
+                    <h1>Cancelar cita</h1>
+                    
+                    <div class="modal_info_cita">
                         <div class="p-3">
                             <h2 class="nombre_paciente"></h2>
                             <p class="numero_id"></p>
@@ -363,7 +403,7 @@
                                 <h3 class="fecha"></h3>
                                 <span class="hora"></span>
                             </div>
-                            <div class="col-md-5 p-0 mb-2 text-center">
+                            <div class="col-md-5 p-0 pl-3 mb-2">
                                 <h3>Tipo de cita</h3>
                                 <span class="tipo_cita"></span>
                             </div>
@@ -464,6 +504,8 @@
                             modal.find('.hora').html(moment(res.item.fecha_inicio).format('hh:mm A') + '-' + moment(res.item.fecha_fin).format('hh:mm A'));
                             modal.find('.nombre_paciente').html(res.item.nombre_paciente);
                             modal.find('.tipo_cita').html(res.item.tipo_cita);
+                            modal.find('.correo').html(res.item.correo);
+                            modal.find('.numero_id').html(res.item.numero_id);
 
                             $('#btn-cita-cancelar').data('id', res.item.id);
                             $('#btn-cita-reagendar').data('id', res.item.id);
