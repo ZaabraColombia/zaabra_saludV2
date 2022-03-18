@@ -82,8 +82,7 @@
                                 <div class="input__box mb-3">
                                     <label for="modalidad">Modalidad de pago</label>
                                     <select id="modalidad" class="form-control" name="modalidad" required>
-                                        <option value="pse"> PSE </option>
-                                        <option value="tarjeta credito"> Tarjeta crédito </option>
+                                        <option value="virtual">Virtual</option>
                                         @if(!empty($antiguedad) and $antiguedad->confirmacion == true)
                                             <option value="presencial" id="option-presencial"> Presencial </option>
                                         @endif
@@ -95,7 +94,14 @@
                                         <option></option>
                                         @if(!empty($profesional->tipo_consultas))
                                             @foreach ($profesional->tipo_consultas as $consulta)
-                                                <option value="{{ $consulta->id }}" data-valor="${{ number_format($consulta->valorconsulta, 0, ",", ".") }}">{{ $consulta->nombreconsulta }}</option>
+{{--                                                @if(!empty($antiguedad) and $antiguedad->confirmacion == true)--}}
+                                                @if($consulta->nombreconsulta == 'Control' and !empty($antiguedad) and $antiguedad->confirmacion == true)
+                                                    <option value="{{ $consulta->id }}" data-valor="${{ number_format($consulta->valorconsulta, 0, ",", ".") }}" id="option-control">
+                                                        {{ $consulta->nombreconsulta }}
+                                                    </option>
+                                                @elseif($consulta->nombreconsulta != 'Control')
+                                                    <option value="{{ $consulta->id }}" data-valor="${{ number_format($consulta->valorconsulta, 0, ",", ".") }}">{{ $consulta->nombreconsulta }}</option>
+                                                @endif
                                             @endforeach
                                         @endif
                                     </select>
@@ -287,7 +293,7 @@
                     dataType: 'json',
                     success: function (response) {
                         if (btn.data('confirmacion')) {
-                            $('#option-presencial').remove();
+                            $('#option-presencial, #option-control').remove();
                         }else{
                             $('#modalidad').append('<option value="presencial"> Presencial </option>');
                         }

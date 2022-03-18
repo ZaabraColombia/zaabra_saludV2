@@ -56,7 +56,7 @@
                                                 <td>{{ "{$cita->fecha_inicio->format('H:i a')} - {$cita->fecha_fin->format('H:i a')}" }}</td>
                                                 <td>{{ $cita->lugar }}</td>
                                                 {{--                                                <td>Bogotá</td>--}}
-                                                <td>{{ $cita->tipo_consulta->nombreconsulta }}</td>
+                                                <td>{{ $cita->tipo_consulta->nombreconsulta ?? ''}}</td>
                                                 {{--                                                <td>Traumatología</td>--}}
                                                 {{--                                                <td>Clinica Reina Sofia</td>--}}
                                                 <td>

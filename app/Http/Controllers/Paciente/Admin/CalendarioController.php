@@ -213,7 +213,7 @@ class CalendarioController extends Controller{
             'disponibilidad'    => ['required'],
             'disponibilidad.*'  => ['required', 'date_format:Y-m-d H:i'],
             'tipo_cita'         => ['required'],
-            'modalidad'         => ['required', Rule::in(['pse', 'tarjeta credito', 'presencial'])],
+            'modalidad'         => ['required', Rule::in(['virtual', 'presencial'])],
         ]);
 
         $all = $request->all();
@@ -261,6 +261,12 @@ class CalendarioController extends Controller{
             ->where('id', '=', $all['tipo_cita'])
             ->first(['valorconsulta']);
 
+        $antiguedad = Antiguedad::query()
+            ->updateOrCreate([
+                'paciente_id' => Auth::user()->paciente->id,
+                'profesional_id' => $profesional->idPerfilProfesional,
+            ], ['confirmacion' => true]);
+
         //Crear pago
         $pago = PagoCita::query()->create([
             'fecha'     => $fechaPago,
@@ -270,6 +276,11 @@ class CalendarioController extends Controller{
             'tipo'      => $all['modalidad'],
             'cita_id'   => $date->id_cita,
         ]);
+
+        if ($all['modalidad'] == 'virtual')
+            return redirect()
+                ->route('profesional.detalle-pago-cita', ['pago_cita' => $pago->id])
+                ->with('success', "Cita asignada con {$profesional->user->nombre_completo}");
 
         return redirect()
             ->route('paciente.citas')
