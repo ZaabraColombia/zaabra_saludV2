@@ -1,7 +1,12 @@
 @extends('layouts.app-admin')
 
 @section('styles')
-
+    <link rel="stylesheet" href="{{ asset('plugins/tagsinput/bootstrap-tagsinput.css') }}">
+    <style>
+        .bootstrap-tagsinput{
+            width: 100% !important;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -88,17 +93,20 @@
 
                     <div class="col-md-6 p-0 pr-md-1">
                         <label for="celular" class="label_txt_form"> {{ __('paciente.celular') }} </label>
-                        <input id="celular" class="input_box_form" type="number" placeholder="Número de celular" name="celular" value="{{ old('celular', $paciente->celular) }}">
+                        <br>
+                        <input id="celular" class="input_box_form tags-input" type="text" placeholder="Número de celular" name="celular" value="{{ old('celular', $paciente->celular) }}">
                     </div>
 
                     <div class="col-md-6 p-0 pl-md-1">
                         <label for="telefono" class="label_txt_form"> {{ __('paciente.teléfono-fijo') }} </label>
-                        <input id="telefono" class="input_box_form" type="number" placeholder="Número Teléfono" name="telefono" value="{{ old('telefono', $paciente->telefono) }}">
+                        <br>
+                        <input id="telefono" class="input_box_form tags-input" type="text" placeholder="Número Teléfono" name="telefono" value="{{ old('telefono', $paciente->telefono) }}">
                     </div>
 
                     <div class="col-md-6 p-0 pr-md-1">
                         <label for="direccion" class="label_txt_form"> {{ __('paciente.direccion') }} </label>
-                        <input id="direccion" class="input_box_form" type="text" placeholder="Dirección" name="direccion" value="{{ old('direccion', $paciente->direccion) }}">
+                        <br>
+                        <input id="direccion" class="input_box_form tags-input" type="text" placeholder="Dirección" name="direccion" value="{{ old('direccion', $paciente->direccion) }}">
                     </div>
 
                     <div class="col-md-6 p-0 pl-md-1">
@@ -187,6 +195,19 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('plugins/tagsinput/bootstrap-tagsinput.min.js') }}"></script>
     <script src="{{ asset('js/formulario-paciente.js') }}"></script>
     <script src="{{ asset('js/cargaFoto.js') }}"></script>
+
+    <script>
+        $('.tags-input').tagsinput({
+            tagClass: 'bg-primary p-1'
+        });
+        $('form').keypress(function (event) {
+            if (event.which === 13) {
+                event.preventDefault();
+                return false;
+            }
+        });
+    </script>
 @endsection
