@@ -28,5 +28,12 @@ $('.search').autocomplete({
         let input = $(this).data('description');
         console.log(ui);
         if ($(input)) $(input).html((ui.item.description !== undefined) ? ui.item.description:ui.item.label);
+    },
+
+    open: function() {
+        console.log('si');
+        $("ul.ui-menu").css( 'width' ,$('.input__box').width() + 'px' );
+        $(".ui-menu-item").css('height', 'auto');
+        $(".ui-menu-item-wrapper").css('height', 'auto').css('line-height', '1.2');
     }
 });
