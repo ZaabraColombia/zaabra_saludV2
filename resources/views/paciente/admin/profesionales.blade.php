@@ -1,4 +1,4 @@
-@extends('profesionales.admin.layouts.panel')
+@extends('paciente.admin.layouts.layout')
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">

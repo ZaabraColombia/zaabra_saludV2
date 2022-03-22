@@ -7,7 +7,7 @@
                 <div class="row m-0">
                     <!-- Mis profesionales -->
                     <div class="col-6 col-md-4 p-2">
-                        <a  href="#">
+                        <a  href="{{ route('paciente.profesionales') }}">
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mis-examenes.jpg') }}" alt="">
                                 <h3 class="subtitle__lg">Mis Profesionales</h3>

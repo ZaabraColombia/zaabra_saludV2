@@ -19,8 +19,8 @@ $user = Auth::user();
                 </li>
 
                 <li class="sidebar-item  has-sub">
-                    <a id="fav" href='#'>
-                        <button>Mis profesionales</button>
+                    <a id="fav" href='{{ route('paciente.profesionales') }}'>
+                        <button class="{{ request()->routeIs('paciente.profesionales') ? 'btn_active' : '' }}">Mis profesionales</button>
                     </a>
                 </li>
 
