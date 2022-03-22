@@ -113,7 +113,7 @@
 
                                 <div class="row m-0 content_btn_right">
                                     <button type="button" class="button_blue" id="btn-finalizar-cita-profesional">
-                                        Finalizar
+                                        Confirmar
                                     </button>
                                 </div>
                             </form>
