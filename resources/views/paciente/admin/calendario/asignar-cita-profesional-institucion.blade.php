@@ -23,7 +23,7 @@
                 @endif
             </div>
         </div>
-        
+
         <div class="content_row">
             <h2 class="fs_title_module blue_bold mt-3 title__img_inst" id="nombre_profesional-paciente">
                 MedPlus medicina prepagada medicina prepagada
@@ -31,7 +31,7 @@
             <!-- Información Institución -->
             <div class="container__inst">
                 <div class="content__img_inst">
-                    <img src='/img/instituciones/43/medplus_santaBarbara.jpg' alt="" class="img__inst"  >
+                    <img src='{{ asset($profesional->institucion->imagen) }}' alt="" class="img__inst"  >
                 </div>
 
                 <div class="content__info_inst">
@@ -40,10 +40,10 @@
                     <h5 class="fs_text_small black_strong">Cra 14 # 93b - 15</h5>
                     <h5 class="fs_text_small black_strong">Bogotá D.C. Colombia</h5>
                 </div>
-     
+
                 <div class="content__img_prof">
                     <div class="img__prof">
-                        <img src='/img/user/31/31-1630611954.jpg'>
+                        <img src='{{ asset($profesional->foto_perfil_institucion) }}'>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
             <!-- Información del Profesional -->
             <div class="col_flex w_lg_35 align_between_1300">
                 <div class="content_img_center">
-                    <img src='/img/user/31/31-1630611954.jpg'>
+                    <img src='{{ asset($profesional->foto_perfil_institucion) }}'>
                 </div>
 
                 <div class="w-100 w_md_65 w_lg_100 pl-md-3">
@@ -104,7 +104,7 @@
                     </div>
 
                     <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
-                        <form action="{{ route('paciente.finalizar-cita-profesional', ['profesional' => $profesional->slug]) }}"
+                        <form action="#"
                                 method="post" id="form-finalizar-cita-profesional">
                             @csrf
                             <div class="input__box mb-3">
@@ -230,28 +230,28 @@
 
                 if (date[0]._i !== null && date[0]._i !== undefined )
                 {
-                    $.ajax({
-                        data: { date: date[0]._i},
-                        dataType: 'json',
-                        url: '{{ route('paciente.dias-libre-profesional', ['profesional' => $profesional->slug]) }}',
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        method: 'POST',
-                        success: function (res) {
-
-                            //get list
-                            $.each(res.data, function (index, item) {
-                                hora.append('<option value=\'{"start":"' + item.startTime + '","end": "' + item.endTime + '"}\'>' +
-                                    moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
-                                    '</option>');
-                            });
-                        },
-                        error: function (res, status) {
-                            var response = res.responseJSON;
-                            $('#alerta-general').html(alert(response.message, 'danger'));
-                        }
-                    });
+                    // $.ajax({
+                    //     data: { date: date[0]._i},
+                    //     dataType: 'json',
+                    //     url: '#',
+                    //     headers: {
+                    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    //     },
+                    //     method: 'POST',
+                    //     success: function (res) {
+                    //
+                    //         //get list
+                    //         $.each(res.data, function (index, item) {
+                    //             hora.append('<option value=\'{"start":"' + item.startTime + '","end": "' + item.endTime + '"}\'>' +
+                    //                 moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
+                    //                 '</option>');
+                    //         });
+                    //     },
+                    //     error: function (res, status) {
+                    //         var response = res.responseJSON;
+                    //         $('#alerta-general').html(alert(response.message, 'danger'));
+                    //     }
+                    // });
                 }
             }
         });
@@ -296,24 +296,24 @@
         $('#modal_antiguedad').modal()
             .on('click', 'button', function (e) {
                 var btn = $(this);
-
-                $.ajax({
-                    url: '{{ route('paciente.confirmar-antiguedad-profesional', ['profesional' => $profesional->idPerfilProfesional]) }}',
-                    //Verdadero primera vez
-                    data: {antiguedad:btn.data('confirmacion')},
-                    type: 'post',
-                    dataType: 'json',
-                    success: function (response) {
-                        if (btn.data('confirmacion')) {
-                            $('#option-presencial').remove();
-                        }else{
-                            $('#modalidad').append('<option value="presencial"> Presencial </option>');
-                        }
-                        $('#modal_antiguedad').modal('hide');
-                    },
-                    error: function (error) {
-                    }
-                });
+                $('#modal_antiguedad').modal('hide');
+                // $.ajax({
+                //     url: '#',
+                //     //Verdadero primera vez
+                //     data: {antiguedad:btn.data('confirmacion')},
+                //     type: 'post',
+                //     dataType: 'json',
+                //     success: function (response) {
+                //         if (btn.data('confirmacion')) {
+                //             $('#option-presencial').remove();
+                //         }else{
+                //             $('#modalidad').append('<option value="presencial"> Presencial </option>');
+                //         }
+                //         $('#modal_antiguedad').modal('hide');
+                //     },
+                //     error: function (error) {
+                //     }
+                // });
             });
         @endempty
 

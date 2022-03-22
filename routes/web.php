@@ -394,8 +394,11 @@ Route::get('/test', function (){
 
 // Ruta para la vista asignar cita profesional institución
 Route::get('/test-asignar-cita-profesional-institucion', function (){
-    $profesional= \App\Models\perfilesprofesionales::first();
-    $weekDisabled = array(1,2); 
+    //$profesional= \App\Models\perfilesprofesionales::first();
+    $profesional = \App\Models\profesionales_instituciones::query()
+        ->with(['institucion'])
+        ->first();
+    $weekDisabled = array(1,2);
     return view('paciente.admin.calendario.asignar-cita-profesional-institucion', compact('profesional', 'weekDisabled'));
 });
 
