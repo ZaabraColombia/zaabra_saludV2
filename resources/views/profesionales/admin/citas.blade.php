@@ -17,17 +17,20 @@
                 </div>
 
                 <div class="containt_main_form mb-3">
+                    <div class="col-md-4 ">
+                        <input type="date" id="date" class="form-control"/>
+                    </div>
+                    <br>
                     <div class="table-responsive">
                         <table class="table" id="table-citas">
                             <thead>
-                                <tr>
-                                    <th>Fecha</th>
-                                    <th>Hora</th>
-                                    <th>Tipo de cita</th>
-                                    <th>Paciente</th>
-                                    <th>Estado</th>
-                                    <th></th>
-                                </tr>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>Tipo de cita</th>
+                                <th>Paciente</th>
+                                <th>Estado</th>
+                            </tr>
                             </thead>
                             <tbody>
                             @if($citas->isNotEmpty())
@@ -39,9 +42,6 @@
                                         <td>{{ $cita->paciente->user->nombre_completo }}</td>
                                         <td>
                                             <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>
-                                        </td>
-                                        <td>
-
                                         </td>
                                     </tr>
                                 @endforeach
@@ -161,23 +161,73 @@
 
 @section('scripts')
     <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
+    <script src="{{ asset('plugins/DataTables/DateTime-1.1.2/js/dataTables.dateTime.min.js') }}"></script>
+    <script src="{{ asset('plugins/moment/moment-with-locales.min.js') }}"></script>
+    {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>--}}
+    <script src="https://cdn.datatables.net/plug-ins/1.11.5/sorting/datetime-moment.js"></script>
     <script src="{{ asset('js/alertas.js') }}"></script>
 
     <script>
-        //Inicializar tabla
-        var table = $('#table-citas').DataTable({
-            bFilter: false,
-            bInfo: false,
-            response: true,
-            language: {
-                url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-            },
-            searching: true,
-        });
+        $(document).ready( function () {
 
-        $("#search").on('keyup change',function(){
-            var texto = $(this).val();
-            table.search(texto).draw();
+            $.fn.dataTable.moment( 'DD-MM / YYYY', 'es');
+            $.fn.dataTable.moment( 'HH:mm A \- HH:mm A', 'es');
+
+
+            $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+                var dateS = $('#date').val();
+                var startDate = moment(data[0], 'DD-MM / YYYY');
+
+                if (dateS == null || dateS === '') return true;
+                return startDate.format('YYYY-MM-DD') === dateS;
+            });
+
+            //Inicializar tabla
+            var table = $('#table-citas').DataTable({
+                // bFilter: true,
+                // bInfo: true,
+                responsive: true,
+                language: {
+                    url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                },
+                dom: 'lfBrtip',
+                buttons: [
+                    {
+                        extend: 'pdfHtml5',
+                        text: 'PDF',
+                        title:function () {
+                            return 'Resultados';
+                        },
+                        exportOptions: {
+                            modifier: {
+                                page: 'current'
+                            }
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        text: 'Excel',
+                        title:function () {
+                            return 'Resultados';
+                        }
+                    }
+                ],
+                searching: true,
+                columnDefs: [
+                    {
+                        targets: [-1],
+                        orderable: false,
+                    }
+                ],
+            });
+
+            $("#search").on('keyup change',function(){
+                var texto = $(this).val();
+                table.search(texto).draw();
+            });
+            $("#date").on('change',function(){
+                table.draw();
+            });
         });
     </script>
 @endsection
