@@ -94,7 +94,7 @@
                         <div class="form_modal">
                             <div class="row m-0">
                                 <div class="col-12" id="alertas-modal"></div>
-                                
+
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="nombre">Nombre / Razón social (*)</label>
                                     <input type="text" id="nombre" name="nombre" class="campo" required/>
@@ -192,7 +192,7 @@
                             <span>Número identificación:&nbsp;</span>
                             <span class="label-numero_identificacion"></span>
                         </div>
-                        
+
                         <div class="info_contac">
                             <span>Correo:&nbsp;</span>
                             <span class="label-correo"></span>
@@ -200,7 +200,7 @@
 
                         <div class="info_contac">
                             <span>Teléfonos:&nbsp;</span>
-                            <span class="label-telefono"></span> - 
+                            <span class="label-telefono"></span> -
                             <span class="label-telefono_adicional"></span>
                         </div>
 
@@ -268,7 +268,7 @@
                             <span>Número identificación:&nbsp;</span>
                             <span class="label-numero_identificacion"></span>
                         </div>
-                        
+
                         <div class="info_contac">
                             <span>Correo:&nbsp;</span>
                             <span class="label-correo"></span>
@@ -276,7 +276,7 @@
 
                         <div class="info_contac">
                             <span>Teléfonos:&nbsp;</span>
-                            <span class="label-telefono"></span> - 
+                            <span class="label-telefono"></span> -
                             <span class="label-telefono_adicional"></span>
                         </div>
 
@@ -332,6 +332,12 @@
                 url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
             },
             searching: true,
+            columnDefs: [
+                {
+                    targets: [-1, -2, -3],
+                    orderable: false,
+                }
+            ]
         });
 
         $("#search").on('keyup change',function(){
