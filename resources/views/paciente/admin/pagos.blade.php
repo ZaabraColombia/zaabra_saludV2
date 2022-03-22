@@ -40,7 +40,7 @@
                                                 <td>{{ $pago->fecha->format('d-m-Y') }}</td>
                                                 <td>{{ $pago->fecha->format('H:i a') }}</td>
                                                 <td>{{ $pago->cita->tipo_consulta->nombreconsulta }}</td>
-                                                <td>${{ $pago->valor }}</td>
+                                                <td>${{ number_format($pago->valor, 0, ",", ".") }}</td>
 {{--                                                <td class="content_btn_descargar">--}}
 {{--                                                    <button class="btn_descargar_pago">--}}
 {{--                                                        Descargar&nbsp;<i class="fas fa-download"></i>--}}
