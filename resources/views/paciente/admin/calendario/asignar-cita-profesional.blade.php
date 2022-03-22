@@ -162,26 +162,26 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2 class="modal-title fs_title" id="staticBackdropLabel">Asignación de citas</h2>
+                        <h2 class="modal-title fs_title_module black_bold" id="staticBackdropLabel">Asignación de citas</h2>
                     </div>
                     <div class="modal-body">
                         <div>
-                            <h3 class="text-center fs_subtitle blue_bold">¡Bienvenido!</h3>
-                            <h3 class="text-center fs_subtitle black_light">Sr(a). {{ Auth::user()->nombre_completo }}</h3>
+                            <h3 class="text-center fs_subtitle_module blue_light">¡Bienvenido!</h3>
+                            <h3 class="text-center fs_subtitle black_bold">Sr(a). {{ Auth::user()->nombre_completo }}</h3>
                         </div>
 
                         <p class="text-center fs_text black_light">
-                            Este es su primer agendamiento de cita para la consulta de Odontologia.
+                            Este es su primer agendamiento de cita para la consulta de Odontología.
                         </p>
 
-                        <div>
-                            <span class="fs_text black_bold"> Especialista: &nbsp;</span>
-                            <span class="fs_text black_light">{{ $profesional->user->nombre_completo }}</span>
+                        <div class="d-flex justify-content-center mt-3">
+                            <span class="d-flex align-items-center fs_text black_bold"> <i class="fas fa-stethoscope mr-2"></i> Especialista: &nbsp;</span>
+                            <span class="d-flex fs_text black_light">{{ $profesional->user->nombre_completo }}</span>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="button_transparent" data-confirmacion="0">No</button>
-                        <button class="button_blue ml-3" data-confirmacion="1">Si</button>
+                        <button class="button_blue" data-confirmacion="1">Si</button>
+                        <button class="button_transparent ml-2" data-confirmacion="0">No</button>
                     </div>
                 </div>
             </div>
