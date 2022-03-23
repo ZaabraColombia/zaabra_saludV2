@@ -48,9 +48,16 @@
                         @if($contactos->isNotEmpty())
                             @foreach($contactos as $contacto)
                                 <tr>
-                                    <td>
-                                        <img class="img__contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
-                                        &nbsp; &nbsp;{{ $contacto->nombre }}
+                                    <td class="pr-0">
+                                        <div class="user__xl">
+                                            <div class="pr-2">
+                                                <img class="img__contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                                            </div>
+
+                                            <div>
+                                                <span>{{ $contacto->nombre }}</span>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>{{ $contacto->direccion }}</td>
                                     <td>{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</td>
@@ -102,8 +109,8 @@
                                     <div class="row align-items-lg-end mx-lg-0 mb-lg-3">
                                         <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                                             <div class="img__upload">
-                                                <img id="imagen-foto" src="">
-                                                <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" value="">
+                                                <img id="imagenPrevisualizacion" src="">
+                                                <input type="file" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg" value="">
                                                 <p>Subir foto de perfil</p>
                                             </div>
                                         </div>
@@ -575,7 +582,7 @@
                 },
                 error: function (error) {
                     //mensaje
-                    //$('#alertas-modal').html(alert(error.responseJSON.message, 'danger'));
+                    $('#alertas-modal').html(alert(error.responseJSON.message, 'danger'));
                 }
             });
         });

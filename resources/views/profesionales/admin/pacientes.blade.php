@@ -40,9 +40,17 @@
                         @if($pacientes->isNotEmpty())
                             @foreach($pacientes as $paciente)
                                 <tr>
-                                    <td>
-                                        <img class="img__contacs" src='/img/user/31/31-1630611954.jpg'>
-                                        &nbsp; &nbsp;{{ $paciente->user->nombre_completo }}</td>
+                                    <td class="pr-0">
+                                        <div class="user__xl">
+                                            <div class="pr-2">
+                                                <img class="img__contacs" src='/img/user/31/31-1630611954.jpg'>
+                                            </div>
+                                        
+                                            <div>
+                                                <span>{{ $paciente->user->nombre_completo }}</span>
+                                            </div>
+                                        </div>
+                                    </td>
                                     <td>{{ $paciente->user->numerodocumento }}</td>
                                     <td>{{ $paciente->direccion }}</td>
                                     <td>{{ "{$paciente->celular} - {$paciente->telefono}" }}</td>
