@@ -50,7 +50,7 @@ $user = Auth::user();
 
                 <li class="sidebar-item  has-sub">
                     <a id="fav" href='{{ route('paciente.contactos.index') }}'>
-                        <button class="{{ request()->routeIs('paciente.contactos') ? 'btn_active' : '' }}">Mis contactos</button>
+                        <button class="{{ request()->routeIs('paciente.contactos.*') ? 'btn_active' : '' }}">Mis contactos</button>
                     </a>
                 </li>
             </ul>
