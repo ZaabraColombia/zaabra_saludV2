@@ -299,32 +299,32 @@ Route::middleware(['auth', 'roles', 'verified'])->as('entidad.')->group(function
 
 /*--------- Admin Entidad (Institución) -----------*/
 Route::group(['prefix' => '/institucion', 'as' => 'institucion.'], function (){
-    Route:: get('/panel',[entidades\Admin\PanelController::class,'index'])->name('panel');
-    Route:: get('/citas',[entidades\Admin\CitasController::class,'index'])->name('citas');
-    Route:: get('/pagos',[entidades\Admin\PagosController::class,'index'])->name('pagos');
+    Route::get('/panel',[entidades\Admin\PanelController::class,'index'])->name('panel');
+    Route::get('/citas',[entidades\Admin\CitasController::class,'index'])->name('citas');
+    Route::get('/pagos',[entidades\Admin\PagosController::class,'index'])->name('pagos');
 
     Route::get('/configurar-calendario', [entidades\Admin\CalendarioController::class, 'configuracion'])
         ->name('configurar-calendario');
     Route::get('/calendario',[entidades\Admin\CalendarioController::class,'index'])
         ->name('calendarioProfesional');
 
-    Route:: get('/cie10',[entidades\Admin\HistoriaClinicaController::class,'cie10'])
+    Route::get('/cie10',[entidades\Admin\HistoriaClinicaController::class,'cie10'])
         ->name('catalogos.cie10');
-    Route:: get('/cups',[entidades\Admin\HistoriaClinicaController::class,'cups'])
+    Route::get('/cups',[entidades\Admin\HistoriaClinicaController::class,'cups'])
         ->name('catalogos.cups');
-    Route:: get('/cums',[entidades\Admin\HistoriaClinicaController::class,'cums'])
+    Route::get('/cums',[entidades\Admin\HistoriaClinicaController::class,'cums'])
         ->name('catalogos.cums');
 
-    Route:: get('/favoritos',[entidades\Admin\FavoritosController::class,'index'])
+    Route::get('/favoritos',[entidades\Admin\FavoritosController::class,'index'])
         ->name('favoritos');
-    Route:: post('/favoritosSave',[entidades\Admin\FavoritosController::class,'create'])
-        ->name('favoritosSave');
-    Route:: post('/favoritosSave2',[entidades\Admin\FavoritosController::class,'create2'])
-        ->name('favoritosSave2');
-    Route:: post('/favoritosSave3',[entidades\Admin\FavoritosController::class,'create3'])
-        ->name('favoritosSave3');
-    Route:: post('/favoritosSave4',[entidades\Admin\FavoritosController::class,'create4'])
-        ->name('favoritosSave4');
+    Route::post('/guardar-especialidades',[entidades\Admin\FavoritosController::class,'guardar_especialidades'])
+        ->name('favoritos.guardar_especialidades');
+    Route::post('/guardar-servicios',[entidades\Admin\FavoritosController::class,'guardar_servicios'])
+        ->name('favoritos.guardar_servicios');
+    Route::post('/guardar-profesional',[entidades\Admin\FavoritosController::class,'guardar_profesional'])
+        ->name('favoritos.guardar_profesional');
+    Route::post('/guardar-instituciones',[entidades\Admin\FavoritosController::class,'guardar_instituciones'])
+        ->name('favoritos.guardar_instituciones');
 });
 
 /*------------------------------------------------Pertenece el paciente-------------------------------------------------------------------------------*/

@@ -80,7 +80,7 @@
 
                 <!-- Favoritos -->
                 <li class="sidebar-item  has-sub">
-                    <a class="" href='{{-- route('institucion.favoritos') --}}'>
+                    <a class="" href='{{ route('institucion.favoritos') }}'>
                         <button class="{{ request()->routeIs('institucion.favoritos') ? 'btn_active' : '' }}">Mis favoritos</button>
                     </a>
                 </li>
