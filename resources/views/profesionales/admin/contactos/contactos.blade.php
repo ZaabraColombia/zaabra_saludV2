@@ -15,7 +15,7 @@
             </div>
 
             <!-- Contenedor barra de búsqueda y botón agregar contacto -->
-            <div class="containt_main_form mb-3">
+            <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-9 p-0 input__box mb-0">
                         <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Contacto" />
@@ -29,10 +29,10 @@
             </div>
 
             <!-- Contenedor formato tabla de la lista de contactos -->
-            <div class="containt_main_form mb-3">
+            <div class="containt_main_table mb-3">
                 <div class="row" id="alertas"></div>
                 <div class="table-responsive">
-                    <table class="table" id="table-contactos">
+                    <table class="table table_agenda" id="table-contactos">
                         <thead>
                         <tr>
                             <th>Nombre</th>
@@ -48,7 +48,10 @@
                         @if($contactos->isNotEmpty())
                             @foreach($contactos as $contacto)
                                 <tr>
-                                    <td>{{ $contacto->nombre }}</td>
+                                    <td>
+                                        <img class="img__contacs" src='/img/user/31/31-1630611954.jpg'>
+                                        &nbsp; &nbsp;{{ $contacto->nombre }}
+                                    </td>
                                     <td>{{ $contacto->direccion }}</td>
                                     <td>{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</td>
                                     <td>{{ $contacto->correo }}</td>

@@ -52,6 +52,16 @@
         object-fit: cover;
     }
 }
+
+// propiedades imagen mis profesionales agenda paciente
+.img__contacs {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #CED4DA;
+    border-radius: 100px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
 @media(min-width: 768px) {
     .content_img_center {
         justify-content: flex-start;
