@@ -48,9 +48,16 @@
                         @if($contactos->isNotEmpty())
                             @foreach($contactos as $contacto)
                                 <tr>
-                                    <td>
-                                        <img class="img__contacs" src='/img/user/31/31-1630611954.jpg'>
-                                        &nbsp; &nbsp;{{ $contacto->nombre }}
+                                    <td class="px-0">
+                                        <div clas="row m-0" style="display: flex; align-items: center; line-height: 1.2;">
+                                            <div class="col-3 p-0">
+                                                <img class="img__contacs" src='/img/user/31/31-1630611954.jpg'>
+                                            </div>
+                                        
+                                            <div class="col-9 p-0">
+                                                <span>{{ $contacto->nombre }}</span>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>{{ $contacto->direccion }}</td>
                                     <td>{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</td>

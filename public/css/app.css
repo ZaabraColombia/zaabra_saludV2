@@ -26516,13 +26516,12 @@ a:link, a:visited, a:active, a:hover {
   display: flex;
   flex-direction: column;
   width: 170px;
-  height: 195px;
   margin: auto;
   padding: 0;
 }
 
 .img__upload img {
-  height: 100%;
+  height: 170px;
   width: 100%;
   border-radius: 100px;
   background: #D1D1D1;
@@ -26591,7 +26590,10 @@ a:link, a:visited, a:active, a:hover {
 @media (min-width: 1024px) {
   .img__upload {
     width: 150px;
-    height: 175px;
+  }
+
+  .img__upload img {
+    height: 150px;
   }
 
   .img__upload input {
