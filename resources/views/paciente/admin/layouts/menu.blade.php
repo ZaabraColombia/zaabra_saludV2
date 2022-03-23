@@ -47,6 +47,12 @@ $user = Auth::user();
                         <button class="{{ request()->routeIs('paciente.favoritos') ? 'btn_active' : '' }}">Mis favoritos</button>
                     </a>
                 </li>
+
+                <li class="sidebar-item  has-sub">
+                    <a id="fav" href='{{ route('paciente.contactos.index') }}'>
+                        <button class="{{ request()->routeIs('paciente.contactos') ? 'btn_active' : '' }}">Mis contactos</button>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

@@ -371,6 +371,8 @@ Route::middleware(['auth', 'roles', 'verified'])->as('paciente.')->prefix('/paci
     Route::post('/paciente/formulario-contacto',[Paciente\FormularioPaciente::class,'contacto'])->name('formulario-contacto');
     Route::post('/paciente/formulario-password',[Paciente\FormularioPaciente::class,'password'])->name('formulario-password');
 
+    Route::resource('contactos', Paciente\Admin\ContactosController::class);
+
 });
 
 /*------------------------------------------------- Pertenece a ERRORES -------------------------------------------------------------------------------*/
