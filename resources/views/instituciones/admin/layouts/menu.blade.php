@@ -15,7 +15,7 @@
             <ul class="menu">
                 <!-- menú -->
                 <li class="sidebar-item has-sub">
-                    <a id="" href="{{-- route('institucion.panel') --}}">
+                    <a id="" href="{{ route('institucion.panel') }}">
                         <button class="{{ request()->routeIs('institucion.panel') ? 'btn_active' : '' }}">Menu</button>
                     </a>
                 </li>
