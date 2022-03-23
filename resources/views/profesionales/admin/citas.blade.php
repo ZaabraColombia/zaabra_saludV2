@@ -30,7 +30,7 @@
                     <label for="date"><b>Filtrar por fecha</b></label>
                     <input type="date" id="date" class="form-control"/>
                 </div>
-              
+
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-citas">
                         <thead>
@@ -51,15 +51,15 @@
                                     <td>{{ $cita->fecha_inicio->format('d-m /Y') }}</td>
                                     <td>{{ "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A') }" }}</td>
                                     <td>{{ $cita->tipo_consulta->nombreconsulta }}</td>
-                                    <td>{{ $cita->paciente->user->nombre_completo }} <br> 
+                                    <td>{{ $cita->paciente->user->nombre_completo }} <br>
                                         <span>name@gmail.com</span>
                                     </td>
                                     <td>
-                                        <span>310 235 6548</span> <br> 
+                                        <span>310 235 6548</span> <br>
                                         <span>7025 235</span>
                                     </td>
                                     <td>
-                                        <span>call 34 sur # 56 - 44</span> <br> 
+                                        <span>call 34 sur # 56 - 44</span> <br>
                                         <span>Conjunto los ceresos</span>
                                     </td>
                                     <td>
@@ -216,16 +216,14 @@
                     {
                         extend: 'pdfHtml5',
                         text: 'PDF',
-                        title:function () {
-                            return 'Resultados';
-                        },
+                        className: 'red',
+                        title:'Resultados',
                         exportOptions: {
                             modifier: {
                                 page: 'current'
                             }
                         },
-                        text: 'Red',
-                        className: 'red',
+                        //text: 'Red',
                     },
                     {
                         extend: 'excel',
