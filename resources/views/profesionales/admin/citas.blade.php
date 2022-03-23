@@ -12,22 +12,22 @@
         <div class="containt_agendaProf" id="basic-table">
             <div class="my-4 my-xl-5">
                 <h1 class="title__xl blue_bold">Mis citas</h1>
-                <span class="subtitle__lg black_light">Encuentre aquí las citas agendadas por sus pacientes.</span>
+                <span class="text__md black_light">Encuentre aquí las citas agendadas por sus pacientes.</span>
             </div>
 
             <!-- Contenedor barra de búsqueda mis pacientes -->
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
-                    <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Paciente" />
+                    <div class="col-md-9  p-0 input__box mb-0">
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Citas" />
                     </div>
                 </div>
             </div>
 
             <!-- Contenedor formato tabla de la lista de mis pacientes -->
             <div class="containt_main_table mb-3">
-                <div class="col-md-4 input__box">
-                    <label for="date">filtrar por fecha</label>
+                <div class="col-md-2 input__box ml-auto">
+                    <label for="date"><b>Filtrar por fecha</b></label>
                     <input type="date" id="date" class="form-control"/>
                 </div>
               
@@ -39,6 +39,8 @@
                             <th>Hora</th>
                             <th>Tipo de cita</th>
                             <th>Paciente</th>
+                            <th>Teléfonos</th>
+                            <th>Dirección</th>
                             <th>Estado</th>
                         </tr>
                         </thead>
@@ -49,7 +51,17 @@
                                     <td>{{ $cita->fecha_inicio->format('d-m /Y') }}</td>
                                     <td>{{ "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A') }" }}</td>
                                     <td>{{ $cita->tipo_consulta->nombreconsulta }}</td>
-                                    <td>{{ $cita->paciente->user->nombre_completo }}</td>
+                                    <td>{{ $cita->paciente->user->nombre_completo }} <br> 
+                                        <span>name@gmail.com</span>
+                                    </td>
+                                    <td>
+                                        <span>310 235 6548</span> <br> 
+                                        <span>7025 235</span>
+                                    </td>
+                                    <td>
+                                        <span>call 34 sur # 56 - 44</span> <br> 
+                                        <span>Conjunto los ceresos</span>
+                                    </td>
                                     <td>
                                         <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>
                                     </td>
@@ -211,7 +223,9 @@
                             modifier: {
                                 page: 'current'
                             }
-                        }
+                        },
+                        text: 'Red',
+                        className: 'red',
                     },
                     {
                         extend: 'excel',
@@ -219,7 +233,7 @@
                         title:function () {
                             return 'Resultados';
                         }
-                    }
+                    },
                 ],
                 searching: true,
                 columnDefs: [

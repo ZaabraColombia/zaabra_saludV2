@@ -12,7 +12,7 @@
             <div class="col-12 col-lg-10 col-xl-8 p-0">
                 <div class="my-4 my-xl-5">
                     <h1 class="title__xl blue_bold">Mi Calendario</h1>
-                    <span class="subtitle__lg black_light">Administre su calendario de citas</span>
+                    <span class="text__md black_light">Administre su calendario de citas</span>
                 </div>
 
                 <div class="row m-0 pb-4">

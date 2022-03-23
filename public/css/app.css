@@ -26193,16 +26193,18 @@ a:link, a:visited, a:active, a:hover {
   color: #0083D6;
   padding: 6px;
   border-radius: 25px;
-  width: 28px;
+  width: 35px;
+  height: 35px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .table_agenda tbody tr td .btn_action:hover {
   background-color: #0083D6;
   color: #FFFFFF;
 }
 .table_agenda tbody tr td .btn_action i {
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .pignose-calendar .pignose-calendar-header .pignose-calendar-week.pignose-calendar-week-sat {
@@ -26510,6 +26512,51 @@ a:link, a:visited, a:active, a:hover {
   object-fit: cover;
 }
 
+.img__upload {
+  display: flex;
+  flex-direction: column;
+  width: 170px;
+  height: 195px;
+  margin: auto;
+  padding: 0;
+}
+
+.img__upload img {
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  background: #D1D1D1;
+  border: 1px solid #707070;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  align-self: center;
+}
+
+.img__upload input {
+  position: absolute;
+  width: 170px;
+  height: 100%;
+  opacity: 0;
+  overflow: auto;
+  cursor: pointer;
+}
+
+.img__upload p {
+  background-image: url("/img/formulario-profesional/icono-subir.svg");
+  background-repeat: no-repeat;
+  background-size: 15px;
+  font-family: "Quicksand", "Regular";
+  font-size: 1em;
+  color: #434343;
+  text-align: right;
+  margin-top: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
 @media (min-width: 768px) {
   .content_img_center {
     justify-content: flex-start;
@@ -26539,6 +26586,20 @@ a:link, a:visited, a:active, a:hover {
     position: absolute;
     right: 45px;
     z-index: 20;
+  }
+}
+@media (min-width: 1024px) {
+  .img__upload {
+    width: 150px;
+    height: 175px;
+  }
+
+  .img__upload input {
+    width: 150px;
+  }
+
+  .img__upload p {
+    width: 100%;
   }
 }
 @media (min-width: 1300px) {
