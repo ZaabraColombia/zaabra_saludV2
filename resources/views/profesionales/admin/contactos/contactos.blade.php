@@ -109,8 +109,8 @@
                                     <div class="row align-items-lg-end mx-lg-0 mb-lg-3">
                                         <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                                             <div class="img__upload">
-                                                <img id="imagenPrevisualizacion" src="">
-                                                <input type="file" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg" value="">
+                                                <img id="imagen-foto" src="">
+                                                <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" value="">
                                                 <p>Subir foto de perfil</p>
                                             </div>
                                         </div>
