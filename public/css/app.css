@@ -26009,6 +26009,14 @@ a:link, a:visited, a:active, a:hover {
   padding: 5px 15px;
 }
 
+.buttons-excel.border_left {
+  border-left: 2px solid white;
+}
+
+div.dt-buttons {
+  float: right;
+}
+
 .button_blue_form {
   font-family: "Quicksand";
   font-size: 1em;
@@ -26205,6 +26213,12 @@ a:link, a:visited, a:active, a:hover {
 }
 .table_agenda tbody tr td .btn_action i {
   font-size: 18px;
+}
+
+.user__xl {
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
 }
 
 .pignose-calendar .pignose-calendar-header .pignose-calendar-week.pignose-calendar-week-sat {

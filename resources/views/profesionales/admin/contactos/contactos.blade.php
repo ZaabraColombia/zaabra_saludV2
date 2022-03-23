@@ -48,13 +48,13 @@
                         @if($contactos->isNotEmpty())
                             @foreach($contactos as $contacto)
                                 <tr>
-                                    <td class="px-0">
-                                        <div clas="row m-0" style="display: flex; align-items: center; line-height: 1.2;">
-                                            <div class="col-3 p-0">
+                                    <td class="pr-0">
+                                        <div class="user__xl">
+                                            <div class="pr-2">
                                                 <img class="img__contacs" src='/img/user/31/31-1630611954.jpg'>
                                             </div>
                                         
-                                            <div class="col-9 p-0">
+                                            <div>
                                                 <span>{{ $contacto->nombre }}</span>
                                             </div>
                                         </div>

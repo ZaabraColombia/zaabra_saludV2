@@ -3,7 +3,7 @@
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
     <style>
-        /*.dataTables_filter, .dataTables_info { display: none;!important; }*/
+        .dataTables_filter, .dataTables_info { display: none;!important; }
     </style>
 @endsection
 
@@ -15,6 +15,16 @@
                 <span class="subtitle_miCita">Encuentre aquí los pagos realizados por cada una de sus citas.</span>
             </div>
 
+            <!-- Contenedor barra de búsqueda pagos -->
+            <div class="containt_main_table mb-3">
+                <div class="row m-0">
+                    <div class="col-md-9 p-0 input__box mb-0">
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Pagos">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenedor formato tabla de la lista de pagos -->
             <div class="containt_main_table mb-3">
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-pagos">

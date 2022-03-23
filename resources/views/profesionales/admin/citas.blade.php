@@ -26,9 +26,10 @@
 
             <!-- Contenedor formato tabla de la lista de mis pacientes -->
             <div class="containt_main_table mb-3">
-                <div class="col-md-2 input__box ml-auto">
+                <div class="col-md-4 col-xl-3 p-0 input__box ml-auto">
                     <label for="date"><b>Filtrar por fecha</b></label>
                     <input type="date" id="date" class="form-control"/>
+                    <!-- <label for="date"><b>Descargar en</b></label> -->
                 </div>
               
                 <div class="table-responsive">
@@ -224,12 +225,11 @@
                                 page: 'current'
                             }
                         },
-                        text: 'Red',
-                        className: 'red',
                     },
                     {
                         extend: 'excel',
                         text: 'Excel',
+                        className: 'border_left',
                         title:function () {
                             return 'Resultados';
                         }
