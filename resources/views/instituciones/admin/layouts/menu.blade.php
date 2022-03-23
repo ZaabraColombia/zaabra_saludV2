@@ -43,7 +43,7 @@
 
                 <!-- mis contactos -->
                 <li class="sidebar-item  has-sub">
-                    <a id="" class="" href='{{-- route('institucion.contactos.index') --}}'>
+                    <a id="" class="" href='{{ route('institucion.contactos.index') }}'>
                         <button class="{{ request()->routeIs('institucion.contactos.index') ? 'btn_active' : '' }}">Mis contactos</button>
                     </a>
                 </li>

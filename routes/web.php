@@ -325,6 +325,8 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.'], function (){
         ->name('favoritos.guardar_profesional');
     Route::post('/guardar-instituciones',[entidades\Admin\FavoritosController::class,'guardar_instituciones'])
         ->name('favoritos.guardar_instituciones');
+
+    Route::resource('contactos', entidades\Admin\ContactosController::class);
 });
 
 /*------------------------------------------------Pertenece el paciente-------------------------------------------------------------------------------*/

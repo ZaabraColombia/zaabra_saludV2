@@ -7,7 +7,7 @@
                 <div class="row m-0 justify-content-between">
                     <!-- Mis calendario -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
-                        <a  href='{{-- route('profesional.agenda.calendario') --}}'>
+                        <a  href='{{-- route('institucion.agenda.calendario') --}}'>
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mi-calendario.png') }}" alt="">
 
@@ -17,7 +17,7 @@
                     </div>
                     <!-- Mis citas -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
-                        <a  href='{{-- route('profesional.agenda.citas') --}}'>
+                        <a  href='{{-- route('institucion.agenda.citas') --}}'>
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mis-citas.jpg') }}" alt="">
 
@@ -27,7 +27,7 @@
                     </div>
                     <!-- Mis pagos -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
-                        <a  href='{{-- route('profesional.pagos') --}}'>
+                        <a  href='{{-- route('institucion.pagos') --}}'>
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mis-pagos.png') }}" alt="">
 
@@ -37,7 +37,7 @@
                     </div>
                     <!-- Mis pacientes -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
-                        <a  href='{{-- route('profesional.pacientes') --}}'>
+                        <a  href='{{-- route('institucion.pacientes') --}}'>
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mi-historia-clinica.png') }}" alt="">
 
@@ -47,7 +47,7 @@
                     </div>
                     <!-- Mis contactos -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
-                        <a  href='{{-- route('profesional.contactos.index') --}}'>
+                        <a  href='{{ route('institucion.contactos.index') }}'>
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mis-examenes.jpg') }}" alt="">
 
@@ -57,7 +57,7 @@
                     </div>
                     <!-- Mis favoritos -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
-                        <a  href='{{ route('profesional.favoritos') }}'>
+                        <a  href='{{ route('institucion.favoritos') }}'>
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mis-favoritos.png') }}" alt="">
 
