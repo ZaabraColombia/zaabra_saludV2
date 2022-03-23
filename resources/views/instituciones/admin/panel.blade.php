@@ -27,7 +27,7 @@
                     </div>
                     <!-- Mis pagos -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
-                        <a  href='{{-- route('institucion.pagos') --}}'>
+                        <a  href='{{ route('institucion.pagos') }}'>
                             <div class="content__target">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/mis-pagos.png') }}" alt="">
 

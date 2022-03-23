@@ -29,7 +29,7 @@
 
                 <!-- pagos -->
                 <li class="sidebar-item  has-sub">
-                    <a id="" class="" href='{{-- route('institucion.pagos') --}}'>
+                    <a id="" class="" href='{{ route('institucion.pagos') }}'>
                         <button class="{{ request()->routeIs('institucion.pagos') ? 'btn_active' : '' }}">Mis pagos</button>
                     </a>
                 </li>
