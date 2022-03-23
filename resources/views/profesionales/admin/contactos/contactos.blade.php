@@ -49,7 +49,7 @@
                             @foreach($contactos as $contacto)
                                 <tr>
                                     <td>
-                                        <img class="img__contacs" src='/img/user/31/31-1630611954.jpg'>
+                                        <img class="img__contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
                                         &nbsp; &nbsp;{{ $contacto->nombre }}
                                     </td>
                                     <td>{{ $contacto->direccion }}</td>
@@ -93,7 +93,7 @@
                 <form method="post" id="form-contacto" class="forms">
                     <div class="modal-body">
                         <h1><span id="titulo">Nuevo</span> Contacto</h1>
-                        @csrf
+                        @method('post')
                         <div class="form_modal">
                             <div class="row m-0">
                                 <div class="col-12" id="alertas-modal"></div>
@@ -102,8 +102,8 @@
                                     <div class="row align-items-lg-end mx-lg-0 mb-lg-3">
                                         <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                                             <div class="img__upload">
-                                                <img id="imagenPrevisualizacion" src="">
-                                                <input type="file" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg" value="">
+                                                <img id="imagen-foto" src="">
+                                                <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" value="">
                                                 <p>Subir foto de perfil</p>
                                             </div>
                                         </div>
@@ -121,7 +121,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
 
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="ciudad">Ciudad</label>
@@ -341,8 +341,8 @@
     <script src="{{ asset('js/alertas.js') }}"></script>
     <script>
         // Obtener referencia al input y a la imagen
-        const $seleccionArchivos = document.querySelector("#seleccionArchivos"),
-        $imagenPrevisualizacion = document.querySelector("#imagenPrevisualizacion");
+        const $seleccionArchivos = document.querySelector("#foto"),
+        $imagenPrevisualizacion = document.querySelector("#imagen-foto");
 
         // Escuchar cuando cambie
         $seleccionArchivos.addEventListener("change", () => {
@@ -389,7 +389,8 @@
         $('#btn-agregar-contacto').click(function (e) {
             var form = $('#form-contacto');
             form.attr('action', '{{ route('profesional.contactos.store') }}');
-            form.attr('method', 'post');
+            //form.attr('method', 'post');
+            $('input[name=_method]').val('post');
             form[0].reset();
             $('#modal_contactos').modal();
             $('#titulo').html('Nuevo');
@@ -406,7 +407,8 @@
 
             form[0].reset();
             form.attr('action', ruta_guardar.replace(':id', btn.data('id')));
-            form.attr('method', 'put');
+            //form.attr('method', 'put');
+            $('input[name=_method]').val('put');
             $('#titulo').html('Editar');
 
             //llamar someId de la tabla
@@ -423,8 +425,11 @@
                     var item = response.item;
 
                     $.each(item, function (key, item) {
-                        $('#' + key).val(item);
+                        if (key !== 'foto') $('#' + key).val(item);
                     });
+
+                    $('#imagen-foto').attr('src', item.foto);
+
                 },
                 error: function (error) {
                     //mensaje
@@ -515,11 +520,22 @@
             var form = $(this);
             var modal = $('.modal_contactos');
 
+            var data = new FormData(form[0]);
+
             $.ajax({
                 url: form.attr('action'),
-                data: form.serialize(),
-                type: form.attr('method'),
+                //data: form.serialize(),
+                enctype: 'multipart/form-data',
+                contentType: false,
+                processData: false,
+                cache: false,
+                //type: method,
+                type: 'post',
                 dataType: 'json',
+                data: data,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 success: function (response) {
                     //mensaje
                     $('#alertas').html(alert(response.message, 'success'));
@@ -528,7 +544,7 @@
                     switch (response.type) {
                         case 'created':
                             table.row.add([
-                                response.item.nombre,
+                                "<img class='img__contacs' src='" + response.item.foto + "'>&nbsp;&nbsp;" + response.item.nombre,
                                 response.item.direccion,
                                 response.item.telefono,
                                 response.item.correo,
@@ -540,7 +556,7 @@
                             break;
                         case 'updated':
                             row.data([
-                                response.item.nombre,
+                                "<img class='img__contacs' src='" + response.item.foto + "'>&nbsp;&nbsp;" + response.item.nombre,
                                 response.item.direccion,
                                 response.item.telefono,
                                 response.item.correo,
@@ -559,7 +575,7 @@
                 },
                 error: function (error) {
                     //mensaje
-                    $('#alertas-modal').html(alert(error.responseJSON.message, 'danger'));
+                    //$('#alertas-modal').html(alert(error.responseJSON.message, 'danger'));
                 }
             });
         });

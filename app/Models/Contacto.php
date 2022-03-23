@@ -19,6 +19,7 @@ class Contacto extends Model
         'numero_identificacion',
         'dependencia',
         'correo',
+        'foto',
         'tipo',
         'tipo_cuenta',
         'numero_cuenta',

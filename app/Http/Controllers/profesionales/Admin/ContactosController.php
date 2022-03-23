@@ -4,6 +4,7 @@ namespace App\Http\Controllers\profesionales\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contacto;
+
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class ContactosController extends Controller
@@ -37,6 +39,7 @@ class ContactosController extends Controller
      */
     public function store(Request $request)
     {
+        //dd();
         $validator = $this->validador($request);
 
         if ($validator->fails()) {
@@ -48,15 +51,29 @@ class ContactosController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $request->merge(['user_id' => Auth::user()->id]);
-        $contacto = Contacto::query()->create($request->all());
+        //$request->merge(['user_id' => Auth::user()->id]);
+
+        $respueta = $request->all();
+        $respueta['user_id'] = Auth::user()->id;
+
+        if ($request->file('foto'))
+        {
+            $respueta['foto'] = $request->file('foto')
+                ->move("img/user/{$respueta['user_id']}/contactos/",
+                    Str::random(10) . ".{$request->file('foto')->extension()}"
+                );
+        }
+
+        $contacto = Contacto::query()->create($respueta);
+        $array = $contacto->toArray();
+        $array['foto'] = asset($array['foto'] ?? 'img/menu/avatar.png');
 
         return response([
             'message' => [
                 'title' => 'Hecho',
                 'text'  => "Contacto {$contacto->nombre} creado"
             ],
-            'item' => $contacto->toArray(),
+            'item' => $array,
             'type' => 'created'
         ], Response::HTTP_OK);
     }
@@ -81,8 +98,11 @@ class ContactosController extends Controller
             ]
         ], Response::HTTP_NOT_FOUND);
 
+        $array = $contacto->toArray();
+        $array['foto'] = asset($array['foto'] ?? 'img/menu/avatar.png');
+
         return response([
-            'item' => $contacto->toArray(),
+            'item' => $array,
         ], Response::HTTP_OK);
     }
 
@@ -96,6 +116,7 @@ class ContactosController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //dd($request->file('foto'));
         $validator = $this->validador($request);
 
         if ($validator->fails()) {
@@ -119,14 +140,29 @@ class ContactosController extends Controller
             ]
         ], Response::HTTP_NOT_FOUND);
 
-        $contacto->update($request->all());
+        $respueta = $request->all();
+        $user_id = Auth::user()->id;
+
+        if ($request->file('foto'))
+        {
+            if (!empty($contacto->foto)) unlink($contacto->foto);
+            $respueta['foto'] = $request->file('foto')
+                ->move("img/user/{$user_id}/contactos/",
+                    Str::random(10) . ".{$request->file('foto')->extension()}"
+                );
+        }
+
+        $contacto->update($respueta);
+
+        $array = $contacto->toArray();
+        $array['foto'] = asset($array['foto'] ?? 'img/menu/avatar.png');
 
         return response([
             'message' => [
                 'title' => 'Hecho',
                 'text'  => "Contacto {$contacto->nombre} editado"
             ],
-            'item' => $contacto->toArray(),
+            'item' => $array,
             'type' => 'updated'
         ], Response::HTTP_OK);
     }
@@ -177,6 +213,7 @@ class ContactosController extends Controller
             'tipo'          => ['nullable', Rule::in(['proveedor', 'paciente', 'otro'])],
             'tipo_cuenta'   => ['nullable', Rule::in(['ahorro', 'corriente'])],
             'numero_cuenta' => ['nullable', 'max:50'],
+            'foto'          => ['nullable', 'image'],
             //'observacion'   => ['']
         ], [], [
             'nombre'    => 'Nombre',
@@ -189,6 +226,7 @@ class ContactosController extends Controller
             'tipo'          => 'Tipo de contacto',
             'tipo_cuenta'   => 'Tipo de cuenta bancaria',
             'numero_cuenta' => 'Número de cuenta bancaria',
+            'foto'          => 'Foto de perfil',
         ]);
     }
 }
