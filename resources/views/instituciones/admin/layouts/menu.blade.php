@@ -36,7 +36,7 @@
 
                 <!-- mis pacientes -->
                 <li class="sidebar-item  has-sub">
-                    <a id="" class="" href='{{-- route('institucion.pacientes') --}}'>
+                    <a id="" class="" href='{{ route('institucion.pacientes') }}'>
                         <button class="{{ request()->routeIs('institucion.pacientes') ? 'btn_active' : '' }}">Mis pacientes</button>
                     </a>
                 </li>
