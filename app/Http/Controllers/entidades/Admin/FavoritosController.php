@@ -21,7 +21,7 @@ class FavoritosController extends Controller
             $objFavoritoEspec=$this->cargaFavoritoEspecialista($id_users);
             $objFavoritoInst=$this->cargaFavoritoInstitucion($id_users);
 
-            return view('panelAdministrativoPac.favoritos',compact(
+            return view('instituciones.admin.favoritos',compact(
                 'objFavorito',
                 'objFavoritoServicio',
                 'objFavoritoEspec',
@@ -40,7 +40,7 @@ class FavoritosController extends Controller
         WHERE fe.id_users=$id_users");
     }
 
-    public function  create(Request $request) {
+    public function  guardar_especialidades(Request $request) {
         /*id usuario logueado*/
         $id_users=auth()->user()->id;
         $request->merge([
@@ -63,7 +63,7 @@ class FavoritosController extends Controller
         WHERE fs.id_users=$id_users");
     }
 
-    public function create2(Request $request) {
+    public function guardar_servicios(Request $request) {
 
         /*id usuario logueado*/
         $id_users=auth()->user()->id;
@@ -89,7 +89,7 @@ class FavoritosController extends Controller
         );
     }
 
-    public function create3(Request $request) {
+    public function guardar_profesional(Request $request) {
 
         /*id usuario logueado*/
         $id_users=auth()->user()->id;
@@ -115,7 +115,7 @@ class FavoritosController extends Controller
         );
     }
 
-    public function create4(Request $request) {
+    public function guardar_instituciones(Request $request) {
 
         /*id usuario logueado*/
         $id_users=auth()->user()->id;

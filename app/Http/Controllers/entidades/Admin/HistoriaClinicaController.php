@@ -9,15 +9,15 @@ class HistoriaClinicaController extends Controller
 {
     public function cie10()
     {
-        return view('panelAdministrativoProf.cie10');
+        return view('instituciones.admin.catalogos.cie10');
     }
     public function cups()
     {
-        return view('panelAdministrativoProf.cups');
+        return view('instituciones.admin.catalogos.cups');
     }
 
     public function cums()
     {
-        return view('panelAdministrativoProf.cums');
+        return view('instituciones.admin.catalogos.cums');
     }
 }

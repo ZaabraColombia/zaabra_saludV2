@@ -54,6 +54,16 @@
                             </div>
                         </a>
                     </div>
+                    <!-- Mis contactos -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{ route('paciente.contactos.index') }}'>
+                            <div class="content__target">
+                                <img src="{{ asset('/img/agenda/panelPrincipal/mis-examenes.jpg') }}" alt="">
+
+                                <h3 class="subtitle__lg">Mis Contactos</h3>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,105 +1,95 @@
-@extends('profesionales.admin.layouts.panelAdministrativoProfesional')
+@extends('instituciones.admin.layouts.layout')
 
-@section('PanelProf')
-    <div class="container container_principal p-md-0">
-        <div class="row">
-            <div class="container_target p-md-0 col-6 col-lg-4 col-md-6 mb-5 mt-5">
-                <div class="card cards_panelPrincipal_prof">
-                    <a href="{{ route('entidad.panel') }}">
-                        <div class="card-body card_optionPrincipal cardtipo2">
-                            <div class="target-panel">
-                                <div>
-                                    <img src="{{ asset('img/agenda/panelPrincipal/mi-calendario.png') }}" alt="calendario.png">
-                                </div>
-                                <div>
-                                    <span class="text-muted font-semibold">Mi calendario</span>
-                                </div>
+@section('contenido')
+    <div class="container py-4 px-lg-5">
+        <div class="row m-0 p-0">
+            <div class="col-12 col-lg-8 col-xl-9 p-0 m-0">
+                <div class="row m-0 justify-content-between">
+                    <!-- Mis calendario -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{-- route('institucion.agenda.calendario') --}}'>
+                            <div class="content__target">
+                                <img src="{{ asset('/img/agenda/panelPrincipal/mi-calendario.png') }}" alt="">
+
+                                <h3 class="subtitle__lg">Mi Calendario</h3>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    <!-- Mis citas -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{-- route('institucion.agenda.citas') --}}'>
+                            <div class="content__target">
+                                <img src="{{ asset('/img/agenda/panelPrincipal/mis-citas.jpg') }}" alt="">
+
+                                <h3 class="subtitle__lg">Mis Citas</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Mis pagos -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{ route('institucion.pagos') }}'>
+                            <div class="content__target">
+                                <img src="{{ asset('/img/agenda/panelPrincipal/mis-pagos.png') }}" alt="">
+
+                                <h3 class="subtitle__lg">Mis Pagos</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Mis pacientes -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{ route('institucion.pacientes') }}'>
+                            <div class="content__target">
+                                <img src="{{ asset('/img/agenda/panelPrincipal/mi-historia-clinica.png') }}" alt="">
+
+                                <h3 class="subtitle__lg">Mis Pacientes</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Mis contactos -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{ route('institucion.contactos.index') }}'>
+                            <div class="content__target">
+                                <img src="{{ asset('/img/agenda/panelPrincipal/mis-examenes.jpg') }}" alt="">
+
+                                <h3 class="subtitle__lg">Mis Contactos</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Mis favoritos -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{ route('institucion.favoritos') }}'>
+                            <div class="content__target">
+                                <img src="{{ asset('/img/agenda/panelPrincipal/mis-favoritos.png') }}" alt="">
+
+                                <h3 class="subtitle__lg">Mis Favoritos</h3>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="container_target p-md-0 col-6 col-lg-4 col-md-6 mb-5 mt-5">
-                <div class="card cards_panelPrincipal_prof">
-                    <a href="{{ route('entidad.citas') }}">
-                        <div class="card-body card_optionPrincipal cardtipo2">
-                            <div class="target-panel">
-                                <div>
-                                    <img src="{{ asset('img/agenda/panelPrincipal/mis-citas.jpg') }}" alt="citas.jpg">
-                                </div>
-                                <div>
-                                    <span class="text-muted font-semibold">Mis citas</span>
-                                </div>
+
+            <div class="col-12 col-lg-4 col-xl-3 p-0 m-0">
+                <div class="row m-0">
+                    <!-- PLM -->
+                    <div class="col-6 col-lg-12 py-3 px-2 py-lg-2">
+                        <a  href="https://www.prescripciontotal.com.co/consultorio-generico/login" target="_blank">
+                            <div class="content__logos">
+                                <img src="{{ asset('/img/agenda/panelPrincipal/plm.png') }}" alt="">
                             </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="container_target p-md-0 col-6 col-lg-4 col-md-6 mb-5 mt-5">
-                <div class="card cards_panelPrincipal_prof">
-                    <a href="{{ route('entidad.pagos') }}">
-                        <div class="card-body card_optionPrincipal cardtipo2">
-                            <div class="target-panel">
-                                <div>
-                                    <img src="{{ asset('img/agenda/panelPrincipal/mis-pagos.png') }}" alt="pagos.png">
-                                </div>
-                                <div>
-                                    <span class="text-muted font-semibold">Mis pagos</span>
-                                </div>
+                        </a>
+                    </div>
+                    <!-- Mipres -->
+                    <div class="col-6 col-lg-12 py-3 px-2 py-lg-2">
+                        <a  href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS" target="_blank">
+                            <div class="content__logos">
+                                <img src="{{ asset('/img/agenda/panelPrincipal/mipres-zaabra.png') }}" alt="">
                             </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="container_target p-md-0 col-6 col-lg-4 col-md-6 mb-5 mt-5">
-                <div class="card cards_panelPrincipal_prof">
-                    <a href="#">
-                        <div class="card-body card_optionPrincipal cardtipo2">
-                            <div class="target-panel">
-                                <div>
-                                    <img src="{{ asset('img/agenda/panelPrincipal/mi-historia-clinica.png') }}" alt="clinica.png">
-                                </div>
-                                <div>
-                                    <span class="text-muted font-semibold">Historia clínica</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="container_target p-md-0 col-6 col-lg-4 col-md-6 mb-5 mt-5">
-                <div class="card cards_panelPrincipal_prof">
-                    <a href="#">
-                        <div class="card-body card_optionPrincipal cardtipo2">
-                            <div class="target-panel">
-                                <div>
-                                    <img src="{{ asset('img/agenda/panelPrincipal/mis-prescripciones.png') }}" alt="prescripciones.png">
-                                </div>
-                                <div>
-                                    <span class="text-muted font-semibold">Mis Formulas</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="container_target p-md-0 col-6 col-lg-4 col-md-6 mb-5 mt-5">
-                <div class="card cards_panelPrincipal_prof">
-                    <a href="{{ asset('entidad.favoritos') }}">
-                        <div class="card-body card_optionPrincipal cardtipo2">
-                            <div class="target-panel">
-                                <div>
-                                    <img src="{{ asset('img/agenda/panelPrincipal/mis-favoritos.png') }}" alt="favoritos.png">
-                                </div>
-                                <div>
-                                    <span class="text-muted font-semibold">Mis favoritos</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 @endsection
 

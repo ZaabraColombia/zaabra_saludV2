@@ -7,8 +7,8 @@ $user = Auth::user();
             <div class="sidebar__header">
                 <img src="{{ asset($user->profecional->fotoperfil ?? 'img/menu/avatar.png') }}" alt="user.png">
                 <div class="user_data">
-                    <h2>Dr.(a) Alejandra de Santa María</h2>
-                    <h3>Otorrinonaringología</h3>
+                    <h2>Dr.(a) {{ $user->nombre_completo }}</h2>
+                    <h3>{{ $user->profecional->profecion->nombreProfesion }}</h3>
                 </div>
             </div>
 
@@ -22,22 +22,22 @@ $user = Auth::user();
 
                 <!-- Mi agenda -->
                 <li class="sidebar-item has-sub accordion" id="accordionExample2">
-                    <button id="headingTwo" class="{{ request()->routeIs('profesional.agenda.*') ? 'btn_active' : '' }}" type="button" data-toggle="collapse" 
+                    <button id="headingTwo" class="{{ request()->routeIs('profesional.agenda.*') ? 'btn_active' : '' }}" type="button" data-toggle="collapse"
                             data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                         Mi agenda<i class="icon_angle fas fa-angle-down pl-2"></i>
                     </button>
 
-                    <ul id="collapseTwo" class="collapse sub_menu {{ request()->routeIs('profesional.agenda.*') ? 'show' : '' }}" 
+                    <ul id="collapseTwo" class="collapse sub_menu {{ request()->routeIs('profesional.agenda.*') ? 'show' : '' }}"
                         aria-labelledby="headingTwo" data-parent="#accordionExample2">
                         <li class="submenu-item">
                             <a id="cita" class="{{ request()->routeIs('profesional.agenda.citas') ? 'txt_active' : '' }}" href='{{ route('profesional.agenda.citas') }}'>Citas</a>
                         </li>
                         <li class="submenu-item ">
-                            <a id="calendario" class="{{ request()->routeIs('profesional.agenda.calendario') ? 'txt_active' : '' }}" 
+                            <a id="calendario" class="{{ request()->routeIs('profesional.agenda.calendario') ? 'txt_active' : '' }}"
                             href='{{ route('profesional.agenda.calendario') }}'>Calendario</a>
                         </li>
                         <li class="submenu-item ">
-                            <a id="configurar-calendario" class="{{ request()->routeIs('profesional.agenda.configurar-calendario') ? 'txt_active' : '' }}" 
+                            <a id="configurar-calendario" class="{{ request()->routeIs('profesional.agenda.configurar-calendario') ? 'txt_active' : '' }}"
                             href='{{ route('profesional.agenda.configurar-calendario') }}'>Configuración del Calendario</a>
                         </li>
                     </ul>
@@ -66,23 +66,23 @@ $user = Auth::user();
 
                 <!-- Catálogos -->
                 <li class="sidebar-item has-sub accordion" id="accordionExample">
-                    <button id="headingOne" class="{{ request()->routeIs('profesional.catalogos.*') ? 'btn_active' : '' }}" type="button" data-toggle="collapse" 
+                    <button id="headingOne" class="{{ request()->routeIs('profesional.catalogos.*') ? 'btn_active' : '' }}" type="button" data-toggle="collapse"
                             data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                         Catálogos<i class="icon_angle fas fa-angle-down pl-2"></i>
                     </button>
 
-                    <ul id="collapseOne" class="collapse sub_menu {{ request()->routeIs('profesional.catalogos.*') ? 'show' : '' }}" 
+                    <ul id="collapseOne" class="collapse sub_menu {{ request()->routeIs('profesional.catalogos.*') ? 'show' : '' }}"
                         aria-labelledby="headingOne" data-parent="#accordionExample">
                         <li class="submenu-item ">
-                            <a id="cie10" class="{{ request()->routeIs('profesional.catalogos.cie10') ? 'txt_active' : '' }}" 
+                            <a id="cie10" class="{{ request()->routeIs('profesional.catalogos.cie10') ? 'txt_active' : '' }}"
                                 href='{{ route('profesional.catalogos.cie10') }}'>Diagnósticos (CIE - 10)</a>
                         </li>
                         <li class="submenu-item ">
-                            <a id="cups" class="{{ request()->routeIs('profesional.catalogos.cups') ? 'txt_active' : '' }}" 
+                            <a id="cups" class="{{ request()->routeIs('profesional.catalogos.cups') ? 'txt_active' : '' }}"
                                 href='{{ route('profesional.catalogos.cups') }}'>Procedimientos (CUPS)</a>
                         </li>
                         <li class="submenu-item ">
-                            <a id="cums" class="{{ request()->routeIs('profesional.catalogos.cums') ? 'txt_active' : '' }}" 
+                            <a id="cums" class="{{ request()->routeIs('profesional.catalogos.cums') ? 'txt_active' : '' }}"
                                 href='{{ route("profesional.catalogos.cums") }}'>Vademecum actualizado COLOMBIA INVIMA (CUMS)</a>
                         </li>
                     </ul>
@@ -98,7 +98,7 @@ $user = Auth::user();
                 <li class="sidebar-item  has-sub">
                     <a id="fav" class="" target="_blank" href="https://www.prescripciontotal.com.co/consultorio-generico/login">
                         <button class="py-0">
-                            <img src="{{ asset('/img/agenda/panelPrincipal/plm.png') }}" alt="" width="100px">                          
+                            <img src="{{ asset('/img/agenda/panelPrincipal/plm.png') }}" alt="" width="100px">
                         </button>
                     </a>
                 </li>
