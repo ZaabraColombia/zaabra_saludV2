@@ -98,15 +98,30 @@
                             <div class="row m-0">
                                 <div class="col-12" id="alertas-modal"></div>
 
-                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
-                                    <label for="nombre">Nombre / Razón social (*)</label>
-                                    <input type="text" id="nombre" name="nombre" class="campo" required/>
-                                </div>
+                                <div class="col-12 p-lg-0">
+                                    <div class="row align-items-lg-end mx-lg-0 mb-lg-3">
+                                        <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+                                            <div class="img__upload">
+                                                <img id="imagenPrevisualizacion" src="">
+                                                <input type="file" name="logo"  id="seleccionArchivos" accept="image/png, image/jpeg" value="">
+                                                <p>Subir foto de perfil</p>
+                                            </div>
+                                        </div>
 
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
-                                    <label for="numero_identificacion">Cédula / NIT </label>
-                                    <input type="text" id="numero_identificacion" name="numero_identificacion" class="campo"/>
+                                        <div class="col-12 col-lg-8 p-0">
+                                            <div class="col-12 p-0">
+                                                <label for="nombre">Nombre / Razón social (*)</label>
+                                                <input type="text" id="nombre" name="nombre" class="campo" required/>
+                                            </div>
+
+                                            <div class="col-12 p-0">
+                                                <label for="numero_identificacion">Cédula / NIT </label>
+                                                <input type="text" id="numero_identificacion" name="numero_identificacion" class="campo"/>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                
 
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="ciudad">Ciudad</label>
@@ -324,6 +339,28 @@
 @section('scripts')
     <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
     <script src="{{ asset('js/alertas.js') }}"></script>
+    <script>
+        // Obtener referencia al input y a la imagen
+        const $seleccionArchivos = document.querySelector("#seleccionArchivos"),
+        $imagenPrevisualizacion = document.querySelector("#imagenPrevisualizacion");
+
+        // Escuchar cuando cambie
+        $seleccionArchivos.addEventListener("change", () => {
+            // Los archivos seleccionados, pueden ser muchos o uno
+            const archivos = $seleccionArchivos.files;
+            // Si no hay archivos salimos de la función y quitamos la imagen
+            if (!archivos || !archivos.length) {
+                $imagenPrevisualizacion.src = "";
+                return;
+            }
+            // Ahora tomamos el primer archivo, el cual vamos a previsualizar
+            const primerArchivo = archivos[0];
+            // Lo convertimos a un objeto de tipo objectURL
+            const objectURL = URL.createObjectURL(primerArchivo);
+            // Y a la fuente de la imagen le ponemos el objectURL
+            $imagenPrevisualizacion.src = objectURL;
+        });
+    </script>
 
     <script>
         //Inicializar tabla

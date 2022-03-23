@@ -10,13 +10,13 @@
             <!-- Form update duration date -->
             <div class="my-4 my-xl-5">
                 <h1 class="title__xl blue_bold">Configuración de cita</h1>
-                <h2 class="subtitle__lg black_light">Administre el horario de las citas</h2>
+                <h2 class="text__md black_light">Administre el horario de las citas</h2>
             </div>
 
             <form action="{{ route('profesional.agenda.configurar-calendario.cita') }}"
                 method="post" id="form-dias" class="forms" data-alert="#alert-cita">
                 @csrf
-                <div class="containt_main_form mb-3">
+                <div class="containt_main_table mb-3">
                     <div id="alert-cita"></div>
                     <div class="row">
                         <div class="col-md-6 input__box">
@@ -41,7 +41,7 @@
             <form action="{{ route('profesional.agenda.configurar-calendario.horario-agregar') }}"
                 method="post" id="form-horario-agregar" class="forms" data-alert="#alert-horario-agregar">
                 @csrf
-                <div class="containt_main_form mb-3">
+                <div class="containt_main_table mb-3">
                     <div id="alert-horario-agregar"></div>
                     <div class="mb-3">
                         <h2 class="subtitle__lg blue_bold">Nuevo Horario</h2>
@@ -99,7 +99,7 @@
                 </div>
             </form>
 
-            <div class="containt_main_form mb-3">
+            <div class="containt_main_table mb-3">
                 <div class="mb-3">
                     <h2 class="subtitle__lg blue_bold">Horario</h2>
                 </div>
