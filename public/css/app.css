@@ -23868,7 +23868,7 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/iconos/icono-doctor-azul.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  background-position-x: 40%;
+  background-position-x: 130px;
 }
 
 .subtitle_serv_fav {
@@ -23882,7 +23882,7 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/iconos/icono-servicios.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  background-position-x: 26%;
+  background-position-x: 80px;
 }
 
 .subtitle_espec_fav {
@@ -23896,7 +23896,7 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/iconos/icono-especialistas-favoritos.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  background-position-x: 40%;
+  background-position-x: 105px;
 }
 
 .subtitle_inst_fav {
@@ -23910,7 +23910,7 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/iconos/icono-instituciones-favoritas.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  background-position-x: 40%;
+  background-position-x: 112px;
 }
 
 .section_favoritos_fav {
@@ -23919,7 +23919,7 @@ a:link, a:visited, a:active, a:hover {
   width: 100%;
   border-top: 1px solid #dee2e6;
   border-bottom: 1px solid #dee2e6;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 .celda_favorito {
@@ -24020,6 +24020,10 @@ a:link, a:visited, a:active, a:hover {
   height: 16.5vh;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 @media (min-width: 320px) and (orientation: portrait) {
   .container_principal_fav {
     width: 100%;
@@ -24039,26 +24043,6 @@ a:link, a:visited, a:active, a:hover {
 
   .subtitulo_principal_fav {
     font-size: 1em;
-  }
-
-  .icon_especialidad_fav {
-    background-position-x: 55%;
-    margin-bottom: 5%;
-  }
-
-  .icon_servicio_fav {
-    background-position-x: 34%;
-    margin-bottom: 5%;
-  }
-
-  .icon_especialista_fav {
-    background-position-x: 44%;
-    margin-bottom: 5%;
-  }
-
-  .icon_institucion_fav {
-    background-position-x: 47%;
-    margin-bottom: 5%;
   }
 
   .table_favoritos tbody td {
@@ -24095,23 +24079,6 @@ a:link, a:visited, a:active, a:hover {
     height: fit-content;
   }
 }
-@media (min-width: 360px) and (orientation: portrait) {
-  .icon_especialidad_fav {
-    background-position-x: 46%;
-  }
-
-  .icon_servicio_fav {
-    background-position-x: 29%;
-  }
-
-  .icon_especialista_fav {
-    background-position-x: 37%;
-  }
-
-  .icon_institucion_fav {
-    background-position-x: 39%;
-  }
-}
 @media (min-width: 768px) and (orientation: portrait) {
   .main_card_fav {
     width: 48%;
@@ -24132,26 +24099,6 @@ a:link, a:visited, a:active, a:hover {
 
   .container_table_fav {
     padding: 3%;
-  }
-
-  .icon_especialidad_fav {
-    background-position-x: 41%;
-    margin-bottom: 3%;
-  }
-
-  .icon_servicio_fav {
-    background-position-x: 26%;
-    margin-bottom: 3%;
-  }
-
-  .icon_especialista_fav {
-    background-position-x: 33%;
-    margin-bottom: 3%;
-  }
-
-  .icon_institucion_fav {
-    background-position-x: 35%;
-    margin-bottom: 3%;
   }
 
   .alto_predet {
@@ -24184,23 +24131,6 @@ a:link, a:visited, a:active, a:hover {
     width: 120px;
   }
 }
-@media (min-width: 1200px) {
-  .icon_especialidad_fav {
-    background-position-x: 33%;
-  }
-
-  .icon_servicio_fav {
-    background-position-x: 21%;
-  }
-
-  .icon_especialista_fav {
-    background-position-x: 33%;
-  }
-
-  .icon_institucion_fav {
-    background-position-x: 33%;
-  }
-}
 @media (min-width: 1440px) {
   .container_principal_fav {
     width: 85%;
@@ -24215,8 +24145,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .icon_especialidad_fav {
-    background-position-x: 43%;
-    margin-bottom: 3%;
+    background-position-x: 160px;
   }
 
   .subtitle_serv_fav {
@@ -24224,8 +24153,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .icon_servicio_fav {
-    background-position-x: 27%;
-    margin-bottom: 3%;
+    background-position-x: 100px;
   }
 
   .subtitle_espec_fav {
@@ -24233,8 +24161,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .icon_especialista_fav {
-    background-position-x: 43%;
-    margin-bottom: 3%;
+    background-position-x: 130px;
   }
 
   .subtitle_inst_fav {
@@ -24242,8 +24169,7 @@ a:link, a:visited, a:active, a:hover {
   }
 
   .icon_institucion_fav {
-    background-position-x: 43%;
-    margin-bottom: 3%;
+    background-position-x: 137px;
   }
 }
 @media (min-width: 1920px) {
@@ -24251,24 +24177,8 @@ a:link, a:visited, a:active, a:hover {
     width: 80%;
   }
 
-  .icon_especialidad_fav {
-    background-position-x: 34%;
-  }
-
-  .icon_servicio_fav {
-    background-position-x: 21%;
-  }
-
-  .icon_especialista_fav {
-    background-position-x: 28%;
-  }
-
-  .icon_institucion_fav {
-    background-position-x: 29%;
-  }
-
   .alto_predet {
-    height: 10.5vh;
+    height: 12.5vh;
   }
 }
 .section_cabecera_ordMed {
@@ -26253,6 +26163,48 @@ a:link, a:visited, a:active, a:hover {
   font-size: 15px;
 }
 
+.containt_main_table {
+  background-color: #FFFFFF;
+  border: 1px solid #CED4DA;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px 2px rgba(206, 212, 218, 0.5);
+  padding: 20px 15px;
+}
+
+.table_agenda thead tr th {
+  font-family: "Quicksand";
+  color: #0083D6;
+  font-weight: 600;
+}
+
+.table_agenda thead tr th {
+  border-bottom: none;
+  font-family: "Roboto";
+}
+
+.table_agenda tbody tr td {
+  border-bottom: 1px solid #CED4DA;
+  font-family: "Roboto";
+  vertical-align: middle;
+}
+.table_agenda tbody tr td .btn_action {
+  border: none;
+  background-color: transparent;
+  color: #0083D6;
+  padding: 6px;
+  border-radius: 25px;
+  width: 28px;
+  display: flex;
+  justify-content: center;
+}
+.table_agenda tbody tr td .btn_action:hover {
+  background-color: #0083D6;
+  color: #FFFFFF;
+}
+.table_agenda tbody tr td .btn_action i {
+  font-size: 15px;
+}
+
 .pignose-calendar .pignose-calendar-header .pignose-calendar-week.pignose-calendar-week-sat {
   color: #212529 !important;
 }
@@ -26547,6 +26499,15 @@ a:link, a:visited, a:active, a:hover {
   border-radius: 100px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.img__contacs {
+  width: 45px;
+  height: 45px;
+  border: 2px solid #CED4DA;
+  border-radius: 100px;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 @media (min-width: 768px) {

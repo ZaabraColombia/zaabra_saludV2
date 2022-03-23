@@ -15,7 +15,7 @@
                         <div class="card-content">
                             <div class="card-body">
                                 <div class="input__box">
-                                        <label for="search"><b>Name:</b></label>
+                                        <label for="search"><b>Nombre:</b></label>
                                         <input type="text" name="search" id="search"
                                                 class="search" placeholder="Buscar cums"
                                                 data-description="#description" data-type="cums"/>

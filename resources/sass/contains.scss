@@ -103,6 +103,46 @@
         }
     }
 }
+
+// propiedades tabla mis profesionales agenda paciente
+.containt_main_table {
+    background-color: #FFFFFF;
+    border: 1px solid #CED4DA;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 2px rgb(206 212 218 / 50%);
+    padding: 20px 15px;
+}
+.table_agenda thead tr th {
+    font-family: 'Quicksand';
+    color: $blue_official;
+    font-weight: 600;
+}
+.table_agenda thead tr th {
+    border-bottom: none;
+    font-family: 'Roboto';
+}
+.table_agenda tbody tr td  {
+    border-bottom: 1px solid #CED4DA;
+    font-family: 'Roboto';
+    vertical-align: middle;
+    .btn_action {
+        border: none;
+        background-color: transparent;
+        color: $blue_official;
+        padding: 6px;
+        border-radius: 25px;
+        width: 28px;
+        display: flex;
+        justify-content: center;
+        &:hover {
+            background-color: $blue_official;
+            color: $withe_official;
+        }
+        i {
+            font-size: 15px;
+        }
+    }
+}
 // Calendario pignose
 .pignose-calendar .pignose-calendar-header .pignose-calendar-week.pignose-calendar-week-sat {
     color: #212529 !important;

@@ -3,56 +3,65 @@
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
     <style>
-        /*.dataTables_filter, .dataTables_info { display: none;!important; }*/
+        .dataTables_filter, .dataTables_info { display: none;!important; }
     </style>
 @endsection
 
 @section('contenido')
-    <section class="section pr-lg-4">
-        <div class="row containt_agendaProf" id="basic-table">
-            <div class="col-12 p-0">
-                <div class="my-4 my-xl-5">
-                    <h1 class="title__xl blue_bold">Mis citas</h1>
-                    <span class="subtitle__lg black_light">Encuentre aquí las citas agendadas por sus pacientes.</span>
-                </div>
+    <div class="container-fluid p-0 pr-lg-4">
+        <div class="containt_agendaProf" id="basic-table">
+            <div class="my-4 my-xl-5">
+                <h1 class="title__xl blue_bold">Mis citas</h1>
+                <span class="subtitle__lg black_light">Encuentre aquí las citas agendadas por sus pacientes.</span>
+            </div>
 
-                <div class="containt_main_form mb-3">
-                    <div class="col-md-4 ">
-                        <input type="date" id="date" class="form-control"/>
-                    </div>
-                    <br>
-                    <div class="table-responsive">
-                        <table class="table" id="table-citas">
-                            <thead>
-                            <tr>
-                                <th>Fecha</th>
-                                <th>Hora</th>
-                                <th>Tipo de cita</th>
-                                <th>Paciente</th>
-                                <th>Estado</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @if($citas->isNotEmpty())
-                                @foreach($citas as $cita)
-                                    <tr>
-                                        <td>{{ $cita->fecha_inicio->format('d-m /Y') }}</td>
-                                        <td>{{ "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A') }" }}</td>
-                                        <td>{{ $cita->tipo_consulta->nombreconsulta }}</td>
-                                        <td>{{ $cita->paciente->user->nombre_completo }}</td>
-                                        <td>
-                                            <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            @endif
-                            </tbody>
-                        </table>
+            <!-- Contenedor barra de búsqueda mis pacientes -->
+            <div class="containt_main_table mb-3">
+                <div class="row m-0">
+                    <div class="col-md-9 p-0 input__box mb-0">
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Paciente" />
                     </div>
                 </div>
             </div>
+
+            <!-- Contenedor formato tabla de la lista de mis pacientes -->
+            <div class="containt_main_table mb-3">
+                <div class="col-md-4 input__box">
+                    <label for="date">filtrar por fecha</label>
+                    <input type="date" id="date" class="form-control"/>
+                </div>
+              
+                <div class="table-responsive">
+                    <table class="table table_agenda" id="table-citas">
+                        <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Tipo de cita</th>
+                            <th>Paciente</th>
+                            <th>Estado</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @if($citas->isNotEmpty())
+                            @foreach($citas as $cita)
+                                <tr>
+                                    <td>{{ $cita->fecha_inicio->format('d-m /Y') }}</td>
+                                    <td>{{ "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A') }" }}</td>
+                                    <td>{{ $cita->tipo_consulta->nombreconsulta }}</td>
+                                    <td>{{ $cita->paciente->user->nombre_completo }}</td>
+                                    <td>
+                                        <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
 
     <!-- Pop-up  editar cita -->
     <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -184,8 +193,8 @@
 
             //Inicializar tabla
             var table = $('#table-citas').DataTable({
-                // bFilter: true,
-                // bInfo: true,
+                bFilter: false,
+                bInfo: false,
                 responsive: true,
                 language: {
                     url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
