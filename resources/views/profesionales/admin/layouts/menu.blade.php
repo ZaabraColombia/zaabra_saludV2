@@ -8,7 +8,7 @@ $user = Auth::user();
                 <img src="{{ asset($user->profecional->fotoperfil ?? 'img/menu/avatar.png') }}" alt="user.png">
                 <div class="user_data">
                     <h2>Dr.(a) {{ $user->nombre_completo }}</h2>
-                    <h3>{{ $user->email }}</h3>
+                    <h3>{{ $user->profecional->profecion->nombreProfesion }}</h3>
                 </div>
             </div>
 
