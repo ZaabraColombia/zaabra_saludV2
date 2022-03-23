@@ -1,113 +1,105 @@
-<div id="sidebar" class="active">
+@php
+    $user = Auth::user();
+@endphp
+<div class="active" id="sidebar">
     <div class="sidebar-wrapper active ps ps--active-y">
         <div class="sidebar-menu">
-            <h1 class="title_agenda mb-0 px-3">AGENDA PACIENTE</h1>
+            <div class="sidebar__header">
+                <img src="{{ asset($user->institucion->logo ?? 'img/menu/avatar.png') }}" alt="user.png">
+                <div class="user_data">
+                    <h2>{{ $user->nombreinstitucion }}</h2>
+                    <h3>{{ $user->email }}</h3>
+                </div>
+            </div>
 
             <ul class="menu">
-                <a id="menu_panel" class="actived" href="{{ url('/panelPrincipal') }}" ><i class="fas fa-home"></i> Menu</a>
+                <!-- menú -->
+                <li class="sidebar-item has-sub">
+                    <a id="" href="{{-- route('institucion.panel') --}}">
+                        <button class="{{ request()->routeIs('institucion.panel') ? 'btn_active' : '' }}">Menu</button>
+                    </a>
+                </li>
 
+                <!-- pagos -->
+                <li class="sidebar-item  has-sub">
+                    <a id="" class="" href='{{-- route('institucion.pagos') --}}'>
+                        <button class="{{ request()->routeIs('institucion.profesionales.*') ? 'btn_active' : '' }}">Mis pagos</button>
+                    </a>
+                </li>
 
-                @if(!empty($objListaUsuario1->isNotEmpty()))
-                    <li class="sidebar-item  has-sub">
-                        <span id="cita_padre" class="titulo_menu"><i class="fas fa-calendar" style="padding: 5px 5px 0 0;"></i> Mis citas</span>
-                        <ul class="submenu active">
+                <!-- pagos -->
+                <li class="sidebar-item  has-sub">
+                    <a id="" class="" href='{{-- route('institucion.pagos') --}}'>
+                        <button class="{{ request()->routeIs('institucion.pagos') ? 'btn_active' : '' }}">Mis pagos</button>
+                    </a>
+                </li>
 
-                            @foreach($objListaUsuario1 as $key => $objListaUsuario1)
-                                <li class="submenu-item ">
-                                    <a id="cita{{$key}}" class="actived" href='{{url("$objListaUsuario1->urlPermiso")}}'><i class="fas fa-dot-circle"></i> {{$objListaUsuario1->nombrePermiso}}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                @endif
+                <!-- mis pacientes -->
+                <li class="sidebar-item  has-sub">
+                    <a id="" class="" href='{{-- route('institucion.pacientes') --}}'>
+                        <button class="{{ request()->routeIs('institucion.pacientes') ? 'btn_active' : '' }}">Mis pacientes</button>
+                    </a>
+                </li>
 
-                @if(!empty($objListaUsuario2->isNotEmpty()))
-                    <li class="sidebar-item  has-sub">
-                        <!-- <a href="#" class="sidebar-link"> -->
-                        <!-- <i class="bi bi-collection-fill"></i> -->
-                        <span id="historia_padre" class="titulo_menu">Mi Historia Clínica</span>
-                        <!-- </a> -->
-                        <ul class="submenu ">
-                            @foreach($objListaUsuario2 as $objListaUsuario2)
-                                <li class="submenu-item ">
-                                    <a id="cita" class="actived" href='{{url("$objListaUsuario2->urlPermiso")}}'>{{$objListaUsuario2->nombrePermiso}}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                @endif
+                <!-- mis contactos -->
+                <li class="sidebar-item  has-sub">
+                    <a id="" class="" href='{{-- route('institucion.contactos.index') --}}'>
+                        <button class="{{ request()->routeIs('institucion.contactos.index') ? 'btn_active' : '' }}">Mis contactos</button>
+                    </a>
+                </li>
 
+                <!-- Catálogos -->
+                <li class="sidebar-item has-sub accordion" id="accordionExample">
+                    <button id="headingOne" class="{{ request()->routeIs('institucion.catalogos.*') ? 'btn_active' : '' }}" type="button" data-toggle="collapse"
+                            data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        Catálogos<i class="icon_angle fas fa-angle-down pl-2"></i>
+                    </button>
 
-                @if(!empty($objListaUsuario3->isNotEmpty()))
-                    <li class="sidebar-item  has-sub">
-                        <!-- <a href="#" class="sidebar-link"> -->
-                        <!-- <i class="bi bi-grid-1x2-fill"></i> -->
-                        <span id="favorito_padre" class="titulo_menu">
-                            <i class="fas fa-bookmark" style="padding: 5px 5px 0 0;"></i>
-                            Mis favoritos
-                        </span>
-                        <!-- </a> -->
-                        <ul class="submenu active">
-                            @foreach($objListaUsuario3 as $objListaUsuario3)
-                                <li class="submenu-item ">
-                                    <a id="fav" class="actived" href='{{url("$objListaUsuario3->urlPermiso")}}'>
-                                        <i class="fas fa-dot-circle"></i>
-                                        {{$objListaUsuario3->nombrePermiso}}
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                @endif
+                    <ul id="collapseOne" class="collapse sub_menu {{ request()->routeIs('institucion.catalogos.*') ? 'show' : '' }}"
+                        aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <li class="submenu-item ">
+                            <a id="cie10" class="{{ request()->routeIs('institucion.catalogos.cie10') ? 'txt_active' : '' }}"
+                               href='{{-- route('institucion.catalogos.cie10') --}}'>
+                                Diagnósticos (CIE - 10)
+                            </a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a id="cups" class="{{ request()->routeIs('institucion.catalogos.cups') ? 'txt_active' : '' }}"
+                               href='{{-- route('institucion.catalogos.cups') --}}'>
+                                Procedimientos (CUPS)
+                            </a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a id="cums" class="{{ request()->routeIs('institucion.catalogos.cums') ? 'txt_active' : '' }}"
+                               href='{{-- route("institucion.catalogos.cums") --}}'>
+                                Vademecum actualizado COLOMBIA INVIMA (CUMS)
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
+                <!-- Favoritos -->
+                <li class="sidebar-item  has-sub">
+                    <a class="" href='{{-- route('institucion.favoritos') --}}'>
+                        <button class="{{ request()->routeIs('institucion.favoritos') ? 'btn_active' : '' }}">Mis favoritos</button>
+                    </a>
+                </li>
 
-                @if(!empty($objListaUsuario5->isNotEmpty()))
-                    <li class="sidebar-item  has-sub">
-                        <a href="#" class="sidebar-link">
-                            <i class="bi bi-grid-1x2-fill"></i>
-                            <span>Perfiles</span>
-                        </a>
-                        <ul class="submenu ">
-                            @foreach($objListaUsuario5 as $objListaUsuario5)
-                                <li class="submenu-item ">
-                                    <a id="cita" class="actived" href='{{url("$objListaUsuario5->urlPermiso")}}'>{{$objListaUsuario5->nombrePermiso}}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                @endif
+                <li class="sidebar-item  has-sub">
+                    <a id="fav" class="" target="_blank" href="https://www.prescripciontotal.com.co/consultorio-generico/login">
+                        <button class="py-0">
+                            <img src="{{ asset('/img/agenda/panelPrincipal/plm.png') }}" alt="" width="100px">
+                        </button>
+                    </a>
+                </li>
 
-                @if(!empty($objListaUsuario6->isNotEmpty()))
-                    <li class="sidebar-item  has-sub">
-                        <a href="#" class="sidebar-link">
-                            <i class="bi bi-grid-1x2-fill"></i>
-                            <span>Pagos</span>
-                        </a>
-                        <ul class="submenu ">
-                            @foreach($objListaUsuario6 as $objListaUsuario6)
-                                <li class="submenu-item ">
-                                    <a id="cita" class="actived" href='{{url("$objListaUsuario6->urlPermiso")}}'>{{$objListaUsuario6->nombrePermiso}}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                @endif
-
-                @if(!empty($objListaUsuario7->isNotEmpty()))
-                    <li class="sidebar-item  has-sub">
-                        <a href="#" class="sidebar-link">
-                            <i class="bi bi-grid-1x2-fill"></i>
-                            <span>Reportes</span>
-                        </a>
-                        <ul class="submenu ">
-                            @foreach($objListaUsuario7 as $objListaUsuario7)
-                                <li class="submenu-item ">
-                                    <a id="cita" class="actived" href='{{url("$objListaUsuario7->urlPermiso")}}'>{{$objListaUsuario7->nombrePermiso}}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                @endif
+                <li class="sidebar-item  has-sub">
+                    <a id="fav" class="" target="_blank" href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS">
+                        <button class="py-0">
+                            <img src="{{ asset('/img/agenda/panelPrincipal/mipres-zaabra.png') }}" alt="" width="100px">
+                        </button>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
