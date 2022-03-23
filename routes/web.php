@@ -295,35 +295,36 @@ Route::middleware(['auth', 'roles', 'verified'])->as('entidad.')->group(function
 
     Route::post('/institucion/form-password',[App\Http\Controllers\entidades\formularioInstitucionController::class,'password'])->name('formulario-password');
 
-    /*--------- Admin Entidad -----------*/
-    Route::group(['prefix' => '/institucion'], function (){
-        Route:: get('/panel',[entidades\Admin\PanelController::class,'index'])->name('panel');
-        Route:: get('/citas',[entidades\Admin\CitasController::class,'index'])->name('citas');
-        Route:: get('/pagos',[entidades\Admin\PagosController::class,'index'])->name('pagos');
+});
 
-        Route::get('/configurar-calendario', [entidades\Admin\CalendarioController::class, 'configuracion'])
-            ->name('configurar-calendario');
-        Route::get('/calendario',[entidades\Admin\CalendarioController::class,'index'])
-            ->name('calendarioProfesional');
+/*--------- Admin Entidad (Institución) -----------*/
+Route::group(['prefix' => '/institucion', 'as' => 'institucion.'], function (){
+    Route:: get('/panel',[entidades\Admin\PanelController::class,'index'])->name('panel');
+    Route:: get('/citas',[entidades\Admin\CitasController::class,'index'])->name('citas');
+    Route:: get('/pagos',[entidades\Admin\PagosController::class,'index'])->name('pagos');
 
-        Route:: get('/cie10',[entidades\Admin\HistoriaClinicaController::class,'cie10'])
-            ->name('cie10');
-        Route:: get('/cups',[entidades\Admin\HistoriaClinicaController::class,'cups'])
-            ->name('cups');
-        Route:: get('/cums',[entidades\Admin\HistoriaClinicaController::class,'cums'])
-            ->name('cums');
+    Route::get('/configurar-calendario', [entidades\Admin\CalendarioController::class, 'configuracion'])
+        ->name('configurar-calendario');
+    Route::get('/calendario',[entidades\Admin\CalendarioController::class,'index'])
+        ->name('calendarioProfesional');
 
-        Route:: get('/favoritos',[entidades\Admin\FavoritosController::class,'index'])
-            ->name('favoritos');
-        Route:: post('/favoritosSave',[entidades\Admin\FavoritosController::class,'create'])
-            ->name('favoritosSave');
-        Route:: post('/favoritosSave2',[entidades\Admin\FavoritosController::class,'create2'])
-            ->name('favoritosSave2');
-        Route:: post('/favoritosSave3',[entidades\Admin\FavoritosController::class,'create3'])
-            ->name('favoritosSave3');
-        Route:: post('/favoritosSave4',[entidades\Admin\FavoritosController::class,'create4'])
-            ->name('favoritosSave4');
-    });
+    Route:: get('/cie10',[entidades\Admin\HistoriaClinicaController::class,'cie10'])
+        ->name('catalogos.cie10');
+    Route:: get('/cups',[entidades\Admin\HistoriaClinicaController::class,'cups'])
+        ->name('catalogos.cups');
+    Route:: get('/cums',[entidades\Admin\HistoriaClinicaController::class,'cums'])
+        ->name('catalogos.cums');
+
+    Route:: get('/favoritos',[entidades\Admin\FavoritosController::class,'index'])
+        ->name('favoritos');
+    Route:: post('/favoritosSave',[entidades\Admin\FavoritosController::class,'create'])
+        ->name('favoritosSave');
+    Route:: post('/favoritosSave2',[entidades\Admin\FavoritosController::class,'create2'])
+        ->name('favoritosSave2');
+    Route:: post('/favoritosSave3',[entidades\Admin\FavoritosController::class,'create3'])
+        ->name('favoritosSave3');
+    Route:: post('/favoritosSave4',[entidades\Admin\FavoritosController::class,'create4'])
+        ->name('favoritosSave4');
 });
 
 /*------------------------------------------------Pertenece el paciente-------------------------------------------------------------------------------*/

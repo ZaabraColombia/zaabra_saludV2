@@ -100,7 +100,7 @@
                                 <span class="texto_item-menu-paciente">Mi perfil</span>
                             </a>
                             <div class="dropdown-divider m-0"></div>
-                            <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}">
+                            <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ route('institucion.panel') }}">
                                 <span class="texto_item-menu-paciente">Agenda</span>
                             </a>
                         @elseif($objtipoUsuarioLogueado->idrol==4)

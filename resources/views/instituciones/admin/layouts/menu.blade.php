@@ -59,19 +59,19 @@
                         aria-labelledby="headingOne" data-parent="#accordionExample">
                         <li class="submenu-item ">
                             <a id="cie10" class="{{ request()->routeIs('institucion.catalogos.cie10') ? 'txt_active' : '' }}"
-                               href='{{-- route('institucion.catalogos.cie10') --}}'>
+                               href='{{ route('institucion.catalogos.cie10') }}'>
                                 Diagnósticos (CIE - 10)
                             </a>
                         </li>
                         <li class="submenu-item ">
                             <a id="cups" class="{{ request()->routeIs('institucion.catalogos.cups') ? 'txt_active' : '' }}"
-                               href='{{-- route('institucion.catalogos.cups') --}}'>
+                               href='{{ route('institucion.catalogos.cups') }}'>
                                 Procedimientos (CUPS)
                             </a>
                         </li>
                         <li class="submenu-item ">
                             <a id="cums" class="{{ request()->routeIs('institucion.catalogos.cums') ? 'txt_active' : '' }}"
-                               href='{{-- route("institucion.catalogos.cums") --}}'>
+                               href='{{ route("institucion.catalogos.cums") }}'>
                                 Vademecum actualizado COLOMBIA INVIMA (CUMS)
                             </a>
                         </li>
