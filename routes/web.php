@@ -298,7 +298,7 @@ Route::middleware(['auth', 'roles', 'verified'])->as('entidad.')->group(function
 });
 
 /*--------- Admin Entidad (Institución) -----------*/
-Route::group(['prefix' => '/institucion', 'as' => 'institucion.'], function (){
+Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' => ['auth', 'roles', 'verified']], function (){
     Route::get('/panel',[entidades\Admin\PanelController::class,'index'])->name('panel');
     Route::get('/citas',[entidades\Admin\CitasController::class,'index'])->name('citas');
     Route::get('/pagos',[entidades\Admin\PagosController::class,'index'])->name('pagos');
