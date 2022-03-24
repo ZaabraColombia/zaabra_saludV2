@@ -30,8 +30,9 @@
                     <table class="table table_agenda" id="table-pagos">
                         <thead>
                         <tr>
+                            <th>Nombre</th>
+                            <th>Especialidad</th>
                             <th>Fecha</th>
-                            <th>Hora</th>
                             <th>Tipo de cita</th>
                             <th>Valor</th>
                             {{--<th></th>--}}
@@ -41,8 +42,23 @@
                         @if($pagos->isNotEmpty())
                             @foreach($pagos as $pago)
                                 <tr>
-                                    <td>{{ $pago->fecha->format('d-m-Y') }}</td>
-                                    <td>{{ $pago->fecha->format('H:i a') }}</td>
+                                    <td>
+                                        @if(!empty($pago->cita->profesional_id))
+                                            {{ $pago->cita->profesional->user->nombre_completo }}
+                                        @endif
+                                        @if(!empty($pago->cita->profesional_ins_id))
+
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(!empty($pago->cita->profesional_id))
+                                            {{ $pago->cita->profesional->especialidad->nombreEspecialidad }}
+                                        @endif
+                                        @if(!empty($pago->cita->profesional_ins_id))
+
+                                        @endif
+                                    </td>
+                                    <td>{{ $pago->fecha->format('d-m-Y H:i a') }}</td>
                                     <td>{{ $pago->cita->tipo_consulta->nombreconsulta }}</td>
                                     <td>${{ number_format($pago->valor, 0, ",", ".") }}</td>
                                     {{-- <td class="content_btn_descargar">                         --}}

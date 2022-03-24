@@ -43,9 +43,9 @@
                                     <td class="pr-0">
                                         <div class="user__xl">
                                             <div class="pr-2">
-                                                <img class="img__contacs" src='/img/user/31/31-1630611954.jpg'>
+                                                <img class="img__contacs" src='{{ asset($paciente->foto ?? 'img/menu/avatar.png') }}'>
                                             </div>
-                                        
+
                                             <div>
                                                 {{ $paciente->user->nombre_completo }}
                                             </div>

@@ -51,6 +51,7 @@
                                 {{-- <th>Institución</th>   --}}
                                 <th>Especialista</th>
                                 <th>Estado</th>
+{{--                                <th></th>--}}
                             </tr>
                         </thead>
                         <tbody>
@@ -67,13 +68,13 @@
                                     <td class="d-flex align-items-center">
                                         @if(!empty($cita->profesional))
                                             {{ $cita->profesional->user->nombre_completo }} &nbsp;
-                                            <a class="btn_action" style="width: 33px" href="{{route('PerfilProfesional', ['slug' => $cita->profesional->slug])}}" target="_blank"> 
+                                            <a class="btn_action" style="width: 33px" href="{{route('PerfilProfesional', ['slug' => $cita->profesional->slug])}}" target="_blank">
                                                 <i data-feather="external-link"></i>
                                             </a>
                                         @endif
                                         @if(!empty($cita->profesional_ins))
                                             {{ "{$cita->profesional_ins->institucion->user->nombreinstitucion} - {$cita->profesional_ins->nombre_completo}" }} &nbsp;
-                                                <a class="btn_action" style="width: 33px" href="{{route('PerfilInstitucion', ['slug' => $cita->profesional_ins->institucion->slug])}}" target="_blank"> 
+                                                <a class="btn_action" style="width: 33px" href="{{route('PerfilInstitucion', ['slug' => $cita->profesional_ins->institucion->slug])}}" target="_blank">
                                                     <i data-feather="external-link"></i>
                                                 </a>
                                         @endif
@@ -81,6 +82,9 @@
                                     <td>
                                         <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>
                                     </td>
+{{--                                    <td>--}}
+{{--                                        a.btn.btn-success--}}
+{{--                                    </td>--}}
                                     {{-- <td>                                                                                                           --}}
                                     {{--     <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>  --}}
                                     {{--     <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>  --}}
@@ -92,7 +96,7 @@
                     </table>
                 </div>
             </div>
-            
+
         </div>
     </div>
 

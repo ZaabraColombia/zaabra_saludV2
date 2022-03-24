@@ -171,7 +171,7 @@
                         </div>
 
                         <p class="text-center fs_text black_light">
-                            Este es su primer agendamiento de cita para la consulta de Odontología.
+                            Este es su primer agendamiento de cita para la consulta de {{ $profesional->especialidad->nombreEspecialidad }}.
                         </p>
 
                         <div class="d-flex justify-content-center mt-3">
