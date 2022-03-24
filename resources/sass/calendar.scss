@@ -7,31 +7,46 @@
     justify-content: flex-start;
     align-items: center;
 }
-.text_calendar, .dias {
-    font-family: "Roboto";
-    color: #3E3E3E;
+.fc-toolbar-title::first-letter {
+    text-transform: uppercase;
 }
-.dias{
-    display: flex;
-    align-content: center;
+.fc-col-header-cell-cushion::first-letter {
+    text-transform: uppercase;
+} 
+.content_dias_agenda {
+    span  {
+        font-size: 14px;
+        font-family: "Roboto";
+        color: #3E3E3E;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        width: 173px;
+        i {
+            width: 21px;
+            height: 21px;
+            border: 1px solid #707070;
+            margin-right: 25px;
+        }
+    }
 }
-.dias i{
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    border: 1px solid #707070;
+.disponible i {
     background: #FFFFFF 0% 0% no-repeat padding-box;
-    margin-right: 7px;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
 }
-.no_disponible i{
-    background: #d8d8d8;
+.cita_pag i {
+    background: #1B85D7 0% 0% no-repeat padding-box;
 }
-.contains_option_days{
-    display: flex;
-    flex-direction: column;
-    margin-top: 0;
+.cita_pag_pres i {
+    background: #D6FFFB 0% 0% no-repeat padding-box;
+}
+.no_disponible i {
+    background: #D8D8D8 0% 0% no-repeat padding-box;
+}
+.cita_agen i {
+    background: #019F86 0% 0% no-repeat padding-box;
+}
+.cita_cancel i {
+    background: #9DD1F9 0% 0% no-repeat padding-box;
 }
 @media (min-width: 320px){
     .dias{
@@ -44,6 +59,14 @@
     }
     .text_calendar{
         font-size: 1.1em;
+    }
+    .content_center_agenda {
+        display: flex;
+        justify-content: center;
+    }
+    .content_right_agenda {
+        display: flex;
+        justify-content: flex-end;
     }
     .dias{
         font-size: 1em;

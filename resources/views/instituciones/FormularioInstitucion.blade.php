@@ -798,7 +798,7 @@
                 </div>
 
                 <div id="map" class="ubicacion_inst"></div>
-                <!-- 
+                <!--
                 <div class="col-12 px-0 {{ empty($objFormulario->url_maps) ? 'd-none' : '' }}">
                     <iframe src="{{$objFormulario->url_maps}}" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" id="map_principal_institucion"></iframe>
                 </div>
@@ -834,10 +834,10 @@
             <h5 class="textTop_informative_form">A continuación suba 8 imágenes como máximo, con su respectivo nombre y descripción.</h5>
 
             <div class="content_information_saved_form" id="lista-galeria-intitucion">
-                <?php $count_galeria = 0; ?>
+                {{--<?php $count_galeria = 0; ?>--}}
                 @foreach($objGaleria as $galeria)
                     @if(!empty($galeria->nombrefoto))
-                        <?php $count_galeria++; ?>
+                        {{--<?php $count_galeria++; ?>--}}
                         <div class="card_information_saved_form width_card_single">
                             <div class="content_btn_close_form">
                                 <button type="submit" class="close" aria-label="Close" data-url="{{ route('entidad.delete12', ['id' => $galeria->id_galeria ]) }}"><span aria-hidden="true">&times;</span></button>
@@ -860,19 +860,19 @@
             <form  action="{{ route('entidad.create12') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="form-galeria-institucion" class="pb-2">
                 @csrf
                 <div id="mensajes-galeria">
-                    @if($count_galeria >= 8)
-                        <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading">Hecho!</h4>
-                            <p>Ya tienes el máximo de fotos</p>
-                        </div>
-                    @endif
+{{--                    @if($count_galeria >= 8)--}}
+{{--                        <div class="alert alert-success" role="alert">--}}
+{{--                            <h4 class="alert-heading">Hecho!</h4>--}}
+{{--                            <p>Ya tienes el máximo de fotos</p>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
                 </div>
 
                 <div class="row m-0 pb-3 px-0">
                     <div class="col-md-6 px-0 align-self-end">
                         <div class="upload_file_img_form">
                             <img class="imagenPrevisualizacion" id="img-img_galeria_institucion">
-                            <input type='file' id="img_galeria_institucion" name="img_galeria_institucion" onchange="ver_imagen('img_galeria_institucion', 'img-img_galeria_institucion');" {{ ($count_galeria >= 8) ? 'disabled' : '' }}/>
+                            <input type='file' id="img_galeria_institucion" name="img_galeria_institucion" onchange="ver_imagen('img_galeria_institucion', 'img-img_galeria_institucion');" {{-- ($count_galeria >= 8) ? 'disabled' : '' --}}/>
                             <p style="width: 11.5em;">Subir imagen galería</p>
                         </div>
 
@@ -881,19 +881,19 @@
 
                     <div class="col-md-6 p-0">
                         <label for="fecha_galeria_institucion" class="label_txt_form">Fecha</label>
-                        <input class="input_box_form" type="date"  id="fecha_galeria_institucion" name="fecha_galeria_institucion" {{ ($count_galeria >= 8) ? 'disabled' : '' }} />
+                        <input class="input_box_form" type="date"  id="fecha_galeria_institucion" name="fecha_galeria_institucion" {{-- ($count_galeria >= 8) ? 'disabled' : '' --}} />
 
                         <label for="nombre_galeria_institucion" class="label_txt_form">Título de la imagen</label>
-                        <input class="input_box_form" id="nombre_galeria_institucion" placeholder="Título de la imagen" type="text" name="nombre_galeria_institucion" {{ ($count_galeria >= 8) ? 'disabled' : '' }} />
+                        <input class="input_box_form" id="nombre_galeria_institucion" placeholder="Título de la imagen" type="text" name="nombre_galeria_institucion" {{-- ($count_galeria >= 8) ? 'disabled' : '' --}} />
 
                         <label for="descripcion_galeria_institucion" class="label_txt_form">Descripción</label>
-                        <input class="input_box_form" id="descripcion_galeria_institucion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion_galeria_institucion" {{ ($count_galeria >= 8) ? 'disabled' : '' }} />
+                        <input class="input_box_form" id="descripcion_galeria_institucion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion_galeria_institucion" {{-- ($count_galeria >= 8) ? 'disabled' : '' --}} />
                         <label class="col-12 text_infoImg-formInst"> 160 Caracteres </label>
                     </div>
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button type="submit" class="button_green_form" id="btn-guardar-galeria-institucion" {{ ($count_galeria >= 8) ? 'disabled' : '' }} data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}..."> Guardar
+                    <button type="submit" class="button_green_form" id="btn-guardar-galeria-institucion" {{-- ($count_galeria >= 8) ? 'disabled' : '' --}} data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}..."> Guardar
                         <img src=" {{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>
@@ -906,10 +906,10 @@
             <h5 class="textTop_informative_form">A continuación suba el link del video, con su respectivo nombre y descripción.</h5>
 
             <div class="content_information_saved_form" id="lista-videos-institucion">
-                <?php $count_videos = 0 ;?>
+                {{--<?php $count_videos = 0 ;?>--}}
                 @foreach($objVideo as $video)
                     @if(!empty($video->nombrevideo))
-                        <?php $count_videos = 0 ;?>
+                        {{--<?php $count_videos = 0 ;?>--}}
                         <div class="card_information_saved_form width_card_single">
                             <div class="content_btn_close_form">
                                 <button type="submit" class="close" aria-label="Close" data-url="{{ route('entidad.delete13', ['id' => $video->id]) }}"><span aria-hidden="true">&times;</span></button>
@@ -932,36 +932,36 @@
             <form method="POST" action="{{ route('entidad.create13') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-videos-institucion" class="pb-2">
                 @csrf
                 <div id="mensajes-videos">
-                    @if($count_videos >= 4)
-                        <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading">Hecho!</h4>
-                            <p>Ya tienes el máximo de videos</p>
-                        </div>
-                    @endif
+{{--                    @if($count_videos >= 4)--}}
+{{--                        <div class="alert alert-success" role="alert">--}}
+{{--                            <h4 class="alert-heading">Hecho!</h4>--}}
+{{--                            <p>Ya tienes el máximo de videos</p>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
                 </div>
 
                 <div class="row m-0 pb-3 px-0">
                     <div class="col-md-6 p-0 pr-md-1">
                         <label for="url_video_institucion" class="label_txt_form">Url video</label>
-                        <input class="input_box_form" id="url_video_institucion"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="url_video_institucion" {{ ($count_videos >= 4) ? 'disabled' : '' }} />
+                        <input class="input_box_form" id="url_video_institucion"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="url_video_institucion" {{-- ($count_videos >= 4) ? 'disabled' : '' --}} />
 
                         <label for="fecha_video_institucion" class="label_txt_form">Fecha</label>
-                        <input class="input_box_form" type="date"  id="fecha_video_institucion" name="fecha_video_institucion" {{ ($count_videos >= 4) ? 'disabled' : '' }} />
+                        <input class="input_box_form" type="date"  id="fecha_video_institucion" name="fecha_video_institucion" {{-- ($count_videos >= 4) ? 'disabled' : '' --}} />
                     </div>
 
                     <div class="col-md-6 p-0 pl-md-1">
                         <label for="nombre_video_institucion" class="label_txt_form">Título video</label>
-                        <input class="input_box_form" id="nombre_video_institucion" placeholder="Título video" type="text" name="nombre_video_institucion" {{ ($count_videos >= 4) ? 'disabled' : '' }} />
+                        <input class="input_box_form" id="nombre_video_institucion" placeholder="Título video" type="text" name="nombre_video_institucion" {{-- ($count_videos >= 4) ? 'disabled' : '' --}} />
 
                         <label for="descripcion_video_institucion" class="label_txt_form">Descripción video</label>
-                        <input class="input_box_form" id="descripcion_video_institucion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion_video_institucion" {{ ($count_videos >= 4) ? 'disabled' : '' }} />
+                        <input class="input_box_form" id="descripcion_video_institucion" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcion_video_institucion" {{-- ($count_videos >= 4) ? 'disabled' : '' --}} />
 
                         <p class="text_informative_form">160 Caracteres</p>
                     </div>
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button type="submit" class="button_green_form" id="btn-guardar-video-institucion" {{ ($count_videos >= 4) ? 'disabled' : '' }} data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}..."> Guardar
+                    <button type="submit" class="button_green_form" id="btn-guardar-video-institucion" {{-- ($count_videos >= 4) ? 'disabled' : '' --}} data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}..."> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>

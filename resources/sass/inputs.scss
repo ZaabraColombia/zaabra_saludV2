@@ -1,0 +1,113 @@
+// Inputs
+// Contenedor input con los elementos (label e input)
+.input__box {
+    label {
+        font-size: 14px;
+        font-family: 'Roboto';
+        color: $black_firsrt;
+        margin-bottom: 4px;
+    }
+    input {
+        display: block;
+        width: 100%;
+        height: calc(1.6em + 0.75rem + 2px);
+        padding: 0.375rem 0.75rem;
+        margin-bottom: 15px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: $black_second;
+        background-color: $withe_official;
+        background-clip: padding-box;
+        border: 1px solid $gray_third;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        &:focus {
+            color: $black_second;
+            background-color: $gray_official;
+            border-color: $blue_gray;
+            outline: 0;
+            box-shadow: 0px 0px 1.2px 2px rgb(30 200 252 / 10%);
+        }
+    }
+    select {
+        display: block;
+        width: 100%;
+        height: calc(1.6em + 0.75rem + 2px);
+        padding: 0.375rem 0.75rem;
+        margin-bottom: 15px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: $black_second;
+        background-color: $withe_official;
+        background-clip: padding-box;
+        border: 1px solid $gray_third;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        &:focus {
+            color: $black_second;
+            background-color: $gray_official;
+            border-color: $blue_gray;
+            outline: 0;
+            box-shadow: 0px 0px 1.2px 2px rgb(30 200 252 / 10%);
+        }
+    }
+}
+
+// Input checks
+.input__check {
+    label {
+        font-size: 14px;
+        font-family: 'Roboto';
+        color: $black_firsrt;
+        margin-bottom: 0;
+    }
+    input {
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+    }
+}
+@media(min-width: 768px) {
+    // Inputs
+    .input__box {
+        label {
+            font-size: 16px;
+        }
+        input {
+            font-size: 15px;
+        }
+    }
+    // Input checks
+    .input__check {
+        label {
+            font-size: 14px;
+        }
+        input {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+@media(min-width: 1440px) {
+    // Inputs
+    .input__box {
+        label {
+            font-size: 16px;
+        }
+        input {
+            font-size: 15px;
+        }
+    }
+    // Input checks
+    .input__check {
+        label {
+            font-size: 15px;
+        }
+        input {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

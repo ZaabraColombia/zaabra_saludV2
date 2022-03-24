@@ -153,8 +153,9 @@ class FormularioPaciente extends Controller
             'departamento'      => ['required', 'exists:departamentos,id_departamento'],
             'provincia'         => ['required', 'exists:provincias,id_provincia'],
             'municipio'         => ['required', 'exists:municipios,id_municipio'],
-            'celular'           => ['required', 'min:7', 'max:10'],
-            'telefono'          => ['min:7', 'max:10'],
+            'celular'           => ['required', 'min:7'],
+            'telefono'          => ['nullable', 'min:7'],
+            'direccion'         => ['nullable', 'min:7'],
             'eps'               => ['required'],
         ]);
 

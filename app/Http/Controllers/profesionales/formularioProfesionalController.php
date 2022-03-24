@@ -1121,15 +1121,15 @@ class formularioProfesionalController extends Controller
         }
 
         //validar el valor máximo de items
-        $count = tratamientos::where('idPerfilProfesional', '=', $idProProfesi)->count();
-        //$count = auth()->user()->profecional->idiomas;
-
-        if ( $count >= 2 ) {
-            return response()->json([
-                'mensaje' => 'Ingreso el máximo de tratamientos',
-                'items_max' => true
-            ], Response::HTTP_NOT_FOUND);
-        }
+//        $count = tratamientos::where('idPerfilProfesional', '=', $idProProfesi)->count();
+//        //$count = auth()->user()->profecional->idiomas;
+//
+//        if ( $count >= 2 ) {
+//            return response()->json([
+//                'mensaje' => 'Ingreso el máximo de tratamientos',
+//                'items_max' => true
+//            ], Response::HTTP_NOT_FOUND);
+//        }
 
 
         //Crear el objeto
@@ -1155,12 +1155,12 @@ class formularioProfesionalController extends Controller
 
         $tratamineto->save();
         //agrgar 1 suma uno
-        $count++;
+        //$count++;
 
         return response()->json([
-            'mensaje' => 'Se adiciono el tratamiento' .
-                ($count >= 2) ? '<br> Se agrego el máximo de tratamientos' : '',
-            'items_max' => $count >= 2,
+            'mensaje' => 'Se adiciono el tratamiento', // . ($count >= 2) ? '<br> Se agrego el máximo de tratamientos' : '',
+            //'items_max' => $count >= 2,
+            'items_max' => false,
             'imagen_antes' => asset($tratamineto->imgTratamientoAntes),
             'imagen_despues' => asset($tratamineto->imgTratamientodespues),
             'id' => $tratamineto->id_tratamiento,
@@ -1490,14 +1490,13 @@ class formularioProfesionalController extends Controller
         }
 
         //validar el valor máximo de items
-        $count = galerias::where('idPerfilProfesional', '=', $idProProfesi)->count();
-
-        if ( $count >= 8 ) {
-            return response()->json([
-                'mensaje' => 'Ingreso el máximo de fotos',
-                'items_max' => true
-            ], Response::HTTP_NOT_FOUND);
-        }
+//        $count = galerias::where('idPerfilProfesional', '=', $idProProfesi)->count();
+//        if ( $count >= 8 ) {
+//            return response()->json([
+//                'mensaje' => 'Ingreso el máximo de fotos',
+//                'items_max' => true
+//            ], Response::HTTP_NOT_FOUND);
+//        }
 
 
         //Crear el objeto
@@ -1519,12 +1518,12 @@ class formularioProfesionalController extends Controller
 
         $foto->save();
         //agrgar 1 suma uno
-        $count++;
+        //$count++;
 
         return response()->json([
-            'mensaje' => 'Se adiciono el fotos' .
-                ($count >= 8) ? '<br> Se agrego el máximo de fotos' : '',
-            'items_max' => $count >= 8,
+            'mensaje' => 'Se adiciono el fotos', //($count >= 8) ? '<br> Se agrego el máximo de fotos' : '',
+            //'items_max' => $count >= 8,
+            'items_max' => false,
             'imagen' => asset($foto->imggaleria),
             'id' => $foto->id_galeria,
         ], Response::HTTP_OK);
@@ -1606,14 +1605,14 @@ class formularioProfesionalController extends Controller
         }
 
         //validar el valor máximo de items
-        $count = videos::where('idPerfilProfesional', '=', $idProProfesi)->count();
-
-        if ( $count >= 4 ) {
-            return response()->json([
-                'mensaje' => 'Ingreso el máximo de items',
-                'items_max' => true
-            ], Response::HTTP_NOT_FOUND);
-        }
+//        $count = videos::where('idPerfilProfesional', '=', $idProProfesi)->count();
+//
+//        if ( $count >= 4 ) {
+//            return response()->json([
+//                'mensaje' => 'Ingreso el máximo de items',
+//                'items_max' => true
+//            ], Response::HTTP_NOT_FOUND);
+//        }
 
         //Crear el objeto
         $video = new videos();
@@ -1626,12 +1625,12 @@ class formularioProfesionalController extends Controller
         $video->idPerfilProfesional = $idProProfesi;
         $video->save();
         //agrgar 1 suma uno
-        $count++;
+        //$count++;
 
         return response()->json([
-            'mensaje' => 'Se adiciono el video de "' . $request->nombreVideo . '"' .
-                ($count >= 4) ? '<br> Se agrego el máximo de videos' : '',
-            'items_max' => $count >= 4,
+            'mensaje' => 'Se adiciono el video de "' . $request->nombreVideo . '"', // . ($count >= 4) ? '<br> Se agrego el máximo de videos' : '',
+            //'items_max' => $count >= 4,
+            'items_max' => false,
             'id' => $video->id,
         ], Response::HTTP_OK);
     }

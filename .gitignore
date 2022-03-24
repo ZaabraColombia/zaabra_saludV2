@@ -16,14 +16,9 @@ public/css/app.css
 public/js/app.js
 public/mix-manifest.json
 .editorconfig
-.editorconfig
-.editorconfig
-.styleci.yml
 .styleci.yml
 public/css/main.css
-public/js/app.js
-public/js/app.js
-public/css/app.css
-public/css/app.css
-public/css/app.css
+
 /.idea
+
+vendor.zip

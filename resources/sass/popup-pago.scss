@@ -1,88 +1,219 @@
-.popUp_dialog {
-    position: absolute;
-    top: 50px;
-    bottom: 0;
-    left: 0;
-    right: 0;
+.modal {
+    overflow-y: auto;
 }
-.popUp_content {
-    border: none;
-    border-radius: 5px;
-    width: 95%;
-    background: linear-gradient(180deg, white 100%, #e7e2e2 50%, #cccbcb 100%);
+.modal_container {
+    .modal-header {
+        padding-bottom: 0;
+        border-bottom: none;
+        span {
+            font-size: 40px;
+            font-weight: 200;
+            font-family: 'Roboto';
+            text-transform: capitalize;
+            &:hover {
+                color: $blue_official;
+            }
+        }
+    }
+    .modal-body {
+        padding-top: 5px;
+        h1 {
+            font-size: 22px;
+            font-family: 'Quicksand';
+            color: $blue_official;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        h2 {
+            font-size: 20px;
+            font-family: 'Quicksand';
+            color: $black_second;
+            font-weight: bold;
+            margin: 0;
+        }
+        h3 {
+            font-size: 16px;
+            font-family: 'Quicksand';
+            color: $black_second;
+            font-weight: bold;
+            margin: 0;
+        }
+        .modal_medio_pago {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 0;
+            padding: 0;
+            .info_medio_pago {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 20px 0;
+                img {
+                    width: 85px;
+                }
+                .Check_medio_pago {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+        .modal_info_cita {
+            background-color: #EFEFEF;
+            border-radius: 5px;
+            padding: 15px 15px;
+            .info_contac {
+                span:nth-child(1)  {
+                    font-size: 14px;
+                    font-family: 'Quicksand';
+                    color: $black_second;
+                    font-weight: bold;
+                }
+                span:nth-child(2)  {
+                    font-size: 13px;
+                    font-family: 'Roboto';
+                    color: $black_second;
+                    font-weight: 100;
+                }
+                span:nth-child(3)  {
+                    font-size: 13px;
+                    font-family: 'Roboto';
+                    color: $black_second;
+                    font-weight: 100;
+                }
+            }
+        }
+        .form_modal {
+            label{
+                font-size: 16px;
+                font-family: 'Roboto';
+                color: $gray_second;
+                margin-bottom: 3px;
+            }
+            select, input[type="text"], [type="number"], [type="time"], [type="email"] {
+                display: block;
+                width: 100%;
+                height: calc(1.6em + 0.75rem + 2px);
+                padding: 0.375rem 0.75rem;
+                margin-bottom: 10px;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1.6;
+                color: $black_second;
+                background-color: $withe_official;
+                background-clip: padding-box;
+                border: 1px solid $gray_third;
+                border-radius: 0.25rem;
+                transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+                &:focus {
+                    color: $black_second;
+                    background-color: $gray_official;
+                    border-color: $blue_gray;
+                    outline: 0;
+                    box-shadow: 0px 0px 1.2px 2px rgb(30 200 252 / 10%);
+                }
+            }
+            .input-group {
+                input {
+                    display: block;
+                    width: auto;
+                    height: calc(1.6em + 0.75rem + 2px);
+                    padding: 0.375rem 0.75rem;
+                    margin-bottom: 0;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 1.6;
+                    color: $black_second;
+                    background-color: $withe_official;
+                    background-clip: padding-box;
+                    border: 1px solid $gray_third;
+                    border-radius: 0;
+                    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+                    &:focus {
+                        color: $black_second;
+                        background-color: $gray_official;
+                        border-color: $blue_gray;
+                        outline: 0;
+                        box-shadow: 0px 0px 1.2px 2px rgb(30 200 252 / 10%);
+                    }
+                }
+            }
+        }
+    } 
+    .modal-footer {
+        border-top: none;
+        padding-bottom: 30px;
+    }
+}
+
+.card_day {
+    width: 175px;
     margin: auto;
-    padding: 25px 20px 35px 20px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        .card_header_day {
+            width: 25px;
+            height: 10px;
+            background: darkgray;
+            border-radius: 10px;
+        }
+    }
+    .card-body {
+        display: flex;
+        justify-content: center;
+        span {
+            font-size: 18px;
+            font-family: 'Quicksand';
+            color: $black_second;
+            font-weight: bolder;
+            text-transform: capitalize;
+        }
+    }
 }
-.popUp_header {
-    margin-bottom: 5px;
-    padding: 0;
-    border-bottom: none;
-}
-.titulo_popUp {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #232323;
-    text-align: center;
-    text-transform: none;
-    margin-bottom: 10px;
-}
-.texto_popUp {
-    font-family: 'Quicksand';
-    font-size: 1em;
-    color: #232323;
-    text-align: center;
-    line-height: 1.2;
-}
-.popUp_seccion_medio_pago {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 0;
-    padding: 0;
-}
-.popUp_medio_pago {
+
+.eliminar_horario {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 20px 0;
-}
-.icon_popUp {
-    width: 70px;
-}
-.btnPagar_popUp {
-    font-family: "Quicksand";
-    font-size: 1em;
-    color: #ffffff;
-    background: #0083D6;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    margin: auto;
-    padding: 5px 20px;
-}
-@media(min-width: 375px) {
-    .popUp_content {
-        width: 75%;
+    .trash_2 {
+        width: 70px;
+        height: 70px;
+        border-radius: 35px;
+        border: 2px solid #e3342f;
+        padding: 10px;
+        margin-bottom: 15px;
+        color: #e3342f;
+        box-shadow: 0px 1px 8px 8px rgb(244 100 100 / 20%);
     }
 }
-@media(min-width: 1920px) {
-    .titulo_popUp {
-        font-size: 1.5em;
+@media(min-width: 768px) {
+    .modal_container {
+        .modal-body .modal_medio_pago .info_medio_pago {  
+            img {
+                width: 100px;
+            }
+        }
     }
-    .texto_popUp {
-        font-size: 1.15em;
+    .modal_container .modal-body .modal_info_cita {
+        padding: 15px 25px;
+        .info_contac {
+            span:nth-child(1)  {
+                font-size: 17px;
+            }
+            span:nth-child(2)  {
+                font-size: 16px;
+            }
+            span:nth-child(3)  {
+                font-size: 16px;
+            }
+        }
     }
-    .icon_popUp {
-        width: 75px;
-    }
-    .btnPagar_popUp {
-        font-size: 1.25em;
-    }
-    .popUp_content {
-        padding: 30px 19px 45px 20px;
-    }
-    .popUp_medio_pago {
-        padding: 26px 0;
+    .modal_container .modal-body {
+        h1 {
+            font-size: 26px;
+        }
     }
 }

@@ -94,7 +94,7 @@
                             </div>
 
                             <div class="col-md-6 p-0 pl-md-1">
-                                <label for="idarea" class="label_txt_form">Selecione área</label>  
+                                <label for="idarea" class="label_txt_form">Selecione área</label>
                                 <select id="idarea" name="idarea" class="input_box_form">
                                     <option></option>
                                     @foreach($area as $a)
@@ -241,7 +241,7 @@
                     @endif
                 @endforeach
             </div>
- 
+
             <div id="mensaje-consulta"> <!-- Alert message -->
                 @if($count_consultas >= 3 )
                     <div class="alert alert-success mb-2" role="alert">
@@ -260,7 +260,7 @@
                             <option></option>
                             <option value="Presencial">Presencial</option>
                             <option value="Virtual">Virtual</option>
-                            <option value="Control médico">Control Médico</option>
+                            <option value="Control">Control</option>
                         </select>
                     </div>
 
@@ -325,7 +325,7 @@
 
             <form action="{{ route('profesional.formulario-password') }}" id="form-password-profesional" method="post" class="pb-2">
                 <div id="mensajes-password"></div>
-            
+
                 <div class="row m-0 pb-3 px-0">
                     <div class="col-md-6 p-0 pr-md-1"> <!-- Current password -->
                         <label for="password" class="label_txt_form">{{ __('paciente.contraseña-actual') }}</label>
@@ -352,7 +352,7 @@
         </div>
 
         <!-- Next button -->
-        <div class="container_button_form"> 
+        <div class="container_button_form">
             <div class="section_button_form">
                 <button type="submit" class="button_green_form" onclick="btnHideNext(this)" code-position="personalData"> Siguiente
                     <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
@@ -631,7 +631,7 @@
         </div>
 
         <!-- Previous and next buttons -->
-        <div class="container_button_form"> 
+        <div class="container_button_form">
             <div class="section_button_form justify-content-between">
                 <button type="submit" class="button_transparent_form" onclick="btnHidePrevious(this)" code-position="professionalProfile">
                     <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="pr-2">Anterior
@@ -652,10 +652,10 @@
             <h5 class="textTop_informative_form"> A continuación suba imágenes con respecto a los procedimientos y tratamientos, con su título y descripción. </h5>
 
             <div class="content_information_saved_form" id="lista-tratamientos">
-                <?php $count_tratamientos = 0; ?>
+                {{--<?php $count_tratamientos = 0; ?>--}}
                 @foreach($objTratamiento as $objTratamiento)
                     @if(!empty($objTratamiento->imgTratamientoAntes))
-                        <?php $count_tratamientos++; ?>
+                        {{-- <?php $count_tratamientos++; ?> --}}
                         <div class="card_contentDouble_form">
                             <div class="content_btn_close_form">
                                 <button type="submit" class="close" aria-label="Close" data-id="{{$objTratamiento->id_tratamiento}}"><span aria-hidden="true">&times;</span></button>
@@ -690,14 +690,14 @@
                     @endif
                 @endforeach
             </div>
-            
+
             <div id="mensajes-tratamientos">
-                @if($count_tratamientos >= 2 )
-                    <div class="alert alert-success" role="alert">
-                        <h4 class="alert-heading">Hecho!</h4>
-                        <p>Ya tienes el máximo de tratamientos</p>
-                    </div>
-                @endif
+{{--                @if($count_tratamientos >= 2 )--}}
+{{--                    <div class="alert alert-success" role="alert">--}}
+{{--                        <h4 class="alert-heading">Hecho!</h4>--}}
+{{--                        <p>Ya tienes el máximo de tratamientos</p>--}}
+{{--                    </div>--}}
+{{--                @endif--}}
             </div>
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave9') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_tratamiento" class="pb-2">
@@ -709,7 +709,7 @@
                         <div class="col-12 px-0">
                             <div class="upload_file_img_form">
                                 <img class="imagenPrevisualizacion" id="imagen-tratamiento-antes"/>
-                                <input type='file' id="imgTratamientoAntes" name="imgTratamientoAntes" onchange="ver_imagen('imgTratamientoAntes', 'imagen-tratamiento-antes');" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}/>
+                                <input type='file' id="imgTratamientoAntes" name="imgTratamientoAntes" onchange="ver_imagen('imgTratamientoAntes', 'imagen-tratamiento-antes');" {{-- ($count_tratamientos >= 2) ? 'disabled' : '' --}}/>
                                 <p style="width: 11em;">Subir imagen antes</p>
                             </div>
 
@@ -717,12 +717,12 @@
                         </div>
 
                         <label for="tituloTrataminetoAntes" class="label_txt_form"> Título de la imagen antes </label>
-                        <input class="input_box_form" id="tituloTrataminetoAntes" placeholder="Título de la imagen" type="text" name="tituloTrataminetoAntes" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}>
+                        <input class="input_box_form" id="tituloTrataminetoAntes" placeholder="Título de la imagen" type="text" name="tituloTrataminetoAntes" {{-- ($count_tratamientos >= 2) ? 'disabled' : '' --}}>
 
                         <label for="descripcionTratamientoAntes" class="label_txt_form"> Descripción antes </label>
-                        <input class="input_box_form" id="descripcionTratamientoAntes" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoAntes" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}>
+                        <input class="input_box_form" id="descripcionTratamientoAntes" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoAntes" {{-- ($count_tratamientos >= 2) ? 'disabled' : '' --}}>
 
-                        <p class="text_informative_form">160 Caracteres</p>  
+                        <p class="text_informative_form">160 Caracteres</p>
                     </div>
 
                     <div class="col-md-6 p-0 pl-md-3 line_vertical_form"> <!-- Content after -->
@@ -730,7 +730,7 @@
                         <div class="col-12 px-0">
                             <div class="upload_file_img_form">
                                 <img class="imagenPrevisualizacion" id="imagen-tratamiento-despues"/>
-                                <input type='file' id="imgTratamientodespues" name="imgTratamientodespues" onchange="ver_imagen('imgTratamientodespues', 'imagen-tratamiento-despues');" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}/>
+                                <input type='file' id="imgTratamientodespues" name="imgTratamientodespues" onchange="ver_imagen('imgTratamientodespues', 'imagen-tratamiento-despues');" {{-- ($count_tratamientos >= 2) ? 'disabled' : '' --}}/>
                                 <p style="width: 12.5em;">Subir imagen después</p>
                             </div>
 
@@ -738,11 +738,11 @@
                         </div>
 
                         <label for="tituloTrataminetoDespues" class="label_txt_form"> Título de la imagen después </label>
-                        <input class="input_box_form" id="tituloTrataminetoDespues" placeholder="Título de la imagen" type="text" name="tituloTrataminetoDespues" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}>
+                        <input class="input_box_form" id="tituloTrataminetoDespues" placeholder="Título de la imagen" type="text" name="tituloTrataminetoDespues" {{-- ($count_tratamientos >= 2) ? 'disabled' : '' --}}>
 
                         <label for="descripcionTratamientoDespues" class="label_txt_form"> Descripción después </label>
-                        <input class="input_box_form" id="descripcionTratamientoDespues" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoDespues" {{ ($count_tratamientos >= 2) ? 'disabled' : '' }}>
-                        
+                        <input class="input_box_form" id="descripcionTratamientoDespues" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionTratamientoDespues" {{-- ($count_tratamientos >= 2) ? 'disabled' : '' --}}>
+
                         <p class="text_informative_form">160 Caracteres</p>
                     </div>
                 </div>
@@ -756,12 +756,12 @@
         </div>
 
         <!-- Previous and next buttons -->
-        <div class="container_button_form"> 
-            <div class="section_button_form justify-content-between">    
+        <div class="container_button_form">
+            <div class="section_button_form justify-content-between">
                 <button type="submit" class="button_transparent_form" onclick="btnHidePrevious(this)" code-position="treatmentsProcedures">
                     <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="pr-2">Anterior
                 </button>
-            
+
                 <button type="submit" class="button_green_form" onclick="btnHideNext(this)" code-position="treatmentsProcedures"> Siguiente
                     <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                 </button>
@@ -794,7 +794,7 @@
                                 <span> {{$premios->fechapremio}} </span>
                                 <h5> {{$premios->nombrepremio}}  </h5>
                                 <p> {{$premios->descripcionpremio}} </p>
-                            </div>  
+                            </div>
                         </div>
                     @endif
                 @endforeach
@@ -821,7 +821,7 @@
 
                         <p class="text_informative_form text-center">Tamaño 356 x 326px. Peso máximo 300kb</p>
                     </div>
-  
+
                     <div class="col-md-6 p-0">
                         <label for="fechaPremio" class="label_txt_form">Fecha de inicio</label>
                         <input class="input_box_form" type="date"  id="fechaPremio" name="fechaPremio" {{ ($counto_premios >= 4) ? 'disabled' : '' }}>
@@ -831,7 +831,7 @@
 
                         <label for="descripcionPremio" class="label_txt_form">Descripción del premio</label>
                         <input class="input_box_form" id="descripcionPremio" placeholder="Escribir descripción..." type="text"  maxlength="160" name="descripcionPremio" {{ ($counto_premios >= 4) ? 'disabled' : '' }}>
-                        
+
                         <p class="text_informative_form">160 Caracteres</p>
                     </div>
                 </div>
@@ -845,12 +845,12 @@
         </div>
 
         <!-- Previous and next buttons -->
-        <div class="container_button_form"> 
+        <div class="container_button_form">
             <div class="section_button_form justify-content-between">
                 <button type="submit" class="button_transparent_form" onclick="btnHidePrevious(this)" code-position="AwardsHonours">
                     <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="pr-2">Anterior
                 </button>
-            
+
                 <button type="submit" class="button_green_form" onclick="btnHideNext(this)" code-position="AwardsHonours">Siguiente
                     <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                 </button>
@@ -882,7 +882,7 @@
                             <div class="text_preview_form">
                                 <h5>{{$publicacion->nombrepublicacion}}</h5>
                                 <p>{{$publicacion->descripcion}}</p>
-                            </div>  
+                            </div>
                         </div>
                     @endif
                 @endforeach
@@ -916,7 +916,7 @@
 
                         <label for="descripcionPublicacion" class="label_txt_form"> Descripción </label>
                         <input class="input_box_form" id="descripcionPublicacion" maxlength="160" placeholder="Escribir descripción..." type="text" name="descripcionPublicacion" {{ ($count_publicaciones >= 4) ? 'disabled' : '' }}>
-                        
+
                         <p class="text_informative_form">160 Caracteres</p>
                     </div>
                 </div>
@@ -930,12 +930,12 @@
         </div>
 
         <!-- Previous and next buttons -->
-        <div class="container_button_form"> 
+        <div class="container_button_form">
             <div class="section_button_form justify-content-between">
                 <button type="submit" class="button_transparent_form" onclick="btnHidePrevious(this)" code-position="publicationsFormProf">
                     <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="pr-2">Anterior
                 </button>
-         
+
                 <button type="submit" class="button_green_form" onclick="btnHideNext(this)" code-position="publicationsFormInst"> Siguiente
                     <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                 </button>
@@ -951,10 +951,10 @@
             <h5 class="textTop_informative_form">A continuación suba 10 imágenes como mínimo, con su respectivo nombre y descripción.</h5>
 
             <div class="content_information_saved_form" id="lista-fotos">
-                <?php $count_foto = 0;?>
+                {{--<?php $count_foto = 0;?>--}}
                 @foreach($objGaleria as $foto)
                     @if(!empty($foto->nombrefoto))
-                        <?php $count_foto++;?>
+                        {{--<?php $count_foto++;?>--}}
                         <div class="card_information_saved_form width_card_single">
                             <div class="content_btn_close_form">
                                 <button type="submit" class="close" aria-label="Close" data-id="{{ $foto->id_galeria }}"><span aria-hidden="true">&times;</span></button>
@@ -967,28 +967,28 @@
                             <div class="text_preview_form">
                                 <h5>{{$foto->nombrefoto}}</h5>
                                 <p>{{$foto->descripcion}}</p>
-                            </div>  
+                            </div>
                         </div>
                     @endif
                 @endforeach
             </div>
 
             <div id="mensajes-fotos">
-                @if($count_foto >= 8 )
-                    <div class="alert alert-success" role="alert">
-                        <h4 class="alert-heading">Hecho!</h4>
-                        <p>Ya tienes el máximo de fotos</p>
-                    </div>
-                @endif
+{{--                @if($count_foto >= 8 )--}}
+{{--                    <div class="alert alert-success" role="alert">--}}
+{{--                        <h4 class="alert-heading">Hecho!</h4>--}}
+{{--                        <p>Ya tienes el máximo de fotos</p>--}}
+{{--                    </div>--}}
+{{--                @endif--}}
             </div>
-            
+
             <form method="POST" action="{{ url ('/FormularioProfesionalSave12') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_fotos" class="pb-2">
                 @csrf
                 <div class="row m-0 pb-3 px-0">
                     <div class="col-md-6 px-0 align-self-end">
                         <div class="upload_file_img_form">
                             <img class="imagenPrevisualizacion"  id="img-foto"/>
-                            <input type='file' id="imgFoto" name="imgFoto" onchange="ver_imagen('imgFoto', 'img-foto');" {{ ($count_foto >= 8) ? 'disabled' : '' }}/>
+                            <input type='file' id="imgFoto" name="imgFoto" onchange="ver_imagen('imgFoto', 'img-foto');" {{-- ($-- >= 8) ? 'disabled' : '' --}}/>
                             <p style="width: 11.5em;">Subir imagen galería</p>
                         </div>
 
@@ -997,20 +997,20 @@
 
                     <div class="col-md-6 p-0">
                         <label for="fechaFoto" class="label_txt_form">Fecha</label>
-                        <input class="input_box_form" type="date" id="fechaFoto" name="fechaFoto" {{ ($count_foto >= 8) ? 'disabled' : '' }}>
-                
+                        <input class="input_box_form" type="date" id="fechaFoto" name="fechaFoto" {{-- ($count_foto >= 8) ? 'disabled' : '' --}}>
+
                         <label for="nombreFoto" class="label_txt_form">Título de la imagen</label>
-                        <input class="input_box_form" id="nombreFoto" placeholder="Título de la imagen" type="text" name="nombreFoto" {{ ($count_foto >= 8) ? 'disabled' : '' }}>
+                        <input class="input_box_form" id="nombreFoto" placeholder="Título de la imagen" type="text" name="nombreFoto" {{-- ($count_foto >= 8) ? 'disabled' : '' --}}>
 
                         <label for="descripcionFoto" class="label_txt_form">Descripción</label>
-                        <input class="input_box_form" id="descripcionFoto" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionFoto" {{ ($count_foto >= 8) ? 'disabled' : '' }}>
-                        
+                        <input class="input_box_form" id="descripcionFoto" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionFoto" {{-- ($count_foto >= 8) ? 'disabled' : '' --}}>
+
                         <p class="text_informative_form">160 Caracteres</p>
                     </div>
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button type="submit" class="button_blue_form" id="boton-guardar-foto" {{ ($count_foto >= 8) ? 'disabled' : '' }} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
+                    <button type="submit" class="button_blue_form" id="boton-guardar-foto" {{-- ($count_foto >= 8) ? 'disabled' : '' --}} data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                     </button>
                 </div>
@@ -1024,10 +1024,10 @@
             <div id="mensajes-videos"></div>
 
             <div class="content_information_saved_form" id="lista-videos">
-                <?php $count_videos = 0;?>
+                {{--<?php $count_videos = 0;?>--}}
                 @foreach($objVideo as $video)
                     @if(!empty($video->nombrevideo))
-                        <?php $count_videos++;?>
+                        {{--<?php $count_videos++;?>--}}
                         <div class="card_information_saved_form width_card_single">
                             <div class="content_btn_close_form">
                                 <button type="submit" class="close" aria-label="Close" data-id="{{ $video->id }}"><span aria-hidden="true">&times;</span></button>
@@ -1036,24 +1036,24 @@
                             <div class="image_preview_form">
                                 <iframe src="{{$video->urlvideo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
-                            
+
                             <div class="text_preview_form">
                                 <span>{{$video->fechavideo}}</span>
                                 <h5>{{$video->nombrevideo}}</h5>
                                 <p>{{$video->descripcionvideo}}</p>
-                            </div> 
+                            </div>
                         </div>
                     @endif
                 @endforeach
             </div>
 
             <div id="mensajes-fotos">
-                @if($count_videos >= 4 )
-                    <div class="alert alert-success" role="alert">
-                        <h4 class="alert-heading">Hecho!</h4>
-                        <p>Ya tienes el máximo de videos</p>
-                    </div>
-                @endif
+{{--                @if($count_videos >= 4 )--}}
+{{--                    <div class="alert alert-success" role="alert">--}}
+{{--                        <h4 class="alert-heading">Hecho!</h4>--}}
+{{--                        <p>Ya tienes el máximo de videos</p>--}}
+{{--                    </div>--}}
+{{--                @endif--}}
             </div>
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave13') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario-videos" class="pb-2">
@@ -1061,38 +1061,38 @@
                 <div class="row m-0 pb-3 px-0">
                     <div class="col-md-6 p-0 pr-md-1">
                         <label for="urlVideo" class="label_txt_form">Url video</label>
-                        <input class="input_box_form" id="urlVideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlVideo" {{ ($count_videos >= 4) ? 'disabled' : '' }}>
-                    
+                        <input class="input_box_form" id="urlVideo"  type="text" placeholder="https://www.youtube.com/watch?v=53lHGbvu8o&ab" name="urlVideo" {{-- ($count_videos >= 4) ? 'disabled' : '' --}}>
+
                         <label for="fechaVideo" class="label_txt_form">Fecha</label>
                         <input class="input_box_form" type="date"  id="fechaVideo" name="fechaVideo" >
                     </div>
 
-                    <div class="col-md-6 p-0 pl-md-1">     
+                    <div class="col-md-6 p-0 pl-md-1">
                         <label for="nombreVideo" class="label_txt_form">Título video</label>
-                        <input class="input_box_form" id="nombreVideo" placeholder="Título video" type="text" name="nombreVideo" {{ ($count_videos >= 4) ? 'disabled' : '' }}>
-        
+                        <input class="input_box_form" id="nombreVideo" placeholder="Título video" type="text" name="nombreVideo" {{-- ($count_videos >= 4) ? 'disabled' : '' --}}>
+
                         <label for="descripcionVideo" class="label_txt_form">Descripción video</label>
-                        <input class="input_box_form" id="descripcionVideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionVideo" {{ ($count_videos >= 4) ? 'disabled' : '' }}>
-                        
+                        <input class="input_box_form" id="descripcionVideo" placeholder="Escribir descripción..." type="text" maxlength="160" name="descripcionVideo" {{-- ($count_videos >= 4) ? 'disabled' : '' --}}>
+
                         <p class="text_informative_form">160 Caracteres</p>
                     </div>
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
                     <button type="submit" class="button_blue_form" id="boton-guardar-video" data-text="{{ __('profesional.guardar') }}" data-text-loading="{{ __('profesional.cargando') }}..."> Guardar
-                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2" {{ ($count_videos >= 4) ? 'disabled' : '' }}>
+                        <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2" {{-- ($count_videos >= 4) ? 'disabled' : '' --}}>
                     </button>
                 </div>
             </form>
         </div>
-   
+
         <!-- Previous and next buttons -->
-        <div class="container_button_form"> 
+        <div class="container_button_form">
             <div class="section_button_form justify-content-between">
                 <button type="submit" class="button_transparent_form" onclick="btnHidePrevious(this)" code-position="galleryFormProf">
                     <img src="{{ asset('/img/formulario-profesional/icono-flecha-gris.svg') }}" class="pr-2">Anterior
                 </button>
- 
+
                 <a type="submit" class="button_green_form" href="{{ url('/PerfilProfesional/' . $objuser->id) }}">Finalizar
                     <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2">
                 </a>

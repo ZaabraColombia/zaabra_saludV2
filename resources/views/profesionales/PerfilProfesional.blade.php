@@ -9,10 +9,10 @@
     <section class="section_data_profesionales">
         <div class="data_profesionales">
             <div class="section_backArrow">
-                <a class="back_arrow back_text" href="#"> atras </a>
-                <div class="heart-wrapper">
-                    <i class="far fa-heart"></i>
-                </div>
+{{--                <a class="back_arrow back_text" href="#"> atras </a>--}}
+{{--                <div class="heart-wrapper">--}}
+{{--                    <i class="far fa-heart"></i>--}}
+{{--                </div>--}}
             </div>
             @foreach ($objprofesionallanding as $objprofesionallanding)
                 <img src="{{URL::asset($objprofesionallanding->fotoperfil)}}">
@@ -61,10 +61,10 @@
             </ul>
 
             <div class="contains_buttons">
-                <a href="{{route('paciente.calendario-id-profesional', ['id' => $objprofesionallanding->idPerfilProfesional])}}">Agende su cita
+                <a href="{{route('paciente.asignar-cita-profesional', ['profesional' => $objprofesionallanding->slug])}}">Agende su cita
                     <i class="fas fa-arrow-right pl-2"></i>
                 </a>
-            <!-- <a href="{{route('paciente.calendario')}}">Ver agenda
+            <!-- <a href="#">Ver agenda
                     <i class="fas fa-arrow-right pl-2"></i>
                 </a> -->
             </div>
@@ -271,7 +271,7 @@
                 <div class="swiper-wrapper">
                     @foreach ($objprofesionallandinggaler as $objprofesionallandinggaler)
                         <div class="swiper-slide content_imgGall_formProf">
-                            <a href="{{ asset($objprofesionallandinggaler->imggaleria) }}" 
+                            <a href="{{ asset($objprofesionallandinggaler->imggaleria) }}"
                                data-fancybox="group" data-caption="{{ $objprofesionallandinggaler->nombrefoto }}">
                                 <img class="img_galleryLprof" src="{{ asset($objprofesionallandinggaler->imggaleria) }}">
                             </a>
@@ -399,7 +399,7 @@
 
 @section('scripts')
     <!-- Script JS for perfil profesional -->
-    
+
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     <script>
         Fancybox.bind("[data-fancybox]", {

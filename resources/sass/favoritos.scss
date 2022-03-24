@@ -27,7 +27,7 @@
     background-image: url('/img/iconos/icono-doctor-azul.svg');
     background-repeat: no-repeat;
     background-size: contain;
-    background-position-x: 40%;
+    background-position-x: 130px;
 }
 .subtitle_serv_fav {
     font-size: 1.2em;
@@ -39,7 +39,7 @@
     background-image: url('/img/iconos/icono-servicios.svg');
     background-repeat: no-repeat;
     background-size: contain;
-    background-position-x: 26%;
+    background-position-x: 80px;
 }
 .subtitle_espec_fav {
     font-size: 1.2em;
@@ -51,7 +51,7 @@
     background-image: url('/img/iconos/icono-especialistas-favoritos.svg');
     background-repeat: no-repeat;
     background-size: contain;
-    background-position-x: 40%;
+    background-position-x: 105px;
 }
 .subtitle_inst_fav {
     font-size: 1.2em;
@@ -63,7 +63,7 @@
     background-image: url('/img/iconos/icono-instituciones-favoritas.svg');
     background-repeat: no-repeat;
     background-size: contain;
-    background-position-x: 40%;
+    background-position-x: 112px;
 }
 .section_favoritos_fav {
     display: flex;
@@ -71,7 +71,7 @@
     width: 100%;
     border-top: 1px solid #dee2e6;
     border-bottom: 1px solid #dee2e6;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 .celda_favorito {
     width: 33.333%;
@@ -121,7 +121,6 @@
     font-family: "Roboto", "Regular";
     text-decoration: underline !important;
     color: #434343 !important;
-    width: 33%;
     text-align: initial;
     border: none;
     background: transparent;
@@ -167,7 +166,10 @@
 .alto_predet {
     height: 16.5vh;
 }
-
+// Ocultar barra de scroll sin deshabilitarlo
+::-webkit-scrollbar {
+    display: none;
+}
 
 @media (min-width: 320px) and (orientation: portrait) {
     .container_principal_fav {
@@ -184,22 +186,6 @@
     .subtitulo_principal_fav {
         font-size: 1em;
     }
-    .icon_especialidad_fav {
-        background-position-x: 55%;
-        margin-bottom: 5%;
-    }
-    .icon_servicio_fav {
-        background-position-x: 34%;
-        margin-bottom: 5%;
-    }
-    .icon_especialista_fav {
-        background-position-x: 44%;
-        margin-bottom: 5%;
-    }
-    .icon_institucion_fav {
-        background-position-x: 47%;
-        margin-bottom: 5%;
-    }
     .table_favoritos tbody td {
         font-size: .9em;
     }
@@ -211,7 +197,7 @@
         margin-top: 5%;
     }
     .btn_agregar_fav {
-        width: 42%;
+        width: 110px;
         font-size: 0.9em;
     }
     .btn_guardar_fav {
@@ -227,21 +213,7 @@
     }
 }
 @media (min-width: 360px) and (orientation: portrait) {
-    .icon_especialidad_fav {
-        background-position-x: 46%;
-    }
-    .icon_servicio_fav {
-        background-position-x: 29%;
-    }
-    .icon_especialista_fav {
-        background-position-x: 37%;
-    }
-    .icon_institucion_fav {
-        background-position-x: 39%;
-    }
-    .btn_agregar_fav {
-        width: 35%;
-    }
+
 }
 @media (min-width: 768px) and (orientation: portrait) {
     .main_card_fav {
@@ -259,31 +231,12 @@
     .container_table_fav {
         padding: 3%;
     }
-    .icon_especialidad_fav {
-        background-position-x: 41%;
-        margin-bottom: 3%;
-    }
-    .icon_servicio_fav {
-        background-position-x: 26%;
-        margin-bottom: 3%;
-    }
-    .icon_especialista_fav {
-        background-position-x: 33%;
-        margin-bottom: 3%;
-    }
-    .icon_institucion_fav {
-        background-position-x: 35%;
-        margin-bottom: 3%;
-    }
     .alto_predet {
         height: 8vh;
     }    
 
     .celda_favorito {
         height: 4vh;
-    }
-    .btn_agregar_fav {
-        width: 32%;
     }
     .main_card_favServ {
         width: 48%;
@@ -295,28 +248,16 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin-top: 3%;
     }
     .container_table_fav {
         padding: 5% 2%;
     }
+    .btn_agregar_fav {
+        width: 120px;
+    }
 }
 @media (min-width: 1200px) {
-    .icon_especialidad_fav {
-        background-position-x: 33%;
-    }
-    .icon_servicio_fav {
-        background-position-x: 21%;
-    }
-    .icon_especialista_fav {
-        background-position-x: 33%;
-    }
-    .icon_institucion_fav {
-        background-position-x: 33%;
-    }
-    .btn_agregar_fav {
-        width: 28%;
-    }
+
 }
 @media (min-width: 1440px) {
     .container_principal_fav {
@@ -329,55 +270,33 @@
         font-size: 1.5em;
     }
     .icon_especialidad_fav {
-        background-position-x: 43%;
-        margin-bottom: 3%;
+        background-position-x: 160px;
     }
     .subtitle_serv_fav {
         font-size: 1.5em;
     }
     .icon_servicio_fav {
-        background-position-x: 27%;
-        margin-bottom: 3%;
+        background-position-x: 100px;
     }
     .subtitle_espec_fav {
         font-size: 1.5em;
     }
     .icon_especialista_fav {
-        background-position-x: 43%;
-        margin-bottom: 3%;
+        background-position-x: 130px;
     }
     .subtitle_inst_fav {
         font-size: 1.5em;
     }
     .icon_institucion_fav {
-        background-position-x: 43%;
-        margin-bottom: 3%;
-    }
-    .btn_agregar_fav {
-        width: 29%;
+        background-position-x: 137px;
     }
 }
 @media (min-width: 1920px) {
     .container_principal_fav {
         width: 80%;
     }
-    .icon_especialidad_fav {
-        background-position-x: 34%;
-    }
-    .icon_servicio_fav {
-        background-position-x: 21%;
-    }
-    .icon_especialista_fav {
-        background-position-x: 28%;
-    }
-    .icon_institucion_fav {
-        background-position-x: 29%;
-    }
-    .btn_agregar_fav {
-        width: 23%;
-    }
     .alto_predet {
-        height: 10.5vh;
+        height: 12.5vh;
     }
 
 }

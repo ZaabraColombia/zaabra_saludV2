@@ -21,9 +21,14 @@ class profesionales_instituciones extends Model
         'segundo_apellido',
         'foto_perfil_institucion',
         'cargo',
+        'horario'
     ];
 
     protected $primaryKey = "id_profesional_inst";
+
+    protected $casts = [
+        'horario' => 'array',
+    ];
 
     /**
      * @return BelongsToMany
@@ -48,5 +53,18 @@ class profesionales_instituciones extends Model
     public function institucion(): BelongsTo
     {
         return $this->belongsTo(instituciones::class, 'id_institucion', 'id');
+    }
+
+    /**
+     * @return string
+     */
+    public function getNombreCompletoAttribute(): string
+    {
+        return "{$this->primer_nombre} {$this->segundo_nombre} {$this->primer_apellido} {$this->segundo_apellido}";
+    }
+
+    public function citas()
+    {
+        return $this->hasMany(Cita::class, 'profesional_ins_id', 'id_profesional_inst');
     }
 }

@@ -36,7 +36,7 @@ $('#pais').change(function(){
     if(id_pais){
         $.ajax({
             type:"GET",
-            url:"get-Departamento?id_pais="+id_pais,
+            url:"/get-Departamento?id_pais="+id_pais,
             success:function(res){
                 console.log(res);
                 if(res){
@@ -60,7 +60,7 @@ $('#departamento').on('change',function(){
     if(id_departamento){
         $.ajax({
             type:"GET",
-            url:"get-Provincia?id_departamento="+id_departamento,
+            url:"/get-Provincia?id_departamento="+id_departamento,
             success:function(res){
                 console.log(res);
                 if(res){
@@ -86,7 +86,7 @@ $('#provincia').on('change',function(){
     if(id_provincia){
         $.ajax({
             type:"GET",
-            url:"get-Ciudad?id_provincia="+id_provincia,
+            url:"/get-Ciudad?id_provincia="+id_provincia,
             success:function(res){
                 console.log(res);
                 if(res){
