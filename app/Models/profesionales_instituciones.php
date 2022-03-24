@@ -21,9 +21,14 @@ class profesionales_instituciones extends Model
         'segundo_apellido',
         'foto_perfil_institucion',
         'cargo',
+        'horario'
     ];
 
     protected $primaryKey = "id_profesional_inst";
+
+    protected $casts = [
+        'horario' => 'array',
+    ];
 
     /**
      * @return BelongsToMany
