@@ -26,7 +26,7 @@
 
             <!-- Contenedor formato tabla de la lista de mis pacientes -->
             <div class="containt_main_table mb-3">
-                <div class="col-md-4 col-xl-3 p-0 input__box ml-auto">
+                <div class="col-md-4 col-xl-3 p-0 input__box">
                     <label for="date"><b>Filtrar por fecha</b></label>
                     <input type="date" id="date" class="form-control"/>
                     <!-- <label for="date"><b>Descargar en</b></label> -->

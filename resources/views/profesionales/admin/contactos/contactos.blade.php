@@ -346,6 +346,7 @@
 @section('scripts')
     <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
     <script src="{{ asset('js/alertas.js') }}"></script>
+    
     <script>
         // Obtener referencia al input y a la imagen
         const $seleccionArchivos = document.querySelector("#foto"),

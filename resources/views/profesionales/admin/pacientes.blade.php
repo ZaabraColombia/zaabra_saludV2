@@ -47,7 +47,7 @@
                                             </div>
                                         
                                             <div>
-                                                <span>{{ $paciente->user->nombre_completo }}</span>
+                                                {{ $paciente->user->nombre_completo }}
                                             </div>
                                         </div>
                                     </td>
