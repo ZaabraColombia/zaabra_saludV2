@@ -48,9 +48,16 @@
                         @if($contactos->isNotEmpty())
                             @foreach($contactos as $contacto)
                                 <tr>
-                                    <td>
-                                        <img class="img__contacs" src='/img/user/31/31-1630611954.jpg'>
-                                        &nbsp; &nbsp;{{ $contacto->nombre }}
+                                    <td class="pr-0">
+                                        <div class="user__xl">
+                                            <div class="pr-2">
+                                                <img class="img__contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                                            </div>
+
+                                            <div>
+                                                <span>{{ $contacto->nombre }}</span>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>{{ $contacto->direccion }}</td>
                                     <td>{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</td>
@@ -198,8 +205,15 @@
                 </div>
                 <!-- Mantener las cases "label-*" -->
                 <div class="modal-body">
-                    <h1>Eliminar Contacto</h1>
-                    <div class="modal_info_cita">
+                    <h1 class="pl-5">Eliminar Contacto</h1>
+
+                    <div class="content__see_contacs">
+                        <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                    </div>
+
+                    <div class="content__border_see_contacs"></div>
+
+                    <div class="modal_info_cita pt-5 mt-5">
                         <div class="info_contac">
                             <span>Nombre:</span>
                             <span class="label-nombre"></span>
@@ -275,7 +289,14 @@
                 <!-- Mantener las cases "label-*" -->
                 <div class="modal-body">
                     <h1>Ver Contacto</h1>
-                    <div class="modal_info_cita">
+                        
+                    <div class="content__see_contacs">
+                        <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                    </div>
+
+                    <div class="content__border_see_contacs"></div>
+                       
+                    <div class="modal_info_cita pt-5 mt-5">
                         <div class="info_contac">
                             <span>Nombre:</span>
                             <span class="label-nombre"></span>

@@ -22822,6 +22822,7 @@ a:link, a:visited, a:active, a:hover {
 }
 .modal_container .modal-body .modal_info_cita {
   background-color: #EFEFEF;
+  border: 2px solid #dbd5d5;
   border-radius: 5px;
   padding: 15px 15px;
 }
@@ -26522,6 +26523,36 @@ div.dt-buttons {
 .img__contacs {
   width: 45px;
   height: 45px;
+  border: 2px solid #CED4DA;
+  border-radius: 100px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.content__see_contacs {
+  position: absolute;
+  top: 5px;
+  left: 38px;
+  border: 2px double;
+  border-radius: 60px;
+  padding: 3px;
+  background: #0083d6;
+  z-index: 15;
+}
+
+.content__border_see_contacs {
+  height: 380px;
+  width: 445px;
+  position: absolute;
+  border: 2px solid #0083d6;
+  z-index: 10;
+  right: 30px;
+  border-radius: 6px;
+}
+
+.img__see_contacs {
+  width: 105px;
+  height: 105px;
   border: 2px solid #CED4DA;
   border-radius: 100px;
   -o-object-fit: cover;
