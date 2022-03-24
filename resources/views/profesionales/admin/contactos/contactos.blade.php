@@ -349,7 +349,7 @@
     <script>
         // Obtener referencia al input y a la imagen
         const $seleccionArchivos = document.querySelector("#foto"),
-        $imagenPrevisualizacion = document.querySelector("#imagen-foto");
+            $imagenPrevisualizacion = document.querySelector("#imagen-foto");
 
         // Escuchar cuando cambie
         $seleccionArchivos.addEventListener("change", () => {
@@ -362,10 +362,8 @@
             }
             // Ahora tomamos el primer archivo, el cual vamos a previsualizar
             const primerArchivo = archivos[0];
-            // Lo convertimos a un objeto de tipo objectURL
-            const objectURL = URL.createObjectURL(primerArchivo);
-            // Y a la fuente de la imagen le ponemos el objectURL
-            $imagenPrevisualizacion.src = objectURL;
+            // Lo convertimos a un objeto de tipo objectURL Y a la fuente de la imagen le ponemos el objectURL
+            $imagenPrevisualizacion.src = URL.createObjectURL(primerArchivo);
         });
     </script>
 
@@ -551,7 +549,7 @@
                     switch (response.type) {
                         case 'created':
                             table.row.add([
-                                "<img class='img__contacs' src='" + response.item.foto + "'>&nbsp;&nbsp;" + response.item.nombre,
+                                img(response.item.foto, response.item.nombre),
                                 response.item.direccion,
                                 response.item.telefono,
                                 response.item.correo,
@@ -563,7 +561,7 @@
                             break;
                         case 'updated':
                             row.data([
-                                "<img class='img__contacs' src='" + response.item.foto + "'>&nbsp;&nbsp;" + response.item.nombre,
+                                img(response.item.foto, response.item.nombre),
                                 response.item.direccion,
                                 response.item.telefono,
                                 response.item.correo,
@@ -586,6 +584,18 @@
                 }
             });
         });
+
+
+        function img(img, nombre) {
+            return '<div class="user__xl">'
+                + '<div class="pr-2">'
+                + '<img class="img__contacs" src="' + img + '">'
+                + '</div>'
+                + '<div>'
+                + '<span>' + nombre + '</span>'
+                + '</div>'
+                +'</div>';
+        }
 
 
     </script>
