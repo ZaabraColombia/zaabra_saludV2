@@ -41,18 +41,18 @@
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-citas">
                         <thead>
-                            <tr>
-                                <th>Fecha</th>
-                                <th>Hora</th>
-                                <th>Dirección</th>
-                                {{-- <th>Ciudad</th>        --}}
-                                <th>Tipo de cita</th>
-                                {{-- <th>Especialidad</th>  --}}
-                                {{-- <th>Institución</th>   --}}
-                                <th>Especialista</th>
-                                <th>Estado</th>
-{{--                                <th></th>--}}
-                            </tr>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Dirección</th>
+                            {{-- <th>Ciudad</th>        --}}
+                            <th>Tipo de cita</th>
+                            {{-- <th>Especialidad</th>  --}}
+                            {{-- <th>Institución</th>   --}}
+                            <th>Especialista</th>
+                            <th>Estado</th>
+                            <th>Método</th>
+                        </tr>
                         </thead>
                         <tbody>
                         @if($citas->isNotEmpty())
@@ -74,17 +74,27 @@
                                         @endif
                                         @if(!empty($cita->profesional_ins))
                                             {{ "{$cita->profesional_ins->institucion->user->nombreinstitucion} - {$cita->profesional_ins->nombre_completo}" }} &nbsp;
-                                                <a class="btn_action" style="width: 33px" href="{{route('PerfilInstitucion', ['slug' => $cita->profesional_ins->institucion->slug])}}" target="_blank">
-                                                    <i data-feather="external-link"></i>
-                                                </a>
+                                            <a class="btn_action" style="width: 33px" href="{{route('PerfilInstitucion', ['slug' => $cita->profesional_ins->institucion->slug])}}" target="_blank">
+                                                <i data-feather="external-link"></i>
+                                            </a>
                                         @endif
                                     </td>
                                     <td>
-                                        <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>
+                                        <span class="badge bg-success">{{ $cita->estado }}</span>
                                     </td>
-{{--                                    <td>--}}
-{{--                                        a.btn.btn-success--}}
-{{--                                    </td>--}}
+                                    <td>
+                                        @if(!empty($cita->pago))
+                                            @if(!$cita->pago->aprobado)
+                                                @if($cita->pago->tipo == 'presencial')
+                                                    <span class="badge bg-success">Pago presencial</span>
+                                                @else
+                                                    <a href="{{ route('profesional.detalle-pago-cita', ['pago_cita' => $cita->pago->id]) }}" class="btn btn-success" target="_blank"><i class="fas fa-money-bill"></i> Pagar</a>
+                                                @endif
+                                            @else
+                                                <span class="badge bg-primary">Pagado</span>
+                                            @endif
+                                        @endif
+                                    </td>
                                     {{-- <td>                                                                                                           --}}
                                     {{--     <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>  --}}
                                     {{--     <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>  --}}
@@ -238,7 +248,7 @@
             searching: true,
             columnDefs: [
                 {
-                    targets: [-1],
+                    targets: [-1, -2],
                     orderable: false,
                 }
             ]
