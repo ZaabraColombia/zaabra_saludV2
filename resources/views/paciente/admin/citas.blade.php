@@ -51,7 +51,7 @@
                                 {{-- <th>Institución</th>   --}}
                                 <th>Especialista</th>
                                 <th>Estado</th>
-                                <th></th>
+{{--                                <th></th>--}}
                             </tr>
                         </thead>
                         <tbody>
@@ -82,9 +82,9 @@
                                     <td>
                                         <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>
                                     </td>
-                                    <td>
-                                        a.btn.btn-success
-                                    </td>
+{{--                                    <td>--}}
+{{--                                        a.btn.btn-success--}}
+{{--                                    </td>--}}
                                     {{-- <td>                                                                                                           --}}
                                     {{--     <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>  --}}
                                     {{--     <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>  --}}
