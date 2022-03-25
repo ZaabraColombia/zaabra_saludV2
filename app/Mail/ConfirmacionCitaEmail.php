@@ -30,9 +30,10 @@ class ConfirmacionCitaEmail extends Mailable
      *
      * @return void
      */
-    public function __construct($cita)
+    public function __construct($cita, $tipo)
     {
         $this->cita = $cita;
+        $this->tipo = $tipo;
     }
 
     /**

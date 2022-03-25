@@ -561,30 +561,30 @@
                                 <tr>
                                     <td valign="top" class="mcnTextBlockInner" style="padding-top:9px;">
                                         <!--[if mso]>
-                                        <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
-                                            <tr>
-                                        <![endif]-->
+{{--                                        <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">--}}
+{{--                                            <tr>--}}
+{{--                                        <![endif]-->--}}
 
-                                        <!--[if mso]>
-                                        <td valign="top" width="600" style="width:600px;">
-                                        <![endif]-->
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
-                                            <tbody><tr>
+{{--                                        <!--[if mso]>--}}
+{{--                                        <td valign="top" width="600" style="width:600px;">--}}
+{{--                                        <![endif]-->--}}
+{{--                                        <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">--}}
+{{--                                            <tbody><tr>--}}
 
-                                                <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; text-align: center;">
+{{--                                                <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; text-align: center;">--}}
 
-                                                    <a href="*|ARCHIVE|*" target="_blank">View this email in your browser</a>
-                                                </td>
-                                            </tr>
-                                            </tbody></table>
-                                        <!--[if mso]>
-                                        </td>
-                                        <![endif]-->
+{{--                                                    <a href="*|ARCHIVE|*" target="_blank">View this email in your browser</a>--}}
+{{--                                                </td>--}}
+{{--                                            </tr>--}}
+{{--                                            </tbody></table>--}}
+{{--                                        <!--[if mso]>--}}
+{{--                                        </td>--}}
+{{--                                        <![endif]-->--}}
 
-                                        <!--[if mso]>
-                                        </tr>
-                                        </table>
-                                        <![endif]-->
+{{--                                        <!--[if mso]>--}}
+{{--                                        </tr>--}}
+{{--                                        </table>--}}
+{{--                                        <![endif]-->--}}
                                     </td>
                                 </tr>
                                 </tbody>
@@ -753,11 +753,11 @@
                                         <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-radius: 4px;background-color: #0083D6;">
                                             <tbody>
                                             <tr>
-                                                <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial; font-size: 20px; padding: 16px;">
-                                                    @if ($cita->pago->tipo == 'virtual')
+                                                @if ($cita->pago->tipo == 'virtual')
+                                                    <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial; font-size: 20px; padding: 16px;">
                                                         <a class="mcnButton " title="Pagar cita" href="{{ route('profesional.detalle-pago-cita', ['pago_cita' => $cita->pago->id]) }}" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Pagar</a>
-                                                    @endif
-                                                </td>
+                                                    </td>
+                                                @endif
                                             </tr>
                                             </tbody>
                                         </table>

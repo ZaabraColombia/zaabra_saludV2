@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\profesionales\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ConfirmacionCitaEmail;
 use App\Models\Cita;
 use App\Models\Horario;
 use App\Models\Paciente;
@@ -17,6 +18,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -364,6 +366,9 @@ class CalendarioController extends Controller
             'tipo'      => $all['modalidad_pago'],
             'cita_id'   => $date->id_cita,
         ]);
+
+        //Enviar notificación de confirmación de cita
+        Mail::to($patient->email)->send(new ConfirmacionCitaEmail($date, 'profesional'));
 
         return response([
             'message' => [

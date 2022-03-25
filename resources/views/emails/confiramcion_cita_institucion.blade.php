@@ -560,31 +560,31 @@
                                 <tbody class="mcnTextBlockOuter">
                                 <tr>
                                     <td valign="top" class="mcnTextBlockInner" style="padding-top:9px;">
-                                        <!--[if mso]>
-                                        <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
-                                            <tr>
-                                        <![endif]-->
+{{--                                        <!--[if mso]>--}}
+{{--                                        <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">--}}
+{{--                                            <tr>--}}
+{{--                                        <![endif]-->--}}
 
-                                        <!--[if mso]>
-                                        <td valign="top" width="600" style="width:600px;">
-                                        <![endif]-->
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
-                                            <tbody><tr>
+{{--                                        <!--[if mso]>--}}
+{{--                                        <td valign="top" width="600" style="width:600px;">--}}
+{{--                                        <![endif]-->--}}
+{{--                                        <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">--}}
+{{--                                            <tbody><tr>--}}
 
-{{--                                                <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; text-align: center;">--}}
+{{--                                                                                                <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; text-align: center;">--}}
 
-{{--                                                    <a href="*|ARCHIVE|*" target="_blank">View this email in your browser</a>--}}
-{{--                                                </td>--}}
-                                            </tr>
-                                            </tbody></table>
-                                        <!--[if mso]>
-                                        </td>
-                                        <![endif]-->
+{{--                                                                                                    <a href="*|ARCHIVE|*" target="_blank">View this email in your browser</a>--}}
+{{--                                                                                                </td>--}}
+{{--                                            </tr>--}}
+{{--                                            </tbody></table>--}}
+{{--                                        <!--[if mso]>--}}
+{{--                                        </td>--}}
+{{--                                        <![endif]-->--}}
 
-                                        <!--[if mso]>
-                                        </tr>
-                                        </table>
-                                        <![endif]-->
+{{--                                        <!--[if mso]>--}}
+{{--                                        </tr>--}}
+{{--                                        </table>--}}
+{{--                                        <![endif]-->--}}
                                     </td>
                                 </tr>
                                 </tbody>
@@ -677,7 +677,7 @@
 
                                                                     <span style="text-align: left;display: block;margin: 0;padding: 0;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;"><span style="font-size:24px"><img data-file-id="2585856" height="30" src="https://mcusercontent.com/8e0550fb4e70ded88be05c9c9/images/2d543691-1fc5-b43a-182b-4646a63eac14.png" style="border: 0px;width: 30px;height: 30px;margin: 0px;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" width="30"></span>&nbsp;<span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: super;"><font style="/* vertical-align: super; */">{{ $cita->tipo_consulta->nombreconsulta }}</font></font></strong></span></span>
 
-{{--                                                                    <span style="text-align: left;display: block;margin: 0;padding: 0;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;"><span style="font-size:24px"><img data-file-id="2585856" height="30" src="https://mcusercontent.com/8e0550fb4e70ded88be05c9c9/images/387c8889-c8b0-917e-a0e9-d365d59b4d07.png" style="border: 0px;width: 30px;height: 30px;margin: 0px;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" width="30"></span>&nbsp;<span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: super;"><font style="/* vertical-align: super; */">--}}{{-- $cita->profesional_ins->ciudad->nombre --}}{{--</font></font></strong></span></span>--}}
+                                                                    {{--                                                                    <span style="text-align: left;display: block;margin: 0;padding: 0;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;"><span style="font-size:24px"><img data-file-id="2585856" height="30" src="https://mcusercontent.com/8e0550fb4e70ded88be05c9c9/images/387c8889-c8b0-917e-a0e9-d365d59b4d07.png" style="border: 0px;width: 30px;height: 30px;margin: 0px;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" width="30"></span>&nbsp;<span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: super;"><font style="/* vertical-align: super; */">--}}{{-- $cita->profesional_ins->ciudad->nombre --}}{{--</font></font></strong></span></span>--}}
 
                                                                     <span style="text-align: left;display: block;margin: 0;padding: 0;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;"><span style="font-size:24px"><img data-file-id="2585856" height="30" src="https://mcusercontent.com/8e0550fb4e70ded88be05c9c9/images/aaf181e4-ae6c-14eb-5edb-58df67e66861.png" style="border: 0px;width: 30px;height: 30px;margin: 0px;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" width="30"></span>&nbsp;<span style="font-family:arial,helvetica neue,helvetica,sans-serif"><strong><font style="vertical-align: super;"><font style="/* vertical-align: super; */">{{ $cita->lugar }}</font></font></strong></span></span>
 
@@ -737,11 +737,11 @@
                                         <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-radius: 4px;background-color: #019F86;">
                                             <tbody>
                                             <tr>
-                                                <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial; font-size: 20px; padding: 16px;">
-                                                    @if ($cita->pago->tipo == 'virtual')
+                                                @if ($cita->pago->tipo == 'virtual')
+                                                    <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial; font-size: 20px; padding: 16px;">
                                                         <a class="mcnButton " title="Pagar" href="{{ route('institucion.detalle-pago-cita', ['pago_cita' => $cita->pago->id]) }}" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Pagar</a>
-                                                    @endif
-                                                </td>
+                                                    </td>
+                                                @endif
                                             </tr>
                                             </tbody>
                                         </table>
