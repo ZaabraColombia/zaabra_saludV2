@@ -396,7 +396,37 @@ Route::get('/error505', function () { return view('errores/error505');})->name('
 
 
 Route::get('/test', function (){
+    $cita = \App\Models\Cita::query()
+        ->with([
+            'paciente',
+            'paciente.user',
+            'profesional',
+            'profesional.user',
+        ])
+        ->where('profesional_id', '!=', null)->first();
 
+    \Mail::send('emails.confiramcion_cita_profesional', ['cita' => $cita, 'tipo' => 'profesional'], function ($message) {
+        $message->from('email@styde.net', 'Styde.Net');
+        $message->to('user@example.com')->subject('Notificación');
+    });
+});
+
+Route::get('/test-2', function (){
+    $cita = \App\Models\Cita::query()
+        ->with([
+            'pago',
+            'paciente',
+            'paciente.user',
+            'profesional_ins',
+            'profesional_ins.institucion',
+            'profesional_ins.institucion.user',
+        ])
+        ->where('profesional_ins_id', '!=', null)->first();
+
+    \Mail::send('emails.confiramcion_cita_institucion', ['cita' => $cita, 'tipo' => 'institucion'], function ($message) {
+        $message->from('email@styde.net', 'Styde.Net');
+        $message->to('user@example.com')->subject('Notificación');
+    });
 });
 
 // Ruta para la vista asignar cita profesional institución
