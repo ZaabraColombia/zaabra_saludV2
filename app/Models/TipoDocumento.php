@@ -36,7 +36,7 @@ class TipoDocumento extends Model
      * @param Builder $query
      * @return Builder
      */
-    public function scopeJurudica(Builder $query): Builder
+    public function scopeJuridica(Builder $query): Builder
     {
         return $query->where('tipo', '=', 'juridica');
     }

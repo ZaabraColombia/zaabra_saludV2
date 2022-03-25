@@ -118,6 +118,23 @@
                 <div id="mensajes-contacto"></div>
 
                 <div class="row m-0 py-3 px-0">
+
+                     <div class="col-md-6 p-0 pr-md-1">
+                        <label for="tipo_identificacion" class="label_txt_form">Tipo de identificación</label>
+                        <select class="input_box_form" id="tipo_identificacion" name="tipo_identificacion" >
+                            @foreach($tipo_documentos as $tipo)
+                                <option value="{{ $tipo->id }}" {{ old('tipo_documento', $objFormulario->tipodocumento) == $tipo->id? 'selected':'' }}>{{ $tipo->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                     <div class="col-md-6 p-0 pl-md-1">
+                        <label for="numero_identificacion" class="label_txt_form">Número de identificación</label>
+                        <input class="input_box_form" id="numero_identificacion" placeholder="Número de identificación"
+                               type="text" name="numero_identificacion"
+                               value="{{ old('numero_identificacion', $objFormulario->numerodocumento) }}">
+                    </div>
+
                      <div class="col-md-6 p-0 pr-md-1">
                         <label for="celular" class="label_txt_form">Celular</label>
                         <input class="input_box_form" id="celular" placeholder="Número de celular" type="number" name="celular" value="{{ old('celular', $objFormulario->telefonouno) }}">

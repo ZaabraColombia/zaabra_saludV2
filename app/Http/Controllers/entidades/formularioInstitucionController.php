@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\entidades;
 use App\Http\Controllers\Controller;
 use App\Models\Convenios;
+use App\Models\TipoDocumento;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -100,7 +101,7 @@ class formularioInstitucionController extends Controller{
         }
 
         $is_asociacion = $this->is_asociacion();
-
+        $tipo_documentos = TipoDocumento::query()->juridica()->get();
 
         return view('instituciones.FormularioInstitucion',compact(
             'tipoinstitucion',
@@ -118,6 +119,7 @@ class formularioInstitucionController extends Controller{
             'objSedes',
             'objGaleria',
             'objVideo',
+            'tipo_documentos',
             'is_asociacion'
         ));
     }
@@ -157,7 +159,7 @@ class formularioInstitucionController extends Controller{
         return DB::select("SELECT ins.imagen, ins.logo, ins.quienessomos,  ins.DescripcionGeneralServicios, ins.idtipoInstitucion,
     ins.url, ins.fechainicio, ins.telefonouno,  ins.telefono2, ins.direccion, ins.propuestavalor,
     p.id_pais,p.nombre, de.id_departamento, de.nombre,ins.url_maps, ins.slug,
-    prv.id_provincia,prv.nombre, mu.id_municipio, mu.nombre
+    prv.id_provincia,prv.nombre, mu.id_municipio, mu.nombre, us.tipodocumento, us.numerodocumento
     FROM instituciones ins
     INNER JOIN users us   ON ins.idUser=us.id
     LEFT JOIN  pais p ON ins.idpais=p.id_pais
@@ -321,6 +323,8 @@ class formularioInstitucionController extends Controller{
             'pais'          => ['required', 'exists:pais,id_pais'],
             'departamento'  => ['required', 'exists:departamentos,id_departamento'],
             'provincia'     => ['required', 'exists:provincias,id_provincia'],
+            'tipo_identificacion'   => ['required', 'exists:tipo_documentos,id'],
+            'numero_identificacion' => ['required'],
             'municipio'     => ['required', 'exists:municipios,id_municipio'],
         ], [], [
             'celular'       => 'Celular',
@@ -329,6 +333,8 @@ class formularioInstitucionController extends Controller{
             'pais'          => 'Pais',
             'departamento'  => 'Departamento',
             'provincia'     => 'Provincia',
+            'tipo_identificacion'   => 'Tipo de identificación',
+            'numero_identificacion' => 'Número de identificación',
             'municipio'     => 'Municipio',
         ]);
 
@@ -366,6 +372,13 @@ class formularioInstitucionController extends Controller{
 
         //guardar contacto
         $conacto->save();
+
+        //Guardar número de identificación
+        $user = auth()->user();
+        $user->update([
+            'tipodocumento'     => $request->tipo_identificacion,
+            'numerodocumento'   => $request->numero_identificacion,
+        ]);
 
         return response([
             'mensaje' => 'Se guardo correctamente la información'
