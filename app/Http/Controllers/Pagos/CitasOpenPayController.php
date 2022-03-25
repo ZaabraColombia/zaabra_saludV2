@@ -226,7 +226,7 @@ class CitasOpenPayController extends Controller
                 return redirect()->back()->withErrors(['error' => 'error al hacer el pago']);
             }
         } catch (Exception $e) {
-            dd($e);
+            //dd($e);
             abort(404);
         }
     }

@@ -45,10 +45,10 @@
                                 <tr>
                                     <td class="pr-0">
                                         <div class="user__xl">
-                                            <div class="pr-2">  
-                                                <img class="img__contacs" src='/img/user/31/31-1630611954.jpg'>
+                                            <div class="pr-2">
+                                                <img class="img__contacs" src='{{ asset($profesional->fotoperfil ?? 'img/menu/avatar.png') }}'>
                                             </div>
-                                            
+
                                             <div>
                                                 <span>{{ $profesional->user->nombre_completo }}</span>
                                             </div>
@@ -75,7 +75,17 @@
                         @if($profesionales_ins->isNotEmpty())
                             @foreach($profesionales_ins as $profesional)
                                 <tr>
-                                    <td>{{ $profesional->nombre_completo }}</td>
+                                    <td class="pr-0">
+                                        <div class="user__xl">
+                                            <div class="pr-2">
+                                                <img class="img__contacs" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
+                                            </div>
+
+                                            <div>
+                                                <span>{{ $profesional->nombre_completo }}</span>
+                                            </div>
+                                        </div>
+                                    </td>
                                     <td>{{ $profesional->especialidad[0]->nombreEspecialidad ?? '' }}</td>
                                     <!-- <td>{{ $profesional->universidad->nombreuniversidad }}</td> -->
                                     <td>{{ "{$profesional->institucion->telefonouno} - {$profesional->institucion->telefono2}" }}</td>
