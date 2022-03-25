@@ -50,6 +50,7 @@
                                 {{-- <th>Especialidad</th>  --}}
                                 {{-- <th>Institución</th>   --}}
                                 <th>Especialista</th>
+                                <th></th>
                                 <th>Estado</th>
                             </tr>
                         </thead>
@@ -64,15 +65,21 @@
                                     <td>{{ $cita->tipo_consulta->nombreconsulta ?? ''}}</td>
                                     {{-- <td>Traumatología</td>                             --}}
                                     {{-- <td>Clinica Reina Sofia</td>                       --}}
-                                    <td class="d-flex align-items-center">
+                                    <td class="">
                                         @if(!empty($cita->profesional))
-                                            {{ $cita->profesional->user->nombre_completo }} &nbsp;
+                                            {{ $cita->profesional->user->nombre_completo }}
+                                        @endif
+                                        @if(!empty($cita->profesional_ins))
+                                            {{ "{$cita->profesional_ins->institucion->user->nombreinstitucion} - {$cita->profesional_ins->nombre_completo}" }}
+                                        @endif
+                                    </td>
+                                    <td class="">
+                                        @if(!empty($cita->profesional))
                                             <a class="btn_action" style="width: 33px" href="{{route('PerfilProfesional', ['slug' => $cita->profesional->slug])}}" target="_blank"> 
                                                 <i data-feather="external-link"></i>
                                             </a>
                                         @endif
                                         @if(!empty($cita->profesional_ins))
-                                            {{ "{$cita->profesional_ins->institucion->user->nombreinstitucion} - {$cita->profesional_ins->nombre_completo}" }} &nbsp;
                                                 <a class="btn_action" style="width: 33px" href="{{route('PerfilInstitucion', ['slug' => $cita->profesional_ins->institucion->slug])}}" target="_blank"> 
                                                     <i data-feather="external-link"></i>
                                                 </a>

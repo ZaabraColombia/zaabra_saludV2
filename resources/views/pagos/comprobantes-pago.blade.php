@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-admin')
 
 @section('content')
     <div class="container pt-4">
@@ -106,5 +106,4 @@
             };
         }
     </script>
-
 @endsection

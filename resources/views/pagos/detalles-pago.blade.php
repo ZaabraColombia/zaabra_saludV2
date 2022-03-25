@@ -25,7 +25,7 @@
                 </p>
                 <p class="fs_subtitle black_light font_roboto">{{ $pagoCita->cita->lugar }}</p>
                 <p class="fs_subtitle black_light font_roboto">Tipo de cita: Presencial</p>
-                <p class="fs_subtitle black_light font_roboto">Valor: ${{ $pagoCita->valor }}</p>
+                <p class="fs_subtitle black_light font_roboto">Valor: ${{ number_format($pagoCita->valor, 0, ",", ".") }}</p>
             </div>
 
             <div class="col-12 col-lg-6">

@@ -409,6 +409,9 @@ Route::get('/test-asignar-cita-profesional-institucion', function (){
     return view('paciente.admin.calendario.asignar-cita-profesional-institucion', compact('profesional', 'weekDisabled'));
 });
 
+Route::get('/test-crear-professional', function (){
+    return view('instituciones.admin.profesionales.crear');
+});
 
 
 // Ruta detalles-pago
