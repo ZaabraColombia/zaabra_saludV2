@@ -121,7 +121,7 @@ class buscadorController extends Controller
             $profesiones = profesiones::where('nombreProfesion','like','%' . $term . '%')
                 ->select(
                     'nombreProfesion as label',
-                    DB::raw('CONCAT("' . url('/Especialidades-Medicas/') . '/", slug) as url'),
+                    DB::raw('CONCAT("' . url('/Especialidades/') . '/", slug) as url'),
                     DB::raw('CONCAT("fas fa-stethoscope") as icon')
                 )
                 ->get();
@@ -133,7 +133,7 @@ class buscadorController extends Controller
         $profesiones = profesiones::where('nombreProfesion','like','%' . $term . '%')
             ->select(
                 'nombreProfesion as label',
-                DB::raw('CONCAT("' . url('/Especialidades-Medicas/') . '/", slug) as url'),
+                DB::raw('CONCAT("' . url('/Especialidades/') . '/", slug) as url'),
                 DB::raw('CONCAT("fas fa-stethoscope") as icon')
             )
             ->get();
