@@ -545,7 +545,7 @@ class formularioProfesionalController extends Controller
 
         //validar el formulario
         $validator = Validator::make($request->all(),[
-            'tipo_consulta' => ['required', Rule::in(['Presencial', 'Virtual', 'Control médico'])],
+            'tipo_consulta' => ['required', Rule::in(['Presencial', 'Virtual', 'Control'])],
             'valor_consulta' => ['required', 'integer', 'min:0'],
         ]);
 
