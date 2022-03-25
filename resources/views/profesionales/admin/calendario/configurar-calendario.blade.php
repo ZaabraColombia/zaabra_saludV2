@@ -126,8 +126,8 @@
                                     </td>
                                     <td>{{ date('h:i A', strtotime($item['startTime'])) }} - {{ date('h:i A', strtotime($item['endTime'])) }}</td>
                                     <td>
-                                        <button class="btn_cierre_citasProf eliminar-horario" type="button" data-id="{{ $item['id'] }}"
-                                        data-toggle="modal" data-target="#modal_cancelar_cita"></button>
+                                        <button class="btn_cierre_citasProf eliminar-horario"
+                                                type="button" data-id="{{ $item['id'] }}"></button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -140,7 +140,7 @@
     </div>
 
     <!-- Modal  Eliminar horario -->
-    <div class="modal fade" id="modal_cancelar_cita" tabindex="-1" >
+    <div class="modal fade" id="modal_eliminar_horario" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -151,7 +151,7 @@
 
                 <div class="modal-body">
                     <h1>Eliminar horario</h1>
-                    
+
                     <div class="eliminar_horario">
                         <i data-feather="trash-2" class="trash_2"></i>
                         <h3>Desea eliminar el horario</h3>
@@ -159,8 +159,8 @@
                 </div>
 
                 <div class="modal-footer content_btn_center">
-                    <button type="button" class="button_transparent" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="button_blue" id="">Confirmar</button>
+                    <button type="button" class="button_transparent btn-eliminar-horario" data-status="0">Cancelar</button>
+                    <button type="submit" class="button_blue btn-eliminar-horario" data-status="1">Confirmar</button>
                 </div>
             </div>
         </div>
@@ -220,11 +220,21 @@
             });
         });
 
+        var tr_eliminar_horario;
         $('#table-horario tbody').on('click', '.eliminar-horario', function (e) {
             e.preventDefault();
             var btn = $(this);
-            //console.log(btn.data());
-            if (confirm('Desea eliminar el horario'))
+            $('.btn-eliminar-horario').data('id', btn.data('id'));
+            tr_eliminar_horario = btn.parents('tr');
+            $('#modal_eliminar_horario').modal();
+        });
+
+        $('.btn-eliminar-horario').click(function (element) {
+            $('#modal_eliminar_horario').modal('hide');
+
+            var btn = $(this);
+
+            if (btn.data('status'))
             {
                 $.ajax({
                     data: {id: btn.data('id')},
@@ -237,7 +247,8 @@
                     success: function (res) {
                         $('#alert-horario-agregar').html(alert(res.message, 'success'));
 
-                        btn.parents('tr').remove();
+                        tr_eliminar_horario.remove();
+                        tr_eliminar_horario = undefined;
                     },
                     error: function (res) {
                         $('#alert-horario-agregar').html(alert(res.responseJSON.message, 'danger'));
@@ -245,6 +256,7 @@
                 });
             }
         });
+
 
         $(function () {
             $('[data-toggle="tooltip"]').tooltip();

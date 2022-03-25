@@ -37,6 +37,7 @@ class RolesMiddleware
                 $id_rol = 2;
                 break;
             case 'entidad':
+            case 'institucion':
                 $id_rol = 3;
                 break;
             case 'auxiliar':

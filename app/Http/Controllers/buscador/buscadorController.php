@@ -118,10 +118,12 @@ class buscadorController extends Controller
         if (empty($term))
         {
             //Busquedad profesiones paar envio a la vista de profesiones
-            $profesiones = profesiones::where('nombreProfesion','like','%' . $term . '%')
+            $profesiones = profesiones::query()
+                ->where('estado', '=', 1)
+                ->where('nombreProfesion','like','%' . $term . '%')
                 ->select(
                     'nombreProfesion as label',
-                    DB::raw('CONCAT("' . url('/Especialidades-Medicas/') . '/", slug) as url'),
+                    DB::raw('CONCAT("' . url('/ramas-de-la-salud/') . '/", slug) as url'),
                     DB::raw('CONCAT("fas fa-stethoscope") as icon')
                 )
                 ->get();
@@ -130,10 +132,12 @@ class buscadorController extends Controller
         }
 
         //Busquedad profesiones paar envio a la vista de profesiones
-        $profesiones = profesiones::where('nombreProfesion','like','%' . $term . '%')
+        $profesiones = profesiones::query()
+            ->where('estado', '=', 1)
+            ->where('nombreProfesion','like','%' . $term . '%')
             ->select(
                 'nombreProfesion as label',
-                DB::raw('CONCAT("' . url('/Especialidades-Medicas/') . '/", slug) as url'),
+                DB::raw('CONCAT("' . url('/ramas-de-la-salud/') . '/", slug) as url'),
                 DB::raw('CONCAT("fas fa-stethoscope") as icon')
             )
             ->get();

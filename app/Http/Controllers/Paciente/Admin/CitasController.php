@@ -12,6 +12,7 @@ class CitasController extends Controller
         $citas = Cita::query()
             ->where('paciente_id', '=', Auth::user()->paciente->id)
             ->with([
+                'pago',
                 'tipo_consulta',
                 'profesional',
                 'profesional.user',
@@ -20,6 +21,8 @@ class CitasController extends Controller
                 'profesional_ins.institucion.user',
             ])
             ->get();
+
+        //dd($citas);
 
         return view('paciente.admin.citas', compact('citas'));
     }

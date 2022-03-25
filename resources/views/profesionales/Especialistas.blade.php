@@ -49,7 +49,7 @@
               </div>
 
               <div class="contains_buttons">
-                <a href="{{route('paciente.calendario-id-profesional', ['id' => $objcarruselprofesionalespremiun->idPerfilProfesional])}}">Agende su cita
+                <a href="{{route('paciente.asignar-cita-profesional', ['profesional' => $objcarruselprofesionalespremiun->slug])}}">Agende su cita
                     <i class="fas fa-arrow-right pl-2"></i>
                 </a>
 
@@ -101,7 +101,7 @@
           </div>
 
           <div class="contains_buttons">
-            <a href="{{route('paciente.calendario-id-profesional', ['id' => $objmedicospagonormal->idPerfilProfesional])}}">Agendar
+            <a href="{{route('paciente.asignar-cita-profesional', ['profesional' => $objcarruselprofesionalespremiun->slug])}}">Agendar
                 <i class="fas fa-arrow-right pl-2"></i>
             </a>
 
@@ -162,7 +162,7 @@
 
       <!-- If we need navigation buttons -->
       <div class="swiper-button-prev flecha_izquierda"></div>
-      <div class="swiper-button-next flecha_derecha"></div>       
+      <div class="swiper-button-next flecha_derecha"></div>
     </div>
   </section>
 @endsection
