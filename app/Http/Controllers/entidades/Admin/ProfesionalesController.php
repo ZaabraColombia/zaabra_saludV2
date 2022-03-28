@@ -4,6 +4,7 @@ namespace App\Http\Controllers\entidades\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\profesionales_instituciones;
+use App\Models\TipoDocumento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -22,7 +23,8 @@ class ProfesionalesController extends Controller
 
     public function create()
     {
-        return view('instituciones.admin.profesionales.crear');
+        $tipo_documentos = TipoDocumento::all();
+        return view('instituciones.admin.profesionales.crear', compact('tipo_documentos'));
     }
 
     public function store(Request $request)
@@ -30,15 +32,19 @@ class ProfesionalesController extends Controller
         //Validar
         $this->validator($request);
 
+        $id_institucion = Auth::user()->institucion->id;
+        $request->merge(['id_institucion' => $id_institucion]);
+
         //Guardar foto
         if ($request->file('foto'))
         {
             $foto = $request->file('foto');
             $nombre_foto = 'profesional-' . time() . '.' . $foto->guessExtension();
 
-            $request->merge(['foto_perfil_institucion' => $foto->move("img/instituciones/{}/profesionales/", $nombre_foto)]);
+            $request->merge(['foto_perfil_institucion' => $foto->move("img/instituciones/{$id_institucion}/profesionales/", $nombre_foto)]);
         }
 
+        dd($request->all());
         $profesional = profesionales_instituciones::query()->create($request->all());
 
         return redirect()->route('institucion.profesionales.index')
@@ -49,7 +55,6 @@ class ProfesionalesController extends Controller
     private function validator (Request $request)
     {
         $request->validate([
-            'id_institucion'    => ['required', 'exists:instituciones,id'],
             'id_universidad'    => ['required', 'exists:universidades,id_universidad'],
             'id_especialidad'   => ['required', 'exists:especialidades,idEspecialidad'],
             'primer_nombre'     => ['required', 'max:45'],
