@@ -251,6 +251,46 @@
     }        
 }
 
+
+.tool {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+.tool .tiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #6b67bb;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding: 3px 0;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+    font-size: 12px;
+}
+.tool .tiptext::after {
+    content: "";
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+}
+.tool:hover .tiptext {
+    visibility: visible;
+}
+
+.tool.top .tiptext{
+    margin-left: -60px;
+    bottom: 130%;
+    left: 50%;
+}
+.tool.top .tiptext::after{
+    margin-left: -5px;
+    top: 100%;
+    left: 50%;
+    border-color: #6b67bb transparent transparent transparent;
+}
 @media(min-width: 768px) {
     .modal_container {
         .modal-body .modal_medio_pago .info_medio_pago {  

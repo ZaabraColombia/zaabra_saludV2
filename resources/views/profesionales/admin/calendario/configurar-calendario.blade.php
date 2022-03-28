@@ -126,8 +126,10 @@
                                     </td>
                                     <td>{{ date('h:i A', strtotime($item['startTime'])) }} - {{ date('h:i A', strtotime($item['endTime'])) }}</td>
                                     <td>
-                                        <button class="btn_cierre_citasProf eliminar-horario"
-                                                type="button" data-id="{{ $item['id'] }}"></button>
+                                        <button class="btn_cierre_citasProf eliminar-horario tool top"
+                                                type="button" data-id="{{ $item['id'] }}">
+                                            <span class="tiptext">eliminar horario</span>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
