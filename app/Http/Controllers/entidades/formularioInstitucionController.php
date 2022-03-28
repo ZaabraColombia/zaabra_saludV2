@@ -101,7 +101,7 @@ class formularioInstitucionController extends Controller{
         }
 
         $is_asociacion = $this->is_asociacion();
-        $tipo_documentos = TipoDocumento::query()->juridica()->get();
+        $tipo_documentos = TipoDocumento::query()->get();
 
         return view('instituciones.FormularioInstitucion',compact(
             'tipoinstitucion',
@@ -228,19 +228,19 @@ class formularioInstitucionController extends Controller{
     protected function create1(Request $request){
 
         $validation = Validator::make($request->all(), [
-            'nombre_institucion' => ['required'],
-            'fecha_inicio_institucion' => ['required', 'date_format:Y-m-d'],
-            'url_institucion' => ['required', 'url'],
-            'tipo_institucion' => ['required', 'exists:tipoinstituciones,id'],
-            'logo_institucion' => ['image'],
-            'imagen_institucion' => ['image'],
+            'nombre_institucion'        => ['required'],
+            'fecha_inicio_institucion'  => ['required', 'date_format:Y-m-d'],
+            'url_institucion'           => ['required', 'url'],
+            'tipo_institucion'          => ['required', 'exists:tipoinstituciones,id'],
+            'logo_institucion'          => ['image'],
+            'imagen_institucion'        => ['image'],
         ], [], [
-            'nombre_institucion' => 'Nombre',
-            'fecha_inicio_institucion' => 'Fecha de inicio',
-            'url_institucion' => 'Pagina web',
-            'tipo_institucion' => 'Tipo de institución',
-            'logo_institucion' => 'Logo de la institución',
-            'imagen_institucion' => 'Imagen de la institución',
+            'nombre_institucion'        => 'Nombre',
+            'fecha_inicio_institucion'  => 'Fecha de inicio',
+            'url_institucion'           => 'Pagina web',
+            'tipo_institucion'          => 'Tipo de institución',
+            'logo_institucion'          => 'Logo de la institución',
+            'imagen_institucion'        => 'Imagen de la institución',
         ]);
 
         if ($validation->fails()) {
