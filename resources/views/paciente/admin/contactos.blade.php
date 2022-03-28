@@ -63,18 +63,18 @@
                                     <td>{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</td>
                                     <td>{{ $contacto->correo }}</td>
                                     <td>
-                                        <button class="btn_action btn-ver-contacto" type="button" data-id="{{ $contacto->id }}">
-                                            <i class="fas fa-eye"></i>
+                                        <button class="btn_action btn-ver-contacto tool top" type="button" data-id="{{ $contacto->id }}">
+                                            <i class="fas fa-eye"></i> <span class="tiptext">ver contacto</span>
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn_action btn-editar-contacto" type="button" data-id="{{ $contacto->id }}">
-                                            <i class="fas fa-edit"></i>
+                                        <button class="btn_action btn-editar-contacto tool top" type="button" data-id="{{ $contacto->id }}">
+                                            <i class="fas fa-edit"></i> <span class="tiptext">editar contacto</span>
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn_action btn-eliminar-contacto" type="button" data-id="{{ $contacto->id }}">
-                                            <i class="fas fa-trash"></i>
+                                        <button class="btn_action btn-eliminar-contacto tool top" type="button" data-id="{{ $contacto->id }}">
+                                            <i class="fas fa-trash"></i> <span class="tiptext">eliminar contacto</span>
                                         </button>
                                     </td>
                                 </tr>

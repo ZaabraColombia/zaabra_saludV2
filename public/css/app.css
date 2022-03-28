@@ -23013,8 +23013,8 @@ a:link, a:visited, a:active, a:hover {
 .tool .tiptext {
   visibility: hidden;
   width: 120px;
-  background-color: #6b67bb;
-  color: #fff;
+  background-color: #bec4c5;
+  color: #232323;
   text-align: center;
   border-radius: 3px;
   padding: 3px 0;
@@ -23045,7 +23045,7 @@ a:link, a:visited, a:active, a:hover {
   margin-left: -5px;
   top: 100%;
   left: 50%;
-  border-color: #6b67bb transparent transparent transparent;
+  border-color: #bec4c5 transparent transparent transparent;
 }
 
 @media (min-width: 768px) {

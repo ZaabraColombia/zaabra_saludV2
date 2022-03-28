@@ -76,13 +76,13 @@
                                     </td>
                                     <td class="">
                                         @if(!empty($cita->profesional))
-                                            <a class="btn_action" style="width: 33px" href="{{route('PerfilProfesional', ['slug' => $cita->profesional->slug])}}" target="_blank"> 
-                                                <i data-feather="external-link"></i>
+                                            <a class="btn_action tool top" style="width: 33px" href="{{route('PerfilProfesional', ['slug' => $cita->profesional->slug])}}" target="_blank"> 
+                                                <i data-feather="external-link"></i> <span class="tiptext">landing profesional</span>
                                             </a>
                                         @endif
                                         @if(!empty($cita->profesional_ins))
-                                                <a class="btn_action" style="width: 33px" href="{{route('PerfilInstitucion', ['slug' => $cita->profesional_ins->institucion->slug])}}" target="_blank"> 
-                                                    <i data-feather="external-link"></i>
+                                                <a class="btn_action tool top" style="width: 33px" href="{{route('PerfilInstitucion', ['slug' => $cita->profesional_ins->institucion->slug])}}" target="_blank"> 
+                                                    <i data-feather="external-link"></i> <span class="tiptext">landing profesional</span>
                                                 </a>
                                         @endif
                                     </td>
