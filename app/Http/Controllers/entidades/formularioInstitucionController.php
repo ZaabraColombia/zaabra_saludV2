@@ -799,7 +799,7 @@ class formularioInstitucionController extends Controller{
             $nombre_foto = 'profesional-' . time() . '.' . $foto->guessExtension();
 
             /*guarda la imagen en carpeta con el id del usuario*/
-            $foto->move("img/instituciones/$id_user", $nombre_foto);
+            $foto->move("img/instituciones/$id_user/profesionales/", $nombre_foto);
 
             //capturar la fotp
             $profesional->foto_perfil_institucion = "img/instituciones/$id_user/" . $nombre_foto;
