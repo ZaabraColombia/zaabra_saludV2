@@ -195,8 +195,6 @@
                 <div class="modal-body">
                     <h1>Detalle de la cita</h1>
 
-
-
                     <div class="modal_info_cita">
                         <div class="p-3">
                             <h2 class="nombre_paciente"></h2>
@@ -211,6 +209,10 @@
                             </div>
                             <div class="col-md-5 p-0 pl-3 mb-2">
                                 <h3>Tipo de cita</h3>
+                                <span class="tipo_cita"></span>
+                            </div>
+                            <div class="col-12 p-0 pl-3 mb-2 d-flex">
+                                <h3>Modalidad de pago: &nbsp;</h3>
                                 <span class="tipo_cita"></span>
                             </div>
                         </div>
@@ -258,6 +260,10 @@
                                 </div>
                                 <div class="col-md-5 p-0 pl-3 mb-2">
                                     <h3>Tipo de cita</h3>
+                                    <span class="tipo_cita"></span>
+                                </div>
+                                <div class="col-12 p-0 pl-3 mb-2 d-flex">
+                                    <h3>Modalidad de pago: &nbsp;</h3>
                                     <span class="tipo_cita"></span>
                                 </div>
                             </div>
@@ -337,6 +343,10 @@
                                     <h3>Tipo de cita</h3>
                                     <span class="tipo_cita"></span>
                                 </div>
+                                <div class="col-12 p-0 pl-3 mb-2 d-flex">
+                                    <h3>Modalidad de pago: &nbsp;</h3>
+                                    <span class="tipo_cita"></span>
+                                </div>
                             </div>
                         </div>
                         <div class="form_modal">
@@ -407,6 +417,10 @@
                                 <h3>Tipo de cita</h3>
                                 <span class="tipo_cita"></span>
                             </div>
+                            <div class="col-12 p-0 pl-3 mb-2 d-flex">
+                                <h3>Modalidad de pago: &nbsp;</h3>
+                                <span class="tipo_cita"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -418,6 +432,88 @@
                         <button type="submit" class="button_blue" id="">Confirmar</button>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Completar cita -->
+    <div class="modal fade" id="completar_cita" tabindex="-1" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal_container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="POST" action="{{ route('profesional.agenda.calendario.actualizar-cita') }}" id="form-editar-cita">
+                    <div class="modal-body">
+                        <h1>Completar cita</h1>
+
+                        <div class="form_modal">
+                            <div class="row m-0">
+                                <div class="col-12 p-0" id="alerta-editar"></div>
+                                <input type="hidden" id="id_cita-editar" name="id_cita"/>
+
+                                <div class="col-12 p-0">
+                                    <label for="tiempo_cita">Tiempo cita (minutos)</label>
+                                    <input type="number" id="tiempo_cita" name="tiempo_cita" required/>
+                                </div>
+
+                                <div class="col-12 p-0 pl-md-2">
+                                    <label for="comentarios">Comentarios</label>
+                                    <textarea name="comentarios" id="comentarios" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer content_btn_center">
+                        <button type="button" class="button_transparent" data-dismiss="modal">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="button_blue">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Reserva del calendario -->
+    <div class="modal fade" id="reserva_calendario" tabindex="-1" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal_container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="POST" action="{{ route('profesional.agenda.calendario.actualizar-cita') }}" id="form-editar-cita">
+                    <div class="modal-body">
+                        <h1>Reserva del calendario</h1>
+
+                        <div class="form_modal">
+                            <div class="row m-0">
+                                <div class="col-12 p-0" id="alerta-editar"></div>
+                                <input type="hidden" id="id_cita-editar" name="id_cita"/>
+
+                                <div class="col-12 p-0">
+                                    <label for="Fecha_inicio">Fecha inicio</label>
+                                    <input type="date" id="Fecha_inicio" name="Fecha_inicio" required/>
+                                </div>
+
+                                <div class="col-12 p-0">
+                                    <label for="Fecha_fin">Fecha fin</label>
+                                    <input type="date" id="Fecha_fin" name="Fecha_fin" required/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer content_btn_center">
+                        <button type="button" class="button_transparent" data-dismiss="modal">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="button_blue">Guardar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -484,6 +580,7 @@
                 },
                 selectable: false,
                 editable: false,
+
                 //Abrir evento
                 eventClick: function(info) {
 
@@ -524,7 +621,7 @@
                 },
                 dayCellDidMount: function (date) {
 
-                }
+                }, 
             });
             calendar.render();
 

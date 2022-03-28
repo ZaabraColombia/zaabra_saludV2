@@ -31,7 +31,7 @@
                     </div>
                     <!-- Mis pagos -->
                     <div class="col-6 col-md-4 p-2">
-                        <a  href="">
+                        <a  href="{{ route('paciente.pagos') }}">
                             <div class="content__target pago_blue">
                                 <span class="subtitle__lg">Pagos</span>
                             </div>
@@ -47,7 +47,7 @@
                     </div>
                     <!-- Mis contactos -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
-                        <a  href='{{ route('paciente.contactos.index') }}'>
+                        <a  href="{{ route('paciente.contactos.index') }}">
                             <div class="content__target contacto_blue">
                                 <span class="subtitle__lg">Contactos</span>
                             </div>

@@ -92,7 +92,7 @@
                 color: $gray_second;
                 margin-bottom: 3px;
             }
-            select, input[type="text"], [type="number"], [type="time"], [type="email"] {
+            select, input[type="text"], [type="number"], [type="time"], [type="email"], [type="date"] {
                 display: block;
                 width: 100%;
                 height: calc(1.6em + 0.75rem + 2px);
@@ -138,6 +138,29 @@
                         outline: 0;
                         box-shadow: 0px 0px 1.2px 2px rgb(30 200 252 / 10%);
                     }
+                }
+            }
+            textarea {
+                display: block;
+                width: 100%;
+                padding: 0.375rem 0.75rem;
+                margin-bottom: 0;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1.6;
+                color: $black_second;
+                background-color: $withe_official;
+                background-clip: padding-box;
+                border: 1px solid $gray_third;
+                border-radius: 5px;
+                transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+                resize: none;
+                &:focus {
+                    color: $black_second;
+                    background-color: $gray_official;
+                    border-color: $blue_gray;
+                    outline: 0;
+                    box-shadow: 0px 0px 1.2px 2px rgb(30 200 252 / 10%);
                 }
             }
         }
@@ -189,6 +212,84 @@
         color: #e3342f;
         box-shadow: 0px 1px 8px 8px rgb(244 100 100 / 20%);
     }
+}
+
+.elemento_no_disponible {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 35px;
+    border: 2px solid #f58d37;
+    padding: 10px;
+    color: rgb(245 141 55);
+    box-shadow: 0px 1px 8px 8px rgb(245 141 55 / 23%);
+    .no_disponible {
+        width: 50px;
+        height: 50px;
+        color: rgb(245 141 55);
+    }        
+}
+
+.elemento_infortmativo {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85px;
+    height: 85px;
+    border-radius: 75px;
+    border: 2px solid #d0d125;
+    padding: 10px;
+    box-shadow: 0px 1px 8px 8px rgb(244 245 55 / 23%);
+    .informativo {
+        height: 55px;
+        width: 55px;
+        color: #d0d125;
+    }        
+}
+
+// Texto informativo tipo tooltip
+.tool {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+.tool .tiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #bec4c5;
+    color: #232323;
+    text-align: center;
+    border-radius: 3px;
+    padding: 3px 0;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+    font-size: 12px;
+}
+.tool .tiptext::after {
+    content: "";
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+}
+.tool:hover .tiptext {
+    visibility: visible;
+}
+
+.tool.top .tiptext{
+    margin-left: -60px;
+    bottom: 130%;
+    left: 50%;
+}
+.tool.top .tiptext::after{
+    margin-left: -5px;
+    top: 100%;
+    left: 50%;
+    border-color: #bec4c5 transparent transparent transparent;
 }
 @media(min-width: 768px) {
     .modal_container {

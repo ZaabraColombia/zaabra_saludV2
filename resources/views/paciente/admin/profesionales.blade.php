@@ -60,13 +60,13 @@
                                     <td>{{ $profesional->direccion }}</td>
                                     <td>{{ $profesional->EmpresaActual }}</td>
                                     <td>
-                                        <a class="btn_action" style="width: 33px" href="{{ route('PerfilProfesional', ['slug' => $profesional->slug]) }}" target="_blank">
-                                            <i data-feather="external-link"></i>
+                                        <a class="btn_action tool top" style="width: 33px" href="{{ route('PerfilProfesional', ['slug' => $profesional->slug]) }}" target="_blank">
+                                            <i data-feather="external-link"></i>  <span class="tiptext">landing profesional</span>
                                         </a>
                                     </td>
                                     <td>
-                                        <a class="btn_action" style="width: 33px" href="{{ route('paciente.asignar-cita-profesional', ['profesional' => $profesional->slug]) }}">
-                                            <i data-feather="calendar"></i>
+                                        <a class="btn_action tool top" style="width: 33px" href="{{ route('paciente.asignar-cita-profesional', ['profesional' => $profesional->slug]) }}">
+                                            <i data-feather="calendar"></i> <span class="tiptext">agendar cita</span>
                                         </a>
                                     </td>
                                 </tr>
@@ -92,13 +92,13 @@
                                     <td>{{ $profesional->institucion->direccion }}</td>
                                     <td>{{ $profesional->institucion->user->nombreinstitucion }}</td>
                                     <td>
-                                        <a class="btn_action" style="width: 33px" href="{{ route('PerfilInstitucion', ['slug' => $profesional->institucion->slug]) }}" target="_blank">
-                                            <i class="external-link"></i>
+                                        <a class="btn_action toll top" style="width: 33px" href="{{ route('PerfilInstitucion', ['slug' => $profesional->institucion->slug]) }}" target="_blank">
+                                            <i class="external-link"></i> <span class="tiptext">landing profesional</span>
                                         </a>
                                     </td>
                                     <td>
-                                        <a class="btn_action" style="width: 33px" href="#">
-                                            <i class="calendar"></i>
+                                        <a class="btn_action toll top" style="width: 33px" href="#">
+                                            <i class="calendar"></i> <span class="tiptext">agendar cita</span>
                                         </a>
                                     </td>
                                 </tr>
