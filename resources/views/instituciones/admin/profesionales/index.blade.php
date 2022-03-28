@@ -22,9 +22,9 @@
                     </div>
 
                     <div class="col-md-3 p-0 content_btn_right">
-                        <button type="button" class="button_blue" id="btn-agregar-contacto">
+                        <a href="{{ route('institucion.profesionales.create') }}" class="button_blue" id="btn-agregar-contacto">
                             Agregar
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -34,352 +34,51 @@
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-pacientes">
                         <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Especialidad</th>
-                                <th>Correo</th>
-                                <th>Teléfonos</th>
-                                <th>Dirección</th>
-                                <th class="text-right">Acción</th>
-                                <th></th>
-                            </tr>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Especialidad</th>
+                            <th>Correo</th>
+                            <th>Teléfonos</th>
+                            <th>Dirección</th>
+                            <th class="text-right">Acción</th>
+                            <th></th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="pr-0">
-                                    <div class="user__xl">
-                                        <div class="pr-2">
-                                            <img class="img__contacs" src='{{ asset($profesional->fotoperfil ?? 'img/menu/avatar.png') }}'>
-                                        </div>
+                        @if($profesionales->isNotEmpty())
+                            @foreach($profesionales as $profesional)
+                                <tr>
+                                    <td class="pr-0">
+                                        <div class="user__xl">
+                                            <div class="pr-2">
+                                                <img class="img__contacs" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
+                                            </div>
 
-                                        <div>
-                                            <span>Jesus Antonio Robles Torres</span>
+                                            <div>
+                                                <span>{{ $profesional->nombre_completo }}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>Dermatologo</td>
-                                <td>jesusa@hotmail.com</td>
-                                <td>300 1245 3245 - 456 2365</td>
-                                <td>Cra 43 # 65 - 45 sur</td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="" target="_blank">
-                                        <i data-feather="external-link"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="">
-                                        <i data-feather="calendar"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                                    </td>
+                                    <td>{{ $profesional->nombre_especialidad ?? '' }}</td>
+                                    <td>{{ $profesional->correo }}</td>
+                                    <td>{{ "{$profesional->celular} - {$profesional->telefono}" }}</td>
+                                    <td>{{ $profesional->direccion }}</td>
+                                    <td>
+                                        <a class="btn_action" style="width: 33px"
+                                           href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                            <i data-feather="edit"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn_action" style="width: 33px"
+                                           href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                            <i data-feather="calendar"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
 
-                            <tr>
-                                <td class="pr-0">
-                                    <div class="user__xl">
-                                        <div class="pr-2">
-                                            <img class="img__contacs" src='{{ asset($profesional->fotoperfil ?? 'img/menu/avatar.png') }}'>
-                                        </div>
-
-                                        <div>
-                                            <span>Jesus Antonio Robles Torres</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Dermatologo</td>
-                                <td>jesusa@hotmail.com</td>
-                                <td>300 1245 3245 - 456 2365</td>
-                                <td>Cra 43 # 65 - 45 sur</td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="" target="_blank">
-                                        <i data-feather="external-link"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="">
-                                        <i data-feather="calendar"></i>
-                                    </a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="pr-0">
-                                    <div class="user__xl">
-                                        <div class="pr-2">
-                                            <img class="img__contacs" src='{{ asset($profesional->fotoperfil ?? 'img/menu/avatar.png') }}'>
-                                        </div>
-
-                                        <div>
-                                            <span>Jesus Antonio Robles Torres</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Dermatologo</td>
-                                <td>jesusa@hotmail.com</td>
-                                <td>300 1245 3245 - 456 2365</td>
-                                <td>Cra 43 # 65 - 45 sur</td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="" target="_blank">
-                                        <i data-feather="external-link"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="">
-                                        <i data-feather="calendar"></i>
-                                    </a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="pr-0">
-                                    <div class="user__xl">
-                                        <div class="pr-2">
-                                            <img class="img__contacs" src='{{ asset($profesional->fotoperfil ?? 'img/menu/avatar.png') }}'>
-                                        </div>
-
-                                        <div>
-                                            <span>Jesus Antonio Robles Torres</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Dermatologo</td>
-                                <td>jesusa@hotmail.com</td>
-                                <td>300 1245 3245 - 456 2365</td>
-                                <td>Cra 43 # 65 - 45 sur</td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="" target="_blank">
-                                        <i data-feather="external-link"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="">
-                                        <i data-feather="calendar"></i>
-                                    </a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="pr-0">
-                                    <div class="user__xl">
-                                        <div class="pr-2">
-                                            <img class="img__contacs" src='{{ asset($profesional->fotoperfil ?? 'img/menu/avatar.png') }}'>
-                                        </div>
-
-                                        <div>
-                                            <span>Jesus Antonio Robles Torres</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Dermatologo</td>
-                                <td>jesusa@hotmail.com</td>
-                                <td>300 1245 3245 - 456 2365</td>
-                                <td>Cra 43 # 65 - 45 sur</td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="" target="_blank">
-                                        <i data-feather="external-link"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="">
-                                        <i data-feather="calendar"></i>
-                                    </a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="pr-0">
-                                    <div class="user__xl">
-                                        <div class="pr-2">
-                                            <img class="img__contacs" src='{{ asset($profesional->fotoperfil ?? 'img/menu/avatar.png') }}'>
-                                        </div>
-
-                                        <div>
-                                            <span>Jesus Antonio Robles Torres</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Dermatologo</td>
-                                <td>jesusa@hotmail.com</td>
-                                <td>300 1245 3245 - 456 2365</td>
-                                <td>Cra 43 # 65 - 45 sur</td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="" target="_blank">
-                                        <i data-feather="external-link"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="">
-                                        <i data-feather="calendar"></i>
-                                    </a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="pr-0">
-                                    <div class="user__xl">
-                                        <div class="pr-2">
-                                            <img class="img__contacs" src='{{ asset($profesional->fotoperfil ?? 'img/menu/avatar.png') }}'>
-                                        </div>
-
-                                        <div>
-                                            <span>Jesus Antonio Robles Torres</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Dermatologo</td>
-                                <td>jesusa@hotmail.com</td>
-                                <td>300 1245 3245 - 456 2365</td>
-                                <td>Cra 43 # 65 - 45 sur</td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="" target="_blank">
-                                        <i data-feather="external-link"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="">
-                                        <i data-feather="calendar"></i>
-                                    </a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="pr-0">
-                                    <div class="user__xl">
-                                        <div class="pr-2">
-                                            <img class="img__contacs" src='{{ asset($profesional->fotoperfil ?? 'img/menu/avatar.png') }}'>
-                                        </div>
-
-                                        <div>
-                                            <span>Jesus Antonio Robles Torres</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Dermatologo</td>
-                                <td>jesusa@hotmail.com</td>
-                                <td>300 1245 3245 - 456 2365</td>
-                                <td>Cra 43 # 65 - 45 sur</td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="" target="_blank">
-                                        <i data-feather="external-link"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="">
-                                        <i data-feather="calendar"></i>
-                                    </a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="pr-0">
-                                    <div class="user__xl">
-                                        <div class="pr-2">
-                                            <img class="img__contacs" src='{{ asset($profesional->fotoperfil ?? 'img/menu/avatar.png') }}'>
-                                        </div>
-
-                                        <div>
-                                            <span>Jesus Antonio Robles Torres</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Dermatologo</td>
-                                <td>jesusa@hotmail.com</td>
-                                <td>300 1245 3245 - 456 2365</td>
-                                <td>Cra 43 # 65 - 45 sur</td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="" target="_blank">
-                                        <i data-feather="external-link"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="">
-                                        <i data-feather="calendar"></i>
-                                    </a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="pr-0">
-                                    <div class="user__xl">
-                                        <div class="pr-2">
-                                            <img class="img__contacs" src='{{ asset($profesional->fotoperfil ?? 'img/menu/avatar.png') }}'>
-                                        </div>
-
-                                        <div>
-                                            <span>Jesus Antonio Robles Torres</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Dermatologo</td>
-                                <td>jesusa@hotmail.com</td>
-                                <td>300 1245 3245 - 456 2365</td>
-                                <td>Cra 43 # 65 - 45 sur</td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="" target="_blank">
-                                        <i data-feather="external-link"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="">
-                                        <i data-feather="calendar"></i>
-                                    </a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="pr-0">
-                                    <div class="user__xl">
-                                        <div class="pr-2">
-                                            <img class="img__contacs" src='{{ asset($profesional->fotoperfil ?? 'img/menu/avatar.png') }}'>
-                                        </div>
-
-                                        <div>
-                                            <span>Jesus Antonio Robles Torres</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Dermatologo</td>
-                                <td>jesusa@hotmail.com</td>
-                                <td>300 1245 3245 - 456 2365</td>
-                                <td>Cra 43 # 65 - 45 sur</td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="" target="_blank">
-                                        <i data-feather="external-link"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="">
-                                        <i data-feather="calendar"></i>
-                                    </a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="pr-0">
-                                    <div class="user__xl">
-                                        <div class="pr-2">
-                                            <img class="img__contacs" src='{{ asset($profesional->fotoperfil ?? 'img/menu/avatar.png') }}'>
-                                        </div>
-
-                                        <div>
-                                            <span>Jesus Antonio Robles Torres</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Dermatologo</td>
-                                <td>jesusa@hotmail.com</td>
-                                <td>300 1245 3245 - 456 2365</td>
-                                <td>Cra 43 # 65 - 45 sur</td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="" target="_blank">
-                                        <i data-feather="external-link"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn_action" style="width: 33px" href="">
-                                        <i data-feather="calendar"></i>
-                                    </a>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -409,7 +108,7 @@
                 }
             ],
             paging: true,
-  
+
         });
 
         $("#search").on('keyup change',function(){

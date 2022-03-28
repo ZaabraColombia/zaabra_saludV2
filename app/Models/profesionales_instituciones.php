@@ -19,9 +19,26 @@ class profesionales_instituciones extends Model
         'segundo_nombre',
         'primer_apellido',
         'segundo_apellido',
+        'tipo_documento_id',
+        'numero_documento',
+        'fecha_nacimiento',
+        'direccion',
+        'telefono',
+        'celular',
+        'pais_id',
+        'departamento_id',
+        'provincia_id',
+        'ciudad_id',
+        'correo',
+        'sitio_web',
+        'linkedin',
+        'red_social',
+        'rethus',
+        'numero_profesional',
         'foto_perfil_institucion',
         'cargo',
-        'horario'
+        'horario',
+        'disponibilidad_agenda',
     ];
 
     protected $primaryKey = "id_profesional_inst";
@@ -29,6 +46,14 @@ class profesionales_instituciones extends Model
     protected $casts = [
         'horario' => 'array',
     ];
+
+    /**
+     * @return BelongsTo
+     */
+    public function especialidad_pricipal(): BelongsTo
+    {
+        return $this->belongsTo(especialidades::class, 'id_especialidad', 'idEspecialidad');
+    }
 
     /**
      * @return BelongsToMany
@@ -66,5 +91,20 @@ class profesionales_instituciones extends Model
     public function citas()
     {
         return $this->hasMany(Cita::class, 'profesional_ins_id', 'id_profesional_inst');
+    }
+
+
+    public function getNombreEspecialidadAttribute(): ?string
+    {
+        if (!empty($this->especialidad_pricipal)) return $this->especialidad_pricipal->nombreEspecialidad;
+        return null;
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function tipo_documento(): BelongsTo
+    {
+        return $this->belongsTo(TipoDocumento::class, 'tipo_documento_id', 'id');
     }
 }
