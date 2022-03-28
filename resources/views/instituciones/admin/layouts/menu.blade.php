@@ -88,7 +88,7 @@
                 <li class="sidebar-item  has-sub">
                     <a id="fav" class="" target="_blank" href="https://www.prescripciontotal.com.co/consultorio-generico/login">
                         <button class="py-0">
-                            <img src="{{ asset('/img/agenda/panelPrincipal/plm.png') }}" alt="" width="100px">
+                            <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/plm.png') }}" alt="" width="100px">
                         </button>
                     </a>
                 </li>
@@ -96,7 +96,7 @@
                 <li class="sidebar-item  has-sub">
                     <a id="fav" class="" target="_blank" href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS">
                         <button class="py-0">
-                            <img src="{{ asset('/img/agenda/panelPrincipal/mipres-zaabra.png') }}" alt="" width="100px">
+                            <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/mipres-zaabra.png') }}" alt="" width="100px">
                         </button>
                     </a>
                 </li>

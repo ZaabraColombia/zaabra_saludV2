@@ -8,59 +8,48 @@
                     <!-- Mis profesionales -->
                     <div class="col-6 col-md-4 p-2">
                         <a  href="{{ route('paciente.profesionales') }}">
-                            <div class="content__target">
-                                <img src="{{ asset('/img/agenda/panelPrincipal/mis-examenes.jpg') }}" alt="">
-                                <h3 class="subtitle__lg">Mis Profesionales</h3>
+                            <div class="content__target profesional_blue">
+                                <span class="subtitle__lg">Profesionales</span>
                             </div>
                         </a>
                     </div>
                     <!-- Actualizar datos -->
                     <div class="col-6 col-md-4 p-2">
                         <a  href="{{ route('paciente.perfil') }}">
-                            <div class="content__target">
-                                <img src="{{ asset('/img/agenda/panelPrincipal/mi-historia-clinica.png') }}" alt="">
-
-                                <h3 class="subtitle__lg">Actualizar Datos</h3>
+                            <div class="content__target paciente_blue">
+                                <span class="subtitle__lg">Actualizar Datos</span>
                             </div>
                         </a>
                     </div>
                     <!-- Mis citas -->
                     <div class="col-6 col-md-4 p-2">
                         <a  href="{{ route('paciente.citas') }}">
-                            <div class="content__target">
-                                <img src="{{ asset('/img/agenda/panelPrincipal/mi-calendario.png') }}" alt="">
-
-                                <h3 class="subtitle__lg">Mis Citas</h3>
+                            <div class="content__target cita_blue">
+                                <span class="subtitle__lg">Citas</span>
                             </div>
                         </a>
                     </div>
                     <!-- Mis pagos -->
                     <div class="col-6 col-md-4 p-2">
                         <a  href="">
-                            <div class="content__target">
-                                <img src="{{ asset('/img/agenda/panelPrincipal/mis-pagos.png') }}" alt="">
-
-                                <h3 class="subtitle__lg">Mis Pagos</h3>
+                            <div class="content__target pago_blue">
+                                <span class="subtitle__lg">Pagos</span>
                             </div>
                         </a>
                     </div>
                     <!-- Mis favoritos -->
                     <div class="col-6 col-md-4 p-2">
                         <a  href="{{ route('paciente.favoritos') }}">
-                            <div class="content__target">
-                                <img src="{{ asset('/img/agenda/panelPrincipal/mis-favoritos.png') }}" alt="">
-
-                                <h3 class="subtitle__lg">Mis Favoritos</h3>
+                            <div class="content__target favorito_blue">
+                                <span class="subtitle__lg">Favoritos</span>
                             </div>
                         </a>
                     </div>
                     <!-- Mis contactos -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='{{ route('paciente.contactos.index') }}'>
-                            <div class="content__target">
-                                <img src="{{ asset('/img/agenda/panelPrincipal/mis-examenes.jpg') }}" alt="">
-
-                                <h3 class="subtitle__lg">Mis Contactos</h3>
+                            <div class="content__target contacto_blue">
+                                <span class="subtitle__lg">Contactos</span>
                             </div>
                         </a>
                     </div>

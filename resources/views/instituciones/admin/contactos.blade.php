@@ -8,7 +8,7 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid p-0 pr-lg-4">
+<div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
                 <h1 class="title__xl blue_bold">Mis Contactos</h1>
@@ -45,34 +45,37 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @if($contactos->isNotEmpty())
-                            @foreach($contactos as $contacto)
-                                <tr>
-                                    <td>
-                                        <img class="img__contacs" src='/img/user/31/31-1630611954.jpg'>
-                                        &nbsp; &nbsp;{{ $contacto->nombre }}
-                                    </td>
-                                    <td>{{ $contacto->direccion }}</td>
-                                    <td>{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</td>
-                                    <td>{{ $contacto->correo }}</td>
-                                    <td>
-                                        <button class="btn_action btn-ver-contacto" type="button" data-id="{{ $contacto->id }}">
-                                            <i class="fas fa-eye"></i>
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button class="btn_action btn-editar-contacto" type="button" data-id="{{ $contacto->id }}">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button class="btn_action btn-eliminar-contacto" type="button" data-id="{{ $contacto->id }}">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
+                            <tr>
+                                <td class="pr-0">
+                                    <div class="user__xl">
+                                        <div class="pr-2">
+                                            <img class="img__contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                                        </div>
+
+                                        <div>
+                                            <span>Edgar Orlando Echavarria Lopez</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Cra 45 # 56 - 23 sur</td>
+                                <td>301 2354 236 - 264 2567</td>
+                                <td>edgaro@gmail.com</td>
+                                <td>
+                                    <button class="btn_action btn-ver-contacto" type="button" data-id="">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="btn_action btn-editar-contacto" type="button" data-id="">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="btn_action btn-eliminar-contacto" type="button" data-id="">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -98,14 +101,28 @@
                             <div class="row m-0">
                                 <div class="col-12" id="alertas-modal"></div>
 
-                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
-                                    <label for="nombre">Nombre / Razón social (*)</label>
-                                    <input type="text" id="nombre" name="nombre" class="campo" required/>
-                                </div>
+                                <div class="col-12 p-lg-0">
+                                    <div class="row align-items-lg-end mx-lg-0 mb-lg-3">
+                                        <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+                                            <div class="img__upload">
+                                                <img id="imagen-foto" src="">
+                                                <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" value="">
+                                                <p>Subir foto de perfil</p>
+                                            </div>
+                                        </div>
 
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
-                                    <label for="numero_identificacion">Cédula / NIT </label>
-                                    <input type="text" id="numero_identificacion" name="numero_identificacion" class="campo"/>
+                                        <div class="col-12 col-lg-8 p-0">
+                                            <div class="col-12 p-0">
+                                                <label for="nombre">Nombre / Razón social (*)</label>
+                                                <input type="text" id="nombre" name="nombre" class="campo" required/>
+                                            </div>
+
+                                            <div class="col-12 p-0">
+                                                <label for="numero_identificacion">Cédula / NIT </label>
+                                                <input type="text" id="numero_identificacion" name="numero_identificacion" class="campo"/>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
@@ -184,8 +201,15 @@
                 </div>
                 <!-- Mantener las cases "label-*" -->
                 <div class="modal-body">
-                    <h1>Eliminar Contacto</h1>
-                    <div class="modal_info_cita">
+                    <h1 class="pl-5">Eliminar Contacto</h1>
+
+                    <div class="content__see_contacs">
+                        <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                    </div>
+
+                    <div class="content__border_see_contacs"></div>
+
+                    <div class="modal_info_cita pt-5 mt-5">
                         <div class="info_contac">
                             <span>Nombre:</span>
                             <span class="label-nombre"></span>
@@ -261,7 +285,14 @@
                 <!-- Mantener las cases "label-*" -->
                 <div class="modal-body">
                     <h1>Ver Contacto</h1>
-                    <div class="modal_info_cita">
+                        
+                    <div class="content__see_contacs">
+                        <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                    </div>
+
+                    <div class="content__border_see_contacs"></div>
+                       
+                    <div class="modal_info_cita pt-5 mt-5">
                         <div class="info_contac">
                             <span>Nombre:</span>
                             <span class="label-nombre"></span>

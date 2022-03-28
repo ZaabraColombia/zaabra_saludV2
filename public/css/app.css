@@ -23187,27 +23187,161 @@ a:link, a:visited, a:active, a:hover {
   text-align: center;
   padding: 15px 0;
   box-shadow: -1px -1px 6px 1px rgba(0, 0, 0, 0.2);
-}
-.content__target img {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 5px;
-}
-.content__target h3 {
-  margin: 0;
+  background-repeat: no-repeat;
+  background-size: 65px;
+  background-position-x: center;
+  background-position-y: 45px;
+  height: 175px;
+  position: relative;
   font-weight: bold;
   color: #3E3E3E;
 }
+.content__target span {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  line-height: 1.1;
+  height: 50px;
+  padding: 0 5px;
+}
 .content__target:hover {
-  background: linear-gradient(210deg, #2cacfc, #96d5fc, white);
+  background-color: #0083D6;
   border-radius: 15px;
-  opacity: 0.7;
   -ms-interpolation-mode: nearest-neighbor;
       image-rendering: -moz-crisp-edges;
       image-rendering: pixelated;
   box-shadow: 0px -1px 15px 5px rgba(0, 0, 0, 0.5);
   border-left: 3px solid #1a6395;
   border-bottom: 3px solid #1a6395;
+  color: #FFFFFF;
+}
+
+.calendario_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_calendario_azul.png");
+}
+.calendario_blue:hover {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_calendario_blanco.png");
+}
+
+.cita_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_citas_azul.png");
+}
+.cita_blue:hover {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_citas_blanco.png");
+}
+
+.pago_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pagos_azul.png");
+}
+.pago_blue:hover {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pagos_blanco.png");
+}
+
+.paciente_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pacientes_azul.png");
+}
+.paciente_blue:hover {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pacientes_blanco.png");
+}
+
+.contacto_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_contactos_azul.png");
+}
+.contacto_blue:hover {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_contactos_blanco.png");
+}
+
+.favorito_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_favoritos_azul.png");
+}
+.favorito_blue:hover {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_favoritos_blanco.png");
+}
+
+.profesional_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_profesionales_azul.png");
+}
+.profesional_blue:hover {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_profesionales_blanco.png");
+}
+
+.content__target_inst {
+  border: 1px solid #019F86;
+  border-radius: 5px;
+  text-align: center;
+  padding: 15px 0;
+  box-shadow: -1px -1px 6px 1px rgba(0, 0, 0, 0.2);
+  background-repeat: no-repeat;
+  background-size: 65px;
+  background-position-x: center;
+  background-position-y: 45px;
+  height: 175px;
+  position: relative;
+  font-weight: bold;
+  color: #3E3E3E;
+}
+.content__target_inst span {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  line-height: 1.1;
+  height: 50px;
+  padding: 0 5px;
+}
+.content__target_inst:hover {
+  background-color: #019F86;
+  border-radius: 15px;
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: pixelated;
+  box-shadow: 0px -1px 15px 5px rgba(0, 0, 0, 0.5);
+  border-left: 3px solid #2f6a48;
+  border-bottom: 3px solid #2f6a48;
+  color: #FFFFFF;
+}
+
+.profesional_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_profesionales_verde.png");
+}
+.profesional_green:hover {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_profesionales_blanco.png");
+}
+
+.cita_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_citas_verde.png");
+}
+.cita_green:hover {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_citas_blanco.png");
+}
+
+.pago_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_pagos_verde.png");
+}
+.pago_green:hover {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_pagos_blanco.png");
+}
+
+.paciente_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_pacientes_verde.png");
+}
+.paciente_green:hover {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_pacientes_blanco.png");
+}
+
+.contacto_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_contactos_verde.png");
+}
+.contacto_green:hover {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_contactos_blanco.png");
+}
+
+.favorito_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_favoritos_verde.png");
+}
+.favorito_green:hover {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_favoritos_blanco.png");
 }
 
 .content__logos {
@@ -23217,15 +23351,15 @@ a:link, a:visited, a:active, a:hover {
   border-radius: 5px;
   padding: 15px 0;
   box-shadow: -1px -1px 6px 1px rgba(0, 0, 0, 0.2);
+  height: 80px;
 }
 .content__logos img {
   width: 105px;
   height: 46px;
 }
 .content__logos:hover {
-  background: linear-gradient(210deg, #2cacfc, #96d5fc, white);
+  background-color: #cde6f3;
   border-radius: 15px;
-  opacity: 0.7;
   -ms-interpolation-mode: nearest-neighbor;
       image-rendering: -moz-crisp-edges;
       image-rendering: pixelated;
@@ -23234,20 +23368,82 @@ a:link, a:visited, a:active, a:hover {
   border-bottom: 3px solid #1a6395;
 }
 
+.content__logos_inst {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #019F86;
+  border-radius: 5px;
+  padding: 15px 0;
+  box-shadow: -1px -1px 6px 1px rgba(0, 0, 0, 0.2);
+  height: 80px;
+}
+.content__logos_inst img {
+  width: 105px;
+  height: 46px;
+}
+.content__logos_inst:hover {
+  background-color: #cff7f1;
+  border-radius: 15px;
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: pixelated;
+  box-shadow: 0px -1px 15px 5px rgba(0, 0, 0, 0.5);
+  border-left: 3px solid #2f6a48;
+  border-bottom: 3px solid #2f6a48;
+}
+
 @media (min-width: 768px) {
   .content__target {
     padding: 35px 0;
+    background-size: 75px;
+    height: 200px;
+  }
+  .content__target span {
+    height: 60px;
   }
 
   .content__logos {
+    height: 200px;
     padding: 25px 0;
+  }
+  .content__logos img {
+    width: 130px;
+    height: 60px;
+  }
+
+  .content__target_inst {
+    padding: 35px 0;
+    background-size: 75px;
+    height: 200px;
+  }
+  .content__target_inst span {
+    height: 60px;
+  }
+
+  .content__logos_inst {
+    height: 200px;
+    padding: 25px 0;
+  }
+  .content__logos_inst img {
+    width: 130px;
+    height: 60px;
   }
 }
 @media (min-width: 1024px) {
   .content__logos {
+    height: 200px;
     padding: 58px 0;
   }
   .content__logos img {
+    width: 150px;
+    height: 65px;
+  }
+
+  .content__logos_inst {
+    height: 200px;
+    padding: 58px 0;
+  }
+  .content__logos_inst img {
     width: 150px;
     height: 65px;
   }
@@ -26018,6 +26214,18 @@ div.dt-buttons {
   float: right;
   margin-bottom: 20px;
   margin-right: 40px;
+}
+
+.page-item.disabled .page-link {
+  color: #ffffff;
+  pointer-events: none;
+  cursor: auto;
+  background-color: #6ab6f5;
+  border-color: #0083d6;
+}
+
+.paginate_button a {
+  color: #0083d6;
 }
 
 .button_blue_form {

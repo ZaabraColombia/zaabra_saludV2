@@ -409,10 +409,29 @@ Route::get('/test-asignar-cita-profesional-institucion', function (){
     return view('paciente.admin.calendario.asignar-cita-profesional-institucion', compact('profesional', 'weekDisabled'));
 });
 
+// ===================___________ AGENDA INSTITUCIONES ___________=================== //
+
+// Ruta del formulario crear profesionales
 Route::get('/test-crear-professional', function (){
     return view('instituciones.admin.profesionales.crear');
 });
 
+// Ruta de la configuración del calendario
+Route::get('/test-configuracion-calendario-profesional-institucion', function(){
+    return view('instituciones.admin.profesionales.configuracion-calendario');
+});
+
+// Routa de la vista principal de profesionales
+Route::get('/test-profesional-institucion', function(){
+    return view('instituciones.admin.profesionales.index');
+});
+
+// Ruta de la vista contactos
+Route::get('/test-contactos-institucion', function(){
+    return view('instituciones.admin.contactos');
+});
+
+// ===================_________ FIN AGENDA INSTITUCIONES _________=================== //
 
 // Ruta detalles-pago
 Route:: get('/detalles-pago',[App\Http\Controllers\pagosController::class,'index'])->name('detalles-pago');

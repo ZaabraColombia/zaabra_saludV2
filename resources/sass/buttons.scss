@@ -59,9 +59,18 @@ div.dt-buttons {
     margin-bottom: 20px;
     margin-right: 40px;
 }
+// Estilos de los botones de paginación "anterior, posición y siguiente" de las tablas DATATBLE
+.page-item.disabled .page-link {
+    color: #ffffff;
+    pointer-events: none;
+    cursor: auto;
+    background-color: #6ab6f5;
+    border-color: #0083d6;
+}
 
-
-
+.paginate_button a {
+    color: #0083d6;
+}
 
 
 
