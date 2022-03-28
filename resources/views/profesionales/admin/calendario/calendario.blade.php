@@ -195,8 +195,6 @@
                 <div class="modal-body">
                     <h1>Detalle de la cita</h1>
 
-
-
                     <div class="modal_info_cita">
                         <div class="p-3">
                             <h2 class="nombre_paciente"></h2>
@@ -211,6 +209,10 @@
                             </div>
                             <div class="col-md-5 p-0 pl-3 mb-2">
                                 <h3>Tipo de cita</h3>
+                                <span class="tipo_cita"></span>
+                            </div>
+                            <div class="col-12 p-0 pl-3 mb-2 d-flex">
+                                <h3>Modalidad de pago: &nbsp;</h3>
                                 <span class="tipo_cita"></span>
                             </div>
                         </div>
@@ -258,6 +260,10 @@
                                 </div>
                                 <div class="col-md-5 p-0 pl-3 mb-2">
                                     <h3>Tipo de cita</h3>
+                                    <span class="tipo_cita"></span>
+                                </div>
+                                <div class="col-12 p-0 pl-3 mb-2 d-flex">
+                                    <h3>Modalidad de pago: &nbsp;</h3>
                                     <span class="tipo_cita"></span>
                                 </div>
                             </div>
@@ -337,6 +343,10 @@
                                     <h3>Tipo de cita</h3>
                                     <span class="tipo_cita"></span>
                                 </div>
+                                <div class="col-12 p-0 pl-3 mb-2 d-flex">
+                                    <h3>Modalidad de pago: &nbsp;</h3>
+                                    <span class="tipo_cita"></span>
+                                </div>
                             </div>
                         </div>
                         <div class="form_modal">
@@ -405,6 +415,10 @@
                             </div>
                             <div class="col-md-5 p-0 pl-3 mb-2">
                                 <h3>Tipo de cita</h3>
+                                <span class="tipo_cita"></span>
+                            </div>
+                            <div class="col-12 p-0 pl-3 mb-2 d-flex">
+                                <h3>Modalidad de pago: &nbsp;</h3>
                                 <span class="tipo_cita"></span>
                             </div>
                         </div>
@@ -484,6 +498,7 @@
                 },
                 selectable: false,
                 editable: false,
+
                 //Abrir evento
                 eventClick: function(info) {
 
@@ -524,7 +539,7 @@
                 },
                 dayCellDidMount: function (date) {
 
-                }
+                }, 
             });
             calendar.render();
 
