@@ -65,7 +65,7 @@
                     <i class="fas fa-arrow-right pl-2"></i>
                 </a>
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_ver_cita">agenda no disponible</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_agenda_no_disponible">agenda no disponible</button>
             </div>
         </div>
     </section>
@@ -395,8 +395,8 @@
         </div>
     </section>
 
-    <!-- Modal ver cita -->
-    <div class="modal fade" id="modal_ver_cita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal agenda profesinal no disponible -->
+    <div class="modal fade" id="modal_agenda_no_disponible" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
