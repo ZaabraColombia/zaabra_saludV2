@@ -7,7 +7,7 @@
                 <div class="row m-0 justify-content-between">
                     <!-- Profesionales -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
-                        <a  href='{{-- route('institucion.agenda.calendario') --}}'>
+                        <a  href='{{ route('institucion.profesionales.index') }}'>
                             <div class="content__target_inst profesional_green">
                                 <span class="subtitle__lg">Profesionales</span>
                             </div>
@@ -32,7 +32,7 @@
                     <!-- Pacientes -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='{{ route('institucion.pacientes') }}'>
-                            <div class="content__target_inst paciente_green">                                
+                            <div class="content__target_inst paciente_green">
                                 <span class="subtitle__lg">Pacientes</span>
                             </div>
                         </a>

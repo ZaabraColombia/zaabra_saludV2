@@ -22,7 +22,7 @@
 
                 <!-- pagos -->
                 <li class="sidebar-item  has-sub">
-                    <a id="" class="" href='{{-- route('institucion.pagos') --}}'>
+                    <a id="" class="" href='{{ route('institucion.profesionales.index') }}'>
                         <button class="{{ request()->routeIs('institucion.profesionales.*') ? 'btn_active' : '' }}">Mis profesionales</button>
                     </a>
                 </li>
