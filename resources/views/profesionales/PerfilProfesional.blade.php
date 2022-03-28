@@ -66,6 +66,8 @@
                 </a>
 
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_agenda_no_disponible">agenda no disponible</button>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_new_login">new login Dr</button>
             </div>
         </div>
     </section>
@@ -433,6 +435,33 @@
 
                 <div class="modal-footer content_btn_center">
 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal info iniciar login como paciente -->
+    <div class="modal fade" id="modal_new_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal_container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="elemento_infortmativo mt-3">
+                        <i data-feather="alert-triangle" class="informativo"></i>
+                    </div>
+
+                    <div class="text-center mt-4 px-3 py-0">
+                        <p class="black_light fs_text">Para agendar cita medica, inicie sesión como paciente.</p>
+                    </div>
+                </div>
+
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_transparent" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>

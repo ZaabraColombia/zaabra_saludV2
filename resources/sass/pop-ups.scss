@@ -192,16 +192,42 @@
 }
 
 .elemento_no_disponible {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 35px;
+    border: 2px solid #f58d37;
+    padding: 10px;
+    color: rgb(245 141 55);
+    box-shadow: 0px 1px 8px 8px rgb(245 141 55 / 23%);
     .no_disponible {
-        width: 60px;
-        height: 60px;
-        border-radius: 35px;
-        border: 2px solid #f58d37;
-        padding: 10px;
+        width: 50px;
+        height: 50px;
         color: rgb(245 141 55);
-        box-shadow: 0px 1px 8px 8px rgb(245 141 55 / 23%);
     }        
 }
+
+.elemento_infortmativo {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85px;
+    height: 85px;
+    border-radius: 75px;
+    border: 2px solid #d0d125;
+    padding: 10px;
+    box-shadow: 0px 1px 8px 8px rgb(244 245 55 / 23%);
+    .informativo {
+        height: 55px;
+        width: 55px;
+        color: #d0d125;
+    }        
+}
+
 @media(min-width: 768px) {
     .modal_container {
         .modal-body .modal_medio_pago .info_medio_pago {  
