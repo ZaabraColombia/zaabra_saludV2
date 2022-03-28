@@ -64,9 +64,8 @@
                 <a href="{{route('paciente.asignar-cita-profesional', ['profesional' => $objprofesionallanding->slug])}}">Agende su cita
                     <i class="fas fa-arrow-right pl-2"></i>
                 </a>
-            <!-- <a href="#">Ver agenda
-                    <i class="fas fa-arrow-right pl-2"></i>
-                </a> -->
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_ver_cita">agenda no disponible</button>
             </div>
         </div>
     </section>
@@ -395,17 +394,64 @@
             <h3 class="icono_verificado-prof txt_verify-bottom"> Todos los comentarios son de pacientes verificados. </h3>
         </div>
     </section>
+
+    <!-- Modal ver cita -->
+    <div class="modal fade" id="modal_ver_cita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal_container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <h1>Disponibilidad de Agenda</h1>
+
+                    <div class="">
+                        <div class="card card_day mb-2">
+                            <div class="card-header">
+                                <div class="card_header_day"></div>
+                                <div class="card_header_day"></div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="elemento_no_disponible">
+                                    <i data-feather="cloud-off" class="no_disponible"></i>
+                                </div>
+                            </div> 
+                            <div class="card-footer"></div>
+                        </div>
+
+                        <div class="text-center p-3">
+                            <p class="black_light fs_text">Profesional Wilmar Polo</p>
+                            <p class="black_light fs_text">Especialización Dermatología</p>
+                            <p class="black_light fs_text">Actualmente no tiene agenda disponoble.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer content_btn_center">
+
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
     <!-- Script JS for perfil profesional -->
 
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script>
         Fancybox.bind("[data-fancybox]", {
             // Your options go here
         });
     </script>
     <script src="{{ asset('js/perfil-profesionales.js') }}"></script>
+    <script>
+        feather.replace()
+    </script>
 
 @endsection

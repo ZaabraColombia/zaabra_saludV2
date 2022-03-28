@@ -190,6 +190,18 @@
         box-shadow: 0px 1px 8px 8px rgb(244 100 100 / 20%);
     }
 }
+
+.elemento_no_disponible {
+    .no_disponible {
+        width: 60px;
+        height: 60px;
+        border-radius: 35px;
+        border: 2px solid #f58d37;
+        padding: 10px;
+        color: rgb(245 141 55);
+        box-shadow: 0px 1px 8px 8px rgb(245 141 55 / 23%);
+    }        
+}
 @media(min-width: 768px) {
     .modal_container {
         .modal-body .modal_medio_pago .info_medio_pago {  
