@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
-
 /*----------------------------------------------Buscadores----------------------------------------------------------------------------*/
 /* Buscador del home */
 Route::get('/search/filtro', [App\Http\Controllers\buscador\buscadorController::class, 'filtroBusquedad'])->name('search.filtro');
