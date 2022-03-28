@@ -64,10 +64,6 @@
                 <a href="{{route('paciente.asignar-cita-profesional', ['profesional' => $objprofesionallanding->slug])}}">Agende su cita
                     <i class="fas fa-arrow-right pl-2"></i>
                 </a>
-
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_agenda_no_disponible">agenda no disponible</button>
-
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_new_login">new login Dr</button>
             </div>
         </div>
     </section>
