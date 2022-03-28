@@ -6,7 +6,7 @@
             <div class="w-100">
                 <h1 class="titulo_h1"> Acceda a nuestro portal de Zaabra <br> Salud o regístrese. </h1>
             </div>
-            
+
             <div id="tarjeta" class="card tarjeta_principal margInferior">
                 <div class="card-header tarjeta_header">
                     <div class="seccion_inactiva">
@@ -48,67 +48,67 @@
                         <div id="persona"> <!-- Nombres y apellidos persona -->
                             <input type="hidden" name="idrol"  id="valor_tipo">
 
-                            <div class="names_person my-3"> 
-                            
+                            <div class="names_person my-3">
+
                                 <label for="primernombre" class="texto_label">{{ __('Nombres *') }}</label>
                                 <div class="d-md-flex">
-                                    <input id="primernombre" type="text" class="input_form mb-2 mr-md-1 @error('primernombre') is-invalid @enderror" name="primernombre" value="{{ old('primernombre') }}"  
+                                    <input id="primernombre" type="text" class="input_form mb-2 mr-md-1 @error('primernombre') is-invalid @enderror" name="primernombre" value="{{ old('primernombre') }}"
                                     autocomplete="primernombre" autofocus placeholder="Primer Nombre">
                                     @error('primernombre')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    
-                                    <input id="segundonombre" type="text" class="input_form mb-3 ml-md-1 @error('segundonombre') is-invalid @enderror" name="segundonombre" value="{{ old('segundonombre') }}"  
+
+                                    <input id="segundonombre" type="text" class="input_form mb-3 ml-md-1 @error('segundonombre') is-invalid @enderror" name="segundonombre" value="{{ old('segundonombre') }}"
                                     autofocus placeholder="Segundo Nombre">
                                 </div>
 
-                            
+
                                 <label for="primerapellido" class="texto_label">{{ __('Apellidos *') }}</label>
-                                
+
                                 <div class="d-md-flex">
-                                    <input id="primerapellido" type="text" class="input_form mb-2 mr-md-1 @error('primerapellido') is-invalid @enderror" name="primerapellido" value="{{ old('primerapellido') }}"  
+                                    <input id="primerapellido" type="text" class="input_form mb-2 mr-md-1 @error('primerapellido') is-invalid @enderror" name="primerapellido" value="{{ old('primerapellido') }}"
                                     autocomplete="primerapellido" autofocus placeholder="Primer Apellido">
                                     @error('primerapellido')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                
-                                    <input id="segundoapellido" type="text" class="input_form ml-md-1 @error('segundoapellido') is-invalid @enderror" name="segundoapellido" 
+
+                                    <input id="segundoapellido" type="text" class="input_form ml-md-1 @error('segundoapellido') is-invalid @enderror" name="segundoapellido"
                                     value="{{ old('segundoapellido') }}" autofocus placeholder="Segundo Apellido">
-                                </div> 
+                                </div>
                             </div>
                         </div>
 
                         <div id="institucion" class="names_institution mt-3"> <!-- Nombre institución -->
                             <label for="nombreinstitucion" class="texto_label">{{ __('Nombre Institución *') }}</label>
 
-                            <input id="nombreinstitucion" type="text" class="input_form mb-3 @error('nombreinstitucion') is-invalid @enderror" name="nombreinstitucion" value="{{ old('nombreinstitucion') }}" 
+                            <input id="nombreinstitucion" type="text" class="input_form mb-3 @error('nombreinstitucion') is-invalid @enderror" name="nombreinstitucion" value="{{ old('nombreinstitucion') }}"
                             autofocus placeholder="Nombre Institucion">
                         </div>
 
-                        <div class="datos_secundarios"> <!-- Datos secundarios --> 
+                        <div class="datos_secundarios"> <!-- Datos secundarios -->
                             <label for="tipodocumento" class="texto_label">{{ __('Tipo Documento *') }}</label>
 
                             <select class="input_form mb-3 @error('tipodocumento') is-invalid @enderror" name="tipodocumento" required>
-                                <option value="" selected> Seleccione </option>
-                                <option value="1"> Cedula Ciudadania </option>
-                                <option value="2"> Cedula Extranjeria </option>
-                                <option value="3"> Nit </option>
+                                <option></option>
+                                @foreach($tipo_documentos as $tipo)
+                                    <option value="{{ $tipo->id }}" {{ old('tipo_documento') == $tipo->id? 'selected':'' }}>{{ $tipo->nombre }}</option>
+                                @endforeach
                             </select>
-                        
+
                             <label for="numerodocumento" class="texto_label">{{ __('Numero Documento *') }}</label>
-                            
-                            <input id="numerodocumento" type="number" class="input_form mb-3 @error('numerodocumento') is-invalid @enderror" name="numerodocumento" value="{{ old('numerodocumento') }}" 
+
+                            <input id="numerodocumento" type="text" class="input_form mb-3 @error('numerodocumento') is-invalid @enderror" name="numerodocumento" value="{{ old('numerodocumento') }}"
                             autocomplete="numerodocumento" autofocus>
                             @error('numerodocumento')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        
+
                             <label for="email" class="texto_label">{{ __('Correo electrónico *') }}</label>
 
                             <input id="email" type="email" class="input_form mb-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" required placeholder="servicioalcliente@zaabrasalud.co">
@@ -117,7 +117,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        
+
                             <label for="password" class="texto_label">{{ __('Contraseña *') }}</label>
 
                             <input id="password" type="password" class="input_form mb-3 @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Contraseña">
@@ -139,7 +139,7 @@
                                     <a class="txt_link_check" href="{{url('politicas')}}" target="blank">términos y condiciones</a>  de Zaabra Salud.
                                 </p>
                             </div>
-                        
+
                             <div class="d-flex mt-2"> <!-- Check de Promociones -->
                                 <input type="checkbox" class="" id="">
 

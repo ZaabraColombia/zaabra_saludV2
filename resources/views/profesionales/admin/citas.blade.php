@@ -53,15 +53,14 @@
                                     <td>{{ "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A') }" }}</td>
                                     <td>{{ $cita->tipo_consulta->nombreconsulta }}</td>
                                     <td>{{ $cita->paciente->user->nombre_completo }} <br>
-                                        <span>name@gmail.com</span>
+                                        <span>{{ $cita->paciente->user->email }}</span>
                                     </td>
                                     <td>
-                                        <span>310 235 6548</span> <br>
-                                        <span>7025 235</span>
+                                        <span>{{ $cita->paciente->celular }}</span> <br>
+                                        <span>{{ $cita->paciente->telefono }}</span>
                                     </td>
                                     <td>
-                                        <span>call 34 sur # 56 - 44</span> <br>
-                                        <span>Conjunto los ceresos</span>
+                                        <span>{{ $cita->paciente->direccion }}</span>
                                     </td>
                                     <td>
                                         <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>

@@ -8,6 +8,8 @@ use App\Models\municipio;
 use App\Models\Paciente;
 use App\Models\pais;
 use App\Models\provincia;
+use App\Models\tipoconsultas;
+use App\Models\TipoDocumento;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -63,6 +65,8 @@ class FormularioPaciente extends Controller
             $listaMunicipios = array();
         }
 
+        $tipo_documentos = TipoDocumento::query()->natural()->get();
+
         //Vista
         return view('paciente.formulario_paciente', compact(
             'user',
@@ -70,6 +74,7 @@ class FormularioPaciente extends Controller
             'listaPaises',
             'listaDepartamentos',
             'listaProvincias',
+            'tipo_documentos',
             'listaMunicipios'
         ));
     }
