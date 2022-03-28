@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Paciente\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Pagos\CitaOpenPay;
+use App\Mail\ConfirmacionCitaEmail;
 use App\Models\Antiguedad;
 use App\Models\Cita;
 use App\Models\PagoCita;
@@ -13,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use function view;
@@ -276,6 +278,10 @@ class CalendarioController extends Controller{
             'tipo'      => $all['modalidad'],
             'cita_id'   => $date->id_cita,
         ]);
+
+        //Enviar notificación de confirmación de cita
+        Mail::to($user->email)->send(new ConfirmacionCitaEmail($date, 'profesional'));
+
 
         if ($all['modalidad'] == 'virtual')
             return redirect()

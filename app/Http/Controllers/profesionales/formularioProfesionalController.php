@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\profesionales;
 use App\Http\Controllers\Controller;
 use App\Models\destacados;
+use App\Models\TipoDocumento;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -41,7 +42,7 @@ class formularioProfesionalController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Response
      */
 
 
@@ -129,6 +130,7 @@ class formularioProfesionalController extends Controller
             $objGaleria         = $this->cargaGaleria($id_user);
             $objVideo           = $this->cargaVideo($id_user);
 
+            $tipo_documentos = TipoDocumento::query()->natural()->get();
 
             return view('profesionales.FormularioProfesional',compact(
                 'objuser',
@@ -153,6 +155,7 @@ class formularioProfesionalController extends Controller
                 'objGaleria',
                 'objVideo',
                 'destacables_count',
+                'tipo_documentos',
                 'destacables'
             ));
 
@@ -249,7 +252,7 @@ class formularioProfesionalController extends Controller
     /*------------inicio busquedad datos basicos usuario logueado y data resgistrada del proesional-----------------*/
 
     public function cargaDatosUser($id_user){
-        return DB::select("SELECT us.id, us.primernombre, us.segundonombre, us.primerapellido, us.segundoapellido
+        return DB::select("SELECT us.id, us.primernombre, us.segundonombre, us.primerapellido, us.segundoapellido, us.tipodocumento, us.numerodocumento
         FROM users us
         WHERE id=$id_user");
     }
@@ -411,12 +414,27 @@ class formularioProfesionalController extends Controller
             'segundonombre'     => ['required'],
             'primerapellido'    => ['required'],
             'segundoapellido'   => ['required'],
+            'tipo_documento'    => ['required', 'exists:tipo_documentos,id'],
+            'numero_documento'  => ['required'],
             'fechanacimiento'   => ['required', 'date_format:Y-m-d'],
             'idarea'            => ['required', 'exists:areas,idArea'],
             'idprofesion'       => ['required', 'exists:profesiones,idProfesion'],
             'idespecialidad'    => ['required', 'exists:especialidades,idEspecialidad'],
             'id_universidad'    => ['required', 'exists:universidades,id_universidad'],
             'numeroTarjeta'     => ['required']
+        ], [], [
+            'primernombre'      => 'Primer nombre',
+            'segundonombre'     => 'Segundo nombre',
+            'primerapellido'    => 'Primer apellido',
+            'segundoapellido'   => 'Segundo apellido',
+            'tipo_documento'    => 'Tipo de documento',
+            'numero_documento'  => 'Número de documento',
+            'fechanacimiento'   => 'Fecha de nacimineto',
+            'idarea'            => 'Area',
+            'idprofesion'       => 'Profesión',
+            'idespecialidad'    => 'Especialidad',
+            'id_universidad'    => 'Universidad',
+            'numeroTarjeta'     => 'Tarjeta profesional'
         ]);
 
         if ($validator->fails()) {
@@ -442,10 +460,12 @@ class formularioProfesionalController extends Controller
         //Modificar nombres del usuario\
         $user = User::find($id_user);
 
-        $user->primernombre = $request->primernombre;
-        $user->segundonombre = $request->segundonombre;
-        $user->primerapellido = $request->primerapellido;
-        $user->segundoapellido = $request->segundoapellido;
+        $user->primernombre     = $request->primernombre;
+        $user->segundonombre    = $request->segundonombre;
+        $user->primerapellido   = $request->primerapellido;
+        $user->segundoapellido  = $request->segundoapellido;
+        $user->tipodocumento    = $request->tipo_documento;
+        $user->numerodocumento  = $request->numero_documento;
 
         $user->save();
 
@@ -545,7 +565,7 @@ class formularioProfesionalController extends Controller
 
         //validar el formulario
         $validator = Validator::make($request->all(),[
-            'tipo_consulta' => ['required', Rule::in(['Presencial', 'Virtual', 'Control médico'])],
+            'tipo_consulta' => ['required', Rule::in(['Presencial', 'Virtual', 'Control'])],
             'valor_consulta' => ['required', 'integer', 'min:0'],
         ]);
 

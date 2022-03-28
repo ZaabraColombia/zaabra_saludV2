@@ -96,4 +96,9 @@ class perfilesprofesionales extends Model
     {
         return $this->belongsTo(universidades::class, 'id_universidad', 'id_universidad');
     }
+
+    public function ciudad()
+    {
+        return $this->belongsTo(municipio::class, 'id_municipio', 'id_municipio');
+    }
 }

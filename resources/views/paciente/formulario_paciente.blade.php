@@ -54,9 +54,13 @@
                                 <label for="tipo_documento" class="label_txt_form">{{ __('paciente.tipo-documento') }}</label>
                                 <select id="tipo_documento" class="input_box_form" name="tipo_documento">
                                     <option> Seleccione </option>
-                                    <option value="1" {{ old('tipo_documento',$user->tipodocumento) == $user->tipodocumento ? 'selected' : ''}}> Cedula Ciudadania </option>
-                                    <option value="2" {{ old('tipo_documento',$user->tipodocumento) == $user->tipodocumento ? 'selected' : ''}}> Cedula Extranjeria </option>
-                                    <option value="3" {{ old('tipo_documento',$user->tipodocumento) == $user->tipodocumento ? 'selected' : ''}}> Nit </option>
+{{--                                    <option value="1" {{ old('tipo_documento',$user->tipodocumento) == $user->tipodocumento ? 'selected' : ''}}> Cedula Ciudadania </option>--}}
+{{--                                    <option value="2" {{ old('tipo_documento',$user->tipodocumento) == $user->tipodocumento ? 'selected' : ''}}> Cedula Extranjeria </option>--}}
+{{--                                    <option value="3" {{ old('tipo_documento',$user->tipodocumento) == $user->tipodocumento ? 'selected' : ''}}> Nit </option>--}}
+
+                                    @foreach($tipo_documentos as $tipo)
+                                        <option value="{{ $tipo->id }}" {{ old('tipo_documento', $user->tipodocumento) == $tipo->id? 'selected':'' }}>{{ $tipo->nombre }}</option>
+                                    @endforeach
                                 </select>
 
                             </div>

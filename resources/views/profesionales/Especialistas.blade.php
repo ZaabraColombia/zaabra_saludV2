@@ -101,7 +101,7 @@
           </div>
 
           <div class="contains_buttons">
-            <a href="{{route('paciente.asignar-cita-profesional', ['profesional' => $objcarruselprofesionalespremiun->slug])}}">Agendar
+            <a href="{{route('paciente.asignar-cita-profesional', ['profesional' => $objmedicospagonormal->slug])}}">Agendar
                 <i class="fas fa-arrow-right pl-2"></i>
             </a>
 

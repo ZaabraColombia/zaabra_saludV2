@@ -88,6 +88,21 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-6 p-0 pl-md-1">
+                                <label for="tipo_documento" class="label_txt_form">Tipo de documento</label>
+                                <select id="tipo_documento" class="input_box_form" name="tipo_documento">
+                                    <option></option>
+                                    @foreach($tipo_documentos as $tipo)
+                                        <option value="{{ $tipo->id }}" {{ old('tipo_documento', $objuser->tipodocumento) == $tipo->id? 'selected':'' }}>{{ $tipo->nombre }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 p-0 pr-md-1">
+                                <label for="numero_documento" class="label_txt_form">Número de documento</label>
+                                <input id="numero_documento" class="input_box_form" type="text" name="numero_documento" value="{{ old('numero_documento', $objuser->numerodocumento) }}" />
+                            </div>
+
                             <div class="col-md-6 p-0 pr-md-1">
                                 <label for="example-date-input" class="label_txt_form">Fecha de nacimiento</label>
                                 <input class="input_box_form" type="date" value="{{$objFormulario->fechanacimiento}}" id="fechanacimiento" name="fechanacimiento">
@@ -321,7 +336,7 @@
 
         <!-- 1.15 Recover password -->
         <div class="card_module_form">
-          <h5 class="icon_text icon_basicInfo_formProf">Actualizar contraseña</h5>
+            <h5 class="icon_text icon_basicInfo_formProf">Actualizar contraseña</h5>
 
             <form action="{{ route('profesional.formulario-password') }}" id="form-password-profesional" method="post" class="pb-2">
                 <div id="mensajes-password"></div>
@@ -692,12 +707,12 @@
             </div>
 
             <div id="mensajes-tratamientos">
-{{--                @if($count_tratamientos >= 2 )--}}
-{{--                    <div class="alert alert-success" role="alert">--}}
-{{--                        <h4 class="alert-heading">Hecho!</h4>--}}
-{{--                        <p>Ya tienes el máximo de tratamientos</p>--}}
-{{--                    </div>--}}
-{{--                @endif--}}
+                {{--                @if($count_tratamientos >= 2 )--}}
+                {{--                    <div class="alert alert-success" role="alert">--}}
+                {{--                        <h4 class="alert-heading">Hecho!</h4>--}}
+                {{--                        <p>Ya tienes el máximo de tratamientos</p>--}}
+                {{--                    </div>--}}
+                {{--                @endif--}}
             </div>
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave9') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_tratamiento" class="pb-2">
@@ -974,12 +989,12 @@
             </div>
 
             <div id="mensajes-fotos">
-{{--                @if($count_foto >= 8 )--}}
-{{--                    <div class="alert alert-success" role="alert">--}}
-{{--                        <h4 class="alert-heading">Hecho!</h4>--}}
-{{--                        <p>Ya tienes el máximo de fotos</p>--}}
-{{--                    </div>--}}
-{{--                @endif--}}
+                {{--                @if($count_foto >= 8 )--}}
+                {{--                    <div class="alert alert-success" role="alert">--}}
+                {{--                        <h4 class="alert-heading">Hecho!</h4>--}}
+                {{--                        <p>Ya tienes el máximo de fotos</p>--}}
+                {{--                    </div>--}}
+                {{--                @endif--}}
             </div>
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave12') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario_fotos" class="pb-2">
@@ -1048,12 +1063,12 @@
             </div>
 
             <div id="mensajes-fotos">
-{{--                @if($count_videos >= 4 )--}}
-{{--                    <div class="alert alert-success" role="alert">--}}
-{{--                        <h4 class="alert-heading">Hecho!</h4>--}}
-{{--                        <p>Ya tienes el máximo de videos</p>--}}
-{{--                    </div>--}}
-{{--                @endif--}}
+                {{--                @if($count_videos >= 4 )--}}
+                {{--                    <div class="alert alert-success" role="alert">--}}
+                {{--                        <h4 class="alert-heading">Hecho!</h4>--}}
+                {{--                        <p>Ya tienes el máximo de videos</p>--}}
+                {{--                    </div>--}}
+                {{--                @endif--}}
             </div>
 
             <form method="POST" action="{{ url ('/FormularioProfesionalSave13') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="formulario-videos" class="pb-2">
