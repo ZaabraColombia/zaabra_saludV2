@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
-
 /*----------------------------------------------Buscadores----------------------------------------------------------------------------*/
 /* Buscador del home */
 Route::get('/search/filtro', [App\Http\Controllers\buscador\buscadorController::class, 'filtroBusquedad'])->name('search.filtro');
@@ -329,6 +328,16 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
     Route::get('/pacientes',[entidades\Admin\PacientesController::class,'index'])->name('pacientes');
 
     Route::resource('contactos', entidades\Admin\ContactosController::class);
+
+    Route::resource('profesionales', entidades\Admin\ProfesionalesController::class)
+        ->parameter('profesionales', 'profesional')
+        ->except(['destroy']);
+    Route::get('profesionales/{profesional}/configurar-calendario', [entidades\Admin\PacientesController::class,'configurar_calendario'])
+        ->name('profesionales.configurar_calendario');
+    Route::post('profesionales/{profesional}/configurar-calendario', [entidades\Admin\PacientesController::class,'guardar_calendario'])
+        ->name('profesionales.guardar_calendario');
+
+
 });
 
 /*------------------------------------------------Pertenece el paciente-------------------------------------------------------------------------------*/

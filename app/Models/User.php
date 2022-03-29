@@ -31,6 +31,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'google_id',
         'facebook_id',
+        'institucion_id',
     ];
 
     /**
@@ -52,9 +53,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * Get the profecional associated with the user.
-     */
+
+//    protected $with = [
+//        'roles'
+//    ];
+
+
     public function profecional()
     {
         return $this->hasOne(perfilesprofesionales::class, 'idUser', 'id');
@@ -79,8 +83,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function institucion()
     {
+        $role = $this->roles()->where('idrol', 4)->first();
+        if (!empty($role))
+        {
+            return $this->belongsTo(instituciones::class, 'institucion_id', 'id');
+        }
         return $this->hasOne(instituciones::class, 'idUser', 'id');
-
     }
 
     public function horario()
