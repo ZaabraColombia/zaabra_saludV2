@@ -71,7 +71,12 @@ div.dt-buttons {
 .paginate_button a {
     color: #0083d6;
 }
-
+// Botones tipo iconos 
+.btn_type_icon_green {
+    border: none;
+    background: transparent;
+    color: $green_official;
+}
 
 
 
@@ -125,3 +130,7 @@ div.dt-buttons {
     color: #019f86;
     padding: 0;
 }
+
+
+
+

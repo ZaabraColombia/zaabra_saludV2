@@ -9,7 +9,7 @@
         <div class="containt_agendaProf">
             <!-- Form update duration date -->
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Configuración de cita</h1>
+                <h1 class="title__xl green_bold">Configuración de cita</h1>
                 <h2 class="text__md black_light">Administre el horario de las citas</h2>
             </div>
 
@@ -38,7 +38,7 @@
 
                     <!-- Buttons -->
                     <div class="row m-0 content_btn_right">
-                        <button type="submit" class="button_blue">Guardar</button>
+                        <button type="submit" class="button_green">Guardar</button>
                     </div>
                 </div>
             </form>
@@ -50,7 +50,7 @@
                 <div class="containt_main_table mb-3">
                     <div id="alert-horario-agregar"></div>
                     <div class="mb-3">
-                        <h2 class="subtitle__lg blue_bold">Nuevo Horario</h2>
+                        <h2 class="subtitle__lg green_bold">Nuevo Horario</h2>
                     </div>
 
                     <div class="list__form">
@@ -100,19 +100,19 @@
 
                     <!-- Buttons -->
                     <div class="row m-0 content_btn_right">
-                        <button type="submit" class="button_blue">Agregar</button>
+                        <button type="submit" class="button_green">Agregar</button>
                     </div>
                 </div>
             </form>
 
             <div class="containt_main_table mb-3">
                 <div class="mb-3">
-                    <h2 class="subtitle__lg blue_bold">Horario</h2>
+                    <h2 class="subtitle__lg green_bold">Horario</h2>
                 </div>
 
                 <div class="table-responsive">
                     <table class="table" id="table-horario">
-                        <thead>
+                        <thead class="thead_green">
                             <tr>
                                 <th>Días</th>
                                 <th>Horas</th>
@@ -125,8 +125,9 @@
                                 <td>Lunes, Martes, Miercoles</td>
                                 <td>10:00 a.m. a 02:00 p.m.</td>
                                 <td>
-                                    <button class="btn_cierre_citasProf eliminar-horario"
-                                            type="button" data-id=""></button>
+                                    <button class="btn_type_icon_green eliminar-horario tool top" type="button" data-id="">
+                                        <i data-feather="x-circle"></i> <span class="tiptext">eliminar horario</span>
+                                    </button>
                                 </td>
                             </tr>
                         </tbody>
@@ -157,7 +158,7 @@
 
                 <div class="modal-footer content_btn_center">
                     <button type="button" class="button_transparent btn-eliminar-horario" data-status="0">Cancelar</button>
-                    <button type="submit" class="button_blue btn-eliminar-horario" data-status="1">Confirmar</button>
+                    <button type="submit" class="button_green btn-eliminar-horario" data-status="1">Confirmar</button>
                 </div>
             </div>
         </div>
@@ -167,6 +168,11 @@
 @section('scripts')
     <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
     <script src="{{ asset('js/alertas.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+    <script>
+        feather.replace()
+    </script>
 
     <script>
         $(function () {

@@ -104,6 +104,13 @@
     }
 }
 
+// Tabla instituciones
+.table .thead_green tr th {
+    font-family: 'Quicksand';
+    color: $green_official;
+    font-weight: bold;
+}
+
 // propiedades tabla mis profesionales agenda paciente
 .containt_main_table {
     background-color: #FFFFFF;

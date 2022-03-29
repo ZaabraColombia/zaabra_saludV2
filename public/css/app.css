@@ -26407,6 +26407,12 @@ div.dt-buttons {
   color: #0083d6;
 }
 
+.btn_type_icon_green {
+  border: none;
+  background: transparent;
+  color: #019F86;
+}
+
 .button_blue_form {
   font-family: "Quicksand";
   font-size: 1em;
@@ -26559,6 +26565,12 @@ div.dt-buttons {
 .table thead tr th .btn_action i,
 .table tbody tr td .btn_action i {
   font-size: 15px;
+}
+
+.table .thead_green tr th {
+  font-family: "Quicksand";
+  color: #019F86;
+  font-weight: bold;
 }
 
 .containt_main_table {
@@ -27074,6 +27086,16 @@ div.dt-buttons {
 
 .blue_light {
   color: #0083D6;
+  font-weight: 500;
+}
+
+.green_bold {
+  color: #019F86;
+  font-weight: bold;
+}
+
+.green_light {
+  color: #019F86;
   font-weight: 500;
 }
 
