@@ -213,9 +213,10 @@ class CalendarioController extends Controller
                 'backgroundColor' => $background,
                 'textColor' => $color,
                 'borderColor' => $background,
-                'display' => 'auto',
+                'display' => 'block',
                 'title' => $date->paciente->user->nombre_completo,
             ];
+            
         }
 
         return response($data, Response::HTTP_OK);

@@ -48,6 +48,15 @@
 .cita_cancel i {
     background: #9DD1F9 0% 0% no-repeat padding-box;
 }
+
+.fc-h-event .fc-event-title {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.fc-h-event .fc-event-time {
+    overflow: inherit !important;
+}
 @media (min-width: 320px){
     .dias{
         font-size: 1em;
