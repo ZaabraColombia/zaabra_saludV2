@@ -14,7 +14,7 @@
             </div>
 
             <form action=""
-                method="post" id="form-dias" class="forms" data-alert="#alert-cita">
+                  method="post" id="form-dias" class="forms" data-alert="#alert-cita">
                 @csrf
                 <div class="containt_main_table mb-3">
                     <div id="alert-cita"></div>
@@ -44,8 +44,8 @@
             </form>
 
             <!-- Form add schedule-->
-            <form action=""
-                method="post" id="form-horario-agregar" class="forms" data-alert="#alert-horario-agregar">
+            <form action="{{ route('institucion.profesionales.guardar_horario', ['profesional', $profesional->id_profesional_inst]) }}"
+                  method="post" id="form-horario-agregar" class="forms" data-alert="#alert-horario-agregar">
                 @csrf
                 <div class="containt_main_table mb-3">
                     <div id="alert-horario-agregar"></div>
@@ -121,15 +121,26 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>Lunes, Martes, Miercoles</td>
-                                <td>10:00 a.m. a 02:00 p.m.</td>
-                                <td>
-                                    <button class="btn_type_icon_green eliminar-horario tool top" type="button" data-id="">
-                                        <i data-feather="x-circle"></i> <span class="tiptext">eliminar horario</span>
-                                    </button>
-                                </td>
-                            </tr>
+                        @if(!empty($profesional->horario) and is_array($profesional->horario))
+                            @foreach($profesional->horario as $item)
+                                <tr>
+                                    <td>
+                                        @if(!empty($item['daysOfWeek']))
+                                            @php foreach ($item['daysOfWeek'] as $k => $i) $item['daysOfWeek'][$k] = daysWeekText($i); @endphp
+                                            {{ implode('-', $item['daysOfWeek']) }}
+                                        @endif
+                                    </td>
+                                    <td>{{ date('h:i A', strtotime($item['startTime'])) }} - {{ date('h:i A', strtotime($item['endTime'])) }}</td>
+                                    <td>
+                                        <button class="btn_type_icon_green eliminar-horario tool top"
+                                                type="button" data-id="{{ $item['id'] }}">
+                                            <span class="tiptext">eliminar horario</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+
                         </tbody>
                     </table>
                 </div>
@@ -158,7 +169,7 @@
 
                 <div class="modal-footer content_btn_center">
                     <button type="button" class="button_transparent btn-eliminar-horario" data-status="0">Cancelar</button>
-                    <button type="submit" class="button_green btn-eliminar-horario" data-status="1">Confirmar</button>
+                    <button type="submit" class="button_blue btn-eliminar-horario" data-status="1">Confirmar</button>
                 </div>
             </div>
         </div>
@@ -169,7 +180,7 @@
     <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
     <script src="{{ asset('js/alertas.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    
+
     <script>
         feather.replace()
     </script>
@@ -177,6 +188,75 @@
     <script>
         $(function () {
             $('[data-toggle="tooltip"]').tooltip();
-        })
+        });
+
+        $('#form-horario-agregar').submit(function (e) {
+            e.preventDefault();
+            var form = $(this);
+
+            $.ajax({
+                data: form.serialize(),
+                url: form.attr('action'),
+                dataType: 'json',
+                method: 'post',
+                success: function (res, status) {
+                    $('#alert-horario-agregar').html(res.message);
+                    //clean form
+                    form[0].reset();
+
+                    //add item form
+                    $('#table-horario tbody').append('<tr>' +
+                        '<td>' +
+                        res.item.daysOfWeek.join('-') +
+                        '</td>' +
+                        '<td>' + moment(res.item.startTime, 'HH:mm').format('hh:mm A') + ' - ' + moment(res.item.endTime, 'HH:mm').format('hh:mm A') + '</td>' +
+                        '<td class="d-flex justify-content-center">' +
+                        '<button class="btn_cierre_citasProf eliminar-horario" type="button" data-id="' + res.item.id + '"></button>' +
+                        '</td>' +
+                        '</tr>');
+                },
+                error: function (res, status) {
+                    $('#alert-horario-agregar').html(alert(res.responseJSON.message, 'danger'));
+                }
+            });
+        });
+
+        var tr_eliminar_horario;
+        $('#table-horario tbody').on('click', '.eliminar-horario', function (e) {
+            e.preventDefault();
+            var btn = $(this);
+            $('.btn-eliminar-horario').data('id', btn.data('id'));
+            tr_eliminar_horario = btn.parents('tr');
+            $('#modal_eliminar_horario').modal();
+        });
+
+        $('.btn-eliminar-horario').click(function (element) {
+            $('#modal_eliminar_horario').modal('hide');
+
+            var btn = $(this);
+
+            if (btn.data('status'))
+            {
+                $.ajax({
+                    data: {id: btn.data('id')},
+                    url: '{{ route('profesional.agenda.configurar-calendario.horario-eliminar') }}',
+                    dataType: 'json',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'delete',
+                    success: function (res) {
+                        $('#alert-horario-agregar').html(alert(res.message, 'success'));
+
+                        tr_eliminar_horario.remove();
+                        tr_eliminar_horario = undefined;
+                    },
+                    error: function (res) {
+                        $('#alert-horario-agregar').html(alert(res.responseJSON.message, 'danger'));
+                    }
+                });
+            }
+        });
+
     </script>
 @endsection

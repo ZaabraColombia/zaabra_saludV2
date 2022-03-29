@@ -18,11 +18,11 @@ Route::get('/search/filtro', [App\Http\Controllers\buscador\buscadorController::
 Route::get('/search', [App\Http\Controllers\buscador\buscadorController::class, 'search'])->name('search');
 
 /*Paquete búsqueda dinámica ciudades */
-Route::get('/get-Departamento',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getDepartamento'])
+Route::get('/get-Departamento',[App\Http\Controllers\buscador\UbicacionController::class,'getDepartamento'])
     ->name('gte-departamentos')->middleware('auth');
-Route::get('/get-Provincia',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getProvincia'])
+Route::get('/get-Provincia',[App\Http\Controllers\buscador\UbicacionController::class,'getProvincia'])
     ->name('get-provincias')->middleware('auth');
-Route::get('/get-Ciudad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getCiudad'])
+Route::get('/get-Ciudad',[App\Http\Controllers\buscador\UbicacionController::class,'getCiudad'])
     ->name('get-ciudad')->middleware('auth');
 Route::get('/paciente/get-Departamento',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getDepartamento'])
     ->name('paciente-gte-departamentos')->middleware('auth');
@@ -332,10 +332,14 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
     Route::resource('profesionales', entidades\Admin\ProfesionalesController::class)
         ->parameter('profesionales', 'profesional')
         ->except(['destroy']);
-    Route::get('profesionales/{profesional}/configurar-calendario', [entidades\Admin\PacientesController::class,'configurar_calendario'])
+    Route::get('profesionales/{profesional}/configurar-calendario', [entidades\Admin\ProfesionalesController::class,'configurar_calendario'])
         ->name('profesionales.configurar_calendario');
-    Route::post('profesionales/{profesional}/configurar-calendario', [entidades\Admin\PacientesController::class,'guardar_calendario'])
+    Route::post('profesionales/{profesional}/configurar-calendario', [entidades\Admin\ProfesionalesController::class,'guardar_calendario'])
         ->name('profesionales.guardar_calendario');
+    Route::post('profesionales/{profesional}/guardar-horario', [entidades\Admin\ProfesionalesController::class,'guardar_horario'])
+        ->name('profesionales.guardar_horario');
+    Route::post('profesionales/{profesional}/eliminar-horario', [entidades\Admin\ProfesionalesController::class,'eliminar_horario'])
+        ->name('profesionales.eliminar_horario');
 
 
 });

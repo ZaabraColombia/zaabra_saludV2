@@ -45,6 +45,7 @@ class profesionales_instituciones extends Model
 
     protected $casts = [
         'horario' => 'array',
+        'fecha_nacimiento' => 'datetime',
     ];
 
     /**
