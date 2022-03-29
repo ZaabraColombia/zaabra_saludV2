@@ -332,10 +332,14 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
     Route::resource('profesionales', entidades\Admin\ProfesionalesController::class)
         ->parameter('profesionales', 'profesional')
         ->except(['destroy']);
-    Route::get('profesionales/{profesional}/configurar-calendario', [entidades\Admin\PacientesController::class,'configurar_calendario'])
+    Route::get('profesionales/{profesional}/configurar-calendario', [entidades\Admin\ProfesionalesController::class,'configurar_calendario'])
         ->name('profesionales.configurar_calendario');
-    Route::post('profesionales/{profesional}/configurar-calendario', [entidades\Admin\PacientesController::class,'guardar_calendario'])
+    Route::post('profesionales/{profesional}/configurar-calendario', [entidades\Admin\ProfesionalesController::class,'guardar_calendario'])
         ->name('profesionales.guardar_calendario');
+    Route::post('profesionales/{profesional}/guardar-horario', [entidades\Admin\ProfesionalesController::class,'guardar_horario'])
+        ->name('profesionales.guardar_horario');
+    Route::post('profesionales/{profesional}/eliminar-horario', [entidades\Admin\ProfesionalesController::class,'eliminar_horario'])
+        ->name('profesionales.eliminar_horario');
 
 
 });
