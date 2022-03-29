@@ -44,7 +44,7 @@
             </form>
 
             <!-- Form add schedule-->
-            <form action="{{ route('institucion.profesionales.guardar_horario', ['profesional', $profesional->id_profesional_inst]) }}"
+            <form action="{{ route('institucion.profesionales.guardar_horario', ['profesional' => $profesional->id_profesional_inst]) }}"
                   method="post" id="form-horario-agregar" class="forms" data-alert="#alert-horario-agregar">
                 @csrf
                 <div class="containt_main_table mb-3">
@@ -56,31 +56,31 @@
                     <div class="list__form">
                         <ul class="row m-0 mt-3">
                             <li class="col-6 col-md-3 input__check">
-                                <input type="checkbox" value="1" id="semana-1" name="">
+                                <input type="checkbox" value="1" id="semana-1" name="semana[]">
                                 <label for="semana-1">lunes</label>
                             </li>
                             <li class="col-6 col-md-3 input__check">
-                                <input type="checkbox" value="2" id="semana-2" name="">
+                                <input type="checkbox" value="2" id="semana-2" name="semana[]">
                                 <label for="semana-2">Martes</label>
                             </li>
                             <li class="col-6 col-md-3 input__check">
-                                <input type="checkbox" value="3" id="semana-3" name="">
+                                <input type="checkbox" value="3" id="semana-3" name="semana[]">
                                 <label for="semana-3">Miércoles</label>
                             </li>
                             <li class="col-6 col-md-3 input__check">
-                                <input type="checkbox" value="4" id="semana-4" name="">
+                                <input type="checkbox" value="4" id="semana-4" name="semana[]">
                                 <label for="semana-4">Jueves</label>
                             </li>
                             <li class="col-6 col-md-3 input__check">
-                                <input type="checkbox" value="5" id="semana-5" name="">
+                                <input type="checkbox" value="5" id="semana-5" name="semana[]">
                                 <label for="semana-5">Viernes</label>
                             </li>
                             <li class="col-6 col-md-3 input__check">
-                                <input type="checkbox" value="6" id="semana-6" name="">
+                                <input type="checkbox" value="6" id="semana-6" name="semana[]">
                                 <label for="semana-6">Sábado</label>
                             </li>
                             <li class="col-6 col-md-3 input__check">
-                                <input type="checkbox" value="0" id="semana-0" name="">
+                                <input type="checkbox" value="0" id="semana-0" name="semana[]">
                                 <label for="semana-0">Domingo</label>
                             </li>
                         </ul>
