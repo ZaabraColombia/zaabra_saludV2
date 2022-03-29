@@ -105,13 +105,13 @@
 }
 
 // Tabla instituciones
-.table .thead_green tr th {
-    font-family: 'Quicksand';
-    color: $green_official;
-    font-weight: bold;
-}
+// .table .thead_green tr th {
+//     font-family: 'Quicksand';
+//     color: $green_official;
+//     font-weight: bold;
+// }
 
-// propiedades tabla mis profesionales agenda paciente
+// propiedades tabla mis profesionales agenda paciente y profesionales
 .containt_main_table {
     background-color: #FFFFFF;
     border: 1px solid #CED4DA;
@@ -152,7 +152,36 @@
         }
     }
 }
-
+// propiedades tabla mis profesionales agenda instituciones
+// .table_agenda .thead_green tr th {
+//     font-family: 'Quicksand';
+//     color: $green_official;
+//     font-weight: bold;
+// }
+.table_agenda tbody tr td  {
+    border-bottom: 1px solid #CED4DA;
+    font-family: 'Roboto';
+    vertical-align: middle;
+    .btn_action_green {
+        border: none;
+        background-color: transparent;
+        color: $green_official;
+        padding: 6px;
+        border-radius: 25px;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+            background-color: $green_official;
+            color: $withe_official;
+        }
+        i {
+            font-size: 18px;
+        }
+    }
+}
 .user__xl {
     display: flex; 
     align-items: center; 

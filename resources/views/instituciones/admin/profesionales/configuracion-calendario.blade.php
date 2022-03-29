@@ -112,7 +112,7 @@
 
                 <div class="table-responsive">
                     <table class="table" id="table-horario">
-                        <thead class="thead_green">
+                        <thead>
                             <tr>
                                 <th>Días</th>
                                 <th>Horas</th>

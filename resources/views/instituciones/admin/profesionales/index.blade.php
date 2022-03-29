@@ -11,7 +11,7 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Mis Profesionales</h1>
+                <h1 class="title__xl green_bold">Mis Profesionales</h1>
             </div>
 
             <!-- Contenedor barra de búsqueda y botón agregar contacto -->
@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="col-md-3 p-0 content_btn_right">
-                        <a href="{{ route('institucion.profesionales.create') }}" class="button_blue" id="btn-agregar-contacto">
+                        <a href="{{ route('institucion.profesionales.create') }}" class="button_green" id="btn-agregar-contacto">
                             Agregar
                         </a>
                     </div>
@@ -31,17 +31,6 @@
 
             <!-- Contenedor formato tabla de la lista de contactos -->
             <div class="containt_main_table mb-3">
-                <div class="col-12">
-                    @if (session()->has('success'))
-                        <div class="alert alert-success" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="alert-heading">Hecho!</h4>
-                            <p>{{ session('success') }}</p>
-                        </div>
-                    @endif
-                </div>
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-pacientes">
                         <thead>
@@ -75,15 +64,15 @@
                                     <td>{{ "{$profesional->celular} - {$profesional->telefono}" }}</td>
                                     <td>{{ $profesional->direccion }}</td>
                                     <td>
-                                        <a class="btn_action" style="width: 33px"
+                                        <a class="btn_action_green tool top" style="width: 33px"
                                            href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                            <i data-feather="edit"></i>
+                                            <i data-feather="edit"></i> <span class="tiptext">editar profesional</span>
                                         </a>
                                     </td>
                                     <td>
-                                        <a class="btn_action" style="width: 33px"
+                                        <a class="btn_action_green tool top" style="width: 33px"
                                            href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                            <i data-feather="calendar"></i>
+                                            <i data-feather="calendar"></i> <span class="tiptext">configurar cita</span>
                                         </a>
                                     </td>
                                 </tr>

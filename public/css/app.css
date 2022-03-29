@@ -26588,12 +26588,6 @@ div.dt-buttons {
   font-size: 15px;
 }
 
-.table .thead_green tr th {
-  font-family: "Quicksand";
-  color: #019F86;
-  font-weight: bold;
-}
-
 .containt_main_table {
   background-color: #FFFFFF;
   border: 1px solid #CED4DA;
@@ -26635,6 +26629,31 @@ div.dt-buttons {
   color: #FFFFFF;
 }
 .table_agenda tbody tr td .btn_action i {
+  font-size: 18px;
+}
+
+.table_agenda tbody tr td {
+  border-bottom: 1px solid #CED4DA;
+  font-family: "Roboto";
+  vertical-align: middle;
+}
+.table_agenda tbody tr td .btn_action_green {
+  border: none;
+  background-color: transparent;
+  color: #019F86;
+  padding: 6px;
+  border-radius: 25px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.table_agenda tbody tr td .btn_action_green:hover {
+  background-color: #019F86;
+  color: #FFFFFF;
+}
+.table_agenda tbody tr td .btn_action_green i {
   font-size: 18px;
 }
 

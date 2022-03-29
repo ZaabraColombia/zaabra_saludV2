@@ -9,7 +9,7 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Profesionales</h1>
+                <h1 class="title__xl green_bold">Profesionales</h1>
             </div>
 
             <div class="containt_main_table mb-3">
