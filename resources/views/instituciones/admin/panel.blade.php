@@ -54,29 +54,29 @@
                         </a>
                     </div>
 
-                    <!--  -->
+                    <!-- Usuarios -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='#'>
-                            <div class="content__target_inst">
-                                <span class="subtitle__lg"></span>
+                            <div class="content__target_inst usuario_green">
+                                <span class="subtitle__lg">Usuarios</span>
                             </div>
                         </a>
                     </div>
 
-                    <!--  -->
+                    <!-- Convenios -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='#'>
-                            <div class="content__target_inst">
-                                <span class="subtitle__lg"></span>
+                            <div class="content__target_inst convenio_green">
+                                <span class="subtitle__lg">Convenios</span>
                             </div>
                         </a>
                     </div>
 
-                    <!--  -->
+                    <!-- Servicios -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='#'>
-                            <div class="content__target_inst">
-                                <span class="subtitle__lg"></span>
+                            <div class="content__target_inst servicio_green">
+                                <span class="subtitle__lg">Servicios</span>
                             </div>
                         </a>
                     </div>
