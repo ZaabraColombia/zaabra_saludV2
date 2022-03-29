@@ -10,6 +10,8 @@ use App\Models\TipoDocumento;
 use App\Models\universidades;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
 class ProfesionalesController extends Controller
@@ -45,7 +47,7 @@ class ProfesionalesController extends Controller
     public function store(Request $request)
     {
         //Validar
-        //$this->validator($request);
+        $this->validator($request);
 
         $id_institucion = Auth::user()->institucion->id;
         $request->merge(['id_institucion' => $id_institucion]);
@@ -68,7 +70,55 @@ class ProfesionalesController extends Controller
 
     }
 
-    private function validator (Request $request)
+    public function edit(profesionales_instituciones $profesional)
+    {
+        Gate::authorize('update-profesional-institucion', $profesional);
+
+        $tipo_documentos = TipoDocumento::all();
+        $paises = pais::all();
+        $universidades = universidades::all();
+        $especialidades = especialidades::all();
+
+
+        return view('instituciones.admin.profesionales.editar', compact(
+            'tipo_documentos',
+            'paises',
+            'universidades',
+            'especialidades',
+            'profesional',
+        ));
+    }
+
+    public function update(Request $request, profesionales_instituciones $profesional)
+    {
+        Gate::authorize('update-profesional-institucion', $profesional);
+
+        //Validar
+        $this->validator($request, $profesional->id_profesional_inst);
+
+        $id_institucion = Auth::user()->institucion->id;
+        $request->merge(['id_institucion' => $id_institucion]);
+
+        //Guardar foto
+        if ($request->file('foto'))
+        {
+            if (File::exists($profesional->foto_perfil_institucion)) File::delete($profesional->foto_perfil_institucion);
+
+            $foto = $request->file('foto');
+            $nombre_foto = 'profesional-' . time() . '.' . $foto->guessExtension();
+            $url = $foto->move("img/instituciones/{$id_institucion}/profesionales/", $nombre_foto);
+            $request->merge(['foto_perfil_institucion' => $url->getPathname()]);
+        }
+
+        $profesional->update($request->all());
+
+        $profesional->especialidades()->sync($request->get('especialidades'));
+
+        return redirect()->route('institucion.profesionales.index')
+            ->with('success', "El profesional {$profesional->nombre_completo} se ha creado");
+    }
+
+    private function validator (Request $request, $id = null)
     {
         $request->validate([
             'id_universidad'    => ['required', 'exists:universidades,id_universidad'],
@@ -88,7 +138,8 @@ class ProfesionalesController extends Controller
             'departamento_id'   => ['required', 'exists:departamentos,id_departamento'],
             'provincia_id'      => ['required', 'exists:provincias,id_provincia'],
             'ciudad_id'         => ['required', 'exists:municipios,id_municipio'],
-            'correo'            => ['required', 'email', 'max:45', 'unique:profesionales_instituciones,correo'],
+            //'correo'            => ['required', 'email', 'max:45', 'unique:profesionales_instituciones,correo' . (!empty($id)) ? ",{$id}":""],
+            'correo'            => ['required', 'email', 'max:45', Rule::unique("profesionales_instituciones","correo")->ignore($id, 'id_profesional_inst')],
             'sitio_web'         => ['nullable', 'url', 'max:100'],
             'linkedin'          => ['nullable', 'url', 'max:100'],
             'red_social'        => ['nullable', 'url', 'max:100'],

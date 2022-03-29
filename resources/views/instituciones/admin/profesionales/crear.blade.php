@@ -14,6 +14,7 @@
 
             <div class="containt_main_table mb-3">
                 <form action="{{ route('institucion.profesionales.store') }}" method="post" id="form-crear-profesional" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         @if($errors->any())
                             <div class="col-12">
