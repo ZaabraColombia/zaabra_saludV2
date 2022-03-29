@@ -104,29 +104,48 @@
     color: #232323;
 
 }
-.sidebar-wrapper .menu .sidebar-item button {
-    font-size: 16px;
-    font-family: 'Quicksand';
-    margin: 0;
-    padding: 7px 0 7px 25px;
-    width: 180px;
-    background: transparent;
-    border-radius: 5px;
-    border: none;
-    text-align: initial;
-    &:hover {
-        background: $blue_official;
-        color: $withe_official;
+// Items del menú lateral profesionales
+.sidebar-wrapper .menu {
+    .items_blue button {
+        font-size: 16px;
+        font-family: 'Quicksand';
+        margin: 0;
+        padding: 7px 0 7px 25px;
+        width: 180px;
+        background: transparent;
         border-radius: 5px;
+        border: none;
+        text-align: initial;
+        &:hover {
+            background: $blue_official;
+            color: $withe_official;
+            border-radius: 5px;
+        }
+        &:focus {
+            background: $blue_official;
+            color: $withe_official;
+            border-radius: 5px;
+        }
     }
-    &:focus {
-        background: $blue_official;
-        color: $withe_official;
+    .items_logos_blue button { 
+        margin: 0;
+        width: 180px;
+        background: transparent;
         border-radius: 5px;
+        border: none;
+        &:hover {
+            background: #cde6f3;
+            border-radius: 5px;
+        }
     }
 }
-// Items de los submenus
-.sidebar-wrapper .menu .sub_menu {
+.btn_active {
+    background: $blue_official !important;
+    color: $withe_official !important;
+    border-radius: 5px;
+}
+// Items del submenu menú lateral PROFESIONAL Y PACIENTES
+.sidebar-wrapper .menu .sub_menu_blue {
     padding-left: 45px;
     .submenu-item {
         padding-top: 10px;
@@ -136,15 +155,11 @@
         color: $blue_official;
     }
 }
-.btn_active {
-    background: $blue_official !important;
-    color: $withe_official !important;
-    border-radius: 5px;
-}
-.txt_active {
+.txt_active_blue {
     color: $blue_official !important;
     text-decoration: none;
 }
+// Flecha del desplegable de los items menú lateral
 .accordion button[aria-expanded="true"] {
     .icon_angle {
         transform: rotate(180deg);
@@ -152,6 +167,61 @@
     }
 }
 
+// Items del menú lateral INSTITUCIONES
+.sidebar-wrapper .menu {
+    .items_green button {
+        font-size: 16px;
+        font-family: 'Quicksand';
+        margin: 0;
+        padding: 7px 0 7px 25px;
+        width: 180px;
+        background: transparent;
+        border-radius: 5px;
+        border: none;
+        text-align: initial;
+        &:hover {
+            background: $green_official;
+            color: $withe_official;
+            border-radius: 5px;
+        }
+        &:focus {
+            background: $green_official;
+            color: $withe_official;
+            border-radius: 5px;
+        }
+    }
+    .items_logos_green button { 
+        margin: 0;
+        width: 180px;
+        background: transparent;
+        border-radius: 5px;
+        border: none;
+        &:hover {
+            background: #cff7f1;
+            border-radius: 5px;
+        }
+    }
+}
+.btn_active_inst {
+    background: $green_official !important;
+    color: $withe_official !important;
+    border-radius: 5px;
+}
+// Items del submenu menú lateral INSTIRUCIONES
+.sidebar-wrapper .menu .sub_menu_green {
+    padding-left: 45px;
+    .submenu-item {
+        padding-top: 10px;
+        list-style: none;
+    }
+    a:hover {
+        color: $green_official;
+    }
+}
+.txt_active_green {
+    color: $green_official !important;
+    text-decoration: none;
+}
 @media (min-width: 320px){
     // Menú hamburguesa versión CELULAR Y TABLET
     .menu_mobile {

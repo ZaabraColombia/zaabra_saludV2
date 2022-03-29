@@ -23189,7 +23189,7 @@ a:link, a:visited, a:active, a:hover {
   color: #232323;
 }
 
-.sidebar-wrapper .menu .sidebar-item button {
+.sidebar-wrapper .menu .items_blue button {
   font-size: 16px;
   font-family: "Quicksand";
   margin: 0;
@@ -23200,26 +23200,26 @@ a:link, a:visited, a:active, a:hover {
   border: none;
   text-align: initial;
 }
-.sidebar-wrapper .menu .sidebar-item button:hover {
+.sidebar-wrapper .menu .items_blue button:hover {
   background: #0083D6;
   color: #FFFFFF;
   border-radius: 5px;
 }
-.sidebar-wrapper .menu .sidebar-item button:focus {
+.sidebar-wrapper .menu .items_blue button:focus {
   background: #0083D6;
   color: #FFFFFF;
   border-radius: 5px;
 }
-
-.sidebar-wrapper .menu .sub_menu {
-  padding-left: 45px;
+.sidebar-wrapper .menu .items_logos_blue button {
+  margin: 0;
+  width: 180px;
+  background: transparent;
+  border-radius: 5px;
+  border: none;
 }
-.sidebar-wrapper .menu .sub_menu .submenu-item {
-  padding-top: 10px;
-  list-style: none;
-}
-.sidebar-wrapper .menu .sub_menu a:hover {
-  color: #0083D6;
+.sidebar-wrapper .menu .items_logos_blue button:hover {
+  background: #cde6f3;
+  border-radius: 5px;
 }
 
 .btn_active {
@@ -23228,7 +23228,18 @@ a:link, a:visited, a:active, a:hover {
   border-radius: 5px;
 }
 
-.txt_active {
+.sidebar-wrapper .menu .sub_menu_blue {
+  padding-left: 45px;
+}
+.sidebar-wrapper .menu .sub_menu_blue .submenu-item {
+  padding-top: 10px;
+  list-style: none;
+}
+.sidebar-wrapper .menu .sub_menu_blue a:hover {
+  color: #0083D6;
+}
+
+.txt_active_blue {
   color: #0083D6 !important;
   text-decoration: none;
 }
@@ -23236,6 +23247,61 @@ a:link, a:visited, a:active, a:hover {
 .accordion button[aria-expanded=true] .icon_angle {
   transform: rotate(180deg);
   padding-right: 0.5rem;
+}
+
+.sidebar-wrapper .menu .items_green button {
+  font-size: 16px;
+  font-family: "Quicksand";
+  margin: 0;
+  padding: 7px 0 7px 25px;
+  width: 180px;
+  background: transparent;
+  border-radius: 5px;
+  border: none;
+  text-align: initial;
+}
+.sidebar-wrapper .menu .items_green button:hover {
+  background: #019F86;
+  color: #FFFFFF;
+  border-radius: 5px;
+}
+.sidebar-wrapper .menu .items_green button:focus {
+  background: #019F86;
+  color: #FFFFFF;
+  border-radius: 5px;
+}
+.sidebar-wrapper .menu .items_logos_green button {
+  margin: 0;
+  width: 180px;
+  background: transparent;
+  border-radius: 5px;
+  border: none;
+}
+.sidebar-wrapper .menu .items_logos_green button:hover {
+  background: #cff7f1;
+  border-radius: 5px;
+}
+
+.btn_active_inst {
+  background: #019F86 !important;
+  color: #FFFFFF !important;
+  border-radius: 5px;
+}
+
+.sidebar-wrapper .menu .sub_menu_green {
+  padding-left: 45px;
+}
+.sidebar-wrapper .menu .sub_menu_green .submenu-item {
+  padding-top: 10px;
+  list-style: none;
+}
+.sidebar-wrapper .menu .sub_menu_green a:hover {
+  color: #019F86;
+}
+
+.txt_active_green {
+  color: #019F86 !important;
+  text-decoration: none;
 }
 
 @media (min-width: 320px) {
@@ -23383,7 +23449,7 @@ a:link, a:visited, a:active, a:hover {
   height: 175px;
   position: relative;
   font-weight: bold;
-  color: #3E3E3E;
+  color: #019F86;
 }
 .content__target_inst span {
   position: absolute;
