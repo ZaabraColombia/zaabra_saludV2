@@ -115,7 +115,7 @@ class ProfesionalesController extends Controller
         $profesional->especialidades()->sync($request->get('especialidades'));
 
         return redirect()->route('institucion.profesionales.index')
-            ->with('success', "El profesional {$profesional->nombre_completo} se ha creado");
+            ->with('success', "El profesional {$profesional->nombre_completo} se ha editado");
     }
 
     private function validator (Request $request, $id = null)
