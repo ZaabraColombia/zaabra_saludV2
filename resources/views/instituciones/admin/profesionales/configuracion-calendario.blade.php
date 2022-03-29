@@ -134,6 +134,7 @@
                                     <td>
                                         <button class="btn_type_icon_green eliminar-horario tool top"
                                                 type="button" data-id="{{ $item['id'] }}">
+                                            <i data-feather="x-circle"></i>
                                             <span class="tiptext">eliminar horario</span>
                                         </button>
                                     </td>
@@ -239,7 +240,7 @@
             {
                 $.ajax({
                     data: {id: btn.data('id')},
-                    url: '{{ route('profesional.agenda.configurar-calendario.horario-eliminar') }}',
+                    url: '{{ route('institucion.profesionales.eliminar_horario', ['profesional' => $profesional->id_profesional_inst]) }}',
                     dataType: 'json',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

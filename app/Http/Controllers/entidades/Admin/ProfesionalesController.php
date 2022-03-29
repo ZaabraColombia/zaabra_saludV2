@@ -244,10 +244,12 @@ class ProfesionalesController extends Controller
      *
      * @return Application|ResponseFactory|Response
      */
-    public function eliminar_horario(Request $request)
+    public function eliminar_horario(Request $request, profesionales_instituciones $profesional)
     {
+        Gate::authorize('update-profesional-institucion', $profesional);
+
         $validator = Validator::make( $request->all(), [
-            'id'    => ['required'],
+            'id'    => ['required']
         ]);
 
         if ($validator->fails())
@@ -260,10 +262,8 @@ class ProfesionalesController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
-        //user
-        $user = Auth::user();
         //schedule
-        $schedule = $user->horario->horario;
+        $schedule = $profesional->horario;
 
         //delete schedule
         $array = array_filter(array_combine(array_keys($schedule), array_column($schedule, 'id')));
@@ -272,8 +272,8 @@ class ProfesionalesController extends Controller
         unset($schedule[$key_schedule_delete]);
 
         //save
-        $user->horario->horario = $schedule;
-        $user->horario->save();
+        $profesional->horario = $schedule;
+        $profesional->save();
 
         return response([
             'message'   => [
