@@ -13,7 +13,7 @@
                 <h2 class="text__md black_light">Administre el horario de las citas</h2>
             </div>
 
-            <form action=""
+            <form action="#"
                   method="post" id="form-dias" class="forms" data-alert="#alert-cita">
                 @csrf
                 <div class="containt_main_table mb-3">
@@ -38,7 +38,7 @@
 
                     <!-- Buttons -->
                     <div class="row m-0 content_btn_right">
-                        <button type="submit" class="button_green">Guardar</button>
+                        <button type="button" class="button_green">Guardar</button>
                     </div>
                 </div>
             </form>
