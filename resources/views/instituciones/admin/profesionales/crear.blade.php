@@ -204,6 +204,7 @@
                         <div class="col-md-4 input__box">
                             <label for="id_especialidad">Especialidad principal</label>
                             <select id="id_especialidad" name="id_especialidad" class="select2 @error('id_especialidad') is-invalid @enderror">
+                                <option value=""></option>
                                 @if($especialidades->isNotEmpty())
                                     @foreach($especialidades as $especialidad)
                                         <option value="{{ $especialidad->idEspecialidad }}" {{ old('id_universidad') == $especialidad->idEspecialidad ? 'selected':'' }}>{{ $especialidad->nombreEspecialidad }}</option>
@@ -215,6 +216,7 @@
                         <div class="col-md-4 input__box">
                             <label for="id_universidad">Universidad</label>
                             <select id="id_universidad" name="id_universidad" class="select2 @error('id_universidad') is-invalid @enderror">
+                                <option value=""></option>
                                 @if($universidades->isNotEmpty())
                                     @foreach($universidades as $universidad)
                                         <option value="{{ $universidad->id_universidad }}" {{ old('id_universidad') == $universidad->id_universidad ? 'selected':'' }}>{{ $universidad->nombreuniversidad }}</option>
@@ -226,7 +228,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-12 input__box">
+                        <div class="col-12 input__box mt-3">
                             <label for="especialidades">Otras especialidades</label>
                             <select id="especialidades" name="especialidades" class="select2-multiple @error('especialidades.*') is-invalid @enderror" multiple>
                                 @if($especialidades->isNotEmpty())
@@ -240,8 +242,8 @@
 
                     <!-- Buttons -->
                     <div class="row m-0 mt-2 content_btn_right">
-                        <a href="{{ route('institucion.profesionales.index') }}" class="button_transparent mr-2">Cancelar</a>
-                        <button type="submit" class="button_blue">Guardar</button>
+                        <a href="{{ route('institucion.profesionales.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
+                        <button type="submit" class="button_green">Guardar</button>
                     </div>
 
 
