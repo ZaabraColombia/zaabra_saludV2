@@ -182,6 +182,31 @@
         }
     }
 }
+
+// Tabla convenio modulo servicios agenda instituciones
+.table_agenda tbody tr td .input__box {
+    display: flex;
+    width: 130px;
+    .signo_peso {
+        height: calc(1.6em + 0.75rem + 2px);
+        background-color: #e0e4e7;
+        color: #019f86;
+        font-weight: bold;
+        border-radius: 5px 0 0 5px;
+        padding: 5px 10px;
+        display: flex;
+        align-content: center;
+    }
+    span {
+        font-size: 17px;
+    }
+    input {
+        background-color: #f3f3f3;
+        border: none;
+        text-align: center;
+        margin: 0;
+    }
+}
 .user__xl {
     display: flex; 
     align-items: center; 
@@ -256,6 +281,10 @@
 @media(min-width: 1024px) {
     .content_asig_cita {
         padding: 30px 20px 20px 30px;
+    }
+    // Tabla convenio modulo servicios agenda instituciones
+    .table_agenda tbody tr td .input__box {
+        width: 200px;
     }
 }
 @media(min-width: 1300px) {

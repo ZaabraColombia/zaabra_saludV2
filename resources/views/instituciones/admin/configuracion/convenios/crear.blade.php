@@ -4,7 +4,7 @@
 @extends('instituciones.admin.layouts.layout')
 
 @section('contenido')
-<div class="container-fluid p-0 pr-lg-4">
+    <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
                 <h1 class="title__xl green_bold">Nuevo Convenio</h1>
@@ -15,6 +15,7 @@
                     <!-- Información básica -->
                     <div class="d-block d-md-flex justify-content-between py-3">
                         <h2 class="subtitle__lg green_bold mb-4">Información básica</h2>
+                        <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
                             <input type="checkbox" name="checkbox" id="conv_check">
                             <label class="label_check" for="conv_check"> 
@@ -119,6 +120,7 @@
                         </div>
                     </div>
 
+                    <!-- Linea división de elementos -->
                     <div class="dropdown-divider my-4"></div>
 
                     <!-- Información de contacto -->

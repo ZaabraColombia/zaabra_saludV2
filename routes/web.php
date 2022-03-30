@@ -484,6 +484,16 @@ Route::get('/test-crear-convenio-institucion', function(){
     return view('instituciones.admin.configuracion.convenios.crear');
 });
 
+// Ruta de la vista convenios
+Route::get('/test-servicios-institucion', function(){
+    return view('instituciones.admin.configuracion.servicios.index');
+});
+
+// Ruta de la vista crear servicio
+Route::get('/test-crear-servicio-institucion', function(){
+    return view('instituciones.admin.configuracion.servicios.crear');
+});
+
 // ===================_________ FIN AGENDA INSTITUCIONES _________=================== //
 
 // Ruta detalles-pago
