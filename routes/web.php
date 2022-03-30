@@ -195,6 +195,8 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
                 ->name('calendario.completar-cita');
             Route::post('/calendario/reservar-calendario',[profesionales\Admin\CalendarioController::class,'reservar'])
                 ->name('calendario.reservar-calendario');
+            Route::post('/calendario/editar-reservar-calendario',[profesionales\Admin\CalendarioController::class,'reservar_editar'])
+                ->name('calendario.editar-reservar-calendario');
 
             //Configurar calendario
             Route::get('/configurar-calendario', [profesionales\Admin\CalendarioController::class, 'configuracion'])

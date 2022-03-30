@@ -510,7 +510,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="post" action="{{ route('profesional.agenda.calendario.reservar-calendario') }}" id="form-reservar-calendario">
+                <form method="post" action="{{ route('profesional.agenda.calendario.reservar-calendario') }}" id="form-reserva-calendario-crear">
                     <div class="modal-body">
                         <h1>Reserva del calendario</h1>
 
@@ -565,7 +565,7 @@
                     <div class="modal_info_cita">
                         <div class="p-3">
                             <h2 class="fecha_inicio"></h2>
-                            <p class="fecha_fin"></p>
+                            <h2 class="fecha_fin"></h2>
                             <p class="comentario"></p>
                         </div>
                     </div>
@@ -579,6 +579,54 @@
                         Editar
                     </button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar reserva del calendario -->
+    <div class="modal fade" id="modal_editar_reserva_calendario" tabindex="-1" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal_container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post" action="{{ route('profesional.agenda.calendario.editar-reservar-calendario') }}" id="form-reserva-calendario-editar">
+                    <div class="modal-body">
+                        <h1>Reserva del calendario</h1>
+
+                        <div class="col-12 p-0" id="alerta-crear-reserva-calendario"></div>
+
+                        <div class="form_modal">
+                            <div class="row m-0">
+                                <div class="col-12 p-0" id="alerta-editar"></div>
+                                <input type="hidden" id="id_reserva-editar" name="id_cita"/>
+
+                                <div class="col-12 p-0">
+                                    <label for="fecha_inicio-editar">Fecha inicio</label>
+                                    <input type="datetime-local" id="fecha_inicio-editar" name="fecha_inicio" required/>
+                                </div>
+
+                                <div class="col-12 p-0">
+                                    <label for="fecha_fin-editar">Fecha fin</label>
+                                    <input type="datetime-local" id="fecha_fin-editar" name="fecha_fin" required/>
+                                </div>
+
+                                <div class="col-12 p-0 pl-md-2">
+                                    <label for="comentarios-editar">Comentarios</label>
+                                    <textarea name="comentarios" id="comentarios-editar" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer content_btn_center">
+                        <button type="button" class="button_transparent" data-dismiss="modal">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="button_blue">Guardar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -1224,7 +1272,7 @@
             });
 
             //Crear reserva del calendario
-            $('#form-reservar-calendario').submit(function (e) {
+            $('#form-reserva-calendario-crear').submit(function (e) {
                 e.preventDefault();
                 var form = $(this);
                 console.log(form);
@@ -1241,6 +1289,78 @@
                         $('#alerta-general').html(alert(res.message, 'success'));
 
                         $('#modal_crear_reserva_calendario').modal('hide');
+                        //resetear formulario
+                        form[0].reset();
+
+                        setTimeout(function () {
+                            calendar.refetchEvents();
+                        },3000);
+                    },
+                    error: function (res, status) {
+
+                        var response = res.responseJSON;
+
+                        $('#alerta-crear-reserva-calendario').html(alert(response.message, 'danger'));
+
+                        setTimeout(function () {
+                            calendar.refetchEvents();
+                        },3000);
+                    }
+                });
+            });
+
+            //Abrir modal para completada la cita
+            $('#btn-reserva-editar').click(function (e) {
+                var btn = $(this);
+                $('#modal_ver_reserva').modal('hide');
+
+                $.ajax({
+                    data: { id: btn.data('id') },
+                    dataType: 'json',
+                    url: '{{ route('profesional.agenda.calendario.ver-cita') }}',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'POST',
+                    success: function (res) {
+                        var modal = $('#modal_editar_reserva_calendario');
+
+                        modal.find('.fecha_inicio').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
+                        modal.find('.fecha_fin').html(moment(res.item.fecha_fin).format('dddd, D MMMM/YYYY'));
+                        modal.find('.comentario').html(res.item.comentario);
+
+                        modal.find('#id_reserva-editar').val(res.item.id);
+                        modal.find('#fecha_inicio-editar').val(moment(res.item.fecha_inicio).format('YYYY-MM-DDTHH:mm'));
+                        modal.find('#fecha_fin-editar').val(moment(res.item.fecha_fin).format('YYYY-MM-DDTHH:mm'));
+                        modal.find('#comentario-editar').val(res.item.comentario);
+
+                        modal.modal();
+                    },
+                    error: function (res, status) {
+                        var response = res.responseJSON;
+                        $('#alerta-general').html(alert(response.message, 'danger'));
+                    }
+                });
+            });
+
+            //Crear reserva del calendario
+            $('#form-reserva-calendario-editar').submit(function (e) {
+                e.preventDefault();
+                var form = $(this);
+                console.log(form);
+                $.ajax({
+                    data: form.serialize(),
+                    dataType: 'json',
+                    url: form.attr('action'),
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'POST',
+                    success: function (res, status) {
+
+                        $('#alerta-general').html(alert(res.message, 'success'));
+
+                        $('#modal_editar_reserva_calendario').modal('hide');
                         //resetear formulario
                         form[0].reset();
 

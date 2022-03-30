@@ -266,8 +266,8 @@ class CalendarioController extends Controller
         if ($date->estado == 'reservado') {
             $data = [
                 'id' => $date->id_cita,
-                'fecha_inicio'  => $date->fecha_inicio->format('Y-m-d h:i:s'),
-                'fecha_fin'     => $date->fecha_fin->format('Y-m-d h:i:s'),
+                'fecha_inicio'  => $date->fecha_inicio->format('Y-m-dTh:i:s'),
+                'fecha_fin'     => $date->fecha_fin->format('Y-m-dTh:i:s'),
                 'comentario'    => $date->comentario,
                 'estado'        => $date->estado,
             ];
@@ -715,6 +715,96 @@ class CalendarioController extends Controller
             'message' => [
                 'title' => 'Hecho',
                 'text'  => "La reserva esta agendada"
+            ]
+        ], Response::HTTP_CREATED);
+    }
+
+    /**
+     * Permite crear una reserva en el calendario
+     *
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function reservar_editar(Request $request)
+    {
+        //Validate date
+        $validate = Validator::make($request->all(), [
+            'fecha_inicio'  => ['required', 'date'],
+            'fecha_fin'     => ['required', 'date'],
+            'comentarios'   => ['required'],
+        ], [], [
+            'fecha_inicio'  => 'Fecha inicio',
+            'fecha_fin'     => 'Fecha fin',
+            'comentarios'   => 'Comentarios'
+        ]);
+
+
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //user
+        $user = Auth::user();
+
+        $all = $request->all();
+
+        //Validar la disponibilidad de la cita
+        $date_count = Cita::query()->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->where(function ($query) use ($all){
+                $query->whereRaw('(fecha_inicio >= "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) .
+                    '" and fecha_inicio < "' . date('Y-m-d H:i', strtotime($all['fecha_fin'])) . '")')
+                    ->orWhereRaw('(fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) .
+                        '" and fecha_fin <= "' . date('Y-m-d H:i:s', strtotime($all['fecha_fin'])) . '")')
+                    ->orWhereRaw('(fecha_inicio <= "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) .
+                        '" and fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) . '")')
+                    ->orWhereRaw('(fecha_inicio < "' . date('Y-m-d H:i:s', strtotime($all['fecha_fin'])) .
+                        '" and fecha_fin >= "' . date('Y-m-d H:i:s', strtotime($all['fecha_fin'])) . '")');
+            })
+            ->where('id_cita', '!=', $all['id_cita'])
+            ->count();
+
+
+        if ($date_count > 0)
+        {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => 'Reserva no disponible, revise si no existe alguna cita cruzada'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $cita = Cita::query()
+            ->where('id_cita', '=', $request->get('id_cita'))
+            ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->first();
+
+        if (empty($cita)) return response([
+            'message' => [
+                'title' => 'Error',
+                'text'  => 'Cita no seleccionada'
+            ]
+        ], Response::HTTP_NOT_FOUND);
+
+        //crear cita
+        $query = [
+            'fecha_inicio'  => date('Y-m-d H:i', strtotime($all['fecha_inicio'])),
+            'fecha_fin'     => date('Y-m-d H:i', strtotime($all['fecha_fin'])),
+            'estado'        => 'reservado',
+            'comentario'   => $all['comentarios'] ?? '',
+        ];
+
+        $cita->update($query);
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => "La reserva esta editada"
             ]
         ], Response::HTTP_CREATED);
     }
