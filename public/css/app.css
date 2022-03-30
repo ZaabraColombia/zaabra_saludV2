@@ -26420,12 +26420,12 @@ div.dt-buttons {
   color: #ffffff;
   pointer-events: none;
   cursor: auto;
-  background-color: #6ab6f5;
-  border-color: #0083d6;
+  background-color: #727374;
+  border-color: #727374;
 }
 
 .paginate_button a {
-  color: #0083d6;
+  color: #a4b6c7;
 }
 
 .btn_type_icon_green {
@@ -26588,6 +26588,12 @@ div.dt-buttons {
   font-size: 15px;
 }
 
+.table .thead_green tr th {
+  font-family: "Quicksand";
+  color: #019F86;
+  font-weight: bold;
+}
+
 .containt_main_table {
   background-color: #FFFFFF;
   border: 1px solid #CED4DA;
@@ -26630,6 +26636,12 @@ div.dt-buttons {
 }
 .table_agenda tbody tr td .btn_action i {
   font-size: 18px;
+}
+
+.table_agenda .thead_green tr th {
+  font-family: "Quicksand";
+  color: #019F86;
+  font-weight: bold;
 }
 
 .table_agenda tbody tr td {

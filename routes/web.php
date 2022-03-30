@@ -474,6 +474,11 @@ Route::get('/test-contactos-institucion', function(){
     return view('instituciones.admin.contactos');
 });
 
+// Ruta de la vista convenios
+Route::get('/test-convenios-institucion', function(){
+    return view('instituciones.admin.configuracion.convenios.index');
+});
+
 // ===================_________ FIN AGENDA INSTITUCIONES _________=================== //
 
 // Ruta detalles-pago

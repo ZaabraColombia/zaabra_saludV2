@@ -33,7 +33,7 @@
             <div class="containt_main_table mb-3">
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-pacientes">
-                        <thead>
+                        <thead class="thead_green">
                         <tr>
                             <th>Nombre</th>
                             <th>Especialidad</th>
