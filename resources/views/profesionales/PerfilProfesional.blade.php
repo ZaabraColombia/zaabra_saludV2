@@ -453,7 +453,7 @@
                         </div>
 
                         <div class="text-center mt-4 px-3 py-0">
-                            <p class="black_light fs_text">{{ session('warning-profesional') }}Para agendar cita medica, inicie sesión como paciente.</p>
+                            <p class="black_light fs_text">Para agendar cita medica, inicie sesión como paciente.</p>
                         </div>
                     </div>
 
@@ -481,6 +481,9 @@
         feather.replace()
         @if(session()->has('warning-paciente'))
         $('#modal_agenda_no_disponible').modal();
+        @endif
+        @if(session()->has('warning-profesional'))
+        $('#modal_profesional').modal();
         @endif
     </script>
 
