@@ -194,9 +194,10 @@ class ProfesionalesController extends Controller
         Gate::authorize('update-profesional-institucion', $profesional);
 
         $validator = Validator::make( $request->all(), [
-            'semana.*'    => ['required', Rule::in([0, 1, 2, 3, 4, 5, 6])],
-            'hora_inicio'=> ['required', 'date_format:H:i'],
-            'hora_final'=> ['required', 'date_format:H:i']
+            'semana'        => ['required'],
+            'semana.*'      => ['required', Rule::in([0, 1, 2, 3, 4, 5, 6])],
+            'hora_inicio'   => ['required', 'date_format:H:i'],
+            'hora_final'    => ['required', 'date_format:H:i']
         ]);
 
         if ($validator->fails())
@@ -243,10 +244,12 @@ class ProfesionalesController extends Controller
      *
      * @return Application|ResponseFactory|Response
      */
-    public function eliminar_horario(Request $request)
+    public function eliminar_horario(Request $request, profesionales_instituciones $profesional)
     {
+        Gate::authorize('update-profesional-institucion', $profesional);
+
         $validator = Validator::make( $request->all(), [
-            'id'    => ['required'],
+            'id'    => ['required']
         ]);
 
         if ($validator->fails())
@@ -259,10 +262,8 @@ class ProfesionalesController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
-        //user
-        $user = Auth::user();
         //schedule
-        $schedule = $user->horario->horario;
+        $schedule = $profesional->horario;
 
         //delete schedule
         $array = array_filter(array_combine(array_keys($schedule), array_column($schedule, 'id')));
@@ -271,8 +272,8 @@ class ProfesionalesController extends Controller
         unset($schedule[$key_schedule_delete]);
 
         //save
-        $user->horario->horario = $schedule;
-        $user->horario->save();
+        $profesional->horario = $schedule;
+        $profesional->save();
 
         return response([
             'message'   => [
@@ -296,9 +297,9 @@ class ProfesionalesController extends Controller
             'id_especialidad'   => ['required', 'exists:especialidades,idEspecialidad'],
             'especialidades.*'  => ['nullable', 'exists:especialidades,idEspecialidad'],
             'primer_nombre'     => ['required', 'max:45'],
-            'segundo_nombre'    => ['required', 'max:45'],
+            'segundo_nombre'    => ['nullable', 'max:45'],
             'primer_apellido'   => ['required', 'max:45'],
-            'segundo_apellido'  => ['required', 'max:45'],
+            'segundo_apellido'  => ['nullable', 'max:45'],
             'tipo_documento_id' => ['required', 'exists:tipo_documentos,id'],
             'numero_documento'  => ['required', 'max:50'],
             'fecha_nacimiento'  => ['required', 'date_format:Y-m-d'],

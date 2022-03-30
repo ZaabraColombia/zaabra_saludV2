@@ -338,7 +338,7 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
         ->name('profesionales.guardar_calendario');
     Route::post('profesionales/{profesional}/guardar-horario', [entidades\Admin\ProfesionalesController::class,'guardar_horario'])
         ->name('profesionales.guardar_horario');
-    Route::post('profesionales/{profesional}/eliminar-horario', [entidades\Admin\ProfesionalesController::class,'eliminar_horario'])
+    Route::delete('profesionales/{profesional}/eliminar-horario', [entidades\Admin\ProfesionalesController::class,'eliminar_horario'])
         ->name('profesionales.eliminar_horario');
 
 
