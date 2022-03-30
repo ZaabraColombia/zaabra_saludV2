@@ -8,6 +8,7 @@ use App\Models\Cita;
 use App\Models\Horario;
 use App\Models\Paciente;
 use App\Models\PagoCita;
+use App\Models\pais;
 use App\Models\tipoconsultas;
 use App\Models\User;
 use Carbon\Carbon;
@@ -47,10 +48,13 @@ class CalendarioController extends Controller
             ->where('idperfil', '=', $user->profesional->idPerfilProfesional)
             ->get();
 
+        $paises = pais::all();
+
         return view('profesionales.admin.calendario.calendario', compact(
             'weekNotBusiness',
             'horario',
             'tipoCitas',
+            'paises',
             'user'
         ));
     }

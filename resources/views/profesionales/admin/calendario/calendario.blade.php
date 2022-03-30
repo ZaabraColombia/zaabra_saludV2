@@ -91,7 +91,7 @@
     </div>
 
     <!-- Modal  agendar cita -->
-    <div class="modal fade" id="agregar_cita" tabindex="-1" role="dialog">
+    <div class="modal fade" id="agregar_cita" tabindex="-1" >
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -146,6 +146,40 @@
                                     <select id="disponibilidad" name="disponibilidad" required></select>
                                 </div>
 
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">     <!--menu dinamico ciudades -->
+                                    <label for="pais_id">País</label>
+                                    <select id="pais_id" name="pais_id" data-modal="#agregar_cita"
+                                            data-id="{{ $user->profecional->direccion }}"
+                                            data-text="{{ $user->profecional->direccion }}">
+                                        @if($paises->isNotEmpty())
+                                            @foreach($paises as $pais)
+                                                <option value="{{ $pais->id_pais }}">{{ $pais->nombre }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                    <label for="departamento_id">Departamento</label>
+                                    <select name="departamento_id" id="departamento_id" data-modal="#agregar_cita"
+                                            data-id="{{ $user->profecional->direccion }}"
+                                            data-text="{{ $user->profecional->direccion }}"></select>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                    <label for="provincia_id" >Provincia</label>
+                                    <select name="provincia_id" id="provincia_id" data-modal="#agregar_cita"
+                                            data-id="{{ $user->profecional->direccion }}"
+                                            data-text="{{ $user->profecional->direccion }}"></select>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                    <label for="ciudad_id">Ciudad</label>
+                                    <select name="ciudad_id" id="ciudad_id" data-modal="#agregar_cita"
+                                            data-id="{{ $user->profecional->direccion }}"
+                                            data-text="{{ $user->profecional->direccion }}"></select>
+                                </div>
+
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="lugar">Lugar de cita</label>
                                     <input type="text" id="lugar" name="lugar" required
@@ -183,7 +217,7 @@
     </div>
 
     <!-- Modal ver cita -->
-    <div class="modal fade" id="modal_ver_cita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal_ver_cita" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -673,6 +707,10 @@
     <!-- Full calendar JS -->
     <script src="{{ asset('fullCalendar/main.js') }}"></script>
     <script src="{{ asset('fullCalendar/locales/es.js') }}"></script>
+
+    <!-- Select 2 -->
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('js/filtro-ubicacion.js') }}"></script>
 
     <script>
         moment.locale('es');
