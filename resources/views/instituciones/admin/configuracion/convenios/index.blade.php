@@ -23,7 +23,7 @@
 
                     <div class="col-md-3 p-0 content_btn_right">
                         <a href="" class="button_green" id="btn-agregar-contacto">
-                            Agregar
+                            Agregar 
                         </a>
                     </div>
                 </div>

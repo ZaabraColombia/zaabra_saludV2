@@ -86,7 +86,7 @@
                 </li>
 
                 <!-- Logo PLM -->
-                <li class="sidebar-item  has-sub items_logos_green">
+                <li class="sidebar-item  has-sub items_logos_green" style="width: 180px">
                     <a id="fav" class="" target="_blank" href="https://www.prescripciontotal.com.co/consultorio-generico/login">
                         <button class="d-flex justify-content-start pl-3">
                             <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/plm.png') }}" alt="" width="100px">
@@ -95,7 +95,7 @@
                 </li>
 
                 <!-- Logo Mipress -->
-                <li class="sidebar-item  has-sub items_logos_green">
+                <li class="sidebar-item  has-sub items_logos_green" style="width: 180px">
                     <a id="fav" class="" target="_blank" href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS">
                         <button class="d-flex justify-content-start pl-3">
                             <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/mipres-zaabra.png') }}" alt="" width="100px">

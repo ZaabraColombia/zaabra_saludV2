@@ -30,6 +30,7 @@
                             </div>
                         @endif
                     </div>
+
                     <div class="row m-0 my-4 justify-content-center">
                         <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                             <div class="img__upload">
@@ -39,6 +40,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-3 input__box">
                             <label for="primer_nombre">Primer nombre</label>
@@ -145,7 +147,7 @@
                         <div class="col-md-4 input__box">
                             @php $departamento = (old('departamento_id') === null)?null:\App\Models\departamento::query()->where('id_departamento', old('departamento_id'))->first()@endphp
                             <label for="departamento_id">Departamento</label>
-{{--                            @dd(old('departamento_id'))--}}
+                            {{-- @dd(old('departamento_id'))--}}
                             <select name="departamento_id" id="departamento_id" class="@error('departamento_id') is-invalid @enderror">
                                 @if(!empty($departamento))
                                     <option value="{{ $departamento->id_departamento }}" selected>{{ $departamento->nombre }}</option>
@@ -245,8 +247,6 @@
                         <a href="{{ route('institucion.profesionales.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
                         <button type="submit" class="button_green">Guardar</button>
                     </div>
-
-
                 </form>
             </div>
         </div>
