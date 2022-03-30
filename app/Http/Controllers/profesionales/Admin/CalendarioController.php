@@ -171,7 +171,7 @@ class CalendarioController extends Controller
     public function ver_citas(Request $request)
     {
         $dates = Cita::query()
-            ->select(['id_cita', 'fecha_inicio as start', 'fecha_fin as end', 'paciente_id'])
+            ->select(['id_cita', 'fecha_inicio as start', 'fecha_fin as end', 'paciente_id', 'estado'])
             //->selectRaw('CASE estado WHEN "reservado" THEN "background" WHEN "agendado" THEN "auto" END AS display')
             ->addSelect([
                 'tipo_cita' => tipoconsultas::query()
@@ -181,43 +181,59 @@ class CalendarioController extends Controller
             ])
             ->where('profesional_id', '=', Auth::user()->profecional->idPerfilProfesional)
             ->where('estado', '!=', 'cancelado')
-            ->where('Fecha_inicio', '>=', date('Y-m-d') . " 00:00")
+            ->where('estado', '!=', 'completado')
+            //->where('Fecha_inicio', '>=', date('Y-m-d') . " 00:00")
             ->with(['paciente', 'paciente.user', 'pago'])
             ->get();
 
         $data = array();
 
         foreach ($dates as $date) {
-            //validar background
-            switch ($date->pago->tipo)
+            if ($date->estado == 'reservado')
             {
-                case 'presencial':
-                    //Color cita pago
-                    $background = '#D6FFFB';
-                    $color = '#323232';
-                    break;
-                case 'virtual':
-                    //Si esta aprobado es pagado, si no es pagado se establece como no pagado
-                    $background = ($date->pago->aprobado) ? '#1B85D7':'#019F86';
-                    $color = '#FFFFFF';
-                    break;
-                default:
-                    $background = null;
-                    $color = null;
-                    break;
+                $data[] = [
+                    'id'    => $date->id_cita,
+                    'start' => $date->start,
+                    'end'   => $date->end,
+                    'backgroundColor' => 'yellow',
+                    'textColor' => 'black',
+                    'borderColor' => 'yellow',
+                    'display' => 'block',
+                    'title' => 'reservado',
+                ];
+            } else {
+
+                //validar background
+                switch ($date->pago->tipo)
+                {
+                    case 'presencial':
+                        //Color cita pago
+                        $background = '#D6FFFB';
+                        $color = '#323232';
+                        break;
+                    case 'virtual':
+                        //Si esta aprobado es pagado, si no es pagado se establece como no pagado
+                        $background = ($date->pago->aprobado) ? '#1B85D7':'#019F86';
+                        $color = '#FFFFFF';
+                        break;
+                    default:
+                        $background = null;
+                        $color = null;
+                        break;
+                }
+
+                $data[] = [
+                    'id'    => $date->id_cita,
+                    'start' => $date->start,
+                    'end'   => $date->end,
+                    'backgroundColor' => $background,
+                    'textColor' => $color,
+                    'borderColor' => $background,
+                    'display' => 'block',
+                    'title' => $date->paciente->user->nombre_completo,
+                ];
+
             }
-
-            $data[] = [
-                'id'    => $date->id_cita,
-                'start' => $date->start,
-                'end'   => $date->end,
-                'backgroundColor' => $background,
-                'textColor' => $color,
-                'borderColor' => $background,
-                'display' => 'block',
-                'title' => $date->paciente->user->nombre_completo,
-            ];
-
         }
 
         return response($data, Response::HTTP_OK);
@@ -560,6 +576,135 @@ class CalendarioController extends Controller
             'message' => [
                 'title' => 'Hecho',
                 'text'  => 'Cita reagendada'
+            ]
+        ], Response::HTTP_CREATED);
+    }
+
+
+    public function completar_cita(Request $request)
+    {
+        //Validate date
+        $validate = Validator::make($request->all(), [
+            'id_cita'       => ['required'],
+            'duracion_cita'   => ['required', 'integer'],
+            'comentarios'   => ['required'],
+        ], [
+            'id_cita.required' => 'Algo salio mal con la cita, por favor cierre y vuélvalo a intentar'
+        ], [
+            'tipo_cita' => 'Tipo de cita',
+            'duracion_cita'     => 'Duración de la cita',
+            'comentarios'  => 'Comentarios',
+        ]);
+
+        if ($validate->fails()) return response([
+            'message' => [
+                'title' => 'Error',
+                'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+            ]
+        ], Response::HTTP_NOT_FOUND);
+
+        $user = Auth::user();
+
+        $cita = Cita::query()
+            ->where('id_cita', '=', $request->get('id_cita'))
+            ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->first();
+
+        if (empty($cita)) return response([
+            'message' => [
+                'title' => 'Error',
+                'text'  => 'Cita no seleccionada'
+            ]
+        ], Response::HTTP_NOT_FOUND);
+
+        $cita->update([
+            'duracion'  => $request->get('duracion_cita'),
+            'comentario'=> $request->get('comentarios'),
+            'estado'    => 'completado',
+        ]);
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Cita completada'
+            ]
+        ], Response::HTTP_OK);
+    }
+
+    /**
+     * Permite crear una reserva en el calendario
+     *
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function reservar(Request $request)
+    {
+        //dd($request->all());
+        //Validate date
+        $validate = Validator::make($request->all(), [
+            'fecha_inicio'  => ['required', 'date'],
+            'fecha_fin'     => ['required', 'date'],
+            'comentarios'   => ['required'],
+        ], [], [
+            'fecha_inicio'  => 'Fecha inicio',
+            'fecha_fin'     => 'Fecha fin',
+            'comentarios'   => 'Comentarios'
+        ]);
+
+
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //user
+        $user = Auth::user();
+
+        $all = $request->all();
+
+        //Validar la disponibilidad de la cita
+        $date_count = Cita::query()->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->where(function ($query) use ($all){
+                $query->whereRaw('(fecha_inicio >= "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) .
+                    '" and fecha_inicio < "' . date('Y-m-d H:i', strtotime($all['fecha_fin'])) . '")')
+                    ->orWhereRaw('(fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) .
+                        '" and fecha_fin <= "' . date('Y-m-d H:i:s', strtotime($all['fecha_fin'])) . '")')
+                    ->orWhereRaw('(fecha_inicio <= "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) .
+                        '" and fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) . '")')
+                    ->orWhereRaw('(fecha_inicio < "' . date('Y-m-d H:i:s', strtotime($all['fecha_fin'])) .
+                        '" and fecha_fin >= "' . date('Y-m-d H:i:s', strtotime($all['fecha_fin'])) . '")');
+            })->count();
+
+
+        if ($date_count > 0)
+        {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => 'Reserva no disponible, revise si no existe alguna cita cruzada'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //crear cita
+        $query = [
+            'fecha_inicio'  => date('Y-m-d H:i', strtotime($all['fecha_inicio'])),
+            'fecha_fin'     => date('Y-m-d H:i', strtotime($all['fecha_fin'])),
+            'estado'        => 'reservado',
+            //'money'         => $all['money'],
+            'profesional_id'=> $user->profecional->idPerfilProfesional,
+            'comentarios'   => $all['comentarios'] ?? '',
+        ];
+        $date = Cita::query()->create($query);
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => "La reserva esta agendada"
             ]
         ], Response::HTTP_CREATED);
     }

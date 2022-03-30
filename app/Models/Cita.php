@@ -23,7 +23,10 @@ class Cita extends Model
         'profesional_ins_id',
         //'horario_id',
         'lugar',
-        'tipo_cita_id'
+        'tipo_cita_id',
+        'estimado',
+        'duracion',
+        'comentario',
     ];
 
     protected $primaryKey = 'id_cita';

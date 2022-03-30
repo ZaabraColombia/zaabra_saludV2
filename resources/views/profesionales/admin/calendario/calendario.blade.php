@@ -221,13 +221,16 @@
 
                 <div class="modal-footer content_btn_center">
                     <button type="button" class="button_transparent" id="btn-cita-cancelar">
-                        Cancelar cita
+                        Cancelar
                     </button>
                     <button type="submit" class="button_blue" id="btn-cita-reagendar">
-                        Reagendar cita
+                        Reagendar
                     </button>
                     <button type="submit" class="button_blue" id="btn-cita-editar">
-                        Editar cita
+                        Editar
+                    </button>
+                    <button type="submit" class="button_green" id="btn-cita-completar">
+                        Completar
                     </button>
                 </div>
             </div>
@@ -437,7 +440,7 @@
     </div>
 
     <!-- Modal Completar cita -->
-    <div class="modal fade" id="completar_cita" tabindex="-1" >
+    <div class="modal fade" id="modal_completar_cita" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -445,18 +448,39 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="{{ route('profesional.agenda.calendario.actualizar-cita') }}" id="form-editar-cita">
+                <form method="post" action="{{ route('profesional.agenda.calendario.completar-cita') }}" id="form-completar-cita">
                     <div class="modal-body">
                         <h1>Completar cita</h1>
-
+                        <div class="modal_info_cita">
+                            <div class="p-3">
+                                <h2 class="nombre_paciente"></h2>
+                                <p class="numero_id"></p>
+                                <p class="correo"></p>
+                            </div>
+                            <div class="row m-0">
+                                <div class="col-md-7 p-0 pl-3 mb-2">
+                                    <h3 class="fecha"></h3>
+                                    <span class="hora"></span>
+                                </div>
+                                <div class="col-md-5 p-0 pl-3 mb-2">
+                                    <h3>Tipo de cita</h3>
+                                    <span class="tipo_cita"></span>
+                                </div>
+                                <div class="col-12 p-0 pl-3 mb-2 d-flex">
+                                    <h3>Modalidad de pago: &nbsp;</h3>
+                                    <span class="modalidad"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
                         <div class="form_modal">
                             <div class="row m-0">
                                 <div class="col-12 p-0" id="alerta-editar"></div>
-                                <input type="hidden" id="id_cita-editar" name="id_cita"/>
+                                <input type="hidden" id="id_cita-completar" name="id_cita"/>
 
                                 <div class="col-12 p-0">
-                                    <label for="tiempo_cita">Tiempo cita (minutos)</label>
-                                    <input type="number" id="tiempo_cita" name="tiempo_cita" required/>
+                                    <label for="tiempo_cita">Duración cita (minutos)</label>
+                                    <input type="number" id="tiempo_cita" name="duracion_cita" required/>
                                 </div>
 
                                 <div class="col-12 p-0 pl-md-2">
@@ -470,7 +494,7 @@
                         <button type="button" class="button_transparent" data-dismiss="modal">
                             Cancelar
                         </button>
-                        <button type="submit" class="button_blue">Guardar</button>
+                        <button type="submit" class="button_green">Completar</button>
                     </div>
                 </form>
             </div>
@@ -486,7 +510,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="{{ route('profesional.agenda.calendario.actualizar-cita') }}" id="form-editar-cita">
+                <form method="post" action="{{ route('profesional.agenda.calendario.reservar-calendario') }}" id="form-reservar-calendario">
                     <div class="modal-body">
                         <h1>Reserva del calendario</h1>
 
@@ -496,13 +520,18 @@
                                 <input type="hidden" id="id_cita-editar" name="id_cita"/>
 
                                 <div class="col-12 p-0">
-                                    <label for="Fecha_inicio">Fecha inicio</label>
-                                    <input type="date" id="Fecha_inicio" name="Fecha_inicio" required/>
+                                    <label for="fecha_inicio">Fecha inicio</label>
+                                    <input type="datetime-local" id="fecha_inicio" name="fecha_inicio" required/>
                                 </div>
 
                                 <div class="col-12 p-0">
-                                    <label for="Fecha_fin">Fecha fin</label>
-                                    <input type="date" id="Fecha_fin" name="Fecha_fin" required/>
+                                    <label for="fecha_fin">Fecha fin</label>
+                                    <input type="datetime-local" id="fecha_fin" name="fecha_fin" required/>
+                                </div>
+
+                                <div class="col-12 p-0 pl-md-2">
+                                    <label for="comentarios">Comentarios</label>
+                                    <textarea name="comentarios" id="comentarios" rows="5"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -543,9 +572,23 @@
                 events: '{{ route('profesional.agenda.calendario.ver-citas') }}',
                 // Botones de mes, semana y día.
                 headerToolbar: {
-                    left: 'prev,next today',
+                    left: 'prev,next today reservar',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                customButtons: {
+                    reservar: {
+                        text: 'Reservar',
+                        click: function() {
+
+                            $('#form-reservar-calendario')[0].reset();
+
+                            $('#fecha_inicio').val(moment().format('YYYY-MM-DD\THH:mm'));
+                            $('#fecha_fin').val(moment().add(2, 'h').format('YYYY-MM-DD\THH:mm'));
+
+                            $('#reserva_calendario').modal();
+                        }
+                    }
                 },
                 // Propiedad para cambio de lenguaje
                 locale: 'es',
@@ -566,6 +609,7 @@
                                 console.log(event.dateStr);
                                 $('#btn-day-clicked').data('date', event.dateStr);
                                 $('#btn-day-see').data('date', event.dateStr);
+                                $('#btn-reservar-agenda').data('date', event.dateStr);
                                 $('#span-day-clicked').html(day.format('MMMM D/YYYY'));
 
                                 $('#modal_dia_calendario').modal();
@@ -608,6 +652,7 @@
                             $('#btn-cita-cancelar').data('id', res.item.id);
                             $('#btn-cita-reagendar').data('id', res.item.id);
                             $('#btn-cita-editar').data('id', res.item.id);
+                            $('#btn-cita-completar').data('id', res.item.id);
 
                             modal.modal();
                         },
@@ -1043,6 +1088,118 @@
                         var response = res.responseJSON;
 
                         $('#alerta-general').html(alert(response.message, 'danger'));
+
+                        setTimeout(function () {
+                            calendar.refetchEvents();
+                        },3000);
+                    }
+                });
+            });
+
+            //Abrir modal para completada la cita
+            $('#btn-cita-completar').click(function (e) {
+                var btn = $(this);
+                $('#modal_ver_cita').modal('hide');
+
+                $.ajax({
+                    data: { id: btn.data('id') },
+                    dataType: 'json',
+                    url: '{{ route('profesional.agenda.calendario.ver-cita') }}',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'POST',
+                    success: function (res) {
+                        var modal = $('#modal_completar_cita');
+
+                        modal.find('.fecha').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
+                        modal.find('.hora').html(moment(res.item.fecha_inicio).format('hh:mm A') +
+                            '-' + moment(res.item.fecha_fin).format('hh:mm A'));
+                        modal.find('.nombre_paciente').html(res.item.nombre_paciente);
+                        modal.find('.tipo_cita').html(res.item.tipo_cita);
+                        modal.find('.modalidad').html(res.item.modalidad);
+                        modal.find('.correo').html(res.item.correo);
+                        modal.find('.numero_id').html(res.item.numero_id);
+
+                        modal.find('#id_cita-completar').val(res.item.id);
+
+                        modal.modal();
+                    },
+                    error: function (res, status) {
+                        var response = res.responseJSON;
+                        $('#alerta-general').html(alert(response.message, 'danger'));
+                    }
+                });
+            });
+
+            //Guardar cita completada
+            $('#form-completar-cita').submit(function (e) {
+                e.preventDefault();
+                var form = $(this);
+
+                $.ajax({
+                    data: form.serialize(),
+                    dataType: 'json',
+                    url: form.attr('action'),
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'POST',
+                    success: function (res, status) {
+
+                        $('#alerta-general').html(alert(res.message, 'success'));
+
+                        $('#modal_completar_cita').modal('hide');
+                        //resetear formulario
+                        form[0].reset();
+
+                        setTimeout(function () {
+                            calendar.refetchEvents();
+                        },3000);
+                    },
+                    error: function (res, status) {
+
+                        var response = res.responseJSON;
+
+                        $('#alerta-editar').html(alert(response.message, 'danger'));
+
+                        setTimeout(function () {
+                            calendar.refetchEvents();
+                        },3000);
+                    }
+                });
+            });
+
+            //Crear reserva del calendario
+            $('#form-reservar-calendario').submit(function (e) {
+                e.preventDefault();
+                var form = $(this);
+                console.log(form);
+                $.ajax({
+                    data: form.serialize(),
+                    dataType: 'json',
+                    url: form.attr('action'),
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'POST',
+                    success: function (res, status) {
+
+                        $('#alerta-general').html(alert(res.message, 'success'));
+
+                        $('#agregar_cita').modal('hide');
+                        //resetear formulario
+                        form[0].reset();
+
+                        setTimeout(function () {
+                            calendar.refetchEvents();
+                        },3000);
+                    },
+                    error: function (res, status) {
+
+                        var response = res.responseJSON;
+
+                        $('#alerta-agregar_cita').html(alert(response.message, 'danger'));
 
                         setTimeout(function () {
                             calendar.refetchEvents();
