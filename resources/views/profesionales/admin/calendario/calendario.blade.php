@@ -630,6 +630,38 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal  Cancelar reserva -->
+    <div class="modal fade" id="modal_cancelar_reserva_calendario" tabindex="-1" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal_container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <h1>Cancelar reserva</h1>
+                    <div class="modal_info_cita">
+                        <div class="p-3">
+                            <h2 class="fecha_inicio"></h2>
+                            <h2 class="fecha_fin"></h2>
+                            <p class="comentario"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer content_btn_center">
+                    <form action="{{ route('profesional.agenda.calendario.cancelar-reserva-calendario') }}" method="post" id="form-reserva-calendario-cancelar">
+                        <input type="hidden" class="form-control" id="id_reserva-cancelar" name="id_cita"/>
+                        <button type="button" class="button_transparent" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="button_blue" id="">Confirmar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
@@ -1373,6 +1405,75 @@
                         var response = res.responseJSON;
 
                         $('#alerta-crear-reserva-calendario').html(alert(response.message, 'danger'));
+
+                        setTimeout(function () {
+                            calendar.refetchEvents();
+                        },3000);
+                    }
+                });
+            });
+
+            //Abrir modal para cancelar la reserva de calendario
+            $('#btn-reserva-cancelar').click(function (e) {
+                var btn = $(this);
+                $('#modal_ver_reserva').modal('hide');
+
+                $.ajax({
+                    data: { id: btn.data('id') },
+                    dataType: 'json',
+                    url: '{{ route('profesional.agenda.calendario.ver-cita') }}',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'POST',
+                    success: function (res) {
+                        var modal = $('#modal_cancelar_reserva_calendario');
+
+                        modal.find('.fecha_inicio').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
+                        modal.find('.fecha_fin').html(moment(res.item.fecha_fin).format('dddd, D MMMM/YYYY'));
+                        modal.find('.comentario').html(res.item.comentario);
+
+                        modal.find('#id_reserva-cancelar').val(res.item.id);
+
+                        modal.modal();
+                    },
+                    error: function (res, status) {
+                        var response = res.responseJSON;
+                        $('#alerta-general').html(alert(response.message, 'danger'));
+                    }
+                });
+            });
+
+            //Aceptar cita reserva de calendario
+            $('#form-reserva-calendario-cancelar').submit(function (e) {
+                e.preventDefault();
+                var form = $(this);
+
+                $.ajax({
+                    data: form.serialize(),
+                    dataType: 'json',
+                    url: form.attr('action'),
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'POST',
+                    success: function (res, status) {
+
+                        $('#alerta-general').html(alert(res.message, 'success'));
+
+                        $('#modal_cancelar_reserva_calendario').modal('hide');
+                        //resetear formulario
+                        form[0].reset();
+
+                        setTimeout(function () {
+                            calendar.refetchEvents();
+                        },3000);
+                    },
+                    error: function (res, status) {
+
+                        var response = res.responseJSON;
+
+                        $('#alerta-general').html(alert(response.message, 'danger'));
 
                         setTimeout(function () {
                             calendar.refetchEvents();

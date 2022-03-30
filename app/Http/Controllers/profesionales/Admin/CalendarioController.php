@@ -810,6 +810,39 @@ class CalendarioController extends Controller
     }
 
     /**
+     * Permite cancelar reserva
+     *
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function reservar_cancelar(Request $request)
+    {
+        $user = Auth::user();
+        $cita = Cita::query()
+            ->where('id_cita', '=', $request->get('id_cita'))
+            ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->first();
+
+        if (empty($cita)) return response([
+            'message' => [
+                'title' => 'Error',
+                'text'  => 'Cita no seleccionada'
+            ]
+        ], Response::HTTP_NOT_FOUND);
+
+        $cita->update([
+            'estado' => 'cancelado'
+        ]);
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Reserva cancelada'
+            ]
+        ], Response::HTTP_OK);
+    }
+
+    /**
      * Vista para configurar el calendario
      *
      * @return Application|Factory|View
