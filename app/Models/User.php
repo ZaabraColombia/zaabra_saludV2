@@ -64,6 +64,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(perfilesprofesionales::class, 'idUser', 'id');
     }
 
+    public function profesional()
+    {
+        return $this->hasOne(perfilesprofesionales::class, 'idUser', 'id');
+    }
+
     public function paciente()
     {
         return $this->hasOne(Paciente::class, 'id_usuario', 'id');

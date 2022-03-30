@@ -77,7 +77,7 @@
                         </div>
                         <div class="card-body">
                             <span id="span-day-clicked"></span>
-                        </div> 
+                        </div>
                         <div class="card-footer"></div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                 <form method="POST" action="{{ route('profesional.agenda.calendario.crear-cita') }}" id="form-agendar-cita-profesional">
                     <div class="modal-body">
                         <h1>Agendar cita</h1>
-                        
+
                         <div class="form_modal">
                             <div class="row m-0">
                                 <div class="col-12 p-0" id="alerta-agregar_cita"></div>
@@ -213,7 +213,7 @@
                             </div>
                             <div class="col-12 p-0 pl-3 mb-2 d-flex">
                                 <h3>Modalidad de pago: &nbsp;</h3>
-                                <span class="tipo_cita"></span>
+                                <span class="modalidad"></span>
                             </div>
                         </div>
                     </div>
@@ -246,7 +246,7 @@
                 <form method="POST" action="{{ route('profesional.agenda.calendario.actualizar-cita') }}" id="form-editar-cita">
                     <div class="modal-body">
                         <h1>Editar cita</h1>
-                        
+
                         <div class="modal_info_cita mb-3">
                             <div class="p-3">
                                 <h2 class="nombre_paciente"></h2>
@@ -264,7 +264,7 @@
                                 </div>
                                 <div class="col-12 p-0 pl-3 mb-2 d-flex">
                                     <h3>Modalidad de pago: &nbsp;</h3>
-                                    <span class="tipo_cita"></span>
+                                    <span class="modalidad"></span>
                                 </div>
                             </div>
                         </div>
@@ -345,7 +345,7 @@
                                 </div>
                                 <div class="col-12 p-0 pl-3 mb-2 d-flex">
                                     <h3>Modalidad de pago: &nbsp;</h3>
-                                    <span class="tipo_cita"></span>
+                                    <span class="modalidad"></span>
                                 </div>
                             </div>
                         </div>
@@ -401,7 +401,7 @@
 
                 <div class="modal-body">
                     <h1>Cancelar cita</h1>
-                    
+
                     <div class="modal_info_cita">
                         <div class="p-3">
                             <h2 class="nombre_paciente"></h2>
@@ -419,7 +419,7 @@
                             </div>
                             <div class="col-12 p-0 pl-3 mb-2 d-flex">
                                 <h3>Modalidad de pago: &nbsp;</h3>
-                                <span class="tipo_cita"></span>
+                                <span class="modalidad"></span>
                             </div>
                         </div>
                     </div>
@@ -576,7 +576,7 @@
 
                     } else {
                         alert('Día no laboral');
-                    } 
+                    }
                 },
                 selectable: false,
                 editable: false,
@@ -601,6 +601,7 @@
                             modal.find('.hora').html(moment(res.item.fecha_inicio).format('hh:mm A') + '-' + moment(res.item.fecha_fin).format('hh:mm A'));
                             modal.find('.nombre_paciente').html(res.item.nombre_paciente);
                             modal.find('.tipo_cita').html(res.item.tipo_cita);
+                            modal.find('.modalidad').html(res.item.modalidad);
                             modal.find('.correo').html(res.item.correo);
                             modal.find('.numero_id').html(res.item.numero_id);
 
@@ -623,7 +624,7 @@
 
                 dayCellDidMount: function (date) {
 
-                }, 
+                },
             });
             calendar.render();
 
@@ -749,14 +750,14 @@
                 },
                 minimumInputLength: 3,
                 dropdownParent: $('#agregar_cita')
-                }).on('select2:select', function (e) {
-                    var data = e.params.data;
+            }).on('select2:select', function (e) {
+                var data = e.params.data;
 
-                    $('#nombre').val(data.nombre);
-                    $('#apellido').val(data.apellido);
-                    $('#correo').val(data.email);
+                $('#nombre').val(data.nombre);
+                $('#apellido').val(data.apellido);
+                $('#correo').val(data.email);
 
-                }).on('select2:opening', function (e){
+            }).on('select2:opening', function (e){
 
                 $('#numero_id').val(null).trigger('change');
                 $('#nombre').val('');
@@ -790,6 +791,7 @@
                             '-' + moment(res.item.fecha_fin).format('hh:mm A'));
                         modal.find('.nombre_paciente').html(res.item.nombre_paciente);
                         modal.find('.tipo_cita').html(res.item.tipo_cita);
+                        modal.find('.modalidad').html(res.item.modalidad);
                         modal.find('.correo').html(res.item.correo);
                         modal.find('.numero_id').html(res.item.numero_id);
 
@@ -867,6 +869,7 @@
                             '-' + moment(res.item.fecha_fin).format('hh:mm A'));
                         modal.find('.nombre_paciente').html(res.item.nombre_paciente);
                         modal.find('.tipo_cita').html(res.item.tipo_cita);
+                        modal.find('.modalidad').html(res.item.modalidad);
                         modal.find('.correo').html(res.item.correo);
                         modal.find('.numero_id').html(res.item.numero_id);
 
@@ -995,6 +998,7 @@
                             '-' + moment(res.item.fecha_fin).format('hh:mm A'));
                         modal.find('.nombre_paciente').html(res.item.nombre_paciente);
                         modal.find('.tipo_cita').html(res.item.tipo_cita);
+                        modal.find('.modalidad').html(res.item.modalidad);
                         modal.find('.correo').html(res.item.correo);
                         modal.find('.numero_id').html(res.item.numero_id);
 

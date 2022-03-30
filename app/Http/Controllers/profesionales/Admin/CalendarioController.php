@@ -44,7 +44,7 @@ class CalendarioController extends Controller
         $horario = $user->horario;
         $weekNotBusiness = array_unique($weekNotBusiness);
         $tipoCitas = tipoconsultas::query()
-            ->where('idperfil', '=', $user->id)
+            ->where('idperfil', '=', $user->profesional->idPerfilProfesional)
             ->get();
 
         return view('profesionales.admin.calendario.calendario', compact(
@@ -182,7 +182,8 @@ class CalendarioController extends Controller
             ->where('profesional_id', '=', Auth::user()->profecional->idPerfilProfesional)
             ->where('estado', '!=', 'cancelado')
             ->where('Fecha_inicio', '>=', date('Y-m-d') . " 00:00")
-            ->with(['paciente', 'paciente.user', 'pago'])->get();
+            ->with(['paciente', 'paciente.user', 'pago'])
+            ->get();
 
         $data = array();
 
@@ -216,7 +217,7 @@ class CalendarioController extends Controller
                 'display' => 'block',
                 'title' => $date->paciente->user->nombre_completo,
             ];
-            
+
         }
 
         return response($data, Response::HTTP_OK);
@@ -251,8 +252,8 @@ class CalendarioController extends Controller
             'nombre_paciente' => $date->paciente->user->nombre_completo,
             'numero_id'     => $date->paciente->user->numerodocumento,
             'correo'        => $date->paciente->user->email,
-            'fecha_inicio'  => $date->fecha_inicio,
-            'fecha_fin'     => $date->fecha_fin,
+            'fecha_inicio'  => $date->fecha_inicio->format('Y-m-d h:i:s'),
+            'fecha_fin'     => $date->fecha_fin->format('Y-m-d h:i:s'),
             'tipo_cita'     => $date->tipo_consulta->nombreconsulta,
             'tipo_cita_id'  => $date->tipo_consulta->id,
             'cantidad'      => $date->pago->valor,
@@ -428,7 +429,9 @@ class CalendarioController extends Controller
             'tipo_cita_id'  => $request->get('tipo_cita'),
         ]);
 
-        $cita->pago->update([
+        $pago = $cita->pago;
+
+        $pago->update([
             'valor'     => $request->get('cantidad'),
             'tipo'      => $request->get('modalidad_pago'),
         ]);
