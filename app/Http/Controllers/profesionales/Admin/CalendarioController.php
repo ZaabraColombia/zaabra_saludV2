@@ -263,19 +263,30 @@ class CalendarioController extends Controller
 
         $date = Cita::find($request->id);
 
-        $data = [
-            'id' => $date->id_cita,
-            'nombre_paciente' => $date->paciente->user->nombre_completo,
-            'numero_id'     => $date->paciente->user->numerodocumento,
-            'correo'        => $date->paciente->user->email,
-            'fecha_inicio'  => $date->fecha_inicio->format('Y-m-d h:i:s'),
-            'fecha_fin'     => $date->fecha_fin->format('Y-m-d h:i:s'),
-            'tipo_cita'     => $date->tipo_consulta->nombreconsulta,
-            'tipo_cita_id'  => $date->tipo_consulta->id,
-            'cantidad'      => $date->pago->valor,
-            'modalidad'     => $date->pago->tipo,
-            'lugar'         => $date->lugar,
-        ];
+        if ($date->estado == 'reservado') {
+            $data = [
+                'id' => $date->id_cita,
+                'fecha_inicio'  => $date->fecha_inicio->format('Y-m-d h:i:s'),
+                'fecha_fin'     => $date->fecha_fin->format('Y-m-d h:i:s'),
+                'comentario'    => $date->comentario,
+                'estado'        => $date->estado,
+            ];
+        } else {
+            $data = [
+                'id' => $date->id_cita,
+                'nombre_paciente' => $date->paciente->user->nombre_completo,
+                'numero_id'     => $date->paciente->user->numerodocumento,
+                'correo'        => $date->paciente->user->email,
+                'fecha_inicio'  => $date->fecha_inicio->format('Y-m-d h:i:s'),
+                'fecha_fin'     => $date->fecha_fin->format('Y-m-d h:i:s'),
+                'tipo_cita'     => $date->tipo_consulta->nombreconsulta,
+                'tipo_cita_id'  => $date->tipo_consulta->id,
+                'cantidad'      => $date->pago->valor,
+                'modalidad'     => $date->pago->tipo,
+                'lugar'         => $date->lugar,
+                'estado'        => $date->estado,
+            ];
+        }
 
         return response([
             'item' => $data
@@ -695,11 +706,10 @@ class CalendarioController extends Controller
             'fecha_inicio'  => date('Y-m-d H:i', strtotime($all['fecha_inicio'])),
             'fecha_fin'     => date('Y-m-d H:i', strtotime($all['fecha_fin'])),
             'estado'        => 'reservado',
-            //'money'         => $all['money'],
             'profesional_id'=> $user->profecional->idPerfilProfesional,
-            'comentarios'   => $all['comentarios'] ?? '',
+            'comentario'   => $all['comentarios'] ?? '',
         ];
-        $date = Cita::query()->create($query);
+        Cita::query()->create($query);
 
         return response([
             'message' => [

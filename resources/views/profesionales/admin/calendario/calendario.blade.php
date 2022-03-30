@@ -502,7 +502,7 @@
     </div>
 
     <!-- Modal Reserva del calendario -->
-    <div class="modal fade" id="reserva_calendario" tabindex="-1" >
+    <div class="modal fade" id="modal_crear_reserva_calendario" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -513,6 +513,8 @@
                 <form method="post" action="{{ route('profesional.agenda.calendario.reservar-calendario') }}" id="form-reservar-calendario">
                     <div class="modal-body">
                         <h1>Reserva del calendario</h1>
+
+                        <div class="col-12 p-0" id="alerta-crear-reserva-calendario"></div>
 
                         <div class="form_modal">
                             <div class="row m-0">
@@ -543,6 +545,40 @@
                         <button type="submit" class="button_blue">Guardar</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal ver reserva -->
+    <div class="modal fade" id="modal_ver_reserva" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal_container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <h1>Detalle de la reserva</h1>
+
+                    <div class="modal_info_cita">
+                        <div class="p-3">
+                            <h2 class="fecha_inicio"></h2>
+                            <p class="fecha_fin"></p>
+                            <p class="comentario"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_transparent" id="btn-reserva-cancelar">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="button_blue" id="btn-reserva-editar">
+                        Editar
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -586,7 +622,7 @@
                             $('#fecha_inicio').val(moment().format('YYYY-MM-DD\THH:mm'));
                             $('#fecha_fin').val(moment().add(2, 'h').format('YYYY-MM-DD\THH:mm'));
 
-                            $('#reserva_calendario').modal();
+                            $('#modal_crear_reserva_calendario').modal();
                         }
                     }
                 },
@@ -639,22 +675,39 @@
                         },
                         method: 'POST',
                         success: function (res) {
-                            var modal = $('#modal_ver_cita');
+                            var modal;
 
-                            modal.find('.fecha').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
-                            modal.find('.hora').html(moment(res.item.fecha_inicio).format('hh:mm A') + '-' + moment(res.item.fecha_fin).format('hh:mm A'));
-                            modal.find('.nombre_paciente').html(res.item.nombre_paciente);
-                            modal.find('.tipo_cita').html(res.item.tipo_cita);
-                            modal.find('.modalidad').html(res.item.modalidad);
-                            modal.find('.correo').html(res.item.correo);
-                            modal.find('.numero_id').html(res.item.numero_id);
+                            if (res.item.estado === 'reservado')
+                            {
+                                modal = $('#modal_ver_reserva');
 
-                            $('#btn-cita-cancelar').data('id', res.item.id);
-                            $('#btn-cita-reagendar').data('id', res.item.id);
-                            $('#btn-cita-editar').data('id', res.item.id);
-                            $('#btn-cita-completar').data('id', res.item.id);
+                                modal.find('.fecha_inicio').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
+                                modal.find('.fecha_fin').html(moment(res.item.fecha_fin).format('dddd, D MMMM/YYYY'));
+                                modal.find('.comentario').html(res.item.comentario);
 
-                            modal.modal();
+                                $('#btn-reserva-cancelar').data('id', res.item.id);
+                                $('#btn-reserva-editar').data('id', res.item.id);
+
+                                modal.modal();
+                            } else {
+
+                                modal = $('#modal_ver_cita');
+
+                                modal.find('.fecha').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
+                                modal.find('.hora').html(moment(res.item.fecha_inicio).format('hh:mm A') + '-' + moment(res.item.fecha_fin).format('hh:mm A'));
+                                modal.find('.nombre_paciente').html(res.item.nombre_paciente);
+                                modal.find('.tipo_cita').html(res.item.tipo_cita);
+                                modal.find('.modalidad').html(res.item.modalidad);
+                                modal.find('.correo').html(res.item.correo);
+                                modal.find('.numero_id').html(res.item.numero_id);
+
+                                $('#btn-cita-cancelar').data('id', res.item.id);
+                                $('#btn-cita-reagendar').data('id', res.item.id);
+                                $('#btn-cita-editar').data('id', res.item.id);
+                                $('#btn-cita-completar').data('id', res.item.id);
+
+                                modal.modal();
+                            }
                         },
                         error: function (res, status) {
                             var response = res.responseJSON;
@@ -1187,7 +1240,7 @@
 
                         $('#alerta-general').html(alert(res.message, 'success'));
 
-                        $('#agregar_cita').modal('hide');
+                        $('#modal_crear_reserva_calendario').modal('hide');
                         //resetear formulario
                         form[0].reset();
 
@@ -1199,7 +1252,7 @@
 
                         var response = res.responseJSON;
 
-                        $('#alerta-agregar_cita').html(alert(response.message, 'danger'));
+                        $('#alerta-crear-reserva-calendario').html(alert(response.message, 'danger'));
 
                         setTimeout(function () {
                             calendar.refetchEvents();
