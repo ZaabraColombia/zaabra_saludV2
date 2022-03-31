@@ -462,20 +462,6 @@ Route::get('/test-asignar-cita-profesional-institucion', function (){
 
 // ===================___________ AGENDA INSTITUCIONES ___________=================== //
 
-// Ruta del formulario crear profesionales
-Route::get('/test-crear-professional', function (){
-    return view('instituciones.admin.profesionales.crear');
-});
-
-// Ruta de la configuración del calendario
-Route::get('/test-configuracion-calendario-profesional-institucion', function(){
-    return view('instituciones.admin.profesionales.configuracion-calendario');
-});
-
-// Routa de la vista principal de profesionales
-Route::get('/test-profesional-institucion', function(){
-    return view('instituciones.admin.profesionales.index');
-});
 
 // Ruta de la vista contactos
 Route::get('/test-contactos-institucion', function(){
