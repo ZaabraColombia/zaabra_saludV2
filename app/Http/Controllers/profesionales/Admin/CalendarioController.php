@@ -50,6 +50,8 @@ class CalendarioController extends Controller
 
         $paises = pais::all();
 
+        //dd($user->profecional);
+
         return view('profesionales.admin.calendario.calendario', compact(
             'weekNotBusiness',
             'horario',
@@ -289,6 +291,10 @@ class CalendarioController extends Controller
                 'modalidad'     => $date->pago->tipo,
                 'lugar'         => $date->lugar,
                 'estado'        => $date->estado,
+                'pais'          => $date->pais_id,
+                'departamento'  => $date->departamento_id,
+                'provincia'     => $date->provincia_id,
+                'ciudad'        => $date->ciudad_id,
             ];
         }
 
@@ -315,6 +321,10 @@ class CalendarioController extends Controller
             'tipo_cita' => ['required'],
             'lugar'     => ['required'],
             'cantidad'  => ['required'],
+            'pais_id'           => ['required', 'exists:pais,id_pais'],
+            'departamento_id'   => ['required', 'exists:departamentos,id_departamento'],
+            'provincia_id'      => ['required', 'exists:provincias,id_provincia'],
+            'ciudad_id'         => ['required', 'exists:municipios,id_municipio'],
             'modalidad_pago' => ['required', Rule::in(['virtual', 'presencial'])]
         ], [], [
             'disponibilidad' => 'Disponibilidad',
@@ -322,7 +332,11 @@ class CalendarioController extends Controller
             'tipo_cita' => 'Tipo de cita',
             'lugar'     => 'Lugar',
             'cantidad'  => 'Cantidad',
-            'modalidad_pago' => 'Modalidad de pago'
+            'modalidad_pago' => 'Modalidad de pago',
+            'pais_id'   => 'Pais',
+            'departamento_id'=> 'Departamento',
+            'provincia_id'   => 'Provincia',
+            'ciudad_id' => 'Ciudad',
         ]);
 
 
@@ -377,6 +391,10 @@ class CalendarioController extends Controller
             //'money'         => $all['money'],
             'profesional_id'=> $user->profecional->idPerfilProfesional,
             'paciente_id'   => $patient->paciente->id,
+            'pais_id'       => $all['pais_id'],
+            'departamento_id'=> $all['departamento_id'],
+            'provincia_id'  => $all['provincia_id'],
+            'ciudad_id'     => $all['ciudad_id'],
         ];
         $date = Cita::query()->create($query);
 
@@ -425,6 +443,10 @@ class CalendarioController extends Controller
             'tipo_cita' => ['required'],
             'lugar'     => ['required'],
             'cantidad'  => ['required'],
+            'pais_id'           => ['required', 'exists:pais,id_pais'],
+            'departamento_id'   => ['required', 'exists:departamentos,id_departamento'],
+            'provincia_id'      => ['required', 'exists:provincias,id_provincia'],
+            'ciudad_id'         => ['required', 'exists:municipios,id_municipio'],
             'modalidad_pago' => ['required', Rule::in(['virtual', 'presencial'])]
         ], [
             'id_cita.required' => 'Algo salio mal con la cita, por favor cierre y vuélvalo a intentar'
@@ -432,6 +454,10 @@ class CalendarioController extends Controller
             'tipo_cita' => 'Tipo de cita',
             'lugar'     => 'Lugar',
             'cantidad'  => 'Cantidad',
+            'pais_id'   => 'Pais',
+            'departamento_id'=> 'Departamento',
+            'provincia_id'   => 'Provincia',
+            'ciudad_id' => 'Ciudad',
             'modalidad_pago' => 'Modalidad de pago'
         ]);
 
@@ -458,6 +484,10 @@ class CalendarioController extends Controller
         $cita->update([
             'lugar'         => $request->get('lugar'),
             'tipo_cita_id'  => $request->get('tipo_cita'),
+            'pais_id'       => $request->get('pais_id'),
+            'departamento_id'=> $request->get('departamento_id'),
+            'provincia_id'  => $request->get('provincia_id'),
+            'ciudad_id'     => $request->get('ciudad_id'),
         ]);
 
         $pago = $cita->pago;

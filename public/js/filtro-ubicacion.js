@@ -1,80 +1,78 @@
-//Están invertidos por la inicialización
-var ciudad = $('#ciudad_id').select2({
-    theme: 'bootstrap4',
-    dropdownParent: $($('#ciudad_id').data('modal'))
+
+//Inicializar segmentado por el modal
+var selects = $('.select2');
+
+$.each(selects, function (key, item) {
+    var modal = ($(item).data('modal')) ? $($(item).data('modal')):null;
+    $(item).select2({
+        theme: 'bootstrap4',
+        dropdownParent: modal
+    });
 });
 
-var provincia = $('.provincia_id').select2({
-    theme: 'bootstrap4',
-    dropdownParent: $($(this).data('modal'))
-}).on('change', function () {
-    var id_provincia = $(this).val();
-    ciudad.empty();
-    if(id_provincia){
-        $.ajax({
-            type:"GET",
-            url:"/api/ciudades/" + id_provincia,
-            dataType: 'json',
-            success:function(res){
-                if(res.items){
-                    $.each(res.items,function(key, item){
-                        var newOption = new Option(item.text, item.id, false, false);
-                        ciudad.append(newOption);
-                    });
-                }
-                ciudad.trigger('change');
-            }
-        });
-    }
-});
+//Para el pais
+$('.pais').on('change', function () {
+    var item = $(this);
 
-var departamento = $('.departamento_id').select2({
-    theme: 'bootstrap4',
-    dropdownParent: $($(this).data('modal'))
-}).on('change', function () {
-    var id_departamento = $(this).val();
-    provincia.empty();
-    ciudad.empty();
-    if(id_departamento){
-        $.ajax({
-            type:"GET",
-            url:"/api/provincias/" + id_departamento,
-            dataType: 'json',
-            success:function(res){
-                if(res.items){
-                    $.each(res.items,function(key, item){
-                        var newOption = new Option(item.text, item.id, false, false);
-                        provincia.append(newOption);
-                    });
-                }
-                provincia.trigger('change');
-            }
-        });
-    }
-});
-
-var pais = $('.pais_id').select2({
-    theme: 'bootstrap4',
-    dropdownParent: $($(this).data('modal'))
-}).on('change', function () {
-    var id_pais = $(this).val();
+    var departamento = $(item.data('departamento'));
     departamento.empty();
+
+    var provincia = $(item.data('provincia'));
     provincia.empty();
+
+    var ciudad = $(item.data('ciudad'));
     ciudad.empty();
-    if(id_pais){
-        $.ajax({
-            type:"GET",
-            url:"/api/departamentos/" + id_pais,
-            dataType: 'json',
-            success:function(res){
-                if(res.items){
-                    $.each(res.items,function(key, item){
-                        var newOption = new Option(item.text, item.id, false, false);
-                        departamento.append(newOption);
-                    });
-                }
-                departamento.trigger('change');
+
+    if(item.val()){
+        $.get("/api/departamentos/" + item.val(), function (response) {
+            if(response.items){
+                $.each(response.items,function(key, item){
+                    var newOption = new Option(item.text, item.id, false, false);
+                    departamento.append(newOption);
+                });
             }
-        });
+            departamento.trigger('change');
+        }, 'json');
+    }
+});
+//Para el departamento
+$('.departamento').on('change', function () {
+    var item = $(this);
+
+    var provincia = $(item.data('provincia'));
+    provincia.empty();
+
+    var ciudad = $(item.data('ciudad'));
+    ciudad.empty();
+
+    if(item.val()){
+        $.get("/api/provincias/" + item.val(), function (response) {
+            if(response.items){
+                $.each(response.items,function(key, item){
+                    var newOption = new Option(item.text, item.id, false, false);
+                    provincia.append(newOption);
+                });
+            }
+            provincia.trigger('change');
+        }, 'json');
+    }
+});
+//Para la provincia
+$('.provincia').on('change', function () {
+    var item = $(this);
+
+    var ciudad = $(item.data('ciudad'));
+    ciudad.empty();
+
+    if(item.val()){
+        $.get("/api/ciudades/" + item.val(), function (response) {
+            if(response.items){
+                $.each(response.items,function(key, item){
+                    var newOption = new Option(item.text, item.id, false, false);
+                    ciudad.append(newOption);
+                });
+            }
+            ciudad.trigger('change');
+        }, 'json');
     }
 });
