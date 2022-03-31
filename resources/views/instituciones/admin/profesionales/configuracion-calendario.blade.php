@@ -73,33 +73,33 @@
 
                     <div class="list__form">
                         <ul class="row m-0 mt-3">
-                            <li class="col-6 col-md-3 check__box">
+                            <li class="col-6 col-md-3 check__box_green">
                                 <input type="checkbox" value="1" id="semana-1" name="semana[]">
-                                <label class="label_checkb" for="semana-1">Lunes</label>
+                                <label class="label_check_green" for="semana-1">Lunes</label>
                             </li>
-                            <li class="col-6 col-md-3 check__box">
+                            <li class="col-6 col-md-3 check__box_green">
                                 <input type="checkbox" value="2" id="semana-2" name="semana[]">
-                                <label class="label_checkb" for="semana-2">Martes</label>
+                                <label class="label_check_green" for="semana-2">Martes</label>
                             </li>
-                            <li class="col-6 col-md-3 check__box">
+                            <li class="col-6 col-md-3 check__box_green">
                                 <input type="checkbox" value="3" id="semana-3" name="semana[]">
-                                <label class="label_checkb" for="semana-3">Miércoles</label>
+                                <label class="label_check_green" for="semana-3">Miércoles</label>
                             </li>
-                            <li class="col-6 col-md-3 check__box">
+                            <li class="col-6 col-md-3 check__box_green">
                                 <input type="checkbox" value="4" id="semana-4" name="semana[]">
-                                <label class="label_checkb" for="semana-4">Jueves</label>
+                                <label class="label_check_green" for="semana-4">Jueves</label>
                             </li>
-                            <li class="col-6 col-md-3 check__box">
+                            <li class="col-6 col-md-3 check__box_green">
                                 <input type="checkbox" value="5" id="semana-5" name="semana[]">
-                                <label class="label_checkb" for="semana-5">Viernes</label>
+                                <label class="label_check_green" for="semana-5">Viernes</label>
                             </li>
-                            <li class="col-6 col-md-3 check__box">
+                            <li class="col-6 col-md-3 check__box_green">
                                 <input type="checkbox" value="6" id="semana-6" name="semana[]">
-                                <label class="label_checkb" for="semana-6">Sábado</label>
+                                <label class="label_check_green" for="semana-6">Sábado</label>
                             </li>
-                            <li class="col-6 col-md-3 check__box">
+                            <li class="col-6 col-md-3 check__box_green">
                                 <input type="checkbox" value="0" id="semana-0" name="semana[]">
-                                <label class="label_checkb" for="semana-0">Domingo</label>
+                                <label class="label_check_green" for="semana-0">Domingo</label>
                             </li>
                         </ul>
                     </div>
@@ -153,7 +153,7 @@
                                         <button class="btn_type_icon_green eliminar-horario tool top"
                                                 type="button" data-id="{{ $item['id'] }}">
                                             <i data-feather="x-circle"></i>
-                                            <span class="tiptext">eliminar horario</span>
+                                            <span class="tiptext">Eliminar horario</span>
                                         </button>
                                     </td>
                                 </tr>

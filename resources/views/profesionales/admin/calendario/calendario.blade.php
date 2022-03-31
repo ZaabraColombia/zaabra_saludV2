@@ -11,15 +11,12 @@
         <div class="row containt_agendaProf" id="basic-table">
             <div class="col-12 col-lg-10 col-xl-8 p-0">
                 <div class="my-4 my-xl-5">
-                    <h1 class="title__xl blue_bold">Mi Calendario</h1>
+                    <h1 class="title__xl blue_bold">Calendario</h1>
                     <span class="text__md black_light">Administre su calendario de citas</span>
                 </div>
 
                 <div class="row m-0 pb-4">
                     <button id="actualizar-calendar" class="button_blue_form"><i class="fas fa-sync-alt pr-2"></i>Actualizar</button>
-                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_ver_cita">
-                        Open modal
-                    </button> -->
                 </div>
 
                 <div class="row m-0 content_dias_agenda mb-md-3">
@@ -48,6 +45,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col-12 col-lg-10 col-xl-8 p-0" id="alerta-general"></div>
 
             <div class="col-12 col-lg-10 col-xl-8 p-0 mb-3">

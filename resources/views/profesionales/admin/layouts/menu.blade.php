@@ -16,15 +16,15 @@ $user = Auth::user();
                 <!-- menú -->
                 <li class="sidebar-item has-sub items_blue">
                     <a id="" href="{{ route('profesional.panel') }}" class="">
-                        <button class="{{ request()->routeIs('profesional.panel') ? 'btn_active' : '' }}">Menu</button>
+                        <button class="{{ request()->routeIs('profesional.panel') ? 'btn_active' : '' }}">Menú</button>
                     </a>
                 </li>
 
-                <!-- Mi agenda -->
+                <!-- Agenda -->
                 <li class="sidebar-item has-sub items_blue accordion" id="accordionExample2">
                     <button id="headingTwo" class="{{ request()->routeIs('profesional.agenda.*') ? 'btn_active' : '' }}" type="button" data-toggle="collapse"
                             data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Mi agenda<i class="icon_angle fas fa-angle-down pl-2"></i>
+                            Agenda<i class="icon_angle fas fa-angle-down pl-2"></i>
                     </button>
 
                     <ul id="collapseTwo" class="collapse sub_menu_blue {{ request()->routeIs('profesional.agenda.*') ? 'show' : '' }}"
@@ -43,24 +43,24 @@ $user = Auth::user();
                     </ul>
                 </li>
 
-                <!-- pagos -->
+                <!-- Pagos -->
                 <li class="sidebar-item  has-sub items_blue">
                     <a id="" class="" href='{{ route('profesional.pagos') }}'>
-                        <button class="{{ request()->routeIs('profesional.pagos') ? 'btn_active' : '' }}">Mis pagos</button>
+                        <button class="{{ request()->routeIs('profesional.pagos') ? 'btn_active' : '' }}">Pagos</button>
                     </a>
                 </li>
 
-                <!-- mis pacientes -->
+                <!-- Pacientes -->
                 <li class="sidebar-item  has-sub items_blue">
                     <a id="" class="" href='{{ route('profesional.pacientes') }}'>
-                        <button class="{{ request()->routeIs('profesional.pacientes') ? 'btn_active' : '' }}">Mis pacientes</button>
+                        <button class="{{ request()->routeIs('profesional.pacientes') ? 'btn_active' : '' }}">Pacientes</button>
                     </a>
                 </li>
 
-                <!-- mis pacientes -->
+                <!-- Contactos -->
                 <li class="sidebar-item  has-sub items_blue">
                     <a id="" class="" href='{{ route('profesional.contactos.index') }}'>
-                        <button class="{{ request()->routeIs('profesional.contactos.index') ? 'btn_active' : '' }}">Mis contactos</button>
+                        <button class="{{ request()->routeIs('profesional.contactos.index') ? 'btn_active' : '' }}">Contactos</button>
                     </a>
                 </li>
 
@@ -91,7 +91,7 @@ $user = Auth::user();
                 <!-- Favoritos -->
                 <li class="sidebar-item  has-sub items_blue">
                     <a class="" href='{{ route('profesional.favoritos') }}'>
-                        <button class="{{ request()->routeIs('profesional.favoritos') ? 'btn_active' : '' }}">Mis favoritos</button>
+                        <button class="{{ request()->routeIs('profesional.favoritos') ? 'btn_active' : '' }}">Favoritos</button>
                     </a>
                 </li>
 

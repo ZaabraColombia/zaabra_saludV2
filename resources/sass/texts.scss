@@ -68,6 +68,13 @@
 .fs_text_small {
     font-size: 12px;
 }
+// Texto en mayúsculas modal detalle de la cita
+.tipo_cita {
+    text-transform: uppercase;
+}
+.modalidad {
+    text-transform: uppercase;
+}
 // Media query (Responsive)
 @media(min-width: 768px) {
     .fs_title {

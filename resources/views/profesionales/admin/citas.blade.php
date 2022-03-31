@@ -11,63 +11,63 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf" id="basic-table">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Mis citas</h1>
+                <h1 class="title__xl blue_bold">Citas</h1>
                 <span class="text__md black_light">Encuentre aquí las citas agendadas por sus pacientes.</span>
             </div>
 
-            <!-- Contenedor barra de búsqueda mis pacientes -->
+            <!-- Contenedor barra de búsqueda pacientes -->
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-9  p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Citas" />
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar cita" />
                     </div>
                 </div>
             </div>
 
-            <!-- Contenedor formato tabla de la lista de mis pacientes -->
+            <!-- Contenedor formato tabla de la lista de pacientes -->
             <div class="containt_main_table mb-3">
                 <div class="col-md-4 col-xl-3 p-0 input__box">
                     <label for="date"><b>Filtrar por fecha</b></label>
                     <input type="date" id="date" class="form-control"/>
-                    <!-- <label for="date"><b>Descargar en</b></label> -->
                 </div>
 
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-citas">
                         <thead>
-                        <tr>
-                            <th>Fecha</th>
-                            <th>Hora</th>
-                            <th>Tipo de cita</th>
-                            <th>Paciente</th>
-                            <th>Teléfonos</th>
-                            <th>Dirección</th>
-                            <th>Estado</th>
-                        </tr>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>Tipo de cita</th>
+                                <th>Paciente</th>
+                                <th>Teléfonos</th>
+                                <th>Dirección</th>
+                                <th>Estado</th>
+                            </tr>
                         </thead>
+
                         <tbody>
-                        @if($citas->isNotEmpty())
-                            @foreach($citas as $cita)
-                                <tr>
-                                    <td>{{ $cita->fecha_inicio->format('d-m /Y') }}</td>
-                                    <td>{{ "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A') }" }}</td>
-                                    <td>{{ $cita->tipo_consulta->nombreconsulta }}</td>
-                                    <td>{{ $cita->paciente->user->nombre_completo }} <br>
-                                        <span>{{ $cita->paciente->user->email }}</span>
-                                    </td>
-                                    <td>
-                                        <span>{{ $cita->paciente->celular }}</span> <br>
-                                        <span>{{ $cita->paciente->telefono }}</span>
-                                    </td>
-                                    <td>
-                                        <span>{{ $cita->paciente->direccion }}</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
+                            @if($citas->isNotEmpty())
+                                @foreach($citas as $cita)
+                                    <tr>
+                                        <td>{{ $cita->fecha_inicio->format('d-m /Y') }}</td>
+                                        <td>{{ "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A') }" }}</td>
+                                        <td>{{ $cita->tipo_consulta->nombreconsulta }}</td>
+                                        <td>{{ $cita->paciente->user->nombre_completo }} <br>
+                                            <span>{{ $cita->paciente->user->email }}</span>
+                                        </td>
+                                        <td>
+                                            <span>{{ $cita->paciente->celular }}</span> <br>
+                                            <span>{{ $cita->paciente->telefono }}</span>
+                                        </td>
+                                        <td>
+                                            <span>{{ $cita->paciente->direccion }}</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>
@@ -75,11 +75,10 @@
         </div>
     </div>
 
-    <!-- Pop-up  editar cita -->
+    <!-- Modal  editar cita -->
     <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal_citas_popUp" role="document">
             <div class="modal-content content_modalCitas">
-                <!-- Sección boton derecho de cierre "X" -->
                 <div class="modal-header modal_headerCitas">
                     <h1 class="title_popup_miCita" id="exampleModalLabel">Editar cita</h1>
 
@@ -90,11 +89,6 @@
 
                 <div class="modal-body modal_headerCitas">
                     <form method="POST" action="">
-                        <!-- <div class="col-md-6 section_inputRight-text-formProf">
-                            <label for="example-date-input" class="col-12 text_label-formProf">Especialidad</label>
-                            <select name="idespecialidad" id="idespecialidad" class="col-lg-12 form-control" required></select>
-                        </div> -->
-
                         <div class="col-md-6 p-0">
                             <label for="example-date-input" class="col-12 text_label-formProf">Especialidad</label>
 
@@ -135,11 +129,10 @@
         </div>
     </div>
 
-    <!-- Pop-up cancelar cita -->
+    <!-- Modal cancelar cita -->
     <div class="modal fade modalA" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog modal-lg modal_citas_popUp" role="document">
             <div class="modal-content content_citaCancela">
-                <!-- Sección boton derecho de cierre "X" -->
                 <div class="modal-header modal_cancelarCitas">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -161,11 +154,11 @@
         </div>
     </div>
 
-    <!-- Pop-up cancelar cita -->
+    <!-- Modal cancelar cita -->
     <div class="modal fade modalB" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
         <div class="modal-dialog modal-lg container_modal_cancelo" role="document">
             <div class="modal-content content_canceloCita">
-                <!-- Sección boton derecho de cierre "X" -->
+
                 <div class="modal-header modal_cancelarCitasProf">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

@@ -5,51 +5,51 @@
         <div class="row m-0 p-0">
             <div class="col-12 col-lg-8 col-xl-9 p-0 m-0">
                 <div class="row m-0 justify-content-between">
-                    <!-- Mis calendario -->
+                    <!-- Calendario -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='{{ route('profesional.agenda.calendario') }}'>
                             <div class="content__target calendario_blue">
-                                <span class="subtitle__lg">Mi Calendario</span>
+                                <span class="subtitle__lg">Calendario</span>
                             </div>
                         </a>
                     </div>
-                    <!-- Mis citas -->
+                    <!-- Citas -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='{{ route('profesional.agenda.citas') }}'>
                             <div class="content__target cita_blue">
-                                <span class="subtitle__lg">Mis Citas</span>
+                                <span class="subtitle__lg">Citas</span>
                             </div>
                         </a>
                     </div>
-                    <!-- Mis pagos -->
+                    <!-- Pagos -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='{{ route('profesional.pagos') }}'>
                             <div class="content__target pago_blue">
-                                <span class="subtitle__lg">Mis Pagos</span>
+                                <span class="subtitle__lg">Pagos</span>
                             </div>
                         </a>
                     </div>
-                    <!-- Mis pacientes -->
+                    <!-- Pacientes -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='{{ route('profesional.pacientes') }}'>
                             <div class="content__target paciente_blue">
-                                <span class="subtitle__lg">Mis Pacientes</span>
+                                <span class="subtitle__lg">Pacientes</span>
                             </div>
                         </a>
                     </div>
-                    <!-- Mis contactos -->
+                    <!-- Contactos -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='{{ route('profesional.contactos.index') }}'>
                             <div class="content__target contacto_blue">
-                                <span class="subtitle__lg">Mis Contactos</span>
+                                <span class="subtitle__lg">Contactos</span>
                             </div>
                         </a>
                     </div>
-                    <!-- Mis favoritos -->
+                    <!-- Favoritos -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='{{ route('profesional.favoritos') }}'>
                             <div class="content__target favorito_blue">
-                                <span class="subtitle__lg">Mis Favoritos</span>
+                                <span class="subtitle__lg">Favoritos</span>
                             </div>
                         </a>
                     </div>
