@@ -11,14 +11,14 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl green_bold">Mis Profesionales</h1>
+                <h1 class="title__xl green_bold">Profesionales</h1>
             </div>
 
             <!-- Contenedor barra de búsqueda y botón agregar contacto -->
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Paciente">
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Profesionales">
                     </div>
 
                     <div class="col-md-3 p-0 content_btn_right">
@@ -72,7 +72,7 @@
                                     <td>
                                         <a class="btn_action_green tool top" style="width: 33px"
                                            href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                            <i data-feather="calendar"></i> <span class="tiptext">configurar cita</span>
+                                            <i data-feather="calendar"></i> <span class="tiptext">configurar calendario</span>
                                         </a>
                                     </td>
                                 </tr>

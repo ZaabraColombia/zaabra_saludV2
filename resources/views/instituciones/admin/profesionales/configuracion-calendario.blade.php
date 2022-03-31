@@ -9,7 +9,7 @@
         <div class="containt_agendaProf">
             <!-- Form update duration date -->
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl green_bold">Configuración de cita</h1>
+                <h1 class="title__xl green_bold">Configuración de calendario</h1>
                 <h2 class="text__md black_light">Administre el horario de las citas</h2>
             </div>
 
@@ -19,9 +19,27 @@
                 <div class="containt_main_table mb-3">
                     <div id="alert-cita"></div>
                     <div class="row">
-                        <div class="col-md-4 input__box">
+                        <div class="col-md-3 input__box">
                             <label for="disponibilidad">Tiempo disponibilidad agenda</label>
-                            <input type="number" id="disponibilidad" name="disponibilidad">
+                            <input type="number" id="disponibilidad" name="disponibilidad" 
+                                    value="{{ old('disponibilidad') }}" class="@error('disponibilidad') is-invalid @enderror">
+                        </div>
+
+                        <div class="col-md-3 input__box">
+                            <label for="num_consultorio">Número de consultorio</label>
+                            <input type="number" id="num_consultorio" name="num_consultorio" 
+                                    value="{{ old('num_consultorio') }}" class="@error('num_consultorio') is-invalid @enderror">
+                        </div>
+
+                        <div class="col-md-6 input__box">
+                            <label for="sede">Sede</label>
+                            <select class="@error('sede') is-invalid @enderror" id="sede"
+                                    name="sede" value="{{ old('sede') }}">
+                                <option value=""></option>
+                                <option value="sede 1">sede 1</option>
+                                <option value="sede 2">sede 2</option>
+                                <option value="sede 3">sede 3</option>
+                            </select>
                         </div>
 
                         <div class="col-12 input__box">
@@ -55,33 +73,33 @@
 
                     <div class="list__form">
                         <ul class="row m-0 mt-3">
-                            <li class="col-6 col-md-3 input__check">
+                            <li class="col-6 col-md-3 check__box">
                                 <input type="checkbox" value="1" id="semana-1" name="semana[]">
-                                <label for="semana-1">lunes</label>
+                                <label class="label_checkb" for="semana-1">Lunes</label>
                             </li>
-                            <li class="col-6 col-md-3 input__check">
+                            <li class="col-6 col-md-3 check__box">
                                 <input type="checkbox" value="2" id="semana-2" name="semana[]">
-                                <label for="semana-2">Martes</label>
+                                <label class="label_checkb" for="semana-2">Martes</label>
                             </li>
-                            <li class="col-6 col-md-3 input__check">
+                            <li class="col-6 col-md-3 check__box">
                                 <input type="checkbox" value="3" id="semana-3" name="semana[]">
-                                <label for="semana-3">Miércoles</label>
+                                <label class="label_checkb" for="semana-3">Miércoles</label>
                             </li>
-                            <li class="col-6 col-md-3 input__check">
+                            <li class="col-6 col-md-3 check__box">
                                 <input type="checkbox" value="4" id="semana-4" name="semana[]">
-                                <label for="semana-4">Jueves</label>
+                                <label class="label_checkb" for="semana-4">Jueves</label>
                             </li>
-                            <li class="col-6 col-md-3 input__check">
+                            <li class="col-6 col-md-3 check__box">
                                 <input type="checkbox" value="5" id="semana-5" name="semana[]">
-                                <label for="semana-5">Viernes</label>
+                                <label class="label_checkb" for="semana-5">Viernes</label>
                             </li>
-                            <li class="col-6 col-md-3 input__check">
+                            <li class="col-6 col-md-3 check__box">
                                 <input type="checkbox" value="6" id="semana-6" name="semana[]">
-                                <label for="semana-6">Sábado</label>
+                                <label class="label_checkb" for="semana-6">Sábado</label>
                             </li>
-                            <li class="col-6 col-md-3 input__check">
+                            <li class="col-6 col-md-3 check__box">
                                 <input type="checkbox" value="0" id="semana-0" name="semana[]">
-                                <label for="semana-0">Domingo</label>
+                                <label class="label_checkb" for="semana-0">Domingo</label>
                             </li>
                         </ul>
                     </div>
@@ -111,8 +129,8 @@
                 </div>
 
                 <div class="table-responsive">
-                    <table class="table" id="table-horario">
-                        <thead>
+                    <table class="table table_agenda" id="table-horario">
+                        <thead class="thead_green">
                             <tr>
                                 <th>Días</th>
                                 <th>Horas</th>
