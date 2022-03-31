@@ -18,7 +18,7 @@
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Contacto" />
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar contacto" />
                     </div>
                     <div class="col-md-3 p-0 content_btn_right">
                         <button type="button" class="button_blue" id="btn-agregar-contacto">
@@ -34,52 +34,52 @@
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-contactos">
                         <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Dirección</th>
-                            <th>Teléfono</th>
-                            <th>Correo</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Dirección</th>
+                                <th>Teléfono</th>
+                                <th>Correo</th>
+                                <th></th>
+                                <th>Acción</th>
+                                <th></th>
+                            </tr>
                         </thead>
                         <tbody>
-                        @if($contactos->isNotEmpty())
-                            @foreach($contactos as $contacto)
-                                <tr>
-                                    <td class="pr-0">
-                                        <div class="user__xl">
-                                            <div class="pr-2">
-                                                <img class="img__contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
-                                            </div>
+                            @if($contactos->isNotEmpty())
+                                @foreach($contactos as $contacto)
+                                    <tr>
+                                        <td class="pr-0">
+                                            <div class="user__xl">
+                                                <div class="pr-2">
+                                                    <img class="img__contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                                                </div>
 
-                                            <div>
-                                                <span>{{ $contacto->nombre }}</span>
+                                                <div>
+                                                    <span>{{ $contacto->nombre }}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>{{ $contacto->direccion }}</td>
-                                    <td>{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</td>
-                                    <td>{{ $contacto->correo }}</td>
-                                    <td>
-                                        <button class="btn_action btn-ver-contacto tool top" type="button" data-id="{{ $contacto->id }}">
-                                            <i class="fas fa-eye"></i> <span class="tiptext">ver contacto</span>
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button class="btn_action btn-editar-contacto tool top" type="button" data-id="{{ $contacto->id }}">
-                                            <i class="fas fa-edit"></i> <span class="tiptext">editar contacto</span>
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button class="btn_action btn-eliminar-contacto tool top" type="button" data-id="{{ $contacto->id }}">
-                                            <i class="fas fa-trash"></i> <span class="tiptext">eliminar contacto</span>
-                                        </button>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
+                                        </td>
+                                        <td>{{ $contacto->direccion }}</td>
+                                        <td>{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</td>
+                                        <td>{{ $contacto->correo }}</td>
+                                        <td>
+                                            <button class="btn_action btn-ver-contacto tool top" type="button" data-id="{{ $contacto->id }}">
+                                                <i class="fas fa-eye"></i> <span class="tiptext">Ver contacto</span>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button class="btn_action btn-editar-contacto tool top" type="button" data-id="{{ $contacto->id }}">
+                                                <i class="fas fa-edit"></i> <span class="tiptext">Editar contacto</span>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button class="btn_action btn-eliminar-contacto tool top" type="button" data-id="{{ $contacto->id }}">
+                                                <i class="fas fa-trash"></i> <span class="tiptext">Eliminar contacto</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>
@@ -246,11 +246,6 @@
                         </div>
 
                         <div class="info_contac">
-                            <span>Dependencia:&nbsp;</span>
-                            <span class="label-dependencia"></span>
-                        </div>
-
-                        <div class="info_contac">
                             <span>Tipo contacto:&nbsp;</span>
                             <span class="label-tipo"></span>
                         </div>
@@ -326,11 +321,6 @@
                         <div class="info_contac">
                             <span>Dirección:&nbsp;</span>
                             <span class="label-direccion"></span>
-                        </div>
-
-                        <div class="info_contac">
-                            <span>Dependencia:&nbsp;</span>
-                            <span class="label-dependencia"></span>
                         </div>
 
                         <div class="info_contac">
@@ -553,9 +543,9 @@
                                 response.item.direccion,
                                 response.item.telefono,
                                 response.item.correo,
-                                '<button class="btn_action btn-ver-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-eye"></i> </button>',
-                                '<button class="btn_action btn-editar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-edit"></i> </button>',
-                                '<button class="btn_action btn-eliminar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> </button>',
+                                '<button class="btn_action btn-ver-contacto tool top" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-eye"></i> <span class="tiptext">Ver contacto</span> </button>',
+                                '<button class="btn_action btn-editar-contacto tool top" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-edit"></i> <span class="tiptext">Editar contacto</span> </button>',
+                                '<button class="btn_action btn-eliminar-contacto tool top" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> <span class="tiptext">Eliminar contacto</span> </button>',
                             ]).draw().node();
                             modal.modal('hide');
                             break;
@@ -565,9 +555,9 @@
                                 response.item.direccion,
                                 response.item.telefono,
                                 response.item.correo,
-                                '<button class="btn_action btn-ver-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-eye"></i> </button>',
-                                '<button class="btn_action btn-editar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-edit"></i> </button>',
-                                '<button class="btn_action btn-eliminar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> </button>',
+                                '<button class="btn_action btn-ver-contacto tool top" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-eye"></i> <span class="tiptext">Ver contacto</span> </button>',
+                                '<button class="btn_action btn-editar-contacto tool top" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-edit"></i> <span class="tiptext">Editar contacto</span> </button>',
+                                '<button class="btn_action btn-eliminar-contacto tool top" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> <span class="tiptext">Eliminar contacto</span> </button>',
                             ]).draw();
                             modal.modal('hide');
                             break;
