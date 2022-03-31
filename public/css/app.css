@@ -23556,7 +23556,6 @@ a:link, a:visited, a:active, a:hover {
   height: 46px;
 }
 .content__logos:hover {
-  background-color: #cde6f3;
   border-radius: 15px;
   -ms-interpolation-mode: nearest-neighbor;
       image-rendering: -moz-crisp-edges;
@@ -23580,7 +23579,6 @@ a:link, a:visited, a:active, a:hover {
   height: 46px;
 }
 .content__logos_inst:hover {
-  background-color: #cff7f1;
   border-radius: 15px;
   -ms-interpolation-mode: nearest-neighbor;
       image-rendering: -moz-crisp-edges;
