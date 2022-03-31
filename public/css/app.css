@@ -23044,14 +23044,14 @@ a:link, a:visited, a:active, a:hover {
 
 .tool.top .tiptext {
   margin-left: -60px;
-  bottom: 130%;
-  left: 50%;
+  bottom: 120%;
+  left: -10%;
 }
 
 .tool.top .tiptext::after {
   margin-left: -5px;
   top: 100%;
-  left: 50%;
+  left: 65%;
   border-color: #bec4c5 transparent transparent transparent;
 }
 
@@ -27253,12 +27253,12 @@ div.dt-buttons {
 }
 
 .content__border_see_contacs {
-  height: 380px;
+  height: 360px;
   width: 445px;
   position: absolute;
-  border: 2px solid #0083d6;
+  border: 2px solid #7fadcb;
   z-index: 10;
-  right: 30px;
+  right: 27px;
   border-radius: 6px;
 }
 

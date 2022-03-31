@@ -289,13 +289,13 @@
 
 .tool.top .tiptext{
     margin-left: -60px;
-    bottom: 130%;
-    left: 50%;
+    bottom: 120%;
+    left: -10%;
 }
 .tool.top .tiptext::after{
     margin-left: -5px;
     top: 100%;
-    left: 50%;
+    left: 65%;
     border-color: #bec4c5 transparent transparent transparent;
 }
 @media(min-width: 768px) {

@@ -11,7 +11,7 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf" id="basic-table"> 
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Mis pagos</h1>
+                <h1 class="title__xl blue_bold">Pagos</h1>
                 <span class="text__md black_light">Encuentre aquí los pagos realizados por cada una de sus citas.</span>
             </div>
 
@@ -19,12 +19,12 @@
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Pagos" />
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar pagos" />
                     </div>
                 </div>
             </div>
 
-            <!-- Contenedor formato tabla de la lista de mis pacientes -->
+            <!-- Contenedor formato tabla de la lista de pagos -->
             <div class="containt_main_table mb-3">
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-pagos">
@@ -35,7 +35,6 @@
                                 <th>Paciente</th>
                                 <th>Estado</th>
                                 <th>Valor</th>
-                                <!-- <th></th> -->
                             </tr>
                         </thead>
 
@@ -48,7 +47,6 @@
                                         <td>{{ $pago->cita->paciente->user->nombre_completo ?? ''}}</td>
                                         <td>{{ ($pago->aprobado) ? 'Aprobado':'Por pagar' }}</td>
                                         <td>${{ number_format($pago->valor, 0, ",", ".") }}</td>
-                                        <!-- <td class="content_btn_descargar"></td> -->
                                     </tr>
                                 @endforeach
                             @endif
