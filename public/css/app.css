@@ -26696,6 +26696,7 @@ div.dt-buttons {
 .table_agenda tbody tr td .input__box input {
   background-color: #f3f3f3;
   border: none;
+  border-radius: 0 5px 5px 0;
   text-align: center;
   margin: 0;
 }

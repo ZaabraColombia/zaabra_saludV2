@@ -11,14 +11,14 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl green_bold">Mis Convenios</h1>
+                <h1 class="title__xl green_bold">Mis Servicios</h1>
             </div>
 
             <!-- Contenedor barra de búsqueda y botón agregar contacto -->
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Convenio">
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Servicio">
                     </div>
 
                     <div class="col-md-3 p-0 content_btn_right">
@@ -37,35 +37,34 @@
                         <tr>
                             <th>Código</th>
                             <th>Nombre</th>
-                            <th>Tipo de empresa</th>
+                            <th>Tipo de servicio</th>
                             <th class="text-center">Acción</th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>SM-1234897</td>
+                                <td>00-0000</td>
                                 <td>
-                                    <span>Soy Salud</span> <br>
-                                    <span>EPS</span>
+                                    <span>Servicio 1</span>
                                 </td>
                                 <td>
-                                    <span>Privada</span>
+                                    <span>Tipo 1</span>
                                 </td>
                                 <td>
                                     <div class="d-flex justify-content-around px-3">
                                         <a class="btn_action_green tool top" style="width: 33px"
                                             href="">
-                                            <i data-feather="eye"></i> <span class="tiptext">ver convenio</span>
+                                            <i data-feather="eye"></i> <span class="tiptext">ver servicio</span>
                                         </a>
                                 
                                         <a class="btn_action_green tool top" style="width: 33px"
                                             href="">
-                                            <i data-feather="edit"></i> <span class="tiptext">editar convenio</span>
+                                            <i data-feather="edit"></i> <span class="tiptext">editar servicio</span>
                                         </a>
                                     
                                         <a class="btn_action_green tool top" style="width: 33px"
                                             href="">
-                                            <i data-feather="settings"></i> <span class="tiptext">configurar convenio</span>
+                                            <i data-feather="settings"></i> <span class="tiptext">configurar servicio</span>
                                         </a>
                                     </div>
                                 </td>

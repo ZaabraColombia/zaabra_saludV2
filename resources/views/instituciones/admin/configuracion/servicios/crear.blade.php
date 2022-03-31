@@ -7,13 +7,14 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl green_bold">Nuevo Servicio</h1>
+                <h1 class="title__xl green_bold">Servicios</h1>
             </div>
         
 
             <div class="containt_main_table mb-3">
                 <form action="" method="post" id="" enctype="">
-                    <div class="d-block d-md-flex justify-content-end py-3">
+                    <div class="d-block d-md-flex justify-content-between py-3">
+                        <h2 class="subtitle__lg green_bold mb-4">Nuevo servicio</h2>
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
                             <input type="checkbox" name="checkbox" id="conv_check">
@@ -70,7 +71,7 @@
                         </div>
 
                         <div class="col-12">
-                            <div class="d-flex align-items-center mt-3">
+                            <div class="d-flex align-items-center mt-3 py-2" style="background: #eff3f3;padding-left: 10px;">
                                 <p class="fs_text_small black_light">Vincular convenios</p>
                                 <input class="ml-4 mr-2" type="radio" name="radio" id="checkon">
                                 <label class="fs_text_small black_light mb-0" for="si">Si</label>
@@ -82,7 +83,7 @@
                     </div>
 
                     <!-- Contenedor formato tabla de la lista de contactos -->
-                    <div id="table_servicio" class="containt_main_table my-3 d-none">
+                    <div id="table_servicio" class="containt_main_table mt-3 d-none">
                         <div class="row m-0">
                             <div class="col-md-9 input__box">
                                 <label for="convenio">Convenio</label>
@@ -175,6 +176,12 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="row m-0 mt-3 content_btn_right">
+                        <a href="" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
+                        <button type="submit" class="button_green">Guardar</button>
                     </div>
                 </form>
             </div>
