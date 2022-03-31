@@ -52,7 +52,7 @@ class CalendarioController extends Controller{
         //Valida si la configuración del calendario está realizada
         if (!isset($horario) or empty($horario->duracion) or empty($horario->descanso))
             return redirect()->route('PerfilProfesional', ['slug' => $profesional->slug])
-                ->with('warning', 'El doctor no tiene agenda disponible');
+                ->with('warning-paciente', 'El doctor no tiene agenda disponible');
 
         //Atrae los dias de la semana que NO labora
         $weekNotBusiness = array();
