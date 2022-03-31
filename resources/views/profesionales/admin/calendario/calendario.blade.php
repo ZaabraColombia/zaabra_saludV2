@@ -89,7 +89,7 @@
     </div>
 
     <!-- Modal  agendar cita -->
-    <div class="modal fade" id="agregar_cita" tabindex="-1" role="dialog">
+    <div class="modal fade" id="agregar_cita" tabindex="-1" >
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -144,6 +144,39 @@
                                     <select id="disponibilidad" name="disponibilidad" required></select>
                                 </div>
 
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">     <!--menu dinamico ciudades -->
+                                    <label for="pais_id">País</label>
+                                    <select class="select2 pais" name="pais_id" id="pais_id" data-modal="#agregar_cita"
+                                            data-id="{{ $user->profecional->idpais }}" data-departamento="#departamento_id"
+                                            data-provincia="#provincia_id" data-ciudad="#ciudad_id">
+                                        @if($paises->isNotEmpty())
+                                            @foreach($paises as $pais)
+                                                <option value="{{ $pais->id_pais }}">{{ $pais->nombre }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                    <label for="departamento_id">Departamento</label>
+                                    <select name="departamento_id" class="select2 departamento" id="departamento_id"
+                                            data-modal="#agregar_cita" data-provincia="#provincia_id" data-ciudad="#ciudad_id"
+                                            data-id="{{ $user->profecional->id_departamento }}"></select>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                    <label for="provincia_id" >Provincia</label>
+                                    <select name="provincia_id" class="select2 provincia" id="provincia_id"
+                                            data-modal="#agregar_cita" data-ciudad="#ciudad_id"
+                                            data-id="{{ $user->profecional->id_provincia }}"></select>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                    <label for="ciudad_id">Ciudad</label>
+                                    <select name="ciudad_id" class="select2" id="ciudad_id" data-modal="#agregar_cita"
+                                            data-id="{{ $user->profecional->id_municipio }}"></select>
+                                </div>
+
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="lugar">Lugar de cita</label>
                                     <input type="text" id="lugar" name="lugar" required
@@ -181,7 +214,7 @@
     </div>
 
     <!-- Modal ver cita -->
-    <div class="modal fade" id="modal_ver_cita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal_ver_cita" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -236,7 +269,7 @@
     </div>
 
     <!-- Modal editar cita -->
-    <div class="modal fade" id="modal_editar_cita" tabindex="-1" >
+    <div class="modal fade " id="modal_editar_cita" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -285,6 +318,40 @@
                                         @endisset
                                     </select>
                                 </div>
+
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                    <label for="pais_id-editar">País</label>
+                                    <select class="select2 pais" name="pais_id" id="pais_id-editar" data-modal="#modal_editar_cita"
+                                            data-departamento="#departamento_id-editar" data-provincia="#provincia_id-editar"
+                                            data-ciudad="#ciudad_id-editar">
+                                        @if($paises->isNotEmpty())
+                                            @foreach($paises as $pais)
+                                                <option value="{{ $pais->id_pais }}">{{ $pais->nombre }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                    <label for="departamento_id-editar">Departamento</label>
+                                    <select name="departamento_id" class="select2 departamento" id="departamento_id-editar"
+                                            data-modal="#modal_editar_cita" data-provincia="#provincia_id-editar"
+                                            data-ciudad="#ciudad_id-editar"></select>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                    <label for="provincia_id-editar" >Provincia</label>
+                                    <select name="provincia_id" class="select2 provincia" id="provincia_id-editar"
+                                            data-modal="#modal_editar_cita" data-ciudad="#ciudad_id-editar"
+                                            data-id="{{ $user->profecional->id_provincia }}"></select>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                    <label for="ciudad_id-editar">Ciudad</label>
+                                    <select name="ciudad_id" class="select2" id="ciudad_id-editar" data-modal="#modal_editar_cita"
+                                            data-id="{{ $user->profecional->id_municipio }}"></select>
+                                </div>
+
                                 <div class="col-12 p-0">
                                     <label for="lugar-editar">Lugar de cita</label>
                                     <input type="text" id="lugar-editar" name="lugar" required/>
@@ -672,6 +739,9 @@
     <script src="{{ asset('fullCalendar/main.js') }}"></script>
     <script src="{{ asset('fullCalendar/locales/es.js') }}"></script>
 
+    <!-- Select 2 -->
+    <script src="{{ asset('js/filtro-ubicacion.js') }}"></script>
+
     <script>
         moment.locale('es');
         document.addEventListener('DOMContentLoaded', function() {
@@ -854,9 +924,26 @@
 
                 var btn = $(this);
                 citas_libre(btn.data('date'), $('#disponibilidad'));
-
-                $('#agregar_cita').modal();
+                var modal = $('#agregar_cita');
+                modal.modal();
                 $('#lugar').val($('#lugar').data('default'));
+
+                var pais = $('#pais_id');
+                pais.val(pais.data('id')).trigger('change');
+
+                setTimeout(function () {
+                    var departamento = $('#departamento_id');
+                    departamento.val(departamento.data('id')).trigger('change');
+                },500);
+                setTimeout(function () {
+                    var provincia = $('#provincia_id');
+                    provincia.val(provincia.data('id')).trigger('change');
+                },1000);
+                setTimeout(function () {
+                    var ciudad = $('#ciudad_id');
+                    ciudad.val(ciudad.data('id')).trigger('change');
+                },1500);
+
 
                 $('#modal_dia_calendario').modal('hide');
             });
@@ -976,6 +1063,23 @@
                         modal.find('#modalidad_pago-editar').val(res.item.modalidad);
                         modal.find('#cantidad-editar').val(res.item.cantidad);
                         modal.find('#id_cita-editar').val(res.item.id);
+
+                        console.log(res.item);
+                        var pais = $('#pais_id-editar');
+                        pais.val(res.item.pais).trigger('change');
+
+                        setTimeout(function () {
+                            var departamento = $('#departamento_id-editar');
+                            departamento.val(res.item.departamento).trigger('change');
+                        },500);
+                        setTimeout(function () {
+                            var provincia = $('#provincia_id-editar');
+                            provincia.val(res.item.provincia).trigger('change');
+                        },1000);
+                        setTimeout(function () {
+                            var ciudad = $('#ciudad_id-editar');
+                            ciudad.val(res.item.ciudad).trigger('change');
+                        },1500);
 
                         modal.modal();
                     },

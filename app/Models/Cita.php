@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use function Symfony\Component\Translation\t;
 
 class Cita extends Model
 {
@@ -27,6 +28,10 @@ class Cita extends Model
         'estimado',
         'duracion',
         'comentario',
+        'pais_id',
+        'departamento_id',
+        'provincia_id',
+        'ciudad_id',
     ];
 
     protected $primaryKey = 'id_cita';
@@ -77,6 +82,35 @@ class Cita extends Model
     public function tipo_consulta(): BelongsTo
     {
         return $this->belongsTo(tipoconsultas::class, 'tipo_cita_id');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function pais(): BelongsTo
+    {
+        return $this->belongsTo(pais::class, 'pais_id', 'id_pais');
+    }
+    /**
+     * @return BelongsTo
+     */
+    public function departamento(): BelongsTo
+    {
+        return $this->belongsTo(departamento::class, 'departamento_id', 'id_departamento');
+    }
+    /**
+     * @return BelongsTo
+     */
+    public function provincia(): BelongsTo
+    {
+        return $this->belongsTo(provincia::class, 'provincia_id', 'id_provincia');
+    }
+    /**
+     * @return BelongsTo
+     */
+    public function ciudad(): BelongsTo
+    {
+        return $this->belongsTo(municipio::class, 'ciudad_id', 'id_municipio');
     }
 
     /**

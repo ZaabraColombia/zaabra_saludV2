@@ -18,11 +18,11 @@ Route::get('/search/filtro', [App\Http\Controllers\buscador\buscadorController::
 Route::get('/search', [App\Http\Controllers\buscador\buscadorController::class, 'search'])->name('search');
 
 /*Paquete búsqueda dinámica ciudades */
-Route::get('/get-Departamento',[App\Http\Controllers\buscador\UbicacionController::class,'getDepartamento'])
+Route::get('/get-Departamento',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getDepartamento'])
     ->name('gte-departamentos')->middleware('auth');
-Route::get('/get-Provincia',[App\Http\Controllers\buscador\UbicacionController::class,'getProvincia'])
+Route::get('/get-Provincia',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getProvincia'])
     ->name('get-provincias')->middleware('auth');
-Route::get('/get-Ciudad',[App\Http\Controllers\buscador\UbicacionController::class,'getCiudad'])
+Route::get('/get-Ciudad',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getCiudad'])
     ->name('get-ciudad')->middleware('auth');
 Route::get('/paciente/get-Departamento',[App\Http\Controllers\profesionales\formularioProfesionalController::class,'getDepartamento'])
     ->name('paciente-gte-departamentos')->middleware('auth');
@@ -462,20 +462,6 @@ Route::get('/test-asignar-cita-profesional-institucion', function (){
 
 // ===================___________ AGENDA INSTITUCIONES ___________=================== //
 
-// Ruta del formulario crear profesionales
-Route::get('/test-crear-professional', function (){
-    return view('instituciones.admin.profesionales.crear');
-});
-
-// Ruta de la configuración del calendario
-Route::get('/test-configuracion-calendario-profesional-institucion', function(){
-    return view('instituciones.admin.profesionales.configuracion-calendario');
-});
-
-// Routa de la vista principal de profesionales
-Route::get('/test-profesional-institucion', function(){
-    return view('instituciones.admin.profesionales.index');
-});
 
 // Ruta de la vista contactos
 Route::get('/test-contactos-institucion', function(){
