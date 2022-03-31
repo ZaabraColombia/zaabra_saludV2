@@ -22766,14 +22766,21 @@ a:link, a:visited, a:active, a:hover {
   padding-bottom: 0;
   border-bottom: none;
 }
-.modal_container .modal-header span {
+.modal_container .modal-header button {
   font-size: 40px;
   font-weight: 200;
   font-family: "Roboto";
   text-transform: capitalize;
+  padding: 0px 10px 0px 85px;
+  margin-bottom: 0px;
+  margin-top: 0;
+  margin-right: -10px;
 }
-.modal_container .modal-header span:hover {
-  color: #0083D6;
+.modal_container .modal-header button:hover {
+  color: #d51313 !important;
+  background-color: #eaeced;
+  border-radius: 25px 5px 5px 25px;
+  padding: 0px 10px 0px 85px;
 }
 .modal_container .modal-body {
   padding-top: 5px;

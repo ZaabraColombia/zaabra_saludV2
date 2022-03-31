@@ -11,17 +11,17 @@
 <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Mis Contactos</h1>
+                <h1 class="title__xl green_bold">Contactos</h1>
             </div>
 
             <!-- Contenedor barra de búsqueda y botón agregar contacto -->
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Contacto" />
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar contacto" />
                     </div>
                     <div class="col-md-3 p-0 content_btn_right">
-                        <button type="button" class="button_blue" id="btn-agregar-contacto">
+                        <button type="button" class="button_green" id="btn-agregar-contacto">
                             Agregar
                         </button>
                     </div>
@@ -33,17 +33,18 @@
                 <div class="row" id="alertas"></div>
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-contactos">
-                        <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Dirección</th>
-                            <th>Teléfono</th>
-                            <th>Correo</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
+                        <thead class="thead_green">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Dirección</th>
+                                <th>Teléfono</th>
+                                <th>Correo</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
                         </thead>
+
                         <tbody>
                             <tr>
                                 <td class="pr-0">
@@ -61,18 +62,21 @@
                                 <td>301 2354 236 - 264 2567</td>
                                 <td>edgaro@gmail.com</td>
                                 <td>
-                                    <button class="btn_action btn-ver-contacto" type="button" data-id="">
+                                    <button class="btn_action_green btn-ver-contacto tool top" type="button" data-id="">
                                         <i class="fas fa-eye"></i>
+                                        <span class="tiptext">ver contacto</span>
                                     </button>
                                 </td>
                                 <td>
-                                    <button class="btn_action btn-editar-contacto" type="button" data-id="">
+                                    <button class="btn_action_green btn-editar-contacto tool top" type="button" data-id="">
                                         <i class="fas fa-edit"></i>
+                                        <span class="tiptext">editar contacto</span>
                                     </button>
                                 </td>
                                 <td>
-                                    <button class="btn_action btn-eliminar-contacto" type="button" data-id="">
+                                    <button class="btn_action_green btn-eliminar-contacto tool top" type="button" data-id="">
                                         <i class="fas fa-trash"></i>
+                                        <span class="tiptext">eliminar contacto</span>
                                     </button>
                                 </td>
                             </tr>
@@ -95,7 +99,7 @@
 
                 <form method="post" id="form-contacto" class="forms">
                     <div class="modal-body">
-                        <h1><span id="titulo">Nuevo</span> Contacto</h1>
+                        <h1 style="color: #019F86"><span id="titulo" style="color: #019F86">Nuevo</span> Contacto</h1>
                         @csrf
                         <div class="form_modal">
                             <div class="row m-0">

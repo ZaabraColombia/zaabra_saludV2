@@ -18,7 +18,7 @@
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Profesionales">
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar profesional">
                     </div>
 
                     <div class="col-md-3 p-0 content_btn_right">

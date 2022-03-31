@@ -243,7 +243,7 @@
                     </div>
 
                     <!-- Buttons -->
-                    <div class="row m-0 mt-2 content_btn_right">
+                    <div class="row m-0 mt-3 content_btn_right">
                         <a href="{{ route('institucion.profesionales.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
                         <button type="submit" class="button_green">Guardar</button>
                     </div>
