@@ -18,12 +18,12 @@
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Convenio">
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Convenio" />
                     </div>
 
                     <div class="col-md-3 p-0 content_btn_right">
-                        <a href="" class="button_green" id="btn-agregar-contacto">
-                            Agregar 
+                        <a href="{{ route('institucion.configuracion.convenios.create') }}" class="button_green" id="btn-agregar-contacto">
+                            Agregar
                         </a>
                     </div>
                 </div>
@@ -57,12 +57,12 @@
                                             href="">
                                             <i data-feather="eye"></i> <span class="tiptext">ver convenio</span>
                                         </a>
-                                
+
                                         <a class="btn_action_green tool top" style="width: 33px"
                                             href="">
                                             <i data-feather="edit"></i> <span class="tiptext">editar convenio</span>
                                         </a>
-                                    
+
                                         <a class="btn_action_green tool top" style="width: 33px"
                                             href="">
                                             <i data-feather="settings"></i> <span class="tiptext">configurar convenio</span>

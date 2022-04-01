@@ -1,7 +1,11 @@
-@section('styles')
-@endsection
-
 @extends('instituciones.admin.layouts.layout')
+
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/tagsinput/bootstrap-tagsinput.css') }}">
+
+@endsection
 
 @section('contenido')
     <div class="container-fluid p-0 pr-lg-4">
@@ -11,113 +15,143 @@
             </div>
 
             <div class="containt_main_table mb-3">
-                <form action="" method="post" id="" enctype="">
+                <form action="{{ route('institucion.configuracion.convenios.store') }}" method="post"
+                      id="form-convenio-crear" enctype="multipart/form-data">
                     <!-- Información básica -->
                     <div class="d-block d-md-flex justify-content-between py-3">
                         <h2 class="subtitle__lg green_bold mb-4">Información básica</h2>
                         <!-- Check box interactivo y personalizado -->
-                        <div class="checkbox">
-                            <input type="checkbox" name="checkbox" id="conv_check">
-                            <label class="label_check" for="conv_check"> 
-                                <b class="txt1">Convenio inactivo</b>
-                                <b class="txt2">Convenio activo</b>
-                            </label>
-                        </div>
+                        {{--                        <div class="checkbox">--}}
+                        {{--                            <input type="checkbox" name="estado_convenio" id="estado_convenio">--}}
+                        {{--                            <label class="label_check" for="conv_check"> --}}
+                        {{--                                <b class="txt1">Convenio inactivo</b>--}}
+                        {{--                                <b class="txt2">Convenio activo</b>--}}
+                        {{--                            </label>--}}
+                        {{--                        </div>--}}
+                    </div>
+
+                    @csrf
+
+                    <div class="row">
+                        @if($errors->any())
+                            <div class="col-12">
+                                <div class="alert alert-danger" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="alert-heading">Error!</h4>
+                                    <ul>
+                                        <li>{!! collect($errors->all())->implode('</li><li>') !!}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        @endif
                     </div>
 
                     <div class="row">
                         <div class="col-md-3 input__box">
-                            <label for="pr_nombre">Primer nombre / Razón social</label>
-                            <input type="text" id="pr_nombre" name="pr_nombre" value="{{ old('pr_nombre') }}"
-                                class="@error('pr_nombre') is-invalid @enderror"/>
+                            <label for="primer_nombre">Primer nombre / Razón social</label>
+                            <input type="text" id="primer_nombre" name="primer_nombre" value="{{ old('primer_nombre') }}"
+                                   class="@error('primer_nombre') is-invalid @enderror" required/>
                         </div>
 
                         <div class="col-md-3 input__box">
-                            <label for="sg_nombre">Segundo nombre</label>
-                            <input type="text" id="sg_nombre" name="sg_nombre" value="{{ old('sg_nombre') }}"
-                                class="@error('sg_nombre') @enderror"/>
+                            <label for="segundo_nombre">Segundo nombre</label>
+                            <input type="text" id="segundo_nombre" name="segundo_nombre" value="{{ old('segundo_nombre') }}"
+                                   class="@error('segundo_nombre') is-invalid @enderror"/>
                         </div>
 
                         <div class="col-md-3 input__box">
-                            <label for="pr_apellido">Primer apellido</label>
-                            <input type="text" id="pr_apellido" name="pr_apellido" value="{{ old('pr_apellido') }}"
-                                class="@error('pr_apellido') @enderror"/>
+                            <label for="primer_apellido">Primer apellido</label>
+                            <input type="text" id="primer_apellido" name="primer_apellido" value="{{ old('primer_apellido') }}"
+                                   class="@error('primer_apellido') is-invalid @enderror"/>
                         </div>
-                        
+
                         <div class="col-md-3 input__box">
-                            <label for="sg_apellido">Segundo apellido</label>
-                            <input type="text" id="sg_apellido" name="sg_apellido" value="{{ old('sg_apellido') }}"
-                                class="@error('sg_apellido') @enderror"/>
+                            <label for="segundo_apellido">Segundo apellido</label>
+                            <input type="text" id="segundo_apellido" name="segundo_apellido" value="{{ old('segundo_apellido') }}"
+                                   class="@error('segundo_apellido') is-invalid @enderror" />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6 input__box">
-                            <label for="tp_identificacion">Tipo de identificación</label>
-                            <select class="@error('tp_identificacion') is-invalid @enderror" id="tp_identificacion"
-                                    name="tp_identificacion" value="{{ old('tp_identificacion') }}">
-                                <option value=""></option>
-                                <option value="Cédula de ciudadanía">Cédula de ciudadanía</option>
-                                <option value="Cédula estranjera">Cédula estranjera</option>
-                                <option value="Pasaporte">Pasaporte</option>
+                            <label for="tipo_documento_id">Tipo de identificación</label>
+                            <select class="@error('tipo_documento_id') is-invalid @enderror" id="tipo_documento_id" required
+                                    name="tipo_documento_id">
+                                @if(!empty($tipo_documentos) and $tipo_documentos->isNotEmpty())
+                                    @foreach($tipo_documentos as $tipo)
+                                        <option value="{{ $tipo->id }}" {{ old('tipo_documento_id') == $tipo->id ? 'selected':null }}>{{ $tipo->nombre }}</option>
+                                    @endforeach
+                                @endif
                             </select>
                         </div>
 
                         <div class="col-md-6 input__box">
-                            <label for="num_identificacion">Número de identificación</label>
+                            <label for="numero_documento">Número de identificación</label>
                             <div class="row m-0">
-                                <input class="col-md-8 m-0 no_brad_right" type="text" id="num_identificacion" name="num_identificacion" value="{{ old('num_identificacion') }}"
-                                    class="@error('num_identificacion') is-invalid @enderror"/>
+                                <input class="col-md-8 m-0 no_brad_right @error('numero_documento') is-invalid @enderror" required
+                                       type="text" id="numero_documento" name="numero_documento" value="{{ old('numero_documento') }}" />
 
-                                <input class="col-md-4 m-0 no_brad_left" type="text" id="cod_identificacion" name="cod_identificacion" value="{{ old('cod_identificacion') }}"
-                                class="@error('cod_identificacion') is-invalid @enderror" placeholder="Cod."/>
+                                <input class="col-md-4 m-0 no_brad_left @error('dv_documento') is-invalid @enderror" type="text"
+                                       id="dv_documento" name="dv_documento" value="{{ old('dv_documento') }}" placeholder="Cod."/>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4 input__box">
-                            <label for="dg_verificacion">Digito de verificación (DV)</label>
-                            <input type="text" id="dg_verificacion" name="dg_verificacion" value="{{ old('dg_verificacion') }}"
-                                class="@error('dg_verificacion') is-invalid @enderror"/>
-                        </div>
 
                         <div class="col-md-4 input__box">
-                            <label for="cod_prest_ser">Código del prestador del servicio</label>
-                            <input type="text" id="cod_prest_ser" name="cod_prest_ser" value="{{ old('cod_prest_ser') }}"
-                                class="@error('cod_prest_ser') is-invalid @enderror"/>
-                        </div>
-
-                        <div class="col-md-4 input__box">
-                            <label for="cod_convenio">Código del convenio</label>
-                            <input type="text" id="cod_convenio" name="cod_convenio" value="{{ old('cod_convenio') }}"
-                                class="@error('cod_convenio') is-invalid @enderror"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4 input__box">
-                            <label for="tp_contribuyente">Tipo de contribuyente</label>
-                            <select class="@error('tp_contribuyente') is-invalid @enderror" id="tp_contribuyente" 
-                                    name="tp_contribuyente" value="{{ old('tp_contribuyente') }}">
-                                <option value=""></option>
-                                <option value="contribuyente 1">contribuyente 1</option>
-                                <option value="contribuyente 2">contribuyente 2</option>
-                                <option value="contribuyente 3">contribuyente 3</option>
+                            @php $sgsss = (!empty( old('sgsss_id') )) ? \App\Models\Sgsss::find(old('sgsss_id')):null; @endphp
+                            <label for="sgsss_id">Código del prestador del servicio</label>
+                            <select type="text" id="sgsss_id" name="sgsss_id" value="{{ old('sgsss_id') }}" required
+                                    class="select2 @error('sgsss_id') is-invalid @enderror">
+                                @if(!empty($sgsss))
+                                    <option value="{{ $sgsss->id }}" selected>{{ $sgsss->nombre }}</option>
+                                @endif
                             </select>
                         </div>
 
                         <div class="col-md-4 input__box">
-                            <label for="act_economica">Actividad económica</label>
-                            <input type="text" id="act_economica" name="act_economica" value="{{ old('act_economica') }}"
-                                class="@error('act_economica') is-invalid @enderror"/>
+                            <label for="codigo_convenio">Código del convenio</label>
+                            <input type="text" id="codigo_convenio" name="codigo_convenio" value="{{ old('codigo_convenio') }}"
+                                   class="@error('codigo_convenio') is-invalid @enderror" required/>
                         </div>
 
                         <div class="col-md-4 input__box">
-                            <label for="fma_pago">Forma de pago</label>
-                            <input type="text" id="fma_pago" name="fma_pago" value="{{ old('fma_pago') }}"
-                                class="@error('fma_pago') is-invalid @enderror"/>
+                            <label for="tipo_contribuyente_id">Tipo de contribuyente</label>
+                            <select class="@error('tipo_contribuyente_id') is-invalid @enderror" id="tipo_contribuyente_id"
+                                    name="tipo_contribuyente_id" value="{{ old('tipo_contribuyente_id') }}" required>
+                                @if(!empty($tipo_contribuyentes) and $tipo_contribuyentes->isNotEmpty())
+                                    @foreach($tipo_contribuyentes as $contribuyente)
+                                        <option value="{{ $contribuyente->id }}" {{ old('tipo_documento_id') == $contribuyente->id ? 'selected':null }}>{{ $contribuyente->nombre }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
                         </div>
+
+                        <div class="col-md-4 input__box">
+                            <label for="actividad_economica_id">Actividad económica</label>
+                            <select id="actividad_economica_id" name="actividad_economica_id" required
+                                    class="@error('actividad_economica_id') is-invalid @enderror">
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 input__box">
+                            <label for="forma_pago">Forma de pago</label>
+                            <select type="text" id="forma_pago" name="forma_pago" required
+                                    class="@error('forma_pago') is-invalid @enderror">
+                                <option></option>
+                                <option value="efectivo" {{ old('forma_pago') == 'efectivo' ? 'selected':'' }}>Efectivo</option>
+                                <option value="transferencia" {{ old('forma_pago') == 'transferencia' ? 'selected':'' }}>Transferencia</option>
+                                <option value="tarjeta" {{ old('forma_pago') == 'tarjeta' ? 'selected':'' }}>Tarjeta de crédito / debito</option>
+                                <option value="consignación" {{ old('forma_pago') == 'consignación' ? 'selected':'' }}>Consignación</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 input__box custom-file">
+                            <input type="file" name="foto" id="foto" class="custom-file-input" />
+                            <label for="forma_pago" class="custom-file-label">Selecciones una foto</label>
+                        </div>
+
+
                     </div>
 
                     <!-- Linea división de elementos -->
@@ -128,105 +162,100 @@
 
                     <div class="row">
                         <div class="col-md-4 input__box">
-                            <label for="tp_establecimiento">Tipo de establecimiento</label>
-                            <select class="@error('') is-invalid @enderror" id="tp_establecimiento"
-                                    name="tp_establecimiento" value="{{ old('tp_establecimiento') }}">
-                                <option value=""></option>    
-                                <option value="Establecimiento 1">Establecimiento 1</option>
-                                <option value="Establecimiento 2">Establecimiento 2</option>
-                                <option value="Establecimiento 3">Establecimiento 3</option>
+                            <label for="tipo_establecimiento">Tipo de establecimiento</label>
+                            <select class="@error('tipo_establecimiento') is-invalid @enderror" id="tipo_establecimiento"
+                                    name="tipo_establecimiento" required>
+                                <option></option>
+                                <option value="oficina" {{ old('tipo_establecimiento') == 'oficina' ? 'selected':'' }}>Oficina</option>
+                                <option value="consultorio" {{ old('tipo_establecimiento') == 'consultorio' ? 'selected':'' }}>Consultorio</option>
+                                <option value="institución" {{ old('tipo_establecimiento') == 'institución' ? 'selected':'' }}>Institución</option>
+                                <option value="edificio" {{ old('tipo_establecimiento') == 'edificio' ? 'selected':'' }}>Edificio</option>
                             </select>
                         </div>
 
                         <div class="col-md-4 input__box">
                             <label for="direccion">Dirección</label>
                             <input type="text" id="direccion" name="direccion" value="{{ old('direccion') }}"
-                                class="@error('direccion') is-invalid @enderror"/>
+                                   class="@error('direccion') is-invalid @enderror" required/>
                         </div>
 
                         <div class="col-md-4 input__box">
-                            <label for="cod_postal">Código postal</label>
-                            <input type="text" id="cod_postal" name="cod_postal" value="{{ old('cod_postal') }}"
-                                class="@error('cod_postal') is-invalid @enderror"/>
+                            <label for="codigo_postal">Código postal</label>
+                            <input type="text" id="codigo_postal" name="codigo_postal" value="{{ old('codigo_postal') }}"
+                                   class="@error('codigo_postal') is-invalid @enderror" required/>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4 input__box">
-                            <label for="ciudad">Ciudad</label>
-                            <select class="@error('ciudad') is-invalid @enderror" id="ciudad"
-                                    name="ciudad" value="{{ old('ciudad') }}">
-                                <option value=""></option>
-                                <option value="ciudad 1">ciudad 1</option>
-                                <option value="ciudad 2">ciudad 2</option>
-                                <option value="ciudad 3">ciudad 3</option>
+                        <div class="col-md-4 input__box">     <!--menu dinamico ciudades -->
+                            <label for="pais_id">País</label>
+                            <select id="pais_id" name="pais_id" class="select2 pais @error('pais_id') is-invalid @enderror"
+                                    data-departamento="#departamento_id" data-provincia="#provincia_id" data-ciudad="#ciudad_id"
+                                    data-id="{{ old('pais_id', 18/* colombia */) }}" required>
+                                @if($paises->isNotEmpty())
+                                    @foreach($paises as $pais)
+                                        <option value="{{ $pais->id_pais }}">{{ $pais->nombre }}</option>
+                                    @endforeach
+                                @endif
                             </select>
                         </div>
 
                         <div class="col-md-4 input__box">
-                            <label for="deparmento">Departamento</label>
-                            <select class="@error('deparmento') is-invalid @enderror" id="deparmento"
-                                    name="deparmento" value="{{ old('deparmento') }}">
-                                <option value=""></option>
-                                <option value="deparmento 1">deparmento 1</option>
-                                <option value="deparmento 2">deparmento 2</option>
-                                <option value="deparmento 3">deparmento 3</option>
+                            @php $departamento = (old('departamento_id') === null)?null:\App\Models\departamento::query()->where('id_departamento', old('departamento_id'))->first()@endphp
+                            <label for="departamento_id">Departamento</label>
+                            {{-- @dd(old('departamento_id'))--}}
+                            <select name="departamento_id" id="departamento_id" class="select2 departamento @error('departamento_id') is-invalid @enderror"
+                                    data-provincia="#provincia_id" data-ciudad="#ciudad_id" data-id="{{ old('departamento_id') }}" required>
+                                @if(!empty($departamento))
+                                    <option value="{{ $departamento->id_departamento }}" selected>{{ $departamento->nombre }}</option>
+                                @endif
                             </select>
                         </div>
 
                         <div class="col-md-4 input__box">
-                            <label for="pais">País</label>
-                            <select class="@error('pais') is-invalid @enderror" id="pais"
-                                    name="pais" value="{{ old('pais') }}">
-                                <option value=""></option>
-                                <option value="pais 1">pais 1</option>
-                                <option value="pais 2">pais 2</option>
-                                <option value="pais 3">pais 3</option>
+                            @php $provincia = (old('provincia_id') === null)?null:\App\Models\provincia::query()->where('id_provincia', old('provincia_id'))->first()@endphp
+                            <label for="provincia_id">Provincia</label>
+                            <select name="provincia_id" id="provincia_id" data-ciudad="#ciudad_id" data-id="{{ old('provincia_id') }}"
+                                    class="select2 provincia @error('provincia_id') is-invalid @enderror">
+                                @if(!empty($provincia))
+                                    <option value="{{ $provincia->id_provincia }}" selected>{{ $provincia->nombre }}</option>
+                                @endif
                             </select>
                         </div>
+
+                        <div class="col-md-4 input__box">
+                            @php $ciudad = (old('ciudad_id') === null)?null:\App\Models\municipio::query()->where('id_municipio', old('ciudad_id'))->first()@endphp
+                            <label for="ciudad_id">Ciudad</label>
+                            <select name="ciudad_id" id="ciudad_id" class="select2 @error('ciudad_id') is-invalid @enderror"
+                                    data-id="{{ old('ciudad_id') }}" required>
+                                @if(!empty($ciudad))
+                                    <option value="{{ $ciudad->id_municipio }}" selected>{{ $ciudad->nombre }}</option>
+                                @endif
+                            </select>
+                        </div>
+
                     </div>
 
                     <div class="row">
                         <div class="col-md-6 input__box">
                             <label for="telefono">Teléfono</label>
                             <input type="text" id="telefono" name="telefono" value="{{ old('telefono') }}"
-                                class="@error('telefono') is-invalid @enderror"/>
+                                   class="w-100 @error('telefono') is-invalid @enderror"/>
                         </div>
 
                         <div class="col-md-6 input__box">
-                            <label for="tel_adicional">Teléfono adicional</label>
-                            <input type="text" id="tel_adicional" name="tel_adicional" value="{{ old('tel_adicional') }}"
-                                class="@error('tel_adicional') @enderror"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 input__box">
-                            <label for="movil">Móvil</label>
-                            <input type="text" id="movil" name="movil" value="{{ old('movil') }}"
-                                class="@error('movil') is-invalid @enderror"/>
+                            <label for="celular">Móvil</label>
+                            <input type="text" id="celular" name="celular" value="{{ old('celular') }}"
+                                   class="w-100 @error('celular') is-invalid @enderror"/>
                         </div>
 
-                        <div class="col-md-6 input__box">
-                            <label for="mov_adicional">Móvil adicional</label>
-                            <input type="text" id="mov_adicional" name="mov_adicional" value="{{ old('mov_adicional') }}"
-                                class="@error('mov_adicional') @enderror"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
                         <div class="col-md-6 input__box">
                             <label for="correo">Correo</label>
-                            <input type="mail" id="correo" name="correo" value="{{ old('correo') }}"
-                                class="@error('correo') is-invalid @enderror"/>
-                        </div>
-
-                        <div class="col-md-6 input__box">
-                            <label for="cor_adicional">Correo adicional</label>
-                            <input type="mail" id="cor_adicional" name="cor_adicional" value="{{ old('cor_adicional') }}"
-                                class="@error('cor_adicional') @enderror"/>
+                            <input type="email" id="correo" name="correo" value="{{ old('correo') }}"
+                                   class="@error('correo') is-invalid @enderror" required/>
                         </div>
                     </div>
+
 
                     <!-- Buttons -->
                     <div class="row m-0 mt-2 content_btn_right">
@@ -240,5 +269,76 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('js/filtro-ubicacion.js') }}"></script>
+    <script src="{{ asset('plugins/tagsinput/bootstrap-tagsinput.min.js') }}"></script>
 
+    <script>
+        $('#actividad_economica_id').select2({
+            theme: 'bootstrap4',
+            ajax:{
+                url: "/api/actividades_economicas",
+                method: 'get',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                dataType: 'json',
+                data:function (params) {
+                    return {
+                        term: params.term
+                    };
+                },
+                processResults: function (response) {
+                    return {
+                        results:response.items
+                    };
+                },
+            },
+            minimumInputLength: 4,
+        });
+        $('#sgsss_id').select2({
+            theme: 'bootstrap4',
+            ajax:{
+                url: "/api/sgsss",
+                method: 'get',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                dataType: 'json',
+                data:function (params) {
+                    return {
+                        term: params.term
+                    };
+                },
+                processResults: function (response) {
+                    return {
+                        results:response.items
+                    };
+                },
+            },
+            minimumInputLength: 2,
+        });
+
+        var pais = $('#pais_id');
+        pais.val(pais.data('id')).trigger('change');
+
+        var departamento = $('#departamento_id');
+        if (departamento.data('id') !== '') setTimeout(function () {
+            departamento.val(departamento.data('id')).trigger('change');
+        },500);
+
+        var provincia = $('#provincia_id');
+        if (provincia.data('id') !== '') setTimeout(function () {
+            provincia.val(provincia.data('id')).trigger('change');
+        },1000);
+
+        var ciudad = $('#ciudad_id');
+        if (ciudad.data('id') !== '') setTimeout(function () {
+            ciudad.val(ciudad.data('id')).trigger('change');
+        },1500);
+
+        // $('#telefono, #celular').tagsinput({
+        //     tagClass: 'bg-primary p-1'
+        // });
+    </script>
 @endsection
