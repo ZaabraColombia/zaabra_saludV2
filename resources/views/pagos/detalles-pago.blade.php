@@ -1,7 +1,7 @@
 @extends('layouts.app-admin')
 
 @section('content')
-    <div class="container pt-4">
+    <div class="container pt-3 pt-lg-5">
         <div class="my-3">
             <h1 class="fs_title blue_light">Notificación de Pago</h1>
         </div>
@@ -15,20 +15,25 @@
         {{--        </div>--}}
 
         <div class="row mb-4">
-            <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+            <div class="col-12 col-lg-7 mb-4 mb-lg-0">
                 <h4 class="fs_subtitle black_bold font_roboto">Información del profesional</h4>
                 <p class="fs_subtitle black_light font_roboto">Dr.(a) {{ $pagoCita->cita->profesional->user->nombre_completo }}</p>
-                <p class="fs_subtitle black_light font_roboto">{{ $pagoCita->cita->profesional->especialidad->nombreEspecialidad }}</p>
-                <p class="fs_subtitle black_light font_roboto">
-                    Fecha y hora de la atención:
-                    {{ "{$pagoCita->cita->fecha_inicio->format('d-M/Y H:i a')} - {$pagoCita->cita->fecha_fin->format('H:i a')}" }}
+                <span class="fs_subtitle black_light font_roboto">Especialidad:</span>
+                <span class="fs_subtitle black_light font_roboto">{{ $pagoCita->cita->profesional->especialidad->nombreEspecialidad }}</span>
+                <p class="fs_subtitle black_light font_roboto">Fecha:
+                    <span>{{ "{$pagoCita->cita->fecha_inicio->format('d-M/Y')}" }}</span>
                 </p>
-                <p class="fs_subtitle black_light font_roboto">{{ $pagoCita->cita->lugar }}</p>
+                <p class="fs_subtitle black_light font_roboto">Hora:
+                    <span>{{ "{$pagoCita->cita->fecha_inicio->format('H:i a')} - {$pagoCita->cita->fecha_fin->format('H:i a')}" }}</span>
+                </p>
+                <p class="fs_subtitle black_light font_roboto">Dirección:
+                    <span">{{ $pagoCita->cita->lugar }}</span>
+                </p>
                 <p class="fs_subtitle black_light font_roboto">Tipo de cita: Presencial</p>
                 <p class="fs_subtitle black_light font_roboto">Valor: ${{ number_format($pagoCita->valor, 0, ",", ".") }}</p>
             </div>
 
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-5">
                 <h4 class="fs_subtitle black_bold font_roboto">Información del paciente</h4>
                 <p class="fs_subtitle black_light font_roboto">{{ $pagoCita->cita->paciente->user->nombre_completo }}</p>
                 <p class="fs_subtitle black_light font_roboto">{{ $pagoCita->cita->paciente->user->numerodocumento }}</p>
@@ -44,7 +49,7 @@
                     @if($pagoCita->aprobado == false and $pagoCita->tipo == 'virtual')
                         <div class="col-6 col-lg-4 pr-2 pl-0">
                             <a href="{{ route('profesional.pago-cita', ['pago_cita' => $pagoCita->id, 'metodo_pago' => 'pse']) }}">
-                                <img class="d-flex m-auto" id="img_pagoPse" src="{{ asset('/img/popup-pago/medios-online-pse-azul.svg') }}">
+                                <img class="d-flex m-auto" id="img_pagoPse" src="{{ asset('/img/banners/carruselhome/pse_pago-en-linea.png') }}" style="width: 112px">
                                 <h4 class="fs_subtitle black_bold text-center">Pagos seguros en línea</h4>
                             </a>
                         </div>

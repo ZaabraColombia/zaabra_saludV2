@@ -27402,6 +27402,11 @@ div.dt-buttons {
   font-weight: 500;
 }
 
+.blue_lighter {
+  color: #0083D6;
+  font-weight: 100;
+}
+
 .green_bold {
   color: #019F86;
   font-weight: bold;

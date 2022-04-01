@@ -29,11 +29,14 @@
                     $profesional = $historial->pago_cita->cita->profesional;
                 @endphp
                 <div class="col-12">
-                    <span class="fs_subtitle black_bold font_roboto">Descripción de pago: &nbsp;&nbsp;&nbsp;</span>
-                    <span class="fs_subtitle black_light font_roboto">{{ "Cita medica {$profesional->user->nombre_completo} "
-                    . "{$cita->fecha_inicio->format('Y-m-d')} / "
-                    . "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A')} / "
-                    . "{$cita->lugar}" }}</span>
+                    <p class="fs_subtitle black_bold font_roboto">Descripción del pago: &nbsp;&nbsp;&nbsp;
+                        <span class="fs_subtitle black_light font_roboto">
+                            {{ "Cita medica {$profesional->user->nombre_completo} "
+                            . "{$cita->fecha_inicio->format('Y-m-d')} / "
+                            . "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A')} / "
+                            . "{$cita->lugar}" }}
+                        </span>
+                    </p>
                 </div>
 
                 <div class="col-12">
