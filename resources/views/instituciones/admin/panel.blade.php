@@ -65,7 +65,7 @@
 
                     <!-- Convenios -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
-                        <a  href='#'>
+                        <a  href='{{ route('institucion.configuracion.convenios.index') }}'>
                             <div class="content__target_inst convenio_green">
                                 <span class="subtitle__lg">Convenios</span>
                             </div>
