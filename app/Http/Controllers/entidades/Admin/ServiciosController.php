@@ -83,9 +83,10 @@ class ServiciosController extends Controller
             'especialidad_id'   => ['required'],
             'convenios'         => ['required', 'boolean'],
 
-            'convenios-lista.*.convenio_id'       => ['required_if:convenios,1', 'exists:convenios,id'],
-            'convenios-lista.*.valor_paciente'    => ['required_if:convenios,1', 'numeric'],
-            'convenios-lista.*.valor_convenio'    => ['required_if:convenios,1', 'numeric'],
+            'convenios-lista.*'                 => ['required_if:convenios,1'],
+            'convenios-lista.*.convenio_id'     => ['required_if:convenios,1', 'exists:convenios,id'],
+            'convenios-lista.*.valor_paciente'  => ['required_if:convenios,1', 'numeric'],
+            'convenios-lista.*.valor_convenio'  => ['required_if:convenios,1', 'numeric'],
         ], [], [
             'duracion'          => 'Duración',
             'descanso'          => 'Descanso',
@@ -94,6 +95,7 @@ class ServiciosController extends Controller
             'descripcion'       => 'Descripción',
             'especialidad_id'   => 'Especialidad',
             'convenios'         => 'Vincular convenios',
+            'convenios-lista.*' => 'Convenios',
             'convenios-lista.*.convenio_id' => 'Convenio',
             'convenios-lista.*.valor_paciente' => 'Valor a pagar paciente',
             'convenios-lista.*.valor_convenio' => 'Valor a pagar convenio',

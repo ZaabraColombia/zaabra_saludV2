@@ -13,6 +13,7 @@
 
             <div class="containt_main_table mb-3">
                 <form action="{{ route('institucion.configuracion.servicios.store') }}" method="post">
+                    {{--
                     <div class="d-block d-md-flex justify-content-between py-3">
                         <h2 class="subtitle__lg green_bold mb-4">Nuevo servicio</h2>
                         <!-- Check box interactivo y personalizado -->
@@ -24,6 +25,7 @@
                             </label>
                         </div>
                     </div>
+                    --}}
 
                     <div class="row">
                         <div class="col-12">
@@ -81,7 +83,6 @@
                             <textarea name="descripcion" id="descripcion" class="@error('especialidad') is-invalid @enderror"
                                       rows="5">{{ old('descripcion') }}</textarea>
                         </div>
-
                         <div class="col-12">
                             <div class="d-flex align-items-center mt-3 py-2" style="background: #eff3f3;padding-left: 10px;">
                                 <p class="fs_text_small black_light">Vincular convenios</p>
@@ -97,7 +98,8 @@
                     </div>
 
                     <!-- Contenedor formato tabla de la lista de contactos -->
-                    <div id="table_servicio" class="containt_main_table mt-3 d-none">
+                    @php $old = old('convenios-lista') @endphp
+                    <div id="table_servicio" class="containt_main_table mt-3 {{ (empty($old)) ? 'd-none':'' }}">
                     {{--<div class="row m-0">
                         <div class="col-md-9 input__box">
                             <label for="convenio">Convenio</label>
@@ -118,6 +120,7 @@
                     </div>--}}
 
                     <!-- Linea división de elementos -->
+
                         <div class="dropdown-divider mt-3 mb-5"></div>
 
                         <div class="table-responsive">
@@ -132,7 +135,6 @@
                                 </thead>
 
                                 <tbody>
-                                @php $old = old('convenios-lista') @endphp
                                 @if($convenios->isNotEmpty())
                                     @foreach($convenios as $convenio)
                                         <tr>

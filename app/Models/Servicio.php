@@ -13,12 +13,14 @@ class Servicio extends Model
 
     protected $fillable = [
         'duracion',
-        'descando',
+        'descanso',
         'valor',
         'nombre',
         'descripcion',
         'especialidad_id',
-        'convenios'
+        'institucion_id',
+        'convenios',
+        'estado'
     ];
 
     protected $table = 'servicios';
@@ -47,6 +49,7 @@ class Servicio extends Model
         return $this->belongsToMany(Convenios::class, 'convenios_has_servicios', 'servicio_id', 'convenio_id')
             ->withPivot(['valor_paciente', 'valor_convenio']);
     }
+
 
 
 }
