@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\especialidades;
 use App\Models\pais;
 use App\Models\profesionales_instituciones;
+use App\Models\sedesinstituciones;
+use App\Models\Servicio;
 use App\Models\TipoDocumento;
 use App\Models\universidades;
 use Illuminate\Contracts\Foundation\Application;
@@ -165,7 +167,21 @@ class ProfesionalesController extends Controller
     {
         Gate::authorize('update-profesional-institucion', $profesional);
 
-        return view('instituciones.admin.profesionales.configuracion-calendario', compact('profesional'));
+        $sedes = sedesinstituciones::query()
+            ->where('idInstitucion', '=', Auth::user()->institucion->id)
+            ->get();
+
+        $servicios = Servicio::query()
+            ->where('institucion_id', '=', Auth::user()->institucion->id )
+            ->get();
+
+        $servicio_lista = $profesional->servicios;
+
+        return view('instituciones.admin.profesionales.configuracion-calendario', compact(
+            'profesional',
+            'sedes',
+            'servicios'
+        ));
     }
 
     /**
@@ -173,12 +189,36 @@ class ProfesionalesController extends Controller
      *
      * @param Request $request
      * @param profesionales_instituciones $profesional
-     * @return void
+     * @return Application|ResponseFactory|Response
      */
     public function guardar_calendario(Request $request, profesionales_instituciones $profesional)
     {
         Gate::authorize('update-profesional-institucion', $profesional);
 
+        $validator = Validator::make( $request->all(), [
+            'disponibilidad_agenda' => ['required', 'number'],
+            'sede_id'               => ['required', 'exists:sedesinstituciones,id'],
+            'consultorio'           => ['required', 'max:50']
+        ]);
+
+        if ($validator->fails())
+        {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validator->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $profesional->update($request->all());
+
+        return response([
+            'message'   => [
+                'title' => 'Hecho',
+                'text'  => 'Disponibilidad actualizada'
+            ]
+        ], Response::HTTP_ACCEPTED);
 
     }
 

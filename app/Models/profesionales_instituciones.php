@@ -39,6 +39,8 @@ class profesionales_instituciones extends Model
         'cargo',
         'horario',
         'disponibilidad_agenda',
+        'sede_id',
+        'consultorio',
     ];
 
     protected $primaryKey = "id_profesional_inst";
@@ -107,5 +109,21 @@ class profesionales_instituciones extends Model
     public function tipo_documento(): BelongsTo
     {
         return $this->belongsTo(TipoDocumento::class, 'tipo_documento_id', 'id');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function sede(): BelongsTo
+    {
+        return $this->belongsTo(sedesinstituciones::class, 'sede_id', 'id');
+    }
+
+    /**
+     * @return BelongsToMany
+     */
+    public function servicios(): BelongsToMany
+    {
+        return $this->belongsToMany(Servicio::class, 'profesionales_ins_has_servicios', 'profesional_id', 'servicio_id');
     }
 }
