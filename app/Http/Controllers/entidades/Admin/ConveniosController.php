@@ -18,7 +18,9 @@ class ConveniosController extends Controller
 
     public function index()
     {
-        $convenios = Convenios::all();
+        //Obtener él id de la institución, se hace el recorrido por los diferentes roles
+        $id_institucion =  Auth::user()->institucion->user->id;
+        $convenios = Convenios::query()->where('id_user', $id_institucion)->get();
 
         return view('instituciones.admin.configuracion.convenios.index', compact('convenios'));
     }

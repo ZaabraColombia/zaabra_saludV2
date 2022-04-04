@@ -38,38 +38,50 @@
                             <th>Código</th>
                             <th>Nombre</th>
                             <th>Tipo de empresa</th>
+                            <th>Teléfonos</th>
+                            <th>Correo</th>
                             <th class="text-center">Acción</th>
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>SM-1234897</td>
-                                <td>
-                                    <span>Soy Salud</span> <br>
-                                    <span>EPS</span>
-                                </td>
-                                <td>
-                                    <span>Privada</span>
-                                </td>
-                                <td>
-                                    <div class="d-flex justify-content-around px-3">
-                                        <a class="btn_action_green tool top" style="width: 33px"
-                                            href="">
-                                            <i data-feather="eye"></i> <span class="tiptext">ver convenio</span>
-                                        </a>
+                        @if($convenios->isNotEmpty())
+                            @foreach($convenios as $convenio)
+                                <tr>
+                                    <td>{{ $convenio->codigo_convenio }}</td>
+                                    <td>
+                                        <span>{{ $convenio->nombre_completo }}</span> <br>
+                                        {{--<span>EPS</span>--}}
+                                    </td>
+                                    <td>
+                                        <span>{{ $convenio->tipo_establecimiento }}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{ "{$convenio->telefono} - {$convenio->celular}" }}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{ $convenio->correo }}</span>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex justify-content-around px-3">
+                                            <a class="btn_action_green tool top" style="width: 33px"
+                                               href="">
+                                                <i data-feather="eye"></i> <span class="tiptext">ver convenio</span>
+                                            </a>
 
-                                        <a class="btn_action_green tool top" style="width: 33px"
-                                            href="">
-                                            <i data-feather="edit"></i> <span class="tiptext">editar convenio</span>
-                                        </a>
+                                            <a class="btn_action_green tool top" style="width: 33px"
+                                               href="{{ route('institucion.configuracion.convenios.edit', ['convenio', $convenio->id]) }}">
+                                                <i data-feather="edit"></i> <span class="tiptext">editar convenio</span>
+                                            </a>
 
-                                        <a class="btn_action_green tool top" style="width: 33px"
-                                            href="">
-                                            <i data-feather="settings"></i> <span class="tiptext">configurar convenio</span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                                            {{--<a class="btn_action_green tool top" style="width: 33px"
+                                               href="">
+                                                <i data-feather="settings"></i> <span class="tiptext">configurar convenio</span>
+                                            </a>--}}
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                         </tbody>
                     </table>
                 </div>

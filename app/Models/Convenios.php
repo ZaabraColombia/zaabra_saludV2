@@ -54,4 +54,14 @@ class Convenios extends Model
     {
         return "{$this->primer_nombre} {$this->segundo_nombre} {$this->primer_apellido} {$this->segundo_apellido}";
     }
+
+    /**
+     * Retorna el profesional o institución del convenio
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(User::class, 'id_user', 'id');
+    }
 }
