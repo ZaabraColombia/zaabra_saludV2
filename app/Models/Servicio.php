@@ -44,7 +44,7 @@ class Servicio extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function convenios(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function convenios_lista(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(Convenios::class, 'convenios_has_servicios', 'servicio_id', 'convenio_id')
             ->withPivot(['valor_paciente', 'valor_convenio']);

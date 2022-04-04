@@ -8,6 +8,7 @@ use App\Models\especialidades;
 use App\Models\Servicio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class ServiciosController extends Controller
 {
@@ -65,10 +66,67 @@ class ServiciosController extends Controller
         }else{
             $array = array();
         }
-        $servicio->convenios()->sync($array);
+        $servicio->convenios_lista()->sync($array);
 
         return redirect()->route('institucion.configuracion.servicios.index')
             ->with('success', "El servicio {$servicio->nombre} ha sido creado");
+    }
+
+    /**
+     * Mostar formulario para editar en servicio
+     *
+     * @param Servicio $servicio
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function edit(Servicio $servicio)
+    {
+        Gate::authorize('update-servicio-institucion', $servicio);
+
+        $especialidades = especialidades::all();
+        $convenios = Convenios::query()
+            ->where('id_user', '=', Auth::user()->institucion->user->id)
+            ->activado()
+            ->get();
+
+        $lista = $servicio->convenios_lista->keyBy('id')->map(function ($item){
+            return [
+                'convenio_id' => $item->pivot->convenio_id,
+                'valor_paciente' => $item->pivot->valor_paciente,
+                'valor_convenio' => $item->pivot->valor_convenio,
+            ];
+        })->toArray();
+
+        return view('instituciones.admin.configuracion.servicios.editar', compact(
+            'especialidades',
+            'convenios',
+            'servicio',
+            'lista'
+        ));
+    }
+
+
+    public function update(Request $request, Servicio $servicio)
+    {
+
+        Gate::authorize('update-servicio-institucion', $servicio);
+
+        $this->validator($request);
+
+        $servicio->update($request->all());
+
+        if ($servicio->convenios)
+        {
+            $array = collect($request->get('convenios-lista'))->map(function ($item) {
+                return ['valor_convenio' => $item['valor_convenio'], 'valor_paciente' => $item['valor_paciente']];
+            })->toArray();
+        }else{
+            $array = array();
+        }
+
+        $servicio->convenios_lista()->sync($array);
+
+        return redirect()->route('institucion.configuracion.servicios.index')
+            ->with('success', "El servicio {$servicio->nombre} ha sido editado");
     }
 
 

@@ -12,26 +12,29 @@
 
 
             <div class="containt_main_table mb-3">
-                <form action="{{ route('institucion.configuracion.servicios.store') }}" method="post">
+                <form action="{{ route('institucion.configuracion.servicios.update', ['servicio' => $servicio->id]) }}" method="post">
                     @csrf
-                    {{--
+                    @method('PUT')
                     <div class="d-block d-md-flex justify-content-between py-3">
-                        <h2 class="subtitle__lg green_bold mb-4">Nuevo servicio</h2>
+                        <h2 class="subtitle__lg green_bold mb-4">Editar servicio</h2>
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
-                            <input type="checkbox" name="checkbox" id="conv_check">
-                            <label class="label_check" for="conv_check">
+                            <input type="checkbox" name="estado" id="estado" value="1"
+                                {{ (old('estado', $servicio->estado)) ? 'checked':'' }}/>
+                            <label class="label_check" for="estado">
                                 <b class="txt1">Servicio inactivo</b>
                                 <b class="txt2">Servicio activo</b>
                             </label>
                         </div>
                     </div>
-                    --}}
 
                     <div class="row">
                         <div class="col-12">
                             @if($errors->any())
                                 <div class="alert alert-danger" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                     <h4 class="alert-heading">Error!</h4>
                                     <ul>
                                         <li>{!! collect($errors->all())->implode('</li><li>') !!}</li>
@@ -41,19 +44,19 @@
                         </div>
                         <div class="col-md-4 input__box">
                             <label for="duracion">Duración (minuto)</label>
-                            <input type="number" id="duracion" name="duracion" value="{{ old('duracion') }}"
+                            <input type="number" id="duracion" name="duracion" value="{{ old('duracion', $servicio->duracion) }}"
                                    class="@error('duracion') is-invalid @enderror"/>
                         </div>
 
                         <div class="col-md-4 input__box">
                             <label for="descanso">Descanso (minuto)</label>
-                            <input type="number" id="descanso" name="descanso" value="{{ old('descanso') }}"
+                            <input type="number" id="descanso" name="descanso" value="{{ old('descanso', $servicio->descanso) }}"
                                    class="@error('descanso') is-invalid @enderror"/>
                         </div>
 
                         <div class="col-md-4 input__box">
                             <label for="valor">Valor</label>
-                            <input type="number" id="valor" name="valor" value="{{ old('valor') }}"
+                            <input type="number" id="valor" name="valor" value="{{ old('valor', $servicio->valor) }}"
                                    class="@error('valor') is-invalid @enderror"/>
                         </div>
                     </div>
@@ -61,7 +64,7 @@
                     <div class="row">
                         <div class="col-md-6 input__box">
                             <label for="nombre">Nombre</label>
-                            <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}"
+                            <input type="text" id="nombre" name="nombre" value="{{ old('nombre', $servicio->nombre) }}"
                                    class="@error('nombre') is-invalid @enderror"/>
                         </div>
 
@@ -71,7 +74,7 @@
                                     name="especialidad_id">
                                 @if($especialidades->isNotEmpty())
                                     @foreach($especialidades as $especialidad)
-                                        <option value="{{ $especialidad->idEspecialidad }}" {{ old('especialidad_id') == $especialidad->idEspecialidad ? 'checked':null }}>{{ $especialidad->nombreEspecialidad }}</option>
+                                        <option value="{{ $especialidad->idEspecialidad }}" {{ old('especialidad_id', $servicio->especialidad_id) == $especialidad->idEspecialidad ? 'selected':null }}>{{ $especialidad->nombreEspecialidad }}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -82,24 +85,24 @@
                         <div class="col-12 input__box">
                             <label for="descripcion">Descripción</label>
                             <textarea name="descripcion" id="descripcion" class="@error('especialidad') is-invalid @enderror"
-                                      rows="5">{{ old('descripcion') }}</textarea>
+                                      rows="5">{{ old('descripcion', $servicio->descripcion) }}</textarea>
                         </div>
                         <div class="col-12">
                             <div class="d-flex align-items-center mt-3 py-2" style="background: #eff3f3;padding-left: 10px;">
                                 <p class="fs_text_small black_light">Vincular convenios</p>
                                 <input class="ml-4 mr-2" type="radio" name="convenios" id="convenios-1"
-                                       value="1" {{ (old('convenios') == 1) ? 'checked':'' }}/>
+                                       value="1" {{ (old('convenios', $servicio->convenios) == 1) ? 'checked':'' }}/>
                                 <label class="fs_text_small black_light mb-0" for="convenios-1">Si</label>
 
                                 <input class="ml-4 mr-2" type="radio" name="convenios" id="convenios-0"
-                                       value="0" {{ (old('convenios') == 0) ? 'checked':'' }}/>
+                                       value="0" {{ (old('convenios', $servicio->convenios) == 0) ? 'checked':'' }}/>
                                 <label class="fs_text_small black_light mb-0" for="convenios-0">No</label>
                             </div>
                         </div>
                     </div>
 
                     <!-- Contenedor formato tabla de la lista de contactos -->
-                    @php $old = old('convenios-lista') @endphp
+                    @php $old = old('convenios-lista', $lista) @endphp
                     <div id="table_servicio" class="containt_main_table mt-3 {{ (empty($old)) ? 'd-none':'' }}">
                     {{--<div class="row m-0">
                         <div class="col-md-9 input__box">
