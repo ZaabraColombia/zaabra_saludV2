@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Convenios;
 use App\Models\profesionales_instituciones;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -30,6 +31,11 @@ class AuthServiceProvider extends ServiceProvider
         //Validar si puede editar el profesional de institución
         Gate::define('update-profesional-institucion', function (User $user, profesionales_instituciones $profesional) {
             return $user->institucion->id === $profesional->id_institucion;
+        });
+
+        //Validar si puede editar convenio de institución
+        Gate::define('update-convenio-institucion', function (User $user, Convenios $convenio) {
+            return $user->institucion->user->id === $convenio->id_user;
         });
     }
 }

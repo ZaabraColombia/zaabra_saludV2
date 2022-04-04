@@ -10,12 +10,19 @@ use App\Models\TipoContribuyente;
 use App\Models\TipoDocumento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class ConveniosController extends Controller
 {
 
+    /**
+     * Listar todos los registros de convenio
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index()
     {
         //Obtener él id de la institución, se hace el recorrido por los diferentes roles
@@ -25,6 +32,11 @@ class ConveniosController extends Controller
         return view('instituciones.admin.configuracion.convenios.index', compact('convenios'));
     }
 
+    /**
+     * Mostrar la vista que tiene el formulario para crear convenio
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function create()
     {
         $tipo_contribuyentes = TipoContribuyente::all();
@@ -40,6 +52,12 @@ class ConveniosController extends Controller
         ));
     }
 
+    /**
+     * Validar y guarda el convenio
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(Request $request)
     {
         $this->validator($request);
@@ -68,6 +86,60 @@ class ConveniosController extends Controller
             ->with('success', "El convenio {$convenio->nombre_completo} se ha creado");
     }
 
+    /**
+     * Mostrar el formulario para editar el convenio
+     *
+     * @param Convenios $convenio
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function edit(Convenios $convenio)
+    {
+        Gate::authorize('update-convenio-institucion', $convenio);
+
+        $tipo_contribuyentes = TipoContribuyente::all();
+        $actividades_economicas = ActividadEconomica::all();
+        $tipo_documentos = TipoDocumento::all();
+        $paises = pais::all();
+
+        return view('instituciones.admin.configuracion.convenios.editar', compact(
+            'tipo_documentos',
+            'actividades_economicas',
+            'tipo_contribuyentes',
+            'paises',
+            'convenio'
+        ));
+    }
+
+    public function update(Request $request, Convenios $convenio)
+    {
+        Gate::authorize('update-convenio-institucion', $convenio);
+
+        $this->validator($request);
+
+        //Guardar foto
+        if ($request->file('foto'))
+        {
+            if (File::exists($convenio->url_image)) File::delete($convenio->url_image);
+
+            //Obtener él id de institución
+            $id_institucion = Auth::user()->institucion->id;
+
+            //Subir la foto
+            $foto = $request->file('foto');
+            $nombre_foto = Str::random(10) . '.' . $foto->guessExtension();
+            $url = $foto->move("img/instituciones/{$id_institucion}/convenios/", $nombre_foto);
+
+            //Guardar la Url
+            $request->merge(['url_image' => $url->getPathname()]);
+
+        }
+
+       $convenio->update($request->all());
+
+        return redirect()->route('institucion.configuracion.convenios.index')
+            ->with('success', "El convenio {$convenio->nombre_completo} se ha editado");
+
+    }
     public function validator(Request $request)
     {
         $request->validate([

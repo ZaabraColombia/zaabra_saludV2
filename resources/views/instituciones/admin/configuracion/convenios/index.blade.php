@@ -31,6 +31,17 @@
 
             <!-- Contenedor formato tabla de la lista de contactos -->
             <div class="containt_main_table mb-3">
+                <div class="col-12">
+                    @if(session()->has('success'))
+                        <div class="alert alert-success" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="alert-heading">Hecho!</h4>
+                            <p>{{ session('success') }}</p>
+                        </div>
+                    @endif
+                </div>
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-pacientes">
                         <thead class="thead_green">
@@ -69,7 +80,7 @@
                                             </a>
 
                                             <a class="btn_action_green tool top" style="width: 33px"
-                                               href="{{ route('institucion.configuracion.convenios.edit', ['convenio', $convenio->id]) }}">
+                                               href="{{ route('institucion.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">
                                                 <i data-feather="edit"></i> <span class="tiptext">editar convenio</span>
                                             </a>
 
