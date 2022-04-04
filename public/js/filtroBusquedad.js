@@ -36,11 +36,11 @@ $(function(){
         },
         open: function() {
             console.log('si');
-            $("ul.ui-menu").css( 'width' ,$('.contains_boxsearch').width() + 'px' );
+            $("ul.ui-menu").css( 'width' ,$('.containt_buscador_desk').width() + 'px' );
         }
     }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
 
-        //$(this).width($('.contains_boxsearch').width());
+        //$(this).width($('.containt_buscador_desk').width());
 
         var btn = "<a href='"  + item.url + "'><i class='" + item.icon + "'></i><span>" +item.label +"</span></a>";
 

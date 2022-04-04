@@ -10004,17 +10004,8 @@ h3 {
     border-color: #dee2e6;
   }
 }
-body {
-  background-color: #ffff;
-}
-
 :focus-visible {
   outline: none;
-}
-
-a:link, a:visited, a:active, a:hover {
-  text-decoration: none;
-  color: #ffff;
 }
 
 .dropdown-toggle::after {
@@ -10023,77 +10014,61 @@ a:link, a:visited, a:active, a:hover {
 
 .navbar_zaabrasalud {
   background-color: #0083D6;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  height: 70px;
+  padding: 3px 0;
   position: -webkit-sticky;
   position: sticky;
-  width: 100%;
   z-index: 500;
   top: 0.1px;
 }
 
-.heigFormHeader {
+.navbar-logo {
+  text-decoration: none;
+  width: 70px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-logo .logo_header {
   height: 100%;
-  width: 100%;
+  image-rendering: -webkit-optimize-contrast;
 }
 
-.inputBarraBusquedad {
-  width: 100%;
-  height: 30px;
-  padding-left: 0;
-  border-radius: 0;
-  font-size: 1em;
-  border: none;
-  padding: 0 2%;
-  background: #faebd700;
+.busqueda_mobile {
+  display: flex;
+  display: flex;
+  height: 45px;
+  width: 45px;
+  justify-content: center;
+  background: #0083d6;
 }
-
-.button_SearchBarH {
-  background: #ffffff;
-  height: 100%;
-  width: 10%;
-  border: none;
-  padding: 0;
-  border-radius: 3px;
-}
-
-.icon_searchH {
-  background-image: url("/img/header/icono-buscador-azul.svg");
-  background-repeat: no-repeat;
-  background-size: 22px;
-  background-position-y: center;
-}
-
-.button_SearchBarH::after {
-  border: none !important;
-}
-
-.contenedorLupa {
+.busqueda_mobile .busqueda_boton_mobile {
   padding: 0;
   border: none;
-  height: auto;
-  width: 20px;
-  position: relative;
-  margin-top: 0;
-  margin-right: 0;
-  margin-left: auto;
-  right: 0;
-  align-items: flex-end;
+  background: transparent;
+}
+.busqueda_mobile .busqueda_boton_mobile .busqueda_icon_mobile {
+  width: 28px;
+  background: #0083D6;
 }
 
-.barra_busqueda {
+.contain_buscador_mobile {
+  display: none;
+  background-color: #0083D6;
   width: 100%;
-  height: 30px;
-  background: #ffff;
+  height: 45px;
+  margin: auto;
+  z-index: 20;
+}
+.contain_buscador_mobile .section_buscador_mobile {
+  width: 90%;
+  background-color: #FFFFFF;
+}
+
+.barra_buscador_mobile {
   display: flex;
   align-items: center;
   justify-content: center;
-  align-content: center;
-  border-radius: 2px;
 }
 
 .barra_busqueda2 {
@@ -10104,316 +10079,220 @@ a:link, a:visited, a:active, a:hover {
   align-items: center;
   justify-content: center;
   align-content: center;
-  border-radius: 2px;
+  border-radius: 3px;
+}
+
+.contains_header {
+  width: 95%;
+  height: 100%;
+  padding: 0;
+}
+
+.input_buscador {
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  border: none;
+  padding: 5px;
+  background: #faebd700;
+}
+
+.icon_buscador {
+  padding: 5px;
+  border: none;
+  height: auto;
+  width: 27px;
+  position: relative;
+}
+
+.containt_buscador_desk {
+  display: none;
 }
 
 .soy_paciente {
-  height: 100%;
+  width: 70px;
+  height: 45px;
 }
 
 .soy_paciente .dropdown-toggle {
-  background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-  background-size: 55px;
-  background-position-x: center;
-  width: 100%;
   height: 100%;
+  width: 100%;
   border: none;
+  border-radius: 3px;
   display: flex;
-  flex-wrap: nowrap;
-  margin: auto;
+  background-image: url("/img/header/icono-soy-paciente-blanco.svg");
+  background-repeat: no-repeat;
+  background-size: 50px;
+  background-position: center;
 }
-
-.icon_paciente:focus {
+.soy_paciente .dropdown-toggle:hover {
   background-image: url("/img/header/icono-soy-paciente-azul.svg");
   background-color: #ffffff;
-  height: 100%;
-  width: 100%;
-  border: none;
+}
+
+.soy_paciente #dropdownMenuLink[aria-expanded=true] {
+  background-image: url("/img/header/icono-soy-paciente-azul.svg");
+  background-color: #fff;
+}
+
+.icon__paciente {
+  background-image: url("/img/header/icono-paciente-gris.svg");
+}
+.icon__paciente:hover {
+  background-image: url("/img/header/icono-paciente-blanco.svg");
+}
+
+.icon__doctor {
+  background-image: url("/img/header/icono-soy-medico.svg");
+}
+.icon__doctor:hover {
+  background-image: url("/img/header/icono-soy-medico-blanco.svg");
+}
+
+.icon__institucion {
+  background-image: url("/img/header/icono-instituciones-medicas.svg");
+}
+.icon__institucion:hover {
+  background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
+}
+
+.membresia_mobile {
   display: flex;
-  flex-wrap: nowrap;
-  margin: auto;
+  width: 45px;
+  height: 45px;
+  justify-content: center;
+}
+.membresia_mobile .membresia_icon_mobile {
+  background-image: url("/img/header/boton-de-memebresia-mob.png");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: center;
+  width: 40px;
+}
+
+.button-membresia {
+  display: none;
+}
+
+.dropdown-menu {
+  padding: 5px 0;
+}
+
+.menu-hamburger {
+  width: 50px;
+  height: 45px;
 }
 
 .menu-hamburger .dropdown-toggle {
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  display: flex;
   background-image: url("/img/header/icono-hamburguesa-blanco.svg");
   background-repeat: no-repeat;
   background-size: 30px;
   background-position: center;
-  height: 100%;
-  width: 100%;
-  border: none;
-  display: flex;
-  flex-wrap: nowrap;
-  margin: auto;
 }
-
-.icon-menu:focus {
+.menu-hamburger .dropdown-toggle:hover {
   background-image: url("/img/header/icono-hamburguesa-azul.svg");
-  background-size: 30px;
   background-color: #ffffff;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100%;
-  border: none;
+}
+
+.menu-hamburger #dropdownMenuLink[aria-expanded=true] {
+  background-image: url("/img/header/icono-hamburguesa-azul.svg");
+  background-color: #ffffff;
+}
+
+.menu__item_head {
   display: flex;
-  flex-wrap: nowrap;
-  margin: auto;
+  padding: 3px 10px 5px 10px;
+  align-items: flex-end;
 }
-
-.menu_paciente {
-  padding: 0;
-  height: auto;
+.menu__item_head span {
+  font-size: 17px;
+  font-family: "Quicksand";
+  color: #232323;
+  margin-left: 10px;
+  width: 200px;
+  line-height: 1.2;
 }
-
-.menu_hamburguesa {
-  height: auto;
-  width: 175px;
-}
-
-.dropdown-menu .dropdown-item {
-  display: flex;
-  width: 100%;
-  height: 45px;
-  clear: both;
-  font-weight: 400;
-  color: #212529;
-  text-align: inherit;
-  white-space: nowrap;
-  background-color: transparent;
-  border: 0;
-  padding: 0;
-  align-items: center;
-}
-
-.dropdown-item {
-  font-family: "Roboto", sans-serif;
-}
-
-.icon-paciente {
-  background-image: url("/img/header/icono-paciente-gris.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 21%;
-}
-
-.icon-medico {
-  background-image: url("/img/header/icono-soy-medico.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 21%;
-}
-
-.icon-instituciones {
-  background-image: url("/img/header/icono-instituciones-medicas.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 21%;
-}
-
-.icon-especialidades {
-  background-image: url("/img/header/icono-especialidades-medicas.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 16%;
-}
-
-.icon-instituciones-burger {
-  background-image: url("/img/header/icono-instituciones-medicas.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 16%;
-}
-
-.icon-quienes {
-  background-image: url("/img/header/icono-quienes-somos.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 16%;
-}
-
-.icon-contactenos {
-  background-image: url("/img/header/iconos-de-contactenos.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 16%;
-}
-
-.icon-agenda {
-  background-image: url("/img/header/icono-agenda-gris.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 16%;
-}
-
-.icon-perfil {
-  background-image: url("/img/header/icono-mi-perfil-gris.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 16%;
-}
-
-.icon-cerrarSesion {
-  background-image: url("/img/header/icono-cerrar-sesion-gris.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 16%;
-}
-
-.menu_paciente > .icon-paciente:hover {
-  background: #0083D6;
-  color: #ffffff;
-  border: 1px solid #0083D6;
-  background-image: url("/img/header/icono-paciente-blanco.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 21%;
-}
-
-.menu_paciente > .icon-medico:hover {
-  background: #0083D6;
-  color: #ffffff;
-  border: 1px solid #0083D6;
-  background-image: url("/img/header/icono-soy-medico-blanco.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 21%;
-}
-
-.menu_paciente > .icon-instituciones:hover {
-  background: #0083D6;
-  color: #ffffff;
-  border: 1px solid #0083D6;
-  background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 21%;
-}
-
-.menu_hamburguesa > .icon-especialidades:hover {
-  background: #0083D6;
-  color: #ffffff;
-  border: 1px solid #0083D6;
-  background-image: url("/img/header/icono-especialidades-medicas-blanco.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 16%;
-}
-
-.menu_hamburguesa > .icon-instituciones-burger:hover {
-  background: #0083D6;
-  color: #ffffff;
-  border: 1px solid #0083D6;
-  background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 16%;
-}
-
-.menu_hamburguesa > .icon-quienes:hover {
-  background: #0083D6;
-  color: #ffffff;
-  border: 1px solid #0083D6;
-  background-image: url("/img/header/icono-quienes-somos-blanco.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 16%;
-}
-
-.menu_hamburguesa > .icon-contactenos:hover {
-  background: #0083D6;
-  color: #ffffff;
-  border: 1px solid #0083D6;
-  background-image: url("/img/header/icono-contactenos-blanco.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 16%;
-}
-
-.menu_hamburguesa > .icon-agenda:hover {
-  background: #0083D6;
-  color: #ffffff;
-  border: 1px solid #0083D6;
-  background-image: url("/img/header/icono-agenda-blanco.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 16%;
-}
-
-.menu_hamburguesa > .icon-perfil:hover {
-  background: #0083D6;
-  color: #ffffff;
-  border: 1px solid #0083D6;
-  background-image: url("/img/header/icono-mi-perfil-blanco.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 16%;
-}
-
-.menu_hamburguesa > .icon-cerrarSesion:hover {
-  background: #0083D6;
-  color: #ffffff;
-  border: 1px solid #0083D6;
-  background-image: url("/img/header/icono-cerrar-sesion-blanco.svg");
-  background-repeat: no-repeat;
-  background-position-x: 10%;
-  background-position-y: center;
-  background-size: 16%;
-}
-
-.button-membresia {
-  flex: 115px;
-  height: 100%;
-  max-width: 117px;
-  display: flex;
-  align-items: center;
-}
-
-.img-button-membresia {
-  max-width: 100%;
-  image-rendering: -webkit-optimize-contrast;
-}
-
-.menu_hamburguesa {
-  height: auto;
-  width: 260px;
-}
-
-.dropdown-menu .menu_item {
-  display: flex;
-  width: 100%;
+.menu__item_head img {
   height: 50px;
-  clear: both;
-  font-weight: 400;
-  color: #212529;
-  text-align: inherit;
-  white-space: nowrap;
-  padding: 0;
-  align-items: center;
-  justify-content: space-evenly;
-  background-repeat: no-repeat;
+  width: 50px;
+  border-radius: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  border: 1px solid #c3c3c3;
 }
 
-.contains_boxsearch {
+.menu__item {
   display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-family: "Quicksand";
+  color: #232323;
+  padding: 15px 15px 15px 70px;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position-y: center;
+  background-position-x: 15px;
+}
+.menu__item:hover {
+  background-image: url("/img/header/icono-mi-perfil-blanco.svg");
+  background-color: #0083d6;
+  color: #fff;
+}
+
+.icon__perfil {
+  background-image: url("/img/header/icono-mi-perfil-gris.svg");
+}
+.icon__perfil:hover {
+  background-image: url("/img/header/icono-mi-perfil-blanco.svg");
+}
+
+.icon__agenda {
+  background-image: url("/img/header/icono-agenda-gris.svg");
+}
+.icon__agenda:hover {
+  background-image: url("/img/header/icono-agenda-blanco.svg");
+}
+
+.icon__especialidad {
+  background-image: url("/img/header/icono-especialidades-medicas.svg");
+}
+.icon__especialidad:hover {
+  background-image: url("/img/header/icono-especialidades-medicas-blanco.svg");
+}
+
+.icon__institucion {
+  background-image: url("/img/header/icono-instituciones-medicas.svg");
+}
+.icon__institucion:hover {
+  background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
+}
+
+.icon__quienes {
+  background-image: url("/img/header/icono-quienes-somos.svg");
+}
+.icon__quienes:hover {
+  background-image: url("/img/header/icono-quienes-somos-blanco.svg");
+}
+
+.icon__contactenos {
+  background-image: url("/img/header/iconos-de-contactenos.svg");
+}
+.icon__contactenos:hover {
+  background-image: url("/img/header/icono-contactenos-blanco.svg");
+}
+
+.icon__closed {
+  background-image: url("/img/header/icono-cerrar-sesion-gris.svg");
+}
+.icon__closed:hover {
+  background-image: url("/img/header/icono-cerrar-sesion-blanco.svg");
 }
 
 #ui-id-1 {
@@ -10502,589 +10381,173 @@ a:link, a:visited, a:active, a:hover {
   display: none !important;
 }
 
-@media (max-width: 600.98px) {
+@media (min-width: 768px) {
   .navbar_zaabrasalud {
-    height: 55px;
-  }
-
-  .navbar .container {
-    justify-content: space-evenly;
-  }
-
-  .contains_header {
-    width: 95%;
-    height: 100%;
-    padding: 0;
+    padding: 7px 0;
   }
 
   .navbar-logo {
-    text-decoration: none;
-    color: #ffff;
-    width: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .logo_header {
-    height: 40px;
-    image-rendering: -webkit-optimize-contrast;
-  }
-
-  .contains_boxsearch {
-    display: none;
-  }
-
-  .contain_lupa-mobile {
-    display: flex;
-  }
-
-  .boton_lupa_mobile {
-    padding: 0;
-    border: none;
-  }
-
-  .icon_lupa-mobile {
-    width: 28px;
-    background: #0083D6;
-  }
-
-  .contains_barra {
-    display: none;
-    background-color: #0083D6 !important;
-    width: 100%;
-    height: 50px;
-    z-index: 20;
-  }
-
-  .barra_oculta {
-    width: 90%;
-  }
-
-  .barra_busqueda-mobile {
-    background: #ffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    margin: auto;
-  }
-
-  .inputBarraBusquedad {
-    width: 90%;
-    height: 25px;
-    padding-left: 0;
-    border-radius: 0;
-    border: none;
-    padding: 1% 2%;
-    background: #faebd700;
-  }
-
-  .contenedorLupa {
-    padding: 0;
-    border: none;
-    height: auto;
-    width: 18px;
-    position: relative;
-    margin-top: 0;
-    margin-right: 3%;
-    right: 0;
-    align-items: flex-end;
-  }
-
-  .ui-menu {
-    height: 29vh;
-  }
-
-  .soy_paciente {
-    height: 100%;
     width: 75px;
-  }
-
-  .soy_paciente .dropdown-toggle {
-    background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-    background-size: 50px;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .soy_paciente .dropdown-toggle {
-    background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-    background-size: 50px;
-    background-position-x: center;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .icon_paciente:focus {
-    background-image: url("/img/header/icono-soy-paciente-azul.svg");
-    background-color: #ffffff;
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .dropdown-menu .dropdown-item {
-    padding-left: 36%;
-    justify-content: flex-start;
-  }
-
-  .icon-paciente {
-    background-size: 20%;
-  }
-
-  .icon-medico {
-    background-size: 20%;
-  }
-
-  .icon-instituciones {
-    background-size: 20%;
-  }
-
-  .button-membresia {
-    display: none;
-  }
-
-  .btnMembresia_header_mobile {
-    background-image: url("/img/header/boton-de-memebresia-mob.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    height: 30px;
-    width: 40px;
-  }
-
-  .menu-hamburger {
-    width: 50px;
-    height: 100%;
-  }
-
-  .menu_hamburguesa {
-    height: auto;
-    width: 225px;
-  }
-
-  .dropdown-menu .item-cel {
-    background-position-x: 7%;
-    padding-left: 25%;
-  }
-
-  .icon-especialidades {
-    background-size: 16%;
-  }
-
-  .icon-instituciones-burger {
-    background-position-x: 7%;
-    background-size: 16%;
-  }
-
-  .icon-quienes {
-    background-position-x: 7%;
-    background-size: 16%;
-  }
-
-  .icon-contactenos {
-    background-position-x: 7%;
-    background-size: 16%;
-  }
-
-  .icon-agenda {
-    background-position-x: 7%;
-    background-size: 16%;
-  }
-
-  .icon-perfil {
-    background-position-x: 7%;
-    background-size: 16%;
-  }
-
-  .icon-cerrarSesion {
-    background-position-x: 7%;
-    background-size: 16%;
-  }
-}
-@media (min-width: 601px) and (max-width: 1023.98px) {
-  .navbar_zaabrasalud {
-    background-color: #0083D6;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    height: 90px;
-    position: -webkit-sticky;
-    position: sticky;
-    width: 100%;
-    z-index: 500;
-    top: 0.1px;
-  }
-
-  .icon_lupa-mobile {
-    width: 45px;
-    background: #0083D6;
-  }
-
-  .btnMembresia_header_mobile {
-    background-image: url("/img/header/boton-de-memebresia-mob.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    height: 55px;
-    width: 70px;
+    height: 60px;
   }
 
   .contains_header {
-    width: 90%;
+    width: 84%;
     height: 100%;
     padding: 0;
     justify-content: space-between;
   }
 
-  .navbar-logo {
-    text-decoration: none;
-    color: #ffff;
-    width: 110px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  .contain_buscador_mobile {
+    width: 94%;
   }
 
-  .logo_header {
-    image-rendering: -webkit-optimize-contrast;
-  }
-
-  .contains_boxsearch {
-    display: none;
-  }
-
-  .contain_lupa-mobile {
-    display: flex;
-  }
-
-  .boton_lupa_mobile {
-    padding: 0;
-    border: none;
-  }
-
-  .contains_barra {
-    display: none;
-    background-color: #0083D6 !important;
-    width: 100%;
-    height: 80px;
-    z-index: 20;
-  }
-
-  .barra_oculta {
-    width: 90%;
-  }
-
-  .barra_busqueda-mobile {
-    background: #ffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    margin: auto;
-  }
-
-  .inputBarraBusquedad {
-    width: 90%;
-    height: 45px;
-    padding-left: 0;
-    border-radius: 0;
-    font-size: 1.5em;
-    border: none;
-    padding: 1% 2%;
-    background: #faebd700;
-  }
-
-  .contenedorLupa {
-    padding: 0;
-    border: none;
-    height: auto;
-    width: 30px;
-    position: relative;
-    margin-top: 0;
-    margin-right: 3%;
-    right: 0;
-    align-items: flex-end;
-  }
-
-  .ui-menu {
-    height: 29vh;
+  .busqueda_mobile .busqueda_boton_mobile .busqueda_icon_mobile {
+    width: 35px;
   }
 
   .soy_paciente {
-    width: 135px;
+    width: 85px;
+    height: 60px;
   }
 
   .soy_paciente .dropdown-toggle {
-    background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-    background-size: 85px;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .soy_paciente .dropdown-toggle {
-    background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-    background-size: 85px;
-    background-position-x: center;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .icon_paciente:focus {
-    background-image: url("/img/header/icono-soy-paciente-azul.svg");
-    background-color: #ffffff;
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-wrap: nowrap;
-    margin: auto;
-  }
-
-  .dropdown-menu .dropdown-item {
-    height: 50px;
-    padding-left: 36%;
-    justify-content: flex-start;
-  }
-
-  .icon-paciente {
-    background-size: 20%;
-  }
-
-  .icon-medico {
-    background-size: 20%;
-  }
-
-  .icon-instituciones {
-    background-size: 20%;
-  }
-
-  .button-membresia {
-    display: none;
+    background-size: 65px;
   }
 
   .menu-hamburger {
-    width: 100px;
-    height: 100%;
+    width: 60px;
+    height: 60px;
   }
 
-  .menu-hamburger .dropdown-toggle {
-    background-size: 50px;
-  }
-
-  .menu_hamburguesa {
+  .icon_buscador {
+    padding: 5px;
+    border: none;
     height: auto;
-    width: 225px;
-  }
-
-  .dropdown-menu .item-cel {
-    background-position-x: 7%;
-    padding-left: 25%;
-    height: 50px;
-  }
-
-  .icon-especialidades {
-    background-size: 16%;
-  }
-
-  .icon-instituciones-burger {
-    background-position-x: 7%;
-    background-size: 16%;
-  }
-
-  .icon-quienes {
-    background-position-x: 7%;
-    background-size: 16%;
-  }
-
-  .icon-contactenos {
-    background-position-x: 7%;
-    background-size: 16%;
-  }
-
-  .icon-agenda {
-    background-position-x: 7%;
-    background-size: 16%;
-  }
-
-  .icon-perfil {
-    background-position-x: 7%;
-    background-size: 16%;
-  }
-
-  .icon-cerrarSesion {
-    background-position-x: 7%;
-    background-size: 16%;
+    width: 35px;
+    position: relative;
   }
 }
 @media (min-width: 1024px) {
-  .contain_lupa-mobile {
-    display: none;
-  }
-
-  .btnMembresia_header_mobile {
-    display: none;
-  }
-
-  .contains_barra {
-    display: none;
-  }
-
   .contains_header {
     width: 75%;
-    height: 100%;
-    padding: 0;
-    justify-content: flex-start;
   }
 
-  .logo_header {
-    width: 65px;
-    image-rendering: -webkit-optimize-contrast;
+  .navbar_zaabrasalud {
+    padding: 4px 0;
   }
 
-  .contains_boxsearch {
+  .navbar-logo {
+    width: 75px;
+    height: 50px;
+  }
+
+  .busqueda_mobile {
+    display: none;
+  }
+
+  .containt_buscador_desk {
     padding: 0%;
     flex: 45%;
     max-width: 45%;
-    height: 100%;
-    margin-right: 0;
-    align-items: center;
+    height: 33px;
     display: flex;
-    align-self: center;
   }
 
-  .contenedorLupa {
-    padding: 0;
+  .barra_busqueda {
+    width: 100%;
+    height: 100%;
+    background: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border-radius: 3px;
+  }
+
+  .buscador_boton_desk {
+    background: #ffffff;
+    height: 100%;
+    width: 10%;
     border: none;
-    height: auto;
-    width: 6%;
-    position: relative;
-    margin-top: 0;
-    margin-right: 3%;
-    right: 0;
-    align-items: flex-end;
+    padding: 0;
+    border-radius: 3px;
+  }
+
+  .buscador_icon_desk {
+    background-image: url("/img/header/icono-buscador-azul.svg");
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: center;
+  }
+
+  .button-membresia {
+    flex: 115px;
+    height: 100%;
+    max-width: 117px;
+    display: flex;
+    align-items: center;
+  }
+  .button-membresia .img-button-membresia {
+    max-width: 100%;
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  .soy_paciente {
+    width: 75px;
+    height: 52px;
+  }
+
+  .soy_paciente .dropdown-toggle {
+    background-size: 55px;
+  }
+
+  .membresia_mobile {
+    display: none;
+  }
+
+  .menu-hamburger {
+    width: 60px;
+    height: 52px;
   }
 
   .dropdown-paciente {
     width: 30%;
     height: 100%;
   }
-
-  .soy_paciente {
-    width: 65px;
-  }
-
-  .icon_paciente {
-    background-size: contain;
-    background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-    background-repeat: no-repeat;
-    background-position-y: center;
-  }
-
-  .menu_paciente {
-    padding: 0;
-    height: auto;
-  }
-
-  .texto_item-menu {
-    width: 60%;
-    margin-left: 20%;
-    font-size: 1em;
-  }
-
-  .texto_item-menu-paciente {
-    width: 60%;
-    margin-left: 35%;
-    font-size: 1em;
-  }
-
-  .button-membresia {
-    display: flex;
-  }
-
-  .img-button-membresia {
-    width: 100%;
-  }
-
-  .menu-hamburger {
-    width: 65px;
-    height: 100%;
-  }
-}
-@media (min-width: 1440px) {
-  .inputBarraBusquedad {
-    height: 28px;
-  }
 }
 @media (min-width: 1920px) {
   .navbar_zaabrasalud {
-    height: 75px;
+    padding: 5px 0;
+  }
+
+  .navbar-logo {
+    height: 60px;
   }
 
   .contains_header {
     width: 65%;
   }
 
-  .logo_header {
-    width: 75px;
-    image-rendering: -webkit-optimize-contrast;
-  }
-
-  .barra_busqueda {
-    height: 35px;
-  }
-
-  .inputBarraBusquedad {
-    height: 35px;
-    font-size: 1.2em;
-  }
-
   .soy_paciente {
-    width: 100px;
+    height: 60px;
   }
 
-  .contenedorLupa {
-    padding: 0;
-    border: none;
-    height: auto;
-    width: 5%;
-    position: relative;
-    margin-top: 0;
-    margin-right: 3%;
-    right: 0;
-    align-items: flex-end;
+  .soy_paciente .dropdown-toggle {
+    background-size: 60px;
+  }
+
+  .button-membresia {
+    max-width: 145px;
+  }
+
+  .menu-hamburger {
+    width: 60px;
+    height: 60px;
   }
 
   #ui-id-1 {
     height: 31vh;
-  }
-
-  .soy_paciente .dropdown-toggle {
-    background-size: 70px;
-  }
-
-  .button-membresia {
-    max-width: 150px;
-  }
-
-  .menu-hamburger .dropdown-toggle {
-    background-size: 40px;
   }
 }
 .footer_newsletter {
@@ -23121,6 +22584,8 @@ a:link, a:visited, a:active, a:hover {
   height: 60px;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
   border-radius: 50px;
 }
 .sidebar-menu .sidebar__header .user_data {

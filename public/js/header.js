@@ -7,5 +7,5 @@ menu.addEventListener("click", function (){
 // Función para mostrar y ocultar barra de busqueda en los tamaños Mobile y Tablet del "header", archivo ubicado en el app.blade.php
 function ocultaInput(){
    let myinput = document.querySelector.bind(document);
-   myinput(".contains_barra").classList.toggle("barra_busqueda-mobile")
+   myinput(".contain_buscador_mobile").classList.toggle("barra_buscador_mobile")
 }
