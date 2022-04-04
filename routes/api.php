@@ -33,3 +33,8 @@ Route::get('/provincias/{departamento:id_departamento}',[App\Http\Controllers\bu
 Route::get('/ciudades/{provincia:id_provincia}',[App\Http\Controllers\buscador\UbicacionController::class,'ciudades'])
     ->name('ciudades');
 
+/* Buscar general de recursos */
+Route::get('/sgsss', [\App\Http\Controllers\buscador\RecursosController::class, 'sgsss'])
+    ->name('sgsss');
+Route::get('/actividades_economicas', [\App\Http\Controllers\buscador\RecursosController::class, 'actividad_economica'])
+    ->name('actividad_economica');
