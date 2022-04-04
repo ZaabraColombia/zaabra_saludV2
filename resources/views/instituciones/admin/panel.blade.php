@@ -74,7 +74,7 @@
 
                     <!-- Servicios -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
-                        <a  href='#'>
+                        <a  href='{{ route('institucion.configuracion.servicios.index') }}'>
                             <div class="content__target_inst servicio_green">
                                 <span class="subtitle__lg">Servicios</span>
                             </div>
