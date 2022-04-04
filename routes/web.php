@@ -351,6 +351,7 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
 
     Route::group(['prefix' => '/configuracion', 'as' => 'configuracion.'], function (){
         Route::resource('/convenios', entidades\Admin\ConveniosController::class);
+        Route::resource('/servicios', entidades\Admin\ServiciosController::class);
     });
 
 });
