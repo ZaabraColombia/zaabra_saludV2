@@ -1,7 +1,7 @@
-// a:link, a:visited, a:active, a:hover {
-//     text-decoration: none;
-//     color: #ffff;
-// }
+a:link, a:visited, a:active, a:hover {
+    text-decoration: none;
+    color: #ffff;
+}
 :focus-visible{
     outline: none;
 }
@@ -350,7 +350,7 @@
 
 @media (min-width: 768px) {
     .navbar_zaabrasalud {
-        padding: 7px 0;
+        padding: 4px 0;
     }
     // Logo institucional
     .navbar-logo {
