@@ -11,19 +11,19 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Mis Profesionales</h1>
+                <h1 class="title__xl blue_bold">Mis Especialistas</h1>
             </div>
 
-            <!-- Contenedor barra de búsqueda y botón agregar contacto -->
+            <!-- Contenedor barra de búsqueda -->
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Paciente">
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar especialista">
                     </div>
                 </div>
             </div>
 
-            <!-- Contenedor formato tabla de la lista de contactos -->
+            <!-- Contenedor formato tabla de la lista de especialistas -->
             <div class="containt_main_table mb-3">
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-pacientes">
@@ -31,7 +31,6 @@
                             <tr>
                                 <th>Nombre</th>
                                 <th>Especialidad</th>
-                                <!-- <th>Universidad</th> -->
                                 <th>Teléfonos</th>
                                 <th>Dirección</th>
                                 <th>Institución</th>
@@ -39,71 +38,71 @@
                                 <th></th>
                             </tr>
                         </thead>
+
                         <tbody>
-                        @if($profesionales->isNotEmpty())
-                            @foreach($profesionales as $profesional)
-                                <tr>
-                                    <td class="pr-0">
-                                        <div class="user__xl">
-                                            <div class="pr-2">
-                                                <img class="img__contacs" src='{{ asset($profesional->fotoperfil ?? 'img/menu/avatar.png') }}'>
-                                            </div>
+                            @if($profesionales->isNotEmpty())
+                                @foreach($profesionales as $profesional)
+                                    <tr>
+                                        <td class="pr-0">
+                                            <div class="user__xl">
+                                                <div class="pr-2">
+                                                    <img class="img__contacs" src='{{ asset($profesional->fotoperfil ?? 'img/menu/avatar.png') }}'>
+                                                </div>
 
-                                            <div>
-                                                <span>{{ $profesional->user->nombre_completo }}</span>
+                                                <div>
+                                                    <span>{{ $profesional->user->nombre_completo }}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>{{ $profesional->especialidad->nombreEspecialidad }}</td>
-                                    <!-- <td>{{ $profesional->universidad->nombreuniversidad }}</td> -->
-                                    <td>{{ "{$profesional->celular} - {$profesional->telefono}" }}</td>
-                                    <td>{{ $profesional->direccion }}</td>
-                                    <td>{{ $profesional->EmpresaActual }}</td>
-                                    <td>
-                                        <a class="btn_action tool top" style="width: 33px" href="{{ route('PerfilProfesional', ['slug' => $profesional->slug]) }}" target="_blank">
-                                            <i data-feather="external-link"></i>  <span class="tiptext">landing profesional</span>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a class="btn_action tool top" style="width: 33px" href="{{ route('paciente.asignar-cita-profesional', ['profesional' => $profesional->slug]) }}">
-                                            <i data-feather="calendar"></i> <span class="tiptext">agendar cita</span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
-                        @if($profesionales_ins->isNotEmpty())
-                            @foreach($profesionales_ins as $profesional)
-                                <tr>
-                                    <td class="pr-0">
-                                        <div class="user__xl">
-                                            <div class="pr-2">
-                                                <img class="img__contacs" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
-                                            </div>
+                                        </td>
+                                        <td>{{ $profesional->especialidad->nombreEspecialidad }}</td>
+                                        <td>{{ "{$profesional->celular} - {$profesional->telefono}" }}</td>
+                                        <td>{{ $profesional->direccion }}</td>
+                                        <td>{{ $profesional->EmpresaActual }}</td>
+                                        <td>
+                                            <a class="btn_action tool top" style="width: 33px" href="{{ route('PerfilProfesional', ['slug' => $profesional->slug]) }}" target="_blank">
+                                                <i data-feather="external-link"></i>  <span class="tiptext">Landing profesional</span>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a class="btn_action tool top" style="width: 33px" href="{{ route('paciente.asignar-cita-profesional', ['profesional' => $profesional->slug]) }}">
+                                                <i data-feather="calendar"></i> <span class="tiptext">Agendar cita</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
 
-                                            <div>
-                                                <span>{{ $profesional->nombre_completo }}</span>
+                            @if($profesionales_ins->isNotEmpty())
+                                @foreach($profesionales_ins as $profesional)
+                                    <tr>
+                                        <td class="pr-0">
+                                            <div class="user__xl">
+                                                <div class="pr-2">
+                                                    <img class="img__contacs" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
+                                                </div>
+
+                                                <div>
+                                                    <span>{{ $profesional->nombre_completo }}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>{{ $profesional->especialidad[0]->nombreEspecialidad ?? '' }}</td>
-                                    <!-- <td>{{ $profesional->universidad->nombreuniversidad }}</td> -->
-                                    <td>{{ "{$profesional->institucion->telefonouno} - {$profesional->institucion->telefono2}" }}</td>
-                                    <td>{{ $profesional->institucion->direccion }}</td>
-                                    <td>{{ $profesional->institucion->user->nombreinstitucion }}</td>
-                                    <td>
-                                        <a class="btn_action toll top" style="width: 33px" href="{{ route('PerfilInstitucion', ['slug' => $profesional->institucion->slug]) }}" target="_blank">
-                                            <i class="external-link"></i> <span class="tiptext">landing profesional</span>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a class="btn_action toll top" style="width: 33px" href="#">
-                                            <i class="calendar"></i> <span class="tiptext">agendar cita</span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
+                                        </td>
+                                        <td>{{ $profesional->especialidad[0]->nombreEspecialidad ?? '' }}</td>
+                                        <td>{{ "{$profesional->institucion->telefonouno} - {$profesional->institucion->telefono2}" }}</td>
+                                        <td>{{ $profesional->institucion->direccion }}</td>
+                                        <td>{{ $profesional->institucion->user->nombreinstitucion }}</td>
+                                        <td>
+                                            <a class="btn_action toll top" style="width: 33px" href="{{ route('PerfilInstitucion', ['slug' => $profesional->institucion->slug]) }}" target="_blank">
+                                                <i class="external-link"></i> <span class="tiptext">Landing profesional</span>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a class="btn_action toll top" style="width: 33px" href="#">
+                                                <i class="calendar"></i> <span class="tiptext">Agendar cita</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>

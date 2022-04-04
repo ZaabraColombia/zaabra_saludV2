@@ -11,19 +11,19 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Mis Pacientes</h1>
+                <h1 class="title__xl blue_bold">Pacientes</h1>
             </div>
 
-            <!-- Contenedor barra de búsqueda y botón agregar contacto -->
+            <!-- Contenedor barra de búsqueda -->
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Paciente">
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar paciente">
                     </div>
                 </div>
             </div>
 
-            <!-- Contenedor formato tabla de la lista de contactos -->
+            <!-- Contenedor formato tabla de la lista pacientes -->
             <div class="containt_main_table mb-3">
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-pacientes">
@@ -36,28 +36,29 @@
                                 <th>E-mail</th>
                             </tr>
                         </thead>
-                        <tbody>
-                        @if($pacientes->isNotEmpty())
-                            @foreach($pacientes as $paciente)
-                                <tr>
-                                    <td class="pr-0">
-                                        <div class="user__xl">
-                                            <div class="pr-2">
-                                                <img class="img__contacs" src='{{ asset($paciente->foto ?? 'img/menu/avatar.png') }}'>
-                                            </div>
 
-                                            <div>
-                                                {{ $paciente->user->nombre_completo }}
+                        <tbody>
+                            @if($pacientes->isNotEmpty())
+                                @foreach($pacientes as $paciente)
+                                    <tr>
+                                        <td class="pr-0">
+                                            <div class="user__xl">
+                                                <div class="pr-2">
+                                                    <img class="img__contacs" src='{{ asset($paciente->foto ?? 'img/menu/avatar.png') }}'>
+                                                </div>
+
+                                                <div>
+                                                    {{ $paciente->user->nombre_completo }}
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>{{ $paciente->user->numerodocumento }}</td>
-                                    <td>{{ $paciente->direccion }}</td>
-                                    <td>{{ "{$paciente->celular} - {$paciente->telefono}" }}</td>
-                                    <td>{{ $paciente->user->email }}</td>
-                                </tr>
-                            @endforeach
-                        @endif
+                                        </td>
+                                        <td>{{ $paciente->user->numerodocumento }}</td>
+                                        <td>{{ $paciente->direccion }}</td>
+                                        <td>{{ "{$paciente->celular} - {$paciente->telefono}" }}</td>
+                                        <td>{{ $paciente->user->email }}</td>
+                                    </tr>
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>

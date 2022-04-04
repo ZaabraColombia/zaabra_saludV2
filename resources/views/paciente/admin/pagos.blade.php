@@ -11,7 +11,7 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf" id="basic-table">
             <div class="my-4 my-xl-5">
-                <h1 class="title_miCita">Mis pagos</h1>
+                <h1 class="title__xl blue_bold">Mis pagos</h1>
                 <span class="subtitle_miCita">Encuentre aquí los pagos realizados por cada una de sus citas.</span>
             </div>
 
@@ -19,7 +19,7 @@
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Pagos">
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar pagos">
                     </div>
                 </div>
             </div>

@@ -1,5 +1,9 @@
 @extends('paciente.admin.layouts.layout')
-
+    <style>
+        select option {
+            letter-spacing: 15px;
+        }
+    </style>
 @section('styles')
     <!-- Librería de calendar_date min.css -->
     <link rel="stylesheet" href="{{ asset('plugins/pg-calendar-master/dist/css/pignose.calendar.min.css') }}">
@@ -124,33 +128,45 @@
         @endif
     </div>
 
-    <!-- Modal -->
+    <!-- Modal Detalle de la cita-->
     <div class="modal fade" id="confirmar-cita" tabindex="-1">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content modal_container">
                 <div class="modal-header">
-                    <h5 class="fs_title_module black_bold" id="exampleModalLabel">Detalles de la cita</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <h5 class="profesional">{{ $user->nombre_completo }}</h5>
-                        <h5>{{ $user->numerodocumento }}</h5>
+                    <h1 class="fs_subtitle_module">Detalle de la cita</h1>
+
+                    <div class="modal_info_cita">
+                        <div class="d-flex blue_lighter mb-2">
+                            <i data-feather="user"></i>
+                            <h5 class="pt-1 pl-2 font_roboto blue_lighter fs_text mb-0">Paciente</h5>
+                        </div>
+                        <h5 class="fs_text_small profesional">{{ $user->nombre_completo }}</h5>
+                        <h5 class="fs_text_small">{{ $user->numerodocumento }}</h5>
                     </div>
-                    <div>
-                        <h5 class="profesional">Dr(a). {{$profesional->user->nombre_completo }}</h5>
-                        <h5>{{$profesional->numerodocumento }}</h5>
-                        <h5 id="modal-tipo-de-cita"></h5>
-                        <h5 id="modal-horario"></h5>
-                        <h5>{{ $profesional->direccion }}</h5>
-                        <h5>Valor cita: <span id="modal-valor"></span></h5>
+
+                    <div class="modal_info_cita mt-2">
+                        <div class="d-flex blue_lighter mb-2">
+                            <i data-feather="trello"></i>
+                            <h5 class="pt-1 pl-2 font_roboto blue_lighter fs_text mb-0">Consulta</h5>
+                        </div>
+                        <h5 class="fs_text_small black_strong profesional">Dr(a). {{$profesional->user->nombre_completo }}</h5>
+                        <h5 class="fs_text_small">{{$profesional->numerodocumento }}</h5>
+                        <h5 class="fs_text_small black_strong">Tipo de cita:&nbsp;&nbsp;<span id="modal-tipo-de-cita" class="text-uppercase"></span></h5>
+                        <h5 class="fs_text_small">Fecha:&nbsp;&nbsp;<span id="modal-fecha"></span> </h5>
+                        <h5 class="fs_text_small">Hora:&nbsp;&nbsp;<span id="modal-horario"></span> </h5>
+                        <h5 class="fs_text_small">Dirección:&nbsp;&nbsp;{{ $profesional->direccion }}</h5>
+                        <h5 class="fs_text_small black_strong">Valor cita:&nbsp;&nbsp;<span id="modal-valor"></span></h5>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btn_confirmar_cita">Guardar</button>
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_transparent" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="button_blue" id="btn_confirmar_cita">Guardar</button>
                 </div>
             </div>
         </div>
@@ -228,7 +244,7 @@
                             //get list
                             $.each(res.data, function (index, item) {
                                 hora.append('<option value=\'{"start":"' + item.startTime + '","end": "' + item.endTime + '"}\'>' +
-                                    moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
+                                    moment(item.startTime).format('hh:mm  A') + '&nbsp;&nbsp;-&nbsp;&nbsp;' + moment(item.endTime).format('hh:mm  A') +
                                     '</option>');
                             });
                         },
@@ -257,10 +273,9 @@
                 tipo_cita.val() !== undefined && tipo_cita.val() !== null
             )
             {
-                $('#modal-horario').html(moment(horario.start, 'YYYY-MM-DD HH:mm').format('DD-MMM /YYYY')
-                    + '<br>' + moment(horario.start, 'YYYY-MM-DD HH:mm').format('hh:mm A')
-                    + ' - ' + moment(horario.end, 'YYYY-MM-DD HH:mm').format('hh:mm A')
-                );
+                $('#modal-fecha').html(moment(horario.start, 'YYYY-MM-DD HH:mm').format('DD-MMM /YYYY'));
+                $('#modal-horario').html(moment(horario.start, 'YYYY-MM-DD HH:mm').format('hh:mm A')
+                    + ' - ' + moment(horario.end, 'YYYY-MM-DD HH:mm').format('hh:mm A'));
                 $('#modal-tipo-de-cita').html(tipo_cita.find('option:selected').html());
                 $('#modal-valor').html(tipo_cita.find('option:selected').data('valor'));
 

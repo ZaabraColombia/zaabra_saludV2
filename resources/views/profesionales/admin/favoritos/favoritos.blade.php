@@ -5,7 +5,7 @@
 
     <div class="row containt_agendaProf mb-3" id="basic-table">
         <div class="my-4 my-xl-5">
-            <h1 class="title__xl blue_bold">Mis favoritos Profesional</h1>
+            <h1 class="title__xl blue_bold">Favoritos Profesional</h1>
             <p class="text__md black_light">Registre sus favoritos y reciba información relacionada con sus intereses.</p>
         </div>
 

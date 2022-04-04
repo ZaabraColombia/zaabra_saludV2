@@ -23,15 +23,15 @@
             </div>
 
             <div class="my-4 my-xl-5">
-                <h1 class="title_miCita">Mis citas</h1>
-                <span class="subtitle_miCita">encuentre aquí todas sus citas</span>
+                <h1 class="title__xl blue_bold">Mis citas</h1>
+                <span class="subtitle_miCita">Encuentre aquí todas sus citas</span>
             </div>
 
             <!-- Contenedor barra de búsqueda cita -->
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Citas">
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar cita">
                     </div>
                 </div>
             </div>
@@ -50,55 +50,55 @@
                                 {{-- <th>Especialidad</th>  --}}
                                 {{-- <th>Institución</th>   --}}
                                 <th>Especialista</th>
-                                <th></th>
+                                <th>Acción</th>
                                 <th>Estado</th>
-{{--                                <th></th>--}}
+                                {{-- <th></th>              --}}
                             </tr>
                         </thead>
+
                         <tbody>
-                        @if($citas->isNotEmpty())
-                            @foreach($citas as $cita)
-                                <tr>
-                                    <td>{{ $cita->fecha_inicio->format('d-m-Y') }}</td>
-                                    <td>{{ "{$cita->fecha_inicio->format('H:i a')} - {$cita->fecha_fin->format('H:i a')}" }}</td>
-                                    <td>{{ $cita->lugar }}</td>
-                                    {{-- <td>Bogotá</td>                                    --}}
-                                    <td>{{ $cita->tipo_consulta->nombreconsulta ?? ''}}</td>
-                                    {{-- <td>Traumatología</td>                             --}}
-                                    {{-- <td>Clinica Reina Sofia</td>                       --}}
-                                    <td class="">
-                                        @if(!empty($cita->profesional))
-                                            {{ $cita->profesional->user->nombre_completo }}
-                                        @endif
-                                        @if(!empty($cita->profesional_ins))
-                                            {{ "{$cita->profesional_ins->institucion->user->nombreinstitucion} - {$cita->profesional_ins->nombre_completo}" }}
-                                        @endif
-                                    </td>
-                                    <td class="">
-                                        @if(!empty($cita->profesional))
-                                            <a class="btn_action tool top" style="width: 33px" href="{{route('PerfilProfesional', ['slug' => $cita->profesional->slug])}}" target="_blank"> 
-                                                <i data-feather="external-link"></i> <span class="tiptext">landing profesional</span>
-                                            </a>
-                                        @endif
-                                        @if(!empty($cita->profesional_ins))
-                                                <a class="btn_action tool top" style="width: 33px" href="{{route('PerfilInstitucion', ['slug' => $cita->profesional_ins->institucion->slug])}}" target="_blank"> 
-                                                    <i data-feather="external-link"></i> <span class="tiptext">landing profesional</span>
+                            @if($citas->isNotEmpty())
+                                @foreach($citas as $cita)
+                                    <tr>
+                                        <td>{{ $cita->fecha_inicio->format('d-m-Y') }}</td>
+                                        <td>{{ "{$cita->fecha_inicio->format('H:i a')} - {$cita->fecha_fin->format('H:i a')}" }}</td>
+                                        <td>{{ $cita->lugar }}</td>
+                                        {{-- <td>Bogotá</td>                                    --}}
+                                        <td>{{ $cita->tipo_consulta->nombreconsulta ?? ''}}</td>
+                                        {{-- <td>Traumatología</td>                             --}}
+                                        {{-- <td>Clinica Reina Sofia</td>                       --}}
+                                        <td class="">
+                                            @if(!empty($cita->profesional))
+                                                {{ $cita->profesional->user->nombre_completo }}
+                                            @endif
+                                            @if(!empty($cita->profesional_ins))
+                                                {{ "{$cita->profesional_ins->institucion->user->nombreinstitucion} - {$cita->profesional_ins->nombre_completo}" }}
+                                            @endif
+                                        </td>
+                                        <td class="">
+                                            @if(!empty($cita->profesional))
+                                                <a class="btn_action tool top" style="width: 33px" href="{{route('PerfilProfesional', ['slug' => $cita->profesional->slug])}}" target="_blank"> 
+                                                    <i data-feather="external-link"></i> <span class="tiptext">Landing profesional</span>
                                                 </a>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>
-                                    </td>
-{{--                                    <td>--}}
-{{--                                        a.btn.btn-success--}}
-{{--                                    </td>--}}
-                                    {{-- <td>                                                                                                           --}}
-                                    {{--     <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>  --}}
-                                    {{--     <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>  --}}
-                                    {{-- </td>                                                                                                          --}}
-                                </tr>
-                            @endforeach
-                        @endif
+                                            @endif
+                                            @if(!empty($cita->profesional_ins))
+                                                    <a class="btn_action tool top" style="width: 33px" href="{{route('PerfilInstitucion', ['slug' => $cita->profesional_ins->institucion->slug])}}" target="_blank"> 
+                                                        <i data-feather="external-link"></i> <span class="tiptext">Landing profesional</span>
+                                                    </a>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>
+                                        </td>
+                                        {{-- <td>                                                                                                           --}}
+                                        {{-- </td>                                                                                                          --}}
+                                        {{-- <td>                                                                                                           --}}
+                                        {{--     <button class="btn_editar_citas" type="submit" data-toggle="modal" data-target="#exampleModal1"></button>  --}}
+                                        {{--     <button class="btn_cierre_citas" type="submit" data-toggle="modal" data-target="#exampleModal2"></button>  --}}
+                                        {{-- </td>                                                                                                          --}}
+                                    </tr>
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>
@@ -245,7 +245,7 @@
             searching: true,
             columnDefs: [
                 {
-                    targets: [-1],
+                    targets: [-1, -2],
                     orderable: false,
                 }
             ]

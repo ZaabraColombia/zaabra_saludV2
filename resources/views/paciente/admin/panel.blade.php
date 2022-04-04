@@ -5,11 +5,11 @@
         <div class="row m-0 p-0">
             <div class="col-12 p-0 m-0">
                 <div class="row m-0">
-                    <!-- Mis profesionales -->
+                    <!-- Mis Especialistas -->
                     <div class="col-6 col-md-4 p-2">
                         <a  href="{{ route('paciente.profesionales') }}">
                             <div class="content__target profesional_blue">
-                                <span class="subtitle__lg">Profesionales</span>
+                                <span class="subtitle__lg">Mis Especialistas</span>
                             </div>
                         </a>
                     </div>
@@ -25,7 +25,7 @@
                     <div class="col-6 col-md-4 p-2">
                         <a  href="{{ route('paciente.citas') }}">
                             <div class="content__target cita_blue">
-                                <span class="subtitle__lg">Citas</span>
+                                <span class="subtitle__lg">Mis Citas</span>
                             </div>
                         </a>
                     </div>
@@ -33,7 +33,7 @@
                     <div class="col-6 col-md-4 p-2">
                         <a  href="{{ route('paciente.pagos') }}">
                             <div class="content__target pago_blue">
-                                <span class="subtitle__lg">Pagos</span>
+                                <span class="subtitle__lg">Mis Pagos</span>
                             </div>
                         </a>
                     </div>
@@ -41,7 +41,7 @@
                     <div class="col-6 col-md-4 p-2">
                         <a  href="{{ route('paciente.favoritos') }}">
                             <div class="content__target favorito_blue">
-                                <span class="subtitle__lg">Favoritos</span>
+                                <span class="subtitle__lg">Mis Favoritos</span>
                             </div>
                         </a>
                     </div>
@@ -49,7 +49,7 @@
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href="{{ route('paciente.contactos.index') }}">
                             <div class="content__target contacto_blue">
-                                <span class="subtitle__lg">Contactos</span>
+                                <span class="subtitle__lg">Mis Contactos</span>
                             </div>
                         </a>
                     </div>

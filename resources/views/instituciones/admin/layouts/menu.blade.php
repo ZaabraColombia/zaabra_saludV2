@@ -85,6 +85,30 @@
                     </a>
                 </li>
 
+                <!-- Catálogos -->
+                <li class="sidebar-item has-sub items_green accordion" id="accordionConfiguracion">
+                    <button id="headingConfiguracion" class="{{ request()->routeIs('institucion.configuracion.*') ? 'btn_active_inst' : '' }}" type="button" data-toggle="collapse"
+                            data-target="#collapseConfiguracion" aria-expanded="false" aria-controls="collapseConfiguracion">
+                        Configuración<i class="icon_angle fas fa-angle-down pl-2"></i>
+                    </button>
+
+                    <ul id="collapseConfiguracion" class="collapse sub_menu_green {{ request()->routeIs('institucion.configuracion.*') ? 'show' : '' }}"
+                        aria-labelledby="headingConfiguracion" data-parent="#accordionConfiguracion">
+                        <li class="submenu-item ">
+                            <a id="cie10" class="{{ request()->routeIs('institucion.configuracion.convenios.*') ? 'txt_active_green' : '' }}"
+                               href='{{ route('institucion.configuracion.convenios.index') }}'>
+                                Convenios
+                            </a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a id="cups" class="{{ request()->routeIs('institucion.configuracion.servicios.*') ? 'txt_active_green' : '' }}"
+                               href='{{-- route('institucion.configuracion.servicios.index') --}}'>
+                                Servicios
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <!-- Logo PLM -->
                 <li class="sidebar-item  has-sub items_logos_green" style="width: 180px">
                     <a id="fav" class="" target="_blank" href="https://www.prescripciontotal.com.co/consultorio-generico/login">
