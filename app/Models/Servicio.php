@@ -7,18 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Servicios extends Model
+class Servicio extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'duracion',
-        'descando',
+        'descanso',
         'valor',
         'nombre',
         'descripcion',
         'especialidad_id',
-        'profesional_id'
+        'institucion_id',
+        'convenios',
+        'estado'
     ];
 
     protected $table = 'servicios';
@@ -38,4 +40,16 @@ class Servicios extends Model
     {
         return $this->belongsTo(especialidades::class, 'especialidad_id', 'idEspecialidad');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function convenios_lista(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Convenios::class, 'convenios_has_servicios', 'servicio_id', 'convenio_id')
+            ->withPivot(['valor_paciente', 'valor_convenio']);
+    }
+
+
+
 }
