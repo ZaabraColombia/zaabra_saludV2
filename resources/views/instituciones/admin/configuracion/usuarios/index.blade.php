@@ -57,24 +57,120 @@
                                 <td>
                                     <div class="d-flex justify-content-around px-3">
                                         <a class="btn_action_green tool top" style="width: 33px"
-                                            href="">
+                                            href="" data-target="#modal_see_user" data-toggle="modal">
                                             <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
-                                        </a>
-                                
-                                        <a class="btn_action_green tool top" style="width: 33px"
-                                            href="">
-                                            <i data-feather="edit"></i> <span class="tiptext">Editar usuario</span>
-                                        </a>
-                                    
-                                        <a class="btn_action_green tool top" style="width: 33px"
-                                            href="">
-                                            <i data-feather="trash-2"></i> <span class="tiptext">Eliminar usuario</span>
                                         </a>
                                     </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Ver user -->
+    <div class="modal fade" id="modal_see_user">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content modal_container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Mantener las cases "label-*" -->
+                <div class="modal-body">
+                    <h1 class="mb-3" style="color: #019F86">Ver Usuario</h1>
+
+                    <div class="content__border_see_contacs" style="background-color: #6eb1a6"></div>
+                       
+                    <div class="modal_info_cita pt-3 px-2">
+                        <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Información básica</h4>
+                        <div class="row mb-2">
+                            <div class="col-lg-6 info_contac">
+                                <span>Nombres:&nbsp;</span>
+                                <span>Nombre 1 Nombre 2</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <span>Apellidos:&nbsp;</span>
+                                <span>Apellido 1 Apellido 2</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <span>Cc&nbsp;</span>
+                                <span>0000000000</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <span>Fecha de nacimiento&nbsp;</span>
+                                <span>dd - mm - aaaa</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <span>Teléfonos:&nbsp;</span>
+                                <span>000 0000 000</span> -
+                                <span>000 0000</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <span>Correo:&nbsp;</span>
+                                <span>ejemplo@.com</span>
+                            </div>
+                            
+                            <div class="col-lg-6 info_contac">
+                                <span>Dirección:&nbsp;</span>
+                                <span>Cll 00 # 00 - 00</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <span>Ciudad:&nbsp;</span>
+                                <span>Ciudad 1</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <span>Provincia:&nbsp;</span>
+                                <span>Provincia 1</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <span>Departamento:&nbsp;</span>
+                                <span>Departamento 1</span>
+                            </div>
+                        </div>
+
+                        <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Accesos del usuario</h4>
+                        <div class="row m-0 mb-2">
+                            <div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">
+                                <i data-feather="check-circle" style="color: #0083D6;" width="17"></i>
+                                <span class="pl-2">Acceso 1</span>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">
+                                <i data-feather="check-circle" style="color: #0083D6;" width="17"></i>
+                                <span class="pl-2">Acceso 2</span>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">
+                                <i data-feather="check-circle" style="color: #0083D6;" width="17"></i>
+                                <span class="pl-2">Acceso 3</span>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">
+                                <i data-feather="check-circle" style="color: #0083D6;" width="17"></i>
+                                <span class="pl-2">Acceso 4</span>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">
+                                <i data-feather="check-circle" style="color: #0083D6;" width="17"></i>
+                                <span class="pl-2">Acceso 5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_transparent" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>

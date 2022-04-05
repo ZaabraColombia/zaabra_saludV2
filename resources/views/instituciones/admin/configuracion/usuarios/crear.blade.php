@@ -113,8 +113,8 @@
                     <!-- Linea división de elementos -->
                     <div class="dropdown-divider my-4"></div>
 
-                    <!-- Acceso de usuario -->
-                    <h2 class="subtitle__lg green_bold mb-4">Acceso de usuario</h2>
+                    <!-- Accesos del usuario -->
+                    <h2 class="subtitle__lg green_bold mb-4">Accesos del usuario</h2>
 
                     <div class="row list__form">
                         <div class="col-6 col-md-4 check__box_green">
