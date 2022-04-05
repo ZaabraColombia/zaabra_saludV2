@@ -32,6 +32,16 @@
 
                     @csrf
 
+                    <div class="row m-0 mb-4 justify-content-center">
+                        <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+                            <div class="img__upload">
+                                <img id="imagen-foto" src="{{ asset('img/menu/avatar.png') }}">
+                                <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" />
+                                <p>Foto de convenio</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         @if($errors->any())
                             <div class="col-12">
@@ -79,11 +89,13 @@
                             <label for="tipo_documento_id">Tipo de identificación</label>
                             <select class="@error('tipo_documento_id') is-invalid @enderror" id="tipo_documento_id" required
                                     name="tipo_documento_id">
+                                <option value=""></option>
                                 @if(!empty($tipo_documentos) and $tipo_documentos->isNotEmpty())
                                     @foreach($tipo_documentos as $tipo)
                                         <option value="{{ $tipo->id }}" {{ old('tipo_documento_id') == $tipo->id ? 'selected':null }}>{{ $tipo->nombre }}</option>
                                     @endforeach
                                 @endif
+                                <option value=""></option>
                             </select>
                         </div>
 
@@ -119,11 +131,13 @@
                             <label for="tipo_contribuyente_id">Tipo de contribuyente</label>
                             <select class="@error('tipo_contribuyente_id') is-invalid @enderror" id="tipo_contribuyente_id"
                                     name="tipo_contribuyente_id" value="{{ old('tipo_contribuyente_id') }}" required>
+                                <option value=""></option>
                                 @if(!empty($tipo_contribuyentes) and $tipo_contribuyentes->isNotEmpty())
                                     @foreach($tipo_contribuyentes as $contribuyente)
                                         <option value="{{ $contribuyente->id }}" {{ old('tipo_documento_id') == $contribuyente->id ? 'selected':null }}>{{ $contribuyente->nombre }}</option>
                                     @endforeach
                                 @endif
+                                <option value=""></option>
                             </select>
                         </div>
 
@@ -143,15 +157,21 @@
                                 <option value="transferencia" {{ old('forma_pago') == 'transferencia' ? 'selected':'' }}>Transferencia</option>
                                 <option value="tarjeta" {{ old('forma_pago') == 'tarjeta' ? 'selected':'' }}>Tarjeta de crédito / debito</option>
                                 <option value="consignación" {{ old('forma_pago') == 'consignación' ? 'selected':'' }}>Consignación</option>
+                                <option value=""></option>
                             </select>
                         </div>
 
-                        <div class="col-md-4 input__box custom-file">
-                            <input type="file" name="foto" id="foto" class="custom-file-input" />
-                            <label for="forma_pago" class="custom-file-label">Selecciones una foto</label>
-                        </div>
-
-
+                        <div class="col-md-4 input__box">
+                            <label for="tipo_convenio">Tipo de convenio</label>
+                            <select class="@error('tipo_convenio') is-invalid @enderror" id="tipo_convenio"
+                                    name="tipo_convenio" value="{{ old('tipo_convenio') }}">
+                                <option value=""></option>
+                                <option value="Tipo de convenio 1">Tipo de convenio 1</option>
+                                <option value="Tipo de convenio 2">Tipo de convenio 2</option>
+                                <option value="Tipo de convenio 3">Tipo de convenio 3</option>
+                                <option value=""></option>
+                            </select>
+                        </div>    
                     </div>
 
                     <!-- Linea división de elementos -->
@@ -187,7 +207,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4 input__box">     <!--menu dinamico ciudades -->
+                        <div class="col-md-4 input__box mb-3">     <!--menu dinamico ciudades -->
                             <label for="pais_id">País</label>
                             <select id="pais_id" name="pais_id" class="select2 pais @error('pais_id') is-invalid @enderror"
                                     data-departamento="#departamento_id" data-provincia="#provincia_id" data-ciudad="#ciudad_id"
@@ -200,7 +220,7 @@
                             </select>
                         </div>
 
-                        <div class="col-md-4 input__box">
+                        <div class="col-md-4 input__box mb-3">
                             @php $departamento = (old('departamento_id') === null)?null:\App\Models\departamento::query()->where('id_departamento', old('departamento_id'))->first()@endphp
                             <label for="departamento_id">Departamento</label>
                             {{-- @dd(old('departamento_id'))--}}
@@ -212,7 +232,7 @@
                             </select>
                         </div>
 
-                        <div class="col-md-4 input__box">
+                        <div class="col-md-4 input__box mb-3">
                             @php $provincia = (old('provincia_id') === null)?null:\App\Models\provincia::query()->where('id_provincia', old('provincia_id'))->first()@endphp
                             <label for="provincia_id">Provincia</label>
                             <select name="provincia_id" id="provincia_id" data-ciudad="#ciudad_id" data-id="{{ old('provincia_id') }}"
@@ -223,7 +243,7 @@
                             </select>
                         </div>
 
-                        <div class="col-md-4 input__box">
+                        <div class="col-md-4 input__box mb-3">
                             @php $ciudad = (old('ciudad_id') === null)?null:\App\Models\municipio::query()->where('id_municipio', old('ciudad_id'))->first()@endphp
                             <label for="ciudad_id">Ciudad</label>
                             <select name="ciudad_id" id="ciudad_id" class="select2 @error('ciudad_id') is-invalid @enderror"
@@ -272,6 +292,30 @@
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('js/filtro-ubicacion.js') }}"></script>
     <script src="{{ asset('plugins/tagsinput/bootstrap-tagsinput.min.js') }}"></script>
+
+    <!-- Script para cargar, subir y visualizar la imagen principal -->
+    <script>
+        // Obtener referencia al input y a la imagen
+        const $seleccionArchivos = document.querySelector("#foto"),
+            $imagenPrevisualizacion = document.querySelector("#imagen-foto");
+
+        // Escuchar cuando cambie
+        $seleccionArchivos.addEventListener("change", () => {
+            // Los archivos seleccionados, pueden ser muchos o uno
+            const archivos = $seleccionArchivos.files;
+            // Si no hay archivos salimos de la función y quitamos la imagen
+            if (!archivos || !archivos.length) {
+                $imagenPrevisualizacion.src = "";
+                return;
+            }
+            // Ahora tomamos el primer archivo, el cual vamos a previsualizar
+            const primerArchivo = archivos[0];
+            // Lo convertimos a un objeto de tipo objectURL
+            const objectURL = URL.createObjectURL(primerArchivo);
+            // Y a la fuente de la imagen le ponemos el objectURL
+            $imagenPrevisualizacion.src = objectURL;
+        });
+    </script>
 
     <script>
         $('#actividad_economica_id').select2({
