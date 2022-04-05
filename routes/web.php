@@ -491,6 +491,11 @@ Route::get('/test-crear-servicio-institucion', function(){
     return view('instituciones.admin.configuracion.servicios.crear');
 });
 
+// Ruta de la vista crear Usuario
+Route::get('/test-crear-usuario-institucion', function() {
+    return view('instituciones.admin.configuracion.usuarios.crear');
+});
+
 // ===================_________ FIN AGENDA INSTITUCIONES _________=================== //
 
 // Ruta detalles-pago
