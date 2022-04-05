@@ -104,7 +104,7 @@
                             </div>
 
                             <div class="col-lg-6 info_contac">
-                                <span>Fecha de nacimiento&nbsp;</span>
+                                <span>Fecha de nacimiento:&nbsp;</span>
                                 <span>dd - mm - aaaa</span>
                             </div>
 

@@ -73,6 +73,13 @@
             border-radius: 0 0 5px 5px;
             padding: 15px 15px;
             .info_contac {
+                h4 {
+                    font-size: 14px;
+                    font-family: 'Quicksand';
+                    color: $black_second;
+                    font-weight: bold;
+                    margin: 0;
+                }
                 span:nth-child(1)  {
                     font-size: 14px;
                     font-family: 'Quicksand';
@@ -313,6 +320,9 @@
     .modal_container .modal-body .modal_info_cita {
         padding: 15px 25px;
         .info_contac {
+            h4 {
+                font-size: 17px;
+            }
             span:nth-child(1)  {
                 font-size: 17px;
             }

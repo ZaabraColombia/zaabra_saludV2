@@ -75,7 +75,7 @@
                                     <td>
                                         <div class="d-flex justify-content-around px-3">
                                             <a class="btn_action_green tool top" style="width: 33px"
-                                               href="">
+                                               href="" data-target="#modal_ver_convenio" data-toggle="modal">
                                                 <i data-feather="eye"></i> <span class="tiptext">ver convenio</span>
                                             </a>
 
@@ -95,6 +95,131 @@
                         @endif
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Ver Convenio -->
+    <div class="modal fade modal_contactos" id="modal_ver_convenio">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content modal_container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Mantener las cases "label-*" -->
+                <div class="modal-body">
+                    <h1 style="color: #019F86">Ver Convenio</h1>
+                                            
+                    <div class="content__see_contacs" style="background-color: #6eb1a6">
+                        <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                    </div>
+
+                    <div class="content__border_see_contacs" style="background-color: #6eb1a6"></div>
+                       
+                    <div class="modal_info_cita pt-5">
+                        <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Información básica</h4>
+                        <div class="row mb-2">
+                            <div class="col-lg-6 info_contac">
+                                <h4>Nombres:</h4>
+                                <span>Nombre 1 Nombre 2</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <h4>Apellidos:</h4>
+                                <span>Apellido 1 Apellido 2</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <h4>Cc</h4>
+                                <span>0000000000</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <h4>Código del prestador del servicio:</h4>
+                                <span>00000 00000000 00000000</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <h4>Código del convenio:</h4>
+                                <span>00000 00000000 00000000</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <h4>Tipo del contribuyente:</h4>
+                                <span>Tipo contribuyente 1</span>
+                            </div>
+                            
+                            <div class="col-lg-6 info_contac">
+                                <h4>Actividad económica:</h4>
+                                <span>Actividad 1</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <h4>Forma de pago:</h4>
+                                <span>Forma pago 1</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <h4>Tipo de convenio:</h4>
+                                <span>Tipo de dconvenio 1</span>
+                            </div>
+                        </div>
+
+                        <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Información de contacto</h4>
+                        <div class="row mb-2">
+                            <div class="col-lg-6 info_contac">
+                                <h4>Tipo de establecimiento:</h4>
+                                <span>Tipo de establecimiento 1</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <h4>Dirección:</h4>
+                                <span>Cll 00 # 00 - 00</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <h4>Código postal</h4>
+                                <span>0000000000</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <h4>País:</h4>
+                                <span>País 1</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <h4>Departamento:</h4>
+                                <span>Departamento 1</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <h4>Provincia:</h4>
+                                <span>Provincia 1</span>
+                            </div>
+                            
+                            <div class="col-lg-6 info_contac">
+                                <h4>Ciudad:</h4>
+                                <span>Ciudad 1</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <h4>Teléfonos:</h4>
+                                <span>000 0000 000</span> -
+                                <span>000 0000</span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <h4>Correo:</h4>
+                                <span>ejemplo@.com</span>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_transparent" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>

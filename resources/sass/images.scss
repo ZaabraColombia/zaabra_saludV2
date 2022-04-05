@@ -68,7 +68,7 @@
     position: absolute;
     top: 35px;
     left: 23px;
-    border: 2px double;
+    border: 3px double #e3efed;
     border-radius: 60px;
     padding: 3px;
     background: #0083d6;
@@ -85,8 +85,8 @@
     margin-bottom: 1px;
 }
 .img__see_contacs {
-    width: 105px;
-    height: 105px;
+    width: 95px;
+    height: 95px;
     border: 2px solid #CED4DA;
     border-radius: 100px;
     -o-object-fit: cover;
@@ -147,8 +147,12 @@
         left: 20px;
     }
     // propiedades imagen ver mis contactos agenda paciente y profesionales
+    .img__see_contacs {
+        width: 105px;
+        height: 105px;
+    }
     .content__see_contacs {
-        top: 10px;
+        top: 20px;
         left: 30px;
     }
     .img__prof {
