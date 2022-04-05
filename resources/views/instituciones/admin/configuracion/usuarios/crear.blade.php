@@ -113,26 +113,6 @@
                     <!-- Linea división de elementos -->
                     <div class="dropdown-divider my-4"></div>
 
-                    <!-- Contraseña del usuario -->
-                    <h2 class="subtitle__lg green_bold mb-4">Contraseña</h2>
-
-                    <div class="row">
-                        <div class="col-md-6 input__box">
-                            <label for="password">Contraseña</label>
-                            <input type="password" id="password" name="password" value="{{ old('password') }}"
-                                class="@error('password') is-invalid @enderror"/>
-                        </div>
-
-                        <div class="col-md-6 input__box">
-                            <label for="confirm_password">Confirmar contraseña</label>
-                            <input type="password" id="confirm_password" name="confirm_password" value="{{ old('confirm_password') }}"
-                                class="@error('confirm_password') is-invalid @enderror"/>
-                        </div>
-                    </div>
-
-                    <!-- Linea división de elementos -->
-                    <div class="dropdown-divider my-4"></div>
-
                     <!-- Acceso de usuario -->
                     <h2 class="subtitle__lg green_bold mb-4">Acceso de usuario</h2>
 
@@ -170,6 +150,26 @@
                         <div class="col-6 col-md-4 check__box_green">
                             <input type="checkbox" value="3" id="semana-3" name="semana[]">
                             <label class="label_check_green" for="semana-3">Acceso 7</label>
+                        </div>
+                    </div>
+    
+                    <!-- Linea división de elementos -->
+                    <div class="dropdown-divider my-4"></div>
+
+                    <!-- Contraseña del usuario -->
+                    <h2 class="subtitle__lg green_bold mb-4">Contraseña</h2>
+
+                    <div class="row">
+                        <div class="col-md-6 input__box">
+                            <label for="password">Contraseña</label>
+                            <input type="password" id="password" name="password" value="{{ old('password') }}"
+                                class="@error('password') is-invalid @enderror"/>
+                        </div>
+
+                        <div class="col-md-6 input__box">
+                            <label for="confirm_password">Confirmar contraseña</label>
+                            <input type="password" id="confirm_password" name="confirm_password" value="{{ old('confirm_password') }}"
+                                class="@error('confirm_password') is-invalid @enderror"/>
                         </div>
                     </div>
 
