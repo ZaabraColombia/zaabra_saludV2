@@ -1,5 +1,6 @@
 @section('styles')
-
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
 @endsection
 
 @extends('instituciones.admin.layouts.layout')
@@ -13,50 +14,51 @@
                 <h2 class="text__md black_light">Administre el horario de las citas</h2>
             </div>
 
-            <form action="#"
-                  method="post" id="form-dias" class="forms" data-alert="#alert-cita">
+            <form action="{{ route('institucion.profesionales.guardar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}"
+                  method="post" id="form-configurar-calendario" class="forms" data-alert="#alert-cita">
                 @csrf
                 <div class="containt_main_table mb-3">
-                    <div id="alert-cita"></div>
+                    <div id="alert-configurar-calendario"></div>
                     <div class="row">
                         <div class="col-md-3 input__box">
-                            <label for="disponibilidad">Tiempo disponibilidad agenda</label>
-                            <input type="number" id="disponibilidad" name="disponibilidad" 
-                                    value="{{ old('disponibilidad') }}" class="@error('disponibilidad') is-invalid @enderror">
+                            <label for="disponibilidad_agenda">Tiempo disponibilidad agenda</label>
+                            <input type="number" id="disponibilidad_agenda" name="disponibilidad_agenda"
+                                   value="{{ old('disponibilidad_agenda', $profesional->disponibilidad_agenda) }}"
+                                   class="@error('disponibilidad_agenda') is-invalid @enderror" />
+                        </div>
+
+                        <div class="col-md-6 input__box">
+                            <label for="sede_id">Sede</label>
+                            <select class="@error('sede_id') is-invalid @enderror" id="sede_id" name="sede_id">
+                                @if($sedes->isNotEmpty())
+                                    @foreach($sedes as $sede)
+                                        <option value="{{ $sede->id }}" {{ old('sede_id', $profesional->sede_id) ? 'selected':'' }}>{{ "{$sede->nombre} - {$sede->direccion}" }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
                         </div>
 
                         <div class="col-md-3 input__box">
                             <label for="num_consultorio">Número de consultorio</label>
-                            <input type="number" id="num_consultorio" name="num_consultorio" 
-                                    value="{{ old('num_consultorio') }}" class="@error('num_consultorio') is-invalid @enderror">
-                        </div>
-
-                        <div class="col-md-6 input__box">
-                            <label for="sede">Sede</label>
-                            <select class="@error('sede') is-invalid @enderror" id="sede"
-                                    name="sede" value="{{ old('sede') }}">
-                                <option value=""></option>
-                                <option value="sede 1">sede 1</option>
-                                <option value="sede 2">sede 2</option>
-                                <option value="sede 3">sede 3</option>
-                            </select>
+                            <input type="number" id="consultorio" name="consultorio"
+                                   value="{{ old('consultorio', $profesional->consultorio) }}" class="@error('consultorio') is-invalid @enderror">
                         </div>
 
                         <div class="col-12 input__box">
-                            <label for="duracion">Servicios</label>
-                            <select type="text" id="tp_documento" name="tp_documento">
-                                <option></option>
-                                <option value="Servicio 1">Servicio 1</option>
-                                <option value="Servicio 2">Servicio 2</option>
-                                <option value="Servicio 3">Servicio 3</option>
-                                <option value="otro">Otro</option>
+                            <label for="servicios">Servicios</label>
+                            <select type="text" id="servicios" name="servicios[]" class="select2" multiple>
+                                @if($servicios->isNotEmpty())
+                                    @foreach($servicios as $servicio)
+                                        <option value="{{ $servicio->id }}" {{ (collect(old('servicios', $servicios_profesional))->contains($servicio->id)) ? 'selected':'' }}>{{ $servicio->nombre }}</option>
+                                    @endforeach
+                                @endif
                             </select>
                         </div>
                     </div>
 
                     <!-- Buttons -->
                     <div class="row m-0 content_btn_right">
-                        <button type="button" class="button_green">Guardar</button>
+                        <button type="submit" class="button_green">Guardar</button>
                     </div>
                 </div>
             </form>
@@ -131,11 +133,11 @@
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-horario">
                         <thead class="thead_green">
-                            <tr>
-                                <th>Días</th>
-                                <th>Horas</th>
-                                <th>Acción</th>
-                            </tr>
+                        <tr>
+                            <th>Días</th>
+                            <th>Horas</th>
+                            <th>Acción</th>
+                        </tr>
                         </thead>
 
                         <tbody>
@@ -199,6 +201,7 @@
     <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
     <script src="{{ asset('js/alertas.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 
     <script>
         feather.replace()
@@ -207,6 +210,24 @@
     <script>
         $(function () {
             $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $('#form-configurar-calendario').submit(function (e) {
+            e.preventDefault();
+            var form = $(this);
+
+            $.ajax({
+                data: form.serialize(),
+                url: form.attr('action'),
+                dataType: 'json',
+                method: 'post',
+                success: function (res, status) {
+                    $('#alert-configurar-calendario').html(alert(res.message, 'success'));
+                },
+                error: function (res, status) {
+                    $('#alert-configurar-calendario').html(alert(res.responseJSON.message, 'danger'));
+                }
+            });
         });
 
         $('#form-horario-agregar').submit(function (e) {
@@ -219,7 +240,7 @@
                 dataType: 'json',
                 method: 'post',
                 success: function (res, status) {
-                    $('#alert-horario-agregar').html(res.message);
+                    $('#alert-horario-agregar').html(alert(res.message, 'success'));
                     //clean form
                     form[0].reset();
 
@@ -275,6 +296,11 @@
                     }
                 });
             }
+        });
+
+        $('.select2').select2({
+            theme:'classic',
+            language: 'es'
         });
 
     </script>

@@ -1,11 +1,11 @@
+@extends('instituciones.admin.layouts.layout')
+
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
     <style>
         .dataTables_filter, .dataTables_info { display: none;!important; }
     </style>
 @endsection
-
-@extends('instituciones.admin.layouts.layout')
 
 @section('contenido')
     <div class="container-fluid p-0 pr-lg-4">
@@ -22,8 +22,8 @@
                     </div>
 
                     <div class="col-md-3 p-0 content_btn_right">
-                        <a href="" class="button_green" id="btn-agregar-contacto">
-                            Agregar 
+                        <a href="{{ route('institucion.configuracion.servicios.create') }}" class="button_green" id="btn-agregar-contacto">
+                            Agregar
                         </a>
                     </div>
                 </div>
@@ -35,40 +35,35 @@
                     <table class="table table_agenda" id="table-pacientes">
                         <thead class="thead_green">
                         <tr>
-                            <th>Código</th>
                             <th>Nombre</th>
-                            <th>Tipo de servicio</th>
+                            <th>Valor</th>
+                            <th>Especialidad</th>
                             <th class="text-center">Acción</th>
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>00-0000</td>
-                                <td>
-                                    <span>Servicio 1</span>
-                                </td>
-                                <td>
-                                    <span>Tipo 1</span>
-                                </td>
-                                <td>
-                                    <div class="d-flex justify-content-around px-3">
-                                        <a class="btn_action_green tool top" style="width: 33px"
-                                            href="">
-                                            <i data-feather="eye"></i> <span class="tiptext">ver servicio</span>
-                                        </a>
-                                
-                                        <a class="btn_action_green tool top" style="width: 33px"
-                                            href="">
-                                            <i data-feather="edit"></i> <span class="tiptext">editar servicio</span>
-                                        </a>
-                                    
-                                        <a class="btn_action_green tool top" style="width: 33px"
-                                            href="">
-                                            <i data-feather="settings"></i> <span class="tiptext">configurar servicio</span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                        @if($servicios->isNotEmpty())
+                            @foreach($servicios as $servicio)
+                                <tr>
+                                    <td>{{ $servicio->nombre }}</td>
+                                    <td>{{ $servicio->valor }}</td>
+                                    <td>{{ $servicio->especialidad->nombreEspecialidad }}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-around px-3">
+                                            <a class="btn_action_green tool top" style="width: 33px"
+                                               href="">
+                                                <i data-feather="eye"></i> <span class="tiptext">Ver servicio</span>
+                                            </a>
+
+                                            <a class="btn_action_green tool top" style="width: 33px"
+                                               href="{{ route('institucion.configuracion.servicios.edit', ['servicio' => $servicio->id]) }}">
+                                                <i data-feather="edit"></i> <span class="tiptext">Editar servicio</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                         </tbody>
                     </table>
                 </div>

@@ -102,7 +102,7 @@
                         </li>
                         <li class="submenu-item ">
                             <a id="cups" class="{{ request()->routeIs('institucion.configuracion.servicios.*') ? 'txt_active_green' : '' }}"
-                               href='{{-- route('institucion.configuracion.servicios.index') --}}'>
+                               href='{{ route('institucion.configuracion.servicios.index') }}'>
                                 Servicios
                             </a>
                         </li>
