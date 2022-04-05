@@ -22,8 +22,8 @@
                     </div>
 
                     <div class="col-md-3 p-0 content_btn_right">
-                        <a href="" class="button_green" id="btn-agregar-contacto">
-                            Agregar 
+                        <a href="{{ route('institucion.configuracion.usuarios.create') }}" class="button_green" id="btn-agregar-contacto">
+                            Agregar
                         </a>
                     </div>
                 </div>
@@ -38,41 +38,34 @@
                             <th>Nombre</th>
                             <th>Identificación</th>
                             <th>E-mail</th>
-                            <th>Roles</th>
                             <th>Estado</th>
                             <th class="text-center">Acción</th>
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Nombre Apellido</td>
-                                <td>
-                                    <span>0 000 000 000</span>
-                                </td>
-                                <td>
-                                    <span>ejemplo@.com</span>
-                                </td>
-                                <td>Roll 1</td>
-                                <td>Estado 1</td>
-                                <td>
-                                    <div class="d-flex justify-content-around px-3">
-                                        <a class="btn_action_green tool top" style="width: 33px"
-                                            href="">
-                                            <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
-                                        </a>
-                                
-                                        <a class="btn_action_green tool top" style="width: 33px"
-                                            href="">
-                                            <i data-feather="edit"></i> <span class="tiptext">Editar usuario</span>
-                                        </a>
-                                    
-                                        <a class="btn_action_green tool top" style="width: 33px"
-                                            href="">
-                                            <i data-feather="trash-2"></i> <span class="tiptext">Eliminar usuario</span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                        @if($usuarios->isNotEmpty())
+                            @foreach($usuarios as $usuario)
+                                <tr>
+                                    <td>{{ $usuario->nombre_completo }}</td>
+                                    <td>{{ "{$usuario->tipo_documento->nombre_corto} {$usuario->nombre_completo}" }}</td>
+                                    <td>{{ $usuario->email }}</td>
+                                    <td>{{ ($usuario->estado) ? 'Activado':'Desactivado' }}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-around px-3">
+                                            <a class="btn_action_green tool top" style="width: 33px"
+                                               href="">
+                                                <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
+                                            </a>
+
+                                            <a class="btn_action_green tool top" style="width: 33px"
+                                               href="{{ route('institucion.configuracion.usuarios.edit', ['usuario' => $usuario->id]) }}">
+                                                <i data-feather="edit"></i> <span class="tiptext">Editar usuario</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                         </tbody>
                     </table>
                 </div>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Mail\ResetPasswordEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -144,5 +145,15 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Acceso::class, 'accesos_has_users', 'user_id', 'acceso_id');
     }
 
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeActivado(Builder $query): Builder
+    {
+        return $query->where('estado', '=', true);
+    }
 
 }

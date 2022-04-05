@@ -352,6 +352,7 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
     Route::group(['prefix' => '/configuracion', 'as' => 'configuracion.'], function (){
         Route::resource('/convenios', entidades\Admin\ConveniosController::class);
         Route::resource('/servicios', entidades\Admin\ServiciosController::class);
+        Route::resource('/usuarios', entidades\Admin\UsuariosController::class);
     });
 
 });
@@ -470,7 +471,7 @@ Route::get('/test-crear-servicio-institucion', function(){
     return view('instituciones.admin.configuracion.servicios.crear');
 });
 
-// Ruta de la vista usuarios 
+// Ruta de la vista usuarios
 Route::get('/test-usuarios-institucion', function(){
     return view('instituciones.admin.configuracion.usuarios.index');
 });
