@@ -175,12 +175,15 @@ class ProfesionalesController extends Controller
             ->where('institucion_id', '=', Auth::user()->institucion->id )
             ->get();
 
-        $servicio_lista = $profesional->servicios;
+        $servicios_profesional = $profesional->servicios->map(function ($item){
+            return $item->id;
+        });
 
         return view('instituciones.admin.profesionales.configuracion-calendario', compact(
             'profesional',
             'sedes',
-            'servicios'
+            'servicios',
+            'servicios_profesional'
         ));
     }
 
@@ -196,9 +199,15 @@ class ProfesionalesController extends Controller
         Gate::authorize('update-profesional-institucion', $profesional);
 
         $validator = Validator::make( $request->all(), [
-            'disponibilidad_agenda' => ['required', 'number'],
+            'disponibilidad_agenda' => ['required', 'integer'],
             'sede_id'               => ['required', 'exists:sedesinstituciones,id'],
-            'consultorio'           => ['required', 'max:50']
+            'consultorio'           => ['required', 'max:50'],
+            'servicios.*'           => ['nullable', 'exists:servicios,id']
+        ], [], [
+            'disponibilidad_agenda' => 'Tiempo de disponibilidad de agenda',
+            'sede_id'               => 'Sede',
+            'consultorio'           => 'Número de consultorio',
+            'servicios.*'           => 'Servicios',
         ]);
 
         if ($validator->fails())
@@ -211,7 +220,11 @@ class ProfesionalesController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
+        $servicios = $request->get('servicios');
+
         $profesional->update($request->all());
+
+        $profesional->servicios()->sync($servicios);
 
         return response([
             'message'   => [

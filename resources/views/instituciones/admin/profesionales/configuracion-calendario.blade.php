@@ -14,11 +14,11 @@
                 <h2 class="text__md black_light">Administre el horario de las citas</h2>
             </div>
 
-            <form action="#"
-                  method="post" id="form-dias" class="forms" data-alert="#alert-cita">
+            <form action="{{ route('institucion.profesionales.guardar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}"
+                  method="post" id="form-configurar-calendario" class="forms" data-alert="#alert-cita">
                 @csrf
                 <div class="containt_main_table mb-3">
-                    <div id="alert-cita"></div>
+                    <div id="alert-configurar-calendario"></div>
                     <div class="row">
                         <div class="col-md-3 input__box">
                             <label for="disponibilidad_agenda">Tiempo disponibilidad agenda</label>
@@ -46,10 +46,10 @@
 
                         <div class="col-12 input__box">
                             <label for="servicios">Servicios</label>
-                            <select type="text" id="servicios" name="servicios" class="select2" multiple>
+                            <select type="text" id="servicios" name="servicios[]" class="select2" multiple>
                                 @if($servicios->isNotEmpty())
                                     @foreach($servicios as $servicio)
-                                        <option value="{{ $servicio->id }}" {{ (collect(old('servicios'))->contains($servicio->id)) ? 'selected':'' }}>{{ $servicio->nombre }}</option>
+                                        <option value="{{ $servicio->id }}" {{ (collect(old('servicios', $servicios_profesional))->contains($servicio->id)) ? 'selected':'' }}>{{ $servicio->nombre }}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -58,7 +58,7 @@
 
                     <!-- Buttons -->
                     <div class="row m-0 content_btn_right">
-                        <button type="button" class="button_green">Guardar</button>
+                        <button type="submit" class="button_green">Guardar</button>
                     </div>
                 </div>
             </form>
@@ -212,6 +212,24 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
 
+        $('#form-configurar-calendario').submit(function (e) {
+            e.preventDefault();
+            var form = $(this);
+
+            $.ajax({
+                data: form.serialize(),
+                url: form.attr('action'),
+                dataType: 'json',
+                method: 'post',
+                success: function (res, status) {
+                    $('#alert-configurar-calendario').html(alert(res.message, 'success'));
+                },
+                error: function (res, status) {
+                    $('#alert-configurar-calendario').html(alert(res.responseJSON.message, 'danger'));
+                }
+            });
+        });
+
         $('#form-horario-agregar').submit(function (e) {
             e.preventDefault();
             var form = $(this);
@@ -222,7 +240,7 @@
                 dataType: 'json',
                 method: 'post',
                 success: function (res, status) {
-                    $('#alert-horario-agregar').html(res.message);
+                    $('#alert-horario-agregar').html(alert(res.message, 'success'));
                     //clean form
                     form[0].reset();
 
