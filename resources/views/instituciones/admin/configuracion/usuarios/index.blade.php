@@ -11,14 +11,14 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl green_bold">Mis Servicios</h1>
+                <h1 class="title__xl green_bold">Mis Usuarios</h1>
             </div>
 
             <!-- Contenedor barra de búsqueda y botón agregar contacto -->
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Servicio">
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar usuario">
                     </div>
 
                     <div class="col-md-3 p-0 content_btn_right">
@@ -35,36 +35,40 @@
                     <table class="table table_agenda" id="table-pacientes">
                         <thead class="thead_green">
                         <tr>
-                            <th>Código</th>
                             <th>Nombre</th>
-                            <th>Tipo de servicio</th>
+                            <th>Identificación</th>
+                            <th>E-mail</th>
+                            <th>Roles</th>
+                            <th>Estado</th>
                             <th class="text-center">Acción</th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>00-0000</td>
+                                <td>Nombre Apellido</td>
                                 <td>
-                                    <span>Servicio 1</span>
+                                    <span>0 000 000 000</span>
                                 </td>
                                 <td>
-                                    <span>Tipo 1</span>
+                                    <span>ejemplo@.com</span>
                                 </td>
+                                <td>Roll 1</td>
+                                <td>Estado 1</td>
                                 <td>
                                     <div class="d-flex justify-content-around px-3">
                                         <a class="btn_action_green tool top" style="width: 33px"
                                             href="">
-                                            <i data-feather="eye"></i> <span class="tiptext">ver servicio</span>
+                                            <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
                                         </a>
                                 
                                         <a class="btn_action_green tool top" style="width: 33px"
                                             href="">
-                                            <i data-feather="edit"></i> <span class="tiptext">editar servicio</span>
+                                            <i data-feather="edit"></i> <span class="tiptext">Editar usuario</span>
                                         </a>
                                     
                                         <a class="btn_action_green tool top" style="width: 33px"
                                             href="">
-                                            <i data-feather="settings"></i> <span class="tiptext">configurar servicio</span>
+                                            <i data-feather="trash-2"></i> <span class="tiptext">Eliminar usuario</span>
                                         </a>
                                     </div>
                                 </td>

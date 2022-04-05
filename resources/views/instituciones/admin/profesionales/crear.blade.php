@@ -256,6 +256,7 @@
 @section('scripts')
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 
+    <!-- Script para cargar, subir y visualizar la imagen principal -->
     <script>
         // Obtener referencia al input y a la imagen
         const $seleccionArchivos = document.querySelector("#foto"),
