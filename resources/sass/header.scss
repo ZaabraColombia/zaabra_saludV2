@@ -219,7 +219,6 @@ a:link, a:visited, a:active, a:hover {
     background-position-y: center;
     background-position-x: 15px;
     &:hover {
-        background-image: url('/img/header/icono-mi-perfil-blanco.svg');
         background-color: #0083d6;
         color: #fff;
     }
@@ -236,35 +235,30 @@ a:link, a:visited, a:active, a:hover {
         background-image: url('/img/header/icono-agenda-blanco.svg');
     }
 }
-
 .icon__especialidad {
     background-image: url('/img/header/icono-especialidades-medicas.svg');
     &:hover {
         background-image: url('/img/header/icono-especialidades-medicas-blanco.svg');
     }
 }
-
 .icon__institucion {
     background-image: url('/img/header/icono-instituciones-medicas.svg');
     &:hover {
         background-image: url('/img/header/icono-instituciones-medicas-blanco.svg');
     }
 }
-
 .icon__quienes {
     background-image: url('/img/header/icono-quienes-somos.svg');
     &:hover {
         background-image: url('/img/header/icono-quienes-somos-blanco.svg');
     }
 }
-
 .icon__contactenos {
     background-image: url('/img/header/iconos-de-contactenos.svg');
     &:hover {
         background-image: url('/img/header/icono-contactenos-blanco.svg');
     }
 }
-
 .icon__closed {
     background-image: url('/img/header/icono-cerrar-sesion-gris.svg');
     &:hover {

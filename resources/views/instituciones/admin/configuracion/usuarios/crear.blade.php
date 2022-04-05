@@ -1,5 +1,5 @@
 @section('styles')
-endsection
+@endsection
 
 @extends('instituciones.admin.layouts.layout')
 
