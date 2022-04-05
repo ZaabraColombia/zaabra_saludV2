@@ -213,7 +213,7 @@
 
                     <div class="content__border_see_contacs"></div>
 
-                    <div class="modal_info_cita pt-5 mt-5">
+                    <div class="modal_info_cita pt-5">
                         <div class="info_contac">
                             <span>Nombre:</span>
                             <span class="label-nombre"></span>
@@ -291,7 +291,7 @@
 
                     <div class="content__border_see_contacs"></div>
                        
-                    <div class="modal_info_cita pt-5 mt-5">
+                    <div class="modal_info_cita pt-5">
                         <div class="info_contac">
                             <span>Nombre:</span>
                             <span class="label-nombre"></span>
