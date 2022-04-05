@@ -130,6 +130,49 @@
                         </div>
                     </div>
 
+                    <!-- Linea división de elementos -->
+                    <div class="dropdown-divider my-4"></div>
+
+                    <!-- Acceso de usuario -->
+                    <h2 class="subtitle__lg green_bold mb-4">Acceso de usuario</h2>
+
+                    <div class="row list__form">
+                        <div class="col-6 col-md-4 check__box_green">
+                            <input type="checkbox" value="1" id="semana-1" name="semana[]">
+                            <label class="label_check_green" for="semana-1">Acceso 1</label>
+                        </div>
+
+                        <div class="col-6 col-md-4 check__box_green">
+                            <input type="checkbox" value="2" id="semana-2" name="semana[]">
+                            <label class="label_check_green" for="semana-2">Acceso 2</label>
+                        </div>
+
+                        <div class="col-6 col-md-4 check__box_green">
+                            <input type="checkbox" value="3" id="semana-3" name="semana[]">
+                            <label class="label_check_green" for="semana-3">Acceso 3</label>
+                        </div>
+
+                        <div class="col-6 col-md-4 check__box_green">
+                            <input type="checkbox" value="3" id="semana-3" name="semana[]">
+                            <label class="label_check_green" for="semana-3">Acceso 4</label>
+                        </div>
+
+                        <div class="col-6 col-md-4 check__box_green">
+                            <input type="checkbox" value="3" id="semana-3" name="semana[]">
+                            <label class="label_check_green" for="semana-3">Acceso 5</label>
+                        </div>
+
+                        <div class="col-6 col-md-4 check__box_green">
+                            <input type="checkbox" value="3" id="semana-3" name="semana[]">
+                            <label class="label_check_green" for="semana-3">Acceso 6</label>
+                        </div>
+
+                        <div class="col-6 col-md-4 check__box_green">
+                            <input type="checkbox" value="3" id="semana-3" name="semana[]">
+                            <label class="label_check_green" for="semana-3">Acceso 7</label>
+                        </div>
+                    </div>
+
                     <!-- Buttons -->
                     <div class="row m-0 mt-3 content_btn_right">
                         <a href="" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
