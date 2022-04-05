@@ -33,6 +33,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'google_id',
         'facebook_id',
         'institucion_id',
+        'estado'
     ];
 
     /**
@@ -59,20 +60,36 @@ class User extends Authenticatable implements MustVerifyEmail
 //        'roles'
 //    ];
 
-
-    public function profecional()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function profecional(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(perfilesprofesionales::class, 'idUser', 'id');
     }
 
-    public function profesional()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function profesional(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(perfilesprofesionales::class, 'idUser', 'id');
     }
 
-    public function paciente()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function paciente(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(Paciente::class, 'id_usuario', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function auxiliar(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Auxiliar::class, 'user_id', 'id');
     }
 
 
