@@ -133,4 +133,16 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsTo(TipoDocumento::class, 'tipodocumento');
     }
+
+    /**
+     * Permite ver todos los usuarios de un acceso
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function accesos(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Acceso::class, 'accesos_has_users', 'user_id', 'acceso_id');
+    }
+
+
 }
