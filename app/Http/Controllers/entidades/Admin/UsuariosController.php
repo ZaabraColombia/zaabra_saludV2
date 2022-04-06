@@ -12,7 +12,10 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
@@ -68,9 +71,9 @@ class UsuariosController extends Controller
             'tipodocumento'     => $request->get('tipo_documento'),
             'numerodocumento'   => $request->get('numero_documento'),
             'email'             => $request->get('email'),
-            'password'          => $request->get('password'),
             'institucion_id'    => Auth::user()->institucion->id,
             'estado'            => 1,
+            'password'          => Hash::make($request->get('password')),
         ]);
 
         //Crear el registro del auxiliar
@@ -95,7 +98,124 @@ class UsuariosController extends Controller
     }
 
 
-    private function validator(Request $request, string $method = null)
+    /**
+     * Mostar formulario para editar usuario
+     *
+     * @return Application|Factory|View
+     */
+    public function edit($user)
+    {
+        $user = User::find($user);
+        Gate::authorize('update-usuario-institucion', $user);
+
+        $tipo_documentos = TipoDocumento::all();
+        $accesos = Acceso::query()
+            ->institucion()
+            ->get();
+        $paises = pais::all();
+
+        //extraer accesos
+        $accesosUsuario = $user->accesos->map(function ($item){ return $item->id; })->toArray();
+
+        return view('instituciones.admin.configuracion.usuarios.editar', compact('tipo_documentos',
+            'accesos', 'paises', 'user', 'accesosUsuario'));
+    }
+
+    /**
+     * Validar y guardar usuario de una institución
+     *
+     * @param Request $request
+     * @param $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request, $user)
+    {
+        $user = User::find($user);
+        Gate::authorize('update-usuario-institucion', $user);
+
+        $this->validator($request, 'updated', $user->id);
+
+        //Crear usuario
+        $user->update([
+            'primernombre'      => $request->get('primer_nombre'),
+            'segundonombre'     => $request->get('segundo_nombre'),
+            'primerapellido'    => $request->get('primer_apellido'),
+            'segundoapellido'   => $request->get('segundo_apellido'),
+            'tipodocumento'     => $request->get('tipo_documento'),
+            'numerodocumento'   => $request->get('numero_documento'),
+            'email'             => $request->get('email'),
+            'institucion_id'    => Auth::user()->institucion->id,
+            'estado'            => $request->get('estado'),
+        ]);
+
+        if (!empty($request->get('password')))
+        {
+            $user->update(['password' => Hash::make($request->get('password'))]);
+        }
+
+        //Crear el registro del auxiliar
+        $user->auxiliar->update([
+            'fecha_nacimiento'  => $request->get('fecha_nacimiento'),
+            'direccion'         => $request->get('direccion'),
+            'telefono'          => $request->get('telefono'),
+            'celular'           => $request->get('celular'),
+            'pais_id'           => $request->get('pais_id'),
+            'departamento_id'   => $request->get('departamento_id'),
+            'provincia_id'      => $request->get('provincia_id'),
+            'ciudad_id'         => $request->get('ciudad_id')
+        ]);
+
+        //crear acceso
+        $user->accesos()->sync($request->get('accesos'));
+
+        return redirect()
+            ->route('institucion.configuracion.usuarios.index')
+            ->with('success', "Usuario {$user->nombre_completo} ha sido editado");
+    }
+
+    /**
+     * Devolver usuario creado
+     *
+     * @param $user
+     * @return Application|\Illuminate\Contracts\Routing\ResponseFactory|Response
+     */
+    public function show($user){
+
+//        $user = User::query()
+//            ->addSelect([
+//                'nombre_documento' => TipoDocumento::query()
+//                    ->select('nombre_corto')
+//                    ->whereColumn('id', 'users.tipodocumento')
+//                    ->limit(1)
+//            ])
+//            ->where('id',$user)
+//            ->with(['auxiliar', 'accesos'])
+//            ->first();
+
+        $user = User::find($user);
+
+        Gate::authorize('update-usuario-institucion', $user);
+
+        return response([
+            'item' => [
+                'nombres'               => $user->nombres,
+                'apellidos'             => $user->apellidos,
+                'numero_identificacion' => $user->tipo_documento->nombre_corto . " " . $user->numerodocumento,
+                'fecha_nacimiento'      => $user->auxiliar->fecha_nacimiento,
+                'direccion'             => $user->auxiliar->direccion,
+                'telefono'              => $user->auxiliar->telefono,
+                'celular'               => $user->auxiliar->celular,
+                'pais'                  => $user->auxiliar->pais->nombre,
+                'departamento'          => $user->auxiliar->departamento->nombre,
+                'provincia'             => $user->auxiliar->provincia->nombre,
+                'ciudad'                => $user->auxiliar->ciudad->nombre,
+                'accesos'               => $user->accesos
+            ]
+        ], Response::HTTP_OK);
+    }
+
+
+    private function validator(Request $request, string $method = null, $id = null)
     {
         $request->validate([
             'primer_nombre'     => ['required', 'max:50'],
@@ -112,9 +232,10 @@ class UsuariosController extends Controller
             'departamento_id'   => ['required', 'exists:departamentos,id_departamento'],
             'provincia_id'      => ['required', 'exists:provincias,id_provincia'],
             'ciudad_id'         => ['required', 'exists:municipios,id_municipio'],
-            'email'             => ['required', 'email', 'unique:users'],
+            'email'             => ['required', 'email', 'unique:users,email' . ($method != 'created' ? ",$id":'')],
             'accesos.*'         => ['nullable', 'exists:accesos,id'],
-            'password'          => [($method == 'create') ? 'required':'nullable', 'confirmed', Password::min(8)
+            'estado'            => ['nullable', 'boolean'],
+            'password'          => [($method == 'created') ? 'required':'nullable', 'confirmed', Password::min(8)
                 ->mixedCase()
                 ->numbers()
                 ->symbols()

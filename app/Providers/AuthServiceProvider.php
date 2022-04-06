@@ -44,6 +44,11 @@ class AuthServiceProvider extends ServiceProvider
             return $user->institucion->id === $servicio->institucion_id;
         });
 
+        //Validar si puede editar al usuario de institución
+        Gate::define('update-usuario-institucion', function (User $adminUser, User $user) {
+            return $adminUser->institucion->id === $user->institucion_id;
+        });
+
         //Validar acceso a módulos de institución
         Gate::define('modulos-institucion', function (User $user, $slug) {
             return

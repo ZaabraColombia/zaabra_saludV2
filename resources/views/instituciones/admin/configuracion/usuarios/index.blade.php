@@ -49,7 +49,6 @@
                             <th>Nombre</th>
                             <th>Identificación</th>
                             <th>E-mail</th>
-                            <th>Roles</th>
                             <th>Estado</th>
                             <th class="text-center">Acción</th>
                         </tr>
@@ -59,15 +58,15 @@
                             @foreach($usuarios as $usuario)
                                 <tr>
                                     <td>{{ $usuario->nombre_completo }}</td>
-                                    <td>{{ "{$usuario->tipo_documento->nombre_corto} {$usuario->nombre_completo}" }}</td>
+                                    <td>{{ "{$usuario->tipo_documento->nombre_corto} {$usuario->numerodocumento}" }}</td>
                                     <td>{{ $usuario->email }}</td>
                                     <td>{{ ($usuario->estado) ? 'Activado':'Desactivado' }}</td>
                                     <td>
                                         <div class="d-flex justify-content-around px-3">
-                                            <a class="btn_action_green tool top" style="width: 33px"
-                                               href="" data-target="#modal_see_user" data-toggle="modal">
+                                            <button class="btn_action_green tool top modal-usuario" style="width: 33px"
+                                                    data-url="{{ route('institucion.configuracion.usuarios.show', ['usuario' => $usuario->id]) }}">
                                                 <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
-                                            </a>
+                                            </button>
 
                                             <a class="btn_action_green tool top" style="width: 33px"
                                                href="{{ route('institucion.configuracion.usuarios.edit', ['usuario' => $usuario->id]) }}">
@@ -86,7 +85,7 @@
     </div>
 
     <!-- Modal Ver user -->
-    <div class="modal fade" id="modal_see_user">
+    <div class="modal fade" id="modal_ver_usuario">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -105,54 +104,59 @@
                         <div class="row mb-2">
                             <div class="col-lg-6 info_contac">
                                 <span>Nombres:&nbsp;</span>
-                                <span>Nombre 1 Nombre 2</span>
+                                <span id="nombres">Nombre 1 Nombre 2</span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <span>Apellidos:&nbsp;</span>
-                                <span>Apellido 1 Apellido 2</span>
+                                <span id="apellidos">Apellido 1 Apellido 2</span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
-                                <span>Cc&nbsp;</span>
-                                <span>0000000000</span>
+                                <span id="numero_identificacion"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <span>Fecha de nacimiento:&nbsp;</span>
-                                <span>dd - mm - aaaa</span>
+                                <span id="fecha_nacimineto"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <span>Teléfonos:&nbsp;</span>
-                                <span>000 0000 000</span> -
-                                <span>000 0000</span>
+                                <span id="telefonos"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <span>Correo:&nbsp;</span>
-                                <span>ejemplo@.com</span>
+                                <span id="correo"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <span>Dirección:&nbsp;</span>
-                                <span>Cll 00 # 00 - 00</span>
+                                <span id="direccion"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
-                                <span>Ciudad:&nbsp;</span>
-                                <span>Ciudad 1</span>
-                            </div>
-
-                            <div class="col-lg-6 info_contac">
-                                <span>Provincia:&nbsp;</span>
-                                <span>Provincia 1</span>
+                                <span>País:&nbsp;</span>
+                                <span id="pais"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <span>Departamento:&nbsp;</span>
-                                <span>Departamento 1</span>
+                                <span id="departamento"></span>
                             </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <span>Provincia:&nbsp;</span>
+                                <span id="provincia"></span>
+                            </div>
+
+                            <div class="col-lg-6 info_contac">
+                                <span>Ciudad:&nbsp;</span>
+                                <span id="ciudad"></span>
+                            </div>
+
+
                         </div>
 
                         <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Accesos del usuario</h4>
@@ -160,26 +164,6 @@
                             <div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">
                                 <i data-feather="check-circle" style="color: #0083D6;" width="17"></i>
                                 <span class="pl-2">Acceso 1</span>
-                            </div>
-
-                            <div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">
-                                <i data-feather="check-circle" style="color: #0083D6;" width="17"></i>
-                                <span class="pl-2">Acceso 2</span>
-                            </div>
-
-                            <div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">
-                                <i data-feather="check-circle" style="color: #0083D6;" width="17"></i>
-                                <span class="pl-2">Acceso 3</span>
-                            </div>
-
-                            <div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">
-                                <i data-feather="check-circle" style="color: #0083D6;" width="17"></i>
-                                <span class="pl-2">Acceso 4</span>
-                            </div>
-
-                            <div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">
-                                <i data-feather="check-circle" style="color: #0083D6;" width="17"></i>
-                                <span class="pl-2">Acceso 5</span>
                             </div>
                         </div>
                     </div>
@@ -226,6 +210,22 @@
         $("#search").on('keyup change',function(){
             var texto = $(this).val();
             table.search(texto).draw();
+        });
+
+        $('.modal-usuario').click(function (event) {
+            var btn = $(this);
+
+            $.get(btn.data('url'), function (response) {
+                console.log(response);
+
+                $.each(response.item, function (key, item) {
+                    if (key !== 'accesos') $('#' + key).html(item);
+                });
+
+                $('#modal_ver_usuario').modal();
+            }, "json").fail(function (error) {
+                console.log(error);
+            });
         });
     </script>
 @endsection
