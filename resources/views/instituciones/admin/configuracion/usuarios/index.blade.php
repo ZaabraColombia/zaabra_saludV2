@@ -49,7 +49,6 @@
                             <th>Nombre</th>
                             <th>Identificación</th>
                             <th>E-mail</th>
-                            <th>Roles</th>
                             <th>Estado</th>
                             <th class="text-center">Acción</th>
                         </tr>
