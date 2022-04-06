@@ -66,13 +66,13 @@
                                     <td>
                                         <a class="btn_action_green tool top" style="width: 33px"
                                            href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                            <i data-feather="edit"></i> <span class="tiptext">editar profesional</span>
+                                            <i data-feather="edit"></i> <span class="tiptext">Editar profesional</span>
                                         </a>
                                     </td>
                                     <td>
                                         <a class="btn_action_green tool top" style="width: 33px"
                                            href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                            <i data-feather="calendar"></i> <span class="tiptext">configurar calendario</span>
+                                            <i data-feather="calendar"></i> <span class="tiptext">Configurar calendario</span>
                                         </a>
                                     </td>
                                 </tr>

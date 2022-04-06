@@ -64,19 +64,19 @@
                                 <td>
                                     <button class="btn_action_green btn-ver-contacto tool top" type="button" data-id="">
                                         <i class="fas fa-eye"></i>
-                                        <span class="tiptext">ver contacto</span>
+                                        <span class="tiptext">Ver contacto</span>
                                     </button>
                                 </td>
                                 <td>
                                     <button class="btn_action_green btn-editar-contacto tool top" type="button" data-id="">
                                         <i class="fas fa-edit"></i>
-                                        <span class="tiptext">editar contacto</span>
+                                        <span class="tiptext">Editar contacto</span>
                                     </button>
                                 </td>
                                 <td>
                                     <button class="btn_action_green btn-eliminar-contacto tool top" type="button" data-id="">
                                         <i class="fas fa-trash"></i>
-                                        <span class="tiptext">eliminar contacto</span>
+                                        <span class="tiptext">Eliminar contacto</span>
                                     </button>
                                 </td>
                             </tr>

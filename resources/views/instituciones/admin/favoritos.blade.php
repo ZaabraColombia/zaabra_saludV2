@@ -3,8 +3,10 @@
 @section('contenido')
     <div class="row containt_agendaProf mb-3" id="basic-table">
         <div class="my-4 my-xl-5">
-            <h1 class="title__xl blue_bold">Mis favoritos Profesional</h1>
-            <p class="text__md black_light">Registre sus favoritos y reciba información relacionada con sus intereses.</p>
+            <h1 class="title__xl green_bold">Mis favoritos Profesional</h1>
+            <p class="text__md black_light">
+                Registre sus favoritos y reciba información relacionada con sus intereses.
+            </p>
         </div>
 
         <div class="container_principal_fav">
@@ -28,7 +30,7 @@
                                 </div>
 
                                 <div class="section_btn_fav">
-                                    <button type="submit" class="btn_guardar_fav" id="guardar_data">Guardar</button>
+                                    <button type="submit" class="button_green" id="guardar_data">Guardar</button>
                                 </div>
                             </form>
 
@@ -49,7 +51,7 @@
                             </div>
 
                             <div class="section_btn_fav">
-                                <button type="submit" class="btn_guardar_fav" id="guardar_data">Guardar</button>
+                                <button type="submit" class="button_green" id="guardar_data">Guardar</button>
                             </div>
                         </form>
                         @endif
@@ -77,7 +79,7 @@
                                 </div>
 
                                 <div class="section_btn_fav">
-                                    <button type="submit" class="btn_guardar_fav" id="guardar_data2">Guardar</button>
+                                    <button type="submit" class="button_green" id="guardar_data2">Guardar</button>
                                 </div>
                             </form>
 
@@ -98,7 +100,7 @@
                                 </div>
 
                                 <div class="section_btn_fav">
-                                    <button type="submit" class="btn_guardar_fav" id="guardar_data2">Guardar</button>
+                                    <button type="submit" class="button_green" id="guardar_data2">Guardar</button>
                                 </div>
                             </form>
                         @endif
@@ -126,7 +128,7 @@
                                 </div>
 
                                 <div class="section_btn_fav">
-                                    <button type="submit" class="btn_guardar_fav" id="guardar_data3">Guardar</button>
+                                    <button type="submit" class="button_green" id="guardar_data3">Guardar</button>
                                 </div>
                             </form>
 
@@ -146,7 +148,7 @@
                                 </div>
 
                                 <div class="section_btn_fav">
-                                    <button type="submit" class="btn_guardar_fav" id="guardar_data3">Guardar</button>
+                                    <button type="submit" class="button_green" id="guardar_data3">Guardar</button>
                                 </div>
                             </form>
                         @endif
@@ -174,7 +176,7 @@
                                 </div>
 
                                 <div class="section_btn_fav">
-                                    <button type="submit" class="btn_guardar_fav" id="guardar_data4">Guardar</button>
+                                    <button type="submit" class="button_green" id="guardar_data4">Guardar</button>
                                 </div>
                             </form>
 
@@ -195,7 +197,7 @@
                                 </div>
 
                                 <div class="section_btn_fav">
-                                    <button type="submit" class="btn_guardar_fav" id="guardar_data4">Guardar</button>
+                                    <button type="submit" class="button_green" id="guardar_data4">Guardar</button>
                                 </div>
                             </form>
                         @endif
