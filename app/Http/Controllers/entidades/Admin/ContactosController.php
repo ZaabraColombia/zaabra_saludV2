@@ -10,6 +10,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -22,6 +23,7 @@ class ContactosController extends Controller
      */
     public function index()
     {
+        Gate::authorize('accesos-institucion','ver-contactos');
         $contactos = Contacto::query()
             ->where('user_id', '=', Auth::user()->id)
             ->get();
