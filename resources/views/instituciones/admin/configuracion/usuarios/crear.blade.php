@@ -202,7 +202,7 @@
 
                     <!-- Buttons -->
                     <div class="row m-0 mt-3 content_btn_right">
-                        <a href="" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
+                        <a href="{{ route('institucion.configuracion.usuarios.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
                         <button type="submit" class="button_green">Guardar</button>
                     </div>
                 </form>
