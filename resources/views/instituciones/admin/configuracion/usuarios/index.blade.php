@@ -218,9 +218,9 @@
                 $.each(response.item, function (key, item) {
                     if (key !== 'accesos') $('#' + key).html(item);
                 });
-
+                $('#accesos-lista').html('');
                 $.each(response.item.accesos, function (key, item) {
-                    $('#accesos-lista').html('<div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">'
+                    $('#accesos-lista').append('<div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">'
                         + '<i data-feather="check-circle" style="color: #0083D6;" width="17"></i>'
                         + '<span class="pl-2">' + item.nombre + '</span>'
                         + '</div>');
