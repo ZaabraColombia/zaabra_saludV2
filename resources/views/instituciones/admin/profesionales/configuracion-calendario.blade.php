@@ -44,7 +44,7 @@
                                    value="{{ old('consultorio', $profesional->consultorio) }}" class="@error('consultorio') is-invalid @enderror">
                         </div>
 
-                        <div class="col-12 input__box">
+                        <div class="col-12 input__box mb-3">
                             <label for="servicios">Servicios</label>
                             <select type="text" id="servicios" name="servicios[]" class="select2" multiple>
                                 @if($servicios->isNotEmpty())

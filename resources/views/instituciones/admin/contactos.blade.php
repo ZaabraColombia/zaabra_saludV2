@@ -205,15 +205,15 @@
                 </div>
                 <!-- Mantener las cases "label-*" -->
                 <div class="modal-body">
-                    <h1 class="pl-5">Eliminar Contacto</h1>
+                    <h1 style="color: #019F86">Eliminar Contacto</h1>
 
-                    <div class="content__see_contacs">
+                    <div class="content__see_contacs" style="background-color: #6eb1a6">
                         <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
                     </div>
 
-                    <div class="content__border_see_contacs"></div>
+                    <div class="content__border_see_contacs" style="background-color: #6eb1a6"></div>
 
-                    <div class="modal_info_cita pt-5 mt-5">
+                    <div class="modal_info_cita pt-5">
                         <div class="info_contac">
                             <span>Nombre:</span>
                             <span class="label-nombre"></span>
@@ -270,7 +270,7 @@
                     <form method="post" id="form-contacto-eliminar" class="forms">
                         @csrf
                         <button type="button" class="button_transparent ml-2" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="button_blue ml-2">Eliminar</button>
+                        <button type="submit" class="button_green ml-2">Eliminar</button>
                     </form>
                 </div>
             </div>
@@ -288,15 +288,15 @@
                 </div>
                 <!-- Mantener las cases "label-*" -->
                 <div class="modal-body">
-                    <h1>Ver Contacto</h1>
+                    <h1 style="color: #019F86">Ver Contacto</h1>
                         
-                    <div class="content__see_contacs">
+                    <div class="content__see_contacs" style="background-color: #6eb1a6">
                         <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
                     </div>
 
-                    <div class="content__border_see_contacs"></div>
+                    <div class="content__border_see_contacs" style="background-color: #6eb1a6"></div>
                        
-                    <div class="modal_info_cita pt-5 mt-5">
+                    <div class="modal_info_cita pt-5">
                         <div class="info_contac">
                             <span>Nombre:</span>
                             <span class="label-nombre"></span>
