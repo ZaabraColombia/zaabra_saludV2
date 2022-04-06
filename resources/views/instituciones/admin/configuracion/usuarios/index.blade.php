@@ -58,7 +58,7 @@
                             @foreach($usuarios as $usuario)
                                 <tr>
                                     <td>{{ $usuario->nombre_completo }}</td>
-                                    <td>{{ "{$usuario->tipo_documento->nombre_corto} {$usuario->nombre_completo}" }}</td>
+                                    <td>{{ "{$usuario->tipo_documento->nombre_corto} {$usuario->numerodocumento}" }}</td>
                                     <td>{{ $usuario->email }}</td>
                                     <td>{{ ($usuario->estado) ? 'Activado':'Desactivado' }}</td>
                                     <td>
