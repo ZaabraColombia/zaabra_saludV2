@@ -12,6 +12,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
@@ -124,6 +125,7 @@ class UsuariosController extends Controller
      * Validar y guardar usuario de una institución
      *
      * @param Request $request
+     * @param $user
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $user)
@@ -169,6 +171,47 @@ class UsuariosController extends Controller
         return redirect()
             ->route('institucion.configuracion.usuarios.index')
             ->with('success', "Usuario {$user->nombre_completo} ha sido editado");
+    }
+
+    /**
+     * Devolver usuario creado
+     *
+     * @param $user
+     * @return Application|\Illuminate\Contracts\Routing\ResponseFactory|Response
+     */
+    public function show($user){
+
+//        $user = User::query()
+//            ->addSelect([
+//                'nombre_documento' => TipoDocumento::query()
+//                    ->select('nombre_corto')
+//                    ->whereColumn('id', 'users.tipodocumento')
+//                    ->limit(1)
+//            ])
+//            ->where('id',$user)
+//            ->with(['auxiliar', 'accesos'])
+//            ->first();
+
+        $user = User::find($user);
+
+        Gate::authorize('update-usuario-institucion', $user);
+
+        return response([
+            'item' => [
+                'nombres'               => $user->nombres,
+                'apellidos'             => $user->apellidos,
+                'numero_identificacion' => $user->tipo_documento->nombre_corto . " " . $user->numerodocumento,
+                'fecha_nacimiento'      => $user->auxiliar->fecha_nacimiento,
+                'direccion'             => $user->auxiliar->direccion,
+                'telefono'              => $user->auxiliar->telefono,
+                'celular'               => $user->auxiliar->celular,
+                'pais'                  => $user->auxiliar->pais->nombre,
+                'departamento'          => $user->auxiliar->departamento->nombre,
+                'provincia'             => $user->auxiliar->provincia->nombre,
+                'ciudad'                => $user->auxiliar->ciudad->nombre,
+                'accesos'               => $user->accesos
+            ]
+        ], Response::HTTP_OK);
     }
 
 
