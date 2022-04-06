@@ -43,5 +43,16 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('update-servicio-institucion', function (User $user, Servicio $servicio) {
             return $user->institucion->id === $servicio->institucion_id;
         });
+
+        //Validar acceso a módulos de institución
+        Gate::define('modulos-institucion', function (User $user, $slug) {
+            return
+                //Valida si es un auxiliar
+                $user->roles()->where('idrol', '!=', 4)->count() >= 1 || $user->accesos()
+                    ->where('slug', '=', $slug)
+                    ->where('tipo', 'like', 'institucion')
+                    ->count() >= 1;
+        });
+
     }
 }

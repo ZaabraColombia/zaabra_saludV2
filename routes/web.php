@@ -352,6 +352,7 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
     Route::group(['prefix' => '/configuracion', 'as' => 'configuracion.'], function (){
         Route::resource('/convenios', entidades\Admin\ConveniosController::class);
         Route::resource('/servicios', entidades\Admin\ServiciosController::class);
+        Route::resource('/usuarios', entidades\Admin\UsuariosController::class);
     });
 
 });
@@ -421,37 +422,15 @@ Route::get('/error505', function () { return view('errores/error505');})->name('
 
 
 Route::get('/test', function (){
-    $cita = \App\Models\Cita::query()
-        ->with([
-            'paciente',
-            'paciente.user',
-            'profesional',
-            'profesional.user',
-        ])
-        ->where('profesional_id', '!=', null)->first();
+    \Illuminate\Support\Facades\Gate::authorize('modulos-institucion', 'editar');
 
-    \Mail::send('emails.confiramcion_cita_profesional', ['cita' => $cita, 'tipo' => 'profesional'], function ($message) {
-        $message->from('email@styde.net', 'Styde.Net');
-        $message->to('user@example.com')->subject('Notificación');
-    });
+    echo 'ok';
 });
 
 Route::get('/test-2', function (){
-    $cita = \App\Models\Cita::query()
-        ->with([
-            'pago',
-            'paciente',
-            'paciente.user',
-            'profesional_ins',
-            'profesional_ins.institucion',
-            'profesional_ins.institucion.user',
-        ])
-        ->where('profesional_ins_id', '!=', null)->first();
+    \Illuminate\Support\Facades\Gate::authorize('modulos-institucion', 'editar-2');
 
-    \Mail::send('emails.confiramcion_cita_institucion', ['cita' => $cita, 'tipo' => 'institucion'], function ($message) {
-        $message->from('email@styde.net', 'Styde.Net');
-        $message->to('user@example.com')->subject('Notificación');
-    });
+    echo 'ok';
 });
 
 // Ruta para la vista asignar cita profesional institución
@@ -492,7 +471,7 @@ Route::get('/test-crear-servicio-institucion', function(){
     return view('instituciones.admin.configuracion.servicios.crear');
 });
 
-// Ruta de la vista usuarios 
+// Ruta de la vista usuarios
 Route::get('/test-usuarios-institucion', function(){
     return view('instituciones.admin.configuracion.usuarios.index');
 });

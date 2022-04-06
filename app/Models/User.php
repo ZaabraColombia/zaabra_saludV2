@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Mail\ResetPasswordEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -32,6 +33,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'google_id',
         'facebook_id',
         'institucion_id',
+        'estado'
     ];
 
     /**
@@ -58,20 +60,36 @@ class User extends Authenticatable implements MustVerifyEmail
 //        'roles'
 //    ];
 
-
-    public function profecional()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function profecional(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(perfilesprofesionales::class, 'idUser', 'id');
     }
 
-    public function profesional()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function profesional(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(perfilesprofesionales::class, 'idUser', 'id');
     }
 
-    public function paciente()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function paciente(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(Paciente::class, 'id_usuario', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function auxiliar(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Auxiliar::class, 'user_id', 'id');
     }
 
 
@@ -133,4 +151,26 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsTo(TipoDocumento::class, 'tipodocumento');
     }
+
+    /**
+     * Permite ver todos los usuarios de un acceso
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function accesos(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Acceso::class, 'accesos_has_users', 'user_id', 'acceso_id');
+    }
+
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeActivado(Builder $query): Builder
+    {
+        return $query->where('estado', '=', true);
+    }
+
 }

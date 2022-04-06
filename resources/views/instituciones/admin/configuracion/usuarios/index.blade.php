@@ -22,8 +22,8 @@
                     </div>
 
                     <div class="col-md-3 p-0 content_btn_right">
-                        <a href="" class="button_green" id="btn-agregar-contacto">
-                            Agregar 
+                        <a href="{{ route('institucion.configuracion.usuarios.create') }}" class="button_green" id="btn-agregar-contacto">
+                            Agregar
                         </a>
                     </div>
                 </div>
@@ -31,6 +31,17 @@
 
             <!-- Contenedor formato tabla de la lista de contactos -->
             <div class="containt_main_table mb-3">
+                <div class="col-12">
+                    @if(session()->has('success'))
+                        <div class="alert alert-success" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="alert-heading">Hecho!</h4>
+                            <p>{{ session('success') }}</p>
+                        </div>
+                    @endif
+                </div>
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-pacientes">
                         <thead class="thead_green">
@@ -44,25 +55,29 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Nombre Apellido</td>
-                                <td>
-                                    <span>0 000 000 000</span>
-                                </td>
-                                <td>
-                                    <span>ejemplo@.com</span>
-                                </td>
-                                <td>Roll 1</td>
-                                <td>Estado 1</td>
-                                <td>
-                                    <div class="d-flex justify-content-around px-3">
-                                        <a class="btn_action_green tool top" style="width: 33px"
-                                            href="" data-target="#modal_see_user" data-toggle="modal">
-                                            <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                        @if($usuarios->isNotEmpty())
+                            @foreach($usuarios as $usuario)
+                                <tr>
+                                    <td>{{ $usuario->nombre_completo }}</td>
+                                    <td>{{ "{$usuario->tipo_documento->nombre_corto} {$usuario->nombre_completo}" }}</td>
+                                    <td>{{ $usuario->email }}</td>
+                                    <td>{{ ($usuario->estado) ? 'Activado':'Desactivado' }}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-around px-3">
+                                            <a class="btn_action_green tool top" style="width: 33px"
+                                               href="" data-target="#modal_see_user" data-toggle="modal">
+                                                <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
+                                            </a>
+
+                                            <a class="btn_action_green tool top" style="width: 33px"
+                                               href="{{ route('institucion.configuracion.usuarios.edit', ['usuario' => $usuario->id]) }}">
+                                                <i data-feather="edit"></i> <span class="tiptext">Editar usuario</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                         </tbody>
                     </table>
                 </div>
@@ -84,7 +99,7 @@
                     <h1 class="mb-3" style="color: #019F86">Ver Usuario</h1>
 
                     <div class="content__border_see_contacs" style="background-color: #6eb1a6"></div>
-                       
+
                     <div class="modal_info_cita pt-3 px-2">
                         <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Información básica</h4>
                         <div class="row mb-2">
@@ -118,7 +133,7 @@
                                 <span>Correo:&nbsp;</span>
                                 <span>ejemplo@.com</span>
                             </div>
-                            
+
                             <div class="col-lg-6 info_contac">
                                 <span>Dirección:&nbsp;</span>
                                 <span>Cll 00 # 00 - 00</span>
