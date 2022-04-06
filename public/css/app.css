@@ -26442,6 +26442,11 @@ div.dt-buttons {
   border-radius: 0.25rem 0 0 0.25rem !important;
 }
 
+.check__radio {
+  width: 20px;
+  height: 20px;
+}
+
 .label_check_green {
   font-size: 16px;
   font-family: "Roboto";
@@ -26449,7 +26454,7 @@ div.dt-buttons {
   position: relative;
   cursor: pointer;
   border-radius: 3px;
-  padding: 7px 40px 0px 40px;
+  padding: 7px 10px 0px 40px;
   transition: all 0.3s ease;
 }
 .label_check_green:hover {
@@ -26498,7 +26503,7 @@ div.dt-buttons {
   position: relative;
   cursor: pointer;
   border-radius: 3px;
-  padding: 7px 40px 0px 40px;
+  padding: 7px 10px 0px 40px;
   transition: all 0.3s ease;
 }
 .label_check_blue:hover {
@@ -26540,16 +26545,9 @@ div.dt-buttons {
   color: #0083D6;
 }
 
-.input__check label {
-  font-size: 14px;
-  font-family: "Roboto";
-  color: #3E3E3E;
-  margin-bottom: 0;
-}
-.input__check input {
-  width: 15px;
-  height: 15px;
-  margin-right: 5px;
+.citas_activas {
+  width: 20% !important;
+  text-align: center;
 }
 
 .label_check {
@@ -26652,6 +26650,11 @@ div.dt-buttons {
   .input__check input {
     width: 20px;
     height: 20px;
+  }
+}
+@media (min-width: 1920px) {
+  .citas_activas {
+    width: 40% !important;
   }
 }
 .content_img_center {

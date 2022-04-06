@@ -187,7 +187,7 @@
                     </div>
                     <div class="modal-footer content_btn_center">
                         <button type="button" class="button_transparent" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="button_blue">Confirmar</button>
+                        <button type="submit" class="button_green">Confirmar</button>
                     </div>
                 </form>
             </div>

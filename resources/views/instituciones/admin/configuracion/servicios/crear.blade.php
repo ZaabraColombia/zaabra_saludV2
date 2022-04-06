@@ -79,19 +79,62 @@
                     </div>
 
                     <div class="row">
+                        <div class="col-md-4 input__box">
+                            <label for="tp_servicio">Tipo de servicio</label>
+                            <select class="@error('tp_servicio') is-invalid @enderror" id="tp_servicio"
+                                    name="tp_servicio" value="{{ old('tp_servicio') }}">
+                                <option value=""></option>
+                                <option value="Consulta por primera vez">Consulta por primera vez</option>
+                                <option value="Consulta de control">Consulta de control</option>
+                                <option value="Procedimiento quirúrgico">Procedimiento quirúrgico</option>
+                                <option value="Procedimiento no quirúrgico">Procedimiento no quirúrgico</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-8 input__box">
+                            <label for="cups">CUPS</label>
+                            <select class="@error('cups') is-invalid @enderror" id="cups"
+                                    name="cups" value="{{ old('cups') }}">
+                                <option value=""></option>
+                                <option value="cups 1">cups 1</option>
+                                <option value="cups 2">cups 2</option>
+                                <option value="cups 3">cups 3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-7 col-xl-5 d-flex justify-content-between align-self-end input__box">
+                            <label class="align-self-center" for="">Número de citas activas por paciente</label>
+                            <input type="number" id="" name="" value="{{ old('') }}"
+                                class="citas_activas @error('') is-invalid @enderror"/>
+                        </div>
+
+                        <div class="col-md-5 col-xl-7 input__box pl-md-0">
+                            <label for="metodo">Método</label>
+                            <select class="@error('metodo') is-invalid @enderror" id="metodo"
+                                    name="metodo" value="{{ old('metodo') }}">
+                                <option value=""></option>
+                                <option value="Presencial">Presencial</option>
+                                <option value="Virtual">Virtual</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col-12 input__box">
                             <label for="descripcion">Descripción</label>
                             <textarea name="descripcion" id="descripcion" class="@error('especialidad') is-invalid @enderror"
                                       rows="5">{{ old('descripcion') }}</textarea>
                         </div>
                         <div class="col-12">
-                            <div class="d-flex align-items-center mt-3 py-2" style="background: #eff3f3;padding-left: 10px;">
+                            <div class="d-flex align-items-center mt-4 py-2 pl-2" style="background: #eff3f3;">
                                 <p class="fs_text_small black_light">Vincular convenios</p>
-                                <input class="ml-4 mr-2" type="radio" name="convenios" id="convenios-1"
+                                <input class="ml-4 mr-2 check__radio" type="radio" name="convenios" id="convenios-1"
                                        value="1" {{ (old('convenios') == 1) ? 'checked':'' }}/>
                                 <label class="fs_text_small black_light mb-0" for="convenios-1">Si</label>
 
-                                <input class="ml-4 mr-2" type="radio" name="convenios" id="convenios-0"
+                                <input class="ml-4 mr-2 check__radio" type="radio" name="convenios" id="convenios-0"
                                        value="0" {{ (old('convenios') == 0) ? 'checked':'' }}/>
                                 <label class="fs_text_small black_light mb-0" for="convenios-0">No</label>
                             </div>
@@ -100,50 +143,43 @@
 
                     <!-- Contenedor formato tabla de la lista de contactos -->
                     @php $old = old('convenios-lista') @endphp
-                    <div id="table_servicio" class="containt_main_table mt-3 {{ (empty($old)) ? 'd-none':'' }}">
-                    {{--<div class="row m-0">
-                        <div class="col-md-9 input__box">
-                            <label for="convenio">Convenio</label>
-                            <select class="@error('convenio') is-invalid @enderror" id="convenio"
-                                    name="convenio" value="{{ old('convenio') }}">
-                                @if($convenios->isNotEmpty())
-                                @foreach($convenios as $convenio)
-                                <option value="{{ $convenio->id }}">{{ $convenio->nombre_completo }}</option>
-                                @endforeach
-                                @endif
-                            </select>
-                        </div>
-                        <div class="col-md-3 p-0 pt-3 content_btn_right">
-                            <a href="" class="button_green" id="">
-                                Agregar
-                            </a>
-                        </div>
-                    </div>--}}
-
-                    <!-- Linea división de elementos -->
-
-                        <div class="dropdown-divider mt-3 mb-5"></div>
+                    <div id="table_servicio" class="containt_main_table mt-4 {{ (empty($old)) ? 'd-none':'' }}">
+                        {{--<div class="row m-0">
+                            <div class="col-md-9 input__box">
+                                <label for="convenio">Convenio</label>
+                                <select class="@error('convenio') is-invalid @enderror" id="convenio"
+                                        name="convenio" value="{{ old('convenio') }}">
+                                    @if($convenios->isNotEmpty())
+                                    @foreach($convenios as $convenio)
+                                    <option value="{{ $convenio->id }}">{{ $convenio->nombre_completo }}</option>
+                                    @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="col-md-3 p-0 pt-3 content_btn_right">
+                                <a href="" class="button_green" id="">
+                                    Agregar
+                                </a>
+                            </div>
+                        </div>--}}
 
                         <div class="table-responsive">
                             <table class="table table_agenda" id="">
                                 <thead class="thead_green">
-                                <tr>
-                                    <th></th>
-                                    <th>Nombre</th>
-                                    <th>Valor a pagar convenio</th>
-                                    <th>Valor a pagar paciente</th>
-                                </tr>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Valor a pagar convenio</th>
+                                        <th>Valor a pagar paciente</th>
+                                    </tr>
                                 </thead>
 
                                 <tbody>
                                 @if($convenios->isNotEmpty())
                                     @foreach($convenios as $convenio)
                                         <tr>
-                                            <td>
-                                                <input type="checkbox" class="validar-convenio" {{ isset($old[$convenio->id]) ? 'checked':'' }} id="convenio-{{ $convenio->id }}">
-                                            </td>
-                                            <td>
-                                                {{ $convenio->nombre_completo }}
+                                            <td class="check__box_green">
+                                                <input id="name_convenio" type="checkbox" class="validar-convenio" {{ isset($old[$convenio->id]) ? 'checked':'' }} id="convenio-{{ $convenio->id }}">
+                                                <label class="label_check_green" for="name_convenio">{{ $convenio->nombre_completo }}</label>
                                                 <input type="hidden" name="convenios-lista[{{ $convenio->id }}][convenio_id]" value="{{ $convenio->id }}">
                                             </td>
                                             <td>

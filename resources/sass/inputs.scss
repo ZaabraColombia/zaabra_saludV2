@@ -1,6 +1,5 @@
 // Inputs
 // Contenedor input con los elementos (label e input)
-
 .input__box {
     label {
         font-size: 14px;
@@ -112,7 +111,13 @@
     border-radius: .25rem 0 0 .25rem !important;
 }
 
-// Input checks
+// Input checks tipo radio
+.check__radio {
+    width: 20px;
+    height: 20px;
+}
+
+// Input check-box VERDE
 .label_check_green {
     font-size: 16px;
     font-family: 'Roboto';
@@ -120,7 +125,7 @@
     position: relative;
     cursor: pointer;
     border-radius: 3px;
-    padding: 7px 40px 0px 40px;
+    padding: 7px 10px 0px 40px;
     transition: all 0.3s ease;
     &:hover {
         background-color: #eaeced;
@@ -163,6 +168,7 @@
     } 
 }
 
+//Input check-box AZUL 
 .label_check_blue {
     font-size: 16px;
     font-family: 'Roboto';
@@ -170,7 +176,7 @@
     position: relative;
     cursor: pointer;
     border-radius: 3px;
-    padding: 7px 40px 0px 40px;
+    padding: 7px 10px 0px 40px;
     transition: all 0.3s ease;
     &:hover {
         background-color: #eaeced;
@@ -212,22 +218,26 @@
         }
     } 
 }
-// codigo sin casi soporte
-.input__check {
-    label {
-        font-size: 14px;
-        font-family: 'Roboto';
-        color: $black_firsrt;
-        margin-bottom: 0;
-    }
-    input {
-        width: 15px;
-        height: 15px;
-        margin-right: 5px;
-    }
+.citas_activas {
+    width: 20% !important;
+    text-align: center;
 }
+// codigo sin casi soporte
+// .input__check {
+//     label {
+//         font-size: 14px;
+//         font-family: 'Roboto';
+//         color: $black_firsrt;
+//         margin-bottom: 0;
+//     }
+//     input {
+//         width: 15px;
+//         height: 15px;
+//         margin-right: 5px;
+//     }
+// }
 
-// ================ Check box interactivo personalizado ================
+// ================ Check box interactivo acción "Activo e Inactivo" ================
 .label_check {
     display: inline-block;
     cursor: pointer;
@@ -271,19 +281,6 @@
     input[type="checkbox"] {
         display: none;
         &:checked + label:before {
-            // display: none;
-            // content: "";
-            // display: inline-block;
-        
-            // width: 17px;
-            // height: 17px;
-            // position: absolute;
-        
-            // left: 15px;
-        
-            // border-radius: 50%;
-            // background: none;
-            // border: 2px solid #fff;
             content: "";
             display: inline-block;
             width: 10px;
@@ -311,7 +308,7 @@
         }
     }
 }
-// ================ Fin Check box interactivo personalizado ================
+// ================ Fin Check box interactivo ACCIÓN "Activo e Inactivo" ================
 
 @media(min-width: 768px) {
     // Inputs
@@ -337,6 +334,7 @@
         }
     }
 }
+
 @media(min-width: 1440px) {
     // Inputs
     .input__box {
@@ -359,5 +357,12 @@
             width: 20px;
             height: 20px;
         }
+    }
+}
+
+
+@media(min-width: 1920px) {
+    .citas_activas {
+        width: 40% !important;
     }
 }
