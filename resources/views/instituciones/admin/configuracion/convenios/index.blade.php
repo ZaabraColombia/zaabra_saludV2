@@ -76,17 +76,17 @@
                                         <div class="d-flex justify-content-around px-3">
                                             <a class="btn_action_green tool top" style="width: 33px"
                                                href="" data-target="#modal_ver_convenio" data-toggle="modal">
-                                                <i data-feather="eye"></i> <span class="tiptext">ver convenio</span>
+                                                <i data-feather="eye"></i> <span class="tiptext">Ver convenio</span>
                                             </a>
 
                                             <a class="btn_action_green tool top" style="width: 33px"
                                                href="{{ route('institucion.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">
-                                                <i data-feather="edit"></i> <span class="tiptext">editar convenio</span>
+                                                <i data-feather="edit"></i> <span class="tiptext">Editar convenio</span>
                                             </a>
 
                                             {{--<a class="btn_action_green tool top" style="width: 33px"
                                                href="">
-                                                <i data-feather="settings"></i> <span class="tiptext">configurar convenio</span>
+                                                <i data-feather="settings"></i> <span class="tiptext">Configurar convenio</span>
                                             </a>--}}
                                         </div>
                                     </td>
