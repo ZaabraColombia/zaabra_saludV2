@@ -494,6 +494,12 @@ Route::get('/test-profesionales-crear-convenio', function(){
     return view('profesionales.admin.configuracion.convenios.crear');
 });
 
+// Ruta de la vista servicio
+Route::get('/test-profesional-servicio', function(){
+    return view('profesionales.admin.configuracion.servicios.index');
+});
+
+
 // ===================_________ FIN AGENDA PROFESIONALES _________=================== //
 
 // Ruta detalles-pago
