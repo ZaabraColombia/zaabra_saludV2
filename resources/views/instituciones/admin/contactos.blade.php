@@ -8,7 +8,7 @@
 @endsection
 
 @section('contenido')
-<div class="container-fluid p-0 pr-lg-4">
+    <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
                 <h1 class="title__xl green_bold">Contactos</h1>
@@ -34,52 +34,53 @@
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-contactos">
                         <thead class="thead_green">
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Dirección</th>
-                                <th>Teléfono</th>
-                                <th>Correo</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Dirección</th>
+                            <th>Teléfono</th>
+                            <th>Correo</th>
+                            <th></th>
+
+                        </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td class="pr-0">
-                                    <div class="user__xl">
-                                        <div class="pr-2">
-                                            <img class="img__contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
-                                        </div>
-
-                                        <div>
-                                            <span>Edgar Orlando Echavarria Lopez</span>
-                                        </div>
+                        <tr>
+                            <td class="pr-0">
+                                <div class="user__xl">
+                                    <div class="pr-2">
+                                        <img class="img__contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
                                     </div>
-                                </td>
-                                <td>Cra 45 # 56 - 23 sur</td>
-                                <td>301 2354 236 - 264 2567</td>
-                                <td>edgaro@gmail.com</td>
-                                <td>
+
+                                    <div>
+                                        <span>Edgar Orlando Echavarria Lopez</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Cra 45 # 56 - 23 sur</td>
+                            <td>301 2354 236 - 264 2567</td>
+                            <td>edgaro@gmail.com</td>
+                            <td>
+                                @can('accesos-institucion','ver-contactos')
                                     <button class="btn_action_green btn-ver-contacto tool top" type="button" data-id="">
                                         <i class="fas fa-eye"></i>
                                         <span class="tiptext">Ver contacto</span>
                                     </button>
-                                </td>
-                                <td>
+                                @endcan
+                                @can('accesos-institucion','editar-contacto')
                                     <button class="btn_action_green btn-editar-contacto tool top" type="button" data-id="">
                                         <i class="fas fa-edit"></i>
                                         <span class="tiptext">Editar contacto</span>
                                     </button>
-                                </td>
-                                <td>
+                                @endcan
+                                @can('accesos-institucion','eliminar-contacto')
                                     <button class="btn_action_green btn-eliminar-contacto tool top" type="button" data-id="">
                                         <i class="fas fa-trash"></i>
                                         <span class="tiptext">Eliminar contacto</span>
                                     </button>
-                                </td>
-                            </tr>
+                                @endcan
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -289,13 +290,13 @@
                 <!-- Mantener las cases "label-*" -->
                 <div class="modal-body">
                     <h1 style="color: #019F86">Ver Contacto</h1>
-                        
+
                     <div class="content__see_contacs" style="background-color: #6eb1a6">
                         <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
                     </div>
 
                     <div class="content__border_see_contacs" style="background-color: #6eb1a6"></div>
-                       
+
                     <div class="modal_info_cita pt-5">
                         <div class="info_contac">
                             <span>Nombre:</span>

@@ -63,15 +63,21 @@
                                     <td>{{ ($usuario->estado) ? 'Activado':'Desactivado' }}</td>
                                     <td>
                                         <div class="d-flex justify-content-around px-3">
-                                            <button class="btn_action_green tool top modal-usuario" style="width: 33px"
-                                                    data-url="{{ route('institucion.configuracion.usuarios.show', ['usuario' => $usuario->id]) }}">
-                                                <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
-                                            </button>
 
-                                            <a class="btn_action_green tool top" style="width: 33px"
-                                               href="{{ route('institucion.configuracion.usuarios.edit', ['usuario' => $usuario->id]) }}">
-                                                <i data-feather="edit"></i> <span class="tiptext">Editar usuario</span>
-                                            </a>
+                                            @can('accesos-institucion','editar-usuario')
+                                                <button class="btn_action_green tool top modal-usuario" style="width: 33px"
+                                                        data-url="{{ route('institucion.configuracion.usuarios.show', ['usuario' => $usuario->id]) }}">
+                                                    <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
+                                                </button>
+                                            @endcan
+
+
+                                            @can('accesos-institucion','editar-usuario')
+                                                <a class="btn_action_green tool top" style="width: 33px"
+                                                   href="{{ route('institucion.configuracion.usuarios.edit', ['usuario' => $usuario->id]) }}">
+                                                    <i data-feather="edit"></i> <span class="tiptext">Editar usuario</span>
+                                                </a>
+                                            @endcan
                                         </div>
                                     </td>
                                 </tr>
