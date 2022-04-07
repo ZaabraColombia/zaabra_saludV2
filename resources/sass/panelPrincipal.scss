@@ -83,6 +83,12 @@ align-self: flex-end;
         background-image: url('/img/agenda/panelPrincipal/profesionales/icon_profesionales_blanco.png');
     }
 }
+.convenio_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_pacientes_azul.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/profesionales/icon_pacientes_blanco.png');
+    }
+}
 
 
 .content__target_inst {

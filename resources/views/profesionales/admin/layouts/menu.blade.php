@@ -95,6 +95,28 @@ $user = Auth::user();
                     </a>
                 </li>
 
+                <!-- Configuración -->
+                <li class="sidebar-item has-sub items_blue accordion" id="accordionConfiguracion">
+                    <button id="headingConfiguracion" class="" type="button" data-toggle="collapse"
+                            data-target="#collapseConfiguracion" aria-expanded="false" aria-controls="collapseConfiguracion">
+                        Configuración<i class="icon_angle fas fa-angle-down pl-2"></i>
+                    </button>
+
+                    <ul id="collapseConfiguracion" class="collapse sub_menu_blue {{ request()->routeIs('institucion.configuracion.*') ? 'show' : '' }}"
+                        aria-labelledby="headingConfiguracion" data-parent="#accordionConfiguracion">
+                        <li class="submenu-item ">
+                            <a id="" class="" href=''>
+                                Convenios
+                            </a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a id="" class="" href=''>
+                                Servicios
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <!-- Logo PLM -->
                 <li class="sidebar-item  has-sub items_logos_blue" style="width: 180px">
                     <a id="fav" class="" target="_blank" href="https://www.prescripciontotal.com.co/consultorio-generico/login">

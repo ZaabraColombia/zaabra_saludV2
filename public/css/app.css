@@ -22914,6 +22914,13 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/agenda/panelPrincipal/profesionales/icon_profesionales_blanco.png");
 }
 
+.convenio_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pacientes_azul.png");
+}
+.convenio_blue:hover {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pacientes_blanco.png");
+}
+
 .content__target_inst {
   border: 1px solid #019F86;
   border-radius: 5px;

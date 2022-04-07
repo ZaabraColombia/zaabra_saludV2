@@ -4,7 +4,7 @@
     <div class="container py-4 px-lg-5">
         <div class="row m-0 p-0">
             <div class="col-12 col-lg-8 col-xl-9 p-0 m-0">
-                <div class="row m-0 justify-content-between">
+                <div class="row m-0 justify-content-start">
                     <!-- Calendario -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='{{ route('profesional.agenda.calendario') }}'>
@@ -50,6 +50,22 @@
                         <a  href='{{ route('profesional.favoritos') }}'>
                             <div class="content__target favorito_blue">
                                 <span class="subtitle__lg">Favoritos</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Favoritos -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{ route('profesional.favoritos') }}'>
+                            <div class="content__target convenio_blue">
+                                <span class="subtitle__lg">Convenios</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Favoritos -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{ route('profesional.favoritos') }}'>
+                            <div class="content__target convenio_blue">
+                                <span class="subtitle__lg">Servicios</span>
                             </div>
                         </a>
                     </div>

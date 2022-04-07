@@ -85,7 +85,7 @@
                     </a>
                 </li>
 
-                <!-- Catálogos -->
+                <!-- Configuración -->
                 <li class="sidebar-item has-sub items_green accordion" id="accordionConfiguracion">
                     <button id="headingConfiguracion" class="{{ request()->routeIs('institucion.configuracion.*') ? 'btn_active_inst' : '' }}" type="button" data-toggle="collapse"
                             data-target="#collapseConfiguracion" aria-expanded="false" aria-controls="collapseConfiguracion">
