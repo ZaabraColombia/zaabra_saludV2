@@ -25,6 +25,8 @@ class ConveniosController extends Controller
      */
     public function index()
     {
+        Gate::authorize('accesos-institucion','ver-convenios');
+
         //Obtener él id de la institución, se hace el recorrido por los diferentes roles
         $id_institucion =  Auth::user()->institucion->user->id;
         $convenios = Convenios::query()->where('id_user', $id_institucion)->get();
@@ -39,6 +41,8 @@ class ConveniosController extends Controller
      */
     public function create()
     {
+        Gate::authorize('accesos-institucion','agregar-convenio');
+
         $tipo_contribuyentes = TipoContribuyente::all();
         $actividades_economicas = ActividadEconomica::all();
         $tipo_documentos = TipoDocumento::all();
@@ -60,6 +64,8 @@ class ConveniosController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('accesos-institucion','agregar-convenio');
+
         $this->validator($request);
 
         //Guardar foto
@@ -94,6 +100,7 @@ class ConveniosController extends Controller
      */
     public function edit(Convenios $convenio)
     {
+        Gate::authorize('accesos-institucion','editar-convenio');
         Gate::authorize('update-convenio-institucion', $convenio);
 
         $tipo_contribuyentes = TipoContribuyente::all();
@@ -112,6 +119,7 @@ class ConveniosController extends Controller
 
     public function update(Request $request, Convenios $convenio)
     {
+        Gate::authorize('accesos-institucion','editar-convenio');
         Gate::authorize('update-convenio-institucion', $convenio);
 
         $this->validator($request);

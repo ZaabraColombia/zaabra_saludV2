@@ -50,15 +50,21 @@
                                     <td>{{ $servicio->especialidad->nombreEspecialidad }}</td>
                                     <td>
                                         <div class="d-flex justify-content-around px-3">
-                                            <a class="btn_action_green tool top" style="width: 33px"
-                                               href="">
-                                                <i data-feather="eye"></i> <span class="tiptext">Ver servicio</span>
-                                            </a>
 
-                                            <a class="btn_action_green tool top" style="width: 33px"
-                                               href="{{ route('institucion.configuracion.servicios.edit', ['servicio' => $servicio->id]) }}">
-                                                <i data-feather="edit"></i> <span class="tiptext">Editar servicio</span>
-                                            </a>
+                                            @can('accesos-institucion','ver-servicios')
+                                                <a class="btn_action_green tool top" style="width: 33px"
+                                                   href="">
+                                                    <i data-feather="eye"></i> <span class="tiptext">Ver servicio</span>
+                                                </a>
+                                            @endcan
+
+                                            @can('accesos-institucion','editar-servicio')
+                                                <a class="btn_action_green tool top" style="width: 33px"
+                                                   href="{{ route('institucion.configuracion.servicios.edit', ['servicio' => $servicio->id]) }}">
+                                                    <i data-feather="edit"></i> <span class="tiptext">Editar servicio</span>
+                                                </a>
+                                            @endcan
+
                                         </div>
                                     </td>
                                 </tr>

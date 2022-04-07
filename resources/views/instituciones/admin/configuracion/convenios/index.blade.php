@@ -74,15 +74,20 @@
                                     </td>
                                     <td>
                                         <div class="d-flex justify-content-around px-3">
-                                            <a class="btn_action_green tool top" style="width: 33px"
-                                               href="" data-target="#modal_ver_convenio" data-toggle="modal">
-                                                <i data-feather="eye"></i> <span class="tiptext">Ver convenio</span>
-                                            </a>
 
-                                            <a class="btn_action_green tool top" style="width: 33px"
-                                               href="{{ route('institucion.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">
-                                                <i data-feather="edit"></i> <span class="tiptext">Editar convenio</span>
-                                            </a>
+                                            @can('accesos-institucion','ver-convenios')
+                                                <a class="btn_action_green tool top" style="width: 33px"
+                                                   href="" data-target="#modal_ver_convenio" data-toggle="modal">
+                                                    <i data-feather="eye"></i> <span class="tiptext">Ver convenio</span>
+                                                </a>
+                                            @endcan
+
+                                            @can('accesos-institucion','editar-convenio')
+                                                <a class="btn_action_green tool top" style="width: 33px"
+                                                   href="{{ route('institucion.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">
+                                                    <i data-feather="edit"></i> <span class="tiptext">Editar convenio</span>
+                                                </a>
+                                            @endcan
 
                                             {{--<a class="btn_action_green tool top" style="width: 33px"
                                                href="">
@@ -112,13 +117,13 @@
                 <!-- Mantener las cases "label-*" -->
                 <div class="modal-body">
                     <h1 style="color: #019F86">Ver Convenio</h1>
-                                            
+
                     <div class="content__see_contacs" style="background-color: #6eb1a6">
                         <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
                     </div>
 
                     <div class="content__border_see_contacs" style="background-color: #6eb1a6"></div>
-                       
+
                     <div class="modal_info_cita pt-5">
                         <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Información básica</h4>
                         <div class="row mb-2">
@@ -151,7 +156,7 @@
                                 <h4>Tipo del contribuyente:</h4>
                                 <span>Tipo contribuyente 1</span>
                             </div>
-                            
+
                             <div class="col-lg-6 info_contac">
                                 <h4>Actividad económica:</h4>
                                 <span>Actividad 1</span>
@@ -199,7 +204,7 @@
                                 <h4>Provincia:</h4>
                                 <span>Provincia 1</span>
                             </div>
-                            
+
                             <div class="col-lg-6 info_contac">
                                 <h4>Ciudad:</h4>
                                 <span>Ciudad 1</span>
@@ -215,7 +220,7 @@
                                 <h4>Correo:</h4>
                                 <span>ejemplo@.com</span>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer content_btn_center">

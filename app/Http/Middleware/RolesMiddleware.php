@@ -31,14 +31,14 @@ class RolesMiddleware
         //asigno el id del rol
         switch ($rol[0]) {
             case 'paciente':
-                $id_rol = 1;
+                $id_rol = [1];
                 break;
             case 'profesional':
-                $id_rol = 2;
+                $id_rol = [2];
                 break;
             case 'entidad':
             case 'institucion':
-                $id_rol = 3;
+                $id_rol = [3, 4];
                 break;
             case 'auxiliar':
                 $id_rol = 4;
@@ -49,9 +49,10 @@ class RolesMiddleware
         }
 
         //$permiso = DB::select('select users.id from users inner join users_roles on users_roles.id = users.id where users_roles.iduser = ' . $id_user . ' and users_roles.iduser = ' . $id_rol)->get();
-        $permiso = users_roles::select('id')
+        $permiso = users_roles::query()
+            ->select('id')
             ->where('iduser', '=', $id_user)
-            ->where('idrol', '=', $id_rol)
+            ->whereIn('idrol',  $id_rol)
             ->first();
 
         //Si no existe el rol

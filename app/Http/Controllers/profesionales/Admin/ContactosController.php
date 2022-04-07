@@ -59,7 +59,7 @@ class ContactosController extends Controller
         if ($request->file('foto'))
         {
             $respueta['foto'] = $request->file('foto')
-                ->move("img/user/{$respueta['user_id']}/contactos/",
+                ->move("img/user/{$respueta['user_id']}/contactos",
                     Str::random(10) . ".{$request->file('foto')->extension()}"
                 );
         }
@@ -147,7 +147,7 @@ class ContactosController extends Controller
         {
             if (!empty($contacto->foto)) unlink($contacto->foto);
             $respueta['foto'] = $request->file('foto')
-                ->move("img/user/{$user_id}/contactos/",
+                ->move("img/user/{$user_id}/contactos",
                     Str::random(10) . ".{$request->file('foto')->extension()}"
                 );
         }

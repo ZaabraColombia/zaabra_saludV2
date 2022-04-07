@@ -50,7 +50,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         //Validar acceso a módulos de institución
-        Gate::define('modulos-institucion', function (User $user, $slug) {
+        Gate::define('accesos-institucion', function (User $user, $slug) {
             return
                 //Valida si es un auxiliar
                 $user->roles()->where('idrol', '!=', 4)->count() >= 1 || $user->accesos()

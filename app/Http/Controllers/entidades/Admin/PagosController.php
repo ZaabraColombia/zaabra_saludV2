@@ -5,10 +5,13 @@ use App\Http\Controllers\controller;
 
 use App\Models\PagoCita;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class PagosController extends Controller
 {
     public function index() {
+
+        Gate::authorize('accesos-institucion','ver-pagos');
 
         $pagos = PagoCita::query()
             ->with([

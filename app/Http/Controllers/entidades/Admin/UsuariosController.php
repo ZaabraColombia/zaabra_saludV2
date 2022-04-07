@@ -28,6 +28,8 @@ class UsuariosController extends Controller
      */
     public function index()
     {
+        Gate::authorize('accesos-institucion','ver-usuarios');
+
         $usuarios = User::query()
             ->where('institucion_id', Auth::user()->institucion->id)
             ->get();
@@ -42,6 +44,8 @@ class UsuariosController extends Controller
      */
     public function create()
     {
+        Gate::authorize('accesos-institucion','agregar-usuario');
+
         $tipo_documentos = TipoDocumento::all();
         $accesos = Acceso::query()
             ->institucion()
@@ -60,6 +64,8 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('accesos-institucion','agregar-usuario');
+
         $this->validator($request, 'created');
 
         //Crear usuario
@@ -89,6 +95,9 @@ class UsuariosController extends Controller
             'user_id'           => $user->id
         ]);
 
+        //crear rol
+        $user->roles->create(['idrol' => 4]);
+
         //crear acceso
         $user->accesos()->sync($request->get('accesos'));
 
@@ -105,6 +114,8 @@ class UsuariosController extends Controller
      */
     public function edit($user)
     {
+        Gate::authorize('accesos-institucion','editar-usuario');
+
         $user = User::find($user);
         Gate::authorize('update-usuario-institucion', $user);
 
@@ -130,6 +141,8 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $user)
     {
+        Gate::authorize('accesos-institucion','editar-usuario');
+
         $user = User::find($user);
         Gate::authorize('update-usuario-institucion', $user);
 
@@ -191,6 +204,7 @@ class UsuariosController extends Controller
 //            ->where('id',$user)
 //            ->with(['auxiliar', 'accesos'])
 //            ->first();
+        Gate::authorize('accesos-institucion','ver-usuarios');
 
         $user = User::find($user);
 

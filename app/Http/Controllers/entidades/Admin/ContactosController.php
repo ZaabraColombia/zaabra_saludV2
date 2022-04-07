@@ -10,7 +10,10 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class ContactosController extends Controller
@@ -22,8 +25,9 @@ class ContactosController extends Controller
      */
     public function index()
     {
+        Gate::authorize('accesos-institucion','ver-contactos');
         $contactos = Contacto::query()
-            ->where('user_id', '=', Auth::user()->id)
+            ->where('user_id', '=', Auth::user()->institucion->user->id)
             ->get();
 
         return view('instituciones.admin.contactos', compact('contactos'));
@@ -37,6 +41,10 @@ class ContactosController extends Controller
      */
     public function store(Request $request)
     {
+//        if (Gate::allows('accesos-institucion','agregar-contacto'))
+//            return response(['message' => 'No tiene permisos'], Response::HTTP_FORBIDDEN);
+
+        Gate::authorize('accesos-institucion','agregar-contacto');
         $validator = $this->validador($request);
 
         if ($validator->fails()) {
@@ -48,15 +56,29 @@ class ContactosController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $request->merge(['user_id' => Auth::user()->id]);
-        $contacto = Contacto::query()->create($request->all());
+        $respueta = $request->all();
+        $id_isntitucion = Auth::user()->institucion->user->id;
+
+        if ($request->file('foto'))
+        {
+            $respueta['foto'] = $request->file('foto')
+                ->move("img/instituciones/{Auth($id_isntitucion)}/contactos/",
+                    Str::random(10) . ".{$request->file('foto')->extension()}"
+                );
+        }
+
+        $respueta['user_id'] = $id_isntitucion;
+        $contacto = Contacto::query()->create($respueta);
+
+        $array = $contacto->toArray();
+        $array['foto'] = asset($array['foto'] ?? 'img/menu/avatar.png');
 
         return response([
             'message' => [
                 'title' => 'Hecho',
                 'text'  => "Contacto {$contacto->nombre} creado"
             ],
-            'item' => $contacto->toArray(),
+            'item' => $array,
             'type' => 'created'
         ], Response::HTTP_OK);
     }
@@ -69,9 +91,11 @@ class ContactosController extends Controller
      */
     public function show(int $id)
     {
+        Gate::authorize('accesos-institucion','ver-contactos');
+
         $contacto = Contacto::query()
             ->where('id', '=', $id)
-            ->where('user_id', '=', Auth::user()->id)
+            ->where('user_id', '=', Auth::user()->institucion->user->id)
             ->first();
 
         if (empty($contacto)) return response([
@@ -81,8 +105,11 @@ class ContactosController extends Controller
             ]
         ], Response::HTTP_NOT_FOUND);
 
+        $array = $contacto->toArray();
+        $array['foto'] = asset($array['foto'] ?? 'img/menu/avatar.png');
+
         return response([
-            'item' => $contacto->toArray(),
+            'item' => $array,
         ], Response::HTTP_OK);
     }
 
@@ -96,6 +123,7 @@ class ContactosController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Gate::authorize('accesos-institucion','editar-contacto');
         $validator = $this->validador($request);
 
         if ($validator->fails()) {
@@ -109,7 +137,7 @@ class ContactosController extends Controller
 
         $contacto = Contacto::query()
             ->where('id', '=', $id)
-            ->where('user_id', '=', Auth::user()->id)
+            ->where('user_id', '=', Auth::user()->institucion->user->id)
             ->first();
 
         if (empty($contacto)) return response([
@@ -119,14 +147,30 @@ class ContactosController extends Controller
             ]
         ], Response::HTTP_NOT_FOUND);
 
-        $contacto->update($request->all());
+        $respueta = $request->all();
+        $id_isntitucion = Auth::user()->institucion->user->id;
+
+        if ($request->file('foto'))
+        {
+            if (File::exists($contacto->foto)) File::delete($contacto->foto);
+
+            $respueta['foto'] = $request->file('foto')
+                ->move("img/instituciones/{Auth($id_isntitucion)}/contactos/",
+                    Str::random(10) . ".{$request->file('foto')->extension()}"
+                );
+        }
+
+        $contacto->update($respueta);
+
+        $array = $contacto->toArray();
+        $array['foto'] = asset($array['foto'] ?? 'img/menu/avatar.png');
 
         return response([
             'message' => [
                 'title' => 'Hecho',
                 'text'  => "Contacto {$contacto->nombre} editado"
             ],
-            'item' => $contacto->toArray(),
+            'item' => $array,
             'type' => 'updated'
         ], Response::HTTP_OK);
     }
@@ -139,9 +183,11 @@ class ContactosController extends Controller
      */
     public function destroy($id)
     {
+        Gate::authorize('accesos-institucion','eliminar-contacto');
+
         $contacto = Contacto::query()
             ->where('id', '=', $id)
-            ->where('user_id', '=', Auth::user()->id)
+            ->where('user_id', '=', Auth::user()->institucion->user->id)
             ->first();
 
         if (empty($contacto)) return response([
