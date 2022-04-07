@@ -51,16 +51,16 @@
                                     <tr>
                                         <td>{{ $cita->fecha_inicio->format('d-m /Y') }}</td>
                                         <td>{{ "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A') }" }}</td>
-                                        <td>{{ $cita->tipo_consulta->nombreconsulta }}</td>
-                                        <td>{{ $cita->paciente->user->nombre_completo }} <br>
-                                            <span>{{ $cita->paciente->user->email }}</span>
+                                        <td>{{ $cita->tipo_consulta->nombreconsulta ?? '' }}</td>
+                                        <td>{{ $cita->paciente->user->nombre_completo ?? '' }} <br>
+                                            <span>{{ $cita->paciente->user->email ?? '' }}</span>
                                         </td>
                                         <td>
-                                            <span>{{ $cita->paciente->celular }}</span> <br>
-                                            <span>{{ $cita->paciente->telefono }}</span>
+                                            <span>{{ $cita->paciente->celular ?? '' }}</span> <br>
+                                            <span>{{ $cita->paciente->telefono ?? '' }}</span>
                                         </td>
                                         <td>
-                                            <span>{{ $cita->paciente->direccion }}</span>
+                                            <span>{{ $cita->paciente->direccion ?? '' }}</span>
                                         </td>
                                         <td>
                                             <span class="badge bg-{{ $cita->bg_estado }}">{{ $cita->estado }}</span>

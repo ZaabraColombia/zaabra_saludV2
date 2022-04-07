@@ -39,6 +39,10 @@ class ContactosController extends Controller
      */
     public function store(Request $request)
     {
+//        if (Gate::allows('accesos-institucion','agregar-contacto'))
+//            return response(['message' => 'No tiene permisos'], Response::HTTP_FORBIDDEN);
+
+        Gate::authorize('accesos-institucion','agregar-contacto');
         $validator = $this->validador($request);
 
         if ($validator->fails()) {
@@ -71,6 +75,8 @@ class ContactosController extends Controller
      */
     public function show(int $id)
     {
+        Gate::authorize('accesos-institucion','ver-contactos');
+
         $contacto = Contacto::query()
             ->where('id', '=', $id)
             ->where('user_id', '=', Auth::user()->id)
@@ -98,6 +104,7 @@ class ContactosController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Gate::authorize('accesos-institucion','editar-contacto');
         $validator = $this->validador($request);
 
         if ($validator->fails()) {
@@ -141,6 +148,8 @@ class ContactosController extends Controller
      */
     public function destroy($id)
     {
+        Gate::authorize('accesos-institucion','eliminar-contacto');
+
         $contacto = Contacto::query()
             ->where('id', '=', $id)
             ->where('user_id', '=', Auth::user()->id)
