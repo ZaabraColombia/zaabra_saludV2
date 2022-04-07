@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('styles')
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link href="{{ asset('css/select2-bootstrap.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
+
     <!--<link rel="stylesheet" href="{{ asset('plugins/pace/themes/blue/pace-theme-loading-bar.css') }}"/>-->
 @endsection
 
@@ -763,7 +764,7 @@
                 </div>
 
                 <div class="row m-0 pb-3 px-0">
-                    <div class="col-md-6 px-0 align-self-center">
+                    <div class="col-md-4 px-0 align-self-center">
                         <div class="upload_file_img_form">
                             <img class="imagenPrevisualizacion" id="img-img_sede">
                             <input type='file' id="img_sede" name="img_sede" onchange="ver_imagen('img_sede', 'img-img_sede');" {{ ($count_sedes >= 6) ? 'disabled' : '' }} />
@@ -773,7 +774,42 @@
                         <p class="text_informative_form text-center">Tamaño 356 x 326px. Peso máximo 300kb</p>
                     </div>
 
-                    <div class="col-md-6 p-0">
+                    <div class="col-md-4 p-0">
+                        <div class="col-12 input__box mb-3">
+                            <label for="pais_id">País</label>
+                            <select id="pais_id" name="pais_id" class="select2 pais" data-departamento="#departamento_id"
+                                    data-provincia="#provincia_id" data-ciudad="#ciudad_id" required>
+                                @if($paises->isNotEmpty())
+                                    @foreach($paises as $pais)
+                                        <option value="{{ $pais->id_pais }}">{{ $pais->nombre }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
+                        </div>
+
+                        <div class="col-12 input__box mb-3">
+                            <label for="departamento_id">Departamento</label>
+                            <select name="departamento_id" id="departamento_id" class="select2 departamento"
+                                    data-provincia="#provincia_id" data-ciudad="#ciudad_id" required>
+                            </select>
+                        </div>
+
+                        <div class="col-12 input__box mb-3">
+                            <label for="provincia_id">Provincia</label>
+                            <select name="provincia_id" id="provincia_id" data-ciudad="#ciudad_id"
+                                    class="select2 provincia">
+                            </select>
+                        </div>
+
+                        <div class="col-12 input__box mb-3">
+                            <label for="ciudad_id">Ciudad</label>
+                            <select name="ciudad_id" id="ciudad_id" required
+                                    class="select2 @error('ciudad_id') is-invalid @enderror">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 p-0">
                         <label for="nombre_sede" class="label_txt_form">Nombre de la sede</label>
                         <input class="input_box_form" id="nombre_sede" placeholder="Nombre de la sede" type="text" name="nombre_sede" {{ ($count_sedes >= 6) ? 'disabled' : '' }} />
 
@@ -1001,13 +1037,14 @@
 @endsection
 
 @section('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
     <!--<script data-pace-options='{ "ajax": false, "document": true, "eventLag": false, "elements": false}' src="{{ asset('plugins/pace/pace.min.js') }}"></script> -->
 
     <script src="{{ asset('js/formulario-intitucional.js') }}"></script>
 
     <script src="{{ asset('js/selectareas.js') }}"></script>
     <script src="{{ asset('js/cargaFoto.js') }}"></script>
+    <script src="{{ asset('js/filtro-ubicacion.js') }}"></script>
 
     <script>
         // Pace.on("done", function() {
