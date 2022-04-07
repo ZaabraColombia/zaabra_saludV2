@@ -482,6 +482,14 @@ Route::get('/test-asignar-cita-profesional-institucion', function (){
 // });
 
 // ===================_________ FIN AGENDA INSTITUCIONES _________=================== //
+// ===================___________ AGENDA PROFESIONALES ___________=================== //
+
+// Ruta de la vista convenios
+Route::get('/test-profesional-convenio', function(){
+    return view('profesionales.admin.configuracion.convenios.index');
+});
+
+// ===================_________ FIN AGENDA PROFESIONALES _________=================== //
 
 // Ruta detalles-pago
 Route:: get('/detalles-pago',[App\Http\Controllers\pagosController::class,'index'])->name('detalles-pago');
