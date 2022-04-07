@@ -96,7 +96,7 @@ class UsuariosController extends Controller
         ]);
 
         //crear rol
-        $user->roles->create(['idrol' => 4]);
+        $user->roles()->create(['idrol' => 4]);
 
         //crear acceso
         $user->accesos()->sync($request->get('accesos'));
