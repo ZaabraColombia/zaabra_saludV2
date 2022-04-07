@@ -64,7 +64,7 @@
                     <!-- Favoritos -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='{{ route('profesional.favoritos') }}'>
-                            <div class="content__target convenio_blue">
+                            <div class="content__target servicio_blue">
                                 <span class="subtitle__lg">Servicios</span>
                             </div>
                         </a>
