@@ -20,7 +20,7 @@
                     <div class="col-md-9 p-0 input__box mb-0">
                         <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar contacto" />
                     </div>
-                    
+
                     <div class="col-md-3 p-0 content_btn_right">
                         <button type="button" class="button_blue" id="btn-agregar-contacto">
                             Agregar
@@ -210,7 +210,7 @@
                     <h1 class="pl-5">Eliminar Contacto</h1>
 
                     <div class="content__see_contacs">
-                        <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                        <img id="foto-eliminar" class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
                     </div>
 
                     <div class="content__border_see_contacs"></div>
@@ -266,6 +266,7 @@
                 <div class="modal-footer content_btn_center">
                     <form method="post" id="form-contacto-eliminar" class="forms">
                         @csrf
+                        @method('delete')
                         <button type="button" class="button_transparent ml-2" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="button_blue ml-2">Eliminar</button>
                     </form>
@@ -286,13 +287,13 @@
                 <!-- Mantener las cases "label-*" -->
                 <div class="modal-body">
                     <h1>Ver Contacto</h1>
-                                            
+
                     <div class="content__see_contacs">
-                        <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                        <img id="foto-ver" class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
                     </div>
 
                     <div class="content__border_see_contacs"></div>
-                       
+
                     <div class="modal_info_cita pt-5">
                         <div class="info_contac">
                             <span>Nombre:</span>
@@ -351,7 +352,7 @@
 @section('scripts')
     <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
     <script src="{{ asset('js/alertas.js') }}"></script>
-    
+
     <script>
         // Obtener referencia al input y a la imagen
         const $seleccionArchivos = document.querySelector("#foto"),
@@ -479,6 +480,8 @@
                             console.log(key);
                         });
 
+                        $('#foto-eliminar').attr('src', item.foto);
+
                         modal.modal();
                     },
                     error: function (error) {
@@ -514,6 +517,7 @@
                         $.each(item, function (key, item) {
                             modal.find('.label-' + key).html(item);
                         });
+                        $('#foto-ver').attr('src', item.foto);
 
                         modal.modal();
                     },
