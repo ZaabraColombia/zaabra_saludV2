@@ -75,6 +75,13 @@
         }
     }
 }
+//   _______________________________________________________________________________________
+//  |                                                                                       |
+//  | Propiedad para implementar doble linea en la data oculta de la tabla plugin datatable |
+//  |_______________________________________________________________________________________|
+                    table.dataTable>tbody>tr.child ul.dtr-details {
+                        white-space: break-spaces;
+                    }
 // Tablas
 .table thead tr th {
     font-family: 'Quicksand';

@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class CitasController extends Controller
 {
     public function index() {
-        return view('panelAdministrativoProf.citasProfesional');
+        return view('instituciones.admin.citas');
     }
 }

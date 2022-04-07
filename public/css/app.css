@@ -26052,6 +26052,10 @@ div.dt-buttons {
   background-size: 18px;
 }
 
+table.dataTable > tbody > tr.child ul.dtr-details {
+  white-space: break-spaces;
+}
+
 .table thead tr th {
   font-family: "Quicksand";
   color: #0083D6;
