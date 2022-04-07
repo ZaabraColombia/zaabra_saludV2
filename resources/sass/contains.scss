@@ -188,11 +188,12 @@
     display: flex;
     width: 130px;
     .signo_peso {
-        height: calc(1.6em + 0.75rem + 2px);
+        height: calc(1.6em + 0.75rem + 3px);
         background-color: #e0e4e7;
         color: #019f86;
         font-weight: bold;
         border-radius: 5px 0 0 5px;
+        border: 1px solid #e0e4e7;
         padding: 5px 10px;
         display: flex;
         align-content: center;
@@ -201,13 +202,17 @@
         font-size: 17px;
     }
     input {
-        background-color: #f3f3f3;
-        border: none;
         border-radius: 0 5px 5px 0;
-        text-align: center;
-        margin: 0;
+        border: 1px solid #e0e4e7;
+    }
+    input[disabled] {
+        background-color: #f3f3f3;
+        border-radius: 0 5px 5px 0;
+        border: none;
+        color: #b2b3b5;
     }
 }
+
 .user__xl {
     display: flex; 
     align-items: center; 

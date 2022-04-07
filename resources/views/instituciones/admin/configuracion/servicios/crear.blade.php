@@ -234,7 +234,6 @@
                 var check = $(item);
                 check.parents('tr').find('input[type=number],input[type=hidden]').prop('disabled', !check.prop('checked'));
             });
-
         });
     </script>
 @endsection
