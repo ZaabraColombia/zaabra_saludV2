@@ -80,43 +80,36 @@
 
                     <div class="row">
                         <div class="col-md-4 input__box">
-                            <label for="tp_servicio">Tipo de servicio</label>
-                            <select class="@error('tp_servicio') is-invalid @enderror" id="tp_servicio"
-                                    name="tp_servicio" value="{{ old('tp_servicio') }}">
-                                <option value=""></option>
-                                <option value="Consulta por primera vez">Consulta por primera vez</option>
-                                <option value="Consulta de control">Consulta de control</option>
-                                <option value="Procedimiento quirúrgico">Procedimiento quirúrgico</option>
-                                <option value="Procedimiento no quirúrgico">Procedimiento no quirúrgico</option>
+                            <label for="tipo_servicio_id">Tipo de servicio</label>
+                            <select class="@error('tipo_servicio_id') is-invalid @enderror" id="tipo_servicio_id" name="tipo_servicio_id">
+                                <option></option>
+                                @if($tipo_servicios->isNotEmpty())
+                                    @foreach($tipo_servicios as $tipo_servicio)
+                                        <option value="{{ $tipo_servicio->id }}" {{ old('tipo_servicio_id') == $tipo_servicio->id ? 'selected':'' }}>{{ $tipo_servicio->nombre }}</option>
+                                    @endforeach
+                                @endif
                             </select>
                         </div>
 
                         <div class="col-md-8 input__box">
-                            <label for="cups">CUPS</label>
-                            <select class="@error('cups') is-invalid @enderror" id="cups"
-                                    name="cups" value="{{ old('cups') }}">
-                                <option value=""></option>
-                                <option value="cups 1">cups 1</option>
-                                <option value="cups 2">cups 2</option>
-                                <option value="cups 3">cups 3</option>
-                            </select>
+                            <label for="codigo_cups">CUPS</label>
+                            <select class="@error('codigo_cups') is-invalid @enderror" id="codigo_cups" name="codigo_cups"></select>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-7 col-xl-5 d-flex justify-content-between align-self-end input__box">
-                            <label class="align-self-center" for="">Número de citas activas por paciente</label>
-                            <input type="number" id="" name="" value="{{ old('') }}"
-                                class="citas_activas @error('') is-invalid @enderror"/>
+                            <label class="align-self-center" for="citas_activas">Número de citas activas por paciente</label>
+                            <input type="number" id="citas_activas" name="citas_activas" value="{{ old('citas_activas') }}"
+                                class="citas_activas @error('citas_activas') is-invalid @enderror"/>
                         </div>
 
                         <div class="col-md-5 col-xl-7 input__box pl-md-0">
-                            <label for="metodo">Método</label>
-                            <select class="@error('metodo') is-invalid @enderror" id="metodo"
-                                    name="metodo" value="{{ old('metodo') }}">
-                                <option value=""></option>
-                                <option value="Presencial">Presencial</option>
-                                <option value="Virtual">Virtual</option>
+                            <label for="tipo_atencion">Método</label>
+                            <select class="@error('tipo_atencion') is-invalid @enderror" id="tipo_atencion" name="tipo_atencion">
+                                <option></option>
+                                <option value="presencial" {{old('tipo_atencion') == 'presencial' ? 'selected':''}}>Presencial</option>
+                                <option value="virtual" {{old('tipo_atencion') == 'virtual' ? 'selected':''}}>Virtual</option>
                             </select>
                         </div>
                     </div>

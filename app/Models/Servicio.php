@@ -20,6 +20,10 @@ class Servicio extends Model
         'especialidad_id',
         'institucion_id',
         'convenios',
+        'tipo_atencion',
+        'citas_activas',
+        'codigo_cups',
+        'tipo_servicio_id',
         'estado'
     ];
 

@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Convenios;
 use App\Models\especialidades;
 use App\Models\Servicio;
+use App\Models\TipoServicio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
 
 class ServiciosController extends Controller
 {
@@ -38,12 +40,14 @@ class ServiciosController extends Controller
     {
         Gate::authorize('accesos-institucion','editar-servicio');
         $especialidades = especialidades::all();
+        $tipo_servicios = TipoServicio::all();
         $convenios = Convenios::query()
             ->where('id_user', '=', Auth::user()->institucion->user->id)
             ->activado()
             ->get();
 
-        return view('instituciones.admin.configuracion.servicios.crear', compact('especialidades', 'convenios'));
+        return view('instituciones.admin.configuracion.servicios.crear', compact('especialidades',
+            'convenios', 'tipo_servicios'));
     }
 
     /**
@@ -145,6 +149,10 @@ class ServiciosController extends Controller
             'descripcion'       => ['required'],
             'especialidad_id'   => ['required'],
             'convenios'         => ['required', 'boolean'],
+            'tipo_atencion'     => ['required', Rule::in(['presencial', 'virtual'])],
+            'citas_activas'     => ['required', 'integer', 'min:1'],
+            'codigo_cups'       => ['required', 'exists:cups,code'],
+            'tipo_servicio_id'  => ['required', 'boolean'],
 
             'convenios-lista.*'                 => ['required_if:convenios,1'],
             'convenios-lista.*.convenio_id'     => ['required_if:convenios,1', 'exists:convenios,id'],
