@@ -33,6 +33,8 @@ class ProfesionalesController extends Controller
      */
     public function index()
     {
+        Gate::authorize('accesos-institucion','ver-profesionales');
+
         $user = Auth::user();
         $profesionales = profesionales_instituciones::query()
             ->where('id_institucion', '=', $user->institucion->id)
@@ -50,6 +52,8 @@ class ProfesionalesController extends Controller
      */
     public function create()
     {
+        Gate::authorize('accesos-institucion','agregar-profesional');
+
         $tipo_documentos = TipoDocumento::all();
         $paises = pais::all();
         $universidades = universidades::all();
@@ -72,6 +76,8 @@ class ProfesionalesController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('accesos-institucion','agregar-profesional');
+
         //Validar
         $this->validator($request);
 
@@ -104,6 +110,7 @@ class ProfesionalesController extends Controller
      */
     public function edit(profesionales_instituciones $profesional)
     {
+        Gate::authorize('accesos-institucion','editar-profesional');
         Gate::authorize('update-profesional-institucion', $profesional);
 
         $tipo_documentos = TipoDocumento::all();
@@ -130,6 +137,7 @@ class ProfesionalesController extends Controller
      */
     public function update(Request $request, profesionales_instituciones $profesional)
     {
+        Gate::authorize('accesos-institucion','editar-profesional');
         Gate::authorize('update-profesional-institucion', $profesional);
 
         //Validar
@@ -165,6 +173,7 @@ class ProfesionalesController extends Controller
      */
     public function configurar_calendario(profesionales_instituciones $profesional)
     {
+        Gate::authorize('accesos-institucion','configurar-calendario-profesional');
         Gate::authorize('update-profesional-institucion', $profesional);
 
         $sedes = sedesinstituciones::query()
@@ -196,6 +205,7 @@ class ProfesionalesController extends Controller
      */
     public function guardar_calendario(Request $request, profesionales_instituciones $profesional)
     {
+        Gate::authorize('accesos-institucion','configurar-calendario-profesional');
         Gate::authorize('update-profesional-institucion', $profesional);
 
         $validator = Validator::make( $request->all(), [
@@ -244,6 +254,7 @@ class ProfesionalesController extends Controller
      */
     public function guardar_horario(Request $request, profesionales_instituciones $profesional)
     {
+        Gate::authorize('accesos-institucion','configurar-calendario-profesional');
         Gate::authorize('update-profesional-institucion', $profesional);
 
         $validator = Validator::make( $request->all(), [
@@ -299,6 +310,7 @@ class ProfesionalesController extends Controller
      */
     public function eliminar_horario(Request $request, profesionales_instituciones $profesional)
     {
+        Gate::authorize('accesos-institucion','configurar-calendario-profesional');
         Gate::authorize('update-profesional-institucion', $profesional);
 
         $validator = Validator::make( $request->all(), [

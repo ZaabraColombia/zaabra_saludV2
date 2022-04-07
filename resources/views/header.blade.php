@@ -1,5 +1,5 @@
 @php
-$user = Auth::user();
+    $user = Auth::user();
 @endphp
 <nav class="navbar navbar_zaabrasalud">
     <div class="container-fluid contains_header">
@@ -24,8 +24,8 @@ $user = Auth::user();
         </div>
         <!--******************************     End sección BARRA DE BUSQUEDA version MOBILE      *********************************-->
 
-        @guest
-            <!-- Menú desplegable del LOGIN -->
+    @guest
+        <!-- Menú desplegable del LOGIN -->
             <div class="soy_paciente dropdown">
                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
 
@@ -57,7 +57,7 @@ $user = Auth::user();
             <div class="membresia_mobile">
                 <a class="membresia_icon_mobile" href="{{ route('profesional.membresiaProfesional') }}"></a>
             </div>
-            
+
             <!--******************************     End sección Botón Membresía version MOBILE      *********************************-->
 
             <!-- Sección Menú hamburguesa no logueado-->
@@ -87,8 +87,8 @@ $user = Auth::user();
                     </a>
                 </div>
             </div>
-        @else
-            <!-- Sección Botón membresía Desktop -->
+    @else
+        <!-- Sección Botón membresía Desktop -->
             <div class="button-membresia">
                 <a class="" href="{{ route('profesional.membresiaProfesional') }}">
                     <img class="img-button-membresia" src="{{ asset('/img/header/boton-membresia.png') }}">
@@ -108,8 +108,10 @@ $user = Auth::user();
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink" style="">
+
                     @if(!empty($objtipoUsuarioLogueado))
-                        @if($objtipoUsuarioLogueado->idrol==1) <!--Usuario Paciente -->
+                        @if($objtipoUsuarioLogueado->idrol == 1)
+                            {{--Usuario Paciente --}}
                             <div class="menu__item_head">
                                 <img src="{{ asset($user->paciente->foto ?? 'img/menu/avatar.png') }}" alt="user.png">
                                 <span>{{ $user->nombre_completo }}</span>
@@ -124,7 +126,8 @@ $user = Auth::user();
                             <a class="dropdown-item p-0" href="{{ route('paciente.panel') }}">
                                 <div class="menu__item icon__agenda">Agenda</div>
                             </a>
-                        @elseif($objtipoUsuarioLogueado->idrol==2) <!--Usuario Doctor -->
+                        @elseif($objtipoUsuarioLogueado->idrol==2)
+                            {{--Usuario Doctor --}}
                             <div class="menu__item_head">
                                 <img src="{{ asset($user->profesional->fotoperfil ?? 'img/menu/avatar.png') }}" alt="user.png">
                                 <span>Dr.(a) {{ $user->nombre_completo }}</span>
@@ -139,11 +142,13 @@ $user = Auth::user();
                             <a class="dropdown-item p-0" href="{{ route('profesional.panel') }}">
                                 <div class="menu__item icon__agenda">Agenda</div>
                             </a>
-                        @elseif($objtipoUsuarioLogueado->idrol==3) <!--Usuario Institución -->
+                        @elseif($objtipoUsuarioLogueado->idrol==3)
+                            {{--Usuario Institución --}}
                             <div class="menu__item_head">
                                 <img src="{{ asset($user->institucion->logo ?? 'img/menu/avatar.png') }}" alt="user.png">
                                 <span>{{ $user->nombreinstitucion }}</span>
                             </div>
+
                             <div class="dropdown-divider m-0"></div>
 
                             <a class="dropdown-item p-0" href="{{ url('/FormularioInstitucion') }}">
@@ -154,12 +159,20 @@ $user = Auth::user();
                             <a class="dropdown-item p-0" href="{{ route('institucion.panel') }}">
                                 <div class="menu__item icon__agenda">Agenda</div>
                             </a>
-                        @elseif($objtipoUsuarioLogueado->idrol==4)
-                            <a class="dropdown-item menu_item-paciente icon-agenda" href="{{ url('/panelPrincipal') }}">
-                                <span class="texto_item-menu-paciente">Admin</span>
+                        @elseif($objtipoUsuarioLogueado->idrol == 4)
+                            {{--Usuario Auxiliar --}}
+                            <div class="menu__item_head">
+                                <img src="{{ asset($user->institucion->user->institucion->logo ?? 'img/menu/avatar.png') }}" alt="user.png">
+                                <span>{{ $user->institucion->user->nombreinstitucion }}</span>
+                            </div>
+                            <div class="dropdown-divider m-0"></div>
+
+                            <a class="dropdown-item p-0" href="{{ route('institucion.panel') }}">
+                                <div class="menu__item icon__agenda">Agenda </div>
                             </a>
                         @endif
                     @endif
+
                     <div class="dropdown-divider m-0"></div>
 
                     <a class="dropdown-item p-0" href="{{route('ramas-de-la-salud')}}">
@@ -193,7 +206,7 @@ $user = Auth::user();
             </div>
         @endguest
     </div>
-        
+
     <!--******************************     Sección BARRA DE BUSQUEDA OCULTA version MOBILE      *************************************-->
     <!-- Clase "contain_buscador_mobile"utilizada para mostrar y ocultar la barra de busqueda en el HEADER tamaño Mobile, función ubicada en el archivo header.js -->
     <div class="contain_buscador_mobile">

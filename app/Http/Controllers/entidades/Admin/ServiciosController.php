@@ -20,6 +20,8 @@ class ServiciosController extends Controller
      */
     public function index()
     {
+        Gate::authorize('accesos-institucion','ver-servicios');
+
         $servicios = Servicio::query()
             ->where('institucion_id', '=', Auth::user()->institucion->id )
             ->get();
@@ -34,6 +36,7 @@ class ServiciosController extends Controller
      */
     public function create()
     {
+        Gate::authorize('accesos-institucion','editar-servicio');
         $especialidades = especialidades::all();
         $convenios = Convenios::query()
             ->where('id_user', '=', Auth::user()->institucion->user->id)
@@ -51,6 +54,7 @@ class ServiciosController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('accesos-institucion','editar-servicio');
 
         $this->validator($request);
 
@@ -80,6 +84,7 @@ class ServiciosController extends Controller
      */
     public function edit(Servicio $servicio)
     {
+        Gate::authorize('accesos-institucion','editar-servicio');
         Gate::authorize('update-servicio-institucion', $servicio);
 
         $especialidades = especialidades::all();
@@ -107,7 +112,7 @@ class ServiciosController extends Controller
 
     public function update(Request $request, Servicio $servicio)
     {
-
+        Gate::authorize('accesos-institucion','editar-servicio');
         Gate::authorize('update-servicio-institucion', $servicio);
 
         $this->validator($request);

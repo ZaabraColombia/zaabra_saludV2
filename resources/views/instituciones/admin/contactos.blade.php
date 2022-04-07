@@ -8,7 +8,7 @@
 @endsection
 
 @section('contenido')
-<div class="container-fluid p-0 pr-lg-4">
+    <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
                 <h1 class="title__xl green_bold">Contactos</h1>
@@ -34,52 +34,57 @@
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-contactos">
                         <thead class="thead_green">
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Dirección</th>
-                                <th>Teléfono</th>
-                                <th>Correo</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Dirección</th>
+                            <th>Teléfono</th>
+                            <th>Correo</th>
+                            <th></th>
+
+                        </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td class="pr-0">
-                                    <div class="user__xl">
-                                        <div class="pr-2">
-                                            <img class="img__contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
-                                        </div>
+                        @if($contactos->isNotEmpty())
+                            @foreach($contactos as $contacto)
+                                <tr>
+                                    <td class="pr-0">
+                                        <div class="user__xl">
+                                            <div class="pr-2">
+                                                <img class="img__contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                                            </div>
 
-                                        <div>
-                                            <span>Edgar Orlando Echavarria Lopez</span>
+                                            <div>
+                                                <span>{{ $contacto->nombre_completo }}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>Cra 45 # 56 - 23 sur</td>
-                                <td>301 2354 236 - 264 2567</td>
-                                <td>edgaro@gmail.com</td>
-                                <td>
-                                    <button class="btn_action_green btn-ver-contacto tool top" type="button" data-id="">
-                                        <i class="fas fa-eye"></i>
-                                        <span class="tiptext">Ver contacto</span>
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn_action_green btn-editar-contacto tool top" type="button" data-id="">
-                                        <i class="fas fa-edit"></i>
-                                        <span class="tiptext">Editar contacto</span>
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn_action_green btn-eliminar-contacto tool top" type="button" data-id="">
-                                        <i class="fas fa-trash"></i>
-                                        <span class="tiptext">Eliminar contacto</span>
-                                    </button>
-                                </td>
-                            </tr>
+                                    </td>
+                                    <td>{{ $contacto->direccion }}</td>
+                                    <td>{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</td>
+                                    <td>{{ $contacto->correo }}</td>
+                                    <td>
+                                        @can('accesos-institucion','ver-contactos')
+                                            <button class="btn_action_green btn-ver-contacto tool top" type="button" data-id="{{ $contacto->id }}">
+                                                <i class="fas fa-eye"></i>
+                                                <span class="tiptext">Ver contacto</span>
+                                            </button>
+                                        @endcan
+                                        @can('accesos-institucion','editar-contacto')
+                                            <button class="btn_action_green btn-editar-contacto tool top" type="button" data-id="{{ $contacto->id }}">
+                                                <i class="fas fa-edit"></i>
+                                                <span class="tiptext">Editar contacto</span>
+                                            </button>
+                                        @endcan
+                                        @can('accesos-institucion','eliminar-contacto')
+                                            <button class="btn_action_green btn-eliminar-contacto tool top" type="button" data-id="{{ $contacto->id }}">
+                                                <i class="fas fa-trash"></i>
+                                                <span class="tiptext">Eliminar contacto</span>
+                                            </button>
+                                        @endcan
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                         </tbody>
                     </table>
                 </div>
@@ -97,10 +102,11 @@
                     </button>
                 </div>
 
-                <form method="post" id="form-contacto" class="forms">
+                <form method="post" id="form-contacto" class="forms" enctype="multipart/form-data">
                     <div class="modal-body">
                         <h1 style="color: #019F86"><span id="titulo" style="color: #019F86">Nuevo</span> Contacto</h1>
                         @csrf
+                        @method('put')
                         <div class="form_modal">
                             <div class="row m-0">
                                 <div class="col-12" id="alertas-modal"></div>
@@ -208,7 +214,7 @@
                     <h1 style="color: #019F86">Eliminar Contacto</h1>
 
                     <div class="content__see_contacs" style="background-color: #6eb1a6">
-                        <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                        <img id="ver-foto-eliminar" class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
                     </div>
 
                     <div class="content__border_see_contacs" style="background-color: #6eb1a6"></div>
@@ -269,6 +275,7 @@
                 <div class="modal-footer content_btn_center">
                     <form method="post" id="form-contacto-eliminar" class="forms">
                         @csrf
+                        @method('delete')
                         <button type="button" class="button_transparent ml-2" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="button_green ml-2">Eliminar</button>
                     </form>
@@ -289,13 +296,13 @@
                 <!-- Mantener las cases "label-*" -->
                 <div class="modal-body">
                     <h1 style="color: #019F86">Ver Contacto</h1>
-                        
+
                     <div class="content__see_contacs" style="background-color: #6eb1a6">
-                        <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                        <img id="ver-foto" class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
                     </div>
 
                     <div class="content__border_see_contacs" style="background-color: #6eb1a6"></div>
-                       
+
                     <div class="modal_info_cita pt-5">
                         <div class="info_contac">
                             <span>Nombre:</span>
@@ -359,6 +366,30 @@
 @section('scripts')
     <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
     <script src="{{ asset('js/alertas.js') }}"></script>
+
+    <!-- Script para cargar, subir y visualizar la imagen principal -->
+    <script>
+        // Obtener referencia al input y a la imagen
+        const $seleccionArchivos = document.querySelector("#foto"),
+            $imagenPrevisualizacion = document.querySelector("#imagen-foto");
+
+        // Escuchar cuando cambie
+        $seleccionArchivos.addEventListener("change", () => {
+            // Los archivos seleccionados, pueden ser muchos o uno
+            const archivos = $seleccionArchivos.files;
+            // Si no hay archivos salimos de la función y quitamos la imagen
+            if (!archivos || !archivos.length) {
+                $imagenPrevisualizacion.src = "";
+                return;
+            }
+            // Ahora tomamos el primer archivo, el cual vamos a previsualizar
+            const primerArchivo = archivos[0];
+            // Lo convertimos a un objeto de tipo objectURL
+            const objectURL = URL.createObjectURL(primerArchivo);
+            // Y a la fuente de la imagen le ponemos el objectURL
+            $imagenPrevisualizacion.src = objectURL;
+        });
+    </script>
 
     <script>
         //Inicializar tabla
@@ -461,6 +492,8 @@
                             console.log(key);
                         });
 
+                        $('#ver-foto-eliminar').attr('src', item.foto);
+
                         modal.modal();
                     },
                     error: function (error) {
@@ -497,6 +530,8 @@
                             modal.find('.label-' + key).html(item);
                         });
 
+                        $('#ver-foto').attr('src', item.foto);
+
                         modal.modal();
                     },
                     error: function (error) {
@@ -513,11 +548,22 @@
             var form = $(this);
             var modal = $('.modal_contactos');
 
+            var data = new FormData(form[0]);
+
             $.ajax({
                 url: form.attr('action'),
-                data: form.serialize(),
-                type: form.attr('method'),
+                //data: form.serialize(),
+                enctype: 'multipart/form-data',
+                contentType: false,
+                processData: false,
+                cache: false,
+                //type: method,
+                type: 'post',
                 dataType: 'json',
+                data: data,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 success: function (response) {
                     //mensaje
                     $('#alertas').html(alert(response.message, 'success'));
@@ -526,25 +572,25 @@
                     switch (response.type) {
                         case 'created':
                             table.row.add([
-                                response.item.nombre,
+                                img(response.item.foto, response.item.nombre),
                                 response.item.direccion,
                                 response.item.telefono,
                                 response.item.correo,
-                                '<button class="btn_action btn-ver-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-eye"></i> </button>',
-                                '<button class="btn_action btn-editar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-edit"></i> </button>',
-                                '<button class="btn_action btn-eliminar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> </button>',
+                                 '<button class="btn_action_green btn-ver-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-eye"></i> </button>' +
+                                @can('accesos-institucion','editar-contacto') '<button class="btn_action_green btn-editar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-edit"></i> </button>' + @endcan
+                                @can('accesos-institucion','eliminar-contacto')'<button class="btn_action_green btn-eliminar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> </button>',@endcan
                             ]).draw().node();
                             modal.modal('hide');
                             break;
                         case 'updated':
                             row.data([
-                                response.item.nombre,
+                                img(response.item.foto, response.item.nombre),
                                 response.item.direccion,
                                 response.item.telefono,
                                 response.item.correo,
-                                '<button class="btn_action btn-ver-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-eye"></i> </button>',
-                                '<button class="btn_action btn-editar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-edit"></i> </button>',
-                                '<button class="btn_action btn-eliminar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> </button>',
+                                '<button class="btn_action_green btn-ver-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-eye"></i> </button>' +
+                                @can('accesos-institucion','editar-contacto')'<button class="btn_action_green btn-editar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-edit"></i> </button>' +@endcan
+                                @can('accesos-institucion','eliminar-contacto')'<button class="btn_action_green btn-eliminar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> </button>',@endcan
                             ]).draw();
                             modal.modal('hide');
                             break;
@@ -561,7 +607,16 @@
                 }
             });
         });
-
-
+        function img(img, nombre) {
+            return '<div class="user__xl">'
+                + '<div class="pr-2">'
+                + '<img class="img__contacs" src="' + img + '">'
+                + '</div>'
+                + '<div>'
+                + '<span>' + nombre + '</span>'
+                + '</div>'
+                +'</div>';
+        }
     </script>
+
 @endsection

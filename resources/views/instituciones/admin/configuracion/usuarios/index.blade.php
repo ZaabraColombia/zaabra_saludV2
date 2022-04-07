@@ -63,15 +63,21 @@
                                     <td>{{ ($usuario->estado) ? 'Activado':'Desactivado' }}</td>
                                     <td>
                                         <div class="d-flex justify-content-around px-3">
-                                            <button class="btn_action_green tool top modal-usuario" style="width: 33px"
-                                                    data-url="{{ route('institucion.configuracion.usuarios.show', ['usuario' => $usuario->id]) }}">
-                                                <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
-                                            </button>
 
-                                            <a class="btn_action_green tool top" style="width: 33px"
-                                               href="{{ route('institucion.configuracion.usuarios.edit', ['usuario' => $usuario->id]) }}">
-                                                <i data-feather="edit"></i> <span class="tiptext">Editar usuario</span>
-                                            </a>
+                                            @can('accesos-institucion','editar-usuario')
+                                                <button class="btn_action_green tool top modal-usuario" style="width: 33px"
+                                                        data-url="{{ route('institucion.configuracion.usuarios.show', ['usuario' => $usuario->id]) }}">
+                                                    <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
+                                                </button>
+                                            @endcan
+
+
+                                            @can('accesos-institucion','editar-usuario')
+                                                <a class="btn_action_green tool top" style="width: 33px"
+                                                   href="{{ route('institucion.configuracion.usuarios.edit', ['usuario' => $usuario->id]) }}">
+                                                    <i data-feather="edit"></i> <span class="tiptext">Editar usuario</span>
+                                                </a>
+                                            @endcan
                                         </div>
                                     </td>
                                 </tr>
@@ -160,11 +166,8 @@
                         </div>
 
                         <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Accesos del usuario</h4>
-                        <div class="row m-0 mb-2">
-                            <div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">
-                                <i data-feather="check-circle" style="color: #0083D6;" width="17"></i>
-                                <span class="pl-2">Acceso 1</span>
-                            </div>
+                        <div class="row m-0 mb-2" id="accesos-lista">
+
                         </div>
                     </div>
                 </div>
@@ -221,7 +224,15 @@
                 $.each(response.item, function (key, item) {
                     if (key !== 'accesos') $('#' + key).html(item);
                 });
+                $('#accesos-lista').html('');
+                $.each(response.item.accesos, function (key, item) {
+                    $('#accesos-lista').append('<div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">'
+                        + '<i data-feather="check-circle" style="color: #0083D6;" width="17"></i>'
+                        + '<span class="pl-2">' + item.nombre + '</span>'
+                        + '</div>');
+                });
 
+                feather.replace();
                 $('#modal_ver_usuario').modal();
             }, "json").fail(function (error) {
                 console.log(error);
