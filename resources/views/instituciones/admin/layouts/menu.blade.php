@@ -13,51 +13,42 @@
             </div>
 
             <ul class="menu">
-                {{-- menú --}}
+                <!-- menú -->
                 <li class="sidebar-item has-sub items_green">
                     <a id="" href="{{ route('institucion.panel') }}">
                         <button class="{{ request()->routeIs('institucion.panel') ? 'btn_active_inst' : '' }}">Menu</button>
                     </a>
                 </li>
 
-                {{-- profesionales --}}
-                @can('accesos-institucion','ver-profesionales')
+                <!-- pagos -->
                 <li class="sidebar-item  has-sub items_green">
                     <a id="" class="" href='{{ route('institucion.profesionales.index') }}'>
                         <button class="{{ request()->routeIs('institucion.profesionales.*') ? 'btn_active_inst' : '' }}">Mis profesionales</button>
                     </a>
                 </li>
-                @endcan
 
-                {{-- pagos --}}
-                @can('accesos-institucion','ver-pagos')
+                <!-- pagos -->
                 <li class="sidebar-item  has-sub items_green">
                     <a id="" class="" href='{{ route('institucion.pagos') }}'>
                         <button class="{{ request()->routeIs('institucion.pagos') ? 'btn_active_inst' : '' }}">Mis pagos</button>
                     </a>
                 </li>
-                @endcan
 
-                {{-- mis pacientes --}}
-                @can('accesos-institucion','ver-pacientes')
+                <!-- mis pacientes -->
                 <li class="sidebar-item  has-sub items_green">
                     <a id="" class="" href='{{ route('institucion.pacientes') }}'>
                         <button class="{{ request()->routeIs('institucion.pacientes') ? 'btn_active_inst' : '' }}">Mis pacientes</button>
                     </a>
                 </li>
-                @endcan
 
-                {{-- mis contactos --}}
-                @can('accesos-institucion','ver-contactos')
+                <!-- mis contactos -->
                 <li class="sidebar-item  has-sub items_green">
                     <a id="" class="" href='{{ route('institucion.contactos.index') }}'>
                         <button class="{{ request()->routeIs('institucion.contactos.index') ? 'btn_active_inst' : '' }}">Mis contactos</button>
                     </a>
                 </li>
-                @endcan
 
-                {{-- Catálogos --}}
-                @can('accesos-institucion','ver-catalogos')
+                <!-- Catálogos -->
                 <li class="sidebar-item has-sub items_green accordion" id="accordionExample">
                     <button id="headingOne" class="{{ request()->routeIs('institucion.catalogos.*') ? 'btn_active_inst' : '' }}" type="button" data-toggle="collapse"
                             data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -86,19 +77,15 @@
                         </li>
                     </ul>
                 </li>
-                @endcan
 
-                {{-- Favoritos --}}
-                @can('accesos-institucion','favoritos')
+                <!-- Favoritos -->
                 <li class="sidebar-item  has-sub items_green">
                     <a class="" href='{{ route('institucion.favoritos') }}'>
                         <button class="{{ request()->routeIs('institucion.favoritos') ? 'btn_active_inst' : '' }}">Mis favoritos</button>
                     </a>
                 </li>
-                @endcan
 
-                {{-- Configuraciones --}}
-                @can('accesos-institucion','configuraciones')
+                <!-- Catálogos -->
                 <li class="sidebar-item has-sub items_green accordion" id="accordionConfiguracion">
                     <button id="headingConfiguracion" class="{{ request()->routeIs('institucion.configuracion.*') ? 'btn_active_inst' : '' }}" type="button" data-toggle="collapse"
                             data-target="#collapseConfiguracion" aria-expanded="false" aria-controls="collapseConfiguracion">
@@ -107,36 +94,22 @@
 
                     <ul id="collapseConfiguracion" class="collapse sub_menu_green {{ request()->routeIs('institucion.configuracion.*') ? 'show' : '' }}"
                         aria-labelledby="headingConfiguracion" data-parent="#accordionConfiguracion">
-                        @can('accesos-institucion','ver-convenios')
                         <li class="submenu-item ">
                             <a id="cie10" class="{{ request()->routeIs('institucion.configuracion.convenios.*') ? 'txt_active_green' : '' }}"
                                href='{{ route('institucion.configuracion.convenios.index') }}'>
                                 Convenios
                             </a>
                         </li>
-                        @endcan
-                        @can('accesos-institucion','ver-servicios')
                         <li class="submenu-item ">
                             <a id="cups" class="{{ request()->routeIs('institucion.configuracion.servicios.*') ? 'txt_active_green' : '' }}"
                                href='{{ route('institucion.configuracion.servicios.index') }}'>
                                 Servicios
                             </a>
                         </li>
-                        @endcan
-
-                        @can('accesos-institucion','ver-usuarios')
-                        <li class="submenu-item ">
-                            <a id="cups" class="{{ request()->routeIs('institucion.configuracion.usuarios.*') ? 'txt_active_green' : '' }}"
-                               href='{{ route('institucion.configuracion.usuarios.index') }}'>
-                                Usuarios
-                            </a>
-                        </li>
-                        @endcan
                     </ul>
                 </li>
-                @endcan
 
-                {{-- Logo PLM --}}
+                <!-- Logo PLM -->
                 <li class="sidebar-item  has-sub items_logos_green" style="width: 180px">
                     <a id="fav" class="" target="_blank" href="https://www.prescripciontotal.com.co/consultorio-generico/login">
                         <button class="d-flex justify-content-start pl-3">
@@ -145,7 +118,7 @@
                     </a>
                 </li>
 
-                {{-- Logo Mipress --}}
+                <!-- Logo Mipress -->
                 <li class="sidebar-item  has-sub items_logos_green" style="width: 180px">
                     <a id="fav" class="" target="_blank" href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS">
                         <button class="d-flex justify-content-start pl-3">

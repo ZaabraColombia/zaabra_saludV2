@@ -31,28 +31,29 @@
     .sidebar__header {
         display: flex;
         align-items: center;
-        padding: 35px 20px 0 20px;
+        padding: 25px 10px 10px 10px;
         img {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             object-fit: cover;
             object-position: top;
             border-radius: 50px;
         }
         .user_data {
             display: block;
-            padding-left: 15px;
+            padding-left: 10px;
             h2 {
-                font-size: 20px;
+                font-size: 16px;
                 font-family: 'Quicksand';
                 color: $blue_official;
                 margin: 0;
             }
             h3 {
-                font-size: 18px;
+                font-size: 12px;
                 font-family: 'Quicksand';
                 color: $black_third;
                 margin: 0;
+                white-space: nowrap;
             }
         }
     }
@@ -233,28 +234,22 @@
         height: 25px;
     }
 }
-@media (min-width: 768px){
 
-}
-@media (min-width: 1024px){
-    .sidebar-menu .sidebar__header .user_data {
-        padding-left: 10px;
-    }
-    .sidebar-menu .sidebar__header .user_data h2 {
-        font-size: 16px;
-    }
-    .sidebar-menu .sidebar__header .user_data h3 {
-        font-size: 13px;
-    }
-}
-@media (min-width: 1200px){
-    .sidebar-menu .sidebar__header .user_data {
-        padding-left: 15px;
-    }
-    .sidebar-menu .sidebar__header .user_data h2 {
-        font-size: 20px;
-    }
-    .sidebar-menu .sidebar__header .user_data h3 {
-        font-size: 18px;
+@media (min-width: 1920px){
+    .sidebar-menu {
+        .sidebar__header {
+            img {
+                width: 60px;
+                height: 60px;
+            }
+            .user_data {
+                h2 {
+                    font-size: 20px;
+                }
+                h3 {
+                    font-size: 14px;
+                }
+            }
+        }
     }
 }
