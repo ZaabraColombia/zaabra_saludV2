@@ -90,6 +90,14 @@
                             </div>
                         </a>
                     </div>
+                    <!-- Medhistoria
+                    <div class="col-6 col-lg-12 py-3 px-2 py-lg-2">
+                        <a  href="" target="_blank">
+                            <div class="content__logos ">
+                                <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/logo_medhistoria.png') }}" alt="">
+                            </div>
+                        </a>
+                    </div> -->
                 </div>
             </div>
         </div>
