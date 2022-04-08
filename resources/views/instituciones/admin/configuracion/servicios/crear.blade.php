@@ -129,8 +129,8 @@
                             <div class="checkbox">
                                 <input type="checkbox" name="agendamiento_virtual" id="agendamiento_virtual" value="1">
                                 <label class="label_check" for="agendamiento_virtual">
-                                    <b class="txt1">Agendamiento activado</b>
-                                    <b class="txt2">Agendamiento desactivado</b>
+                                    <b class="txt1">Desactivado</b>
+                                    <b class="txt2">Activado</b>
                                 </label>
                             </div>
                         </div>

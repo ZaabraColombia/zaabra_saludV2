@@ -136,8 +136,8 @@
                                 <input type="checkbox" name="agendamiento_virtual" id="agendamiento_virtual"
                                        value="1" {{ old('agendamiento_virtual', $servicio->agendamiento_virtual) == 1 ? 'checked':'' }}>
                                 <label class="label_check" for="agendamiento_virtual">
-                                    <b class="txt1">Agendamiento activado</b>
-                                    <b class="txt2">Agendamiento desactivado</b>
+                                    <b class="txt1">Desactivado</b>
+                                    <b class="txt2">Activado</b>
                                 </label>
                             </div>
                         </div>
@@ -170,7 +170,6 @@
                             <table class="table table_agenda" id="">
                                 <thead class="thead_green">
                                 <tr>
-                                    <th></th>
                                     <th>Nombre</th>
                                     <th>Valor a pagar convenio</th>
                                     <th>Valor a pagar paciente</th>
@@ -181,21 +180,19 @@
                                 @if($convenios->isNotEmpty())
                                     @foreach($convenios as $convenio)
                                         <tr>
-                                            <td>
+                                            <td class="check__box_green">
                                                 <input type="checkbox" class="validar-convenio" {{ isset($old[$convenio->id]) ? 'checked':'' }} id="convenio-{{ $convenio->id }}">
-                                            </td>
-                                            <td>
-                                                {{ $convenio->nombre_completo }}
+                                                <label class="label_check_green" for="convenio-{{ $convenio->id }}">{{ $convenio->nombre_completo }}</label>
                                                 <input type="hidden" name="convenios-lista[{{ $convenio->id }}][convenio_id]" value="{{ $convenio->id }}">
                                             </td>
-                                            <td>
+                                            <td >
                                                 <div class="input__box">
                                                     <div class="signo_peso"><span>$</span></div>
                                                     <input type="number" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_convenio]"
                                                            value="{{ $old[$convenio->id]['valor_convenio'] ?? '' }}" class="@error("convenios-lista.{$convenio->id}.valor_convenio") is-invalid @enderror"/>
                                                 </div>
                                             </td>
-                                            <td>
+                                            <td >
                                                 <div class="input__box">
                                                     <div class="signo_peso"><span>$</span></div>
                                                     <input type="number" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_paciente]"
