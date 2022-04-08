@@ -45,13 +45,13 @@
                         <div class="col-md-6 input__box">
                             <label for="nombre">Nombre</label>
                             <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}"
-                                   class="@error('nombre') is-invalid @enderror"/>
+                                   class="@error('nombre') is-invalid @enderror" required/>
                         </div>
 
                         <div class="col-md-6 input__box">
                             <label for="especialidad_id">Especialidad</label>
                             <select class="@error('especialidad_id') is-invalid @enderror" id="especialidad_id"
-                                    name="especialidad_id">
+                                    name="especialidad_id" required>
                                 @if($especialidades->isNotEmpty())
                                     @foreach($especialidades as $especialidad)
                                         <option value="{{ $especialidad->idEspecialidad }}" {{ old('especialidad_id') == $especialidad->idEspecialidad ? 'checked':null }}>{{ $especialidad->nombreEspecialidad }}</option>
@@ -65,26 +65,26 @@
                         <div class="col-md-4 input__box">
                             <label for="duracion">Duración (minuto)</label>
                             <input type="number" id="duracion" name="duracion" value="{{ old('duracion') }}"
-                                   class="@error('duracion') is-invalid @enderror"/>
+                                   class="@error('duracion') is-invalid @enderror" required/>
                         </div>
 
                         <div class="col-md-4 input__box">
                             <label for="descanso">Descanso (minuto)</label>
                             <input type="number" id="descanso" name="descanso" value="{{ old('descanso') }}"
-                                   class="@error('descanso') is-invalid @enderror"/>
+                                   class="@error('descanso') is-invalid @enderror" required/>
                         </div>
 
                         <div class="col-md-4 input__box">
                             <label for="valor">Valor</label>
                             <input type="number" id="valor" name="valor" value="{{ old('valor') }}"
-                                   class="@error('valor') is-invalid @enderror"/>
+                                   class="@error('valor') is-invalid @enderror" required/>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-4 input__box">
                             <label for="tipo_servicio_id">Tipo de servicio</label>
-                            <select class="@error('tipo_servicio_id') is-invalid @enderror" id="tipo_servicio_id" name="tipo_servicio_id">
+                            <select class="@error('tipo_servicio_id') is-invalid @enderror" id="tipo_servicio_id" name="tipo_servicio_id" required>
                                 <option></option>
                                 @if($tipo_servicios->isNotEmpty())
                                     @foreach($tipo_servicios as $tipo_servicio)
@@ -97,7 +97,7 @@
                         <div class="col-md-8 input__box">
                             @php $codigo_cups = old('codigo_cups'); $cup = !empty($codigo_cups) ? \App\Models\Cups::query()->where('code', 'like', "%$codigo_cups")->first():null @endphp
                             <label for="codigo_cups">CUPS</label>
-                            <select class="@error('codigo_cups') is-invalid @enderror" id="codigo_cups" name="codigo_cups">
+                            <select class="@error('codigo_cups') is-invalid @enderror" id="codigo_cups" name="codigo_cups" required>
                                 @if(!empty($cup))
                                     <option value="{{ $cup->code }}" selected>{{ $cup->nombre }}</option>
                                 @endif
@@ -109,12 +109,12 @@
                         <div class="col-md-7 col-xl-5 d-flex justify-content-between align-self-end input__box">
                             <label class="align-self-center" for="citas_activas">Número de citas activas por paciente</label>
                             <input type="number" id="citas_activas" name="citas_activas" value="{{ old('citas_activas') }}"
-                                class="citas_activas @error('citas_activas') is-invalid @enderror"/>
+                                class="citas_activas @error('citas_activas') is-invalid @enderror" required/>
                         </div>
 
                         <div class="col-md-5 col-xl-7 input__box pl-md-0">
                             <label for="tipo_atencion">Tipo de atención</label>
-                            <select class="@error('tipo_atencion') is-invalid @enderror" id="tipo_atencion" name="tipo_atencion">
+                            <select class="@error('tipo_atencion') is-invalid @enderror" id="tipo_atencion" name="tipo_atencion" required>
                                 <option></option>
                                 <option value="presencial" {{old('tipo_atencion') == 'presencial' ? 'selected':''}}>Presencial</option>
                                 <option value="virtual" {{old('tipo_atencion') == 'virtual' ? 'selected':''}}>Virtual</option>
@@ -161,8 +161,8 @@
                                 <thead class="thead_green">
                                     <tr>
                                         <th>Nombre</th>
-                                        <th>Valor a pagar convenio</th>
                                         <th>Valor a pagar paciente</th>
+                                        <th>Valor restante a pagar convenio</th>
                                     </tr>
                                 </thead>
 
@@ -171,22 +171,22 @@
                                     @foreach($convenios as $convenio)
                                         <tr>
                                             <td class="check__box_green">
-                                                <input id="name_convenio" type="checkbox" class="validar-convenio" {{ isset($old[$convenio->id]) ? 'checked':'' }} id="convenio-{{ $convenio->id }}">
-                                                <label class="label_check_green" for="name_convenio">{{ $convenio->nombre_completo }}</label>
+                                                <input type="checkbox" class="validar-convenio" {{ isset($old[$convenio->id]) ? 'checked':'' }} id="convenio-{{ $convenio->id }}">
+                                                <label class="label_check_green" for="convenio-{{ $convenio->id }}">{{ $convenio->nombre_completo }}</label>
                                                 <input type="hidden" name="convenios-lista[{{ $convenio->id }}][convenio_id]" value="{{ $convenio->id }}">
                                             </td>
                                             <td>
                                                 <div class="input__box">
                                                     <div class="signo_peso"><span>$</span></div>
-                                                    <input type="number" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_convenio]"
-                                                           value="{{ $old[$convenio->id]['valor_convenio'] ?? '' }}" class="@error("convenios-lista.{$convenio->id}.valor_convenio") is-invalid @enderror"/>
+                                                    <input type="number" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_paciente]"
+                                                           value="{{ $old[$convenio->id]['valor_paciente'] ?? '' }}" class="valor-paciente @error("convenios-lista.{$convenio->id}.valor_paciente") is-invalid @enderror"/>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="input__box">
                                                     <div class="signo_peso"><span>$</span></div>
-                                                    <input type="number" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_paciente]"
-                                                           value="{{ $old[$convenio->id]['valor_paciente'] ?? '' }}" class="@error("convenios-lista.{$convenio->id}.valor_paciente") is-invalid @enderror"/>
+                                                    <input type="number" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_convenio]"
+                                                           value="{{ $old[$convenio->id]['valor_convenio'] ?? '' }}" class="valor-convenio @error("convenios-lista.{$convenio->id}.valor_convenio") is-invalid @enderror"/>
                                                 </div>
                                             </td>
                                         </tr>
@@ -247,6 +247,14 @@
                         };
                     }
                 }
+            });
+
+            $('.valor-paciente').change(function () {
+                var input = $(this);
+                var valor = $('#valor');
+
+                if (!input.prop('disabled') && input.val() !== '' && valor.val() !== '')
+                    input.parents('tr').find('.valor-convenio').val(valor.val() - input.val());
             });
         });
     </script>

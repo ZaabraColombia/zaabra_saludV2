@@ -171,8 +171,8 @@
                                 <thead class="thead_green">
                                 <tr>
                                     <th>Nombre</th>
-                                    <th>Valor a pagar convenio</th>
                                     <th>Valor a pagar paciente</th>
+                                    <th>Valor restante a pagar convenio</th>
                                 </tr>
                                 </thead>
 
@@ -185,18 +185,18 @@
                                                 <label class="label_check_green" for="convenio-{{ $convenio->id }}">{{ $convenio->nombre_completo }}</label>
                                                 <input type="hidden" name="convenios-lista[{{ $convenio->id }}][convenio_id]" value="{{ $convenio->id }}">
                                             </td>
-                                            <td >
-                                                <div class="input__box">
-                                                    <div class="signo_peso"><span>$</span></div>
-                                                    <input type="number" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_convenio]"
-                                                           value="{{ $old[$convenio->id]['valor_convenio'] ?? '' }}" class="@error("convenios-lista.{$convenio->id}.valor_convenio") is-invalid @enderror"/>
-                                                </div>
-                                            </td>
-                                            <td >
+                                            <td>
                                                 <div class="input__box">
                                                     <div class="signo_peso"><span>$</span></div>
                                                     <input type="number" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_paciente]"
-                                                           value="{{ $old[$convenio->id]['valor_paciente'] ?? '' }}" class="@error("convenios-lista.{$convenio->id}.valor_paciente") is-invalid @enderror"/>
+                                                           value="{{ $old[$convenio->id]['valor_paciente'] ?? '' }}" class="valor-paciente @error("convenios-lista.{$convenio->id}.valor_paciente") is-invalid @enderror"/>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input__box">
+                                                    <div class="signo_peso"><span>$</span></div>
+                                                    <input type="number" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_convenio]"
+                                                           value="{{ $old[$convenio->id]['valor_convenio'] ?? '' }}" class="valor-convenio @error("convenios-lista.{$convenio->id}.valor_convenio") is-invalid @enderror"/>
                                                 </div>
                                             </td>
                                         </tr>
@@ -258,6 +258,27 @@
                         };
                     }
                 }
+            });
+
+            // $('#valor').change(function (e) {
+            //     var valor = $(this);
+            //     if (valor.val() !== '')
+            //     {
+            //         var pacientes = $('.valor-paciente');
+            //         $.each(pacientes, function (key, item) {
+            //             var input = $(item);
+            //             if (!input.prop('disabled') && input.val() !== '' )
+            //                 input.parents('tr').find('.valor-convenio').val(valor.val() - input.val());
+            //         });
+            //     }
+            // });
+
+            $('.valor-paciente').change(function () {
+                var input = $(this);
+                var valor = $('#valor');
+
+                if (!input.prop('disabled') && input.val() !== '' && valor.val() !== '')
+                    input.parents('tr').find('.valor-convenio').val(valor.val() - input.val());
             });
         });
     </script>
