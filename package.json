@@ -22,6 +22,7 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
+        "format-currency-input": "^0.3.0",
         "fullcalendar": "^5.9.0",
         "jquery-validation": "^1.19.3",
         "jquery-zoom": "^1.7.21",
