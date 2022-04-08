@@ -13,35 +13,60 @@
             </div>
 
             <ul class="menu">
-                <!-- menú -->
+                <!-- Menú -->
                 <li class="sidebar-item has-sub items_green">
                     <a id="" href="{{ route('institucion.panel') }}">
                         <button class="{{ request()->routeIs('institucion.panel') ? 'btn_active_inst' : '' }}">Menu</button>
                     </a>
                 </li>
 
-                <!-- pagos -->
+                <!-- Profesionales -->
                 <li class="sidebar-item  has-sub items_green">
                     <a id="" class="" href='{{ route('institucion.profesionales.index') }}'>
                         <button class="{{ request()->routeIs('institucion.profesionales.*') ? 'btn_active_inst' : '' }}">Mis profesionales</button>
                     </a>
                 </li>
 
-                <!-- pagos -->
+                
+                <!-- Configuración -->
+                <li class="sidebar-item has-sub items_green accordion" id="accordionConfiguracion">
+                    <button id="headingConfiguracion" class="{{ request()->routeIs('institucion.configuracion.*') ? 'btn_active_inst' : '' }}" type="button" data-toggle="collapse"
+                            data-target="#collapseConfiguracion" aria-expanded="false" aria-controls="collapseConfiguracion">
+                        Configuración<i class="icon_angle fas fa-angle-down pl-2"></i>
+                    </button>
+
+                    <ul id="collapseConfiguracion" class="collapse sub_menu_green {{ request()->routeIs('institucion.configuracion.*') ? 'show' : '' }}"
+                        aria-labelledby="headingConfiguracion" data-parent="#accordionConfiguracion">
+                        <li class="submenu-item ">
+                            <a id="cie10" class="{{ request()->routeIs('institucion.configuracion.convenios.*') ? 'txt_active_green' : '' }}"
+                               href='{{ route('institucion.configuracion.convenios.index') }}'>
+                                Convenios
+                            </a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a id="cups" class="{{ request()->routeIs('institucion.configuracion.servicios.*') ? 'txt_active_green' : '' }}"
+                               href='{{ route('institucion.configuracion.servicios.index') }}'>
+                                Servicios
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Pagos -->
                 <li class="sidebar-item  has-sub items_green">
                     <a id="" class="" href='{{ route('institucion.pagos') }}'>
                         <button class="{{ request()->routeIs('institucion.pagos') ? 'btn_active_inst' : '' }}">Mis pagos</button>
                     </a>
                 </li>
 
-                <!-- mis pacientes -->
+                <!-- Mis pacientes -->
                 <li class="sidebar-item  has-sub items_green">
                     <a id="" class="" href='{{ route('institucion.pacientes') }}'>
                         <button class="{{ request()->routeIs('institucion.pacientes') ? 'btn_active_inst' : '' }}">Mis pacientes</button>
                     </a>
                 </li>
 
-                <!-- mis contactos -->
+                <!-- Mis contactos -->
                 <li class="sidebar-item  has-sub items_green">
                     <a id="" class="" href='{{ route('institucion.contactos.index') }}'>
                         <button class="{{ request()->routeIs('institucion.contactos.index') ? 'btn_active_inst' : '' }}">Mis contactos</button>
@@ -83,30 +108,6 @@
                     <a class="" href='{{ route('institucion.favoritos') }}'>
                         <button class="{{ request()->routeIs('institucion.favoritos') ? 'btn_active_inst' : '' }}">Mis favoritos</button>
                     </a>
-                </li>
-
-                <!-- Configuración -->
-                <li class="sidebar-item has-sub items_green accordion" id="accordionConfiguracion">
-                    <button id="headingConfiguracion" class="{{ request()->routeIs('institucion.configuracion.*') ? 'btn_active_inst' : '' }}" type="button" data-toggle="collapse"
-                            data-target="#collapseConfiguracion" aria-expanded="false" aria-controls="collapseConfiguracion">
-                        Configuración<i class="icon_angle fas fa-angle-down pl-2"></i>
-                    </button>
-
-                    <ul id="collapseConfiguracion" class="collapse sub_menu_green {{ request()->routeIs('institucion.configuracion.*') ? 'show' : '' }}"
-                        aria-labelledby="headingConfiguracion" data-parent="#accordionConfiguracion">
-                        <li class="submenu-item ">
-                            <a id="cie10" class="{{ request()->routeIs('institucion.configuracion.convenios.*') ? 'txt_active_green' : '' }}"
-                               href='{{ route('institucion.configuracion.convenios.index') }}'>
-                                Convenios
-                            </a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a id="cups" class="{{ request()->routeIs('institucion.configuracion.servicios.*') ? 'txt_active_green' : '' }}"
-                               href='{{ route('institucion.configuracion.servicios.index') }}'>
-                                Servicios
-                            </a>
-                        </li>
-                    </ul>
                 </li>
 
                 <!-- Logo PLM -->
