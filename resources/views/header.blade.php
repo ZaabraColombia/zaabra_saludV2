@@ -27,7 +27,7 @@
     @guest
         <!-- Menú desplegable del LOGIN -->
             <div class="soy_paciente dropdown">
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                <a class="dropdown-toggle menu_flip" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink" style="">
                     <a class="dropdown-item p-0" href="{{ route('login') }}">
@@ -62,7 +62,7 @@
 
             <!-- Sección Menú hamburguesa no logueado-->
             <div class="menu-hamburger dropdown">
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="dropdown-toggle menu_flip" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span></span>
                 </a>
 
@@ -103,7 +103,7 @@
 
             <!-- Sección Menú hamburguesa logueado -->
             <div class="menu-hamburger dropdown">
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="dropdown-toggle menu_flip" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span></span>
                 </a>
 

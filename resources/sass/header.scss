@@ -265,6 +265,21 @@ a:link, a:visited, a:active, a:hover {
         background-image: url('/img/header/icono-cerrar-sesion-blanco.svg');
     }
 }
+.menu_flip[aria-expanded="true"] + .dropdown-menu {
+    box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
+    animation-name: example;
+    animation-duration: 2s;
+}
+@keyframes example {
+    0%  {
+        transform: rotateY(90deg);
+        background:  #87cdfc;}
+    50%  {transform: rotateY(-30deg);}
+
+    100% {
+            transform: rotateY(0deg);
+            box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);}
+        }
 // Caja opciones de busqueda barra del buscador
 #ui-id-1{
     z-index: 500 !important;
