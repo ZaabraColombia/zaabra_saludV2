@@ -107,7 +107,7 @@
                                        type="text" id="numero_documento" name="numero_documento" value="{{ old('numero_documento') }}" />
 
                                 <input class="col-md-4 m-0 no_brad_left @error('dv_documento') is-invalid @enderror" type="text"
-                                       id="dv_documento" name="dv_documento" value="{{ old('dv_documento') }}" placeholder="Cod."/>
+                                       id="dv_documento" name="dv_documento" value="{{ old('dv_documento') }}" placeholder="# verificación"/>
                             </div>
                         </div>
 
@@ -158,7 +158,6 @@
                                 <option value="transferencia" {{ old('forma_pago') == 'transferencia' ? 'selected':'' }}>Transferencia</option>
                                 <option value="tarjeta" {{ old('forma_pago') == 'tarjeta' ? 'selected':'' }}>Tarjeta de crédito / debito</option>
                                 <option value="consignación" {{ old('forma_pago') == 'consignación' ? 'selected':'' }}>Consignación</option>
-                                <option value=""></option>
                             </select>
                         </div>
 
@@ -166,13 +165,14 @@
                             <label for="tipo_convenio">Tipo de convenio</label>
                             <select class="@error('tipo_convenio') is-invalid @enderror" id="tipo_convenio"
                                     name="tipo_convenio" value="{{ old('tipo_convenio') }}">
-                                <option value=""></option>
-                                <option value="Tipo de convenio 1">Tipo de convenio 1</option>
-                                <option value="Tipo de convenio 2">Tipo de convenio 2</option>
-                                <option value="Tipo de convenio 3">Tipo de convenio 3</option>
-                                <option value=""></option>
+                                <option></option>
+                                @if($tipo_convenios->isNotEmpty())
+                                    @foreach($tipo_convenios as $tipo_convenio)
+                                        <option value="{{ $tipo_convenio->id }}" {{ old('tipo_convenio') == $tipo_convenio->id ? 'selected':'' }}>{{ $tipo_convenio->nombretipo }}</option>
+                                    @endforeach
+                                @endif
                             </select>
-                        </div>    
+                        </div>
                     </div>
 
                     <!-- Linea división de elementos -->

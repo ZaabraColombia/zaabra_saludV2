@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class tipoinstituciones extends Model
 {
-    use Sluggable;
+    use HasFactory, Sluggable;
 
     protected $fillable = [
         'id',
@@ -23,7 +23,7 @@ class tipoinstituciones extends Model
     public $timestamps = false;
 
     /**
-     * retorna los tipo activado
+     * Retorna el tipo activado
      *
      * @param Builder $query
      * @return Builder
