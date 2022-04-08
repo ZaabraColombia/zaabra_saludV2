@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Convenios;
 use App\Models\especialidades;
 use App\Models\Servicio;
+use App\Models\tipoinstituciones;
 use App\Models\TipoServicio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -146,13 +147,16 @@ class ServiciosController extends Controller
             'descanso'          => ['required', 'min:0'],
             'valor'             => ['required', 'min:0'],
             'nombre'            => ['required', 'max:100'],
-            'descripcion'       => ['required'],
+            'descripcion'       => ['nullable'],
             'especialidad_id'   => ['required'],
             'convenios'         => ['required', 'boolean'],
             'tipo_atencion'     => ['required', Rule::in(['presencial', 'virtual'])],
             'citas_activas'     => ['required', 'integer', 'min:1'],
+            'tipo_servicio_id'  => ['required', 'exists:tipo_servicios,id'],
             'codigo_cups'       => ['required', 'exists:cups,code'],
-            'tipo_servicio_id'  => ['required', 'boolean'],
+
+            'agendamiento_virtual'  => ['nullable', 'boolean'],
+            'estado'                => ['nullable', 'boolean'],
 
             'convenios-lista.*'                 => ['required_if:convenios,1'],
             'convenios-lista.*.convenio_id'     => ['required_if:convenios,1', 'exists:convenios,id'],

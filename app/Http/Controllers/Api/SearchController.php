@@ -49,7 +49,7 @@ class SearchController extends Controller
         {
             $cups = Cups::query()
                 //->select('description as text','id',  'code')
-                ->select('description as text', 'id', 'code')
+                ->select('description as text', 'code as id')
                 ->where('code', 'like', "%$request->term%")
                 ->orWhere('description', 'like', "%$request->term%")
                 ->limit(10)

@@ -1,7 +1,9 @@
-@section('styles')
-@endsection
-
 @extends('instituciones.admin.layouts.layout')
+
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
+@endsection
 
 @section('contenido')
     <div class="container-fluid p-0 pr-lg-4">
@@ -27,6 +29,25 @@
                         </div>
                     </div>
                     --}}
+                    <div class="row">
+                        <div class="col-md-6 input__box">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}"
+                                   class="@error('nombre') is-invalid @enderror"/>
+                        </div>
+
+                        <div class="col-md-6 input__box">
+                            <label for="especialidad_id">Especialidad</label>
+                            <select class="@error('especialidad_id') is-invalid @enderror" id="especialidad_id"
+                                    name="especialidad_id">
+                                @if($especialidades->isNotEmpty())
+                                    @foreach($especialidades as $especialidad)
+                                        <option value="{{ $especialidad->idEspecialidad }}" {{ old('especialidad_id') == $especialidad->idEspecialidad ? 'checked':null }}>{{ $especialidad->nombreEspecialidad }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-12">
@@ -55,26 +76,6 @@
                             <label for="valor">Valor</label>
                             <input type="number" id="valor" name="valor" value="{{ old('valor') }}"
                                    class="@error('valor') is-invalid @enderror"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 input__box">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}"
-                                   class="@error('nombre') is-invalid @enderror"/>
-                        </div>
-
-                        <div class="col-md-6 input__box">
-                            <label for="especialidad_id">Especialidad</label>
-                            <select class="@error('especialidad_id') is-invalid @enderror" id="especialidad_id"
-                                    name="especialidad_id">
-                                @if($especialidades->isNotEmpty())
-                                    @foreach($especialidades as $especialidad)
-                                        <option value="{{ $especialidad->idEspecialidad }}" {{ old('especialidad_id') == $especialidad->idEspecialidad ? 'checked':null }}>{{ $especialidad->nombreEspecialidad }}</option>
-                                    @endforeach
-                                @endif
-                            </select>
                         </div>
                     </div>
 
@@ -115,6 +116,17 @@
                     </div>
 
                     <div class="row">
+                        <div class="col-12 d-flex">
+                            <label class="mt-2">Agendamiento virtual</label>&nbsp;
+                            <!-- Check box interactivo y personalizado -->
+                            <div class="checkbox">
+                                <input type="checkbox" name="agendamiento_virtual" id="agendamiento_virtual" value="1">
+                                <label class="label_check" for="agendamiento_virtual">
+                                    <b class="txt1">Agendamiento activado</b>
+                                    <b class="txt2">Agendamiento desactivado</b>
+                                </label>
+                            </div>
+                        </div>
                         <div class="col-12 input__box">
                             <label for="descripcion">Descripción</label>
                             <textarea name="descripcion" id="descripcion" class="@error('especialidad') is-invalid @enderror"
@@ -137,25 +149,6 @@
                     <!-- Contenedor formato tabla de la lista de contactos -->
                     @php $old = old('convenios-lista') @endphp
                     <div id="table_servicio" class="containt_main_table mt-4 {{ (empty($old)) ? 'd-none':'' }}">
-                        {{--<div class="row m-0">
-                            <div class="col-md-9 input__box">
-                                <label for="convenio">Convenio</label>
-                                <select class="@error('convenio') is-invalid @enderror" id="convenio"
-                                        name="convenio" value="{{ old('convenio') }}">
-                                    @if($convenios->isNotEmpty())
-                                    @foreach($convenios as $convenio)
-                                    <option value="{{ $convenio->id }}">{{ $convenio->nombre_completo }}</option>
-                                    @endforeach
-                                    @endif
-                                </select>
-                            </div>
-                            <div class="col-md-3 p-0 pt-3 content_btn_right">
-                                <a href="" class="button_green" id="">
-                                    Agregar
-                                </a>
-                            </div>
-                        </div>--}}
-
                         <div class="table-responsive">
                             <table class="table table_agenda" id="">
                                 <thead class="thead_green">
@@ -209,6 +202,8 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+
     <script>
         // función para mostrar y ocultar la tabla de vincular convenios
         $(document).ready(function(){
@@ -226,6 +221,25 @@
             }).each(function (key, item) {
                 var check = $(item);
                 check.parents('tr').find('input[type=number],input[type=hidden]').prop('disabled', !check.prop('checked'));
+            });
+
+            $('#codigo_cups').select2({
+                theme: 'bootstrap4',
+                ajax: {
+                    url: '{{ route('search-cups') }}',
+                    data: function (params) {
+                        // Query parameters will be ?search=[term]&type=public
+                        return {
+                            term: params.term
+                        };
+                    },
+                    processResults: function (result) {
+                        // Transforms the top-level key of the response object from 'items' to 'results'
+                        return {
+                            results: result.data
+                        };
+                    }
+                }
             });
         });
     </script>

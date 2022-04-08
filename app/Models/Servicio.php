@@ -24,6 +24,7 @@ class Servicio extends Model
         'citas_activas',
         'codigo_cups',
         'tipo_servicio_id',
+        'agendamiento_virtual',
         'estado'
     ];
 
