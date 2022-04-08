@@ -74,7 +74,7 @@
                         <div class="col_flex">
                             <div class="mt-4 mb-3 mt-md-0">
                                 <span class="badge rounded-pill bg-primary mb-3 w-100">Días disponibles</span>
-                                <span class="badge rounded-pill bg-secondary mb-3 w-100">Días no disponibles</span>
+                                <span class="badge rounded-pill bg-secondary mb-3 w-100" style="opacity: .5;">Días no disponibles</span>
                                 <span class="badge rounded-pill bg-success mb-3 w-100">Días seleccionados</span>
                             </div>
                         </div>
