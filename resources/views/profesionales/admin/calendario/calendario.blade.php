@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-12 col-lg-10 col-xl-8 p-0" id="alerta-general"></div>
 
             <div class="col-12 col-lg-10 col-xl-8 p-0 mb-3">
@@ -760,6 +760,18 @@
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
+
+                slotLabelInterval: {
+                    minutes: 30
+                },
+                slotLabelFormat: {
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    hour12: true
+                },
+                eventShortHeight: 15,
+                slotDuration: '00:15',
+                snapDuration: '02:00',
                 customButtons: {
                     reservar: {
                         text: 'Reservar',
