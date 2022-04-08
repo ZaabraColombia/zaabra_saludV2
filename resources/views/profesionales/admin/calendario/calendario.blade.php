@@ -756,7 +756,7 @@
                 events: '{{ route('profesional.agenda.calendario.ver-citas') }}',
                 // Botones de mes, semana y día.
                 headerToolbar: {
-                    left: 'prev,next today reservar',
+                    left: 'prev,next today bloquear',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
@@ -773,18 +773,30 @@
                 slotDuration: '00:15',
                 snapDuration: '02:00',
                 customButtons: {
-                    reservar: {
-                        text: 'Reservar',
+                    bloquear: {
+                        text: 'Bloquear',
                         click: function() {
 
-                            $('#form-reservar-calendario')[0].reset();
+                            $('#form-reserva-calendario-crear')[0].reset();
 
                             $('#fecha_inicio').val(moment().format('YYYY-MM-DD\THH:mm'));
                             $('#fecha_fin').val(moment().add(2, 'h').format('YYYY-MM-DD\THH:mm'));
 
                             $('#modal_crear_reserva_calendario').modal();
                         }
-                    }
+                    },
+                    // actualizar: {
+                    //     text: 'Actualizar',
+                    //     click: function() {
+                    //         calendar.refetchEvents();
+                    //         var message = {
+                    //             title:  'Hecho',
+                    //             text:   'Citas actualizadas'
+                    //         };
+                    //         $('#alerta-general').html(alert(message, 'success'));
+                    //     },
+                    //     //class: "button_blue_form"
+                    // }
                 },
                 // Propiedad para cambio de lenguaje
                 locale: 'es',

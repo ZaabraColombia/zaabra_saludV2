@@ -201,11 +201,11 @@ class CalendarioController extends Controller
                     'id'    => $date->id_cita,
                     'start' => $date->start,
                     'end'   => $date->end,
-                    'backgroundColor' => 'yellow',
+                    'backgroundColor' => '#fa5e52',
                     'textColor' => 'black',
-                    'borderColor' => 'yellow',
+                    'borderColor' => 'black',
                     'display' => 'block',
-                    'title' => 'reservado',
+                    'title' => 'Bloqueado',
                 ];
             } else {
 
