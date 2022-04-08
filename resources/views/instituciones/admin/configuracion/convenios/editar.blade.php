@@ -23,7 +23,7 @@
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
                             <input type="checkbox" {{ old('estado', $convenio->estado) == 1 ? 'checked':'' }}
-                                   name="estado" id="estado">
+                                   name="estado" id="estado" value="1">
                             <label class="label_check" for="estado">
                                 <b class="txt1">Convenio inactivo</b>
                                 <b class="txt2">Convenio activo</b>
