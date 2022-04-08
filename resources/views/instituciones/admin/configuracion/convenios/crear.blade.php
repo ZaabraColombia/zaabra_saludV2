@@ -31,16 +31,6 @@
 
                     @csrf
 
-                    <div class="row m-0 mb-4 justify-content-center">
-                        <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-                            <div class="img__upload">
-                                <img id="imagen-foto" src="{{ asset('img/menu/avatar.png') }}">
-                                <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" />
-                                <p>Foto de convenio</p>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="row">
                         @if($errors->any())
                             <div class="col-12">
@@ -55,6 +45,16 @@
                                 </div>
                             </div>
                         @endif
+                    </div>
+
+                    <div class="row m-0 mb-4 justify-content-center">
+                        <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+                            <div class="img__upload">
+                                <img id="imagen-foto" src="{{ asset('img/menu/avatar.png') }}">
+                                <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" />
+                                <p>Foto de convenio</p>
+                            </div>
+                        </div>
                     </div>
 
                     <h2 class="subtitle__lg green_bold mb-4">Información básica</h2>
@@ -143,9 +143,13 @@
                         </div>
 
                         <div class="col-md-4 input__box">
+                            @php $actividad_economica = (!empty( old('actividad_economica_id') )) ? \App\Models\Sgsss::find(old('actividad_economica_id')):null; @endphp
                             <label for="actividad_economica_id">Actividad económica</label>
                             <select id="actividad_economica_id" name="actividad_economica_id" required
                                     class="@error('actividad_economica_id') is-invalid @enderror">
+                                @if(!empty($actividad_economica))
+                                    <option value="{{ $actividad_economica->id }}" selected>{{ $actividad_economica->nombre }}</option>
+                                @endif
                             </select>
                         </div>
 

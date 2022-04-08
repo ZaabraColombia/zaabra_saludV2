@@ -106,13 +106,10 @@ class ConveniosController extends Controller
         $actividades_economicas = ActividadEconomica::all();
         $tipo_documentos = TipoDocumento::all();
         $paises = pais::all();
+        $tipo_convenios = tipoinstituciones::activado()->get();
 
-        return view('instituciones.admin.configuracion.convenios.editar', compact(
-            'tipo_documentos',
-            'actividades_economicas',
-            'tipo_contribuyentes',
-            'paises',
-            'convenio'
+        return view('instituciones.admin.configuracion.convenios.editar', compact('tipo_documentos',
+            'actividades_economicas','tipo_contribuyentes', 'paises', 'convenio', 'tipo_convenios'
         ));
     }
 

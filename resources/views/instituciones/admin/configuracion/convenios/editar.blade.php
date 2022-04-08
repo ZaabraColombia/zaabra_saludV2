@@ -50,6 +50,16 @@
                         @endif
                     </div>
 
+                    <div class="row m-0 mb-4 justify-content-center">
+                        <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+                            <div class="img__upload">
+                                <img id="imagen-foto" src="{{ asset( $convenio->url_image ?? 'img/menu/avatar.png') }}">
+                                <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" />
+                                <p>Foto de convenio</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-md-3 input__box">
                             <label for="primer_nombre">Primer nombre / Razón social</label>
@@ -96,7 +106,7 @@
                                        type="text" id="numero_documento" name="numero_documento" value="{{ old('numero_documento', $convenio->numero_documento) }}" />
 
                                 <input class="col-md-4 m-0 no_brad_left @error('dv_documento') is-invalid @enderror" type="text"
-                                       id="dv_documento" name="dv_documento" value="{{ old('dv_documento', $convenio->dv_documento) }}" placeholder="Cod."/>
+                                       id="dv_documento" name="dv_documento" value="{{ old('dv_documento', $convenio->dv_documento) }}" placeholder="# verificación"/>
                             </div>
                         </div>
 
@@ -152,9 +162,17 @@
                             </select>
                         </div>
 
-                        <div class="col-md-4 input__box custom-file">
-                            <input type="file" name="foto" id="foto" class="custom-file-input" />
-                            <label for="forma_pago" class="custom-file-label">Selecciones una foto</label>
+                        <div class="col-md-4 input__box">
+                            <label for="tipo_convenio">Tipo de convenio</label>
+                            <select class="@error('tipo_convenio') is-invalid @enderror" id="tipo_convenio"
+                                    name="tipo_convenio" value="{{ old('tipo_convenio') }}">
+                                <option></option>
+                                @if($tipo_convenios->isNotEmpty())
+                                    @foreach($tipo_convenios as $tipo_convenio)
+                                        <option value="{{ $tipo_convenio->id }}" {{ old('tipo_convenio') == $tipo_convenio->id ? 'selected':'' }}>{{ $tipo_convenio->nombretipo }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
                         </div>
                     </div>
 
@@ -278,6 +296,30 @@
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('js/filtro-ubicacion.js') }}"></script>
     <script src="{{ asset('plugins/tagsinput/bootstrap-tagsinput.min.js') }}"></script>
+
+    <!-- Script para cargar, subir y visualizar la imagen principal -->
+    <script>
+        // Obtener referencia al input y a la imagen
+        const $seleccionArchivos = document.querySelector("#foto"),
+            $imagenPrevisualizacion = document.querySelector("#imagen-foto");
+
+        // Escuchar cuando cambie
+        $seleccionArchivos.addEventListener("change", () => {
+            // Los archivos seleccionados, pueden ser muchos o uno
+            const archivos = $seleccionArchivos.files;
+            // Si no hay archivos salimos de la función y quitamos la imagen
+            if (!archivos || !archivos.length) {
+                $imagenPrevisualizacion.src = "";
+                return;
+            }
+            // Ahora tomamos el primer archivo, el cual vamos a previsualizar
+            const primerArchivo = archivos[0];
+            // Lo convertimos a un objeto de tipo objectURL
+            const objectURL = URL.createObjectURL(primerArchivo);
+            // Y a la fuente de la imagen le ponemos el objectURL
+            $imagenPrevisualizacion.src = objectURL;
+        });
+    </script>
 
     <script>
         $('#actividad_economica_id').select2({
