@@ -23684,35 +23684,12 @@ a:link, a:visited, a:active, a:hover {
   margin-bottom: 10px;
   width: 173px;
 }
-.content_dias_agenda span i {
-  width: 21px;
-  height: 21px;
-  border: 1px solid #707070;
+.content_dias_agenda span input {
+  width: 25px;
+  height: 28px;
+  border: none;
   margin-right: 25px;
-}
-
-.disponible i {
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-}
-
-.cita_pag i {
-  background: #1B85D7 0% 0% no-repeat padding-box;
-}
-
-.cita_pag_pres i {
-  background: #D6FFFB 0% 0% no-repeat padding-box;
-}
-
-.no_disponible i {
-  background: #D8D8D8 0% 0% no-repeat padding-box;
-}
-
-.cita_agen i {
-  background: #019F86 0% 0% no-repeat padding-box;
-}
-
-.cita_cancel i {
-  background: #9DD1F9 0% 0% no-repeat padding-box;
+  padding: 0;
 }
 
 .fc-h-event .fc-event-title {

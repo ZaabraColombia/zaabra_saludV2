@@ -21,27 +21,27 @@
 
                 <div class="row m-0 content_dias_agenda mb-md-3">
                     <div class="col-md-4 p-0">
-                        <span class="disponible"> <i></i> Días disponibles</span>
+                        <span> <input type="color" value="#FFFFFF"> Días disponibles</span>
                     </div>
 
                     <div class="col-md-4 p-0 content_center_agenda">
-                        <span class="cita_pag"> <i></i> Citas pagadas</span>
+                        <span> <input type="color" value="#1B85D7"> Citas pagadas</span>
                     </div>
 
                     <div class="col-md-4 p-0 content_right_agenda">
-                        <span class="cita_pag_pres"> <i></i> Cita pago presencial</span>
+                        <span> <input type="color" value="#D6FFFB"> Cita pago presencial</span>
                     </div>
 
                     <div class="col-md-4 p-0">
-                        <span class="no_disponible"> <i></i> Días no disponibles</span>
+                        <span> <input type="color" value="#D8D8D8"> Días no disponibles</span>
                     </div>
 
                     <div class="col-md-4 p-0 content_center_agenda">
-                        <span class="cita_agen"> <i></i> Citas agendadas</span>
+                        <span> <input type="color" value="#019F86"> Citas agendadas</span>
                     </div>
 
                     <div class="col-md-4 p-0 content_right_agenda">
-                        <span class="cita_cancel"> <i></i> Citas canceladas</span>
+                        <span> <input type="color" value="#9DD1F9"> Citas canceladas</span>
                     </div>
                 </div>
             </div>
