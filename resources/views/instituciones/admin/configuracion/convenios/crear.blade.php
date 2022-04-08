@@ -31,16 +31,6 @@
 
                     @csrf
 
-                    <div class="row m-0 mb-4 justify-content-center">
-                        <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-                            <div class="img__upload">
-                                <img id="imagen-foto" src="{{ asset('img/menu/avatar.png') }}">
-                                <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" />
-                                <p>Foto de convenio</p>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="row">
                         @if($errors->any())
                             <div class="col-12">
@@ -55,6 +45,16 @@
                                 </div>
                             </div>
                         @endif
+                    </div>
+
+                    <div class="row m-0 mb-4 justify-content-center">
+                        <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+                            <div class="img__upload">
+                                <img id="imagen-foto" src="{{ asset('img/menu/avatar.png') }}">
+                                <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" />
+                                <p>Foto de convenio</p>
+                            </div>
+                        </div>
                     </div>
 
                     <h2 class="subtitle__lg green_bold mb-4">Información básica</h2>
@@ -107,7 +107,7 @@
                                        type="text" id="numero_documento" name="numero_documento" value="{{ old('numero_documento') }}" />
 
                                 <input class="col-md-4 m-0 no_brad_left @error('dv_documento') is-invalid @enderror" type="text"
-                                       id="dv_documento" name="dv_documento" value="{{ old('dv_documento') }}" placeholder="Cod."/>
+                                       id="dv_documento" name="dv_documento" value="{{ old('dv_documento') }}" placeholder="# verificación"/>
                             </div>
                         </div>
 
@@ -143,9 +143,13 @@
                         </div>
 
                         <div class="col-md-4 input__box">
+                            @php $actividad_economica = (!empty( old('actividad_economica_id') )) ? \App\Models\Sgsss::find(old('actividad_economica_id')):null; @endphp
                             <label for="actividad_economica_id">Actividad económica</label>
                             <select id="actividad_economica_id" name="actividad_economica_id" required
                                     class="@error('actividad_economica_id') is-invalid @enderror">
+                                @if(!empty($actividad_economica))
+                                    <option value="{{ $actividad_economica->id }}" selected>{{ $actividad_economica->nombre }}</option>
+                                @endif
                             </select>
                         </div>
 
@@ -158,7 +162,6 @@
                                 <option value="transferencia" {{ old('forma_pago') == 'transferencia' ? 'selected':'' }}>Transferencia</option>
                                 <option value="tarjeta" {{ old('forma_pago') == 'tarjeta' ? 'selected':'' }}>Tarjeta de crédito / debito</option>
                                 <option value="consignación" {{ old('forma_pago') == 'consignación' ? 'selected':'' }}>Consignación</option>
-                                <option value=""></option>
                             </select>
                         </div>
 
@@ -166,13 +169,14 @@
                             <label for="tipo_convenio">Tipo de convenio</label>
                             <select class="@error('tipo_convenio') is-invalid @enderror" id="tipo_convenio"
                                     name="tipo_convenio" value="{{ old('tipo_convenio') }}">
-                                <option value=""></option>
-                                <option value="Tipo de convenio 1">Tipo de convenio 1</option>
-                                <option value="Tipo de convenio 2">Tipo de convenio 2</option>
-                                <option value="Tipo de convenio 3">Tipo de convenio 3</option>
-                                <option value=""></option>
+                                <option></option>
+                                @if($tipo_convenios->isNotEmpty())
+                                    @foreach($tipo_convenios as $tipo_convenio)
+                                        <option value="{{ $tipo_convenio->id }}" {{ old('tipo_convenio') == $tipo_convenio->id ? 'selected':'' }}>{{ $tipo_convenio->nombretipo }}</option>
+                                    @endforeach
+                                @endif
                             </select>
-                        </div>    
+                        </div>
                     </div>
 
                     <!-- Linea división de elementos -->

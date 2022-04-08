@@ -2,22 +2,15 @@
 
 namespace App\Models;
 
-use Hyn\Tenancy\Traits\UsesSystemConnection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cups extends Model
+class TipoServicio extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'id',
-        'code',
-        'description'
+        'nombre'
     ];
-
-    protected $table = 'cups';
-
-    public $timestamps = false;
-
 }

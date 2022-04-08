@@ -4,11 +4,16 @@ namespace App\Http\Controllers\entidades\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Convenios;
+use App\Models\Cups;
 use App\Models\especialidades;
 use App\Models\Servicio;
+use App\Models\tipoinstituciones;
+use App\Models\TipoServicio;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
 
 class ServiciosController extends Controller
 {
@@ -38,12 +43,14 @@ class ServiciosController extends Controller
     {
         Gate::authorize('accesos-institucion','editar-servicio');
         $especialidades = especialidades::all();
+        $tipo_servicios = TipoServicio::all();
         $convenios = Convenios::query()
             ->where('id_user', '=', Auth::user()->institucion->user->id)
             ->activado()
             ->get();
 
-        return view('instituciones.admin.configuracion.servicios.crear', compact('especialidades', 'convenios'));
+        return view('instituciones.admin.configuracion.servicios.crear', compact('especialidades',
+            'convenios', 'tipo_servicios'));
     }
 
     /**
@@ -88,6 +95,8 @@ class ServiciosController extends Controller
         Gate::authorize('update-servicio-institucion', $servicio);
 
         $especialidades = especialidades::all();
+        $tipo_servicios = TipoServicio::all();
+
         $convenios = Convenios::query()
             ->where('id_user', '=', Auth::user()->institucion->user->id)
             ->activado()
@@ -101,11 +110,8 @@ class ServiciosController extends Controller
             ];
         })->toArray();
 
-        return view('instituciones.admin.configuracion.servicios.editar', compact(
-            'especialidades',
-            'convenios',
-            'servicio',
-            'lista'
+        return view('instituciones.admin.configuracion.servicios.editar', compact('especialidades',
+            'convenios','servicio','lista', 'tipo_servicios'
         ));
     }
 
@@ -137,14 +143,26 @@ class ServiciosController extends Controller
 
     private function validator(Request $request)
     {
+
         $request->validate([
             'duracion'          => ['required', 'min:0'],
             'descanso'          => ['required', 'min:0'],
             'valor'             => ['required', 'min:0'],
             'nombre'            => ['required', 'max:100'],
-            'descripcion'       => ['required'],
+            'descripcion'       => ['nullable'],
             'especialidad_id'   => ['required'],
             'convenios'         => ['required', 'boolean'],
+            'tipo_atencion'     => ['required', Rule::in(['presencial', 'virtual'])],
+            'citas_activas'     => ['required', 'integer', 'min:1'],
+            'tipo_servicio_id'  => ['required', 'exists:tipo_servicios,id'],
+            //'codigo_cups'       => ['required', 'exists:cups,code'],
+            'codigo_cups'       => ['required', function ($attribute, $value, $fail) {
+                $validation = Cups::query()->selectRaw('count(id) as aggregate')->where('code', 'like', "%$value")->first();
+                if ($validation->aggregate = 0) $fail("El CUPS no existe");
+            }],
+
+            'agendamiento_virtual'  => ['nullable', 'boolean'],
+            'estado'                => ['nullable', 'boolean'],
 
             'convenios-lista.*'                 => ['required_if:convenios,1'],
             'convenios-lista.*.convenio_id'     => ['required_if:convenios,1', 'exists:convenios,id'],
@@ -158,6 +176,11 @@ class ServiciosController extends Controller
             'descripcion'       => 'Descripción',
             'especialidad_id'   => 'Especialidad',
             'convenios'         => 'Vincular convenios',
+            'tipo_atencion'     => 'Tipo de atención',
+            'citas_activas'     => 'Número de citas activas por paciente',
+            'tipo_servicio_id'  => 'Tipo de servicio',
+            'codigo_cups'       => 'Vincular convenios',
+
             'convenios-lista.*' => 'Convenios',
             'convenios-lista.*.convenio_id' => 'Convenio',
             'convenios-lista.*.valor_paciente' => 'Valor a pagar paciente',

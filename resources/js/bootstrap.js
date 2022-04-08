@@ -23,9 +23,6 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-window.swal = require('jquery-validation'); 
-window.swal = require('fullcalendar'); 
-
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

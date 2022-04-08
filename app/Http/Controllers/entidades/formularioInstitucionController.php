@@ -102,6 +102,7 @@ class formularioInstitucionController extends Controller{
 
         $is_asociacion = $this->is_asociacion();
         $tipo_documentos = TipoDocumento::query()->get();
+        $paises = pais::all();
 
         return view('instituciones.FormularioInstitucion',compact(
             'tipoinstitucion',
@@ -120,7 +121,8 @@ class formularioInstitucionController extends Controller{
             'objGaleria',
             'objVideo',
             'tipo_documentos',
-            'is_asociacion'
+            'is_asociacion',
+            'paises'
         ));
     }
 
@@ -962,14 +964,22 @@ class formularioInstitucionController extends Controller{
             'nombre_sede'   => ['required'],
             'direccion_sede'=> ['required'],
             'horario_sede'  => ['required'],
-            'telefono_sede' => ['required', 'min:7']
+            'telefono_sede' => ['required', 'min:7'],
+            'pais_id'           => ['required', 'exists:pais,id_pais'],
+            'departamento_id'   => ['required', 'exists:departamentos,id_departamento'],
+            'provincia_id'      => ['required', 'exists:provincias,id_provincia'],
+            'ciudad_id'         => ['required', 'exists:municipios,id_municipio'],
             // 'url_mapa_sede' => ['required', 'url']
         ], [], [
             'img_sede'     => 'Foto de la sede',
             'nombre_sede'   => 'Nombre de la sede',
             'direccion_sede'=> 'Dirección de la sede',
             'horario_sede'  => 'Horario de la sede',
-            'telefono_sede' => 'Teléfono de la sede'
+            'telefono_sede' => 'Teléfono de la sede',
+            'pais_id'       => 'País',
+            'departamento_id' => 'Departamento',
+            'provincia_id'  => 'Provincia',
+            'ciudad_id'     => 'Ciudad',
             // 'url_mapa_sede' => 'Url de la ubicación de la sede'
         ]);
 
@@ -1004,8 +1014,12 @@ class formularioInstitucionController extends Controller{
         $sede->direccion    = $request->direccion_sede;
         $sede->horario_sede = $request->horario_sede;
         $sede->telefono     = $request->telefono_sede;
-        $sede->url_map       = $request->url_mapa_sede;
-        $sede->idInstitucion = $institucion->id;
+        $sede->url_map      = $request->url_mapa_sede;
+        $sede->pais_id      = $request->pais_id;
+        $sede->departamento_id  = $request->departamento_id;
+        $sede->provincia_id = $request->provincia_id;
+        $sede->ciudad_id    = $request->ciudad_id;
+        $sede->idInstitucion    = $institucion->id;
 
         $foto = $request->file('img_sede');
         $nombre_foto = 'sede-' . time() . '.' . $foto->guessExtension();
