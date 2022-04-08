@@ -255,21 +255,20 @@
                             </select>
                         </div>
 
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 input__box">
+                        <div class="col-md-4 input__box">
                             <label for="telefono">Teléfono</label>
                             <input type="text" id="telefono" name="telefono" value="{{ old('telefono') }}"
                                    class="w-100 @error('telefono') is-invalid @enderror"/>
                         </div>
 
-                        <div class="col-md-6 input__box">
+                        <div class="col-md-4 input__box">
                             <label for="celular">Móvil</label>
                             <input type="text" id="celular" name="celular" value="{{ old('celular') }}"
                                    class="w-100 @error('celular') is-invalid @enderror"/>
                         </div>
+                    </div>
 
+                    <div class="row">
                         <div class="col-md-6 input__box">
                             <label for="correo">Correo</label>
                             <input type="email" id="correo" name="correo" value="{{ old('correo') }}"
