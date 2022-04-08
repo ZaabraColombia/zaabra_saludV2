@@ -7,8 +7,8 @@
                 <div class="my-4 my-xl-5">
                     <h1 class="title__xl blue_bold">Procedimientos (CUMS)</h1>
                     <p class="text__md black_light">
-                        Procedimientos (CUPS) de acuerdo con la Resolución No.0002238 de 2020 emitida por el Ministerio de Salud y Protección Social,
-                        la cual define la Actualización única de procedimientos en Salud - CUPS.
+                        Identifica el Código Único Nacional de Medicamentos alfanumérica asignada a los medicamentos por el 
+                        Instituto Nacional de Vigilancia de Medicamentos y Alimentos Invima.
                     </p>
                 </div>
 
