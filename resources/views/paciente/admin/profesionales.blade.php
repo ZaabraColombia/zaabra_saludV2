@@ -60,7 +60,7 @@
                                         <td>{{ $profesional->EmpresaActual }}</td>
                                         <td>
                                             <a class="btn_action tool top" style="width: 33px" href="{{ route('PerfilProfesional', ['slug' => $profesional->slug]) }}" target="_blank">
-                                                <i data-feather="external-link"></i>  <span class="tiptext">Landing profesional</span>
+                                                <i data-feather="external-link"></i>  <span class="tiptext">Perfil doctor</span>
                                             </a>
                                         </td>
                                         <td>
@@ -92,7 +92,7 @@
                                         <td>{{ $profesional->institucion->user->nombreinstitucion }}</td>
                                         <td>
                                             <a class="btn_action toll top" style="width: 33px" href="{{ route('PerfilInstitucion', ['slug' => $profesional->institucion->slug]) }}" target="_blank">
-                                                <i class="external-link"></i> <span class="tiptext">Landing profesional</span>
+                                                <i class="external-link"></i> <span class="tiptext">Perfil doctor</span>
                                             </a>
                                         </td>
                                         <td>
