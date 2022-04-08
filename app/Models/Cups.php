@@ -11,6 +11,7 @@ class Cups extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'code',
         'description'
     ];

@@ -1,7 +1,9 @@
-@section('styles')
-@endsection
-
 @extends('instituciones.admin.layouts.layout')
+
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
+@endsection
 
 @section('contenido')
     <div class="container-fluid p-0 pr-lg-4">
@@ -20,7 +22,7 @@
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
                             <input type="checkbox" name="estado" id="estado" value="1"
-                                {{ (old('estado', $servicio->estado)) ? 'checked':'' }}/>
+                                {{ (old('estado', $servicio->estado) == 1) ? 'checked':'' }}/>
                             <label class="label_check" for="estado">
                                 <b class="txt1">Servicio inactivo</b>
                                 <b class="txt2">Servicio activo</b>
@@ -41,23 +43,6 @@
                                     </ul>
                                 </div>
                             @endif
-                        </div>
-                        <div class="col-md-4 input__box">
-                            <label for="duracion">Duración (minuto)</label>
-                            <input type="number" id="duracion" name="duracion" value="{{ old('duracion', $servicio->duracion) }}"
-                                   class="@error('duracion') is-invalid @enderror"/>
-                        </div>
-
-                        <div class="col-md-4 input__box">
-                            <label for="descanso">Descanso (minuto)</label>
-                            <input type="number" id="descanso" name="descanso" value="{{ old('descanso', $servicio->descanso) }}"
-                                   class="@error('descanso') is-invalid @enderror"/>
-                        </div>
-
-                        <div class="col-md-4 input__box">
-                            <label for="valor">Valor</label>
-                            <input type="number" id="valor" name="valor" value="{{ old('valor', $servicio->valor) }}"
-                                   class="@error('valor') is-invalid @enderror"/>
                         </div>
                     </div>
 
@@ -82,6 +67,80 @@
                     </div>
 
                     <div class="row">
+                        <div class="col-md-4 input__box">
+                            <label for="duracion">Duración (minuto)</label>
+                            <input type="number" id="duracion" name="duracion" value="{{ old('duracion', $servicio->duracion) }}"
+                                   class="@error('duracion') is-invalid @enderror"/>
+                        </div>
+
+                        <div class="col-md-4 input__box">
+                            <label for="descanso">Descanso (minuto)</label>
+                            <input type="number" id="descanso" name="descanso" value="{{ old('descanso', $servicio->descanso) }}"
+                                   class="@error('descanso') is-invalid @enderror"/>
+                        </div>
+
+                        <div class="col-md-4 input__box">
+                            <label for="valor">Valor</label>
+                            <input type="number" id="valor" name="valor" value="{{ old('valor', $servicio->valor) }}"
+                                   class="@error('valor') is-invalid @enderror"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 input__box">
+                            <label for="tipo_servicio_id">Tipo de servicio</label>
+                            <select class="@error('tipo_servicio_id') is-invalid @enderror" id="tipo_servicio_id" name="tipo_servicio_id">
+                                <option></option>
+                                @if($tipo_servicios->isNotEmpty())
+                                    @foreach($tipo_servicios as $tipo_servicio)
+                                        <option value="{{ $tipo_servicio->id }}" {{ old('tipo_servicio_id', $servicio->tipo_servicio_id) == $tipo_servicio->id ? 'selected':'' }}>{{ $tipo_servicio->nombre }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
+                        </div>
+
+                        <div class="col-md-8 input__box">
+
+                            @php $codigo_cups = old('codigo_cups', $servicio->codigo_cups); $cup = !empty($codigo_cups) ? \App\Models\Cups::query()->where('code', 'like', "%$codigo_cups")->first():null @endphp
+                            <label for="codigo_cups">CUPS</label>
+                            <select class="@error('codigo_cups') is-invalid @enderror" id="codigo_cups" name="codigo_cups">
+                                @if(!empty($cup))
+                                    <option value="{{ $cup->code }}" selected>{{ $cup->description }}</option>
+                                @endif
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-7 col-xl-5 d-flex justify-content-between align-self-end input__box">
+                            <label class="align-self-center" for="citas_activas">Número de citas activas por paciente</label>
+                            <input type="number" id="citas_activas" name="citas_activas" value="{{ old('citas_activas', $servicio->citas_activas) }}"
+                                   class="citas_activas @error('citas_activas') is-invalid @enderror"/>
+                        </div>
+
+                        <div class="col-md-5 col-xl-7 input__box pl-md-0">
+                            <label for="tipo_atencion">Tipo de atención</label>
+                            <select class="@error('tipo_atencion') is-invalid @enderror" id="tipo_atencion" name="tipo_atencion">
+                                <option></option>
+                                <option value="presencial" {{old('tipo_atencion', $servicio->tipo_atencion) == 'presencial' ? 'selected':''}}>Presencial</option>
+                                <option value="virtual" {{old('tipo_atencion', $servicio->tipo_atencion) == 'virtual' ? 'selected':''}}>Virtual</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 d-flex">
+                            <label class="mt-2">Agendamiento virtual</label>&nbsp;
+                            <!-- Check box interactivo y personalizado -->
+                            <div class="checkbox">
+                                <input type="checkbox" name="agendamiento_virtual" id="agendamiento_virtual"
+                                       value="1" {{ old('agendamiento_virtual', $servicio->agendamiento_virtual) == 1 ? 'checked':'' }}>
+                                <label class="label_check" for="agendamiento_virtual">
+                                    <b class="txt1">Agendamiento activado</b>
+                                    <b class="txt2">Agendamiento desactivado</b>
+                                </label>
+                            </div>
+                        </div>
                         <div class="col-12 input__box">
                             <label for="descripcion">Descripción</label>
                             <textarea name="descripcion" id="descripcion" class="@error('especialidad') is-invalid @enderror"
@@ -104,27 +163,7 @@
                     <!-- Contenedor formato tabla de la lista de contactos -->
                     @php $old = old('convenios-lista', $lista) @endphp
                     <div id="table_servicio" class="containt_main_table mt-3 {{ (empty($old)) ? 'd-none':'' }}">
-                    {{--<div class="row m-0">
-                        <div class="col-md-9 input__box">
-                            <label for="convenio">Convenio</label>
-                            <select class="@error('convenio') is-invalid @enderror" id="convenio"
-                                    name="convenio" value="{{ old('convenio') }}">
-                                @if($convenios->isNotEmpty())
-                                @foreach($convenios as $convenio)
-                                <option value="{{ $convenio->id }}">{{ $convenio->nombre_completo }}</option>
-                                @endforeach
-                                @endif
-                            </select>
-                        </div>
-                        <div class="col-md-3 p-0 pt-3 content_btn_right">
-                            <a href="" class="button_green" id="">
-                                Agregar
-                            </a>
-                        </div>
-                    </div>--}}
-
                     <!-- Linea división de elementos -->
-
                         <div class="dropdown-divider mt-3 mb-5"></div>
 
                         <div class="table-responsive">
@@ -183,6 +222,8 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+
     <script>
         // función para mostrar y ocultar la tabla de vincular convenios
         $(document).ready(function(){
@@ -202,6 +243,25 @@
                 check.parents('tr').find('input[type=number],input[type=hidden]').prop('disabled', !check.prop('checked'));
             });
 
+
+            $('#codigo_cups').select2({
+                theme: 'bootstrap4',
+                ajax: {
+                    url: '{{ route('search-cups') }}',
+                    data: function (params) {
+                        // Query parameters will be ?search=[term]&type=public
+                        return {
+                            term: params.term
+                        };
+                    },
+                    processResults: function (result) {
+                        // Transforms the top-level key of the response object from 'items' to 'results'
+                        return {
+                            results: result.data
+                        };
+                    }
+                }
+            });
         });
     </script>
 @endsection

@@ -30,6 +30,18 @@
                     </div>
                     --}}
                     <div class="row">
+                        <div class="col-12">
+                            @if($errors->any())
+                                <div class="alert alert-danger" role="alert">
+                                    <h4 class="alert-heading">Error!</h4>
+                                    <ul>
+                                        <li>{!! collect($errors->all())->implode('</li><li>') !!}</li>
+                                    </ul>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-6 input__box">
                             <label for="nombre">Nombre</label>
                             <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}"
@@ -50,16 +62,6 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-12">
-                            @if($errors->any())
-                                <div class="alert alert-danger" role="alert">
-                                    <h4 class="alert-heading">Error!</h4>
-                                    <ul>
-                                        <li>{!! collect($errors->all())->implode('</li><li>') !!}</li>
-                                    </ul>
-                                </div>
-                            @endif
-                        </div>
                         <div class="col-md-4 input__box">
                             <label for="duracion">Duración (minuto)</label>
                             <input type="number" id="duracion" name="duracion" value="{{ old('duracion') }}"
@@ -93,8 +95,13 @@
                         </div>
 
                         <div class="col-md-8 input__box">
+                            @php $codigo_cups = old('codigo_cups'); $cup = !empty($codigo_cups) ? \App\Models\Cups::query()->where('code', 'like', "%$codigo_cups")->first():null @endphp
                             <label for="codigo_cups">CUPS</label>
-                            <select class="@error('codigo_cups') is-invalid @enderror" id="codigo_cups" name="codigo_cups"></select>
+                            <select class="@error('codigo_cups') is-invalid @enderror" id="codigo_cups" name="codigo_cups">
+                                @if(!empty($cup))
+                                    <option value="{{ $cup->code }}" selected>{{ $cup->nombre }}</option>
+                                @endif
+                            </select>
                         </div>
                     </div>
 
@@ -106,7 +113,7 @@
                         </div>
 
                         <div class="col-md-5 col-xl-7 input__box pl-md-0">
-                            <label for="tipo_atencion">Método</label>
+                            <label for="tipo_atencion">Tipo de atención</label>
                             <select class="@error('tipo_atencion') is-invalid @enderror" id="tipo_atencion" name="tipo_atencion">
                                 <option></option>
                                 <option value="presencial" {{old('tipo_atencion') == 'presencial' ? 'selected':''}}>Presencial</option>
