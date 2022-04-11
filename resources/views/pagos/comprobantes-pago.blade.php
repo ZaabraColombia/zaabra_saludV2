@@ -83,7 +83,7 @@
 
         <div class="content_btn_center py-5">
             <button class="fs_subtitle button_green ml-3" type="button" onclick="imprimir()">Descargar</button>
-            <button class="fs_subtitle button_blue ml-3" type="button" onclick="finalizar()">Finalizar</button>
+            <a class="fs_subtitle button_blue ml-3" type="button" href="{{ route('') }}">Finalizar</a>
         </div>
     </div>
 @endsection
