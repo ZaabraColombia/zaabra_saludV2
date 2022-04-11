@@ -4,6 +4,7 @@ namespace App\Http\Controllers\buscador;
 
 use App\Http\Controllers\Controller;
 use App\Models\ActividadEconomica;
+use App\Models\Servicio;
 use App\Models\Sgsss;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -47,5 +48,21 @@ class RecursosController extends Controller
         return response([
             'items' => $items
         ], Response::HTTP_OK);
+    }
+
+    public function servicios_convenio(Request $request)
+    {
+        $request->validate([
+            'servicio'      => ['required', 'exists:servicios,id'],
+            'institucion'   => ['required', 'exists:instituciones,id'],
+        ]);
+
+        $servicio = Servicio::query()
+            ->with(['convenios'])
+            ->where('id', $request->get('servicio'))
+            ->where('institucion_id', $request->get('institucion'))
+            ->first();
+
+        return response(['items' => $servicio->convenios], Response::HTTP_OK);
     }
 }

@@ -377,8 +377,24 @@ Route::middleware(['auth', 'roles', 'verified'])->as('paciente.')->prefix('/paci
     Route::post('/finalizar-cita-profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'finalizar_cita_profesional'])
         ->name('finalizar-cita-profesional');
 
-    Route::get('/asignar-cita/institucion/{institucion:slug}',[Paciente\Admin\CalendarioController::class,'asignar_cita_institucion'])
-        ->name('asignar-cita-institucion');
+
+    Route::group(['prefix' => 'asignar-cita/institucion'], function (){
+
+        Route::get('/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'asignar_cita_institucion'])
+            ->name('asignar-cita-institucion-profesional');
+
+        Route::post('/asignar-cita/dias-libre-profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'dias_libre_profesional'])
+            ->name('dias-libre-profesional');
+
+        Route::post('/asignar-cita/profesional/confirmar-antiguedad/{profesional}',[Paciente\Admin\CalendarioController::class,'antiguedad_profesional'])
+            ->name('confirmar-antiguedad-profesional');
+
+        Route::post('/finalizar-cita-profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'finalizar_cita_profesional'])
+            ->name('finalizar-cita-profesional');
+
+        Route::get('/asignar-cita/institucion/{institucion:slug}',[Paciente\Admin\CalendarioController::class,'asignar_cita_institucion'])
+            ->name('asignar-cita-institucion');
+    });
 
     //Route:: get('/panelAdministrativo/{idPerfilProfesional}',[App\Http\Controllers\admin\adminController::class,'cita'])->name('panelAdministrativo');
     Route::get('/pagos',[Paciente\Admin\PagosController::class,'index'])->name('pagos');

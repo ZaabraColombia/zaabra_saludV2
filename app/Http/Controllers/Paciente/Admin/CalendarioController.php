@@ -8,6 +8,7 @@ use App\Models\Antiguedad;
 use App\Models\Cita;
 use App\Models\PagoCita;
 use App\Models\perfilesprofesionales;
+use App\Models\profesionales_instituciones;
 use App\Models\tipoconsultas;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -297,6 +298,30 @@ class CalendarioController extends Controller{
             ->with('success', "Cita asignada con {$profesional->user->nombre_completo}");
     }
 
+    public function asignar_cita_institucion(profesionales_instituciones $profesional)
+    {
+        $horario = $profesional->horario;
+        $servicios = $profesional->servicios;
+        $disponibilidad = $profesional->disponibilidad_agenda;
+        $consultorio = $profesional->consultorio;
+
+        if (empty($horario) or empty($servicios) or empty($disponibilidad) or empty($consultorio))
+            return redirect()->back()->with('error-agenda', [
+                'nombre'    => $profesional->nombre_completo,
+                'especialidad' => $profesional->especialidad_pricipal->nombreEspecialidad ?? ''
+            ]);
+
+        //Atrae los dias de la semana que NO labora
+        $weekNotBusiness = array();
+        foreach (array_column($horario, 'daysOfWeek') as $item)
+            $weekNotBusiness = array_merge($weekNotBusiness, $item);
+        $weekNotBusiness = array_unique($weekNotBusiness);
+
+        $weekDisabled = array_values(array_diff(array(0, 1, 2, 3, 4, 5, 6), $weekNotBusiness));
+
+        return view('paciente.admin.calendario.asignar-cita-profesional-institucion', compact('profesional',
+        'weekDisabled'));
+    }
 
     public function profesional($id){
         return DB::select("SELECT pf.idPerfilProfesional, pf.fotoperfil, CONCAT('Dr.(a) ',  us.primernombre) AS primernombre, us.segundonombre, us.primerapellido, us.segundoapellido, ep.nombreEspecialidad, pf.numeroTarjeta, pf.direccion, un.nombreuniversidad, pf.descripcionPerfil, mn.nombre

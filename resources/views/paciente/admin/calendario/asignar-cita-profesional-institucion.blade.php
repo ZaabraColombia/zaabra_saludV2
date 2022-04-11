@@ -26,7 +26,7 @@
 
         <div class="content_row">
             <h2 class="fs_title_module blue_bold mt-3 title__img_inst" id="nombre_profesional-paciente">
-                MedPlus medicina prepagada medicina prepagada
+                {{ $profesional->institucion->user->nombreinstitucion }}
             </h2>
             <!-- Información Institución -->
             <div class="container__inst">
@@ -35,10 +35,10 @@
                 </div>
 
                 <div class="content__info_inst">
-                    <h5 class="fs_text_small black_strong">wwww.medplus.com.co</h5>
-                    <h5 class="fs_text_small black_strong">321 598 7245</h5>
-                    <h5 class="fs_text_small black_strong">Cra 14 # 93b - 15</h5>
-                    <h5 class="fs_text_small black_strong">Bogotá D.C. Colombia</h5>
+                    <h5 class="fs_text_small black_strong">{{ $profesional->institucion->url }}</h5>
+                    <h5 class="fs_text_small black_strong">{{ $profesional->sede->telefono ?? ''}}</h5>
+                    <h5 class="fs_text_small black_strong">{{ $profesional->sede->direccion ?? ''}}</h5>
+                    <h5 class="fs_text_small black_strong">{{ $profesional->sede->ciudad->nombre ?? ''}}</h5>
                 </div>
 
                 <div class="content__img_prof">
@@ -58,28 +58,21 @@
 
                 <div class="w-100 w_md_65 w_lg_100 pl-md-3">
                     <h2 class="fs_title_module blue_bold" id="nombre_profesional-paciente">
-                        Dr.(a) Claudia Perez
+                        Dr.(a) {{ $profesional->nombre_completo }}
                     </h2>
-                    <h4 class="fs_subtitle_module black_bold mb-0" id="">Cirugía maxilofacial</h4>
-                    <h5 class="fs_text gray_light">Universidad el Bosque</h5>
-                    <!-- <h5 class="fs_text gray_light">321 598 7245</h5> -->
-                    <h5 class="fs_text gray_light">Cra 14 # 93b - 15</h5>
-                    <!-- <h5 class="fs_text gray_light">Bogotá D.C. Colombia</h5> -->
-                    <!-- <h5 class="fs_text gray_bold">N° Tarjeta profesional: 1567-2</h5> -->
-
-                    <!-- <h5 class="fs_text gray_light"><i></i></h5>
-                    <h5 class="fs_text gray_light"></h5> -->
-
+                    <h4 class="fs_subtitle_module black_bold mb-0" id="">{{ $profesional->especialidad_pricipal->nombreEspecialidad ?? '' }}</h4>
+                    <h5 class="fs_text gray_light">{{ $profesional->universidad->nombreuniversidad }}</h5>
+                    <h5 class="fs_text gray_light">{{ "{$profesional->sede->direccion} ({$profesional->sede->ciudad->nombre})" }}</h5>
                     <!-- sección datos consulta perfil profesional-->
                     <div class="mt-2 mb-3 mb-md-0 w_md_85 w_lg_100 w_xl_90">
                         <h3 class="fs_subtitle_module black_bold">Tipo de consulta</h3>
-                        <div class="list__form_column">
+                        <div class="">
                             <ul>
-                                @if(!empty($profesional->tipo_consultas))
-                                    @foreach ($profesional->tipo_consultas as $consulta)
+                                @if(!empty($profesional->servicios))
+                                    @foreach ($profesional->servicios as $servicio)
                                         <li>
-                                            <p class="fs_text_small gray_light menu_{{$loop->iteration}}"><i></i>{{$consulta->nombreconsulta}}</p>
-                                            <span class="fs_text_small gray_light"><i></i>${{number_format($consulta->valorconsulta, 0, ",", ".") }}</span>
+                                            <p>{{ $servicio->nombre }}</p>
+                                            <span>${{ number_format($servicio->valor, 0, ",", ".") }}</span>
                                         </li>
                                     @endforeach
                                 @endif
@@ -104,24 +97,40 @@
                     </div>
 
                     <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
-                        <form action="#"
-                                method="post" id="form-finalizar-cita-profesional">
+                        <form action="#" method="post" id="form-finalizar-cita-profesional">
                             @csrf
                             <div class="input__box mb-3">
                                 <label for="modalidad">Modalidad de pago</label>
                                 <select id="modalidad" class="form-control" name="modalidad" required>
-                                    <option value="pse"> PSE </option>
-                                    <option value="tarjeta credito"> Tarjeta crédito </option>
-                                    <option value="presencial" id="option-presencial"> Presencial </option>
+                                    <option value="virtual">Virtual</option>
+                                    <option value="presencial"> Presencial </option>
                                 </select>
                             </div>
                             <div class="input__box mb-3">
                                 <label for="tipo_cita">Tipo de cita</label>
                                 <select id="tipo_cita" class="form-control" name="tipo_cita" required>
                                     <option></option>
-                                    <option value="" data-valor=""></option>
+                                    @if(!empty($profesional->servicios))
+                                        @foreach ($profesional->servicios as $servicio)
+                                            <option value="{{ $servicio->id }}" data-valor="{{ $servicio->valor }}">{{ $servicio->nombre }}</option>
+                                        @endforeach
+                                    @endif
                                 </select>
                             </div>
+
+
+                            <div class="">
+                                <label for="convenio">Convenio</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox" id="check-convenio">
+                                        </div>
+                                    </div>
+                                    <select class="custom-select" id="convenio" name="convenio"></select>
+                                </div>
+                            </div>
+
                             <div class="input__box mb-3">
                                 <label for="hora">Hora de la cita</label>
                                 <select id="hora" name="hora"  class="form-control" required></select>
@@ -292,7 +301,7 @@
             $('#form-finalizar-cita-profesional').submit();
         });
 
-        @empty($antiguedad)
+        @empty($antiguedad )
         $('#modal_antiguedad').modal()
             .on('click', 'button', function (e) {
                 var btn = $(this);
@@ -316,6 +325,26 @@
                 // });
             });
         @endempty
+
+        $('#tipo_cita').change(function (event) {
+            var select = $(this);
+
+            $.ajax({
+                type: "POST",
+                url: '{{ route('institucion.convenios-servicio') }}',
+                data: {servicio: select.val(), institucion: '{{ $profesional->institucion->id }}'},
+                dataType: 'json',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (response) {
+                    console.log(response);
+                },
+                error: function (response) {
+
+                }
+            })
+        });
 
     </script>
 @endsection
