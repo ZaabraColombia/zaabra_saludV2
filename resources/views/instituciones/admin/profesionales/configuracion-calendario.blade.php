@@ -152,10 +152,9 @@
                                     </td>
                                     <td>{{ date('h:i A', strtotime($item['startTime'])) }} - {{ date('h:i A', strtotime($item['endTime'])) }}</td>
                                     <td>
-                                        <button class="btn_type_icon_green eliminar-horario tool top"
+                                        <button class="border-0 bg-transparent eliminar-horario tool top"
                                                 type="button" data-id="{{ $item['id'] }}">
-                                            <i data-feather="x-circle"></i>
-                                            <span class="tiptext">Eliminar horario</span>
+                                            <i data-feather="x-circle" class="green_bold"></i> <span class="tiptext">Eliminar horario</span>
                                         </button>
                                     </td>
                                 </tr>
@@ -250,10 +249,13 @@
                         res.item.daysOfWeek.join('-') +
                         '</td>' +
                         '<td>' + moment(res.item.startTime, 'HH:mm').format('hh:mm A') + ' - ' + moment(res.item.endTime, 'HH:mm').format('hh:mm A') + '</td>' +
-                        '<td class="d-flex justify-content-center">' +
-                        '<button class="btn_cierre_citasProf eliminar-horario" type="button" data-id="' + res.item.id + '"></button>' +
+                        '<td>' +
+                            '<button class="border-0 bg-transparent eliminar-horario tool top" type="button" data-id="' + res.item.id + '">' +
+                                '<i data-feather="x-circle" class="green_bold"></i> <span class="tiptext">Eliminar horario</span>' +
+                            '</button>' +
                         '</td>' +
                         '</tr>');
+                    feather.replace();
                 },
                 error: function (res, status) {
                     $('#alert-horario-agregar').html(alert(res.responseJSON.message, 'danger'));
