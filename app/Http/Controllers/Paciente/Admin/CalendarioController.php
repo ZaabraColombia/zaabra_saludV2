@@ -50,7 +50,7 @@ class CalendarioController extends Controller{
         $horario = $profesional->user->horario;
 
         //Valida si la configuración del calendario está realizada
-        if (!isset($horario) or empty($horario->duracion) or empty($horario->descanso))
+        if (!isset($horario) or empty($horario->duracion) or empty($horario->descanso) or empty($horario->horario))
             return redirect()->route('PerfilProfesional', ['slug' => $profesional->slug])
                 ->with('warning-paciente', 'El doctor no tiene agenda disponible');
 
