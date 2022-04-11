@@ -442,48 +442,7 @@ Route::get('/test-asignar-cita-profesional-institucion', function (){
     $weekDisabled = array(1,2);
     return view('paciente.admin.calendario.asignar-cita-profesional-institucion', compact('profesional', 'weekDisabled'));
 });
-
-// ===================___________ AGENDA INSTITUCIONES ___________=================== //
-
-
-// // Ruta de la vista contactos
-// Route::get('/test-contactos-institucion', function(){
-//     return view('instituciones.admin.contactos');
-// });
-
-// // Ruta de la vista convenios
-// Route::get('/test-convenios-institucion', function(){
-//     return view('instituciones.admin.configuracion.convenios.index');
-// });
-
-// // Ruta de la vista crear convenio (formulario)
-// Route::get('/test-crear-convenio-institucion', function(){
-//     return view('instituciones.admin.configuracion.convenios.crear');
-// });
-
-// // Ruta de la vista convenios
-// Route::get('/test-servicios-institucion', function(){
-//     return view('instituciones.admin.configuracion.servicios.index');
-// });
-
-// // Ruta de la vista crear servicio
-// Route::get('/test-crear-servicio-institucion', function(){
-//     return view('instituciones.admin.configuracion.servicios.crear');
-// });
-
-// // Ruta de la vista usuarios
-// Route::get('/test-usuarios-institucion', function(){
-//     return view('instituciones.admin.configuracion.usuarios.index');
-// });
-
-// // Ruta de la vista crear Usuario
-// Route::get('/test-crear-usuario-institucion', function() {
-//     return view('instituciones.admin.configuracion.usuarios.crear');
-// });
-
-// ===================_________ FIN AGENDA INSTITUCIONES _________=================== //
 // ===================___________ AGENDA PROFESIONALES ___________=================== //
-
 // Ruta de la vista convenios
 Route::get('/test-profesional-convenio', function(){
     return view('profesionales.admin.configuracion.convenios.index');
@@ -502,6 +461,10 @@ Route::get('/test-profesionales-servicio', function(){
 // Ruta de la vista crear servicio
 Route::get('/test-profesionales-crear-servicio', function(){
     return view('profesionales.admin.configuracion.servicios.crear');
+});
+//Ruta para filtro y selección de agenda
+Route::get('/test-instituciones-filtro-agenda', function(){
+    return view('instituciones.admin.agenda.filtro');
 });
 // ===================_________ FIN AGENDA PROFESIONALES _________=================== //
 
