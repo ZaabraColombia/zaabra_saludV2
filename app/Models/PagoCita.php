@@ -15,6 +15,7 @@ class PagoCita extends Model
         'fecha',
         'vencimiento',
         'valor',
+        'valor_convenio',
         'aprobado',
         'tipo',
         'referencia_autorizacion',
