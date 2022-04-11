@@ -42,10 +42,10 @@
             @endforeach
         </section>
     </div>--}} -->
-    
+
     <section class="container-fluid content_main mb-5">
         <!-- Carrusel de especialidades -->
-        <div class="swiper-container swiper_especialidad"> 
+        <div class="swiper-container swiper_especialidad">
             <ul id="filterControls" class="list-inline cbp-l-filters-alignRight swiper-wrapper pt-5">
                 @if($institucion[0]->idtipoInstitucion == 9)
                     <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item asociado all_asociados swiper-slide" data-filter="*">Asociados</li>
@@ -56,102 +56,103 @@
                     <li class="list-inline-item cbp-filter-item u-cubeportfolio__item asociado one_especiality swiper-slide" data-filter=".{{ Str::slug($item) }}">{{ $item }}</li>
                 @endforeach
             </ul>
-    
+
             <!-- If we need navigation buttons -->
             <div class="swiper-button-prev btn_prev"></div>
-            <div class="swiper-button-next btn_next"></div> 
+            <div class="swiper-button-next btn_next"></div>
         </div>
 
         <!-- Contenido de las tarjetas de los profesionales -->
-            <div id="grid-container" class="container_grid">
-                @foreach ($objProfesionalesIns as $profesional)
-                    <?php
-                        $esp = '';
+        <div id="grid-container" class="container_grid">
+            @foreach ($objProfesionalesIns as $profesional)
+                <?php
+                $esp = '';
 
-                        if (!empty($profesional->especialidades->toArray()))
-                        {
-                            foreach ($profesional->especialidades as $item)
-                            $esp .= Str::slug($item->nombreEspecialidad) . ' ';
+                if (!empty($profesional->especialidades->toArray()))
+                {
+                    foreach ($profesional->especialidades as $item)
+                        $esp .= Str::slug($item->nombreEspecialidad) . ' ';
 
-                            $especialidad = $profesional->especialidades[0]->nombreEspecialidad; 
-                        }
-                        else {
-                            $especialidad = $profesional->nombre_especialidad;
-                            $esp = Str::slug($especialidad);
-                        }
-                    ?>
+                    $especialidad = $profesional->especialidades[0]->nombreEspecialidad;
+                }
+                else {
+                    $especialidad = $profesional->nombre_especialidad;
+                    $esp = Str::slug($especialidad);
+                }
+                ?>
 
-                    <div class="card cbp-item {{ $esp }} pt-4 zoom_img">
-                        <img class="img_professional" src="{{ asset($profesional->foto_perfil_institucion) }}">
+                <div class="card cbp-item {{ $esp }} pt-4 zoom_img">
+                    <img class="img_professional" src="{{ asset($profesional->foto_perfil_institucion) }}">
 
-                        <div class="card-body px-1 py-3">
-                            <h2 class="specialty titulo_card mb-1">{{$especialidad}}</h2>
-                            <h2 class="subSpecialty subSpecialty_text titulo_card mb-1">{{$especialidad}}</h2>
+                    <div class="card-body px-1 py-3">
+                        <h2 class="specialty titulo_card mb-1">{{$especialidad}}</h2>
+                        <h2 class="subSpecialty subSpecialty_text titulo_card mb-1">{{$especialidad}}</h2>
 
-                            <h2 class="niega_uppercase subTitulo_card">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h2>
+                        <h2 class="niega_uppercase subTitulo_card">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h2>
 
-                            <p class="specialty text_card">Especialista en {{$especialidad}}</p>
-                            <p class="subSpecialty text_card">Especialista en <span class="subSpecialty_text">{{$especialidad}}</span></p>
+                        <p class="specialty text_card">Especialista en {{$especialidad}}</p>
+                        <p class="subSpecialty text_card">Especialista en <span class="subSpecialty_text">{{$especialidad}}</span></p>
 
-                            <p class="name_university text_univ_card">{{$profesional->nombre_universidad}}</p>
-                            <h2 class="cargo_profInst text_cargo_card">{{$profesional->cargo}}</h2>
-                   
+                        <p class="name_university text_univ_card">{{$profesional->nombre_universidad}}</p>
+                        <h2 class="cargo_profInst text_cargo_card">{{$profesional->cargo}}</h2>
 
-                            <div class="content_btn_cardProf mt-1">
-                                <a class="btn_cardProf" href=""
-                                    data-toggle="modal" data-target="#modal_agenda_no_disponible"> Agendar cita
-                                    <i class="fas fa-arrow-right pl-2"></i>
-                                </a>
-                            </div>
+
+                        <div class="content_btn_cardProf mt-1">
+                            <a class="btn_cardProf" href="{{ route('paciente.asignar-cita-institucion-profesional', ['profesional' => $profesional->slug]) }}"> Agendar cita
+                                <i class="fas fa-arrow-right pl-2"></i>
+                            </a>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
+        </div>
 
     </section>
 
-    <!-- Modal agenda profesinal no disponible -->
-    <div class="modal fade" id="modal_agenda_no_disponible" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content modal_container">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+    @if(session()->has('error-agenda'))
+        <!-- Modal agenda profesinal no disponible -->
+        <div class="modal fade" id="modal_agenda_no_disponible" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal_container">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
 
-                <div class="modal-body">
-                    <h1>Disponibilidad de Agenda</h1>
+                    <div class="modal-body">
+                        <h1>Disponibilidad de Agenda</h1>
 
-                    <div class="">
-                        <div class="card card_day mb-2">
-                            <div class="card-header">
-                                <div class="card_header_day"></div>
-                                <div class="card_header_day"></div>
+                        <div class="">
+                            <div class="card card_day mb-2">
+                                <div class="card-header">
+                                    <div class="card_header_day"></div>
+                                    <div class="card_header_day"></div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="elemento_no_disponible">
+                                        <i data-feather="cloud-off" class="no_disponible"></i>
+                                    </div>
+                                </div>
+                                <div class="card-footer"></div>
                             </div>
 
-                            <div class="card-body">
-                                <div class="elemento_no_disponible">
-                                    <i data-feather="cloud-off" class="no_disponible"></i>
-                                </div>
-                            </div> 
-                            <div class="card-footer"></div>
-                        </div>
-
-                        <div class="text-center p-3">
-                            <p class="black_light fs_text">Profesional Wilmar Polo</p>
-                            <p class="black_light fs_text">Especialización Dermatología</p>
-                            <p class="black_light fs_text">Actualmente no tiene agenda disponoble.</p>
+                            <div class="text-center p-3">
+                                <p class="black_light fs_text">Profesional {{ session('error-agenda')['nombre'] }}</p>
+                                <p class="black_light fs_text">Especialización {{ session('error-agenda')['especialidad'] }}</p>
+                                <p class="black_light fs_text">Actualmente no tiene agenda disponoble.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="modal-footer content_btn_center">
+                    <div class="modal-footer content_btn_center">
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
 @endsection
 
 @section('scripts')
@@ -163,6 +164,7 @@
     </script>
 
     <script type="text/javascript">
+        @if (session()->has('error-agenda')) $('#modal_agenda_no_disponible').modal();@endif
         jQuery(document).ready( function() {
             jQuery('#grid-container').cubeportfolio({
                 filters: '#filterControls',
@@ -179,14 +181,14 @@
 
         $(document).ready(function(){
             $(".all_asociados").on( "click", function() {
-                $('.specialty').show(); 
-                $('.cargo_profInst').show(); 
-                $('.subSpecialty').hide(); 
+                $('.specialty').show();
+                $('.cargo_profInst').show();
+                $('.subSpecialty').hide();
             });
             $(".one_especiality").on( "click", function() {
                 $('.subSpecialty').show();
                 $('.subSpecialty_text').text($(this).text());
-                $('.specialty').hide(); 
+                $('.specialty').hide();
                 $('.cargo_profInst').hide();
             });
         });
@@ -196,22 +198,22 @@
             const swiper_galeria_prof = new Swiper(".swiper_especialidad", {
                 //loop: true,
                 //resizeObserver: true,
-            
+
                 autoplay: {
-                delay: 5500,
-                disableOnInteraction: false,
+                    delay: 5500,
+                    disableOnInteraction: false,
                 },
-            
+
                 // If we need pagination
                 pagination: {
                     el: '.swiper-pagination',
                 },
                 // Navigation arrows
                 navigation: {
-                nextEl: '.btn_next',
-                prevEl: '.btn_prev',
+                    nextEl: '.btn_next',
+                    prevEl: '.btn_prev',
                 },
-            
+
                 breakpoints: {
                     // when window width is >= 320px
                     320: {
@@ -231,13 +233,13 @@
                         slidesPerGroup: 1,
                         spaceBetween: 20,
                     },
-                        // when window width is >= 1360px
+                    // when window width is >= 1360px
                     1360: {
                         slidesPerView: 6,
                         lidesPerGroup: 1,
                         spaceBetween: 20,
                     },
-                    
+
                     // when window width is >= 1920px
                     1920: {
                         slidesPerView: 8,
