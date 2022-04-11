@@ -421,18 +421,6 @@ Route::get('/error404', function () { return view('errores/error404');})->name('
 Route::get('/error505', function () { return view('errores/error505');})->name('error505');
 
 
-Route::get('/test', function (){
-    \Illuminate\Support\Facades\Gate::authorize('modulos-institucion', 'editar');
-
-    echo 'ok';
-});
-
-Route::get('/test-2', function (){
-    \Illuminate\Support\Facades\Gate::authorize('modulos-institucion', 'editar-2');
-
-    echo 'ok';
-});
-
 // Ruta para la vista asignar cita profesional institución
 Route::get('/test-asignar-cita-profesional-institucion', function (){
     //$profesional= \App\Models\perfilesprofesionales::first();

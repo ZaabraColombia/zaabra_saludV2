@@ -83,16 +83,13 @@
 
         <div class="content_btn_center py-5">
             <button class="fs_subtitle button_green ml-3" type="button" onclick="imprimir()">Descargar</button>
-            <a class="fs_subtitle button_blue ml-3" type="button" href="{{ route('') }}">Finalizar</a>
+            <a class="fs_subtitle button_blue ml-3" type="button" href="{{ route('paciente.citas', ['confirmation' => '1']) }}">Finalizar</a>
         </div>
     </div>
 @endsection
 
 @section('scripts')
     <script type="text/javascript">
-        function finalizar() {
-            window.close();
-        }
 
         function imprimir(){
             var ventana = window.open('', 'PRINT', 'height=400,width=600');
