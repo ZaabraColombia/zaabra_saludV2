@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MailNotify;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 use SEO;
 
 class RegisterController extends Controller{
@@ -60,11 +62,37 @@ class RegisterController extends Controller{
      */
 
     protected function validator(array $data){
+        //dd($data);
         return Validator::make($data, [
+            'idrol'             => ['required', Rule::in([1, 2, 3])],
+            'primernombre'      => ['required', 'max:50'],
+            'segundonombre'     => ['nullable', 'max:50'],
+            'primerapellido'    => ['required', 'max:50'],
+            'segundoapellido'   => ['nullable', 'max:50'],
+            'nombreinstitucion' => ['required_if:idrol,3', 'max:50'],
             'tipodocumento'     => ['required', 'exists:tipo_documentos,id'],
+            //'numerodocumento'   => ['required', 'max:50', 'unique:users,numerodocumento'],
             'numerodocumento'   => ['required', 'max:50'],
-            'email'             => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password'          => ['required', 'string', 'min:8', 'confirmed'],
+            'email'             => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+            'password'          => ['required', 'string', 'min:8', 'confirmed', Password::min(8)
+                ->mixedCase()
+                ->numbers()
+                ->symbols()
+                ->uncompromised()
+            ],
+            'aceptoTerminos' => ['required', 'accepted']
+        ], [
+            'idrol.in' => 'Escoger uno de los tres roles (Paciente, Doctor, Institución)'
+        ], [
+            'primernombre'      => 'Primer nombre',
+            'segundonombre'     => 'Segundo nombre',
+            'primerapellido'    => 'Primer apellido',
+            'segundoapellido'   => 'Segundo apellido',
+            'tipodocumento'     => 'Tipo Documento',
+            'numerodocumento'   => 'Número Documento',
+            'email'     => 'Correo electrónico',
+            'password'  => 'Contraseña',
+            'aceptoTerminos'    => 'Términos y condiciones'
         ]);
     }
 
@@ -87,6 +115,7 @@ class RegisterController extends Controller{
             'numerodocumento'   => $data['numerodocumento'],
             'email'             => $data['email'],
             'password'          => Hash::make($data['password']),
+            'aceptoTerminos'    => $data['aceptoTerminos'],
         ]);
 
 
