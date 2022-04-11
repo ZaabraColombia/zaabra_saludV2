@@ -101,6 +101,7 @@
                     <div class="modal-body">
                         <h1><span id="titulo">Nuevo</span> Contacto</h1>
                         @csrf
+                        @method('put')
                         <div class="form_modal">
                             <div class="row m-0">
                                 <div class="col-12" id="alertas-modal"></div>
@@ -208,7 +209,7 @@
                     <h1 class="pl-5">Eliminar Contacto</h1>
 
                     <div class="content__see_contacs">
-                        <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                        <img class="img__see_contacs" id="imagen-foto-eliminar">
                     </div>
 
                     <div class="content__border_see_contacs"></div>
@@ -264,6 +265,7 @@
                 <div class="modal-footer content_btn_center">
                     <form method="post" id="form-contacto-eliminar" class="forms">
                         @csrf
+                        @method('delete')
                         <button type="button" class="button_transparent ml-2" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="button_blue ml-2">Eliminar</button>
                     </form>
@@ -284,13 +286,13 @@
                 <!-- Mantener las cases "label-*" -->
                 <div class="modal-body">
                     <h1>Ver Contacto</h1>
-                        
+
                     <div class="content__see_contacs">
                         <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
                     </div>
 
                     <div class="content__border_see_contacs"></div>
-                       
+
                     <div class="modal_info_cita pt-5">
                         <div class="info_contac">
                             <span>Nombre:</span>
@@ -401,6 +403,7 @@
             var form = $('#form-contacto');
             form.attr('action', '{{ route('paciente.contactos.store') }}');
             form.attr('method', 'post');
+            $('[name="_method"]').attr('value', 'post');
             form[0].reset();
             $('#modal_contactos').modal();
             $('#titulo').html('Nuevo');
@@ -417,7 +420,9 @@
 
             form[0].reset();
             form.attr('action', ruta_guardar.replace(':id', btn.data('id')));
-            form.attr('method', 'put');
+            form.attr('method', 'post');
+            $('[name="_method"]').attr('value', 'put');
+
             $('#titulo').html('Editar');
 
             //llamar someId de la tabla
@@ -454,7 +459,7 @@
 
                 form[0].reset();
                 form.attr('action', ruta_eliminar.replace(':id', btn.data('id')));
-                form.attr('method', 'delete');
+                form.attr('method', 'post');
 
                 //llamar someId de la tabla
                 row = table.row( btn.parents('tr') );
@@ -474,6 +479,8 @@
                             console.log(key);
                         });
 
+                        $('#imagen-foto-eliminar').attr('src', item.foto)
+
                         modal.modal();
                     },
                     error: function (error) {
@@ -491,7 +498,7 @@
 
                 form[0].reset();
                 form.attr('action', ruta_eliminar.replace(':id', btn.data('id')));
-                form.attr('method', 'delete');
+                form.attr('method', 'post');
 
                 //llamar someId de la tabla
                 row = table.row( btn.parents('tr') );
@@ -526,10 +533,16 @@
             var form = $(this);
             var modal = $('.modal_contactos');
 
+            var data = new FormData(form[0]);
+
             $.ajax({
                 url: form.attr('action'),
-                data: form.serialize(),
+                data: data,
                 type: form.attr('method'),
+                enctype: 'multipart/form-data',
+                contentType: false,
+                processData: false,
+                cache: false,
                 dataType: 'json',
                 success: function (response) {
                     //mensaje
@@ -539,7 +552,7 @@
                     switch (response.type) {
                         case 'created':
                             table.row.add([
-                                response.item.nombre,
+                                img(response.item.foto, response.item.nombre),
                                 response.item.direccion,
                                 response.item.telefono,
                                 response.item.correo,
@@ -551,7 +564,7 @@
                             break;
                         case 'updated':
                             row.data([
-                                response.item.nombre,
+                                img(response.item.foto, response.item.nombre),
                                 response.item.direccion,
                                 response.item.telefono,
                                 response.item.correo,
@@ -573,6 +586,17 @@
                     $('#alertas-modal').html(alert(error.responseJSON.message, 'danger'));
                 }
             });
+
+            function img(img, nombre) {
+                return '<div class="user__xl">'
+                    + '<div class="pr-2">'
+                    + '<img class="img__contacs" src="' + img + '">'
+                    + '</div>'
+                    + '<div>'
+                    + '<span>' + nombre + '</span>'
+                    + '</div>'
+                    +'</div>';
+            }
         });
 
 
