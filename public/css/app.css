@@ -22332,7 +22332,7 @@ a:link, a:visited, a:active, a:hover {
   color: #707070;
   margin-bottom: 3px;
 }
-.modal_container .modal-body .form_modal select, .modal_container .modal-body .form_modal input[type=text], .modal_container .modal-body .form_modal [type=number], .modal_container .modal-body .form_modal [type=time], .modal_container .modal-body .form_modal [type=email], .modal_container .modal-body .form_modal [type=date] {
+.modal_container .modal-body .form_modal select, .modal_container .modal-body .form_modal input[type=text], .modal_container .modal-body .form_modal [type=number], .modal_container .modal-body .form_modal [type=time], .modal_container .modal-body .form_modal [type=email], .modal_container .modal-body .form_modal [type=date], .modal_container .modal-body .form_modal [type=datetime-local] {
   display: block;
   width: 100%;
   height: calc(1.6em + 0.75rem + 2px);
@@ -22348,7 +22348,7 @@ a:link, a:visited, a:active, a:hover {
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.modal_container .modal-body .form_modal select:focus, .modal_container .modal-body .form_modal input[type=text]:focus, .modal_container .modal-body .form_modal [type=number]:focus, .modal_container .modal-body .form_modal [type=time]:focus, .modal_container .modal-body .form_modal [type=email]:focus, .modal_container .modal-body .form_modal [type=date]:focus {
+.modal_container .modal-body .form_modal select:focus, .modal_container .modal-body .form_modal input[type=text]:focus, .modal_container .modal-body .form_modal [type=number]:focus, .modal_container .modal-body .form_modal [type=time]:focus, .modal_container .modal-body .form_modal [type=email]:focus, .modal_container .modal-body .form_modal [type=date]:focus, .modal_container .modal-body .form_modal [type=datetime-local]:focus {
   color: #434343;
   background-color: #F9F9F9;
   border-color: #c3d5e5;

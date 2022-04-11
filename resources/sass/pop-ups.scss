@@ -107,7 +107,7 @@
                 color: $gray_second;
                 margin-bottom: 3px;
             }
-            select, input[type="text"], [type="number"], [type="time"], [type="email"], [type="date"] {
+            select, input[type="text"], [type="number"], [type="time"], [type="email"], [type="date"], [type="datetime-local"] {
                 display: block;
                 width: 100%;
                 height: calc(1.6em + 0.75rem + 2px);

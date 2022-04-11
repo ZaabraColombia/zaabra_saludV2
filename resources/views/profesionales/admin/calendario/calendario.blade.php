@@ -586,17 +586,17 @@
                                 <div class="col-12 p-0" id="alerta-editar"></div>
                                 <input type="hidden" id="id_cita-editar" name="id_cita"/>
 
-                                <div class="col-12 p-0">
+                                <div class="col-12 col-md-6">
                                     <label for="fecha_inicio">Fecha inicio</label>
                                     <input type="datetime-local" id="fecha_inicio" name="fecha_inicio" required/>
                                 </div>
 
-                                <div class="col-12 p-0">
+                                <div class="col-12 col-md-6">
                                     <label for="fecha_fin">Fecha fin</label>
                                     <input type="datetime-local" id="fecha_fin" name="fecha_fin" required/>
                                 </div>
 
-                                <div class="col-12 p-0 pl-md-2">
+                                <div class="col-12">
                                     <label for="comentarios">Comentarios</label>
                                     <textarea name="comentarios" id="comentarios" rows="5"></textarea>
                                 </div>
