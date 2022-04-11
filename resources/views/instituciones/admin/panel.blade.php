@@ -119,6 +119,14 @@
                             </div>
                         </a>
                     </div>
+                    {{-- Medistoria --}}
+                    <div class="col-6 col-md-4 col-lg-12 py-3 px-2 py-lg-2">
+                        <a  href="" target="_blank">
+                            <div class="content__logos_inst ">
+                                <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/logo_medhistoria_banner.png') }}" alt="">
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
