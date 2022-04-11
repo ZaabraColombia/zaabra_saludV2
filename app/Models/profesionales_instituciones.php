@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,6 +11,8 @@ use function Symfony\Component\Translation\t;
 
 class profesionales_instituciones extends Model
 {
+    use Sluggable;
+
     protected $fillable = [
         'id_profesional_inst',
         'id_institucion',
@@ -41,6 +44,7 @@ class profesionales_instituciones extends Model
         'disponibilidad_agenda',
         'sede_id',
         'consultorio',
+        'slug',
     ];
 
     protected $primaryKey = "id_profesional_inst";
@@ -125,5 +129,18 @@ class profesionales_instituciones extends Model
     public function servicios(): BelongsToMany
     {
         return $this->belongsToMany(Servicio::class, 'profesionales_ins_has_servicios', 'profesional_id', 'servicio_id');
+    }
+
+
+    /**
+     * @return \string[][][]
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => ['primer_nombre', 'segundo_nombre', 'primer_apellido', 'segundo_apellido']
+            ]
+        ];
     }
 }
