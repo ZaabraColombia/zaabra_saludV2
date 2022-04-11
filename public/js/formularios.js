@@ -13,9 +13,9 @@ $(document).ready(function() {
 // Evento onclick para desplegar las tarjetas del formulario de registro y el cambio de color del icono en la linea de opciones FORMULARIO PROFESIONALES
 function containtHideOption (t){
     let myvar = t.getAttribute('data-position');
-    
+
     let selector = document.querySelector.bind(document);
-    
+
     // Condicional para el despliegue de elementos opción DATOS PERSONALES
     if (myvar == "personalData") {
         selector(".personal_data").style.display = "block";
@@ -25,7 +25,7 @@ function containtHideOption (t){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".perfil-profesional").removeClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").removeClass('iconAzul_trataProced')
         $(".premio-reconocimiento").removeClass('iconAzul_premioRecon')
@@ -41,8 +41,8 @@ function containtHideOption (t){
         selector(".Awards_honours").style.display = "none";
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
- 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").removeClass('iconAzul_trataProced')
         $(".premio-reconocimiento").removeClass('iconAzul_premioRecon')
@@ -60,7 +60,7 @@ function containtHideOption (t){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
         $(".premio-reconocimiento").removeClass('iconAzul_premioRecon')
@@ -77,7 +77,7 @@ function containtHideOption (t){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
         $(".premio-reconocimiento").addClass('iconAzul_premioRecon')
@@ -94,7 +94,7 @@ function containtHideOption (t){
         selector(".publications_formInst").style.display = "block";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
         $(".premio-reconocimiento").addClass('iconAzul_premioRecon')
@@ -111,7 +111,7 @@ function containtHideOption (t){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "block";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
         $(".premio-reconocimiento").addClass('iconAzul_premioRecon')
@@ -123,9 +123,9 @@ function containtHideOption (t){
 // Evento onclick para ocultar y mostrar elementos y cambio de color de iconos por medio del bóton siguiente en la vista " FORMULARIO PROFESIONALES "
 function btnHideNext (u){
     let varBtnFormProf = u.getAttribute('code-position')
-    
+
     let selector = document.querySelector.bind(document);
-    
+
     // Condicional para mostrar elementos de la opción DATOS PERSONALES
     if (varBtnFormProf == "personalData") {
         selector(".personal_data").style.display = "none";
@@ -135,7 +135,7 @@ function btnHideNext (u){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos azules que se adicionan de la linea de opciones con el evento on  click 
+        // Iconos azules que se adicionan de la linea de opciones con el evento on  click
         $(".perfil-profesional").addClass('iconAzul_perfProf')
     }
 
@@ -148,7 +148,7 @@ function btnHideNext (u){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos azules que se adicionan de la linea de opciones con el evento on  click  
+        // Iconos azules que se adicionan de la linea de opciones con el evento on  click
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
     }
@@ -162,7 +162,7 @@ function btnHideNext (u){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos azules que se adicionan de la linea de opciones con el evento on  click 
+        // Iconos azules que se adicionan de la linea de opciones con el evento on  click
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
         $(".premio-reconocimiento").addClass('iconAzul_premioRecon')
@@ -177,7 +177,7 @@ function btnHideNext (u){
         selector(".publications_formInst").style.display = "block";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos azules que se adicionan de la linea de opciones con el evento on  click 
+        // Iconos azules que se adicionan de la linea de opciones con el evento on  click
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
         $(".premio-reconocimiento").addClass('iconAzul_premioRecon')
@@ -193,7 +193,7 @@ function btnHideNext (u){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "block";
 
-        // Iconos azules que se adicionan de la linea de opciones con el evento on  click 
+        // Iconos azules que se adicionan de la linea de opciones con el evento on  click
         $(".perfil-profesional").addClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").addClass('iconAzul_trataProced')
         $(".premio-reconocimiento").addClass('iconAzul_premioRecon')
@@ -205,7 +205,7 @@ function btnHideNext (u){
 // Evento onclick para ocultar y mostrar elementos y cambio de color de iconos por medio del bóton anterior en la vista " FORMULARIO PROFESIONALES "
 function btnHidePrevious (v){
     let varBtnPrevious = v.getAttribute('code-position')
-    
+
     let selector = document.querySelector.bind(document);
     // Condicional para mostrar elementos de la opción GALERIA
     if (varBtnPrevious == "galleryFormProf") {
@@ -229,7 +229,7 @@ function btnHidePrevious (v){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos azules que se remuenen de la linea de opciones con el evento on  click 
+        // Iconos azules que se remuenen de la linea de opciones con el evento on  click
         $(".publicacion").removeClass('iconAzul_public')
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
     }
@@ -243,7 +243,7 @@ function btnHidePrevious (v){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos azules que se remuenen de la linea de opciones con el evento on  click 
+        // Iconos azules que se remuenen de la linea de opciones con el evento on  click
         $(".premio-reconocimiento").removeClass('iconAzul_premioRecon')
         $(".publicacion").removeClass('iconAzul_public')
         $(".galeria-video").removeClass('iconAzul_galeriaVideo')
@@ -258,7 +258,7 @@ function btnHidePrevious (v){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos azules que se remuenen de la linea de opciones con el evento on  click 
+        // Iconos azules que se remuenen de la linea de opciones con el evento on  click
         $(".tratamiento-procedimiento").removeClass('iconAzul_trataProced')
         $(".premio-reconocimiento").removeClass('iconAzul_premioRecon')
         $(".publicacion").removeClass('iconAzul_public')
@@ -274,7 +274,7 @@ function btnHidePrevious (v){
         selector(".publications_formInst").style.display = "none";
         selector(".gallery_formInst").style.display = "none";
 
-        // Iconos azules que se remuenen de la linea de opciones con el evento on  click 
+        // Iconos azules que se remuenen de la linea de opciones con el evento on  click
         $(".perfil-profesional").removeClass('iconAzul_perfProf')
         $(".tratamiento-procedimiento").removeClass('iconAzul_trataProced')
         $(".premio-reconocimiento").removeClass('iconAzul_premioRecon')
@@ -302,23 +302,23 @@ $(document).ready(function() {
 // Evento onclick para ocultar y mostrar elementos y cambio de color de iconos en la vista " FORMULARIO INSTITUCIONES "
 function hideContaintOption (w){
     let myvar = w.getAttribute('data-position');
-    
+
     let selector = document.querySelector.bind(document);
-    
+
     // Condicional para el despliegue de elementos opción DATOS INSTITUCIONALES
     if (myvar == "dateInstitution") {
         selector(".date_institution").style.display = "block";
         selector(".professional_services").style.display = "none";
         selector(".about_institution").style.display = "none";
-        selector(".professional_inst").style.display = "none";
+        ////selector(".professional_inst").style.display = "none";
         selector(".certifications_inst").style.display = "none";
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".serv_profesional").removeClass('iconVerde_servProfesional')
         $(".acerca_institution").removeClass('iconVerde_acercaInst')
-        $(".profesional_institution").removeClass('iconVerde_profesionalInst')
+        ////$(".profesional_institution").removeClass('iconVerde_profesionalInst')
         $(".certificado_institution").removeClass('iconVerde_certifInst')
         $(".sede_institution").removeClass('iconVerde_sedeInst')
         $(".galeria_institution").removeClass('iconVerde_galeInst')
@@ -329,15 +329,15 @@ function hideContaintOption (w){
         selector(".professional_services").style.display = "block";
         selector(".date_institution").style.display = "none";
         selector(".about_institution").style.display = "none";
-        selector(".professional_inst").style.display = "none";
+        ////selector(".professional_inst").style.display = "none";
         selector(".certifications_inst").style.display = "none";
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
- 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".serv_profesional").addClass('iconVerde_servProfesional')
         $(".acerca_institution").removeClass('iconVerde_acercaInst')
-        $(".profesional_institution").removeClass('iconVerde_profesionalInst')
+        ////$(".profesional_institution").removeClass('iconVerde_profesionalInst')
         $(".certificado_institution").removeClass('iconVerde_certifInst')
         $(".sede_institution").removeClass('iconVerde_sedeInst')
         $(".galeria_institution").removeClass('iconVerde_galeInst')
@@ -349,22 +349,22 @@ function hideContaintOption (w){
         selector(".about_institution").style.display = "block";
         selector(".date_institution").style.display = "none";
         selector(".professional_services").style.display = "none";
-        selector(".professional_inst").style.display = "none";
+        //selector(".professional_inst").style.display = "none";
         selector(".certifications_inst").style.display = "none";
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".serv_profesional").addClass('iconVerde_servProfesional')
         $(".acerca_institution").addClass('iconVerde_acercaInst')
-        $(".profesional_institution").removeClass('iconVerde_profesionalInst')
+        //$(".profesional_institution").removeClass('iconVerde_profesionalInst')
         $(".certificado_institution").removeClass('iconVerde_certifInst')
         $(".sede_institution").removeClass('iconVerde_sedeInst')
         $(".galeria_institution").removeClass('iconVerde_galeInst')
     }
 
     // Condicional para el despliegue de elementos opción PROFESIONALES
-    else if (myvar == "professionalInst") {
+    /*else if (myvar == "professionalInst") {
         selector(".professional_inst").style.display = "block";
         selector(".date_institution").style.display = "none";
         selector(".professional_services").style.display = "none";
@@ -373,14 +373,14 @@ function hideContaintOption (w){
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".serv_profesional").addClass('iconVerde_servProfesional')
         $(".acerca_institution").addClass('iconVerde_acercaInst')
         $(".profesional_institution").addClass('iconVerde_profesionalInst')
         $(".certificado_institution").removeClass('iconVerde_certifInst')
         $(".sede_institution").removeClass('iconVerde_sedeInst')
         $(".galeria_institution").removeClass('iconVerde_galeInst')
-    }
+    }*/
 
     // Condicional para el despliegue de elementos opción CERTIFICACIONES
     else if (myvar == "certificationsInst") {
@@ -388,11 +388,11 @@ function hideContaintOption (w){
         selector(".date_institution").style.display = "none";
         selector(".professional_services").style.display = "none";
         selector(".about_institution").style.display = "none";
-        selector(".professional_inst").style.display = "none";
+        //selector(".professional_inst").style.display = "none";
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".serv_profesional").addClass('iconVerde_servProfesional')
         $(".acerca_institution").addClass('iconVerde_acercaInst')
         $(".profesional_institution").addClass('iconVerde_profesionalInst')
@@ -407,11 +407,11 @@ function hideContaintOption (w){
         selector(".date_institution").style.display = "none";
         selector(".professional_services").style.display = "none";
         selector(".about_institution").style.display = "none";
-        selector(".professional_inst").style.display = "none";
+        //selector(".professional_inst").style.display = "none";
         selector(".certifications_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".serv_profesional").addClass('iconVerde_servProfesional')
         $(".acerca_institution").addClass('iconVerde_acercaInst')
         $(".profesional_institution").addClass('iconVerde_profesionalInst')
@@ -426,38 +426,38 @@ function hideContaintOption (w){
         selector(".date_institution").style.display = "none";
         selector(".professional_services").style.display = "none";
         selector(".about_institution").style.display = "none";
-        selector(".professional_inst").style.display = "none";
+        //selector(".professional_inst").style.display = "none";
         selector(".certifications_inst").style.display = "none";
         selector(".venues_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".serv_profesional").addClass('iconVerde_servProfesional')
         $(".acerca_institution").addClass('iconVerde_acercaInst')
         $(".profesional_institution").addClass('iconVerde_profesionalInst')
         $(".certificado_institution").addClass('iconVerde_certifInst')
         $(".sede_institution").addClass('iconVerde_sedeInst')
         $(".galeria_institution").addClass('iconVerde_galeInst')
-    }   
+    }
 
 }
 
 // Evento onclick para ocultar y mostrar elementos y cambio de color de iconos por medio del bóton siguiente en la vista " FORMULARIO INSTITUCIONES "
 function hideBtnNext (x){
     let varBtn = x.getAttribute('code-position')
-    
+
     let selector = document.querySelector.bind(document);
-    
+
     // Condicional para el registro de usuario rol Paciente
     if (varBtn == "dateInstitution") {
         selector(".date_institution").style.display = "none";
         selector(".professional_services").style.display = "block";
         selector(".about_institution").style.display = "none";
-        selector(".professional_inst").style.display = "none";
+        //selector(".professional_inst").style.display = "none";
         selector(".certifications_inst").style.display = "none";
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".serv_profesional").addClass('iconVerde_servProfesional')
     }
 
@@ -466,12 +466,12 @@ function hideBtnNext (x){
         selector(".about_institution").style.display = "block";
         selector(".date_institution").style.display = "none";
         selector(".professional_services").style.display = "none";
-        selector(".professional_inst").style.display = "none";
+        //selector(".professional_inst").style.display = "none";
         selector(".certifications_inst").style.display = "none";
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".serv_profesional").addClass('iconVerde_servProfesional')
         $(".acerca_institution").addClass('iconVerde_acercaInst')
     }
@@ -486,40 +486,40 @@ function hideBtnNext (x){
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".serv_profesional").addClass('iconVerde_servProfesional')
         $(".acerca_institution").addClass('iconVerde_acercaInst')
         $(".profesional_institution").addClass('iconVerde_profesionalInst')
     }
 
     // Condicional para el registro de usuario rol Medico/a
-    else if (varBtn == "professionalInst") {
+    /*else if (varBtn == "professionalInst") {
         selector(".date_institution").style.display = "none";
         selector(".professional_services").style.display = "none";
         selector(".about_institution").style.display = "none";
-        selector(".professional_inst").style.display = "none";
+        //selector(".professional_inst").style.display = "none";
         selector(".certifications_inst").style.display = "block";
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".serv_profesional").addClass('iconVerde_servProfesional')
         $(".acerca_institution").addClass('iconVerde_acercaInst')
         $(".profesional_institution").addClass('iconVerde_profesionalInst')
         $(".certificado_institution").addClass('iconVerde_certifInst')
-    }
+    }*/
 
     // Condicional para el registro de usuario rol Medico/a
     else if (varBtn == "certificationsInst") {
         selector(".date_institution").style.display = "none";
         selector(".professional_services").style.display = "none";
         selector(".about_institution").style.display = "none";
-        selector(".professional_inst").style.display = "none";
+        //selector(".professional_inst").style.display = "none";
         selector(".certifications_inst").style.display = "none";
         selector(".venues_inst").style.display = "block";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".serv_profesional").addClass('iconVerde_servProfesional')
         $(".acerca_institution").addClass('iconVerde_acercaInst')
         $(".profesional_institution").addClass('iconVerde_profesionalInst')
@@ -532,12 +532,12 @@ function hideBtnNext (x){
         selector(".date_institution").style.display = "none";
         selector(".professional_services").style.display = "none";
         selector(".about_institution").style.display = "none";
-        selector(".professional_inst").style.display = "none";
+        //selector(".professional_inst").style.display = "none";
         selector(".certifications_inst").style.display = "none";
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "block";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".serv_profesional").addClass('iconVerde_servProfesional')
         $(".acerca_institution").addClass('iconVerde_acercaInst')
         $(".profesional_institution").addClass('iconVerde_profesionalInst')
@@ -550,19 +550,19 @@ function hideBtnNext (x){
 // Evento onclick para ocultar y mostrar elementos y cambio de color de iconos por medio del bóton anterior en la vista " FORMULARIO INSTITUCIONES "
 function hideBtnPrevious (y){
     let varBtnPrevious = y.getAttribute('code-position')
-    
+
     let selector = document.querySelector.bind(document);
     // Condicional para el registro de usuario rol Paciente
     if (varBtnPrevious == "galleryInst") {
         selector(".date_institution").style.display = "none";
         selector(".professional_services").style.display = "none";
         selector(".about_institution").style.display = "none";
-        selector(".professional_inst").style.display = "none";
+        //selector(".professional_inst").style.display = "none";
         selector(".certifications_inst").style.display = "none";
         selector(".venues_inst").style.display = "block";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".galeria_institution").removeClass('iconVerde_galeInst')
     }
 
@@ -571,12 +571,12 @@ function hideBtnPrevious (y){
         selector(".date_institution").style.display = "none";
         selector(".professional_services").style.display = "none";
         selector(".about_institution").style.display = "none";
-        selector(".professional_inst").style.display = "none";
+        //selector(".professional_inst").style.display = "none";
         selector(".certifications_inst").style.display = "block";
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".sede_institution").removeClass('iconVerde_sedeInst')
         $(".galeria_institution").removeClass('iconVerde_galeInst')
     }
@@ -591,42 +591,42 @@ function hideBtnPrevious (y){
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".certificado_institution").removeClass('iconVerde_certifInst')
         $(".sede_institution").removeClass('iconVerde_sedeInst')
         $(".galeria_institution").removeClass('iconVerde_galeInst')
     }
 
     // Condicional para el registro de usuario rol Paciente
-    if (varBtnPrevious == "professionalInst") {
+    /*if (varBtnPrevious == "professionalInst") {
         selector(".date_institution").style.display = "none";
         selector(".professional_services").style.display = "none";
         selector(".about_institution").style.display = "block";
-        selector(".professional_inst").style.display = "none";
+        //selector(".professional_inst").style.display = "none";
         selector(".certifications_inst").style.display = "none";
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
-        $(".profesional_institution").removeClass('iconVerde_profesionalInst')
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
+        //$(".profesional_institution").removeClass('iconVerde_profesionalInst')
         $(".certificado_institution").removeClass('iconVerde_certifInst')
         $(".sede_institution").removeClass('iconVerde_sedeInst')
         $(".galeria_institution").removeClass('iconVerde_galeInst')
-    }
+    }*/
 
     // Condicional para el registro de usuario rol Paciente
     if (varBtnPrevious == "aboutInstitution") {
         selector(".date_institution").style.display = "none";
         selector(".professional_services").style.display = "block";
         selector(".about_institution").style.display = "none";
-        selector(".professional_inst").style.display = "none";
+        //selector(".professional_inst").style.display = "none";
         selector(".certifications_inst").style.display = "none";
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".acerca_institution").removeClass('iconVerde_acercaInst')
-        $(".profesional_institution").removeClass('iconVerde_profesionalInst')
+        //$(".profesional_institution").removeClass('iconVerde_profesionalInst')
         $(".certificado_institution").removeClass('iconVerde_certifInst')
         $(".sede_institution").removeClass('iconVerde_sedeInst')
         $(".galeria_institution").removeClass('iconVerde_galeInst')
@@ -637,15 +637,15 @@ function hideBtnPrevious (y){
         selector(".date_institution").style.display = "block";
         selector(".professional_services").style.display = "none";
         selector(".about_institution").style.display = "none";
-        selector(".professional_inst").style.display = "none";
+        //selector(".professional_inst").style.display = "none";
         selector(".certifications_inst").style.display = "none";
         selector(".venues_inst").style.display = "none";
         selector(".gallery_inst").style.display = "none";
 
-        // Iconos verdes que se remueven de la linea de opciones con el evento on  click 
+        // Iconos verdes que se remueven de la linea de opciones con el evento on  click
         $(".serv_profesional").removeClass('iconVerde_servProfesional')
         $(".acerca_institution").removeClass('iconVerde_acercaInst')
-        $(".profesional_institution").removeClass('iconVerde_profesionalInst')
+        //$(".profesional_institution").removeClass('iconVerde_profesionalInst')
         $(".certificado_institution").removeClass('iconVerde_certifInst')
         $(".sede_institution").removeClass('iconVerde_sedeInst')
         $(".galeria_institution").removeClass('iconVerde_galeInst')
