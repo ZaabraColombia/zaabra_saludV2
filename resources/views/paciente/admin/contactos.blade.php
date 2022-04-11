@@ -403,7 +403,8 @@
             var form = $('#form-contacto');
             form.attr('action', '{{ route('paciente.contactos.store') }}');
             form.attr('method', 'post');
-            $('[name="_method"]').attr('value', 'post');
+            form.find('[name="_method"]').val('post');
+
             form[0].reset();
             $('#modal_contactos').modal();
             $('#titulo').html('Nuevo');
