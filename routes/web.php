@@ -477,6 +477,12 @@ Route::get('/test-instituciones-filtro-agenda', function(){
 });
 // ===================_________ FIN AGENDA PROFESIONALES _________=================== //
 
+Route::get('/test', function (){
+   $p = \App\Models\profesionales_instituciones::all();
+   $p->map(function ($item){
+       $item->update();
+   });
+});
 // Ruta detalles-pago
 Route:: get('/detalles-pago',[App\Http\Controllers\pagosController::class,'index'])->name('detalles-pago');
 Route:: get('/comprobantes-pago',[App\Http\Controllers\pagosController::class,'index2'])->name('comprobantes-pago');
