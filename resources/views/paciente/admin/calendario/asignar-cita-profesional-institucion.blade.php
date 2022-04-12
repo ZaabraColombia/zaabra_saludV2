@@ -124,10 +124,10 @@
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input type="checkbox" id="check-convenio">
+                                            <input type="checkbox" id="check-convenio" name="check-convenio" value="1">
                                         </div>
                                     </div>
-                                    <select class="custom-select" id="convenio" name="convenio"></select>
+                                    <select class="custom-select" id="convenio" name="convenio" disabled></select>
                                 </div>
                             </div>
 
@@ -338,12 +338,22 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function (response) {
-                    console.log(response);
-                },
-                error: function (response) {
+                    $('#convenio').empty().prop('disabled', true);
 
+                    $('#check-convenio').prop('checked', false);
+
+                    $.each(response.items, function (key, item) {
+                        $('#convenio').append('<option value="' + item.id + '" data-valor="' + item.pivot.valor_paciente + '">' +
+                            item.primer_nombre + ((item.segundo_nombre) ? ' ' + item.segundo_nombre: '') +
+                            ((item.primer_apellido) ? ' ' + item.primer_apellido: '') + ((item.segundo_apellido) ? ' ' + item.segundo_apellido: '') +
+                            '</option>');
+                    });
                 }
             })
+        });
+
+        $('#check-convenio').change(function (event) {
+            $('#convenio').prop('disabled', !$(this).prop('checked'));
         });
 
     </script>

@@ -8,8 +8,10 @@ use App\Models\Servicio;
 use App\Models\Sgsss;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class RecursosController extends Controller
 {
@@ -58,7 +60,9 @@ class RecursosController extends Controller
         ]);
 
         $servicio = Servicio::query()
-            ->with('convenios_lista:id,nombre_completo,valor_paciente')
+            ->with(['convenios_lista' => function($query){
+                $query->select('convenios.id', 'convenios.primer_nombre', 'convenios.segundo_nombre', 'convenios.primer_apellido', 'convenios.segundo_apellido');
+            }])
             ->where('id', $request->get('servicio'))
             ->where('institucion_id', $request->get('institucion'))
             ->first();
