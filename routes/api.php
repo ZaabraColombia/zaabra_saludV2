@@ -39,7 +39,4 @@ Route::get('/sgsss', [\App\Http\Controllers\buscador\RecursosController::class, 
 Route::get('/actividades_economicas', [\App\Http\Controllers\buscador\RecursosController::class, 'actividad_economica'])
     ->name('actividad_economica');
 
-/* Buscar convenios de un servicio */
-Route::post('/institucion/convenio/servicios', [\App\Http\Controllers\buscador\RecursosController::class, 'servicios_convenio'])
-    ->middleware('auth')
-    ->name('institucion.convenios-servicio');
+

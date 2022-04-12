@@ -422,6 +422,11 @@ Route::middleware(['auth', 'roles', 'verified'])->as('paciente.')->prefix('/paci
 
 });
 
+/* Buscar convenios de un servicio */
+Route::post('/institucion/convenio/servicios', [\App\Http\Controllers\buscador\RecursosController::class, 'servicios_convenio'])
+    ->middleware('auth')
+    ->name('institucion.convenios-servicio');
+
 /*------------------------------------------------- Pertenece a ERRORES -------------------------------------------------------------------------------*/
 
 /* Esta ruta direcciona a la vista del error 101 */

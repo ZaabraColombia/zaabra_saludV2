@@ -58,11 +58,11 @@ class RecursosController extends Controller
         ]);
 
         $servicio = Servicio::query()
-            ->with(['convenios'])
+            ->with('convenios_lista:id,nombre_completo,valor_paciente')
             ->where('id', $request->get('servicio'))
             ->where('institucion_id', $request->get('institucion'))
             ->first();
 
-        return response(['items' => $servicio->convenios], Response::HTTP_OK);
+        return response(['items' => $servicio->convenios_lista], Response::HTTP_OK);
     }
 }
