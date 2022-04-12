@@ -13,6 +13,13 @@ use Openpay\Data\OpenpayApi;
 
 class CitasOpenPayController extends Controller
 {
+
+    public function __construct()
+    {
+        //parent::__construct();
+
+    }
+
     public function detalle_profesional (Request $request) {
         $pagoCita = PagoCita::query()
             ->where('id', '=', $request->pago_cita)
@@ -299,5 +306,31 @@ class CitasOpenPayController extends Controller
         });
 
         return $array->toArray();
+    }
+
+
+
+
+
+
+
+
+    public function detalle_institcion (Request $request) {
+
+        $pagoCita = PagoCita::query()
+            ->where('id', '=', $request->pago_cita)
+            ->with([
+                'cita',
+                'cita.especialidad',
+                'cita.paciente',
+                'cita.paciente.user',
+                'cita.profesional_ins',
+                'cita.profesional_ins.institucion',
+            ])
+            ->first();
+
+        if (empty($pagoCita)) abort(404);
+
+        return view('pagos.detalles-pago-ins', compact('pagoCita'));
     }
 }

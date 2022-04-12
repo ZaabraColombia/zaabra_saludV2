@@ -12,6 +12,7 @@ use App\Models\profesionales_instituciones;
 use App\Models\Servicio;
 use App\Models\tipoconsultas;
 use Carbon\Carbon;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -321,7 +322,7 @@ class CalendarioController extends Controller{
         $weekDisabled = array_values(array_diff(array(0, 1, 2, 3, 4, 5, 6), $weekNotBusiness));
 
         return view('paciente.admin.calendario.asignar-cita-profesional-institucion', compact('profesional',
-        'weekDisabled'));
+            'weekDisabled'));
     }
 
     public function dias_libre_institucion_profesional(Request $request, profesionales_instituciones $profesional)
@@ -426,6 +427,111 @@ class CalendarioController extends Controller{
             ],
             'data' => $listDates
         ], Response::HTTP_OK);
+    }
+
+    public function finalizar_cita_institucion_profesional(Request $request, profesionales_instituciones $profesional)
+    {
+        $request->merge(['disponibilidad' => json_decode($request->get('hora'), true)]);
+
+        //dd($profesional->institucion->user->id);
+        $request->validate([
+            'disponibilidad'    => ['required'],
+            'disponibilidad.*'  => ['required', 'date_format:Y-m-d H:i'],
+            'tipo_servicio'     => ['required'],
+            'convenio'          => [
+                'required_if:check-convenio,1',
+                Rule::exists('convenios', 'id')->where(function ($query) use ($profesional){
+                    return $query->where('id_user', $profesional->institucion->user->id);
+                })
+            ],
+            'modalidad'         => ['required', Rule::in(['virtual', 'presencial'])],
+        ]);
+
+        $all = $request->all();
+
+        //Validar la disponibilidad de la cita
+        $date_count = Cita::query()->where('profesional_id', '=', $profesional->idPerfilProfesional)
+            ->where(function ($query) use ($all){
+                $query->whereRaw('(fecha_inicio >= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
+                    '" and fecha_inicio < "' . date('Y-m-d H:i', strtotime($all['disponibilidad']['end'])) . '")')
+                    ->orWhereRaw('(fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
+                        '" and fecha_fin <= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) . '")')
+                    ->orWhereRaw('(fecha_inicio <= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
+                        '" and fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) . '")')
+                    ->orWhereRaw('(fecha_inicio < "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) .
+                        '" and fecha_fin >= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) . '")');
+            })
+            ->whereNotIn('estado', ['cancelado'])
+            ->count();
+
+        if ($date_count > 0)
+        {
+            return redirect()
+                ->back()
+                ->withErrors(['cita' => 'Cita no disponible']);
+        }
+
+        $user = Auth::user();
+
+        //Buscar servicio
+        $servicio = Servicio::query()
+            ->with(['convenios_lista' => function ($query) use ($all){
+                if (isset($all['tipo_servicio']) and isset($all['convenio'])) return $query
+                    ->where('convenios.id', $all['convenio'])
+                    ->first();
+                return $query->first();
+            }])
+            ->find($all['tipo_servicio']);
+
+        //crear cita
+        $date = Cita::query()->create([
+            'fecha_inicio'  => date('Y-m-d H:i', strtotime($all['disponibilidad']['start'])),
+            'fecha_fin'     => date('Y-m-d H:i', strtotime($all['disponibilidad']['end'])),
+            'estado'        => 'agendado',
+            'lugar'         => ($profesional->sede->direccion ?? $profesional->institucion->direccion) . " - Consultorio " . ($profesional->consultorio),
+            'pais_id'       => $profesional->sede->pais_id ?? $profesional->institucion->idPais,
+            'departamento_id' => $profesional->sede->departamento_id ?? $profesional->institucion->id_departamento,
+            'provincia_id'  => $profesional->sede->provincia_id ?? $profesional->institucion->id_provincia,
+            'ciudad_id'     => $profesional->sede->ciudad_id ?? $profesional->institucion->id_municipio,
+            'tipo_cita_id'  => $all['tipo_servicio'],
+            //'money'         => $all['money'],
+            'profesional_ins_id'=> $profesional->id_profesional_inst,
+            'paciente_id'   => $user->paciente->id,
+            'especialidad_id'   => $servicio->especialidad_id,
+        ]);
+
+        $fechaPago = Carbon::now();
+
+//        $antiguedad = Antiguedad::query()
+//            ->updateOrCreate([
+//                'paciente_id' => Auth::user()->paciente->id,
+//                'profesional_id' => $profesional->idPerfilProfesional,
+//            ], ['confirmacion' => true]);
+
+
+        //Crear pago
+        $pago = PagoCita::query()->create([
+            'fecha'         => $fechaPago,
+            'vencimiento'   => $fechaPago->add(8, 'days'),
+            'valor'         => (isset($all['tipo_servicio']) and isset($all['convenio'])) ? $servicio->convenios_lista[0]->pivot->valor_paciente:$servicio->valor,
+            'valor_convenio' => (isset($all['tipo_servicio']) and isset($all['convenio'])) ? $servicio->convenios_lista[0]->pivot->valor_convenio:0,
+            'aprobado'  => 0,
+            'tipo'      => $all['modalidad'],
+            'cita_id'   => $date->id_cita,
+        ]);
+
+        //Enviar notificación de confirmación de cita
+        //Mail::to($user->email)->send(new ConfirmacionCitaEmail($date, 'profesional'));
+
+
+        if ($all['modalidad'] == 'virtual')
+            return redirect()
+                ->route('institucion.detalle-pago-cita', ['pago_cita' => $pago->id])
+                ->with('success', "Cita asignada con {$profesional->nombre_completo}");
+
+        return redirect()
+            ->route('paciente.citas')
+            ->with('success', "Cita asignada con {$profesional->nombre_completo}");
     }
 
     public function profesional($id){

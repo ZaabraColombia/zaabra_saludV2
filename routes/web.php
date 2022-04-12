@@ -110,6 +110,13 @@ Route::get('/profesional/pago-cita/{pago_cita}/{metodo_pago}', [\App\Http\Contro
 Route::get('/profesional/respuesta-pago-cita', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'response_profesional'])
     ->name('profesional.respuesta-pago-cita');
 
+Route::get('/institucion/detalle-pago-cita/{pago_cita}', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'detalle_institcion'])
+    ->name('institucion.detalle-pago-cita');
+Route::get('/institucion/pago-cita/{pago_cita}/{metodo_pago}', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'store_profesional'])
+    ->name('institucion.pago-cita');
+Route::get('/institucion/respuesta-pago-cita', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'response_profesional'])
+    ->name('institucion.respuesta-pago-cita');
+
 
 
 /*------------------------------------------------- Pertenece a calificacion y comentarios-------------------------------------------------------------------------------*/
@@ -386,14 +393,11 @@ Route::middleware(['auth', 'roles', 'verified'])->as('paciente.')->prefix('/paci
         Route::post('/asignar-cita/dias-libre-profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'dias_libre_institucion_profesional'])
             ->name('dias-libre-institucion-profesional');
 
-        Route::post('/asignar-cita/profesional/confirmar-antiguedad/{profesional}',[Paciente\Admin\CalendarioController::class,'antiguedad_profesional'])
-            ->name('confirmar-antiguedad-profesional');
+//        Route::post('/asignar-cita/profesional/confirmar-antiguedad/{profesional}',[Paciente\Admin\CalendarioController::class,'antiguedad_profesional'])
+//            ->name('confirmar-antiguedad-profesional');
 
-        Route::post('/finalizar-cita-profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'finalizar_cita_profesional'])
-            ->name('finalizar-cita-profesional');
-
-        Route::get('/asignar-cita/institucion/{institucion:slug}',[Paciente\Admin\CalendarioController::class,'asignar_cita_institucion'])
-            ->name('asignar-cita-institucion');
+        Route::post('/finalizar-cita-profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'finalizar_cita_institucion_profesional'])
+            ->name('finalizar-cita-institucion-profesional');
     });
 
     //Route:: get('/panelAdministrativo/{idPerfilProfesional}',[App\Http\Controllers\admin\adminController::class,'cita'])->name('panelAdministrativo');

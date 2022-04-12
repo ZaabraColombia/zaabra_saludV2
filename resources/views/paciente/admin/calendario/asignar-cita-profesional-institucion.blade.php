@@ -97,7 +97,7 @@
                     </div>
 
                     <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
-                        <form action="#" method="post" id="form-finalizar-cita-profesional">
+                        <form action="{{ route('paciente.finalizar-cita-institucion-profesional', ['profesional' => $profesional->slug]) }}" method="post" id="form-finalizar-cita-profesional">
                             @csrf
                             <input type="hidden" name="date-calendar" id="date-calendar">
                             <div class="input__box mb-3">
@@ -161,15 +161,15 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <h5 class="profesional">Edgar Joel Barero Fuentes</h5>
-                        <h5>1033154798</h5>
+                        <h5 class="profesional">{{ $user->nombre_completo }}</h5>
+                        <h5>{{ "{$user->tipo_documento->nombre_corto} {$user->numerodocumento}" }}</h5>
                     </div>
                     <div>
-                        <h5 class="profesional">Dr(a). Edgar Joel Barero Fuentes</h5>
+                        <h5 class="profesional">Dr(a). {{ $profesional->nombre_completo }}</h5>
                         <h5>1033154798</h5>
                         <h5 id="modal-tipo-de-cita"></h5>
                         <h5 id="modal-horario"></h5>
-                        <h5>Carrera 57 # 67 - 34</h5>
+                        <h5>{{ ($profesional->sede->direccion ?? $profesional->institucion->direccion) . "-" . ($profesional->consultorio) }} ({{ $profesional->sede->ciudad->nombre ?? $profesional->institucion->ciudad->nombre }})</h5>
                         <h5>Valor cita: <span id="modal-valor"></span></h5>
                     </div>
                 </div>
@@ -222,6 +222,7 @@
 
     <script>
         var weekNotBusiness = {!! json_encode($weekDisabled) !!};
+        moment.locale('es'); // change the global locale to Spanish
 
         $('.calendar').pignoseCalendar({
             lang: 'es',
@@ -286,7 +287,9 @@
             var modal = $('#confirmar-cita');
 
             var horario = $.parseJSON($('#hora').val());
-            var tipo_cita = $('#tipo_cita');
+            var tipo_cita = $('#tipo_servicio');
+            var convenio = $('#convenio');
+            var check_convenio = $('#check-convenio');
             var modalidad = $('#modalidad');
             var btn_confirmar_cita = $('#btn_confirmar_cita');
 
@@ -301,7 +304,13 @@
                     + ' - ' + moment(horario.end, 'YYYY-MM-DD HH:mm').format('hh:mm A')
                 );
                 $('#modal-tipo-de-cita').html(tipo_cita.find('option:selected').html());
-                $('#modal-valor').html(tipo_cita.find('option:selected').data('valor'));
+
+                if(check_convenio.prop('checked'))
+                {
+                    $('#modal-valor').html(convenio.find('option:selected').data('valor'));
+                }else{
+                    $('#modal-valor').html(tipo_cita.find('option:selected').data('valor'));
+                }
 
                 btn_confirmar_cita.html((modalidad.val() === 'presencial') ? 'Finalizar':'Pagar')
 
