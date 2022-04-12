@@ -9,6 +9,7 @@ use App\Models\Cita;
 use App\Models\PagoCita;
 use App\Models\perfilesprofesionales;
 use App\Models\profesionales_instituciones;
+use App\Models\Servicio;
 use App\Models\tipoconsultas;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -321,6 +322,110 @@ class CalendarioController extends Controller{
 
         return view('paciente.admin.calendario.asignar-cita-profesional-institucion', compact('profesional',
         'weekDisabled'));
+    }
+
+    public function dias_libre_institucion_profesional(Request $request, profesionales_instituciones $profesional)
+    {
+        //Validate date
+        $validate = Validator::make($request->all(), [
+            'date'  => ['required', 'date_format:Y-m-d'],
+            'servicio' => ['required', 'exists:servicios,id']
+        ]);
+
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //Citas médicas
+        $datesOperatives = $profesional->citas()->whereNotIn('estado', ['cancelado'])->get();
+
+        //Servicio
+        $servicio = Servicio::find($request->servicio);
+
+        //Horario
+        $horario = $profesional->horario;
+
+        //Validar el número del dia de la semana
+        $diaSemana = date('w', strtotime($request->date));
+
+        //crear intervalos
+        $intervaloCita = ($servicio->duracion + $servicio->descanso) * 60;
+
+        //Crear las citas libres
+        $listDates = array();
+
+        //Buscar los dias disponibles
+        foreach ($horario as $item)
+        {
+
+            if (in_array( $diaSemana, $item['daysOfWeek']))
+            {
+                $startDate = strtotime("$request->date " . $item['startTime']);
+                $endDate = strtotime("$request->date " . $item['endTime']);
+
+                //generar posibles citas
+                for($date = $startDate; ($date + $intervaloCita) <= $endDate; $date+= $intervaloCita){
+
+                    $startTime = date('Y-m-d H:i', $date);
+                    $endTime = date('Y-m-d H:i', $date + $intervaloCita );
+
+
+                    //Validar la disponibilidad de las citas
+                    $valid = true;
+                    if (!empty($datesOperatives)) {
+                        foreach ($datesOperatives as $dateOperative) {
+                            if (
+                                //Validar si la hora de inicio está entre la hora inicio y fin de la cita existente
+                                (strtotime($dateOperative->fecha_inicio) <= strtotime($startTime)
+                                    && strtotime($dateOperative->fecha_fin) >= strtotime($startTime))
+                                or
+                                //Validar si la hora de fin está entre la hora inicio y fin de la cita existente
+                                (strtotime($dateOperative->fecha_inicio) <= strtotime($endTime)
+                                    && strtotime($dateOperative->fecha_fin) >= strtotime($endTime))
+                                or
+                                //Validar si la hora inicio existente está entre la hora inicio y fin
+                                (strtotime($startTime) <= strtotime($dateOperative->fecha_inicio)
+                                    && strtotime($startTime) >= strtotime($dateOperative->fecha_inicio))
+                                or
+                                //Validar si la hora din existente está entre la hora inicio y fin
+                                (strtotime($startTime) <= strtotime($dateOperative->fecha_fin)
+                                    && strtotime($startTime) >= strtotime($dateOperative->fecha_fin))
+                            )
+                            {
+                                $valid = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    //validar que no se pueda agendar 2 horas antes de llegar a la cita
+                    $hoy = Carbon::now()->subHours(2);
+                    $start = new Carbon($startTime);
+
+                    if ($valid and $hoy->lessThan($start))
+                    {
+                        //Agregar la disponibilidad
+                        $listDates[] = [
+                            'startTime' => $startTime,
+                            'endTime' => $endTime
+                        ];
+                    }
+                }
+            }
+        }
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Fechas disponibles'
+            ],
+            'data' => $listDates
+        ], Response::HTTP_OK);
     }
 
     public function profesional($id){
