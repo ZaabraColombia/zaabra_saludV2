@@ -99,6 +99,7 @@
                     <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
                         <form action="#" method="post" id="form-finalizar-cita-profesional">
                             @csrf
+                            <input type="hidden" name="date-calendar" id="date-calendar">
                             <div class="input__box mb-3">
                                 <label for="modalidad">Modalidad de pago</label>
                                 <select id="modalidad" class="form-control" name="modalidad" required>
@@ -107,8 +108,8 @@
                                 </select>
                             </div>
                             <div class="input__box mb-3">
-                                <label for="tipo_cita">Tipo de cita</label>
-                                <select id="tipo_cita" class="form-control" name="tipo_cita" required>
+                                <label for="tipo_servicio">Tipo de cita</label>
+                                <select id="tipo_servicio" class="form-control" name="tipo_servicio" required>
                                     <option></option>
                                     @if(!empty($profesional->servicios))
                                         @foreach ($profesional->servicios as $servicio)
@@ -233,37 +234,51 @@
                 //['2022-04-07', '2022-04-22'], // 2022-04-07 ~ 22
             ],
             select: function (date, context) {
-                console.log(date[0]);
-                var hora = $('#hora');
-                hora.html('<option></option>');
 
-                if (date[0]._i !== null && date[0]._i !== undefined )
-                {
-                    // $.ajax({
-                    //     data: { date: date[0]._i},
-                    //     dataType: 'json',
-                    //     url: '#',
-                    //     headers: {
-                    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    //     },
-                    //     method: 'POST',
-                    //     success: function (res) {
-                    //
-                    //         //get list
-                    //         $.each(res.data, function (index, item) {
-                    //             hora.append('<option value=\'{"start":"' + item.startTime + '","end": "' + item.endTime + '"}\'>' +
-                    //                 moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
-                    //                 '</option>');
-                    //         });
-                    //     },
-                    //     error: function (res, status) {
-                    //         var response = res.responseJSON;
-                    //         $('#alerta-general').html(alert(response.message, 'danger'));
-                    //     }
-                    // });
-                }
+                var servicio = $('#tipo_servicio').val();
+
+                var date_calendar = $('#date-calendar');
+                date_calendar.val('');
+
+                if(date[0] !== null && date[0]._i) date_calendar.val(date[0]._i);
+                if (date[0] !== null && date[0]._i !== undefined && servicio !== '') dias_libres(date[0]._i, servicio);
             }
         });
+
+        //detectar cambio en tipo servicio
+        // $('#tipo_servicio').change(function (event) {
+        //
+        // });
+
+        function dias_libres(fecha, servicio) {
+            var hora = $('#hora');
+            hora.html('<option></option>');
+
+            console.log('fecha ' + fecha);
+            console.log('servicio ' + servicio);
+            $.ajax({
+                data: { date: fecha, servicio:servicio},
+                dataType: 'json',
+                url: '{{ route('paciente.dias-libre-institucion-profesional', ['profesional' => $profesional->slug]) }}',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                method: 'POST',
+                success: function (res) {
+
+                    //get list
+                    $.each(res.data, function (index, item) {
+                        hora.append('<option value=\'{"start":"' + item.startTime + '","end": "' + item.endTime + '"}\'>' +
+                            moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
+                            '</option>');
+                    });
+                },
+                error: function (res, status) {
+                    var response = res.responseJSON;
+                    $('#alerta-general').html(alert(response.message, 'danger'));
+                }
+            });
+        }
 
         $('#btn-finalizar-cita-profesional').click(function (e) {
             e.preventDefault();
@@ -326,8 +341,16 @@
             });
         @endempty
 
-        $('#tipo_cita').change(function (event) {
+        $('#tipo_servicio').change(function (event) {
             var select = $(this);
+
+            var servicio = $(this);
+            var date =  $('#date-calendar');
+
+            console.log('fecha 1 ' + date.val());
+            console.log('servicio 1 ' + servicio.val());
+
+            if (servicio.val() !== '' && date.val() !== '' ) dias_libres(date.val(), servicio.val());
 
             $.ajax({
                 type: "POST",

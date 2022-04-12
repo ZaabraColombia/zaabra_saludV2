@@ -383,8 +383,8 @@ Route::middleware(['auth', 'roles', 'verified'])->as('paciente.')->prefix('/paci
         Route::get('/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'asignar_cita_institucion'])
             ->name('asignar-cita-institucion-profesional');
 
-        Route::post('/asignar-cita/dias-libre-profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'dias_libre_profesional'])
-            ->name('dias-libre-profesional');
+        Route::post('/asignar-cita/dias-libre-profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'dias_libre_institucion_profesional'])
+            ->name('dias-libre-institucion-profesional');
 
         Route::post('/asignar-cita/profesional/confirmar-antiguedad/{profesional}',[Paciente\Admin\CalendarioController::class,'antiguedad_profesional'])
             ->name('confirmar-antiguedad-profesional');
