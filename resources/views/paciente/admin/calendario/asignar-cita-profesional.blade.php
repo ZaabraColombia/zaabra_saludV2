@@ -206,13 +206,14 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('plugins/moment/moment-with-locales.min.js') }}"></script>
     <script src="{{ asset('plugins/pg-calendar-master/dist/js/pignose.calendar.min.js') }}"></script>
 
     <script src="{{ asset('js/alertas.js') }}"></script>
 
     <script>
         var weekNotBusiness = {!! json_encode($weekDisabled) !!};
+        moment.locale('es'); // change the global locale to Spanish
 
         $('.calendar').pignoseCalendar({
             lang: 'es',
@@ -273,7 +274,7 @@
                 tipo_cita.val() !== undefined && tipo_cita.val() !== null
             )
             {
-                $('#modal-fecha').html(moment(horario.start, 'YYYY-MM-DD HH:mm').format('DD-MMM /YYYY'));
+                $('#modal-fecha').html(moment(horario.start, 'YYYY-MM-DD HH:mm').format('DD - MMM /YYYY'));
                 $('#modal-horario').html(moment(horario.start, 'YYYY-MM-DD HH:mm').format('hh:mm A')
                     + ' - ' + moment(horario.end, 'YYYY-MM-DD HH:mm').format('hh:mm A'));
                 $('#modal-tipo-de-cita').html(tipo_cita.find('option:selected').html());

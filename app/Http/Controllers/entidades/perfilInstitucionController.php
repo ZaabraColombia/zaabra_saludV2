@@ -60,7 +60,7 @@ class perfilInstitucionController extends Controller  {
 
     // consulta para cargar informacion de la landing
     public function cargarInfoInstitucLandin($slug){
-    return DB::select("SELECT ints.id, ints.logo,ints.imagen , us.nombreinstitucion, ints.url, ints.telefonouno, ints.direccion, mn.nombre ciudad, 
+    return DB::select("SELECT ints.id, ints.logo,ints.imagen , us.nombreinstitucion, ints.url, ints.telefonouno, ints.direccion, mn.nombre ciudad,
                             p.nombre pais, ints.quienessomos, ints.propuestavalor, ints.DescripcionGeneralServicios, tpi.nombretipo, ints.slug, ints.idtipoInstitucion, ints.url_maps
     FROM instituciones ints
     INNER JOIN users us ON ints.idUser=us.id
@@ -170,6 +170,7 @@ class perfilInstitucionController extends Controller  {
             'profesionales_instituciones.primer_apellido',
             'profesionales_instituciones.segundo_apellido',
             'profesionales_instituciones.cargo',
+            'profesionales_instituciones.slug',
             'especialidades.nombreEspecialidad as nombre_especialidad',
             'universidades.nombreuniversidad as nombre_universidad')
         ->leftjoin('especialidades', 'especialidades.idEspecialidad', '=', 'profesionales_instituciones.id_especialidad')

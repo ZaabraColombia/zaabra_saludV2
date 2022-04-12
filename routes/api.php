@@ -38,3 +38,5 @@ Route::get('/sgsss', [\App\Http\Controllers\buscador\RecursosController::class, 
     ->name('sgsss');
 Route::get('/actividades_economicas', [\App\Http\Controllers\buscador\RecursosController::class, 'actividad_economica'])
     ->name('actividad_economica');
+
+

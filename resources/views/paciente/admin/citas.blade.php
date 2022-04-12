@@ -10,18 +10,6 @@
 @section('contenido')
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf" id="basic-table">
-            <div class="col-12">
-                @if(session('success'))
-                    <div class="alert alert-success w-100" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="alert-heading">Hecho</h4>
-                        <p>{{ session('success') }}</p>
-                    </div>
-                @endif
-            </div>
-
             <div class="my-4 my-xl-5">
                 <h1 class="title__xl blue_bold">Mis citas</h1>
                 <span class="subtitle_miCita">Encuentre aquí todas sus citas</span>
@@ -38,6 +26,20 @@
 
             <!-- Contenedor formato tabla de la lista de citas -->
             <div class="containt_main_table mb-3">
+                <div class="my-4 col-12">
+                    @if(session('success') or isset($confirmation))
+                        <div class="alert alert-success w-100" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="alert-heading">Hecho</h4>
+                            <p>
+                                {{ session('success') ?? '' }}
+                                {{ $confirmation['message'] ?? '' }}
+                            </p>
+                        </div>
+                    @endif
+                </div>
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-citas">
                         <thead>
@@ -77,12 +79,12 @@
                                         </td>
                                         <td class="">
                                             @if(!empty($cita->profesional))
-                                                <a class="btn_action tool top" style="width: 33px" href="{{route('PerfilProfesional', ['slug' => $cita->profesional->slug])}}" target="_blank"> 
+                                                <a class="btn_action tool top" style="width: 33px" href="{{route('PerfilProfesional', ['slug' => $cita->profesional->slug])}}" target="_blank">
                                                     <i data-feather="external-link"></i> <span class="tiptext">Landing profesional</span>
                                                 </a>
                                             @endif
                                             @if(!empty($cita->profesional_ins))
-                                                    <a class="btn_action tool top" style="width: 33px" href="{{route('PerfilInstitucion', ['slug' => $cita->profesional_ins->institucion->slug])}}" target="_blank"> 
+                                                    <a class="btn_action tool top" style="width: 33px" href="{{route('PerfilInstitucion', ['slug' => $cita->profesional_ins->institucion->slug])}}" target="_blank">
                                                         <i data-feather="external-link"></i> <span class="tiptext">Landing profesional</span>
                                                     </a>
                                             @endif
