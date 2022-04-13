@@ -8,7 +8,7 @@
 
 @section('contenido')
     <section class="section">
-        <div class="row containt_agendaProf" id="basic-table">
+        <div class="row containt__calendar" id="basic-table">
             <div class="my-4 my-xl-5">
                 <h1 class="title__xl blue_bold">Calendario</h1>
                 <span class="text__md black_light">Administre su calendario de citas</span>
@@ -47,7 +47,7 @@
                             <label for="cit_canc"> <input id="cit_canc" type="color" value="#9DD1F9"> Citas canceladas</label>
                         </div>
 
-                        <div class="col-md-4 col-xl-12 p-0 content_right_agenda">
+                        <div class="col-md-4 col-xl-12 p-0">
                             <label for="dia_block"> <input id="dia_block" type="color" value="#F37725">Días bloqueados</label>
                         </div>
                     </div>
@@ -764,9 +764,9 @@
                 events: '{{ route('profesional.agenda.calendario.ver-citas') }}',
                 // Botones de mes, semana y día.
                 headerToolbar: {
-                    left: 'title',
-                    center: '',
-                    right: 'prev,dayGridMonth,timeGridWeek,timeGridDay,today,next'
+                    left: 'prev',
+                    center: 'title,dayGridMonth,timeGridWeek,timeGridDay,today',
+                    right: 'next'
                 },
 
                 slotLabelInterval: {

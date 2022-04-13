@@ -23754,6 +23754,19 @@ a:hover {
   cursor: pointer;
 }
 
+.fc-header-toolbar {
+  flex-direction: row !important;
+}
+
+.fc-header-toolbar {
+  align-items: flex-end !important;
+}
+
+.fc-toolbar-title {
+  text-align: center;
+  margin-bottom: 10px !important;
+}
+
 .fc-h-event .fc-event-title {
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -24722,6 +24735,11 @@ a:hover {
   padding: 0 15px;
 }
 
+.containt__calendar {
+  margin: 0;
+  padding: 0 9px;
+}
+
 .btn_editar_citasProf {
   border: none;
   background: transparent;
@@ -25161,6 +25179,10 @@ a:hover {
   }
 }
 @media (min-width: 360px) and (orientation: portrait) {
+  .containt__calendar {
+    padding: 0 15px;
+  }
+
   .btn_crear_histClinica {
     width: 45%;
   }
@@ -25200,6 +25222,10 @@ a:hover {
   }
 
   .containt_agendaProf {
+    padding: 0 60px;
+  }
+
+  .containt__calendar {
     padding: 0 60px;
   }
 
@@ -25329,6 +25355,10 @@ a:hover {
     padding: 0 0 0 40px;
   }
 
+  .containt__calendar {
+    padding: 0 0 0 40px;
+  }
+
   .section_addFile_consulta {
     display: flex;
     padding: 5% 0 0 0;
@@ -25416,6 +25446,10 @@ a:hover {
 }
 @media (min-width: 1440px) {
   .containt_agendaProf {
+    padding: 0 60px;
+  }
+
+  .containt__calendar {
     padding: 0 60px;
   }
 

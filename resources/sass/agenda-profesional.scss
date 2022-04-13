@@ -90,6 +90,10 @@
     margin: 0;
     padding: 0 15px;
 }
+.containt__calendar {
+    margin: 0;
+    padding: 0 9px;
+}
 .btn_editar_citasProf{
     border: none;
     background: transparent;
@@ -488,6 +492,9 @@
     }
 }
 @media (min-width: 360px) and (orientation: portrait) {
+    .containt__calendar {
+        padding: 0 15px;
+    }
     //****************************************************      Estilos de Historia Clínica       ****************************************************//
     .btn_crear_histClinica {
         width: 45%;
@@ -526,6 +533,9 @@
     }
 
     .containt_agendaProf {
+        padding: 0 60px;
+    }
+    .containt__calendar {
         padding: 0 60px;
     }
     //****************************************************          ****************************************************//
@@ -642,6 +652,9 @@
     .containt_agendaProf {
         padding: 0 0 0 40px;
     }
+    .containt__calendar {
+        padding: 0 0 0 40px;
+    }
     // .section_cabecera_agenda {
     //     padding-top: 30px;
     //     padding-bottom: 20px;
@@ -729,6 +742,9 @@
 }
 @media (min-width: 1440px) {
     .containt_agendaProf {
+        padding: 0 60px;
+    }
+    .containt__calendar {
         padding: 0 60px;
     }
     // .section_cabecera_agenda {
