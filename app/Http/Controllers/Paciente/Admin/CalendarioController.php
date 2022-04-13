@@ -355,11 +355,27 @@ class CalendarioController extends Controller{
             ], Response::HTTP_NOT_FOUND);
         }
 
-        //Citas médicas
-        $datesOperatives = $profesional->citas()->whereNotIn('estado', ['cancelado'])->get();
-
         //Servicio
         $servicio = Servicio::find($request->servicio);
+
+        //Validar el límite de agenda * servicio* usuario
+        $citas = Cita::query()
+            ->where('paciente_id', Auth::user()->paciente->id)
+            ->where('estado', 'like', 'agendado')
+            ->where('tipo_cita_id', $request->servicio)
+            ->toSql();
+
+        if ($citas >= $servicio->citas_activas) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => 'Ya tiene servicios agendados con la institución'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //Citas médicas
+        $datesOperatives = $profesional->citas()->whereNotIn('estado', ['cancelado'])->get();
 
         //Horario
         $horario = $profesional->horario;
@@ -467,10 +483,45 @@ class CalendarioController extends Controller{
                     return $query->where('id_user', $profesional->institucion->user->id);
                 })
             ],
-            'modalidad'         => ['required', Rule::in(['virtual', 'presencial'])],
+            'modalidad' => ['required', Rule::in(['virtual', 'presencial'])],
         ]);
 
         $all = $request->all();
+
+        //Buscar servicio
+        $servicio = Servicio::query()
+            ->with(['convenios_lista' => function ($query) use ($all){
+                if (isset($all['tipo_servicio']) and isset($all['convenio'])) return $query
+                    ->where('convenios.id', $all['convenio'])
+                    ->first();
+                return $query->first();
+            }])
+            ->find($all['tipo_servicio']);
+
+
+        //Validar el límite de agenda * servicio* usuario
+        $citas = Cita::query()
+            ->where('paciente_id', Auth::user()->paciente->id)
+            ->where('estado', 'like', 'agendado')
+            ->where('tipo_cita_id', $request->servicio)
+            ->toSql();
+        //dd(Auth::user()->paciente->id);
+        if ($citas >= $servicio->citas_activas) {
+            return redirect()
+                ->back()
+                ->withErrors(['cita' => 'Ya tiene servicios agendados con la institución']);;
+        }
+
+        //Validar el límite de agenda * servicio * usuario
+        $citas = Cita::query()
+            ->where('paciente_id', Auth::user()->id)
+            ->where('estado', 'like', 'agendado')
+            ->where('tipo_cita_id', $request->servicio)
+            ->count();
+        if ($citas > 0) return response([
+                'message' => ['title' => 'Error', 'text' => 'Ya tiene servicios agendados con la institución']
+            ], Response::HTTP_NOT_FOUND);
+
 
         //Validar la disponibilidad de la cita
         $date_count = Cita::query()->where('profesional_id', '=', $profesional->idPerfilProfesional)
@@ -495,16 +546,6 @@ class CalendarioController extends Controller{
         }
 
         $user = Auth::user();
-
-        //Buscar servicio
-        $servicio = Servicio::query()
-            ->with(['convenios_lista' => function ($query) use ($all){
-                if (isset($all['tipo_servicio']) and isset($all['convenio'])) return $query
-                    ->where('convenios.id', $all['convenio'])
-                    ->first();
-                return $query->first();
-            }])
-            ->find($all['tipo_servicio']);
 
         //crear cita
         $date = Cita::query()->create([
