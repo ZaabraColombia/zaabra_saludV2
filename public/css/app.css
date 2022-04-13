@@ -10098,7 +10098,7 @@ a:hover {
   height: 100%;
   font-size: 1em;
   border: none;
-  padding: 5px;
+  padding: 5px 5px 5px 40px;
   background: #faebd700;
 }
 
@@ -10112,6 +10112,14 @@ a:hover {
 
 .containt_buscador_desk {
   display: none;
+}
+
+.img_placeholder {
+  background-image: url("/img/header/image.png");
+  background-repeat: no-repeat;
+  background-position-x: left;
+  background-position-y: center;
+  background-size: contain;
 }
 
 .soy_paciente {
