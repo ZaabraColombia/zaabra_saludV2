@@ -228,6 +228,7 @@
             lang: 'es',
             initialize: false,
             minDate: '{{ date('Y-m-d') }}',
+            maxDate: '{{ date('Y-m-d', strtotime(date('Y-m-d') . "+$disponibilidad days")) }}',
             /*maxDate: '2022-06-24',*/
             disabledWeekdays: weekNotBusiness, // WEDNESDAY (0)
             disabledDates: [],

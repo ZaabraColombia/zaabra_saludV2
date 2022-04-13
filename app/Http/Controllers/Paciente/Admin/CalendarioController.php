@@ -332,7 +332,11 @@ class CalendarioController extends Controller{
     {
         //Validate date
         $validate = Validator::make($request->all(), [
-            'date'  => ['required', 'date_format:Y-m-d'],
+            'date'  => [
+                'required',
+                'date_format:Y-m-d',
+                'before_or_equal:' . date('Y-m-d', strtotime(date('Y-m-d') . "+{$profesional->disponibilidad_agenda} days"))
+            ],
             'servicio' => [
                 'required',
                 Rule::exists('servicios', 'id')->where(function ($query) use ($profesional){
@@ -445,7 +449,11 @@ class CalendarioController extends Controller{
         //dd($profesional->institucion->user->id);
         $request->validate([
             'disponibilidad'    => ['required'],
-            'disponibilidad.*'  => ['required', 'date_format:Y-m-d H:i'],
+            'disponibilidad.*'  => [
+                'required',
+                'date_format:Y-m-d H:i',
+                'before_or_equal:' . date('Y-m-d H:i', strtotime(date('Y-m-d') . " 23:59 +{$profesional->disponibilidad_agenda} days"))
+            ],
             'tipo_servicio'     => [
                 'required',
                 Rule::exists('servicios', 'id')->where(function ($query) use ($profesional){
