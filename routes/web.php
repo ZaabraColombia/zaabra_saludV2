@@ -105,17 +105,14 @@ Route::get('/response-page', [\App\Http\Controllers\Pagos\OpenPayContrller::clas
 
 Route::get('/profesional/detalle-pago-cita/{pago_cita}', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'detalle_profesional'])
     ->name('profesional.detalle-pago-cita');
-Route::get('/profesional/pago-cita/{pago_cita}/{metodo_pago}', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'store_profesional'])
+Route::get('/pago-cita/{pago_cita}/{metodo_pago}', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'store'])
     ->name('profesional.pago-cita');
-Route::get('/profesional/respuesta-pago-cita', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'response_profesional'])
+Route::get('/respuesta-pago-cita', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'response'])
     ->name('profesional.respuesta-pago-cita');
 
 Route::get('/institucion/detalle-pago-cita/{pago_cita}', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'detalle_institcion'])
     ->name('institucion.detalle-pago-cita');
-Route::get('/institucion/pago-cita/{pago_cita}/{metodo_pago}', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'store_profesional'])
-    ->name('institucion.pago-cita');
-Route::get('/institucion/respuesta-pago-cita', [\App\Http\Controllers\Pagos\CitasOpenPayController::class, 'response_profesional'])
-    ->name('institucion.respuesta-pago-cita');
+
 
 
 

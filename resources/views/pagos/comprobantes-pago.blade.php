@@ -31,10 +31,7 @@
                 <div class="col-12">
                     <p class="fs_subtitle black_bold font_roboto">Descripción del pago: &nbsp;&nbsp;&nbsp;
                         <span class="fs_subtitle black_light font_roboto">
-                            {{ "Cita medica {$profesional->user->nombre_completo} "
-                            . "{$cita->fecha_inicio->format('Y-m-d')} / "
-                            . "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A')} / "
-                            . "{$cita->lugar}" }}
+                            {{ $historial->pago_cita->descripcion }}
                         </span>
                     </p>
                 </div>

@@ -18,6 +18,7 @@ class PagoCita extends Model
         'valor_convenio',
         'aprobado',
         'tipo',
+        'descripcion',
         'referencia_autorizacion',
         'cita_id'
     ];

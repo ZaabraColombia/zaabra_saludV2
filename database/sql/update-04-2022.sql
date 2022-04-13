@@ -16,6 +16,9 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`citas`
             ON DELETE RESTRICT
             ON UPDATE RESTRICT;
 
+##2022-04-13
+ALTER TABLE `zaabra_salud`.`pago_citas`
+    ADD COLUMN `descripcion` TEXT NULL AFTER `tipo`;
 
 
 
