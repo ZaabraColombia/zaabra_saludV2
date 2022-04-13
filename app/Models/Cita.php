@@ -44,6 +44,11 @@ class Cita extends Model
     ];
 
 
+    protected $appends = [
+        'fecha',
+        'hora'
+    ];
+
     /**
      * @return BelongsTo
      */

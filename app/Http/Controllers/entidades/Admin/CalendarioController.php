@@ -134,23 +134,27 @@ class CalendarioController extends Controller
 
         //dd($request->get('ids'));
         $query = Cita::query()
-            ->select('*')
-            ->selectRaw('fecha_inicio as fecha ')
-            ->selectRaw('fecha_fin as hora ')
-            ->addSelect(['profesional' => DB::table('profesionales_instituciones')
-                ->selectRaw('concat( primer_nombre, " ", segundo_nombre, " ", primer_apellido, " ", segundo_apellido) as profesional')
-                ->whereColumn('id_profesional_inst', 'citas.profesional_ins_id')->take(1)
-            ])
+            ->select('id_cita', 'fecha_inicio', 'fecha_fin', 'lugar', 'estado')
             ->addSelect([
-                'paciente' => User::query()->selectRaw()
+                'profesional' => DB::table('profesionales_instituciones')
+                    ->selectRaw('concat( primer_nombre, " ", segundo_nombre, " ", primer_apellido, " ", segundo_apellido) as profesional')
+                    ->whereColumn('id_profesional_inst', 'citas.profesional_ins_id')->take(1),
+                'paciente' => User::query()
+                    ->selectRaw('concat( primernombre, " ", segundonombre, " ", primerapellido, " ", segundoapellido) as paciente')
+                    ->whereHas('paciente', function ($query){
+                        return $query->whereColumn('citas.paciente_id', 'pacientes.id');
+                    })
+                    ->take(1),
+                'identificacion' => User::query()
+                    ->select('numerodocumento as identificacion')
+                    ->whereHas('paciente', function ($query){
+                        return $query->whereColumn('citas.paciente_id', 'pacientes.id');
+                    })
+                    ->take(1),
             ])
-//            ->addSelect(['identificacion' => DB::table('users')
-//                ->selectRaw('numerodocumento as identificacion')
-//                ->join('pacientes', 'pacientes.id_usuario', '=', 'user.id')
-//                ->whereColumn('pacientes.id', 'citas.paciente_id')
-//                ->take(1)
-//            ])
             ->whereIn('profesional_ins_id', $request->get('ids'));
+
+        //dd($query->get()->toJson());
 
         return datatables($query)->toJson();
     }

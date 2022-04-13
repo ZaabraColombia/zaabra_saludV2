@@ -6,6 +6,10 @@
 {{--    <link rel="stylesheet" href="{{ asset(' plugins/DataTables/Responsive-2.2.9/css/responsive.bootstrap.min.css') }}">--}}
     <style>
         .dataTables_filter, .dataTables_info { display: none;!important; }
+        .bg-agendado { background: #00abb2}
+        .bg-cancelado { background: #b2004a}
+        .bg-completado { background: #47b200}
+        .bg-reservado { background: #b28800}
     </style>
 @endsection
 
@@ -31,8 +35,8 @@
                 <table class="table display responsive nowrap" style="width: 100%" id="table-citas">
                     <thead class="thead_green">
                         <tr>
-                            <th>Fecha atención</th>
-                            <th>Hora atención</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
                             <th>Profesional</th>
                             <th>Paciente</th>
                             <th>Identificación</th>
@@ -72,6 +76,8 @@
 
             //Inicializar tabla
             var table = $('#table-citas').DataTable({
+                pageLength: 2,
+                lengthMenu: [2,50,100,-1],
                 responsive: true,
                 language: {
                     url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
@@ -81,8 +87,8 @@
                     {data: "hora"},
                     {data: "profesional"},
                     {data: "paciente"},
-                    {data: "lugar"},
-                    {data: "especialidad_id"}
+                    {data: "identificacion"},
+                    {data: "lugar"}
                 ],
                 // columnDefs: [
                 //     {
@@ -100,6 +106,9 @@
                     //     //     "extra_search": $('#extra').val()
                     //     // });
                     // }
+                },
+                createdRow: function (row, data, dataIndex) {
+                    $(row).addClass('bg-' + data.estado);
                 }
             });
 
