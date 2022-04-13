@@ -45,4 +45,12 @@ class especialidades extends Model
         return $this->belongsToMany(profesionales_instituciones::class, 'institucion_profesionales_especialidades',
             'id_especialidad', 'id_institucion_profesional');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function servicios(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Servicio::class, 'especialidad_id', 'idEspecialidad' );
+    }
 }

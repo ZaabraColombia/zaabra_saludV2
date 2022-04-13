@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -93,6 +94,15 @@ class profesionales_instituciones extends Model
     public function getNombreCompletoAttribute(): string
     {
         return "{$this->primer_nombre} {$this->segundo_nombre} {$this->primer_apellido} {$this->segundo_apellido}";
+    }
+
+    /**
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeNombreCompleto(Builder $query): Builder
+    {
+        return $query->selectRaw('concat( primer_nombre, " ", segundo_nombre, " ", primer_apellido, " ", segundo_apellido) as nombre_completo' );
     }
 
     public function citas()
