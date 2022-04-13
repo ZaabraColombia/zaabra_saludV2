@@ -363,6 +363,7 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
        Route::get('/iniciar-control', [entidades\Admin\CalendarioController::class, 'iniciar_control'])->name('iniciar-control');
        Route::post('/buscar', [entidades\Admin\CalendarioController::class, 'buscar'])->name('buscar');
        Route::post('/citas', [entidades\Admin\CalendarioController::class, 'citas'])->name('citas');
+       Route::post('/lista-citas', [entidades\Admin\CalendarioController::class, 'lista_citas'])->name('lista-citas');
     });
 
 });

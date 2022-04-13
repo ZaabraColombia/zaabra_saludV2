@@ -148,4 +148,14 @@ class Cita extends Model
         return $bg;
     }
 
+    public function getFechaAttribute(): string
+    {
+        return date('Y-m-d', strtotime($this->fecha_inicio));
+    }
+
+    public function getHoraAttribute(): string
+    {
+        return date('h:i a', strtotime($this->fecha_inicio)) . " - " . date('h:i a', strtotime($this->fecha_fin));
+    }
+
 }
