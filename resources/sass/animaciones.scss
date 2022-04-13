@@ -1,6 +1,6 @@
-// Animación para las tarjetas ddesplegables del "login y Menú hamburguesa" del HEADER
+// Animación para las tarjetas desplegables del "login y Menú hamburguesa" del HEADER
 .menu_flip[aria-expanded="true"] + .dropdown-menu {
-    box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
     animation-name: example;
     animation-duration: 2s;
 }

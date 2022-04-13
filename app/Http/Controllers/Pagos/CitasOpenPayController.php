@@ -13,6 +13,13 @@ use Openpay\Data\OpenpayApi;
 
 class CitasOpenPayController extends Controller
 {
+
+    public function __construct()
+    {
+        //parent::__construct();
+
+    }
+
     public function detalle_profesional (Request $request) {
         $pagoCita = PagoCita::query()
             ->where('id', '=', $request->pago_cita)
@@ -125,7 +132,7 @@ class CitasOpenPayController extends Controller
         }
     }*/
 
-    public function store_profesional(Request $request)
+    public function store(Request $request)
     {
         try {
             $pagoCita = PagoCita::query()
@@ -139,7 +146,7 @@ class CitasOpenPayController extends Controller
                 ])
                 ->first();
 
-            if (isset($pagoCita) and $pagoCita->valor != null)
+            if (isset($pagoCita) and $pagoCita->valor != null and $pagoCita->aprobado !== 1)
             {
                 // create instance OpenPay
                 $openpay = Openpay::getInstance(env('OPENPAY_ID'), env('OPENPAY_SK'), 'CO');
@@ -151,8 +158,9 @@ class CitasOpenPayController extends Controller
 
                 $order_id = $paciente->user->id . time();
 
-                $profesional = $pagoCita->cita->profesional;
                 $cita = $pagoCita->cita;
+
+                //$profesional = $pagoCita->cita->profesional;
 
                 $customer = array(
                     'name'          => $paciente->user->nombres,
@@ -162,10 +170,17 @@ class CitasOpenPayController extends Controller
                     'phone_number'  => '3204321811'
                 );
 
-                $description = "Cita medica {$profesional->user->nombre_completo}"
+                $nombre_profesional = (isset($cita->profesional->user->nombre_completo)) ?
+                    $cita->profesional->user->nombre_completo:$cita->profesional_ins->nombre_completo;
+
+                $description = "Cita medica {$nombre_profesional}"
                     . "{$cita->fecha_inicio->format('Y-m-d')} / "
                     . "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A')} / "
-                    . "{$cita->lugar}";
+                    . "{$cita->lugar} ({$cita->ciudad->nombre})";
+
+                $pagoCita->update([
+                    'descripcion' => $description
+                ]);
 
                 switch ($request->metodo_pago)
                 {
@@ -231,7 +246,7 @@ class CitasOpenPayController extends Controller
         }
     }
 
-    public function response_profesional(Request $request)
+    public function response(Request $request)
     {
         try {
 
@@ -299,5 +314,31 @@ class CitasOpenPayController extends Controller
         });
 
         return $array->toArray();
+    }
+
+
+
+
+
+
+
+
+    public function detalle_institcion (Request $request) {
+
+        $pagoCita = PagoCita::query()
+            ->where('id', '=', $request->pago_cita)
+            ->with([
+                'cita',
+                'cita.especialidad',
+                'cita.paciente',
+                'cita.paciente.user',
+                'cita.profesional_ins',
+                'cita.profesional_ins.institucion',
+            ])
+            ->first();
+
+        if (empty($pagoCita)) abort(404);
+
+        return view('pagos.detalles-pago-ins', compact('pagoCita'));
     }
 }

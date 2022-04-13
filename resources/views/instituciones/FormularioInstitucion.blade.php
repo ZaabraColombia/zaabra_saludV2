@@ -25,11 +25,14 @@
                 <p>Acerca de la institución</p>
             </li>
         </div>
+        {{--
         <div class="section_icon_form">
-            <li class="iconGris_profesionalInst profesional_institution" onclick="hideContaintOption(this)" data-position="professionalInst">
+            <li class="iconGris_profesionalInst profesional_institution" onclick="hideContaintOption(this)"
+                data-position="professionalInst">
                 <p>Profesionales</p>
             </li>
         </div>
+        --}}
         <div class="section_icon_form">
             <li class="iconGris_certifInst certificado_institution" onclick="hideContaintOption(this)" data-position="certificationsInst">
                 <p>Certificaciones</p>
@@ -266,65 +269,72 @@
         </div>
 
         <!-- 2.5 Services -->
+        {{--
         <div class="card_module_form">
             <h5 class="icon_text icon_servicios_Inst mb-3">Servicios</h5>
 
             <div class="content_information_saved_form" id="lista-servicios-institucion">
                 <?php $count_servicios = 0; ?>
                 @foreach($objServicio as $servicio)
-                    @if(!empty($servicio->tituloServicios))
-                        <?php $count_servicios++; ?>
-                        <div class="card_information_saved_form">
-                            <div class="content_btn_close_form">
-                                <button type="submit" class="close" aria-label="Close" data-url="{{ route('entidad.delete4', ['id_servicio' => $servicio->id_servicio]) }}"><span aria-hidden="true">&times;</span></button>
-                            </div>
+                @if(!empty($servicio->tituloServicios))
+                <?php $count_servicios++; ?>
+                <div class="card_information_saved_form">
+                    <div class="content_btn_close_form">
+                        <button type="submit" class="close" aria-label="Close"
+                                data-url="{{ route('entidad.delete4', ['id_servicio' => $servicio->id_servicio]) }}">
+                            <span aria-hidden="true">&times;</span></button>
+                    </div>
 
-                            <div class="data_saved_form border-top-0">
-                                <h5>Título del servicio</h5>
-                                <span>{{$servicio->tituloServicios}}</span>
-                            </div>
+                    <div class="data_saved_form border-top-0">
+                        <h5>Título del servicio</h5>
+                        <span>{{$servicio->tituloServicios}}</span>
+                    </div>
 
-                            <div class="data_saved_form">
-                                <h5>Descripción</h5>
-                                <span>{{$servicio->DescripcioServicios}}</span>
-                            </div>
+                    <div class="data_saved_form">
+                        <h5>Descripción</h5>
+                        <span>{{$servicio->DescripcioServicios}}</span>
+                    </div>
 
-                            <div class="data_saved_form">
-                                <h5>Sedes en la que está el servicio</h5>
-                                @if( is_string($servicio->sucursalservicio) )
-                                    @php  $new_array = explode(',', $servicio->sucursalservicio ); @endphp
-                                @endif
-                                <ul>
-                                    @foreach($new_array as $info)
-                                        <li>{{$info}}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    @endif
+                    <div class="data_saved_form">
+                        <h5>Sedes en la que está el servicio</h5>
+                        @if( is_string($servicio->sucursalservicio) )
+                        @php  $new_array = explode(',', $servicio->sucursalservicio ); @endphp
+                        @endif
+                        <ul>
+                            @foreach($new_array as $info)
+                            <li>{{$info}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+                @endif
                 @endforeach
             </div>
 
-            <form method="POST" action="{{ route('entidad.create4') }}" enctype="multipart/form-data" accept-charset="UTF-8" id="form-servicios-institucion" class="pb-2">
+            <form method="POST" action="{{ route('entidad.create4') }}" enctype="multipart/form-data"
+                  accept-charset="UTF-8" id="form-servicios-institucion" class="pb-2">
                 @csrf
                 <div class="row m-0 pb-3 px-0">
                     <div class="col-12" id="mensajes-servicios">
                         @if($count_servicios >= 6 )
-                            <div class="alert alert-success" role="alert">
-                                <h4 class="alert-heading">Hecho!</h4>
-                                <p>Ya tienes el máximo de servicos</p>
-                            </div>
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">Hecho!</h4>
+                            <p>Ya tienes el máximo de servicos</p>
+                        </div>
                         @endif
                     </div>
 
                     <div class="col-md-12 p-0">
                         <label for="titulo_servicio" class="label_txt_form">Título del servicio</label>
-                        <input class="input_box_form" id="titulo_servicio" placeholder="Título del servicio" type="text" name="titulo_servicio" {{ ($count_servicios >= 6) ? 'disabled' : '' }}>
+                        <input class="input_box_form" id="titulo_servicio" placeholder="Título del servicio" type="text"
+                               name="titulo_servicio" {{ ($count_servicios >= 6) ? 'disabled' : '' }}>
                     </div>
 
                     <div class="col-md-12 p-0">
                         <label for="descripcion_servicio" class="label_txt_form">Descripción</label>
-                        <textarea class="textarea_form" id="descripcion_servicio" placeholder="Escribir descripción..." cols="30" rows="10" maxlength="270" name="descripcion_servicio" {{ ($count_servicios >= 6) ? 'disabled' : '' }}></textarea>
+                        <textarea class="textarea_form" id="descripcion_servicio" placeholder="Escribir descripción..."
+                                  cols="30" rows="10" maxlength="270"
+                                  name="descripcion_servicio" {{ ($count_servicios >= 6) ? 'disabled' : '' }}></textarea>
 
                         <p class="text_informative_form">270 Caracteres</p>
                     </div>
@@ -332,21 +342,28 @@
                     <div class="col-md-12 p-0" id="sedes-servicios-institucion">
                         <label for="sucursal_servicio-0" class="label_txt_form">Sedes en la que está el servicio</label>
                         <div class="input-group">
-                            <input type="text" class="form-control input_servicios_institucion" placeholder="Nombre de la sede" id="sucursal_servicio-0" name="sucursal_servicio[0]" {{ ($count_servicios >= 6) ? 'disabled' : '' }}>
+                            <input type="text" class="form-control input_servicios_institucion"
+                                   placeholder="Nombre de la sede" id="sucursal_servicio-0"
+                                   name="sucursal_servicio[0]" {{ ($count_servicios >= 6) ? 'disabled' : '' }}>
                             <div class="input-group-append">
-                                <button class="btn btn-outline-primary" type="button" id="btn-agregar-servicio-institucion" {{ ($count_servicios >= 6) ? 'disabled' : '' }}><i class="fas fa-plus"></i></button>
+                                <button class="btn btn-outline-primary" type="button"
+                                        id="btn-agregar-servicio-institucion" {{ ($count_servicios >= 6) ? 'disabled' : '' }}>
+                                    <i class="fas fa-plus"></i></button>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="section_button_form"> <!-- Save button -->
-                    <button type="submit" class="button_green_form" id="btn-guardar-servicio-institucion" {{ ($count_servicios >= 6) ? 'disabled' : '' }} data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}..."> Guardar
+                    <button type="submit" class="button_green_form" id="btn-guardar-servicio-institucion"
+                            {{ ($count_servicios >= 6) ? 'disabled' : '' }} data-text="{{ __('institucion.guardar') }}"
+                            data-text-loading="{{ __('institucion.cargando') }}..."> Guardar
                         <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="pl-2">
                     </button>
                 </div>
             </form>
         </div>
+        --}}
 
         <!-- Previous and next buttons -->
         <div class="container_button_form">
@@ -488,7 +505,9 @@
     </div>
 
     <!-- 4. Professionals -->
-    <div class="container_module_form professional_inst"> <!-- Clase "professional_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
+    {{--
+    <div class="container_module_form professional_inst">
+        <!-- Clase "professional_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->
         <!-- 4.9 Professionals -->
         <div class="card_module_form">
             <h5 class="icon_text icon_profesionales_Inst mb-3">Profesionales</h5>
@@ -496,71 +515,77 @@
             <div class="content_information_saved_form" id="lista-profesionales-institucion">
                 <?php $count_profecionales = 0; ?>
                 @foreach($objProfesionalesIns as $profecional)
-                    @if(!empty($profecional->foto_perfil_institucion))
-                        <?php $count_profecionales++; ?>
-                        <div class="card_proffesional card-profesional" id="card-profesional-{{ $profecional->id_profesional_inst }}">
+                @if(!empty($profecional->foto_perfil_institucion))
+                <?php $count_profecionales++; ?>
+                <div class="card_proffesional card-profesional"
+                     id="card-profesional-{{ $profecional->id_profesional_inst }}">
 
-                            <div class="section_btn_close pt-3" style="background: white">
-                                <button class="button_edit btn-edit-profesional" data-url="{{ route('entidad.get8', ['id' => $profecional->id_profesional_inst]) }}" >
-                                    <i class="fas fa-edit pr-2"></i>
-                                </button>
+                    <div class="section_btn_close pt-3" style="background: white">
+                        <button class="button_edit btn-edit-profesional"
+                                data-url="{{ route('entidad.get8', ['id' => $profecional->id_profesional_inst]) }}">
+                            <i class="fas fa-edit pr-2"></i>
+                        </button>
 
-                                <button type="submit" class="close" aria-label="Close" style="opacity: inherit;" data-url="{{ route('entidad.delete8', ['id_profesional' => $profecional->id_profesional_inst]) }}">
-                                    <i aria-hidden="true" class="fas fa-trash-alt pl-2" style="color: #019f86"></i>
-                                </button>
-                            </div>
+                        <button type="submit" class="close" aria-label="Close" style="opacity: inherit;"
+                                data-url="{{ route('entidad.delete8', ['id_profesional' => $profecional->id_profesional_inst]) }}">
+                            <i aria-hidden="true" class="fas fa-trash-alt pl-2" style="color: #019f86"></i>
+                        </button>
+                    </div>
 
-                            <div style="background: white">
-                                <div class="img_user_form pb-4">
-                                    <img class="card-img-profesional" src="{{ asset($profecional->foto_perfil_institucion) }}">
-                                </div>
-                            </div>
-
-                            <div class="">
-                                <div class="data_saved_form">
-                                    <h5 class="card-nombre-profesional">{{ $profecional->primer_nombre }} {{ $profecional->segundo_nombre }} {{ $profecional->primer_apellido }} {{ $profecional->segundo_apellido }}</h5>
-                                    <p class="card-universidad-profesional">{{ $profecional->nombre_universidad }}</p>
-                                </div>
-
-                                <div class="data_saved_form card-especialidades-profesional">
-                                    {{--@if(!empty($profecional->nombre_especialidad))--}}
-                                        @if(!empty($profecional->especialidades->toArray()))
-                                            <ul>
-                                                <li>
-                                                    {!!  implode('</li><li>', array_column($profecional->especialidades->toArray(), 'nombreEspecialidad'))  !!}
-                                                </li>
-                                            </ul>
-                                        @endif
-                                    {{--@endif--}}
-                                </div>
-
-                                @if(!empty($profecional->cargo))
-                                    <div class="data_saved_form">
-                                        <span class="card-cargo-profesional">{{ $profecional->cargo }}</span>
-                                    </div>
-                                @endif
-                            </div>
+                    <div style="background: white">
+                        <div class="img_user_form pb-4">
+                            <img class="card-img-profesional" src="{{ asset($profecional->foto_perfil_institucion) }}">
                         </div>
-                    @endif
+                    </div>
+
+                    <div class="">
+                        <div class="data_saved_form">
+                            <h5 class="card-nombre-profesional">{{ $profecional->primer_nombre }} {{ $profecional->segundo_nombre }} {{ $profecional->primer_apellido }} {{ $profecional->segundo_apellido }}</h5>
+                            <p class="card-universidad-profesional">{{ $profecional->nombre_universidad }}</p>
+                        </div>
+
+                        <div class="data_saved_form card-especialidades-profesional">
+
+                            @if(!empty($profecional->especialidades->toArray()))
+                            <ul>
+                                <li>
+                                    {!!  implode('</li><li>', array_column($profecional->especialidades->toArray(), 'nombreEspecialidad'))  !!}
+                                </li>
+                            </ul>
+                            @endif
+
+                        </div>
+
+                        @if(!empty($profecional->cargo))
+                        <div class="data_saved_form">
+                            <span class="card-cargo-profesional">{{ $profecional->cargo }}</span>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+                @endif
                 @endforeach
             </div>
 
-            <form action="{{ route('entidad.create8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8" id="form-profesionales-institucion"  class="pb-2">
+            <form action="{{ route('entidad.create8') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8"
+                  id="form-profesionales-institucion" class="pb-2">
                 <input type="hidden" id="id_profesional" name="id_profesional">
                 @csrf
                 <div class="col-12" id="mensajes-profesionales">
                     @if($count_profecionales >= 3 and !$is_asociacion )
-                        <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading">Hecho!</h4>
-                            <p>Ya tienes el máximo de profesionales</p>
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Hecho!</h4>
+                        <p>Ya tienes el máximo de profesionales</p>
+                    </div>
                     @endif
                 </div>
 
                 <div class="row m-0 py-3 px-0">
                     <div class="col-md-3 img_user_form"> <!-- Professionqal image -->
                         <img id="img-foto_profecional">
-                        <input type="file" id="foto_profecional" name="foto_profecional" onchange="ver_imagen('foto_profecional', 'img-foto_profecional');" accept="image/png, image/jpeg">
+                        <input type="file" id="foto_profecional" name="foto_profecional"
+                               onchange="ver_imagen('foto_profecional', 'img-foto_profecional');"
+                               accept="image/png, image/jpeg">
                         <p>Subir foto de perfil</p>
                     </div>
 
@@ -569,35 +594,46 @@
                             <div class="col-lg-6 p-0 pr-lg-1">
                                 <label for="example-date-input" class="label_txt_form">Nombres</label>
                                 <div class="section_input_double_form">
-                                    <input class="input_box_form mb-2 mb-md-0 mr-md-1" placeholder="Primer nombre" type="text" name="primer_nombre_profecional" id="primer_nombre_profecional" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
-                                    <input class="input_box_form ml-md-1" placeholder="Segundo nombre"  type="text" name="segundo_nombre_profecional" id="segundo_nombre_profecional" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
+                                    <input class="input_box_form mb-2 mb-md-0 mr-md-1" placeholder="Primer nombre"
+                                           type="text" name="primer_nombre_profecional"
+                                           id="primer_nombre_profecional" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
+                                    <input class="input_box_form ml-md-1" placeholder="Segundo nombre" type="text"
+                                           name="segundo_nombre_profecional"
+                                           id="segundo_nombre_profecional" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
                                 </div>
                             </div>
 
                             <div class="col-lg-6 p-0 pl-lg-1">
                                 <label for="example-date-input" class="label_txt_form">Apellidos</label>
                                 <div class="section_input_double_form">
-                                    <input class="input_box_form mb-2 mb-md-0 mr-md-1" placeholder="Primer apellido"  type="text" name="primer_apellido_profecional" id="primer_apellido_profecional" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
-                                    <input class="input_box_form ml-md-1" placeholder="Segundo apellido"  type="text" name="segundo_apellido_profecional" id="segundo_apellido_profecional" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
+                                    <input class="input_box_form mb-2 mb-md-0 mr-md-1" placeholder="Primer apellido"
+                                           type="text" name="primer_apellido_profecional"
+                                           id="primer_apellido_profecional" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
+                                    <input class="input_box_form ml-md-1" placeholder="Segundo apellido" type="text"
+                                           name="segundo_apellido_profecional"
+                                           id="segundo_apellido_profecional" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
                                 </div>
                             </div>
 
                             <div class="col-lg-6 p-0 pr-lg-1">
                                 <label for="universidad" class="label_txt_form">Universidad</label>
-                                <select name="universidad" id="universidad" class="input_box_form universidades" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
+                                <select name="universidad" id="universidad"
+                                        class="input_box_form universidades" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}>
                                     <option></option>
                                 </select>
                             </div>
 
                             <div class="col-lg-6 p-0 pl-lg-1">
                                 <label for="especialidad" class="label_txt_form">Especialidad</label>
-                                <select name="especialidad[]" id="especialidad" class="input_box_form especialidades-search" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }} >
+                                <select name="especialidad[]" id="especialidad"
+                                        class="input_box_form especialidades-search" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }} >
                                 </select>
                             </div>
 
                             <div class="col-lg-6 p-0 pr-lg-1">
                                 <label for="cargo_profesional" class="label_txt_form">Cargo</label>
-                                <input type="text" name="cargo_profesional" id="cargo_profesional" class="input_box_form" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }} />
+                                <input type="text" name="cargo_profesional" id="cargo_profesional"
+                                       class="input_box_form" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }} />
                             </div>
                         </div>
                     </div>
@@ -605,11 +641,14 @@
 
                 <div class="section_button_form">
                     <!-- botón para canelar y limpiar formulario -->
-                    <button type="button" class="button_transparent_form mr-2" id="btn-cancelar-editar-profesional" style="display: none;">
-                       Cancelar  <i class="fas fa-times pl-2"></i>
+                    <button type="button" class="button_transparent_form mr-2" id="btn-cancelar-editar-profesional"
+                            style="display: none;">
+                        Cancelar <i class="fas fa-times pl-2"></i>
                     </button>
                     <!-- Save button -->
-                    <button type="submit" class="button_green_form" id="btn-guardar-profecionales-institucion" {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}  data-text="{{ __('institucion.guardar') }}" data-text-loading="{{ __('institucion.cargando') }}..."> Guardar
+                    <button type="submit" class="button_green_form" id="btn-guardar-profecionales-institucion"
+                            {{ ($count_profecionales >= 3 and !$is_asociacion) ? 'disabled' : '' }}  data-text="{{ __('institucion.guardar') }}"
+                            data-text-loading="{{ __('institucion.cargando') }}..."> Guardar
                         <img src="{{ asset('/img/iconos/icono-flecha-blanco.svg') }}" class="pl-2"/>
                     </button>
                 </div>
@@ -619,16 +658,18 @@
         <!-- Previous and next buttons -->
         <div class="container_button_form">
             <div class="section_button_form justify-content-between">
-                <button type="submit" class="button_transparent_form" onclick="hideBtnPrevious(this)" code-position="professionalInst">
+                <button type="submit" class="button_transparent_form" onclick="hideBtnPrevious(this)"
+                        code-position="professionalInst">
                     <img src="{{asset('/img/formulario-profesional/icono-flecha-gris.svg')}}" class="pr-2">Anterior
                 </button>
 
-                <button type="submit" class="button_blue_form" onclick="hideBtnNext(this)" code-position="professionalInst">Siguiente
+                <button type="submit" class="button_blue_form" onclick="hideBtnNext(this)" code-position="professionalInst">
+                    Siguiente
                     <img src="{{asset('/img/iconos/icono-flecha-blanco.svg')}}" class="pl-2">
                 </button>
             </div>
         </div>
-    </div>
+    </div>--}}
 
     <!-- 5. Certifications -->
     <div class="container_module_form certifications_inst"> <!-- Clase "certifications_inst" creada para ocultar y mostrar elementos desde la función on click en el archivo formularios.js  -->

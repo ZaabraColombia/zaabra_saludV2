@@ -25,7 +25,7 @@ class Cita extends Model
         //'horario_id',
         'lugar',
         'tipo_cita_id',
-        'estimado',
+        'especialidad_id',
         'duracion',
         'comentario',
         'pais_id',
@@ -111,6 +111,14 @@ class Cita extends Model
     public function ciudad(): BelongsTo
     {
         return $this->belongsTo(municipio::class, 'ciudad_id', 'id_municipio');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function especialidad(): BelongsTo
+    {
+        return $this->belongsTo(especialidades::class, 'especialidad_id');
     }
 
     /**

@@ -10,7 +10,9 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class ContactosController extends Controller
@@ -48,15 +50,29 @@ class ContactosController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $request->merge(['user_id' => Auth::user()->id]);
-        $contacto = Contacto::query()->create($request->all());
+        $respueta = $request->all();
+        $id_paciente = Auth::user()->id;
+
+        if ($request->file('foto'))
+        {
+            $respueta['foto'] = $request->file('foto')
+                ->move("img/pacientes/{$id_paciente}/contactos",
+                    Str::random(10) . ".{$request->file('foto')->extension()}"
+                );
+        }
+
+        $respueta['user_id'] = $id_paciente;
+        $contacto = Contacto::query()->create($respueta);
+
+        $array = $contacto->toArray();
+        $array['foto'] = asset($array['foto'] ?? 'img/menu/avatar.png');
 
         return response([
             'message' => [
                 'title' => 'Hecho',
                 'text'  => "Contacto {$contacto->nombre} creado"
             ],
-            'item' => $contacto->toArray(),
+            'item' => $array,
             'type' => 'created'
         ], Response::HTTP_OK);
     }
@@ -81,8 +97,11 @@ class ContactosController extends Controller
             ]
         ], Response::HTTP_NOT_FOUND);
 
+        $array = $contacto->toArray();
+        $array['foto'] = asset($array['foto'] ?? 'img/menu/avatar.png');
+
         return response([
-            'item' => $contacto->toArray(),
+            'item' => $array,
         ], Response::HTTP_OK);
     }
 
@@ -119,14 +138,30 @@ class ContactosController extends Controller
             ]
         ], Response::HTTP_NOT_FOUND);
 
-        $contacto->update($request->all());
+        $respueta = $request->all();
+        $id_paciente = Auth::user()->id;
+
+        if ($request->file('foto'))
+        {
+            if (File::exists($contacto->foto)) File::delete($contacto->foto);
+
+            $respueta['foto'] = $request->file('foto')
+                ->move("img/instituciones/{$id_paciente}/contactos",
+                    Str::random(10) . ".{$request->file('foto')->extension()}"
+                );
+        }
+
+        $contacto->update($respueta);
+
+        $array = $contacto->toArray();
+        $array['foto'] = asset($array['foto'] ?? 'img/menu/avatar.png');
 
         return response([
             'message' => [
                 'title' => 'Hecho',
                 'text'  => "Contacto {$contacto->nombre} editado"
             ],
-            'item' => $contacto->toArray(),
+            'item' => $array,
             'type' => 'updated'
         ], Response::HTTP_OK);
     }

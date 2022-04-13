@@ -31,10 +31,7 @@
                 <div class="col-12">
                     <p class="fs_subtitle black_bold font_roboto">Descripción del pago: &nbsp;&nbsp;&nbsp;
                         <span class="fs_subtitle black_light font_roboto">
-                            {{ "Cita medica {$profesional->user->nombre_completo} "
-                            . "{$cita->fecha_inicio->format('Y-m-d')} / "
-                            . "{$cita->fecha_inicio->format('H:i A')} - {$cita->fecha_fin->format('H:i A')} / "
-                            . "{$cita->lugar}" }}
+                            {{ $historial->pago_cita->descripcion }}
                         </span>
                     </p>
                 </div>
@@ -83,16 +80,13 @@
 
         <div class="content_btn_center py-5">
             <button class="fs_subtitle button_green ml-3" type="button" onclick="imprimir()">Descargar</button>
-            <button class="fs_subtitle button_blue ml-3" type="button" onclick="finalizar()">Finalizar</button>
+            <a class="fs_subtitle button_blue ml-3" type="button" href="{{ route('paciente.citas', ['confirmation' => '1']) }}">Finalizar</a>
         </div>
     </div>
 @endsection
 
 @section('scripts')
     <script type="text/javascript">
-        function finalizar() {
-            window.close();
-        }
 
         function imprimir(){
             var ventana = window.open('', 'PRINT', 'height=400,width=600');

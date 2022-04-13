@@ -419,6 +419,11 @@
             var form = $('#form-contacto');
             form.attr('action', '{{ route('institucion.contactos.store') }}');
             form.attr('method', 'post');
+
+            form.find('[name="_method"]').val('post');
+
+            $('#imagen-foto').attr('src', '{{ asset('img/menu/avatar.png') }}');
+
             form[0].reset();
             $('#modal_contactos').modal();
             $('#titulo').html('Nuevo');
@@ -436,6 +441,9 @@
             form[0].reset();
             form.attr('action', ruta_guardar.replace(':id', btn.data('id')));
             form.attr('method', 'put');
+
+            form.find('[name="_method"]').val('put');
+
             $('#titulo').html('Editar');
 
             //llamar someId de la tabla
@@ -451,9 +459,13 @@
                     //Lleno la base de datos
                     var item = response.item;
 
+                    console.log(item);
                     $.each(item, function (key, item) {
-                        $('#' + key).val(item);
+                        var i = $('#' + key);
+                        if(i[0] && key !== 'foto') i.val(item);
                     });
+
+                    $('#imagen-foto').attr('src', item.foto);
                 },
                 error: function (error) {
                     //mensaje
@@ -512,6 +524,7 @@
                 form[0].reset();
                 form.attr('action', ruta_eliminar.replace(':id', btn.data('id')));
                 form.attr('method', 'delete');
+                //form.find('[name="_method"]').val('post');
 
                 //llamar someId de la tabla
                 row = table.row( btn.parents('tr') );

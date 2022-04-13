@@ -10,6 +10,8 @@ try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
 
+    window.validation = require('jquery-validation');
+
     require('bootstrap');
 } catch (e) {}
 

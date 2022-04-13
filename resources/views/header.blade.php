@@ -88,7 +88,7 @@
             <!-- Sección Menú hamburguesa no logueado-->
             <div class="menu-hamburger dropdown">
                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
-                onclick="elementHidden(this)" data-position="burger">
+                    onclick="elementHidden(this)" data-position="burger">
                     <span></span>
                 </a>
 
