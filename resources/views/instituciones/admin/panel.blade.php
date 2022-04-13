@@ -103,14 +103,6 @@
 
             <div class="col-12 col-lg-4 col-xl-3 p-0 m-0">
                 <div class="row m-0">
-                    {{-- PLM --}}
-                    <div class="col-6 col-lg-12 py-3 px-2 py-lg-2">
-                        <a  href="https://www.prescripciontotal.com.co/consultorio-generico/login" target="_blank">
-                            <div class="content__logos_inst">
-                                <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/plm.png') }}" alt="">
-                            </div>
-                        </a>
-                    </div>
                     {{-- Mipres --}}
                     <div class="col-6 col-lg-12 py-3 px-2 py-lg-2">
                         <a  href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS" target="_blank">
@@ -124,6 +116,14 @@
                         <a  href="" target="_blank">
                             <div class="content__logos_inst ">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/logo_medhistoria_banner.png') }}" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    {{-- PLM --}}
+                    <div class="col-6 col-lg-12 py-3 px-2 py-lg-2">
+                        <a  href="https://www.prescripciontotal.com.co/consultorio-generico/login" target="_blank">
+                            <div class="content__logos_inst">
+                                <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/plm.png') }}" alt="">
                             </div>
                         </a>
                     </div>

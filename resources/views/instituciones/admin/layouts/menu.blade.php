@@ -110,15 +110,6 @@
                     </a>
                 </li>
 
-                <!-- Logo PLM -->
-                <li class="sidebar-item  has-sub items_logos_green" style="width: 180px">
-                    <a id="fav" class="" target="_blank" href="https://www.prescripciontotal.com.co/consultorio-generico/login">
-                        <button class="d-flex justify-content-start pl-3">
-                            <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/plm.png') }}" alt="" width="100px">
-                        </button>
-                    </a>
-                </li>
-
                 <!-- Logo Mipress -->
                 <li class="sidebar-item  has-sub items_logos_green" style="width: 180px">
                     <a id="fav" class="" target="_blank" href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS">
@@ -133,6 +124,15 @@
                     <a id="fav" class="" target="_blank" href="">
                         <button class="d-flex justify-content-start pl-3">
                             <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/logo_medhistoria_banner.png') }}" alt="" width="160px" height="27px">
+                        </button>
+                    </a>
+                </li>
+
+                <!-- Logo PLM -->
+                <li class="sidebar-item  has-sub items_logos_green" style="width: 180px">
+                    <a id="fav" class="" target="_blank" href="https://www.prescripciontotal.com.co/consultorio-generico/login">
+                        <button class="d-flex justify-content-start pl-3">
+                            <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/plm.png') }}" alt="" width="100px">
                         </button>
                     </a>
                 </li>
