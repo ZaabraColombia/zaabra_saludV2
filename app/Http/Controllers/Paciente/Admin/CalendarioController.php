@@ -303,7 +303,10 @@ class CalendarioController extends Controller{
     public function asignar_cita_institucion(profesionales_instituciones $profesional)
     {
         $horario = $profesional->horario;
-        $servicios = $profesional->servicios;
+        $servicios = $profesional->servicios()
+            ->where('agendamiento_virtual', 1)
+            ->get();
+
         $disponibilidad = $profesional->disponibilidad_agenda;
         $consultorio = $profesional->consultorio;
 
@@ -322,7 +325,7 @@ class CalendarioController extends Controller{
         $weekDisabled = array_values(array_diff(array(0, 1, 2, 3, 4, 5, 6), $weekNotBusiness));
 
         return view('paciente.admin.calendario.asignar-cita-profesional-institucion', compact('profesional',
-            'weekDisabled'));
+            'weekDisabled', 'servicios', 'disponibilidad', 'consultorio'));
     }
 
     public function dias_libre_institucion_profesional(Request $request, profesionales_instituciones $profesional)
@@ -330,7 +333,13 @@ class CalendarioController extends Controller{
         //Validate date
         $validate = Validator::make($request->all(), [
             'date'  => ['required', 'date_format:Y-m-d'],
-            'servicio' => ['required', 'exists:servicios,id']
+            'servicio' => [
+                'required',
+                Rule::exists('servicios', 'id')->where(function ($query) use ($profesional){
+                    return $query->where('institucion_id', $profesional->institucion->id)
+                        ->where('agendamiento_virtual', 1);
+                })
+            ]
         ]);
 
         if ($validate->fails()) {
@@ -437,7 +446,13 @@ class CalendarioController extends Controller{
         $request->validate([
             'disponibilidad'    => ['required'],
             'disponibilidad.*'  => ['required', 'date_format:Y-m-d H:i'],
-            'tipo_servicio'     => ['required'],
+            'tipo_servicio'     => [
+                'required',
+                Rule::exists('servicios', 'id')->where(function ($query) use ($profesional){
+                    return $query->where('institucion_id', $profesional->institucion->id)
+                        ->where('agendamiento_virtual', 1);
+                })
+            ],
             'convenio'          => [
                 'required_if:check-convenio,1',
                 Rule::exists('convenios', 'id')->where(function ($query) use ($profesional){

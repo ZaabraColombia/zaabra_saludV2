@@ -68,8 +68,8 @@
                         <h3 class="fs_subtitle_module black_bold">Tipo de consulta</h3>
                         <div class="">
                             <ul>
-                                @if(!empty($profesional->servicios))
-                                    @foreach ($profesional->servicios as $servicio)
+                                @if(!empty($servicios))
+                                    @foreach ($servicios as $servicio)
                                         <li>
                                             <p>{{ $servicio->nombre }}</p>
                                             <span>${{ number_format($servicio->valor, 0, ",", ".") }}</span>
@@ -111,8 +111,8 @@
                                 <label for="tipo_servicio">Tipo de cita</label>
                                 <select id="tipo_servicio" class="form-control" name="tipo_servicio" required>
                                     <option></option>
-                                    @if(!empty($profesional->servicios))
-                                        @foreach ($profesional->servicios as $servicio)
+                                    @if(!empty($servicios))
+                                        @foreach ($servicios as $servicio)
                                             <option value="{{ $servicio->id }}" data-valor="{{ $servicio->valor }}">{{ $servicio->nombre }}</option>
                                         @endforeach
                                     @endif
