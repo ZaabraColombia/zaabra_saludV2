@@ -363,7 +363,7 @@ class CalendarioController extends Controller{
             ->where('paciente_id', Auth::user()->paciente->id)
             ->where('estado', 'like', 'agendado')
             ->where('tipo_cita_id', $request->servicio)
-            ->toSql();
+            ->count();
 
         if ($citas >= $servicio->citas_activas) {
             return response([
@@ -504,7 +504,7 @@ class CalendarioController extends Controller{
             ->where('paciente_id', Auth::user()->paciente->id)
             ->where('estado', 'like', 'agendado')
             ->where('tipo_cita_id', $request->servicio)
-            ->toSql();
+            ->count();
         //dd(Auth::user()->paciente->id);
         if ($citas >= $servicio->citas_activas) {
             return redirect()
