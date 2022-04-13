@@ -10004,11 +10004,6 @@ h3 {
     border-color: #dee2e6;
   }
 }
-a:link, a:visited, a:active, a:hover {
-  text-decoration: none;
-  color: #ffff;
-}
-
 :focus-visible {
   outline: none;
 }
@@ -10119,7 +10114,7 @@ a:link, a:visited, a:active, a:hover {
   height: 45px;
 }
 
-.soy_paciente .dropdown-toggle {
+.soy_paciente .drop_main {
   height: 100%;
   width: 100%;
   border: none;
@@ -10130,12 +10125,64 @@ a:link, a:visited, a:active, a:hover {
   background-size: 50px;
   background-position: center;
 }
-.soy_paciente .dropdown-toggle:hover {
+.soy_paciente .drop_main:hover {
   background-image: url("/img/header/icono-soy-paciente-azul.svg");
   background-color: #ffffff;
 }
 
-.soy_paciente #dropdownMenuLink[aria-expanded=true] {
+.box_content {
+  background-color: #FFFFFF;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  float: right;
+  margin-top: 3px;
+  border: 1px solid #c3c3c3;
+  border-radius: 3px;
+}
+
+.card__login {
+  border: none;
+  cursor: pointer;
+}
+
+.option_flotante {
+  position: absolute;
+  top: 0px;
+  left: 197px;
+  background-color: #FFFFFF;
+  border: 1px solid #c3c3c3;
+  border-radius: 3px;
+  padding: 13px 5px;
+  text-decoration: none;
+  color: #232323;
+  display: none;
+}
+.option_flotante:hover {
+  background-color: #0083D6;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.option__user {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+.option__user span {
+  padding-left: 3px;
+}
+
+#accordion .card__login:hover > .option_flotante {
+  display: block;
+}
+
+#login__[aria-expanded=false] {
+  background-image: url("/img/header/icono-soy-paciente-blanco.svg");
+  background-color: #0083D6;
+}
+
+#login__[aria-expanded=true] {
   background-image: url("/img/header/icono-soy-paciente-azul.svg");
   background-color: #fff;
 }
@@ -10158,6 +10205,9 @@ a:link, a:visited, a:active, a:hover {
   background-image: url("/img/header/icono-instituciones-medicas.svg");
 }
 .icon__institucion:hover {
+  background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
+}
+.icon__institucion:focus {
   background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
 }
 
@@ -10415,7 +10465,7 @@ a:link, a:visited, a:active, a:hover {
     height: 60px;
   }
 
-  .soy_paciente .dropdown-toggle {
+  .soy_paciente .drop_main {
     background-size: 65px;
   }
 
@@ -10502,7 +10552,7 @@ a:link, a:visited, a:active, a:hover {
     height: 52px;
   }
 
-  .soy_paciente .dropdown-toggle {
+  .soy_paciente .drop_main {
     background-size: 55px;
   }
 
@@ -10537,7 +10587,7 @@ a:link, a:visited, a:active, a:hover {
     height: 60px;
   }
 
-  .soy_paciente .dropdown-toggle {
+  .soy_paciente .drop_main {
     background-size: 60px;
   }
 

@@ -95,6 +95,10 @@
             crossorigin="">
         </script> -->
 
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+        <script>
+            feather.replace()
+        </script>
         @yield('scripts')
     </body>
 </html>

@@ -9,3 +9,15 @@ function ocultaInput(){
    let myinput = document.querySelector.bind(document);
    myinput(".contain_buscador_mobile").classList.toggle("barra_buscador_mobile")
 }
+
+// Función para ocultar la caja de opciones desplegable del login en el header
+function elementHidden (z){
+   let myvar = z.getAttribute('data-position');
+
+   var div = document.getElementById('collap');
+ 
+   if (myvar == "burger") {
+      div.classList.remove('show');
+      $('#login__').attr('aria-expanded', false);
+   }
+}
