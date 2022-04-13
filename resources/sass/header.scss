@@ -2,6 +2,10 @@
 //     text-decoration: none;
 //     color: #ffff;
 // }
+a:hover {
+    text-decoration: none;
+    color: #ffff;
+}
 :focus-visible{
     outline: none;
 }
@@ -145,8 +149,6 @@
     display: none;
     &:hover {
         background-color: #0083D6;
-        color: #FFFFFF;
-        text-decoration: none;
     }
 }
 .option__user {

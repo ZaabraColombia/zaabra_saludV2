@@ -9,46 +9,54 @@
 @section('contenido')
     <section class="section">
         <div class="row containt_agendaProf" id="basic-table">
-            <div class="col-12 col-lg-10 col-xl-8 p-0">
-                <div class="my-4 my-xl-5">
-                    <h1 class="title__xl blue_bold">Calendario</h1>
-                    <span class="text__md black_light">Administre su calendario de citas</span>
-                </div>
+            <div class="my-4 my-xl-5">
+                <h1 class="title__xl blue_bold">Calendario</h1>
+                <span class="text__md black_light">Administre su calendario de citas</span>
+            </div>
 
-                <div class="row m-0 pb-4">
-                    <button id="actualizar-calendar" class="button_blue_form"><i class="fas fa-sync-alt pr-2"></i>Actualizar</button>
-                </div>
-
-                <div class="row m-0 content_dias_agenda mb-md-3">
-                    <div class="col-md-4 p-0">
-                        <span> <input type="color" value="#FFFFFF"> Días disponibles</span>
+            <div class="col-12 col-lg-11 col-xl-12 p-0">
+                <div class="config__calendar">
+                    <span class="text__md black_light">Ajuste calendario</span>
+                    <div class="row m-0 pb-4 mt-3">
+                        <button id="actualizar-calendar" class="button_blue_form"><i data-feather="refresh-cw" class="pr-2"></i>Actualizar</button>
+                        <button id="" class="button_blue_form ml-2"><i data-feather="lock" class="pr-2"></i>Bloquear días</button>
                     </div>
 
-                    <div class="col-md-4 p-0 content_center_agenda">
-                        <span> <input type="color" value="#1B85D7"> Citas pagadas</span>
-                    </div>
+                    <div class="row m-0 content_dias_agenda mb-md-3">
+                        <div class="col-md-4 col-xl-12 p-0">
+                            <label for="dia_disp"> <input id="dia_disp" type="color" value="#FFFFFF"> Días disponibles</label>
+                        </div>
 
-                    <div class="col-md-4 p-0 content_right_agenda">
-                        <span> <input type="color" value="#D6FFFB"> Cita pago presencial</span>
-                    </div>
+                        <div class="col-md-4 col-xl-12 p-0 content_center_agenda">
+                            <label for="cit_pag"> <input id="cit_pag" type="color" value="#1B85D7"> Citas pagadas</label>
+                        </div>
 
-                    <div class="col-md-4 p-0">
-                        <span> <input type="color" value="#D8D8D8"> Días no disponibles</span>
-                    </div>
+                        <div class="col-md-4 col-xl-12 p-0 content_right_agenda">
+                            <label for="cit_pre"> <input id="cit_pre" type="color" value="#D6FFFB"> Cita pago presencial</label>
+                        </div>
 
-                    <div class="col-md-4 p-0 content_center_agenda">
-                        <span> <input type="color" value="#019F86"> Citas agendadas</span>
-                    </div>
+                        <div class="col-md-4 col-xl-12 p-0">
+                            <label for="dia_nodis"> <input id="dia_nodis" type="color" value="#D8D8D8"> Días no disponibles</label>
+                        </div>
 
-                    <div class="col-md-4 p-0 content_right_agenda">
-                        <span> <input type="color" value="#9DD1F9"> Citas canceladas</span>
+                        <div class="col-md-4 col-xl-12 p-0 content_center_agenda">
+                            <label for="cit_agend"> <input id="cit_agend" type="color" value="#019F86"> Citas agendadas</label>
+                        </div>
+
+                        <div class="col-md-4 col-xl-12 p-0 content_right_agenda">
+                            <label for="cit_canc"> <input id="cit_canc" type="color" value="#9DD1F9"> Citas canceladas</label>
+                        </div>
+
+                        <div class="col-md-4 col-xl-12 p-0 content_right_agenda">
+                            <label for="dia_block"> <input id="dia_block" type="color" value="#F37725">Días bloqueados</label>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-12 col-lg-10 col-xl-8 p-0" id="alerta-general"></div>
+            <div class="col-12 col-lg-11 col-xl-8 p-0" id="alerta-general"></div>
 
-            <div class="col-12 col-lg-10 col-xl-8 p-0 mb-3">
+            <div class="col-12 col-lg-11 col-xl-8 p-0 mb-3">
                 <div id="calendar"></div>
             </div>
         </div>
@@ -756,9 +764,9 @@
                 events: '{{ route('profesional.agenda.calendario.ver-citas') }}',
                 // Botones de mes, semana y día.
                 headerToolbar: {
-                    left: 'prev,next today bloquear',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    left: 'title',
+                    center: '',
+                    right: 'prev,dayGridMonth,timeGridWeek,timeGridDay,today,next'
                 },
 
                 slotLabelInterval: {
