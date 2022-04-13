@@ -10,19 +10,6 @@
         $user = Auth::user();
     @endphp
     <div class="container-fluid content_asig_cita">
-        <div class="content_row">
-            <div class="col_flex w_lg_35" id="alertas">
-                @if ($errors->any())
-                    <div class="alert alert-danger" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="alert-heading">Error</h4>
-                        <p>{{ collect($errors->all())->implode('<br>') }}</p>
-                    </div>
-                @endif
-            </div>
-        </div>
 
         <div class="content_row">
             <h2 class="fs_title_module blue_bold mt-3 title__img_inst" id="nombre_profesional-paciente">
@@ -46,6 +33,20 @@
                         <img src='{{ asset($profesional->foto_perfil_institucion) }}'>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="content_row">
+            <div class="col-12 w_lg_35" id="alertas">
+                @if ($errors->any())
+                    <div class="alert alert-danger" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="alert-heading">Error</h4>
+                        <p>{{ collect($errors->all())->implode('<br>') }}</p>
+                    </div>
+                @endif
             </div>
         </div>
 
@@ -277,7 +278,7 @@
                 },
                 error: function (res, status) {
                     var response = res.responseJSON;
-                    $('#alerta-general').html(alert(response.message, 'danger'));
+                    $('#alertas').html(alert(response.message, 'danger'));
                 }
             });
         }

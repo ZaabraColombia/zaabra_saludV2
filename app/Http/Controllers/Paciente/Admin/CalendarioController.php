@@ -369,7 +369,7 @@ class CalendarioController extends Controller{
             return response([
                 'message' => [
                     'title' => 'Error',
-                    'text'  => 'Ya tiene servicios agendados con la institución'
+                    'text'  => 'Ya tiene citas agendadas con el servicios de la institución'
                 ]
             ], Response::HTTP_NOT_FOUND);
         }
@@ -509,7 +509,7 @@ class CalendarioController extends Controller{
         if ($citas >= $servicio->citas_activas) {
             return redirect()
                 ->back()
-                ->withErrors(['cita' => 'Ya tiene servicios agendados con la institución']);;
+                ->withErrors(['cita' => 'Ya tiene citas agendadas con el servicios de la institución']);;
         }
 
         //Validar el límite de agenda * servicio * usuario
@@ -519,7 +519,7 @@ class CalendarioController extends Controller{
             ->where('tipo_cita_id', $request->servicio)
             ->count();
         if ($citas > 0) return response([
-                'message' => ['title' => 'Error', 'text' => 'Ya tiene servicios agendados con la institución']
+                'message' => ['title' => 'Error', 'text' => 'Ya tiene citas agendadas con el servicios de la institución']
             ], Response::HTTP_NOT_FOUND);
 
 
