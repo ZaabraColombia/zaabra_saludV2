@@ -21438,6 +21438,33 @@ a:hover {
   padding: 3% 0;
 }
 
+.content_info_top {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.title_config_cita {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.prof_img_top {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #CED4DA;
+  border-radius: 100px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.prof_data_top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
 .img_user_form {
   display: flex;
   flex-direction: column;
@@ -21990,6 +22017,31 @@ a:hover {
   .card_contentDouble_form {
     width: 85%;
     padding: 0.8em 2em;
+  }
+
+  .content_info_top {
+    flex-direction: row;
+    margin: 40px 0 20px 0;
+  }
+
+  .title_config_cita {
+    width: 50%;
+    margin: 0;
+  }
+
+  .prof_img_top {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #CED4DA;
+    border-radius: 100px;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+
+  .prof_data_top {
+    justify-content: flex-end;
+    width: 50%;
+    padding-right: 20px;
   }
 
   .img_user_form input {
