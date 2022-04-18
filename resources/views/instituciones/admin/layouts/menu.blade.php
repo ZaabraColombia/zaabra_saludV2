@@ -23,10 +23,16 @@
                 <!-- Profesionales -->
                 <li class="sidebar-item  has-sub items_green">
                     <a id="" class="" href='{{ route('institucion.profesionales.index') }}'>
-                        <button class="{{ request()->routeIs('institucion.profesionales.*') ? 'btn_active_inst' : '' }}">Mis profesionales</button>
+                        <button class="{{ request()->routeIs('institucion.profesionales.*') ? 'btn_active_inst' : '' }}">Profesionales</button>
                     </a>
                 </li>
 
+                <!-- Usuarios -->
+                <li class="sidebar-item has-sub items_green">
+                    <a id="" href="">
+                        <button calss="">Usuarios</button>
+                    </a>
+                </li>
                 
                 <!-- Configuración -->
                 <li class="sidebar-item has-sub items_green accordion" id="accordionConfiguracion">
@@ -52,36 +58,63 @@
                     </ul>
                 </li>
 
+                <!-- Agenda -->
+                <li class="sidebar-item has-sub items_green accordion" id="accordion_agenda">
+                    <button id="headingAgenda" class="" type="button" data-toggle="collapse" data-target="#collapseAgenda" aria-expanded="false" aria-controls="collapseAgenda">
+                        Agenda <i class="icon_angle fas fa-angle-down pl-2"></i>
+                    </button>
+
+                    <ul id="collapseAgenda" class="collapse sub_menu_green" aria-labelledby="headingAgenda" data-parent="#accordion_agenda">
+                        <li class="submenu-item">
+                            <a id="" class="" href="">
+                                Control citas
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a id="" class="" href="">
+                                Agendar citas
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Citas -->
+                <li class="sidebar-item has-sub items_green">
+                    <a id="" class="" href="">
+                        <button class="">Citas</button>
+                    </a>
+                </li>
+
                 <!-- Pagos -->
                 <li class="sidebar-item  has-sub items_green">
                     <a id="" class="" href='{{ route('institucion.pagos') }}'>
-                        <button class="{{ request()->routeIs('institucion.pagos') ? 'btn_active_inst' : '' }}">Mis pagos</button>
+                        <button class="{{ request()->routeIs('institucion.pagos') ? 'btn_active_inst' : '' }}">Pagos</button>
                     </a>
                 </li>
 
                 <!-- Mis pacientes -->
                 <li class="sidebar-item  has-sub items_green">
                     <a id="" class="" href='{{ route('institucion.pacientes') }}'>
-                        <button class="{{ request()->routeIs('institucion.pacientes') ? 'btn_active_inst' : '' }}">Mis pacientes</button>
+                        <button class="{{ request()->routeIs('institucion.pacientes') ? 'btn_active_inst' : '' }}">Pacientes</button>
                     </a>
                 </li>
 
                 <!-- Mis contactos -->
                 <li class="sidebar-item  has-sub items_green">
                     <a id="" class="" href='{{ route('institucion.contactos.index') }}'>
-                        <button class="{{ request()->routeIs('institucion.contactos.index') ? 'btn_active_inst' : '' }}">Mis contactos</button>
+                        <button class="{{ request()->routeIs('institucion.contactos.index') ? 'btn_active_inst' : '' }}">Contactos</button>
                     </a>
                 </li>
 
                 <!-- Catálogos -->
-                <li class="sidebar-item has-sub items_green accordion" id="accordionExample">
-                    <button id="headingOne" class="{{ request()->routeIs('institucion.catalogos.*') ? 'btn_active_inst' : '' }}" type="button" data-toggle="collapse"
-                            data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <li class="sidebar-item has-sub items_green accordion" id="accordionCatalogo">
+                    <button id="headingCatalogo" class="{{ request()->routeIs('institucion.catalogos.*') ? 'btn_active_inst' : '' }}" type="button" data-toggle="collapse"
+                            data-target="#collapseCatalogo" aria-expanded="false" aria-controls="collapseCatalogo">
                         Catálogos<i class="icon_angle fas fa-angle-down pl-2"></i>
                     </button>
 
-                    <ul id="collapseOne" class="collapse sub_menu_green {{ request()->routeIs('institucion.catalogos.*') ? 'show' : '' }}"
-                        aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <ul id="collapseCatalogo" class="collapse sub_menu_green {{ request()->routeIs('institucion.catalogos.*') ? 'show' : '' }}"
+                        aria-labelledby="headingCatalogo" data-parent="#accordionCatalogo">
                         <li class="submenu-item ">
                             <a id="cie10" class="{{ request()->routeIs('institucion.catalogos.cie10') ? 'txt_active_green' : '' }}"
                                href='{{ route('institucion.catalogos.cie10') }}'>
@@ -106,7 +139,7 @@
                 <!-- Favoritos -->
                 <li class="sidebar-item  has-sub items_green">
                     <a class="" href='{{ route('institucion.favoritos') }}'>
-                        <button class="{{ request()->routeIs('institucion.favoritos') ? 'btn_active_inst' : '' }}">Mis favoritos</button>
+                        <button class="{{ request()->routeIs('institucion.favoritos') ? 'btn_active_inst' : '' }}">Favoritos</button>
                     </a>
                 </li>
 
