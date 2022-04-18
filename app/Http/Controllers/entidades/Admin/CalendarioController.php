@@ -125,16 +125,18 @@ class CalendarioController extends Controller
         ]);
 
         $lista = array_column($request->get('lista-profesionales'), 'id');
+        $fecha = $request->fecha;
 
-        return view('instituciones.admin.calendario.citas', compact('lista'));
+        return view('instituciones.admin.calendario.citas', compact('lista', 'fecha'));
     }
 
-    public function lista_citas(Request $request)
+    public function lista_citas_2(Request $request)
     {
 
         //dd($request->get('ids'));
         $query = Cita::query()
             ->select('id_cita', 'fecha_inicio', 'fecha_fin', 'lugar', 'estado')
+            ->selectRaw('DATE_FORMAT(fecha_inicio, "%H:%i") as hora')
             ->addSelect([
                 'profesional' => DB::table('profesionales_instituciones')
                     ->selectRaw('concat( primer_nombre, " ", segundo_nombre, " ", primer_apellido, " ", segundo_apellido) as profesional')
@@ -156,6 +158,22 @@ class CalendarioController extends Controller
 
         //dd($query->get()->toJson());
 
-        return datatables($query)->toJson();
+        return datatables()->eloquent($query)->toJson();
+    }
+
+    public function lista_citas(Request $request)
+    {
+        $query = Cita::query()
+            ->with([
+                'paciente:id,id_usuario,celular',
+                'paciente.user:id,primernombre,segundonombre,primerapellido,segundoapellido,numerodocumento',
+                'profesional_ins:id_profesional_inst,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido'
+            ])
+            //->where(DB::raw("DATE_FORMAT(fecha_inicio, '%Y-%c-%e') = '{$request->fecha}'"))
+            ->whereIn('profesional_ins_id', $request->get('ids'));
+
+        //dd($query->get()->toJson());
+
+        return datatables()->eloquent($query)->toJson();
     }
 }
