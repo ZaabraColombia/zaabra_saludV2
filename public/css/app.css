@@ -25927,6 +25927,11 @@ a:hover {
 }
 
 @media (min-width: 600px) {
+  .buscador {
+    width: 50%;
+    margin-left: auto;
+  }
+
   .content_main {
     padding: 0 30px;
   }
@@ -25982,26 +25987,21 @@ a:hover {
   }
 }
 @media (min-width: 1024px) {
-  .buscador {
-    width: 75%;
-    margin-left: auto;
-  }
-
   .buscador__button {
     width: 7%;
   }
 }
 @media (min-width: 1200px) {
+  .buscador {
+    width: 30%;
+  }
+
   .content_bannerMain {
     height: 550px;
   }
 
   .swiper_especialidad .cbp-l-filters-alignRight .cbp-filter-item {
     font: 600 13.5px/20px "Quicksand", sans-serif;
-  }
-
-  .buscador {
-    width: 50%;
   }
 }
 @media (min-width: 1920px) {

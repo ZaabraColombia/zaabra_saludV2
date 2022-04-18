@@ -45,9 +45,9 @@
 
     <section class="container-fluid content_main mb-5">
         <!-- Barra de búsqueda -->
-        <div class="containt__buscador mt-4">
+        <div class="containt__buscador mt-5">
             <div class="buscador" id="barra_busqueda">
-                <input  class="buscador__input" id="filtro" data-url='{{ url('search') }}' placeholder="Especialidad, médico o institución">
+                <input  class="buscador__input" id="filtro" data-url='{{ url('search') }}' placeholder="Especialidad, Médico o Institución">
                 <button class="buscador__button buscador__icon"></button>
             </div>
         </div>

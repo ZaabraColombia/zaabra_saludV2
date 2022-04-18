@@ -10,7 +10,7 @@
         <!-- Sección barra de busqueda -->
         <div class="containt_buscador_desk">
             <div class="barra_busqueda" id="barra_busqueda">
-                <input  class="input_buscador img_placeholder" id="filtro" data-url='{{ url('search') }}' placeholder="Especialidad, médico o institución">
+                <input  class="input_buscador img_placeholder" id="filtro" data-url='{{ url('search') }}' placeholder="Especialidad, Médico o Institución">
                 <button class="buscador_boton_desk buscador_icon_desk"></button>
             </div>
         </div>
@@ -238,7 +238,7 @@
         <div class="section_buscador_mobile" id="buscador">
             <div class="barra_buscador_mobile" id="barra_busqueda2">
                 <input type="hidden" name="_token" value="tzFtz8TstiTocmap8vuJp4Py7sMc0zcQiC63SuyF">
-                <input  class="input_buscador img_placeholder" id="filtro2" data-url='{{ url('search') }}' placeholder="Especialidad, médico o institución">
+                <input  class="input_buscador img_placeholder" id="filtro2" data-url='{{ url('search') }}' placeholder="Especialidad, Médico o Institución">
                 <!-- <input class="input_buscador" type="buttton" name="buscar" id="barra_buscar" autocomplete="off"> -->
                 <input type="image" class="icon_buscador" src="{{asset('/img/header/icono-buscador-azul.svg')}}">
             </div>
