@@ -26532,6 +26532,11 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     margin-top: 30px;
   }
 
+  .px_xl {
+    padding-left: 0 !important;
+    padding-right: 20px;
+  }
+
   .content_asig_cita {
     padding: 40px 20px 30px 30px;
   }
@@ -26556,6 +26561,12 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 
   .w_xl_90 {
     width: 90%;
+  }
+}
+@media (min-width: 1300px) {
+  .px_xl {
+    padding-left: 20px !important;
+    padding-right: 0;
   }
 }
 .input__box label {

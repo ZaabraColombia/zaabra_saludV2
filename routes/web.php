@@ -487,7 +487,7 @@ Route::get('/test-instituciones-filtro-agenda', function(){
 
 // Ruta para la vista de control citas en la agenda instituciones
 Route::get('/test-instituciones-control-cita', function(){
-    return view('instituciones.admin.agenda.control-cita');
+    return view('instituciones.admin.agenda.control-citas');
 });
 
 Route::get('/test', function (){
