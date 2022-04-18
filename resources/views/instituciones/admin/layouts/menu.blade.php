@@ -7,7 +7,7 @@
             <div class="sidebar__header">
                 <img src="{{ asset($user->institucion->logo ?? 'img/menu/avatar.png') }}" alt="user.png">
                 <div class="user_data">
-                    <h2 style="color: #019F86">{{ $user->nombreinstitucion }}</h2>
+                    <h2 style="color: #019F86">{{ $user->nombre_completo }}</h2>
                     <h3>{{ $user->email }}</h3>
                 </div>
             </div>
