@@ -24,6 +24,6 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`profesionales_instituciones`
     ADD COLUMN `estado` TINYINT(1) NULL DEFAULT 0 AFTER `slug`;
 
 ###Subido testing
-
+## Subido jhonf 18/04/2022
 
 

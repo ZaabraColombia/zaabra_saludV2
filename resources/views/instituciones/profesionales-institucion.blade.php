@@ -44,6 +44,13 @@
     </div>--}} -->
 
     <section class="container-fluid content_main mb-5">
+        <!-- Barra de búsqueda -->
+        <div class="containt__buscador mt-4">
+            <div class="buscador" id="barra_busqueda">
+                <input  class="buscador__input" id="filtro" data-url='{{ url('search') }}' placeholder="Especialidad, médico o institución">
+                <button class="buscador__button buscador__icon"></button>
+            </div>
+        </div>
         <!-- Carrusel de especialidades -->
         <div class="swiper-container swiper_especialidad">
             <ul id="filterControls" class="list-inline cbp-l-filters-alignRight swiper-wrapper pt-5">
@@ -97,8 +104,8 @@
                         <h2 class="cargo_profInst text_cargo_card">{{$profesional->cargo}}</h2>
 
 
-                        <div class="content_btn_cardProf mt-1">
-                            <a class="btn_cardProf" href="{{ route('paciente.asignar-cita-institucion-profesional', ['profesional' => $profesional->slug]) }}"> Agendar cita
+                        <div class="content_btn_center mt-1">
+                            <a class="button_green" href="{{ route('paciente.asignar-cita-institucion-profesional', ['profesional' => $profesional->slug]) }}"> Agendar cita
                                 <i class="fas fa-arrow-right pl-2"></i>
                             </a>
                         </div>
