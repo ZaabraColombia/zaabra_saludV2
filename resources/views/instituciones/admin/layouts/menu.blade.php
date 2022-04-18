@@ -134,9 +134,9 @@
                             <button class="{{ request()->routeIs('institucion.favoritos') ? 'btn_active_inst' : '' }}">Favoritos</button>
                         </a>
                     </li>
-            @endcan
+                @endcan
 
-            <!-- Logo Mipress -->
+                {{-- Logo Mipress --}}
                 <li class="sidebar-item  has-sub items_logos_green" style="width: 180px">
                     <a id="fav" class="" target="_blank" href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS">
                         <button class="d-flex justify-content-start pl-3">
