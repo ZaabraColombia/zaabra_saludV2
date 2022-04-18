@@ -24,8 +24,17 @@
             <!-- Contenedor barra de búsqueda pacientes -->
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
-                    <div class="col-md-9  p-0 input__box mb-0">
+                    <div class="col-md-8  p-0 input__box mb-0">
                         <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar cita" />
+                    </div>
+
+                    <div class="col-md-4 p-0 content_btn_right">
+                        <a href="" class="button_transparent mr-2" id="">
+                            Atras
+                        </a>
+                        <a href="" class="button_green" id="">
+                            Crear cita
+                        </a>
                     </div>
                 </div>
             </div>
