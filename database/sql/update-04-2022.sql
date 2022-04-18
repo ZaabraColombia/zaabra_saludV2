@@ -19,10 +19,11 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`citas`
 ##2022-04-13
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`pago_citas`
     ADD COLUMN `descripcion` TEXT NULL AFTER `tipo`;
-###Subido testing
 
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`profesionales_instituciones`
     ADD COLUMN `estado` TINYINT(1) NULL DEFAULT 0 AFTER `slug`;
+
+###Subido testing
 
 
 
