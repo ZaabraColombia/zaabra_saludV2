@@ -14,25 +14,39 @@
     text-transform: uppercase;
 } 
 .content_dias_agenda {
-    span  {
+    label  {
         font-size: 14px;
         font-family: "Roboto";
         color: #3E3E3E;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         margin-bottom: 10px;
-        width: 173px;
+        width: 180px;
+        cursor: pointer;
         input {
             width: 25px;
             height: 28px;
             border: none;
-            margin-right: 25px;
+            margin-right: 20px;
             padding: 0;
+            cursor: pointer;
         }
     }
 }
 
-
+// .fc .fc-toolbar {
+//     flex-direction: column !important;
+// }
+.fc-header-toolbar {
+    flex-direction: row !important;
+}
+.fc-header-toolbar {
+    align-items: flex-end !important;
+}
+.fc-toolbar-title {
+    text-align: center;
+    margin-bottom: 10px !important;
+}
 .fc-h-event .fc-event-title {
     text-overflow:ellipsis;
     white-space:nowrap;
@@ -63,5 +77,27 @@
     }
     .dias{
         font-size: 1em;
+    }
+    // .fc-prev-button {
+    //     // position: absolute;
+    //     left: -193px;
+    //     right: auto;
+    // }
+}
+@media (min-width: 1200px) {
+    .config__calendar {
+        position: absolute;
+        width: 250px;
+        right: 15px;
+        top: -35px;
+    }
+    .content_center_agenda, .content_right_agenda {
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 1920px) {
+    .config__calendar {
+        right: 85px;
     }
 }

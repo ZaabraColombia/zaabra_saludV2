@@ -10,7 +10,7 @@
         <!-- Sección barra de busqueda -->
         <div class="containt_buscador_desk">
             <div class="barra_busqueda" id="barra_busqueda">
-                <input  class="input_buscador" id="filtro" data-url='{{ url('search') }}'>
+                <input  class="input_buscador img_placeholder" id="filtro" data-url='{{ url('search') }}' placeholder="Especialidad, médico o institución">
                 <button class="buscador_boton_desk buscador_icon_desk"></button>
             </div>
         </div>
@@ -24,25 +24,51 @@
         </div>
         <!--******************************     End sección BARRA DE BUSQUEDA version MOBILE      *********************************-->
 
-    @guest
-        <!-- Menú desplegable del LOGIN -->
-            <div class="soy_paciente dropdown">
-                <a class="dropdown-toggle {{--menu_flip--}}" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+        @guest
+            <!-- Menú desplegable del LOGIN -->
+            <div id="head_main" class="soy_paciente">
+                <a class="dropdown-toggle drop_main" id="login__" href="#" role="button" data-toggle="collapse" data-target="#collap" 
+                    aria-expanded="false" aria-controls="collap" onclick="elementHidden(this)" data-position="login">
+                </a>
 
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink" style="">
+                <div id="collap" class="collapse box_content" aria-labelledby="head_main" data-parent="#accordion">
                     <a class="dropdown-item p-0" href="{{ route('login') }}">
                         <span class="menu__item icon__paciente">Soy paciente</span>
                     </a>
                     <div class="dropdown-divider m-0"></div>
 
-                    <a class="dropdown-item p-0" href="{{ route('login') }}">
-                        <span class="menu__item icon__doctor">Soy doctor</span>
-                    </a>
-                    <div class="dropdown-divider m-0"></div>
-
-                    <a class="dropdown-item p-0" href="{{ route('login') }}">
-                        <span class="menu__item icon__institucion">Soy institución</span>
-                    </a>
+                    <div id="accordion" class="accordion">
+                        <div style="position: relative">
+                            <div class="card card__login">
+                                <div>
+                                    <a class="">
+                                        <span class="menu__item icon__doctor">Soy doctor</span>
+                                    </a>
+                                </div>
+                                <a class="option_flotante" href="{{ route('login') }}">
+                                    <div class="option__user">
+                                        <i data-feather="users"></i> <span>Usuario</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider m-0"></div>
+                        
+                        <div style="position: relative">
+                            <div class="card card__login">
+                                <div>
+                                    <a class="">
+                                        <span class="menu__item icon__institucion">Soy institución</span>
+                                    </a>
+                                </div>
+                                <a class="option_flotante" href="{{ route('login') }}">
+                                    <div class="option__user">
+                                        <i data-feather="users"></i> <span>Usuario</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -57,12 +83,12 @@
             <div class="membresia_mobile">
                 <a class="membresia_icon_mobile" href="{{ route('profesional.membresiaProfesional') }}"></a>
             </div>
-
             <!--******************************     End sección Botón Membresía version MOBILE      *********************************-->
 
             <!-- Sección Menú hamburguesa no logueado-->
             <div class="menu-hamburger dropdown">
-                <a class="dropdown-toggle {{--menu_flip--}}" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+                    onclick="elementHidden(this)" data-position="burger">
                     <span></span>
                 </a>
 
@@ -87,8 +113,9 @@
                     </a>
                 </div>
             </div>
-    @else
-        <!-- Sección Botón membresía Desktop -->
+
+        @else
+            <!-- Sección Botón membresía Desktop -->
             <div class="button-membresia">
                 <a class="" href="{{ route('profesional.membresiaProfesional') }}">
                     <img class="img-button-membresia" src="{{ asset('/img/header/boton-membresia.png') }}">
@@ -103,12 +130,11 @@
 
             <!-- Sección Menú hamburguesa logueado -->
             <div class="menu-hamburger dropdown">
-                <a class="dropdown-toggle {{--menu_flip--}}" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span></span>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink" style="">
-
                     @if(!empty($objtipoUsuarioLogueado))
                         @if($objtipoUsuarioLogueado->idrol == 1)
                             {{--Usuario Paciente --}}
@@ -148,7 +174,6 @@
                                 <img src="{{ asset($user->institucion->logo ?? 'img/menu/avatar.png') }}" alt="user.png">
                                 <span>{{ $user->nombreinstitucion }}</span>
                             </div>
-
                             <div class="dropdown-divider m-0"></div>
 
                             <a class="dropdown-item p-0" href="{{ url('/FormularioInstitucion') }}">
@@ -213,7 +238,7 @@
         <div class="section_buscador_mobile" id="buscador">
             <div class="barra_buscador_mobile" id="barra_busqueda2">
                 <input type="hidden" name="_token" value="tzFtz8TstiTocmap8vuJp4Py7sMc0zcQiC63SuyF">
-                <input  class="input_buscador" id="filtro2" data-url='{{ url('search') }}'>
+                <input  class="input_buscador img_placeholder" id="filtro2" data-url='{{ url('search') }}' placeholder="Especialidad, médico o institución">
                 <!-- <input class="input_buscador" type="buttton" name="buscar" id="barra_buscar" autocomplete="off"> -->
                 <input type="image" class="icon_buscador" src="{{asset('/img/header/icono-buscador-azul.svg')}}">
             </div>
