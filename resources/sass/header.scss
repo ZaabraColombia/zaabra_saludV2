@@ -19,6 +19,11 @@ a:hover {
     z-index: 500;
     top: .1px;
 }
+.contains_header{
+    width: 95%;
+    height: 100%;
+    padding: 0;
+}
 // Logo institucional
 .navbar-logo {
     text-decoration: none;
@@ -79,11 +84,6 @@ a:hover {
     border-radius: 3px;
 }
 // Buscador, input e icono
-.contains_header{
-    width: 95%;
-    height: 100%;
-    padding: 0;
-}
 .input_buscador {
     width: 100%;
     height: 100%;
@@ -125,10 +125,6 @@ a:hover {
     background-repeat: no-repeat;
     background-size: 50px;
     background-position: center;
-    &:hover {
-        background-image: url('/img/header/icono-soy-paciente-azul.svg');
-        background-color: #ffffff;
-    }
 }
 
 .box_content {
@@ -173,13 +169,17 @@ a:hover {
 #login__[aria-expanded="false"] {
     background-image: url('/img/header/icono-soy-paciente-blanco.svg');
     background-color: #0083D6;
+    &:hover{
+        background-image: url('/img/header/icono-soy-paciente-azul.svg');
+        background-color: #ffffff;
+    }
 } 
 
 #login__[aria-expanded="true"] {
     background-image: url('/img/header/icono-soy-paciente-azul.svg');
     background-color: #fff;
 } 
-
+// Caja de opciones
 .icon__paciente {
     background-image: url('/img/header/icono-paciente-gris.svg');
     &:hover {
@@ -405,18 +405,18 @@ a:hover {
     .navbar_zaabrasalud {
         padding: 4px 0;
     }
-    // Logo institucional
-    .navbar-logo {
-        width: 75px;
-        height: 60px;
-    }
-    // Buscador, input e icono
     .contains_header {
         width: 84%;
         height: 100%;
         padding: 0;
         justify-content: space-between;
     }
+    // Logo institucional
+    .navbar-logo {
+        width: 75px;
+        height: 60px;
+    }
+    // Buscador, input e icono
     .contain_buscador_mobile {
         width: 94%;
     }
@@ -447,12 +447,12 @@ a:hover {
     }
 }
 @media (min-width: 1024px) {
-    .contains_header {
-        width: 75%;
-    }
     .navbar_zaabrasalud {
         padding: 4px 0;
     } 
+    .contains_header {
+        width: 75%;
+    }
     // Logo institucional
     .navbar-logo {
         width: 75px;
@@ -531,12 +531,12 @@ a:hover {
     .navbar_zaabrasalud {
         padding: 5px 0;
     }
+    .contains_header {
+        width: 65%;
+    }
     // Logo institucional
     .navbar-logo {
         height: 60px;
-    }
-    .contains_header {
-        width: 65%;
     }
     // Botón Login
     .soy_paciente {
