@@ -145,7 +145,7 @@
                     </a>
                 </li>
 
-                <!-- Logo Medihistoria -->
+                {{-- Logo Medihistoria --}}
                 <li class="sidebar-item  has-sub items_logos_green" style="width: 180px">
                     <a id="fav" class="" target="_blank" href="">
                         <button class="d-flex justify-content-start p-3">
