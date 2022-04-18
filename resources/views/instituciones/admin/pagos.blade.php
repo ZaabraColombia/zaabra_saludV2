@@ -30,44 +30,33 @@
                             <table class="table table_agenda" id="table-pagos">
                                 <thead class="thead_green">
                                     <tr>
-                                        <th>Nombre</th>
+                                        <th>Nombre paciente</th>
+                                        <th>Nombre profesional</th>
                                         <th>Especialidad</th>
                                         <th>Lugar de atención</th>
                                         <th>Estado</th>
+                                        <th>Fecha</th>
                                         <th>Valor</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    {{--@if($pagos->isNotEmpty())
+                                    @if($pagos->isNotEmpty())
                                         @foreach($pagos as $pago)
                                             <tr>
-                                                <td>{{ $pago->fecha->format('d-m /Y') }}</td>
-                                                <td>{{ $pago->cita->tipo_consulta->nombreconsulta ?? ''}}</td>
                                                 <td>{{ $pago->cita->paciente->user->nombre_completo ?? ''}}</td>
+                                                <td>{{ $pago->cita->profesional_ins->nombre_completo ?? ''}}</td>
+                                                <td>{{ $pago->cita->especialidad->nombreEspecialidad ?? ''}}</td>
+                                                <td>{{ $pago->cita->lugar ?? ''}}</td>
                                                 <td>{{ ($pago->aprobado) ? 'Aprobado':'Por pagar' }}</td>
+                                                <td>{{ $pago->fecha->format('d-m /Y') }}</td>
                                                 <td>${{ number_format($pago->valor, 0, ",", ".") }}</td>
                                                 <!-- <td class="content_btn_descargar">
 
                                                 </td> -->
                                             </tr>
                                         @endforeach
-                                    @endif --}}
-                                    <tr>
-                                        <td>Nombre 1</td>
-                                        <td>Especialidad 1</td>
-                                        <td>Lugar atención 1</td>
-                                        <td>Estado 1</td>
-                                        <td>Valor 1</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Nombre 2</td>
-                                        <td>Especialidad 2</td>
-                                        <td>Lugar atención 2</td>
-                                        <td>Estado 2</td>
-                                        <td>Valor 2</td>
-                                    </tr>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -91,6 +80,29 @@
                 url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
             },
             searching: true,
+            dom: 'lfBrtip',
+            buttons: [
+                {
+                    extend: 'pdfHtml5',
+                    text: 'PDF',
+                    className: 'red',
+                    title:'Resultados',
+                    exportOptions: {
+                        modifier: {
+                            page: 'current'
+                        }
+                    },
+                    //text: 'Red',
+                },
+                {
+                    extend: 'excel',
+                    text: 'Excel',
+                    className: 'border_left',
+                    title:function () {
+                        return 'Resultados';
+                    }
+                },
+            ],
         });
 
         $("#search").on('keyup change',function(){
