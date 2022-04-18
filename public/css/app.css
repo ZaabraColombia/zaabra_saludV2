@@ -10429,10 +10429,6 @@ a:hover {
   margin-right: 10px;
 }
 
-.ui-menu-item > .ui-menu-item-wrapper > i:hover {
-  border: solid 1px white;
-}
-
 .ui-menu-item > .ui-menu-item-wrapper > span > small {
   margin-top: -9px;
   display: inherit;
@@ -26002,6 +25998,10 @@ a:hover {
 
   .swiper_especialidad .cbp-l-filters-alignRight .cbp-filter-item {
     font: 600 13.5px/20px "Quicksand", sans-serif;
+  }
+
+  .buscador {
+    width: 50%;
   }
 }
 @media (min-width: 1920px) {
