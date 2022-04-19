@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Cita;
+use App\Models\Paciente;
 use App\Models\profesionales_instituciones;
 use App\Models\User;
 use Carbon\Carbon;
@@ -30,26 +31,26 @@ class CitaFactory extends Factory
             ->where('estado', 1)
             ->get()->random();
 
-        $servicio = $profesional->servicios()->get()->random();
+        $servicio = $profesional->servicios->random();
+
         $sede = $profesional->sede;
 
-        $user = User::query()
-            ->whereHas('roles', function ($query){
-                return $query->where('idrol', 1);
-            })
+        $user = Paciente::query()
             ->get()->random();
 
-        $fecha = Carbon::create(2022,04,19, random_int(6, 18), random_int(0, 60));
+        $fecha[0] = date('Y-m-d h:i:s', strtotime('2022-04-19 ' . random_int(6, 18) . ':' . random_int(0, 60) . ":00"));
+        $fecha[1] = date('Y-m-d h:i:s', strtotime($fecha[0] . " +{$servicio->duracion} minutes"));
+
 
         return [
-            'fecha_inicio' => $fecha,
-            'fecha_fin' => $fecha->addMinutes($servicio->duracion),
+            'fecha_inicio' => $fecha[0],
+            'fecha_fin' => $fecha[1],
             'estado' => collect(['agendado','completado','cancelado'])->random(),
             'paciente_id' => $user->id,
             'profesional_ins_id' => $profesional->id_profesional_inst,
             'lugar' => $sede->direccion . " - " . $profesional->consultorio,
             'tipo_cita_id' => $servicio->id,
-            'especialidad_id' => $servicio->id_especialidad,
+            'especialidad_id' => $servicio->especialidad_id,
             'pais_id' => $sede->pais_id,
             'departamento_id' => $sede->departamento_id,
             'provincia_id' => $sede->provincia_id,

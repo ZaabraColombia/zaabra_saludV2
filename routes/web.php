@@ -499,7 +499,7 @@ Route::get('/test', function (){
 //   $p->map(function ($item){
 //       $item->update();
 //   });
-    \App\Models\Cita::factory()->count(100)->create();
+    //\App\Models\Cita::factory()->count(100)->create();
 });
 // Ruta detalles-pago
 Route:: get('/detalles-pago',[App\Http\Controllers\pagosController::class,'index'])->name('detalles-pago');
