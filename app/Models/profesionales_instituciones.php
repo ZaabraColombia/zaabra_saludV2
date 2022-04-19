@@ -55,6 +55,10 @@ class profesionales_instituciones extends Model
         'fecha_nacimiento' => 'datetime',
     ];
 
+    protected $appends = [
+        'nombre_completo'
+    ];
+
     /**
      * @return BelongsTo
      */

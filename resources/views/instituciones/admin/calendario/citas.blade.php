@@ -3,7 +3,7 @@
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/Responsive-2.2.9/css/responsive.dataTables.min.css') }}">
-{{--    <link rel="stylesheet" href="{{ asset(' plugins/DataTables/Responsive-2.2.9/css/responsive.bootstrap.min.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset(' plugins/DataTables/Responsive-2.2.9/css/responsive.bootstrap.min.css') }}">
     <style>
         .dataTables_filter, .dataTables_info { display: none;!important; }
         .bg-agendado { background: #00abb2}
@@ -44,12 +44,13 @@
                 <table class="table display responsive nowrap" style="width: 100%" id="table-citas">
                     <thead class="thead_green">
                         <tr>
-                            <th>Fecha</th>
                             <th>Hora</th>
+                            <th>Fecha</th>
                             <th>Profesional</th>
                             <th>Paciente</th>
                             <th>Identificación</th>
                             <th>Lugar</th>
+                            <th>Celular</th>
                         </tr>
                     </thead>
                 </table>
@@ -85,28 +86,29 @@
 
             //Inicializar tabla
             var table = $('#table-citas').DataTable({
-                pageLength: 2,
-                lengthMenu: [2,50,100,-1],
                 responsive: true,
                 language: {
                     url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
                 },
                 columns:[
-                    {data: "fecha"},
-                    {data: "hora"},
-                    {data: "profesional"},
-                    {data: "paciente"},
-                    {data: "identificacion"},
-                    {data: "lugar"}
+                    {data: "hora", name: "fecha_inicio"},
+                    {data: "fecha", name: "fecha_inicio"},
+                    {data: "profesional_ins.nombre_completo", name: 'profesional_ins.nombre_completo'},
+                    {data: "paciente.user.nombre_completo", name: 'paciente.user.nombre_completo'},
+                    {data: "paciente.user.numerodocumento", name: 'paciente.user.numerodocumento'},
+                    {data: "lugar", name: "lugar"},
+                    {data: "paciente.celular", name: "paciente.celular"},
                 ],
                 // columnDefs: [
                 //     {
                 //         targets: [-1],
                 //         orderable: false,
+                //         responsive: false
                 //     }
                 // ],
+                serverSide: true,
                 ajax:{
-                    data:{ids: {!! json_encode($lista) !!}},
+                    data:{ids: {!! json_encode($lista) !!}, fecha:'{{ $fecha }}'},
                     type: 'post',
                     url: '{{ route('institucion.calendario.lista-citas') }}',
                     // data: function ( d ) {
@@ -116,10 +118,14 @@
                     //     // });
                     // }
                 },
-                createdRow: function (row, data, dataIndex) {
-                    $(row).addClass('bg-' + data.estado);
-                }
+                // createdRow: function (row, data, dataIndex) {
+                //     $(row).addClass('bg-' + data.estado);
+                // }
             });
+
+            setInterval( function () {
+                table.ajax.reload(null, false);
+            }, 30000 );
 
             $("#search").on('keyup change',function(){
                 var texto = $(this).val();
