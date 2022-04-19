@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="{{ asset(' plugins/DataTables/Responsive-2.2.9/css/responsive.bootstrap.min.css') }}">
     <style>
         .dataTables_filter, .dataTables_info { display: none;!important; }
-        .bg-agendado { background: #00abb2}
-        .bg-cancelado { background: #b2004a}
-        .bg-completado { background: #47b200}
-        .bg-reservado { background: #b28800}
+        .bg-agendado { background: rgba(1, 159, 134, 0.3)}
+        .bg-cancelado { background: rgba(157, 209, 249, 0.3)}
+        .bg-completado { background: rgba(71, 178, 0, 0.3)}
+        .bg-reservado { background: rgba(243, 119, 37, 0.3)}
     </style>
 @endsection
 
