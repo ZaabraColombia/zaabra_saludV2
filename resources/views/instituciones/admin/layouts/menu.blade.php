@@ -70,12 +70,15 @@
                 @endcan
 
                 <!-- Agenda -->
+                {{--
                 <li class="sidebar-item has-sub items_green accordion" id="accordion_agenda">
-                    <button id="headingAgenda" class="" type="button" data-toggle="collapse" data-target="#collapseAgenda" aria-expanded="false" aria-controls="collapseAgenda">
+                    <button id="headingAgenda" class="" type="button" data-toggle="collapse"
+                            data-target="#collapseAgenda" aria-expanded="false" aria-controls="collapseAgenda">
                         Agenda <i class="icon_angle fas fa-angle-down pl-2"></i>
                     </button>
 
-                    <ul id="collapseAgenda" class="collapse sub_menu_green" aria-labelledby="headingAgenda" data-parent="#accordion_agenda">
+                    <ul id="collapseAgenda" class="collapse sub_menu_green" aria-labelledby="headingAgenda"
+                        data-parent="#accordion_agenda">
                         <li class="submenu-item">
                             <a id="" class="" href="">
                                 Control citas
@@ -88,6 +91,7 @@
                         </li>
                     </ul>
                 </li>
+                --}}
 
                 {{-- citas --}}
                 @can('accesos-institucion','ver-citas')
