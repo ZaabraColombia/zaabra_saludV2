@@ -138,7 +138,7 @@
                     @if(!empty($objtipoUsuarioLogueado))
                         @if($objtipoUsuarioLogueado->idrol == 1)
                             {{--Usuario Paciente --}}
-                            <div class="menu__item_head">
+                            <div class="menu__item_user_logueado">
                                 <img src="{{ asset($user->paciente->foto ?? 'img/menu/avatar.png') }}" alt="user.png">
                                 <span>{{ $user->nombre_completo }}</span>
                             </div>
@@ -154,7 +154,7 @@
                             </a>
                         @elseif($objtipoUsuarioLogueado->idrol==2)
                             {{--Usuario Doctor --}}
-                            <div class="menu__item_head">
+                            <div class="menu__item_user_logueado">
                                 <img src="{{ asset($user->profesional->fotoperfil ?? 'img/menu/avatar.png') }}" alt="user.png">
                                 <span>Dr.(a) {{ $user->nombre_completo }}</span>
                             </div>
@@ -170,7 +170,7 @@
                             </a>
                         @elseif($objtipoUsuarioLogueado->idrol==3)
                             {{--Usuario Institución --}}
-                            <div class="menu__item_head">
+                            <div class="menu__item_user_logueado">
                                 <img src="{{ asset($user->institucion->logo ?? 'img/menu/avatar.png') }}" alt="user.png">
                                 <span>{{ $user->nombreinstitucion }}</span>
                             </div>
@@ -186,7 +186,7 @@
                             </a>
                         @elseif($objtipoUsuarioLogueado->idrol == 4)
                             {{--Usuario Auxiliar --}}
-                            <div class="menu__item_head">
+                            <div class="menu__item_user_logueado">
                                 <img src="{{ asset($user->institucion->user->institucion->logo ?? 'img/menu/avatar.png') }}" alt="user.png">
                                 <span>{{ $user->institucion->user->nombreinstitucion }}</span>
                             </div>

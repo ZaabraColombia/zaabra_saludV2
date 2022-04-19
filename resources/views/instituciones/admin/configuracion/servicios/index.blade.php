@@ -77,7 +77,7 @@
         </div>
     </div>
 
-    <!-- Modal Ver Convenio -->
+    <!-- Modal Ver Servicio -->
     <div class="modal fade" id="modal_ver_servicio">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal_container">
@@ -148,7 +148,7 @@
                             </div>
                         </div>
 
-                        <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Convenios vinculados</h4>
+                        <h4 class="fs_subtitle green_light">Convenios vinculados</h4>
                         <div class="row mb-2">
                             <div class="col-12 info_contac d-lg-flex">
                                 <h4>Nombre del convenio:&nbsp;</h4>

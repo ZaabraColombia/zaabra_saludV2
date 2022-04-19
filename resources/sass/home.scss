@@ -1,11 +1,8 @@
-// Contenedores, secciones, contenidos y tarjetas
-.swiper_principal {
-    height: 135px;
-}
-.content_bannerPrincipal {
+// BANNER PRINCIPAL
+.banner_top_content_inside {
     position: absolute;
     top: 0px;
-    left: 15px;
+    left: 5%;
     width: 60%;
     height: 90%;
     display: flex;
@@ -13,6 +10,50 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+}
+.banner_top_logo {
+    width: 87px;
+    margin-bottom: 3px;
+}
+.banner_top_title {
+    font-size: .9em;
+    font-family: "Quicksand";
+    font-weight: bolder;
+    line-height: 1;
+    margin: 0;
+}
+.banner_top_text {
+    font-size: .7em;
+    font-family: "Quicksand";
+    font-weight: bolder;
+    line-height: 1;
+    margin: .3em 0 .5em 0;
+    width: 80%;
+}
+.banner_top_button {
+    font-size: .7em;
+    font-family: "Quicksand";
+    font-weight: bolder;
+    border: none;
+    border-radius: 3px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 1px 8px;
+}
+// BANNER PRINCIPAL - Pagination
+.pagination_home {
+    bottom: -6px !important;
+}
+// TÍTULO PRINCIPAL
+.title_home {
+    font-size: 1.5em;
+    font-family: 'Quicksand', sans-serif;
+    color: #0083D6;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
 }
 .contenido_especialista {
     background-color: #F5F5F5;
@@ -80,21 +121,6 @@
     object-position: top;
 }
 // Títulos, subtítulos y textos
-.titulo_bannerPrincipal {
-    font-size: .9em;
-    font-family: "Quicksand";
-    font-weight: bolder;
-    line-height: 1;
-    margin: 0;
-}
-.titulo_principal {
-    font-size: 1.5em;
-    font-family: 'Quicksand', sans-serif;
-    color: #0083D6;
-    font-weight: bold;
-    text-align: center;
-    margin: 20px 0;
-}
 .titulo_contenido {
     font-size: 1.3em;
     font-family: 'Quicksand';
@@ -113,14 +139,6 @@
     padding: 0 15px;
     line-height: 1;
 }
-.txt_bannerPrincipal {
-    font-size: .7em;
-    font-family: "Quicksand";
-    font-weight: bolder;
-    line-height: 1;
-    margin: .3em 0 .5em 0;
-    width: 80%;
-}
 .txt_contenido{
     font-size: .8em;
     font-family: 'Roboto';
@@ -138,18 +156,6 @@
     text-align: center;
 }
 // Botones
-.boton_bannerPrincipal {
-    font-size: .7em;
-    font-family: "Quicksand";
-    font-weight: bolder;
-    border: none;
-    border-radius: 3px;
-    width: max-content;
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 1px 8px;
-}
 .btn_central_azul {
     background: #0083D6;
     font-size: .8em;
@@ -174,10 +180,6 @@
     padding: 5px 8px;
     border: 1px solid #0083D6;
     border-radius: 3px;
-}
-// Carrusel o slider del contenido
-.pagination_home {
-    bottom: -6px !important;
 }
 .swiper_especialistas {
     width: 90%;
@@ -303,10 +305,6 @@
 }
 
 @media (min-width: 360px) {
-    // Contenedores, secciones, contenidos y tarjetas
-    .swiper_principal {
-        height: 145px;
-    }
     // Imágenes, logos e iconos
     .imagen_parallax {
         height: 200px;
@@ -314,34 +312,37 @@
     .imagen_especialista {
         height: 275px;
     }
-    // Títulos, subtítulos y textos
-    .titulo_bannerPrincipal {
-        font-size: 1em;
-    }
-    .txt_bannerPrincipal {
-        font-size: .8em;
-    }
-    // Botones
-    .boton_bannerPrincipal {
-        font-size: .8em;
-    }
-}
-
-@media (min-width: 375px) {
-    // Contenedores, secciones, contenidos y tarjetas
-    .swiper_principal {
-        height: 155px;
-    }
 }
 
 @media (min-width: 768px) {
-    // Contenedores, secciones, contenidos y tarjetas
-    .swiper_principal {
-        height: 300px;
-    }
-    .content_bannerPrincipal {
-        left: 30px;
+    // BANNER PRINCIPAL
+    .banner_top_content_inside {
         width: 55%;
+    }
+    .banner_top_logo {
+        width: 195px;
+        margin-bottom: 5px;
+    }
+    .banner_top_title {
+        font-size: 2em;
+    }
+    .banner_top_text {
+        font-size: 1.5em;
+        width: 90%;
+    }
+    .banner_top_button {
+        font-size: 1.3em;
+        padding: 2px 12px;
+    }
+    // BANNER PRINCIPAL - Pagination - puntos azules 
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+    // TÍTULO PRINCIPAL
+    .title_home {
+        font-size: 2.5em;
+        margin: 40px 0;
     }
     .contenido_especialista {
         padding: 15px 7px 30px 7px;
@@ -367,14 +368,6 @@
     .imagen_especialista {
         height: 265px;
     }
-    // Títulos, subtítulos y textos
-    .titulo_bannerPrincipal {
-        font-size: 2em;
-    }
-    .titulo_principal {
-        font-size: 2.5em;
-        margin: 40px 0;
-    }
     .titulo_contenido {
         font-size: 1.5em;
     }
@@ -382,20 +375,12 @@
         font-size: 1.5em;
         padding: 0 30px;
     }
-    .txt_bannerPrincipal {
-        font-size: 1.5em;
-        width: 90%;
-    }
     .txt_contenido {
         font-size: 1.15em;
         padding: 0 15px;
     }
     .txt_especialista {
         font-size: 1.15em;
-    }
-    // Botones
-    .boton_bannerPrincipal {
-        font-size: 1.5em;
     }
     .btn_central_azul {
         font-size: 1.15em;
@@ -408,11 +393,6 @@
     .btn_grande_central_azul {
         font-size: 1.15em;
         padding: 5px 15px;
-    }
-    // Carrusel o slider del contenido
-    .swiper-pagination-bullet {
-        width: 12px;
-        height: 12px;
     }
     .swiper_especialistas {
         width: 85%;
@@ -455,13 +435,12 @@
 }
 
 @media (min-width: 1024px) {
-    // Contenedores, secciones, contenidos y tarjetas
-    .swiper_principal {
-        height: 375px;
-    }
-    .content_bannerPrincipal {
-        left: 50px;
+    // BANNER PRINCIPAL
+    .banner_top_content_inside {
         width: 50%;
+    }
+    .banner_top_button {
+        font-size: 1.5em;
     }
     .seccion_tarjetas {
         width: 65%;
@@ -471,11 +450,6 @@
         background-image: url('/img/home/fondo-gris-logos.png');
         height: 400px;
         justify-content: center;
-    }
-    // Botones
-    .boton_bannerPrincipal {
-        font-size: 1.5em;
-        padding: 2px 13px;
     }
     // Carrusel o slider del contenido
     .swiper_especialistas {
@@ -488,12 +462,16 @@
 }
 
 @media (min-width: 1200px) {
-    // Contenedores, secciones, contenidos y tarjetas
-    .swiper_principal {
-        height: 435px;
+    // BANNER PRINCIPAL
+    .banner_top_logo {
+        width: 237px;
+        margin-bottom: 10px;
     }
-    .content_bannerPrincipal {
-        left: 65px;
+    .banner_top_title {
+        font-size: 2.5em;
+    }
+    .banner_top_text {
+        font-size: 2em;
     }
     .seccion_tarjetas {
         width: 55%;
@@ -501,13 +479,6 @@
     // Imágenes, logos e iconos
     .imagen_especialista {
         height: 285px;
-    }
-    // Títulos, subtítulos y textos
-    .titulo_bannerPrincipal {
-        font-size: 2.5em;
-    }
-    .txt_bannerPrincipal {
-        font-size: 2em;
     }
     // Carrusel o slider del contenido
     .swiper_especialistas{
@@ -520,12 +491,8 @@
 }
 
 @media (min-width: 1360px) {
-    // Contenedores, secciones, contenidos y tarjetas
-    .swiper_principal {
-        height: 475px;
-    }
-    .content_bannerPrincipal {
-        left: 100px;
+    // BANNER PRINCIPAL
+    .banner_top_content_inside {
         width: 45%;
     }
     .seccion_tarjetas {
@@ -565,13 +532,9 @@
 }
 
 @media (min-width: 1440px) {
-    // Contenedores, secciones, contenidos y tarjetas
-    .swiper_principal {
-        height: 500px;
-    }
-    .content_bannerPrincipal {
-        left: 150px;
-        width: 42%;
+    // BANNER PRINCIPAL
+    .banner_top_content_inside {
+        left: 10%;
     }
     .seccion_tarjetas {
         width: 45%;
@@ -583,9 +546,19 @@
 }
 
 @media (min-width: 1920px) {
-    // Contenedores, secciones, contenidos y tarjetas
-    .swiper_principal {
-        height: 675px;
+    // BANNER PRINCIPAL
+    .banner_top_logo {
+        width: 335px;
+        margin-bottom: 15px;
+    }
+    .banner_top_title {
+        font-size: 3.3em;
+    }
+    .banner_top_text {
+        font-size: 2.5em;
+    }
+    .banner_top_button {
+        font-size: 1.8em;
     }
     .seccion_tarjetas {
         width: 35%;
@@ -598,22 +571,12 @@
         height: 400px;
     }
     // Títulos, subtítulos y textos
-    .titulo_bannerPrincipal {
-        font-size: 3.3em;
-    }
-    .titulo_principal {
-        font-size: 2.5em;
-    }
     .titulo_contenido {
         font-size: 1.5em;
     }
     .subTitulo_contenido {
         font-size: 1.5em;
         padding: 0 30px;
-    }
-    .txt_bannerPrincipal {
-        font-size: 2.5em;
-        width: 90%;
     }
     .txt_contenido {
         font-size: 1.15em;
@@ -623,9 +586,7 @@
         font-size: 1.15em;
     }
     // Botones
-    .boton_bannerPrincipal {
-        font-size: 1.8em;
-    }
+
     .btn_central_azul {
         font-size: 1.15em;
     }

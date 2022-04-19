@@ -10045,54 +10045,6 @@ a:hover {
   image-rendering: -webkit-optimize-contrast;
 }
 
-.busqueda_mobile {
-  display: flex;
-  display: flex;
-  height: 45px;
-  width: 45px;
-  justify-content: center;
-  background: #0083d6;
-}
-.busqueda_mobile .busqueda_boton_mobile {
-  padding: 0;
-  border: none;
-  background: transparent;
-}
-.busqueda_mobile .busqueda_boton_mobile .busqueda_icon_mobile {
-  width: 28px;
-  background: #0083D6;
-}
-
-.contain_buscador_mobile {
-  display: none;
-  background-color: #0083D6;
-  width: 100%;
-  height: 45px;
-  margin: auto;
-  z-index: 20;
-}
-.contain_buscador_mobile .section_buscador_mobile {
-  width: 90%;
-  background-color: #FFFFFF;
-}
-
-.barra_buscador_mobile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.barra_busqueda2 {
-  width: 100%;
-  height: 50%;
-  background: #ffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  border-radius: 3px;
-}
-
 .input_buscador {
   width: 100%;
   height: 100%;
@@ -10102,262 +10054,12 @@ a:hover {
   background: #faebd700;
 }
 
-.icon_buscador {
-  padding: 5px;
-  border: none;
-  height: auto;
-  width: 27px;
-  position: relative;
-}
-
-.containt_buscador_desk {
-  display: none;
-}
-
 .img_placeholder {
   background-image: url("/img/header/image.png");
   background-repeat: no-repeat;
   background-position-x: left;
   background-position-y: center;
   background-size: contain;
-}
-
-.soy_paciente {
-  width: 70px;
-  height: 45px;
-}
-
-.soy_paciente .drop_main {
-  height: 100%;
-  width: 100%;
-  border: none;
-  border-radius: 3px;
-  display: flex;
-  background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-  background-repeat: no-repeat;
-  background-size: 50px;
-  background-position: center;
-}
-
-.box_content {
-  background-color: #FFFFFF;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  float: right;
-  margin-top: 3px;
-  border: 1px solid #c3c3c3;
-  border-radius: 3px;
-}
-
-.card__login {
-  border: none;
-  cursor: pointer;
-}
-
-.option_flotante {
-  position: absolute;
-  top: 0px;
-  left: 197px;
-  background-color: #FFFFFF;
-  border: 1px solid #c3c3c3;
-  border-radius: 3px;
-  padding: 13px 5px;
-  text-decoration: none;
-  color: #232323;
-  display: none;
-}
-.option_flotante:hover {
-  background-color: #0083D6;
-}
-
-.option__user {
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-}
-.option__user span {
-  padding-left: 3px;
-}
-
-#accordion .card__login:hover > .option_flotante {
-  display: block;
-}
-
-#login__[aria-expanded=false] {
-  background-image: url("/img/header/icono-soy-paciente-blanco.svg");
-  background-color: #0083D6;
-}
-#login__[aria-expanded=false]:hover {
-  background-image: url("/img/header/icono-soy-paciente-azul.svg");
-  background-color: #ffffff;
-}
-
-#login__[aria-expanded=true] {
-  background-image: url("/img/header/icono-soy-paciente-azul.svg");
-  background-color: #fff;
-}
-
-.icon__paciente {
-  background-image: url("/img/header/icono-paciente-gris.svg");
-}
-.icon__paciente:hover {
-  background-image: url("/img/header/icono-paciente-blanco.svg");
-}
-
-.icon__doctor {
-  background-image: url("/img/header/icono-soy-medico.svg");
-}
-.icon__doctor:hover {
-  background-image: url("/img/header/icono-soy-medico-blanco.svg");
-}
-
-.icon__institucion {
-  background-image: url("/img/header/icono-instituciones-medicas.svg");
-}
-.icon__institucion:hover {
-  background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
-}
-.icon__institucion:focus {
-  background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
-}
-
-.membresia_mobile {
-  display: flex;
-  width: 45px;
-  height: 45px;
-  justify-content: center;
-}
-.membresia_mobile .membresia_icon_mobile {
-  background-image: url("/img/header/boton-de-memebresia-mob.png");
-  background-repeat: no-repeat;
-  background-size: 40px;
-  background-position: center;
-  width: 40px;
-}
-
-.button-membresia {
-  display: none;
-}
-
-.dropdown-menu {
-  padding: 5px 0;
-}
-
-.menu-hamburger {
-  width: 50px;
-  height: 45px;
-}
-
-.menu-hamburger .dropdown-toggle {
-  height: 100%;
-  width: 100%;
-  border: none;
-  border-radius: 3px;
-  display: flex;
-  background-image: url("/img/header/icono-hamburguesa-blanco.svg");
-  background-repeat: no-repeat;
-  background-size: 30px;
-  background-position: center;
-}
-.menu-hamburger .dropdown-toggle:hover {
-  background-image: url("/img/header/icono-hamburguesa-azul.svg");
-  background-color: #ffffff;
-}
-
-.menu-hamburger #dropdownMenuLink[aria-expanded=true] {
-  background-image: url("/img/header/icono-hamburguesa-azul.svg");
-  background-color: #ffffff;
-}
-
-.menu__item_head {
-  display: flex;
-  padding: 3px 10px 5px 10px;
-  align-items: flex-end;
-}
-.menu__item_head span {
-  font-size: 16px;
-  font-family: "Quicksand";
-  color: #232323;
-  margin-left: 10px;
-  width: 200px;
-  line-height: 1.2;
-}
-.menu__item_head img {
-  height: 50px;
-  width: 50px;
-  border-radius: 30px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
-  border: 1px solid #c3c3c3;
-}
-
-.menu__item {
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  font-family: "Quicksand";
-  color: #232323;
-  padding: 15px 15px 15px 70px;
-  background-repeat: no-repeat;
-  background-size: 40px;
-  background-position-y: center;
-  background-position-x: 15px;
-}
-.menu__item:hover {
-  background-color: #0083d6;
-  color: #fff;
-}
-
-.icon__perfil {
-  background-image: url("/img/header/icono-mi-perfil-gris.svg");
-}
-.icon__perfil:hover {
-  background-image: url("/img/header/icono-mi-perfil-blanco.svg");
-}
-
-.icon__agenda {
-  background-image: url("/img/header/icono-agenda-gris.svg");
-}
-.icon__agenda:hover {
-  background-image: url("/img/header/icono-agenda-blanco.svg");
-}
-
-.icon__especialidad {
-  background-image: url("/img/header/icono-especialidades-medicas.svg");
-}
-.icon__especialidad:hover {
-  background-image: url("/img/header/icono-especialidades-medicas-blanco.svg");
-}
-
-.icon__institucion {
-  background-image: url("/img/header/icono-instituciones-medicas.svg");
-}
-.icon__institucion:hover {
-  background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
-}
-
-.icon__quienes {
-  background-image: url("/img/header/icono-quienes-somos.svg");
-}
-.icon__quienes:hover {
-  background-image: url("/img/header/icono-quienes-somos-blanco.svg");
-}
-
-.icon__contactenos {
-  background-image: url("/img/header/iconos-de-contactenos.svg");
-}
-.icon__contactenos:hover {
-  background-image: url("/img/header/icono-contactenos-blanco.svg");
-}
-
-.icon__closed {
-  background-image: url("/img/header/icono-cerrar-sesion-gris.svg");
-}
-.icon__closed:hover {
-  background-image: url("/img/header/icono-cerrar-sesion-blanco.svg");
 }
 
 #ui-id-1 {
@@ -10442,6 +10144,293 @@ a:hover {
   display: none !important;
 }
 
+.busqueda_mobile {
+  display: flex;
+  display: flex;
+  height: 45px;
+  width: 45px;
+  justify-content: center;
+  background: #0083d6;
+}
+.busqueda_mobile .busqueda_boton_mobile {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+.busqueda_mobile .busqueda_boton_mobile .busqueda_icon_mobile {
+  width: 28px;
+  background: #0083D6;
+}
+
+.contain_buscador_mobile {
+  display: none;
+  background-color: #0083D6;
+  width: 100%;
+  height: 45px;
+  margin: auto;
+  z-index: 20;
+}
+.contain_buscador_mobile .section_buscador_mobile {
+  width: 90%;
+  background-color: #FFFFFF;
+}
+
+.barra_buscador_mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon_buscador {
+  padding: 5px;
+  border: none;
+  height: auto;
+  width: 27px;
+  position: relative;
+}
+
+.containt_buscador_desk {
+  display: none;
+}
+
+.soy_paciente {
+  width: 70px;
+  height: 45px;
+}
+
+.soy_paciente .drop_main {
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  display: flex;
+  background-image: url("/img/header/icono-soy-paciente-blanco.svg");
+  background-repeat: no-repeat;
+  background-size: 50px;
+  background-position: center;
+}
+
+#login__[aria-expanded=false] {
+  background-image: url("/img/header/icono-soy-paciente-blanco.svg");
+  background-color: #0083D6;
+}
+#login__[aria-expanded=false]:hover {
+  background-image: url("/img/header/icono-soy-paciente-azul.svg");
+  background-color: #ffffff;
+}
+
+#login__[aria-expanded=true] {
+  background-image: url("/img/header/icono-soy-paciente-azul.svg");
+  background-color: #fff;
+}
+
+.box_content {
+  background-color: #FFFFFF;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  float: right;
+  margin-top: 3px;
+  border: 1px solid #c3c3c3;
+  border-radius: 3px;
+}
+
+.card__login {
+  border: none;
+  cursor: pointer;
+}
+
+.option_flotante {
+  position: absolute;
+  top: 0px;
+  left: 197px;
+  background-color: #FFFFFF;
+  border: 1px solid #c3c3c3;
+  border-radius: 3px;
+  padding: 13px 5px;
+  text-decoration: none;
+  color: #232323;
+  display: none;
+}
+.option_flotante:hover {
+  background-color: #0083D6;
+}
+
+.option__user {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+.option__user span {
+  padding-left: 3px;
+}
+
+#accordion .card__login:hover > .option_flotante {
+  display: block;
+}
+
+.menu__item {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-family: "Quicksand";
+  color: #232323;
+  padding: 15px 15px 15px 70px;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position-y: center;
+  background-position-x: 15px;
+}
+.menu__item:hover {
+  background-color: #0083d6;
+  color: #fff;
+}
+
+.dropdown-menu {
+  padding: 5px 0;
+}
+
+.icon__paciente {
+  background-image: url("/img/header/icono-paciente-gris.svg");
+}
+.icon__paciente:hover {
+  background-image: url("/img/header/icono-paciente-blanco.svg");
+}
+
+.icon__doctor {
+  background-image: url("/img/header/icono-soy-medico.svg");
+}
+.icon__doctor:hover {
+  background-image: url("/img/header/icono-soy-medico-blanco.svg");
+}
+
+.icon__institucion {
+  background-image: url("/img/header/icono-instituciones-medicas.svg");
+}
+.icon__institucion:hover {
+  background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
+}
+.icon__institucion:focus {
+  background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
+}
+
+.membresia_mobile {
+  display: flex;
+  width: 45px;
+  height: 45px;
+  justify-content: center;
+}
+.membresia_mobile .membresia_icon_mobile {
+  background-image: url("/img/header/boton-de-memebresia-mob.png");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: center;
+  width: 40px;
+}
+
+.button-membresia {
+  display: none;
+}
+
+.menu-hamburger {
+  width: 50px;
+  height: 45px;
+}
+
+.menu-hamburger .dropdown-toggle {
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  display: flex;
+  background-image: url("/img/header/icono-hamburguesa-blanco.svg");
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center;
+}
+.menu-hamburger .dropdown-toggle:hover {
+  background-image: url("/img/header/icono-hamburguesa-azul.svg");
+  background-color: #ffffff;
+}
+
+.menu-hamburger #dropdownMenuLink[aria-expanded=true] {
+  background-image: url("/img/header/icono-hamburguesa-azul.svg");
+  background-color: #ffffff;
+}
+
+.menu__item_user_logueado {
+  display: flex;
+  padding: 3px 10px 5px 10px;
+  align-items: flex-end;
+}
+.menu__item_user_logueado span {
+  font-size: 16px;
+  font-family: "Quicksand";
+  color: #232323;
+  margin-left: 10px;
+  width: 200px;
+  line-height: 1.2;
+}
+.menu__item_user_logueado img {
+  height: 50px;
+  width: 50px;
+  border-radius: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  border: 1px solid #c3c3c3;
+}
+
+.icon__perfil {
+  background-image: url("/img/header/icono-mi-perfil-gris.svg");
+}
+.icon__perfil:hover {
+  background-image: url("/img/header/icono-mi-perfil-blanco.svg");
+}
+
+.icon__agenda {
+  background-image: url("/img/header/icono-agenda-gris.svg");
+}
+.icon__agenda:hover {
+  background-image: url("/img/header/icono-agenda-blanco.svg");
+}
+
+.icon__especialidad {
+  background-image: url("/img/header/icono-especialidades-medicas.svg");
+}
+.icon__especialidad:hover {
+  background-image: url("/img/header/icono-especialidades-medicas-blanco.svg");
+}
+
+.icon__institucion {
+  background-image: url("/img/header/icono-instituciones-medicas.svg");
+}
+.icon__institucion:hover {
+  background-image: url("/img/header/icono-instituciones-medicas-blanco.svg");
+}
+
+.icon__quienes {
+  background-image: url("/img/header/icono-quienes-somos.svg");
+}
+.icon__quienes:hover {
+  background-image: url("/img/header/icono-quienes-somos-blanco.svg");
+}
+
+.icon__contactenos {
+  background-image: url("/img/header/iconos-de-contactenos.svg");
+}
+.icon__contactenos:hover {
+  background-image: url("/img/header/icono-contactenos-blanco.svg");
+}
+
+.icon__closed {
+  background-image: url("/img/header/icono-cerrar-sesion-gris.svg");
+}
+.icon__closed:hover {
+  background-image: url("/img/header/icono-cerrar-sesion-blanco.svg");
+}
+
 @media (min-width: 768px) {
   .navbar_zaabrasalud {
     padding: 4px 0;
@@ -10459,12 +10448,20 @@ a:hover {
     height: 60px;
   }
 
+  .busqueda_mobile .busqueda_boton_mobile .busqueda_icon_mobile {
+    width: 35px;
+  }
+
   .contain_buscador_mobile {
     width: 94%;
   }
 
-  .busqueda_mobile .busqueda_boton_mobile .busqueda_icon_mobile {
+  .icon_buscador {
+    padding: 5px;
+    border: none;
+    height: auto;
     width: 35px;
+    position: relative;
   }
 
   .soy_paciente {
@@ -10480,14 +10477,6 @@ a:hover {
     width: 60px;
     height: 60px;
   }
-
-  .icon_buscador {
-    padding: 5px;
-    border: none;
-    height: auto;
-    width: 35px;
-    position: relative;
-  }
 }
 @media (min-width: 1024px) {
   .navbar_zaabrasalud {
@@ -10501,10 +10490,6 @@ a:hover {
   .navbar-logo {
     width: 75px;
     height: 50px;
-  }
-
-  .busqueda_mobile {
-    display: none;
   }
 
   .containt_buscador_desk {
@@ -10542,6 +10527,19 @@ a:hover {
     background-position: center;
   }
 
+  .busqueda_mobile {
+    display: none;
+  }
+
+  .soy_paciente {
+    width: 75px;
+    height: 52px;
+  }
+
+  .soy_paciente .drop_main {
+    background-size: 55px;
+  }
+
   .button-membresia {
     flex: 115px;
     height: 100%;
@@ -10554,15 +10552,6 @@ a:hover {
     image-rendering: -webkit-optimize-contrast;
   }
 
-  .soy_paciente {
-    width: 75px;
-    height: 52px;
-  }
-
-  .soy_paciente .drop_main {
-    background-size: 55px;
-  }
-
   .membresia_mobile {
     display: none;
   }
@@ -10570,11 +10559,6 @@ a:hover {
   .menu-hamburger {
     width: 60px;
     height: 52px;
-  }
-
-  .dropdown-paciente {
-    width: 30%;
-    height: 100%;
   }
 }
 @media (min-width: 1920px) {
@@ -10588,6 +10572,10 @@ a:hover {
 
   .navbar-logo {
     height: 60px;
+  }
+
+  #ui-id-1 {
+    height: 31vh;
   }
 
   .soy_paciente {
@@ -10605,10 +10593,6 @@ a:hover {
   .menu-hamburger {
     width: 60px;
     height: 60px;
-  }
-
-  #ui-id-1 {
-    height: 31vh;
   }
 }
 .footer_newsletter {
@@ -12273,14 +12257,10 @@ a:hover {
     padding: 1em 4em;
   }
 }
-.swiper_principal {
-  height: 135px;
-}
-
-.content_bannerPrincipal {
+.banner_top_content_inside {
   position: absolute;
   top: 0px;
-  left: 15px;
+  left: 5%;
   width: 60%;
   height: 90%;
   display: flex;
@@ -12288,6 +12268,56 @@ a:hover {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+}
+
+.banner_top_logo {
+  width: 87px;
+  margin-bottom: 3px;
+}
+
+.banner_top_title {
+  font-size: 0.9em;
+  font-family: "Quicksand";
+  font-weight: bolder;
+  line-height: 1;
+  margin: 0;
+}
+
+.banner_top_text {
+  font-size: 0.7em;
+  font-family: "Quicksand";
+  font-weight: bolder;
+  line-height: 1;
+  margin: 0.3em 0 0.5em 0;
+  width: 80%;
+}
+
+.banner_top_button {
+  font-size: 0.7em;
+  font-family: "Quicksand";
+  font-weight: bolder;
+  border: none;
+  border-radius: 3px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 1px 8px;
+}
+
+.pagination_home {
+  bottom: -6px !important;
+}
+
+.title_home {
+  font-size: 1.5em;
+  font-family: "Quicksand", sans-serif;
+  color: #0083D6;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
 }
 
 .contenido_especialista {
@@ -12366,23 +12396,6 @@ a:hover {
      object-position: top;
 }
 
-.titulo_bannerPrincipal {
-  font-size: 0.9em;
-  font-family: "Quicksand";
-  font-weight: bolder;
-  line-height: 1;
-  margin: 0;
-}
-
-.titulo_principal {
-  font-size: 1.5em;
-  font-family: "Quicksand", sans-serif;
-  color: #0083D6;
-  font-weight: bold;
-  text-align: center;
-  margin: 20px 0;
-}
-
 .titulo_contenido {
   font-size: 1.3em;
   font-family: "Quicksand";
@@ -12403,15 +12416,6 @@ a:hover {
   line-height: 1;
 }
 
-.txt_bannerPrincipal {
-  font-size: 0.7em;
-  font-family: "Quicksand";
-  font-weight: bolder;
-  line-height: 1;
-  margin: 0.3em 0 0.5em 0;
-  width: 80%;
-}
-
 .txt_contenido {
   font-size: 0.8em;
   font-family: "Roboto";
@@ -12428,21 +12432,6 @@ a:hover {
   font-size: 1em;
   font-family: "Roboto";
   text-align: center;
-}
-
-.boton_bannerPrincipal {
-  font-size: 0.7em;
-  font-family: "Quicksand";
-  font-weight: bolder;
-  border: none;
-  border-radius: 3px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 1px 8px;
 }
 
 .btn_central_azul {
@@ -12471,10 +12460,6 @@ a:hover {
   padding: 5px 8px;
   border: 1px solid #0083D6;
   border-radius: 3px;
-}
-
-.pagination_home {
-  bottom: -6px !important;
 }
 
 .swiper_especialistas {
@@ -12596,10 +12581,6 @@ a:hover {
 }
 
 @media (min-width: 360px) {
-  .swiper_principal {
-    height: 145px;
-  }
-
   .imagen_parallax {
     height: 200px;
   }
@@ -12607,32 +12588,39 @@ a:hover {
   .imagen_especialista {
     height: 275px;
   }
-
-  .titulo_bannerPrincipal {
-    font-size: 1em;
-  }
-
-  .txt_bannerPrincipal {
-    font-size: 0.8em;
-  }
-
-  .boton_bannerPrincipal {
-    font-size: 0.8em;
-  }
-}
-@media (min-width: 375px) {
-  .swiper_principal {
-    height: 155px;
-  }
 }
 @media (min-width: 768px) {
-  .swiper_principal {
-    height: 300px;
+  .banner_top_content_inside {
+    width: 55%;
   }
 
-  .content_bannerPrincipal {
-    left: 30px;
-    width: 55%;
+  .banner_top_logo {
+    width: 195px;
+    margin-bottom: 5px;
+  }
+
+  .banner_top_title {
+    font-size: 2em;
+  }
+
+  .banner_top_text {
+    font-size: 1.5em;
+    width: 90%;
+  }
+
+  .banner_top_button {
+    font-size: 1.3em;
+    padding: 2px 12px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+  }
+
+  .title_home {
+    font-size: 2.5em;
+    margin: 40px 0;
   }
 
   .contenido_especialista {
@@ -12665,15 +12653,6 @@ a:hover {
     height: 265px;
   }
 
-  .titulo_bannerPrincipal {
-    font-size: 2em;
-  }
-
-  .titulo_principal {
-    font-size: 2.5em;
-    margin: 40px 0;
-  }
-
   .titulo_contenido {
     font-size: 1.5em;
   }
@@ -12683,11 +12662,6 @@ a:hover {
     padding: 0 30px;
   }
 
-  .txt_bannerPrincipal {
-    font-size: 1.5em;
-    width: 90%;
-  }
-
   .txt_contenido {
     font-size: 1.15em;
     padding: 0 15px;
@@ -12695,10 +12669,6 @@ a:hover {
 
   .txt_especialista {
     font-size: 1.15em;
-  }
-
-  .boton_bannerPrincipal {
-    font-size: 1.5em;
   }
 
   .btn_central_azul {
@@ -12714,11 +12684,6 @@ a:hover {
   .btn_grande_central_azul {
     font-size: 1.15em;
     padding: 5px 15px;
-  }
-
-  .swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
   }
 
   .swiper_especialistas {
@@ -12766,13 +12731,12 @@ a:hover {
   }
 }
 @media (min-width: 1024px) {
-  .swiper_principal {
-    height: 375px;
+  .banner_top_content_inside {
+    width: 50%;
   }
 
-  .content_bannerPrincipal {
-    left: 50px;
-    width: 50%;
+  .banner_top_button {
+    font-size: 1.5em;
   }
 
   .seccion_tarjetas {
@@ -12786,11 +12750,6 @@ a:hover {
     justify-content: center;
   }
 
-  .boton_bannerPrincipal {
-    font-size: 1.5em;
-    padding: 2px 13px;
-  }
-
   .swiper_especialistas {
     width: 70%;
   }
@@ -12800,12 +12759,17 @@ a:hover {
   }
 }
 @media (min-width: 1200px) {
-  .swiper_principal {
-    height: 435px;
+  .banner_top_logo {
+    width: 237px;
+    margin-bottom: 10px;
   }
 
-  .content_bannerPrincipal {
-    left: 65px;
+  .banner_top_title {
+    font-size: 2.5em;
+  }
+
+  .banner_top_text {
+    font-size: 2em;
   }
 
   .seccion_tarjetas {
@@ -12814,14 +12778,6 @@ a:hover {
 
   .imagen_especialista {
     height: 285px;
-  }
-
-  .titulo_bannerPrincipal {
-    font-size: 2.5em;
-  }
-
-  .txt_bannerPrincipal {
-    font-size: 2em;
   }
 
   .swiper_especialistas {
@@ -12833,12 +12789,7 @@ a:hover {
   }
 }
 @media (min-width: 1360px) {
-  .swiper_principal {
-    height: 475px;
-  }
-
-  .content_bannerPrincipal {
-    left: 100px;
+  .banner_top_content_inside {
     width: 45%;
   }
 
@@ -12881,13 +12832,8 @@ a:hover {
   }
 }
 @media (min-width: 1440px) {
-  .swiper_principal {
-    height: 500px;
-  }
-
-  .content_bannerPrincipal {
-    left: 150px;
-    width: 42%;
+  .banner_top_content_inside {
+    left: 10%;
   }
 
   .seccion_tarjetas {
@@ -12899,8 +12845,21 @@ a:hover {
   }
 }
 @media (min-width: 1920px) {
-  .swiper_principal {
-    height: 675px;
+  .banner_top_logo {
+    width: 335px;
+    margin-bottom: 15px;
+  }
+
+  .banner_top_title {
+    font-size: 3.3em;
+  }
+
+  .banner_top_text {
+    font-size: 2.5em;
+  }
+
+  .banner_top_button {
+    font-size: 1.8em;
   }
 
   .seccion_tarjetas {
@@ -12915,14 +12874,6 @@ a:hover {
     height: 400px;
   }
 
-  .titulo_bannerPrincipal {
-    font-size: 3.3em;
-  }
-
-  .titulo_principal {
-    font-size: 2.5em;
-  }
-
   .titulo_contenido {
     font-size: 1.5em;
   }
@@ -12932,11 +12883,6 @@ a:hover {
     padding: 0 30px;
   }
 
-  .txt_bannerPrincipal {
-    font-size: 2.5em;
-    width: 90%;
-  }
-
   .txt_contenido {
     font-size: 1.15em;
     margin-bottom: 15px;
@@ -12944,10 +12890,6 @@ a:hover {
 
   .txt_especialista {
     font-size: 1.15em;
-  }
-
-  .boton_bannerPrincipal {
-    font-size: 1.8em;
   }
 
   .btn_central_azul {
@@ -26423,7 +26365,8 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 
 .pignose-calendar .pignose-calendar-unit a {
   font-weight: bold !important;
-  color: #3490dc !important;
+  color: #FFFFFF !important;
+  background-color: #3490dc !important;
 }
 
 .pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-disabled a {

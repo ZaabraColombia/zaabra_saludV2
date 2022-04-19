@@ -45,3 +45,7 @@ ALTER TABLE zaabrac1_zaabra_salud_test.profesionales_instituciones ADD nombre_co
     ) VIRTUAL AFTER segundo_apellido;
 ###Subido testing
 
+##2022-04-19
+ALTER TABLE `zaabra_salud`.`ventabanners` 
+ADD COLUMN `ruta_logo` VARCHAR(150) NULL DEFAULT NULL AFTER `rutaImagenVenta`;
+

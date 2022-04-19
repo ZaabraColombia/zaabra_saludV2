@@ -1,17 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <!--Carrusel banner principal funcionalidad del slider en el archivo home.js-->
+    <!-- BANNER PRINCIPAL - funcionalidad archivo home.js-->
     <section class="swiper-container swiper_principal">
         <div class="swiper-wrapper">
             @foreach ($objbannersprincipalHome as $objbannersprincipalHome)
-                <div class="swiper-slide ">
+                <div class="swiper-slide">
                     <img class="swiper-slide" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
 
-                    <div class="content_bannerPrincipal">
-                        <h1 class="titulo_bannerPrincipal" style="color:{{($objbannersprincipalHome->color_titulo)}};">{{($objbannersprincipalHome->titulo_banner)}}</h1>
-                        <p class="txt_bannerPrincipal" style="color:{{($objbannersprincipalHome->color_texto)}};">{{($objbannersprincipalHome->texto_banner)}}</p>
-                        <a class="boton_bannerPrincipal" type="submit" href="{{($objbannersprincipalHome->urlBoton_banner)}}" target="blank"
+                    <div class="banner_top_content_inside">
+                        <img class="banner_top_logo" src="{{URL::asset($objbannersprincipalHome->ruta_logo)}}" alt="">
+                        <h1 class="banner_top_title" style="color:{{($objbannersprincipalHome->color_titulo)}};">{{($objbannersprincipalHome->titulo_banner)}}</h1>
+                        <p class="banner_top_text" style="color:{{($objbannersprincipalHome->color_texto)}};">{{($objbannersprincipalHome->texto_banner)}}</p>
+                        <a class="banner_top_button" type="submit" href="{{($objbannersprincipalHome->urlBoton_banner)}}" target="blank"
                             style="background-color:{{($objbannersprincipalHome->background_btn)}}; color:{{($objbannersprincipalHome->color_btn)}};">
                             {{($objbannersprincipalHome->texto_btn)}}
                         </a>
@@ -27,9 +28,9 @@
         <div class="swiper-button-next"></div> -->
     </section>
 
-    <h1 class="titulo_principal">Nuestro Portafolio</h1>
+    <h1 class="title_home">Nuestro Portafolio</h1>
 
-    <!-- Tarjetas de opciones -->
+    <!-- TARJETAS - Especialidades e Instituciones médicas -->
     <section class="seccion_tarjetas">
         <div class="tarjeta_opcion animacion_tarjeta">
             <div class="cabecera_tarjeta">
@@ -62,14 +63,14 @@
         </div>
     </section>
 
-    <!--parallax home-->
+    <!-- PARALLAX -->
     @foreach ($objbannersparallaxHome as $objbannersparallaxHome)
         <div class="imagen_parallax" style="background-image: url( {{URL::asset($objbannersparallaxHome->rutaImagenVenta)}} );"></div>
     @endforeach
 
-    <h1 class="titulo_principal">Nuestros Especialistas</h1>
+    <h1 class="title_home">Nuestros Especialistas</h1>
 
-    <!--carousel especialistas-->
+    <!-- CARRUSEL - Especialistas -->
     <div class="swiper-container swiper_especialistas">
         <div class="swiper-wrapper">
             @foreach ($objprofesionaleshome as $profesionales_home)
@@ -99,7 +100,7 @@
         <div class="swiper-button-next flecha_derecha"></div>
     </div>
 
-    <!--banner triple-->
+    <!-- BANNER TRIPLE -->
     <div class="swiper-container swiper_triple">
         <div class="swiper-wrapper">
             @foreach ($objcarruselTriple as $objcarruselTriple)
@@ -108,9 +109,9 @@
         </div>
     </div>
 
-    <h1 class="titulo_principal" style="color: #019f86">Nuestros Asociados</h1>
+    <h1 class="title_home" style="color: #019f86">Nuestros Asociados</h1>
 
-    <!--carousel entidades-->
+    <!-- CARRUSEL - Instituciones -->
     <div class="swiper-container swiper_especialistas">
         <div class="swiper-wrapper">
             @foreach ($intitucionProfesionales as $profesional)
@@ -155,9 +156,9 @@
     </div>
 
 
-    <!--carousel universidades-->
+    <!-- CARRUSEL - Entidades -->
     <section class="seccion_carrusel_inferior">
-        <h2 class="titulo_principal">Ellos confían en nosotros</h2>
+        <h2 class="title_home">Ellos confían en nosotros</h2>
         <div class="swiper-container swiper_logos_inferior">
             <div class="swiper-wrapper">
                 @foreach ($objbanneruniversidad as $objbanneruniversidad)
