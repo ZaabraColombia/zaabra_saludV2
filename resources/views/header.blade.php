@@ -234,7 +234,7 @@
 
     <!--******************************     Sección BARRA DE BUSQUEDA OCULTA version MOBILE      *************************************-->
     <!-- Clase "contain_buscador_mobile"utilizada para mostrar y ocultar la barra de busqueda en el HEADER tamaño Mobile, función ubicada en el archivo header.js -->
-    <div class="contain_buscador_mobile">
+    <div id="buscador_mobile" class="contain_buscador_mobile">
         <div class="section_buscador_mobile" id="buscador">
             <div class="barra_buscador_mobile" id="barra_busqueda2">
                 <input type="hidden" name="_token" value="tzFtz8TstiTocmap8vuJp4Py7sMc0zcQiC63SuyF">

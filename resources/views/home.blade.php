@@ -28,7 +28,7 @@
         <div class="swiper-button-next"></div> -->
     </section>
 
-    <h1 class="title_home">Nuestro Portafolio</h1>
+    <h1 class="titulo_principal">Nuestro Portafolio</h1>
 
     <!-- TARJETAS - Especialidades e Instituciones médicas -->
     <section class="seccion_tarjetas">
@@ -68,7 +68,7 @@
         <div class="imagen_parallax" style="background-image: url( {{URL::asset($objbannersparallaxHome->rutaImagenVenta)}} );"></div>
     @endforeach
 
-    <h1 class="title_home">Nuestros Especialistas</h1>
+    <h1 class="titulo_principal">Nuestros Especialistas</h1>
 
     <!-- CARRUSEL - Especialistas -->
     <div class="swiper-container swiper_especialistas">
@@ -109,7 +109,7 @@
         </div>
     </div>
 
-    <h1 class="title_home" style="color: #019f86">Nuestros Asociados</h1>
+    <h1 class="titulo_principal" style="color: #019f86">Nuestros Asociados</h1>
 
     <!-- CARRUSEL - Instituciones -->
     <div class="swiper-container swiper_especialistas">
@@ -158,7 +158,7 @@
 
     <!-- CARRUSEL - Entidades -->
     <section class="seccion_carrusel_inferior">
-        <h2 class="title_home">Ellos confían en nosotros</h2>
+        <h2 class="titulo_principal">Ellos confían en nosotros</h2>
         <div class="swiper-container swiper_logos_inferior">
             <div class="swiper-wrapper">
                 @foreach ($objbanneruniversidad as $objbanneruniversidad)
