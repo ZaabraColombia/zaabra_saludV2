@@ -34,7 +34,7 @@
                     <div class="row m-0 my-4 justify-content-center">
                         <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                             <div class="img__upload">
-                                <img id="imagen-foto" src="{{ asset('img/menu/avatar.png') }}">
+                                <img id="imagen-foto" src="{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}">
                                 <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" />
                                 <p>Subir foto de perfil</p>
                             </div>
