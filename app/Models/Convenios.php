@@ -45,6 +45,12 @@ class Convenios extends Model
 
     protected $primaryKey = "id";
 
+    protected $appends = [
+        'nombre_completo',
+        'mascara_identificacion',
+        'foto'
+    ];
+
 
     /**
      * Retorna el nombre completo
@@ -84,5 +90,36 @@ class Convenios extends Model
     public function scopeActivado(Builder $query): Builder
     {
         return $query->where('estado', '=', 1);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function tipo_identificacion(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(TipoDocumento::class, 'tipo_documento_id', 'id');
+    }
+
+    public function sgsss()
+    {
+        return $this->belongsTo(Sgsss::class, 'sgsss_id', 'id');
+    }
+
+    /**
+     * Retorna el nombre completo
+     *
+     * @return string
+     */
+    public function getMascaraIdentificacionAttribute(): string
+    {
+        return "{$this->tipo_identificacion->nombre_corto} {$this->numero_documento}";
+    }
+
+    /**
+     *
+     */
+    public function getFotoAttribute()
+    {
+        return asset($this->url_image ?? 'img/menu/avatar.png');
     }
 }
