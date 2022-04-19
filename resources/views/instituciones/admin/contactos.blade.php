@@ -39,7 +39,7 @@
                             <th>Dirección</th>
                             <th>Teléfono</th>
                             <th>Correo</th>
-                            <th></th>
+                            <th class="text-center">Acción</th>
 
                         </tr>
                         </thead>
@@ -55,7 +55,7 @@
                                             </div>
 
                                             <div>
-                                                <span>{{ $contacto->nombre_completo }}</span>
+                                                <span>{{ $contacto->nombre }}</span>
                                             </div>
                                         </div>
                                     </td>
@@ -63,24 +63,26 @@
                                     <td>{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</td>
                                     <td>{{ $contacto->correo }}</td>
                                     <td>
-                                        @can('accesos-institucion','ver-contactos')
-                                            <button class="btn_action_green btn-ver-contacto tool top" type="button" data-id="{{ $contacto->id }}">
-                                                <i class="fas fa-eye"></i>
-                                                <span class="tiptext">Ver contacto</span>
-                                            </button>
-                                        @endcan
-                                        @can('accesos-institucion','editar-contacto')
-                                            <button class="btn_action_green btn-editar-contacto tool top" type="button" data-id="{{ $contacto->id }}">
-                                                <i class="fas fa-edit"></i>
-                                                <span class="tiptext">Editar contacto</span>
-                                            </button>
-                                        @endcan
-                                        @can('accesos-institucion','eliminar-contacto')
-                                            <button class="btn_action_green btn-eliminar-contacto tool top" type="button" data-id="{{ $contacto->id }}">
-                                                <i class="fas fa-trash"></i>
-                                                <span class="tiptext">Eliminar contacto</span>
-                                            </button>
-                                        @endcan
+                                        <div class="d-flex justify-content-between">
+                                            @can('accesos-institucion','ver-contactos')
+                                                <button class="btn_action_green btn-ver-contacto tool top" type="button" data-id="{{ $contacto->id }}">
+                                                    <i class="fas fa-eye"></i>
+                                                    <span class="tiptext">Ver contacto</span>
+                                                </button>
+                                            @endcan
+                                            @can('accesos-institucion','editar-contacto')
+                                                <button class="btn_action_green btn-editar-contacto tool top" type="button" data-id="{{ $contacto->id }}">
+                                                    <i class="fas fa-edit"></i>
+                                                    <span class="tiptext">Editar contacto</span>
+                                                </button>
+                                            @endcan
+                                            @can('accesos-institucion','eliminar-contacto')
+                                                <button class="btn_action_green btn-eliminar-contacto tool top" type="button" data-id="{{ $contacto->id }}">
+                                                    <i class="fas fa-trash"></i>
+                                                    <span class="tiptext">Eliminar contacto</span>
+                                                </button>
+                                            @endcan
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
