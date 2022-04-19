@@ -23,7 +23,23 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`pago_citas`
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`profesionales_instituciones`
     ADD COLUMN `estado` TINYINT(1) NULL DEFAULT 0 AFTER `slug`;
 
+##2022-04-18
+ALTER TABLE zaabrac1_zaabra_salud_test.users ADD nombre_completo text GENERATED ALWAYS AS (
+    concat(
+        primernombre, ' ',
+        IF( segundonombre is not null,concat(segundonombre, ' '), ''),
+        primerapellido, ' ',
+        IF( segundoapellido is not null,concat(segundoapellido, ' '), '')
+        )
+    ) VIRTUAL NOT NULL AFTER segundoapellido;
+
+ALTER TABLE zaabrac1_zaabra_salud_test.profesionales_instituciones ADD nombre_completo text GENERATED ALWAYS AS (
+    concat(
+        primer_nombre, ' ',
+        IF(segundo_nombre is not null,concat(segundo_nombre, ' '), ''),
+        primer_apellido, ' ',
+        IF(segundo_apellido is not null,concat(segundo_apellido, ' '), '')
+        )
+    ) VIRTUAL AFTER segundo_apellido;
 ###Subido testing
-
-
 

@@ -28,76 +28,32 @@
 
             <!-- Contenedor formato tabla de la lista de pacientes -->
             <div class="containt_main_table mb-3">
+                {{--
                 <div class="col-md-4 col-xl-3 p-0 input__box">
                     <label for="date"><b>Filtrar por fecha</b></label>
                     <input type="date" id="date" class="form-control"/>
                 </div>
+                --}}
 
                 <table class="table display responsive nowrap" style="width: 100%" id="table-citas">
                     <thead class="thead_green">
                         <tr>
+                            <th>Hora</th>
+                            <th>Fecha</th>
+                            <th>Especialidad</th>
+                            <th>Profesional</th>
                             <th>Paciente</th>
                             <th>Identificación</th>
-                            <th>Profesional</th>
-                            <th>Especialidad</th>
-                            <th>Fecha atención</th>
-                            <th>Hora atención</th>
+                            <th>Lugar</th>
+                            <th>Celular</th>
                             <th>Estado</th>
-                            <th>Duración cita</th>
-                            <th>Tipo de atención</th>
-                            <th>Tipo de servicio</th>
-                            <th>Lugar de atención</th>
-                            <th>Consultorio</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>Alexander Gregorio Valenzuela Camargo</td>
-                            <td>1033468589</td>
-                            <td>Alejandro Alfonso Velandia Colmenares</td>
-                            <td>Cirugía Maxilofacial</td>
-                            <td>00-Dic-0000</td>
-                            <td>00:00 p.m</td>
-                            <td>Reagendado</td>
-                            <td>30 minutos</td>
-                            <td>Tipo atención 1</td>
-                            <td>Tipo servicio 1</td>
-                            <td>Virrey Solis Chapinero CARRERA 56 SUR # 54 - 58ESTE CARRERA 56 SUR # 54 - 58ESTE Virrey Solis Chapinero CARRERA 56 SUR # 54 - 58ESTE CARRERA 56 SUR # 54 - 58ESTE</td>
-                            <td>10 Piso 2 Torre 1</td>
-                        </tr>
 
-                        <tr>
-                            <td>Alexander Gregorio Valenzuela Camargo</td>
-                            <td>1033468589</td>
-                            <td>Alejandro Alfonso Velandia Colmenares</td>
-                            <td>Cirugía Maxilofacial</td>
-                            <td>00-Dic-0000</td>
-                            <td>00:00 p.m</td>
-                            <td>Reagendado</td>
-                            <td>30 minutos 30 minutos 30 minutos</td>
-                            <td>Tipo atención 1</td>
-                            <td>Tipo servicio 1</td>
-                            <td>Virrey Solis Chapinero CARRERA 56 SUR # 54 - 58ESTE</td>
-                            <td>10 Piso 2 Torre 1</td>
-                        </tr>
-
-                        <tr>
-                            <td>Alexander Gregorio Valenzuela Camargo</td>
-                            <td>1033468589</td>
-                            <td>Alejandro Alfonso Velandia Colmenares</td>
-                            <td>Cirugía Maxilofacial</td>
-                            <td>00-Dic-0000</td>
-                            <td>00:00 p.m</td>
-                            <td>Reagendado Reagendado Reagendado</td>
-                            <td>30 minutos</td>
-                            <td>Tipo atención 1</td>
-                            <td>Tipo servicio 1</td>
-                            <td>Virrey Solis Chapinero</td>
-                            <td>10 Piso 2 Torre 1</td>
-                        </tr>
                     </tbody>
-                </table>      
+                </table>
             </div>
         </div>
     </div>
@@ -136,29 +92,20 @@
                 language: {
                     url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
                 },
-                dom: 'lfBrtip',
-                buttons: [
-                    {
-                        extend: 'pdfHtml5',
-                        text: 'PDF',
-                        className: 'red',
-                        title:'Resultados',
-                        exportOptions: {
-                            modifier: {
-                                page: 'current'
-                            }
-                        },
-                        //text: 'Red',
-                    },
-                    {
-                        extend: 'excel',
-                        text: 'Excel',
-                        className: 'border_left',
-                        title:function () {
-                            return 'Resultados';
-                        }
-                    },
-                ],
+                //dom: 'lfBrtip',
+                // buttons: [
+                //     {
+                //         extend: 'excel',
+                //         text: 'Excel',
+                //         title:'Resultados',
+                //         // exportOptions: {
+                //         //     modifier: {
+                //         //         search: 'applied',
+                //         //         order: 'applied'
+                //         //     }
+                //         // }
+                //     },
+                // ],
                 searching: true,
                 columnDefs: [
                     {
@@ -166,6 +113,22 @@
                         orderable: false,
                     }
                 ],
+                columns:[
+                    {data: "hora", name: "fecha_inicio"},
+                    {data: "fecha", name: "fecha_inicio"},
+                    {data: "especialidad.nombreEspecialidad", name: "especialidad.nombreEspecialidad"},
+                    {data: "profesional_ins.nombre_completo", name: 'profesional_ins.nombre_completo'},
+                    {data: "paciente.user.nombre_completo", name: 'paciente.user.nombre_completo'},
+                    {data: "paciente.user.numerodocumento", name: 'paciente.user.numerodocumento'},
+                    {data: "lugar", name: "lugar"},
+                    {data: "paciente.celular", name: "paciente.celular"},
+                    {data: "estado", name: "estado"},
+                ],
+                serverSide: true,
+                ajax:{
+                    type: 'post',
+                    url: '{{ route('institucion.citas.lista-citas') }}',
+                },
             });
 
             $("#search").on('keyup change',function(){

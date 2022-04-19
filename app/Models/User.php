@@ -55,6 +55,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    protected $appends = [
+        'nombre_completo'
+    ];
+
 
 //    protected $with = [
 //        'roles'

@@ -311,7 +311,11 @@ Route::middleware(['auth', 'roles', 'verified'])->as('entidad.')->group(function
 /*--------- Admin Entidad (Institución) -----------*/
 Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' => ['auth', 'roles', 'verified']], function (){
     Route::get('/panel',[entidades\Admin\PanelController::class,'index'])->name('panel');
+
     Route::get('/citas',[entidades\Admin\CitasController::class,'index'])->name('citas');
+    Route::post('/citas/lista-citas',[entidades\Admin\CitasController::class,'lista_citas'])
+        ->name('citas.lista-citas');
+
     Route::get('/pagos',[entidades\Admin\PagosController::class,'index'])->name('pagos');
 
     Route::get('/configurar-calendario', [entidades\Admin\CalendarioController::class, 'configuracion'])
