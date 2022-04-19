@@ -76,10 +76,10 @@
                                         <div class="d-flex justify-content-around">
 
                                             @can('accesos-institucion','ver-convenios')
-                                                <a class="btn_action_green tool top" style="width: 33px"
-                                                   href="" data-target="#modal_ver_convenio" data-toggle="modal">
+                                                <button class="btn_action_green tool top boton-convenio" style="width: 33px"
+                                                        data-url="{{ route('institucion.configuracion.convenios.show', ['convenio' => $convenio->id]) }}">
                                                     <i data-feather="eye"></i> <span class="tiptext">Ver convenio</span>
-                                                </a>
+                                                </button>
                                             @endcan
 
                                             @can('accesos-institucion','editar-convenio')
@@ -106,7 +106,7 @@
     </div>
 
     <!-- Modal Ver Convenio -->
-    <div class="modal fade modal_contactos" id="modal_ver_convenio">
+    <div class="modal fade" id="modal-convenio">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -265,6 +265,31 @@
         $("#search").on('keyup change',function(){
             var texto = $(this).val();
             table.search(texto).draw();
+        });
+
+        //ver convenio
+        $('.boton-convenio').click(function (event) {
+            var btn = $(this);
+
+            $.get(btn.data('url'), function (response) {
+                console.log(response);
+
+                // $.each(response.item, function (key, item) {
+                //     if (key !== 'accesos') $('#' + key).html(item);
+                // });
+                // $('#accesos-lista').html('');
+                // $.each(response.item.accesos, function (key, item) {
+                //     $('#accesos-lista').append('<div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">'
+                //         + '<i data-feather="check-circle" style="color: #0083D6;" width="17"></i>'
+                //         + '<span class="pl-2">' + item.nombre + '</span>'
+                //         + '</div>');
+                // });
+                //
+                // feather.replace();
+                $('#modal-convenio').modal();
+            }, "json").fail(function (error) {
+                console.log(error);
+            });
         });
     </script>
 @endsection

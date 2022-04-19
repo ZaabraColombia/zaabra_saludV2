@@ -166,13 +166,12 @@
                         </div>
 
                         <div class="col-md-4 input__box">
-                            <label for="tipo_convenio">Tipo de convenio</label>
-                            <select class="@error('tipo_convenio') is-invalid @enderror" id="tipo_convenio"
-                                    name="tipo_convenio" value="{{ old('tipo_convenio') }}">
+                            <label for="id_tipo_convenio">Tipo de convenio</label>
+                            <select class="@error('id_tipo_convenio') is-invalid @enderror" id="id_tipo_convenio" name="id_tipo_convenio">
                                 <option></option>
                                 @if($tipo_convenios->isNotEmpty())
                                     @foreach($tipo_convenios as $tipo_convenio)
-                                        <option value="{{ $tipo_convenio->id }}" {{ old('tipo_convenio') == $tipo_convenio->id ? 'selected':'' }}>{{ $tipo_convenio->nombretipo }}</option>
+                                        <option value="{{ $tipo_convenio->id }}" {{ old('id_tipo_convenio') == $tipo_convenio->id ? 'selected':'' }}>{{ $tipo_convenio->nombretipo }}</option>
                                     @endforeach
                                 @endif
                             </select>

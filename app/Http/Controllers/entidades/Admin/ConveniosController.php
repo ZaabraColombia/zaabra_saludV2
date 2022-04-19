@@ -10,6 +10,7 @@ use App\Models\TipoContribuyente;
 use App\Models\TipoDocumento;
 use App\Models\tipoinstituciones;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
@@ -53,6 +54,13 @@ class ConveniosController extends Controller
 
         return view('instituciones.admin.configuracion.convenios.crear', compact('tipo_documentos',
             'actividades_economicas', 'tipo_contribuyentes', 'paises', 'tipo_convenios'));
+    }
+
+    public function show(Convenios $convenio)
+    {
+        return response([
+            'item' => $convenio
+        ], Response::HTTP_OK);
     }
 
     /**
