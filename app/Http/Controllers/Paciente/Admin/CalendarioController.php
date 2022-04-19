@@ -127,7 +127,11 @@ class CalendarioController extends Controller{
         }
 
         //Citas médicas
-        $datesOperatives = $profesional->citas()->whereNotIn('estado', ['cancelado'])->get();
+        $datesOperatives = $profesional->citas()
+            ->select(['id_cita', 'fecha_inicio', 'fecha_fin'])
+            ->whereNotIn('estado', ['cancelado', 'completado'])
+            ->get()
+            ->toArray();
 
         //Horario
         $horario = $profesional->user->horario;
@@ -150,8 +154,12 @@ class CalendarioController extends Controller{
                 $startDate = strtotime("$request->date " . $item['startTime']);
                 $endDate = strtotime("$request->date " . $item['endTime']);
 
+                //dd($datesOperatives);
+
                 //generar posibles citas
-                for($date = $startDate; ($date + $intervaloCita) <= $endDate; $date+= $intervaloCita){
+                $listDates = generar_citas($startDate, $endDate, $intervaloCita, $datesOperatives, 2);
+
+                /*for($date = $startDate; ($date + $intervaloCita) <= $endDate; $date+= $intervaloCita){
 
                     $startTime = date('Y-m-d H:i', $date);
                     $endTime = date('Y-m-d H:i', $date + $intervaloCita );
@@ -163,20 +171,20 @@ class CalendarioController extends Controller{
                         foreach ($datesOperatives as $dateOperative) {
                             if (
                                 //Validar si la hora de inicio está entre la hora inicio y fin de la cita existente
-                                (strtotime($dateOperative->fecha_inicio) <= strtotime($startTime)
-                                    && strtotime($dateOperative->fecha_fin) >= strtotime($startTime))
+                                (strtotime($dateOperative->fecha_inicio) < strtotime($startTime)
+                                    && strtotime($dateOperative->fecha_fin) > strtotime($startTime))
                                 or
                                 //Validar si la hora de fin está entre la hora inicio y fin de la cita existente
-                                (strtotime($dateOperative->fecha_inicio) <= strtotime($endTime)
-                                    && strtotime($dateOperative->fecha_fin) >= strtotime($endTime))
+                                (strtotime($dateOperative->fecha_inicio) < strtotime($endTime)
+                                    && strtotime($dateOperative->fecha_fin) > strtotime($endTime))
                                 or
                                 //Validar si la hora inicio existente está entre la hora inicio y fin
-                                (strtotime($startTime) <= strtotime($dateOperative->fecha_inicio)
-                                    && strtotime($startTime) >= strtotime($dateOperative->fecha_inicio))
+                                (strtotime($startTime) < strtotime($dateOperative->fecha_inicio)
+                                    && strtotime($startTime) > strtotime($dateOperative->fecha_inicio))
                                 or
                                 //Validar si la hora din existente está entre la hora inicio y fin
-                                (strtotime($startTime) <= strtotime($dateOperative->fecha_fin)
-                                    && strtotime($startTime) >= strtotime($dateOperative->fecha_fin))
+                                (strtotime($startTime) < strtotime($dateOperative->fecha_fin)
+                                    && strtotime($startTime) > strtotime($dateOperative->fecha_fin))
                             )
                             {
                                 $valid = false;
@@ -197,7 +205,7 @@ class CalendarioController extends Controller{
                             'endTime' => $endTime
                         ];
                     }
-                }
+                }*/
             }
         }
 
