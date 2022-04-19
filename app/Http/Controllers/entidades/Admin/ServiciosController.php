@@ -11,8 +11,10 @@ use App\Models\tipoinstituciones;
 use App\Models\TipoServicio;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class ServiciosController extends Controller
@@ -81,6 +83,46 @@ class ServiciosController extends Controller
 
         return redirect()->route('institucion.configuracion.servicios.index')
             ->with('success', "El servicio {$servicio->nombre} ha sido creado");
+    }
+
+    /**
+     * @param $convenio
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|Response
+     */
+    public function show($servicio)
+    {
+        $validate = Validator::make(['servicio' => $servicio], [
+            'servicio' => [
+                'required',
+                Rule::exists('servicios', 'id')
+                    ->where('institucion_id', Auth::user()->institucion->id)
+            ]
+        ]);
+
+        if ($validate->fails())
+            return response([
+                'message' => [
+                    'title' => 'No se encontró el servicio',
+                    'text'  => ''
+                ]
+            ]);
+
+        $servicio = Servicio::query()
+            ->select('servicios.*')
+            ->addSelect([
+                'especialidad'  => especialidades::query()->select('nombreespecialidad as especialidad')->whereColumn('especialidad_id', 'idEspecialidad')->take(1),
+                'tipo_servicio' => TipoServicio::query()->select('nombre as tipo_servicio')->whereColumn('tipo_servicio_id', 'tipo_servicios.id')->take(1),
+                'cup'           => Cups::query()->selectRaw('concat(cups.code, "-", cups.description) as cup')->whereColumn('codigo_cups', 'cups.code')->take(1),
+            ])
+            ->where('id', $servicio)
+            ->with([
+                'convenios_lista:id,tipo_documento_id,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido'
+            ])
+            ->first();
+
+        return response([
+            'item' => $servicio
+        ], Response::HTTP_OK);
     }
 
     /**

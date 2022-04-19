@@ -45,3 +45,6 @@ ALTER TABLE zaabrac1_zaabra_salud_test.profesionales_instituciones ADD nombre_co
     ) VIRTUAL AFTER segundo_apellido;
 ###Subido testing
 
+##2022-04-19
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`servicios`
+    CHANGE COLUMN `tipo_atencion` `tipo_atencion` ENUM('virtual', 'presencial') NULL DEFAULT NULL ;
