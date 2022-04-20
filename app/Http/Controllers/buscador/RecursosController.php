@@ -5,6 +5,7 @@ namespace App\Http\Controllers\buscador;
 use App\Http\Controllers\Controller;
 use App\Models\ActividadEconomica;
 use App\Models\Convenios;
+use App\Models\profesionales_instituciones;
 use App\Models\Servicio;
 use App\Models\Sgsss;
 use Illuminate\Contracts\Foundation\Application;
@@ -12,7 +13,9 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class RecursosController extends Controller
 {
@@ -53,6 +56,10 @@ class RecursosController extends Controller
         ], Response::HTTP_OK);
     }
 
+    /**
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
     public function servicios_convenio(Request $request)
     {
         $request->validate([
@@ -64,8 +71,8 @@ class RecursosController extends Controller
             ->with(['convenios_lista' => function($query){
                 $query
                     ->select('convenios.id', 'convenios.primer_nombre', 'convenios.segundo_nombre',
-                    'convenios.primer_apellido', 'convenios.segundo_apellido', 'convenios.tipo_documento_id',
-                    'convenios.numero_documento');
+                        'convenios.primer_apellido', 'convenios.segundo_apellido', 'convenios.tipo_documento_id',
+                        'convenios.numero_documento');
 
             }])
             ->where('id', $request->get('servicio'))
@@ -77,5 +84,48 @@ class RecursosController extends Controller
         });
 
         return response(['items' => $lista], Response::HTTP_OK);
+    }
+
+    public function calendario_disponible(Request $request)
+    {
+        $request->validate([
+            'profesional' => [
+                'required',
+                Rule::exists('profesionales_instituciones', 'id_profesional_inst')
+                    ->where('id_institucion', Auth::user()->institucion->id)
+            ]
+        ]);
+
+        $profesional = profesionales_instituciones::query()
+            ->where('id_profesional_inst', $request->profesional)
+            ->where('id_institucion', Auth::user()->institucion->id)
+            ->first();
+
+        $agenda['disponibilidad']   = $profesional->disponibilidad_agenda;
+        $agenda['consultorio']      = $profesional->consultorio;
+
+        $servicios = $profesional->servicios;
+        $horario = $profesional->horario;
+
+        if (empty($horario) or empty($servicios) or empty($agenda['disponibilidad']) or empty($agenda['consultorio']))
+            return response([
+                'message' => [
+                    'title' => 'Agenda no disponible',
+                    'text'  => "Profesional {$profesional->nombre_completo} no tiene la agenda disponible"
+                ]
+            ], Response::HTTP_NOT_FOUND);
+
+        //Atrae los dias de la semana que NO labora
+        $weekNotBusiness = array();
+        foreach (array_column($horario, 'daysOfWeek') as $item)
+            $weekNotBusiness = array_merge($weekNotBusiness, $item);
+
+        $agenda['weekNotBusiness'] = array_unique($weekNotBusiness);
+
+        $lista = $profesional->servicios->map(function ($item){
+            return ['id' => $item->id, 'nombre' => $item->nombre, 'valor' => $item->valor];
+        });
+
+        return response(['servicios' => $lista, 'agenda' => $agenda], Response::HTTP_OK);
     }
 }

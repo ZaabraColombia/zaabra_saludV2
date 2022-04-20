@@ -1,14 +1,12 @@
 @extends('paciente.admin.layouts.layout')
 
 @section('styles')
-    <!-- Librería de calendar_date min.css -->
     <link rel="stylesheet" href="{{ asset('plugins/pg-calendar-master/dist/css/pignose.calendar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
 @endsection
 
 @section('contenido')
-    @php
-        $user = Auth::user();
-    @endphp
     <div class="container-fluid content_asig_cita">
 
         <div class="content_row">
@@ -35,19 +33,18 @@
                             <input type="hidden" name="date-calendar" id="date-calendar">
                             <div class="input__box mb-3">
                                 <label for="paciente">Paciente</label>
-                                <select id="paciente" class="form-control" name="paciente" required>
-                                    <option value=""></option>
-                                    <option value="paciente 1">paciente 1</option>
-                                    <option value="paciente 2"> paciente 2</option>
-                                </select>
+                                <select id="paciente" class="form-control" name="paciente" required></select>
                             </div>
 
                             <div class="input__box mb-3">
                                 <label for="profesional">Profesional</label>
                                 <select id="profesional" class="form-control" name="profesional" required>
-                                    <option value=""></option>
-                                    <option value="profesional 1">profesional 1</option>
-                                    <option value="profesional 2"> profesional 2</option>
+                                    <option></option>
+                                    @if($profesionales->isNotEmpty())
+                                        @foreach($profesionales as $profesional)
+                                            <option value="{{ $profesional->id_profesional_inst }}">{{ $profesional->nombre_completo }}</option>
+                                        @endforeach
+                                    @endif
                                 </select>
                             </div>
 
@@ -125,29 +122,139 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
     <script src="{{ asset('plugins/pg-calendar-master/dist/js/pignose.calendar.min.js') }}"></script>
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 
     <script src="{{ asset('js/alertas.js') }}"></script>
 
     <script>
- 
-        moment.locale('es'); // change the global locale to Spanish
 
-        $('.calendar').pignoseCalendar({
+        //moment.locale('es'); // change the global locale to Spanish
+
+        var calendar = $('.calendar').pignoseCalendar({
             lang: 'es',
             initialize: false,
             minDate: '',
             maxDate: '',
             /*maxDate: '2022-06-24',*/
-            disabledWeekdays:'', // WEDNESDAY (0)
+            disabledWeekdays:[0, 1, 2, 3, 4, 5, 6], // WEDNESDAY (0)
             disabledDates: [],
             disabledRanges: [
                 //['2022-04-07', '2022-04-22'], // 2022-04-07 ~ 22
             ],
+        });
+
+        //Buscar paciente
+        $('#paciente').select2({
+            language: 'es',
+            theme: 'bootstrap4',
+            ajax: {
+                url: '{{ route('buscador-paciente') }}',
+                dataType: 'json',
+                method: 'post',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: function (params) {
+                    return {
+                        searchTerm: params.term // search term
+                    };
+                },
+                processResults: function (response) {
+                    return {
+                        results:response
+                    };
+                },
+                cache: true,
+            },
+            minimumInputLength: 3
+        }).on('select2:select', function (e) {
+            var data = e.params.data;
+
+            //$('#nombre').val(data.nombre);
+            //$('#apellido').val(data.apellido);
+            //$('#correo').val(data.email);
+
+        }).on('select2:opening', function (e){
+
+            $(this).val(null).trigger('change');
+            //$('#nombre').val('');
+            //$('#apellido').val('');
+            //$('#correo').val('');
 
         });
 
+        //Agregar servicios
+        $('#profesional').change(function (event) {
+            var select = $(this);
+
+            $.ajax({
+                type: "POST",
+                url: '{{ route('institucion.calendario-disponible') }}',
+                data: {profesional: select.val()},
+                dataType: 'json',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (response) {
+                    $('#convenio').empty().prop('disabled', true);
+
+                    $('#check-convenio').prop('checked', false);
+
+                    $('#tipo_servicio').html('<option></option>');
+                    $.each(response.servicios, function (key, item) {
+                        $('#tipo_servicio').append('<option value="' + item.id + '" data-valor="' + item.valor + '">' +
+                            item.nombre +
+                            '</option>'
+                        );
+                    });
+
+                    //calendario
+                    $('.calendar').pignoseCalendar('configure', {
+                        minDate: moment().format('YYYY-MM-DD'),
+                        maxDate: moment().add('days', response.agenda.disponibilidad).format('YYYY-MM-DD'),
+                        disabledWeekdays: response.agenda.weekNotBusiness
+                    });
+                }
+            })
+        });
+
+        //Agregar convenios
+        $('#tipo_servicio').change(function (event) {
+            var select = $(this);
+
+            var servicio = $(this);
+            var date =  $('#date-calendar');
+
+            //console.log('fecha 1 ' + date.val());
+            //console.log('servicio 1 ' + servicio.val());
+
+            if (servicio.val() !== '' && date.val() !== '' ) dias_libres(date.val(), servicio.val());
+
+            $.ajax({
+                type: "POST",
+                url: '{{ route('institucion.convenios-servicio') }}',
+                data: {servicio: select.val(), institucion: '{{ $profesional->institucion->id }}'},
+                dataType: 'json',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (response) {
+                    $('#convenio').empty().prop('disabled', true);
+
+                    $('#check-convenio').prop('checked', false);
+
+                    $.each(response.items, function (key, item) {
+                        $('#convenio').append('<option value="' + item.id + '" data-valor="' + item.pivot.valor_paciente + '">' + item.nombre_completo + '</option>');
+                    });
+                }
+            })
+        });
+
+        $('#check-convenio').change(function (event) {
+            $('#convenio').prop('disabled', !$(this).prop('checked'));
+        });
     </script>
 @endsection
 
