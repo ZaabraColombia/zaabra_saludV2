@@ -105,7 +105,9 @@
                                 <label for="modalidad">Modalidad de pago</label>
                                 <select id="modalidad" class="form-control" name="modalidad" required>
                                     <option value="virtual">Virtual</option>
-                                    <option value="presencial"> Presencial </option>
+                                    @if(!empty($antiguedad) and $antiguedad->confirmacion == false)
+                                        <option value="presencial" id="option-presencial"> Presencial </option>
+                                    @endif
                                 </select>
                             </div>
                             <div class="input__box mb-3">
@@ -332,23 +334,23 @@
             .on('click', 'button', function (e) {
                 var btn = $(this);
                 $('#modal_antiguedad').modal('hide');
-                // $.ajax({
-                //     url: '#',
-                //     //Verdadero primera vez
-                //     data: {antiguedad:btn.data('confirmacion')},
-                //     type: 'post',
-                //     dataType: 'json',
-                //     success: function (response) {
-                //         if (btn.data('confirmacion')) {
-                //             $('#option-presencial').remove();
-                //         }else{
-                //             $('#modalidad').append('<option value="presencial"> Presencial </option>');
-                //         }
-                //         $('#modal_antiguedad').modal('hide');
-                //     },
-                //     error: function (error) {
-                //     }
-                // });
+                $.ajax({
+                    url: '{{ route('paciente.confirmar-antiguedad-institucion', ['institucion' => $profesional->id_institucion]) }}',
+                    //Verdadero primera vez
+                    data: {antiguedad:btn.data('confirmacion')},
+                    type: 'post',
+                    dataType: 'json',
+                    success: function (response) {
+
+                        if (btn.data('confirmacion')) {
+                            $('#option-presencial').remove();
+                        }
+
+                        $('#modal_antiguedad').modal('hide');
+                    },
+                    error: function (error) {
+                    }
+                });
             });
         @endempty
 

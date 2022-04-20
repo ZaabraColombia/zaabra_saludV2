@@ -406,6 +406,9 @@ Route::middleware(['auth', 'roles', 'verified'])->as('paciente.')->prefix('/paci
 
         Route::post('/finalizar-cita-profesional/{profesional:slug}',[Paciente\Admin\CalendarioController::class,'finalizar_cita_institucion_profesional'])
             ->name('finalizar-cita-institucion-profesional');
+
+        Route::post('confirmar-antiguedad/{institucion}',[Paciente\Admin\CalendarioController::class,'antiguedad_institucion'])
+            ->name('confirmar-antiguedad-institucion');
     });
 
     //Route:: get('/panelAdministrativo/{idPerfilProfesional}',[App\Http\Controllers\admin\adminController::class,'cita'])->name('panelAdministrativo');

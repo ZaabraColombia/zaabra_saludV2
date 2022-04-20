@@ -15,7 +15,7 @@ class Antiguedad extends Model
         'id',
         'paciente_id',
         'profesional_id',
-        'profesional_ins_id',
+        'institucion_id',
         'confirmacion'
     ];
 
