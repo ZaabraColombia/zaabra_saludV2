@@ -76,17 +76,22 @@
             @foreach ($objProfesionalesIns as $profesional)
                 <?php
                 $esp = '';
+                $filtro = '';
 
                 if (!empty($profesional->especialidades->toArray()))
                 {
                     foreach ($profesional->especialidades as $item)
-                        $esp .= Str::slug($item->nombreEspecialidad) . ' ';
+                    {
+                        $esp    .= Str::slug($item->nombreEspecialidad) . ' ';
+                        $filtro .= "{$item->nombreEspecialidad} ";
+                    }
 
                     $especialidad = $profesional->especialidades[0]->nombreEspecialidad;
                 }
                 else {
                     $especialidad = $profesional->nombre_especialidad;
                     $esp = Str::slug($especialidad);
+                    $filtro = $especialidad;
                 }
                 ?>
 
@@ -104,7 +109,7 @@
 
                         <p class="name_university text_univ_card searching">{{$profesional->nombre_universidad}}</p>
                         <h2 class="cargo_profInst text_cargo_card searching">{{$profesional->cargo}}</h2>
-                        <div style="display: none" class="searching">{{ $esp ?? '' }}</div>
+                        <div style="display: none" class="searching">{{ $filtro ?? '' }}</div>
 
 
                         <div class="content_btn_center mt-1">
