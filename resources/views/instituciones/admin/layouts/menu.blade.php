@@ -77,12 +77,12 @@
 
                     <ul id="collapseAgenda" class="collapse sub_menu_green" aria-labelledby="headingAgenda" data-parent="#accordion_agenda">
                         <li class="submenu-item">
-                            <a id="" class="" href="">
+                            <a id="" class="" href="#">
                                 Control citas
                             </a>
                         </li>
                         <li class="submenu-item">
-                            <a id="" class="" href="">
+                            <a id="" class="" href="#">
                                 Agendar citas
                             </a>
                         </li>
