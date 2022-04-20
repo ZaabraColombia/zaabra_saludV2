@@ -4,6 +4,7 @@ namespace App\Http\Controllers\buscador;
 
 use App\Http\Controllers\Controller;
 use App\Models\ActividadEconomica;
+use App\Models\Convenios;
 use App\Models\Servicio;
 use App\Models\Sgsss;
 use Illuminate\Contracts\Foundation\Application;
@@ -61,12 +62,20 @@ class RecursosController extends Controller
 
         $servicio = Servicio::query()
             ->with(['convenios_lista' => function($query){
-                $query->select('convenios.id', 'convenios.primer_nombre', 'convenios.segundo_nombre', 'convenios.primer_apellido', 'convenios.segundo_apellido');
+                $query
+                    ->select('convenios.id', 'convenios.primer_nombre', 'convenios.segundo_nombre',
+                    'convenios.primer_apellido', 'convenios.segundo_apellido', 'convenios.tipo_documento_id',
+                    'convenios.numero_documento');
+
             }])
             ->where('id', $request->get('servicio'))
             ->where('institucion_id', $request->get('institucion'))
             ->first();
 
-        return response(['items' => $servicio->convenios_lista], Response::HTTP_OK);
+        $lista = $servicio->convenios_lista->map(function ($item){
+            return ['nombre_completo' => $item->nombre_completo, 'pivot' => $item->pivot];
+        });
+
+        return response(['items' => $lista], Response::HTTP_OK);
     }
 }

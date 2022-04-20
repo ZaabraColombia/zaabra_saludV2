@@ -360,8 +360,8 @@
             var servicio = $(this);
             var date =  $('#date-calendar');
 
-            console.log('fecha 1 ' + date.val());
-            console.log('servicio 1 ' + servicio.val());
+            //console.log('fecha 1 ' + date.val());
+            //console.log('servicio 1 ' + servicio.val());
 
             if (servicio.val() !== '' && date.val() !== '' ) dias_libres(date.val(), servicio.val());
 
@@ -379,10 +379,7 @@
                     $('#check-convenio').prop('checked', false);
 
                     $.each(response.items, function (key, item) {
-                        $('#convenio').append('<option value="' + item.id + '" data-valor="' + item.pivot.valor_paciente + '">' +
-                            item.primer_nombre + ((item.segundo_nombre) ? ' ' + item.segundo_nombre: '') +
-                            ((item.primer_apellido) ? ' ' + item.primer_apellido: '') + ((item.segundo_apellido) ? ' ' + item.segundo_apellido: '') +
-                            '</option>');
+                        $('#convenio').append('<option value="' + item.id + '" data-valor="' + item.pivot.valor_paciente + '">' + item.nombre_completo + '</option>');
                     });
                 }
             })
