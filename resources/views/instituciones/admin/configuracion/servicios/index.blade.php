@@ -31,6 +31,17 @@
 
             <!-- Contenedor formato tabla de la lista de contactos -->
             <div class="containt_main_table mb-3">
+                <div class="col-12">
+                    @if(session()->has('success'))
+                        <div class="alert alert-success" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="alert-heading">Hecho!</h4>
+                            <p>{{ session('success') }}</p>
+                        </div>
+                    @endif
+                </div>
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-pacientes">
                         <thead class="thead_green">
@@ -52,8 +63,8 @@
                                         <div class="d-flex justify-content-around px-3">
 
                                             @can('accesos-institucion','ver-servicios')
-                                                <a class="btn_action_green tool top" style="width: 33px"
-                                                   href="" data-target="#modal_ver_servicio" data-toggle="modal">
+                                                <a class="btn_action_green tool top boton-servicio" style="width: 33px"
+                                                   data-url="{{ route('institucion.configuracion.servicios.show', ['servicio' => $servicio->id]) }}">
                                                     <i data-feather="eye"></i> <span class="tiptext">Ver servicio</span>
                                                 </a>
                                             @endcan
@@ -78,7 +89,7 @@
     </div>
 
     <!-- Modal Ver Servicio -->
-    <div class="modal fade" id="modal_ver_servicio">
+    <div class="modal fade" id="modal-servicio">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -96,93 +107,92 @@
                         <div class="row mb-2">
                             <div class="col-lg-4 info_contac mb-lg-2">
                                 <span>Duración (minuto):&nbsp;</span>
-                                <span>000</span>
+                                <span id="duracion"></span>
                             </div>
 
                             <div class="col-lg-4 info_contac mb-lg-2">
                                 <span>Descanso (minuto):&nbsp;</span>
-                                <span>000</span>
+                                <span id="descanso"></span>
                             </div>
 
                             <div class="col-lg-4 info_contac mb-lg-2">
                                 <span>Valor:&nbsp;</span>
-                                <span>000.000.00</span>
+                                <span id="valor"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Nombre:</h4>
-                                <span>Nombre 1</span>
+                                <span id="nombre"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Especialidad:</h4>
-                                <span>Especialidad 1</span>
+                                <span id="especialidad"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Tipo del servicio:</h4>
-                                <span>Tipo del servicio 1</span>
+                                <span id="tipo_servicio">Tipo del servicio 1</span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>CUPS:</h4>
-                                <span>CUPS - 00000 111</span>
+                                <span id="cup">CUPS - 00000 111</span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Número de citas activas del paciente:</h4>
-                                <span>000</span>
+                                <span id="citas_activas">000</span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
-                                <h4>Metodo:</h4>
-                                <span>Metodo 1</span>
+                                <h4>Tipo de atención:</h4>
+                                <span id="tipo_atencion"></span>
                             </div>
 
                             <div class="col-12 info_contac mt-lg-2">
                                 <h4>Descripción:</h4>
-                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, debitis. Veritatis vitae. 
-                                    Corporis distinctio voluptatem illo reprehenderit minima voluptates esse obcaecati tempore doloribus. 
-                                    Laboriosam adipisci iure eaque? Ab ut excepturi delectus.
-                                </span>
+                                <span id="descripcion"></span>
                             </div>
                         </div>
 
-                        <h4 class="fs_subtitle green_light">Convenios vinculados</h4>
-                        <div class="row mb-2">
-                            <div class="col-12 info_contac d-lg-flex">
-                                <h4>Nombre del convenio:&nbsp;</h4>
-                                <span>Tipo de establecimiento 1</span>
+                        <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Convenios vinculados</h4>
+                        <div id="convenios-lista">
+                            <div class="row mb-2">
+                                <div class="col-12 info_contac d-lg-flex">
+                                    <h4>Nombre del convenio:&nbsp;</h4>
+                                    <span>Tipo de establecimiento 1</span>
+                                </div>
+
+                                <div class="col-lg-6 info_contac">
+                                    <span>Pago convenio:</span>
+                                    <span>$&nbsp;000.000</span>
+                                </div>
+
+                                <div class="col-lg-6 info_contac">
+                                    <span>Pago paciente</span>
+                                    <span>$&nbsp;000.000</span>
+                                </div>
                             </div>
 
-                            <div class="col-lg-6 info_contac">
-                                <span>Pago convenio:</span>
-                                <span>$&nbsp;000.000</span>
-                            </div>
+                            <!-- Linea división de elementos -->
+                            <div class="dropdown-divider my-2" style="height:3px; background-color: #6eb1a6"></div>
 
-                            <div class="col-lg-6 info_contac">
-                                <span>Pago paciente</span>
-                                <span>$&nbsp;000.000</span>
-                            </div>
-                        </div>
+                            <div class="row mb-2">
+                                <div class="col-12 info_contac d-lg-flex">
+                                    <h4>Nombre del convenio:&nbsp;</h4>
+                                    <span>Tipo de establecimiento 1</span>
+                                </div>
 
-                        <!-- Linea división de elementos -->
-                        <div class="dropdown-divider my-2" style="height:3px; background-color: #6eb1a6"></div>
+                                <div class="col-lg-6 info_contac">
+                                    <span>Pago convenio:</span>
+                                    <span>$&nbsp;000.000</span>
+                                </div>
 
-                        <div class="row mb-2">
-                            <div class="col-12 info_contac d-lg-flex">
-                                <h4>Nombre del convenio:&nbsp;</h4>
-                                <span>Tipo de establecimiento 1</span>
-                            </div>
-
-                            <div class="col-lg-6 info_contac">
-                                <span>Pago convenio:</span>
-                                <span>$&nbsp;000.000</span>
-                            </div>
-
-                            <div class="col-lg-6 info_contac">
-                                <span>Pago paciente</span>
-                                <span>$&nbsp;000.000</span>
+                                <div class="col-lg-6 info_contac">
+                                    <span>Pago paciente</span>
+                                    <span>$&nbsp;000.000</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -229,6 +239,45 @@
         $("#search").on('keyup change',function(){
             var texto = $(this).val();
             table.search(texto).draw();
+        });
+
+        //ver servicios
+        $('.boton-servicio').click(function (event) {
+            var btn = $(this);
+
+            $.get(btn.data('url'), function (response) {
+                console.log(response);
+
+                $.each(response.item, function (key, item) {
+                    if (key !== 'convenios') $('#' + key).html(item);
+                });
+
+                $('#convenios-lista').html('');
+                $.each(response.item.convenios_lista, function (key, item) {
+                    $('#convenios-lista').append('<div class="row mb-2">' +
+                        '<div class="col-12 info_contac d-lg-flex">' +
+                        '<h4>Nombre del convenio:&nbsp;</h4>' +
+                        '<span>' + item.nombre_completo + '</span>' +
+                        '</div>' +
+
+                        '<div class="col-lg-6 info_contac">' +
+                        '<span>Pago convenio:</span>' +
+                        '<span>$' + item.pivot.valor_convenio + '</span>' +
+                        '</div>' +
+
+                        '<div class="col-lg-6 info_contac">' +
+                        '<span>Pago paciente</span>' +
+                        '<span>$' + item.pivot.valor_paciente + '</span>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="dropdown-divider my-2" style="height:3px; background-color: #6eb1a6"></div>'
+                    );
+                });
+
+                $('#modal-servicio').modal();
+            }, "json").fail(function (error) {
+                console.log(error);
+            });
         });
     </script>
 @endsection

@@ -127,7 +127,11 @@ class CalendarioController extends Controller{
         }
 
         //Citas médicas
-        $datesOperatives = $profesional->citas()->whereNotIn('estado', ['cancelado'])->get();
+        $datesOperatives = $profesional->citas()
+            ->select(['id_cita', 'fecha_inicio', 'fecha_fin'])
+            ->whereNotIn('estado', ['cancelado', 'completado'])
+            ->get()
+            ->toArray();
 
         //Horario
         $horario = $profesional->user->horario;
@@ -151,7 +155,9 @@ class CalendarioController extends Controller{
                 $endDate = strtotime("$request->date " . $item['endTime']);
 
                 //generar posibles citas
-                for($date = $startDate; ($date + $intervaloCita) <= $endDate; $date+= $intervaloCita){
+                $listDates = generar_citas($startDate, $endDate, $intervaloCita, $datesOperatives, 2);
+
+                /*for($date = $startDate; ($date + $intervaloCita) <= $endDate; $date+= $intervaloCita){
 
                     $startTime = date('Y-m-d H:i', $date);
                     $endTime = date('Y-m-d H:i', $date + $intervaloCita );
@@ -163,20 +169,20 @@ class CalendarioController extends Controller{
                         foreach ($datesOperatives as $dateOperative) {
                             if (
                                 //Validar si la hora de inicio está entre la hora inicio y fin de la cita existente
-                                (strtotime($dateOperative->fecha_inicio) <= strtotime($startTime)
-                                    && strtotime($dateOperative->fecha_fin) >= strtotime($startTime))
+                                (strtotime($dateOperative->fecha_inicio) < strtotime($startTime)
+                                    && strtotime($dateOperative->fecha_fin) > strtotime($startTime))
                                 or
                                 //Validar si la hora de fin está entre la hora inicio y fin de la cita existente
-                                (strtotime($dateOperative->fecha_inicio) <= strtotime($endTime)
-                                    && strtotime($dateOperative->fecha_fin) >= strtotime($endTime))
+                                (strtotime($dateOperative->fecha_inicio) < strtotime($endTime)
+                                    && strtotime($dateOperative->fecha_fin) > strtotime($endTime))
                                 or
                                 //Validar si la hora inicio existente está entre la hora inicio y fin
-                                (strtotime($startTime) <= strtotime($dateOperative->fecha_inicio)
-                                    && strtotime($startTime) >= strtotime($dateOperative->fecha_inicio))
+                                (strtotime($startTime) < strtotime($dateOperative->fecha_inicio)
+                                    && strtotime($startTime) > strtotime($dateOperative->fecha_inicio))
                                 or
                                 //Validar si la hora din existente está entre la hora inicio y fin
-                                (strtotime($startTime) <= strtotime($dateOperative->fecha_fin)
-                                    && strtotime($startTime) >= strtotime($dateOperative->fecha_fin))
+                                (strtotime($startTime) < strtotime($dateOperative->fecha_fin)
+                                    && strtotime($startTime) > strtotime($dateOperative->fecha_fin))
                             )
                             {
                                 $valid = false;
@@ -197,7 +203,7 @@ class CalendarioController extends Controller{
                             'endTime' => $endTime
                         ];
                     }
-                }
+                }*/
             }
         }
 
@@ -375,7 +381,11 @@ class CalendarioController extends Controller{
         }
 
         //Citas médicas
-        $datesOperatives = $profesional->citas()->whereNotIn('estado', ['cancelado'])->get();
+        $datesOperatives = $profesional->citas()
+            ->select(['id_cita', 'fecha_inicio', 'fecha_fin'])
+            ->whereNotIn('estado', ['cancelado', 'completado'])
+            ->get()
+            ->toArray();
 
         //Horario
         $horario = $profesional->horario;
@@ -399,53 +409,8 @@ class CalendarioController extends Controller{
                 $endDate = strtotime("$request->date " . $item['endTime']);
 
                 //generar posibles citas
-                for($date = $startDate; ($date + $intervaloCita) <= $endDate; $date+= $intervaloCita){
+                $listDates = generar_citas($startDate, $endDate, $intervaloCita, $datesOperatives, 2);
 
-                    $startTime = date('Y-m-d H:i', $date);
-                    $endTime = date('Y-m-d H:i', $date + $intervaloCita );
-
-
-                    //Validar la disponibilidad de las citas
-                    $valid = true;
-                    if (!empty($datesOperatives)) {
-                        foreach ($datesOperatives as $dateOperative) {
-                            if (
-                                //Validar si la hora de inicio está entre la hora inicio y fin de la cita existente
-                                (strtotime($dateOperative->fecha_inicio) <= strtotime($startTime)
-                                    && strtotime($dateOperative->fecha_fin) >= strtotime($startTime))
-                                or
-                                //Validar si la hora de fin está entre la hora inicio y fin de la cita existente
-                                (strtotime($dateOperative->fecha_inicio) <= strtotime($endTime)
-                                    && strtotime($dateOperative->fecha_fin) >= strtotime($endTime))
-                                or
-                                //Validar si la hora inicio existente está entre la hora inicio y fin
-                                (strtotime($startTime) <= strtotime($dateOperative->fecha_inicio)
-                                    && strtotime($startTime) >= strtotime($dateOperative->fecha_inicio))
-                                or
-                                //Validar si la hora din existente está entre la hora inicio y fin
-                                (strtotime($startTime) <= strtotime($dateOperative->fecha_fin)
-                                    && strtotime($startTime) >= strtotime($dateOperative->fecha_fin))
-                            )
-                            {
-                                $valid = false;
-                                break;
-                            }
-                        }
-                    }
-
-                    //validar que no se pueda agendar 2 horas antes de llegar a la cita
-                    $hoy = Carbon::now()->subHours(2);
-                    $start = new Carbon($startTime);
-
-                    if ($valid and $hoy->lessThan($start))
-                    {
-                        //Agregar la disponibilidad
-                        $listDates[] = [
-                            'startTime' => $startTime,
-                            'endTime' => $endTime
-                        ];
-                    }
-                }
             }
         }
 
@@ -596,6 +561,41 @@ class CalendarioController extends Controller{
         return redirect()
             ->route('paciente.citas')
             ->with('success', "Cita asignada con {$profesional->nombre_completo}");
+    }
+
+    public function antiguedad_institucion(Request $request, perfilesprofesionales $profesional)
+    {
+        //Validar antigüedad
+        $validate = Validator::make($request->all(), [
+            'antiguedad'  => ['required', 'boolean']
+        ]);
+
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //validar si es primera vez la cita del doctor y paciente
+        $antiguedad = Antiguedad::query()
+            ->firstOrNew([
+                'paciente_id' => Auth::user()->paciente->id,
+                'profesional_id' => $profesional->idPerfilProfesional,
+            ]);
+
+        //Es verdadero si es nuevo, pero es falso si es antiguo, se invierte en el guardado
+        $antiguedad->confirmacion = !$request->get('antiguedad');
+        $antiguedad->save();
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Guardado correctamente'
+            ]
+        ], Response::HTTP_OK);
     }
 
     public function profesional($id){

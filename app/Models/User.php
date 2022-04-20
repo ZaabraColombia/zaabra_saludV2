@@ -125,10 +125,14 @@ class User extends Authenticatable implements MustVerifyEmail
 
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getNombreCompletoAttribute(): string
+    public function getNombreCompletoAttribute(): ?string
     {
+        if (empty($this->primernombre) and empty($this->segundonombre) and
+            empty($this->primerapellido) and empty($this->segundoapellido))
+            return null;
+
         return "{$this->primernombre} {$this->segundonombre} {$this->primerapellido} {$this->segundoapellido}";
     }
 

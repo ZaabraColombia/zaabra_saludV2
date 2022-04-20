@@ -76,10 +76,10 @@
                                         <div class="d-flex justify-content-around">
 
                                             @can('accesos-institucion','ver-convenios')
-                                                <a class="btn_action_green tool top" style="width: 33px"
-                                                   href="" data-target="#modal_ver_convenio" data-toggle="modal">
+                                                <button class="btn_action_green tool top boton-convenio" style="width: 33px"
+                                                        data-url="{{ route('institucion.configuracion.convenios.show', ['convenio' => $convenio->id]) }}">
                                                     <i data-feather="eye"></i> <span class="tiptext">Ver convenio</span>
-                                                </a>
+                                                </button>
                                             @endcan
 
                                             @can('accesos-institucion','editar-convenio')
@@ -106,7 +106,7 @@
     </div>
 
     <!-- Modal Ver Convenio -->
-    <div class="modal fade modal_contactos" id="modal_ver_convenio">
+    <div class="modal fade" id="modal-convenio">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -119,7 +119,7 @@
                     <h1 style="color: #019F86">Ver Convenio</h1>
 
                     <div class="content__see_contacs" style="background-color: #6eb1a6">
-                        <img class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                        <img class="img__see_contacs" id="foto" src=''>
                     </div>
 
                     <div class="content__border_see_contacs" style="background-color: #6eb1a6"></div>
@@ -128,48 +128,42 @@
                         <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Información básica</h4>
                         <div class="row mb-2">
                             <div class="col-lg-6 info_contac">
-                                <h4>Nombres:</h4>
-                                <span>Nombre 1 Nombre 2</span>
+                                <h4>Nombre:</h4>
+                                <span id="nombre_completo"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
-                                <h4>Apellidos:</h4>
-                                <span>Apellido 1 Apellido 2</span>
-                            </div>
-
-                            <div class="col-lg-6 info_contac">
-                                <h4>Cc</h4>
-                                <span>0000000000</span>
+                                <span id="mascara_identificacion"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Código del prestador del servicio:</h4>
-                                <span>00000 00000000 00000000</span>
+                                <span id="sgsss"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Código del convenio:</h4>
-                                <span>00000 00000000 00000000</span>
+                                <span id="codigo_convenio"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Tipo del contribuyente:</h4>
-                                <span>Tipo contribuyente 1</span>
+                                <span id="tipo_contribuyente"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Actividad económica:</h4>
-                                <span>Actividad 1</span>
+                                <span id="actividad_economica"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Forma de pago:</h4>
-                                <span>Forma pago 1</span>
+                                <span id="forma_pago"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Tipo de convenio:</h4>
-                                <span>Tipo de dconvenio 1</span>
+                                <span id="tipo_convenio"></span>
                             </div>
                         </div>
 
@@ -177,48 +171,48 @@
                         <div class="row mb-2">
                             <div class="col-lg-6 info_contac">
                                 <h4>Tipo de establecimiento:</h4>
-                                <span>Tipo de establecimiento 1</span>
+                                <span id="tipo_establecimiento"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Dirección:</h4>
-                                <span>Cll 00 # 00 - 00</span>
+                                <span id="direccion">Cll 00 # 00 - 00</span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Código postal</h4>
-                                <span>0000000000</span>
+                                <span id="codigo_postal"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>País:</h4>
-                                <span>País 1</span>
+                                <span id="pais"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Departamento:</h4>
-                                <span>Departamento 1</span>
+                                <span id="departamento"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Provincia:</h4>
-                                <span>Provincia 1</span>
+                                <span id="provincia"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Ciudad:</h4>
-                                <span>Ciudad 1</span>
+                                <span id="ciudad"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Teléfonos:</h4>
-                                <span>000 0000 000</span> -
-                                <span>000 0000</span>
+                                <span id="telefono"></span> -
+                                <span id="celular"></span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <h4>Correo:</h4>
-                                <span>ejemplo@.com</span>
+                                <span id="correo"></span>
                             </div>
                         </div>
                     </div>
@@ -265,6 +259,32 @@
         $("#search").on('keyup change',function(){
             var texto = $(this).val();
             table.search(texto).draw();
+        });
+
+        //ver convenio
+        $('.boton-convenio').click(function (event) {
+            var btn = $(this);
+
+            $.get(btn.data('url'), function (response) {
+                console.log(response);
+
+                $.each(response.item, function (key, item) {
+                    if (key !== 'foto') $('#' + key).html(item);
+                    if (key === 'foto') $('#' + key).attr('src', item);
+                });
+                // $('#accesos-lista').html('');
+                // $.each(response.item.accesos, function (key, item) {
+                //     $('#accesos-lista').append('<div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">'
+                //         + '<i data-feather="check-circle" style="color: #0083D6;" width="17"></i>'
+                //         + '<span class="pl-2">' + item.nombre + '</span>'
+                //         + '</div>');
+                // });
+                //
+                // feather.replace();
+                $('#modal-convenio').modal();
+            }, "json").fail(function (error) {
+                console.log(error);
+            });
         });
     </script>
 @endsection

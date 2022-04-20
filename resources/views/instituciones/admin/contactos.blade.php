@@ -591,9 +591,11 @@
                                 response.item.direccion,
                                 response.item.telefono,
                                 response.item.correo,
-                                 '<button class="btn_action_green btn-ver-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-eye"></i> </button>' +
+                                '<div class="d-flex justify-content-between">' +
+                                '<button class="btn_action_green btn-ver-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-eye"></i> </button>' +
                                 @can('accesos-institucion','editar-contacto') '<button class="btn_action_green btn-editar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-edit"></i> </button>' + @endcan
-                                @can('accesos-institucion','eliminar-contacto')'<button class="btn_action_green btn-eliminar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> </button>',@endcan
+                                    @can('accesos-institucion','eliminar-contacto')'<button class="btn_action_green btn-eliminar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> </button>' + @endcan
+                                    '</div>'
                             ]).draw().node();
                             modal.modal('hide');
                             break;
@@ -603,9 +605,11 @@
                                 response.item.direccion,
                                 response.item.telefono,
                                 response.item.correo,
+                                '<div class="d-flex justify-content-between">' +
                                 '<button class="btn_action_green btn-ver-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-eye"></i> </button>' +
                                 @can('accesos-institucion','editar-contacto')'<button class="btn_action_green btn-editar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-edit"></i> </button>' +@endcan
-                                @can('accesos-institucion','eliminar-contacto')'<button class="btn_action_green btn-eliminar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> </button>',@endcan
+                                    @can('accesos-institucion','eliminar-contacto')'<button class="btn_action_green btn-eliminar-contacto" type="button" data-id="' + response.item.id + '" id=contacto-"' + response.item.id + '"> <i class="fas fa-trash"></i> </button>' + @endcan
+                                    '</div>',
                             ]).draw();
                             modal.modal('hide');
                             break;

@@ -22,6 +22,8 @@ class tipoinstituciones extends Model
 
     public $timestamps = false;
 
+    protected $table = 'tipoinstituciones';
+
     /**
      * Retorna el tipo activado
      *
