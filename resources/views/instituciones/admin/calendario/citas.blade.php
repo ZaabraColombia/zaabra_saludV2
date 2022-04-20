@@ -87,43 +87,43 @@
                             </div>
 
                             <div class="row m-0">
-                                <div class="col-md-7 p-0 pr-2 mb-2">
-                                    <h3 class="fecha">miércoles, 27 abril 2022</h3>
+                                <div class="col-12 p-0 mb-2">
+                                    <h3 class="fecha">miércoles, 27 septiembre 2022</h3>
                                     <span class="hora">08:00 A.M - 08:45 A.M</span>
                                 </div>
-                                <div class="col-md-5 p-0 pl-2 mb-2">
-                                    <h3>Tipo de atención</h3>
-                                    <span class="">Presencial</span>
+                                <div class="col-12 d-md-flex p-0 mb-2">
+                                    <h3>Profesional: &nbsp;</h3>
+                                    <span class="">Willmar Alejandro Gutierrez Sandoval</span>
                                 </div>
-                            </div>
-
-                            <div class="row m-0">
-                                <div class="col-12 d-flex p-0 mb-2">
+                                <div class="col-12 d-md-flex p-0 mb-2">
                                     <h3>Especialidad: &nbsp;</h3>
                                     <span class="">Cirugia maxilofacial</span>
                                 </div>
-                                <div class="col-12 d-flex p-0 mb-2">
-                                    <h3>Servicio: &nbsp;</h3>
-                                    <span class="">Procedimiento no quirurgico Procedimiento no</span>
-                                </div>
-                                <div class="col-12 d-flex p-0 mb-2">
+                            </div>
+
+                            <div class="row m-0">
+                                <div class="col-12 d-md-flex p-0 mb-2">
                                     <h3>Tipo de servicio: &nbsp;</h3>
                                     <span class="">Procedimiento no quirurgico</span>
+                                </div>
+                                <div class="col-12 d-md-flex p-0 mb-2">
+                                    <h3>Servicio: &nbsp;</h3>
+                                    <span class="">Procedimiento no quirurgico Procedimiento no</span>
                                 </div>
                             </div>
 
                             <div class="row m-0">
                                 <div class="col-12 d-flex p-0 mb-2">
+                                    <h3>Tipo de atención: &nbsp;</h3>
+                                    <span class="">Presencial</span>
+                                </div>
+                                <div class="col-md-9 p-0 mb-2">
                                     <h3>Lugar: &nbsp;</h3>
                                     <span class="">EPS Salud Total virrey Solis Olaya</span>
                                 </div>
-                                <div class="col-12 d-flex p-0 mb-2">
-                                    <h3>Consultorio: &nbsp;</h3>
-                                    <span class="">203 piso 2</span>
-                                </div>
-                                <div class="col-12 d-flex p-0 mb-2 d-flex">
-                                    <h3>Profesional: &nbsp;</h3>
-                                    <span class="">Willmar Alejandro Gutierrez Sandoval</span>
+                                <div class="col-md-3 d-flex d-md-block p-0 mb-2">
+                                    <h3 class="text-md-right mr-2 mr-md-0">Consultorio:</h3>
+                                    <span class="d-md-flex justify-content-md-center">203</span>
                                 </div>
                             </div>
                         </div>
@@ -195,43 +195,43 @@
                         </div>
 
                         <div class="row m-0">
-                            <div class="col-md-7 p-0 pr-2 mb-2">
-                                <h3 class="fecha">miércoles, 27 abril 2022</h3>
+                            <div class="col-12 p-0 mb-2">
+                                <h3 class="fecha">miércoles, 27 septiembre 2022</h3>
                                 <span class="hora">08:00 A.M - 08:45 A.M</span>
                             </div>
-                            <div class="col-md-5 p-0 pl-2 mb-2">
-                                <h3>Tipo de atención</h3>
-                                <span class="">Presencial</span>
+                            <div class="col-12 d-md-flex p-0 mb-2">
+                                <h3>Profesional: &nbsp;</h3>
+                                <span class="">Willmar Alejandro Gutierrez Sandoval</span>
                             </div>
-                        </div>
-
-                        <div class="row m-0">
-                            <div class="col-12 d-flex p-0 mb-2">
+                            <div class="col-12 d-md-flex p-0 mb-2">
                                 <h3>Especialidad: &nbsp;</h3>
                                 <span class="">Cirugia maxilofacial</span>
                             </div>
-                            <div class="col-12 d-flex p-0 mb-2">
-                                <h3>Servicio: &nbsp;</h3>
-                                <span class="">Procedimiento no quirurgico Procedimiento no</span>
-                            </div>
-                            <div class="col-12 d-flex p-0 mb-2">
+                        </div>
+
+                        <div class="row m-0">
+                            <div class="col-12 d-md-flex p-0 mb-2">
                                 <h3>Tipo de servicio: &nbsp;</h3>
                                 <span class="">Procedimiento no quirurgico</span>
+                            </div>
+                            <div class="col-12 d-md-flex p-0 mb-2">
+                                <h3>Servicio: &nbsp;</h3>
+                                <span class="">Procedimiento no quirurgico Procedimiento no</span>
                             </div>
                         </div>
 
                         <div class="row m-0">
                             <div class="col-12 d-flex p-0 mb-2">
+                                <h3>Tipo de atención: &nbsp;</h3>
+                                <span class="">Presencial</span>
+                            </div>
+                            <div class="col-md-9 p-0 mb-2">
                                 <h3>Lugar: &nbsp;</h3>
                                 <span class="">EPS Salud Total virrey Solis Olaya</span>
                             </div>
-                            <div class="col-12 d-flex p-0 mb-2">
-                                <h3>Consultorio: &nbsp;</h3>
-                                <span class="">203 piso 2</span>
-                            </div>
-                            <div class="col-12 d-flex p-0 mb-2 d-flex">
-                                <h3>Profesional: &nbsp;</h3>
-                                <span class="">Willmar Alejandro Gutierrez Sandoval</span>
+                            <div class="col-md-3 d-flex d-md-block p-0 mb-2">
+                                <h3 class="text-md-right mr-2 mr-md-0">Consultorio:</h3>
+                                <span class="d-md-flex justify-content-md-center">203</span>
                             </div>
                         </div>
                     </div>
