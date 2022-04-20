@@ -201,9 +201,10 @@ class CalendarioController extends Controller
                     'id'    => $date->id_cita,
                     'start' => $date->start,
                     'end'   => $date->end,
-                    'backgroundColor' => '#fa5e52',
+                    'backgroundColor' => '#F37725',
                     'textColor' => 'black',
                     'borderColor' => 'black',
+                    //'display' => 'background',
                     'display' => 'block',
                     'title' => 'Bloqueado',
                 ];

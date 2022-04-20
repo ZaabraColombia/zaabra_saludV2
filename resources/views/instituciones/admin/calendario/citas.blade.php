@@ -306,9 +306,9 @@
                     //     // });
                     // }
                 },
-                // createdRow: function (row, data, dataIndex) {
-                //     $(row).addClass('bg-' + data.estado);
-                // }
+                createdRow: function (row, data, dataIndex) {
+                    $(row).addClass('bg-' + data.estado);
+                }
             });
 
             setInterval( function () {

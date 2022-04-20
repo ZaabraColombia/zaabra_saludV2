@@ -19,7 +19,7 @@
                     <span class="text__md black_light">Ajuste calendario</span>
                     <div class="row m-0 pb-4 mt-3">
                         <button id="actualizar-calendar" class="button_blue_form"><i data-feather="refresh-cw" class="pr-2"></i>Actualizar</button>
-                        <button id="" class="button_blue_form ml-2"><i data-feather="lock" class="pr-2"></i>Bloquear días</button>
+                        <button id="bloquear-dia" class="button_blue_form ml-2"><i data-feather="lock" class="pr-2"></i>Bloquear días</button>
                     </div>
 
                     <div class="row m-0 content_dias_agenda mb-md-3">
@@ -574,7 +574,7 @@
         </div>
     </div>
 
-    <!-- Modal Reserva del calendario -->
+    <!-- Modal Bloqueo del calendario -->
     <div class="modal fade" id="modal_crear_reserva_calendario" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
@@ -585,7 +585,7 @@
                 </div>
                 <form method="post" action="{{ route('profesional.agenda.calendario.reservar-calendario') }}" id="form-reserva-calendario-crear">
                     <div class="modal-body">
-                        <h1>Reserva del calendario</h1>
+                        <h1>Bloqueo del calendario</h1>
 
                         <div class="col-12 p-0" id="alerta-crear-reserva-calendario"></div>
 
@@ -633,7 +633,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <h1>Detalle de la reserva</h1>
+                    <h1>Detalle del bloqueo</h1>
 
                     <div class="modal_info_cita">
                         <div class="p-3">
@@ -656,7 +656,7 @@
         </div>
     </div>
 
-    <!-- Modal Editar reserva del calendario -->
+    <!-- Modal Editar Bloqueo del calendario -->
     <div class="modal fade" id="modal_editar_reserva_calendario" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
@@ -667,7 +667,7 @@
                 </div>
                 <form method="post" action="{{ route('profesional.agenda.calendario.editar-reservar-calendario') }}" id="form-reserva-calendario-editar">
                     <div class="modal-body">
-                        <h1>Reserva del calendario</h1>
+                        <h1>Bloqueo del calendario</h1>
 
                         <div class="col-12 p-0" id="alerta-crear-reserva-calendario"></div>
 
@@ -785,12 +785,6 @@
                         text: 'Bloquear',
                         click: function() {
 
-                            $('#form-reserva-calendario-crear')[0].reset();
-
-                            $('#fecha_inicio').val(moment().format('YYYY-MM-DD\THH:mm'));
-                            $('#fecha_fin').val(moment().add(2, 'h').format('YYYY-MM-DD\THH:mm'));
-
-                            $('#modal_crear_reserva_calendario').modal();
                         }
                     },
                     // actualizar: {
@@ -905,6 +899,16 @@
                 },
             });
             calendar.render();
+
+            //Bloquera dia
+            $('#bloquear-dia').click(function (event) {
+                $('#form-reserva-calendario-crear')[0].reset();
+
+                $('#fecha_inicio').val(moment().format('YYYY-MM-DD\THH:mm'));
+                $('#fecha_fin').val(moment().add(2, 'h').format('YYYY-MM-DD\THH:mm'));
+
+                $('#modal_crear_reserva_calendario').modal();
+            })
 
             //Permite listar el horario disponible
             function citas_libre(date, disponibilidad) {
