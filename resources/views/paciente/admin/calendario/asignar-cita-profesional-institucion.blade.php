@@ -105,7 +105,9 @@
                                 <label for="modalidad">Modalidad de pago</label>
                                 <select id="modalidad" class="form-control" name="modalidad" required>
                                     <option value="virtual">Virtual</option>
-                                    <option value="presencial"> Presencial </option>
+                                    @if(!empty($antiguedad) and $antiguedad->confirmacion == false)
+                                        <option value="presencial" id="option-presencial"> Presencial </option>
+                                    @endif
                                 </select>
                             </div>
                             <div class="input__box mb-3">
@@ -223,7 +225,7 @@
 
     <script>
         var weekNotBusiness = {!! json_encode($weekDisabled) !!};
-        moment.locale('es'); // change the global locale to Spanish
+        //moment.locale('es'); // change the global locale to Spanish
 
         $('.calendar').pignoseCalendar({
             lang: 'es',
@@ -257,8 +259,8 @@
             var hora = $('#hora');
             hora.html('<option></option>');
 
-            console.log('fecha ' + fecha);
-            console.log('servicio ' + servicio);
+            //console.log('fecha ' + fecha);
+            //console.log('servicio ' + servicio);
             $.ajax({
                 data: { date: fecha, servicio:servicio},
                 dataType: 'json',
@@ -301,7 +303,7 @@
                 tipo_cita.val() !== undefined && tipo_cita.val() !== null
             )
             {
-                $('#modal-horario').html(moment(horario.start, 'YYYY-MM-DD HH:mm').format('DD-MMM /YYYY')
+                $('#modal-horario').html(moment(horario.start, 'YYYY-MM-DD HH:mm').locale('es').format('DD-MMM /YYYY')
                     + '<br>' + moment(horario.start, 'YYYY-MM-DD HH:mm').format('hh:mm A')
                     + ' - ' + moment(horario.end, 'YYYY-MM-DD HH:mm').format('hh:mm A')
                 );
@@ -332,23 +334,23 @@
             .on('click', 'button', function (e) {
                 var btn = $(this);
                 $('#modal_antiguedad').modal('hide');
-                // $.ajax({
-                //     url: '#',
-                //     //Verdadero primera vez
-                //     data: {antiguedad:btn.data('confirmacion')},
-                //     type: 'post',
-                //     dataType: 'json',
-                //     success: function (response) {
-                //         if (btn.data('confirmacion')) {
-                //             $('#option-presencial').remove();
-                //         }else{
-                //             $('#modalidad').append('<option value="presencial"> Presencial </option>');
-                //         }
-                //         $('#modal_antiguedad').modal('hide');
-                //     },
-                //     error: function (error) {
-                //     }
-                // });
+                $.ajax({
+                    url: '{{ route('paciente.confirmar-antiguedad-institucion', ['institucion' => $profesional->id_institucion]) }}',
+                    //Verdadero primera vez
+                    data: {antiguedad:btn.data('confirmacion')},
+                    type: 'post',
+                    dataType: 'json',
+                    success: function (response) {
+
+                        if (btn.data('confirmacion')) {
+                            $('#option-presencial').remove();
+                        }
+
+                        $('#modal_antiguedad').modal('hide');
+                    },
+                    error: function (error) {
+                    }
+                });
             });
         @endempty
 
@@ -358,8 +360,8 @@
             var servicio = $(this);
             var date =  $('#date-calendar');
 
-            console.log('fecha 1 ' + date.val());
-            console.log('servicio 1 ' + servicio.val());
+            //console.log('fecha 1 ' + date.val());
+            //console.log('servicio 1 ' + servicio.val());
 
             if (servicio.val() !== '' && date.val() !== '' ) dias_libres(date.val(), servicio.val());
 
@@ -377,10 +379,7 @@
                     $('#check-convenio').prop('checked', false);
 
                     $.each(response.items, function (key, item) {
-                        $('#convenio').append('<option value="' + item.id + '" data-valor="' + item.pivot.valor_paciente + '">' +
-                            item.primer_nombre + ((item.segundo_nombre) ? ' ' + item.segundo_nombre: '') +
-                            ((item.primer_apellido) ? ' ' + item.primer_apellido: '') + ((item.segundo_apellido) ? ' ' + item.segundo_apellido: '') +
-                            '</option>');
+                        $('#convenio').append('<option value="' + item.id + '" data-valor="' + item.pivot.valor_paciente + '">' + item.nombre_completo + '</option>');
                     });
                 }
             })

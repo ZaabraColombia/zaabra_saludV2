@@ -173,7 +173,7 @@
     <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
     <script src="{{ asset('js/alertas.js') }}"></script>
     <script>
-        moment.lang('es');
+        moment.locale('es');
         $('#form-dias').submit(function (e) {
             e.preventDefault();
             var form = $(this);

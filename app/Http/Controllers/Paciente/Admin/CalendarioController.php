@@ -6,6 +6,7 @@ use App\Http\Controllers\Pagos\CitaOpenPay;
 use App\Mail\ConfirmacionCitaEmail;
 use App\Models\Antiguedad;
 use App\Models\Cita;
+use App\Models\instituciones;
 use App\Models\PagoCita;
 use App\Models\perfilesprofesionales;
 use App\Models\profesionales_instituciones;
@@ -276,11 +277,11 @@ class CalendarioController extends Controller{
             ->where('id', '=', $all['tipo_cita'])
             ->first(['valorconsulta']);
 
-        $antiguedad = Antiguedad::query()
-            ->updateOrCreate([
-                'paciente_id' => Auth::user()->paciente->id,
-                'profesional_id' => $profesional->idPerfilProfesional,
-            ], ['confirmacion' => true]);
+//        $antiguedad = Antiguedad::query()
+//            ->updateOrCreate([
+//                'paciente_id' => Auth::user()->paciente->id,
+//                'profesional_id' => $profesional->idPerfilProfesional,
+//            ], ['confirmacion' => true]);
 
         //Crear pago
         $pago = PagoCita::query()->create([
@@ -330,8 +331,14 @@ class CalendarioController extends Controller{
 
         $weekDisabled = array_values(array_diff(array(0, 1, 2, 3, 4, 5, 6), $weekNotBusiness));
 
+        //validar si es primera vez la cita de la institución y paciente
+        $antiguedad = Antiguedad::query()
+            ->where('paciente_id', '=', Auth::user()->paciente->id)
+            ->where('institucion_id', '=', $profesional->id_institucion)
+            ->first();
+
         return view('paciente.admin.calendario.asignar-cita-profesional-institucion', compact('profesional',
-            'weekDisabled', 'servicios', 'disponibilidad', 'consultorio'));
+            'weekDisabled', 'servicios', 'disponibilidad', 'consultorio', 'antiguedad'));
     }
 
     public function dias_libre_institucion_profesional(Request $request, profesionales_instituciones $profesional)
@@ -365,20 +372,20 @@ class CalendarioController extends Controller{
         $servicio = Servicio::find($request->servicio);
 
         //Validar el límite de agenda * servicio* usuario
-        $citas = Cita::query()
-            ->where('paciente_id', Auth::user()->paciente->id)
-            ->where('estado', 'like', 'agendado')
-            ->where('tipo_cita_id', $request->servicio)
-            ->count();
-
-        if ($citas >= $servicio->citas_activas) {
-            return response([
-                'message' => [
-                    'title' => 'Error',
-                    'text'  => 'Ya tiene citas agendadas con el servicios de la institución'
-                ]
-            ], Response::HTTP_NOT_FOUND);
-        }
+//        $citas = Cita::query()
+//            ->where('paciente_id', Auth::user()->paciente->id)
+//            ->where('estado', 'like', 'agendado')
+//            ->where('tipo_cita_id', $request->servicio)
+//            ->count();
+//
+//        if ($citas >= $servicio->citas_activas) {
+//            return response([
+//                'message' => [
+//                    'title' => 'Error',
+//                    'text'  => 'Ya tiene citas agendadas con el servicios de la institución'
+//                ]
+//            ], Response::HTTP_NOT_FOUND);
+//        }
 
         //Citas médicas
         $datesOperatives = $profesional->citas()
@@ -563,7 +570,7 @@ class CalendarioController extends Controller{
             ->with('success', "Cita asignada con {$profesional->nombre_completo}");
     }
 
-    public function antiguedad_institucion(Request $request, perfilesprofesionales $profesional)
+    public function antiguedad_institucion(Request $request, instituciones $institucion)
     {
         //Validar antigüedad
         $validate = Validator::make($request->all(), [
@@ -583,11 +590,11 @@ class CalendarioController extends Controller{
         $antiguedad = Antiguedad::query()
             ->firstOrNew([
                 'paciente_id' => Auth::user()->paciente->id,
-                'profesional_id' => $profesional->idPerfilProfesional,
+                'institucion_id' => $institucion->id,
             ]);
 
-        //Es verdadero si es nuevo, pero es falso si es antiguo, se invierte en el guardado
-        $antiguedad->confirmacion = !$request->get('antiguedad');
+        //Es verdadero si es nuevo, pero es falso si es antiguo,
+        $antiguedad->confirmacion = $request->get('antiguedad');
         $antiguedad->save();
 
         return response([
