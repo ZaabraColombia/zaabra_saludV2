@@ -41,7 +41,6 @@ ALTER TABLE zaabrac1_zaabra_salud_test.profesionales_instituciones ADD nombre_co
         IF(segundo_apellido is not null,concat(segundo_apellido, ' '), '')
         )
     ) VIRTUAL AFTER segundo_apellido;
-###Subido testing
 ###Subido producción
 
 ##2022-04-19
@@ -69,3 +68,5 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`atiguedades`
             ON DELETE CASCADE
             ON UPDATE CASCADE;
 
+###Subido testing
+###Subido cesar
