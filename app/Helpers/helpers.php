@@ -50,7 +50,7 @@ if (!function_exists('generar_citas'))
      * @param int|bool $antes_sita
      * @return array
      */
-    function generar_citas(int $fecha_inicio,int $fecha_fin, int $intervalo, array $lista_citas,$antes_sita = false)
+    function generar_citas(int $fecha_inicio,int $fecha_fin, int $intervalo, array $lista_citas,$antes_sita = false): array
     {
         //guardar las citas disponibles
         $citas_disponibles = array();
@@ -70,18 +70,18 @@ if (!function_exists('generar_citas'))
                     if (
                         //Validar si la hora de inicio está entre la hora inicio y fin de la cita existente
                         (strtotime($cita['fecha_inicio']) <= strtotime($hora_inicio)
-                            && strtotime($cita['fecha_fin']) >= strtotime($hora_inicio))
+                            && strtotime($cita['fecha_fin']) > strtotime($hora_inicio))
                         or
                         //Validar si la hora de fin está entre la hora inicio y fin de la cita existente
-                        (strtotime($cita['fecha_inicio']) <= strtotime($hora_fin)
+                        (strtotime($cita['fecha_inicio']) < strtotime($hora_fin)
                             && strtotime($cita['fecha_fin']) >= strtotime($hora_fin))
                         or
                         //Validar si la hora inicio existente está entre la hora inicio y fin
                         (strtotime($hora_inicio) <= strtotime($cita['fecha_inicio'])
-                            && strtotime($hora_fin) >= strtotime($cita['fecha_inicio']))
+                            && strtotime($hora_fin) > strtotime($cita['fecha_inicio']))
                         or
                         //Validar si la hora din existente está entre la hora inicio y fin
-                        (strtotime($hora_inicio) <= strtotime($cita['fecha_fin'])
+                        (strtotime($hora_inicio) < strtotime($cita['fecha_fin'])
                             && strtotime($hora_fin) >= strtotime($cita['fecha_fin']))
                     )
                     {
