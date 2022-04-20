@@ -365,20 +365,20 @@ class CalendarioController extends Controller{
         $servicio = Servicio::find($request->servicio);
 
         //Validar el límite de agenda * servicio* usuario
-        $citas = Cita::query()
-            ->where('paciente_id', Auth::user()->paciente->id)
-            ->where('estado', 'like', 'agendado')
-            ->where('tipo_cita_id', $request->servicio)
-            ->count();
-
-        if ($citas >= $servicio->citas_activas) {
-            return response([
-                'message' => [
-                    'title' => 'Error',
-                    'text'  => 'Ya tiene citas agendadas con el servicios de la institución'
-                ]
-            ], Response::HTTP_NOT_FOUND);
-        }
+//        $citas = Cita::query()
+//            ->where('paciente_id', Auth::user()->paciente->id)
+//            ->where('estado', 'like', 'agendado')
+//            ->where('tipo_cita_id', $request->servicio)
+//            ->count();
+//
+//        if ($citas >= $servicio->citas_activas) {
+//            return response([
+//                'message' => [
+//                    'title' => 'Error',
+//                    'text'  => 'Ya tiene citas agendadas con el servicios de la institución'
+//                ]
+//            ], Response::HTTP_NOT_FOUND);
+//        }
 
         //Citas médicas
         $datesOperatives = $profesional->citas()

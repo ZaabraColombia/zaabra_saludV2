@@ -223,7 +223,7 @@
 
     <script>
         var weekNotBusiness = {!! json_encode($weekDisabled) !!};
-        moment.locale('es'); // change the global locale to Spanish
+        //moment.locale('es'); // change the global locale to Spanish
 
         $('.calendar').pignoseCalendar({
             lang: 'es',
@@ -257,8 +257,8 @@
             var hora = $('#hora');
             hora.html('<option></option>');
 
-            console.log('fecha ' + fecha);
-            console.log('servicio ' + servicio);
+            //console.log('fecha ' + fecha);
+            //console.log('servicio ' + servicio);
             $.ajax({
                 data: { date: fecha, servicio:servicio},
                 dataType: 'json',
@@ -301,7 +301,7 @@
                 tipo_cita.val() !== undefined && tipo_cita.val() !== null
             )
             {
-                $('#modal-horario').html(moment(horario.start, 'YYYY-MM-DD HH:mm').format('DD-MMM /YYYY')
+                $('#modal-horario').html(moment(horario.start, 'YYYY-MM-DD HH:mm').locale('es').format('DD-MMM /YYYY')
                     + '<br>' + moment(horario.start, 'YYYY-MM-DD HH:mm').format('hh:mm A')
                     + ' - ' + moment(horario.end, 'YYYY-MM-DD HH:mm').format('hh:mm A')
                 );
