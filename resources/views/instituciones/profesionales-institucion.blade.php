@@ -12,37 +12,6 @@
         <h1 class="titulo_bannerMain">{{$institucion[0]->nombreinstitucion}}</h1>
     </div>
 
-    <!-- {{--
-    <div class="container_principal_instProf">
-        <section class="container_tarjetas_instProf">
-            @foreach ($objProfesionalesIns as $profesional)
-                <div class="card tarjeta_instProf">
-                    <img class="img_perfil_instProf" src="{{ asset($profesional->foto_perfil_institucion) }}">
-                    <div class="card-body content_tarjeta_instProf">
-                        @if(!empty($profesional->nombre_especialidad))
-                            <h2>{{$profesional->nombre_especialidad}}</h2>
-                        @endif
-                        <h5 class="niega_uppercase">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h5>
-                        @if(!empty($profesional->nombre_especialidad))
-                            <p>Especialista en {{$profesional->nombre_especialidad}}</p>
-                        @endif
-                        <p>{{$profesional->nombre_universidad}}</p>
-
-                            <p>{{$profesional->cargo}}</p>
-
-                        @if(!empty($profesional->nombre_especialidad))
-                            <div class="content_btn_instprof">
-                                <a class="btn_agendar_instProf" href=""> Agendar cita
-                                    <i class="fas fa-arrow-right pl-2"></i>
-                                </a>
-                            </div>
-                        @endif
-                    </div>
-                </div>
-            @endforeach
-        </section>
-    </div>--}} -->
-
     <section class="container-fluid content_main mb-5">
         <!-- Barra de búsqueda -->
         <div class="containt__buscador mt-5">
