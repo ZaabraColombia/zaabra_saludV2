@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\buscador;
 use App\Http\Controllers\Controller;
+use App\Models\profesionales_instituciones;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
@@ -84,9 +85,61 @@ class buscadorController extends Controller
             )
             ->get();
 
-        $data = array_merge($profesiones->toArray(), $profesionales->toArray(), $instituciones->toArray());
+        $ins_profesionales = profesionales_instituciones::query()
+            ->select('primer_nombre', 'segundo_nombre', 'primer_apellido', 'segundo_apellido', 'id_profesional_inst', 'id_institucion')
+            ->selectRaw('concat(primer_nombre, " ", primer_apellido) as nombre_prof')
+            ->selectRaw('concat("especialidad") as type')
+            ->addSelect([
+                'type' => especialidades::query()
+                    ->select('nombreEspecialidad as type')
+                    ->join('institucion_profesionales_especialidades as prof_t', 'prof_t.id_especialidad', '=', 'especialidades.idEspecialidad')
+                    ->join('profesionales_instituciones as prof_p', 'prof_p.id_especialidad', '=', 'especialidades.idEspecialidad')
+                    ->where(function ($query) {
+                        $query->whereColumn('prof_t.id_institucion_profesional', 'profesionales_instituciones.id_profesional_inst')
+                            ->orWhereColumn('prof_p.id_profesional_inst', 'profesionales_instituciones.id_profesional_inst');
+                    })
+                    ->where('nombreEspecialidad', 'like', "%$term%")
+                    ->take(1),
+                'place' => User::query()
+                    ->select('nombreinstitucion as place')
+                    ->whereHas('institucion_public', function (Builder $query){
+                        $query->whereColumn('instituciones.id', 'profesionales_instituciones.id_institucion');
+                    })
+                    ->take(1),
+                'slug' => instituciones::query()
+                    ->select('slug')
+                    ->whereColumn('instituciones.id', 'profesionales_instituciones.id_institucion')
+                    ->take(1),
+            ])
+            ->where(function ($query) use ($term) {
+                $query
+                    ->whereHas('especialidad_pricipal', function ($query) use ($term){
+                        return $query->where('nombreEspecialidad', 'like', "%$term%");
+                    })
+                    ->orWhereHas('especialidades', function ($query) use ($term){
+                        return $query->where('nombreEspecialidad', 'like', "%$term%");
+                    });
+            })
+            ->orWhere(function ($query) use ($term){
+                return $query->where('primer_nombre','like','%' . $term . '%')
+                    ->orWhere('segundo_nombre','like','%' . $term . '%')
+                    ->orWhere('primer_apellido','like','%' . $term . '%')
+                    ->orWhere('segundo_apellido','like','%' . $term . '%');
+            })
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'label' => $item->nombre_completo,
+                    'type'  => "$item->type / $item->place",
+                    'url'   => route('PerfilInstitucion-profesionales', ['slug' => $item->slug, 'prof' => 'nombre_prof']),
+                    'icon' => 'fas fa-stethoscope'
+                ];
+            });
 
-        return response($data, 200);
+        //$data = array_merge($profesiones->toArray(), $profesionales->toArray(), $instituciones->toArray());
+        $data = $ins_profesionales->toArray();
+
+        return response($data, Response::HTTP_OK);
     }
 
 
